@@ -14,15 +14,15 @@ def homepage():
 
 
 
-@app.route('miscproject/xml')
+@app.route('/miscproject/xml')
 def projects():
     return "<Projects></Projects>"
 
-@app.route('vosummary/xml')
+@app.route('/vosummary/xml')
 def voinfo():
     return "<VOSummary></VOSummary>"
 
-@app.route('rgsummary/xml')
+@app.route('/rgsummary/xml')
 def resources():
     return "<ResourceSummary></ResourceSummary>"
 
