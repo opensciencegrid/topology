@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Response
 from datetime import datetime
 app = Flask(__name__)
 
@@ -16,15 +16,18 @@ def homepage():
 
 @app.route('/miscproject/xml')
 def projects():
-    return "<Projects></Projects>"
+    xml = "<Projects></Projects>"
+    return Response(xml, mimetype='text/xml')
 
 @app.route('/vosummary/xml')
 def voinfo():
-    return "<VOSummary></VOSummary>"
+    xml = "<VOSummary></VOSummary>"
+    return Response(xml, mimetype='text/xml')
 
 @app.route('/rgsummary/xml')
 def resources():
-    return "<ResourceSummary></ResourceSummary>"
+    xml = "<ResourceSummary></ResourceSummary>"
+    return Response(xml, mimetype='text/xml')
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
