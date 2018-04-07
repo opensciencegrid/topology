@@ -1,0 +1,27 @@
+- ID: 40
+- Name: TG-MCB090163
+- Description: 'This proposal requests CPU time on XSEDE resources for research aimed
+    at understanding assembly and pattern formation in biological and biomimetic systems.
+    The first two subprojects will use coarse-grained simulations to explore two processes
+    which are essential for replication of many viruses: the assembly of capsid proteins
+    around RNA and the simultaneous assembly and budding of capsid proteins through
+    lipid bilayers. The third subproject will study pattern formation and spontaneous
+    flow in a far-from-equilibrium system containing microtubules and motor proteins
+    studied by our experimental collaborators, the Dogic Lab at Brandeis. A common
+    goal in each of the three subprojects is to reveal structural and dynamical information
+    about key intermediates which are not accessible to experiments. The simulations
+    of capsid assembly around RNA will be performed with the program HOOMD which enables
+    great computational speedups on GPUs. The simulations of capsids assembling on
+    lipid bilayers will use LAMMPS which affords excellent scaling for the large membranes
+    being considered. The simulations of microtubules and motor proteins will use
+    a self-written code optimized to characterize high aspect ratio, extensile bundles.
+    Funding for Subprojects 1 & 2 is provided by NIH NIAID (R01AI080791) and Subproject
+    3 is funded by the NSF (NSF-MRSEC-0820492).'
+- PIName: Michael Hagan
+- Organization: Brandeis University
+- Department: Physics
+- FieldOfScience: Molecular and Structural Biosciences
+- Sponsor: 
+  - CampusGrid: 
+    - ID: 13
+    - Name: OSG-XSEDE

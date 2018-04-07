@@ -1,0 +1,20 @@
+- ID: 53
+- Name: gridsgenomes
+- Description: The use of methylation-specific restriction enzymes to preferentially
+    cleave 5'-CCGG-3' sites in conjunction with Next Generation Sequencing platforms
+    has formed the basis for the widely used Methyl-seq and HELP-tagging assays. The
+    recent development of an R package using a Bayesian hierarchical model approach,
+    msBayes, offered a statistically rigorous alternative to the basic tag-counting/geometric
+    mapping previously used for these two techniques. Its dependence on the WinBUGS
+    package however, severely limited its performance and usage by the community.
+    We have re-implemented msBayes to make use of both OpenBUGS and OpenMP, and have
+    integrated this new core module, msBayes2.0, into a web-based platform and subsequent
+    deployment and processing on a diversity of computing platforms.
+- PIName: David Rhee
+- Organization: Albert Einstein College of Medicine
+- Department: Genetics
+- FieldOfScience: Biological Sciences
+- Sponsor: 
+  - VirtualOrganization: 
+    - ID: 30
+    - Name: OSG

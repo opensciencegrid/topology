@@ -1,0 +1,30 @@
+- ID: 41
+- Name: TG-ATM130009
+- Description: The aim of this project is to create a global map that describes the
+    functional distributions which characterize the spectraof precipitating auroral
+    particles. Such a map would not only aid in efforts to model the ionosphere and
+    the geospatial environment, but would also aid in the understanding of the magnetospheric
+    source regions of these particles. The construction of this map will utilize programs
+    that perform automated, nonlinear least squares fits of Maxwellian and Lorentzian
+    distributions to data from the Defense Meteorological Satellite Program (DMSP)
+    suite of spacecraft. These programs have been developed in C under the Fedora
+    Coredistribution and are statically linked against the HDF4 and GNU Scientific
+    libraries. Initial testing on an AMD Athlon II X4 645quad core processor has shown
+    that the serial execution of four separate instances of the Maxwellian automated
+    fitting program produces fits at an average rate of 1500 spectra per hour per
+    core, while the Lorentzian program, when executed in the same fashion, will  produce
+    fits at an average rate of 500 spectra per hour per core. The 20-year catalog
+    of data which we will use to populate this map contains roughly 200 million spectra.
+    With these average rates, it would take our 16-core cluster approximately 8300
+    hours to fit Maxwellian distributions and 25,000 hours to fit Lorentzian distributions
+    to the entire catalog. Given this amount of processing time and the serial nature
+    of our programs, we wish to explore the feasability of using your HTC resources
+    to complete this project.
+- PIName: Phillip Anderson
+- Organization: University of Texas at Dallas
+- Department: Physics
+- FieldOfScience: Atmospheric Sciences
+- Sponsor: 
+  - CampusGrid: 
+    - ID: 13
+    - Name: OSG-XSEDE

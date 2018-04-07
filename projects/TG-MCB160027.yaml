@@ -1,0 +1,31 @@
+- ID: 337
+- Name: TG-MCB160027
+- Description: Knowledge of 3D protein structures is paramount towards our understanding
+    of biochemistry. Currently, there are many more known protein sequences than 3D
+    protein structures and experimentally determining their structure can be both
+    expensive and time consuming. Therefore, extensive efforts have been made to model
+    these structures using computational methods. Our group has developed the I-TASSER
+    method, which constructs protein structure models by iteratively assembling structure
+    fragments obtained by multiple threading algorithms. The method was stringently
+    tested in the community-wide CASP experiments and has been widely used by the
+    community, including more than 65,000 registered scientists from 122 countries.
+    Despite its success, a major obstacle in the optimization of I-TASSER involves
+    a dearth of computational resources available for use. We have access to a computing
+    cluster composed of 1,100 cores. However, I-TASSER has seen a surge in users on
+    our web server, and as a result, there have been over 2,000 jobs waiting or running
+    at any one time, far exceeding our current capacity. Therefore, an increase in
+    computational resources for our research interests would greatly benefit the further
+    optimization of the I-TASSER method, as well as the biological and medical community
+    as a whole. Over the course of this allocation, we expect to run approximately
+    400 I-TASSER jobs; each of these jobs would take 500 CPU hours, thus we would
+    require roughly 200,000 CPU hours total. This will be of critical importance for
+    the improvement of the I-TASSER methods and enhance its capacity to serve for
+    the general biological community.
+- PIName: Yang Zhang
+- Organization: University of Michigan
+- Department: Department of Computational Medicine and Bioinformatics
+- FieldOfScience: Molecular and Structural Biosciences
+- Sponsor: 
+  - CampusGrid: 
+    - ID: 13
+    - Name: OSG-XSEDE

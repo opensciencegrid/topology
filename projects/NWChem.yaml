@@ -1,0 +1,18 @@
+- ID: 52
+- Name: NWChem
+- Description: The goal of this work is to provide a federated heterogeneous infrastructure
+    that can be federated on demand for scientists and scientific applications.  The
+    goal of this work is to integrate OSG as a part of the federated infrastructure
+    cloud. The federation leverages the CometCloud software, currently being developed
+    at Rutgers University. NWChem is the initial application to be used on OSG resources.
+    A parallel in time algorithm will run multiple NWChem instances on the OSG resources,
+    where each instance has different input parameters. The collective output of all
+    instances is then gathered and analyzed.
+- PIName: Manish Parashar
+- Organization: Rutgers University
+- Department: Electrical & Computer Engineering
+- FieldOfScience: Computer and Information Science and Engineering
+- Sponsor: 
+  - VirtualOrganization: 
+    - ID: 30
+    - Name: OSG
