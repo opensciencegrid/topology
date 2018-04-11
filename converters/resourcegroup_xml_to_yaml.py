@@ -37,6 +37,8 @@ def to_file_name(name):
 
 
 parsed = anymarkup.parse_file('../examples/rgsummary1.xml')['ResourceSummary']
+#anymarkup.serialize_file({"ResourceSummary": parsed}, "rgroundtrip.xml")
+#anymarkup.serialize_file({"ResourceSummary": parsed}, "rgfull.yml")
 
 topology = {}
 
@@ -60,10 +62,7 @@ for fkey, fval in topology.items():
         sitedir = os.path.join(facilitydir, skey)
         os.makedirs(sitedir)
         for rgkey, rgval in sval.items():
-            serialized = anymarkup.serialize(rgval, "yaml").decode()
-            serialized = serialized.replace("!!omap", "").strip()
-            with open(os.path.join(sitedir, rgkey), "w") as f:
-                f.write(serialized)
+            anymarkup.serialize_file(rgval, os.path.join(sitedir, rgkey))
 print("take a look in", topdir)
 # for project in parsed['Projects']['Project']:
 #     print("Would Create file: %s.yaml" % (project['Name']))
