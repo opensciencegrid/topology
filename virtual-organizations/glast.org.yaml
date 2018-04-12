@@ -1,0 +1,74 @@
+Active: 'True'
+AppDescription: Primarily, simulation jobs will be run
+CertificateOnly: 'False'
+Community: 'The Fermi collaboration operates the Fermi Gamma-ray Space Telescope (FGST,
+  formerly GLAST, Gamma-ray Large Area Space Telescope) on board of the Fermi satellite.
+  The collaboration is international, composed of members of research institutions
+  and universities of U.S.A, Italy, Germany, France, Sweden, and Japan. The satellite
+  was launched from Cape Canaveral on June 11, 2008. On board of FGST there are two
+  scientific experiments. The Large Area Telescope detects gamma-rays in the energy
+  range from 20 MeV to 300 GeV, with very good position resolution (<10 arcmins),
+  and an energy resolution in the range of 10%. Complementary, the GLAST Burst Monitor
+  is sensitive in the range from 8 keV to 25 MeV. Together, they cover 25 octaves
+  of the electromagnetic spectrum, with large angular acceptances. High energy gamma-rays
+  are tracers of the most extreme environments in the universe. Objects on the list
+  to study are: gamma-ray bursts, active galactic nuclei, solar flares, and pulsars,
+  pulsar wind nebulae, and supernova remnants. Moreover, FGST could resolve the nature
+  of dark matter, and is sensitive to effects proposed by theories extending the standard
+  model of particle physics, like quantum-gravity.'
+ContactTypes:
+  ContactType:
+  - Contacts:
+      Contact:
+        Name: Michael Kuss
+    Type: Submitter Contact
+  - Contacts:
+      Contact:
+      - Name: Francesco Longo
+      - Name: Michael Kuss
+    Type: Security Contact
+  - Contacts:
+      Contact:
+      - Name: Michael Kuss
+      - Name: Francesco Longo
+    Type: Administrative Contact
+  - Contacts:
+      Contact:
+      - Name: Michael Kuss
+      - Name: Francesco Longo
+    Type: VO Manager
+  - Contacts:
+      Contact:
+      - Name: Michael Kuss
+      - Name: Francesco Longo
+    Type: Registration Authority
+  - Contacts:
+      Contact:
+      - Name: Thomas Glanzman
+      - Name: Thomas Glanzman
+    Type: Sponsors
+Disable: 'False'
+FieldsOfScience:
+  PrimaryFields:
+    Field: Astrophysics
+  SecondaryFields:
+    Field: Physics and astronomy
+ID: '98'
+LongName: Fermi Gamma-Ray Space Telescope
+MembershipServicesURL: https://voms2.cnaf.infn.it:8443/voms/glast.org/
+MemeberResources: null
+Name: glast.org
+OASIS:
+  Managers: null
+  OASISRepoURLs:
+    URL: http://cvmfs-stratum0.gridpp.rl.ac.uk:8000/cvmfs/glast.egi.eu
+  UseOASIS: 'False'
+ParentVO: null
+PrimaryURL: http://glast.gsfc.nasa.gov/
+PurposeURL: null
+ReportingGroups:
+  ReportingGroup:
+    Contacts: null
+    FQANs: null
+    Name: glast.org
+SupportURL: null

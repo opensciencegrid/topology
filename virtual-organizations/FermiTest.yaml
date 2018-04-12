@@ -1,0 +1,66 @@
+Active: 'True'
+AppDescription: test group of the fermilab VO.  Used internally to the fermilab (FermiGrid)
+  site.
+CertificateOnly: 'False'
+Community: test group of the fermilab VO.  Used internally to the fermilab (FermiGrid)
+  site.
+ContactTypes:
+  ContactType:
+  - Contacts:
+      Contact:
+        Name: Keith Chadwick
+    Type: Submitter Contact
+  - Contacts:
+      Contact:
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+    Type: Miscellaneous Contact
+  - Contacts:
+      Contact:
+      - Name: Gabriele Garzoglio
+      - Name: Gabriele Garzoglio
+    Type: VO Manager
+Disable: 'False'
+FieldsOfScience:
+  PrimaryFields:
+    Field: High Energy Physics
+ID: '43'
+LongName: Fermilab/Fgtest
+MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
+MemeberResources: null
+Name: FermiTest
+OASIS:
+  Managers: null
+  OASISRepoURLs: null
+  UseOASIS: 'False'
+ParentVO:
+  ID: '9'
+  Name: Fermilab
+PrimaryURL: http://fermigrid.fnal.gov/
+PurposeURL: http://www.fnal.gov/
+ReportingGroups:
+  ReportingGroup:
+    Contacts:
+      Contact:
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+    FQANs:
+      FQAN:
+      - GroupName: /fermilab/test
+        Role: /Role=admin
+      - GroupName: /fermilab/test
+        Role: /Role=NULL
+      - GroupName: /fermilab/test
+        Role: /Role=pilot
+      - GroupName: /fermilab/test
+        Role: /Role=Production
+      - GroupName: /fermilab/test
+        Role: /Role=rsv
+      - GroupName: /fermilab/test
+        Role: /Role=Storage
+    Name: fermitest
+SupportURL: http://fermigrid.fnal.gov/

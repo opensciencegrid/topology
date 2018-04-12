@@ -1,0 +1,124 @@
+Active: 'True'
+AppDescription: Various ILC simulations.
+CertificateOnly: 'True'
+Community: This VO is for people doing ILC detector and accelerator simulation.
+ContactTypes:
+  ContactType:
+  - Contacts:
+      Contact:
+      - Name: Lynn Garren
+      - Name: Lynn Garren
+      - Name: Lynn Garren
+    Type: Submitter Contact
+  - Contacts:
+      Contact:
+      - Name: Lynn Garren
+      - Name: Lynn Garren
+      - Name: Lynn Garren
+    Type: Security Contact
+  - Contacts:
+      Contact:
+      - Name: Lynn Garren
+      - Name: Lynn Garren
+      - Name: Lynn Garren
+    Type: Miscellaneous Contact
+  - Contacts:
+      Contact:
+      - Name: Jan Strube
+      - Name: Jan Strube
+    Type: Registration Authority
+Disable: 'False'
+FieldsOfScience:
+  PrimaryFields:
+    Field: High Energy Physics
+  SecondaryFields:
+    Field: Physics and astronomy
+ID: '20'
+LongName: International Linear Collider
+MembershipServicesURL: https://grid-voms.desy.de:8443/voms/ilc
+MemeberResources:
+  Resource:
+  - ID: '475'
+    Name: PNNL_CE_1
+  - ID: '485'
+    Name: PNNL_OSG-Misregistered
+  - ID: '718'
+    Name: PNNL_CE00
+  - ID: '746'
+    Name: PNNL_HEP_CE00
+Name: ILC
+OASIS:
+  Managers:
+    Manager:
+    - ContactID: '589'
+      DNs:
+        DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=dkcira/CN=655958/CN=Dorian
+          Kcira
+      Name: Dorian Kcira
+    - ContactID: '652'
+      DNs:
+        DN:
+        - /DC=org/DC=doegrids/OU=People/CN=Scott Teige 689374
+        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Scott Teige 652
+        - /DC=org/DC=cilogon/C=US/O=Indiana University/CN=Scott Teige A7052
+        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Scott Teige
+          1
+      Name: Scott Teige
+    - ContactID: '2805'
+      DNs:
+        DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=sailer/CN=683529/CN=Andre
+          Sailer
+      Name: Andre Philippe Sailer
+  OASISRepoURLs:
+    URL: http://grid-cvmfs-null.desy.de:8000/cvmfs/ilc.desy.de
+  UseOASIS: 'True'
+ParentVO: null
+PrimaryURL: http://ilc.fnal.gov/
+PurposeURL: http://ilcdoc.linearcollider.org/record/7272
+ReportingGroups:
+  ReportingGroup:
+  - Contacts:
+      Contact:
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Lynn Garren
+      - Name: Lynn Garren
+      - Name: Lynn Garren
+      - Name: GP Yeh
+    FQANs:
+      FQAN:
+        GroupName: /ilc
+        Role: null
+    Name: ilc
+  - Contacts:
+      Contact:
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+    FQANs:
+      FQAN:
+        GroupName: /ilc/sid
+        Role: null
+    Name: siddet
+  - Contacts:
+      Contact:
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+    FQANs:
+      FQAN:
+        GroupName: /ilc/ilc4c
+        Role: null
+    Name: ilc4c
+  - Contacts:
+      Contact:
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+    FQANs:
+      FQAN:
+        GroupName: /ilc/ild
+        Role: null
+    Name: ilddet
+SupportURL: null

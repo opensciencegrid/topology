@@ -1,0 +1,72 @@
+Active: 'True'
+AppDescription: National Grid Initiative Grid Colombia Virtual Organization
+CertificateOnly: 'False'
+Community: GridColombia its the Colombian NGI in South America for support process
+  of e-science and National Laboratories
+ContactTypes:
+  ContactType:
+  - Contacts:
+      Contact:
+        Name: Diego Alberto Rincon Yanez
+    Type: Submitter Contact
+  - Contacts:
+      Contact:
+        Name: Diego Alberto Rincon Yanez
+    Type: Security Contact
+  - Contacts:
+      Contact:
+        Name: Diego Alberto Rincon Yanez
+    Type: Administrative Contact
+  - Contacts:
+      Contact:
+        Name: Diego Alberto Rincon Yanez
+    Type: VO Manager
+Disable: 'False'
+FieldsOfScience:
+  PrimaryFields:
+    Field: Community Grid
+  SecondaryFields:
+    Field: Computer and Information Science and Engineering
+ID: '77'
+LongName: Grid Colombia VP
+MembershipServicesURL: https://gc-voms.javeriana.edu.co:8443/voms/gcvo/
+MemeberResources:
+  Resource:
+  - ID: '388'
+    Name: GCVO_PUJ_CE
+  - ID: '389'
+    Name: GCVO_PUJ_GUMS
+  - ID: '413'
+    Name: GCVO_PUJ_CE_TEST
+  - ID: '414'
+    Name: GCVO_UC_CE
+  - ID: '415'
+    Name: GCVO_UCALDAS_CE
+  - ID: '416'
+    Name: GCVO_UTB_CE
+  - ID: '417'
+    Name: GCVO_UPB_CE
+  - ID: '420'
+    Name: GCVO_UDEM_CE
+  - ID: '422'
+    Name: GCVO_UAM_CE
+  - ID: '427'
+    Name: GCVO_UAC_CE
+  - ID: '429'
+    Name: GCVO_UIS_CE
+  - ID: '434'
+    Name: GCVO_UNIANDES_CE
+Name: GCVO
+OASIS:
+  Managers: null
+  OASISRepoURLs: null
+  UseOASIS: 'False'
+ParentVO: null
+PrimaryURL: https://gc-voms.javeriana.edu.co:8443/voms/gcvo/
+PurposeURL: http://www.gridcolombia.org
+ReportingGroups:
+  ReportingGroup:
+    Contacts: null
+    FQANs: null
+    Name: gcedu
+SupportURL: http://wiki.gridcolombia.org

@@ -1,0 +1,62 @@
+Active: 'True'
+AppDescription: Minerva Experiment
+CertificateOnly: 'False'
+Community: Minerva Experiment
+ContactTypes:
+  ContactType:
+  - Contacts:
+      Contact:
+        Name: Keith Chadwick
+    Type: Submitter Contact
+  - Contacts:
+      Contact:
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+      - Name: Gerard Bernabeu Altayo
+      - Name: Gerard Bernabeu Altayo
+      - Name: Gerard Bernabeu Altayo
+    Type: Miscellaneous Contact
+  - Contacts:
+      Contact:
+        Name: Gabriel Nathan Perdue
+    Type: VO Manager
+Disable: 'False'
+FieldsOfScience:
+  PrimaryFields:
+    Field: High Energy Physics
+ID: '48'
+LongName: Fermilab/Minerva
+MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
+MemeberResources: null
+Name: Minerva
+OASIS:
+  Managers:
+    Manager:
+      ContactID: '579'
+      DNs:
+        DN:
+        - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
+        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
+      Name: Joe Boyd
+  OASISRepoURLs:
+    URL:
+    - http://oasiscfs.fnal.gov:8000/cvmfs/minerva.opensciencegrid.org/
+    - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/minerva.osgstorage.org
+  UseOASIS: 'True'
+ParentVO:
+  ID: '9'
+  Name: Fermilab
+PrimaryURL: http://www.pas.rochester.edu/minerva/
+PurposeURL: http://www.pas.rochester.edu/minerva/
+ReportingGroups:
+  ReportingGroup:
+    Contacts: null
+    FQANs:
+      FQAN:
+        GroupName: /fermilab/minerva
+        Role: null
+    Name: minerva
+SupportURL: http://fermigrid.fnal.gov/

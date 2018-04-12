@@ -1,0 +1,110 @@
+Active: 'True'
+AppDescription: 'MicroBooNe is a Fermilab experiment intended to study neutrino
+
+  cross-sections and the MiniBooNe low energy excess.  It will also provided a
+
+  proof of principal for the construction and operation of a 100 ton scale
+
+  liquid argon time projection chamber as a stepping stone towards a kiloton
+
+  scale liquid argon detector for the LBNE experiment.  MicroBooNe will use
+
+  the FermiGrid to produce Monte Carlo simulation as well as reconstruction of
+
+  both data and simulated events.'
+CertificateOnly: 'False'
+Community: members of MicroBooNE experiment.
+ContactTypes:
+  ContactType:
+  - Contacts:
+      Contact:
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+    Type: Submitter Contact
+  - Contacts:
+      Contact:
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+      - Name: Gerard Bernabeu Altayo
+      - Name: Gerard Bernabeu Altayo
+      - Name: Gerard Bernabeu Altayo
+    Type: Miscellaneous Contact
+  - Contacts:
+      Contact:
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+    Type: VO Manager
+Disable: 'False'
+FieldsOfScience:
+  PrimaryFields:
+    Field: High Energy Physics
+  SecondaryFields:
+    Field: Physics and astronomy
+ID: '70'
+LongName: Fermilab/MicroBooNE
+MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
+MemeberResources:
+  Resource:
+  - ID: '773'
+    Name: Bern ce01
+  - ID: '774'
+    Name: Bern ce02
+Name: MicroBooNE
+OASIS:
+  Managers:
+    Manager:
+    - ContactID: '8'
+      DNs:
+        DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
+          Paul Bockelman
+      Name: Brian Bockelman
+    - ContactID: '579'
+      DNs:
+        DN:
+        - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
+        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
+      Name: Joe Boyd
+    - ContactID: '605'
+      DNs:
+        DN:
+        - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
+        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel
+          605
+        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Derek Weitzel
+      Name: Derek Weitzel
+  OASISRepoURLs:
+    URL:
+    - http://oasiscfs.fnal.gov:8000/cvmfs/uboone.opensciencegrid.org/
+    - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/uboone.osgstorage.org
+  UseOASIS: 'True'
+ParentVO:
+  ID: '9'
+  Name: Fermilab
+PrimaryURL: http://fermigrid.fnal.gov/
+PurposeURL: http://www-microboone.fnal.gov
+ReportingGroups:
+  ReportingGroup:
+    Contacts:
+      Contact:
+      - Name: Keith Chadwick
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+    FQANs:
+      FQAN:
+      - GroupName: /fermilab/uboone
+        Role: null
+      - GroupName: /fermilab/uboone
+        Role: Analysis
+      - GroupName: /fermilab/uboone
+        Role: Calibration
+      - GroupName: /fermilab/uboone
+        Role: pilot
+      - GroupName: /fermilab/uboone
+        Role: Production
+    Name: microboone
+SupportURL: http://fermigrid.fnal.gov/

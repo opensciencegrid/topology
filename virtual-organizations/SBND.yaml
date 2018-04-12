@@ -1,0 +1,59 @@
+Active: 'True'
+AppDescription: SBND Production and Analysis jobs will be run.
+CertificateOnly: 'False'
+Community: Short-Baseline Near Detector collaborators
+ContactTypes:
+  ContactType:
+  - Contacts:
+      Contact:
+        Name: Shreyas Bhat
+    Type: Submitter Contact
+  - Contacts:
+      Contact:
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+      - Name: Gerard Bernabeu Altayo
+      - Name: Gerard Bernabeu Altayo
+      - Name: Gerard Bernabeu Altayo
+      - Name: Shreyas Bhat
+    Type: Miscellaneous Contact
+  - Contacts:
+      Contact:
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+    Type: VO Manager
+Disable: 'False'
+FieldsOfScience:
+  PrimaryFields:
+    Field: High Energy Physics
+ID: '123'
+LongName: Short-Baseline Near Detector
+MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
+MemeberResources: null
+Name: SBND
+OASIS:
+  Managers:
+    Manager:
+      ContactID: '579'
+      DNs:
+        DN:
+        - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
+        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
+      Name: Joe Boyd
+  OASISRepoURLs:
+    URL: http://oasiscfs.fnal.gov:8000/cvmfs/sbnd.opensciencegrid.org/
+  UseOASIS: 'True'
+ParentVO:
+  ID: '9'
+  Name: Fermilab
+PrimaryURL: http://sbn-nd.fnal.gov/
+PurposeURL: http://sbn-nd.fnal.gov/
+ReportingGroups:
+  ReportingGroup:
+    Contacts: null
+    FQANs:
+      FQAN:
+        GroupName: /fermilab/sbnd
+        Role: null
+    Name: sbnd
+SupportURL: http://fermigrid.fnal.gov/

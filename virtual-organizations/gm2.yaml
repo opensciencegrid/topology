@@ -1,0 +1,53 @@
+Active: 'True'
+AppDescription: The purpose of the experiment is to measure the muon anomalous magentic
+  moment. Collaborators will utilize Fermigrid to run jobs for simulation of the detectors
+  and for data analysis.
+CertificateOnly: 'False'
+Community: The Muon g-2 experiment collaboration
+ContactTypes:
+  ContactType:
+  - Contacts:
+      Contact:
+        Name: Keith Chadwick
+    Type: Submitter Contact
+  - Contacts:
+      Contact:
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+    Type: Administrative Contact
+  - Contacts:
+      Contact:
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+    Type: Miscellaneous Contact
+Disable: 'False'
+FieldsOfScience:
+  PrimaryFields:
+    Field: High Energy Physics
+ID: '75'
+LongName: /fermilab/gm2
+MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
+MemeberResources: null
+Name: gm2
+OASIS:
+  Managers: null
+  OASISRepoURLs:
+    URL: http://oasiscfs.fnal.gov:8000/cvmfs/gm2.opensciencegrid.org
+  UseOASIS: 'True'
+ParentVO:
+  ID: '9'
+  Name: Fermilab
+PrimaryURL: http://gm2.fnal.gov/index_test.html
+PurposeURL: http://gm2.fnal.gov/index_test.html
+ReportingGroups:
+  ReportingGroup:
+    Contacts: null
+    FQANs:
+      FQAN:
+        GroupName: /fermilab/gm2
+        Role: null
+    Name: gm2
+SupportURL: http://fermigrid.fnal.gov/

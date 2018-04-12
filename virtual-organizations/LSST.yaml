@@ -1,0 +1,77 @@
+Active: 'True'
+AppDescription: LSST Data Management and Simulation jobs will run on OSG
+CertificateOnly: 'False'
+Community: A large aperture, wide field survey telescope and 3200 Megapixel camera
+  to image faint astronomical objects, rapidly scan the sky, and observe probes for
+  dark matter and dark energy.
+ContactTypes:
+  ContactType:
+  - Contacts:
+      Contact:
+      - Name: Gabriele Garzoglio
+      - Name: Gabriele Garzoglio
+    Type: Submitter Contact
+  - Contacts:
+      Contact:
+      - Name: Gabriele Garzoglio
+      - Name: Gabriele Garzoglio
+      - Name: Iain Goodenow
+    Type: Security Contact
+  - Contacts:
+      Contact:
+      - Name: Gabriele Garzoglio
+      - Name: Gabriele Garzoglio
+      - Name: Iain Goodenow
+    Type: Administrative Contact
+  - Contacts:
+      Contact:
+      - Name: Gabriele Garzoglio
+      - Name: Gabriele Garzoglio
+      - Name: Iain Goodenow
+    Type: VO Manager
+  - Contacts:
+      Contact:
+      - Name: Gabriele Garzoglio
+      - Name: Gabriele Garzoglio
+      - Name: Darnell Green
+      - Name: Yolanda Valadez
+      - Name: Yolanda Valadez
+      - Name: Iain Goodenow
+    Type: Registration Authority
+Disable: 'False'
+FieldsOfScience:
+  PrimaryFields:
+    Field: Astrophysics
+  SecondaryFields:
+    Field: Physics and astronomy
+ID: '84'
+LongName: Large Synoptic Survey Telescope
+MembershipServicesURL: https://voms.fnal.gov:8443/voms/lsst/
+MemeberResources:
+  Resource:
+  - ID: '350'
+    Name: BELLARMINE_TIER2
+  - ID: '880'
+    Name: Purdue-LSST
+Name: LSST
+OASIS:
+  Managers:
+    Manager:
+      ContactID: '579'
+      DNs:
+        DN:
+        - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
+        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
+      Name: Joe Boyd
+  OASISRepoURLs:
+    URL: http://oasiscfs.fnal.gov:8000/cvmfs/lsst.opensciencegrid.org
+  UseOASIS: 'True'
+ParentVO: null
+PrimaryURL: http://www.lsst.org/lsst/
+PurposeURL: http://www.lsst.org/lsst/
+ReportingGroups:
+  ReportingGroup:
+    Contacts: null
+    FQANs: null
+    Name: LSST
+SupportURL: http://www.lsst.org/lsst/

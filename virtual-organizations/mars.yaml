@@ -1,0 +1,86 @@
+Active: 'True'
+AppDescription: MARS15 is a package used for beamline design.
+CertificateOnly: 'False'
+Community: Beamline designers and detector designers for various other experiments
+  such as Mu2e, Muon Collider, LBNE, and muon g-2.
+ContactTypes:
+  ContactType:
+  - Contacts:
+      Contact:
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+    Type: Submitter Contact
+  - Contacts:
+      Contact:
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+    Type: Administrative Contact
+  - Contacts:
+      Contact:
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Steve Timm
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+      - Name: Gerard Bernabeu Altayo
+      - Name: Gerard Bernabeu Altayo
+      - Name: Gerard Bernabeu Altayo
+    Type: Miscellaneous Contact
+  - Contacts:
+      Contact:
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+      - Name: Nikolai Mokhov
+    Type: VO Manager
+Disable: 'False'
+FieldsOfScience:
+  PrimaryFields:
+    Field: High Energy Physics
+ID: '83'
+LongName: MARS
+MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
+MemeberResources: null
+Name: mars
+OASIS:
+  Managers: null
+  OASISRepoURLs: null
+  UseOASIS: 'False'
+ParentVO:
+  ID: '9'
+  Name: Fermilab
+PrimaryURL: http://fermigrid.fnal.gov/
+PurposeURL: http://www.fnal.gov/
+ReportingGroups:
+  ReportingGroup:
+  - Contacts: null
+    FQANs:
+      FQAN:
+        GroupName: /fermilab/mars
+        Role: null
+    Name: mars
+  - Contacts: null
+    FQANs:
+      FQAN:
+        GroupName: /fermilab/mars/mu2e
+        Role: null
+    Name: marsmu2e
+  - Contacts: null
+    FQANs:
+      FQAN:
+        GroupName: /fermilab/mars/lbne
+        Role: null
+    Name: marslbne
+  - Contacts: null
+    FQANs:
+      FQAN:
+        GroupName: /fermilab/mars/gm2
+        Role: null
+    Name: marsgm2
+  - Contacts: null
+    FQANs:
+      FQAN:
+        GroupName: /fermilab/mars/accel
+        Role: null
+    Name: marsaccel
+SupportURL: http://fermigrid.fnal.gov/

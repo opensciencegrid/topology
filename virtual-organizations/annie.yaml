@@ -1,0 +1,58 @@
+Active: 'True'
+AppDescription: measure the neutron yield of atmospheric neutrino interactions in
+  gadolinium-doped water
+CertificateOnly: 'False'
+Community: Accelerator Neutrino Neutron Interaction Experiment
+ContactTypes:
+  ContactType:
+  - Contacts:
+      Contact:
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+    Type: Submitter Contact
+  - Contacts:
+      Contact:
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+    Type: Administrative Contact
+  - Contacts:
+      Contact:
+      - Name: Joe Boyd
+      - Name: Joe Boyd
+    Type: VO Manager
+Disable: 'False'
+FieldsOfScience:
+  PrimaryFields:
+    Field: High Energy Physics
+ID: '130'
+LongName: Accelerator Neutrino Neutron Interaction Experiment
+MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
+MemeberResources: null
+Name: annie
+OASIS:
+  Managers:
+    Manager:
+      ContactID: '965'
+      DNs:
+        DN:
+        - /DC=org/DC=doegrids/OU=People/CN=Arthur E Kreymer 261310
+        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Arthur Kreymer
+          965
+      Name: Arthur Kreymer
+  OASISRepoURLs:
+    URL: http://oasiscfs.fnal.gov:8000/cvmfs/annie.opensciencegrid.org
+  UseOASIS: 'True'
+ParentVO:
+  ID: '9'
+  Name: Fermilab
+PrimaryURL: https://annie.fnal.gov/
+PurposeURL: https://annie.fnal.gov/
+ReportingGroups:
+  ReportingGroup:
+    Contacts: null
+    FQANs:
+      FQAN:
+        GroupName: /fermilab/annie
+        Role: null
+    Name: annie
+SupportURL: http://www.fnal.gov/

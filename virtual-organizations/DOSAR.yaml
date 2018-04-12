@@ -1,0 +1,136 @@
+Active: 'True'
+AppDescription: Worst case storage requirements are 2GB/per job but we will scale
+  jobs to supported space at non-DOSAR affiliated sites.
+CertificateOnly: 'False'
+Community: A community of researchers interested in furthering the development of
+  grid based analyses.
+ContactTypes:
+  ContactType:
+  - Contacts:
+      Contact:
+      - Name: Patrick McGuigan
+      - Name: Patrick McGuigan
+    Type: Submitter Contact
+  - Contacts:
+      Contact:
+      - Name: Horst Severini
+      - Name: Horst Severini
+      - Name: Patrick McGuigan
+      - Name: Patrick McGuigan
+    Type: Security Contact
+  - Contacts:
+      Contact:
+      - Name: Horst Severini
+      - Name: Horst Severini
+      - Name: Patrick McGuigan
+      - Name: Patrick McGuigan
+    Type: Administrative Contact
+  - Contacts:
+      Contact:
+      - Name: Horst Severini
+      - Name: Horst Severini
+      - Name: Patrick McGuigan
+      - Name: Patrick McGuigan
+    Type: Miscellaneous Contact
+  - Contacts:
+      Contact:
+      - Name: Horst Severini
+      - Name: Horst Severini
+      - Name: Dick Greenwood
+      - Name: Dick Greenwood
+      - Name: Dick Greenwood
+    Type: VO Manager
+  - Contacts:
+      Contact:
+      - Name: Horst Severini
+      - Name: Horst Severini
+      - Name: Kyle Gross
+      - Name: Kyle Gross
+      - Name: Kyle Gross
+      - Name: Kyle Gross
+      - Name: Kyle Gross
+    Type: Registration Authority
+  - Contacts:
+      Contact:
+      - Name: Horst Severini
+      - Name: Horst Severini
+      - Name: Dick Greenwood
+      - Name: Dick Greenwood
+      - Name: Dick Greenwood
+    Type: Sponsors
+Disable: 'False'
+FieldsOfScience:
+  PrimaryFields:
+    Field: Multi-Science Community
+  SecondaryFields:
+    Field:
+    - Community Grid
+    - Computer and Information Science and Engineering
+    - High Energy Physics
+    - Materials Science
+ID: '6'
+LongName: Distributed Organization for Scientific and Academic Research
+MembershipServicesURL: https://voms.dosar.org:8443/voms/dosar/services/VOMSAdmin
+MemeberResources:
+  Resource:
+  - ID: '9'
+    Name: cinvestav
+  - ID: '44'
+    Name: isuhep
+  - ID: '64'
+    Name: LTU_OSG
+  - ID: '86'
+    Name: OUHEP_ITB
+  - ID: '87'
+    Name: OUHEP_OSG
+  - ID: '89'
+    Name: OU_OSCER_ATLAS
+  - ID: '90'
+    Name: OU_OSCER_CONDOR
+  - ID: '133'
+    Name: UTA_DPCC
+  - ID: '151'
+    Name: LONI_OSG1
+  - ID: '276'
+    Name: LUHEP_OSG
+  - ID: '331'
+    Name: LUHEP_SE
+  - ID: '405'
+    Name: LUHEP_OSG2
+  - ID: '492'
+    Name: LTU_T3
+  - ID: '559'
+    Name: Lucille_CE
+  - ID: '560'
+    Name: Lucille_SE
+  - ID: '618'
+    Name: perfSONAR_LU_bandwidth
+  - ID: '619'
+    Name: perfSonar_LU_latency
+  - ID: '905'
+    Name: OU_OSCER_ATLAS_SE
+  - ID: '915'
+    Name: Lucille-squid
+Name: DOSAR
+OASIS:
+  Managers: null
+  OASISRepoURLs: null
+  UseOASIS: 'False'
+ParentVO: null
+PrimaryURL: http://www.dosar.org/
+PurposeURL: http://www.dosar.org/
+ReportingGroups:
+  ReportingGroup:
+    Contacts:
+      Contact:
+      - Name: Horst Severini
+      - Name: Horst Severini
+      - Name: Dick Greenwood
+      - Name: Dick Greenwood
+      - Name: Dick Greenwood
+    FQANs:
+      FQAN:
+        GroupName: /dosar
+        Role: null
+    Name: dosar
+SupportURL: http://www.dosar.org/
