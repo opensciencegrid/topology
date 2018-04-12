@@ -1,6 +1,7 @@
 from flask import Flask, Response
 from datetime import datetime
 from converters.project_yaml_to_xml import get_projects_xml
+from converters.vo_yaml_to_xml import get_vos_xml
 app = Flask(__name__)
 
 @app.route('/')
@@ -22,7 +23,7 @@ def projects():
 
 @app.route('/vosummary/xml')
 def voinfo():
-    xml = "<VOSummary></VOSummary>"
+    xml = get_vos_xml()
     return Response(xml, mimetype='text/xml')
 
 @app.route('/rgsummary/xml')
