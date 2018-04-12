@@ -1,5 +1,6 @@
 from flask import Flask, Response
 from datetime import datetime
+from converters.project_yaml_to_xml import get_projects_xml
 app = Flask(__name__)
 
 @app.route('/')
@@ -16,7 +17,7 @@ def homepage():
 
 @app.route('/miscproject/xml')
 def projects():
-    xml = "<Projects></Projects>"
+    xml = get_projects_xml()
     return Response(xml, mimetype='text/xml')
 
 @app.route('/vosummary/xml')
