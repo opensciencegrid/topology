@@ -1,18 +1,15 @@
 from flask import Flask, Response
-from datetime import datetime
 from converters.project_yaml_to_xml import get_projects_xml
 from converters.vo_yaml_to_xml import get_vos_xml
 app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
 
     return """
-    <h1>Hello heroku</h1>
-    <p>It is currently {time}.</p>
-    <img src="http://loremflickr.com/600/400" />
-    """.format(time=the_time)
+    <h1>OSG Topology Interface</h1>
+    <a href="https://github.com/opensciencegrid/topology">Source Repo</a>
+    """
 
 
 
