@@ -12,7 +12,7 @@ def get_vos_xml():
     to_output = {"VOSummary":{"VO": []}}
     projects = []
 
-    for file in os.listdir("virtual-organiztions"):
+    for file in os.listdir("virtual-organizations"):
         vo = anymarkup.parse_file("virtual-organizations/{0}".format(file))
         projects.append(vo)
 
