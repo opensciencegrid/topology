@@ -1,23 +1,23 @@
-- ID: 321
-- Name: TG-DMS150022
-- Description: This research project will focus on using high performance computing
-    for accelerating the numerical methods for modeling the flows of viscoelastic
-    liquids. The computational schemes developed for studying viscoelastic flows are
-    based on an adaptive finite-volume discretization of the Navier-Stokes equations
-    combined with various constitutive laws for viscoelastic liquids. The numerical
-    method is based on a volume of fluid algorithm for tracking the interface, in
-    case of the presence of a second phase. The numerical framework has parallel support
-    using the MPI library, dynamic load-balancing, and parallel offline visualization.
-    The parallel performance of the code will be tested and improved upon. Adaptivity
-    combined with parallelization are essential components of the numerical framework,
-    since transient computations of viscoelastic flows are often very intensive (due
-    to small timestep and high mesh resolution required to resolve high stress regions)
-    and therefore require a large computational resources.
-- PIName: Shahriar Afkhami
-- Organization: New Jersey Institute of Technology
-- Department: Mathematical Science
-- FieldOfScience: Mathematical Sciences
-- Sponsor: 
-  - CampusGrid: 
-    - ID: 13
-    - Name: OSG-XSEDE
+Department: Mathematical Science
+Description: This research project will focus on using high performance computing
+  for accelerating the numerical methods for modeling the flows of viscoelastic liquids.
+  The computational schemes developed for studying viscoelastic flows are based on
+  an adaptive finite-volume discretization of the Navier-Stokes equations combined
+  with various constitutive laws for viscoelastic liquids. The numerical method is
+  based on a volume of fluid algorithm for tracking the interface, in case of the
+  presence of a second phase. The numerical framework has parallel support using the
+  MPI library, dynamic load-balancing, and parallel offline visualization. The parallel
+  performance of the code will be tested and improved upon. Adaptivity combined with
+  parallelization are essential components of the numerical framework, since transient
+  computations of viscoelastic flows are often very intensive (due to small timestep
+  and high mesh resolution required to resolve high stress regions) and therefore
+  require a large computational resources.
+FieldOfScience: Mathematical Sciences
+ID: '321'
+Name: TG-DMS150022
+Organization: New Jersey Institute of Technology
+PIName: Shahriar Afkhami
+Sponsor:
+  CampusGrid:
+    ID: '13'
+    Name: OSG-XSEDE

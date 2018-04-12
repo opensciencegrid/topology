@@ -1,17 +1,17 @@
-- ID: 181
-- Name: peers
-- Description: This is an analysis of statewide data for all students in grades K-2.
-    The aim of the analysis is to examine the effects of peers' achievement and composition
-    effects on individual student achievement. This analysis requires mixed-effect
-    modeling and quantile regression. R, and qrLMM package, will be used for analysis,
-    19 instances of analysis (one for each quantile .05 to .95 in .05 increments)
-    will be conducted for each grade (k, 1, and 2). Each data set is less than 1GB,
-    but requires approximately 6gb to run.
-- PIName: Jessica Sidler Folsom
-- Organization: Florida State University
-- Department: Florida Center for Reading Research
-- FieldOfScience: Ecological and Environmental Sciences
-- Sponsor: 
-  - CampusGrid: 
-    - ID: 14
-    - Name: OSG Connect
+Department: Florida Center for Reading Research
+Description: This is an analysis of statewide data for all students in grades K-2.
+  The aim of the analysis is to examine the effects of peers' achievement and composition
+  effects on individual student achievement. This analysis requires mixed-effect modeling
+  and quantile regression. R, and qrLMM package, will be used for analysis, 19 instances
+  of analysis (one for each quantile .05 to .95 in .05 increments) will be conducted
+  for each grade (k, 1, and 2). Each data set is less than 1GB, but requires approximately
+  6gb to run.
+FieldOfScience: Ecological and Environmental Sciences
+ID: '181'
+Name: peers
+Organization: Florida State University
+PIName: Jessica Sidler Folsom
+Sponsor:
+  CampusGrid:
+    ID: '14'
+    Name: OSG Connect

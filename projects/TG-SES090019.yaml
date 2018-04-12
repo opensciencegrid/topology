@@ -1,49 +1,48 @@
-- ID: 146
-- Name: TG-SES090019
-- Description: Geographic Information Science (GIScience), crosscutting many fields
-    (e.g., geography, social sciences, computer science, geodesy, and information
-    sciences), plays essential roles for transforming geographic data into geospatial
-    information and knowledge, breaking through scientific problems, and improving
-    decision-making practices of broad and significant societal impact. However, fulfilling
-    such roles is increasingly dependent on the ability to handle very large spatial
-    datasets and complex analysis and modeling methods based on synthesizing computational
-    and spatial thinking enabled by cyberinfrastructure (CI), which conventional GIS
-    software approaches do not provide. CI-based integration of geographic information
-    systems (GIS) and spatial analysis and modeling, as a holistic solution, is leading
-    to unprecedented capabilities for transforming geospatial sciences.The purpose
-    of this project is to extend and sustain GISolve, a TeraGrid Science Gateway toolkit
-    for GIScience, for establishing a high performance, distributed, and collaborative
-    CyberGIS framework that couples CI, GIS, and geospatial analysis and modeling
-    capabilities. Through the continuous TeraGrid resource allocation support from
-    previous three years, a set of spatial middleware components has been built into
-    the GISolve Toolkit to glue generic cyberinfrastructure capabilities and geospatial
-    analysis methods. This toolkit has been used to build the TeraGrid GIScience Gateway
-    as a collaborative geospatial problem-solving environment for multi-disciplinary
-    researchers to perform large-scale geospatial analysis and modeling, and help
-    non-technical users directly benefit from accessing TeraGrid capabilities. With
-    the support of TeraGrid high-end computing resources, we have developed a set
-    of high-performance parallel and distributed geospatial computational methods
-    for our research projects. Scalability and efficient use of high-end computing
-    resources are the foci in developing these methods. For example, the parallel
-    agent-based modeling and parallel land use optimization code are scalable to thousands
-    of processors on Abe and Ranger with impressive computational performance. The
-    methods so developed have been applied in solving large- and multi-scale geospatial
-    science problems that could not be solved before, such as the study of geospatial
-    pattern of the impact of global climate change on crop yields. With GISolve being
-    widely used in the GIScience community, new methods continue to be identified,
-    proposed, and integrated in the GISolve Toolkit. To support community-contributed
-    applications, we have developed a streamlined application integration process
-    to facilitate cyberinfrastructure-enabled computation and efficient integration
-    into the science gateway for sharing. This project has been growing dramatically
-    with consistent and extended research collaboration and education efforts such
-    as the collaboration with the U.S. Geological Survey (USGS) in the National Map
-    project and outreach activities with the University Consortium for Geographic
-    Information Science (UCGIS).
-- PIName: Shaowen Wang
-- Organization: University of Illinois at Urbana-Champaign
-- Department: Geography and Geographic Information Science
-- FieldOfScience: Geographic Information Science
-- Sponsor: 
-  - CampusGrid: 
-    - ID: 13
-    - Name: OSG-XSEDE
+Department: Geography and Geographic Information Science
+Description: Geographic Information Science (GIScience), crosscutting many fields
+  (e.g., geography, social sciences, computer science, geodesy, and information sciences),
+  plays essential roles for transforming geographic data into geospatial information
+  and knowledge, breaking through scientific problems, and improving decision-making
+  practices of broad and significant societal impact. However, fulfilling such roles
+  is increasingly dependent on the ability to handle very large spatial datasets and
+  complex analysis and modeling methods based on synthesizing computational and spatial
+  thinking enabled by cyberinfrastructure (CI), which conventional GIS software approaches
+  do not provide. CI-based integration of geographic information systems (GIS) and
+  spatial analysis and modeling, as a holistic solution, is leading to unprecedented
+  capabilities for transforming geospatial sciences.The purpose of this project is
+  to extend and sustain GISolve, a TeraGrid Science Gateway toolkit for GIScience,
+  for establishing a high performance, distributed, and collaborative CyberGIS framework
+  that couples CI, GIS, and geospatial analysis and modeling capabilities. Through
+  the continuous TeraGrid resource allocation support from previous three years, a
+  set of spatial middleware components has been built into the GISolve Toolkit to
+  glue generic cyberinfrastructure capabilities and geospatial analysis methods. This
+  toolkit has been used to build the TeraGrid GIScience Gateway as a collaborative
+  geospatial problem-solving environment for multi-disciplinary researchers to perform
+  large-scale geospatial analysis and modeling, and help non-technical users directly
+  benefit from accessing TeraGrid capabilities. With the support of TeraGrid high-end
+  computing resources, we have developed a set of high-performance parallel and distributed
+  geospatial computational methods for our research projects. Scalability and efficient
+  use of high-end computing resources are the foci in developing these methods. For
+  example, the parallel agent-based modeling and parallel land use optimization code
+  are scalable to thousands of processors on Abe and Ranger with impressive computational
+  performance. The methods so developed have been applied in solving large- and multi-scale
+  geospatial science problems that could not be solved before, such as the study of
+  geospatial pattern of the impact of global climate change on crop yields. With GISolve
+  being widely used in the GIScience community, new methods continue to be identified,
+  proposed, and integrated in the GISolve Toolkit. To support community-contributed
+  applications, we have developed a streamlined application integration process to
+  facilitate cyberinfrastructure-enabled computation and efficient integration into
+  the science gateway for sharing. This project has been growing dramatically with
+  consistent and extended research collaboration and education efforts such as the
+  collaboration with the U.S. Geological Survey (USGS) in the National Map project
+  and outreach activities with the University Consortium for Geographic Information
+  Science (UCGIS).
+FieldOfScience: Geographic Information Science
+ID: '146'
+Name: TG-SES090019
+Organization: University of Illinois at Urbana-Champaign
+PIName: Shaowen Wang
+Sponsor:
+  CampusGrid:
+    ID: '13'
+    Name: OSG-XSEDE

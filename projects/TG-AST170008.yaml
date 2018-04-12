@@ -1,30 +1,29 @@
-- ID: 399
-- Name: TG-AST170008
-- Description: The outer solar system has been a topic of intense scientific research
-    for twenty-five years, but particularly within the past year. In January 2016,
-    astronomers Mike Brown and Konstantin Batygin announced ``Planet Nine'' -- a hypothetical
-    10 Earth-mass object in the distant solar system responsible for the statistically
-    significant orbital clustering of the longest-period trans-Neptunian objects (TNOs).
-    Since this announcement, several more long-period TNOs have been discovered. Our
-    specific research focus is studying the orbital dynamics of these objects, both
-    absent of and in the presence of a Planet Nine, with the ultimate goal of determining
-    the mostly likely orbit of a potential Planet Nine. Such a study requires numerical
-    N-body simulations of hundreds of ``clones'' of each object, where a clone is
-    produced by varying the orbital elements of an object within uncertainties. These
-    simulations must encompass the entirety of the solar system's history after the
-    formation of the planets, or approximately 4.5 billion years. Additionally, we
-    must conduct these simulations for a suite of potential Planet Nines, further
-    increasing the computational demand. We intend to ascertain which simulations,
-    and therefore which configurations of Planet Nine, allow for the dynamical survival
-    and force the orbital alignment of the longest period TNOs. The computational
-    demand for these simulations far exceeds what is available to us on a laptop or
-    desktop computer, and therefore we are requesting a Startup allocation on OSG
-    to complete this work.
-- PIName: Stephanie Hamilton
-- Organization: University of Michigan
-- Department: Physics
-- FieldOfScience: Astrophysics
-- Sponsor: 
-  - CampusGrid: 
-    - ID: 13
-    - Name: OSG-XSEDE
+Department: Physics
+Description: The outer solar system has been a topic of intense scientific research
+  for twenty-five years, but particularly within the past year. In January 2016, astronomers
+  Mike Brown and Konstantin Batygin announced ``Planet Nine'' -- a hypothetical 10
+  Earth-mass object in the distant solar system responsible for the statistically
+  significant orbital clustering of the longest-period trans-Neptunian objects (TNOs).
+  Since this announcement, several more long-period TNOs have been discovered. Our
+  specific research focus is studying the orbital dynamics of these objects, both
+  absent of and in the presence of a Planet Nine, with the ultimate goal of determining
+  the mostly likely orbit of a potential Planet Nine. Such a study requires numerical
+  N-body simulations of hundreds of ``clones'' of each object, where a clone is produced
+  by varying the orbital elements of an object within uncertainties. These simulations
+  must encompass the entirety of the solar system's history after the formation of
+  the planets, or approximately 4.5 billion years. Additionally, we must conduct these
+  simulations for a suite of potential Planet Nines, further increasing the computational
+  demand. We intend to ascertain which simulations, and therefore which configurations
+  of Planet Nine, allow for the dynamical survival and force the orbital alignment
+  of the longest period TNOs. The computational demand for these simulations far exceeds
+  what is available to us on a laptop or desktop computer, and therefore we are requesting
+  a Startup allocation on OSG to complete this work.
+FieldOfScience: Astrophysics
+ID: '399'
+Name: TG-AST170008
+Organization: University of Michigan
+PIName: Stephanie Hamilton
+Sponsor:
+  CampusGrid:
+    ID: '13'
+    Name: OSG-XSEDE

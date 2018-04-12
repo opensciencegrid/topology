@@ -1,13 +1,27 @@
-- ID: 451
-- Name: GRScorrelation
-- Description: |-
-    We calculate the autocorrelation merit factors for Golay-Shapiro-Rudin-like sequences and the crosscorrelation merit factors for pairs of such sequences. Each of the 2^n seed sequences of length n gives rise to an infinite family of sequences, and we have asymptotic formulas (see our preprint at arXiv: 1702.07697 [math.NT]) for the merit factors based on calculations involving only the seeds. The number of seeds grows exponentially, thus making this a project that is well-suited to distributed computing. We would like to extend Table 2 of our paper (minimum combined measure of autocorrelation and crosscorrelation, unconstrained search) to seeds of length 28. And we would like to extend Tables 1 and 3 of our paper (minimum autocorrelation and minimum combined measure among those sequences of minimum autocorrelation) to seeds of length 52, because we have a conjectue that something interesting may happen at length 52. We expect that the extension of T!
-    ables 1 and 3 will require about 130,000 runs, each of which would take about an hour each on a single thread of a typical workstation. And we expect that the extension of Table 2 will require about 45,000 runs taking about 45 minutes each in a similar situation.
-- PIName: Daniel J. Katz
-- Organization: California State University, Northridge
-- Department: Mathematics
-- FieldOfScience: Mathematical Sciences
-- Sponsor: 
-  - CampusGrid: 
-    - ID: 14
-    - Name: OSG Connect
+Department: Mathematics
+Description: 'We calculate the autocorrelation merit factors for Golay-Shapiro-Rudin-like
+  sequences and the crosscorrelation merit factors for pairs of such sequences. Each
+  of the 2^n seed sequences of length n gives rise to an infinite family of sequences,
+  and we have asymptotic formulas (see our preprint at arXiv: 1702.07697 [math.NT])
+  for the merit factors based on calculations involving only the seeds. The number
+  of seeds grows exponentially, thus making this a project that is well-suited to
+  distributed computing. We would like to extend Table 2 of our paper (minimum combined
+  measure of autocorrelation and crosscorrelation, unconstrained search) to seeds
+  of length 28. And we would like to extend Tables 1 and 3 of our paper (minimum autocorrelation
+  and minimum combined measure among those sequences of minimum autocorrelation) to
+  seeds of length 52, because we have a conjectue that something interesting may happen
+  at length 52. We expect that the extension of T!
+
+  ables 1 and 3 will require about 130,000 runs, each of which would take about an
+  hour each on a single thread of a typical workstation. And we expect that the extension
+  of Table 2 will require about 45,000 runs taking about 45 minutes each in a similar
+  situation.'
+FieldOfScience: Mathematical Sciences
+ID: '451'
+Name: GRScorrelation
+Organization: California State University, Northridge
+PIName: Daniel J. Katz
+Sponsor:
+  CampusGrid:
+    ID: '14'
+    Name: OSG Connect

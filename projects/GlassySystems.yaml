@@ -1,16 +1,26 @@
-- ID: 23
-- Name: GlassySystems
-- Description: |-
-    Studies of static and dynamic properties of glassy systems.
+Department: Chemistry
+Description: 'Studies of static and dynamic properties of glassy systems.
 
-    See also: http://www.columbia.edu/cu/chemistry/groups/reichman/
 
-    The dynamics and static properties of glassy systems can be studied in great detail by simple model systems, either those on a lattice or those consisting of mixtures of spherical particles. In order to do that, one can use any many techniques generally under the umbrella of Monte Carlo Sampling or Molecular Dynamics. In order to get detailed properties, is is often advantageous or necessary to run a large number of independent simulations, and to calculate properties averaged over these simulations. It may also be necessary to study these systems with a range of parameter values, e.g. temperature or system size. Hence, this problem lends itself well to high throughput computing, at least for cases where the individual simulations comprising a workflow are not too long.
-- PIName: David Reichman
-- Organization: Columbia University
-- Department: Chemistry
-- FieldOfScience: Chemistry
-- Sponsor: 
-  - CampusGrid: 
-    - ID: 14
-    - Name: OSG Connect
+  See also: http://www.columbia.edu/cu/chemistry/groups/reichman/
+
+
+  The dynamics and static properties of glassy systems can be studied in great detail
+  by simple model systems, either those on a lattice or those consisting of mixtures
+  of spherical particles. In order to do that, one can use any many techniques generally
+  under the umbrella of Monte Carlo Sampling or Molecular Dynamics. In order to get
+  detailed properties, is is often advantageous or necessary to run a large number
+  of independent simulations, and to calculate properties averaged over these simulations.
+  It may also be necessary to study these systems with a range of parameter values,
+  e.g. temperature or system size. Hence, this problem lends itself well to high throughput
+  computing, at least for cases where the individual simulations comprising a workflow
+  are not too long.'
+FieldOfScience: Chemistry
+ID: '23'
+Name: GlassySystems
+Organization: Columbia University
+PIName: David Reichman
+Sponsor:
+  CampusGrid:
+    ID: '14'
+    Name: OSG Connect

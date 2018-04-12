@@ -1,31 +1,31 @@
-- ID: 132
-- Name: TG-DMR140072
-- Description: When bulk helium-4 is cooled below T = 2.18 K, it undergoes a thermodynamic
-    phase transition to a superfluid, characterized by zero viscosity and quantization
-    of flow.  The superfluid state of matter is a macroscopic manifestation of quantum
-    mechanics, as it can be described by a single complex wave function with a phase
-    that does not depend on position.  The phase coherence can be probed in a container
-    filled with helium-4, by reducing one or more of its dimensions until they are
-    smaller than the coherence length; the spatial distance over which order propagates.  As
-    this dimensional reduction occurs, enhanced thermal and quantum fluctuations push
-    the transition to the superfluid state to lower temperatures.  However, this trend
-    can be countered via the proximity effect, where a bulk 3D superfluid is coupled
-    to a low (2D) dimensional superfluid via a weak link producing superfluid correlations
-    in the film at temperatures above the Kosterlitz-Thouless temperature. Recent
-    experiments probing the coupling between 3D and 2D superfluid helium-4 have uncovered
-    an anomalously large proximity effect, leading to an enhanced superfluid density
-    that cannot be explained using the correlation length alone.We intend to explore
-    the microscopic origin of this enhanced proximity effect via large scale quantum
-    Monte Carlo simulations of helium-4 in a topologically non-trivial geometry that
-    incorporates the important aspects of the experiments.  We will modify, test and
-    deploy our research group's home-built high performance worm algorithm path integral
-    quantum Monte Carlo code (http://code.delmaestro.org) at low temperatures with
-    an eye toward improving efficiency through enhanced parallelization and hybridization.
-- PIName: Adrian Del Maestro
-- Organization: University of Vermont
-- Department: Physics
-- FieldOfScience: Materials Science
-- Sponsor: 
-  - CampusGrid: 
-    - ID: 13
-    - Name: OSG-XSEDE
+Department: Physics
+Description: When bulk helium-4 is cooled below T = 2.18 K, it undergoes a thermodynamic
+  phase transition to a superfluid, characterized by zero viscosity and quantization
+  of flow.  The superfluid state of matter is a macroscopic manifestation of quantum
+  mechanics, as it can be described by a single complex wave function with a phase
+  that does not depend on position.  The phase coherence can be probed in a container
+  filled with helium-4, by reducing one or more of its dimensions until they are smaller
+  than the coherence length; the spatial distance over which order propagates.  As
+  this dimensional reduction occurs, enhanced thermal and quantum fluctuations push
+  the transition to the superfluid state to lower temperatures.  However, this trend
+  can be countered via the proximity effect, where a bulk 3D superfluid is coupled
+  to a low (2D) dimensional superfluid via a weak link producing superfluid correlations
+  in the film at temperatures above the Kosterlitz-Thouless temperature. Recent experiments
+  probing the coupling between 3D and 2D superfluid helium-4 have uncovered an anomalously
+  large proximity effect, leading to an enhanced superfluid density that cannot be
+  explained using the correlation length alone.We intend to explore the microscopic
+  origin of this enhanced proximity effect via large scale quantum Monte Carlo simulations
+  of helium-4 in a topologically non-trivial geometry that incorporates the important
+  aspects of the experiments.  We will modify, test and deploy our research group's
+  home-built high performance worm algorithm path integral quantum Monte Carlo code
+  (http://code.delmaestro.org) at low temperatures with an eye toward improving efficiency
+  through enhanced parallelization and hybridization.
+FieldOfScience: Materials Science
+ID: '132'
+Name: TG-DMR140072
+Organization: University of Vermont
+PIName: Adrian Del Maestro
+Sponsor:
+  CampusGrid:
+    ID: '13'
+    Name: OSG-XSEDE

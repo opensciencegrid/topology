@@ -1,30 +1,30 @@
-- ID: 49
-- Name: TG-ASC130043
-- Description: The proposed project aims to decrease the management overhead and code
-    complexity of trajectory analysis from particle simulation data. Particle simulations
-    produce trajectories, which are encoded by a stream of high-dimensional vectors
-    (frames).  Analysis on this data usually takes a map-reduce form consisting of
-    mapping each frame to successively smaller vectors of descriptors.From this starting
-    point, two typical data analysis cases will be considered.  The first is statistical,
-    through construction of order statistics, histograms, cumulants, or weighted averages.  We
-    will develop code generation methods to handle general nonlinear analysis functions.  The
-    second analysis goes one step further by fitting the analyzed data to an assumed
-    functional form using Bayesian inference.Due to the map-reduce structure of these
-    computations, these analysis methods can be parallelized while retaining a high-level
-    programming model.  This task requires automated consideration of data movement
-    and task separation to match available computational resources.  The result will
-    be published under an open source license, and be immediately useful to computational
-    chemistry and biology applications analyzing large molecular dynamics simulations.This
-    work will make use of the open science grid and Pegasus software as well as the
-    TACC Longhorn data analysis cluster for systems and application comparison.  Project
-    code storage on XWFS and scratch access on TACC will also be needed.  FutureGrid
-    may be explored for compatibility with the Unicore workflow specification and
-    Pegasus if its production status is extended past September.
-- PIName: David Rogers
-- Organization: University of South Florida
-- Department: Chemistry
-- FieldOfScience: Computer and Information Science and Engineering
-- Sponsor: 
-  - CampusGrid: 
-    - ID: 13
-    - Name: OSG-XSEDE
+Department: Chemistry
+Description: The proposed project aims to decrease the management overhead and code
+  complexity of trajectory analysis from particle simulation data. Particle simulations
+  produce trajectories, which are encoded by a stream of high-dimensional vectors
+  (frames).  Analysis on this data usually takes a map-reduce form consisting of mapping
+  each frame to successively smaller vectors of descriptors.From this starting point,
+  two typical data analysis cases will be considered.  The first is statistical, through
+  construction of order statistics, histograms, cumulants, or weighted averages.  We
+  will develop code generation methods to handle general nonlinear analysis functions.  The
+  second analysis goes one step further by fitting the analyzed data to an assumed
+  functional form using Bayesian inference.Due to the map-reduce structure of these
+  computations, these analysis methods can be parallelized while retaining a high-level
+  programming model.  This task requires automated consideration of data movement
+  and task separation to match available computational resources.  The result will
+  be published under an open source license, and be immediately useful to computational
+  chemistry and biology applications analyzing large molecular dynamics simulations.This
+  work will make use of the open science grid and Pegasus software as well as the
+  TACC Longhorn data analysis cluster for systems and application comparison.  Project
+  code storage on XWFS and scratch access on TACC will also be needed.  FutureGrid
+  may be explored for compatibility with the Unicore workflow specification and Pegasus
+  if its production status is extended past September.
+FieldOfScience: Computer and Information Science and Engineering
+ID: '49'
+Name: TG-ASC130043
+Organization: University of South Florida
+PIName: David Rogers
+Sponsor:
+  CampusGrid:
+    ID: '13'
+    Name: OSG-XSEDE

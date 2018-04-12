@@ -1,28 +1,28 @@
-- ID: 353
-- Name: TG-AST160036
-- Description: Starspots are dark regions on a star's surface that trace areas of
-    strong magnetic fields. On the Sun, spots are typically small and occur in bands
-    near the stellar equator. Sunspot occurrence frequency also peaks every 11 years
-    due to the "solar cycle". For younger stars there are indications that spots are
-    larger, and can form near the stellar poles, while evidence for spot activity
-    cycles on other stars is sparse. These differences indicate that the shape and
-    strength of the internal magnetic dynamo evolves throughout a stars life. However,
-    because of their great distance we cannot directly observe the surface of other
-    stars to map the locations and sizes of spots. We have developed new software
-    to model the signature of starspots in Kepler data from transiting exoplanet systems.
-    These star-planet systems are unique in having an orbiting planet that passes
-    directly in front of its parent star. When the planet transits the star, it will
-    briefly pass over spots on the star's surface, giving a very small change in the
-    apparent brightness of the system. To trace the evolution of spot size and location
-    with stellar age we must extend our analysis to many star systems with different
-    transiting planet orientations. A startup allocation from XSEDE will allow us
-    to test our software's ability to map spots from different system orientations,
-    and using many years worth of Kepler data.
-- PIName: James Davenport
-- Organization: Western Washington University
-- Department: Physics
-- FieldOfScience: Astrophysics
-- Sponsor: 
-  - CampusGrid: 
-    - ID: 13
-    - Name: OSG-XSEDE
+Department: Physics
+Description: Starspots are dark regions on a star's surface that trace areas of strong
+  magnetic fields. On the Sun, spots are typically small and occur in bands near the
+  stellar equator. Sunspot occurrence frequency also peaks every 11 years due to the
+  "solar cycle". For younger stars there are indications that spots are larger, and
+  can form near the stellar poles, while evidence for spot activity cycles on other
+  stars is sparse. These differences indicate that the shape and strength of the internal
+  magnetic dynamo evolves throughout a stars life. However, because of their great
+  distance we cannot directly observe the surface of other stars to map the locations
+  and sizes of spots. We have developed new software to model the signature of starspots
+  in Kepler data from transiting exoplanet systems. These star-planet systems are
+  unique in having an orbiting planet that passes directly in front of its parent
+  star. When the planet transits the star, it will briefly pass over spots on the
+  star's surface, giving a very small change in the apparent brightness of the system.
+  To trace the evolution of spot size and location with stellar age we must extend
+  our analysis to many star systems with different transiting planet orientations.
+  A startup allocation from XSEDE will allow us to test our software's ability to
+  map spots from different system orientations, and using many years worth of Kepler
+  data.
+FieldOfScience: Astrophysics
+ID: '353'
+Name: TG-AST160036
+Organization: Western Washington University
+PIName: James Davenport
+Sponsor:
+  CampusGrid:
+    ID: '13'
+    Name: OSG-XSEDE

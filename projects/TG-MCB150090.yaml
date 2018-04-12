@@ -1,24 +1,23 @@
-- ID: 241
-- Name: TG-MCB150090
-- Description: Solvation strongly affects the structures and properties of molecules.  Molecular
-    simulations for many problems in chemistry, physics, and biology require an accurate
-    depiction of solvation, and the most ubiquitous and important solvent is water.  Yet,
-    water is difficult to model in molecular simulations - fast but sometimes erroneous
-    modeling can be done with continuum solvent models, or relatively accurate but
-    expensive modeling can be done explicitly.  Users must generally compromise accuracy
-    and efficiency for the problem of interest.  Though widespread efforts are directed
-    at testing water models, much of this work is duplicative and incomplete.  Here
-    we propose extensive computer simulations of biomolecular solvation using XSEDE.  These
-    simulations will provide a systematic database of solvation free energies for
-    a large and diverse set of biomolecules and conformations.  This database will
-    extend our understanding of molecular solvation and will provide a communal resource
-    for the development of continuum solvent models, a focus of many groups throughout
-    the field.
-- PIName: Emiliano Brini
-- Organization: SUNY at Stony Brook
-- Department: Laufer Center
-- FieldOfScience: Molecular and Structural Biosciences
-- Sponsor: 
-  - CampusGrid: 
-    - ID: 13
-    - Name: OSG-XSEDE
+Department: Laufer Center
+Description: Solvation strongly affects the structures and properties of molecules.  Molecular
+  simulations for many problems in chemistry, physics, and biology require an accurate
+  depiction of solvation, and the most ubiquitous and important solvent is water.  Yet,
+  water is difficult to model in molecular simulations - fast but sometimes erroneous
+  modeling can be done with continuum solvent models, or relatively accurate but expensive
+  modeling can be done explicitly.  Users must generally compromise accuracy and efficiency
+  for the problem of interest.  Though widespread efforts are directed at testing
+  water models, much of this work is duplicative and incomplete.  Here we propose
+  extensive computer simulations of biomolecular solvation using XSEDE.  These simulations
+  will provide a systematic database of solvation free energies for a large and diverse
+  set of biomolecules and conformations.  This database will extend our understanding
+  of molecular solvation and will provide a communal resource for the development
+  of continuum solvent models, a focus of many groups throughout the field.
+FieldOfScience: Molecular and Structural Biosciences
+ID: '241'
+Name: TG-MCB150090
+Organization: SUNY at Stony Brook
+PIName: Emiliano Brini
+Sponsor:
+  CampusGrid:
+    ID: '13'
+    Name: OSG-XSEDE

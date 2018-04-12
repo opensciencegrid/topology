@@ -1,25 +1,25 @@
-- ID: 147
-- Name: TG-MCB140232
-- Description: A longstanding goal of molecular simulations is to accurately predict
-    the three-dimensional fold of a biopolymer given only knowledge of its primary
-    sequence. Although recent work has demonstrated the successful folding of proteins
-    ranging from 10-80 amino acids from the unfolded state, no comparable results
-    exist for the folding of structured RNAs. In recent work, we have shown that this
-    is a result of underlying inaccuracies in the energy model itself, due to underlying
-    assumptions that work well for describing amino acids but are inapplicable for
-    describing nucleic acids in solution. We have systematically corrected these biases
-    in order to more accurately capture the inherent flexibility of single-stranded
-    RNA loops, accurate base stacking energetics, and purine anti-syn interconversions.
-    In a departure from traditional quantum chemistry-centric parameterization schemes,
-    we calibrate the molecular mechanics potentials directly against the relevant
-    thermodynamic and kinetic measurements of aqueous nucleosides and nucleotides.
-    This application is to continue the kinetic, thermodynamic characterization of
-    improved RNA force-field to enable de-novo RNA folding.
-- PIName: Alan Chen
-- Organization: SUNY at Albany
-- Department: Chemistry
-- FieldOfScience: Molecular and Structural Biosciences
-- Sponsor: 
-  - CampusGrid: 
-    - ID: 13
-    - Name: OSG-XSEDE
+Department: Chemistry
+Description: A longstanding goal of molecular simulations is to accurately predict
+  the three-dimensional fold of a biopolymer given only knowledge of its primary sequence.
+  Although recent work has demonstrated the successful folding of proteins ranging
+  from 10-80 amino acids from the unfolded state, no comparable results exist for
+  the folding of structured RNAs. In recent work, we have shown that this is a result
+  of underlying inaccuracies in the energy model itself, due to underlying assumptions
+  that work well for describing amino acids but are inapplicable for describing nucleic
+  acids in solution. We have systematically corrected these biases in order to more
+  accurately capture the inherent flexibility of single-stranded RNA loops, accurate
+  base stacking energetics, and purine anti-syn interconversions. In a departure from
+  traditional quantum chemistry-centric parameterization schemes, we calibrate the
+  molecular mechanics potentials directly against the relevant thermodynamic and kinetic
+  measurements of aqueous nucleosides and nucleotides. This application is to continue
+  the kinetic, thermodynamic characterization of improved RNA force-field to enable
+  de-novo RNA folding.
+FieldOfScience: Molecular and Structural Biosciences
+ID: '147'
+Name: TG-MCB140232
+Organization: SUNY at Albany
+PIName: Alan Chen
+Sponsor:
+  CampusGrid:
+    ID: '13'
+    Name: OSG-XSEDE

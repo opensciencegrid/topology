@@ -1,27 +1,27 @@
-- ID: 39
-- Name: TG-CHE130091
-- Description: Compressed carbon dioxide is the main component of the mobile phase
-    in supercritical fluid chromatography, which separates solutes according to their
-    interactions with solid stationary phases. Molecular-scale properties of carbon
-    dioxide in the mobile phase, confined near a stationary phase, and interacting
-    with solutes can be calculated by Monte Carlo molecular simulation methods. Atomistic
-    potentials for carbon dioxide, for solutes, and for the co-solvent methanol must
-    be tested and refined to reliably simulate interactions at the pressure-temperature
-    conditions of supercritical fluid chromatography. Simulation code now under development
-    is well-suited to high-throughput computing in that it is serial, portable, and
-    requires little RAM and disk storage. Because runs are long the code will be made
-    check-pointable so simulations can efficiently use the Open Science Grid. The
-    startup allocation requested will be to continue development of the serial simulation
-    code, to modify it to allow restarting from a checkpoint file, then to test and
-    improve atomistic potentials for solute and solvent molecules. It is against bulk
-    fluid phase equilibrium data that potentials will be refined. Should service units
-    remain after development work, computing will shift to characterizing the solvent
-    within a few molecular diameters of stationary-phase and solute molecules.
-- PIName: Paul Siders
-- Organization: University of Minnesota, Duluth
-- Department: Chemistry and Biochemistry
-- FieldOfScience: Chemistry
-- Sponsor: 
-  - CampusGrid: 
-    - ID: 13
-    - Name: OSG-XSEDE
+Department: Chemistry and Biochemistry
+Description: Compressed carbon dioxide is the main component of the mobile phase in
+  supercritical fluid chromatography, which separates solutes according to their interactions
+  with solid stationary phases. Molecular-scale properties of carbon dioxide in the
+  mobile phase, confined near a stationary phase, and interacting with solutes can
+  be calculated by Monte Carlo molecular simulation methods. Atomistic potentials
+  for carbon dioxide, for solutes, and for the co-solvent methanol must be tested
+  and refined to reliably simulate interactions at the pressure-temperature conditions
+  of supercritical fluid chromatography. Simulation code now under development is
+  well-suited to high-throughput computing in that it is serial, portable, and requires
+  little RAM and disk storage. Because runs are long the code will be made check-pointable
+  so simulations can efficiently use the Open Science Grid. The startup allocation
+  requested will be to continue development of the serial simulation code, to modify
+  it to allow restarting from a checkpoint file, then to test and improve atomistic
+  potentials for solute and solvent molecules. It is against bulk fluid phase equilibrium
+  data that potentials will be refined. Should service units remain after development
+  work, computing will shift to characterizing the solvent within a few molecular
+  diameters of stationary-phase and solute molecules.
+FieldOfScience: Chemistry
+ID: '39'
+Name: TG-CHE130091
+Organization: University of Minnesota, Duluth
+PIName: Paul Siders
+Sponsor:
+  CampusGrid:
+    ID: '13'
+    Name: OSG-XSEDE
