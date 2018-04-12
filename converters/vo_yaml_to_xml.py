@@ -10,14 +10,14 @@ def get_vos_xml():
     """
 
     to_output = {"VOSummary":{"VO": []}}
-    projects = []
+    vos = []
 
     for file in os.listdir("virtual-organizations"):
         vo = anymarkup.parse_file("virtual-organizations/{0}".format(file))
-        projects.append(vo)
+        vos.append(vo)
 
 
-    to_output["VOSummary"]["VO"] = vo
+    to_output["VOSummary"]["VO"] = vos
 
     return anymarkup.serialize(to_output, 'xml').decode()
 
