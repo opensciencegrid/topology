@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+"""Split an rgsummary.xml file into a directory of xml files of the
+individual <ResourceGroup>s.
+"""
 import anymarkup
 import os
 import shutil

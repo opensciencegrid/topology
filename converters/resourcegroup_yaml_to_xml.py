@@ -1,13 +1,13 @@
+#!/usr/bin/env python3
 import urllib.parse
 
 import anymarkup
-import os
 import pprint
 import sys
 from pathlib import Path
 from typing import Dict, List, Union, Iterable
 
-topdir = "/tmp/topology"
+
 SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 
 
@@ -47,7 +47,7 @@ class Topology(object):
                     pprint.pprint(self.data[f][s][r])
                     print("")
 
-    def serialize(self) -> bytes:
+    def get_resource_summary(self) -> Dict:
         rgs = []
         for fval in self.data.values():
             for s, sval in fval.items():
@@ -56,11 +56,17 @@ class Topology(object):
                     if r == "ID": continue
                     rgs.append(rval)
 
-        tree = {"ResourceSummary":
-                    {"@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-                     "@xsi:schemaLocation": SCHEMA_LOCATION,
-                     "ResourceGroup": rgs}}
-        return anymarkup.serialize(tree, "xml")
+        return {"ResourceSummary":
+                {"@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                 "@xsi:schemaLocation": SCHEMA_LOCATION,
+                 "ResourceGroup": rgs}}
+
+    def to_xml(self):
+        return anymarkup.serialize(self.get_resource_summary(), "xml").decode("utf-8")
+
+    def serialize_file(self, outfile):
+        return anymarkup.serialize_file(self.get_resource_summary(), outfile, "xml")
+
 
 def singleton_list_to_value(a_list):
     if len(a_list) == 1:
@@ -109,6 +115,9 @@ def expand_services(services: Dict) -> Dict:
 
 
 def get_charturl(ownership: Iterable) -> str:
+    """Return a URL for a pie chart based on VOOwnership data.
+    ``ownership`` consists of (VO, Percent) pairs.
+    """
     chd = ""
     chl = ""
 
@@ -131,6 +140,7 @@ def get_charturl(ownership: Iterable) -> str:
 
 
 def expand_voownership(voownership: Dict) -> Dict:
+    """Return the data structure for an expanded VOOwnership for a single Resource."""
     return {
         "Ownership": expand_attr_list_single(voownership, "VO", "Percent"),
         "ChartURL": get_charturl(voownership.items())
@@ -138,6 +148,7 @@ def expand_voownership(voownership: Dict) -> Dict:
 
 
 def expand_contactlists(contactlists: Dict) -> Dict:
+    """Return the data structure for an expanded ContactLists for a single Resource."""
     new_contactlists = []
     for contact_type, contact_data in contactlists.items():
         contact_data = expand_attr_list_single(contact_data, "ContactRank", "Name")
@@ -146,6 +157,14 @@ def expand_contactlists(contactlists: Dict) -> Dict:
 
 
 def expand_resource(name: str, res: Dict) -> Dict:
+    """Expand a single Resource from the format in a yml file to the xml format.
+
+    Services, VOOwnership, FQDNAliases, ContactLists are expanded;
+    ``name`` is inserted into the Resource as the "Name" attribute;
+    Defaults are added for VOOwnership, FQDNAliases, and WLCGInformation if they're missing from the yml file.
+
+    Return the data structure for the expanded Resource.
+    """
     res = dict(res)
 
     res["Services"] = expand_services(res["Services"])
@@ -167,6 +186,14 @@ def expand_resource(name: str, res: Dict) -> Dict:
 
 
 def expand_resourcegroup(rg):
+    """Expand a single ResourceGroup from the format in a yml file to the xml format.
+
+    {"SupportCenterName": ...} and {"SupportCenterID": ...} are turned into
+    {"SupportCenter": {"Name": ...}, {"ID": ...}} and each individual Resource is expanded and collected in a
+    <Resources> block.
+
+    Return the data structure for the expanded ResourceGroup.
+    """
     rg = dict(rg)  # copy
 
     rg["SupportCenter"] = {"Name": rg["SupportCenterName"], "ID": rg["SupportCenterID"]}
@@ -185,33 +212,49 @@ def expand_resourcegroup(rg):
     return rg
 
 
-paths = []
-topology = Topology()
+def main(argv=sys.argv):
+    if len(argv) < 2:
+        print("Usage: %s <input dir> [<output xml>]" % argv[0], file=sys.stderr)
+        return 2
+    indir = argv[1]
+    outfile = None
+    if len(argv) > 2:
+        outfile = argv[2]
 
-root = Path(topdir)
-for facility_path in root.glob("*/FACILITY.yml"):
-    name = facility_path.parts[-2]
-    id_ = anymarkup.parse_file(facility_path)["ID"]
-    topology.add_facility(name, id_)
+    topology = Topology()
+    root = Path(indir)
+    for facility_path in root.glob("*/FACILITY.yml"):
+        name = facility_path.parts[-2]
+        id_ = anymarkup.parse_file(facility_path)["ID"]
+        topology.add_facility(name, id_)
 
-for site_path in root.glob("*/*/SITE.yml"):
-    facility, name = site_path.parts[-3:-1]
-    id_ = anymarkup.parse_file(site_path)["ID"]
-    topology.add_site(facility, name, id_)
+    for site_path in root.glob("*/*/SITE.yml"):
+        facility, name = site_path.parts[-3:-1]
+        id_ = anymarkup.parse_file(site_path)["ID"]
+        topology.add_site(facility, name, id_)
 
-for yaml_path in root.glob("*/*/*.yml"):
-    facility, site, name = yaml_path.parts[-3:]
-    if name == "SITE.yml": continue
+    for yaml_path in root.glob("*/*/*.yml"):
+        facility, site, name = yaml_path.parts[-3:]
+        if name == "SITE.yml": continue
 
-    name = name.replace(".yml", "")
-    rg = anymarkup.parse_file(yaml_path)
+        name = name.replace(".yml", "")
+        rg = anymarkup.parse_file(yaml_path)
 
-    facility_id = topology.data[facility]["ID"]
-    site_id = topology.data[facility][site]["ID"]
-    rg["Facility"] = {"Name": facility, "ID": facility_id}
-    rg["Site"] = {"Name": site, "ID": site_id}
-    rg["GroupName"] = name
+        facility_id = topology.data[facility]["ID"]
+        site_id = topology.data[facility][site]["ID"]
+        rg["Facility"] = {"Name": facility, "ID": facility_id}
+        rg["Site"] = {"Name": site, "ID": site_id}
+        rg["GroupName"] = name
 
-    topology.add_rg(facility, site, name, expand_resourcegroup(rg))
+        topology.add_rg(facility, site, name, expand_resourcegroup(rg))
 
-print(topology.serialize().decode("utf-8", "ignore"))
+    if outfile:
+        topology.serialize_file(outfile)
+    else:
+        print(topology.to_xml())
+
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv))
