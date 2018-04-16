@@ -149,18 +149,18 @@ def expand_resource(name: str, res: Dict) -> Dict:
     res = dict(res)
 
     res["Services"] = expand_services(res["Services"])
-    if res["VOOwnership"] and isinstance(res["VOOwnership"], dict):
+    if "VOOwnership" in res and isinstance(res["VOOwnership"], dict):
         res["VOOwnership"] = expand_voownership(res["VOOwnership"])
     else:
         res["VOOwnership"] = "(Information not available)"
-    if res["FQDNAliases"]:
+    if res.get("FQDNAliases"):
         res["FQDNAliases"] = singleton_list_to_value(
             [{"FQDNAlias": a} for a in res["FQDNAliases"]]
         )
     if res["ContactLists"]:
         res["ContactLists"] = expand_contactlists(res["ContactLists"])
     res["Name"] = name
-    if len(res["WLCGInformation"]) == 1:
+    if not isinstance(res.get("WLCGInformation"), dict):
         res["WLCGInformation"] = "(Information not available)"
 
     return res

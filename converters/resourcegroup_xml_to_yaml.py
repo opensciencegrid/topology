@@ -87,7 +87,7 @@ def simplify_voownership(voownership):
     Simplify VOOwnership attribute
     """
     if not isinstance(voownership, dict):
-        return voownership
+        return None
     voownership = dict(voownership)  # copy
     del voownership["ChartURL"]  # can be derived from the other attributes
     new_voownership = simplify_attr_list(voownership["Ownership"], "VO")
@@ -138,14 +138,24 @@ def simplify_resource(res: Dict) -> Dict:
     res = dict(res)
 
     res["Services"] = simplify_services(res["Services"])
-    res["VOOwnership"] = simplify_voownership(res["VOOwnership"])
-    if isinstance(res["WLCGInformation"], OrderedDict):
-        res["WLCGInformation"] = dict(res["WLCGInformation"])
-    if isinstance(res["FQDNAliases"], dict):
-        aliases = []
-        for a in ensure_list(res["FQDNAliases"]["FQDNAlias"]):
-            aliases.append(a)
-        res["FQDNAliases"] = aliases
+    res["VOOwnership"] = simplify_voownership(res.get("VOOwnership"))
+    if not res["VOOwnership"]:
+        del res["VOOwnership"]
+    try:
+        if isinstance(res["WLCGInformation"], OrderedDict):
+            res["WLCGInformation"] = dict(res["WLCGInformation"])
+        else:
+            del res["WLCGInformation"]
+    except KeyError: pass
+    try:
+        if isinstance(res["FQDNAliases"], dict):
+            aliases = []
+            for a in ensure_list(res["FQDNAliases"]["FQDNAlias"]):
+                aliases.append(a)
+            res["FQDNAliases"] = aliases
+        else:
+            del res["FQDNAliases"]
+    except KeyError: pass
     res["ContactLists"] = simplify_contactlists(res["ContactLists"])
 
     return res
