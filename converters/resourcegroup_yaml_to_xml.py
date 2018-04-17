@@ -167,7 +167,10 @@ def expand_resource(name: str, res: Dict) -> Dict:
     """
     res = dict(res)
 
-    res["Services"] = expand_services(res["Services"])
+    if "Services" in res and isinstance(res["Services"], dict):
+        res["Services"] = expand_services(res["Services"])
+    else:
+        res["Services"] = "no applicable service exists"
     if "VOOwnership" in res and isinstance(res["VOOwnership"], dict):
         res["VOOwnership"] = expand_voownership(res["VOOwnership"])
     else:

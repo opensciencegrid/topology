@@ -85,6 +85,8 @@ def simplify_services(services):
     """
     Simplify Services attribute
     """
+    if not isinstance(services, dict):
+        return None
     new_services = simplify_attr_list(services["Service"], "Name")
     for service in new_services.values():
         if service["Details"]:
@@ -148,7 +150,11 @@ def simplify_contactlists(contactlists):
 def simplify_resource(res: Dict) -> Dict:
     res = dict(res)
 
-    res["Services"] = simplify_services(res["Services"])
+    services = simplify_services(res["Services"])
+    if services:
+        res["Services"] = services
+    else:
+        del res["Services"]
     res["VOOwnership"] = simplify_voownership(res.get("VOOwnership"))
     if not res["VOOwnership"]:
         del res["VOOwnership"]
