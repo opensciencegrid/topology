@@ -29,8 +29,8 @@ params = {
 }
 
 parser = ArgumentParser()
-parser.add_argument("--show-inactive", choices=[YES, NO, ONLY], default=NO)
-parser.add_argument("--show-itb", choices=[YES, NO, ONLY], default=NO)
+parser.add_argument("--show-inactive", choices=[YES, NO, ONLY], default=YES)  # original GRACC URL used NO
+parser.add_argument("--show-itb", choices=[YES, NO, ONLY], default=YES)  # original GRACC URL used NO
 parser.add_argument("--show-disabled-resource", choices=[YES, NO, ONLY], default=YES)
 # can't filter on disabled _ResourceGroup_, but can show/hide RG's if they have _any_ Resources enabled/disabled
 
