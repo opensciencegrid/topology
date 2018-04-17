@@ -1,0 +1,212 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 8
+Resources:
+  BU_ATLAS_Tier2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Augustine Abaris
+      Resource Report Contact:
+        Primary: Saul Youssef
+      Submitter Contact:
+        Primary: Saul Youssef
+    Disable: true
+    FQDN: net2.bu.edu
+    ID: 8
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-NET2
+      HEPSPEC: 14500
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 100
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BU_ATLAS_Tier2,o=grid
+      StorageCapacityMax: 1300
+      StorageCapacityMin: 1300
+      TapeCapacity: null
+  NET2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Miscellaneous Contact:
+        Primary: Saul Youssef
+        Secondary: Augustine Abaris
+        Tertiary: Augustine Abaris
+      Resource Report Contact:
+        Primary: Saul Youssef
+        Secondary: Augustine Abaris
+        Tertiary: Augustine Abaris
+      Security Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Submitter Contact:
+        Primary: Saul Youssef
+    Disable: false
+    FQDN: atlas-net2.bu.edu
+    ID: 477
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: atlas.bu.edu:8443
+        ID: 3
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.72
+      AccountingName: US-NET2
+      HEPSPEC: 56836
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 1
+      KSI2KMin: 1
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BU_ATLAS_Tier2,o=grid
+      StorageCapacityMax: 4500
+      StorageCapacityMin: 2300
+      TapeCapacity: 0
+  net2.bu.edu-squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Miscellaneous Contact:
+        Primary: Saul Youssef
+      Resource Report Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Security Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Submitter Contact:
+        Primary: Saul Youssef
+    Disable: false
+    FQDN: atlas-net2.bu.edu
+    ID: 923
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details: null
+        ID: 138
+    VOOwnership:
+      ATLAS: 100
+  perfSONAR-NET2-bw:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Miscellaneous Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Resource Report Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Security Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Submitter Contact:
+        Primary: Saul Youssef
+    Disable: false
+    FQDN: atlas-npt2.bu.edu
+    ID: 578
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: atlas-bwctl.bu.edu
+        ID: 130
+    VOOwnership:
+      ATLAS: 100
+  perfSONAR-NET2-lat:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Miscellaneous Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Resource Report Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Security Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Submitter Contact:
+        Primary: Saul Youssef
+    Disable: false
+    FQDN: atlas-npt1.bu.edu
+    ID: 577
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: atlas-owamp.bu.edu
+        ID: 131
+    VOOwnership:
+      ATLAS: 100
+  perfSONAR_BU:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Miscellaneous Contact:
+        Primary: Saul Youssef
+      Resource Report Contact:
+        Primary: Saul Youssef
+        Secondary: Augustine Abaris
+      Security Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Submitter Contact:
+        Primary: Saul Youssef
+    Disable: false
+    FQDN: atlas-owamp.bu.edu
+    ID: 529
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: atlas-owamp.bu.edu
+        ID: 131
+    VOOwnership:
+      ATLAS: 100
+SupportCenterID: 29
+SupportCenterName: USATLAS

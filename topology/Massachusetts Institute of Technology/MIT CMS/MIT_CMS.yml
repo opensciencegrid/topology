@@ -1,0 +1,267 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 66
+Resources:
+  MIT_CMS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Max Goncharov
+      Resource Report Contact:
+        Primary: Max Goncharov
+      Security Contact:
+        Primary: Max Goncharov
+      Submitter Contact:
+        Primary: Ilya Kravchenko
+    Disable: false
+    FQDN: ce01.cmsaf.mit.edu
+    FQDNAliases:
+    - a18-12-1-31.deploy.akamaitechnologies.com
+    ID: 66
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://ce01.cmsaf.mit.edu
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      CDF: 10
+      CMS: 90
+    WLCGInformation:
+      APELNormalFactor: 11.72
+      AccountingName: T2_US_MIT
+      HEPSPEC: 14000
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MIT_CMS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  MIT_CMS-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Max Goncharov
+      Resource Report Contact:
+        Primary: Max Goncharov
+      Security Contact:
+        Primary: Max Goncharov
+      Submitter Contact:
+        Primary: Ilya Kravchenko
+    Disable: false
+    FQDN: se01.cmsaf.mit.edu
+    ID: 67
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_MIT
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MIT_CMS,o=grid
+      StorageCapacityMax: 1000
+      StorageCapacityMin: 1000
+      TapeCapacity: null
+  MIT_CMS_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Max Goncharov
+      Miscellaneous Contact:
+        Primary: Max Goncharov
+      Resource Report Contact:
+        Primary: Max Goncharov
+      Security Contact:
+        Primary: Max Goncharov
+      Submitter Contact:
+        Primary: Wei Li
+    Disable: false
+    FQDN: ce02.cmsaf.mit.edu
+    ID: 349
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://ce02.cmsaf.mit.edu
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      CDF: 10
+      CMS: 90
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_MIT
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MIT_CMS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  MIT_CMS_3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Max Goncharov
+      Security Contact:
+        Primary: Max Goncharov
+      Submitter Contact:
+        Primary: Max Goncharov
+    Disable: false
+    FQDN: ce03.cmsaf.mit.edu
+    ID: 785
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://ce03.cmsaf.mit.edu
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_MIT
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MIT_CMS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  MIT_CMS_Perfsonar_BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Max Goncharov
+      Security Contact:
+        Primary: Max Goncharov
+      Submitter Contact:
+        Primary: Max Goncharov
+    Disable: false
+    FQDN: perfsonar02.cmsaf.mit.edu
+    ID: 501
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details: null
+        ID: 130
+    VOOwnership:
+      CMS: 100
+  MIT_CMS_Perfsonar_Latency:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Max Goncharov
+      Security Contact:
+        Primary: Max Goncharov
+      Submitter Contact:
+        Primary: Max Goncharov
+    Disable: false
+    FQDN: perfsonar01.cmsaf.mit.edu
+    ID: 502
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details: null
+        ID: 131
+    VOOwnership:
+      CMS: 100
+  MIT_CampusFactory:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Yutaro Iiyama
+        Secondary: Max Goncharov
+      Miscellaneous Contact:
+        Secondary: Max Goncharov
+        Tertiary: Yutaro Iiyama
+      Resource Report Contact:
+        Secondary: Max Goncharov
+        Tertiary: Yutaro Iiyama
+      Security Contact:
+        Primary: Yutaro Iiyama
+        Secondary: Max Goncharov
+      Submitter Contact:
+        Primary: Yutaro Iiyama
+    Disable: false
+    FQDN: t3serv007.mit.edu
+    ID: 881
+    Services:
+      Glidein factory:
+        Description: Glidein factory
+        Details:
+          hidden: true
+          uri_override: null
+        ID: 122
+    VOOwnership:
+      CMS: 100
+  MIT_OSG_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Max Goncharov
+      Miscellaneous Contact:
+        Primary: Max Goncharov
+      Resource Report Contact:
+        Primary: Max Goncharov
+      Security Contact:
+        Primary: Max Goncharov
+      Submitter Contact:
+        Primary: Bodhitha Jayatilaka
+    Disable: false
+    FQDN: ce04.cmsaf.mit.edu
+    ID: 794
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 65
+SupportCenterName: USCMS_Tier2

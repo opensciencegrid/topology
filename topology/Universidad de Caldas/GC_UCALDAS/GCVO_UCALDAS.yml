@@ -1,0 +1,39 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 316
+Resources:
+  GCVO_UCALDAS_CE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Gustavo Isaza
+        Secondary: Diego Alberto Rincon Yanez
+      Miscellaneous Contact:
+        Secondary: Diego Alberto Rincon Yanez
+      Resource Report Contact:
+        Secondary: Diego Alberto Rincon Yanez
+      Security Contact:
+        Primary: Gustavo Isaza
+        Secondary: Diego Alberto Rincon Yanez
+      Submitter Contact:
+        Primary: Gustavo Isaza
+    Disable: false
+    FQDN: c-head.ucaldas.edu.co
+    ID: 415
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GUMS Server:
+        Description: GUMS Server
+        Details: null
+        ID: 101
+    VOOwnership:
+      GCEDU: 50
+      GCVO: 50
+SupportCenterID: 54
+SupportCenterName: GC

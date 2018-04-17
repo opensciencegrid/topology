@@ -1,0 +1,37 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 321
+Resources:
+  GCVO_UDEM_CE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Juan Camilo Hernandez Diaz
+        Secondary: Diego Alberto Rincon Yanez
+      Miscellaneous Contact:
+        Primary: Juan Camilo Hernandez Diaz
+        Secondary: Diego Alberto Rincon Yanez
+      Resource Report Contact:
+        Primary: Juan Camilo Hernandez Diaz
+        Tertiary: Diego Alberto Rincon Yanez
+      Security Contact:
+        Primary: Juan Camilo Hernandez Diaz
+        Secondary: Diego Alberto Rincon Yanez
+      Submitter Contact:
+        Primary: Juan Camilo Hernandez Diaz
+    Disable: false
+    FQDN: gck-ce.udem.edu.co
+    ID: 420
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: gck-ce.udem.edu.co:2119
+        ID: 1
+    VOOwnership:
+      GCEDU: 50
+      GCVO: 50
+SupportCenterID: 54
+SupportCenterName: GC

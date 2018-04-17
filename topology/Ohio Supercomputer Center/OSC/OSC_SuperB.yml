@@ -1,0 +1,49 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 353
+Resources:
+  OSC_SuperB_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Johnson
+      Security Contact:
+        Primary: Doug Johnson
+      Submitter Contact:
+        Primary: Doug Johnson
+    Disable: true
+    FQDN: superbvo.osc.edu
+    ID: 481
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      superbvo.org: 100
+  OSC_SuperB_gridftp:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Johnson
+      Security Contact:
+        Primary: Doug Johnson
+      Submitter Contact:
+        Primary: Doug Johnson
+    Disable: true
+    FQDN: superbvo.osc.edu
+    ID: 482
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      superbvo.org: 100
+SupportCenterID: 56
+SupportCenterName: SUPERB-SC

@@ -1,0 +1,25 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 34
+Resources:
+  GRASE-NU-CARTMAN:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Jon Bednasz
+      Resource Report Contact:
+        Primary: Jon Bednasz
+      Security Contact:
+        Primary: Jon Bednasz
+      Submitter Contact:
+        Primary: Jon Bednasz
+    Disable: true
+    FQDN: cartman-grid.niagara.edu
+    ID: 34
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+SupportCenterID: 43
+SupportCenterName: NYSGRID

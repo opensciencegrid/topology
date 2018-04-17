@@ -1,0 +1,33 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 458
+Resources:
+  JINR_CONDOR_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Nikita Balashov
+        Secondary: Evgeniy Alexeevich Kuznetsov
+      Resource Report Contact:
+        Primary: Nikita Balashov
+        Secondary: Evgeniy Alexeevich Kuznetsov
+      Security Contact:
+        Primary: Nikita Balashov
+        Secondary: Evgeniy Alexeevich Kuznetsov
+      Submitter Contact:
+        Primary: Nikita Balashov
+    Disable: false
+    FQDN: cloud-osg-ce.jinr.ru
+    ID: 853
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cloud-osg-ce.jinr.ru
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      Nova: 100
+SupportCenterID: 90
+SupportCenterName: JINR

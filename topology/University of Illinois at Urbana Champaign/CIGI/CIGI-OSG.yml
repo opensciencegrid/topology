@@ -1,0 +1,27 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 244
+Resources:
+  CIGI-VOMS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Anand Padmanabhan
+      Resource Report Contact:
+        Primary: Anand Padmanabhan
+      Security Contact:
+        Primary: Anand Padmanabhan
+      Submitter Contact:
+        Primary: Anand Padmanabhan
+    Disable: false
+    FQDN: voms.cigi.uiuc.edu
+    ID: 267
+    Services:
+      VOMS Server:
+        Description: VOMS Server
+        Details: null
+        ID: 102
+    VOOwnership:
+      CIGI: 100
+SupportCenterID: 2
+SupportCenterName: CIGI

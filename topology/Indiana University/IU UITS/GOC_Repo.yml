@@ -1,0 +1,52 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 325
+Resources:
+  GOC_Repo_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Miscellaneous Contact:
+        Primary: Scott Teige
+      Resource Report Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: repo1.grid.iu.edu
+    ID: 424
+    Services:
+      Software Repo:
+        Description: A place to deposit RPM distributions
+        Details: null
+        ID: 123
+    VOOwnership:
+      MIS: 100
+  GOC_Repo_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Miscellaneous Contact:
+        Primary: Scott Teige
+      Resource Report Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: repo2.grid.iu.edu
+    ID: 425
+    Services:
+      Software Repo:
+        Description: A place to deposit RPM distributions
+        Details: null
+        ID: 123
+    VOOwnership:
+      MIS: 100
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

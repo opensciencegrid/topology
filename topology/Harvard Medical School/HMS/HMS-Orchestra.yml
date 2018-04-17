@@ -1,0 +1,29 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 312
+Resources:
+  HMS-Orchestra-Dev:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Peter Doherty
+      Resource Report Contact:
+        Primary: Peter Doherty
+      Security Contact:
+        Primary: Peter Doherty
+      Submitter Contact:
+        Primary: Peter Doherty
+    Disable: true
+    FQDN: dev.osg.orchestra.med.harvard.edu
+    ID: 411
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      NEBioGrid: 100
+SupportCenterID: 58
+SupportCenterName: HMS

@@ -1,0 +1,79 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 9
+Resources:
+  cinvestav:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Alberto Sanchez-Hernandez
+      Resource Report Contact:
+        Primary: Alberto Sanchez-Hernandez
+      Security Contact:
+        Primary: Alberto Sanchez-Hernandez
+      Submitter Contact:
+        Primary: Alberto Sanchez-Hernandez
+    Disable: false
+    FQDN: proton.fis.cinvestav.mx
+    ID: 9
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      CMS: 80
+      DOSAR: 20
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=cinvestav,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: null
+  cinvestav-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Alberto Sanchez-Hernandez
+      Miscellaneous Contact:
+        Primary: Alberto Sanchez-Hernandez
+      Resource Report Contact:
+        Primary: Alberto Sanchez-Hernandez
+      Security Contact:
+        Primary: Alberto Sanchez-Hernandez
+      Submitter Contact:
+        Primary: Alberto Sanchez-Hernandez
+    Disable: false
+    FQDN: meson.fis.cinvestav.mx
+    ID: 281
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=cinvestav,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: null
+SupportCenterID: 4
+SupportCenterName: DOSAR

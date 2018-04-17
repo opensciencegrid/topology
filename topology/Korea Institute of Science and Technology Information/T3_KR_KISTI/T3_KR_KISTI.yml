@@ -1,0 +1,145 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 394
+Resources:
+  KISTI-NSDC-GUMS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Seo-Young Noh
+        Secondary: Geonmo Ryu
+      Miscellaneous Contact:
+        Primary: Seo-Young Noh
+        Tertiary: Geonmo Ryu
+      Resource Report Contact:
+        Primary: Seo-Young Noh
+        Secondary: Geonmo Ryu
+      Security Contact:
+        Primary: Seo-Young Noh
+        Secondary: Geonmo Ryu
+      Submitter Contact:
+        Primary: Beob Kyun Kim
+    Disable: false
+    FQDN: gums.sdfarm.kr
+    ID: 272
+    Services:
+      GUMS Server:
+        Description: GUMS Server
+        Details: null
+        ID: 101
+    VOOwnership:
+      CMS: 100
+  KISTI_CMS_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Geonmo Ryu
+        Secondary: Seoyoung Roh
+      Miscellaneous Contact:
+        Primary: Seoyoung Roh
+        Secondary: Geonmo Ryu
+      Resource Report Contact:
+        Primary: Geonmo Ryu
+        Secondary: GyeongRyoon Kim
+      Security Contact:
+        Primary: Geonmo Ryu
+        Secondary: Seoyoung Roh
+      Submitter Contact:
+        Primary: GyeongRyoon Kim
+    Disable: false
+    FQDN: cms-squid.sdfarm.kr
+    ID: 690
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details: null
+        ID: 138
+    VOOwnership:
+      CMS: 100
+  KISTI_CMS_T3_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Geonmo Ryu
+        Secondary: Sangwook Bae
+      Miscellaneous Contact:
+        Primary: Geonmo Ryu
+        Secondary: Sangwook Bae
+      Resource Report Contact:
+        Primary: Geonmo Ryu
+        Secondary: Sangwook Bae
+      Security Contact:
+        Primary: Geonmo Ryu
+        Secondary: Sangwook Bae
+      Submitter Contact:
+        Primary: GyeongRyoon Kim
+    Disable: false
+    FQDN: cms-sejong.sdfarm.kr
+    ID: 627
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 334
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=T3_KR_KISTI,o=grid
+      StorageCapacityMax: 600
+      StorageCapacityMin: 200
+      TapeCapacity: 0
+  KISTI_CMS_T3_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Geonmo Ryu
+        Secondary: Seo-Young Noh
+      Miscellaneous Contact:
+        Primary: Geonmo Ryu
+        Secondary: Seo-Young Noh
+      Resource Report Contact:
+        Primary: Seo-Young Noh
+        Secondary: Geonmo Ryu
+      Security Contact:
+        Primary: Geonmo Ryu
+        Secondary: Seo-Young Noh
+      Submitter Contact:
+        Primary: GyeongRyoon Kim
+    Disable: false
+    FQDN: cms-se.sdfarm.kr
+    ID: 628
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: cms-se.sdfarm.kr:2811
+        ID: 5
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 334
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=T3_KR_KISTI,o=grid
+      StorageCapacityMax: 200
+      StorageCapacityMin: 200
+      TapeCapacity: 0
+SupportCenterID: 46
+SupportCenterName: USCMS_Tier3

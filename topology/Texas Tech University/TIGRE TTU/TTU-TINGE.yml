@@ -1,0 +1,41 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 365
+Resources:
+  TTU-TINGE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Alan Sill
+      Resource Report Contact:
+        Secondary: Alan Sill
+      Security Contact:
+        Secondary: Alan Sill
+    Disable: true
+    FQDN: tinge.hpcc.ttu.edu
+    ID: 527
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      SURAgrid: 50
+      TIGRE: 50
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=TTU-TINGE,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+SupportCenterID: 26
+SupportCenterName: TIGRE

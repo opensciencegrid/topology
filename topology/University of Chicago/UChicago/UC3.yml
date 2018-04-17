@@ -1,0 +1,55 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 373
+Resources:
+  UC3 UChicago VO Frontend:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Lincoln Bryant
+      Miscellaneous Contact:
+        Secondary: Lincoln Bryant
+      Resource Report Contact:
+        Primary: Lincoln Bryant
+        Tertiary: Suchandra Thapa
+      Security Contact:
+        Primary: Lincoln Bryant
+      Submitter Contact:
+        Primary: Marco Mambelli
+    Disable: false
+    FQDN: uc3-vofe.uchicago.edu
+    ID: 590
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      UC3: 100
+  UC3_SUB:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Lincoln Bryant
+      Resource Report Contact:
+        Secondary: Lincoln Bryant
+      Security Contact:
+        Primary: Lincoln Bryant
+      Submitter Contact:
+        Primary: Marco Mambelli
+    Disable: false
+    FQDN: uc3-sub.uchicago.edu
+    ID: 549
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      UC3: 100
+SupportCenterID: 79
+SupportCenterName: UChicago

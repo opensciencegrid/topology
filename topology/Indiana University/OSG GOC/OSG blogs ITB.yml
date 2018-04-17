@@ -1,0 +1,29 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 421
+Resources:
+  osg-blogs:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Miscellaneous Contact:
+        Primary: Scott Teige
+      Resource Report Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: blogs-itb.grid.iu.edu
+    ID: 729
+    Services:
+      OSG blogs:
+        Description: OSG blog aggregator
+        Details: null
+        ID: 143
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

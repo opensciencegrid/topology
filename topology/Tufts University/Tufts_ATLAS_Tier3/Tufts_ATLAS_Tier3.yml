@@ -1,0 +1,57 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 267
+Resources:
+  Tufts_ATLAS_Tier3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Austin Napier
+      Miscellaneous Contact:
+        Secondary: Austin Napier
+      Resource Report Contact:
+        Primary: Austin Napier
+      Security Contact:
+        Secondary: Austin Napier
+      Submitter Contact:
+        Primary: Austin Napier
+    Disable: true
+    FQDN: cobalt.uit.tufts.edu
+    ID: 324
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: cobalt.uit.tufts.edu
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: cobalt.uit.tufts.edu
+        ID: 5
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-Tufts_ATLAS_Tier3
+      HEPSPEC: 4510
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 2740
+      KSI2KMin: 2740
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Tufts_ATLAS_Tier3,o=grid
+      StorageCapacityMax: 20
+      StorageCapacityMin: 0.4
+      TapeCapacity: 0
+SupportCenterID: 29
+SupportCenterName: USATLAS

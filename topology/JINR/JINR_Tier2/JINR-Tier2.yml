@@ -1,0 +1,52 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 427
+Resources:
+  JINR_Tier2_CE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Nikita Balashov
+      Security Contact:
+        Primary: Nikita Balashov
+      Submitter Contact:
+        Primary: Nikita Balashov
+    Disable: false
+    FQDN: lcgce12.jinr.ru
+    ID: 742
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      (Other): 99
+      Nova: 1
+  JINR_Tier2_CE2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Nikita Balashov
+      Security Contact:
+        Primary: Nikita Balashov
+      Submitter Contact:
+        Primary: Nikita Balashov
+    Disable: false
+    FQDN: lcgce21.jinr.ru
+    ID: 743
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      (Other): 99
+      Nova: 1
+SupportCenterID: 3
+SupportCenterName: Community Support Center

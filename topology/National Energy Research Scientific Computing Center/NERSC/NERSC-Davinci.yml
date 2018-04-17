@@ -1,0 +1,29 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 72
+Resources:
+  NERSC-Davinci:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Shreyas Cholia
+      Resource Report Contact:
+        Primary: Shreyas Cholia
+      Security Contact:
+        Secondary: Shreyas Cholia
+      Submitter Contact:
+        Primary: Shreyas Cholia
+    Disable: true
+    FQDN: davinci.nersc.gov
+    FQDNAliases:
+    - davincigrid.nersc.gov
+    ID: 72
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 19
+SupportCenterName: NERSC

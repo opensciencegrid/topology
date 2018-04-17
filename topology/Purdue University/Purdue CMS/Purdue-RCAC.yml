@@ -1,0 +1,170 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 96
+Resources:
+  Purdue-CMS-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Majid Arabgol
+      Resource Report Contact:
+        Primary: Fengping Hu
+        Secondary: Preston Smith
+      Security Contact:
+        Secondary: Preston Smith
+      Submitter Contact:
+        Primary: Fengping Hu
+    Disable: true
+    FQDN: srm-dcache.rcac.purdue.edu
+    ID: 171
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-RCAC,o=grid
+      StorageCapacityMax: 1000
+      StorageCapacityMin: 1000
+      TapeCapacity: null
+  Purdue-CMS-Test:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Manoj Kumar Jha
+        Secondary: Majid Arabgol
+      Miscellaneous Contact:
+        Primary: Manoj Kumar Jha
+        Secondary: Majid Arabgol
+      Resource Report Contact:
+        Primary: Manoj Kumar Jha
+        Secondary: Majid Arabgol
+      Security Contact:
+        Primary: Manoj Kumar Jha
+        Secondary: Majid Arabgol
+      Submitter Contact:
+        Primary: Manoj Kumar Jha
+    Disable: true
+    FQDN: cmstest1.rcac.purdue.edu
+    ID: 594
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-RCAC,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 5.5
+  Purdue-RCAC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Majid Arabgol
+      Resource Report Contact:
+        Primary: Fengping Hu
+      Security Contact:
+        Primary: Preston Smith
+        Secondary: Fengping Hu
+      Submitter Contact:
+        Primary: Preston Smith
+    Disable: true
+    FQDN: osg.rcac.purdue.edu
+    ID: 96
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-RCAC,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  T2_Purdue_Perfsonar_Bandwidth:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Erik Gough
+      Resource Report Contact:
+        Primary: Majid Arabgol
+      Security Contact:
+        Primary: Erik Gough
+      Submitter Contact:
+        Primary: Fengping Hu
+    Disable: true
+    FQDN: mannperf2.itns.purdue.edu
+    ID: 513
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: http://mannperf2.itns.purdue.edu/toolkit/
+        ID: 130
+    VOOwnership:
+      CMS: 100
+  T2_Purdue_Perfsonar_Latency:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Majid Arabgol
+      Security Contact:
+        Primary: Fengping Hu
+      Submitter Contact:
+        Primary: Fengping Hu
+    Disable: true
+    FQDN: mannperf.itns.purdue.edu
+    ID: 514
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: http://mannperf.itns.purdue.edu
+        ID: 131
+    VOOwnership:
+      CMS: 100
+SupportCenterID: 65
+SupportCenterName: USCMS_Tier2

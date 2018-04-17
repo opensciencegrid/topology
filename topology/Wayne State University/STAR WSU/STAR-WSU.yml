@@ -1,0 +1,27 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 103
+Resources:
+  STAR-WSU:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Elisabeth Atems
+      Security Contact:
+        Primary: Elisabeth Atems
+      Submitter Contact:
+        Primary: Elisabeth Atems
+    Disable: true
+    FQDN: rhic20.physics.wayne.edu
+    ID: 103
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      STAR: 100
+SupportCenterID: 25
+SupportCenterName: STAR

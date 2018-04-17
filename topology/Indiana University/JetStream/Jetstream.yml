@@ -1,0 +1,26 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 466
+Resources:
+  Jetstream-CE-1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Mats Rynge
+      Submitter Contact:
+        Primary: Kyle Gross
+    Disable: false
+    FQDN: js-156-186.jetstream-cloud.org
+    ID: 882
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 49
+SupportCenterName: osg-glidein-factory

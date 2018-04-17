@@ -1,0 +1,242 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 91
+Resources:
+  SLAC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Steffen Luitz
+        Secondary: Wei Yang
+      Security Contact:
+        Primary: Steffen Luitz
+      Submitter Contact:
+        Primary: Steffen Luitz
+    Disable: false
+    FQDN: osgserv03.slac.stanford.edu
+    ID: 430
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: osgserv03.slac.stanford.edu:2119
+        ID: 1
+    VOOwnership:
+      SLAC: 100
+  SLAC-ATLAS-T3_GRIDFTP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wei Yang
+      Security Contact:
+        Primary: Wei Yang
+      Submitter Contact:
+        Primary: Wei Yang
+    Disable: false
+    FQDN: osggridftp02.slac.stanford.edu
+    ID: 491
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=WT2,o=grid
+      StorageCapacityMax: 100
+      StorageCapacityMin: 5
+      TapeCapacity: 0
+  WT2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wei Yang
+      Miscellaneous Contact:
+        Primary: Wei Yang
+      Resource Report Contact:
+        Primary: Wei Yang
+      Security Contact:
+        Primary: Wei Yang
+    Disable: false
+    FQDN: osgserv06.slac.stanford.edu
+    ID: 91
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://osgserv06.slac.stanford.edu
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.49
+      AccountingName: US-WT2
+      HEPSPEC: 42486
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 1202
+      KSI2KMin: 820
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=WT2,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  WT2_CE_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wei Yang
+      Miscellaneous Contact:
+        Primary: Wei Yang
+      Resource Report Contact:
+        Primary: Wei Yang
+      Security Contact:
+        Primary: Wei Yang
+      Submitter Contact:
+        Primary: Wei Yang
+    Disable: false
+    FQDN: osgserv02.slac.stanford.edu
+    ID: 368
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      ATLAS: 100
+  WT2_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wei Yang
+      Miscellaneous Contact:
+        Primary: Wei Yang
+      Resource Report Contact:
+        Primary: Wei Yang
+      Security Contact:
+        Primary: Wei Yang
+      Submitter Contact:
+        Primary: Wei Yang
+    Disable: false
+    FQDN: osggridftp02.slac.stanford.edu
+    ID: 166
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-WT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=WT2,o=grid
+      StorageCapacityMax: 3890
+      StorageCapacityMin: 3890
+      TapeCapacity: null
+  WT2_SE_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wei Yang
+      Security Contact:
+        Primary: Wei Yang
+      Submitter Contact:
+        Primary: Wei Yang
+    Disable: false
+    FQDN: osgsrm01.slac.stanford.edu
+    ID: 476
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      (Other): 100
+      ATLAS: 0
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=WT2,o=grid
+      StorageCapacityMax: 1
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  perfSONAR_bw_SLAC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wei Yang
+        Secondary: Shawn McKee
+      Security Contact:
+        Primary: Wei Yang
+      Submitter Contact:
+        Primary: Wei Yang
+    Disable: false
+    FQDN: psnr-farm04.slac.stanford.edu
+    ID: 579
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: psnr-farm04.slac.stanford.edu
+        ID: 130
+    VOOwnership:
+      ATLAS: 100
+  perfSONAR_lat_SLAC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wei Yang
+      Resource Report Contact:
+        Primary: Wei Yang
+      Security Contact:
+        Primary: Wei Yang
+      Submitter Contact:
+        Primary: Wei Yang
+    Disable: false
+    FQDN: psnr-farm10.slac.stanford.edu
+    ID: 576
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: psnr-farm10.slac.stanford.edu
+        ID: 131
+    VOOwnership:
+      ATLAS: 100
+SupportCenterID: 29
+SupportCenterName: USATLAS

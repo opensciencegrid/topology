@@ -1,0 +1,39 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 3
+Resources:
+  BNL_TEST_UST3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+      Security Contact:
+        Primary: Hironori Ito
+      Submitter Contact:
+        Primary: Hironori Ito
+    Disable: false
+    FQDN: grid37.racf.bnl.gov
+    ID: 345
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+        ID: 1
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL_ATLAS_1,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+SupportCenterID: 29
+SupportCenterName: USATLAS

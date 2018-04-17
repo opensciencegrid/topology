@@ -1,0 +1,28 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 327
+Resources:
+  GCVO_UV_CE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: John Alexander Sanabria Ordonez
+      Security Contact:
+        Primary: John Alexander Sanabria Ordonez
+      Submitter Contact:
+        Primary: John Alexander Sanabria Ordonez
+    Disable: false
+    FQDN: ce-eisc-02.univalle.edu.co
+    ID: 428
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      GCEDU: 100
+SupportCenterID: 54
+SupportCenterName: GC

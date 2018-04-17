@@ -1,0 +1,21 @@
+Disable: true
+GridType: OSG Integration Test Bed Resource
+GroupID: 21
+Resources:
+  FNAL_FERMIGRID_TEST:
+    Active: false
+    ContactLists:
+      Miscellaneous Contact:
+        Tertiary: Steve Timm
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: fgtest1.fnal.gov
+    ID: 21
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+SupportCenterID: 7
+SupportCenterName: Fermilab

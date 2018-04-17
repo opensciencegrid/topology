@@ -1,0 +1,30 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 475
+Resources:
+  OSG_US_FSU_HNPGRID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Resource Report Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+      Submitter Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: hosted-ce07.grid.uchicago.edu
+    ID: 899
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      Gluex: 100
+SupportCenterID: 79
+SupportCenterName: UChicago

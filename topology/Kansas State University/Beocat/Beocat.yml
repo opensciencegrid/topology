@@ -1,0 +1,57 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 278
+Resources:
+  Beocat_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Adam Tygart
+      Security Contact:
+        Primary: Adam Tygart
+      Submitter Contact:
+        Primary: Adam Tygart
+    Disable: false
+    FQDN: beocat.cis.ksu.edu
+    ID: 352
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+      GUMS Server:
+        Description: GUMS Server
+        Details: null
+        ID: 101
+      Gratia Collector:
+        Description: Gratia Collector
+        Details: null
+        ID: 103
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details: null
+        ID: 5
+      VOMRS Server:
+        Description: VOMRS Server
+        Details: null
+        ID: 110
+    VOOwnership:
+      Beocat: 100
+  Beocat_KSU_CE:
+    Active: true
+    ContactLists: null
+    Disable: false
+    FQDN: osg-ce.beocat.cis.ksu.edu
+    ID: 648
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://osg-ce.beocat.cis.ksu.edu
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 48
+SupportCenterName: Beocat Support

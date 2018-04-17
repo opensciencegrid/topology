@@ -1,0 +1,101 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 89
+Resources:
+  OU_OSCER_ATLAS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Resource Report Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Security Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Submitter Contact:
+        Primary: Horst Severini
+    Disable: false
+    FQDN: grid1.oscer.ou.edu
+    ID: 89
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      ATLAS: 55
+      DOSAR: 45
+    WLCGInformation:
+      APELNormalFactor: 14.22
+      AccountingName: US-SWT2
+      HEPSPEC: 98971
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=OU_OSCER_ATLAS,o=grid
+      StorageCapacityMax: 10
+      StorageCapacityMin: 10
+      TapeCapacity: null
+  OU_OSCER_ATLAS_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Resource Report Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Security Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Submitter Contact:
+        Primary: Horst Severini
+    Disable: false
+    FQDN: se1.oscer.ou.edu
+    ID: 905
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+      XRootD origin server:
+        Description: XRootD origin server
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 147
+    VOOwnership:
+      ATLAS: 55
+      DOSAR: 45
+    WLCGInformation:
+      APELNormalFactor: 14.22
+      AccountingName: US-SWT2
+      HEPSPEC: 98971
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=OU_OSCER_ATLAS,o=grid
+      StorageCapacityMax: 10
+      StorageCapacityMin: 10
+      TapeCapacity: null
+SupportCenterID: 29
+SupportCenterName: USATLAS

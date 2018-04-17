@@ -1,0 +1,35 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 77
+Resources:
+  NERSC-VM-VTB0:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shreyas Cholia
+        Secondary: Jeff Porter
+      Miscellaneous Contact:
+        Primary: Lisa Gerhardt
+      Resource Report Contact:
+        Primary: Jeff Porter
+        Secondary: Shreyas Cholia
+      Security Contact:
+        Primary: Jeff Porter
+        Secondary: Shreyas Cholia
+      Submitter Contact:
+        Primary: Iwona Sakrejda
+    Disable: false
+    FQDN: osp-vtb00.nersc.gov
+    ID: 77
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      LBNL_DSD: 100
+SupportCenterID: 19
+SupportCenterName: NERSC

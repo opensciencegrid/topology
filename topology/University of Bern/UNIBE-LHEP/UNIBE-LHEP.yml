@@ -1,0 +1,64 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 436
+Resources:
+  Bern ce01:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Gianfranco Sciacca
+      Security Contact:
+        Primary: Gianfranco Sciacca
+      Submitter Contact:
+        Primary: Gianfranco Sciacca
+    Disable: true
+    FQDN: ce01.lhep.unibe.ch
+    ID: 773
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      (Other): 99
+      MicroBooNE: 1
+  Bern ce02:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Gianfranco Sciacca
+      Security Contact:
+        Primary: Gianfranco Sciacca
+      Submitter Contact:
+        Primary: Gianfranco Sciacca
+    Disable: true
+    FQDN: ce02.lhep.unibe.ch
+    ID: 774
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      (Other): 99
+      MicroBooNE: 1
+SupportCenterID: 3
+SupportCenterName: Community Support Center

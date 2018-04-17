@@ -1,0 +1,159 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 163
+Resources:
+  FLTECH:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Ryan Wojtyla
+      Miscellaneous Contact:
+        Primary: Ryan Wojtyla
+      Resource Report Contact:
+        Primary: Ryan Wojtyla
+      Security Contact:
+        Primary: Ryan Wojtyla
+      Submitter Contact:
+        Primary: Patrick Ford
+    Disable: false
+    FQDN: uscms1.fltech-grid3.fit.edu
+    ID: 163
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://uscms1.fltech-grid3.fit.edu
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=FLTECH,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  FLTECH-ITB:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Ankit Durgasis Mohapatra
+      Miscellaneous Contact:
+        Secondary: Ankit Durgasis Mohapatra
+      Resource Report Contact:
+        Secondary: Ankit Durgasis Mohapatra
+      Security Contact:
+        Secondary: Ankit Durgasis Mohapatra
+      Submitter Contact:
+        Primary: Xenia Janice Fave
+    Disable: false
+    FQDN: gridtest.fit.edu
+    ID: 339
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+  FLTECH-MGMT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Ankit Durgasis Mohapatra
+      Miscellaneous Contact:
+        Secondary: Ankit Durgasis Mohapatra
+      Resource Report Contact:
+        Secondary: Ankit Durgasis Mohapatra
+      Security Contact:
+        Secondary: Ankit Durgasis Mohapatra
+      Submitter Contact:
+        Primary: Jordan Robertson
+    Disable: false
+    FQDN: uscms1-mgmt.fltech-grid3.fit.edu
+    ID: 592
+    Services:
+      GUMS Server:
+        Description: GUMS Server
+        Details: null
+        ID: 101
+    VOOwnership:
+      CMS: 100
+  FLTECH-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Ryan Wojtyla
+      Miscellaneous Contact:
+        Primary: Ryan Wojtyla
+      Resource Report Contact:
+        Primary: Ryan Wojtyla
+      Security Contact:
+        Primary: Ryan Wojtyla
+      Submitter Contact:
+        Primary: Patrick Ford
+    Disable: false
+    FQDN: uscms1-se.fltech-grid3.fit.edu
+    ID: 269
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=FLTECH,o=grid
+      StorageCapacityMax: 5
+      StorageCapacityMin: 5
+      TapeCapacity: null
+  T3_US_FIT:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Johanna-Laina Fischer
+      Security Contact:
+        Primary: Johanna-Laina Fischer
+      Submitter Contact:
+        Primary: Johanna-Laina Fischer
+    Disable: true
+    FQDN: uscms1.fltech-grid3.fit.edu-disabled
+    ID: 443
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 46
+SupportCenterName: USCMS_Tier3

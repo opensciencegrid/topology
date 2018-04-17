@@ -1,0 +1,82 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 263
+Resources:
+  USCMS-FNAL-ITB:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Burt Holzman
+      Miscellaneous Contact:
+        Primary: Burt Holzman
+        Secondary: Catalin Dumitrescu
+        Tertiary: Anthony Tiradani
+      Submitter Contact:
+        Primary: Burt Holzman
+    Disable: false
+    FQDN: cms-xen13.fnal.gov
+    ID: 14
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details: null
+        ID: 5
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=USCMS-FNAL-ITB,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  USCMS-FNAL-ITB2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Burt Holzman
+      Miscellaneous Contact:
+        Primary: Burt Holzman
+        Secondary: Catalin Dumitrescu
+        Tertiary: Anthony Tiradani
+      Submitter Contact:
+        Primary: Anthony Tiradani
+    Disable: false
+    FQDN: cms-xen15.fnal.gov
+    ID: 174
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details: null
+        ID: 5
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=USCMS-FNAL-ITB,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+SupportCenterID: 30
+SupportCenterName: USCMS

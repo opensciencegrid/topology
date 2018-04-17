@@ -1,0 +1,71 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 295
+Resources:
+  USP-LCCA-CE-test:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Ettore Enrico Delfino Ligorio
+      Security Contact:
+        Primary: Ettore Enrico Delfino Ligorio
+      Submitter Contact:
+        Primary: Ettore Enrico Delfino Ligorio
+    Disable: false
+    FQDN: osg-ce.lcca.usp.br
+    FQDNAliases:
+    - osg-ce.lcca.usp.br
+    ID: 378
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+        ID: 1
+    VOOwnership:
+      (Other): 20
+      OSGEDU: 80
+  USP-LCCA-GUMS-test:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Ettore Enrico Delfino Ligorio
+      Security Contact:
+        Primary: Ettore Enrico Delfino Ligorio
+      Submitter Contact:
+        Primary: Ettore Enrico Delfino Ligorio
+    Disable: false
+    FQDN: osg-gums.lcca.usp.br
+    ID: 380
+    Services:
+      GUMS Server:
+        Description: GUMS Server
+        Details:
+          hidden: true
+        ID: 101
+    VOOwnership:
+      (Other): 20
+      OSGEDU: 80
+  USP-LCCA-SE-test:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Ettore Enrico Delfino Ligorio
+      Security Contact:
+        Primary: Ettore Enrico Delfino Ligorio
+      Submitter Contact:
+        Primary: Ettore Enrico Delfino Ligorio
+    Disable: false
+    FQDN: osg-se.lcca.usp.br
+    ID: 379
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: true
+        ID: 3
+    VOOwnership:
+      (Other): 20
+      OSGEDU: 80
+SupportCenterID: 3
+SupportCenterName: Community Support Center

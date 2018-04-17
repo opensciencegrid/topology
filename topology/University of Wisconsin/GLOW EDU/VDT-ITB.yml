@@ -1,0 +1,54 @@
+Disable: true
+GridType: OSG Integration Test Bed Resource
+GroupID: 260
+Resources:
+  VDT-ITB:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Tim Cartwright
+      Miscellaneous Contact:
+        Primary: Tim Cartwright
+      Resource Report Contact:
+        Secondary: Tim Cartwright
+      Security Contact:
+        Secondary: Tim Cartwright
+    Disable: true
+    FQDN: vdt-itb.cs.wisc.edu
+    ID: 307
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+  VDT-ITB-MADISON:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Matyas Selmeci
+        Secondary: Tim Cartwright
+      Resource Report Contact:
+        Primary: Matyas Selmeci
+        Secondary: Tim Cartwright
+      Security Contact:
+        Primary: Matyas Selmeci
+        Secondary: Tim Cartwright
+    Disable: true
+    FQDN: itb-ce1.chtc.wisc.edu
+    ID: 467
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 31
+SupportCenterName: OSG Software

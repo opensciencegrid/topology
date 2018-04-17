@@ -1,0 +1,41 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 269
+Resources:
+  NERSC-Carver:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Shreyas Cholia
+        Secondary: Tina Declerck
+      Resource Report Contact:
+        Primary: Shreyas Cholia
+      Security Contact:
+        Secondary: Shreyas Cholia
+      Submitter Contact:
+        Primary: Shreyas Cholia
+    Disable: true
+    FQDN: carvergrid.nersc.gov
+    FQDNAliases:
+    - carver.nersc.gov
+    - cvrsvc06-eth2.nersc.gov
+    - cvrsvc06.nersc.gov.
+    ID: 332
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 19
+SupportCenterName: NERSC

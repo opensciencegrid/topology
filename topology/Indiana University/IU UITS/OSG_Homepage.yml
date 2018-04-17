@@ -1,0 +1,28 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 280
+Resources:
+  OSG_Homepage_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Kyle Gross
+      Miscellaneous Contact:
+        Secondary: Kyle Gross
+        Tertiary: Elizabeth Prout
+      Security Contact:
+        Primary: OSG Operations Center
+      Submitter Contact:
+        Primary: Soichi Hayashi
+    Disable: false
+    FQDN: opensciencegrid.org
+    ID: 353
+    Services:
+      OSG Homepage:
+        Description: OSG Homepage
+        Details: null
+        ID: 120
+    VOOwnership:
+      Fermilab: 100
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

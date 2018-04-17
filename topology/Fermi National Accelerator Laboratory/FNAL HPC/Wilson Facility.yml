@@ -1,0 +1,54 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 455
+Resources:
+  FNAL_WILSON:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Gerard Bernabeu Altayo
+      Resource Report Contact:
+        Secondary: Gerard Bernabeu Altayo
+      Security Contact:
+        Primary: Gerard Bernabeu Altayo
+      Submitter Contact:
+        Primary: Gerard Bernabeu Altayo
+    Disable: false
+    FQDN: tev.fnal.gov
+    ID: 841
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      Fermilab: 100
+  FNAL_WILSON_2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Gerard Bernabeu Altayo
+      Miscellaneous Contact:
+        Primary: Kevin Retzke
+      Resource Report Contact:
+        Secondary: Gerard Bernabeu Altayo
+      Security Contact:
+        Primary: Gerard Bernabeu Altayo
+      Submitter Contact:
+        Primary: Kevin Retzke
+    Disable: false
+    FQDN: mic.fnal.gov
+    ID: 867
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      Fermilab: 100
+SupportCenterID: 7
+SupportCenterName: Fermilab

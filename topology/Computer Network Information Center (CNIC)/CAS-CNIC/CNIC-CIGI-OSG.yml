@@ -1,0 +1,54 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 238
+Resources:
+  CNIC-OSG:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Zhenghua Xue
+      Miscellaneous Contact:
+        Primary: Anand Padmanabhan
+      Resource Report Contact:
+        Primary: Zhenghua Xue
+        Tertiary: Anand Padmanabhan
+      Security Contact:
+        Primary: Zhenghua Xue
+      Submitter Contact:
+        Primary: Anand Padmanabhan
+    Disable: false
+    FQDN: osg.cnic.cn
+    ID: 245
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      CIGI: 100
+  CNIC-OSG-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Zhenghua Xue
+      Resource Report Contact:
+        Primary: Zhenghua Xue
+        Tertiary: Anand Padmanabhan
+      Security Contact:
+        Primary: Zhenghua Xue
+      Submitter Contact:
+        Primary: Anand Padmanabhan
+    Disable: false
+    FQDN: se.osg.cnic.cn
+    ID: 318
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      CIGI: 100
+SupportCenterID: 2
+SupportCenterName: CIGI

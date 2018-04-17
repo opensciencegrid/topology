@@ -1,0 +1,96 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 445
+Resources:
+  IIT_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Grigoriy Abramov
+      Security Contact:
+        Primary: Grigoriy Abramov
+      Submitter Contact:
+        Primary: Grigoriy Abramov
+    Disable: false
+    FQDN: iitgrid.iit.edu
+    ID: 825
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      (Other): 50
+      OSG: 50
+  IIT_CE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Grigoriy Abramov
+      Security Contact:
+        Primary: Grigoriy Abramov
+      Submitter Contact:
+        Primary: Grigoriy Abramov
+    Disable: false
+    FQDN: iitce1.iit.edu
+    ID: 844
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      (Other): 50
+      OSG: 50
+  IIT_CE2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Grigoriy Abramov
+      Security Contact:
+        Primary: Grigoriy Abramov
+      Submitter Contact:
+        Primary: Grigoriy Abramov
+    Disable: false
+    FQDN: iitce2.iit.edu
+    ID: 847
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      (Other): 50
+      OSG: 50
+  IIT_SUBMIT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Grigoriy Abramov
+      Security Contact:
+        Primary: Grigoriy Abramov
+      Submitter Contact:
+        Primary: Grigoriy Abramov
+    Disable: false
+    FQDN: otsgrid.iit.edu
+    ID: 840
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 3
+SupportCenterName: Community Support Center

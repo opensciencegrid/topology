@@ -1,0 +1,31 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 374
+Resources:
+  OSG UChicago VO Frontend:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Marco Mambelli
+      Miscellaneous Contact:
+        Primary: Marco Mambelli
+      Resource Report Contact:
+        Primary: Marco Mambelli
+      Security Contact:
+        Primary: Marco Mambelli
+      Submitter Contact:
+        Primary: Marco Mambelli
+    Disable: false
+    FQDN: ui-gwms.uchicago.edu
+    ID: 548
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: ui-gwms.uchicago.edu
+        ID: 109
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 79
+SupportCenterName: UChicago

@@ -1,0 +1,61 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 259
+Resources:
+  GridUNESP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Marcio Antonio Costa
+      Miscellaneous Contact:
+        Secondary: Marcio Antonio Costa
+        Tertiary: Jadir Marra da Silva
+      Resource Report Contact:
+        Secondary: Marcio Antonio Costa
+        Tertiary: Jadir Marra da Silva
+      Security Contact:
+        Secondary: Marcio Antonio Costa
+      Submitter Contact:
+        Primary: Gabriel Araujo von Winckler
+    Disable: false
+    FQDN: osg-ce.grid.unesp.br
+    ID: 308
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      GridUNESP: 100
+  GridUNESP_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Marcio Antonio Costa
+      Miscellaneous Contact:
+        Secondary: Marcio Antonio Costa
+        Tertiary: Jadir Marra da Silva
+      Resource Report Contact:
+        Secondary: Marcio Antonio Costa
+        Tertiary: Jadir Marra da Silva
+      Security Contact:
+        Secondary: Marcio Antonio Costa
+      Submitter Contact:
+        Primary: Gabriel Araujo von Winckler
+    Disable: true
+    FQDN: se.grid.unesp.br
+    ID: 309
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      GridUNESP: 100
+SupportCenterID: 45
+SupportCenterName: GridUNESP

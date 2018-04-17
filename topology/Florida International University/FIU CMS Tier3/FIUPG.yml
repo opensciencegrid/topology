@@ -1,0 +1,64 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 307
+Resources:
+  FIU_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jorge Luis Rodriguez
+      Resource Report Contact:
+        Primary: Jorge Luis Rodriguez
+      Security Contact:
+        Primary: Jorge Luis Rodriguez
+      Submitter Contact:
+        Primary: Jorge Luis Rodriguez
+    Disable: false
+    FQDN: fiupg.hep.fiu.edu
+    ID: 404
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T3_US_FIU
+      HEPSPEC: 2713
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 678
+      KSI2KMin: 602
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=FIUPG,o=grid
+      StorageCapacityMax: 43
+      StorageCapacityMin: 43
+      TapeCapacity: 0
+  FIU_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jorge Luis Rodriguez
+      Security Contact:
+        Primary: Jorge Luis Rodriguez
+      Submitter Contact:
+        Primary: Jorge Luis Rodriguez
+    Disable: false
+    FQDN: srm.hep.fiu.edu
+    ID: 432
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      CMS: 100
+SupportCenterID: 8
+SupportCenterName: fGOC

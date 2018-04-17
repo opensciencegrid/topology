@@ -1,0 +1,100 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 437
+Resources:
+  IceCube-submit-1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Vladimir Brik
+        Secondary: Gonzalo Merino
+      Miscellaneous Contact:
+        Primary: Vladimir Brik
+        Secondary: Gonzalo Merino
+        Tertiary: Steve Barnet
+      Resource Report Contact:
+        Primary: Vladimir Brik
+        Secondary: Gonzalo Merino
+        Tertiary: Steve Barnet
+      Security Contact:
+        Primary: Steve Barnet
+        Secondary: Gonzalo Merino
+      Submitter Contact:
+        Primary: Gonzalo Merino
+    Disable: false
+    FQDN: sub-1.icecube.wisc.edu
+    ID: 792
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      IceCube: 100
+  IceCube-submit-simprod:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Gonzalo Merino
+        Secondary: Vladimir Brik
+      Miscellaneous Contact:
+        Primary: Vladimir Brik
+        Secondary: Gonzalo Merino
+        Tertiary: Steve Barnet
+      Resource Report Contact:
+        Primary: Vladimir Brik
+        Secondary: Gonzalo Merino
+        Tertiary: Steve Barnet
+      Security Contact:
+        Primary: Steve Barnet
+        Secondary: Gonzalo Merino
+      Submitter Contact:
+        Primary: Gonzalo Merino
+    Disable: false
+    FQDN: sub-simprod.icecube.wisc.edu
+    ID: 793
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      IceCube: 100
+  NPX:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Alec Sheperd
+        Secondary: Steve Barnet
+      Miscellaneous Contact:
+        Primary: Alec Sheperd
+        Secondary: Steve Barnet
+        Tertiary: Gonzalo Merino
+      Resource Report Contact:
+        Primary: Alec Sheperd
+        Secondary: Gonzalo Merino
+        Tertiary: Steve Barnet
+      Security Contact:
+        Primary: Alec Sheperd
+        Secondary: Steve Barnet
+      Submitter Contact:
+        Primary: Vladimir Brik
+    Disable: false
+    FQDN: osg-ce.icecube.wisc.edu
+    ID: 779
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      IceCube: 100
+SupportCenterID: 35
+SupportCenterName: IceCube

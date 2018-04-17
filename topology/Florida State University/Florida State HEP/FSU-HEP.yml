@@ -1,0 +1,44 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 23
+Resources:
+  FSU-HEP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Kurtis Johnson
+        Secondary: Douglas Johnson
+      Miscellaneous Contact:
+        Primary: Kurtis Johnson
+        Secondary: Douglas Johnson
+      Resource Report Contact:
+        Primary: Kurtis Johnson
+        Secondary: Douglas Johnson
+      Security Contact:
+        Primary: Kurtis Johnson
+        Secondary: Douglas Johnson
+    Disable: false
+    FQDN: ce.hep.fsu.edu
+    ID: 23
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=FSU-HEP,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+SupportCenterID: 46
+SupportCenterName: USCMS_Tier3

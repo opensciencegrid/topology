@@ -1,0 +1,49 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 230
+Resources:
+  Sandhills:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Garhan Attebury
+      Miscellaneous Contact:
+        Primary: Garhan Attebury
+        Secondary: Derek Weitzel
+      Resource Report Contact:
+        Primary: Garhan Attebury
+        Secondary: Derek Weitzel
+        Tertiary: David Swanson
+      Security Contact:
+        Primary: Garhan Attebury
+        Secondary: Carl Lundstedt
+      Submitter Contact:
+        Primary: Carl Lundstedt
+    Disable: false
+    FQDN: sandhills-ce1.unl.edu
+    ID: 228
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://sandhills-ce1.unl.edu
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      HCC: 100
+    WLCGInformation:
+      APELNormalFactor: 10.86
+      AccountingName: T2_US_Nebraska
+      HEPSPEC: 65650
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: null
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+SupportCenterID: 3
+SupportCenterName: Community Support Center

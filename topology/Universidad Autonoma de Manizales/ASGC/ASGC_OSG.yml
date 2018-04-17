@@ -1,0 +1,59 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 2
+Resources:
+  ASGC_OSG:
+    Active: false
+    ContactLists: null
+    Disable: true
+    FQDN: osgc01.grid.sinica.edu.tw
+    ID: 2
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+  perfSONAR_ASGC_bandwidth:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: HSIN-YEN CHEN
+      Security Contact:
+        Primary: HSIN-YEN CHEN
+      Submitter Contact:
+        Primary: HSIN-YEN CHEN
+    Disable: false
+    FQDN: lhc-bandwidth.twgrid.org
+    ID: 733
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: http://lhc-bandwidth.twgrid.org
+        ID: 130
+    VOOwnership:
+      ATLAS: 100
+  perfSONAR_ASGC_latency:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: HSIN-YEN CHEN
+      Security Contact:
+        Primary: HSIN-YEN CHEN
+      Submitter Contact:
+        Primary: HSIN-YEN CHEN
+    Disable: false
+    FQDN: lhc-latency.twgrid.org
+    ID: 715
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: http://lhc-latency.twgrid.org
+        ID: 131
+    VOOwnership:
+      ATLAS: 100
+SupportCenterID: 3
+SupportCenterName: Community Support Center

@@ -1,0 +1,27 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 126
+Resources:
+  UNM_HPC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Daniel Felker
+      Resource Report Contact:
+        Primary: Daniel Felker
+      Security Contact:
+        Primary: Daniel Felker
+      Submitter Contact:
+        Primary: Daniel Felker
+    Disable: false
+    FQDN: m3.alliance.unm.edu
+    ID: 126
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      ATLAS: 100
+SupportCenterID: 3
+SupportCenterName: Community Support Center

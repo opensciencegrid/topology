@@ -1,0 +1,47 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 97
+Resources:
+  SBGrid-GlideinWMS-Frontend:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Piotr Sliz
+        Secondary: Ian Stokes-Rees
+      Resource Report Contact:
+        Primary: Piotr Sliz
+        Secondary: Ian Stokes-Rees
+      Security Contact:
+        Primary: Piotr Sliz
+        Secondary: Ian Stokes-Rees
+      Submitter Contact:
+        Primary: Peter Doherty
+    Disable: false
+    FQDN: glidein.nebiogrid.org
+    ID: 402
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details: null
+        ID: 109
+    VOOwnership:
+      SBGrid: 100
+  SBGrid-Harvard:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Secondary: Ian Levesque
+      Security Contact:
+        Secondary: Ian Levesque
+      Submitter Contact:
+        Primary: Ian Levesque
+    Disable: true
+    FQDN: hpc.sbgrid.org
+    ID: 97
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+SupportCenterID: 34
+SupportCenterName: SBGrid

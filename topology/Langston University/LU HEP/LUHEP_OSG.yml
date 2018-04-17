@@ -1,0 +1,94 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 249
+Resources:
+  LUHEP_OSG:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Joel Snow
+      Miscellaneous Contact:
+        Primary: Joel Snow
+      Resource Report Contact:
+        Primary: Joel Snow
+      Security Contact:
+        Primary: Joel Snow
+      Submitter Contact:
+        Primary: Joel Snow
+    Disable: false
+    FQDN: luhepce.lunet.edu
+    ID: 276
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://luhepce.lunet.edu
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: luhepce.lunet.edu:2811
+        ID: 5
+    VOOwnership:
+      DOSAR: 100
+  LUHEP_OSG2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Joel Snow
+      Miscellaneous Contact:
+        Primary: Joel Snow
+      Resource Report Contact:
+        Primary: Joel Snow
+      Security Contact:
+        Primary: Joel Snow
+      Submitter Contact:
+        Primary: Joel Snow
+    Disable: false
+    FQDN: elixir.lunet.edu
+    ID: 405
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      ATLAS: 33
+      DOSAR: 34
+      DZero: 33
+  LUHEP_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Joel Snow
+      Resource Report Contact:
+        Primary: Joel Snow
+      Security Contact:
+        Primary: Joel Snow
+      Submitter Contact:
+        Primary: Joel Snow
+    Disable: false
+    FQDN: luhepse.lunet.edu
+    ID: 331
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      ATLAS: 0
+      DOSAR: 100
+      DZero: 0
+SupportCenterID: 4
+SupportCenterName: DOSAR

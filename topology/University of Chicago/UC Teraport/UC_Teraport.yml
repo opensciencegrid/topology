@@ -1,0 +1,23 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 119
+Resources:
+  UC_Teraport:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Secondary: Greg Cross
+    Disable: true
+    FQDN: tp-osg.ci.uchicago.edu
+    FQDNAliases:
+    - tp-grid1.ci.uchicago.edu
+    ID: 119
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 3
+SupportCenterName: Community Support Center

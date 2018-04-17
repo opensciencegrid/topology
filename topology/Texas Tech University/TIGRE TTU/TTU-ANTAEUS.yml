@@ -1,0 +1,83 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 105
+Resources:
+  TTU-ANTAEUS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Alan Sill
+      Resource Report Contact:
+        Primary: Alan Sill
+        Tertiary: Anupam Tambi
+      Security Contact:
+        Primary: Alan Sill
+      Submitter Contact:
+        Primary: Alan Sill
+    Disable: false
+    FQDN: antaeus.hpcc.ttu.edu
+    ID: 105
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 50
+      TIGRE: 50
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=TTU-ANTAEUS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  TTU-SIGMORGH:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Alan Sill
+      Resource Report Contact:
+        Primary: Alan Sill
+        Tertiary: Anupam Tambi
+      Security Contact:
+        Primary: Alan Sill
+      Submitter Contact:
+        Primary: Alan Sill
+    Disable: false
+    FQDN: sigmorgh.hpcc.ttu.edu
+    ID: 106
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      CMS: 50
+      OSG: 50
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: null
+      StorageCapacityMax: 262
+      StorageCapacityMin: 262
+      TapeCapacity: 0
+SupportCenterID: 26
+SupportCenterName: TIGRE

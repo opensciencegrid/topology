@@ -1,0 +1,31 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 417
+Resources:
+  LBL_nettest:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shawn McKee
+        Secondary: Brian Tierney
+      Resource Report Contact:
+        Primary: Shawn McKee
+        Secondary: Brian Tierney
+      Security Contact:
+        Primary: Shawn McKee
+        Secondary: Brian Tierney
+      Submitter Contact:
+        Primary: Shawn McKee
+    Disable: false
+    FQDN: nettest.lbl.gov
+    ID: 708
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: nettest.lbl.gov
+        ID: 131
+    VOOwnership:
+      LBNL: 100
+SupportCenterID: 87
+SupportCenterName: LHCONE_SC

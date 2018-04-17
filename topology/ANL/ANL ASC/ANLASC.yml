@@ -1,0 +1,243 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 283
+Resources:
+  ANL-ATLAS-GRIDFTP1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+      Security Contact:
+        Primary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: false
+    FQDN: atlasgridftp.hep.anl.gov
+    FQDNAliases:
+    - atlasgridftp1.hep.anl.gov
+    ID: 437
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: atlas8.hep.anl.gov:2811
+        ID: 5
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=ANLASC,o=grid
+      StorageCapacityMax: 19
+      StorageCapacityMin: 0.5
+      TapeCapacity: 0
+  ANL-ATLAS-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+      Security Contact:
+        Primary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: false
+    FQDN: atlasgridftp1.hep.anl.gov
+    ID: 747
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      ATLAS: 100
+  ANLASC Squid:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+      Security Contact:
+        Primary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: false
+    FQDN: squid.hep.anl.gov
+    ID: 595
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details: null
+        ID: 138
+    VOOwnership:
+      ATLAS: 100
+  ANLASC-ASCHEAD:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+        Secondary: Rik Yoshida
+      Resource Report Contact:
+        Primary: Doug Benjamin
+        Secondary: Rik Yoshida
+      Security Contact:
+        Primary: Doug Benjamin
+        Secondary: Rik Yoshida
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: true
+    FQDN: aschead.hep.anl.gov
+    ID: 363
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=ANLASC,o=grid
+      StorageCapacityMax: 19
+      StorageCapacityMin: 0.5
+      TapeCapacity: 0
+  ANLASC-ASCNFS:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+      Security Contact:
+        Primary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: true
+    FQDN: ascnfs.hep.anl.gov
+    ID: 357
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      ATLAS: 100
+  ANLASC-CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+      Security Contact:
+        Primary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: true
+    FQDN: atlasce.hep.anl.gov
+    ID: 526
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      ATLAS: 100
+  ANLASC-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+      Security Contact:
+        Primary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: false
+    FQDN: atlasgridftp02.hep.anl.gov
+    ID: 356
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=ANLASC,o=grid
+      StorageCapacityMax: 2
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  ANLASC-squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+      Security Contact:
+        Primary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: false
+    FQDN: squid.hep.anl.gov
+    ID: 453
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details: null
+        ID: 138
+    VOOwnership:
+      ATLAS: 100
+  ANLASC_RUCIO:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+      Security Contact:
+        Primary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: false
+    FQDN: rucio01.hep.anl.gov
+    ID: 714
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      ATLAS: 100
+SupportCenterID: 50
+SupportCenterName: USATLAS_Tier3

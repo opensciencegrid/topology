@@ -1,0 +1,45 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 288
+Resources:
+  VT_OSG:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Roger Link
+      Miscellaneous Contact:
+        Primary: Roger Link
+      Resource Report Contact:
+        Primary: Roger Link
+      Security Contact:
+        Primary: Roger Link
+      Submitter Contact:
+        Primary: Roger Link
+    Disable: true
+    FQDN: valiant.phys.vt.edu
+    ID: 362
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      Belle: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 30
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=VT_OSG,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+SupportCenterID: 3
+SupportCenterName: Community Support Center

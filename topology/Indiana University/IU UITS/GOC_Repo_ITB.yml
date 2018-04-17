@@ -1,0 +1,25 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 431
+Resources:
+  GOC_Repo_ITB:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Sarah Schmiechen
+      Security Contact:
+        Primary: Sarah Schmiechen
+      Submitter Contact:
+        Primary: Sarah Schmiechen
+    Disable: false
+    FQDN: repo-itb.grid.iu.edu
+    ID: 748
+    Services:
+      Software Repo:
+        Description: A place to deposit RPM distributions
+        Details: null
+        ID: 123
+    VOOwnership:
+      MIS: 100
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

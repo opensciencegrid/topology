@@ -1,0 +1,45 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 306
+Resources:
+  BNL_Test_2_CE_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+      Miscellaneous Contact:
+        Primary: Xin Zhao
+      Resource Report Contact:
+        Primary: Xin Zhao
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: gridtest02.racf.bnl.gov
+    ID: 399
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridtest02.racf.bnl.gov
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 200
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL_Test_2,o=grid
+      StorageCapacityMax: 1
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+SupportCenterID: 29
+SupportCenterName: USATLAS

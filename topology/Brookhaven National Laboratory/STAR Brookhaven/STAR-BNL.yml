@@ -1,0 +1,32 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 102
+Resources:
+  STAR-BNL:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jerome Lauret
+        Secondary: Wayne Betts
+      Resource Report Contact:
+        Primary: Jerome Lauret
+        Secondary: Wayne Betts
+      Security Contact:
+        Primary: Jerome Lauret
+        Secondary: Wayne Betts
+      Submitter Contact:
+        Primary: Wayne Betts
+    Disable: false
+    FQDN: stargrid02.rcf.bnl.gov
+    ID: 102
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      STAR: 100
+SupportCenterID: 25
+SupportCenterName: STAR

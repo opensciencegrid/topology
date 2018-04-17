@@ -1,0 +1,392 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 393
+Resources:
+  Purdue-Hadoop-CE:
+    Active: true
+    ContactLists:
+      Miscellaneous Contact:
+        Secondary: Manoj Kumar Jha
+      Resource Report Contact:
+        Secondary: Majid Arabgol
+        Tertiary: Manoj Kumar Jha
+      Security Contact:
+        Secondary: Majid Arabgol
+      Submitter Contact:
+        Primary: Manoj Kumar Jha
+    Disable: false
+    FQDN: hadoop-osg.rcac.purdue.edu
+    ID: 620
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://hadoop-osg.rcac.purdue.edu:9619/hadoop-osg.rcac.purdue.edu
+          uri_override: hadoop-osg.rcac.purdue.edu:2119
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 16.37
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 2600
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-Hadoop,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  Purdue-Hadoop-HT-PBS-CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Erik Gough
+      Miscellaneous Contact:
+        Primary: Majid Arabgol
+        Tertiary: Erik Gough
+      Resource Report Contact:
+        Primary: Majid Arabgol
+        Tertiary: Erik Gough
+      Security Contact:
+        Primary: Majid Arabgol
+      Submitter Contact:
+        Primary: Manoj Kumar Jha
+    Disable: false
+    FQDN: cmspbs-osg.rcac.purdue.edu
+    ID: 724
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cmspbs-osg.rcac.purdue.edu:9619/cmspbs-osg.rcac.purdue.edu
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 85
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-Hadoop,o=grid
+      StorageCapacityMax: 10
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  Purdue-Hadoop-HTCE:
+    Active: false
+    ContactLists:
+      Miscellaneous Contact:
+        Secondary: Majid Arabgol
+      Submitter Contact:
+        Primary: Manoj Kumar Jha
+    Disable: true
+    FQDN: cms-ce1-osg.rcac.purdue.edu
+    ID: 647
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 85
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-Hadoop,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  Purdue-Hadoop-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Erik Gough
+      Miscellaneous Contact:
+        Secondary: Erik Gough
+      Resource Report Contact:
+        Primary: Majid Arabgol
+        Tertiary: Erik Gough
+      Security Contact:
+        Primary: Majid Arabgol
+        Secondary: Erik Gough
+      Submitter Contact:
+        Primary: Manoj Kumar Jha
+    Disable: true
+    FQDN: srm.rcac.purdue.edu
+    ID: 621
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: srm.rcac.purdue.edu:8443
+        ID: 3
+    VOOwnership:
+      CMS: 100
+  Purdue-Hadoop-SE-Gridftp:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Stefan Piperov
+      Miscellaneous Contact:
+        Primary: Stefan Piperov
+      Resource Report Contact:
+        Secondary: Erik Gough
+        Tertiary: Stefan Piperov
+      Security Contact:
+        Secondary: Stefan Piperov
+      Submitter Contact:
+        Primary: Erik Gough
+    Disable: false
+    FQDN: cms-gridftp.rcac.purdue.edu
+    ID: 852
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: null
+      StorageCapacityMax: 3800
+      StorageCapacityMin: 3800
+      TapeCapacity: 0
+  Purdue-Hadoop-SE2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Majid Arabgol
+        Secondary: Erik Gough
+      Resource Report Contact:
+        Primary: Erik Gough
+        Tertiary: Manoj Kumar Jha
+      Security Contact:
+        Primary: Majid Arabgol
+      Submitter Contact:
+        Primary: Majid Arabgol
+    Disable: true
+    FQDN: srm6.rcac.purdue.edu
+    ID: 732
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: true
+          uri_override: srm6.rcac.purdue.edu:8443
+        ID: 3
+    VOOwnership:
+      CMS: 100
+  Purdue-Hadoop-TestCE:
+    Active: true
+    ContactLists:
+      Miscellaneous Contact:
+        Secondary: Manoj Kumar Jha
+      Resource Report Contact:
+        Primary: Majid Arabgol
+        Tertiary: Manoj Kumar Jha
+      Security Contact:
+        Primary: Majid Arabgol
+      Submitter Contact:
+        Primary: Manoj Kumar Jha
+    Disable: false
+    FQDN: cmstest1.rcac.purdue.edu
+    ID: 624
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cmstest1.rcac.purdue.edu:9619/cmstest1.rcac.purdue.edu
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-Hadoop,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  T2_US_Purdue_Squid1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Majid Arabgol
+      Miscellaneous Contact:
+        Primary: Majid Arabgol
+        Tertiary: Erik Gough
+      Resource Report Contact:
+        Secondary: Erik Gough
+      Security Contact:
+        Primary: Majid Arabgol
+      Submitter Contact:
+        Primary: Manoj Kumar Jha
+    Disable: false
+    FQDN: squid1.rcac.purdue.edu
+    ID: 681
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details: null
+        ID: 138
+    VOOwnership:
+      CMS: 100
+  T2_US_Purdue_Squid2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Majid Arabgol
+      Miscellaneous Contact:
+        Secondary: Majid Arabgol
+        Tertiary: Manoj Kumar Jha
+      Resource Report Contact:
+        Secondary: Majid Arabgol
+      Security Contact:
+        Primary: Majid Arabgol
+      Submitter Contact:
+        Primary: Manoj Kumar Jha
+    Disable: false
+    FQDN: squid2.rcac.purdue.edu
+    ID: 682
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details: null
+        ID: 138
+    VOOwnership:
+      CMS: 100
+  T2_US_Purdue_Squid3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Majid Arabgol
+      Miscellaneous Contact:
+        Secondary: Majid Arabgol
+        Tertiary: Erik Gough
+      Resource Report Contact:
+        Secondary: Majid Arabgol
+        Tertiary: Erik Gough
+      Security Contact:
+        Primary: Majid Arabgol
+      Submitter Contact:
+        Primary: Manoj Kumar Jha
+    Disable: false
+    FQDN: squid3.rcac.purdue.edu
+    ID: 683
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details: null
+        ID: 138
+    VOOwnership:
+      CMS: 100
+  US-Purdue BW:
+    Active: true
+    ContactLists:
+      Resource Report Contact:
+        Primary: Majid Arabgol
+      Security Contact:
+        Primary: Majid Arabgol
+      Submitter Contact:
+        Primary: Manoj Kumar Jha
+    Disable: false
+    FQDN: perfsonar-cms2.itns.purdue.edu
+    ID: 622
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: perfsonar-cms2.itns.purdue.edu
+        ID: 130
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-Hadoop,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  US-Purdue LT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Erik Gough
+      Miscellaneous Contact:
+        Secondary: Erik Gough
+      Resource Report Contact:
+        Primary: Majid Arabgol
+        Secondary: Erik Gough
+      Security Contact:
+        Primary: Majid Arabgol
+        Secondary: Erik Gough
+      Submitter Contact:
+        Primary: Manoj Kumar Jha
+    Disable: false
+    FQDN: perfsonar-cms1.itns.purdue.edu
+    ID: 623
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: perfsonar-cms1.itns.purdue.edu
+        ID: 131
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-Hadoop,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+SupportCenterID: 65
+SupportCenterName: USCMS_Tier2

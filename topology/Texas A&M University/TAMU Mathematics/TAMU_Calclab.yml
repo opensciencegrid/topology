@@ -1,0 +1,103 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 298
+Resources:
+  TAMU_Calclab:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Steve Johnson
+      Miscellaneous Contact:
+        Primary: Steve Johnson
+        Secondary: Guy T Almes
+      Resource Report Contact:
+        Primary: Steve Johnson
+      Security Contact:
+        Primary: Steve Johnson
+      Submitter Contact:
+        Primary: Steve Johnson
+    Disable: false
+    FQDN: calclab-ce.math.tamu.edu
+    ID: 381
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      SURAgrid: 100
+  TAMU_Calclab_CE2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Steve Johnson
+      Miscellaneous Contact:
+        Primary: Steve Johnson
+      Resource Report Contact:
+        Primary: Steve Johnson
+      Security Contact:
+        Primary: Steve Johnson
+      Submitter Contact:
+        Primary: Steve Johnson
+    Disable: false
+    FQDN: calclab-ce2.math.tamu.edu
+    ID: 538
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      SURAgrid: 100
+  TAMU_Calclab_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Steve Johnson
+      Miscellaneous Contact:
+        Primary: Steve Johnson
+        Secondary: Guy T Almes
+      Resource Report Contact:
+        Primary: Steve Johnson
+      Security Contact:
+        Primary: Steve Johnson
+      Submitter Contact:
+        Primary: Steve Johnson
+    Disable: false
+    FQDN: calcfs2.math.tamu.edu
+    ID: 382
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      SURAgrid: 100
+SupportCenterID: 53
+SupportCenterName: SURAgrid GOC

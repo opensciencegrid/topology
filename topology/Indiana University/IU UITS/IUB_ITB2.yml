@@ -1,0 +1,29 @@
+Disable: true
+GridType: OSG Integration Test Bed Resource
+GroupID: 50
+Resources:
+  IUB_ITB2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Tim Silvers
+      Resource Report Contact:
+        Primary: Tim Silvers
+      Security Contact:
+        Primary: Tim Silvers
+      Submitter Contact:
+        Primary: Tim Silvers
+    Disable: true
+    FQDN: itb-zero.uits.indiana.edu
+    ID: 50
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details: null
+        ID: 5
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

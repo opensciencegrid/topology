@@ -1,0 +1,145 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 351
+Resources:
+  AGLT2_TEST_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Bob Ball
+        Secondary: Shawn McKee
+      Miscellaneous Contact:
+        Primary: Bob Ball
+      Resource Report Contact:
+        Primary: Bob Ball
+        Secondary: Shawn McKee
+      Security Contact:
+        Primary: Bob Ball
+        Secondary: Shawn McKee
+      Submitter Contact:
+        Primary: Bob Ball
+    Disable: false
+    FQDN: gate03.aglt2.org
+    ID: 478
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 200
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=AGLT2_TEST,o=grid
+      StorageCapacityMax: 1
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  US-AGLT2_MSU BW(TB):
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Philippe Laurens
+        Secondary: Shawn McKee
+      Resource Report Contact:
+        Primary: Philippe Laurens
+        Secondary: Shawn McKee
+      Security Contact:
+        Primary: Philippe Laurens
+        Secondary: Shawn McKee
+      Submitter Contact:
+        Primary: Philippe Laurens
+    Disable: false
+    FQDN: psmsu06.aglt2.org
+    ID: 711
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: psmsu06.aglt2.org
+        ID: 130
+    VOOwnership:
+      (Other): 10
+      ATLAS: 90
+  US-AGLT2_MSU LAT(TB):
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Philippe Laurens
+        Secondary: Shawn McKee
+      Resource Report Contact:
+        Primary: Philippe Laurens
+        Secondary: Shawn McKee
+      Security Contact:
+        Primary: Philippe Laurens
+        Secondary: Shawn McKee
+      Submitter Contact:
+        Primary: Philippe Laurens
+    Disable: false
+    FQDN: psmsu05.aglt2.org
+    ID: 705
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: psmsu05.aglt2.org
+        ID: 131
+    VOOwnership:
+      (Other): 10
+      ATLAS: 90
+  US-AGLT2_UM BW(TB):
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shawn McKee
+      Resource Report Contact:
+        Primary: Shawn McKee
+      Security Contact:
+        Primary: Shawn McKee
+      Submitter Contact:
+        Primary: Shawn McKee
+    Disable: false
+    FQDN: psum06.aglt2.org
+    ID: 668
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: psum06.aglt2.org
+        ID: 130
+    VOOwnership:
+      (Other): 10
+      ATLAS: 90
+  US-AGLT2_UM LAT(TB):
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shawn McKee
+      Resource Report Contact:
+        Primary: Shawn McKee
+      Security Contact:
+        Primary: Shawn McKee
+      Submitter Contact:
+        Primary: Shawn McKee
+    Disable: false
+    FQDN: psum05.aglt2.org
+    ID: 667
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: psum05.aglt2.org
+        ID: 131
+    VOOwnership:
+      (Other): 10
+      ATLAS: 90
+SupportCenterID: 29
+SupportCenterName: USATLAS

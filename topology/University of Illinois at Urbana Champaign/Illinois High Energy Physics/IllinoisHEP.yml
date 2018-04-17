@@ -1,0 +1,153 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 147
+Resources:
+  IllinoisHEP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Security Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: osgx0.hep.uiuc.edu
+    ID: 147
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      ATLAS: 100
+  IllinoisHEP-GUMS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Security Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: osggums.hep.uiuc.edu
+    ID: 256
+    Services:
+      GUMS Server:
+        Description: GUMS Server
+        Details: null
+        ID: 101
+    VOOwnership:
+      ATLAS: 100
+  IllinoisHEP-LFC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Security Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: osgx3.hep.uiuc.edu
+    ID: 265
+    Services:
+      LFC:
+        Description: Logical File Catalog
+        Details:
+          hidden: true
+        ID: 6
+    VOOwnership:
+      ATLAS: 100
+  IllinoisHEP-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Security Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: osgx1.hep.uiuc.edu
+    ID: 207
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      ATLAS: 100
+  perfSONAR_IllinoisHEP:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Security Contact:
+        Primary: David Lesny
+        Secondary: P Larry Nelson
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: osgpfsr.hep.uiuc.edu
+    ID: 568
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: osgpfsr.hep.uiuc.edu
+        ID: 130
+    VOOwnership:
+      ATLAS: 100
+SupportCenterID: 29
+SupportCenterName: USATLAS

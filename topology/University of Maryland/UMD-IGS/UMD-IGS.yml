@@ -1,0 +1,21 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 382
+Resources:
+  UMD-IGS-CE:
+    Active: true
+    ContactLists: null
+    Disable: false
+    FQDN: osg-devel.igs.umaryland.edu
+    ID: 566
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 80
+SupportCenterName: UMDIGS

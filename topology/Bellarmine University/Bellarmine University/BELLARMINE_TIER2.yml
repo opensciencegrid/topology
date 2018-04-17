@@ -1,0 +1,65 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 277
+Resources:
+  BELLARMINE_TIER2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Akhtar
+        Secondary: Earle George Foskett
+      Miscellaneous Contact:
+        Primary: Akhtar
+        Secondary: Earle George Foskett
+        Tertiary: Horst Severini
+      Resource Report Contact:
+        Primary: Akhtar
+        Secondary: Earle George Foskett
+        Tertiary: Horst Severini
+      Security Contact:
+        Primary: Akhtar
+        Secondary: Earle George Foskett
+      Submitter Contact:
+        Primary: Akhtar
+    Disable: false
+    FQDN: tier2-osg1.bellarmine.edu
+    FQDNAliases:
+    - tier2-osg2.bellarmine.edu
+    ID: 350
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: tier2-osg2.bellarmine.edu:2811
+        ID: 5
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: tier2-osg2.bellarmine.edu:8443
+        ID: 3
+    VOOwnership:
+      LSST: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BELLARMINE_TIER2,o=grid
+      StorageCapacityMax: 200
+      StorageCapacityMin: 200
+      TapeCapacity: 0
+SupportCenterID: 63
+SupportCenterName: LSST

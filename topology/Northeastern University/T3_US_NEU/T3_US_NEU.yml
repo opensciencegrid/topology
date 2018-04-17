@@ -1,0 +1,27 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 392
+Resources:
+  NEU T3 cluster:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: George Alverson
+      Security Contact:
+        Primary: George Alverson
+      Submitter Contact:
+        Primary: George Alverson
+    Disable: false
+    FQDN: lhct3alv.neu.edu
+    ID: 617
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+SupportCenterID: 33
+SupportCenterName: CERN

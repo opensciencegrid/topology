@@ -1,0 +1,45 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 59
+Resources:
+  LBNL_VTB:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Olson
+      Miscellaneous Contact:
+        Tertiary: Jeff Porter
+      Resource Report Contact:
+        Primary: Doug Olson
+      Security Contact:
+        Primary: Doug Olson
+      Submitter Contact:
+        Primary: Jeff Porter
+    Disable: true
+    FQDN: osp1.lbl.gov
+    ID: 59
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 3
+      KSI2KMin: 3
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=LBNL_VTB,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+SupportCenterID: 15
+SupportCenterName: LBNL-DSD-support

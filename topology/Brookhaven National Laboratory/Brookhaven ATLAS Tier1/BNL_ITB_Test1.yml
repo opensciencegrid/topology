@@ -1,0 +1,29 @@
+Disable: true
+GridType: OSG Integration Test Bed Resource
+GroupID: 6
+Resources:
+  BNL_ATLAS_5:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+        Secondary: John Hover
+      Resource Report Contact:
+        Primary: Xin Zhao
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: gridgk05.racf.bnl.gov
+    ID: 313
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+SupportCenterID: 29
+SupportCenterName: USATLAS

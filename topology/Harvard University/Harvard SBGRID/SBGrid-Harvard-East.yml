@@ -1,0 +1,58 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 142
+Resources:
+  SBGrid-Harvard-East:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Peter Doherty
+        Secondary: Ian Stokes-Rees
+      Miscellaneous Contact:
+        Tertiary: Ian Levesque
+      Resource Report Contact:
+        Secondary: Ian Stokes-Rees
+      Security Contact:
+        Primary: Peter Doherty
+        Secondary: Ian Stokes-Rees
+      Submitter Contact:
+        Primary: Ian Levesque
+    Disable: true
+    FQDN: osg-east.hms.harvard.edu
+    ID: 142
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      SBGrid: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 10
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 40
+      KSI2KMin: 10
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=SBGrid-Harvard-East,o=grid
+      StorageCapacityMax: 5
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+SupportCenterID: 34
+SupportCenterName: SBGrid

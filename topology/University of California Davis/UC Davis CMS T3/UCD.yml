@@ -1,0 +1,110 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 239
+Resources:
+  UCD:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Teresa Knight
+      Miscellaneous Contact:
+        Primary: Teresa Knight
+      Resource Report Contact:
+        Primary: Teresa Knight
+      Security Contact:
+        Primary: Teresa Knight
+      Submitter Contact:
+        Primary: Scott Beardsley
+    Disable: false
+    FQDN: cms.tier3.ucdavis.edu
+    ID: 246
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T3_US_UCD
+      HEPSPEC: 62
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UCD,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  UCD_GUMS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Teresa Knight
+      Miscellaneous Contact:
+        Primary: Teresa Knight
+      Resource Report Contact:
+        Primary: Teresa Knight
+      Security Contact:
+        Primary: Teresa Knight
+      Submitter Contact:
+        Primary: Scott Beardsley
+    Disable: false
+    FQDN: agent.tier3.ucdavis.edu
+    ID: 311
+    Services:
+      GUMS Server:
+        Description: GUMS Server
+        Details: null
+        ID: 101
+    VOOwnership:
+      CMS: 100
+  UCD_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Michael Squires
+        Secondary: Teresa Knight
+      Miscellaneous Contact:
+        Primary: Michael Squires
+        Secondary: Teresa Knight
+      Resource Report Contact:
+        Primary: Michael Squires
+        Secondary: Teresa Knight
+      Security Contact:
+        Primary: Michael Squires
+        Secondary: Teresa Knight
+      Submitter Contact:
+        Primary: Scott Beardsley
+    Disable: false
+    FQDN: se.tier3.ucdavis.edu
+    ID: 251
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: se.tier3.ucdavis.edu:8443
+        ID: 3
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T3_US_UCD_SE
+      HEPSPEC: 62
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UCD,o=grid
+      StorageCapacityMax: 40
+      StorageCapacityMin: 20
+      TapeCapacity: null
+SupportCenterID: 46
+SupportCenterName: USCMS_Tier3

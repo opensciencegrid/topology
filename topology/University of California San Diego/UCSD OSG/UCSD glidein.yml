@@ -1,0 +1,27 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 329
+Resources:
+  UCSD glidein:
+    Active: true
+    ContactLists:
+      Resource Report Contact:
+        Primary: Jeffrey Michael Dost
+      Security Contact:
+        Primary: Jeffrey Michael Dost
+      Submitter Contact:
+        Primary: Jeffrey Michael Dost
+    Disable: false
+    FQDN: gfactory-1.t2.ucsd.edu
+    ID: 431
+    Services:
+      Glidein factory:
+        Description: Glidein factory
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 122
+    VOOwnership:
+      MIS: 100
+SupportCenterID: 49
+SupportCenterName: osg-glidein-factory

@@ -1,0 +1,88 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 440
+Resources:
+  OSG_US_UUTAH_EMBER:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Resource Report Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: hosted-ce15.grid.uchicago.edu
+    ID: 938
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+  OSG_US_UUTAH_KINGSPEAK:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Resource Report Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: hosted-ce14.grid.uchicago.edu
+    ID: 937
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+  OSG_US_UUTAH_LONEPEAK:
+    Active: true
+    ContactLists:
+      Resource Report Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: hosted-ce12.grid.uchicago.edu
+    ID: 936
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+  U of U Compute Element:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Irvin Allen
+      Security Contact:
+        Primary: Irvin Allen
+    Disable: false
+    FQDN: osggate.chpc.utah.edu
+    ID: 800
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 3
+SupportCenterName: Community Support Center

@@ -1,0 +1,45 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 344
+Resources:
+  GOC Voms:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: voms.grid.iu.edu
+    ID: 466
+    Services:
+      VOMS_Monitoring:
+        Description: Virtual service that is mapped to VOMS monitoring metrics
+        Details: null
+        ID: 113
+    VOOwnership:
+      MIS: 100
+  OSG_VOMS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Resource Report Contact:
+        Primary: Scott Teige
+        Secondary: Kyle Gross
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: false
+    FQDN: voms.opensciencegrid.org
+    ID: 190
+    Services:
+      VOMS Server:
+        Description: VOMS Server
+        Details: null
+        ID: 102
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

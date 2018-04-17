@@ -1,0 +1,89 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 265
+Resources:
+  GOC_Ticket_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: OSG Operations Center
+      Miscellaneous Contact:
+        Primary: Scott Teige
+        Secondary: Kyle Gross
+        Tertiary: Tom Lee
+      Security Contact:
+        Primary: OSG Operations Center
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: ticket1.grid.iu.edu
+    ID: 316
+    Services:
+      GOCTicket:
+        Description: GOC Ticket Application - OSG central ticketing system
+        Details: null
+        ID: 117
+    VOOwnership:
+      MIS: 100
+  GOC_Ticket_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: OSG Operations Center
+      Miscellaneous Contact:
+        Secondary: Kyle Gross
+        Tertiary: Scott Teige
+      Security Contact:
+        Primary: OSG Operations Center
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: ticket2.grid.iu.edu
+    ID: 317
+    Services:
+      GOCTicket:
+        Description: GOC Ticket Application - OSG central ticketing system
+        Details: null
+        ID: 117
+    VOOwnership:
+      MIS: 100
+  Ticket Exchange 1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: tx1.grid.iu.edu
+    ID: 641
+    Services:
+      Ticket Exchange:
+        Description: GOC ticket exchange
+        Details: null
+        ID: 136
+    VOOwnership:
+      OSG: 100
+  Ticket Exchange 2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: tx2.grid.iu.edu
+    ID: 642
+    Services:
+      Ticket Exchange:
+        Description: GOC ticket exchange
+        Details: null
+        ID: 136
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

@@ -1,0 +1,40 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 90
+Resources:
+  OU_OSCER_CONDOR:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Resource Report Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Security Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Submitter Contact:
+        Primary: Horst Severini
+    Disable: true
+    FQDN: condor1.oscer.ou.edu
+    ID: 90
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      DOSAR: 100
+SupportCenterID: 4
+SupportCenterName: DOSAR

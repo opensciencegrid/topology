@@ -1,0 +1,50 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 287
+Resources:
+  UCI_ATLAS_GRIDFTP:
+    Active: true
+    ContactLists: null
+    Disable: false
+    FQDN: gpatlas2.ps.uci.edu
+    ID: 441
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      ATLAS: 100
+  UCLHC IRVINE SUBMIT HOST:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Edgar Mauricio Fajardo Hernandez
+        Secondary: Jeffrey Michael Dost
+      Miscellaneous Contact:
+        Primary: Jeffrey Michael Dost
+        Secondary: Edgar Mauricio Fajardo Hernandez
+      Resource Report Contact:
+        Primary: Jeffrey Michael Dost
+        Secondary: Edgar Mauricio Fajardo Hernandez
+      Security Contact:
+        Primary: Edgar Mauricio Fajardo Hernandez
+        Secondary: Jeffrey Michael Dost
+      Submitter Contact:
+        Primary: Edgar Mauricio Fajardo Hernandez
+    Disable: false
+    FQDN: uclhc-1.ps.uci.edu
+    ID: 778
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      ATLAS: 100
+SupportCenterID: 29
+SupportCenterName: USATLAS

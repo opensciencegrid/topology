@@ -1,0 +1,269 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 99
+Resources:
+  BR-Sprace BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Marcio Antonio Costa
+        Secondary: Jadir Silva
+      Resource Report Contact:
+        Primary: Jadir Silva
+        Secondary: Rogerio Iope
+      Security Contact:
+        Primary: Marcio Antonio Costa
+      Submitter Contact:
+        Primary: Marcio Antonio Costa
+    Disable: false
+    FQDN: perfsonar-bw.sprace.org.br
+    ID: 709
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: perfsonar-bw.sprace.org.br
+        ID: 130
+    VOOwnership:
+      CMS: 100
+  BR-Sprace LT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jadir Marra da Silva
+        Secondary: Marcio Antonio Costa
+      Resource Report Contact:
+        Primary: Marcio Antonio Costa
+        Secondary: Rogerio Iope
+      Security Contact:
+        Primary: Marcio Antonio Costa
+      Submitter Contact:
+        Primary: Jadir Marra da Silva
+    Disable: false
+    FQDN: perfsonar-lt.sprace.org.br
+    ID: 523
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: perfsonar-lt.sprace.org.br
+        ID: 131
+    VOOwnership:
+      CMS: 100
+  SPRACE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jadir Marra da Silva
+        Secondary: Marcio Antonio Costa
+      Miscellaneous Contact:
+        Primary: Eduardo Gregores
+        Secondary: Jadir Marra da Silva
+        Tertiary: Marcio Antonio Costa
+      Resource Report Contact:
+        Primary: Rogerio Iope
+        Secondary: Jadir Marra da Silva
+        Tertiary: Marcio Antonio Costa
+      Security Contact:
+        Primary: Jadir Marra da Silva
+        Secondary: Marcio Antonio Costa
+      Submitter Contact:
+        Primary: Rogerio Iope
+    Disable: false
+    FQDN: osg-ce.sprace.org.br
+    ID: 99
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://osg-ce.sprace.org.br
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 11.1
+      AccountingName: BR-SP-SPRACE
+      HEPSPEC: 25200
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=SPRACE,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  SPRACE-OSG-RSV:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Sergio Lietti
+        Secondary: Jadir Silva
+      Miscellaneous Contact:
+        Primary: Jadir Silva
+        Secondary: Sergio Lietti
+      Resource Report Contact:
+        Primary: Jadir Silva
+        Secondary: Sergio Lietti
+      Security Contact:
+        Primary: Jadir Silva
+      Submitter Contact:
+        Primary: Marco Dias
+    Disable: true
+    FQDN: spserv01.sprace.org.br
+    ID: 306
+    VOOwnership:
+      CMS: 100
+  SPRACE-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jadir Marra da Silva
+        Secondary: Marcio Antonio Costa
+      Miscellaneous Contact:
+        Primary: Jadir Marra da Silva
+        Secondary: Marcio Antonio Costa
+        Tertiary: Rogerio Iope
+      Resource Report Contact:
+        Primary: Jadir Marra da Silva
+        Secondary: Rogerio Iope
+        Tertiary: Marcio Antonio Costa
+      Security Contact:
+        Primary: Jadir Marra da Silva
+        Secondary: Rogerio Iope
+      Submitter Contact:
+        Primary: Eduardo Gregores
+    Disable: false
+    FQDN: osg-se.sprace.org.br
+    ID: 100
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=SPRACE,o=grid
+      StorageCapacityMax: 1450
+      StorageCapacityMin: 1000
+      TapeCapacity: 0
+  SPRACE_Perfsonar_BW:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Marcio Antonio Costa
+        Secondary: Jadir Marra da Silva
+      Resource Report Contact:
+        Primary: Marcio Antonio Costa
+      Security Contact:
+        Primary: Jadir Marra da Silva
+      Submitter Contact:
+        Primary: Jadir Marra da Silva
+    Disable: true
+    FQDN: perfsonar-bw.sprace.org.br
+    ID: 508
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: http://this.is.something.fake
+        ID: 130
+    VOOwnership:
+      CMS: 100
+  SPRACE_Perfsonar_LT:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Marcio Antonio Costa
+        Secondary: Jadir Marra da Silva
+      Resource Report Contact:
+        Primary: Marcio Antonio Costa
+      Security Contact:
+        Primary: Marcio Antonio Costa
+        Secondary: Jadir Marra da Silva
+      Submitter Contact:
+        Primary: Jadir Marra da Silva
+    Disable: true
+    FQDN: perfsonar-lt.sprace.org.br
+    ID: 509
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: http://this.is.fake
+        ID: 131
+    VOOwnership:
+      CMS: 100
+  T2_BR_SPRACE-squid1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Marcio Antonio Costa
+        Secondary: Jadir Marra da Silva
+      Miscellaneous Contact:
+        Primary: Jadir Silva
+        Secondary: Marcio Antonio Costa
+        Tertiary: Rogerio Iope
+      Resource Report Contact:
+        Primary: Marcio Antonio Costa
+        Secondary: Jadir Marra da Silva
+        Tertiary: Rogerio Iope
+      Security Contact:
+        Primary: Marcio Antonio Costa
+        Secondary: Jadir Marra da Silva
+      Submitter Contact:
+        Primary: Marcio Antonio Costa
+    Disable: false
+    FQDN: frontier.sprace.org.br
+    ID: 696
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details: null
+        ID: 138
+    VOOwnership:
+      CMS: 100
+  T2_BR_SPRACE-squid2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Marcio Antonio Costa
+        Secondary: Jadir Marra da Silva
+      Miscellaneous Contact:
+        Primary: Jadir Silva
+        Secondary: Marcio Antonio Costa
+        Tertiary: Rogerio Iope
+      Resource Report Contact:
+        Primary: Marcio Antonio Costa
+        Secondary: Jadir Marra da Silva
+        Tertiary: Rogerio Iope
+      Security Contact:
+        Primary: Marcio Antonio Costa
+        Secondary: Jadir Marra da Silva
+      Submitter Contact:
+        Primary: Marcio Antonio Costa
+    Disable: false
+    FQDN: frontier2.sprace.org.br
+    ID: 697
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details: null
+        ID: 138
+    VOOwnership:
+      CMS: 100
+SupportCenterID: 65
+SupportCenterName: USCMS_Tier2

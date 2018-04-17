@@ -1,0 +1,51 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 388
+Resources:
+  Crane-CE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Garhan Attebury
+        Secondary: Derek Weitzel
+      Miscellaneous Contact:
+        Primary: David Swanson
+        Secondary: Garhan Attebury
+        Tertiary: Derek Weitzel
+      Resource Report Contact:
+        Primary: David Swanson
+        Secondary: Garhan Attebury
+        Tertiary: Derek Weitzel
+      Security Contact:
+        Primary: Carl Lundstedt
+        Secondary: Garhan Attebury
+      Submitter Contact:
+        Primary: Derek Weitzel
+    Disable: false
+    FQDN: crane-gw1.unl.edu
+    ID: 602
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://crane-gw1.unl.edu
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      HCC: 100
+    WLCGInformation:
+      APELNormalFactor: 11.24
+      AccountingName: T2_US_Nebraska
+      HEPSPEC: 65650
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Crane,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+SupportCenterID: 3
+SupportCenterName: Community Support Center

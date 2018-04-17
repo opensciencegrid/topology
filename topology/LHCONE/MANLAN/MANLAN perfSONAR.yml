@@ -1,0 +1,52 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 408
+Resources:
+  BNL/ESnet perfSONAR:
+    Active: true
+    ContactLists:
+      Submitter Contact:
+        Primary: Shawn McKee
+    Disable: false
+    FQDN: quark.es.net
+    ID: 659
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: quark.es.net
+        ID: 130
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: quark.es.net
+        ID: 131
+    VOOwnership:
+      (Other): 100
+      ATLAS: 0
+  Internet2 perfSONAR:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Shawn McKee
+      Submitter Contact:
+        Primary: Shawn McKee
+    Disable: false
+    FQDN: lhcone.test.manlan.internet2.edu
+    ID: 660
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: lhcone.test.manlan.internet2.edu
+        ID: 130
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: lhcone.test.manlan.internet2.edu
+        ID: 131
+    VOOwnership:
+      (Other): 100
+      ATLAS: 0
+SupportCenterID: 87
+SupportCenterName: LHCONE_SC

@@ -1,0 +1,44 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 406
+Resources:
+  collector1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: collector1.opensciencegrid.org
+    ID: 654
+    Services:
+      Condor Collector:
+        Description: Condor Collector
+        Details: null
+        ID: 139
+    VOOwnership:
+      OSG: 100
+  collector2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: collector2.opensciencegrid.org
+    ID: 655
+    Services:
+      Condor Collector:
+        Description: Condor Collector
+        Details: null
+        ID: 139
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

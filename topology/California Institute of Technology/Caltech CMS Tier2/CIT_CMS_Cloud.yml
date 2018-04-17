@@ -1,0 +1,30 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 397
+Resources:
+  CIT_ITB2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Justas Balcas
+      Resource Report Contact:
+        Primary: Justas Balcas
+      Security Contact:
+        Primary: Justas Balcas
+      Submitter Contact:
+        Primary: Samir Cury Siqueira
+    Disable: false
+    FQDN: samir-test-ce.cern.ch
+    ID: 632
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+SupportCenterID: 65
+SupportCenterName: USCMS_Tier2

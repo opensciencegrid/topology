@@ -1,0 +1,41 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 286
+Resources:
+  LC-glcc:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jeff Cunningham
+      Security Contact:
+        Primary: Jeff Cunningham
+      Submitter Contact:
+        Primary: Jeff Cunningham
+    Disable: true
+    FQDN: glcc88.ucllnl.org
+    ID: 360
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      ALICE: 100
+    WLCGInformation:
+      APELNormalFactor: 15.68
+      AccountingName: US-LLNL-ALICE
+      HEPSPEC: 13500
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 3375
+      KSI2KMin: 3375
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=LC-glcc,o=grid
+      StorageCapacityMax: 650
+      StorageCapacityMin: 650
+      TapeCapacity: 0
+SupportCenterID: 51
+SupportCenterName: LC hotline

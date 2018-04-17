@@ -1,0 +1,40 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 93
+Resources:
+  Purdue-ITB:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Fengping Hu
+      Resource Report Contact:
+        Primary: Preston Smith
+      Security Contact:
+        Primary: Preston Smith
+      Submitter Contact:
+        Primary: Preston Smith
+    Disable: false
+    FQDN: itb.rcac.purdue.edu
+    ID: 93
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-ITB,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+SupportCenterID: 65
+SupportCenterName: USCMS_Tier2

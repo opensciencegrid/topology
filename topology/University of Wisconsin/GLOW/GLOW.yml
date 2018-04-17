@@ -1,0 +1,574 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 24
+Resources:
+  GLOW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Daniel Bradley
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Daniel Bradley
+        Tertiary: Carl Vuosalo
+      Security Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Submitter Contact:
+        Primary: Daniel Bradley
+    Disable: false
+    FQDN: cmsgrid01.hep.wisc.edu
+    ID: 24
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cmsgrid01.hep.wisc.edu:9619/cmsgrid01.hep.wisc.edu
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 9.9
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=GLOW,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  GLOW-CMS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Daniel Bradley
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+        Tertiary: Daniel Bradley
+      Security Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Submitter Contact:
+        Primary: Daniel Bradley
+    Disable: false
+    FQDN: cmsgrid02.hep.wisc.edu
+    ID: 26
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cmsgrid02.hep.wisc.edu:9619/cmsgrid02.hep.wisc.edu
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 9.9
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 14000
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=GLOW,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  GLOW-CMS-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Daniel Bradley
+      Miscellaneous Contact:
+        Secondary: AJIT MOHAPATRA
+        Tertiary: Carl Vuosalo
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Daniel Bradley
+        Tertiary: Carl Vuosalo
+      Security Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Submitter Contact:
+        Primary: Daniel Bradley
+    Disable: false
+    FQDN: cmssrm.hep.wisc.edu
+    ID: 27
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: null
+      StorageCapacityMax: 1000
+      StorageCapacityMin: 1000
+      TapeCapacity: null
+  GLOW-CONDOR-CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Carl Vuosalo
+        Secondary: AJIT MOHAPATRA
+      Resource Report Contact:
+        Primary: Carl Vuosalo
+        Secondary: AJIT MOHAPATRA
+        Tertiary: Daniel Bradley
+      Security Contact:
+        Primary: Carl Vuosalo
+        Secondary: AJIT MOHAPATRA
+      Submitter Contact:
+        Primary: Tapas Sarangi
+    Disable: false
+    FQDN: cmsgrid03.hep.wisc.edu
+    ID: 644
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cmsgrid03.hep.wisc.edu:9619/cmsgrid03.hep.wisc.edu
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 9.9
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=GLOW,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  GLOW-OSG:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: AJIT MOHAPATRA
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Daniel Bradley
+        Tertiary: Carl Vuosalo
+      Security Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Submitter Contact:
+        Primary: AJIT MOHAPATRA
+    Disable: false
+    FQDN: osggrid01.hep.wisc.edu
+    ID: 361
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+  GLOW_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Carl Vuosalo
+      Security Contact:
+        Primary: Carl Vuosalo
+      Submitter Contact:
+        Primary: Tapas Sarangi
+    Disable: false
+    FQDN: frontier.hep.wisc.edu
+    ID: 678
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details: null
+        ID: 138
+    VOOwnership:
+      CMS: 100
+  GLOW_SUBMIT1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Daniel Bradley
+        Tertiary: Carl Vuosalo
+      Security Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Submitter Contact:
+        Primary: Will Maier
+    Disable: false
+    FQDN: login01.hep.wisc.edu
+    ID: 319
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 9.87
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: null
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  GLOW_SUBMIT2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Daniel Bradley
+        Tertiary: Carl Vuosalo
+      Security Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Submitter Contact:
+        Primary: Will Maier
+    Disable: false
+    FQDN: login02.hep.wisc.edu
+    ID: 320
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 9.87
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: null
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  GLOW_SUBMIT3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Daniel Bradley
+        Tertiary: Carl Vuosalo
+      Security Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Submitter Contact:
+        Primary: Will Maier
+    Disable: false
+    FQDN: login03.hep.wisc.edu
+    ID: 321
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 9.87
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: null
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  GLOW_SUBMIT4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Miscellaneous Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Daniel Bradley
+        Tertiary: Carl Vuosalo
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Daniel Bradley
+        Tertiary: Carl Vuosalo
+      Security Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Submitter Contact:
+        Primary: Will Maier
+    Disable: false
+    FQDN: login04.hep.wisc.edu
+    ID: 322
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 9.87
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: null
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  GLOW_SUBMIT5:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Daniel Bradley
+        Secondary: AJIT MOHAPATRA
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Security Contact:
+        Primary: Daniel Bradley
+        Secondary: AJIT MOHAPATRA
+      Submitter Contact:
+        Primary: Daniel Bradley
+    Disable: false
+    FQDN: login05.hep.wisc.edu
+    ID: 848
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      GLOW: 100
+    WLCGInformation:
+      APELNormalFactor: 9.87
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=GLOW,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  GLOW_SUBMIT6:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Daniel Bradley
+        Secondary: AJIT MOHAPATRA
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+        Tertiary: Daniel Bradley
+      Security Contact:
+        Primary: Daniel Bradley
+        Secondary: AJIT MOHAPATRA
+      Submitter Contact:
+        Primary: Daniel Bradley
+    Disable: false
+    FQDN: login06.hep.wisc.edu
+    ID: 849
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      GLOW: 100
+    WLCGInformation:
+      APELNormalFactor: 9.87
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: null
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  GLOW_SUBMIT_CERN:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Daniel Bradley
+        Secondary: Carl Vuosalo
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+        Tertiary: Daniel Bradley
+      Security Contact:
+        Primary: Daniel Bradley
+        Secondary: Carl Vuosalo
+      Submitter Contact:
+        Primary: Daniel Bradley
+    Disable: false
+    FQDN: uwlogin.cern.ch
+    ID: 856
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 9.87
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: null
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  Lehigh_piranha:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Julio C. Goez
+        Secondary: Ashutosh Mahajan
+      Resource Report Contact:
+        Primary: Julio C. Goez
+        Secondary: Ashutosh Mahajan
+      Security Contact:
+        Primary: Julio C. Goez
+        Secondary: Ashutosh Mahajan
+      Submitter Contact:
+        Primary: Julio C. Goez
+    Disable: true
+    FQDN: piranha.ie.lehigh.edu
+    ID: 330
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      GLOW: 100
+  US-Wisconsin BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Daniel Bradley
+        Tertiary: Carl Vuosalo
+      Security Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Submitter Contact:
+        Primary: AJIT MOHAPATRA
+    Disable: false
+    FQDN: perfsonar02.hep.wisc.edu
+    ID: 506
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: perfsonar02.hep.wisc.edu
+        ID: 130
+    VOOwnership:
+      CMS: 100
+  US-Wisconsin LT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Resource Report Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Daniel Bradley
+        Tertiary: Carl Vuosalo
+      Security Contact:
+        Primary: AJIT MOHAPATRA
+        Secondary: Carl Vuosalo
+      Submitter Contact:
+        Primary: AJIT MOHAPATRA
+    Disable: false
+    FQDN: perfsonar01.hep.wisc.edu
+    ID: 507
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: perfsonar01.hep.wisc.edu
+        ID: 131
+    VOOwnership:
+      CMS: 100
+SupportCenterID: 65
+SupportCenterName: USCMS_Tier2

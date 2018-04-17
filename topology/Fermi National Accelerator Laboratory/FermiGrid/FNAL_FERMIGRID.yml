@@ -1,0 +1,480 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 19
+Resources:
+  FNAL_CDFOSG_0:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Steve Timm
+        Secondary: Keith Chadwick
+      Miscellaneous Contact:
+        Primary: Keith Chadwick
+        Secondary: Steve Timm
+        Tertiary: Faarooq C. Lowe
+      Resource Report Contact:
+        Primary: Keith Chadwick
+        Secondary: Steve Timm
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: fcdfosg0.fnal.gov
+    ID: 279
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CDF: 100
+  FNAL_CDFOSG_1:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Joe Boyd
+        Secondary: Gerard Bernabeu Altayo
+      Miscellaneous Contact:
+        Primary: Joe Boyd
+        Secondary: Gerard Bernabeu Altayo
+        Tertiary: Steve Timm
+      Resource Report Contact:
+        Primary: Joe Boyd
+      Submitter Contact:
+        Primary: Keith Chadwick
+    Disable: true
+    FQDN: fcdfosg1.fnal.gov
+    ID: 181
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CDF: 100
+  FNAL_CDFOSG_2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Joe Boyd
+      Miscellaneous Contact:
+        Primary: Joe Boyd
+        Secondary: Gerard Bernabeu Altayo
+        Tertiary: Steve Timm
+      Resource Report Contact:
+        Primary: Joe Boyd
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: fcdfosg2.fnal.gov
+    ID: 183
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CDF: 100
+  FNAL_CDFOSG_3:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Keith Chadwick
+        Secondary: Steve Timm
+      Miscellaneous Contact:
+        Primary: Keith Chadwick
+        Secondary: Steve Timm
+      Resource Report Contact:
+        Primary: Keith Chadwick
+        Secondary: Steve Timm
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: fcdfosg3.fnal.gov
+    ID: 184
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CDF: 100
+  FNAL_CDFOSG_4:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Keith Chadwick
+        Secondary: Steve Timm
+      Miscellaneous Contact:
+        Primary: Keith Chadwick
+        Secondary: Steve Timm
+      Resource Report Contact:
+        Primary: Keith Chadwick
+        Secondary: Steve Timm
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: fcdfosg4.fnal.gov
+    ID: 186
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CDF: 100
+  FNAL_DZEROOSG_1:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Joe Boyd
+      Miscellaneous Contact:
+        Primary: Joe Boyd
+        Tertiary: Steve Timm
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: d0cabosg1.fnal.gov
+    ID: 187
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      DZero: 100
+  FNAL_DZEROOSG_2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Joe Boyd
+      Miscellaneous Contact:
+        Primary: Joe Boyd
+        Secondary: Gerard Bernabeu Altayo
+        Tertiary: Steve Timm
+      Resource Report Contact:
+        Primary: Joe Boyd
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: d0cabosg2.fnal.gov
+    ID: 188
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      DZero: 100
+  FNAL_DZEROOSG_3:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Steve Timm
+        Secondary: Joe Boyd
+      Miscellaneous Contact:
+        Primary: Steve Timm
+        Secondary: Joe Boyd
+        Tertiary: Gerard Bernabeu Altayo
+      Resource Report Contact:
+        Primary: Steve Timm
+        Secondary: Joe Boyd
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: d0cabosg3.fnal.gov
+    ID: 435
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      DZero: 100
+  FNAL_DZEROOSG_4:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Steve Timm
+        Secondary: Joe Boyd
+      Miscellaneous Contact:
+        Primary: Steve Timm
+        Secondary: Joe Boyd
+        Tertiary: Gerard Bernabeu Altayo
+      Resource Report Contact:
+        Primary: Steve Timm
+        Secondary: Joe Boyd
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: d0cabosg4.fnal.gov
+    ID: 436
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      DZero: 100
+  FNAL_FERMIGRID:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Joe Boyd
+        Secondary: Anthony Tiradani
+      Miscellaneous Contact:
+        Primary: Joe Boyd
+        Tertiary: Steve Timm
+      Resource Report Contact:
+        Primary: Joe Boyd
+        Secondary: Anthony Tiradani
+        Tertiary: Tanya Levshina
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: fermigridosg1.fnal.gov
+    ID: 19
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      Fermilab: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=FNAL_FERMIGRID,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  FNAL_GPGRID_2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Joe Boyd
+      Miscellaneous Contact:
+        Primary: Joe Boyd
+        Secondary: Gerard Bernabeu Altayo
+        Tertiary: Steve Timm
+      Resource Report Contact:
+        Primary: Joe Boyd
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: fnpcfg1.fnal.gov
+    ID: 189
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      Fermilab: 100
+  FNAL_GPGRID_3:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Joe Boyd
+      Miscellaneous Contact:
+        Primary: Joe Boyd
+        Secondary: Gerard Bernabeu Altayo
+        Tertiary: Steve Timm
+      Resource Report Contact:
+        Primary: Joe Boyd
+        Tertiary: Steve Timm
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: fnpcfg2.fnal.gov
+    ID: 208
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      Fermilab: 100
+  FNAL_GPGRID_4:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Anthony Tiradani
+        Secondary: Krista Majewski
+      Miscellaneous Contact:
+        Tertiary: Farrukh Aftab Khan
+      Resource Report Contact:
+        Primary: Anthony Tiradani
+      Submitter Contact:
+        Primary: Anthony Tiradani
+    Disable: true
+    FQDN: gpce01.fnal.gov
+    ID: 776
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      DUNE: 1
+      Fermilab: 99
+  FNAL_GPGRID_5:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Anthony Tiradani
+        Secondary: Krista Majewski
+      Miscellaneous Contact:
+        Tertiary: Farrukh Aftab Khan
+      Resource Report Contact:
+        Primary: Anthony Tiradani
+      Submitter Contact:
+        Primary: Anthony Tiradani
+    Disable: true
+    FQDN: gpce02.fnal.gov
+    ID: 777
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      DUNE: 1
+      Fermilab: 99
+  FNAL_GPGRID_OPP_3:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Joe Boyd
+      Miscellaneous Contact:
+        Primary: Joe Boyd
+        Secondary: Gerard Bernabeu Altayo
+        Tertiary: Steve Timm
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: fnpcfg3.fnal.gov
+    ID: 539
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      Fermilab: 100
+  FNAL_GPGRID_QUOTA_3:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Joe Boyd
+      Miscellaneous Contact:
+        Primary: Joe Boyd
+        Secondary: Gerard Bernabeu Altayo
+        Tertiary: Steve Timm
+      Resource Report Contact:
+        Primary: Joe Boyd
+        Tertiary: Steve Timm
+      Submitter Contact:
+        Primary: Steve Timm
+    Disable: true
+    FQDN: fnpcfg4.fnal.gov
+    ID: 540
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      Fermilab: 100
+  gpgrid_squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: HYUNWOO KIM
+      Security Contact:
+        Primary: HYUNWOO KIM
+      Submitter Contact:
+        Primary: HYUNWOO KIM
+    Disable: false
+    FQDN: squids.fnal.gov
+    ID: 883
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details: null
+        ID: 138
+    VOOwnership:
+      Fermilab: 100
+SupportCenterID: 7
+SupportCenterName: Fermilab

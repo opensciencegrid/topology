@@ -1,0 +1,34 @@
+Disable: true
+GridType: OSG Integration Test Bed Resource
+GroupID: 313
+Resources:
+  red-gateway3-ITB:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Carl Lundstedt
+        Secondary: Garhan Attebury
+      Resource Report Contact:
+        Primary: Carl Lundstedt
+        Secondary: Garhan Attebury
+        Tertiary: Brian Bockelman
+      Security Contact:
+        Primary: Carl Lundstedt
+        Secondary: Garhan Attebury
+      Submitter Contact:
+        Primary: Carl Lundstedt
+    Disable: true
+    FQDN: red-gw3.unl.edu
+    ID: 408
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 50
+      HCC: 50
+SupportCenterID: 65
+SupportCenterName: USCMS_Tier2

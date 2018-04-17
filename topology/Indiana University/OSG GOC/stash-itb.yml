@@ -1,0 +1,48 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 419
+Resources:
+  stash-itb1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: stash-itb1.grid.iu.edu
+    ID: 712
+    Services:
+      XRootD HA component:
+        Description: any part of xrootd configured as HA
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 148
+    VOOwnership:
+      OSG: 100
+  stash-itb2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: stash-itb2.grid.iu.edu
+    ID: 713
+    Services:
+      XRootD HA component:
+        Description: any part of xrootd configured as HA
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 148
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

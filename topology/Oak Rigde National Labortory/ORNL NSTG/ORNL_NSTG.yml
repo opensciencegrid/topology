@@ -1,0 +1,19 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 82
+Resources:
+  ORNL_NSTG:
+    Active: false
+    ContactLists: null
+    Disable: true
+    FQDN: osg-login.ornl.teragrid.org
+    ID: 82
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 3
+SupportCenterName: Community Support Center

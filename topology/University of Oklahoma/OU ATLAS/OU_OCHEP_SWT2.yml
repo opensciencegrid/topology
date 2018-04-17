@@ -1,0 +1,210 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 88
+Resources:
+  OU_OCHEP_SWT2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Resource Report Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Security Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Submitter Contact:
+        Primary: Horst Severini
+    Disable: false
+    FQDN: tier2-01.ochep.ou.edu
+    FQDNAliases:
+    - tier2-02.ochep.ou.edu
+    ID: 88
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: tier2-02.ochep.ou.edu:8443
+        ID: 3
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 8.82
+      AccountingName: US-SWT2
+      HEPSPEC: 7443
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 1389
+      KSI2KMin: 1389
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=OU_OCHEP_SWT2,o=grid
+      StorageCapacityMax: 500
+      StorageCapacityMin: 500
+      TapeCapacity: null
+  OU_OCHEP_SWT2-squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Resource Report Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Security Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Submitter Contact:
+        Primary: Horst Severini
+    Disable: false
+    FQDN: tier2-05.ochep.ou.edu
+    ID: 916
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details: null
+        ID: 138
+    VOOwnership:
+      ATLAS: 100
+  perfSONAR_OU:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Miscellaneous Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Resource Report Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Security Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Submitter Contact:
+        Primary: Horst Severini
+    Disable: true
+    FQDN: ps1.ochep.ou.edu
+    ID: 528
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: ps2.ochep.ou.edu
+        ID: 130
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: ps1.ochep.ou.edu
+        ID: 131
+    VOOwnership:
+      ATLAS: 100
+  perfSONAR_OU_bandwidth:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Miscellaneous Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Resource Report Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Security Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Submitter Contact:
+        Primary: Horst Severini
+    Disable: false
+    FQDN: ps2.ochep.ou.edu
+    ID: 589
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: ps2.ochep.ou.edu
+        ID: 130
+    VOOwnership:
+      ATLAS: 100
+  perfSONAR_OU_latency:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Miscellaneous Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Resource Report Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Security Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Submitter Contact:
+        Primary: Horst Severini
+    Disable: false
+    FQDN: ps1.ochep.ou.edu
+    ID: 588
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: ps1.ochep.ou.edu
+        ID: 131
+    VOOwnership:
+      ATLAS: 100
+  perfSONAR_OU_latency_test:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Miscellaneous Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Resource Report Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Security Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Submitter Contact:
+        Primary: Horst Severini
+    Disable: false
+    FQDN: ps3.ochep.ou.edu
+    ID: 707
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: ps3.ochep.ou.edu
+        ID: 131
+    VOOwnership:
+      ATLAS: 100
+SupportCenterID: 29
+SupportCenterName: USATLAS

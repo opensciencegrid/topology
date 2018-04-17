@@ -1,0 +1,48 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 409
+Resources:
+  oasis-login:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: oasis-login.opensciencegrid.org
+    ID: 661
+    Services:
+      oasis-login:
+        Description: Login nodes for the oasis service
+        Details:
+          endpoint: oasis-login.opensciencegrid.org
+          repo_config: null
+        ID: 140
+    VOOwnership:
+      OSG: 100
+  oasis-login-sl6:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: oasis-login-sl6.opensciencegrid.org
+    ID: 662
+    Services:
+      oasis-login:
+        Description: Login nodes for the oasis service
+        Details:
+          endpoint: oasis-login-sl6.opensciencegrid.org
+          repo_config: null
+        ID: 140
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

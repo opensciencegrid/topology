@@ -1,0 +1,32 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 98
+Resources:
+  SMU_PHY:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Amit Kumar
+      Miscellaneous Contact:
+        Primary: Amit Kumar
+      Resource Report Contact:
+        Primary: Amit Kumar
+      Security Contact:
+        Primary: Amit Kumar
+      Submitter Contact:
+        Primary: Justin Ross
+    Disable: false
+    FQDN: smufarm.physics.smu.edu
+    ID: 98
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      (Other): 50
+      ATLAS: 50
+SupportCenterID: 50
+SupportCenterName: USATLAS_Tier3

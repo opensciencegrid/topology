@@ -1,0 +1,19 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 145
+Resources:
+  OCI-NSF:
+    Active: false
+    ContactLists: null
+    Disable: true
+    FQDN: rocks-fe.cise-nsf.gov
+    ID: 145
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 3
+SupportCenterName: Community Support Center

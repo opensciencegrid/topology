@@ -1,0 +1,52 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 405
+Resources:
+  ESnet LHCONE perfSONAR Washington:
+    Active: true
+    ContactLists:
+      Submitter Contact:
+        Primary: Shawn McKee
+    Disable: false
+    FQDN: lhcone-wash-opt1.es.net
+    ID: 658
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: lhcone-wash-opt1.es.net
+        ID: 130
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: lhcone-wash-opt1.es.net
+        ID: 131
+    VOOwnership:
+      (Other): 100
+      ATLAS: 0
+  Internet2 WIX perfSONAR:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Shawn McKee
+      Submitter Contact:
+        Primary: Shawn McKee
+    Disable: false
+    FQDN: lhcone.test.wix.internet2.edu
+    ID: 657
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: lhcone.test.wix.internet2.edu
+        ID: 130
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: lhcone.test.wix.internet2.edu
+        ID: 131
+    VOOwnership:
+      (Other): 100
+      ATLAS: 0
+SupportCenterID: 87
+SupportCenterName: LHCONE_SC

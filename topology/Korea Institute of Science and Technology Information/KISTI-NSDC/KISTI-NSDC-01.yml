@@ -1,0 +1,36 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 245
+Resources:
+  KISTI-NSDC-CE03:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Seo-Young Noh
+        Secondary: GyeongRyoon Kim
+      Miscellaneous Contact:
+        Primary: Seo-Young Noh
+        Secondary: GyeongRyoon Kim
+      Resource Report Contact:
+        Primary: Seo-Young Noh
+        Secondary: GyeongRyoon Kim
+      Security Contact:
+        Primary: Seo-Young Noh
+        Secondary: GyeongRyoon Kim
+      Submitter Contact:
+        Primary: Seoyoung Roh
+    Disable: true
+    FQDN: ce03.sdfarm.kr
+    ID: 271
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CDF: 100
+SupportCenterID: 46
+SupportCenterName: USCMS_Tier3

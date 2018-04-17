@@ -1,0 +1,82 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 75
+Resources:
+  NERSC-PDSF:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: James Botts
+        Secondary: Lisa Gerhardt
+      Miscellaneous Contact:
+        Primary: Jeff Porter
+        Secondary: Lisa Gerhardt
+      Resource Report Contact:
+        Primary: James Botts
+        Secondary: Jeff Porter
+        Tertiary: Lisa Gerhardt
+      Security Contact:
+        Primary: James Botts
+        Secondary: Jeff Porter
+      Submitter Contact:
+        Primary: Iwona Sakrejda
+    Disable: false
+    FQDN: pdsfgrid.nersc.gov
+    FQDNAliases:
+    - pdsfgrid4.nersc.gov
+    ID: 75
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      ALICE: 40
+      NERSC: 60
+    WLCGInformation:
+      APELNormalFactor: 19.8
+      AccountingName: US-LBNL-ALICE
+      HEPSPEC: 12000
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 3000
+      KSI2KMin: 3000
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=NERSC-PDSF,o=grid
+      StorageCapacityMax: 830
+      StorageCapacityMin: 830
+      TapeCapacity: null
+  NERSC-PDSF2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: James Botts
+      Miscellaneous Contact:
+        Secondary: Jeff Porter
+      Resource Report Contact:
+        Primary: James Botts
+        Tertiary: Shreyas Cholia
+      Security Contact:
+        Primary: Shreyas Cholia
+        Secondary: James Botts
+      Submitter Contact:
+        Primary: Iwona Sakrejda
+    Disable: false
+    FQDN: pdsfgrid2.nersc.gov
+    ID: 546
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      ALICE: 40
+      NERSC: 60
+SupportCenterID: 19
+SupportCenterName: NERSC

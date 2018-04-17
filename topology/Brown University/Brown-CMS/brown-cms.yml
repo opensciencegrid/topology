@@ -1,0 +1,55 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 241
+Resources:
+  brown-cms:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Stefan Piperov
+        Secondary: Vipin Bhatnagar
+      Miscellaneous Contact:
+        Secondary: Vipin Bhatnagar
+        Tertiary: Stefan Piperov
+      Resource Report Contact:
+        Secondary: Vipin Bhatnagar
+        Tertiary: Stefan Piperov
+      Security Contact:
+        Primary: Stefan Piperov
+        Secondary: Vipin Bhatnagar
+      Submitter Contact:
+        Primary: Vipin Bhatnagar
+    Disable: false
+    FQDN: grid-0.hep.brown.edu
+    ID: 258
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=brown-cms,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+SupportCenterID: 46
+SupportCenterName: USCMS_Tier3

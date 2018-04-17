@@ -1,0 +1,26 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 281
+Resources:
+  OSG_DOCDB_1:
+    Active: true
+    ContactLists:
+      Miscellaneous Contact:
+        Secondary: Kyle Gross
+        Tertiary: Elizabeth Prout
+      Security Contact:
+        Primary: OSG Operations Center
+      Submitter Contact:
+        Primary: Soichi Hayashi
+    Disable: false
+    FQDN: osg-docdb.opensciencegrid.org
+    ID: 354
+    Services:
+      OSG DOCDB:
+        Description: OSG DOCDB
+        Details: null
+        ID: 121
+    VOOwnership:
+      Fermilab: 100
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

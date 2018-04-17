@@ -1,0 +1,34 @@
+Disable: true
+GridType: OSG Integration Test Bed Resource
+GroupID: 272
+Resources:
+  GridUNESP_SPO:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Marcio Antonio Costa
+      Miscellaneous Contact:
+        Secondary: Marcio Antonio Costa
+        Tertiary: Jadir Marra da Silva
+      Resource Report Contact:
+        Secondary: Marcio Antonio Costa
+        Tertiary: Jadir Marra da Silva
+      Security Contact:
+        Secondary: Marcio Antonio Costa
+      Submitter Contact:
+        Primary: Gabriel Araujo von Winckler
+    Disable: true
+    FQDN: ce.spo.grid.unesp.br
+    ID: 338
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      GridUNESP: 100
+SupportCenterID: 45
+SupportCenterName: GridUNESP

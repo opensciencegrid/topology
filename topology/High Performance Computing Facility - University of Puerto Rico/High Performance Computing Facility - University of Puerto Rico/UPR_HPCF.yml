@@ -1,0 +1,22 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 385
+Resources:
+  Nanobio_CE:
+    Active: true
+    ContactLists: null
+    Disable: false
+    FQDN: nanobioman.hpcf.upr.edu
+    ID: 572
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: nanobioman.hpcf.upr.edu:2119
+        ID: 1
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 81
+SupportCenterName: UPR_HPCF

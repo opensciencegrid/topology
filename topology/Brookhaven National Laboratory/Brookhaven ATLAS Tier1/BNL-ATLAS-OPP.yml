@@ -1,0 +1,36 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 453
+Resources:
+  BNL_CLOUD:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: John Hover
+        Secondary: Xin Zhao
+      Miscellaneous Contact:
+        Primary: John Hover
+        Secondary: Xin Zhao
+      Resource Report Contact:
+        Primary: John Hover
+        Secondary: Xin Zhao
+        Tertiary: Jose Caballero
+      Security Contact:
+        Primary: John Hover
+        Secondary: Xin Zhao
+      Submitter Contact:
+        Primary: John Hover
+    Disable: false
+    FQDN: gridtest06.racf.bnl.gov
+    ID: 836
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+          uri_override: gridtest06.racf.bnl.gov
+        ID: 109
+    VOOwnership:
+      ATLAS: 100
+SupportCenterID: 29
+SupportCenterName: USATLAS

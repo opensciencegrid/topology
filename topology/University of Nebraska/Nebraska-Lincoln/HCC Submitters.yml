@@ -1,0 +1,63 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 332
+Resources:
+  HCC GlideinWMS Frontend:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Derek Weitzel
+        Secondary: Brian Bockelman
+      Miscellaneous Contact:
+        Primary: Derek Weitzel
+        Secondary: Brian Bockelman
+      Resource Report Contact:
+        Primary: Derek Weitzel
+        Secondary: Brian Bockelman
+      Security Contact:
+        Primary: Garhan Attebury
+      Submitter Contact:
+        Primary: Derek Weitzel
+    Disable: false
+    FQDN: glidein.unl.edu
+    ID: 328
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 109
+    VOOwnership:
+      HCC: 100
+  HCC-CPASS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Adam Caprez
+        Secondary: Derek Weitzel
+      Miscellaneous Contact:
+        Primary: Adam Caprez
+        Secondary: David Swanson
+      Resource Report Contact:
+        Primary: Adam Caprez
+        Secondary: Derek Weitzel
+      Security Contact:
+        Primary: Adam Caprez
+        Secondary: Carl Lundstedt
+      Submitter Contact:
+        Primary: Derek Weitzel
+    Disable: false
+    FQDN: cpass.unl.edu
+    ID: 444
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: cpass.unl.edu
+        ID: 109
+    VOOwnership:
+      HCC: 100
+SupportCenterID: 3
+SupportCenterName: Community Support Center

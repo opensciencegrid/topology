@@ -1,0 +1,58 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 58
+Resources:
+  LBNL_DSD_ITB:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Olson
+      Miscellaneous Contact:
+        Tertiary: Jeff Porter
+      Resource Report Contact:
+        Primary: Doug Olson
+      Security Contact:
+        Primary: Doug Olson
+      Submitter Contact:
+        Primary: Jeff Porter
+    Disable: true
+    FQDN: grolsch.lbl.gov
+    ID: 58
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      LBNL_DSD: 100
+  oliverlblgov:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Olson
+      Miscellaneous Contact:
+        Primary: Doug Olson
+        Tertiary: Keith Jackson
+      Resource Report Contact:
+        Primary: Doug Olson
+      Security Contact:
+        Primary: Doug Olson
+      Submitter Contact:
+        Primary: Keith Jackson
+    Disable: true
+    FQDN: oliver.lbl.gov
+    ID: 219
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: oliver.lbl.gov:10443
+        ID: 3
+    VOOwnership:
+      LBNL_DSD: 100
+SupportCenterID: 15
+SupportCenterName: LBNL-DSD-support

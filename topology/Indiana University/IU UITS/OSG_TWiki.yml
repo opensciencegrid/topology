@@ -1,0 +1,46 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 197
+Resources:
+  Image_Server:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: true
+    FQDN: gocbox.grid.iu.edu
+    ID: 465
+    Services:
+      Apache Server:
+        Description: Apache Server
+        Details: null
+        ID: 129
+    VOOwnership:
+      MIS: 100
+  OSG_TWiki:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: OSG Operations Center
+        Secondary: Scott Teige
+      Miscellaneous Contact:
+        Primary: Kyle Gross
+        Tertiary: Tom Lee
+      Security Contact:
+        Primary: OSG Operations Center
+    Disable: false
+    FQDN: twiki.grid.iu.edu
+    ID: 197
+    Services:
+      Twiki Server:
+        Description: Twiki server
+        Details: null
+        ID: 106
+    VOOwnership:
+      MIS: 100
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

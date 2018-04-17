@@ -1,0 +1,34 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 375
+Resources:
+  Kennesaw_Dell_Nodes:
+    Active: true
+    ContactLists: null
+    Disable: false
+    FQDN: Prometheus.kennesaw.edu
+    ID: 551
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      Belle: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Kennesaw_Dell_Nodes,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+SupportCenterID: 75
+SupportCenterName: PNNL

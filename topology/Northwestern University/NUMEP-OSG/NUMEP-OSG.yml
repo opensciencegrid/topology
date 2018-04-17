@@ -1,0 +1,59 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 390
+Resources:
+  NUMEP_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Sean Dobbs
+      Resource Report Contact:
+        Primary: Sean Dobbs
+      Security Contact:
+        Primary: Sean Dobbs
+      Submitter Contact:
+        Primary: Sean Dobbs
+    Disable: false
+    FQDN: numep-grid1.research.northwestern.edu
+    ID: 605
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      Gluex: 100
+  NUMEP_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Sean Dobbs
+      Resource Report Contact:
+        Primary: Sean Dobbs
+      Security Contact:
+        Primary: Sean Dobbs
+      Submitter Contact:
+        Primary: Sean Dobbs
+    Disable: false
+    FQDN: numep-grid6.research.northwestern.edu
+    ID: 613
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      Gluex: 100
+SupportCenterID: 44
+SupportCenterName: GLUEX

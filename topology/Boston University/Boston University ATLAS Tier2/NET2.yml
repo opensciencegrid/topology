@@ -1,0 +1,77 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 399
+Resources:
+  NET2-BU:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Saul Youssef
+        Secondary: Augustine Abaris
+      Miscellaneous Contact:
+        Primary: Saul Youssef
+        Secondary: Augustine Abaris
+        Tertiary: John Brunelle
+      Resource Report Contact:
+        Primary: Saul Youssef
+        Secondary: Augustine Abaris
+        Tertiary: John Brunelle
+      Security Contact:
+        Primary: Augustine Abaris
+        Secondary: Saul Youssef
+      Submitter Contact:
+        Primary: Saul Youssef
+    Disable: false
+    FQDN: atlas-hub.bu.edu
+    ID: 639
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: atlas.bu.edu:8443
+        ID: 3
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: atlas-npt2.bu.edu
+        ID: 130
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: atlas-npt1.bu.edu
+        ID: 131
+    VOOwnership:
+      ATLAS: 100
+  NET2-HU:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: John Brunelle
+        Secondary: Saul Youssef
+      Miscellaneous Contact:
+        Primary: John Brunelle
+        Secondary: Saul Youssef
+        Tertiary: Augustine Abaris
+      Resource Report Contact:
+        Primary: John Brunelle
+        Secondary: Saul Youssef
+      Security Contact:
+        Primary: John Brunelle
+        Secondary: Saul Youssef
+      Submitter Contact:
+        Primary: Saul Youssef
+    Disable: false
+    FQDN: net2.rc.fas.harvard.edu
+    ID: 640
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      ATLAS: 100
+SupportCenterID: 29
+SupportCenterName: USATLAS

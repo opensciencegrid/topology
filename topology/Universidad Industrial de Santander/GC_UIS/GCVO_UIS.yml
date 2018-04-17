@@ -1,0 +1,41 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 328
+Resources:
+  GCVO_UIS_CE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Sergio Orostegui
+        Secondary: Diego Alberto Rincon Yanez
+      Miscellaneous Contact:
+        Primary: Sergio Orostegui
+        Secondary: Diego Alberto Rincon Yanez
+      Resource Report Contact:
+        Primary: Sergio Orostegui
+        Secondary: Diego Alberto Rincon Yanez
+      Security Contact:
+        Primary: Sergio Orostegui
+        Secondary: Diego Alberto Rincon Yanez
+      Submitter Contact:
+        Primary: Sergio Orostegui
+    Disable: false
+    FQDN: gcb-ce.uis.edu.co
+    ID: 429
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: gcb-ce.uis.edu.co:2119
+        ID: 1
+      RSV Collector:
+        Description: RSV Collector
+        Details: null
+        ID: 104
+    VOOwnership:
+      GCEDU: 50
+      GCVO: 50
+SupportCenterID: 54
+SupportCenterName: GC

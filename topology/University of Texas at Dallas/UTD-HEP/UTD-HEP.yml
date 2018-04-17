@@ -1,0 +1,124 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 206
+Resources:
+  UTD-HEP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Don Moore
+        Secondary: Joseph Izen
+      Miscellaneous Contact:
+        Primary: Joseph Izen
+        Secondary: Kendall Reeves
+        Tertiary: Hari Namasivayam
+      Resource Report Contact:
+        Primary: Joseph Izen
+        Secondary: Kendall Reeves
+        Tertiary: Hari Namasivayam
+      Security Contact:
+        Primary: Don Moore
+      Submitter Contact:
+        Primary: Joseph Izen
+    Disable: true
+    FQDN: gomez.utdallas.edu
+    ID: 206
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UTD-HEP,o=grid
+      StorageCapacityMax: 7
+      StorageCapacityMin: 7
+      TapeCapacity: 0
+  UTD-HEP-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Don Moore
+        Secondary: Joseph Izen
+      Miscellaneous Contact:
+        Primary: Don Moore
+        Secondary: Joseph Izen
+        Tertiary: Hari Namasivayam
+      Resource Report Contact:
+        Primary: Don Moore
+        Secondary: Joseph Izen
+        Tertiary: Hari Namasivayam
+      Security Contact:
+        Primary: Don Moore
+      Submitter Contact:
+        Primary: Joseph Izen
+    Disable: false
+    FQDN: fester.utdallas.edu
+    ID: 401
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      ATLAS: 100
+  UTD-HEP2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Don Moore
+        Secondary: Joseph Izen
+      Miscellaneous Contact:
+        Primary: Joseph Izen
+        Secondary: Kendall Reeves
+        Tertiary: Hari Namasivayam
+      Resource Report Contact:
+        Primary: Joseph Izen
+        Secondary: Kendall Reeves
+        Tertiary: Hari Namasivayam
+      Security Contact:
+        Primary: Don Moore
+      Submitter Contact:
+        Primary: Joseph Izen
+    Disable: true
+    FQDN: gomez.utdallas.edu
+    ID: 395
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details: null
+        ID: 3
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UTD-HEP,o=grid
+      StorageCapacityMax: 24
+      StorageCapacityMin: 24
+      TapeCapacity: 0
+SupportCenterID: 50
+SupportCenterName: USATLAS_Tier3

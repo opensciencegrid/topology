@@ -1,0 +1,40 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 44
+Resources:
+  isuhep:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Charles Zaruba
+      Resource Report Contact:
+        Primary: Charles Zaruba
+      Security Contact:
+        Primary: Charles Zaruba
+      Submitter Contact:
+        Primary: Charles Zaruba
+    Disable: true
+    FQDN: turner.physics.iastate.edu
+    ID: 44
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      DOSAR: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=isuhep,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+SupportCenterID: 4
+SupportCenterName: DOSAR

@@ -1,0 +1,54 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 138
+Resources:
+  WISC-OSG-EDU:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Tim Cartwright
+      Resource Report Contact:
+        Secondary: Tim Cartwright
+      Security Contact:
+        Primary: Tim Cartwright
+    Disable: false
+    FQDN: osg-edu.cs.wisc.edu
+    ID: 138
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      OSGEDU: 100
+  WISC-OSG-EDU-2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Tim Cartwright
+      Resource Report Contact:
+        Primary: Tim Cartwright
+      Security Contact:
+        Primary: Tim Cartwright
+    Disable: false
+    FQDN: osg-ss-ce.chtc.wisc.edu
+    ID: 472
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: osg-ss-se.chtc.wisc.edu:8443
+        ID: 3
+    VOOwnership:
+      OSGEDU: 100
+SupportCenterID: 31
+SupportCenterName: OSG Software

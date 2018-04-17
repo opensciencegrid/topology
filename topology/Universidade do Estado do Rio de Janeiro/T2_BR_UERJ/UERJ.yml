@@ -1,0 +1,140 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 42
+Resources:
+  UERJ_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Eduardo Azevedo Revoredo
+        Secondary: Caio Amadei Marques da Costa
+      Miscellaneous Contact:
+        Primary: Caio Amadei Marques da Costa
+        Secondary: Renan Bernardo
+        Tertiary: Douglas Milanez Marques
+      Resource Report Contact:
+        Primary: Eduardo Azevedo Revoredo
+        Secondary: Renan Bernardo
+        Tertiary: Caio Amadei Marques da Costa
+      Security Contact:
+        Primary: Caio Amadei Marques da Costa
+        Secondary: Douglas Milanez Marques
+      Submitter Contact:
+        Primary: Patricia Bittencourt
+    Disable: true
+    FQDN: osgce.hepgrid.uerj.br
+    ID: 42
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.486
+      AccountingName: T2-LATINAMERICA
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UERJ,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+  UERJ_CE_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Douglas Milanez Marques
+        Secondary: Caio Amadei Marques da Costa
+      Miscellaneous Contact:
+        Primary: Renan Bernardo
+        Secondary: Eduardo Azevedo Revoredo
+        Tertiary: Caio Amadei Marques da Costa
+      Resource Report Contact:
+        Primary: Caio Amadei Marques da Costa
+        Secondary: Eduardo Azevedo Revoredo
+        Tertiary: Renan Bernardo
+      Security Contact:
+        Primary: Caio Amadei Marques da Costa
+        Secondary: Douglas Milanez Marques
+      Submitter Contact:
+        Primary: Felipe Silva Araujo
+    Disable: false
+    FQDN: osgce2.hepgrid.uerj.br
+    ID: 210
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.486
+      AccountingName: T2-LATINAMERICA
+      HEPSPEC: 8000
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UERJ,o=grid
+      StorageCapacityMax: 700
+      StorageCapacityMin: 400
+      TapeCapacity: 0
+  UERJ_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Eduardo Azevedo Revoredo
+        Secondary: Caio Amadei Marques da Costa
+      Miscellaneous Contact:
+        Primary: Douglas Milanez Marques
+        Secondary: Eduardo Azevedo Revoredo
+        Tertiary: Caio Amadei Marques da Costa
+      Resource Report Contact:
+        Primary: Eduardo Azevedo Revoredo
+        Secondary: Douglas Milanez Marques
+        Tertiary: Caio Amadei Marques da Costa
+      Security Contact:
+        Primary: Douglas Milanez Marques
+        Secondary: Caio Amadei Marques da Costa
+      Submitter Contact:
+        Primary: Thiago Comicio
+    Disable: false
+    FQDN: se.hepgrid.uerj.br
+    ID: 164
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_BR_UERJ
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UERJ,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+SupportCenterID: 65
+SupportCenterName: USCMS_Tier2

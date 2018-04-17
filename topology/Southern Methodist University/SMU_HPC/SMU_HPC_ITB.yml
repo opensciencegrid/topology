@@ -1,0 +1,82 @@
+Disable: true
+GridType: OSG Integration Test Bed Resource
+GroupID: 416
+Resources:
+  SMU_HPC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Amit Kumar
+      Miscellaneous Contact:
+        Primary: Amit Kumar
+      Resource Report Contact:
+        Primary: Amit Kumar
+      Security Contact:
+        Primary: Amit Kumar
+      Submitter Contact:
+        Primary: Justin Ross
+    Disable: false
+    FQDN: smuosg1.hpc.smu.edu
+    ID: 259
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      (Other): 90
+      Nova: 10
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=SMU_HPC_ITB,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: null
+  SMU_HPC_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Amit Kumar
+      Miscellaneous Contact:
+        Primary: Amit Kumar
+      Resource Report Contact:
+        Primary: Amit Kumar
+      Security Contact:
+        Primary: Amit Kumar
+      Submitter Contact:
+        Primary: Justin Ross
+    Disable: false
+    FQDN: smuosgse.hpc.smu.edu
+    ID: 303
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 12000
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 3000
+      KSI2KMin: 1000
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=SMU_HPC_ITB,o=grid
+      StorageCapacityMax: 400
+      StorageCapacityMin: 100
+      TapeCapacity: null
+SupportCenterID: 29
+SupportCenterName: USATLAS

@@ -1,0 +1,46 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 446
+Resources:
+  Purdue-Rice:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Erik Gough
+      Resource Report Contact:
+        Primary: Majid Arabgol
+        Tertiary: Erik Gough
+      Security Contact:
+        Primary: Majid Arabgol
+        Secondary: Erik Gough
+      Submitter Contact:
+        Primary: Majid Arabgol
+    Disable: false
+    FQDN: rice-osg.rcac.purdue.edu
+    ID: 827
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://rice-osg.rcac.purdue.edu:9619/rice-osg.rcac.purdue.edu
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      (Other): 100
+      CMS: 0
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 85
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-Rice,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 5.5
+SupportCenterID: 65
+SupportCenterName: USCMS_Tier2

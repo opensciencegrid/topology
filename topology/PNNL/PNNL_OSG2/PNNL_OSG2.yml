@@ -1,0 +1,41 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 355
+Resources:
+  PNNL_OSG-Misregistered:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Brock Erwin
+      Security Contact:
+        Primary: Brock Erwin
+      Submitter Contact:
+        Primary: Brock Erwin
+    Disable: true
+    FQDN: osg.pnl.gov
+    ID: 485
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: osg.pnl.gov:2119
+        ID: 1
+    VOOwnership:
+      Belle: 50
+      ILC: 50
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=PNNL_OSG2,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

@@ -1,0 +1,27 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 477
+Resources:
+  RabbitMQ message bus:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: event1.grid.iu.edu
+    ID: 906
+    Services:
+      Message Bus:
+        Description: A RabbitMQ message bus
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 154
+    VOOwnership:
+      Ops: 100
+SupportCenterID: 21
+SupportCenterName: OSG-GOC

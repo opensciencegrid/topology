@@ -1,0 +1,27 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 149
+Resources:
+  MSU-OSG:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Tom Rockwell
+      Resource Report Contact:
+        Primary: Tom Rockwell
+      Security Contact:
+        Primary: Tom Rockwell
+      Submitter Contact:
+        Primary: Tom Rockwell
+    Disable: false
+    FQDN: msu-osg.aglt2.org
+    ID: 149
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      DZero: 100
+SupportCenterID: 5
+SupportCenterName: DZero

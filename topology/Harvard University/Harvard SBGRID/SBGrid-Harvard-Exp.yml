@@ -1,0 +1,46 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 143
+Resources:
+  SBGrid-Harvard-Exp:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Ian Stokes-Rees
+        Secondary: Peter Doherty
+      Resource Report Contact:
+        Primary: Ian Stokes-Rees
+        Tertiary: Ian Levesque
+      Security Contact:
+        Primary: Ian Levesque
+        Secondary: Ian Stokes-Rees
+      Submitter Contact:
+        Primary: Ian Stokes-Rees
+    Disable: true
+    FQDN: abitibi.sbgrid.org
+    FQDNAliases:
+    - abitibi.sbgrid.org
+    ID: 143
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: abitibi.sbgrid.org:10443
+        ID: 3
+    VOOwnership:
+      SBGrid: 100
+SupportCenterID: 34
+SupportCenterName: SBGrid

@@ -1,0 +1,57 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 69
+Resources:
+  MWT2_UC:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Nathan Yehle (disabled)
+      Miscellaneous Contact:
+        Secondary: Frederick Luehring
+        Tertiary: Nathan Yehle (disabled)
+      Resource Report Contact:
+        Primary: Nathan Yehle (disabled)
+      Security Contact:
+        Primary: Nathan Yehle (disabled)
+    Disable: true
+    FQDN: uct2-grid6.uchicago.edu
+    ID: 69
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MWT2_UC,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  MWT2_X_SE:
+    Active: false
+    ContactLists: null
+    Disable: true
+    FQDN: iut2-grid8.iu.edu
+    ID: 304
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          uri_override: iut2-grid8.iu.edu:63443
+        ID: 3
+    VOOwnership:
+      ATLAS: 100
+SupportCenterID: 29
+SupportCenterName: USATLAS

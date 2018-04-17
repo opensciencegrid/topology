@@ -1,0 +1,27 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 179
+Resources:
+  LONI_OSG2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Lisa Giaime
+      Resource Report Contact:
+        Primary: Lisa Giaime
+      Security Contact:
+        Primary: Lisa Giaime
+      Submitter Contact:
+        Primary: Lisa Giaime
+    Disable: false
+    FQDN: osg2.loni.org
+    ID: 179
+    Services:
+      CE:
+        Description: Compute Element
+        Details: null
+        ID: 1
+    VOOwnership:
+      LIGO: 100
+SupportCenterID: 4
+SupportCenterName: DOSAR

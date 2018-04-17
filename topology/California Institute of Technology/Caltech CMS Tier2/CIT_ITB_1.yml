@@ -1,0 +1,50 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 12
+Resources:
+  CIT_ITB_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Justas Balcas
+      Resource Report Contact:
+        Primary: Justas Balcas
+        Tertiary: Michael Thomas
+      Security Contact:
+        Primary: Justas Balcas
+      Submitter Contact:
+        Primary: Michael Thomas
+    Disable: false
+    FQDN: ce-itb.ultralight.org
+    ID: 12
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 1700
+      KSI2KMin: 1700
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=CIT_ITB_1,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: null
+SupportCenterID: 65
+SupportCenterName: USCMS_Tier2

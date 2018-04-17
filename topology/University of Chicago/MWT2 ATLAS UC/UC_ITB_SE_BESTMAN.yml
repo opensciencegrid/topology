@@ -1,0 +1,31 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 218
+Resources:
+  UC_ITB_SE_BESTMAN:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Miscellaneous Contact:
+        Primary: Suchandra Thapa
+      Resource Report Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+      Submitter Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: itbv-bmx1.mwt2.org
+    ID: 216
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 3
+    VOOwnership:
+      OSG: 100
+SupportCenterID: 29
+SupportCenterName: USATLAS

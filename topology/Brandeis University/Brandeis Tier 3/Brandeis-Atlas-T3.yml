@@ -1,0 +1,52 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 284
+Resources:
+  BRND-HEAD:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Craig Blocker
+      Miscellaneous Contact:
+        Primary: Craig Blocker
+      Resource Report Contact:
+        Primary: Craig Blocker
+      Security Contact:
+        Primary: Craig Blocker
+      Submitter Contact:
+        Primary: Craig Blocker
+    Disable: false
+    FQDN: brndt3head.hep.brandeis.edu
+    ID: 364
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details: null
+        ID: 5
+    VOOwnership:
+      ATLAS: 100
+  BRND-NFS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Craig Blocker
+      Miscellaneous Contact:
+        Primary: Craig Blocker
+      Resource Report Contact:
+        Primary: Craig Blocker
+      Security Contact:
+        Primary: Craig Blocker
+      Submitter Contact:
+        Primary: Craig Blocker
+    Disable: false
+    FQDN: brndt3nfs.hep.brandeis.edu
+    ID: 365
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details: null
+        ID: 5
+    VOOwnership:
+      ATLAS: 100
+SupportCenterID: 50
+SupportCenterName: USATLAS_Tier3

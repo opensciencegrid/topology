@@ -1,0 +1,90 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 330
+Resources:
+  RENCI-Blueberry:
+    Active: false
+    ContactLists:
+      Miscellaneous Contact:
+        Primary: John McGee
+      Resource Report Contact:
+        Tertiary: John McGee
+    Disable: true
+    FQDN: hpgw0.renci.org
+    ID: 433
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      Engage: 100
+  RENCI-Blueridge:
+    Active: false
+    ContactLists:
+      Resource Report Contact:
+        Tertiary: John McGee
+    Disable: true
+    FQDN: brgw1.renci.org
+    ID: 347
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      Engage: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: null
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=RENCI,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  RENCI-Hatteras:
+    Active: false
+    ContactLists:
+      Resource Report Contact:
+        Tertiary: John McGee
+    Disable: true
+    FQDN: htgw0.renci.org
+    ID: 575
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      Engage: 100
+SupportCenterID: 3
+SupportCenterName: Community Support Center

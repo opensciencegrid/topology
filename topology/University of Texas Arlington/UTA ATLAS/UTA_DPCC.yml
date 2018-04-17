@@ -1,0 +1,37 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 133
+Resources:
+  UTA_DPCC:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Resource Report Contact:
+        Primary: Patrick McGuigan
+      Security Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Submitter Contact:
+        Primary: Patrick McGuigan
+    Disable: true
+    FQDN: atlas.dpcc.uta.edu
+    ID: 133
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 1
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+        ID: 5
+    VOOwnership:
+      DOSAR: 100
+SupportCenterID: 50
+SupportCenterName: USATLAS_Tier3
