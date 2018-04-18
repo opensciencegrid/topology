@@ -157,11 +157,11 @@ def expand_contactlists(contactlists: Dict) -> Dict:
 
 
 def expand_resource(name: str, res: Dict) -> Dict:
-    """Expand a single Resource from the format in a yml file to the xml format.
+    """Expand a single Resource from the format in a yaml file to the xml format.
 
     Services, VOOwnership, FQDNAliases, ContactLists are expanded;
     ``name`` is inserted into the Resource as the "Name" attribute;
-    Defaults are added for VOOwnership, FQDNAliases, and WLCGInformation if they're missing from the yml file.
+    Defaults are added for VOOwnership, FQDNAliases, and WLCGInformation if they're missing from the yaml file.
 
     Return the data structure for the expanded Resource.
     """
@@ -189,7 +189,7 @@ def expand_resource(name: str, res: Dict) -> Dict:
 
 
 def expand_resourcegroup(rg):
-    """Expand a single ResourceGroup from the format in a yml file to the xml format.
+    """Expand a single ResourceGroup from the format in a yaml file to the xml format.
 
     {"SupportCenterName": ...} and {"SupportCenterID": ...} are turned into
     {"SupportCenter": {"Name": ...}, {"ID": ...}} and each individual Resource is expanded and collected in a
@@ -226,21 +226,21 @@ def main(argv=sys.argv):
 
     topology = Topology()
     root = Path(indir)
-    for facility_path in root.glob("*/FACILITY.yml"):
+    for facility_path in root.glob("*/FACILITY.yaml"):
         name = facility_path.parts[-2]
         id_ = anymarkup.parse_file(facility_path)["ID"]
         topology.add_facility(name, id_)
 
-    for site_path in root.glob("*/*/SITE.yml"):
+    for site_path in root.glob("*/*/SITE.yaml"):
         facility, name = site_path.parts[-3:-1]
         id_ = anymarkup.parse_file(site_path)["ID"]
         topology.add_site(facility, name, id_)
 
-    for yaml_path in root.glob("*/*/*.yml"):
+    for yaml_path in root.glob("*/*/*.yaml"):
         facility, site, name = yaml_path.parts[-3:]
-        if name == "SITE.yml": continue
+        if name == "SITE.yaml": continue
 
-        name = name.replace(".yml", "")
+        name = name.replace(".yaml", "")
         rg = anymarkup.parse_file(yaml_path)
 
         facility_id = topology.data[facility]["ID"]

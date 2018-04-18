@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Take an rgsummary.xml file and convert it into a directory tree of yml files
+"""Take an rgsummary.xml file and convert it into a directory tree of yaml files
 
 An rgsummary.xml file can be downloaded from a URL such as:
 https://myosg.grid.iu.edu/rgsummary/xml?summary_attrs_showhierarchy=on&summary_attrs_showwlcg=on&summary_attrs_showservice=on&summary_attrs_showfqdn=on&summary_attrs_showvoownership=on&summary_attrs_showcontact=on&gip_status_attrs_showtestresults=on&downtime_attrs_showpast=&account_type=cumulative_hours&ce_account_type=gip_vo&se_account_type=vo_transfer_volume&bdiitree_type=total_jobs&bdii_object=service&bdii_server=is-osg&all_resources=on&facility_sel%5B%5D=10009&gridtype=on&gridtype_1=on&active=on&active_value=1&disable_value=1
@@ -18,18 +18,18 @@ The new directory layout will be
 
   facility/
     site/
-      resourcegroup.yml
+      resourcegroup.yaml
       ...
     ...
   ...
 The name of the facility dir is taken from the (XPath)
 ``/ResourceSummary/ResourceGroup/Facility/Name`` element; the name of the site
 dir is taken from the ``/ResourceSummary/ResourceGroup/Site/Name`` element;
-the name of the yml file is taken from the
+the name of the yaml file is taken from the
 ``/ResourceSummary/ResourceGroup/GroupName`` element.
 
-Also, each facility dir will have a ``FACILITY.yml`` file, and each site dir
-will have a ``SITE.yml`` file containing facility and site information.
+Also, each facility dir will have a ``FACILITY.yaml`` file, and each site dir
+will have a ``SITE.yaml`` file containing facility and site information.
 
 Ordering is not kept.
 """
@@ -221,7 +221,7 @@ def topology_from_parsed_xml(parsed) -> Dict:
         sansite = to_file_name(rg["Site"]["Name"])
         if sansite not in topology[sanfacility]:
             topology[sanfacility][sansite] = {"ID": rg["Site"]["ID"]}
-        sanrg = to_file_name(rg["GroupName"]) + ".yml"
+        sanrg = to_file_name(rg["GroupName"]) + ".yaml"
 
         rg_copy = dict(rg)
         # Get rid of these fields; we're already putting them in the file/dir names.
@@ -239,7 +239,7 @@ def topology_from_parsed_xml(parsed) -> Dict:
     return topology
 
 
-def write_topology_to_ymls(topology, outdir):
+def write_topology_to_yamls(topology, outdir):
     os.makedirs(outdir, exist_ok=True)
 
     for facility_name, facility_data in topology.items():
@@ -247,7 +247,7 @@ def write_topology_to_ymls(topology, outdir):
         os.makedirs(facility_dir, exist_ok=True)
 
         anymarkup.serialize_file({"ID": facility_data["ID"]},
-                                 os.path.join(facility_dir, "FACILITY.yml"))
+                                 os.path.join(facility_dir, "FACILITY.yaml"))
 
         for site_name, site_data in facility_data.items():
             if site_name == "ID": continue
@@ -255,7 +255,7 @@ def write_topology_to_ymls(topology, outdir):
             site_dir = os.path.join(facility_dir, site_name)
             os.makedirs(site_dir, exist_ok=True)
 
-            anymarkup.serialize_file({"ID": site_data["ID"]}, os.path.join(site_dir, "SITE.yml"))
+            anymarkup.serialize_file({"ID": site_data["ID"]}, os.path.join(site_dir, "SITE.yaml"))
 
             for rg_name, rg_data in site_data.items():
                 if rg_name == "ID": continue
@@ -274,7 +274,7 @@ def main(argv=sys.argv):
         print("Warning: %s already exists" % outdir, file=sys.stderr)
     parsed = anymarkup.parse_file(infile)['ResourceSummary']
     topology = topology_from_parsed_xml(parsed)
-    write_topology_to_ymls(topology, outdir)
+    write_topology_to_yamls(topology, outdir)
     print("Topology written to", outdir)
 
     return 0
