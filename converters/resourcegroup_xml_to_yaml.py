@@ -31,7 +31,7 @@ the name of the yaml file is taken from the
 Also, each facility dir will have a ``FACILITY.yaml`` file, and each site dir
 will have a ``SITE.yaml`` file containing facility and site information.
 
-Ordering is not kept.
+Ordering is lost in the YAML file but the YAML to XML converter restores it.
 """
 import anymarkup
 import os
@@ -41,7 +41,7 @@ from collections import OrderedDict
 from typing import Dict, List, Union
 
 
-def ensure_list(x):
+def ensure_list(x) -> List:
     if isinstance(x, list):
         return x
     return [x]
@@ -81,146 +81,20 @@ def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
     return new_data
 
 
-def simplify_services(services):
-    """
-    Simplify Services attribute
-    """
-    if not isinstance(services, dict):
-        return None
-    new_services = simplify_attr_list(services["Service"], "Name")
-    for service in new_services.values():
-        if service["Details"]:
-            service["Details"] = dict(service["Details"])  # OrderedDict -> dict
-    return new_services
+class Topology(object):
 
+    def __init__(self):
+        self.data = {}
+        self.services = {}
+        self.support_centers = {}
 
-def simplify_voownership(voownership):
-    """
-    Simplify VOOwnership attribute
-    """
-    if not isinstance(voownership, dict):
-        return None
-    voownership = dict(voownership)  # copy
-    del voownership["ChartURL"]  # can be derived from the other attributes
-    new_voownership = simplify_attr_list(voownership["Ownership"], "VO")
-    for vo in new_voownership:
-        new_voownership[vo] = int(new_voownership[vo]["Percent"])
-    return new_voownership
-
-
-def simplify_contactlists(contactlists):
-    """Simplify ContactLists attribute
-
-    Turn e.g.
-    {"ContactList":
-        [{"ContactType": "Administrative Contact",
-            {"Contacts":
-                {"Contact":
-                    [{"Name": "Andrew Malone Melo", "ContactRank": "Primary"},
-                     {"Name": "Paul Sheldon", "ContactRank": "Secondary"}]
-                }
-            }
-         }]
-    }
-
-    into
-
-    {"Administrative Contact":
-        {"Primary": "Andrew Malone Melo",
-         "Secondary": "Paul Sheldon"}
-    }
-    """
-    if not isinstance(contactlists, dict):
-        return contactlists
-    contactlists_simple = simplify_attr_list(contactlists["ContactList"], "ContactType")
-    new_contactlists = {}
-    for contact_type, contact_data in contactlists_simple.items():
-        contacts = simplify_attr_list(contact_data["Contacts"]["Contact"], "ContactRank")
-        new_contacts = {}
-        for contact_rank in contacts:
-            if contact_rank in new_contacts and contacts[contact_rank]["Name"] != new_contacts[contact_rank]:
-                # Multiple people with the same rank -- hope this never happens.
-                # Duplicates are fine though -- we collapse them into one.
-                raise RuntimeError("dammit %s" % contacts[contact_rank]["Name"])
-            new_contacts[contact_rank] = contacts[contact_rank]["Name"]
-        new_contactlists[contact_type] = new_contacts
-    return new_contactlists
-
-
-def simplify_resource(res: Dict) -> Dict:
-    res = dict(res)
-
-    services = simplify_services(res["Services"])
-    if services:
-        res["Services"] = services
-    else:
-        del res["Services"]
-    res["VOOwnership"] = simplify_voownership(res.get("VOOwnership"))
-    if not res["VOOwnership"]:
-        del res["VOOwnership"]
-    try:
-        if isinstance(res["WLCGInformation"], OrderedDict):
-            res["WLCGInformation"] = dict(res["WLCGInformation"])
-        else:
-            del res["WLCGInformation"]
-    except KeyError: pass
-    try:
-        if isinstance(res["FQDNAliases"], dict):
-            aliases = []
-            for a in ensure_list(res["FQDNAliases"]["FQDNAlias"]):
-                aliases.append(a)
-            res["FQDNAliases"] = aliases
-        else:
-            del res["FQDNAliases"]
-    except KeyError: pass
-    res["ContactLists"] = simplify_contactlists(res["ContactLists"])
-
-    return res
-
-
-def simplify_resourcegroup(rg: Dict) -> Dict:
-    """Simplify the data structure in the ResourceGroup.  Returns the simplified ResourceGroup.
-
-        {"Resources":
-            {"Resource":
-                [{"Name": "Rsrc1", ...},
-                 ...
-                ]
-            }
-        }
-    is turned into:
-        {"Resources":
-            {"Rsrc1": {...}}
-        }
-    and
-        {"SupportCenter": {"ID": "123", "Name": "XXX"}}
-    is turned into:
-        {"SupportCenterID": "123",
-         "SupportCenterName": "XXX"}
-    """
-    rg = dict(rg)
-
-    rg["SupportCenterID"] = rg["SupportCenter"]["ID"]
-    rg["SupportCenterName"] = rg["SupportCenter"]["Name"]
-    del rg["SupportCenter"]
-
-    rg["Resources"] = simplify_attr_list(rg["Resources"]["Resource"], "Name")
-    for key, val in rg["Resources"].items():
-        rg["Resources"][key] = simplify_resource(val)
-
-    return rg
-
-
-def topology_from_parsed_xml(parsed) -> Dict:
-    """Returns a dict of the topology created from the parsed XML file."""
-    topology = {}
-    for rg in ensure_list(parsed["ResourceGroup"]):
+    def add_rg(self, rg: Dict):
         sanfacility = to_file_name(rg["Facility"]["Name"])
-        if sanfacility not in topology:
-            topology[sanfacility] = {"ID": rg["Facility"]["ID"]}
+        if sanfacility not in self.data:
+            self.data[sanfacility] = {"ID": rg["Facility"]["ID"]}
         sansite = to_file_name(rg["Site"]["Name"])
-        if sansite not in topology[sanfacility]:
-            topology[sanfacility][sansite] = {"ID": rg["Site"]["ID"]}
+        if sansite not in self.data[sanfacility]:
+            self.data[sanfacility][sansite] = {"ID": rg["Site"]["ID"]}
         sanrg = to_file_name(rg["GroupName"]) + ".yaml"
 
         rg_copy = dict(rg)
@@ -230,19 +104,164 @@ def topology_from_parsed_xml(parsed) -> Dict:
         del rg_copy["GroupName"]
 
         try:
-            topology[sanfacility][sansite][sanrg] = simplify_resourcegroup(rg_copy)
+            self.data[sanfacility][sansite][sanrg] = self.simplify_resourcegroup(rg_copy)
         except Exception:
             print("*** We were parsing %s/%s/%s" % (sanfacility, sansite, sanrg), file=sys.stderr)
             pprint.pprint(rg_copy, stream=sys.stderr)
             print("\n\n", file=sys.stderr)
             raise
+
+    def simplify_services(self, services):
+        """
+        Simplify Services attribute and record the Name -> ID mapping
+        """
+        if not isinstance(services, dict):
+            return None
+        new_services = simplify_attr_list(services["Service"], "Name")
+        for name, data in new_services.items():
+            if data["Details"]:
+                data["Details"] = dict(data["Details"])  # OrderedDict -> dict
+            if "ID" in data:
+                if name not in self.services:
+                    self.services[name] = data["ID"]
+                else:
+                    if data["ID"] != self.services[name]:
+                        raise RuntimeError("Identical services with different IDs: %s" % name)
+                del data["ID"]
+
+        return new_services
+
+    def simplify_voownership(self, voownership):
+        """
+        Simplify VOOwnership attribute
+        """
+        if not isinstance(voownership, dict):
+            return None
+        voownership = dict(voownership)  # copy
+        del voownership["ChartURL"]  # can be derived from the other attributes
+        new_voownership = simplify_attr_list(voownership["Ownership"], "VO")
+        for vo in new_voownership:
+            new_voownership[vo] = int(new_voownership[vo]["Percent"])
+        return new_voownership
+
+    def simplify_contactlists(self, contactlists):
+        """Simplify ContactLists attribute
+
+        Turn e.g.
+        {"ContactList":
+            [{"ContactType": "Administrative Contact",
+                {"Contacts":
+                    {"Contact":
+                        [{"Name": "Andrew Malone Melo", "ContactRank": "Primary"},
+                         {"Name": "Paul Sheldon", "ContactRank": "Secondary"}]
+                    }
+                }
+             }]
+        }
+
+        into
+
+        {"Administrative Contact":
+            {"Primary": "Andrew Malone Melo",
+             "Secondary": "Paul Sheldon"}
+        }
+        """
+        if not isinstance(contactlists, dict):
+            return contactlists
+        contactlists_simple = simplify_attr_list(contactlists["ContactList"], "ContactType")
+        new_contactlists = {}
+        for contact_type, contact_data in contactlists_simple.items():
+            contacts = simplify_attr_list(contact_data["Contacts"]["Contact"], "ContactRank")
+            new_contacts = {}
+            for contact_rank in contacts:
+                if contact_rank in new_contacts and contacts[contact_rank]["Name"] != new_contacts[contact_rank]:
+                    # Multiple people with the same rank -- hope this never happens.
+                    # Duplicates are fine though -- we collapse them into one.
+                    raise RuntimeError("dammit %s" % contacts[contact_rank]["Name"])
+                new_contacts[contact_rank] = contacts[contact_rank]["Name"]
+            new_contactlists[contact_type] = new_contacts
+        return new_contactlists
+
+    def simplify_resource(self, res: Dict) -> Dict:
+        res = dict(res)
+
+        services = self.simplify_services(res["Services"])
+        if services:
+            res["Services"] = services
+        else:
+            del res["Services"]
+        res["VOOwnership"] = self.simplify_voownership(res.get("VOOwnership"))
+        if not res["VOOwnership"]:
+            del res["VOOwnership"]
+        try:
+            if isinstance(res["WLCGInformation"], OrderedDict):
+                res["WLCGInformation"] = dict(res["WLCGInformation"])
+            else:
+                del res["WLCGInformation"]
+        except KeyError: pass
+        try:
+            if isinstance(res["FQDNAliases"], dict):
+                aliases = []
+                for a in ensure_list(res["FQDNAliases"]["FQDNAlias"]):
+                    aliases.append(a)
+                res["FQDNAliases"] = aliases
+            else:
+                del res["FQDNAliases"]
+        except KeyError: pass
+        res["ContactLists"] = self.simplify_contactlists(res["ContactLists"])
+
+        return res
+
+    def simplify_resourcegroup(self, rg: Dict) -> Dict:
+        """Simplify the data structure in the ResourceGroup.  Returns the simplified ResourceGroup.
+
+            {"Resources":
+                {"Resource":
+                    [{"Name": "Rsrc1", ...},
+                     ...
+                    ]
+                }
+            }
+        is turned into:
+            {"Resources":
+                {"Rsrc1": {...}}
+            }
+
+        Also record the SupportCenter Name -> ID mapping and turn
+            {"SupportCenter": {"ID": "123", "Name": "XXX"}}
+        into
+            {"SupportCenter": "XXX"}
+        """
+        rg = dict(rg)
+
+        scname = rg["SupportCenter"]["Name"]
+        scid = rg["SupportCenter"]["ID"]
+        if scname not in self.support_centers:
+            self.support_centers[scname] = scid
+        else:
+            if self.support_centers[scname] != scid:
+                raise RuntimeError("Identical support centers with different IDs: %s" % scname)
+        rg["SupportCenter"] = scname
+
+        rg["Resources"] = simplify_attr_list(rg["Resources"]["Resource"], "Name")
+        for key, val in rg["Resources"].items():
+            rg["Resources"][key] = self.simplify_resource(val)
+
+        return rg
+
+
+def topology_from_parsed_xml(parsed) -> Topology:
+    """Returns a dict of the topology created from the parsed XML file."""
+    topology = Topology()
+    for rg in ensure_list(parsed["ResourceGroup"]):
+        topology.add_rg(rg)
     return topology
 
 
-def write_topology_to_yamls(topology, outdir):
+def write_topology_to_yamls(topology: Topology, outdir):
     os.makedirs(outdir, exist_ok=True)
 
-    for facility_name, facility_data in topology.items():
+    for facility_name, facility_data in topology.data.items():
         facility_dir = os.path.join(outdir, facility_name)
         os.makedirs(facility_dir, exist_ok=True)
 
@@ -262,6 +281,12 @@ def write_topology_to_yamls(topology, outdir):
 
                 anymarkup.serialize_file(rg_data, os.path.join(site_dir, rg_name))
 
+    # We want to sort this so write it out ourselves
+    for filename, data in [("support-centers.yaml", topology.support_centers),
+                           ("services.yaml", topology.services)]:
+        with open(os.path.join(outdir, filename), "w") as outfh:
+            for name, id_ in sorted(data.items(), key=lambda x: x[1]):
+                print("%s: %s" % (name, id_), file=outfh)
 
 def main(argv=sys.argv):
     try:

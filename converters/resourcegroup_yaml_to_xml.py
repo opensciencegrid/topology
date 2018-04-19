@@ -11,6 +11,9 @@ from typing import Dict, List, Union, Iterable
 
 SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 
+SERVICES_PATH = "../services.yaml"
+SUPPORT_CENTERS_PATH = "../support-centers.yaml"
+
 
 class Topology(object):
     def __init__(self):
@@ -96,7 +99,7 @@ def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=T
     return singleton_list_to_value(newdata)
 
 
-def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]) -> Union[Dict, List[Dict]]:
+def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]) -> Union[Union[Dict, OrderedDict], List[Union[Dict, OrderedDict]]]:
     """
     Expand
         {"name1": {"attr1": "val1", ...},
@@ -126,7 +129,17 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]) -> U
 
 
 def expand_services(services: Dict) -> Dict:
-    return {"Service": expand_attr_list(services, "Name", ordering=["ID", "Name", "Description", "Details"])}
+    global service_name_to_id
+
+    services_list = expand_attr_list(services, "Name", ordering=["Name", "Description", "Details"])
+    if isinstance(services_list, list):
+        for svc in services_list:
+            svc["ID"] = service_name_to_id[svc["Name"]]
+            svc.move_to_end("ID", last=False)
+    else:
+        services_list["ID"] = service_name_to_id[services_list["Name"]]
+        services_list.move_to_end("ID", last=False)
+    return {"Service": services_list}
 
 
 def get_charturl(ownership: Iterable) -> str:
@@ -156,8 +169,12 @@ def get_charturl(ownership: Iterable) -> str:
 
 def expand_voownership(voownership: Dict) -> OrderedDict:
     """Return the data structure for an expanded VOOwnership for a single Resource."""
+    voo = voownership.copy()
+    totalpercent = sum(voo.values())
+    if totalpercent < 100:
+        voo["(Other)"] = 100 - totalpercent
     return OrderedDict([
-        ("Ownership", expand_attr_list_single(voownership, "VO", "Percent", name_first=False)),
+        ("Ownership", expand_attr_list_single(voo, "VO", "Percent", name_first=False)),
         ("ChartURL", get_charturl(voownership.items()))
     ])
 
@@ -240,7 +257,8 @@ def expand_resourcegroup(rg: Dict) -> OrderedDict:
     """
     rg = dict(rg)  # copy
 
-    rg["SupportCenter"] = OrderedDict([("ID", rg["SupportCenterID"]), ("Name", rg["SupportCenterName"])])
+    scname, scid = rg["SupportCenter"], support_center_name_to_id[rg["SupportCenter"]]
+    rg["SupportCenter"] = OrderedDict([("ID", scid), ("Name", scname)])
 
     new_resources = []
     for name, res in rg["Resources"].items():
@@ -272,8 +290,15 @@ def main(argv=sys.argv):
     if len(argv) > 2:
         outfile = argv[2]
 
+    global support_center_name_to_id
+    global service_name_to_id
+
     topology = Topology()
     root = Path(indir)
+
+    support_center_name_to_id = anymarkup.parse_file(root / "support-centers.yaml")
+    service_name_to_id = anymarkup.parse_file(root / "services.yaml")
+
     for facility_path in root.glob("*/FACILITY.yaml"):
         name = facility_path.parts[-2]
         id_ = anymarkup.parse_file(facility_path)["ID"]
