@@ -75,6 +75,6 @@ with urllib.request.urlopen(url) as req:
     data = req.read().decode("utf-8")
 
 newenv = os.environ.copy()
-#newenv["XMLLINT_INDENT"] = "\t"
+newenv["XMLLINT_INDENT"] = "\t"
 proc = Popen("xmllint --format -", stdin=PIPE, stdout=sys.stdout, shell=True, encoding="utf-8", env=newenv)
 proc.communicate(data)
