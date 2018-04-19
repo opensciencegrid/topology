@@ -11,17 +11,14 @@ ContactTypes:
   - Contacts:
       Contact:
       - Name: Aaron Moate
-      - Name: Aaron Moate
     Type: Submitter Contact
   - Contacts:
       Contact:
+      - Name: Aaron Moate
       - Name: Daniel Bradley
-      - Name: Aaron Moate
-      - Name: Aaron Moate
     Type: Security Contact
   - Contacts:
       Contact:
-      - Name: Aaron Moate
       - Name: Aaron Moate
     Type: Administrative Contact
   - Contacts:
@@ -34,9 +31,8 @@ ContactTypes:
     Type: VO Manager
   - Contacts:
       Contact:
+      - Name: Aaron Moate
       - Name: Daniel Bradley
-      - Name: Aaron Moate
-      - Name: Aaron Moate
     Type: Registration Authority
 Disable: 'False'
 FieldsOfScience:
@@ -47,57 +43,17 @@ FieldsOfScience:
 ID: '13'
 LongName: Grid Laboratory of Wisconsin
 MembershipServicesURL: https://glow-voms.cs.wisc.edu:8443/voms/GLOW
-MemeberResources:
-  Resource:
-  - ID: '13'
-    Name: Clemson-IT
-  - ID: '60'
-    Name: Lehigh_coral
-  - ID: '201'
-    Name: GLOW_MINIOSG_UCSB
-  - ID: '270'
-    Name: piranha
-  - ID: '330'
-    Name: Lehigh_piranha
-  - ID: '412'
-    Name: CHTC-glidein
-  - ID: '426'
-    Name: GLOW-CHTC VOMS server
-  - ID: '569'
-    Name: Discovery_PerfSonar_Latency
-  - ID: '570'
-    Name: Discovery_PerfSonar_Bandwidth
-  - ID: '608'
-    Name: CHTC and BATLAB OSG Mirror
-  - ID: '638'
-    Name: CHTC-glidein2
-  - ID: '719'
-    Name: CHTC_SUBMIT_3
-  - ID: '721'
-    Name: CHTC_SUBMIT_4
-  - ID: '722'
-    Name: CHTC_SUBMIT_5
-  - ID: '723'
-    Name: CHTC-submit-1
-  - ID: '739'
-    Name: CHTC-glidein3
-  - ID: '848'
-    Name: GLOW_SUBMIT5
-  - ID: '849'
-    Name: GLOW_SUBMIT6
 Name: GLOW
 OASIS:
   Managers:
     Manager:
-    - ContactID: '894'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Aaron Moate 717557
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Aaron Moate
           894
       Name: Aaron Moate
-    - ContactID: '1600'
-      DNs:
+    - DNs:
         DN: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Neil Van Lysel
           1600
       Name: Neil Van Lysel
@@ -111,10 +67,8 @@ ReportingGroups:
     Contacts:
       Contact:
       - Name: Miron Livny
+      - Name: Greg Thain
       - Name: Lauren Michael
-      - Name: Greg Thain
-      - Name: Greg Thain
-      - Name: Greg Thain
     FQANs:
       FQAN:
         GroupName: /GLOW

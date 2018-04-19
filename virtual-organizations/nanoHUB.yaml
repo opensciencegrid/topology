@@ -9,22 +9,13 @@ ContactTypes:
   - Contacts:
       Contact:
       - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
     Type: Administrative Contact
   - Contacts:
       Contact:
       - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
     Type: VO Manager
   - Contacts:
       Contact:
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
       - Name: Steven Clark
     Type: Registration Authority
 Disable: 'False'
@@ -40,20 +31,11 @@ FieldsOfScience:
 ID: '26'
 LongName: nanoHUB Network for Computational Nanotechnology (NCN)
 MembershipServicesURL: https://voms.opensciencegrid.org:8443/voms/nanohub/admin/home.action
-MemeberResources:
-  Resource:
-  - ID: '13'
-    Name: Clemson-IT
-  - ID: '168'
-    Name: Clemson-ciTeam
-  - ID: '200'
-    Name: Clemson-Birdnest
 Name: nanoHUB
 OASIS:
   Managers:
     Manager:
-    - ContactID: '174'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Steven M Clark 138599
         - /CN=Steven M Clark/OU=Purdue TeraGrid/O=Purdue University/ST=Indiana/C=US
@@ -61,8 +43,7 @@ OASIS:
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Steven Clark
           174
       Name: Steven Clark
-    - ContactID: '652'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Scott Teige 689374
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Scott Teige 652
@@ -79,9 +60,6 @@ ReportingGroups:
   ReportingGroup:
     Contacts:
       Contact:
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
       - Name: Steven Clark
     FQANs:
       FQAN:

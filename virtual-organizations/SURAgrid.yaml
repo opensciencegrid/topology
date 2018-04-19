@@ -21,29 +21,24 @@ ContactTypes:
   - Contacts:
       Contact:
       - Name: Steve Johnson
-      - Name: Steve Johnson
     Type: Security Contact
   - Contacts:
       Contact:
-      - Name: Steve Johnson
       - Name: Steve Johnson
     Type: Administrative Contact
   - Contacts:
       Contact:
       - Name: Steve Johnson
-      - Name: Steve Johnson
     Type: Miscellaneous Contact
   - Contacts:
       Contact:
       - Name: Steve Johnson
-      - Name: Steve Johnson
     Type: VO Manager
   - Contacts:
       Contact:
-      - Name: Alan Sill
-      - Name: Steve Johnson
       - Name: Steve Johnson
       - Name: James A. Lupo
+      - Name: Alan Sill
     Type: Registration Authority
 Disable: 'False'
 FieldsOfScience:
@@ -65,40 +60,6 @@ FieldsOfScience:
 ID: '74'
 LongName: SURAgrid
 MembershipServicesURL: https://voms.hpcc.ttu.edu:8443/voms/suragrid/
-MemeberResources:
-  Resource:
-  - ID: '340'
-    Name: TAMU_BRAZOS
-  - ID: '381'
-    Name: TAMU_Calclab
-  - ID: '382'
-    Name: TAMU_Calclab_SE
-  - ID: '384'
-    Name: UGA_Sgrid_CE
-  - ID: '446'
-    Name: ATLab testing node
-  - ID: '448'
-    Name: UGA_Sgrid_Test_CE
-  - ID: '527'
-    Name: TTU-TINGE
-  - ID: '538'
-    Name: TAMU_Calclab_CE2
-  - ID: '542'
-    Name: OSG_TEST_CE
-  - ID: '601'
-    Name: TAMU_BRAZOS_SE
-  - ID: '604'
-    Name: TAMU_BRAZOS_SRM
-  - ID: '630'
-    Name: TAMU_BRAZOS_CE
-  - ID: '634'
-    Name: TAMU_BRAZOS_perfSONAR_Bandwidth
-  - ID: '635'
-    Name: TAMU_BRAZOS_perfSONAR_Latency
-  - ID: '637'
-    Name: TAMU_BRAZOS_GridFTP1
-  - ID: '795'
-    Name: TAMU_BRAZOS_GridFTP2
 Name: SURAgrid
 OASIS:
   Managers: null

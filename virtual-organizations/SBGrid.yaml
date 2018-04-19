@@ -18,49 +18,24 @@ ContactTypes:
   - Contacts:
       Contact:
       - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
     Type: Security Contact
   - Contacts:
       Contact:
       - Name: Piotr Sliz
       - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
     Type: Administrative Contact
   - Contacts:
       Contact:
       - Name: Piotr Sliz
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
       - Name: Peter Meyer
+      - Name: Michael (Mick) Timony
     Type: Miscellaneous Contact
   - Contacts:
       Contact:
       - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
     Type: VO Manager
   - Contacts:
       Contact:
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
       - Name: Michael (Mick) Timony
       - Name: Michelle Ottaviano
     Type: Registration Authority
@@ -81,24 +56,11 @@ FieldsOfScience:
 ID: '32'
 LongName: Structural Biology Grid
 MembershipServicesURL: https://hpc.sbgrid.org:8443/voms/SBGrid/
-MemeberResources:
-  Resource:
-  - ID: '142'
-    Name: SBGrid-Harvard-East
-  - ID: '143'
-    Name: SBGrid-Harvard-Exp
-  - ID: '227'
-    Name: WQCG-Harvard-OSG
-  - ID: '298'
-    Name: SBGrid-Harvard-Security
-  - ID: '402'
-    Name: SBGrid-GlideinWMS-Frontend
 Name: SBGrid
 OASIS:
   Managers:
     Manager:
-    - ContactID: '888'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Michael Timony 230546
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Michael Timony
@@ -111,8 +73,7 @@ OASIS:
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Michael Timony
           (Portal) 888
       Name: Michael (Mick) Timony
-    - ContactID: '2982'
-      DNs:
+    - DNs:
         DN: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Peter Meyer
           2982
       Name: Peter Meyer
@@ -126,13 +87,8 @@ ReportingGroups:
     Contacts:
       Contact:
       - Name: Piotr Sliz
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
-      - Name: Michael (Mick) Timony
       - Name: Peter Meyer
+      - Name: Michael (Mick) Timony
     FQANs:
       FQAN:
         GroupName: /SBGrid

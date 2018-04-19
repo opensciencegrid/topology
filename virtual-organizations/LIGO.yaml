@@ -19,8 +19,8 @@ ContactTypes:
     Type: Administrative Contact
   - Contacts:
       Contact:
-      - Name: Peter Couvares
       - Name: Larne Pekowsky
+      - Name: Peter Couvares
     Type: Miscellaneous Contact
   - Contacts:
       Contact:
@@ -42,71 +42,32 @@ FieldsOfScience:
 ID: '23'
 LongName: Laser Interferometer Gravitational-Wave Observatory
 MembershipServicesURL: https://voms.ligo.org:8443/voms/LIGO/Configuration.do
-MemeberResources:
-  Resource:
-  - ID: '13'
-    Name: Clemson-IT
-  - ID: '84'
-    Name: OSG_LIGO_MIT
-  - ID: '158'
-    Name: LIGO_UWM_NEMO
-  - ID: '179'
-    Name: LONI_OSG2
-  - ID: '221'
-    Name: LIGO_CIT
-  - ID: '223'
-    Name: LIGO_CIT_SE
-  - ID: '343'
-    Name: OSG_LIGO_GUMS
-  - ID: '734'
-    Name: Georgia_Tech_PACE_CE_1
-  - ID: '735'
-    Name: Georgia_Tech_PACE_Squid_1
-  - ID: '736'
-    Name: Georgia_Tech_LIGO_Submit_1
-  - ID: '737'
-    Name: Georgia_Tech_PACE_GridFTP
-  - ID: '771'
-    Name: SU_SUGAR_Submit_1
-  - ID: '822'
-    Name: SU_SUGAR_Submit_2
-  - ID: '898'
-    Name: SU_SUGAR_Submit_3
-  - ID: '927'
-    Name: OSG_IN_IUCAA_SARATHI
 Name: LIGO
 OASIS:
   Managers:
     Manager:
-    - ContactID: '8'
-      DNs:
+    - DNs:
         DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
           Paul Bockelman
       Name: Brian Bockelman
-    - ContactID: '770'
-      DNs:
+    - DNs:
         DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Matyas Selmeci
       Name: Matyas Selmeci
-    - ContactID: '2799'
-      DNs:
+    - DNs:
         DN: /DC=org/DC=cilogon/C=US/O=LIGO/CN=Duncan Brown duncan.brown@ligo.org
       Name: Duncan Brown
-    - ContactID: '3074'
-      DNs:
+    - DNs:
         DN: /DC=org/DC=cilogon/C=US/O=California Institute of Technology/CN=Sharon
           Brunett A20751
       Name: Sharon Brunett
-    - ContactID: '3220'
-      DNs:
+    - DNs:
         DN: /DC=org/DC=cilogon/C=US/O=LIGO/CN=Peter Couvares peter.couvares@ligo.org
       Name: Peter Couvares
-    - ContactID: '4036'
-      DNs:
+    - DNs:
         DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Lazzaro Claudia
           4036
       Name: Lazzaro Claudia
-    - ContactID: '4038'
-      DNs:
+    - DNs:
         DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=James Alexander
           Clark 4038
       Name: James Alexander Clark
