@@ -140,6 +140,7 @@ class Topology(object):
         voownership = dict(voownership)  # copy
         del voownership["ChartURL"]  # can be derived from the other attributes
         new_voownership = simplify_attr_list(voownership["Ownership"], "VO")
+        new_voownership.pop("(Other)", None)  # can be derived from the other attributes
         for vo in new_voownership:
             new_voownership[vo] = int(new_voownership[vo]["Percent"])
         return new_voownership
