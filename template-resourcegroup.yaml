@@ -2,7 +2,7 @@
 Disable: false
 # GridType is either "OSG Production Resource" or "OSG Integration Test Bed Resource"
 GridType: OSG Production Resource
-# SupportCenterName is one of the support centers in valid-support-centers.txt
+# SupportCenterName is one of the support centers in topology/support-centers.yaml
 SupportCenterName: <NAME>
 
 # Resources contains one or more resources in this
@@ -48,7 +48,8 @@ Resources:
     #   - <HOSTNAME1>
     #   - <HOSTNAME2>
 
-    # Services is one or more services provided by this resource
+    # Services is one or more services provided by this resource;
+    # valid services are listed in topology/services.yaml
     Services:
       <SERVICE NAME>:
         # Description is a brief description of the service

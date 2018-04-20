@@ -21,10 +21,11 @@ as follows:
     (VOs).
     Each VO has its own file, named `<VO>.yaml`
 
--   `topology/` contains information about the resources OSG sites provide.
-    Resources are collected into "resource groups."  Each resource group has
-    its own file, which are further organized by facility, and then by site.
-    Resource group files are named `<FACILITY>/<SITE>/<RESOURCEGROUP>.yaml`
+-   `topology/` contains information about the topology of the resources that
+    OSG sites provide.  Resources are collected into "resource groups."  Each
+    resource group has its own file, which are further organized by facility,
+    and then by site.  Resource group files are named
+    `<FACILITY>/<SITE>/<RESOURCEGROUP>.yaml`
 
 
 Accessing the Data
@@ -36,7 +37,7 @@ in XML format at the following URLs:
 
 -   **TODO** for projects
 -   **TODO** for VOs
--   **TODO** for resource groups
+-   **TODO** for topology of resource groups
 
 These XML pages are compatible with the XML format once provided by
 `myosg.grid.iu.edu`.
