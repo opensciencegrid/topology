@@ -58,10 +58,12 @@ Resources:
         # Details:
         #   # hidden
         #   hidden: false
-        #   # uri_override
-        #   uri_override: null
-        #   # # sam_uri (optional)
+        #   ### uri_override (optional, use if your service is on some non-standard URL)
+        #   # uri_override: <HOST>:<PORT>
+        #   ### sam_uri (optional)
         #   # sam_uri: htcondor://...
+        #   ### endpoint (for perfSONAR services)
+        #   # endpoint: <HOSTNAME>
 
       # Other services if you have any
 
