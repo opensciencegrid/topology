@@ -76,7 +76,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osg-ce.sprace.org.br
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -140,12 +139,10 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -226,7 +223,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   T2_BR_SPRACE-squid2:
@@ -254,7 +250,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
 SupportCenter: USCMS_Tier2

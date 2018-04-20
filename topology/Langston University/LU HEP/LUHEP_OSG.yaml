@@ -24,7 +24,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://luhepce.lunet.edu
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
@@ -51,7 +50,6 @@ Resources:
     Services:
       CE:
         Description: Compute Element
-        Details: null
     VOOwnership:
       ATLAS: 33
       DOSAR: 34
@@ -75,12 +73,10 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 0
       DOSAR: 100

@@ -23,8 +23,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -39,7 +37,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UCD,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   UCD_GUMS:
     Active: true
     ContactLists:
@@ -59,7 +56,6 @@ Resources:
     Services:
       GUMS Server:
         Description: GUMS Server
-        Details: null
     VOOwnership:
       CMS: 100
   UCD_SE:
@@ -102,5 +98,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UCD,o=grid
       StorageCapacityMax: 40
       StorageCapacityMin: 20
-      TapeCapacity: null
 SupportCenter: USCMS_Tier3

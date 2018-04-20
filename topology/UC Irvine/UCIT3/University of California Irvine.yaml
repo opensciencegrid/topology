@@ -4,7 +4,6 @@ GroupID: 287
 Resources:
   UCI_ATLAS_GRIDFTP:
     Active: true
-    ContactLists: null
     Disable: false
     FQDN: gpatlas2.ps.uci.edu
     ID: 441
@@ -13,7 +12,6 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
   UCLHC IRVINE SUBMIT HOST:
@@ -41,7 +39,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
 SupportCenter: USATLAS

@@ -24,22 +24,18 @@ Resources:
     Services:
       CE:
         Description: Compute Element
-        Details: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: false
       InteropMonitoring: false
       KSI2KMax: 500
       KSI2KMin: 100
-      LDAPURL: null
       StorageCapacityMax: 10
       StorageCapacityMin: 1
-      TapeCapacity: null
   BNL_ATLAS_1:
     Active: true
     ContactLists:
@@ -61,7 +57,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://gridgk02.racf.bnl.gov
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -76,7 +71,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   BNL_ATLAS_2:
     Active: true
     ContactLists:
@@ -98,7 +92,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://gridgk02.racf.bnl.gov
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -113,7 +106,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   BNL_ATLAS_3:
     Active: true
     ContactLists:
@@ -135,7 +127,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://gridgk03.racf.bnl.gov
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -150,7 +141,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   BNL_ATLAS_4:
     Active: true
     ContactLists:
@@ -173,7 +163,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://gridgk04.racf.bnl.gov
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -188,7 +177,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   BNL_ATLAS_6:
     Active: true
     ContactLists:
@@ -210,7 +198,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://gridgk06.racf.bnl.gov
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -225,7 +212,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   BNL_ATLAS_7:
     Active: true
     ContactLists:
@@ -248,7 +234,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://gridgk07.racf.bnl.gov
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -285,7 +270,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://gridgk08.racf.bnl.gov
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -300,7 +284,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   BNL_ATLAS_Frontier_Squid:
     Active: true
     ContactLists:
@@ -316,7 +299,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       BNL: 100
   BNL_ATLAS_SE:
@@ -341,7 +323,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -378,12 +359,10 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -415,12 +394,10 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -455,12 +432,10 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true

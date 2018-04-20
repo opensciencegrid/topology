@@ -73,7 +73,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://ce1.accre.vanderbilt.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -88,7 +87,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Vanderbilt,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   Vanderbilt_CE2:
     Active: true
     ContactLists:
@@ -115,7 +113,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://ce2.accre.vanderbilt.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -130,7 +127,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Vanderbilt,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   Vanderbilt_CE3:
     Active: true
     ContactLists:
@@ -149,12 +145,10 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://ce3.accre.vanderbilt.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 1
-      AccountingName: null
       HEPSPEC: 1
       InteropAccounting: false
       InteropBDII: true
@@ -187,7 +181,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://ce4.accre.vanderbilt.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -233,7 +226,6 @@ Resources:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -267,12 +259,10 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 1
-      AccountingName: null
       HEPSPEC: 1
       InteropAccounting: false
       InteropBDII: true
@@ -355,7 +345,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Vanderbilt,o=grid
       StorageCapacityMax: 8.2
       StorageCapacityMin: 1
-      TapeCapacity: null
   Vanderbilt_Squid:
     Active: true
     ContactLists:
@@ -381,7 +370,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   Vanderbilt_Squid2:
@@ -399,7 +387,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
 SupportCenter: USCMS_Tier2

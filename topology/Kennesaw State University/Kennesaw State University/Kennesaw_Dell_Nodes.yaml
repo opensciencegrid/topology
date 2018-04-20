@@ -4,7 +4,6 @@ GroupID: 375
 Resources:
   Kennesaw_Dell_Nodes:
     Active: true
-    ContactLists: null
     Disable: false
     FQDN: Prometheus.kennesaw.edu
     ID: 551
@@ -13,12 +12,10 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       Belle: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true

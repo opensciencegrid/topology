@@ -69,7 +69,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cms.rc.ufl.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -101,7 +100,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osg.rc.ufl.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -133,7 +131,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cslrm.rc.ufl.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -145,7 +142,6 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 15600000
       KSI2KMin: 4800000
-      LDAPURL: null
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
@@ -201,7 +197,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   UFlorida_squid2:
@@ -219,7 +214,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
 SupportCenter: fGOC

@@ -25,17 +25,14 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true
@@ -45,7 +42,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=DukeT3,o=grid
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
-      TapeCapacity: null
   DukeT3_SQUID:
     Active: true
     ContactLists:
@@ -61,7 +57,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       ATLAS: 100
   Duke_ATLAS_gridftp:
@@ -88,7 +83,6 @@ Resources:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true

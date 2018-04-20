@@ -4,7 +4,6 @@ GroupID: 342
 Resources:
   UPittTier3_DTN:
     Active: true
-    ContactLists: null
     Disable: false
     FQDN: atlas-dtn.phyast.pitt.edu
     ID: 740
@@ -13,17 +12,14 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true
@@ -51,12 +47,10 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true

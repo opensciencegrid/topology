@@ -27,7 +27,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://hammer-osg.rcac.purdue.edu:9619/hammer-osg.rcac.purdue.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -42,5 +41,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-Hammer,o=grid
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
-      TapeCapacity: null
 SupportCenter: USCMS_Tier2

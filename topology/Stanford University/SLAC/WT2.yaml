@@ -20,7 +20,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
           uri_override: osgserv03.slac.stanford.edu:2119
     VOOwnership:
       SLAC: 100
@@ -41,12 +40,10 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -77,7 +74,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osgserv06.slac.stanford.edu
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -92,7 +88,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=WT2,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   WT2_CE_2:
     Active: true
     ContactLists:
@@ -114,8 +109,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       ATLAS: 100
   WT2_SE:
@@ -139,7 +132,6 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -154,7 +146,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=WT2,o=grid
       StorageCapacityMax: 3890
       StorageCapacityMin: 3890
-      TapeCapacity: null
   WT2_SE_2:
     Active: true
     ContactLists:
@@ -172,12 +163,10 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 0
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true

@@ -23,17 +23,14 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -43,7 +40,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UMN-CMS,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   UMN-CMS-CE2:
     Active: true
     ContactLists:
@@ -65,13 +61,10 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
   UMN-CMS-SE:
@@ -91,17 +84,14 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -111,5 +101,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UMN-CMS,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
 SupportCenter: USCMS_Tier3

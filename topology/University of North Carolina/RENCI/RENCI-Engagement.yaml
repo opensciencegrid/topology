@@ -24,17 +24,14 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       Engage: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -44,5 +41,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=RENCI-Engagement,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
 SupportCenter: Community Support Center

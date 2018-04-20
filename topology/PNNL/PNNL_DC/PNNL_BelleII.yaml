@@ -19,13 +19,10 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       Belle: 100
   PNNL VOMS Server:
@@ -43,7 +40,6 @@ Resources:
     Services:
       VOMS Server:
         Description: VOMS Server
-        Details: null
     VOOwnership:
       Belle: 33
   PNNL_BelleII_SE:
@@ -68,7 +64,6 @@ Resources:
       Belle: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -78,7 +73,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=PNNL_BelleII,o=grid
       StorageCapacityMax: 175
       StorageCapacityMin: 0
-      TapeCapacity: null
   PNNL_CE00:
     Active: false
     ContactLists:
@@ -100,15 +94,12 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       Belle: 33
       Cdms: 33
       ILC: 34
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 100
       InteropAccounting: false
       InteropBDII: true
@@ -138,7 +129,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
           uri_override: osg.pnl.gov:2119
       GridFtp:
         Description: GridFtp Storage Element
@@ -150,7 +140,6 @@ Resources:
       ILC: 10
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 74000
       InteropAccounting: false
       InteropBDII: true
@@ -188,7 +177,6 @@ Resources:
       Belle: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true

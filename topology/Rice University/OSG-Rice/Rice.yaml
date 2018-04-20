@@ -28,7 +28,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://bonner06.rice.edu
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
@@ -38,7 +37,6 @@ Resources:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true
@@ -70,17 +68,14 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -90,5 +85,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Rice,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
 SupportCenter: USCMS_Tier3

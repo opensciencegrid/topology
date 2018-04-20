@@ -24,12 +24,10 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://ce01.cmsaf.mit.edu
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CDF: 10
       CMS: 90
@@ -45,7 +43,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MIT_CMS,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   MIT_CMS-SE:
     Active: true
     ContactLists:
@@ -65,7 +62,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -80,7 +76,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MIT_CMS,o=grid
       StorageCapacityMax: 1000
       StorageCapacityMin: 1000
-      TapeCapacity: null
   MIT_CMS_2:
     Active: true
     ContactLists:
@@ -103,12 +98,10 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://ce02.cmsaf.mit.edu
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CDF: 10
       CMS: 90
@@ -124,7 +117,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MIT_CMS,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   MIT_CMS_3:
     Active: true
     ContactLists:
@@ -143,12 +135,10 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://ce03.cmsaf.mit.edu
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -163,7 +153,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MIT_CMS,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   MIT_CMS_Perfsonar_BW:
     Active: true
     ContactLists:
@@ -179,7 +168,6 @@ Resources:
     Services:
       net.perfSONAR.Bandwidth:
         Description: PerfSonar Bandwidth monitoring node
-        Details: null
     VOOwnership:
       CMS: 100
   MIT_CMS_Perfsonar_Latency:
@@ -197,7 +185,6 @@ Resources:
     Services:
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
-        Details: null
     VOOwnership:
       CMS: 100
   MIT_CampusFactory:
@@ -225,7 +212,6 @@ Resources:
         Description: Glidein factory
         Details:
           hidden: true
-          uri_override: null
     VOOwnership:
       CMS: 100
   MIT_OSG_1:
@@ -249,7 +235,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       OSG: 100
 SupportCenter: USCMS_Tier2

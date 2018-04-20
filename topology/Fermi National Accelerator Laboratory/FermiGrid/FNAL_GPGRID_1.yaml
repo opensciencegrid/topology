@@ -26,13 +26,10 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       Fermilab: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -42,5 +39,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=FNAL_GPGRID_1,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
 SupportCenter: Fermilab

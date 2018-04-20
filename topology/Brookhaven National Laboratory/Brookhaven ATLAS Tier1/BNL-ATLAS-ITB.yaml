@@ -48,12 +48,10 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://gridtest01.racf.bnl.gov
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -63,7 +61,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS-ITB,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   BNL_Test_SE:
     Active: true
     ContactLists:
@@ -83,12 +80,10 @@ Resources:
     Services:
       SRMv2:
         Description: SRM V2 Storage Element
-        Details: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -98,5 +93,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS-ITB,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
 SupportCenter: USATLAS

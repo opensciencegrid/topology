@@ -25,15 +25,12 @@ Resources:
     Services:
       CE:
         Description: Compute Element
-        Details: null
       GridFtp:
         Description: GridFtp Storage Element
-        Details: null
     VOOwnership:
       NYSGRID: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -43,5 +40,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=NYSGRID-CCR-U2,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
 SupportCenter: NYSGRID

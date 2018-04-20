@@ -31,8 +31,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
@@ -47,7 +45,6 @@ Resources:
       LSST: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true

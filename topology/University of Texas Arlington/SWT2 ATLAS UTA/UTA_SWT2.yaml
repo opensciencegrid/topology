@@ -23,13 +23,10 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -68,22 +65,18 @@ Resources:
     Services:
       SRMv2:
         Description: SRM V2 Storage Element
-        Details: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: false
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   UTA_SWT2_Squid:
     Active: true
     ContactLists:
@@ -104,7 +97,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       ATLAS: 100
   UTA_SWT2_TEST1:
@@ -124,12 +116,10 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 92
       InteropAccounting: false
       InteropBDII: true

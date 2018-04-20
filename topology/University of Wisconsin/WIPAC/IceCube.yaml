@@ -29,7 +29,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       IceCube: 100
   IceCube-submit-simprod:
@@ -59,7 +58,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: true
-          uri_override: null
     VOOwnership:
       IceCube: 100
   NPX:
@@ -89,8 +87,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       IceCube: 100
 SupportCenter: IceCube

@@ -21,8 +21,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: true
-          sam_uri: null
-          uri_override: null
       XRootD component:
         Description: any part of xrootd
         Details:
@@ -53,12 +51,10 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 2000
       InteropAccounting: false
       InteropBDII: true

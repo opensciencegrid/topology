@@ -19,13 +19,11 @@ Resources:
     Services:
       CE:
         Description: Compute Element
-        Details: null
     VOOwnership:
       CMS: 80
       DOSAR: 20
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true
@@ -35,7 +33,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=cinvestav,o=grid
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
-      TapeCapacity: null
   cinvestav-SE:
     Active: true
     ContactLists:
@@ -57,12 +54,10 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true
@@ -72,5 +67,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=cinvestav,o=grid
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
-      TapeCapacity: null
 SupportCenter: DOSAR

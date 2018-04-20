@@ -19,11 +19,9 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
           uri_override: mfosgce.hpc.smu.edu:2119
       Gratia Collector:
         Description: Gratia Collector
-        Details: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
@@ -31,12 +29,10 @@ Resources:
           uri_override: mfosgce.hpc.smu.edu:2811
       RSV Collector:
         Description: RSV Collector
-        Details: null
     VOOwnership:
       Nova: 10
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true

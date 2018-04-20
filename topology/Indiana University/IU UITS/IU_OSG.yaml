@@ -25,13 +25,10 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CSIU: 100
     WLCGInformation:
@@ -43,8 +40,6 @@ Resources:
       InteropMonitoring: false
       KSI2KMax: 3276
       KSI2KMin: 3276
-      LDAPURL: null
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
 SupportCenter: OSG-GOC

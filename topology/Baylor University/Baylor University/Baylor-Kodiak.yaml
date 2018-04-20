@@ -26,12 +26,10 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://kodiak-ce.baylor.edu
-          uri_override: null
     VOOwnership:
       CMS: 0
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -65,17 +63,14 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 0
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -85,5 +80,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Baylor-Kodiak,o=grid
       StorageCapacityMax: 300
       StorageCapacityMin: 100
-      TapeCapacity: null
 SupportCenter: USCMS_Tier3

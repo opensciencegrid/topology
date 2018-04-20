@@ -21,7 +21,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
@@ -31,7 +30,6 @@ Resources:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -41,7 +39,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UCR-HEP,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   UCR-HEP-SE:
     Active: true
     ContactLists:
@@ -68,7 +65,6 @@ Resources:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -78,5 +74,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UCR-HEP,o=grid
       StorageCapacityMax: 100
       StorageCapacityMin: 0
-      TapeCapacity: null
 SupportCenter: USCMS_Tier3

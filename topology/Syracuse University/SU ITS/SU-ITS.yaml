@@ -23,8 +23,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       OSG: 100
   SU-ITS-CE3:
@@ -48,8 +46,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       OSG: 100
   SU-OG-CE:
@@ -73,8 +69,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       OSG: 100
   SU-OG-CE1:
@@ -98,8 +92,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       OSG: 100
   SU-OG-squid:
@@ -121,7 +113,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       OSG: 100
   SU-OSG-CONNECT:

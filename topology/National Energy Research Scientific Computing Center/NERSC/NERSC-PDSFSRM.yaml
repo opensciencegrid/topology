@@ -37,7 +37,6 @@ Resources:
       NERSC: 99
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true
@@ -47,7 +46,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=NERSC-PDSFSRM,o=grid
       StorageCapacityMax: 5.5
       StorageCapacityMin: 2
-      TapeCapacity: null
   NERSC-PDSFSRM:
     Active: false
     ContactLists:
@@ -75,7 +73,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       NERSC: 100
   NERSC-PGSIFTP1:
@@ -111,7 +108,6 @@ Resources:
       NERSC: 99
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true

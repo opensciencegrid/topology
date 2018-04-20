@@ -28,7 +28,6 @@ Resources:
         Description: any part of xrootd
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       DUNE: 30
       DZero: 10
@@ -55,17 +54,14 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://novace.farm.particle.gov
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       DUNE: 30
       DZero: 10
@@ -92,7 +88,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osgce1.farm.particle.gov:9619/osgce1.farm.particle.gov
-          uri_override: null
     VOOwnership:
       DUNE: 45
       DZero: 10
@@ -119,7 +114,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osgce2.farm.particle.gov:9619/osgce2.farm.particle.gov
-          uri_override: null
     VOOwnership:
       DUNE: 45
       DZero: 10

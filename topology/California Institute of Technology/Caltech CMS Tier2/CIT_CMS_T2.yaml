@@ -34,10 +34,8 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 100
       StorageCapacityMin: 1000
-      TapeCapacity: null
   CIT_CMS_SE2:
     Active: false
     ContactLists:
@@ -63,12 +61,10 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -78,7 +74,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=CIT_CMS_T2,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   CIT_CMS_T2:
     Active: true
     ContactLists:
@@ -99,7 +94,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cit-gatekeeper.ultralight.org
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -111,10 +105,8 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   CIT_CMS_T2B:
     Active: true
     ContactLists:
@@ -137,7 +129,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cit-gatekeeper2.ultralight.org
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -149,10 +140,8 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   CIT_CMS_T2_Squid:
     Active: true
     ContactLists:
@@ -170,7 +159,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   CIT_CMS_perfSONAR:
@@ -218,19 +206,16 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://muon.hep.caltech.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: false
       InteropMonitoring: false
       KSI2KMax: 500
       KSI2KMin: 100
-      LDAPURL: null
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0

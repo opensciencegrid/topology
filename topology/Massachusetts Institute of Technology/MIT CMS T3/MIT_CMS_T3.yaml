@@ -27,13 +27,10 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -48,7 +45,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MIT_CMS_T3,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   MIT_CMS_T3-SE:
     Active: true
     ContactLists:
@@ -74,7 +70,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -89,5 +84,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MIT_CMS_T3,o=grid
       StorageCapacityMax: 250
       StorageCapacityMin: 250
-      TapeCapacity: null
 SupportCenter: USCMS_Tier3

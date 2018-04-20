@@ -17,24 +17,18 @@ Resources:
     Services:
       CE:
         Description: Compute Element
-        Details: null
       GUMS Server:
         Description: GUMS Server
-        Details: null
       Gratia Collector:
         Description: Gratia Collector
-        Details: null
       GridFtp:
         Description: GridFtp Storage Element
-        Details: null
       VOMRS Server:
         Description: VOMRS Server
-        Details: null
     VOOwnership:
       Beocat: 100
   Beocat_KSU_CE:
     Active: true
-    ContactLists: null
     Disable: false
     FQDN: osg-ce.beocat.cis.ksu.edu
     ID: 648
@@ -44,7 +38,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osg-ce.beocat.cis.ksu.edu
-          uri_override: null
     VOOwnership:
       OSG: 100
 SupportCenter: Beocat Support

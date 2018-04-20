@@ -4,14 +4,12 @@ GroupID: 2
 Resources:
   ASGC_OSG:
     Active: false
-    ContactLists: null
     Disable: true
     FQDN: osgc01.grid.sinica.edu.tw
     ID: 2
     Services:
       CE:
         Description: Compute Element
-        Details: null
     VOOwnership:
       OSG: 100
   perfSONAR_ASGC_bandwidth:

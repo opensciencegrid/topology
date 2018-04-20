@@ -21,7 +21,6 @@ Resources:
     Services:
       CE:
         Description: Compute Element
-        Details: null
     VOOwnership:
       CMS: 100
   Nebraska:
@@ -50,7 +49,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://red.unl.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -91,7 +89,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
   T2_Nebraska_Hadoop2:
@@ -119,7 +116,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
   T2_Nebraska_Hadoop3:
@@ -162,7 +158,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
   T2_Nebraska_SE_gridftp:
@@ -190,7 +185,6 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -202,7 +196,6 @@ Resources:
       InteropMonitoring: false
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 2250
       StorageCapacityMin: 1000
       TapeCapacity: 0
@@ -246,7 +239,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Nebraska,o=grid
       StorageCapacityMax: 1000
       StorageCapacityMin: 1000
-      TapeCapacity: null
   T2_US_Nebraska-red-squid2:
     Active: true
     ContactLists:
@@ -272,7 +264,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   T2_US_Nebraska_red-squid1:
@@ -300,7 +291,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   US-Nebraska BW:
@@ -456,7 +446,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://red-gw1.unl.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -498,7 +487,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://red-gw2.unl.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:

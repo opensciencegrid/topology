@@ -23,17 +23,14 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       GROW: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true
@@ -65,7 +62,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       GROW: 100
   GROW-SE:
@@ -93,12 +89,10 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       GROW: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true
@@ -126,7 +120,6 @@ Resources:
     Services:
       GUMS Server:
         Description: GUMS Server
-        Details: null
     VOOwnership:
       GROW: 100
   GROW_STOR:
@@ -146,7 +139,6 @@ Resources:
     Services:
       SRMv2:
         Description: SRM V2 Storage Element
-        Details: null
     VOOwnership:
       GROW: 100
   GROW_VOMS:
@@ -166,7 +158,6 @@ Resources:
     Services:
       VOMS Server:
         Description: VOMS Server
-        Details: null
     VOOwnership:
       GROW: 100
 SupportCenter: USCMS_Tier3

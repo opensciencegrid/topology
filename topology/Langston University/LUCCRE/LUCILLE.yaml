@@ -22,7 +22,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       DOSAR: 100
   Lucille_CE:
@@ -46,12 +45,10 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://lutgw1.lunet.edu
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 20
       DOSAR: 80

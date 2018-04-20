@@ -29,8 +29,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       LIGO: 100
   Georgia_Tech_PACE_GridFTP:
@@ -58,7 +56,6 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       LIGO: 100
   Georgia_Tech_PACE_Squid_1:
@@ -81,7 +78,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       LIGO: 100
 SupportCenter: Advanced LIGO

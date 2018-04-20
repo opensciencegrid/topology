@@ -19,7 +19,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       HCC: 100
   Tusker-CE1:
@@ -48,7 +47,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://tusker-gw1.unl.edu
-          uri_override: null
     VOOwnership:
       HCC: 100
     WLCGInformation:
@@ -63,5 +61,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Tusker,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
 SupportCenter: Community Support Center

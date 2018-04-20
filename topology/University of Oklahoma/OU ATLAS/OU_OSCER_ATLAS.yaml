@@ -25,13 +25,10 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 55
       DOSAR: 45
@@ -47,7 +44,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=OU_OSCER_ATLAS,o=grid
       StorageCapacityMax: 10
       StorageCapacityMin: 10
-      TapeCapacity: null
   OU_OSCER_ATLAS_SE:
     Active: true
     ContactLists:
@@ -71,12 +67,10 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
       XRootD origin server:
         Description: XRootD origin server
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 55
       DOSAR: 45
@@ -92,5 +86,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=OU_OSCER_ATLAS,o=grid
       StorageCapacityMax: 10
       StorageCapacityMin: 10
-      TapeCapacity: null
 SupportCenter: USATLAS

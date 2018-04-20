@@ -25,7 +25,6 @@ Resources:
     Services:
       GUMS Server:
         Description: GUMS Server
-        Details: null
     VOOwnership:
       CMS: 100
   KISTI_CMS_SQUID:
@@ -51,7 +50,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   KISTI_CMS_T3_CE:
@@ -79,13 +77,10 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 334
       InteropAccounting: false
       InteropBDII: true
@@ -126,7 +121,6 @@ Resources:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 334
       InteropAccounting: false
       InteropBDII: true

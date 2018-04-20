@@ -63,7 +63,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cmspbs-osg.rcac.purdue.edu:9619/cmspbs-osg.rcac.purdue.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -94,8 +93,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: true
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -159,7 +156,6 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -171,7 +167,6 @@ Resources:
       InteropMonitoring: false
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 3800
       StorageCapacityMin: 3800
       TapeCapacity: 0
@@ -220,12 +215,10 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cmstest1.rcac.purdue.edu:9619/cmstest1.rcac.purdue.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true
@@ -256,7 +249,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   T2_US_Purdue_Squid2:
@@ -279,7 +271,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   T2_US_Purdue_Squid3:
@@ -303,7 +294,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   US-Purdue BW:

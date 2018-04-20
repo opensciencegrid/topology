@@ -25,7 +25,6 @@ Resources:
       NWICG: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true
@@ -35,7 +34,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=NWICG_NDCMS,o=grid
       StorageCapacityMax: 4
       StorageCapacityMin: 1
-      TapeCapacity: null
   NWICG_NDCMS:
     Active: true
     ContactLists:
@@ -57,18 +55,14 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true
@@ -78,5 +72,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=NWICG_NDCMS,o=grid
       StorageCapacityMax: 4
       StorageCapacityMin: 1
-      TapeCapacity: null
 SupportCenter: NWICG

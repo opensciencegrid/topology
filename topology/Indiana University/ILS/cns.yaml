@@ -4,7 +4,6 @@ GroupID: 380
 Resources:
   cns1:
     Active: true
-    ContactLists: null
     Disable: false
     FQDN: cns1.cns.iu.edu
     ID: 561
@@ -13,12 +12,10 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CSIU: 100
   cns2:
     Active: true
-    ContactLists: null
     Disable: false
     FQDN: cns2.cns.iu.edu
     ID: 562
@@ -27,7 +24,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CSIU: 100
 SupportCenter: OSG-GOC

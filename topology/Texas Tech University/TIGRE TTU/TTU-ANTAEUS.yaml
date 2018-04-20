@@ -22,14 +22,11 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       CMS: 50
       TIGRE: 50
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -39,7 +36,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=TTU-ANTAEUS,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   TTU-SIGMORGH:
     Active: true
     ContactLists:
@@ -60,20 +56,17 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 50
       OSG: 50
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: false
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 262
       StorageCapacityMin: 262
       TapeCapacity: 0

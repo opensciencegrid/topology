@@ -21,15 +21,12 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       Belle: 50
       CMS: 25
       DZero: 25
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -39,7 +36,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UMissHEP,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 5.5
-      TapeCapacity: null
   UMissHEP_SE:
     Active: true
     ContactLists:
@@ -59,14 +55,12 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       Belle: 50
       CMS: 25
       DZero: 25
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -76,5 +70,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UMissHEP,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 5.5
-      TapeCapacity: null
 SupportCenter: USCMS_Tier3

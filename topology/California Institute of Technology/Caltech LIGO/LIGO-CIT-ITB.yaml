@@ -4,14 +4,12 @@ GroupID: 61
 Resources:
   LIGO-CIT-ITB:
     Active: false
-    ContactLists: null
     Disable: true
     FQDN: osg-itb.ligo.caltech.edu
     ID: 61
     Services:
       CE:
         Description: Compute Element
-        Details: null
   LIGO_CIT:
     Active: false
     ContactLists:
@@ -31,7 +29,6 @@ Resources:
     Services:
       CE:
         Description: Compute Element
-        Details: null
     VOOwnership:
       LIGO: 100
   LIGO_CIT_SE:
@@ -53,7 +50,6 @@ Resources:
     Services:
       SRMv2:
         Description: SRM V2 Storage Element
-        Details: null
     VOOwnership:
       LIGO: 100
 SupportCenter: LIGO

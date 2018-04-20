@@ -19,17 +19,14 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -44,7 +41,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BU_ATLAS_Tier2,o=grid
       StorageCapacityMax: 1300
       StorageCapacityMin: 1300
-      TapeCapacity: null
   NET2:
     Active: true
     ContactLists:
@@ -72,8 +68,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
@@ -116,7 +110,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       ATLAS: 100
   perfSONAR-NET2-bw:

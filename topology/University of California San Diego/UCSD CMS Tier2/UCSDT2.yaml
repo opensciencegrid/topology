@@ -19,7 +19,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   UCSDCMST2-squid:
@@ -37,7 +36,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   UCSDT2-A:
@@ -56,7 +54,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osg-gw-2.t2.ucsd.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -71,7 +68,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UCSDT2,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   UCSDT2-B:
     Active: true
     ContactLists:
@@ -88,7 +84,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osg-gw-4.t2.ucsd.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -122,7 +117,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osg-gw-6.t2.ucsd.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -137,7 +131,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UCSDT2,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   UCSDT2-D:
     Active: true
     ContactLists:
@@ -156,7 +149,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osg-gw-7.t2.ucsd.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -189,7 +181,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 50
       OSG: 50
@@ -202,10 +193,8 @@ Resources:
       InteropMonitoring: false
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 1000
       StorageCapacityMin: 1000
-      TapeCapacity: null
   UCSDT2-SE1:
     Active: true
     ContactLists:
@@ -225,7 +214,6 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -289,7 +277,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -322,7 +309,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
   UCSD_GlideinWMS_Submit_2:
@@ -342,7 +328,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
   UCSD_GlideinWMS_Submit_3:
@@ -362,7 +347,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
   UCSanDiego-OSG-Validation-SE-SRM_v2:
@@ -380,7 +364,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 50
       OSG: 50
@@ -399,7 +382,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -414,7 +396,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UCSDT2,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   US-UCSD BW:
     Active: true
     ContactLists:

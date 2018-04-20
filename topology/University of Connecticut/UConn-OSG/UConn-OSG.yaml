@@ -21,7 +21,6 @@ Resources:
     Services:
       VOMRS Server:
         Description: VOMRS Server
-        Details: null
     VOOwnership:
       Gluex: 100
   Gluex_VOMS:
@@ -45,7 +44,6 @@ Resources:
     Services:
       VOMS Server:
         Description: VOMS Server
-        Details: null
     VOOwnership:
       Gluex: 100
   UConn-OSG_CE:
@@ -69,7 +67,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
           uri_override: gluskap.phys.uconn.edu:2119
       GridFtp:
         Description: GridFtp Storage Element
@@ -97,7 +94,6 @@ Resources:
     Services:
       GUMS Server:
         Description: GUMS Server
-        Details: null
     VOOwnership:
       Gluex: 100
   UConn-OSG_SE:
@@ -131,7 +127,6 @@ Resources:
       Gluex: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 85
       InteropAccounting: false
       InteropBDII: true

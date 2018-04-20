@@ -24,12 +24,10 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cms25.physics.ucsb.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -39,7 +37,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=ucsb-cms,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   UCSB_GUMS:
     Active: true
     ContactLists:
@@ -57,7 +54,6 @@ Resources:
     Services:
       GUMS Server:
         Description: GUMS Server
-        Details: null
     VOOwnership:
       CMS: 100
   UCSB_SE:
@@ -79,12 +75,10 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -94,5 +88,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=ucsb-cms,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
 SupportCenter: USCMS_Tier3

@@ -23,7 +23,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
           uri_override: cobalt.uit.tufts.edu
       GridFtp:
         Description: GridFtp Storage Element
@@ -34,7 +33,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       ATLAS: 100
     WLCGInformation:

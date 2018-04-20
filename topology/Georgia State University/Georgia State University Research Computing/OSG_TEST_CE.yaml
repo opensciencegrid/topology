@@ -4,7 +4,6 @@ GroupID: 370
 Resources:
   OSG_TEST_CE:
     Active: false
-    ContactLists: null
     Disable: false
     FQDN: osgtestce.server.gsu.edu
     ID: 542
@@ -13,17 +12,14 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
       Submit Node:
         Description: OSG Submission Node
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       SURAgrid: 100
 SupportCenter: SURAgrid GOC

@@ -118,12 +118,10 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cmsosgce.fnal.gov
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -158,12 +156,10 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cmsosgce2.fnal.gov
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -178,7 +174,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=USCMS-FNAL-WC1,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   USCMS-FNAL-WC1-CE3:
     Active: true
     ContactLists:
@@ -197,8 +192,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -213,7 +206,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=USCMS-FNAL-WC1,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   USCMS-FNAL-WC1-CE4:
     Active: true
     ContactLists:
@@ -233,12 +225,10 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cmsosgce4.fnal.gov
-          uri_override: null
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -253,7 +243,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=USCMS-FNAL-WC1,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   USCMS-FNAL-WC1-OPP1:
     Active: false
     ContactLists:
@@ -271,8 +260,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       CMS: 100
   USCMS-FNAL-WC1-SE:
@@ -292,12 +279,10 @@ Resources:
     Services:
       FTS:
         Description: File Transfer Service
-        Details: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -309,7 +294,6 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 10000
       StorageCapacityMin: 10000
       TapeCapacity: 22000
@@ -330,17 +314,14 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-          uri_override: null
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
       XRootD component:
         Description: any part of xrootd
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -352,7 +333,6 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 24000
       StorageCapacityMin: 22000
       TapeCapacity: 0
@@ -373,7 +353,6 @@ Resources:
     Services:
       Submit Node:
         Description: OSG Submission Node
-        Details: null
     VOOwnership:
       CMS: 100
   perfSONAR_fnal_latency:

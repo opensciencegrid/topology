@@ -30,8 +30,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       ALICE: 40
       NERSC: 60
@@ -47,7 +45,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=NERSC-PDSF,o=grid
       StorageCapacityMax: 830
       StorageCapacityMin: 830
-      TapeCapacity: null
   NERSC-PDSF2:
     Active: true
     ContactLists:
@@ -71,8 +68,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       ALICE: 40
       NERSC: 60

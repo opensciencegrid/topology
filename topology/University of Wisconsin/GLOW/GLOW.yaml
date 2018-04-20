@@ -25,7 +25,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cmsgrid01.hep.wisc.edu:9619/cmsgrid01.hep.wisc.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -40,7 +39,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=GLOW,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   GLOW-CMS:
     Active: true
     ContactLists:
@@ -64,7 +62,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cmsgrid02.hep.wisc.edu:9619/cmsgrid02.hep.wisc.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -79,7 +76,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=GLOW,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   GLOW-CMS-SE:
     Active: true
     ContactLists:
@@ -105,7 +101,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -117,10 +112,8 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 1000
       StorageCapacityMin: 1000
-      TapeCapacity: null
   GLOW-CONDOR-CE:
     Active: true
     ContactLists:
@@ -145,7 +138,6 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://cmsgrid03.hep.wisc.edu:9619/cmsgrid03.hep.wisc.edu
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -160,7 +152,6 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=GLOW,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   GLOW-OSG:
     Active: true
     ContactLists:
@@ -183,8 +174,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: null
-          uri_override: null
     VOOwnership:
       CMS: 100
   GLOW_SQUID:
@@ -202,7 +191,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-        Details: null
     VOOwnership:
       CMS: 100
   GLOW_SUBMIT1:
@@ -228,7 +216,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: true
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -240,10 +227,8 @@ Resources:
       InteropMonitoring: false
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   GLOW_SUBMIT2:
     Active: true
     ContactLists:
@@ -267,7 +252,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: true
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -279,10 +263,8 @@ Resources:
       InteropMonitoring: false
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   GLOW_SUBMIT3:
     Active: true
     ContactLists:
@@ -306,7 +288,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: true
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -318,10 +299,8 @@ Resources:
       InteropMonitoring: false
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
   GLOW_SUBMIT4:
     Active: true
     ContactLists:
@@ -349,7 +328,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: true
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -361,7 +339,6 @@ Resources:
       InteropMonitoring: false
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
@@ -387,7 +364,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       GLOW: 100
     WLCGInformation:
@@ -426,7 +402,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-          uri_override: null
     VOOwnership:
       GLOW: 100
     WLCGInformation:
@@ -438,7 +413,6 @@ Resources:
       InteropMonitoring: false
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
@@ -465,7 +439,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: true
-          uri_override: null
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -477,7 +450,6 @@ Resources:
       InteropMonitoring: false
       KSI2KMax: 0
       KSI2KMin: 0
-      LDAPURL: null
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
@@ -501,7 +473,6 @@ Resources:
     Services:
       CE:
         Description: Compute Element
-        Details: null
     VOOwnership:
       GLOW: 100
   US-Wisconsin BW:

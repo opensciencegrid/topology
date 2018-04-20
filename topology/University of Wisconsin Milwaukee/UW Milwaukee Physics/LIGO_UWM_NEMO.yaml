@@ -4,19 +4,16 @@ GroupID: 158
 Resources:
   LIGO_UWM_NEMO:
     Active: true
-    ContactLists: null
     Disable: false
     FQDN: osg-nemo-ce.phys.uwm.edu
     ID: 158
     Services:
       CE:
         Description: Compute Element
-        Details: null
     VOOwnership:
       LIGO: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: null
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true
@@ -26,5 +23,4 @@ Resources:
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=LIGO_UWM_NEMO,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-      TapeCapacity: null
 SupportCenter: LIGO
