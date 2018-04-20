@@ -8,11 +8,9 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Union, Iterable
 
+from convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list
 
 SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
-
-SERVICES_PATH = "../services.yaml"
-SUPPORT_CENTERS_PATH = "../support-centers.yaml"
 
 
 class Topology(object):
@@ -73,72 +71,19 @@ class Topology(object):
         return anymarkup.serialize_file(self.get_resource_summary(), outfile, "xml")
 
 
-def singleton_list_to_value(a_list):
-    if len(a_list) == 1:
-        return a_list[0]
-    return a_list
-
-
-def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=True) -> Union[Dict, List]:
-    """
-    Expand
-        {"name1": "val1",
-         "name2": "val2"}
-    to
-        [{namekey: "name1", valuekey: "val1"},
-         {namekey: "name2", valuekey: "val2"}]
-    or, if there's only one,
-        {namekey: "name1", valuekey: "val1"}
-    """
-    newdata = []
-    for name, value in data.items():
-        if name_first:
-            newdata.append(OrderedDict([(namekey, name), (valuekey, value)]))
-        else:
-            newdata.append(OrderedDict([(valuekey, value), (namekey, name)]))
-    return singleton_list_to_value(newdata)
-
-
-def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]) -> Union[Union[Dict, OrderedDict], List[Union[Dict, OrderedDict]]]:
-    """
-    Expand
-        {"name1": {"attr1": "val1", ...},
-         "name2": {"attr1": "val1", ...}}
-    to
-        [{namekey: "name1", "attr1": "val1", ...},
-         {namekey: "name2", "attr1": "val1", ...}]}
-    or, if there's only one,
-        {namekey: "name1", "attr1": "val1", ...}
-    If ``ordering`` is not None, instead of using a dict, use an OrderedDict with the keys in the order provided by
-    ``ordering``.
-    """
-    newdata = []
-    for name, value in data.items():
-        if ordering:
-            new_value = OrderedDict()
-            for elem in ordering:
-                if elem == namekey:
-                    new_value[elem] = name
-                else:
-                    new_value[elem] = value[elem]
-        else:
-            new_value = dict(value)
-            new_value[namekey] = name
-        newdata.append(new_value)
-    return singleton_list_to_value(newdata)
-
-
 def expand_services(services: Dict) -> Dict:
     global service_name_to_id
+
+    def _expand_svc(svc):
+        svc["ID"] = service_name_to_id[svc["Name"]]
+        svc.move_to_end("ID", last=False)
 
     services_list = expand_attr_list(services, "Name", ordering=["Name", "Description", "Details"])
     if isinstance(services_list, list):
         for svc in services_list:
-            svc["ID"] = service_name_to_id[svc["Name"]]
-            svc.move_to_end("ID", last=False)
+            _expand_svc(svc)
     else:
-        services_list["ID"] = service_name_to_id[services_list["Name"]]
-        services_list.move_to_end("ID", last=False)
+        _expand_svc(services_list)
     return {"Service": services_list}
 
 
@@ -190,7 +135,10 @@ def expand_contactlists(contactlists: Dict) -> Dict:
 
 def expand_wlcginformation(wlcg: Dict) -> OrderedDict:
     defaults = {
+        "AccountingName": None,
         "InteropBDII": False,
+        "LDAPURL": None,
+        "TapeCapacity": 0,
     }
 
     new_wlcg = OrderedDict()
@@ -213,23 +161,24 @@ def expand_resource(name: str, res: Dict) -> OrderedDict:
     Return the data structure for the expanded Resource as an OrderedDict to fit the xml schema.
     """
     defaults = {
+        "ContactLists": None,
         "FQDNAliases": None,
+        "Services": "no applicable service exists",
+        "VOOwnership": "(Information not available)",
         "WLCGInformation": "(Information not available)",
     }
 
     res = dict(res)
 
-    if "Services" in res and isinstance(res["Services"], dict):
+    if not is_null(res, "Services"):
         res["Services"] = expand_services(res["Services"])
     else:
-        res["Services"] = "no applicable service exists"
-    if "VOOwnership" in res and isinstance(res["VOOwnership"], dict):
+        res.pop("Services", None)
+    if "VOOwnership" in res:
         res["VOOwnership"] = expand_voownership(res["VOOwnership"])
-    else:
-        res["VOOwnership"] = "(Information not available)"
     if "FQDNAliases" in res:
         res["FQDNAliases"] = {"FQDNAlias": singleton_list_to_value(res["FQDNAliases"])}
-    if res["ContactLists"]:
+    if not is_null(res, "ContactLists"):
         res["ContactLists"] = expand_contactlists(res["ContactLists"])
     res["Name"] = name
     if "WLCGInformation" in res and isinstance(res["WLCGInformation"], dict):

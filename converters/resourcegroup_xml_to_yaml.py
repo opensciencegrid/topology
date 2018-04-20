@@ -40,11 +40,7 @@ import sys
 from collections import OrderedDict
 from typing import Dict, List, Union
 
-
-def ensure_list(x) -> List:
-    if isinstance(x, list):
-        return x
-    return [x]
+from convertlib import is_null, ensure_list, simplify_attr_list
 
 
 def to_file_name(name: str) -> str:
@@ -59,26 +55,6 @@ def to_file_name(name: str) -> str:
         else:
             filename += char
     return filename
-
-
-def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
-    """
-    Simplify
-        [{namekey: "name1", "attr1": "val1", ...},
-         {namekey: "name2", "attr1": "val1", ...}]}
-    or, if there's only one,
-        {namekey: "name1", "attr1": "val1", ...}
-    to
-      {"name1": {"attr1": "val1", ...},
-       "name2": {"attr1": "val1", ...}}
-    """
-    new_data = {}
-    for d in ensure_list(data):
-        new_d = dict(d)
-        name = new_d[namekey]
-        del new_d[namekey]
-        new_data[name] = new_d
-    return new_data
 
 
 class Topology(object):
@@ -119,8 +95,17 @@ class Topology(object):
             return None
         new_services = simplify_attr_list(services["Service"], "Name")
         for name, data in new_services.items():
-            if data["Details"]:
-                data["Details"] = dict(data["Details"])  # OrderedDict -> dict
+            if not is_null(data, "Details"):
+                new_details = dict()
+                for key, val in data["Details"].items():
+                    if not is_null(val):
+                        new_details[key] = val
+                if len(new_details) > 0:
+                    data["Details"] = dict(new_details)
+                else:
+                    del data["Details"]
+            else:
+                data.pop("Details", None)
             if "ID" in data:
                 if name not in self.services:
                     self.services[name] = data["ID"]
@@ -135,7 +120,7 @@ class Topology(object):
         """
         Simplify VOOwnership attribute
         """
-        if not isinstance(voownership, dict):
+        if is_null(voownership):
             return None
         voownership = dict(voownership)  # copy
         del voownership["ChartURL"]  # can be derived from the other attributes
@@ -167,8 +152,8 @@ class Topology(object):
              "Secondary": "Paul Sheldon"}
         }
         """
-        if not isinstance(contactlists, dict):
-            return contactlists
+        if is_null(contactlists):
+            return None
         contactlists_simple = simplify_attr_list(contactlists["ContactList"], "ContactType")
         new_contactlists = {}
         for contact_type, contact_data in contactlists_simple.items():
@@ -187,29 +172,37 @@ class Topology(object):
         res = dict(res)
 
         services = self.simplify_services(res["Services"])
-        if services:
-            res["Services"] = services
+        if is_null(services):
+            res.pop("Services", None)
         else:
-            del res["Services"]
+            res["Services"] = services
         res["VOOwnership"] = self.simplify_voownership(res.get("VOOwnership"))
         if not res["VOOwnership"]:
             del res["VOOwnership"]
-        try:
-            if isinstance(res["WLCGInformation"], OrderedDict):
-                res["WLCGInformation"] = dict(res["WLCGInformation"])
+        if not is_null(res, "WLCGInformation"):
+            new_wlcg = {}
+            for key, val in res["WLCGInformation"].items():
+                if not is_null(val):
+                    new_wlcg[key] = val
+            if len(new_wlcg) > 0:
+                res["WLCGInformation"] = new_wlcg
             else:
                 del res["WLCGInformation"]
-        except KeyError: pass
-        try:
-            if isinstance(res["FQDNAliases"], dict):
-                aliases = []
-                for a in ensure_list(res["FQDNAliases"]["FQDNAlias"]):
-                    aliases.append(a)
-                res["FQDNAliases"] = aliases
-            else:
-                del res["FQDNAliases"]
-        except KeyError: pass
-        res["ContactLists"] = self.simplify_contactlists(res["ContactLists"])
+        else:
+            res.pop("WLCGInformation", None)
+        if not is_null(res, "FQDNAliases"):
+            aliases = []
+            for a in ensure_list(res["FQDNAliases"]["FQDNAlias"]):
+                aliases.append(a)
+            res["FQDNAliases"] = aliases
+        else:
+            res.pop("FQDNAliases", None)
+        if not is_null(res, "ContactLists"):
+            new_contactlists = self.simplify_contactlists(res["ContactLists"])
+            if new_contactlists:
+                res["ContactLists"] = new_contactlists
+        else:
+            res.pop("ContactLists", None)
 
         return res
 
