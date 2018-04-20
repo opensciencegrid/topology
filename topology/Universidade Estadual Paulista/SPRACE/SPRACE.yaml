@@ -23,7 +23,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar-bw.sprace.org.br
-        ID: 130
     VOOwnership:
       CMS: 100
   BR-Sprace LT:
@@ -47,7 +46,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: perfsonar-lt.sprace.org.br
-        ID: 131
     VOOwnership:
       CMS: 100
   SPRACE:
@@ -79,7 +77,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://osg-ce.sprace.org.br
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -144,7 +141,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -180,7 +176,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: http://this.is.something.fake
-        ID: 130
     VOOwnership:
       CMS: 100
   SPRACE_Perfsonar_LT:
@@ -204,7 +199,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: http://this.is.fake
-        ID: 131
     VOOwnership:
       CMS: 100
   T2_BR_SPRACE-squid1:
@@ -233,7 +227,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   T2_BR_SPRACE-squid2:
@@ -262,8 +255,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
-SupportCenterID: 65
-SupportCenterName: USCMS_Tier2
+SupportCenter: USCMS_Tier2

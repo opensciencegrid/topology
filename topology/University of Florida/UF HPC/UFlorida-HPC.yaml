@@ -24,7 +24,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar2.ihepa.ufl.edu
-        ID: 130
     VOOwnership:
       CMS: 100
   T2_Florida_LT:
@@ -52,7 +51,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: perfsonar1.ihepa.ufl.edu
-        ID: 131
     VOOwnership:
       CMS: 100
   UFlorida-CMS:
@@ -72,7 +70,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://cms.rc.ufl.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -105,7 +102,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://osg.rc.ufl.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -138,7 +134,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://cslrm.rc.ufl.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -176,7 +171,6 @@ Resources:
         Details:
           hidden: false
           uri_override: cmsio.rc.ufl.edu:2811
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -208,7 +202,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   UFlorida_squid2:
@@ -227,8 +220,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
-SupportCenterID: 8
-SupportCenterName: fGOC
+SupportCenter: fGOC

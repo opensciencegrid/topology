@@ -24,13 +24,11 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -46,6 +44,36 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: null
+  UMN-CMS-CE2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jesse Clair Bren
+      Miscellaneous Contact:
+        Primary: Jeremiah Mans
+      Resource Report Contact:
+        Primary: Jesse Clair Bren
+      Security Contact:
+        Primary: Jesse Clair Bren
+      Submitter Contact:
+        Primary: Jesse Clair Bren
+    Disable: false
+    FQDN: gc2-ce.spa.umn.edu
+    ID: 941
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: null
+          uri_override: null
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: null
+    VOOwnership:
+      CMS: 100
   UMN-CMS-SE:
     Active: true
     ContactLists:
@@ -64,13 +92,11 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -86,5 +112,4 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: null
-SupportCenterID: 46
-SupportCenterName: USCMS_Tier3
+SupportCenter: USCMS_Tier3

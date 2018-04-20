@@ -22,7 +22,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar-bwctl.accre.vanderbilt.edu
-        ID: 130
     VOOwnership:
       CMS: 100
   US-Vanderbilt LT:
@@ -45,7 +44,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: perfsonar-owamp.accre.vanderbilt.edu
-        ID: 131
     VOOwnership:
       CMS: 100
   Vanderbilt_CE1:
@@ -76,7 +74,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://ce1.accre.vanderbilt.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -119,7 +116,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://ce2.accre.vanderbilt.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -154,7 +150,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://ce3.accre.vanderbilt.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -193,7 +188,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://ce4.accre.vanderbilt.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -235,7 +229,6 @@ Resources:
         Details:
           hidden: false
           uri_override: se3.accre.vanderbilt.edu:6288
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -275,7 +268,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -304,7 +296,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar-bwctl.accre.vanderbilt.edu
-        ID: 130
     VOOwnership:
       CMS: 100
   Vanderbilt_Perfsonar_Latency:
@@ -320,7 +311,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: perfsonar-owamp.accre.vanderbilt.edu
-        ID: 131
     VOOwnership:
       CMS: 100
   Vanderbilt_SE:
@@ -351,7 +341,6 @@ Resources:
         Details:
           hidden: false
           uri_override: se1.accre.vanderbilt.edu:6288
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -393,7 +382,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   Vanderbilt_Squid2:
@@ -412,8 +400,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
-SupportCenterID: 65
-SupportCenterName: USCMS_Tier2
+SupportCenter: USCMS_Tier2

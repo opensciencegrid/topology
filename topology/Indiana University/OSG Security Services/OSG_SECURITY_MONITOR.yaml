@@ -21,7 +21,6 @@ Resources:
         Description: Virtual service mapped to CA Distribution process and content
           metrics
         Details: null
-        ID: 114
     VOOwnership:
       MIS: 100
   SECMON_CADIST_VDT:
@@ -43,7 +42,6 @@ Resources:
         Description: Virtual service mapped to CA Distribution process and content
           metrics
         Details: null
-        ID: 114
     VOOwnership:
       MIS: 100
   SECMON_CRL:
@@ -64,7 +62,6 @@ Resources:
       CRL_Monitoring:
         Description: Virtual service mapped to CRL process and content metrics
         Details: null
-        ID: 115
     VOOwnership:
       MIS: 100
   SECMON_VOMS:
@@ -81,8 +78,6 @@ Resources:
       VOMS_Monitoring:
         Description: Virtual service that is mapped to VOMS monitoring metrics
         Details: null
-        ID: 113
     VOOwnership:
       MIS: 100
-SupportCenterID: 21
-SupportCenterName: OSG-GOC
+SupportCenter: OSG-GOC

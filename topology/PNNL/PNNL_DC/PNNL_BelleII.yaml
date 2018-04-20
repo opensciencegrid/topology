@@ -21,13 +21,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       Belle: 100
   PNNL VOMS Server:
@@ -46,9 +44,7 @@ Resources:
       VOMS Server:
         Description: VOMS Server
         Details: null
-        ID: 102
     VOOwnership:
-      (Other): 67
       Belle: 33
   PNNL_BelleII_SE:
     Active: true
@@ -68,7 +64,6 @@ Resources:
         Details:
           hidden: false
           uri_override: se.hep.pnnl.gov:8443
-        ID: 3
     VOOwnership:
       Belle: 100
     WLCGInformation:
@@ -107,7 +102,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       Belle: 33
       Cdms: 33
@@ -146,13 +140,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: osg.pnl.gov:2119
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: osg.pnl.gov
-        ID: 5
     VOOwnership:
       Belle: 90
       ILC: 10
@@ -187,13 +179,11 @@ Resources:
         Details:
           hidden: false
           uri_override: se.pnl.gov
-        ID: 5
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: se.pnl.gov:8443
-        ID: 3
     VOOwnership:
       Belle: 100
     WLCGInformation:
@@ -233,7 +223,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: ps-bandwidth.hep.pnnl.gov
-        ID: 130
     VOOwnership:
       Belle: 100
   US-PNNL LT:
@@ -260,8 +249,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: ps-latency.hep.pnnl.gov
-        ID: 131
     VOOwnership:
       Belle: 100
-SupportCenterID: 75
-SupportCenterName: PNNL
+SupportCenter: PNNL

@@ -25,13 +25,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -71,7 +69,6 @@ Resources:
       SRMv2:
         Description: SRM V2 Storage Element
         Details: null
-        ID: 3
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -108,7 +105,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       ATLAS: 100
   UTA_SWT2_TEST1:
@@ -129,7 +125,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -166,7 +161,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: psuta02.atlas-swt2.org
-        ID: 130
     VOOwnership:
       ATLAS: 100
   UTA_SWT2_perfSONAR_latency:
@@ -190,8 +184,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psuta01.atlas-swt2.org
-        ID: 131
     VOOwnership:
       ATLAS: 100
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

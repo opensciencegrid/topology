@@ -12,7 +12,6 @@ Resources:
       CE:
         Description: Compute Element
         Details: null
-        ID: 1
     VOOwnership:
       OSG: 100
   perfSONAR_ASGC_bandwidth:
@@ -32,7 +31,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: http://lhc-bandwidth.twgrid.org
-        ID: 130
     VOOwnership:
       ATLAS: 100
   perfSONAR_ASGC_latency:
@@ -52,8 +50,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: http://lhc-latency.twgrid.org
-        ID: 131
     VOOwnership:
       ATLAS: 100
-SupportCenterID: 3
-SupportCenterName: Community Support Center
+SupportCenter: Community Support Center

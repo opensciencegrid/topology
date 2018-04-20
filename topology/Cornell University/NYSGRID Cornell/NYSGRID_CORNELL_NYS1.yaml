@@ -32,13 +32,11 @@ Resources:
         Details:
           hidden: false
           uri_override: nys1.cac.cornell.edu
-        ID: 1
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: osg-se.cac.cornell.edu
-        ID: 3
     VOOwnership:
       NYSGRID: 100
     WLCGInformation:
@@ -54,5 +52,4 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: null
-SupportCenterID: 43
-SupportCenterName: NYSGRID
+SupportCenter: NYSGRID

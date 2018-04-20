@@ -29,7 +29,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -72,7 +71,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       ATLAS: 100
   UTD-HEP2:
@@ -100,11 +98,9 @@ Resources:
       CE:
         Description: Compute Element
         Details: null
-        ID: 1
       SRMv2:
         Description: SRM V2 Storage Element
         Details: null
-        ID: 3
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -120,5 +116,4 @@ Resources:
       StorageCapacityMax: 24
       StorageCapacityMin: 24
       TapeCapacity: 0
-SupportCenterID: 50
-SupportCenterName: USATLAS_Tier3
+SupportCenter: USATLAS_Tier3

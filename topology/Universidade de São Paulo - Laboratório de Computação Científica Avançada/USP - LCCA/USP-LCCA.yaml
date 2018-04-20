@@ -21,9 +21,7 @@ Resources:
         Description: Compute Element
         Details:
           hidden: true
-        ID: 1
     VOOwnership:
-      (Other): 20
       OSGEDU: 80
   USP-LCCA-GUMS-test:
     Active: true
@@ -42,9 +40,7 @@ Resources:
         Description: GUMS Server
         Details:
           hidden: true
-        ID: 101
     VOOwnership:
-      (Other): 20
       OSGEDU: 80
   USP-LCCA-SE-test:
     Active: true
@@ -63,9 +59,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: true
-        ID: 3
     VOOwnership:
-      (Other): 20
       OSGEDU: 80
-SupportCenterID: 3
-SupportCenterName: Community Support Center
+SupportCenter: Community Support Center

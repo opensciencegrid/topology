@@ -22,7 +22,6 @@ Resources:
       VOMRS Server:
         Description: VOMRS Server
         Details: null
-        ID: 110
     VOOwnership:
       Gluex: 100
   Gluex_VOMS:
@@ -47,7 +46,6 @@ Resources:
       VOMS Server:
         Description: VOMS Server
         Details: null
-        ID: 102
     VOOwnership:
       Gluex: 100
   UConn-OSG_CE:
@@ -73,13 +71,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: gluskap.phys.uconn.edu:2119
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: gluskap.phys.uconn.edu:2811
-        ID: 5
     VOOwnership:
       Gluex: 100
   UConn-OSG_GUMS:
@@ -102,7 +98,6 @@ Resources:
       GUMS Server:
         Description: GUMS Server
         Details: null
-        ID: 101
     VOOwnership:
       Gluex: 100
   UConn-OSG_SE:
@@ -127,13 +122,11 @@ Resources:
         Details:
           hidden: false
           uri_override: grinch.phys.uconn.edu:8443
-        ID: 2
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: grinch.phys.uconn.edu:8443
-        ID: 3
     VOOwnership:
       Gluex: 100
     WLCGInformation:
@@ -149,5 +142,4 @@ Resources:
       StorageCapacityMax: 50
       StorageCapacityMin: 25
       TapeCapacity: 0
-SupportCenterID: 44
-SupportCenterName: GLUEX
+SupportCenter: GLUEX

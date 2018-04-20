@@ -25,7 +25,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://uscms1.fltech-grid3.fit.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -63,7 +62,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
   FLTECH-MGMT:
@@ -86,7 +84,6 @@ Resources:
       GUMS Server:
         Description: GUMS Server
         Details: null
-        ID: 101
     VOOwnership:
       CMS: 100
   FLTECH-SE:
@@ -111,7 +108,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -146,14 +142,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       OSG: 100
-SupportCenterID: 46
-SupportCenterName: USCMS_Tier3
+SupportCenter: USCMS_Tier3

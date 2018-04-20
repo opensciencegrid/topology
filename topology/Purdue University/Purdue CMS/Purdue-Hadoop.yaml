@@ -24,7 +24,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://hadoop-osg.rcac.purdue.edu:9619/hadoop-osg.rcac.purdue.edu
           uri_override: hadoop-osg.rcac.purdue.edu:2119
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -65,7 +64,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://cmspbs-osg.rcac.purdue.edu:9619/cmspbs-osg.rcac.purdue.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -98,7 +96,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -138,7 +135,6 @@ Resources:
         Details:
           hidden: false
           uri_override: srm.rcac.purdue.edu:8443
-        ID: 3
     VOOwnership:
       CMS: 100
   Purdue-Hadoop-SE-Gridftp:
@@ -164,7 +160,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -202,7 +197,6 @@ Resources:
         Details:
           hidden: true
           uri_override: srm6.rcac.purdue.edu:8443
-        ID: 3
     VOOwnership:
       CMS: 100
   Purdue-Hadoop-TestCE:
@@ -227,7 +221,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://cmstest1.rcac.purdue.edu:9619/cmstest1.rcac.purdue.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -264,7 +257,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   T2_US_Purdue_Squid2:
@@ -288,7 +280,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   T2_US_Purdue_Squid3:
@@ -313,7 +304,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   US-Purdue BW:
@@ -333,7 +323,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar-cms2.itns.purdue.edu
-        ID: 130
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -372,7 +361,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: perfsonar-cms1.itns.purdue.edu
-        ID: 131
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -388,5 +376,4 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-SupportCenterID: 65
-SupportCenterName: USCMS_Tier2
+SupportCenter: USCMS_Tier2

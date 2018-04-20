@@ -22,9 +22,7 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
-      (Other): 10
       ATLAS: 90
   AGLT2_CE_2:
     Active: true
@@ -52,9 +50,7 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
-      (Other): 90
       ATLAS: 10
     WLCGInformation:
       APELNormalFactor: 10.21
@@ -95,9 +91,7 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
-      (Other): 10
       ATLAS: 90
     WLCGInformation:
       APELNormalFactor: 0
@@ -137,9 +131,7 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
-      (Other): 10
       ATLAS: 90
     WLCGInformation:
       APELNormalFactor: 10.21
@@ -181,9 +173,7 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
-      (Other): 10
       ATLAS: 90
     WLCGInformation:
       APELNormalFactor: 10.21
@@ -217,14 +207,11 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: psmsu02.aglt2.org
-        ID: 130
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psmsu01.aglt2.org
-        ID: 131
     VOOwnership:
-      (Other): 20
       ATLAS: 80
   DEPRECATED UM LAT BW:
     Active: false
@@ -243,14 +230,11 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: psum02.aglt2.org
-        ID: 130
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psum01.aglt2.org
-        ID: 131
     VOOwnership:
-      (Other): 20
       ATLAS: 80
   US-AGLT2_MSU BW:
     Active: true
@@ -274,9 +258,7 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: psmsu02.aglt2.org
-        ID: 130
     VOOwnership:
-      (Other): 10
       ATLAS: 90
   US-AGLT2_MSU LAT:
     Active: true
@@ -300,9 +282,7 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psmsu01.aglt2.org
-        ID: 131
     VOOwnership:
-      (Other): 10
       ATLAS: 90
   US-AGLT2_UM BW:
     Active: true
@@ -321,9 +301,7 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: psum02.aglt2.org
-        ID: 130
     VOOwnership:
-      (Other): 10
       ATLAS: 90
   US-AGLT2_UM LAT:
     Active: true
@@ -342,9 +320,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psum01.aglt2.org
-        ID: 131
     VOOwnership:
-      (Other): 10
       ATLAS: 90
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

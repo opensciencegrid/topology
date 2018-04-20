@@ -22,7 +22,6 @@ Resources:
       CE:
         Description: Compute Element
         Details: null
-        ID: 1
     VOOwnership:
       CMS: 100
   Nebraska:
@@ -52,7 +51,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://red.unl.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -94,7 +92,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
   T2_Nebraska_Hadoop2:
@@ -123,7 +120,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
   T2_Nebraska_Hadoop3:
@@ -167,7 +163,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
   T2_Nebraska_SE_gridftp:
@@ -196,7 +191,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -238,7 +232,6 @@ Resources:
         Details:
           hidden: false
           uri_override: srm.unl.edu:8446
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -280,7 +273,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   T2_US_Nebraska_red-squid1:
@@ -309,7 +301,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   US-Nebraska BW:
@@ -337,7 +328,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: hcc-ps02.unl.edu
-        ID: 130
     VOOwnership:
       HCC: 100
   US-Nebraska BW (Test):
@@ -361,7 +351,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar.unl.edu
-        ID: 130
     VOOwnership:
       HCC: 100
   US-Nebraska Disabled:
@@ -389,7 +378,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: hcc-ps02.unl.edu
-        ID: 130
     VOOwnership:
       HCC: 100
   US-Nebraska LT:
@@ -417,7 +405,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: hcc-ps01.unl.edu
-        ID: 131
     VOOwnership:
       HCC: 100
   US-Nebraska LT (Test):
@@ -441,7 +428,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: perfsonar.unl.edu
-        ID: 131
     VOOwnership:
       HCC: 100
   red-gateway1:
@@ -471,7 +457,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://red-gw1.unl.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -514,7 +499,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://red-gw2.unl.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -530,5 +514,4 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-SupportCenterID: 65
-SupportCenterName: USCMS_Tier2
+SupportCenter: USCMS_Tier2

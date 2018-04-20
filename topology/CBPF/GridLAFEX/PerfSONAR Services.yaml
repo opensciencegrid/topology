@@ -19,7 +19,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: ps02.cat.cbpf.br
-        ID: 130
     VOOwnership:
       LHCb: 100
   PerfSONAR_CBPF_lt:
@@ -41,7 +40,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: ps01.cat.cbpf.br
-        ID: 131
     VOOwnership:
       LHCb: 100
     WLCGInformation:
@@ -57,5 +55,4 @@ Resources:
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
       TapeCapacity: 5.5
-SupportCenterID: 33
-SupportCenterName: CERN
+SupportCenter: CERN

@@ -7,6 +7,8 @@ Resources:
     ContactLists:
       Administrative Contact:
         Secondary: Mats Rynge
+      Security Contact:
+        Primary: Mats Rynge
       Submitter Contact:
         Primary: Kyle Gross
     Disable: false
@@ -19,8 +21,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       OSG: 100
-SupportCenterID: 49
-SupportCenterName: osg-glidein-factory
+SupportCenter: osg-glidein-factory

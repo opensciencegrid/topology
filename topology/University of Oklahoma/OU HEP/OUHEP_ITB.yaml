@@ -29,19 +29,16 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: osgitb2.nhn.ou.edu:8443
-        ID: 3
     VOOwnership:
       ATLAS: 30
       DOSAR: 40
@@ -59,5 +56,4 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: null
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

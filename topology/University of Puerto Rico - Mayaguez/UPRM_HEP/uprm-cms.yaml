@@ -25,7 +25,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://cms-grid0.hep.uprm.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -59,7 +58,6 @@ Resources:
       GUMS Server:
         Description: GUMS Server
         Details: null
-        ID: 101
     VOOwnership:
       CMS: 100
   uprm-cms-se:
@@ -84,7 +82,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -100,5 +97,4 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-SupportCenterID: 46
-SupportCenterName: USCMS_Tier3
+SupportCenter: USCMS_Tier3

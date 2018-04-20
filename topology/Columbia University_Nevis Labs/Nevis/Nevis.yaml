@@ -23,13 +23,11 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
       XRootD component:
         Description: any part of xrootd
         Details:
           hidden: false
           uri_override: xenia.nevis.columbia.edu:1094
-        ID: 142
     VOOwnership:
       ATLAS: 100
   Nevis cvmfs squid:
@@ -56,7 +54,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -95,8 +92,6 @@ Resources:
         Details:
           hidden: false
           uri_override: xenia.nevis.columbia.edu:2811
-        ID: 5
     VOOwnership:
       ATLAS: 100
-SupportCenterID: 50
-SupportCenterName: USATLAS_Tier3
+SupportCenter: USATLAS_Tier3

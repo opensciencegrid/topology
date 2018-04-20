@@ -23,7 +23,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       DOSAR: 100
   Lucille_CE:
@@ -48,13 +47,11 @@ Resources:
           hidden: false
           sam_uri: htcondor://lutgw1.lunet.edu
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       ATLAS: 20
       DOSAR: 80
@@ -92,13 +89,11 @@ Resources:
         Details:
           hidden: false
           uri_override: lutse1.lunet.edu
-        ID: 5
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: lutse1.lunet.edu:8443
-        ID: 3
     VOOwnership:
       ATLAS: 20
       DOSAR: 80
@@ -137,7 +132,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: lutps.lunet.edu
-        ID: 130
     VOOwnership:
       DOSAR: 100
   perfSonar_LU_latency:
@@ -162,8 +156,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: lutps1.lunet.edu
-        ID: 131
     VOOwnership:
       DOSAR: 100
-SupportCenterID: 4
-SupportCenterName: DOSAR
+SupportCenter: DOSAR

@@ -27,7 +27,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       CDF: 100
   FNAL_CDFOSG_1:
@@ -54,7 +53,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       CDF: 100
   FNAL_CDFOSG_2:
@@ -80,7 +78,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       CDF: 100
   FNAL_CDFOSG_3:
@@ -107,7 +104,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       CDF: 100
   FNAL_CDFOSG_4:
@@ -134,7 +130,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       CDF: 100
   FNAL_DZEROOSG_1:
@@ -157,7 +152,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       DZero: 100
   FNAL_DZEROOSG_2:
@@ -183,7 +177,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       DZero: 100
   FNAL_DZEROOSG_3:
@@ -211,7 +204,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       DZero: 100
   FNAL_DZEROOSG_4:
@@ -239,7 +231,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       DZero: 100
   FNAL_FERMIGRID:
@@ -267,13 +258,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       Fermilab: 100
     WLCGInformation:
@@ -312,7 +301,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       Fermilab: 100
   FNAL_GPGRID_3:
@@ -339,7 +327,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       Fermilab: 100
   FNAL_GPGRID_4:
@@ -364,13 +351,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       DUNE: 1
       Fermilab: 99
@@ -396,13 +381,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       DUNE: 1
       Fermilab: 99
@@ -427,7 +410,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       Fermilab: 100
   FNAL_GPGRID_QUOTA_3:
@@ -454,7 +436,6 @@ Resources:
           hidden: true
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       Fermilab: 100
   gpgrid_squid:
@@ -473,8 +454,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       Fermilab: 100
-SupportCenterID: 7
-SupportCenterName: Fermilab
+SupportCenter: Fermilab

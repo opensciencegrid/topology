@@ -19,7 +19,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: http://sampaps02.if.usp.br
-        ID: 130
     VOOwnership:
       ALICE: 100
   SAMPA PerfSONAR Latency:
@@ -39,7 +38,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: http://sampaps01.if.usp.br
-        ID: 131
     VOOwnership:
       ALICE: 100
   perfSONAR_SAMPA_Bandwidth:
@@ -59,7 +57,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: sampaps02.if.usp.br
-        ID: 130
     VOOwnership:
       ALICE: 100
   perfSONAR_SAMPA_Latency:
@@ -79,8 +76,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: sampaps01.if.usp.br
-        ID: 131
     VOOwnership:
       ALICE: 100
-SupportCenterID: 33
-SupportCenterName: CERN
+SupportCenter: CERN

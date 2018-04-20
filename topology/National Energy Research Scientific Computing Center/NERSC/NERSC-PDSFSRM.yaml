@@ -32,7 +32,6 @@ Resources:
         Details:
           hidden: false
           uri_override: pdsfdtn1.nersc.gov:62443
-        ID: 3
     VOOwnership:
       ATLAS: 1
       NERSC: 99
@@ -77,7 +76,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       NERSC: 100
   NERSC-PGSIFTP1:
@@ -108,7 +106,6 @@ Resources:
         Details:
           hidden: false
           uri_override: pdsfgsiftp1.nersc.gov:2811
-        ID: 5
     VOOwnership:
       ATLAS: 1
       NERSC: 99
@@ -125,5 +122,4 @@ Resources:
       StorageCapacityMax: 50
       StorageCapacityMin: 1
       TapeCapacity: 0
-SupportCenterID: 19
-SupportCenterName: NERSC
+SupportCenter: NERSC

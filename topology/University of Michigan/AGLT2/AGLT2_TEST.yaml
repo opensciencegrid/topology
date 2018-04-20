@@ -27,7 +27,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -65,9 +64,7 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: psmsu06.aglt2.org
-        ID: 130
     VOOwnership:
-      (Other): 10
       ATLAS: 90
   US-AGLT2_MSU LAT(TB):
     Active: true
@@ -91,9 +88,7 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psmsu05.aglt2.org
-        ID: 131
     VOOwnership:
-      (Other): 10
       ATLAS: 90
   US-AGLT2_UM BW(TB):
     Active: true
@@ -114,9 +109,7 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: psum06.aglt2.org
-        ID: 130
     VOOwnership:
-      (Other): 10
       ATLAS: 90
   US-AGLT2_UM LAT(TB):
     Active: true
@@ -137,9 +130,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psum05.aglt2.org
-        ID: 131
     VOOwnership:
-      (Other): 10
       ATLAS: 90
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

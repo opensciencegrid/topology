@@ -30,17 +30,14 @@ Resources:
         Details:
           hidden: false
           uri_override: atlas.bu.edu:8443
-        ID: 3
       net.perfSONAR.Bandwidth:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: atlas-npt2.bu.edu
-        ID: 130
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: atlas-npt1.bu.edu
-        ID: 131
     VOOwnership:
       ATLAS: 100
   NET2-HU:
@@ -70,8 +67,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

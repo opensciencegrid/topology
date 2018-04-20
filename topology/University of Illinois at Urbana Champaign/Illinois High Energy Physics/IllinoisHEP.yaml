@@ -28,13 +28,11 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       ATLAS: 100
   IllinoisHEP-GUMS:
@@ -61,7 +59,6 @@ Resources:
       GUMS Server:
         Description: GUMS Server
         Details: null
-        ID: 101
     VOOwnership:
       ATLAS: 100
   IllinoisHEP-LFC:
@@ -89,7 +86,6 @@ Resources:
         Description: Logical File Catalog
         Details:
           hidden: true
-        ID: 6
     VOOwnership:
       ATLAS: 100
   IllinoisHEP-SE:
@@ -118,7 +114,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       ATLAS: 100
   perfSONAR_IllinoisHEP:
@@ -146,8 +141,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: osgpfsr.hep.uiuc.edu
-        ID: 130
     VOOwnership:
       ATLAS: 100
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

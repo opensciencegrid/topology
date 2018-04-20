@@ -20,7 +20,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   UCSDCMST2-squid:
@@ -39,7 +38,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   UCSDT2-A:
@@ -59,7 +57,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://osg-gw-2.t2.ucsd.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -92,7 +89,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://osg-gw-4.t2.ucsd.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -127,7 +123,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://osg-gw-6.t2.ucsd.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -162,7 +157,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://osg-gw-7.t2.ucsd.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -196,7 +190,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 50
       OSG: 50
@@ -233,7 +226,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -265,7 +257,6 @@ Resources:
         Details:
           hidden: false
           uri_override: bsrm-1.t2.ucsd.edu:8443
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -299,7 +290,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -333,7 +323,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       CMS: 100
   UCSD_GlideinWMS_Submit_2:
@@ -354,7 +343,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       CMS: 100
   UCSD_GlideinWMS_Submit_3:
@@ -375,7 +363,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       CMS: 100
   UCSanDiego-OSG-Validation-SE-SRM_v2:
@@ -394,7 +381,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 50
       OSG: 50
@@ -414,7 +400,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -447,7 +432,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar-1.t2.ucsd.edu
-        ID: 130
     VOOwnership:
       CMS: 100
   US-UCSD LT:
@@ -467,8 +451,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: perfsonar-2.t2.ucsd.edu
-        ID: 131
     VOOwnership:
       CMS: 100
-SupportCenterID: 65
-SupportCenterName: USCMS_Tier2
+SupportCenter: USCMS_Tier2

@@ -29,19 +29,16 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: tier2-02.ochep.ou.edu:8443
-        ID: 3
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -78,7 +75,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       ATLAS: 100
   perfSONAR_OU:
@@ -108,12 +104,10 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: ps2.ochep.ou.edu
-        ID: 130
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: ps1.ochep.ou.edu
-        ID: 131
     VOOwnership:
       ATLAS: 100
   perfSONAR_OU_bandwidth:
@@ -143,7 +137,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: ps2.ochep.ou.edu
-        ID: 130
     VOOwnership:
       ATLAS: 100
   perfSONAR_OU_latency:
@@ -173,7 +166,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: ps1.ochep.ou.edu
-        ID: 131
     VOOwnership:
       ATLAS: 100
   perfSONAR_OU_latency_test:
@@ -203,8 +195,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: ps3.ochep.ou.edu
-        ID: 131
     VOOwnership:
       ATLAS: 100
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

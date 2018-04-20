@@ -15,14 +15,11 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: lhcone-wash-opt1.es.net
-        ID: 130
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: lhcone-wash-opt1.es.net
-        ID: 131
     VOOwnership:
-      (Other): 100
       ATLAS: 0
   Internet2 WIX perfSONAR:
     Active: true
@@ -39,14 +36,10 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: lhcone.test.wix.internet2.edu
-        ID: 130
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: lhcone.test.wix.internet2.edu
-        ID: 131
     VOOwnership:
-      (Other): 100
       ATLAS: 0
-SupportCenterID: 87
-SupportCenterName: LHCONE_SC
+SupportCenter: LHCONE_SC

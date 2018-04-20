@@ -27,9 +27,7 @@ Resources:
           hidden: false
           sam_uri: htcondor://kodiak-ce.baylor.edu
           uri_override: null
-        ID: 1
     VOOwnership:
-      (Other): 100
       CMS: 0
     WLCGInformation:
       APELNormalFactor: 0
@@ -68,15 +66,12 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
-      (Other): 100
       CMS: 0
     WLCGInformation:
       APELNormalFactor: 0
@@ -91,5 +86,4 @@ Resources:
       StorageCapacityMax: 300
       StorageCapacityMin: 100
       TapeCapacity: null
-SupportCenterID: 46
-SupportCenterName: USCMS_Tier3
+SupportCenter: USCMS_Tier3

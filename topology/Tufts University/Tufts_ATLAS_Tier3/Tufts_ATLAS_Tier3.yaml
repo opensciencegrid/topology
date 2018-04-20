@@ -25,19 +25,16 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: cobalt.uit.tufts.edu
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: cobalt.uit.tufts.edu
-        ID: 5
       Submit Node:
         Description: OSG Submission Node
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -53,5 +50,4 @@ Resources:
       StorageCapacityMax: 20
       StorageCapacityMin: 0.4
       TapeCapacity: 0
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

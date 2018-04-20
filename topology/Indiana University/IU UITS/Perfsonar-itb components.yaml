@@ -19,7 +19,6 @@ Resources:
         Description: Cassandra component of perfsonar
         Details:
           endpoint: cassandra-itb1.grid.iu.edu
-        ID: 144
     VOOwnership:
       Ops: 100
   Cassandra-itb2:
@@ -39,7 +38,6 @@ Resources:
         Description: Cassandra component of perfsonar
         Details:
           endpoint: cassandra-itb2.grid.iu.edu
-        ID: 144
     VOOwnership:
       Ops: 100
   Perfsonar-itb:
@@ -59,7 +57,6 @@ Resources:
         Description: Data storage fro perfsonar
         Details:
           endpoint: http://perfsonar-itb.grid.iu.edu/
-        ID: 145
     VOOwnership:
       Ops: 100
   psds-itb1:
@@ -79,7 +76,6 @@ Resources:
         Description: Data storage fro perfsonar
         Details:
           endpoint: psds-itb1.grid.iu.edu
-        ID: 145
     VOOwnership:
       Ops: 100
   psds-itb2:
@@ -99,8 +95,6 @@ Resources:
         Description: Data storage fro perfsonar
         Details:
           endpoint: psds-itb2.grid.iu.edu
-        ID: 145
     VOOwnership:
       Ops: 100
-SupportCenterID: 21
-SupportCenterName: OSG-GOC
+SupportCenter: OSG-GOC

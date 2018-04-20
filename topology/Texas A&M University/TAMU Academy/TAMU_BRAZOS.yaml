@@ -29,13 +29,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 70
       SURAgrid: 30
@@ -77,13 +75,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 70
       SURAgrid: 30
@@ -121,7 +117,6 @@ Resources:
         Details:
           hidden: false
           uri_override: gw01.brazos.tamu.edu:2811
-        ID: 5
     VOOwnership:
       CMS: 70
       SURAgrid: 30
@@ -146,7 +141,6 @@ Resources:
         Details:
           hidden: false
           uri_override: gw02.brazos.tamu.edu:2811
-        ID: 5
     VOOwnership:
       CMS: 70
       SURAgrid: 30
@@ -175,7 +169,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 70
       SURAgrid: 30
@@ -216,7 +209,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 70
       SURAgrid: 30
@@ -242,7 +234,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: psonar-bwctl.brazos.tamu.edu
-        ID: 130
     VOOwnership:
       CMS: 70
       SURAgrid: 30
@@ -268,9 +259,7 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psonar-owamp.brazos.tamu.edu
-        ID: 131
     VOOwnership:
       CMS: 70
       SURAgrid: 30
-SupportCenterID: 46
-SupportCenterName: USCMS_Tier3
+SupportCenter: USCMS_Tier3

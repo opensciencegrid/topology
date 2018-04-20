@@ -25,7 +25,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       OSG: 100
   SU-ITS-CE3:
@@ -51,7 +50,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       OSG: 100
   SU-OG-CE:
@@ -77,7 +75,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       OSG: 100
   SU-OG-CE1:
@@ -103,7 +100,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       OSG: 100
   SU-OG-squid:
@@ -126,7 +122,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       OSG: 100
   SU-OSG-CONNECT:
@@ -155,8 +150,6 @@ Resources:
         Details:
           hidden: false
           uri_override: osgconnect@its-condor-submit.syr.edu/condor
-        ID: 149
     VOOwnership:
       OSG: 100
-SupportCenterID: 3
-SupportCenterName: Community Support Center
+SupportCenter: Community Support Center

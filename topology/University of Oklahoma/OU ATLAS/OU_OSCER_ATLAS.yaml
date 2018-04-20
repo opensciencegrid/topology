@@ -27,13 +27,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       ATLAS: 55
       DOSAR: 45
@@ -74,13 +72,11 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
       XRootD origin server:
         Description: XRootD origin server
         Details:
           hidden: false
           uri_override: null
-        ID: 147
     VOOwnership:
       ATLAS: 55
       DOSAR: 45
@@ -97,5 +93,4 @@ Resources:
       StorageCapacityMax: 10
       StorageCapacityMin: 10
       TapeCapacity: null
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

@@ -22,12 +22,10 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: ps-development.bnl.gov
-        ID: 130
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: ps-development.bnl.gov
-        ID: 131
     VOOwnership:
       ATLAS: 100
   BNL_ITB_Test1:
@@ -51,7 +49,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://gridtest01.racf.bnl.gov
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -87,7 +84,6 @@ Resources:
       SRMv2:
         Description: SRM V2 Storage Element
         Details: null
-        ID: 3
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -103,5 +99,4 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: null
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

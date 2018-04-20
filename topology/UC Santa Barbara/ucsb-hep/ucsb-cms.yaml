@@ -25,7 +25,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://cms25.physics.ucsb.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -59,7 +58,6 @@ Resources:
       GUMS Server:
         Description: GUMS Server
         Details: null
-        ID: 101
     VOOwnership:
       CMS: 100
   UCSB_SE:
@@ -82,7 +80,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -98,5 +95,4 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: null
-SupportCenterID: 46
-SupportCenterName: USCMS_Tier3
+SupportCenter: USCMS_Tier3

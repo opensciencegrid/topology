@@ -26,13 +26,11 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -64,7 +62,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       ATLAS: 100
   Duke_ATLAS_gridftp:
@@ -87,7 +84,6 @@ Resources:
         Details:
           hidden: false
           uri_override: atlgridftp01.phy.duke.edu:2811
-        ID: 5
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -103,5 +99,4 @@ Resources:
       StorageCapacityMax: 50
       StorageCapacityMin: 10
       TapeCapacity: 0
-SupportCenterID: 50
-SupportCenterName: USATLAS_Tier3
+SupportCenter: USATLAS_Tier3

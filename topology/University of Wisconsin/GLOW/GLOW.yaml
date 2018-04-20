@@ -26,7 +26,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://cmsgrid01.hep.wisc.edu:9619/cmsgrid01.hep.wisc.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -66,7 +65,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://cmsgrid02.hep.wisc.edu:9619/cmsgrid02.hep.wisc.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -108,7 +106,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -149,7 +146,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://cmsgrid03.hep.wisc.edu:9619/cmsgrid03.hep.wisc.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -189,7 +185,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
   GLOW_SQUID:
@@ -208,7 +203,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   GLOW_SUBMIT1:
@@ -235,7 +229,6 @@ Resources:
         Details:
           hidden: true
           uri_override: null
-        ID: 109
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -275,7 +268,6 @@ Resources:
         Details:
           hidden: true
           uri_override: null
-        ID: 109
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -315,7 +307,6 @@ Resources:
         Details:
           hidden: true
           uri_override: null
-        ID: 109
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -359,7 +350,6 @@ Resources:
         Details:
           hidden: true
           uri_override: null
-        ID: 109
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -398,7 +388,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       GLOW: 100
     WLCGInformation:
@@ -438,7 +427,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       GLOW: 100
     WLCGInformation:
@@ -478,7 +466,6 @@ Resources:
         Details:
           hidden: true
           uri_override: null
-        ID: 109
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -515,7 +502,6 @@ Resources:
       CE:
         Description: Compute Element
         Details: null
-        ID: 1
     VOOwnership:
       GLOW: 100
   US-Wisconsin BW:
@@ -541,7 +527,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar02.hep.wisc.edu
-        ID: 130
     VOOwnership:
       CMS: 100
   US-Wisconsin LT:
@@ -567,8 +552,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: perfsonar01.hep.wisc.edu
-        ID: 131
     VOOwnership:
       CMS: 100
-SupportCenterID: 65
-SupportCenterName: USCMS_Tier2
+SupportCenter: USCMS_Tier2

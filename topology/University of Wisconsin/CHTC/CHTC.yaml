@@ -23,7 +23,6 @@ Resources:
         Description: OSG software repository mirror server
         Details:
           root: http://mirror.batlab.org/repos/osg/
-        ID: 135
     VOOwnership:
       GLOW: 100
   CHTC-glidein:
@@ -44,7 +43,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       GLOW: 100
   CHTC-glidein2:
@@ -67,7 +65,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       GLOW: 100
   CHTC-glidein3:
@@ -90,7 +87,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       GLOW: 100
   CHTC-submit-1:
@@ -111,7 +107,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       GLOW: 100
   CHTC_SUBMIT_3:
@@ -134,7 +129,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       GLOW: 100
   CHTC_SUBMIT_4:
@@ -155,7 +149,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       GLOW: 100
   CHTC_SUBMIT_5:
@@ -176,7 +169,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       GLOW: 100
   GLOW-CHTC VOMS server:
@@ -198,8 +190,6 @@ Resources:
       VOMS Server:
         Description: VOMS Server
         Details: null
-        ID: 102
     VOOwnership:
       GLOW: 100
-SupportCenterID: 10
-SupportCenterName: GLOW-TECH
+SupportCenter: GLOW-TECH

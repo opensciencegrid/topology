@@ -22,7 +22,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: osgserv03.slac.stanford.edu:2119
-        ID: 1
     VOOwnership:
       SLAC: 100
   SLAC-ATLAS-T3_GRIDFTP:
@@ -43,7 +42,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -80,7 +78,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://osgserv06.slac.stanford.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -119,7 +116,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
   WT2_SE:
@@ -144,7 +140,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -178,9 +173,7 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
-      (Other): 100
       ATLAS: 0
     WLCGInformation:
       APELNormalFactor: 0
@@ -213,7 +206,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: psnr-farm04.slac.stanford.edu
-        ID: 130
     VOOwnership:
       ATLAS: 100
   perfSONAR_lat_SLAC:
@@ -235,8 +227,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psnr-farm10.slac.stanford.edu
-        ID: 131
     VOOwnership:
       ATLAS: 100
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

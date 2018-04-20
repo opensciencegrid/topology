@@ -21,23 +21,18 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: mfosgce.hpc.smu.edu:2119
-        ID: 1
       Gratia Collector:
         Description: Gratia Collector
         Details: null
-        ID: 103
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: mfosgce.hpc.smu.edu:2811
-        ID: 5
       RSV Collector:
         Description: RSV Collector
         Details: null
-        ID: 104
     VOOwnership:
-      (Other): 90
       Nova: 10
     WLCGInformation:
       APELNormalFactor: 0
@@ -70,14 +65,11 @@ Resources:
         Details:
           hidden: false
           uri_override: mfosgse.ehpc.smu.edu:2811
-        ID: 5
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: mfosgse.ehpc.smu.edu:8443
-        ID: 3
     VOOwnership:
       ATLAS: 100
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

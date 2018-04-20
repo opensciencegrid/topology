@@ -25,7 +25,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: gc1-ce.javeriana.edu.co
-        ID: 1
     VOOwnership:
       GCEDU: 50
       GCVO: 50
@@ -52,7 +51,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: gc2-ce.javeriana.edu.co:2119
-        ID: 1
     VOOwnership:
       GCEDU: 50
       GCVO: 50
@@ -77,8 +75,6 @@ Resources:
         Description: GUMS Server
         Details:
           uri_override: gc1-gums.javeriana.edu.co
-        ID: 101
     VOOwnership:
       GCVO: 100
-SupportCenterID: 54
-SupportCenterName: GC
+SupportCenter: GC

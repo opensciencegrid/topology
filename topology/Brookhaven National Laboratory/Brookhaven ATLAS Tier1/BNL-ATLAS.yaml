@@ -25,7 +25,6 @@ Resources:
       CE:
         Description: Compute Element
         Details: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -63,7 +62,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://gridgk02.racf.bnl.gov
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -101,7 +99,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://gridgk02.racf.bnl.gov
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -139,7 +136,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://gridgk03.racf.bnl.gov
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -178,7 +174,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://gridgk04.racf.bnl.gov
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -216,7 +211,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://gridgk06.racf.bnl.gov
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -255,7 +249,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://gridgk07.racf.bnl.gov
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -293,7 +286,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://gridgk08.racf.bnl.gov
           uri_override: null
-        ID: 1
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -325,7 +317,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       BNL: 100
   BNL_ATLAS_SE:
@@ -351,7 +342,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -389,7 +379,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -427,7 +416,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -468,7 +456,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -501,7 +488,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: lhcmon.bnl.gov
-        ID: 130
     VOOwnership:
       ATLAS: 100
   lhcperfmon-bnl:
@@ -521,7 +507,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: lhcperfmon.bnl.gov
-        ID: 131
     VOOwnership:
       ATLAS: 100
   ps-development:
@@ -541,8 +526,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: ps-development.bnl.gov
-        ID: 131
     VOOwnership:
       ATLAS: 100
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

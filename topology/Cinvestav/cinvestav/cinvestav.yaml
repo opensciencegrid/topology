@@ -20,7 +20,6 @@ Resources:
       CE:
         Description: Compute Element
         Details: null
-        ID: 1
     VOOwnership:
       CMS: 80
       DOSAR: 20
@@ -59,7 +58,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -75,5 +73,4 @@ Resources:
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
       TapeCapacity: null
-SupportCenterID: 4
-SupportCenterName: DOSAR
+SupportCenter: DOSAR

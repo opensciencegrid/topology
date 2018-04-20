@@ -19,7 +19,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: psonartest1.fnal.gov
-        ID: 130
     VOOwnership:
       Fermilab: 100
   FNAL NRTB PerfSONAR Latency:
@@ -39,7 +38,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psonartest2.fnal.gov
-        ID: 131
     VOOwnership:
       Fermilab: 100
   US-FNAL BW:
@@ -59,7 +57,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: psonar3.fnal.gov
-        ID: 130
     VOOwnership:
       Fermilab: 100
   US-FNAL LT:
@@ -79,7 +76,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psonar4.fnal.gov
-        ID: 131
     VOOwnership:
       Fermilab: 100
   USCMS PerfSonar IPV6 Test:
@@ -101,7 +97,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: psonartest1.fnal.gov
-        ID: 130
     VOOwnership:
       Fermilab: 100
   USCMS-FNAL-WC1-CE:
@@ -124,13 +119,11 @@ Resources:
           hidden: false
           sam_uri: htcondor://cmsosgce.fnal.gov
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -166,13 +159,11 @@ Resources:
           hidden: false
           sam_uri: htcondor://cmsosgce2.fnal.gov
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -208,7 +199,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -244,13 +234,11 @@ Resources:
           hidden: false
           sam_uri: htcondor://cmsosgce4.fnal.gov
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -285,7 +273,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
   USCMS-FNAL-WC1-SE:
@@ -306,13 +293,11 @@ Resources:
       FTS:
         Description: File Transfer Service
         Details: null
-        ID: 7
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -346,19 +331,16 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 5
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 3
       XRootD component:
         Description: any part of xrootd
         Details:
           hidden: false
           uri_override: null
-        ID: 142
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -392,7 +374,6 @@ Resources:
       Submit Node:
         Description: OSG Submission Node
         Details: null
-        ID: 109
     VOOwnership:
       CMS: 100
   perfSONAR_fnal_latency:
@@ -412,8 +393,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psonar4.fnl.gov
-        ID: 131
     VOOwnership:
       CMS: 100
-SupportCenterID: 30
-SupportCenterName: USCMS
+SupportCenter: USCMS

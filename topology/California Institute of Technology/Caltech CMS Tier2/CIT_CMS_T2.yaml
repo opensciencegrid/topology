@@ -23,7 +23,6 @@ Resources:
         Details:
           hidden: false
           uri_override: cit-se.ultralight.org:8443
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -65,7 +64,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -102,7 +100,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://cit-gatekeeper.ultralight.org
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -141,7 +138,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://cit-gatekeeper2.ultralight.org
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -175,7 +171,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   CIT_CMS_perfSONAR:
@@ -195,12 +190,10 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar.ultralight.org
-        ID: 130
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: perfsonar2.ultralight.org
-        ID: 131
     VOOwnership:
       CMS: 100
   CIT_HEP_CE:
@@ -226,7 +219,6 @@ Resources:
           hidden: false
           sam_uri: htcondor://muon.hep.caltech.edu
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -261,7 +253,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar.ultralight.org
-        ID: 130
     VOOwnership:
       CMS: 100
   Caltech PerfSonar Latency:
@@ -283,8 +274,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: perfsonar2.ultralight.org
-        ID: 131
     VOOwnership:
       CMS: 100
-SupportCenterID: 65
-SupportCenterName: USCMS_Tier2
+SupportCenter: USCMS_Tier2

@@ -22,7 +22,6 @@ Resources:
         Details:
           hidden: false
           uri_override: fg0x5.fnal.gov:10443
-        ID: 3
     VOOwnership:
       Fermilab: 100
   FNAL_FERMIGRID_ITB:
@@ -45,13 +44,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       Fermilab: 100
     WLCGInformation:
@@ -87,7 +84,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       Fermilab: 100
   FNAL_FERMIGRID_ITB_SGE2:
@@ -111,8 +107,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       Fermilab: 100
-SupportCenterID: 7
-SupportCenterName: Fermilab
+SupportCenter: Fermilab

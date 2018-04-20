@@ -26,7 +26,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
   UFlorida-SE:
@@ -50,7 +49,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
   UFlorida-SEb:
@@ -81,7 +79,6 @@ Resources:
         Details:
           hidden: false
           uri_override: srm1.ihepa.ufl.edu:8443
-        ID: 3
     VOOwnership:
       CMS: 100
   perfSONAR_UF:
@@ -101,13 +98,10 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar2.ihepa.ufl.edu
-        ID: 130
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: perfsonar1.ihepa.ufl.edu
-        ID: 131
     VOOwnership:
       CMS: 100
-SupportCenterID: 65
-SupportCenterName: USCMS_Tier2
+SupportCenter: USCMS_Tier2

@@ -20,19 +20,16 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -77,13 +74,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: atlas.bu.edu:8443
-        ID: 3
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -122,7 +117,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       ATLAS: 100
   perfSONAR-NET2-bw:
@@ -150,7 +144,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: atlas-bwctl.bu.edu
-        ID: 130
     VOOwnership:
       ATLAS: 100
   perfSONAR-NET2-lat:
@@ -178,7 +171,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: atlas-owamp.bu.edu
-        ID: 131
     VOOwnership:
       ATLAS: 100
   perfSONAR_BU:
@@ -205,8 +197,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: atlas-owamp.bu.edu
-        ID: 131
     VOOwnership:
       ATLAS: 100
-SupportCenterID: 29
-SupportCenterName: USATLAS
+SupportCenter: USATLAS

@@ -25,13 +25,11 @@ Resources:
           hidden: false
           sam_uri: htcondor://ce01.cmsaf.mit.edu
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CDF: 10
       CMS: 90
@@ -68,7 +66,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -107,13 +104,11 @@ Resources:
           hidden: false
           sam_uri: htcondor://ce02.cmsaf.mit.edu
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CDF: 10
       CMS: 90
@@ -149,13 +144,11 @@ Resources:
           hidden: false
           sam_uri: htcondor://ce03.cmsaf.mit.edu
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -187,7 +180,6 @@ Resources:
       net.perfSONAR.Bandwidth:
         Description: PerfSonar Bandwidth monitoring node
         Details: null
-        ID: 130
     VOOwnership:
       CMS: 100
   MIT_CMS_Perfsonar_Latency:
@@ -206,7 +198,6 @@ Resources:
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details: null
-        ID: 131
     VOOwnership:
       CMS: 100
   MIT_CampusFactory:
@@ -235,7 +226,6 @@ Resources:
         Details:
           hidden: true
           uri_override: null
-        ID: 122
     VOOwnership:
       CMS: 100
   MIT_OSG_1:
@@ -260,8 +250,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 109
     VOOwnership:
       OSG: 100
-SupportCenterID: 65
-SupportCenterName: USCMS_Tier2
+SupportCenter: USCMS_Tier2

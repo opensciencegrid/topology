@@ -13,7 +13,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar02.discovery.wisc.edu
-        ID: 130
     VOOwnership:
       GLOW: 100
   Discovery_PerfSonar_Latency:
@@ -27,8 +26,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: perfsonar01.discovery.wisc.edu
-        ID: 131
     VOOwnership:
       GLOW: 100
-SupportCenterID: 10
-SupportCenterName: GLOW-TECH
+SupportCenter: GLOW-TECH

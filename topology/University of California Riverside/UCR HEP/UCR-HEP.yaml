@@ -22,13 +22,11 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: top.ucr.edu:2811
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -66,7 +64,6 @@ Resources:
         Details:
           hidden: false
           uri_override: charm.ucr.edu:10443
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -82,5 +79,4 @@ Resources:
       StorageCapacityMax: 100
       StorageCapacityMin: 0
       TapeCapacity: null
-SupportCenterID: 46
-SupportCenterName: USCMS_Tier3
+SupportCenter: USCMS_Tier3

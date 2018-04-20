@@ -21,13 +21,11 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -43,5 +41,4 @@ Resources:
       StorageCapacityMax: 1
       StorageCapacityMin: 0.5
       TapeCapacity: 1.5
-SupportCenterID: 20
-SupportCenterName: NWICG
+SupportCenter: NWICG

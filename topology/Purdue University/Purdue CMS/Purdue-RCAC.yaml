@@ -23,7 +23,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 3
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -65,7 +64,6 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -102,13 +100,11 @@ Resources:
         Details:
           hidden: false
           uri_override: null
-        ID: 1
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
           uri_override: null
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -143,7 +139,6 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: http://mannperf2.itns.purdue.edu/toolkit/
-        ID: 130
     VOOwnership:
       CMS: 100
   T2_Purdue_Perfsonar_Latency:
@@ -163,8 +158,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: http://mannperf.itns.purdue.edu
-        ID: 131
     VOOwnership:
       CMS: 100
-SupportCenterID: 65
-SupportCenterName: USCMS_Tier2
+SupportCenter: USCMS_Tier2

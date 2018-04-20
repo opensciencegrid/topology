@@ -3,7 +3,7 @@ GridType: OSG Production Resource
 GroupID: 394
 Resources:
   KISTI-NSDC-GUMS:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary: Seo-Young Noh
@@ -19,14 +19,13 @@ Resources:
         Secondary: Geonmo Ryu
       Submitter Contact:
         Primary: Beob Kyun Kim
-    Disable: false
+    Disable: true
     FQDN: gums.sdfarm.kr
     ID: 272
     Services:
       GUMS Server:
         Description: GUMS Server
         Details: null
-        ID: 101
     VOOwnership:
       CMS: 100
   KISTI_CMS_SQUID:
@@ -53,7 +52,6 @@ Resources:
       Squid:
         Description: Generic squid service
         Details: null
-        ID: 138
     VOOwnership:
       CMS: 100
   KISTI_CMS_T3_CE:
@@ -83,7 +81,6 @@ Resources:
           hidden: false
           sam_uri: null
           uri_override: null
-        ID: 1
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -125,7 +122,6 @@ Resources:
         Details:
           hidden: false
           uri_override: cms-se.sdfarm.kr:2811
-        ID: 5
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -141,5 +137,4 @@ Resources:
       StorageCapacityMax: 200
       StorageCapacityMin: 200
       TapeCapacity: 0
-SupportCenterID: 46
-SupportCenterName: USCMS_Tier3
+SupportCenter: USCMS_Tier3

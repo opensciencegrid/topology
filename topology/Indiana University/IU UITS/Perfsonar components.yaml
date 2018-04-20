@@ -21,7 +21,6 @@ Resources:
         Description: Cassandra component of perfsonar
         Details:
           endpoint: http://steige.grid.iu.edu/steige/textw.html
-        ID: 144
     VOOwnership:
       Ops: 100
   Cassandra 2:
@@ -43,7 +42,6 @@ Resources:
         Description: Cassandra component of perfsonar
         Details:
           endpoint: http://steige.grid.iu.edu/steige/textw.html
-        ID: 144
     VOOwnership:
       Ops: 100
   Cassandra 3:
@@ -64,7 +62,6 @@ Resources:
         Description: Cassandra component of perfsonar
         Details:
           endpoint: http://steige.grid.iu.edu/steige/textw.html
-        ID: 144
     VOOwnership:
       Ops: 100
   meshconfig:
@@ -84,7 +81,6 @@ Resources:
         Description: Data storage fro perfsonar
         Details:
           endpoint: meshconfig.grid.iu.edu
-        ID: 145
     VOOwnership:
       Ops: 100
   perfsonar1:
@@ -104,7 +100,6 @@ Resources:
         Description: Data storage fro perfsonar
         Details:
           endpoint: http://steige.grid.iu.edu/steige/textw.html
-        ID: 145
     VOOwnership:
       OSG: 100
   perfsonar2:
@@ -124,7 +119,6 @@ Resources:
         Description: Data storage fro perfsonar
         Details:
           endpoint: http://steige.grid.iu.edu/steige/textw.html
-        ID: 145
     VOOwnership:
       OSG: 100
   psds0:
@@ -147,7 +141,6 @@ Resources:
         Description: Data storage fro perfsonar
         Details:
           endpoint: psds0.grid.iu.edu
-        ID: 145
     VOOwnership:
       Ops: 100
   psds1:
@@ -170,7 +163,6 @@ Resources:
         Description: Data storage fro perfsonar
         Details:
           endpoint: psds1.grid.iu.edu
-        ID: 145
     VOOwnership:
       Ops: 100
   psds2:
@@ -193,7 +185,6 @@ Resources:
         Description: Data storage fro perfsonar
         Details:
           endpoint: psds2.grid.iu.edu
-        ID: 145
     VOOwnership:
       Ops: 100
   psetf:
@@ -214,7 +205,6 @@ Resources:
         Description: Data storage fro perfsonar
         Details:
           endpoint: psetf.grid.iu.edu
-        ID: 145
     VOOwnership:
       Ops: 100
   psrsv:
@@ -235,7 +225,6 @@ Resources:
         Description: Data storage fro perfsonar
         Details:
           endpoint: psrsv.grid.iu.edu
-        ID: 145
     VOOwnership:
       Ops: 100
   psvm01:
@@ -255,8 +244,6 @@ Resources:
       Virtual Machine Host:
         Description: Physical machine hosting VMs
         Details: null
-        ID: 150
     VOOwnership:
       Ops: 100
-SupportCenterID: 21
-SupportCenterName: OSG-GOC
+SupportCenter: OSG-GOC
