@@ -1,0 +1,44 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 412
+Resources:
+  Purdue-Hammer-CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Stefan Piperov
+      Miscellaneous Contact:
+        Primary: Majid Arabgol
+      Resource Report Contact:
+        Primary: Majid Arabgol
+        Secondary: Erik Gough
+        Tertiary: Stefan Piperov
+      Security Contact:
+        Primary: Majid Arabgol
+        Secondary: Erik Gough
+      Submitter Contact:
+        Primary: Manoj Kumar Jha
+    Disable: false
+    FQDN: hammer-osg.rcac.purdue.edu
+    ID: 698
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://hammer-osg.rcac.purdue.edu:9619/hammer-osg.rcac.purdue.edu
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 16.43
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 12
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-Hammer,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+SupportCenter: USCMS_Tier2

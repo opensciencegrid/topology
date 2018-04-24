@@ -1,0 +1,83 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 423
+Resources:
+  Georgia_Tech_PACE_CE_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Paul Manno
+        Secondary: Mehmet Belgin
+      Miscellaneous Contact:
+        Primary: Peter Couvares
+        Secondary: Paul Manno
+        Tertiary: Mehmet Belgin
+      Resource Report Contact:
+        Primary: Peter Couvares
+        Secondary: Paul Manno
+        Tertiary: Mehmet Belgin
+      Security Contact:
+        Primary: Peter Couvares
+        Secondary: Paul Manno
+      Submitter Contact:
+        Primary: Peter Couvares
+    Disable: false
+    FQDN: ligo-ce1.pace.gatech.edu
+    ID: 734
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      LIGO: 100
+  Georgia_Tech_PACE_GridFTP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Paul Manno
+        Secondary: Mehmet Belgin
+      Miscellaneous Contact:
+        Primary: Paul Manno
+        Secondary: Mehmet Belgin
+      Resource Report Contact:
+        Secondary: Paul Manno
+        Tertiary: Mehmet Belgin
+      Security Contact:
+        Primary: Peter Couvares
+        Secondary: Paul Manno
+      Submitter Contact:
+        Primary: Peter Couvares
+    Disable: false
+    FQDN: ligo-gftp.pace.gatech.edu
+    ID: 737
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      LIGO: 100
+  Georgia_Tech_PACE_Squid_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Paul Manno
+        Secondary: Mehmet Belgin
+      Miscellaneous Contact:
+        Primary: Paul Manno
+        Secondary: Mehmet Belgin
+      Security Contact:
+        Primary: Peter Couvares
+        Secondary: Paul Manno
+      Submitter Contact:
+        Primary: Peter Couvares
+    Disable: false
+    FQDN: ligo-prx.pace.gatech.edu
+    ID: 735
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      LIGO: 100
+SupportCenter: Advanced LIGO

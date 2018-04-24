@@ -1,0 +1,91 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 300
+Resources:
+  UCSB_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Adam Dishaw
+      Miscellaneous Contact:
+        Primary: Adam Dishaw
+      Resource Report Contact:
+        Primary: Adam Dishaw
+      Security Contact:
+        Primary: Adam Dishaw
+      Submitter Contact:
+        Primary: Christopher West
+    Disable: false
+    FQDN: cms25.physics.ucsb.edu
+    ID: 731
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cms25.physics.ucsb.edu
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=ucsb-cms,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  UCSB_GUMS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Adam Dishaw
+      Resource Report Contact:
+        Primary: Adam Dishaw
+      Security Contact:
+        Primary: Adam Dishaw
+      Submitter Contact:
+        Primary: Christopher West
+    Disable: false
+    FQDN: cms23.physics.ucsb.edu
+    ID: 726
+    Services:
+      GUMS Server:
+        Description: GUMS Server
+    VOOwnership:
+      CMS: 100
+  UCSB_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Adam Dishaw
+      Resource Report Contact:
+        Primary: Adam Dishaw
+      Security Contact:
+        Primary: Adam Dishaw
+      Submitter Contact:
+        Primary: Christopher West
+    Disable: false
+    FQDN: cms25.physics.ucsb.edu
+    ID: 727
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=ucsb-cms,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: USCMS_Tier3

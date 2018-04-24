@@ -1,0 +1,242 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 349
+Resources:
+  Belle_CE_2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Malachi Schram
+      Security Contact:
+        Primary: Malachi Schram
+      Submitter Contact:
+        Primary: Malachi Schram
+    Disable: true
+    FQDN: gridgk01.hep.pnnl.gov
+    ID: 616
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      Belle: 100
+  PNNL VOMS Server:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Earl Cowley
+      Security Contact:
+        Primary: David Earl Cowley
+      Submitter Contact:
+        Primary: David Earl Cowley
+    Disable: false
+    FQDN: voms.hep.pnnl.gov
+    ID: 879
+    Services:
+      VOMS Server:
+        Description: VOMS Server
+    VOOwnership:
+      Belle: 33
+  PNNL_BelleII_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Malachi Schram
+      Security Contact:
+        Primary: Malachi Schram
+      Submitter Contact:
+        Primary: Malachi Schram
+    Disable: false
+    FQDN: se.hep.pnnl.gov
+    ID: 663
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: se.hep.pnnl.gov:8443
+    VOOwnership:
+      Belle: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=PNNL_BelleII,o=grid
+      StorageCapacityMax: 175
+      StorageCapacityMin: 0
+  PNNL_CE00:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Malachi Schram
+      Miscellaneous Contact:
+        Primary: Malachi Schram
+      Resource Report Contact:
+        Primary: Malachi Schram
+      Security Contact:
+        Primary: Malachi Schram
+      Submitter Contact:
+        Primary: Malachi Schram
+    Disable: false
+    FQDN: gridgk00.hep.pnnl.gov
+    ID: 718
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      Belle: 33
+      Cdms: 33
+      ILC: 34
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 100
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=PNNL_BelleII,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  PNNL_CE_1:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Malachi Schram
+      Resource Report Contact:
+        Primary: Malachi Schram
+      Security Contact:
+        Primary: Malachi Schram
+      Submitter Contact:
+        Primary: Brock Erwin
+    Disable: true
+    FQDN: osg.pnl.gov
+    ID: 475
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: osg.pnl.gov:2119
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: osg.pnl.gov
+    VOOwnership:
+      Belle: 90
+      ILC: 10
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 74000
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 15500
+      KSI2KMin: 15500
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=PNNL_BelleII,o=grid
+      StorageCapacityMax: 500
+      StorageCapacityMin: 100
+      TapeCapacity: 0
+  PNNL_SE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Malachi Schram
+      Security Contact:
+        Primary: Malachi Schram
+      Submitter Contact:
+        Primary: Malachi Schram
+    Disable: true
+    FQDN: se.pnl.gov
+    ID: 567
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: se.pnl.gov
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: se.pnl.gov:8443
+    VOOwnership:
+      Belle: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=PNNL_BelleII,o=grid
+      StorageCapacityMax: 100
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  US-PNNL BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Malachi Schram
+        Secondary: David Earl Cowley
+      Miscellaneous Contact:
+        Primary: Kevin M Fox
+      Resource Report Contact:
+        Primary: Malachi Schram
+        Secondary: David Earl Cowley
+      Security Contact:
+        Primary: Malachi Schram
+        Secondary: Gary Robert Smith
+      Submitter Contact:
+        Primary: Malachi Schram
+    Disable: false
+    FQDN: ps-bandwidth.hep.pnnl.gov
+    ID: 717
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: ps-bandwidth.hep.pnnl.gov
+    VOOwnership:
+      Belle: 100
+  US-PNNL LT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Malachi Schram
+        Secondary: David Earl Cowley
+      Miscellaneous Contact:
+        Primary: Kevin M Fox
+      Resource Report Contact:
+        Primary: Malachi Schram
+        Secondary: David Earl Cowley
+      Security Contact:
+        Primary: Malachi Schram
+        Secondary: Gary Robert Smith
+      Submitter Contact:
+        Primary: Malachi Schram
+    Disable: false
+    FQDN: ps-latency.hep.pnnl.gov
+    ID: 716
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: ps-latency.hep.pnnl.gov
+    VOOwnership:
+      Belle: 100
+SupportCenter: PNNL

@@ -1,0 +1,39 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 222
+Resources:
+  GRASE-CSE-MAGIC:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Secondary: Jon Bednasz
+      Miscellaneous Contact:
+        Primary: Steve Gallo
+      Resource Report Contact:
+        Secondary: Jon Bednasz
+      Security Contact:
+        Secondary: Jon Bednasz
+      Submitter Contact:
+        Primary: Jon Bednasz
+    Disable: true
+    FQDN: magic.cse.buffalo.edu
+    ID: 220
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      NYSGRID: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=GRASE-CSE-MAGIC,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: NYSGRID

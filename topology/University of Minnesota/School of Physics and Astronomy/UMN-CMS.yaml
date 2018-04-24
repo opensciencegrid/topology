@@ -1,0 +1,104 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 357
+Resources:
+  UMN-CMS-CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Nick Bertrand
+        Secondary: Graham Allan
+      Miscellaneous Contact:
+        Primary: Jeremiah Mans
+      Security Contact:
+        Primary: Nick Bertrand
+        Secondary: Graham Allan
+      Submitter Contact:
+        Primary: Nick Bertrand
+    Disable: false
+    FQDN: gc1-ce.spa.umn.edu
+    ID: 486
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UMN-CMS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  UMN-CMS-CE2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jesse Clair Bren
+      Miscellaneous Contact:
+        Primary: Jeremiah Mans
+      Resource Report Contact:
+        Primary: Jesse Clair Bren
+      Security Contact:
+        Primary: Jesse Clair Bren
+      Submitter Contact:
+        Primary: Jesse Clair Bren
+    Disable: false
+    FQDN: gc2-ce.spa.umn.edu
+    ID: 941
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+  UMN-CMS-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Nick Bertrand
+      Security Contact:
+        Primary: Nick Bertrand
+      Submitter Contact:
+        Primary: Nick Bertrand
+    Disable: false
+    FQDN: gc1-se.spa.umn.edu
+    ID: 488
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UMN-CMS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: USCMS_Tier3

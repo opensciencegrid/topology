@@ -1,0 +1,96 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 243
+Resources:
+  BNL-ps-testbed:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Shawn McKee
+      Resource Report Contact:
+        Secondary: Hironori Ito
+        Tertiary: Shawn McKee
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Shawn McKee
+    Disable: false
+    FQDN: ps-development.bnl.gov
+    ID: 691
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: ps-development.bnl.gov
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: ps-development.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+  BNL_ITB_Test1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+      Resource Report Contact:
+        Primary: Xin Zhao
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: gridtest01.racf.bnl.gov
+    ID: 6
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridtest01.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 8
+      KSI2KMin: 8
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS-ITB,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_Test_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+      Resource Report Contact:
+        Primary: Xin Zhao
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: grid16.racf.bnl.gov
+    FQDNAliases:
+    - localsub01.usatlas.bnl.gov
+    ID: 7
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS-ITB,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: USATLAS

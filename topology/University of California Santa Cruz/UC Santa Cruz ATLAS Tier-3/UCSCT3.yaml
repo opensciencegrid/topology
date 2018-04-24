@@ -1,0 +1,24 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 291
+Resources:
+  UCSC_ATLAS_GRIDFTP2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jason Nielsen
+      Security Contact:
+        Primary: Jason Nielsen
+      Submitter Contact:
+        Primary: Jason Nielsen
+    Disable: false
+    FQDN: atlas03.ucsc.edu
+    ID: 521
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS_Tier3

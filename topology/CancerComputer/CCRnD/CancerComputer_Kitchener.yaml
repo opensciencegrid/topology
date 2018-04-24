@@ -1,0 +1,29 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 479
+Resources:
+  CancerComputer_Kitchener_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Ian Stakenvicius
+      Security Contact:
+        Primary: Ian Stakenvicius
+      Submitter Contact:
+        Primary: Ian Stakenvicius
+    Disable: false
+    FQDN: osg-kitchener.cancercomputer.com
+    ID: 922
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://osg-kitchener.cancercomputer.com
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: CCSUP

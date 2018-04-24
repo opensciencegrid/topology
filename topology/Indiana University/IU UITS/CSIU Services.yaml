@@ -1,0 +1,26 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 358
+Resources:
+  CSIU Submit:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Scott Teige
+      Miscellaneous Contact:
+        Primary: Kyle Gross
+      Resource Report Contact:
+        Secondary: Scott Teige
+      Security Contact:
+        Secondary: Scott Teige
+    Disable: false
+    FQDN: csiu.grid.iu.edu
+    ID: 494
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      CSIU: 100
+SupportCenter: OSG-GOC

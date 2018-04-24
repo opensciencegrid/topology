@@ -1,0 +1,30 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 345
+Resources:
+  LLAMA-LLAMA-GOC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Kyle Gross
+      Resource Report Contact:
+        Primary: Kyle Gross
+      Security Contact:
+        Primary: Kyle Gross
+      Submitter Contact:
+        Primary: Kyle Gross
+    Disable: false
+    FQDN: kagross.grid.iu.edu
+    ID: 468
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      MIS: 100
+SupportCenter: Community Support Center

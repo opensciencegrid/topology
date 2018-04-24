@@ -1,0 +1,13 @@
+Disable: true
+GridType: OSG Integration Test Bed Resource
+GroupID: 55
+Resources:
+  IU_iuatlas:
+    Active: false
+    Disable: true
+    FQDN: iuatlas.physics.indiana.edu
+    ID: 55
+    Services:
+      CE:
+        Description: Compute Element
+SupportCenter: OSG-GOC

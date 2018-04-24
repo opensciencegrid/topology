@@ -1,0 +1,41 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 258
+Resources:
+  T3_US_UVA:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Michael Arenton
+      Security Contact:
+        Primary: Michael Arenton
+      Submitter Contact:
+        Primary: Michael Arenton
+    Disable: false
+    FQDN: osg-hep.phys.virginia.edu
+    ID: 614
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+  uva-cms-se:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Michael A. Balazs
+      Security Contact:
+        Primary: Michael A. Balazs
+      Submitter Contact:
+        Primary: Michael A. Balazs
+    Disable: true
+    FQDN: osg-hep.phys.virginia.edu
+    ID: 305
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+    VOOwnership:
+      CMS: 100
+SupportCenter: USCMS_Tier3

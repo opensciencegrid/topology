@@ -1,0 +1,44 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 204
+Resources:
+  UColorado_SE_Hadoop:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Douglas Johnson
+        Secondary: Brian R Drell
+      Miscellaneous Contact:
+        Primary: Douglas Johnson
+        Secondary: Brian R Drell
+      Resource Report Contact:
+        Primary: Douglas Johnson
+        Secondary: Brian R Drell
+      Security Contact:
+        Primary: Douglas Johnson
+        Secondary: Brian R Drell
+      Submitter Contact:
+        Primary: Douglas Johnson
+    Disable: false
+    FQDN: hepse02.colorado.edu
+    ID: 391
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: hepse02.colorado.edu:8443
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UColorado_SE,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: USCMS_Tier3

@@ -1,0 +1,88 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 216
+Resources:
+  OSG-Rice:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wei Li
+        Secondary: Jamal Tildon Rorie
+      Miscellaneous Contact:
+        Primary: Wei Li
+        Secondary: Jamal Tildon Rorie
+      Resource Report Contact:
+        Primary: Wei Li
+        Secondary: Jamal Tildon Rorie
+      Security Contact:
+        Primary: Wei Li
+        Secondary: Jamal Tildon Rorie
+      Submitter Contact:
+        Primary: Pablo Yepes
+    Disable: false
+    FQDN: bonner06.rice.edu
+    ID: 348
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://bonner06.rice.edu
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: bonner04.rice.edu:8443
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Rice,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 5.5
+  Rice:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Pablo Yepes
+      Miscellaneous Contact:
+        Primary: Pablo Yepes
+      Resource Report Contact:
+        Primary: Pablo Yepes
+      Security Contact:
+        Primary: Pablo Yepes
+      Submitter Contact:
+        Primary: Pablo Yepes
+    Disable: true
+    FQDN: osg-gate.rice.edu
+    ID: 214
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Rice,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: USCMS_Tier3

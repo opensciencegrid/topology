@@ -1,0 +1,24 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 150
+Resources:
+  MSU-OSG_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Tom Rockwell
+      Resource Report Contact:
+        Primary: Tom Rockwell
+      Security Contact:
+        Primary: Tom Rockwell
+      Submitter Contact:
+        Primary: Tom Rockwell
+    Disable: false
+    FQDN: msu2.aglt2.org
+    ID: 150
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+    VOOwnership:
+      DZero: 100
+SupportCenter: DZero

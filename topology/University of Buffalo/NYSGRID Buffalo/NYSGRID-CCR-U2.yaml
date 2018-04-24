@@ -1,0 +1,43 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 80
+Resources:
+  NYSGRID-CCR-U2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jon Bednasz
+        Secondary: Steve Gallo
+      Miscellaneous Contact:
+        Primary: Jon Bednasz
+        Secondary: Steve Gallo
+      Resource Report Contact:
+        Primary: Jon Bednasz
+        Secondary: Steve Gallo
+      Security Contact:
+        Primary: Jon Bednasz
+        Secondary: Steve Gallo
+      Submitter Contact:
+        Primary: Steve Gallo
+    Disable: false
+    FQDN: u2-grid.ccr.buffalo.edu
+    ID: 80
+    Services:
+      CE:
+        Description: Compute Element
+      GridFtp:
+        Description: GridFtp Storage Element
+    VOOwnership:
+      NYSGRID: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=NYSGRID-CCR-U2,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: NYSGRID

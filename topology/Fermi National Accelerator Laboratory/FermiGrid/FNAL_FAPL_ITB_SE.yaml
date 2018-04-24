@@ -1,0 +1,13 @@
+Disable: true
+GridType: OSG Integration Test Bed Resource
+GroupID: 18
+Resources:
+  FNAL_FAPL_ITB_SE:
+    Active: false
+    Disable: true
+    FQDN: fapl032.fnal.gov
+    ID: 18
+    Services:
+      SRMv1:
+        Description: SRM V1 Storage Element
+SupportCenter: Fermilab

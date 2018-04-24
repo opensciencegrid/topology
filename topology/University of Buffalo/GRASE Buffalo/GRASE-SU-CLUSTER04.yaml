@@ -1,0 +1,13 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 37
+Resources:
+  GRASE-SU-CLUSTER04:
+    Active: false
+    Disable: true
+    FQDN: cluster04.syr.edu
+    ID: 37
+    Services:
+      CE:
+        Description: Compute Element
+SupportCenter: NYSGRID

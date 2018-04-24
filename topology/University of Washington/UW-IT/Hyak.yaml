@@ -1,0 +1,30 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 398
+Resources:
+  Hyak_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Adam Hough
+      Resource Report Contact:
+        Primary: Adam Hough
+      Security Contact:
+        Primary: Adam Hough
+      Submitter Contact:
+        Primary: Stephen Fralich
+    Disable: false
+    FQDN: globus1.hyak.washington.edu
+    ID: 636
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: UW-IT

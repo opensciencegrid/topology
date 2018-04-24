@@ -1,0 +1,49 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 84
+Resources:
+  OSG_LIGO_GUMS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Fred Donovan
+        Secondary: Kent Blackburn
+      Miscellaneous Contact:
+        Primary: Fred Donovan
+        Secondary: Kent Blackburn
+      Resource Report Contact:
+        Primary: Fred Donovan
+        Secondary: Kent Blackburn
+      Security Contact:
+        Primary: Fred Donovan
+        Secondary: Kent Blackburn
+      Submitter Contact:
+        Primary: Fred Donovan
+    Disable: false
+    FQDN: osg-ligo-gums.mit.edu
+    ID: 343
+    Services:
+      GUMS Server:
+        Description: GUMS Server
+    VOOwnership:
+      LIGO: 100
+  OSG_LIGO_MIT:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Fred Donovan
+      Security Contact:
+        Primary: Fred Donovan
+      Submitter Contact:
+        Primary: Filippo Grimaldi
+    Disable: true
+    FQDN: osg-ligo.mit.edu
+    ID: 84
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      LIGO: 100
+SupportCenter: LIGO

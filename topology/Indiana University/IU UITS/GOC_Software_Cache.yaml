@@ -1,0 +1,46 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 270
+Resources:
+  GOC_Software_Cache_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Miscellaneous Contact:
+        Primary: Kyle Gross
+        Secondary: Elizabeth Prout
+        Tertiary: Tom Lee
+      Security Contact:
+        Primary: OSG Operations Center
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: software1.grid.iu.edu
+    ID: 334
+    Services:
+      Software Cache:
+        Description: For getting OSG software
+    VOOwnership:
+      MIS: 100
+  GOC_Software_Cache_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Miscellaneous Contact:
+        Primary: Elizabeth Prout
+        Secondary: Kyle Gross
+      Security Contact:
+        Primary: OSG Operations Center
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: software2.grid.iu.edu
+    ID: 335
+    Services:
+      Software Cache:
+        Description: For getting OSG software
+    VOOwnership:
+      MIS: 100
+SupportCenter: OSG-GOC

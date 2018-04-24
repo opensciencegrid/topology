@@ -1,0 +1,31 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 200
+Resources:
+  Clemson-Birdnest:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Michael Fenn
+      Miscellaneous Contact:
+        Primary: Sebastien Goasguen
+        Secondary: Michael Fenn
+        Tertiary: Dru Sepulveda
+      Resource Report Contact:
+        Primary: Michael Fenn
+      Security Contact:
+        Primary: Michael Fenn
+      Submitter Contact:
+        Primary: Dru Sepulveda
+    Disable: true
+    FQDN: birdnest.cs.clemson.edu
+    ID: 200
+    Services:
+      CE:
+        Description: Compute Element
+      SRMv2:
+        Description: SRM V2 Storage Element
+    VOOwnership:
+      Engage: 50
+      nanoHUB: 50
+SupportCenter: Engagement

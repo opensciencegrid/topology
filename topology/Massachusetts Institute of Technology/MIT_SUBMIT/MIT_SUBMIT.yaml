@@ -1,0 +1,32 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 449
+Resources:
+  MIT_SUBMIT_SCHEDD:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Yutaro Iiyama
+        Secondary: Max Goncharov
+      Miscellaneous Contact:
+        Secondary: Max Goncharov
+        Tertiary: Yutaro Iiyama
+      Resource Report Contact:
+        Secondary: Max Goncharov
+        Tertiary: Yutaro Iiyama
+      Security Contact:
+        Primary: Yutaro Iiyama
+        Secondary: Max Goncharov
+      Submitter Contact:
+        Primary: Yutaro Iiyama
+    Disable: false
+    FQDN: submit.mit.edu
+    ID: 832
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+SupportCenter: USCMS_Tier2

@@ -1,0 +1,183 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 433
+Resources:
+  BNL Atlas StashCache instance:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: osgxroot.usatlas.bnl.gov
+    ID: 755
+    Services:
+      XRootD component:
+        Description: any part of xrootd
+        Details:
+          hidden: false
+    VOOwnership:
+      BNL: 100
+  FZU StashCache Instance:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: true
+    FQDN: novastore.farm.particle.cz
+    ID: 818
+    Services:
+      XRootD component:
+        Description: any part of xrootd
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  FZU StashCache instance:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Petr Vokac
+      Miscellaneous Contact:
+        Primary: Petr Vokac
+      Resource Report Contact:
+        Primary: Petr Vokac
+      Security Contact:
+        Primary: Petr Vokac
+      Submitter Contact:
+        Primary: Petr Vokac
+    Disable: false
+    FQDN: stash.farm.particle.cz
+    ID: 933
+    Services:
+      XRootD component:
+        Description: any part of xrootd
+        Details:
+          hidden: false
+    VOOwnership:
+      DUNE: 50
+      Nova: 50
+  Nebraska StashCache instance:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: hcc-stash.unl.edu
+    ID: 756
+    Services:
+      XRootD component:
+        Description: any part of xrootd
+        Details:
+          hidden: false
+    VOOwnership:
+      Ops: 100
+  Syracuse StashCache Instance:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Richard Ameele
+      Miscellaneous Contact:
+        Primary: Richard Ameele
+      Resource Report Contact:
+        Secondary: Richard Ameele
+      Security Contact:
+        Secondary: Richard Ameele
+      Submitter Contact:
+        Primary: Derek Weitzel
+    Disable: false
+    FQDN: its-condor-xrootd1.syr.edu
+    ID: 851
+    Services:
+      XRootD component:
+        Description: any part of xrootd
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  UCSD StashCache Instance:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Matevz Tadel
+      Security Contact:
+        Primary: Matevz Tadel
+      Submitter Contact:
+        Primary: Matevz Tadel
+    Disable: false
+    FQDN: xrd-cache-1.t2.ucsd.edu
+    ID: 786
+    Services:
+      XRootD component:
+        Description: any part of xrootd
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  UChicago StashCache instance:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Resource Report Contact:
+        Primary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: Lincoln Bryant
+      Submitter Contact:
+        Primary: Lincoln Bryant
+    Disable: false
+    FQDN: stashcache.grid.uchicago.edu
+    ID: 757
+    Services:
+      XRootD component:
+        Description: any part of xrootd
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 50
+      OSG: 50
+  US-MWT2_UIUC-StashCache:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: mwt2-stashcache.campuscluster.illinois.edu
+    ID: 761
+    Services:
+      XRootD component:
+        Description: any part of xrootd
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: OSG-GOC

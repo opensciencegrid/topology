@@ -1,0 +1,25 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 271
+Resources:
+  GOC_Software_Cache_ITB:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Miscellaneous Contact:
+        Primary: Elizabeth Prout
+        Secondary: Kyle Gross
+      Security Contact:
+        Primary: OSG Operations Center
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: software-itb.grid.iu.edu
+    ID: 336
+    Services:
+      Software Cache:
+        Description: For getting OSG software
+    VOOwnership:
+      MIS: 100
+SupportCenter: OSG-GOC

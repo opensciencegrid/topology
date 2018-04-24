@@ -1,0 +1,26 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 124
+Resources:
+  UIC_PHYSICS:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: John Wolosuk
+      Resource Report Contact:
+        Primary: John Wolosuk
+      Security Contact:
+        Primary: John Wolosuk
+      Submitter Contact:
+        Primary: John Wolosuk
+    Disable: true
+    FQDN: mstr1.cluster.phy.uic.edu
+    ID: 124
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      STAR: 100
+SupportCenter: STAR

@@ -1,0 +1,84 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 384
+Resources:
+  OSC_OSG_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: John Dockendorf
+        Secondary: Troy Baer
+      Resource Report Contact:
+        Primary: John Dockendorf
+        Secondary: Troy Baer
+        Tertiary: Doug Johnson
+      Security Contact:
+        Primary: John Dockendorf
+        Secondary: Troy Baer
+      Submitter Contact:
+        Primary: John Dockendorf
+    Disable: false
+    FQDN: osg-ce.hpc.osc.edu
+    ID: 891
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      Nova: 100
+  OSC_OSG_CE_old:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: John Dockendorf
+        Secondary: Troy Baer
+      Resource Report Contact:
+        Primary: John Dockendorf
+        Secondary: Troy Baer
+        Tertiary: Doug Johnson
+      Security Contact:
+        Primary: John Dockendorf
+        Secondary: Troy Baer
+    Disable: false
+    FQDN: osg.osc.edu
+    ID: 571
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      Nova: 100
+  OSC_OSG_squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: John Dockendorf
+        Secondary: Troy Baer
+      Resource Report Contact:
+        Primary: John Dockendorf
+        Secondary: Troy Baer
+        Tertiary: Doug Johnson
+      Security Contact:
+        Primary: John Dockendorf
+        Secondary: Troy Baer
+      Submitter Contact:
+        Primary: John Dockendorf
+    Disable: false
+    FQDN: osg-ce.hpc.osc.edu
+    ID: 892
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      Nova: 100
+SupportCenter: SUPERB-SC

@@ -1,0 +1,24 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 410
+Resources:
+  ESnet Starlight perfSONAR:
+    Active: true
+    ContactLists:
+      Submitter Contact:
+        Primary: Shawn McKee
+    Disable: false
+    FQDN: lhcone-star-opt1.es.net
+    ID: 665
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: lhcone-star-opt1.es.net
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: lhcone-star-opt1.es.net
+    VOOwnership:
+      OSG: 0
+SupportCenter: LHCONE_SC

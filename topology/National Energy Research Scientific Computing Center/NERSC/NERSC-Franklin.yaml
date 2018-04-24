@@ -1,0 +1,33 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 180
+Resources:
+  NERSC-Franklin:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Shreyas Cholia
+      Resource Report Contact:
+        Primary: Shreyas Cholia
+      Security Contact:
+        Secondary: Shreyas Cholia
+      Submitter Contact:
+        Primary: Shreyas Cholia
+    Disable: true
+    FQDN: franklingrid.nersc.gov
+    FQDNAliases:
+    - franklingrid.nersc.gov
+    - nid00256-eth0.nersc.gov
+    ID: 180
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: NERSC

@@ -1,0 +1,44 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 428
+Resources:
+  Arizona Squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+      Security Contact:
+        Primary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: false
+    FQDN: atlt3gm.physics.arizona.edu
+    ID: 768
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      ATLAS: 100
+  Arizona_CE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Secondary: Doug Benjamin
+      Miscellaneous Contact:
+        Tertiary: Doug Benjamin
+      Resource Report Contact:
+        Tertiary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: false
+    FQDN: atlt3gm.physics.arizona.edu
+    ID: 745
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://atlt3gm.physics.arizona.edu
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS_Tier3

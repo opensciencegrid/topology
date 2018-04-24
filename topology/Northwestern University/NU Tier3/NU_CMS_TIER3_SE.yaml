@@ -1,0 +1,21 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 377
+Resources:
+  NU_CMS_TIER3_SE:
+    Active: true
+    Disable: false
+    FQDN: ttgrid04.ci.northwestern.edu
+    ID: 553
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+SupportCenter: USCMS_Tier3

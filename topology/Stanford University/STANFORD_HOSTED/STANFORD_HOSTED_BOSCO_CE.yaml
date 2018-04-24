@@ -1,0 +1,24 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 460
+Resources:
+  HOSTED_STANFORD:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+      Submitter Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: hosted-ce02.grid.uchicago.edu
+    ID: 833
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: UC CI

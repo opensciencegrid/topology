@@ -1,0 +1,79 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 435
+Resources:
+  SU_SUGAR_Submit_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Peter Couvares
+        Secondary: Duncan Brown
+      Resource Report Contact:
+        Primary: Duncan Brown
+        Tertiary: Richard Ameele
+      Security Contact:
+        Primary: Peter Couvares
+        Secondary: Duncan Brown
+      Submitter Contact:
+        Primary: Peter Couvares
+    Disable: false
+    FQDN: sugar-dev2.phy.syr.edu
+    ID: 771
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      LIGO: 100
+  SU_SUGAR_Submit_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Larne Pekowsky
+        Secondary: Duncan Brown
+      Resource Report Contact:
+        Primary: Duncan Brown
+        Secondary: Peter Couvares
+        Tertiary: Richard Ameele
+      Security Contact:
+        Primary: Larne Pekowsky
+        Secondary: Duncan Brown
+      Submitter Contact:
+        Primary: Larne Pekowsky
+    Disable: false
+    FQDN: sugwg-osg.phy.syr.edu
+    ID: 822
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      LIGO: 100
+  SU_SUGAR_Submit_3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Larne Pekowsky
+        Secondary: Duncan Brown
+      Resource Report Contact:
+        Primary: Larne Pekowsky
+        Secondary: Peter Couvares
+        Tertiary: Richard Ameele
+      Security Contact:
+        Primary: Larne Pekowsky
+        Secondary: Duncan Brown
+      Submitter Contact:
+        Primary: Larne Pekowsky
+    Disable: false
+    FQDN: sugwg-condor.phy.syr.edu
+    ID: 898
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      LIGO: 100
+SupportCenter: Community Support Center

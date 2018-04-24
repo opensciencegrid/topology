@@ -1,0 +1,26 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 157
+Resources:
+  Gridplexus:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Robert Rusinko
+      Resource Report Contact:
+        Primary: Robert Rusinko
+      Security Contact:
+        Primary: Robert Rusinko
+      Submitter Contact:
+        Primary: Robert Rusinko
+    Disable: true
+    FQDN: CE01.OSG.gridplexus.net
+    ID: 157
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: Community Support Center

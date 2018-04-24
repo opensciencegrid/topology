@@ -1,0 +1,17 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 413
+Resources:
+  perfSONAR_GT_testbed_latency:
+    Active: false
+    Disable: false
+    FQDN: psum09.cc.gt.atl.ga.us
+    ID: 701
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: psum09.cc.gt.atl.ga.us
+    VOOwnership:
+      ATLAS: 90
+SupportCenter: LHCONE_SC

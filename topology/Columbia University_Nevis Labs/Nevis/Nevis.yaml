@@ -1,0 +1,93 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 296
+Resources:
+  Nevis:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Gustaaf Brooijmans
+      Resource Report Contact:
+        Primary: Gustaaf Brooijmans
+      Security Contact:
+        Primary: Gustaaf Brooijmans
+      Submitter Contact:
+        Primary: Gustaaf Brooijmans
+    Disable: false
+    FQDN: nevis.columbia.edu
+    ID: 376
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+      XRootD component:
+        Description: any part of xrootd
+        Details:
+          hidden: false
+          uri_override: xenia.nevis.columbia.edu:1094
+    VOOwnership:
+      ATLAS: 100
+  Nevis cvmfs squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Gustaaf Brooijmans
+        Secondary: Timothy Robert Andeen
+      Miscellaneous Contact:
+        Primary: Gustaaf Brooijmans
+        Secondary: Timothy Robert Andeen
+      Resource Report Contact:
+        Primary: Gustaaf Brooijmans
+        Secondary: Timothy Robert Andeen
+      Security Contact:
+        Primary: Gustaaf Brooijmans
+        Secondary: Timothy Robert Andeen
+      Submitter Contact:
+        Primary: Gustaaf Brooijmans
+    Disable: false
+    FQDN: xenia.nevis.columbia.edu
+    ID: 474
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 2000
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 2000
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Nevis,o=grid
+      StorageCapacityMax: 100
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  Nevis_gridftp:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Gustaaf Brooijmans
+        Secondary: Timothy Robert Andeen
+      Resource Report Contact:
+        Primary: Gustaaf Brooijmans
+        Secondary: Timothy Robert Andeen
+      Security Contact:
+        Primary: Gustaaf Brooijmans
+        Secondary: Timothy Robert Andeen
+      Submitter Contact:
+        Primary: Gustaaf Brooijmans
+    Disable: false
+    FQDN: xenia.nevis.columbia.edu
+    ID: 473
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: xenia.nevis.columbia.edu:2811
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS_Tier3

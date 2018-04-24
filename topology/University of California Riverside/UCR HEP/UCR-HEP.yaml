@@ -1,0 +1,77 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 110
+Resources:
+  UCR-HEP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Bill Strossman
+      Resource Report Contact:
+        Primary: Bill Strossman
+      Security Contact:
+        Primary: Bill Strossman
+      Submitter Contact:
+        Primary: Bill Strossman
+    Disable: false
+    FQDN: top.ucr.edu
+    ID: 110
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: top.ucr.edu:2811
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UCR-HEP,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  UCR-HEP-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Bill Strossman
+      Miscellaneous Contact:
+        Primary: Bill Strossman
+      Resource Report Contact:
+        Primary: Bill Strossman
+      Security Contact:
+        Primary: Bill Strossman
+      Submitter Contact:
+        Primary: Bill Strossman
+    Disable: false
+    FQDN: charm.ucr.edu
+    ID: 257
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: charm.ucr.edu:10443
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UCR-HEP,o=grid
+      StorageCapacityMax: 100
+      StorageCapacityMin: 0
+SupportCenter: USCMS_Tier3

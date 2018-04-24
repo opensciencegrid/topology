@@ -1,0 +1,24 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 305
+Resources:
+  Hampton_ATLAS_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Vassilios Vassilakopoulos
+      Security Contact:
+        Primary: Vassilios Vassilakopoulos
+      Submitter Contact:
+        Primary: Vassilios Vassilakopoulos
+    Disable: true
+    FQDN: hugrid02.hamptonu.edu
+    ID: 394
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS_Tier3

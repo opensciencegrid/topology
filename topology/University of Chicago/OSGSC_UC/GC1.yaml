@@ -1,0 +1,59 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 294
+Resources:
+  GC1_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Marco Mambelli
+      Miscellaneous Contact:
+        Primary: Marco Mambelli
+      Resource Report Contact:
+        Primary: Marco Mambelli
+      Security Contact:
+        Primary: Marco Mambelli
+      Submitter Contact:
+        Primary: Marco Mambelli
+    Disable: false
+    FQDN: gc1-ce.uchicago.edu
+    ID: 370
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  GC1_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Marco Mambelli
+      Miscellaneous Contact:
+        Primary: Marco Mambelli
+      Resource Report Contact:
+        Primary: Marco Mambelli
+      Security Contact:
+        Primary: Marco Mambelli
+      Submitter Contact:
+        Primary: Marco Mambelli
+    Disable: false
+    FQDN: gc1-se.uchicago.edu
+    ID: 371
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+      SRMv1:
+        Description: SRM V1 Storage Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: OSGSC_UC

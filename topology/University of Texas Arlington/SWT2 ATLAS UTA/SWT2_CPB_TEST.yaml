@@ -1,0 +1,51 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 411
+Resources:
+  perfSONAR_SWT2_CPB_testbed_bandwidth:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Mark Sosebee
+        Secondary: Patrick McGuigan
+      Resource Report Contact:
+        Secondary: Patrick McGuigan
+      Security Contact:
+        Primary: Mark Sosebee
+        Secondary: Patrick McGuigan
+      Submitter Contact:
+        Primary: Mark Sosebee
+    Disable: false
+    FQDN: netmon2.atlas-swt2.org
+    ID: 695
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: netmon2.atlas-swt2.org
+    VOOwnership:
+      ATLAS: 100
+  perfSONAR_SWT2_CPB_testbed_latency:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Mark Sosebee
+        Secondary: Patrick McGuigan
+      Resource Report Contact:
+        Secondary: Patrick McGuigan
+      Security Contact:
+        Primary: Mark Sosebee
+        Secondary: Patrick McGuigan
+      Submitter Contact:
+        Primary: Mark Sosebee
+    Disable: false
+    FQDN: netmon1.atlas-swt2.org
+    ID: 694
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: netmon1.atlas-swt2.org
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS

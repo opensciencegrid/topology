@@ -1,0 +1,64 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 342
+Resources:
+  UPittTier3_DTN:
+    Active: true
+    Disable: false
+    FQDN: atlas-dtn.phyast.pitt.edu
+    ID: 740
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 100
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UPittTier3,o=grid
+      StorageCapacityMax: 50
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  UPittTier3_gridftp:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Paul Shepard
+      Resource Report Contact:
+        Primary: Paul Shepard
+      Security Contact:
+        Primary: Paul Shepard
+    Disable: false
+    FQDN: atlas-gridftp.phyast.pitt.edu
+    ID: 463
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UPittTier3,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 5.5
+SupportCenter: USATLAS_Tier3

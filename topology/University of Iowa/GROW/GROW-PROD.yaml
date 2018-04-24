@@ -1,0 +1,163 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 40
+Resources:
+  GROW-GRID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Burak Bilki
+      Miscellaneous Contact:
+        Primary: Burak Bilki
+      Resource Report Contact:
+        Primary: Burak Bilki
+      Security Contact:
+        Primary: Burak Bilki
+      Submitter Contact:
+        Primary: Daniel Squires
+    Disable: false
+    FQDN: grow-grid.its.uiowa.edu
+    ID: 407
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      GROW: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=GROW-PROD,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  GROW-PROD:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Jeff DeReus
+      Miscellaneous Contact:
+        Primary: Jeff DeReus
+      Resource Report Contact:
+        Primary: Jeff DeReus
+      Security Contact:
+        Primary: Jeff DeReus
+      Submitter Contact:
+        Primary: Jeff DeReus
+    Disable: true
+    FQDN: grow-prod.its.uiowa.edu
+    ID: 260
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      GROW: 100
+  GROW-SE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Daniel Squires
+        Secondary: Glenn Johnson
+      Miscellaneous Contact:
+        Primary: Daniel Squires
+        Secondary: Glenn Johnson
+      Resource Report Contact:
+        Primary: Daniel Squires
+        Secondary: Glenn Johnson
+      Security Contact:
+        Primary: Daniel Squires
+        Secondary: Glenn Johnson
+      Submitter Contact:
+        Primary: Daniel Squires
+    Disable: true
+    FQDN: grow-grid.its.uiowa.edu
+    ID: 40
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      GROW: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=GROW-PROD,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  GROW_GUMS:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Daniel Squires
+      Resource Report Contact:
+        Primary: Daniel Squires
+      Security Contact:
+        Primary: Daniel Squires
+      Submitter Contact:
+        Primary: Jeff DeReus
+    Disable: true
+    FQDN: grow-voms.its.uiowa.edu
+    ID: 262
+    Services:
+      GUMS Server:
+        Description: GUMS Server
+    VOOwnership:
+      GROW: 100
+  GROW_STOR:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Daniel Squires
+      Resource Report Contact:
+        Primary: Daniel Squires
+      Security Contact:
+        Primary: Daniel Squires
+      Submitter Contact:
+        Primary: Jeff DeReus
+    Disable: true
+    FQDN: grow-stor.its.uiowa.edu
+    ID: 263
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+    VOOwnership:
+      GROW: 100
+  GROW_VOMS:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Daniel Squires
+      Resource Report Contact:
+        Primary: Daniel Squires
+      Security Contact:
+        Primary: Daniel Squires
+      Submitter Contact:
+        Primary: Jeff DeReus
+    Disable: true
+    FQDN: grow-voms.its.uiowa.edu
+    ID: 261
+    Services:
+      VOMS Server:
+        Description: VOMS Server
+    VOOwnership:
+      GROW: 100
+SupportCenter: USCMS_Tier3

@@ -1,0 +1,17 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 459
+Resources:
+  shenma_duhongfei:
+    Active: true
+    Disable: false
+    FQDN: shenma.ipp.ac.cn
+    ID: 854
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      FusionGrid: 100
+SupportCenter: FusionGrid

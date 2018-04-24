@@ -1,0 +1,75 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 78
+Resources:
+  NWICG_NDCCL:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: In-Saeng Suh
+      Resource Report Contact:
+        Primary: In-Saeng Suh
+      Security Contact:
+        Primary: In-Saeng Suh
+      Submitter Contact:
+        Primary: In-Saeng Suh
+    Disable: true
+    FQDN: condor.crc.nd.edu
+    ID: 78
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+    VOOwnership:
+      NWICG: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=NWICG_NDCMS,o=grid
+      StorageCapacityMax: 4
+      StorageCapacityMin: 1
+  NWICG_NDCMS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Serguei Fedorov
+      Miscellaneous Contact:
+        Primary: Serguei Fedorov
+      Resource Report Contact:
+        Primary: Serguei Fedorov
+      Security Contact:
+        Primary: Serguei Fedorov
+      Submitter Contact:
+        Primary: In-Saeng Suh
+    Disable: false
+    FQDN: deepthought.crc.nd.edu
+    ID: 264
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=NWICG_NDCMS,o=grid
+      StorageCapacityMax: 4
+      StorageCapacityMin: 1
+SupportCenter: NWICG

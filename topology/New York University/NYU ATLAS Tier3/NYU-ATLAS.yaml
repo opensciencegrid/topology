@@ -1,0 +1,24 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 304
+Resources:
+  NYU_ATLAS_NFS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Attila Krasznahorkay
+        Secondary: George Lewis
+      Security Contact:
+        Primary: Attila Krasznahorkay
+        Secondary: George Lewis
+      Submitter Contact:
+        Primary: Attila Krasznahorkay
+    Disable: false
+    FQDN: t3nfs.physics.nyu.edu
+    ID: 392
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS_Tier3

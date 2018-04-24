@@ -1,0 +1,78 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 177
+Resources:
+  UColorado_HEP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Douglas Johnson
+      Miscellaneous Contact:
+        Primary: Douglas Johnson
+      Resource Report Contact:
+        Primary: Douglas Johnson
+      Security Contact:
+        Primary: Douglas Johnson
+      Submitter Contact:
+        Primary: Douglas Johnson
+    Disable: false
+    FQDN: heposg01.colorado.edu
+    ID: 177
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UColorado_HEP,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  UColorado_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Douglas Johnson
+      Miscellaneous Contact:
+        Primary: Douglas Johnson
+      Resource Report Contact:
+        Primary: Douglas Johnson
+      Security Contact:
+        Primary: Douglas Johnson
+        Secondary: Brian R Drell
+      Submitter Contact:
+        Primary: Douglas Johnson
+    Disable: false
+    FQDN: hepse01.colorado.edu
+    ID: 204
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UColorado_HEP,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: USCMS_Tier3

@@ -1,0 +1,37 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 45
+Resources:
+  ITB_INSTALL_TEST:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: John Weigand
+        Secondary: Burt Holzman
+      Resource Report Contact:
+        Primary: John Weigand
+      Submitter Contact:
+        Primary: John Weigand
+    Disable: false
+    FQDN: cmsitb1.fnal.gov
+    ID: 45
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: ITB_Test
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=ITB_INSTALL_TEST,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: Fermilab

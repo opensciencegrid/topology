@@ -1,0 +1,31 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 448
+Resources:
+  CancerComputer_Hotel_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Ian Stakenvicius
+      Resource Report Contact:
+        Secondary: Ian Stakenvicius
+      Security Contact:
+        Primary: Ian Stakenvicius
+      Submitter Contact:
+        Primary: Ian Stakenvicius
+    Disable: false
+    FQDN: osg.cancercomputer.com
+    ID: 829
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://osg.cancercomputer.com
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: CCSUP

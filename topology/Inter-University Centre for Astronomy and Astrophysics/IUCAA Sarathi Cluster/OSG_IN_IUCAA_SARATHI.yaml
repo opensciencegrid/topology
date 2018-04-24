@@ -1,0 +1,24 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 481
+Resources:
+  OSG_IN_IUCAA_SARATHI:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+      Submitter Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: hosted-ce08.grid.uchicago.edu
+    ID: 927
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      LIGO: 100
+SupportCenter: UChicago

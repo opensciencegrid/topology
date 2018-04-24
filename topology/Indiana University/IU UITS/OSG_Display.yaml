@@ -1,0 +1,27 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 261
+Resources:
+  OSG_Display_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Miscellaneous Contact:
+        Primary: Brian Bockelman
+        Secondary: Tom Lee
+      Security Contact:
+        Primary: OSG Operations Center
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: display1.grid.iu.edu
+    FQDNAliases:
+    - display.grid.iu.edu
+    ID: 310
+    Services:
+      OSG_Display:
+        Description: OSG Birds Eye View Display
+    VOOwnership:
+      MIS: 100
+SupportCenter: OSG-GOC

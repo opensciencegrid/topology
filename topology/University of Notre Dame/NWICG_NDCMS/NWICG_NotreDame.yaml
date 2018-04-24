@@ -1,0 +1,66 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 79
+Resources:
+  NDCMS_Primeradiant01:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Serguei Fedorov
+        Secondary: Kenyi Hurtado Anampa
+      Resource Report Contact:
+        Primary: Serguei Fedorov
+        Secondary: Kenyi Hurtado Anampa
+      Security Contact:
+        Primary: Serguei Fedorov
+      Submitter Contact:
+        Primary: Kenyi Hurtado Anampa
+    Disable: false
+    FQDN: primeradiant01.crc.nd.edu
+    ID: 821
+    Services:
+      XRootD component:
+        Description: any part of xrootd
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+  NWICG_NotreDame:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Serguei Fedorov
+      Miscellaneous Contact:
+        Primary: Serguei Fedorov
+      Resource Report Contact:
+        Primary: Serguei Fedorov
+      Security Contact:
+        Primary: Serguei Fedorov
+      Submitter Contact:
+        Primary: In-Saeng Suh
+    Disable: true
+    FQDN: opteron03.crc.nd.edu
+    ID: 79
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      NWICG: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=NWICG_NotreDame,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: NWICG

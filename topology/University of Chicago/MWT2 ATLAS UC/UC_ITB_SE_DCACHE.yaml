@@ -1,0 +1,32 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 219
+Resources:
+  UC_ITB_SE_DCACHE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Miscellaneous Contact:
+        Primary: Suchandra Thapa
+      Resource Report Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+      Submitter Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: itbv-dc1.mwt2.org
+    ID: 217
+    Services:
+      SRMv1:
+        Description: SRM V1 Storage Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: USATLAS

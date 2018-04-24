@@ -1,0 +1,81 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 414
+Resources:
+  SAMPA PerfSONAR Bandwidth:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Douglas Vieira
+      Security Contact:
+        Primary: Douglas Vieira
+      Submitter Contact:
+        Primary: Douglas Vieira
+    Disable: true
+    FQDN: sampaps02.if.usp.br
+    ID: 702
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: http://sampaps02.if.usp.br
+    VOOwnership:
+      ALICE: 100
+  SAMPA PerfSONAR Latency:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Douglas Vieira
+      Security Contact:
+        Primary: Douglas Vieira
+      Submitter Contact:
+        Primary: Douglas Vieira
+    Disable: true
+    FQDN: sampaps01.if.usp.br
+    ID: 706
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: http://sampaps01.if.usp.br
+    VOOwnership:
+      ALICE: 100
+  perfSONAR_SAMPA_Bandwidth:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Douglas Vieira
+      Security Contact:
+        Primary: Douglas Vieira
+      Submitter Contact:
+        Primary: Douglas Vieira
+    Disable: false
+    FQDN: sampaps02.if.usp.br
+    ID: 799
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: sampaps02.if.usp.br
+    VOOwnership:
+      ALICE: 100
+  perfSONAR_SAMPA_Latency:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Douglas Vieira
+      Security Contact:
+        Primary: Douglas Vieira
+      Submitter Contact:
+        Primary: Douglas Vieira
+    Disable: false
+    FQDN: sampaps01.if.usp.br
+    ID: 798
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: sampaps01.if.usp.br
+    VOOwnership:
+      ALICE: 100
+SupportCenter: CERN

@@ -1,0 +1,96 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 213
+Resources:
+  DUKET3-SE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+      Miscellaneous Contact:
+        Primary: Doug Benjamin
+      Resource Report Contact:
+        Primary: Doug Benjamin
+      Security Contact:
+        Primary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: true
+    FQDN: atlfs02.phy.duke.edu
+    FQDNAliases:
+    - grid37.racf.bnl.gov
+    ID: 212
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=DukeT3,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+  DukeT3_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+      Security Contact:
+        Primary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: true
+    FQDN: atlhn02.phy.duke.edu
+    ID: 452
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      ATLAS: 100
+  Duke_ATLAS_gridftp:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Doug Benjamin
+      Resource Report Contact:
+        Primary: Doug Benjamin
+      Security Contact:
+        Primary: Doug Benjamin
+      Submitter Contact:
+        Primary: Doug Benjamin
+    Disable: false
+    FQDN: atlgridftp01.phy.duke.edu
+    ID: 442
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: atlgridftp01.phy.duke.edu:2811
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=DukeT3,o=grid
+      StorageCapacityMax: 50
+      StorageCapacityMin: 10
+      TapeCapacity: 0
+SupportCenter: USATLAS_Tier3

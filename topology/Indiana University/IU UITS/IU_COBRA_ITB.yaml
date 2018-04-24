@@ -1,0 +1,33 @@
+Disable: true
+GridType: OSG Integration Test Bed Resource
+GroupID: 54
+Resources:
+  IU_COBRA_ITB:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Secondary: Kyle Gross
+      Miscellaneous Contact:
+        Primary: Soichi Hayashi
+        Tertiary: Tim Silvers
+      Resource Report Contact:
+        Primary: Kyle Gross
+      Security Contact:
+        Primary: Kyle Gross
+      Submitter Contact:
+        Primary: Tim Silvers
+    Disable: true
+    FQDN: cobra.uits.indiana.edu
+    ID: 54
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      MIS: 100
+SupportCenter: OSG-GOC

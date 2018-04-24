@@ -1,0 +1,75 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 352
+Resources:
+  ECE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Elizabeth Prout
+      Miscellaneous Contact:
+        Primary: Kyle Gross
+      Resource Report Contact:
+        Primary: Elizabeth Prout
+      Security Contact:
+        Primary: Elizabeth Prout
+      Submitter Contact:
+        Primary: Elizabeth Prout
+    Disable: false
+    FQDN: echism.grid.iu.edu
+    ID: 479
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      MIS: 100
+  ECE2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Elizabeth Prout
+      Resource Report Contact:
+        Primary: Elizabeth Prout
+      Security Contact:
+        Primary: Elizabeth Prout
+      Submitter Contact:
+        Primary: Elizabeth Prout
+    Disable: false
+    FQDN: ece2.grid.iu.edu
+    ID: 536
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      MIS: 100
+  E_HTCCE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Elizabeth Prout
+        Secondary: Kyle Gross
+      Resource Report Contact:
+        Primary: Elizabeth Prout
+      Security Contact:
+        Primary: Elizabeth Prout
+      Submitter Contact:
+        Primary: Elizabeth Prout
+    Disable: false
+    FQDN: ece3.grid.iu.edu
+    ID: 556
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      MIS: 100
+SupportCenter: Community Support Center

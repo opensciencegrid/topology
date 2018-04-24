@@ -1,0 +1,25 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 47
+Resources:
+  ITB_INSTALL_TEST_3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: John Weigand
+        Secondary: Burt Holzman
+      Resource Report Contact:
+        Primary: John Weigand
+      Submitter Contact:
+        Primary: John Weigand
+    Disable: false
+    FQDN: cms-xen9.fnal.gov
+    ID: 47
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+SupportCenter: Fermilab

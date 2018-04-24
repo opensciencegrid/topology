@@ -1,0 +1,24 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 472
+Resources:
+  OSG_US_WSU_GRID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+      Submitter Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: pearc-ce-2.grid.uchicago.edu
+    ID: 895
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: UChicago

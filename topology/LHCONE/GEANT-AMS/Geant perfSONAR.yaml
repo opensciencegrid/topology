@@ -1,0 +1,27 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 407
+Resources:
+  AMS_GEANT LHCONE:
+    Active: true
+    ContactLists:
+      Miscellaneous Contact:
+        Primary: Shawn McKee
+        Secondary: Marian Babik
+      Submitter Contact:
+        Primary: Shawn McKee
+    Disable: false
+    FQDN: ps01-nl.geant.nl
+    ID: 656
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: ps01-nl.geant.net
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: ps01-nl.geant.net
+    VOOwnership:
+      Belle: 0
+SupportCenter: LHCONE_SC

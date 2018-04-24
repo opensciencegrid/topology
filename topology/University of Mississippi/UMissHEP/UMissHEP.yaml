@@ -1,0 +1,73 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 146
+Resources:
+  UMissHEP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Sanders
+      Resource Report Contact:
+        Primary: David Sanders
+      Security Contact:
+        Primary: David Sanders
+      Submitter Contact:
+        Primary: David Sanders
+    Disable: false
+    FQDN: umiss001.hep.olemiss.edu
+    ID: 146
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      Belle: 50
+      CMS: 25
+      DZero: 25
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UMissHEP,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 5.5
+  UMissHEP_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Sanders
+      Resource Report Contact:
+        Primary: David Sanders
+      Security Contact:
+        Primary: David Sanders
+      Submitter Contact:
+        Primary: David Sanders
+    Disable: false
+    FQDN: umiss005.hep.olemiss.edu
+    ID: 333
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      Belle: 50
+      CMS: 25
+      DZero: 25
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UMissHEP,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 5.5
+SupportCenter: USCMS_Tier3

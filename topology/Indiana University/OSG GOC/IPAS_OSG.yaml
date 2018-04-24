@@ -1,0 +1,13 @@
+Disable: true
+GridType: OSG Integration Test Bed Resource
+GroupID: 43
+Resources:
+  IPAS_OSG:
+    Active: false
+    Disable: true
+    FQDN: gk.phys.sinica.edu.tw
+    ID: 43
+    Services:
+      CE:
+        Description: Compute Element
+SupportCenter: OSG-GOC

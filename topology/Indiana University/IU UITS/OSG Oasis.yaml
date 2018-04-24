@@ -1,0 +1,28 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 364
+Resources:
+  Oasis:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Miscellaneous Contact:
+        Primary: Scott Teige
+      Resource Report Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: oasis.grid.iu.edu
+    ID: 515
+    Services:
+      Oasis Server:
+        Description: GOC Oasis stratum 0 server
+        Details:
+          endpoint: oasis.opensciencegrid.org
+    VOOwnership:
+      OSG: 100
+SupportCenter: OSG-GOC

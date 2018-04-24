@@ -1,0 +1,71 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 212
+Resources:
+  Clemson-Connect:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Lincoln Bryant
+        Secondary: Randall Martin
+      Miscellaneous Contact:
+        Primary: Lincoln Bryant
+        Secondary: Randall Martin
+      Resource Report Contact:
+        Primary: Randall Martin
+        Secondary: Lincoln Bryant
+      Security Contact:
+        Primary: Lincoln Bryant
+        Secondary: Randall Martin
+      Submitter Contact:
+        Primary: Lincoln Bryant
+    Disable: false
+    FQDN: rccf-osg.ci-connect.net
+    ID: 781
+    Services:
+      Connect:
+        Description: Connect Glidein Factory
+        Details:
+          hidden: false
+          uri_override: osgconnect@user.palmetto.clemson.edu/pbs
+    VOOwnership:
+      OSG: 100
+  Clemson-Palmetto:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Randall Martin
+        Secondary: Xizhou Feng
+      Miscellaneous Contact:
+        Primary: Randall Martin
+        Secondary: Xizhou Feng
+      Resource Report Contact:
+        Primary: Randall Martin
+        Secondary: Xizhou Feng
+      Security Contact:
+        Primary: Randall Martin
+        Secondary: Xizhou Feng
+      Submitter Contact:
+        Primary: Sam Hoover
+    Disable: false
+    FQDN: osg-ce.clemson.edu
+    ID: 211
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Clemson-Palmetto,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: Community Support Center

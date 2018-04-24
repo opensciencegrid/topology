@@ -1,0 +1,29 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 383
+Resources:
+  Discovery_PerfSonar_Bandwidth:
+    Active: true
+    Disable: false
+    FQDN: perfsonar02.discovery.wisc.edu
+    ID: 570
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: perfsonar02.discovery.wisc.edu
+    VOOwnership:
+      GLOW: 100
+  Discovery_PerfSonar_Latency:
+    Active: true
+    Disable: false
+    FQDN: perfsonar01.discovery.wisc.edu
+    ID: 569
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: perfsonar01.discovery.wisc.edu
+    VOOwnership:
+      GLOW: 100
+SupportCenter: GLOW-TECH

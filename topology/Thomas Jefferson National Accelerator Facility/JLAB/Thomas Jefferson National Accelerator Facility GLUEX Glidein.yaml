@@ -1,0 +1,20 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 465
+Resources:
+  scosg16:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Sandra Philpott
+    Disable: false
+    FQDN: scosg16.jlab.org
+    ID: 878
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      JLab: 100
+SupportCenter: GLUEX

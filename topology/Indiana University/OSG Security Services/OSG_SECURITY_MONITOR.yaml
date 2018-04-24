@@ -1,0 +1,79 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 257
+Resources:
+  SECMON_CADIST_GOC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: OSG Operations Center
+      Miscellaneous Contact:
+        Tertiary: Scott Teige
+      Security Contact:
+        Primary: Mine Altunay
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: true
+    FQDN: secmon.cadist.goc.test
+    ID: 299
+    Services:
+      CADIST_Monitoring:
+        Description: Virtual service mapped to CA Distribution process and content
+          metrics
+    VOOwnership:
+      MIS: 100
+  SECMON_CADIST_VDT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: OSG Operations Center
+      Miscellaneous Contact:
+        Tertiary: Scott Teige
+      Security Contact:
+        Primary: Mine Altunay
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: true
+    FQDN: secmon.cadist.vdt.test
+    ID: 300
+    Services:
+      CADIST_Monitoring:
+        Description: Virtual service mapped to CA Distribution process and content
+          metrics
+    VOOwnership:
+      MIS: 100
+  SECMON_CRL:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: OSG Operations Center
+      Miscellaneous Contact:
+        Tertiary: Scott Teige
+      Security Contact:
+        Primary: Mine Altunay
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: true
+    FQDN: secmon.crl.goc.test
+    ID: 301
+    Services:
+      CRL_Monitoring:
+        Description: Virtual service mapped to CRL process and content metrics
+    VOOwnership:
+      MIS: 100
+  SECMON_VOMS:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Secondary: OSG Operations Center
+      Security Contact:
+        Primary: Mine Altunay
+    Disable: true
+    FQDN: secmon.voms.test
+    ID: 302
+    Services:
+      VOMS_Monitoring:
+        Description: Virtual service that is mapped to VOMS monitoring metrics
+    VOOwnership:
+      MIS: 100
+SupportCenter: OSG-GOC

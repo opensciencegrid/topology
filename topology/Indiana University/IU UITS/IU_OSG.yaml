@@ -1,0 +1,45 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 56
+Resources:
+  IU_OSG:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Secondary: Jeff Gronek
+      Miscellaneous Contact:
+        Primary: George Turner
+        Tertiary: Frederick Luehring
+      Resource Report Contact:
+        Secondary: Jeff Gronek
+        Tertiary: George Turner
+      Security Contact:
+        Secondary: Jeff Gronek
+      Submitter Contact:
+        Primary: George Turner
+    Disable: true
+    FQDN: m3.quarry.teragrid.iu.edu
+    ID: 56
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CSIU: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 5520
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 3276
+      KSI2KMin: 3276
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: OSG-GOC

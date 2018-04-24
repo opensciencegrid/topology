@@ -1,0 +1,27 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 248
+Resources:
+  GOC_Auth_Services:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: OSG Operations Center
+        Secondary: Scott Teige
+      Miscellaneous Contact:
+        Tertiary: Tom Lee
+      Resource Report Contact:
+        Primary: OSG Operations Center
+      Security Contact:
+        Primary: OSG Operations Center
+    Disable: false
+    FQDN: jazmine.grid.iu.edu
+    FQDNAliases:
+    - voms.grid.iu.edu
+    ID: 196
+    Services:
+      VOMS Server:
+        Description: VOMS Server
+    VOOwnership:
+      MIS: 100
+SupportCenter: OSG-GOC

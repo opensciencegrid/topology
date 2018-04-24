@@ -1,0 +1,81 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 454
+Resources:
+  Caltech StashCache instance:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Marian Zvada
+      Security Contact:
+        Primary: Marian Zvada
+      Submitter Contact:
+        Primary: Marian Zvada
+    Disable: false
+    FQDN: origin.ligo.caltech.edu
+    ID: 940
+    Services:
+      XRootD origin server:
+        Description: XRootD origin server
+        Details:
+          hidden: false
+    VOOwnership:
+      LIGO: 100
+  FNAL Origin server:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: stashcache.fnal.gov
+    ID: 838
+    Services:
+      XRootD origin server:
+        Description: XRootD origin server
+        Details:
+          hidden: false
+    VOOwnership:
+      Fermilab: 100
+  Indiana Origin server:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: csiu-itb.grid.iu.edu
+    ID: 839
+    Services:
+      XRootD origin server:
+        Description: XRootD origin server
+        Details:
+          hidden: false
+    VOOwnership:
+      Ops: 100
+  OSG Connect Origin server:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: stash.osgconnect.net
+    ID: 837
+    Services:
+      XRootD origin server:
+        Description: XRootD origin server
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: OSG-GOC

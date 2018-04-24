@@ -1,0 +1,40 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 350
+Resources:
+  UPENN-T3-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Paul T. Keener
+      Miscellaneous Contact:
+        Primary: Paul T. Keener
+      Resource Report Contact:
+        Primary: Paul T. Keener
+      Security Contact:
+        Primary: Paul T. Keener
+      Submitter Contact:
+        Primary: Paul T. Keener
+    Disable: false
+    FQDN: srm.hep.upenn.edu
+    ID: 355
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=PennT3,o=grid
+      StorageCapacityMax: 73
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+SupportCenter: USATLAS_Tier3

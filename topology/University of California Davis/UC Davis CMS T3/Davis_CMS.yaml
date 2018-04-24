@@ -1,0 +1,32 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 15
+Resources:
+  Davis_CMS:
+    Active: false
+    Disable: true
+    FQDN: cms.physics.ucdavis.edu
+    ID: 15
+    Services:
+      CE:
+        Description: Compute Element
+  UCD_secondary_namenode:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Teresa Knight
+      Security Contact:
+        Primary: Teresa Knight
+      Submitter Contact:
+        Primary: Teresa Knight
+    Disable: false
+    FQDN: se2.tier3.ucdavis.edu
+    ID: 767
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+    VOOwnership:
+      CMS: 100
+SupportCenter: USCMS_Tier3

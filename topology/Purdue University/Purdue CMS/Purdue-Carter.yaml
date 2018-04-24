@@ -1,0 +1,45 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 354
+Resources:
+  Purdue-Carter:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Erik Gough
+      Miscellaneous Contact:
+        Primary: Majid Arabgol
+        Secondary: Erik Gough
+      Resource Report Contact:
+        Primary: Majid Arabgol
+        Secondary: Erik Gough
+      Security Contact:
+        Primary: Majid Arabgol
+        Secondary: Erik Gough
+      Submitter Contact:
+        Primary: Fengping Hu
+    Disable: true
+    FQDN: carter-osg.rcac.purdue.edu
+    ID: 484
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://carter-osg.rcac.purdue.edu:9619/carter-osg.rcac.purdue.edu
+    VOOwnership:
+      CMS: 4
+    WLCGInformation:
+      APELNormalFactor: 16.98
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 2750
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 800
+      KSI2KMin: 700
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-Carter,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+SupportCenter: USCMS_Tier2

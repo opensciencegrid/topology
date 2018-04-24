@@ -1,0 +1,26 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 335
+Resources:
+  VBI_OSG_Submit1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Bill Marmagas
+      Resource Report Contact:
+        Primary: Bill Marmagas
+      Security Contact:
+        Primary: Bill Marmagas
+      Submitter Contact:
+        Primary: Bill Marmagas
+    Disable: false
+    FQDN: submit1.bioinformatics.vt.edu
+    ID: 449
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      Engage: 100
+SupportCenter: Community Support Center

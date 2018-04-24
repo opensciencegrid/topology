@@ -1,0 +1,506 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 235
+Resources:
+  BNL-LCG2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+      Miscellaneous Contact:
+        Primary: Xin Zhao
+        Secondary: John Hover
+        Tertiary: Dantong Yu
+      Resource Report Contact:
+        Primary: Xin Zhao
+        Tertiary: John Hover
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: true
+    FQDN: gridgk03.racf.bnl.gov
+    ID: 240
+    Services:
+      CE:
+        Description: Compute Element
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 500
+      KSI2KMin: 100
+      StorageCapacityMax: 10
+      StorageCapacityMin: 1
+  BNL_ATLAS_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+        Secondary: John Hover
+      Resource Report Contact:
+        Primary: Xin Zhao
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: gridgk01.racf.bnl.gov
+    ID: 3
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk02.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.05
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 130000
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 15500
+      KSI2KMin: 15500
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+        Secondary: John Hover
+      Resource Report Contact:
+        Primary: Xin Zhao
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: gridgk02.racf.bnl.gov
+    ID: 4
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk02.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.05
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+        Secondary: John Hover
+      Resource Report Contact:
+        Primary: Xin Zhao
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: gridgk03.racf.bnl.gov
+    ID: 325
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk03.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.05
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+        Secondary: John Hover
+      Resource Report Contact:
+        Primary: Xin Zhao
+        Secondary: John Hover
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: gridgk04.racf.bnl.gov
+    ID: 326
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk04.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.05
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_6:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+        Secondary: John Hover
+      Resource Report Contact:
+        Primary: Xin Zhao
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: gridgk06.racf.bnl.gov
+    ID: 418
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk06.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.05
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_7:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+        Secondary: John Hover
+      Resource Report Contact:
+        Primary: Xin Zhao
+        Secondary: John Hover
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: gridgk07.racf.bnl.gov
+    ID: 438
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk07.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.05
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  BNL_ATLAS_8:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+        Secondary: John Hover
+      Resource Report Contact:
+        Primary: Xin Zhao
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: gridgk08.racf.bnl.gov
+    ID: 545
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk08.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.05
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_Frontier_Squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: John S. De Stefano Jr.
+      Security Contact:
+        Primary: John S. De Stefano Jr.
+      Submitter Contact:
+        Primary: John S. De Stefano Jr.
+    Disable: false
+    FQDN: frontier-cache.racf.bnl.gov
+    ID: 925
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      BNL: 100
+  BNL_ATLAS_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+        Secondary: John Hover
+      Miscellaneous Contact:
+        Primary: Hironori Ito
+      Resource Report Contact:
+        Primary: Xin Zhao
+      Security Contact:
+        Primary: John Hover
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: dcsrm.usatlas.bnl.gov
+    ID: 5
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
+      StorageCapacityMax: 16800
+      StorageCapacityMin: 16800
+      TapeCapacity: 27000
+  BNL_ATLAS_SE_AWS_East:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Hironori Ito
+      Miscellaneous Contact:
+        Primary: Hironori Ito
+      Resource Report Contact:
+        Primary: Hironori Ito
+      Security Contact:
+        Primary: Hironori Ito
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: bestse01.usatlas.bnl.gov
+    ID: 664
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  BNL_ATLAS_SE_AWS_West:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Hironori Ito
+      Miscellaneous Contact:
+        Primary: Hironori Ito
+      Resource Report Contact:
+        Primary: Hironori Ito
+      Security Contact:
+        Primary: Hironori Ito
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: bestse02.usatlas.bnl.gov
+    ID: 728
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  BNL_ATLAS_SE_AWS_West2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Hironori Ito
+        Secondary: John Hover
+      Miscellaneous Contact:
+        Primary: Xin Zhao
+      Resource Report Contact:
+        Primary: Hironori Ito
+        Tertiary: John Hover
+      Security Contact:
+        Primary: Hironori Ito
+        Secondary: John Hover
+      Submitter Contact:
+        Primary: John Hover
+    Disable: false
+    FQDN: bestse03.usatlas.bnl.gov
+    ID: 826
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=BNL-ATLAS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  lhcmon-bnl:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Hironori Ito
+      Security Contact:
+        Primary: Hironori Ito
+      Submitter Contact:
+        Primary: Hironori Ito
+    Disable: false
+    FQDN: lhcmon.bnl.gov
+    ID: 554
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: lhcmon.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+  lhcperfmon-bnl:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Hironori Ito
+      Security Contact:
+        Primary: Hironori Ito
+      Submitter Contact:
+        Primary: Hironori Ito
+    Disable: false
+    FQDN: lhcperfmon.bnl.gov
+    ID: 555
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: lhcperfmon.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+  ps-development:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Hironori Ito
+      Security Contact:
+        Primary: Hironori Ito
+      Submitter Contact:
+        Primary: Hironori Ito
+    Disable: false
+    FQDN: ps-development.bnl.gov
+    ID: 689
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: ps-development.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS

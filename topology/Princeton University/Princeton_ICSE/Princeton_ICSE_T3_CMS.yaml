@@ -1,0 +1,64 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 268
+Resources:
+  Princeton_ICSE_T3_CMS_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Christopher Tully
+      Miscellaneous Contact:
+        Primary: Burt Holzman
+      Resource Report Contact:
+        Primary: Christopher Tully
+      Security Contact:
+        Primary: Christopher Tully
+      Submitter Contact:
+        Primary: Christopher Tully
+    Disable: false
+    FQDN: cmssw3.princeton.edu
+    ID: 327
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: cmssw3.Princeton.EDU:8443
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Princeton_ICSE_T3_CMS,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  T3_US_Princeton_ICSE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Christopher Tully
+      Miscellaneous Contact:
+        Primary: Christopher Tully
+      Resource Report Contact:
+        Primary: Christopher Tully
+      Security Contact:
+        Primary: Christopher Tully
+      Submitter Contact:
+        Primary: Christopher Tully
+    Disable: false
+    FQDN: cmssw3.princeton.edu
+    ID: 596
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: cmssw3.princeton.edu:8443
+    VOOwnership:
+      CMS: 100
+SupportCenter: USCMS_Tier3

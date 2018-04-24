@@ -1,0 +1,28 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 426
+Resources:
+  STAR-OnlinePool:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wayne Betts
+      Miscellaneous Contact:
+        Primary: Wayne Betts
+      Resource Report Contact:
+        Primary: Wayne Betts
+      Security Contact:
+        Primary: Wayne Betts
+      Submitter Contact:
+        Primary: Wayne Betts
+    Disable: false
+    FQDN: stargw3.starp.bnl.gov
+    ID: 741
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      STAR: 100
+SupportCenter: STAR

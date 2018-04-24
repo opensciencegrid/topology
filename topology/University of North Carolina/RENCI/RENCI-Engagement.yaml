@@ -1,0 +1,44 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 199
+Resources:
+  RENCI-Engagement:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Mats Rynge
+      Miscellaneous Contact:
+        Primary: Mats Rynge
+        Secondary: John McGee
+      Resource Report Contact:
+        Primary: Mats Rynge
+      Security Contact:
+        Primary: Mats Rynge
+      Submitter Contact:
+        Primary: Mats Rynge
+    Disable: false
+    FQDN: belhaven-1.renci.org
+    ID: 199
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      Engage: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=RENCI-Engagement,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: Community Support Center

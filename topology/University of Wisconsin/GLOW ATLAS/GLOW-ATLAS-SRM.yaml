@@ -1,0 +1,30 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 178
+Resources:
+  GLOW-ATLAS-SRM:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Wen Guan
+        Secondary: Neng Xu
+      Resource Report Contact:
+        Primary: Wen Guan
+      Security Contact:
+        Primary: Wen Guan
+        Secondary: Neng Xu
+      Submitter Contact:
+        Primary: Wen Guan
+    Disable: true
+    FQDN: atlas07.cs.wisc.edu
+    FQDNAliases:
+    - GLOW-ATLAS
+    ID: 178
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: true
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS_Tier3

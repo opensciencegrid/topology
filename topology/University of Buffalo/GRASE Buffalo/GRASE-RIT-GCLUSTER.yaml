@@ -1,0 +1,13 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 36
+Resources:
+  GRASE-RIT-GCLUSTER:
+    Active: false
+    Disable: true
+    FQDN: gcluster.rit.edu
+    ID: 36
+    Services:
+      CE:
+        Description: Compute Element
+SupportCenter: NYSGRID

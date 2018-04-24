@@ -1,0 +1,47 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 308
+Resources:
+  GOC glidein:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jeffrey Michael Dost
+      Resource Report Contact:
+        Primary: Jeffrey Michael Dost
+        Tertiary: Marty Kandes
+      Security Contact:
+        Primary: Scott Teige
+        Secondary: Jeffrey Michael Dost
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: glidein.grid.iu.edu
+    ID: 406
+    Services:
+      Glidein factory:
+        Description: Glidein factory
+        Details:
+          hidden: false
+    VOOwnership:
+      MIS: 100
+  UCSD gfactory:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: true
+    FQDN: gfactory-1.t2.ucsd.edu
+    ID: 653
+    Services:
+      Glidein factory:
+        Description: Glidein factory
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: osg-glidein-factory

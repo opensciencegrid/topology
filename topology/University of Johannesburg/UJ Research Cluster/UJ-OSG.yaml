@@ -1,0 +1,52 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 215
+Resources:
+  UJ-OSG:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Sergio Ballestrero
+        Secondary: Christopher Jon Lee
+      Miscellaneous Contact:
+        Primary: Sergio Ballestrero
+        Secondary: Christopher Jon Lee
+      Resource Report Contact:
+        Primary: Sergio Ballestrero
+        Secondary: Christopher Jon Lee
+      Security Contact:
+        Primary: Sergio Ballestrero
+        Secondary: Christopher Jon Lee
+      Submitter Contact:
+        Primary: Sergio Ballestrero
+    Disable: false
+    FQDN: osg-ce.grid.uj.ac.za
+    ID: 213
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 50
+  osg-ce:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Christopher Jon Lee
+      Security Contact:
+        Primary: Christopher Jon Lee
+      Submitter Contact:
+        Primary: Christopher Jon Lee
+    Disable: false
+    FQDN: osg-ce.grid.uj.ac.za
+    ID: 558
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: osg-ce.grid.uj.ac.za:2199
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS

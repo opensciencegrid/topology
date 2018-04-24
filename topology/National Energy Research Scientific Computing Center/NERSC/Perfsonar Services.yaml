@@ -1,0 +1,32 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 456
+Resources:
+  perfSONAR_NERSC_bw:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jason Russell Lee
+        Secondary: Tavia Stone Gibbins
+      Miscellaneous Contact:
+        Secondary: Tavia Stone Gibbins
+        Tertiary: Shreyas Cholia
+      Resource Report Contact:
+        Secondary: Tavia Stone Gibbins
+        Tertiary: Shreyas Cholia
+      Security Contact:
+        Primary: Jason Russell Lee
+        Secondary: Tavia Stone Gibbins
+      Submitter Contact:
+        Primary: Jason Russell Lee
+    Disable: false
+    FQDN: perfsonar.nersc.gov
+    ID: 843
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: perfsonar.nersc.gov
+    VOOwnership:
+      NERSC: 100
+SupportCenter: NERSC

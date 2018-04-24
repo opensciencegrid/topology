@@ -1,0 +1,377 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 210
+Resources:
+  FNAL NRTB PerfSONAR Bandwidth:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Darryl K Wohlt
+      Security Contact:
+        Primary: Darryl K Wohlt
+      Submitter Contact:
+        Primary: Darryl K Wohlt
+    Disable: false
+    FQDN: psonartest1.fnal.gov
+    ID: 769
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: psonartest1.fnal.gov
+    VOOwnership:
+      Fermilab: 100
+  FNAL NRTB PerfSONAR Latency:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Darryl K Wohlt
+      Security Contact:
+        Primary: Darryl K Wohlt
+      Submitter Contact:
+        Primary: Darryl K Wohlt
+    Disable: false
+    FQDN: psonartest2.fnal.gov
+    ID: 770
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: psonartest2.fnal.gov
+    VOOwnership:
+      Fermilab: 100
+  US-FNAL BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Darryl K Wohlt
+      Security Contact:
+        Primary: Darryl K Wohlt
+      Submitter Contact:
+        Primary: Darryl K Wohlt
+    Disable: false
+    FQDN: psonar3.fnal.gov
+    ID: 625
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: psonar3.fnal.gov
+    VOOwnership:
+      Fermilab: 100
+  US-FNAL LT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Darryl K Wohlt
+      Security Contact:
+        Primary: Darryl K Wohlt
+      Submitter Contact:
+        Primary: Darryl K Wohlt
+    Disable: false
+    FQDN: psonar4.fnal.gov
+    ID: 626
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: psonar4.fnal.gov
+    VOOwnership:
+      Fermilab: 100
+  USCMS PerfSonar IPV6 Test:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Darryl K Wohlt
+      Miscellaneous Contact:
+        Primary: Burt Holzman
+      Resource Report Contact:
+        Primary: Darryl K Wohlt
+      Submitter Contact:
+        Primary: Burt Holzman
+    Disable: false
+    FQDN: psonartest1.fnal.gov
+    ID: 744
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: psonartest1.fnal.gov
+    VOOwnership:
+      Fermilab: 100
+  USCMS-FNAL-WC1-CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Anthony Tiradani
+      Miscellaneous Contact:
+        Primary: David Alexander Mason
+        Tertiary: Farrukh Aftab Khan
+      Submitter Contact:
+        Primary: Burt Holzman
+    Disable: false
+    FQDN: cmsosgce.fnal.gov
+    ID: 127
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cmsosgce.fnal.gov
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 11.44
+      AccountingName: USCMS-FNAL-WC1-CE
+      HEPSPEC: 58000
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 14500
+      KSI2KMin: 14500
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=USCMS-FNAL-WC1,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  USCMS-FNAL-WC1-CE2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Anthony Tiradani
+      Miscellaneous Contact:
+        Primary: David Alexander Mason
+        Tertiary: Farrukh Aftab Khan
+      Submitter Contact:
+        Primary: Burt Holzman
+    Disable: false
+    FQDN: cmsosgce2.fnal.gov
+    ID: 128
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cmsosgce2.fnal.gov
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 11.44
+      AccountingName: USCMS-FNAL-WC1-CE
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=USCMS-FNAL-WC1,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  USCMS-FNAL-WC1-CE3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Anthony Tiradani
+      Miscellaneous Contact:
+        Primary: David Alexander Mason
+        Tertiary: Farrukh Aftab Khan
+      Submitter Contact:
+        Primary: Burt Holzman
+    Disable: false
+    FQDN: cmsosgce3.fnal.gov
+    ID: 129
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 11.44
+      AccountingName: USCMS-FNAL-WC1-CE
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=USCMS-FNAL-WC1,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  USCMS-FNAL-WC1-CE4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Anthony Tiradani
+      Miscellaneous Contact:
+        Primary: David Alexander Mason
+        Tertiary: Farrukh Aftab Khan
+      Submitter Contact:
+        Primary: Burt Holzman
+    Disable: false
+    FQDN: cmsosgce4.fnal.gov
+    ID: 130
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cmsosgce4.fnal.gov
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 11.44
+      AccountingName: USCMS-FNAL-WC1-CE
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=USCMS-FNAL-WC1,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  USCMS-FNAL-WC1-OPP1:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Secondary: Farrukh Aftab Khan
+      Miscellaneous Contact:
+        Tertiary: Farrukh Aftab Khan
+      Submitter Contact:
+        Primary: Anthony Tiradani
+    Disable: false
+    FQDN: cmsosgce-opp1.fnal.gov
+    ID: 934
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+  USCMS-FNAL-WC1-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Anthony Tiradani
+      Miscellaneous Contact:
+        Primary: David Alexander Mason
+        Secondary: Lisa Giacchetti
+        Tertiary: Chih-Hao Huang
+      Submitter Contact:
+        Primary: Burt Holzman
+    Disable: false
+    FQDN: cmsdcatape01.fnal.gov
+    ID: 236
+    Services:
+      FTS:
+        Description: File Transfer Service
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: USCMS-FNAL-WC1-CE
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 10000
+      StorageCapacityMin: 10000
+      TapeCapacity: 22000
+  USCMS-FNAL-WC1-SE2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: David Alexander Mason
+      Security Contact:
+        Primary: David Alexander Mason
+      Submitter Contact:
+        Primary: David Alexander Mason
+    Disable: false
+    FQDN: cmsdcadisk01.fnal.gov
+    ID: 865
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+      XRootD component:
+        Description: any part of xrootd
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: USCMS-FNAL-WC1-CE
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 24000
+      StorageCapacityMin: 22000
+      TapeCapacity: 0
+  USCMS-FNAL-WC1-glideinWMS-submit-cmssrv98:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Burt Holzman
+      Miscellaneous Contact:
+        Primary: Burt Holzman
+        Secondary: Catalin Dumitrescu
+        Tertiary: Anthony Tiradani
+      Submitter Contact:
+        Primary: Burt Holzman
+    Disable: false
+    FQDN: cmssrv98
+    ID: 393
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+    VOOwnership:
+      CMS: 100
+  perfSONAR_fnal_latency:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jorge Alberto Diaz Cruz
+      Security Contact:
+        Primary: Jorge Alberto Diaz Cruz
+      Submitter Contact:
+        Primary: Jorge Alberto Diaz Cruz
+    Disable: false
+    FQDN: psonar4.fnl.gov
+    ID: 700
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: psonar4.fnl.gov
+    VOOwnership:
+      CMS: 100
+SupportCenter: USCMS

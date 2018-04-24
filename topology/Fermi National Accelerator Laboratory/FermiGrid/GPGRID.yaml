@@ -1,0 +1,95 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 476
+Resources:
+  FNAL_GPGRID_CE_03:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Farrukh Aftab Khan
+        Secondary: Krista Majewski
+      Miscellaneous Contact:
+        Tertiary: Farrukh Aftab Khan
+      Resource Report Contact:
+        Primary: Anthony Tiradani
+      Submitter Contact:
+        Primary: Anthony Tiradani
+    Disable: false
+    FQDN: gpce03.fnal.gov
+    ID: 901
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      DUNE: 1
+      Fermilab: 99
+  FNAL_GPGRID_CE_04:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Farrukh Aftab Khan
+        Secondary: Krista Majewski
+      Miscellaneous Contact:
+        Tertiary: Farrukh Aftab Khan
+      Resource Report Contact:
+        Primary: Anthony Tiradani
+      Submitter Contact:
+        Primary: Anthony Tiradani
+    Disable: false
+    FQDN: gpce04.fnal.gov
+    ID: 902
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      DUNE: 1
+      Fermilab: 99
+  FNAL_JOBSUB_01:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Nicholas Peregonow
+        Secondary: Farrukh Aftab Khan
+      Miscellaneous Contact:
+        Tertiary: Farrukh Aftab Khan
+      Resource Report Contact:
+        Primary: Anthony Tiradani
+      Submitter Contact:
+        Primary: Anthony Tiradani
+    Disable: false
+    FQDN: jobsub01.fnal.gov
+    ID: 903
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      Fermilab: 100
+  FNAL_JOBSUB_02:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Nicholas Peregonow
+        Secondary: Farrukh Aftab Khan
+      Miscellaneous Contact:
+        Tertiary: Farrukh Aftab Khan
+      Resource Report Contact:
+        Primary: Anthony Tiradani
+      Submitter Contact:
+        Primary: Anthony Tiradani
+    Disable: false
+    FQDN: jobsub02.fnal.gov
+    ID: 904
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      Fermilab: 100
+SupportCenter: Fermilab

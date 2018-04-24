@@ -1,0 +1,29 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 168
+Resources:
+  Clemson-ciTeam:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Michael Fenn
+      Miscellaneous Contact:
+        Primary: Michael Fenn
+        Secondary: Sebastien Goasguen
+        Tertiary: Dru Sepulveda
+      Resource Report Contact:
+        Primary: Michael Fenn
+      Security Contact:
+        Primary: Michael Fenn
+      Submitter Contact:
+        Primary: Dru Sepulveda
+    Disable: true
+    FQDN: osgce.cs.clemson.edu
+    ID: 168
+    Services:
+      CE:
+        Description: Compute Element
+    VOOwnership:
+      Engage: 67
+      nanoHUB: 33
+SupportCenter: Engagement

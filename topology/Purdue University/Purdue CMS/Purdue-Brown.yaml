@@ -1,0 +1,45 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 482
+Resources:
+  Purdue-Brown:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Majid Arabgol
+        Secondary: Stefan Piperov
+      Miscellaneous Contact:
+        Primary: Stefan Piperov
+        Secondary: Erik Gough
+      Resource Report Contact:
+        Primary: Erik Gough
+        Secondary: Stefan Piperov
+      Security Contact:
+        Primary: Majid Arabgol
+      Submitter Contact:
+        Primary: Majid Arabgol
+    Disable: false
+    FQDN: brown-osg.rcac.purdue.edu
+    ID: 929
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://brown-osg.rcac.purdue.edu:9619/brown-osg.rcac.purdue.edu
+    VOOwnership:
+      CMS: 0
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 85
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Purdue-Brown,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 5.5
+SupportCenter: USCMS_Tier2

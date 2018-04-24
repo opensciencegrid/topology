@@ -1,0 +1,51 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 478
+Resources:
+  BNL_BELLE_II_CE_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Xin Zhao
+        Secondary: Hironori Ito
+      Miscellaneous Contact:
+        Primary: Hironori Ito
+      Resource Report Contact:
+        Primary: Xin Zhao
+        Secondary: Hironori Ito
+      Security Contact:
+        Primary: John Hover
+        Secondary: Hironori Ito
+      Submitter Contact:
+        Primary: Xin Zhao
+    Disable: false
+    FQDN: bgk01.sdcc.bnl.gov
+    ID: 930
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://bgk01.sdcc.bnl.gov
+    VOOwnership:
+      Belle: 100
+  BNL_BELLE_II_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Hironori Ito
+      Security Contact:
+        Primary: Hironori Ito
+      Submitter Contact:
+        Primary: Hironori Ito
+    Disable: false
+    FQDN: dcblsrm.sdcc.bnl.gov
+    ID: 908
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      Belle: 100
+SupportCenter: USATLAS

@@ -1,0 +1,87 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 367
+Resources:
+  MIT_CMS_T3-CE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Yutaro Iiyama
+        Secondary: Max Goncharov
+      Miscellaneous Contact:
+        Primary: Yutaro Iiyama
+        Secondary: Max Goncharov
+      Resource Report Contact:
+        Primary: Yutaro Iiyama
+        Secondary: Max Goncharov
+      Security Contact:
+        Primary: Yutaro Iiyama
+        Secondary: Max Goncharov
+      Submitter Contact:
+        Primary: Leonardo Di Matteo
+    Disable: false
+    FQDN: t3serv007.mit.edu
+    ID: 534
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T3_US_MIT
+      HEPSPEC: 1250
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MIT_CMS_T3,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  MIT_CMS_T3-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Yutaro Iiyama
+        Secondary: Max Goncharov
+      Miscellaneous Contact:
+        Primary: Yutaro Iiyama
+        Secondary: Max Goncharov
+      Resource Report Contact:
+        Primary: Yutaro Iiyama
+        Secondary: Max Goncharov
+      Security Contact:
+        Primary: Yutaro Iiyama
+        Secondary: Max Goncharov
+      Submitter Contact:
+        Primary: Leonardo Di Matteo
+    Disable: false
+    FQDN: t3serv006.mit.edu
+    ID: 535
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T3_US_MIT
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MIT_CMS_T3,o=grid
+      StorageCapacityMax: 250
+      StorageCapacityMin: 250
+SupportCenter: USCMS_Tier3

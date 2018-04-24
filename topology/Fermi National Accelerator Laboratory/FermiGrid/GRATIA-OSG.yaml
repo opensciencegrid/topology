@@ -1,0 +1,166 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 255
+Resources:
+  GRATIA-OSG-DAILY:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Gratia Accounting Service
+      Miscellaneous Contact:
+        Primary: Gratia Accounting Service
+        Tertiary: Steve Timm
+      Resource Report Contact:
+        Primary: Gratia Accounting Service
+      Submitter Contact:
+        Primary: Chris Green
+    Disable: true
+    FQDN: gratia-osg-daily.opensciencegrid.org
+    ID: 295
+    Services:
+      Gratia Collector:
+        Description: Gratia Collector
+    VOOwnership:
+      Fermilab: 100
+  GRATIA-OSG-ITB:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Gratia Accounting Service
+      Miscellaneous Contact:
+        Primary: Gratia Accounting Service
+        Tertiary: Joe Boyd
+      Resource Report Contact:
+        Primary: Gratia Accounting Service
+      Submitter Contact:
+        Primary: Chris Green
+    Disable: false
+    FQDN: gratia-osg-itb.opensciencegrid.org
+    ID: 293
+    Services:
+      Gratia Collector:
+        Description: Gratia Collector
+    VOOwnership:
+      Fermilab: 100
+  GRATIA-OSG-ITB-PERM:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Gratia Accounting Service
+      Miscellaneous Contact:
+        Primary: Gratia Accounting Service
+        Tertiary: Steve Timm
+      Resource Report Contact:
+        Primary: Gratia Accounting Service
+      Submitter Contact:
+        Primary: Chris Green
+    Disable: true
+    FQDN: gratia-osg-integration.opensciencegrid.org
+    ID: 294
+    Services:
+      Gratia Collector:
+        Description: Gratia Collector
+    VOOwnership:
+      Fermilab: 100
+  GRATIA-OSG-PROD:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Gratia Accounting Service
+        Secondary: Nicholas Peregonow
+      Miscellaneous Contact:
+        Primary: Gratia Accounting Service
+        Tertiary: Steve Timm
+      Resource Report Contact:
+        Primary: Gratia Accounting Service
+      Submitter Contact:
+        Primary: Chris Green
+    Disable: false
+    FQDN: gratia-osg-prod.opensciencegrid.org
+    ID: 291
+    Services:
+      Gratia Collector:
+        Description: Gratia Collector
+    VOOwnership:
+      Fermilab: 100
+  GRATIA-OSG-TRANSFER:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Gratia Accounting Service
+      Miscellaneous Contact:
+        Primary: Gratia Accounting Service
+        Tertiary: Steve Timm
+      Resource Report Contact:
+        Primary: Gratia Accounting Service
+      Submitter Contact:
+        Primary: Chris Green
+    Disable: false
+    FQDN: gratia-osg-transfer.opensciencegrid.org
+    ID: 292
+    Services:
+      Gratia Collector:
+        Description: Gratia Collector
+    VOOwnership:
+      Fermilab: 100
+  Gratia-main-osg:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Gratia Accounting Service
+      Miscellaneous Contact:
+        Primary: Gratia Accounting Service
+        Tertiary: Nicholas Peregonow
+      Resource Report Contact:
+        Primary: Gratia Accounting Service
+      Submitter Contact:
+        Primary: Nicholas Peregonow
+    Disable: false
+    FQDN: gratia-main-osg.fnal.gov
+    ID: 758
+    Services:
+      Gratia Collector:
+        Description: Gratia Collector
+    VOOwnership:
+      Fermilab: 100
+  gratia-itb-osg:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Gratia Accounting Service
+      Miscellaneous Contact:
+        Primary: Gratia Accounting Service
+        Tertiary: Nicholas Peregonow
+      Resource Report Contact:
+        Primary: Gratia Accounting Service
+      Submitter Contact:
+        Primary: Nicholas Peregonow
+    Disable: false
+    FQDN: gratia-itb-osg.fnal.gov
+    ID: 759
+    Services:
+      Gratia Collector:
+        Description: Gratia Collector
+    VOOwnership:
+      Fermilab: 100
+  gratia-transfer-osg:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Gratia Accounting Service
+      Miscellaneous Contact:
+        Primary: Gratia Accounting Service
+        Tertiary: Nicholas Peregonow
+      Resource Report Contact:
+        Primary: Gratia Accounting Service
+      Submitter Contact:
+        Primary: Nicholas Peregonow
+    Disable: false
+    FQDN: gratia-transfer-osg.fnal.gov
+    ID: 760
+    Services:
+      Gratia Collector:
+        Description: Gratia Collector
+    VOOwnership:
+      Fermilab: 100
+SupportCenter: Fermilab

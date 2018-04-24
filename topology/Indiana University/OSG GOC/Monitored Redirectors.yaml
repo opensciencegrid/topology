@@ -1,0 +1,82 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 430
+Resources:
+  Indiana StashCache Redirector 1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: redirector1.grid.iu.edu
+    ID: 775
+    Services:
+      XRootD HA component:
+        Description: any part of xrootd configured as HA
+        Details:
+          hidden: false
+          uri_override: stash-itb1.grid.iu.edu
+    VOOwnership:
+      OSG: 100
+  Indiana StashCache Redirector 2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: redirector2.grid.iu.edu
+    ID: 754
+    Services:
+      XRootD HA component:
+        Description: any part of xrootd configured as HA
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  stash1:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: true
+    FQDN: stash1.grid.iu.edu
+    ID: 783
+    Services:
+      XRootD HA component:
+        Description: any part of xrootd configured as HA
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  stash2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: true
+    FQDN: stash2.grid.iu.edu
+    ID: 784
+    Services:
+      XRootD HA component:
+        Description: any part of xrootd configured as HA
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: OSG-GOC

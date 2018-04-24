@@ -1,0 +1,100 @@
+Disable: false
+GridType: OSG Integration Test Bed Resource
+GroupID: 117
+Resources:
+  UC_ITB_CONDOR:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Suchandra Thapa
+      Resource Report Contact:
+        Primary: Suchandra Thapa
+        Secondary: Lincoln Bryant
+      Security Contact:
+        Primary: Suchandra Thapa
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: itbv-ce-condor.mwt2.org
+    ID: 374
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  UC_ITB_PBS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Miscellaneous Contact:
+        Primary: Suchandra Thapa
+      Resource Report Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+      Submitter Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: itbv-ce-pbs.mwt2.org
+    ID: 117
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  UC_ITB_SE_HADOOP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+      Submitter Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: itbv-bmh1.mwt2.org
+    ID: 390
+    Services:
+      SRMv1:
+        Description: SRM V1 Storage Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  UC_VTB:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Miscellaneous Contact:
+        Primary: Suchandra Thapa
+      Resource Report Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+      Submitter Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: vtbv-ce.mwt2.org
+    ID: 373
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: UChicago

@@ -1,0 +1,32 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 302
+Resources:
+  SUSQU-ATLAS-T3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Samya Zain
+        Secondary: Horst Severini
+      Miscellaneous Contact:
+        Primary: Samya Zain
+        Secondary: Horst Severini
+      Resource Report Contact:
+        Primary: Samya Zain
+        Secondary: Horst Severini
+      Security Contact:
+        Primary: Samya Zain
+        Secondary: Horst Severini
+      Submitter Contact:
+        Primary: Samya Zain
+    Disable: false
+    FQDN: hep-atlas.susqu.edu
+    ID: 385
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS_Tier3

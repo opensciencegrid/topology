@@ -1,0 +1,120 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 285
+Resources:
+  SBU_ATLAS_GRIDFTP1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: R. Dean Schamberger
+      Security Contact:
+        Primary: R. Dean Schamberger
+      Submitter Contact:
+        Primary: R. Dean Schamberger
+    Disable: false
+    FQDN: sbahead.physics.sunysb.edu
+    ID: 462
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: sbahead.physics.sunysb.edu:2811
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=SBU_Tier3,o=grid
+      StorageCapacityMax: 101
+      StorageCapacityMin: 0.5
+      TapeCapacity: 0
+  SBU_ATLAS_GRIDFTP2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: R. Dean Schamberger
+      Security Contact:
+        Primary: R. Dean Schamberger
+      Submitter Contact:
+        Primary: R. Dean Schamberger
+    Disable: false
+    FQDN: sbanfs.physics.sunysb.edu
+    ID: 480
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: sbanfs.physics.sunysb.edu:2811
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=SBU_Tier3,o=grid
+      StorageCapacityMax: 17
+      StorageCapacityMin: 0.5
+      TapeCapacity: 0
+  SBU_ATLAS_GRIDFTP3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: R. Dean Schamberger
+      Security Contact:
+        Primary: R. Dean Schamberger
+      Submitter Contact:
+        Primary: R. Dean Schamberger
+    Disable: false
+    FQDN: sbaxrd1.physics.sunysb.edu
+    ID: 483
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: sbaxrd1.physics.sunysb.edu:2811
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=SBU_Tier3,o=grid
+      StorageCapacityMax: 22
+      StorageCapacityMin: 0.5
+      TapeCapacity: 0
+  SBU_T3_Squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: R. Dean Schamberger
+      Resource Report Contact:
+        Primary: R. Dean Schamberger
+      Security Contact:
+        Primary: R. Dean Schamberger
+      Submitter Contact:
+        Primary: R. Dean Schamberger
+    Disable: false
+    FQDN: sbahead.physics.sunysb.edu
+    ID: 464
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS_Tier3

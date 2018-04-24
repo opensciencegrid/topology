@@ -1,0 +1,187 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 139
+Resources:
+  SWT2_CPB:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Resource Report Contact:
+        Primary: Patrick McGuigan
+      Security Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Submitter Contact:
+        Primary: Patrick McGuigan
+    Disable: false
+    FQDN: gk01.atlas-swt2.org
+    ID: 139
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.25
+      AccountingName: US-SWT2
+      HEPSPEC: 80436
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 2086
+      KSI2KMin: 2086
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=SWT2_CPB,o=grid
+      StorageCapacityMax: 4660
+      StorageCapacityMin: 4660
+      TapeCapacity: 0
+  SWT2_CPB_DEV:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Patrick McGuigan
+      Miscellaneous Contact:
+        Primary: Patrick McGuigan
+      Resource Report Contact:
+        Primary: Patrick McGuigan
+      Security Contact:
+        Primary: Patrick McGuigan
+      Submitter Contact:
+        Primary: Patrick McGuigan
+    Disable: false
+    FQDN: test06.atlas-swt2.org
+    ID: 398
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 30
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 10
+      KSI2KMin: 1
+      StorageCapacityMax: 2
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  SWT2_CPB_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Resource Report Contact:
+        Primary: Patrick McGuigan
+      Security Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Submitter Contact:
+        Primary: Mark Sosebee
+    Disable: false
+    FQDN: gk03.atlas-swt2.org
+    ID: 191
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  SWT2_CPB_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Resource Report Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Security Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Submitter Contact:
+        Primary: Patrick McGuigan
+    Disable: false
+    FQDN: fsquid.atlas-swt2.org
+    ID: 920
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      ATLAS: 100
+  SWT2_CPB_perfSONAR_bandwidth:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Mark Sosebee
+        Secondary: Patrick McGuigan
+      Resource Report Contact:
+        Primary: Mark Sosebee
+        Secondary: Patrick McGuigan
+      Security Contact:
+        Primary: Mark Sosebee
+        Secondary: Patrick McGuigan
+      Submitter Contact:
+        Primary: Mark Sosebee
+    Disable: false
+    FQDN: psuta02.atlas-swt2.org
+    ID: 587
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: psuta02.atlas-swt2.org
+    VOOwnership:
+      ATLAS: 100
+  SWT2_CPB_perfSONAR_latency:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Miscellaneous Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Resource Report Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Security Contact:
+        Primary: Patrick McGuigan
+        Secondary: Mark Sosebee
+      Submitter Contact:
+        Primary: Patrick McGuigan
+    Disable: false
+    FQDN: psuta01.atlas-swt2.org
+    ID: 520
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: psuta01.atlas-swt2.org
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS

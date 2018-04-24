@@ -1,0 +1,26 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 266
+Resources:
+  GOC_OIM:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: OSG Operations Center
+        Secondary: Scott Teige
+      Miscellaneous Contact:
+        Secondary: Kyle Gross
+        Tertiary: Tom Lee
+      Security Contact:
+        Primary: OSG Operations Center
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: oim.grid.iu.edu
+    ID: 315
+    Services:
+      OIM:
+        Description: OSG Information Management - Topology system
+    VOOwnership:
+      MIS: 100
+SupportCenter: OSG-GOC

@@ -1,0 +1,13 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 16
+Resources:
+  FIU-PG:
+    Active: false
+    Disable: true
+    FQDN: fiupg.ampath.net
+    ID: 16
+    Services:
+      CE:
+        Description: Compute Element
+SupportCenter: fGOC

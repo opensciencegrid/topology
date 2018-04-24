@@ -1,0 +1,29 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 13
+Resources:
+  Clemson-IT:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Michael Moore
+        Secondary: Randall Martin
+      Resource Report Contact:
+        Primary: Michael Moore
+      Security Contact:
+        Primary: Michael Moore
+        Secondary: Randall Martin
+      Submitter Contact:
+        Primary: Sam Hoover
+    Disable: true
+    FQDN: osggate.clemson.edu
+    ID: 13
+    Services:
+      CE:
+        Description: Compute Element
+    VOOwnership:
+      Engage: 25
+      GLOW: 25
+      LIGO: 25
+      nanoHUB: 25
+SupportCenter: Community Support Center

@@ -1,0 +1,146 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 404
+Resources:
+  SU-ITS-CE2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Richard Ameele
+      Miscellaneous Contact:
+        Primary: Richard Ameele
+      Resource Report Contact:
+        Primary: Richard Ameele
+      Security Contact:
+        Primary: Richard Ameele
+      Submitter Contact:
+        Primary: Richard Ameele
+    Disable: false
+    FQDN: its-condor-ce2.syr.edu
+    ID: 939
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  SU-ITS-CE3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Richard Ameele
+      Miscellaneous Contact:
+        Primary: Richard Ameele
+      Resource Report Contact:
+        Primary: Richard Ameele
+      Security Contact:
+        Primary: Richard Ameele
+      Submitter Contact:
+        Primary: Richard Ameele
+    Disable: false
+    FQDN: its-condor-ce3.syr.edu
+    ID: 907
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  SU-OG-CE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Richard Ameele
+      Miscellaneous Contact:
+        Primary: Richard Ameele
+      Resource Report Contact:
+        Primary: Richard Ameele
+      Security Contact:
+        Primary: Richard Ameele
+      Submitter Contact:
+        Primary: Richard Ameele
+    Disable: true
+    FQDN: its-condor-ce.syr.edu
+    ID: 650
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  SU-OG-CE1:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Richard Ameele
+      Miscellaneous Contact:
+        Primary: Richard Ameele
+      Resource Report Contact:
+        Primary: Richard Ameele
+      Security Contact:
+        Primary: Richard Ameele
+      Submitter Contact:
+        Primary: Richard Ameele
+    Disable: true
+    FQDN: its-condor-ce1.syr.edu
+    ID: 817
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  SU-OG-squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Richard Ameele
+      Miscellaneous Contact:
+        Primary: Richard Ameele
+      Resource Report Contact:
+        Primary: Richard Ameele
+      Security Contact:
+        Primary: Richard Ameele
+      Submitter Contact:
+        Primary: Richard Ameele
+    Disable: false
+    FQDN: its-condor-squid1.syr.edu
+    ID: 652
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      OSG: 100
+  SU-OSG-CONNECT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Lincoln Bryant
+        Secondary: Richard Ameele
+      Miscellaneous Contact:
+        Primary: Lincoln Bryant
+        Secondary: Richard Ameele
+      Resource Report Contact:
+        Primary: Lincoln Bryant
+        Secondary: Richard Ameele
+      Security Contact:
+        Primary: Lincoln Bryant
+        Secondary: Richard Ameele
+      Submitter Contact:
+        Primary: Lincoln Bryant
+    Disable: false
+    FQDN: rccf-osg.ci-connect.net
+    ID: 782
+    Services:
+      Connect:
+        Description: Connect Glidein Factory
+        Details:
+          hidden: false
+          uri_override: osgconnect@its-condor-submit.syr.edu/condor
+    VOOwnership:
+      OSG: 100
+SupportCenter: Community Support Center

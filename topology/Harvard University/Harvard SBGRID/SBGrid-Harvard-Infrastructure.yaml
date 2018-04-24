@@ -1,0 +1,33 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 339
+Resources:
+  SBGrid-Harvard-Security:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Peter Doherty
+        Secondary: Ian Stokes-Rees
+      Miscellaneous Contact:
+        Primary: Peter Doherty
+        Secondary: Ian Stokes-Rees
+        Tertiary: Piotr Sliz
+      Resource Report Contact:
+        Secondary: Peter Doherty
+        Tertiary: Ian Stokes-Rees
+      Security Contact:
+        Primary: Peter Doherty
+        Secondary: Ian Stokes-Rees
+      Submitter Contact:
+        Primary: Ian Stokes-Rees
+    Disable: false
+    FQDN: hpc.sbgrid.org
+    ID: 298
+    Services:
+      GUMS Server:
+        Description: GUMS Server
+      VOMS Server:
+        Description: VOMS Server
+    VOOwnership:
+      SBGrid: 100
+SupportCenter: SBGrid

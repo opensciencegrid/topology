@@ -1,0 +1,29 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 380
+Resources:
+  cns1:
+    Active: true
+    Disable: false
+    FQDN: cns1.cns.iu.edu
+    ID: 561
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CSIU: 100
+  cns2:
+    Active: true
+    Disable: false
+    FQDN: cns2.cns.iu.edu
+    ID: 562
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CSIU: 100
+SupportCenter: OSG-GOC

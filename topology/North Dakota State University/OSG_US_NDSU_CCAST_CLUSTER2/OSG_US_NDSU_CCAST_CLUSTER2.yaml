@@ -1,0 +1,43 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 480
+Resources:
+  OSG_US_NDSU_CCAST_CLUSTER2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+      Submitter Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: hosted-ce09.grid.uchicago.edu
+    ID: 926
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  OSG_US_NDSU_CCAST_CLUSTER3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Suchandra Thapa
+      Security Contact:
+        Primary: Suchandra Thapa
+      Submitter Contact:
+        Primary: Suchandra Thapa
+    Disable: false
+    FQDN: hosted-ce11.grid.uchicago.edu
+    ID: 931
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+SupportCenter: UChicago

@@ -1,0 +1,94 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 293
+Resources:
+  uprm-cms-ce:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+      Miscellaneous Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+      Resource Report Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+      Security Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+      Submitter Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+    Disable: false
+    FQDN: cms-grid0.hep.uprm.edu
+    ID: 369
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cms-grid0.hep.uprm.edu
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=uprm-cms,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  uprm-cms-gums:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+      Resource Report Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+      Security Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+      Submitter Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+    Disable: false
+    FQDN: cms-squid0.hep.uprm.edu
+    ID: 524
+    Services:
+      GUMS Server:
+        Description: GUMS Server
+    VOOwnership:
+      CMS: 100
+  uprm-cms-se:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+      Miscellaneous Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+      Resource Report Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+      Security Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+      Submitter Contact:
+        Primary: Juan Eduardo Ramirez Vargas
+    Disable: false
+    FQDN: cms-se.hep.uprm.edu
+    ID: 372
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=uprm-cms,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+SupportCenter: USCMS_Tier3

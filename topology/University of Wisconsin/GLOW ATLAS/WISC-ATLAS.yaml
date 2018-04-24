@@ -1,0 +1,191 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 274
+Resources:
+  WISC-ATLAS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wen Guan
+      Miscellaneous Contact:
+        Primary: Wen Guan
+      Resource Report Contact:
+        Primary: Wen Guan
+      Security Contact:
+        Primary: Wen Guan
+      Submitter Contact:
+        Primary: Wen Guan
+    Disable: false
+    FQDN: higgs08.cs.wisc.edu
+    ID: 341
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: higgs08.cs.wisc.edu:2119
+    VOOwnership:
+      ATLAS: 100
+  WISC-ATLAS-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wen Guan
+      Miscellaneous Contact:
+        Secondary: Wen Guan
+      Resource Report Contact:
+        Secondary: Wen Guan
+      Security Contact:
+        Primary: Wen Guan
+      Submitter Contact:
+        Primary: Wen Guan
+    Disable: false
+    FQDN: atlas07.chtc.wisc.edu
+    ID: 342
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: atlas07.chtc.wisc.edu:8443
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 612
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 1625
+      KSI2KMin: 1300
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=WISC-ATLAS,o=grid
+      StorageCapacityMax: 320
+      StorageCapacityMin: 300
+      TapeCapacity: 1
+  WISC-ATLAS-SE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wen Guan
+      Security Contact:
+        Primary: Wen Guan
+      Submitter Contact:
+        Primary: Wen Guan
+    Disable: false
+    FQDN: c140.chtc.wisc.edu
+    ID: 629
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: c140.chtc.wisc.edu:8443
+    VOOwnership:
+      ATLAS: 100
+  WISC-ATLAS-SUBMIT1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wen Guan
+      Resource Report Contact:
+        Primary: Wen Guan
+      Security Contact:
+        Primary: Wen Guan
+      Submitter Contact:
+        Primary: Wen Guan
+    Disable: false
+    FQDN: atlas02.chtc.wisc.edu
+    ID: 858
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: atlas02.chtc.wisc.edu
+    VOOwnership:
+      ATLAS: 100
+  WISC-ATLAS-SUBMIT2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wen Guan
+      Security Contact:
+        Primary: Wen Guan
+      Submitter Contact:
+        Primary: Wen Guan
+    Disable: false
+    FQDN: atlas03.chtc.wisc.edu
+    ID: 859
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: atlas03.chtc.wisc.edu
+    VOOwnership:
+      ATLAS: 100
+  WISC-ATLAS-SUBMIT3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wen Guan
+      Security Contact:
+        Primary: Wen Guan
+      Submitter Contact:
+        Primary: Wen Guan
+    Disable: false
+    FQDN: atlas05.chtc.wisc.edu
+    ID: 860
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: atlas05.chtc.wisc.edu
+    VOOwnership:
+      ATLAS: 100
+  WISC-ATLAS-SUBMIT4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wen Guan
+      Security Contact:
+        Primary: Wen Guan
+      Submitter Contact:
+        Primary: Wen Guan
+    Disable: false
+    FQDN: atlas06.chtc.wisc.edu
+    ID: 861
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+          uri_override: atlas06.chtc.wisc.edu
+    VOOwnership:
+      ATLAS: 100
+  WISC_ATLAS_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Wen Guan
+      Miscellaneous Contact:
+        Primary: Wen Guan
+      Resource Report Contact:
+        Primary: Wen Guan
+      Security Contact:
+        Primary: Wen Guan
+      Submitter Contact:
+        Primary: Wen Guan
+    Disable: false
+    FQDN: c091.chtc.wisc.edu
+    ID: 573
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+          uri_override: c091.chtc.wisc.edu:2119
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS_Tier3

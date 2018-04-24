@@ -1,0 +1,67 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 336
+Resources:
+  OSG_FLOCK:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Mats Rynge
+      Miscellaneous Contact:
+        Primary: Mats Rynge
+      Resource Report Contact:
+        Primary: Mats Rynge
+      Security Contact:
+        Primary: Mats Rynge
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: osg-flock.grid.iu.edu
+    ID: 593
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
+  OSG_XSEDE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Mats Rynge
+        Secondary: Scott Teige
+      Miscellaneous Contact:
+        Primary: Mats Rynge
+        Secondary: Scott Teige
+      Security Contact:
+        Primary: Mats Rynge
+        Secondary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: true
+    FQDN: osg-xsede.grid.iu.edu
+    ID: 451
+    Services:
+      Apache Server:
+        Description: Apache Server
+    VOOwnership:
+      Engage: 100
+  XD-Login:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Mats Rynge
+      Security Contact:
+        Primary: Mats Rynge
+      Submitter Contact:
+        Primary: Mats Rynge
+    Disable: false
+    FQDN: xd-login.opensciencegrid.org
+    ID: 643
+    Services:
+      Apache Server:
+        Description: Apache Server
+    VOOwnership:
+      OSG: 100
+SupportCenter: OSG-GOC

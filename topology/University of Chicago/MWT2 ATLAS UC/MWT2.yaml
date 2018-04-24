@@ -1,0 +1,848 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 310
+Resources:
+  MWT2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+    Disable: false
+    FQDN: osg-gk.mwt2.org
+    ID: 375
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.58
+      AccountingName: US-MWT2
+      HEPSPEC: 215825
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 53956.25
+      KSI2KMin: 53956.25
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MWT2,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  MWT2-COREOS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Lincoln Bryant
+        Secondary: Judith Stephen
+      Miscellaneous Contact:
+        Primary: Lincoln Bryant
+        Secondary: Judith Stephen
+      Resource Report Contact:
+        Primary: Lincoln Bryant
+        Secondary: Judith Stephen
+      Security Contact:
+        Primary: Lincoln Bryant
+        Secondary: Judith Stephen
+      Submitter Contact:
+        Primary: Lincoln Bryant
+    Disable: false
+    FQDN: condor.grid.uchicago.edu
+    ID: 846
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+    VOOwnership:
+      ATLAS: 100
+  MWT2_CE_IU:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: iut2-gk.mwt2.org
+    ID: 470
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MWT2,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  MWT2_CE_UC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: Nathan Yehle (disabled)
+    Disable: false
+    FQDN: uct2-gk.mwt2.org
+    ID: 471
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MWT2,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  MWT2_CE_UIUC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: mwt2-gk.campuscluster.illinois.edu
+    ID: 490
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MWT2,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  MWT2_CVMFS_IU:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: iut2-cvmfs.mwt2.org
+    ID: 912
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      ATLAS: 100
+  MWT2_CVMFS_UC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: uct2-cvmfs.mwt2.org
+    ID: 913
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      ATLAS: 100
+  MWT2_CVMFS_UIUC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: mwt2-cvmfs.campuscluster.illinois.edu
+    ID: 914
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      ATLAS: 100
+  MWT2_SQUID_IU:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: iut2-squid.mwt2.org
+    ID: 909
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      ATLAS: 100
+  MWT2_SQUID_UC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: uct2-squid.mwt2.org
+    ID: 910
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      ATLAS: 100
+  MWT2_SQUID_UIUC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: mwt2-squid.campuscluster.illinois.edu
+    ID: 911
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      ATLAS: 100
+  MWT2_UC_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Lincoln Bryant
+        Secondary: David Lesny
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: Lincoln Bryant
+        Secondary: Judith Stephen
+        Tertiary: David Lesny
+      Security Contact:
+        Primary: Lincoln Bryant
+        Secondary: Judith Stephen
+    Disable: false
+    FQDN: uct2-dc1.uchicago.edu
+    FQDNAliases:
+    - uct2-dc1.uchicago.edu
+    ID: 70
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=MWT2,o=grid
+      StorageCapacityMax: 7474
+      StorageCapacityMin: 7474
+      TapeCapacity: 0
+  US-MWT2_IU BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: iut2-net2.iu.edu
+    ID: 581
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: iut2-net2.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU BW(TB):
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: iut2-net4.iu.edu
+    ID: 672
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: iut2-net4.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU BW2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: iut2-net6.iu.edu
+    ID: 675
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: iut2-net6.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU BW3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: iut2-net8.iu.edu
+    ID: 676
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: iut2-net8.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU LAT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: iut2-net1.iu.edu
+    ID: 517
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: iut2-net1.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU LAT(TB):
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: iut2-net3.iu.edu
+    ID: 671
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: iut2-net3.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU LAT2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: Judith Stephen
+        Secondary: Frederick Luehring
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: iut2-net5.iu.edu
+    ID: 673
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: iut2-net5.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU LAT3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: iut2-net7.iu.edu
+    ID: 674
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: iut2-net7.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_UC BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: uct2-net2.mwt2.org
+    ID: 580
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: uct2-net2.mwt2.org
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_UC BW(TB):
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: uct2-net4.mwt2.org
+    ID: 670
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: uct2-net4.mwt2.org
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_UC LAT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: uct2-net1.mwt2.org
+    ID: 516
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: uct2-net1.mwt2.org
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_UC LAT(TB):
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: uct2-net3.mwt2.org
+    ID: 669
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: uct2-net3.mwt2.org
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_UIUC BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: mwt2-ps02.campuscluster.illinois.edu
+    ID: 582
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: mwt2-ps02.campuscluster.illinois.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_UIUC BW(TB):
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: mwt2-ps04.campuscluster.illinois.edu
+    ID: 791
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: mwt2-ps04.campuscluster.illinois.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_UIUC LAT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: mwt2-ps01.campuscluster.illinois.edu
+    ID: 518
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: mwt2-ps01.campuscluster.illinois.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_UIUC LAT(TB):
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Resource Report Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+        Tertiary: Judith Stephen
+      Security Contact:
+        Primary: David Lesny
+        Secondary: Lincoln Bryant
+      Submitter Contact:
+        Primary: David Lesny
+    Disable: false
+    FQDN: mwt2-ps03.campuscluster.illinois.edu
+    ID: 790
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: mwt2-ps03.campuscluster.illinois.edu
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS

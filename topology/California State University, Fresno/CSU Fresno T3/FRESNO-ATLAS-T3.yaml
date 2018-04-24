@@ -1,0 +1,27 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 340
+Resources:
+  FSU-TEST-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Jay Fowler
+        Secondary: Harinder Singh Bawa
+      Security Contact:
+        Primary: Jay Fowler
+        Secondary: Harinder Singh Bawa
+      Submitter Contact:
+        Primary: Sergey Uzunyan
+    Disable: false
+    FQDN: t3nfs.atlas.csufresno.edu
+    ID: 459
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: t3nfs.atlas.csufresno.edu:10443
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS_Tier3

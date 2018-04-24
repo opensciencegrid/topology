@@ -1,0 +1,25 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 361
+Resources:
+  Nebraska_glidein_hcc_crabserver:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Garhan Attebury
+      Security Contact:
+        Primary: Igor Sfiligoi
+        Secondary: Garhan Attebury
+      Submitter Contact:
+        Primary: Igor Sfiligoi
+    Disable: false
+    FQDN: hcc-crabserver.unl.edu
+    ID: 503
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+SupportCenter: USCMS_Tier2

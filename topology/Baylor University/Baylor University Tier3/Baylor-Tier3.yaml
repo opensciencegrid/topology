@@ -1,0 +1,87 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 264
+Resources:
+  Baylor-Tier3-CE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: James Hutcheson
+        Secondary: Kenichi Hatakeyama
+      Miscellaneous Contact:
+        Primary: James Hutcheson
+        Secondary: Kenichi Hatakeyama
+      Resource Report Contact:
+        Primary: James Hutcheson
+        Secondary: Kenichi Hatakeyama
+      Security Contact:
+        Primary: James Hutcheson
+        Secondary: Kenichi Hatakeyama
+      Submitter Contact:
+        Primary: Kenichi Hatakeyama
+    Disable: true
+    FQDN: kodiak-ce.baylor.edu
+    ID: 314
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://kodiak-ce.baylor.edu
+    VOOwnership:
+      CMS: 0
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 700.4
+      KSI2KMin: 698.4
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Baylor-Tier3,o=grid
+      StorageCapacityMax: 300
+      StorageCapacityMin: 100
+      TapeCapacity: 200
+  Baylor-Tier3-SE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: James Hutcheson
+        Secondary: Kenichi Hatakeyama
+      Miscellaneous Contact:
+        Primary: Kenichi Hatakeyama
+      Resource Report Contact:
+        Primary: James Hutcheson
+        Secondary: Kenichi Hatakeyama
+      Security Contact:
+        Primary: James Hutcheson
+        Secondary: Kenichi Hatakeyama
+      Submitter Contact:
+        Primary: James Hutcheson
+    Disable: true
+    FQDN: kodiak-se.baylor.edu
+    ID: 400
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 0
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 700.4
+      KSI2KMin: 698.4
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=Baylor-Tier3,o=grid
+      StorageCapacityMax: 40
+      StorageCapacityMin: 20
+      TapeCapacity: 200
+SupportCenter: USCMS_Tier3

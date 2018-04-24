@@ -1,0 +1,22 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 444
+Resources:
+  CILogon Certificate Provider:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: cilogon.org
+    ID: 820
+    Services:
+      Certificate Provider:
+        Description: Certificate Provider
+    VOOwnership:
+      OSG: 100
+SupportCenter: OSG-GOC

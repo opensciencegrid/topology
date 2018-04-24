@@ -1,0 +1,248 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 432
+Resources:
+  Cassandra 1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shawn McKee
+      Miscellaneous Contact:
+        Primary: Shawn McKee
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: cassandra1.grid.iu.edu
+    ID: 749
+    Services:
+      Cassandra DB:
+        Description: Cassandra component of perfsonar
+        Details:
+          endpoint: http://steige.grid.iu.edu/steige/textw.html
+    VOOwnership:
+      Ops: 100
+  Cassandra 2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shawn McKee
+      Miscellaneous Contact:
+        Primary: Shawn McKee
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: cassandra2.grid.iu.edu
+    ID: 750
+    Services:
+      Cassandra DB:
+        Description: Cassandra component of perfsonar
+        Details:
+          endpoint: http://steige.grid.iu.edu/steige/textw.html
+    VOOwnership:
+      Ops: 100
+  Cassandra 3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shawn McKee
+        Secondary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: cassandra3.grid.iu.edu
+    ID: 772
+    Services:
+      Cassandra DB:
+        Description: Cassandra component of perfsonar
+        Details:
+          endpoint: http://steige.grid.iu.edu/steige/textw.html
+    VOOwnership:
+      Ops: 100
+  meshconfig:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: meshconfig.grid.iu.edu
+    ID: 917
+    Services:
+      perfsonar data store:
+        Description: Data storage fro perfsonar
+        Details:
+          endpoint: meshconfig.grid.iu.edu
+    VOOwnership:
+      Ops: 100
+  perfsonar1:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: true
+    FQDN: perfsonar1.grid.iu.edu
+    ID: 787
+    Services:
+      perfsonar data store:
+        Description: Data storage fro perfsonar
+        Details:
+          endpoint: http://steige.grid.iu.edu/steige/textw.html
+    VOOwnership:
+      OSG: 100
+  perfsonar2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: perfsonar2.grid.iu.edu
+    ID: 788
+    Services:
+      perfsonar data store:
+        Description: Data storage fro perfsonar
+        Details:
+          endpoint: http://steige.grid.iu.edu/steige/textw.html
+    VOOwnership:
+      OSG: 100
+  psds0:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shawn McKee
+      Miscellaneous Contact:
+        Primary: Shawn McKee
+        Secondary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: psds0.grid.iu.edu
+    ID: 751
+    Services:
+      perfsonar data store:
+        Description: Data storage fro perfsonar
+        Details:
+          endpoint: psds0.grid.iu.edu
+    VOOwnership:
+      Ops: 100
+  psds1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shawn McKee
+      Miscellaneous Contact:
+        Primary: Shawn McKee
+        Secondary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: psds1.grid.iu.edu
+    ID: 752
+    Services:
+      perfsonar data store:
+        Description: Data storage fro perfsonar
+        Details:
+          endpoint: psds1.grid.iu.edu
+    VOOwnership:
+      Ops: 100
+  psds2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shawn McKee
+      Miscellaneous Contact:
+        Primary: Shawn McKee
+        Secondary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: psds2.grid.iu.edu
+    ID: 753
+    Services:
+      perfsonar data store:
+        Description: Data storage fro perfsonar
+        Details:
+          endpoint: psds2.grid.iu.edu
+    VOOwnership:
+      Ops: 100
+  psetf:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shawn McKee
+        Secondary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: psetf.grid.iu.edu
+    ID: 918
+    Services:
+      perfsonar data store:
+        Description: Data storage fro perfsonar
+        Details:
+          endpoint: psetf.grid.iu.edu
+    VOOwnership:
+      Ops: 100
+  psrsv:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shawn McKee
+        Secondary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: psrsv.grid.iu.edu
+    ID: 935
+    Services:
+      perfsonar data store:
+        Description: Data storage fro perfsonar
+        Details:
+          endpoint: psrsv.grid.iu.edu
+    VOOwnership:
+      Ops: 100
+  psvm01:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shawn McKee
+        Secondary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: psvm01.grid.iu.edu
+    ID: 919
+    Services:
+      Virtual Machine Host:
+        Description: Physical machine hosting VMs
+    VOOwnership:
+      Ops: 100
+SupportCenter: OSG-GOC

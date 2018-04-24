@@ -1,0 +1,24 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 217
+Resources:
+  UCHC_CBG:
+    Active: true
+    ContactLists:
+      Resource Report Contact:
+        Primary: Jeffrey Dutton
+      Security Contact:
+        Primary: Jeffrey Dutton
+      Submitter Contact:
+        Primary: Jeffrey Dutton
+    Disable: false
+    FQDN: vdgateway.vcell.uchc.edu
+    ID: 215
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CompBioGrid: 100
+SupportCenter: Community Support Center

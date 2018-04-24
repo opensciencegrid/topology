@@ -1,0 +1,32 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 424
+Resources:
+  Georgia_Tech_LIGO_Submit_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Peter Couvares
+        Secondary: Paul Manno
+      Miscellaneous Contact:
+        Primary: Paul Manno
+        Secondary: Mehmet Belgin
+      Resource Report Contact:
+        Primary: Paul Manno
+        Secondary: Mehmet Belgin
+      Security Contact:
+        Primary: Peter Couvares
+        Secondary: Paul Manno
+      Submitter Contact:
+        Primary: Peter Couvares
+    Disable: false
+    FQDN: ligo-6.pace.gatech.edu
+    ID: 736
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      LIGO: 100
+SupportCenter: Advanced LIGO

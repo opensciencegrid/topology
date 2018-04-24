@@ -1,0 +1,129 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 159
+Resources:
+  UMD_GUMS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shabnam Jabeen
+      Resource Report Contact:
+        Primary: Shabnam Jabeen
+      Security Contact:
+        Primary: Shabnam Jabeen
+      Submitter Contact:
+        Primary: Marguerite Tonjes
+    Disable: false
+    FQDN: hepcmsdev-6.umd.edu
+    ID: 550
+    Services:
+      GUMS Server:
+        Description: GUMS Server
+    VOOwnership:
+      CMS: 100
+  umd-ce:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shabnam Jabeen
+      Miscellaneous Contact:
+        Secondary: Shabnam Jabeen
+      Resource Report Contact:
+        Primary: Shabnam Jabeen
+      Security Contact:
+        Secondary: Shabnam Jabeen
+      Submitter Contact:
+        Primary: Marguerite Tonjes
+    Disable: false
+    FQDN: hepcms-1.umd.edu
+    ID: 796
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=umd-cms,o=grid
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 5.5
+  umd-cms:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shabnam Jabeen
+      Miscellaneous Contact:
+        Primary: Shabnam Jabeen
+        Tertiary: Nicholas John Hadley
+      Resource Report Contact:
+        Primary: Shabnam Jabeen
+        Tertiary: Nicholas John Hadley
+      Security Contact:
+        Primary: Shabnam Jabeen
+      Submitter Contact:
+        Primary: Malina Kirn
+    Disable: false
+    FQDN: hepcms-0.umd.edu
+    ID: 159
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=umd-cms,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  umd-gridftp:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shabnam Jabeen
+      Resource Report Contact:
+        Primary: Shabnam Jabeen
+      Security Contact:
+        Primary: Shabnam Jabeen
+    Disable: false
+    FQDN: hepcms-gridftp.umd.edu
+    ID: 831
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+  umd-squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Shabnam Jabeen
+      Security Contact:
+        Primary: Shabnam Jabeen
+      Submitter Contact:
+        Primary: Shabnam Jabeen
+    Disable: false
+    FQDN: hepcms-squid.umd.edu
+    ID: 863
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+SupportCenter: USCMS_Tier3

@@ -1,0 +1,45 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 429
+Resources:
+  PNNL_HEP_CE00:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Malachi Schram
+        Secondary: David Earl Cowley
+      Miscellaneous Contact:
+        Primary: Jan Strube
+      Resource Report Contact:
+        Primary: Malachi Schram
+        Secondary: David Earl Cowley
+      Security Contact:
+        Primary: Malachi Schram
+        Secondary: David Earl Cowley
+      Submitter Contact:
+        Primary: Malachi Schram
+    Disable: false
+    FQDN: gridgk00.hep.pnnl.gov
+    ID: 746
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      Belle: 33
+      Cdms: 34
+      ILC: 33
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 30000
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 7500
+      KSI2KMin: 1250
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=PNNL_HEP,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+SupportCenter: PNNL

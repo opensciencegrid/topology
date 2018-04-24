@@ -1,0 +1,43 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 401
+Resources:
+  GratiaWeb 1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: gratiaweb1.grid.iu.edu
+    ID: 645
+    Services:
+      Apache Server:
+        Description: Apache Server
+      GratiaWeb:
+        Description: view gratia data
+    VOOwnership:
+      OSG: 100
+  GratiaWeb 2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: gratiaweb2.grid.iu.edu
+    ID: 646
+    Services:
+      Apache Server:
+        Description: Apache Server
+      GratiaWeb:
+        Description: view gratia data
+    VOOwnership:
+      OSG: 100
+SupportCenter: OSG-GOC

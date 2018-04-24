@@ -1,0 +1,17 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 362
+Resources:
+  ILS_compute:
+    Active: true
+    Disable: false
+    FQDN: jupiter.ils.indiana.edu
+    ID: 510
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CSIU: 100
+SupportCenter: OSG-GOC

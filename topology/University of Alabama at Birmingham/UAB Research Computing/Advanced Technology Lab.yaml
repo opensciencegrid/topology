@@ -1,0 +1,24 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 331
+Resources:
+  ATLab testing node:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: William M Bradley
+      Resource Report Contact:
+        Secondary: William M Bradley
+      Security Contact:
+        Secondary: William M Bradley
+    Disable: false
+    FQDN: rocksvmfe.uabgrid.uab.edu
+    ID: 446
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true
+    VOOwnership:
+      SURAgrid: 100
+SupportCenter: SURAgrid GOC

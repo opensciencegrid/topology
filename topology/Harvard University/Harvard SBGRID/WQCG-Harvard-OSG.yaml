@@ -1,0 +1,33 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 229
+Resources:
+  WQCG-Harvard-OSG:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Ian Levesque
+      Miscellaneous Contact:
+        Primary: Ian Levesque
+      Resource Report Contact:
+        Primary: Ian Levesque
+        Secondary: Michael (Mick) Timony
+      Security Contact:
+        Primary: Ian Levesque
+      Submitter Contact:
+        Primary: Peter Doherty
+    Disable: true
+    FQDN: tuscany.med.harvard.edu
+    ID: 227
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      SBGrid: 100
+SupportCenter: SBGrid

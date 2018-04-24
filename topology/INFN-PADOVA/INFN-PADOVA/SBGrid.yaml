@@ -1,0 +1,28 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 338
+Resources:
+  INFNPD-GlideinWMS-Schedd:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Marco Verlato
+      Miscellaneous Contact:
+        Primary: Marco Verlato
+      Resource Report Contact:
+        Primary: Marco Verlato
+      Security Contact:
+        Primary: Marco Verlato
+      Submitter Contact:
+        Primary: Marco Verlato
+    Disable: false
+    FQDN: ui-wenmr.pd.infn.it
+    ID: 457
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      ENMR: 100
+SupportCenter: GGUS

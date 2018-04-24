@@ -1,0 +1,56 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 415
+Resources:
+  PerfSONAR_CBPF_bw:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Pedro Henrique Diniz da Silva
+      Security Contact:
+        Primary: Pedro Henrique Diniz da Silva
+      Submitter Contact:
+        Primary: Pedro Henrique Diniz da Silva
+    Disable: false
+    FQDN: ps02.cat.cbpf.br
+    ID: 704
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: ps02.cat.cbpf.br
+    VOOwnership:
+      LHCb: 100
+  PerfSONAR_CBPF_lt:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Pedro Henrique Diniz da Silva
+      Resource Report Contact:
+        Primary: Pedro Henrique Diniz da Silva
+      Security Contact:
+        Primary: Pedro Henrique Diniz da Silva
+      Submitter Contact:
+        Primary: Pedro Henrique Diniz da Silva
+    Disable: false
+    FQDN: ps01.cat.cbpf.br
+    ID: 703
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: ps01.cat.cbpf.br
+    VOOwnership:
+      LHCb: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 500
+      KSI2KMin: 100
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 5.5
+SupportCenter: CERN

@@ -1,0 +1,13 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 205
+Resources:
+  GPN_KSU_CLUSTER:
+    Active: false
+    Disable: true
+    FQDN: cluster.greatplains.net
+    ID: 205
+    Services:
+      CE:
+        Description: Compute Element
+SupportCenter: GPN

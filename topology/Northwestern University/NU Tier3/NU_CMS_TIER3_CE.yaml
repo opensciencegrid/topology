@@ -1,0 +1,17 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 376
+Resources:
+  NU_CMS_TIER3_CE:
+    Active: true
+    Disable: false
+    FQDN: ttgrid03.ci.northwestern.edu
+    ID: 552
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+SupportCenter: USCMS_Tier3

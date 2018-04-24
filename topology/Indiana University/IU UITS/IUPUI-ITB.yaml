@@ -1,0 +1,31 @@
+Disable: true
+GridType: OSG Integration Test Bed Resource
+GroupID: 52
+Resources:
+  IUPUI-ITB:
+    Active: false
+    Disable: true
+    FQDN: feynman.uits.iupui.edu
+    FQDNAliases:
+    - quick.grid.iu.edu
+    - rob.grid.iu.edu
+    ID: 52
+    Services:
+      CE:
+        Description: Compute Element
+      GridFtp:
+        Description: GridFtp Storage Element
+    VOOwnership:
+      MIS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=IUPUI-ITB,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: OSG-GOC

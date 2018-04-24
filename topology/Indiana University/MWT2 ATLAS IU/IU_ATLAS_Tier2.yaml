@@ -1,0 +1,13 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 53
+Resources:
+  IU_ATLAS_Tier2:
+    Active: false
+    Disable: true
+    FQDN: atlas.iu.edu
+    ID: 53
+    Services:
+      CE:
+        Description: Compute Element
+SupportCenter: USATLAS

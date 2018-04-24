@@ -1,0 +1,30 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 315
+Resources:
+  GCVO_UC_CE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Diego Alberto Rincon Yanez
+      Miscellaneous Contact:
+        Primary: Diego Alberto Rincon Yanez
+      Resource Report Contact:
+        Primary: Diego Alberto Rincon Yanez
+      Security Contact:
+        Primary: Diego Alberto Rincon Yanez
+      Submitter Contact:
+        Primary: Diego Alberto Rincon Yanez
+    Disable: false
+    FQDN: gc.ucatolica.edu.co
+    ID: 414
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: gc.ucatolica.edu.co
+    VOOwnership:
+      GCEDU: 50
+      GCVO: 50
+SupportCenter: GC

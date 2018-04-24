@@ -1,0 +1,13 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 32
+Resources:
+  GRASE-HWI-IDUN:
+    Active: false
+    Disable: true
+    FQDN: idun.hwi.buffalo.edu
+    ID: 32
+    Services:
+      CE:
+        Description: Compute Element
+SupportCenter: NYSGRID

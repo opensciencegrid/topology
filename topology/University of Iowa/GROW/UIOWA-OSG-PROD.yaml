@@ -1,0 +1,13 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 125
+Resources:
+  UIOWA-OSG-PROD:
+    Active: false
+    Disable: true
+    FQDN: rtgrid1.its.uiowa.edu
+    ID: 125
+    Services:
+      CE:
+        Description: Compute Element
+SupportCenter: USCMS_Tier3

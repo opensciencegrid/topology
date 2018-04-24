@@ -1,0 +1,54 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 87
+Resources:
+  OUHEP_OSG:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Resource Report Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+        Tertiary: Joel Snow
+      Security Contact:
+        Primary: Horst Severini
+        Secondary: Christopher Arnold Walker
+      Submitter Contact:
+        Primary: Horst Severini
+    Disable: false
+    FQDN: ouhep0.nhn.ou.edu
+    FQDNAliases:
+    - ouhep2.nhn.ou.edu
+    ID: 87
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: ouhep2.nhn.ou.edu:8443
+    VOOwnership:
+      ATLAS: 34
+      DOSAR: 33
+      DZero: 33
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=OUHEP_OSG,o=grid
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: USATLAS

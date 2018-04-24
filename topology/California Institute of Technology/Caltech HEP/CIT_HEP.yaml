@@ -1,0 +1,29 @@
+Disable: true
+GridType: OSG Production Resource
+GroupID: 292
+Resources:
+  CIT_HEP_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary: Samir Cury Siqueira
+      Miscellaneous Contact:
+        Primary: Michael Thomas
+      Resource Report Contact:
+        Secondary: Samir Cury Siqueira
+        Tertiary: Michael Thomas
+      Security Contact:
+        Secondary: Samir Cury Siqueira
+      Submitter Contact:
+        Primary: Michael Thomas
+    Disable: true
+    FQDN: osg-se.hep.caltech.edu
+    ID: 367
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+SupportCenter: Community Support Center

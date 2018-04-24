@@ -1,0 +1,28 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 201
+Resources:
+  GLOW_MINIOSG_UCSB:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary: Ken Hahn
+      Miscellaneous Contact:
+        Primary: Ken Hahn
+      Resource Report Contact:
+        Primary: Ken Hahn
+      Security Contact:
+        Primary: Ken Hahn
+      Submitter Contact:
+        Primary: Ken Hahn
+    Disable: true
+    FQDN: quiver.mrl.ucsb.edu
+    ID: 201
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+SupportCenter: GLOW-TECH

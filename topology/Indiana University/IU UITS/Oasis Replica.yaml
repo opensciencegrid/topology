@@ -1,0 +1,24 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 366
+Resources:
+  OSG Oasis replica:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary: Scott Teige
+      Security Contact:
+        Primary: Scott Teige
+      Submitter Contact:
+        Primary: Scott Teige
+    Disable: false
+    FQDN: oasis-replica.opensciencegrid.org
+    ID: 530
+    Services:
+      CVMFS Stratum-1:
+        Description: CVMFS server mirroring CVMFS Stratum-0
+        Details:
+          endpoint: oasis-replica.opensciencegrid.org
+    VOOwnership:
+      OSG: 100
+SupportCenter: OSG-GOC

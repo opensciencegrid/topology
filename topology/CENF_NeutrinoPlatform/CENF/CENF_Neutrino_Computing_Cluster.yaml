@@ -1,0 +1,17 @@
+Disable: false
+GridType: OSG Production Resource
+GroupID: 450
+Resources:
+  CENF_NeutrinoCluster:
+    Active: true
+    Disable: false
+    FQDN: neut00.cern.ch
+    ID: 834
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      DUNE: 100
+SupportCenter: Fermilab_FIFE_Offsite
