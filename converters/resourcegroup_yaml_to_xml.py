@@ -1,4 +1,22 @@
 #!/usr/bin/env python3
+"""Converts a directory tree containing resource topology data to a single
+XML document.
+
+Usage as a script:
+
+    resourcegroup_yaml_to_xml.py <input directory> [<output file>]
+
+If output file not specified, results are printed to stdout.
+
+Usage as a module
+
+    xml = resourcegroup_yaml_to_xml(input_dir[, output_file])
+
+where the return value `xml` is a string.
+
+"""
+
+
 import urllib.parse
 
 import anymarkup
