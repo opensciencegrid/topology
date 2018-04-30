@@ -6,11 +6,18 @@ from collections import OrderedDict
 import pprint
 import sys
 from pathlib import Path
-from typing import Dict, List, Union, Iterable
+from typing import Dict, Iterable
 
-from convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list
+from .convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list
 
 SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
+
+
+class RGError(Exception):
+    """An error with converting a specifig RG"""
+    def __init__(self, rg, *args, **kwargs):
+        Exception.__init__(self, *args, **kwargs)
+        self.rg = rg
 
 
 class Topology(object):
@@ -71,8 +78,7 @@ class Topology(object):
         return anymarkup.serialize_file(self.get_resource_summary(), outfile, "xml")
 
 
-def expand_services(services: Dict) -> Dict:
-    global service_name_to_id
+def expand_services(services: Dict, service_name_to_id: Dict[str, int]) -> Dict:
 
     def _expand_svc(svc):
         svc["ID"] = service_name_to_id[svc["Name"]]
@@ -151,7 +157,7 @@ def expand_wlcginformation(wlcg: Dict) -> OrderedDict:
     return new_wlcg
 
 
-def expand_resource(name: str, res: Dict) -> OrderedDict:
+def expand_resource(name: str, res: Dict, service_name_to_id: Dict[str, int]) -> OrderedDict:
     """Expand a single Resource from the format in a yaml file to the xml format.
 
     Services, VOOwnership, FQDNAliases, ContactLists are expanded;
@@ -171,7 +177,7 @@ def expand_resource(name: str, res: Dict) -> OrderedDict:
     res = dict(res)
 
     if not is_null(res, "Services"):
-        res["Services"] = expand_services(res["Services"])
+        res["Services"] = expand_services(res["Services"], service_name_to_id)
     else:
         res.pop("Services", None)
     if "VOOwnership" in res:
@@ -194,7 +200,7 @@ def expand_resource(name: str, res: Dict) -> OrderedDict:
     return new_res
 
 
-def expand_resourcegroup(rg: Dict) -> OrderedDict:
+def expand_resourcegroup(rg: Dict, service_name_to_id: Dict[str, int], support_center_name_to_id: Dict[str, int]) -> OrderedDict:
     """Expand a single ResourceGroup from the format in a yaml file to the xml format.
 
     {"SupportCenterName": ...} and {"SupportCenterID": ...} are turned into
@@ -212,7 +218,7 @@ def expand_resourcegroup(rg: Dict) -> OrderedDict:
     new_resources = []
     for name, res in rg["Resources"].items():
         try:
-            res = expand_resource(name, res)
+            res = expand_resource(name, res, service_name_to_id)
             new_resources.append(res)
         except Exception:
             pprint.pprint(res, stream=sys.stderr)
@@ -230,18 +236,13 @@ def expand_resourcegroup(rg: Dict) -> OrderedDict:
     return new_rg
 
 
-def main(argv=sys.argv):
-    if len(argv) < 2:
-        print("Usage: %s <input dir> [<output xml>]" % argv[0], file=sys.stderr)
-        return 2
-    indir = argv[1]
-    outfile = None
-    if len(argv) > 2:
-        outfile = argv[2]
+def convert(indir, outfile=None):
+    """Convert a directory tree of topology data into a single XML document.
+    `indir` is the name of the directory tree. The document is written to a
+    file at `outfile`, if `outfile` is specified.
 
-    global support_center_name_to_id
-    global service_name_to_id
-
+    Returns the text of the XML document.
+    """
     topology = Topology()
     root = Path(indir)
 
@@ -272,15 +273,34 @@ def main(argv=sys.argv):
             rg["Site"] = OrderedDict([("ID", site_id), ("Name", site)])
             rg["GroupName"] = name
 
-            topology.add_rg(facility, site, name, expand_resourcegroup(rg))
-        except Exception:
-            pprint.pprint(rg)
-            raise
+            topology.add_rg(facility, site, name, expand_resourcegroup(rg, service_name_to_id, support_center_name_to_id))
+        except Exception as e:
+            if not isinstance(e, RGError):
+                raise RGError(rg) from e
 
     if outfile:
         topology.serialize_file(outfile)
-    else:
-        print(topology.to_xml())
+
+    return topology.to_xml()
+
+
+def main(argv=sys.argv):
+    if len(argv) < 2:
+        print("Usage: %s <input dir> [<output xml>]" % argv[0], file=sys.stderr)
+        return 2
+    indir = argv[1]
+    outfile = None
+    if len(argv) > 2:
+        outfile = argv[2]
+
+    try:
+        xml = convert(indir, outfile)
+        if not outfile:
+            print(xml)
+    except RGError as e:
+        print("Error happened while processing RG:", file=sys.stderr)
+        pprint.pprint(e.rg, stream=sys.stderr)
+        raise
 
     return 0
 
