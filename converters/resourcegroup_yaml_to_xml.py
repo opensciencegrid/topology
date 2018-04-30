@@ -26,7 +26,10 @@ import sys
 from pathlib import Path
 from typing import Dict, Iterable
 
-from .convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list
+try:
+    from convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list
+except ModuleNotFoundError:
+    from .convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list
 
 SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 
