@@ -60,14 +60,14 @@ def simplify_reportinggroups(reportinggroups):
     """Simplify ReportingGroups attributes
 
     Turn e.g.
-    {"ReportingGroup": {"Contacts": {"Contact": [{"Name": "a"},
-                                                 {"Name": "b"}
-                                    },
-                        "FQANs": {"FQAN": [{"GroupName": "XXX",
-                                            "Role": "YYY"}]
-                                 }
-                        "Name": "ZZZ"
-                       }
+    {"ReportingGroup": [{"Contacts": {"Contact": [{"Name": "a"},
+                                                  {"Name": "b"}
+                                     },
+                         "FQANs": {"FQAN": [{"GroupName": "XXX",
+                                             "Role": "YYY"}]
+                                  }
+                         "Name": "ZZZ"
+                        }]
     }
 
     into
