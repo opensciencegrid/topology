@@ -52,21 +52,36 @@ def expand_reportinggroups(reportinggroups: Dict) -> Dict:
 
     new_reportinggroups = reportinggroups.copy()
     for name, data in new_reportinggroups.items():
-        try:
-            if not is_null(data, "Contacts"):
-                new_contact = [{"Name": x} for x in data["Contacts"]]
-                data["Contacts"] = {"Contacts": {"Contact": singleton_list_to_value(new_contact)}}
-            else:
-                data["Contacts"] = None
-            if not is_null(data, "FQANs"):
-                data["FQANs"] = {"FQAN": singleton_list_to_value(data["FQANs"])}
-            else:
-                data["FQANs"] = None
-        except Exception:
-            pprint.pprint(new_reportinggroups)
-            raise
+        if not is_null(data, "Contacts"):
+            new_contact = [{"Name": x} for x in data["Contacts"]]
+            data["Contacts"] = {"Contacts": {"Contact": singleton_list_to_value(new_contact)}}
+        else:
+            data["Contacts"] = None
+        if not is_null(data, "FQANs"):
+            data["FQANs"] = {"FQAN": singleton_list_to_value(data["FQANs"])}
+        else:
+            data["FQANs"] = None
     new_reportinggroups = expand_attr_list(reportinggroups, "Name")
     return {"ReportingGroup": new_reportinggroups}
+
+
+def expand_oasis_managers(managers):
+    """Expand
+    {"a": {"DNs": [...]}}
+    into
+    {"Manager": [{"Name": "a", "DNs": {"DN": [...]}}]}
+    """
+    new_managers = managers.copy()
+    for name, data in managers.items():
+        if not is_null(data, "DNs"):
+            try:
+                new_managers[name]["DNs"] = {"DN": singleton_list_to_value(data["DNs"])}
+            except:
+                pprint.pprint(data["DNs"])
+                raise
+        else:
+            new_managers[name]["DNs"] = None
+    return {"Manager": expand_attr_list(new_managers, "Name")}
 
 
 def get_vos_xml():
@@ -88,6 +103,13 @@ def get_vos_xml():
             vo["ReportingGroups"] = None
         else:
             vo["ReportingGroups"] = expand_reportinggroups(vo["ReportingGroups"])
+        if is_null(vo, "OASIS"):
+            vo["OASIS"] = None
+        else:
+            if is_null(vo["OASIS"], "Managers"):
+                vo["OASIS"]["Managers"] = None
+            else:
+                vo["OASIS"]["Managers"] = expand_oasis_managers(vo["OASIS"]["Managers"])
         vos.append(vo)
 
 

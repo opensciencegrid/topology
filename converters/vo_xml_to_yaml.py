@@ -100,6 +100,23 @@ def simplify_reportinggroups(reportinggroups):
     return new_reportinggroups
 
 
+def simplify_oasis_managers(managers):
+    """Simplify OASIS/Managers attributes
+
+    Turn
+    {"Manager": [{"Name": "a", "DNs": {"DN": [...]}}]}
+    into
+    {"a": {"DNs": [...]}}
+    """
+    if is_null(managers, "Manager"):
+        return None
+    new_managers = simplify_attr_list(managers["Manager"], "Name")
+    for manager, data in new_managers.items():
+        if not is_null(data, "DNs"):
+            data["DNs"] = data["DNs"]["DN"]
+    return new_managers
+
+
 for vo in parsed['VOSummary']['VO']:
     newvo = vo
     if "ContactTypes" in newvo:
@@ -107,6 +124,8 @@ for vo in parsed['VOSummary']['VO']:
         del newvo["ContactTypes"]
     if "ReportingGroups" in newvo:
         newvo["ReportingGroups"] = simplify_reportinggroups(newvo["ReportingGroups"])
+    if "OASIS" in vo and not is_null(vo["OASIS"], "Managers"):
+        vo["OASIS"]["Managers"] = simplify_oasis_managers(vo["OASIS"]["Managers"])
 
     serialized = yaml.safe_dump(vo, encoding='utf-8', default_flow_style=False)
     print(serialized.decode())
