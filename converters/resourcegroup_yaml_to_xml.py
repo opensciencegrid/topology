@@ -258,7 +258,7 @@ def expand_resourcegroup(rg: Dict, service_name_to_id: Dict[str, int], support_c
     return new_rg
 
 
-def get_rgsummary_xml(indir, outfile=None):
+def get_rgsummary_xml(indir="topology", outfile=None):
     """Convert a directory tree of topology data into a single XML document.
     `indir` is the name of the directory tree. The document is written to a
     file at `outfile`, if `outfile` is specified.
