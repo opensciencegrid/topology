@@ -2,6 +2,7 @@ import pprint
 import xmltodict
 import yaml
 
+from typing import Dict, List, Union
 from convertlib import is_null, simplify_attr_list, ensure_list
 
 with open('vos.xml', 'r') as vo_xml_file:
@@ -117,6 +118,22 @@ def simplify_oasis_managers(managers):
     return new_managers
 
 
+def simplify_fields_of_science(fos: Dict) -> Union[Dict, None]:
+    """Turn
+    {"PrimaryFields": {"Field": ["P1", "P2", ...]},
+     "SecondaryFields": {"Field": ["S1", "S2", ...]}}
+    into
+    {"Primary": ["P1", "P2", ...],
+     "Secondary": ["S1", "S2", ...]}
+    """
+    if is_null(fos, "PrimaryFields") or is_null(fos["PrimaryFields"], "Field"):
+        return None
+    new_fields = {"Primary": ensure_list(fos["PrimaryFields"]["Field"])}
+    if not (is_null(fos, "SecondaryFields") or is_null(fos["SecondaryFields"], "Field")):
+        new_fields["Secondary"] = ensure_list(fos["SecondaryFields"]["Field"])
+    return new_fields
+
+
 for vo in parsed['VOSummary']['VO']:
     newvo = vo
     if "ContactTypes" in newvo:
@@ -126,6 +143,8 @@ for vo in parsed['VOSummary']['VO']:
         newvo["ReportingGroups"] = simplify_reportinggroups(newvo["ReportingGroups"])
     if "OASIS" in vo and not is_null(vo["OASIS"], "Managers"):
         vo["OASIS"]["Managers"] = simplify_oasis_managers(vo["OASIS"]["Managers"])
+    if not is_null(vo, "FieldsOfScience"):
+        vo["FieldsOfScience"] = simplify_fields_of_science(vo["FieldsOfScience"])
 
     serialized = yaml.safe_dump(vo, encoding='utf-8', default_flow_style=False)
     print(serialized.decode())

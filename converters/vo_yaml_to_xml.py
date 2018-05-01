@@ -84,6 +84,22 @@ def expand_oasis_managers(managers):
     return {"Manager": expand_attr_list(new_managers, "Name")}
 
 
+def expand_fields_of_science(fields_of_science):
+    """Turn
+    {"Primary": ["P1", "P2", ...],
+     "Secondary": ["S1", "S2", ...]}
+    into
+    {"PrimaryFields": {"Field": ["P1", "P2", ...]},
+     "SecondaryFields": {"Field": ["S1", "S2", ...]}}
+    """
+    if is_null(fields_of_science, "Primary"):
+        return None
+    new_fields = {"PrimaryFields": {"Field": singleton_list_to_value(fields_of_science["Primary"])}}
+    if not is_null(fields_of_science, "Secondary"):
+        new_fields["SecondaryFields"] = {"Field": singleton_list_to_value(fields_of_science["Secondary"])}
+    return new_fields
+
+
 def get_vos_xml():
     """
     Returns the serailized xml (as a string)
@@ -110,6 +126,10 @@ def get_vos_xml():
                 vo["OASIS"]["Managers"] = None
             else:
                 vo["OASIS"]["Managers"] = expand_oasis_managers(vo["OASIS"]["Managers"])
+        if is_null(vo, "FieldsOfScience"):
+            vo["FieldsOfScience"] = None
+        else:
+            vo["FieldsOfScience"] = expand_fields_of_science(vo["FieldsOfScience"])
         vos.append(vo)
 
 
