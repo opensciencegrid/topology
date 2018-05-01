@@ -1,6 +1,7 @@
 from flask import Flask, Response
 from converters.project_yaml_to_xml import get_projects_xml
 from converters.vo_yaml_to_xml import get_vos_xml
+from converters.resourcegroup_yaml_to_xml import get_rgsummary_xml
 app = Flask(__name__)
 
 @app.route('/')
@@ -25,7 +26,7 @@ def voinfo():
 
 @app.route('/rgsummary/xml')
 def resources():
-    xml = "<ResourceSummary></ResourceSummary>"
+    xml = get_rgsummary_xml()
     return Response(xml, mimetype='text/xml')
 
 if __name__ == '__main__':
