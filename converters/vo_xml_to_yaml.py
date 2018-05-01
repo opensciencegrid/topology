@@ -56,15 +56,58 @@ def simplify_contacttypes(contacttypes):
     return new_contacts
 
 
+def simplify_reportinggroups(reportinggroups):
+    """Simplify ReportingGroups attributes
+
+    Turn e.g.
+    {"ReportingGroup": {"Contacts": {"Contact": [{"Name": "a"},
+                                                 {"Name": "b"}
+                                    },
+                        "FQANs": {"FQAN": [{"GroupName": "XXX",
+                                            "Role": "YYY"}]
+                                 }
+                        "Name": "ZZZ"
+                       }
+    }
+
+    into
+    {"ZZZ": {"Contacts": ["a", "b"],
+             "FQANs": [{"GroupName": "XXX", "Role": "YYY"}]
+            }
+    }
+
+    """
+    if is_null("ReportingGroup"):
+        return None
+
+    # [{"Name": "XXX", <...>}, {"Name": "YYY", <...>}]  becomes
+    #  {"XXX": {<...>}, "YYY": {<...>}>
+    new_reportinggroups = simplify_attr_list(reportinggroups["ReportingGroup"], "Name")
+
+    for rgname, rgdata in new_reportinggroups.items():
+        if not is_null(rgdata["Contacts"], "Contact"):
+            # {"Contacts": {"Contact": [{"Name": "a"}, {"Name": "b"}]}} becomes
+            # {"Contacts": ["a", "b"]}
+            new_contacts = []
+            for c in ensure_list(rgdata["Contacts"]["Contact"]):
+                if not is_null(c, "Name") and c["Name"] not in new_contacts:
+                    new_contacts.append(c["Name"])
+            rgdata["Contacts"] = new_contacts
+
+        if not is_null(rgdata["FQANs"], "FQAN"):
+            rgdata["FQANs"] = ensure_list(rgdata["FQANs"]["FQAN"])
+
+    return new_reportinggroups
+
+
 for vo in parsed['VOSummary']['VO']:
     newvo = vo
     if "ContactTypes" in newvo:
         newvo["Contacts"] = simplify_contacttypes(newvo["ContactTypes"])
         del newvo["ContactTypes"]
+    if "ReportingGroups" in newvo:
+        newvo["ReportingGroups"] = simplify_reportinggroups(newvo["ReportingGroups"])
 
-    # pprint.pprint(newvo)
-
-    print("Would Create file: {0}.yaml".format(newvo['Name']))
     serialized = yaml.safe_dump(vo, encoding='utf-8', default_flow_style=False)
     print(serialized.decode())
     with open("virtual-organizations/{0}.yaml".format(newvo['Name']), 'w') as f:
