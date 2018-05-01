@@ -13,21 +13,22 @@ def homepage():
     """
 
 
+projects_xml = get_projects_xml()
+vos_xml = get_vos_xml()
+rgsummary_xml = get_rgsummary_xml()
+
 
 @app.route('/miscproject/xml')
 def projects():
-    xml = get_projects_xml()
-    return Response(xml, mimetype='text/xml')
+    return Response(projects_xml, mimetype='text/xml')
 
 @app.route('/vosummary/xml')
 def voinfo():
-    xml = get_vos_xml()
-    return Response(xml, mimetype='text/xml')
+    return Response(vos_xml, mimetype='text/xml')
 
 @app.route('/rgsummary/xml')
 def resources():
-    xml = get_rgsummary_xml()
-    return Response(xml, mimetype='text/xml')
+    return Response(rgsummary_xml, mimetype='text/xml')
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
