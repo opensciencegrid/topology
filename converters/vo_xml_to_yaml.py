@@ -141,8 +141,11 @@ for vo in parsed['VOSummary']['VO']:
         del newvo["ContactTypes"]
     if "ReportingGroups" in newvo:
         newvo["ReportingGroups"] = simplify_reportinggroups(newvo["ReportingGroups"])
-    if "OASIS" in vo and not is_null(vo["OASIS"], "Managers"):
-        vo["OASIS"]["Managers"] = simplify_oasis_managers(vo["OASIS"]["Managers"])
+    if "OASIS" in vo:
+        if not is_null(vo["OASIS"], "Managers"):
+            vo["OASIS"]["Managers"] = simplify_oasis_managers(vo["OASIS"]["Managers"])
+        if not is_null(vo["OASIS"], "OASISRepoURLs") and not is_null(vo["OASIS"]["OASISRepoURLs"], "URL"):
+            vo["OASIS"]["OASISRepoURLs"] = ensure_list(vo["OASIS"]["OASISRepoURLs"]["URL"])
     if not is_null(vo, "FieldsOfScience"):
         vo["FieldsOfScience"] = simplify_fields_of_science(vo["FieldsOfScience"])
 

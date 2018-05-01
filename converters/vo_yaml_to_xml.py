@@ -126,6 +126,10 @@ def get_vos_xml():
                 vo["OASIS"]["Managers"] = None
             else:
                 vo["OASIS"]["Managers"] = expand_oasis_managers(vo["OASIS"]["Managers"])
+            if is_null(vo["OASIS"], "OASISRepoURLs"):
+                vo["OASIS"]["OASISRepoURLs"] = None
+            else:
+                vo["OASIS"]["OASISRepoURLs"] = {"URL": singleton_list_to_value(vo["OASIS"]["OASISRepoURLs"])}
         if is_null(vo, "FieldsOfScience"):
             vo["FieldsOfScience"] = None
         else:
