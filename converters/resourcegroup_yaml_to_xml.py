@@ -10,7 +10,8 @@ If output file not specified, results are printed to stdout.
 
 Usage as a module
 
-    xml = resourcegroup_yaml_to_xml(input_dir[, output_file])
+    from converters.resourcegroup_yaml_to_xml import get_rgsummary_xml
+    xml = get_rgsummary_xml(input_dir[, output_file])
 
 where the return value `xml` is a string.
 
@@ -257,7 +258,7 @@ def expand_resourcegroup(rg: Dict, service_name_to_id: Dict[str, int], support_c
     return new_rg
 
 
-def convert(indir, outfile=None):
+def get_rgsummary_xml(indir, outfile=None):
     """Convert a directory tree of topology data into a single XML document.
     `indir` is the name of the directory tree. The document is written to a
     file at `outfile`, if `outfile` is specified.
@@ -315,7 +316,7 @@ def main(argv=sys.argv):
         outfile = argv[2]
 
     try:
-        xml = convert(indir, outfile)
+        xml = get_rgsummary_xml(indir, outfile)
         if not outfile:
             print(xml)
     except RGError as e:
