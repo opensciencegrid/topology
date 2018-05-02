@@ -10,6 +10,9 @@ with open('vos.xml', 'r') as vo_xml_file:
     parsed = xmltodict.parse(vo_xml_file.read(), dict_constructor=dict)
 
 
+def is_true_str(a_str: Union[str, None]) -> bool:
+    return a_str and a_str.strip("'\" ").lower() in ["1", "on", "true"]
+
 
 # Multiline string to look nice'er
 def str_presenter(dumper, data):
@@ -141,9 +144,9 @@ def simplify_fields_of_science(fos: Dict) -> Union[Dict, None]:
 for vo in parsed['VOSummary']['VO']:
     if "ID" in vo:
         vo["ID"] = int(vo["ID"])
-    vo["Active"] = bool(vo.get("Active", False))
-    vo["CertificateOnly"] = bool(vo.get("CertificateOnly", False))
-    vo["Disable"] = bool(vo.get("Disable", False))
+    vo["Active"] = is_true_str(vo.get("Active", ""))
+    vo["CertificateOnly"] = is_true_str(vo.get("CertificateOnly", ""))
+    vo["Disable"] = is_true_str(vo.get("Disable", ""))
     if "ContactTypes" in vo:
         vo["Contacts"] = simplify_contacttypes(vo["ContactTypes"])
         del vo["ContactTypes"]
@@ -152,14 +155,23 @@ for vo in parsed['VOSummary']['VO']:
     if "OASIS" in vo:
         if not is_null(vo["OASIS"], "Managers"):
             vo["OASIS"]["Managers"] = simplify_oasis_managers(vo["OASIS"]["Managers"])
+        else:
+            vo["OASIS"].pop("Managers", None)
         if not is_null(vo["OASIS"], "OASISRepoURLs", "URL"):
             vo["OASIS"]["OASISRepoURLs"] = ensure_list(vo["OASIS"]["OASISRepoURLs"]["URL"])
-        vo["OASIS"]["UseOASIS"] = bool(vo["OASIS"].get("UseOASIS", False))
+        else:
+            vo["OASIS"].pop("OASISRepoURLs")
+        vo["OASIS"]["UseOASIS"] = is_true_str(vo["OASIS"].get("UseOASIS", ""))
     if not is_null(vo, "FieldsOfScience"):
         vo["FieldsOfScience"] = simplify_fields_of_science(vo["FieldsOfScience"])
     if not is_null(vo, "ParentVO"):
         vo["ParentVO"]["ID"] = int(vo["ParentVO"]["ID"])
     vo.pop("MemeberResources", None)  # will recreate MemeberResources [sic] from RG data
+
+    # delete empty fields
+    for key in ["Contacts", "MembershipServicesURL", "ParentVO", "PrimaryURL", "PurposeURL", "ReportingGroups", "SupportURL"]:
+        if is_null(vo, key):
+            vo.pop(key, None)
 
     serialized = yaml.safe_dump(vo, encoding='utf-8', default_flow_style=False)
     print(serialized.decode())

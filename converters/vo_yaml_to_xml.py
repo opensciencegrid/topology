@@ -124,6 +124,11 @@ def expand_vo(vo):
     else:
         vo["FieldsOfScience"] = expand_fields_of_science(vo["FieldsOfScience"])
 
+    for key in ["MembershipServicesURL", "ParentVO", "PrimaryURL", "PurposeURL", "SupportURL"]:
+        if key not in vo:
+            vo[key] = None
+
+
     # TODO: Recreate <MemeberResources> [sic]
     #  should look like
     #  <MemeberResources>
@@ -135,7 +140,7 @@ def expand_vo(vo):
 
 def get_vos_xml():
     """
-    Returns the serailized xml (as a string)
+    Returns the serialized xml (as a string)
     """
 
     to_output = {"VOSummary":{"VO": []}}
@@ -143,7 +148,11 @@ def get_vos_xml():
 
     for file in os.listdir("virtual-organizations"):
         vo = anymarkup.parse_file("virtual-organizations/{0}".format(file))
-        vos.append(expand_vo(vo))
+        try:
+            vos.append(expand_vo(vo))
+        except Exception:
+            pprint.pprint(vo)
+            raise
 
     to_output["VOSummary"]["VO"] = vos
 
