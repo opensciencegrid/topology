@@ -27,37 +27,36 @@ def simplify_contacttypes(contacttypes):
     """Simplify ContactTypes attribute
 
     Turn e.g.
-    {"ContactTypes":
-        {"ContactType":
-            [{"Contacts":
-                {"Contact": [{"Name": "Steve Timm"},
-                             {"Name": "Joe Boyd"}]},
-              "Type": "Miscellaneous Contact"}
-            ]
-        }
+    {"ContactType":
+        [{"Contacts":
+            {"Contact": [{"Name": "Steve Timm"},
+                         {"Name": "Joe Boyd"}]},
+          "Type": "Miscellaneous Contact"}
+        ]
     }
 
     into
 
-    {"Contacts":
-        {"Miscellanous Contact":
-            [ "Steve Timm", "Joe Boyd" ]
-        }
+    {"Miscellanous Contact":
+        [ "Steve Timm", "Joe Boyd" ]
     }
     """
-    if is_null(contacttypes):
+    if is_null(contacttypes, "ContactType"):
         return None
-    contacttypes_simple = simplify_attr_list(contacttypes["ContactType"], "Type")
-    new_contacts = {}
 
-    for contact_type, contact_data in contacttypes_simple.items():
-        contacts_list = []
-        for contact in ensure_list(contact_data["Contacts"]["Contact"]):
-            if contact["Name"] not in contacts_list:
-                contacts_list.append(contact["Name"])
-        new_contacts[contact_type] = contacts_list
+    new_contacttypes = {}
+    for ct in ensure_list(contacttypes["ContactType"]):
+        if is_null(ct, "Contacts", "Contact"):
+            continue
+        type_ = ct["Type"]
+        # Remove duplicates but keep ordering
+        contacts = []
+        for c in ensure_list(ct["Contacts"]["Contact"]):
+            if c not in contacts:
+                contacts.append(c)
+        new_contacttypes[type_] = contacts
 
-    return new_contacts
+    return new_contacttypes
 
 
 def simplify_reportinggroups(reportinggroups):
