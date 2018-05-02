@@ -74,11 +74,7 @@ def expand_oasis_managers(managers):
     new_managers = managers.copy()
     for name, data in managers.items():
         if not is_null(data, "DNs"):
-            try:
-                new_managers[name]["DNs"] = {"DN": singleton_list_to_value(data["DNs"])}
-            except:
-                pprint.pprint(data["DNs"])
-                raise
+            new_managers[name]["DNs"] = {"DN": singleton_list_to_value(data["DNs"])}
         else:
             new_managers[name]["DNs"] = None
     return {"Manager": expand_attr_list(new_managers, "Name")}
@@ -135,7 +131,6 @@ def get_vos_xml():
         else:
             vo["FieldsOfScience"] = expand_fields_of_science(vo["FieldsOfScience"])
         vos.append(vo)
-
 
     to_output["VOSummary"]["VO"] = vos
 

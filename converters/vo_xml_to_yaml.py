@@ -131,7 +131,7 @@ def simplify_fields_of_science(fos: Dict) -> Union[Dict, None]:
     if is_null(fos, "PrimaryFields") or is_null(fos["PrimaryFields"], "Field"):
         return None
     new_fields = {"Primary": ensure_list(fos["PrimaryFields"]["Field"])}
-    if not (is_null(fos, "SecondaryFields") or is_null(fos["SecondaryFields"], "Field")):
+    if not is_null(fos, "SecondaryFields", "Field"):
         new_fields["Secondary"] = ensure_list(fos["SecondaryFields"]["Field"])
     return new_fields
 
@@ -150,7 +150,7 @@ for vo in parsed['VOSummary']['VO']:
     if "OASIS" in vo:
         if not is_null(vo["OASIS"], "Managers"):
             vo["OASIS"]["Managers"] = simplify_oasis_managers(vo["OASIS"]["Managers"])
-        if not is_null(vo["OASIS"], "OASISRepoURLs") and not is_null(vo["OASIS"]["OASISRepoURLs"], "URL"):
+        if not is_null(vo["OASIS"], "OASISRepoURLs", "URL"):
             vo["OASIS"]["OASISRepoURLs"] = ensure_list(vo["OASIS"]["OASISRepoURLs"]["URL"])
         vo["OASIS"]["UseOASIS"] = bool(vo["OASIS"].get("UseOASIS", False))
     if not is_null(vo, "FieldsOfScience"):

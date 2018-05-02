@@ -1,8 +1,10 @@
 from collections import OrderedDict
 from typing import Dict, List, Union
 
-def is_null(x, key=None) -> bool:
-    if key is not None:
+
+def is_null(x, *keys) -> bool:
+    for key in keys:
+        if not key: continue
         if not isinstance(x, dict) or key not in x:
             return True
         else:
