@@ -84,6 +84,8 @@ def simplify_reportinggroups(reportinggroups):
     # [{"Name": "XXX", <...>}, {"Name": "YYY", <...>}]  becomes
     #  {"XXX": {<...>}, "YYY": {<...>}>
     new_reportinggroups = simplify_attr_list(reportinggroups["ReportingGroup"], "Name")
+    if not new_reportinggroups:  # only null entries found
+        return None
 
     for rgname, rgdata in new_reportinggroups.items():
         if not is_null(rgdata["Contacts"], "Contact"):
@@ -157,6 +159,7 @@ for vo in parsed['VOSummary']['VO']:
         vo["FieldsOfScience"] = simplify_fields_of_science(vo["FieldsOfScience"])
     if not is_null(vo, "ParentVO"):
         vo["ParentVO"]["ID"] = int(vo["ParentVO"]["ID"])
+    vo.pop("MemeberResources", None)  # will recreate MemeberResources [sic] from RG data
 
     serialized = yaml.safe_dump(vo, encoding='utf-8', default_flow_style=False)
     print(serialized.decode())

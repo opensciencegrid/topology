@@ -96,6 +96,43 @@ def expand_fields_of_science(fields_of_science):
     return new_fields
 
 
+def expand_vo(vo):
+    vo = vo.copy()
+
+    if is_null(vo, "Contacts"):
+        vo["ContactTypes"] = None
+    else:
+        vo["ContactTypes"] = expand_contacttypes(vo["Contacts"])
+        del vo["Contacts"]
+    if is_null(vo, "ReportingGroups"):
+        vo["ReportingGroups"] = None
+    else:
+        vo["ReportingGroups"] = expand_reportinggroups(vo["ReportingGroups"])
+    if is_null(vo, "OASIS"):
+        vo["OASIS"] = None
+    else:
+        if is_null(vo["OASIS"], "Managers"):
+            vo["OASIS"]["Managers"] = None
+        else:
+            vo["OASIS"]["Managers"] = expand_oasis_managers(vo["OASIS"]["Managers"])
+        if is_null(vo["OASIS"], "OASISRepoURLs"):
+            vo["OASIS"]["OASISRepoURLs"] = None
+        else:
+            vo["OASIS"]["OASISRepoURLs"] = {"URL": singleton_list_to_value(vo["OASIS"]["OASISRepoURLs"])}
+    if is_null(vo, "FieldsOfScience"):
+        vo["FieldsOfScience"] = None
+    else:
+        vo["FieldsOfScience"] = expand_fields_of_science(vo["FieldsOfScience"])
+
+    # TODO: Recreate <MemeberResources> [sic]
+    #  should look like
+    #  <MemeberResources>
+    #    <Resource><ID>75</ID><Name>NERSC-PDSF</Name></Resource>
+    #    ...
+    #  </MemeberResources>
+
+    return vo
+
 def get_vos_xml():
     """
     Returns the serailized xml (as a string)
@@ -106,31 +143,7 @@ def get_vos_xml():
 
     for file in os.listdir("virtual-organizations"):
         vo = anymarkup.parse_file("virtual-organizations/{0}".format(file))
-        if is_null(vo, "Contacts"):
-            vo["ContactTypes"] = None
-        else:
-            vo["ContactTypes"] = expand_contacttypes(vo["Contacts"])
-            del vo["Contacts"]
-        if is_null(vo, "ReportingGroups"):
-            vo["ReportingGroups"] = None
-        else:
-            vo["ReportingGroups"] = expand_reportinggroups(vo["ReportingGroups"])
-        if is_null(vo, "OASIS"):
-            vo["OASIS"] = None
-        else:
-            if is_null(vo["OASIS"], "Managers"):
-                vo["OASIS"]["Managers"] = None
-            else:
-                vo["OASIS"]["Managers"] = expand_oasis_managers(vo["OASIS"]["Managers"])
-            if is_null(vo["OASIS"], "OASISRepoURLs"):
-                vo["OASIS"]["OASISRepoURLs"] = None
-            else:
-                vo["OASIS"]["OASISRepoURLs"] = {"URL": singleton_list_to_value(vo["OASIS"]["OASISRepoURLs"])}
-        if is_null(vo, "FieldsOfScience"):
-            vo["FieldsOfScience"] = None
-        else:
-            vo["FieldsOfScience"] = expand_fields_of_science(vo["FieldsOfScience"])
-        vos.append(vo)
+        vos.append(expand_vo(vo))
 
     to_output["VOSummary"]["VO"] = vos
 

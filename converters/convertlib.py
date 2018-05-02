@@ -37,6 +37,8 @@ def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
     new_data = {}
     for d in ensure_list(data):
         new_d = dict(d)
+        if is_null(new_d, namekey):
+            continue
         name = new_d[namekey]
         del new_d[namekey]
         new_data[name] = new_d
