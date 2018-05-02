@@ -9,32 +9,26 @@ ContactTypes:
   - Contacts:
       Contact:
       - Name: Gabriele Garzoglio
-      - Name: Gabriele Garzoglio
     Type: Submitter Contact
   - Contacts:
       Contact:
-      - Name: Gabriele Garzoglio
       - Name: Gabriele Garzoglio
       - Name: Iain Goodenow
     Type: Security Contact
   - Contacts:
       Contact:
       - Name: Gabriele Garzoglio
-      - Name: Gabriele Garzoglio
       - Name: Iain Goodenow
     Type: Administrative Contact
   - Contacts:
       Contact:
-      - Name: Gabriele Garzoglio
       - Name: Gabriele Garzoglio
       - Name: Iain Goodenow
     Type: VO Manager
   - Contacts:
       Contact:
       - Name: Gabriele Garzoglio
-      - Name: Gabriele Garzoglio
       - Name: Darnell Green
-      - Name: Yolanda Valadez
       - Name: Yolanda Valadez
       - Name: Iain Goodenow
     Type: Registration Authority
@@ -47,21 +41,15 @@ FieldsOfScience:
 ID: '84'
 LongName: Large Synoptic Survey Telescope
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/lsst/
-MemeberResources:
-  Resource:
-  - ID: '350'
-    Name: BELLARMINE_TIER2
-  - ID: '880'
-    Name: Purdue-LSST
 Name: LSST
 OASIS:
   Managers:
     Manager:
-      ContactID: '579'
       DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
+        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
       Name: Joe Boyd
   OASISRepoURLs:
     URL: http://oasiscfs.fnal.gov:8000/cvmfs/lsst.opensciencegrid.org

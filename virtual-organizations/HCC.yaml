@@ -21,32 +21,22 @@ ContactTypes:
       Contact:
       - Name: Carl Lundstedt
       - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
     Type: Security Contact
   - Contacts:
       Contact:
-      - Name: David Swanson
       - Name: Carl Lundstedt
+      - Name: David Swanson
     Type: Administrative Contact
   - Contacts:
       Contact:
       - Name: Brian Bockelman
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
       - Name: Derek Weitzel
-      - Name: Derek Weitzel
-      - Name: Derek Weitzel
+      - Name: Garhan Attebury
     Type: Miscellaneous Contact
   - Contacts:
       Contact:
-      - Name: David Swanson
       - Name: Carl Lundstedt
+      - Name: David Swanson
     Type: VO Manager
   - Contacts:
       Contact:
@@ -65,51 +55,15 @@ FieldsOfScience:
 ID: '67'
 LongName: Holland Computing Center at the University of Nebraska.
 MembershipServicesURL: https://hcc-voms.unl.edu:8443/voms/hcc/Login.do
-MemeberResources:
-  Resource:
-  - ID: '228'
-    Name: Sandhills
-  - ID: '229'
-    Name: Firefly
-  - ID: '243'
-    Name: Firefly_SE
-  - ID: '247'
-    Name: Firefly-2
-  - ID: '248'
-    Name: Firefly-3
-  - ID: '328'
-    Name: HCC GlideinWMS Frontend
-  - ID: '408'
-    Name: red-gateway3-ITB
-  - ID: '444'
-    Name: HCC-CPASS
-  - ID: '454'
-    Name: Tusker-CE1
-  - ID: '455'
-    Name: Tusker
-  - ID: '504'
-    Name: US-Nebraska Disabled
-  - ID: '505'
-    Name: US-Nebraska LT
-  - ID: '519'
-    Name: US-Nebraska BW
-  - ID: '602'
-    Name: Crane-CE1
-  - ID: '692'
-    Name: US-Nebraska LT (Test)
-  - ID: '693'
-    Name: US-Nebraska BW (Test)
 Name: HCC
 OASIS:
   Managers:
     Manager:
-    - ContactID: '8'
-      DNs:
+    - DNs:
         DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
           Paul Bockelman
       Name: Brian Bockelman
-    - ContactID: '605'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel
@@ -125,10 +79,8 @@ ReportingGroups:
   ReportingGroup:
     Contacts:
       Contact:
+      - Name: Derek Weitzel
       - Name: David Swanson
-      - Name: Derek Weitzel
-      - Name: Derek Weitzel
-      - Name: Derek Weitzel
     FQANs: null
     Name: HCC
 SupportURL: http://hcc.unl.edu/contact

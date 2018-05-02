@@ -16,38 +16,25 @@ ContactTypes:
   - Contacts:
       Contact:
       - Name: Joe Boyd
-      - Name: Joe Boyd
     Type: Administrative Contact
   - Contacts:
       Contact:
-      - Name: Anthony Tiradani
-      - Name: Anthony Tiradani
-      - Name: Anthony Tiradani
       - Name: Tanya Levshina
-      - Name: Joe Boyd
-      - Name: Joe Boyd
       - Name: Nicholas Peregonow
-      - Name: Nicholas Peregonow
-      - Name: Nicholas Peregonow
-      - Name: Kevin Retzke
-      - Name: Kevin Retzke
       - Name: Shreyas Bhat
+      - Name: Anthony Tiradani
+      - Name: Kevin Retzke
+      - Name: Joe Boyd
     Type: Miscellaneous Contact
   - Contacts:
       Contact:
       - Name: Joe Boyd
-      - Name: Joe Boyd
     Type: VO Manager
   - Contacts:
       Contact:
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
+      - Name: Yolanda Valadez
       - Name: Kyle Gross
       - Name: Darnell Green
-      - Name: Yolanda Valadez
-      - Name: Yolanda Valadez
     Type: Registration Authority
 Disable: 'False'
 FieldsOfScience:
@@ -60,100 +47,18 @@ FieldsOfScience:
 ID: '9'
 LongName: Fermi National Accelerator Laboratory
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
-MemeberResources:
-  Resource:
-  - ID: '19'
-    Name: FNAL_FERMIGRID
-  - ID: '20'
-    Name: FNAL_FERMIGRID_ITB
-  - ID: '172'
-    Name: FNAL_GPGRID_1
-  - ID: '189'
-    Name: FNAL_GPGRID_2
-  - ID: '208'
-    Name: FNAL_GPGRID_3
-  - ID: '291'
-    Name: GRATIA-OSG-PROD
-  - ID: '292'
-    Name: GRATIA-OSG-TRANSFER
-  - ID: '293'
-    Name: GRATIA-OSG-ITB
-  - ID: '294'
-    Name: GRATIA-OSG-ITB-PERM
-  - ID: '295'
-    Name: GRATIA-OSG-DAILY
-  - ID: '337'
-    Name: FNAL-ITB-GIP-TEST1
-  - ID: '353'
-    Name: OSG_Homepage_1
-  - ID: '354'
-    Name: OSG_DOCDB_1
-  - ID: '358'
-    Name: FNAL_FERMIGRID_ITB_PBS2
-  - ID: '359'
-    Name: FNAL_FERMIGRID_ITB_SGE2
-  - ID: '539'
-    Name: FNAL_GPGRID_OPP_3
-  - ID: '540'
-    Name: FNAL_GPGRID_QUOTA_3
-  - ID: '563'
-    Name: FIFE_UCSD_FRONTEND_01
-  - ID: '564'
-    Name: FIFE_SUBMIT_GPSN01
-  - ID: '565'
-    Name: FIFE_SUBMIT_1
-  - ID: '625'
-    Name: US-FNAL BW
-  - ID: '626'
-    Name: US-FNAL LT
-  - ID: '633'
-    Name: FIFEBATCH2
-  - ID: '744'
-    Name: USCMS PerfSonar IPV6 Test
-  - ID: '758'
-    Name: Gratia-main-osg
-  - ID: '759'
-    Name: gratia-itb-osg
-  - ID: '760'
-    Name: gratia-transfer-osg
-  - ID: '769'
-    Name: FNAL NRTB PerfSONAR Bandwidth
-  - ID: '770'
-    Name: FNAL NRTB PerfSONAR Latency
-  - ID: '776'
-    Name: FNAL_GPGRID_4
-  - ID: '777'
-    Name: FNAL_GPGRID_5
-  - ID: '838'
-    Name: FNAL Origin server
-  - ID: '841'
-    Name: FNAL_WILSON
-  - ID: '867'
-    Name: FNAL_WILSON_2
-  - ID: '883'
-    Name: gpgrid_squid
-  - ID: '901'
-    Name: FNAL_GPGRID_CE_03
-  - ID: '902'
-    Name: FNAL_GPGRID_CE_04
-  - ID: '903'
-    Name: FNAL_JOBSUB_01
-  - ID: '904'
-    Name: FNAL_JOBSUB_02
 Name: Fermilab
 OASIS:
   Managers:
     Manager:
-    - ContactID: '217'
-      DNs:
+    - DNs:
         DN:
         - /DC=gov/DC=fnal/O=Fermilab/OU=People/CN=Lynn A. Garren/CN=UID:garren
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Lynn Garren 217
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Lynn Garren
           217
       Name: Lynn Garren
-    - ContactID: '508'
-      DNs:
+    - DNs:
         DN:
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Dave Dykstra 508
         - /DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Dave
@@ -173,17 +78,10 @@ ReportingGroups:
   ReportingGroup:
   - Contacts:
       Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
+      - Name: HYUNWOO KIM
+      - Name: Nicholas Peregonow
       - Name: Tanya Levshina
-      - Name: HYUNWOO KIM
-      - Name: HYUNWOO KIM
-      - Name: HYUNWOO KIM
-      - Name: HYUNWOO KIM
-      - Name: Nicholas Peregonow
-      - Name: Nicholas Peregonow
-      - Name: Nicholas Peregonow
+      - Name: Steve Timm
     FQANs:
       FQAN:
         GroupName: /fermilab

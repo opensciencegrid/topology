@@ -14,21 +14,14 @@ ContactTypes:
     Type: Submitter Contact
   - Contacts:
       Contact:
-      - Name: Anthony Tiradani
-      - Name: Anthony Tiradani
-      - Name: Anthony Tiradani
+      - Name: Gerard Bernabeu Altayo
       - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
+      - Name: Anthony Tiradani
     Type: Miscellaneous Contact
   - Contacts:
       Contact:
-      - Name: Joe Boyd
-      - Name: Joe Boyd
       - Name: Andrew John Norman
-      - Name: Andrew John Norman
+      - Name: Joe Boyd
     Type: VO Manager
 Disable: 'False'
 FieldsOfScience:
@@ -37,63 +30,29 @@ FieldsOfScience:
 ID: '53'
 LongName: Fermilab/Nova
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
-MemeberResources:
-  Resource:
-  - ID: '259'
-    Name: SMU_HPC
-  - ID: '541'
-    Name: FNAL_IF_GRIDFTP_NOVA
-  - ID: '571'
-    Name: OSC_OSG_CE_old
-  - ID: '600'
-    Name: FZU_NOVA
-  - ID: '651'
-    Name: SMU_ManeFrame_CE
-  - ID: '742'
-    Name: JINR_Tier2_CE1
-  - ID: '743'
-    Name: JINR_Tier2_CE2
-  - ID: '780'
-    Name: FZU_NOVA_CE
-  - ID: '853'
-    Name: JINR_CONDOR_CE
-  - ID: '891'
-    Name: OSC_OSG_CE
-  - ID: '892'
-    Name: OSC_OSG_squid
-  - ID: '900'
-    Name: FZU_OSG_CE1
-  - ID: '932'
-    Name: FZU_OSG_CE2
-  - ID: '933'
-    Name: FZU StashCache instance
 Name: Nova
 OASIS:
   Managers:
     Manager:
-    - ContactID: '8'
-      DNs:
+    - DNs:
         DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
           Paul Bockelman
       Name: Brian Bockelman
-    - ContactID: '605'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel
           605
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Derek Weitzel
       Name: Derek Weitzel
-    - ContactID: '1724'
-      DNs:
+    - DNs:
         DN:
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Robert Illingworth
           1724
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Robert Illingworth
           1724
       Name: Robert Illingworth
-    - ContactID: '3100'
-      DNs:
+    - DNs:
         DN: /DC=gov/DC=fnal/O=Fermilab/OU=People/CN=Alex I. Himmel/CN=UID:ahimmel
       Name: Alexander I. Himmel
   OASISRepoURLs:

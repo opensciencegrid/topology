@@ -12,14 +12,9 @@ ContactTypes:
     Type: Submitter Contact
   - Contacts:
       Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
+      - Name: Gerard Bernabeu Altayo
       - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
+      - Name: Steve Timm
     Type: Miscellaneous Contact
 Disable: 'False'
 FieldsOfScience:
@@ -28,21 +23,15 @@ FieldsOfScience:
 ID: '49'
 LongName: Fermilab/Cdms
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
-MemeberResources:
-  Resource:
-  - ID: '718'
-    Name: PNNL_CE00
-  - ID: '746'
-    Name: PNNL_HEP_CE00
 Name: Cdms
 OASIS:
   Managers:
     Manager:
-      ContactID: '579'
       DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
+        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
       Name: Joe Boyd
   OASISRepoURLs:
     URL: http://oasiscfs.fnal.gov:8000/cvmfs/cdms.opensciencegrid.org/

@@ -8,26 +8,21 @@ ContactTypes:
   - Contacts:
       Contact:
       - Name: Richard T. Jones
-      - Name: Richard T. Jones
     Type: Submitter Contact
   - Contacts:
       Contact:
-      - Name: Richard T. Jones
       - Name: Richard T. Jones
     Type: Security Contact
   - Contacts:
       Contact:
       - Name: Richard T. Jones
-      - Name: Richard T. Jones
     Type: Administrative Contact
   - Contacts:
       Contact:
       - Name: Richard T. Jones
-      - Name: Richard T. Jones
     Type: VO Manager
   - Contacts:
       Contact:
-      - Name: Richard T. Jones
       - Name: Richard T. Jones
     Type: Registration Authority
 Disable: 'False'
@@ -39,36 +34,16 @@ FieldsOfScience:
 ID: '62'
 LongName: Gluex experiment at Jefferson Lab
 MembershipServicesURL: https://gryphn.phys.uconn.edu:8443/voms/Gluex
-MemeberResources:
-  Resource:
-  - ID: '286'
-    Name: UConn-OSG_CE
-  - ID: '287'
-    Name: UConn-OSG_SE
-  - ID: '288'
-    Name: UConn-OSG_GUMS
-  - ID: '289'
-    Name: Gluex_VOMS
-  - ID: '290'
-    Name: Gluex_VOMRS
-  - ID: '605'
-    Name: NUMEP_CE
-  - ID: '613'
-    Name: NUMEP_SE
-  - ID: '899'
-    Name: OSG_US_FSU_HNPGRID
 Name: Gluex
 OASIS:
   Managers:
     Manager:
-    - ContactID: '594'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Richard T. Jones 975420
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Richard T. Jones
       Name: Richard T. Jones
-    - ContactID: '1104'
-      DNs:
+    - DNs:
         DN:
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Mark Ito 1104
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Mark Ito 1104

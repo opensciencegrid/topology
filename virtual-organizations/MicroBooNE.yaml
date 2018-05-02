@@ -19,23 +19,15 @@ ContactTypes:
   - Contacts:
       Contact:
       - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
     Type: Submitter Contact
   - Contacts:
       Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
+      - Name: Gerard Bernabeu Altayo
       - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
+      - Name: Steve Timm
     Type: Miscellaneous Contact
   - Contacts:
       Contact:
-      - Name: Joe Boyd
       - Name: Joe Boyd
     Type: VO Manager
 Disable: 'False'
@@ -47,29 +39,21 @@ FieldsOfScience:
 ID: '70'
 LongName: Fermilab/MicroBooNE
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
-MemeberResources:
-  Resource:
-  - ID: '773'
-    Name: Bern ce01
-  - ID: '774'
-    Name: Bern ce02
 Name: MicroBooNE
 OASIS:
   Managers:
     Manager:
-    - ContactID: '8'
-      DNs:
+    - DNs:
         DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
           Paul Bockelman
       Name: Brian Bockelman
-    - ContactID: '579'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
+        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
       Name: Joe Boyd
-    - ContactID: '605'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel
@@ -91,8 +75,6 @@ ReportingGroups:
     Contacts:
       Contact:
       - Name: Keith Chadwick
-      - Name: Steve Timm
-      - Name: Steve Timm
       - Name: Steve Timm
     FQANs:
       FQAN:

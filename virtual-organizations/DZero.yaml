@@ -21,22 +21,17 @@ ContactTypes:
     Type: Submitter Contact
   - Contacts:
       Contact:
-      - Name: Michael Diesburg
-      - Name: Michael Diesburg
+        Name: Michael Diesburg
     Type: Security Contact
   - Contacts:
       Contact:
-      - Name: Michael Diesburg
-      - Name: Michael Diesburg
       - Name: Qizhong Li
+      - Name: Michael Diesburg
     Type: Administrative Contact
   - Contacts:
       Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
       - Name: Joe Boyd
-      - Name: Joe Boyd
+      - Name: Steve Timm
     Type: Miscellaneous Contact
   - Contacts:
       Contact:
@@ -44,9 +39,8 @@ ContactTypes:
     Type: VO Manager
   - Contacts:
       Contact:
+      - Name: Yolanda Valadez
       - Name: Darnell Green
-      - Name: Yolanda Valadez
-      - Name: Yolanda Valadez
     Type: Registration Authority
 Disable: 'False'
 FieldsOfScience:
@@ -57,53 +51,15 @@ FieldsOfScience:
 ID: '7'
 LongName: D0 Experiment at Fermilab
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/dzero
-MemeberResources:
-  Resource:
-  - ID: '64'
-    Name: LTU_OSG
-  - ID: '86'
-    Name: OUHEP_ITB
-  - ID: '87'
-    Name: OUHEP_OSG
-  - ID: '146'
-    Name: UMissHEP
-  - ID: '149'
-    Name: MSU-OSG
-  - ID: '150'
-    Name: MSU-OSG_SE
-  - ID: '151'
-    Name: LONI_OSG1
-  - ID: '187'
-    Name: FNAL_DZEROOSG_1
-  - ID: '188'
-    Name: FNAL_DZEROOSG_2
-  - ID: '331'
-    Name: LUHEP_SE
-  - ID: '333'
-    Name: UMissHEP_SE
-  - ID: '405'
-    Name: LUHEP_OSG2
-  - ID: '435'
-    Name: FNAL_DZEROOSG_3
-  - ID: '436'
-    Name: FNAL_DZEROOSG_4
-  - ID: '600'
-    Name: FZU_NOVA
-  - ID: '780'
-    Name: FZU_NOVA_CE
-  - ID: '900'
-    Name: FZU_OSG_CE1
-  - ID: '932'
-    Name: FZU_OSG_CE2
 Name: DZero
 OASIS:
   Managers:
     Manager:
-      ContactID: '579'
       DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
+        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
       Name: Joe Boyd
   OASISRepoURLs:
     URL: http://oasiscfs.fnal.gov:8000/cvmfs/d0.opensciencegrid.org/
@@ -115,13 +71,9 @@ ReportingGroups:
   ReportingGroup:
     Contacts:
       Contact:
-      - Name: Horst Severini
-      - Name: Horst Severini
-      - Name: Joel Snow
-      - Name: Joel Snow
-      - Name: Joel Snow
-      - Name: Joel Snow
       - Name: Qizhong Li
+      - Name: Joel Snow
+      - Name: Horst Severini
     FQANs:
       FQAN:
       - GroupName: /dzero

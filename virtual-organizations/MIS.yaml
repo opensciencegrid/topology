@@ -7,40 +7,24 @@ ContactTypes:
   - Contacts:
       Contact:
       - Name: Elizabeth Prout
-      - Name: Elizabeth Prout
-      - Name: Elizabeth Prout
     Type: Security Contact
   - Contacts:
       Contact:
       - Name: OSG Operations Center
       - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
     Type: Administrative Contact
   - Contacts:
       Contact:
       - Name: Mine Altunay
-      - Name: Mine Altunay
     Type: Miscellaneous Contact
   - Contacts:
       Contact:
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Elizabeth Prout
-      - Name: Elizabeth Prout
-      - Name: Elizabeth Prout
       - Name: Sarah Schmiechen
+      - Name: Elizabeth Prout
+      - Name: Kyle Gross
     Type: Registration Authority
   - Contacts:
       Contact:
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
       - Name: Scott Teige
     Type: Sponsors
 Disable: 'False'
@@ -52,114 +36,21 @@ FieldsOfScience:
 ID: '25'
 LongName: OSG Monitoring Information System
 MembershipServicesURL: https://voms.grid.iu.edu:8443/voms/mis/
-MemeberResources:
-  Resource:
-  - ID: '52'
-    Name: IUPUI-ITB
-  - ID: '54'
-    Name: IU_COBRA_ITB
-  - ID: '196'
-    Name: GOC_Auth_Services
-  - ID: '197'
-    Name: OSG_TWiki
-  - ID: '238'
-    Name: OSG-ReSS-PROD
-  - ID: '239'
-    Name: ITB-ReSS
-  - ID: '249'
-    Name: OSG_VOMRS
-  - ID: '273'
-    Name: MyOSG_1
-  - ID: '274'
-    Name: GOC_BDII_1
-  - ID: '275'
-    Name: GOC_BDII_2
-  - ID: '277'
-    Name: RSV_Collector
-  - ID: '278'
-    Name: RSV_Collector_ITB
-  - ID: '280'
-    Name: MyOSG_2
-  - ID: '296'
-    Name: GOC_BDII_ITB_1
-  - ID: '297'
-    Name: GOC_BDII_ITB_2
-  - ID: '299'
-    Name: SECMON_CADIST_GOC
-  - ID: '300'
-    Name: SECMON_CADIST_VDT
-  - ID: '301'
-    Name: SECMON_CRL
-  - ID: '302'
-    Name: SECMON_VOMS
-  - ID: '310'
-    Name: OSG_Display_1
-  - ID: '315'
-    Name: GOC_OIM
-  - ID: '316'
-    Name: GOC_Ticket_1
-  - ID: '317'
-    Name: GOC_Ticket_2
-  - ID: '334'
-    Name: GOC_Software_Cache_1
-  - ID: '335'
-    Name: GOC_Software_Cache_2
-  - ID: '336'
-    Name: GOC_Software_Cache_ITB
-  - ID: '383'
-    Name: GOC_ITB_CE
-  - ID: '406'
-    Name: GOC glidein
-  - ID: '424'
-    Name: GOC_Repo_1
-  - ID: '425'
-    Name: GOC_Repo_2
-  - ID: '431'
-    Name: UCSD glidein
-  - ID: '450'
-    Name: jira
-  - ID: '465'
-    Name: Image_Server
-  - ID: '466'
-    Name: GOC Voms
-  - ID: '468'
-    Name: LLAMA-LLAMA-GOC
-  - ID: '479'
-    Name: ECE
-  - ID: '536'
-    Name: ECE2
-  - ID: '543'
-    Name: GOC_Perfsonar_Bandwidth
-  - ID: '544'
-    Name: GOC_Perfsonar_Latency
-  - ID: '556'
-    Name: E_HTCCE
-  - ID: '615'
-    Name: VJNEAL_CE
-  - ID: '631'
-    Name: Soichi_Test_Resource
-  - ID: '748'
-    Name: GOC_Repo_ITB
-  - ID: '797'
-    Name: RSV1
 Name: MIS
 OASIS:
   Managers:
     Manager:
-    - ContactID: '8'
-      DNs:
+    - DNs:
         DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
           Paul Bockelman
       Name: Brian Bockelman
-    - ContactID: '185'
-      DNs:
+    - DNs:
         DN:
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Elizabeth Prout
         - /DC=org/DC=cilogon/C=US/O=Indiana University/CN=Elizabeth Prout A19956
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Elizabeth Prout
       Name: Elizabeth Prout
-    - ContactID: '192'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Timothy A. Cartwright 150792
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Tim Cartwright
@@ -167,14 +58,12 @@ OASIS:
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Tim Cartwright
           192
       Name: Tim Cartwright
-    - ContactID: '472'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Thomas Lee 472
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Tom Lee 472
       Name: Tom Lee
-    - ContactID: '508'
-      DNs:
+    - DNs:
         DN:
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Dave Dykstra 508
         - /DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Dave
@@ -182,15 +71,13 @@ OASIS:
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Dave Dykstra
           508
       Name: Dave Dykstra
-    - ContactID: '649'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Jose Caballero 511275
         - /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jcaballe/CN=620333/CN=Jose Caballero
           Bejar
       Name: Jose Caballero
-    - ContactID: '652'
-      DNs:
+    - DNs:
         DN:
         - /DC=org/DC=doegrids/OU=People/CN=Scott Teige 689374
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Scott Teige 652
@@ -198,18 +85,15 @@ OASIS:
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Scott Teige
           1
       Name: Scott Teige
-    - ContactID: '770'
-      DNs:
+    - DNs:
         DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Matyas Selmeci
       Name: Matyas Selmeci
-    - ContactID: '1047'
-      DNs:
+    - DNs:
         DN:
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Brian Lin 1047
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Brian Lin 1047
       Name: Brian Lin
-    - ContactID: '1349'
-      DNs:
+    - DNs:
         DN:
         - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Tim Theisen 1349
         - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Tim Theisen
