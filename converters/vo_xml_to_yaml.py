@@ -130,14 +130,14 @@ def simplify_fields_of_science(fos: Dict) -> Union[Dict, None]:
     {"PrimaryFields": {"Field": ["P1", "P2", ...]},
      "SecondaryFields": {"Field": ["S1", "S2", ...]}}
     into
-    {"Primary": ["P1", "P2", ...],
-     "Secondary": ["S1", "S2", ...]}
+    {"PrimaryFields": ["P1", "P2", ...],
+     "SecondaryFields": ["S1", "S2", ...]}
     """
     if is_null(fos, "PrimaryFields") or is_null(fos["PrimaryFields"], "Field"):
         return None
-    new_fields = {"Primary": ensure_list(fos["PrimaryFields"]["Field"])}
+    new_fields = {"PrimaryFields": ensure_list(fos["PrimaryFields"]["Field"])}
     if not is_null(fos, "SecondaryFields", "Field"):
-        new_fields["Secondary"] = ensure_list(fos["SecondaryFields"]["Field"])
+        new_fields["SecondaryFields"] = ensure_list(fos["SecondaryFields"]["Field"])
     return new_fields
 
 

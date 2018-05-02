@@ -82,17 +82,17 @@ def expand_oasis_managers(managers):
 
 def expand_fields_of_science(fields_of_science):
     """Turn
-    {"Primary": ["P1", "P2", ...],
-     "Secondary": ["S1", "S2", ...]}
+    {"PrimaryFields": ["P1", "P2", ...],
+     "SecondaryFields": ["S1", "S2", ...]}
     into
     {"PrimaryFields": {"Field": ["P1", "P2", ...]},
      "SecondaryFields": {"Field": ["S1", "S2", ...]}}
     """
-    if is_null(fields_of_science, "Primary"):
+    if is_null(fields_of_science, "PrimaryFields"):
         return None
-    new_fields = {"PrimaryFields": {"Field": singleton_list_to_value(fields_of_science["Primary"])}}
+    new_fields = {"PrimaryFields": {"Field": singleton_list_to_value(fields_of_science["PrimaryFields"])}}
     if not is_null(fields_of_science, "Secondary"):
-        new_fields["SecondaryFields"] = {"Field": singleton_list_to_value(fields_of_science["Secondary"])}
+        new_fields["SecondaryFields"] = {"Field": singleton_list_to_value(fields_of_science["SecondaryFields"])}
     return new_fields
 
 
