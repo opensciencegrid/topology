@@ -115,6 +115,8 @@ def simplify_oasis_managers(managers):
     for manager, data in new_managers.items():
         if not is_null(data, "DNs"):
             data["DNs"] = data["DNs"]["DN"]
+        if not is_null(data, "ContactID"):
+            data["ContactID"] = int(data["ContactID"])
     return new_managers
 
 
@@ -135,22 +137,29 @@ def simplify_fields_of_science(fos: Dict) -> Union[Dict, None]:
 
 
 for vo in parsed['VOSummary']['VO']:
-    newvo = vo
-    if "ContactTypes" in newvo:
-        newvo["Contacts"] = simplify_contacttypes(newvo["ContactTypes"])
-        del newvo["ContactTypes"]
-    if "ReportingGroups" in newvo:
-        newvo["ReportingGroups"] = simplify_reportinggroups(newvo["ReportingGroups"])
+    if "ID" in vo:
+        vo["ID"] = int(vo["ID"])
+    vo["Active"] = bool(vo.get("Active", False))
+    vo["CertificateOnly"] = bool(vo.get("CertificateOnly", False))
+    vo["Disable"] = bool(vo.get("Disable", False))
+    if "ContactTypes" in vo:
+        vo["Contacts"] = simplify_contacttypes(vo["ContactTypes"])
+        del vo["ContactTypes"]
+    if "ReportingGroups" in vo:
+        vo["ReportingGroups"] = simplify_reportinggroups(vo["ReportingGroups"])
     if "OASIS" in vo:
         if not is_null(vo["OASIS"], "Managers"):
             vo["OASIS"]["Managers"] = simplify_oasis_managers(vo["OASIS"]["Managers"])
         if not is_null(vo["OASIS"], "OASISRepoURLs") and not is_null(vo["OASIS"]["OASISRepoURLs"], "URL"):
             vo["OASIS"]["OASISRepoURLs"] = ensure_list(vo["OASIS"]["OASISRepoURLs"]["URL"])
+        vo["OASIS"]["UseOASIS"] = bool(vo["OASIS"].get("UseOASIS", False))
     if not is_null(vo, "FieldsOfScience"):
         vo["FieldsOfScience"] = simplify_fields_of_science(vo["FieldsOfScience"])
+    if not is_null(vo, "ParentVO"):
+        vo["ParentVO"]["ID"] = int(vo["ParentVO"]["ID"])
 
     serialized = yaml.safe_dump(vo, encoding='utf-8', default_flow_style=False)
     print(serialized.decode())
-    with open("virtual-organizations/{0}.yaml".format(newvo['Name']), 'w') as f:
+    with open("virtual-organizations/{0}.yaml".format(vo['Name']), 'w') as f:
         f.write(serialized.decode())
 
