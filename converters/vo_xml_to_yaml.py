@@ -81,7 +81,7 @@ def simplify_reportinggroups(reportinggroups):
     }
 
     """
-    if is_null("ReportingGroup"):
+    if is_null(reportinggroups, "ReportingGroup"):
         return None
 
     # [{"Name": "XXX", <...>}, {"Name": "YYY", <...>}]  becomes
@@ -142,6 +142,9 @@ def simplify_fields_of_science(fos: Dict) -> Union[Dict, None]:
 
 
 for vo in parsed['VOSummary']['VO']:
+    name = vo["Name"]
+    if "/" in name: continue  # bad name
+
     if "ID" in vo:
         vo["ID"] = int(vo["ID"])
     vo["Active"] = is_true_str(vo.get("Active", ""))
@@ -175,6 +178,6 @@ for vo in parsed['VOSummary']['VO']:
 
     serialized = yaml.safe_dump(vo, encoding='utf-8', default_flow_style=False)
     print(serialized.decode())
-    with open("virtual-organizations/{0}.yaml".format(vo['Name']), 'w') as f:
+    with open("virtual-organizations/{0}.yaml".format(name), 'w') as f:
         f.write(serialized.decode())
 
