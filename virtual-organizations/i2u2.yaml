@@ -1,43 +1,31 @@
-Active: 'True'
+Active: true
 AppDescription: Cosmic ray analysis code.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Fermilab educational outreach program teachers and students involved in
   doing cosmic ray studies at their high schools.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Michael Wilde
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-        Name: Michael Wilde
-    Type: Security Contact
-  - Contacts:
-      Contact:
-        Name: Michael Wilde
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Security Contact:
+  - Name: Michael Wilde
+  Submitter Contact:
+  - Name: Michael Wilde
+  VO Manager:
+  - Name: Michael Wilde
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Education
+  - Education
   SecondaryFields:
-    Field: Technology
-ID: '19'
+  - Technology
+ID: 19
 LongName: Interactions in Understanding the Universe Initiative
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/i2u2
-MemeberResources: null
 Name: i2u2
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: https://fermigrid2.fnal.gov:8443/vomrs/i2u2/vomrs
 PurposeURL: http://quarknet.fnal.gov/e-labs
 ReportingGroups:
-  ReportingGroup:
+  I2U2:
     Contacts: null
     FQANs: null
-    Name: I2U2
 SupportURL: http://quarknet.fnal.gov/e-labs

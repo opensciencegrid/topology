@@ -1,91 +1,52 @@
-Active: 'True'
+Active: true
 AppDescription: CDF Analysis jobs will be run
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The Collider Detector at Fermilab (CDF) experimental collaboration is committed
   to studying high energy particle collisions at the world
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Dennis Box
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Joe Boyd
+  Miscellaneous Contact:
+  - Name: Steve Timm
+  - Name: Joe Boyd
+  - Name: Dennis Box
+  VO Manager:
+  - Name: Joe Boyd
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
+  - High Energy Physics
   SecondaryFields:
-    Field: Physics and astronomy
-ID: '1'
+  - Physics and astronomy
+ID: 1
 LongName: Collider Detector at Fermilab
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/cdf/
-MemeberResources:
-  Resource:
-  - ID: '65'
-    Name: MCGILL_HEP
-  - ID: '66'
-    Name: MIT_CMS
-  - ID: '181'
-    Name: FNAL_CDFOSG_1
-  - ID: '183'
-    Name: FNAL_CDFOSG_2
-  - ID: '184'
-    Name: FNAL_CDFOSG_3
-  - ID: '186'
-    Name: FNAL_CDFOSG_4
-  - ID: '271'
-    Name: KISTI-NSDC-CE03
-  - ID: '279'
-    Name: FNAL_CDFOSG_0
-  - ID: '349'
-    Name: MIT_CMS_2
 Name: CDF
 OASIS:
   Managers:
-    Manager:
-      ContactID: '579'
+    Joe Boyd:
+      ContactID: 579
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
-      Name: Joe Boyd
+      - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
   OASISRepoURLs:
-    URL: http://oasiscfs.fnal.gov:8000/cvmfs/cdf.opensciencegrid.org/
-  UseOASIS: 'True'
-ParentVO: null
+  - http://oasiscfs.fnal.gov:8000/cvmfs/cdf.opensciencegrid.org/
+  UseOASIS: true
 PrimaryURL: http://www-cdf.fnal.gov
 PurposeURL: http://www-cdf.fnal.gov
 ReportingGroups:
-  ReportingGroup:
+  cdf:
     Contacts:
-      Contact:
-      - Name: Joe Boyd
-      - Name: Joe Boyd
+    - Joe Boyd
     FQANs:
-      FQAN:
-      - GroupName: /cdf
-        Role: null
-      - GroupName: /cdf/glidecaf
-        Role: development
-      - GroupName: /cdf/glidecaf
-        Role: fermigrid
-      - GroupName: /cdf/glidecaf
-        Role: namcaf
-      - GroupName: /cdf/glidecaf
-        Role: testcaf
-    Name: cdf
+    - GroupName: /cdf
+      Role: null
+    - GroupName: /cdf/glidecaf
+      Role: development
+    - GroupName: /cdf/glidecaf
+      Role: fermigrid
+    - GroupName: /cdf/glidecaf
+      Role: namcaf
+    - GroupName: /cdf/glidecaf
+      Role: testcaf
 SupportURL: http://cdfcaf.fnal.gov

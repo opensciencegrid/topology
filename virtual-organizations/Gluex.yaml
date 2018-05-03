@@ -1,86 +1,46 @@
-Active: 'True'
+Active: true
 AppDescription: Gluex simulation and analysis will be done.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The Gluex collaboration at Jefferson Lab is dedicated to the study of quark
   and gluon degrees of freedom in hadrons using high-energy photons.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Richard T. Jones
-      - Name: Richard T. Jones
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Richard T. Jones
-      - Name: Richard T. Jones
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Richard T. Jones
-      - Name: Richard T. Jones
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Richard T. Jones
-      - Name: Richard T. Jones
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Richard T. Jones
-      - Name: Richard T. Jones
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Richard T. Jones
+  Registration Authority:
+  - Name: Richard T. Jones
+  Security Contact:
+  - Name: Richard T. Jones
+  Submitter Contact:
+  - Name: Richard T. Jones
+  VO Manager:
+  - Name: Richard T. Jones
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Nuclear Physics
+  - Nuclear Physics
   SecondaryFields:
-    Field: High Energy Physics
-ID: '62'
+  - High Energy Physics
+ID: 62
 LongName: Gluex experiment at Jefferson Lab
 MembershipServicesURL: https://gryphn.phys.uconn.edu:8443/voms/Gluex
-MemeberResources:
-  Resource:
-  - ID: '286'
-    Name: UConn-OSG_CE
-  - ID: '287'
-    Name: UConn-OSG_SE
-  - ID: '288'
-    Name: UConn-OSG_GUMS
-  - ID: '289'
-    Name: Gluex_VOMS
-  - ID: '290'
-    Name: Gluex_VOMRS
-  - ID: '605'
-    Name: NUMEP_CE
-  - ID: '613'
-    Name: NUMEP_SE
-  - ID: '899'
-    Name: OSG_US_FSU_HNPGRID
 Name: Gluex
 OASIS:
   Managers:
-    Manager:
-    - ContactID: '594'
+    Mark Ito:
+      ContactID: 1104
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Richard T. Jones 975420
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Richard T. Jones
-      Name: Richard T. Jones
-    - ContactID: '1104'
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Mark Ito 1104
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Mark Ito 1104
+    Richard T. Jones:
+      ContactID: 594
       DNs:
-        DN:
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Mark Ito 1104
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Mark Ito 1104
-      Name: Mark Ito
-  OASISRepoURLs: null
-  UseOASIS: 'True'
-ParentVO: null
+      - /DC=org/DC=doegrids/OU=People/CN=Richard T. Jones 975420
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Richard T. Jones
+  UseOASIS: true
 PrimaryURL: http://www.gluex.org
 PurposeURL: http://gryphn.phys.uconn.edu/UConn-OSG/charter_stmt.html
 ReportingGroups:
-  ReportingGroup:
+  GLUEX:
     Contacts: null
     FQANs: null
-    Name: GLUEX
 SupportURL: http://gryphn.phys.uconn.edu/UConn-OSG/support.html

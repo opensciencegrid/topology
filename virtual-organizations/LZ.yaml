@@ -1,77 +1,56 @@
-Active: 'True'
+Active: true
 AppDescription: LZ analyses and simulations will be run.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: This is a VO for the LUX(Large Underground Xenon)-ZEPLIN(ZonEd Proportional
   scintillation in LIquid Noble gases) Experiment. This experiment studies Dark Matter
   interactions.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Daniel Bradley
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Daniel Bradley
-      - Name: Carl Vuosalo
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Daniel Bradley
-      - Name: Sridhara Dasu
-      - Name: Carl Vuosalo
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Daniel Bradley
-      - Name: Sridhara Dasu
-      - Name: Carl Vuosalo
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Daniel Bradley
-      - Name: Sridhara Dasu
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Daniel Bradley
-      - Name: Carl Vuosalo
-    Type: Registration Authority
-  - Contacts:
-      Contact:
-      - Name: Sridhara Dasu
-      - Name: Carl Vuosalo
-    Type: Sponsors
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Daniel Bradley
+  - Name: Sridhara Dasu
+  - Name: Carl Vuosalo
+  Miscellaneous Contact:
+  - Name: Daniel Bradley
+  - Name: Sridhara Dasu
+  - Name: Carl Vuosalo
+  Registration Authority:
+  - Name: Daniel Bradley
+  - Name: Carl Vuosalo
+  Security Contact:
+  - Name: Daniel Bradley
+  - Name: Carl Vuosalo
+  Sponsors:
+  - Name: Sridhara Dasu
+  - Name: Carl Vuosalo
+  Submitter Contact:
+  - Name: Daniel Bradley
+  VO Manager:
+  - Name: Daniel Bradley
+  - Name: Sridhara Dasu
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Particle Physics
-ID: '117'
+  - Particle Physics
+ID: 117
 LongName: LUX-ZEPLIN
 MembershipServicesURL: https://voms.hep.wisc.edu:8443/voms/lz
-MemeberResources: null
 Name: LZ
 OASIS:
   Managers:
-    Manager:
-    - ContactID: '12'
-      DNs:
-        DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=dbradley/CN=614788/CN=Daniel
-          Charles Bradley
-      Name: Daniel Bradley
-    - ContactID: '200'
-      DNs:
-        DN: /DC=org/DC=doegrids/OU=People/CN=Sridhara Rao Dasu 610586
-      Name: Sridhara Dasu
+    Daniel Bradley:
+      ContactID: 12
+      DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=dbradley/CN=614788/CN=Daniel
+        Charles Bradley
+    Sridhara Dasu:
+      ContactID: 200
+      DNs: /DC=org/DC=doegrids/OU=People/CN=Sridhara Rao Dasu 610586
   OASISRepoURLs:
-    URL: http://cvmfslz.hep.wisc.edu:8000/cvmfs/lz.opensciencegrid.org
-  UseOASIS: 'True'
-ParentVO: null
+  - http://cvmfslz.hep.wisc.edu:8000/cvmfs/lz.opensciencegrid.org
+  UseOASIS: true
 PrimaryURL: http://lz.lbl.gov/
 PurposeURL: http://www.hep.wisc.edu/lz
 ReportingGroups:
-  ReportingGroup:
+  LZ:
     Contacts: null
     FQANs: null
-    Name: LZ
 SupportURL: http://www.hep.wisc.edu/lz

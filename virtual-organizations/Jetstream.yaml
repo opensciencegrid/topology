@@ -1,55 +1,38 @@
-Active: 'True'
+Active: true
 AppDescription: Jetstream, led by the Indiana University Pervasive Technology Institute
   (PTI), will add cloud-based computation to the national cyberinfrastructure.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Jetstream
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Jeremy Fischer
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-        Name: Jeremy Fischer
-    Type: Security Contact
-  - Contacts:
-      Contact:
-        Name: Jeremy Fischer
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-        Name: Jeremy Fischer
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-        Name: Jeremy Fischer
-    Type: VO Manager
-  - Contacts:
-      Contact:
-        Name: Jeremy Fischer
-    Type: Sponsors
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Jeremy Fischer
+  Miscellaneous Contact:
+  - Name: Jeremy Fischer
+  Security Contact:
+  - Name: Jeremy Fischer
+  Sponsors:
+  - Name: Jeremy Fischer
+  Submitter Contact:
+  - Name: Jeremy Fischer
+  VO Manager:
+  - Name: Jeremy Fischer
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Computer and Information Science and Engineering
-ID: '128'
+  - Computer and Information Science and Engineering
+ID: 128
 LongName: Jetstream
 MembershipServicesURL: https://voms.grid.iu.edu:8443/voms/CSIU/
-MemeberResources: null
 Name: Jetstream
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
+  UseOASIS: false
 ParentVO:
-  ID: '72'
+  ID: 72
   Name: CSIU
 PrimaryURL: https://twiki.grid.iu.edu/bin/view/VirtualOrganizations/CSatIU
 PurposeURL: https://twiki.grid.iu.edu/bin/view/VirtualOrganizations/CSatIU
 ReportingGroups:
-  ReportingGroup:
+  jetstream:
     Contacts: null
     FQANs: null
-    Name: jetstream
 SupportURL: http://osggoc.blogspot.com/

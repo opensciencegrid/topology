@@ -1,4 +1,4 @@
-Active: 'True'
+Active: true
 AppDescription: While HCC has a strong affiliation with the US CMS project as a Tier-2
   site, we have recently had a growing number of local users inquire about accessing
   the considerable resources of the Open Science Grid.  We have utilized both OSG-MM
@@ -8,127 +8,59 @@ AppDescription: While HCC has a strong affiliation with the US CMS project as a 
   use to the OSG with local HCC staff. The HCC VO will allow us to engage a growing
   Nebraska user community, and to monitor and assist these NU researchers as they
   migrate their code to OSG.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: HCC supports NU faculty and staff from a variety of fields and 4 campuses
   located at Lincoln, Omaha and Kearney.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: David Swanson
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Carl Lundstedt
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: David Swanson
-      - Name: Carl Lundstedt
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Brian Bockelman
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Garhan Attebury
-      - Name: Derek Weitzel
-      - Name: Derek Weitzel
-      - Name: Derek Weitzel
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: David Swanson
-      - Name: Carl Lundstedt
-    Type: VO Manager
-  - Contacts:
-      Contact:
-        Name: Carl Lundstedt
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: David Swanson
+  - Name: Carl Lundstedt
+  Miscellaneous Contact:
+  - Name: Brian Bockelman
+  - Name: Garhan Attebury
+  - Name: Derek Weitzel
+  Registration Authority:
+  - Name: Carl Lundstedt
+  Security Contact:
+  - Name: Carl Lundstedt
+  - Name: Garhan Attebury
+  Submitter Contact:
+  - Name: David Swanson
+  VO Manager:
+  - Name: David Swanson
+  - Name: Carl Lundstedt
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Multi-Science Community
+  - Multi-Science Community
   SecondaryFields:
-    Field:
-    - Bioinformatics
-    - Community Grid
-    - Computer and Information Science and Engineering
-    - Mathematical Sciences
-ID: '67'
+  - Bioinformatics
+  - Community Grid
+  - Computer and Information Science and Engineering
+  - Mathematical Sciences
+ID: 67
 LongName: Holland Computing Center at the University of Nebraska.
 MembershipServicesURL: https://hcc-voms.unl.edu:8443/voms/hcc/Login.do
-MemeberResources:
-  Resource:
-  - ID: '228'
-    Name: Sandhills
-  - ID: '229'
-    Name: Firefly
-  - ID: '243'
-    Name: Firefly_SE
-  - ID: '247'
-    Name: Firefly-2
-  - ID: '248'
-    Name: Firefly-3
-  - ID: '328'
-    Name: HCC GlideinWMS Frontend
-  - ID: '408'
-    Name: red-gateway3-ITB
-  - ID: '444'
-    Name: HCC-CPASS
-  - ID: '454'
-    Name: Tusker-CE1
-  - ID: '455'
-    Name: Tusker
-  - ID: '504'
-    Name: US-Nebraska Disabled
-  - ID: '505'
-    Name: US-Nebraska LT
-  - ID: '519'
-    Name: US-Nebraska BW
-  - ID: '602'
-    Name: Crane-CE1
-  - ID: '692'
-    Name: US-Nebraska LT (Test)
-  - ID: '693'
-    Name: US-Nebraska BW (Test)
 Name: HCC
 OASIS:
   Managers:
-    Manager:
-    - ContactID: '8'
+    Brian Bockelman:
+      ContactID: 8
+      DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
+        Paul Bockelman
+    Derek Weitzel:
+      ContactID: 605
       DNs:
-        DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
-          Paul Bockelman
-      Name: Brian Bockelman
-    - ContactID: '605'
-      DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel
-          605
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Derek Weitzel
-      Name: Derek Weitzel
-  OASISRepoURLs: null
-  UseOASIS: 'True'
-ParentVO: null
+      - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel 605
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Derek Weitzel
+  UseOASIS: true
 PrimaryURL: http://hcc.unl.edu
 PurposeURL: http://hcc.unl.edu/GridNebraska
 ReportingGroups:
-  ReportingGroup:
+  HCC:
     Contacts:
-      Contact:
-      - Name: David Swanson
-      - Name: Derek Weitzel
-      - Name: Derek Weitzel
-      - Name: Derek Weitzel
+    - David Swanson
+    - Derek Weitzel
     FQANs: null
-    Name: HCC
 SupportURL: http://hcc.unl.edu/contact

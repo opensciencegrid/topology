@@ -1,63 +1,43 @@
-Active: 'True'
+Active: true
 AppDescription: CDMS Experiment
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: 'CDMS Experiment
 
   Cryogenic Dark Matter Search'
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Keith Chadwick
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-    Type: Miscellaneous Contact
-Disable: 'False'
+Contacts:
+  Miscellaneous Contact:
+  - Name: Steve Timm
+  - Name: Joe Boyd
+  - Name: Gerard Bernabeu Altayo
+  Submitter Contact:
+  - Name: Keith Chadwick
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
-ID: '49'
+  - High Energy Physics
+ID: 49
 LongName: Fermilab/Cdms
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
-MemeberResources:
-  Resource:
-  - ID: '718'
-    Name: PNNL_CE00
-  - ID: '746'
-    Name: PNNL_HEP_CE00
 Name: Cdms
 OASIS:
   Managers:
-    Manager:
-      ContactID: '579'
+    Joe Boyd:
+      ContactID: 579
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
-      Name: Joe Boyd
+      - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
   OASISRepoURLs:
-    URL: http://oasiscfs.fnal.gov:8000/cvmfs/cdms.opensciencegrid.org/
-  UseOASIS: 'True'
+  - http://oasiscfs.fnal.gov:8000/cvmfs/cdms.opensciencegrid.org/
+  UseOASIS: true
 ParentVO:
-  ID: '9'
+  ID: 9
   Name: Fermilab
 PrimaryURL: http://ppd.fnal.gov/experiments/cdms/
 PurposeURL: http://ppd.fnal.gov/experiments/cdms/
 ReportingGroups:
-  ReportingGroup:
+  cdms:
     Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/cdms
-        Role: null
-    Name: cdms
+    - GroupName: /fermilab/cdms
+      Role: null
 SupportURL: http://fermigrid.fnal.gov/

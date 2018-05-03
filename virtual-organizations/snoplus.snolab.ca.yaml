@@ -1,76 +1,49 @@
-Active: 'True'
+Active: true
 AppDescription: SNO+ simulation and analysis jobs
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The SNO+ collaboration uses the SNO+ detector to achieve a diverse set
   of physics goals. The primary goal is to search for neutrino-less double beta decay
   by loading the target material (liquid scintillator) with the double beta decaying
   isotope Tellurium. SNO+ can also study low energy solar neutrinos, reactor, geo-
   and supernova neutrinos.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Freija Descamps
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Benjamin Land
-      - Name: Benjamin Land
-      - Name: Benjamin Land
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Benjamin Land
-      - Name: Benjamin Land
-      - Name: Benjamin Land
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Benjamin Land
-      - Name: Benjamin Land
-      - Name: Benjamin Land
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Benjamin Land
-      - Name: Benjamin Land
-      - Name: Benjamin Land
-      - Name: Christopher Jackson
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Benjamin Land
+  Registration Authority:
+  - Name: Benjamin Land
+  - Name: Christopher Jackson
+  Security Contact:
+  - Name: Benjamin Land
+  Submitter Contact:
+  - Name: Freija Descamps
+  VO Manager:
+  - Name: Benjamin Land
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
+  - High Energy Physics
   SecondaryFields:
-    Field: Physics and astronomy
-ID: '101'
+  - Physics and astronomy
+ID: 101
 LongName: snoplus.snolab.ca
 MembershipServicesURL: https://voms.gridpp.ac.uk:8443/voms/snoplus.snolab.ca/
-MemeberResources: null
 Name: snoplus.snolab.ca
 OASIS:
   Managers:
-    Manager:
-    - ContactID: '1236'
+    Freija Descamps:
+      ContactID: 1236
+      DNs: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Freija Descamps
+        1236
+    Kevin Labe:
+      ContactID: 1781
       DNs:
-        DN: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Freija Descamps
-          1236
-      Name: Freija Descamps
-    - ContactID: '1781'
-      DNs:
-        DN:
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Kevin Labe 1781
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Kevin Labe 1781
-      Name: Kevin Labe
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Kevin Labe 1781
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Kevin Labe 1781
   OASISRepoURLs:
-    URL: http://cvmfs-stratum0.gridpp.rl.ac.uk:8000/cvmfs/snoplus.egi.eu
-  UseOASIS: 'True'
-ParentVO: null
+  - http://cvmfs-stratum0.gridpp.rl.ac.uk:8000/cvmfs/snoplus.egi.eu
+  UseOASIS: true
 PrimaryURL: http://snoplus.phy.queensu.ca/Home.html
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
+  snoplus:
     Contacts: null
     FQANs: null
-    Name: snoplus
-SupportURL: null

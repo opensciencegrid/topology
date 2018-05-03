@@ -1,66 +1,33 @@
-Active: 'True'
+Active: true
 AppDescription: Data analysis and simulation work is carried out.
-CertificateOnly: 'True'
+CertificateOnly: true
 Community: Large Hadron Collider Beauty Experiment studies production and decay of
   particles containing beauty and charm quarks.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Steven Blusk
-      - Name: Steven Blusk
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Steven Blusk
-      - Name: Steven Blusk
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Steven Blusk
-      - Name: Steven Blusk
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Steven Blusk
-      - Name: Steven Blusk
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Steven Blusk
-      - Name: Steven Blusk
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Steven Blusk
+  Registration Authority:
+  - Name: Kyle Gross
+  - Name: Steven Blusk
+  Security Contact:
+  - Name: Steven Blusk
+  Submitter Contact:
+  - Name: Steven Blusk
+  VO Manager:
+  - Name: Steven Blusk
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
+  - High Energy Physics
   SecondaryFields:
-    Field: Nuclear Physics
-ID: '105'
+  - Nuclear Physics
+ID: 105
 LongName: Large Hadron Collider Beauty Experiment
-MembershipServicesURL: null
-MemeberResources:
-  Resource:
-  - ID: '703'
-    Name: PerfSONAR_CBPF_lt
-  - ID: '704'
-    Name: PerfSONAR_CBPF_bw
 Name: LHCb
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://lhcb.web.cern.ch/lhcb/
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
+  LHCb:
     Contacts: null
     FQANs: null
-    Name: LHCb
-SupportURL: null

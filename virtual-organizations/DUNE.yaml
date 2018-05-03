@@ -1,109 +1,50 @@
-Active: 'True'
+Active: true
 AppDescription: Simulation of detectors and physics and analysis of data will be performed
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: This is the international DUNE collaboration composed of former LBNE and
   LBNO members plus other interested parties
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Thomas Robert Junk
-      - Name: Thomas Robert Junk
-      - Name: Thomas Robert Junk
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Qizhong Li
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Eileen Berman
-      - Name: Eileen Berman
-      - Name: Eileen Berman
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Thomas Robert Junk
-      - Name: Thomas Robert Junk
-      - Name: Thomas Robert Junk
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Yolanda Valadez
-      - Name: Yolanda Valadez
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Steve Timm
+  - Name: Thomas Robert Junk
+  Miscellaneous Contact:
+  - Name: Qizhong Li
+  - Name: Steve Timm
+  - Name: Eileen Berman
+  Registration Authority:
+  - Name: Yolanda Valadez
+  Security Contact:
+  - Name: Steve Timm
+  Submitter Contact:
+  - Name: Steve Timm
+  VO Manager:
+  - Name: Steve Timm
+  - Name: Thomas Robert Junk
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
+  - High Energy Physics
   SecondaryFields:
-    Field: Astrophysics
-ID: '118'
+  - Astrophysics
+ID: 118
 LongName: Deep Underground Neutrino Experiment
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/dune
-MemeberResources:
-  Resource:
-  - ID: '600'
-    Name: FZU_NOVA
-  - ID: '776'
-    Name: FNAL_GPGRID_4
-  - ID: '777'
-    Name: FNAL_GPGRID_5
-  - ID: '780'
-    Name: FZU_NOVA_CE
-  - ID: '834'
-    Name: CENF_NeutrinoCluster
-  - ID: '900'
-    Name: FZU_OSG_CE1
-  - ID: '901'
-    Name: FNAL_GPGRID_CE_03
-  - ID: '902'
-    Name: FNAL_GPGRID_CE_04
-  - ID: '932'
-    Name: FZU_OSG_CE2
-  - ID: '933'
-    Name: FZU StashCache instance
 Name: DUNE
 OASIS:
   Managers:
-    Manager:
-      ContactID: '579'
+    Joe Boyd:
+      ContactID: 579
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
-      Name: Joe Boyd
+      - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
   OASISRepoURLs:
-    URL: http://oasiscfs.fnal.gov:8000/cvmfs/dune.opensciencegrid.org/
-  UseOASIS: 'True'
-ParentVO: null
+  - http://oasiscfs.fnal.gov:8000/cvmfs/dune.opensciencegrid.org/
+  UseOASIS: true
 PrimaryURL: http://www.dunescience.org
 PurposeURL: http://www.dunescience.org
 ReportingGroups:
-  ReportingGroup:
+  DUNE:
     Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
+    - Steve Timm
     FQANs: null
-    Name: DUNE
 SupportURL: http://servicedesk.fnal.gov

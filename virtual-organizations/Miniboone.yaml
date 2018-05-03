@@ -1,53 +1,35 @@
-Active: 'True'
+Active: true
 AppDescription: Miniboone Experiment
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Miniboone Experiment
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Keith Chadwick
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Miscellaneous Contact:
+  - Name: Steve Timm
+  - Name: Joe Boyd
+  - Name: Gerard Bernabeu Altayo
+  Submitter Contact:
+  - Name: Keith Chadwick
+  VO Manager:
+  - Name: Joe Boyd
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
-ID: '45'
+  - High Energy Physics
+ID: 45
 LongName: Fermilab/Miniboone
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
-MemeberResources: null
 Name: Miniboone
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
+  UseOASIS: false
 ParentVO:
-  ID: '9'
+  ID: 9
   Name: Fermilab
 PrimaryURL: http://www-boone.fnal.gov/
 PurposeURL: http://www-boone.fnal.gov/
 ReportingGroups:
-  ReportingGroup:
+  miniboone:
     Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/miniboone
-        Role: null
-    Name: miniboone
+    - GroupName: /fermilab/miniboone
+      Role: null
 SupportURL: http://fermigrid.fnal.gov/

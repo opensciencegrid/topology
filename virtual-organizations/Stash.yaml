@@ -1,59 +1,39 @@
-Active: 'True'
+Active: true
 AppDescription: OSG wide
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: OSG wide
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Brian Bockelman
-      - Name: Dave Dykstra
-      - Name: Dave Dykstra
-      - Name: Dave Dykstra
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Brian Bockelman
-      - Name: Derek Weitzel
-      - Name: Derek Weitzel
-      - Name: Derek Weitzel
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-        Name: Brian Bockelman
-    Type: VO Manager
-Disable: 'False'
-ID: '122'
+Contacts:
+  Administrative Contact:
+  - Name: Brian Bockelman
+  - Name: Derek Weitzel
+  Security Contact:
+  - Name: Brian Bockelman
+  - Name: Dave Dykstra
+  Submitter Contact:
+  - Name: Scott Teige
+  VO Manager:
+  - Name: Brian Bockelman
+Disable: false
+ID: 122
 LongName: Stash Cache VO
 MembershipServicesURL: https://voms.opensciencegrid.org:8443/voms/osg
-MemeberResources: null
 Name: Stash
 OASIS:
   Managers:
-    Manager:
-      ContactID: '8'
-      DNs:
-        DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
-          Paul Bockelman
-      Name: Brian Bockelman
+    Brian Bockelman:
+      ContactID: 8
+      DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
+        Paul Bockelman
   OASISRepoURLs:
-    URL: http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/stash.osgstorage.org
-  UseOASIS: 'True'
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/stash.osgstorage.org
+  UseOASIS: true
 ParentVO:
-  ID: '30'
+  ID: 30
   Name: OSG
 PrimaryURL: http://www.opensciencegrid.org
 PurposeURL: http://www.opensciencegrid.org
 ReportingGroups:
-  ReportingGroup:
+  stashcache:
     Contacts: null
     FQANs: null
-    Name: stashcache
 SupportURL: http://www.opensciencegrid.org

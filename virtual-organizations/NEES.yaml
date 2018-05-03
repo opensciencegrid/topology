@@ -1,73 +1,38 @@
-Active: 'True'
+Active: true
 AppDescription: Initially OpenSEES http://opensees.berkeley.edu/
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Earthquake Engineering Scientists, Researchers and Practitioners.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Ruth Pordes
-      - Name: Ruth Pordes
-      - Name: Ruth Pordes
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Thomas
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Thomas
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Thomas
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Thomas
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Steven Clark
+  - Name: Thomas
+  Miscellaneous Contact:
+  - Name: Steven Clark
+  - Name: Thomas
+  Registration Authority:
+  - Name: Steven Clark
+  Security Contact:
+  - Name: Steven Clark
+  - Name: Thomas
+  Submitter Contact:
+  - Name: Ruth Pordes
+  VO Manager:
+  - Name: Steven Clark
+  - Name: Thomas
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Engineering
-ID: '79'
+  - Engineering
+ID: 79
 LongName: George E Brown Network for Earthquake Engineering Simulation
 MembershipServicesURL: https://voms.opensciencegrid.org:8443/voms/nees/admin/home.action
-MemeberResources: null
 Name: NEES
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://nees.org/
 PurposeURL: http://nees.org/
 ReportingGroups:
-  ReportingGroup:
+  NEES:
     Contacts: null
     FQANs: null
-    Name: NEES
 SupportURL: http://nees.org/

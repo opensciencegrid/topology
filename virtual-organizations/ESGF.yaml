@@ -1,51 +1,22 @@
-Active: 'True'
+Active: true
 AppDescription: null
-CertificateOnly: 'True'
+CertificateOnly: true
 Community: Earth System Grid Federation supports climate change research community,
   distributing simulation (IPCC AR) and observation datasets.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Alex Sim
-      - Name: Alex Sim
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Alex Sim
-      - Name: Alex Sim
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Alex Sim
-      - Name: Alex Sim
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Alex Sim
-      - Name: Alex Sim
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Alex Sim
-      - Name: Alex Sim
-    Type: Registration Authority
-Disable: 'False'
-ID: '88'
+Contacts:
+  Administrative Contact:
+  - Name: Alex Sim
+  Registration Authority:
+  - Name: Alex Sim
+  Security Contact:
+  - Name: Alex Sim
+  Submitter Contact:
+  - Name: Alex Sim
+  VO Manager:
+  - Name: Alex Sim
+Disable: false
+ID: 88
 LongName: Earth System Grid Federation
-MembershipServicesURL: null
-MemeberResources: null
 Name: ESGF
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
-PrimaryURL: null
-PurposeURL: null
-ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: null
-SupportURL: null
+  UseOASIS: false

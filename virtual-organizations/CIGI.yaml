@@ -1,86 +1,44 @@
-Active: 'True'
+Active: true
 AppDescription: "CIGI applications estimate and predict environmental and social variables\
   \ with a particular focus on geospatial relationships among these variables. \n\n\
   \ Requirements for an individual OSG resource may range from several dozens of compute\
   \ nodes to several hundred of nodes. Sometimes, each note need to have more than\
   \ a few GBs memory. Several dozens of TBs storage may be required."
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: CIGI VO consists of members from earth and social sciences communities
   who develop and use geospatial information systems and technologies.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-      - Name: Anand Padmanabhan
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Anand Padmanabhan
+  Registration Authority:
+  - Name: Anand Padmanabhan
+  Security Contact:
+  - Name: Anand Padmanabhan
+  Submitter Contact:
+  - Name: Anand Padmanabhan
+  VO Manager:
+  - Name: Anand Padmanabhan
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Earth Sciences
+  - Earth Sciences
   SecondaryFields:
-    Field:
-    - Community Grid
-    - Computer and Information Science and Engineering
-    - Ecological and Environmental Sciences
-    - Geographic Information Science
-ID: '2'
+  - Community Grid
+  - Computer and Information Science and Engineering
+  - Ecological and Environmental Sciences
+  - Geographic Information Science
+ID: 2
 LongName: CyberInfrastructure and Geospatial Information Laboratory
 MembershipServicesURL: http://www.cigi.uiuc.edu
-MemeberResources:
-  Resource:
-  - ID: '154'
-    Name: CIGI-ITB
-  - ID: '245'
-    Name: CNIC-OSG
-  - ID: '267'
-    Name: CIGI-VOMS
-  - ID: '318'
-    Name: CNIC-OSG-SE
 Name: CIGI
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://www.cigi.uiuc.edu
 PurposeURL: http://www.cigi.uiuc.edu
 ReportingGroups:
-  ReportingGroup:
+  cigi:
     Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /cigi
-        Role: null
-    Name: cigi
+    - GroupName: /cigi
+      Role: null
 SupportURL: http://www.cigi.uiuc.edu

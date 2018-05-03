@@ -1,348 +1,97 @@
-Active: 'True'
+Active: true
 AppDescription: This VO supports multiple sciences as described in OIM registered
   projects and also supports users from XSEDE who are granted allocations by that
   project
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The OSG VO will support users and experiments that are small enough not
   to warrant their own separate VO.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Mats Rynge
-      - Name: Mats Rynge
-      - Name: Mine Altunay
-      - Name: Mine Altunay
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Mats Rynge
-      - Name: Mats Rynge
-      - Name: Tanya Levshina
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Mats Rynge
-      - Name: Mats Rynge
-      - Name: Tanya Levshina
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Mats Rynge
-      - Name: Mats Rynge
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Mats Rynge
-      - Name: Mats Rynge
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Elizabeth Prout
-      - Name: Elizabeth Prout
-      - Name: Elizabeth Prout
-      - Name: Marina Krenz
-      - Name: Marina Krenz
-      - Name: Marina Krenz
-      - Name: Marina Krenz
-      - Name: Marina Krenz
-      - Name: Marina Krenz
-      - Name: Marina Krenz
-    Type: Registration Authority
-  - Contacts:
-      Contact:
-      - Name: Mats Rynge
-      - Name: Mats Rynge
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-    Type: Sponsors
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Mats Rynge
+  - Name: Tanya Levshina
+  Miscellaneous Contact:
+  - Name: Mats Rynge
+  - Name: Tanya Levshina
+  Registration Authority:
+  - Name: Mats Rynge
+  - Name: Kyle Gross
+  - Name: Elizabeth Prout
+  - Name: Marina Krenz
+  Security Contact:
+  - Name: Mats Rynge
+  - Name: Mine Altunay
+  Sponsors:
+  - Name: Mats Rynge
+  - Name: Scott Teige
+  VO Manager:
+  - Name: Mats Rynge
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Multi-Science Community
-ID: '30'
+  - Multi-Science Community
+ID: 30
 LongName: Open Science Grid
 MembershipServicesURL: https://voms.opensciencegrid.org:8443/voms/osg
-MemeberResources:
-  Resource:
-  - ID: '2'
-    Name: ASGC_OSG
-  - ID: '59'
-    Name: LBNL_VTB
-  - ID: '72'
-    Name: NERSC-Davinci
-  - ID: '82'
-    Name: ORNL_NSTG
-  - ID: '106'
-    Name: TTU-SIGMORGH
-  - ID: '111'
-    Name: UCSanDiego-OSG-Validation-SE-SRM_v2
-  - ID: '112'
-    Name: UCSDT2-SE
-  - ID: '117'
-    Name: UC_ITB_PBS
-  - ID: '119'
-    Name: UC_Teraport
-  - ID: '121'
-    Name: UFlorida-IHEPA
-  - ID: '145'
-    Name: OCI-NSF
-  - ID: '157'
-    Name: Gridplexus
-  - ID: '180'
-    Name: NERSC-Franklin
-  - ID: '190'
-    Name: OSG_VOMS
-  - ID: '211'
-    Name: Clemson-Palmetto
-  - ID: '216'
-    Name: UC_ITB_SE_BESTMAN
-  - ID: '217'
-    Name: UC_ITB_SE_DCACHE
-  - ID: '307'
-    Name: VDT-ITB
-  - ID: '332'
-    Name: NERSC-Carver
-  - ID: '370'
-    Name: GC1_CE
-  - ID: '371'
-    Name: GC1_SE
-  - ID: '373'
-    Name: UC_VTB
-  - ID: '374'
-    Name: UC_ITB_CONDOR
-  - ID: '390'
-    Name: UC_ITB_SE_HADOOP
-  - ID: '443'
-    Name: T3_US_FIT
-  - ID: '461'
-    Name: CrossOSG-CE-UCSD
-  - ID: '467'
-    Name: VDT-ITB-MADISON
-  - ID: '515'
-    Name: Oasis
-  - ID: '530'
-    Name: OSG Oasis replica
-  - ID: '548'
-    Name: OSG UChicago VO Frontend
-  - ID: '557'
-    Name: umsnh_ce_se
-  - ID: '566'
-    Name: UMD-IGS-CE
-  - ID: '572'
-    Name: Nanobio_CE
-  - ID: '593'
-    Name: OSG_FLOCK
-  - ID: '636'
-    Name: Hyak_CE
-  - ID: '641'
-    Name: Ticket Exchange 1
-  - ID: '642'
-    Name: Ticket Exchange 2
-  - ID: '643'
-    Name: XD-Login
-  - ID: '645'
-    Name: GratiaWeb 1
-  - ID: '646'
-    Name: GratiaWeb 2
-  - ID: '648'
-    Name: Beocat_KSU_CE
-  - ID: '649'
-    Name: collector-itb
-  - ID: '650'
-    Name: SU-OG-CE
-  - ID: '652'
-    Name: SU-OG-squid
-  - ID: '653'
-    Name: UCSD gfactory
-  - ID: '654'
-    Name: collector1
-  - ID: '655'
-    Name: collector2
-  - ID: '661'
-    Name: oasis-login
-  - ID: '662'
-    Name: oasis-login-sl6
-  - ID: '665'
-    Name: ESnet Starlight perfSONAR
-  - ID: '710'
-    Name: Accounting_Reporter
-  - ID: '712'
-    Name: stash-itb1
-  - ID: '713'
-    Name: stash-itb2
-  - ID: '729'
-    Name: osg-blogs
-  - ID: '730'
-    Name: OSG blog
-  - ID: '738'
-    Name: FIU_HPCOSG_CE
-  - ID: '754'
-    Name: Indiana StashCache Redirector 2
-  - ID: '757'
-    Name: UChicago StashCache instance
-  - ID: '761'
-    Name: US-MWT2_UIUC-StashCache
-  - ID: '775'
-    Name: Indiana StashCache Redirector 1
-  - ID: '781'
-    Name: Clemson-Connect
-  - ID: '782'
-    Name: SU-OSG-CONNECT
-  - ID: '783'
-    Name: stash1
-  - ID: '784'
-    Name: stash2
-  - ID: '786'
-    Name: UCSD StashCache Instance
-  - ID: '787'
-    Name: perfsonar1
-  - ID: '788'
-    Name: perfsonar2
-  - ID: '789'
-    Name: Physics Computing Facility UCSD Submit Host
-  - ID: '794'
-    Name: MIT_OSG_1
-  - ID: '800'
-    Name: U of U Compute Element
-  - ID: '817'
-    Name: SU-OG-CE1
-  - ID: '818'
-    Name: FZU StashCache Instance
-  - ID: '820'
-    Name: CILogon Certificate Provider
-  - ID: '825'
-    Name: IIT_CE
-  - ID: '828'
-    Name: Yahoo
-  - ID: '829'
-    Name: CancerComputer_Hotel_CE
-  - ID: '833'
-    Name: HOSTED_STANFORD
-  - ID: '837'
-    Name: OSG Connect Origin server
-  - ID: '840'
-    Name: IIT_SUBMIT
-  - ID: '844'
-    Name: IIT_CE1
-  - ID: '847'
-    Name: IIT_CE2
-  - ID: '851'
-    Name: Syracuse StashCache Instance
-  - ID: '862'
-    Name: HOSTED_KANSAS_CE
-  - ID: '866'
-    Name: OSG_US_OSU_COWBOY
-  - ID: '882'
-    Name: Jetstream-CE-1
-  - ID: '890'
-    Name: CancerComputer_Miron_CE
-  - ID: '893'
-    Name: OSG_US_GSU_ACORE
-  - ID: '894'
-    Name: OSG_US_DANFORTH_ce04
-  - ID: '895'
-    Name: OSG_US_WSU_GRID
-  - ID: '896'
-    Name: OSG_US_USD_LEGACY
-  - ID: '897'
-    Name: OSG_US_ASU_OCTILLO
-  - ID: '907'
-    Name: SU-ITS-CE3
-  - ID: '922'
-    Name: CancerComputer_Kitchener_CE
-  - ID: '926'
-    Name: OSG_US_NDSU_CCAST_CLUSTER2
-  - ID: '931'
-    Name: OSG_US_NDSU_CCAST_CLUSTER3
-  - ID: '936'
-    Name: OSG_US_UUTAH_LONEPEAK
-  - ID: '937'
-    Name: OSG_US_UUTAH_KINGSPEAK
-  - ID: '938'
-    Name: OSG_US_UUTAH_EMBER
-  - ID: '939'
-    Name: SU-ITS-CE2
 Name: OSG
 OASIS:
   Managers:
-    Manager:
-    - ContactID: '45'
+    Anna Olson:
+      ContactID: 2691
+      DNs: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Anna Olson 2691
+        OLD
+    Balamurugan Desinghu:
+      ContactID: 2740
       DNs:
-        DN:
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Mats Rynge 45
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Mats Rynge 45
-      Name: Mats Rynge
-    - ContactID: '123'
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Balamurugan Desinghu
+        2740
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Balamurugan Desinghu
+        2740
+    Benedikt Riedel:
+      ContactID: 2175
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Suchandra Thapa 444221
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Suchandra Thapa
-      Name: Suchandra Thapa
-    - ContactID: '605'
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=SPT Pole Production
+        Service Certificate
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Benedikt Riedel
+        2175
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Xenon GWMS Frontend
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Xenon GWMS Pilot
+    Derek Weitzel:
+      ContactID: 605
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel
-          605
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Derek Weitzel
-      Name: Derek Weitzel
-    - ContactID: '855'
+      - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel 605
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Derek Weitzel
+    Lincoln Bryant:
+      ContactID: 855
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Lincoln Bryant 718431
-        - /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=lbryant/CN=738076/CN=Lincoln
-          Bryant
-      Name: Lincoln Bryant
-    - ContactID: '2175'
+      - /DC=org/DC=doegrids/OU=People/CN=Lincoln Bryant 718431
+      - /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=lbryant/CN=738076/CN=Lincoln Bryant
+    Mats Rynge:
+      ContactID: 45
       DNs:
-        DN:
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=SPT Pole Production
-          Service Certificate
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Benedikt Riedel
-          2175
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Xenon GWMS Frontend
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Xenon GWMS Pilot
-      Name: Benedikt Riedel
-    - ContactID: '2691'
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Mats Rynge 45
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Mats Rynge 45
+    Suchandra Thapa:
+      ContactID: 123
       DNs:
-        DN: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Anna Olson 2691
-          OLD
-      Name: Anna Olson
-    - ContactID: '2740'
-      DNs:
-        DN:
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Balamurugan Desinghu
-          2740
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Balamurugan
-          Desinghu 2740
-      Name: Balamurugan Desinghu
+      - /DC=org/DC=doegrids/OU=People/CN=Suchandra Thapa 444221
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Suchandra Thapa
   OASISRepoURLs:
-    URL:
-    - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/singularity.opensciencegrid.org
-    - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/veritas.opensciencegrid.org
-    - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/nexo.opensciencegrid.org
-    - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/bnl.opensciencegrid.org
-    - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/connect.opensciencegrid.org
-  UseOASIS: 'True'
-ParentVO: null
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/singularity.opensciencegrid.org
+  - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/veritas.opensciencegrid.org
+  - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/nexo.opensciencegrid.org
+  - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/bnl.opensciencegrid.org
+  - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/connect.opensciencegrid.org
+  UseOASIS: true
 PrimaryURL: http://www.opensciencegrid.org
 PurposeURL: http://www.opensciencegrid.org
 ReportingGroups:
-  ReportingGroup:
+  osg:
     Contacts:
-      Contact:
-      - Name: Mats Rynge
-      - Name: Mats Rynge
-      - Name: Tanya Levshina
-      - Name: Chander Sehgal
+    - Mats Rynge
+    - Tanya Levshina
+    - Chander Sehgal
     FQANs:
-      FQAN:
-        GroupName: /osg
-        Role: null
-    Name: osg
+    - GroupName: /osg
+      Role: null
 SupportURL: http://www.opensciencegrid.org

@@ -1,72 +1,38 @@
-Active: 'True'
+Active: true
 AppDescription: This VO is primarily for providing LBNL staff access the OSG Grid
   certificates (users, hosts and services) for use their work performing or supporting
   scientific research consistent with the mission of the laboratory
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Engineer and Scientific staff working for the laboratory
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Keith Beattie
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Keith Beattie
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Keith Beattie
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Shreyas Cholia
-      - Name: Shreyas Cholia
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Karen Fernsler
-      - Name: Karen Fernsler
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Jeff Porter
+  - Name: Keith Beattie
+  Registration Authority:
+  - Name: Shreyas Cholia
+  - Name: Jeff Porter
+  - Name: Karen Fernsler
+  Security Contact:
+  - Name: Jeff Porter
+  - Name: Keith Beattie
+  Submitter Contact:
+  - Name: Jeff Porter
+  VO Manager:
+  - Name: Jeff Porter
+  - Name: Keith Beattie
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: National Laboratory
+  - National Laboratory
   SecondaryFields:
-    Field: Multi-Science Community
-ID: '93'
+  - Multi-Science Community
+ID: 93
 LongName: Lawrence Berkeley National Laboratory
-MembershipServicesURL: null
-MemeberResources:
-  Resource:
-    ID: '708'
-    Name: LBL_nettest
 Name: LBNL
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://www.lbl.gov/
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
+  lbnl:
     Contacts: null
     FQANs: null
-    Name: lbnl
-SupportURL: null

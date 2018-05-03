@@ -1,77 +1,54 @@
-Active: 'True'
+Active: true
 AppDescription: Fermi T-962 Liquid Argon Time Projection chamber - Analysis of data,
   monte carlo, detector calibration
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: "Fermi T-962 Liquid Argon Time Projection chamber - Liquid Argon detector\
   \ builders and testers who \nare planning larger Liquid Argon neutrino detectors\n\
   for future experiments."
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Gabriele Garzoglio
-      - Name: Gabriele Garzoglio
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Miscellaneous Contact:
+  - Name: Steve Timm
+  - Name: Joe Boyd
+  - Name: Gerard Bernabeu Altayo
+  Submitter Contact:
+  - Name: Steve Timm
+  VO Manager:
+  - Name: Gabriele Garzoglio
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
-ID: '65'
+  - High Energy Physics
+ID: 65
 LongName: Fermilab/Argoneut
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
-MemeberResources: null
 Name: Argoneut
 OASIS:
   Managers:
-    Manager:
-      ContactID: '203'
+    Gabriele Garzoglio:
+      ContactID: 203
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Gabriele Garzoglio 762243
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Gabriele Garzoglio
-          203
-      Name: Gabriele Garzoglio
+      - /DC=org/DC=doegrids/OU=People/CN=Gabriele Garzoglio 762243
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Gabriele Garzoglio
+        203
   OASISRepoURLs:
-    URL: http://oasiscfs.fnal.gov:8000/cvmfs/argoneut.opensciencegrid.org/
-  UseOASIS: 'True'
+  - http://oasiscfs.fnal.gov:8000/cvmfs/argoneut.opensciencegrid.org/
+  UseOASIS: true
 ParentVO:
-  ID: '9'
+  ID: 9
   Name: Fermilab
 PrimaryURL: http://fermigrid.fnal.gov/
 PurposeURL: http://t962.fnal.gov/
 ReportingGroups:
-  ReportingGroup:
+  argoneut:
     Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
+    - Steve Timm
     FQANs:
-      FQAN:
-      - GroupName: /fermilab/argoneut
-        Role: null
-      - GroupName: /fermilab/argoneut/Role=Analysis
-        Role: null
-      - GroupName: /fermilab/argoneut/Role=pilot
-        Role: null
-      - GroupName: /fermilab/argoneut/Role=Production
-        Role: null
-    Name: argoneut
+    - GroupName: /fermilab/argoneut
+      Role: null
+    - GroupName: /fermilab/argoneut/Role=Analysis
+      Role: null
+    - GroupName: /fermilab/argoneut/Role=pilot
+      Role: null
+    - GroupName: /fermilab/argoneut/Role=Production
+      Role: null
 SupportURL: http://fermigrid.fnal.gov/

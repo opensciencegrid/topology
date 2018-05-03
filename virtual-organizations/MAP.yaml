@@ -1,69 +1,45 @@
-Active: 'True'
+Active: true
 AppDescription: Simulation of various muon acclerators will be run
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Accelerator physicists.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Gabriele Garzoglio
-      - Name: Gabriele Garzoglio
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Miscellaneous Contact:
+  - Name: Steve Timm
+  - Name: Joe Boyd
+  - Name: Gerard Bernabeu Altayo
+  Submitter Contact:
+  - Name: Steve Timm
+  VO Manager:
+  - Name: Gabriele Garzoglio
+  - Name: Joe Boyd
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
-ID: '76'
+  - High Energy Physics
+ID: 76
 LongName: Muon Acclerator Program
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
-MemeberResources: null
 Name: MAP
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
+  UseOASIS: false
 ParentVO:
-  ID: '9'
+  ID: 9
   Name: Fermilab
 PrimaryURL: http://fermigrid.fnal.gov
 PurposeURL: http://map.fnal.gov/
 ReportingGroups:
-  ReportingGroup:
+  map:
     Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
+    - Steve Timm
     FQANs:
-      FQAN:
-      - GroupName: /fermilab/map
-        Role: null
-      - GroupName: /fermilab/map
-        Role: Analysis
-      - GroupName: /fermilab/map
-        Role: Calibration
-      - GroupName: /fermilab/map
-        Role: pilot
-      - GroupName: /fermilab/map
-        Role: Production
-    Name: map
+    - GroupName: /fermilab/map
+      Role: null
+    - GroupName: /fermilab/map
+      Role: Analysis
+    - GroupName: /fermilab/map
+      Role: Calibration
+    - GroupName: /fermilab/map
+      Role: pilot
+    - GroupName: /fermilab/map
+      Role: Production
 SupportURL: http://fermigrid.fnal.gov/

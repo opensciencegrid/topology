@@ -1,47 +1,19 @@
-Active: 'True'
+Active: true
 AppDescription: null
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Accounting and monitoring
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Gabriele Garzoglio
-      - Name: Gabriele Garzoglio
-    Type: VO Manager
-Disable: 'False'
-ID: '85'
+Contacts:
+  Miscellaneous Contact:
+  - Name: Steve Timm
+  - Name: Joe Boyd
+  - Name: Gerard Bernabeu Altayo
+  Submitter Contact:
+  - Name: Steve Timm
+  VO Manager:
+  - Name: Gabriele Garzoglio
+Disable: false
+ID: 85
 LongName: RSV
-MembershipServicesURL: null
-MemeberResources: null
 Name: RSV
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
-PrimaryURL: null
-PurposeURL: null
-ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: null
-SupportURL: null
+  UseOASIS: false

@@ -1,53 +1,34 @@
-Active: 'True'
+Active: true
 AppDescription: fermilab
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: FermiGrid
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Keith Chadwick
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Gabriele Garzoglio
-      - Name: Gabriele Garzoglio
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Miscellaneous Contact:
+  - Name: Steve Timm
+  - Name: Joe Boyd
+  Submitter Contact:
+  - Name: Keith Chadwick
+  VO Manager:
+  - Name: Gabriele Garzoglio
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Community Grid
-ID: '37'
+  - Community Grid
+ID: 37
 LongName: Fermilab/Grid
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
-MemeberResources:
-  Resource:
-    ID: '864'
-    Name: Fermilab Public dCache
 Name: FermiGrid
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
+  UseOASIS: false
 ParentVO:
-  ID: '9'
+  ID: 9
   Name: Fermilab
 PrimaryURL: http://fermigrid.fnal.gov/
 PurposeURL: http://www.fnal.gov/
 ReportingGroups:
-  ReportingGroup:
+  fermilab:
     Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/grid
-        Role: null
-    Name: fermilab
+    - GroupName: /fermilab/grid
+      Role: null
 SupportURL: http://fermigrid.fnal.gov/

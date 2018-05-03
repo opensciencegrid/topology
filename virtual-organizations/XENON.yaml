@@ -1,6 +1,6 @@
-Active: 'True'
+Active: true
 AppDescription: XENON MC Simulation based on GEANT4 and ROOT will run
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: 'The Xenon VO xenon.biggrid.nl is the incubator grid community for work
   on the
 
@@ -14,61 +14,40 @@ Community: 'The Xenon VO xenon.biggrid.nl is the incubator grid community for wo
 
   understand the detector, as well as work with the supporting computing infrastructure
   to make this happen.'
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Luca Scotto Lavina
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-        Name: Luca Scotto Lavina
-    Type: Security Contact
-  - Contacts:
-      Contact:
-        Name: Luca Scotto Lavina
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-        Name: Luca Scotto Lavina
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Luca Scotto Lavina
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Luca Scotto Lavina
+  Registration Authority:
+  - Name: Benedikt Riedel
+  - Name: Luca Scotto Lavina
+  Security Contact:
+  - Name: Luca Scotto Lavina
+  Submitter Contact:
+  - Name: Luca Scotto Lavina
+  VO Manager:
+  - Name: Luca Scotto Lavina
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
+  - High Energy Physics
   SecondaryFields:
-    Field:
-    - Astrophysics
-    - Nuclear Physics
-ID: '104'
+  - Astrophysics
+  - Nuclear Physics
+ID: 104
 LongName: XENON Collaboration
 MembershipServicesURL: https://voms.grid.sara.nl:8443/voms/xenon.biggrid.nl
-MemeberResources: null
 Name: XENON
 OASIS:
   Managers:
-    Manager:
-      ContactID: '4310'
-      DNs:
-        DN: /O=GRID-FR/C=FR/O=CNRS/OU=LPNHE/CN=Luca Scotto Lavina
-      Name: Luca Scotto Lavina
+    Luca Scotto Lavina:
+      ContactID: 4310
+      DNs: /O=GRID-FR/C=FR/O=CNRS/OU=LPNHE/CN=Luca Scotto Lavina
   OASISRepoURLs:
-    URL: http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/xenon.opensciencegrid.org
-  UseOASIS: 'True'
-ParentVO: null
+  - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/xenon.opensciencegrid.org
+  UseOASIS: true
 PrimaryURL: http://xenon.astro.columbia.edu
 PurposeURL: http://xenon.astro.columbia.edu
 ReportingGroups:
-  ReportingGroup:
+  XENON:
     Contacts: null
     FQANs: null
-    Name: XENON
-SupportURL: null

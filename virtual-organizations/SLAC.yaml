@@ -1,77 +1,44 @@
-Active: 'True'
+Active: true
 AppDescription: 'Globus online for LCLS, Kipac users.
 
   Grid computing for ILC and others.'
-CertificateOnly: 'True'
+CertificateOnly: true
 Community: SLAC users
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Wei Yang
-      - Name: Wei Yang
-      - Name: Wei Yang
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Wei Yang
-      - Name: Wei Yang
-      - Name: Wei Yang
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Wei Yang
-      - Name: Wei Yang
-      - Name: Wei Yang
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Wei Yang
-      - Name: Wei Yang
-      - Name: Wei Yang
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Wei Yang
-      - Name: Wei Yang
-      - Name: Wei Yang
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Wei Yang
+  Registration Authority:
+  - Name: Wei Yang
+  Security Contact:
+  - Name: Wei Yang
+  Submitter Contact:
+  - Name: Wei Yang
+  VO Manager:
+  - Name: Wei Yang
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: National Laboratory
+  - National Laboratory
   SecondaryFields:
-    Field:
-    - Astrophysics
-    - Biochemistry
-    - Bioinformatics
-    - Biophysics
-    - Chemistry
-    - Computer and Information Science and Engineering
-    - Engineering
-    - High Energy Physics
-    - Materials Science
-    - Medical Sciences
-    - Multi-Science Community
-    - Physics and astronomy
-ID: '97'
+  - Astrophysics
+  - Biochemistry
+  - Bioinformatics
+  - Biophysics
+  - Chemistry
+  - Computer and Information Science and Engineering
+  - Engineering
+  - High Energy Physics
+  - Materials Science
+  - Medical Sciences
+  - Multi-Science Community
+  - Physics and astronomy
+ID: 97
 LongName: SLAC National Accelerator Laboratory
-MembershipServicesURL: null
-MemeberResources:
-  Resource:
-    ID: '430'
-    Name: SLAC
 Name: SLAC
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://www.slac.stanford.edu/
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
+  SLAC:
     Contacts: null
     FQANs: null
-    Name: SLAC
-SupportURL: null

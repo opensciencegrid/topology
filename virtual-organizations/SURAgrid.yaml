@@ -1,8 +1,8 @@
-Active: 'True'
+Active: true
 AppDescription: The types of application jobs that will be run include Monte Carlo
   and molecular dynamics simulations, climate and storm surge modeling, BLAST sequence
   analyses, virtual screening for drug design research, etc.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The SURAgrid user community consists of researchers from member organizations
   who work in disciplines such as Physics, Chemistry, Biochemistry, Bioinformatics,
   Biomedicine, and Computer Science.  SURAgrid's goals are (1) to develop a scalable
@@ -12,104 +12,47 @@ Community: The SURAgrid user community consists of researchers from member organ
   a whole that is greater than the sum of its parts; and (3) to provide a forum for
   participating institutions to gain additional experience with grid technology and
   to promote collaborative project development.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Art Vandenberg
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Johnson
-      - Name: Steve Johnson
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Johnson
-      - Name: Steve Johnson
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Johnson
-      - Name: Steve Johnson
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Johnson
-      - Name: Steve Johnson
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Alan Sill
-      - Name: Steve Johnson
-      - Name: Steve Johnson
-      - Name: James A. Lupo
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Steve Johnson
+  Miscellaneous Contact:
+  - Name: Steve Johnson
+  Registration Authority:
+  - Name: Alan Sill
+  - Name: Steve Johnson
+  - Name: James A. Lupo
+  Security Contact:
+  - Name: Steve Johnson
+  Submitter Contact:
+  - Name: Art Vandenberg
+  VO Manager:
+  - Name: Steve Johnson
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Community Grid
+  - Community Grid
   SecondaryFields:
-    Field:
-    - Biochemistry
-    - Bioinformatics
-    - Biophysics
-    - Chemistry
-    - Computer and Information Science and Engineering
-    - Earth Sciences
-    - Mathematical Sciences
-    - Molecular and Structural Biosciences
-    - Physics and astronomy
-    - Plant Biology
-    - Statistics
-ID: '74'
+  - Biochemistry
+  - Bioinformatics
+  - Biophysics
+  - Chemistry
+  - Computer and Information Science and Engineering
+  - Earth Sciences
+  - Mathematical Sciences
+  - Molecular and Structural Biosciences
+  - Physics and astronomy
+  - Plant Biology
+  - Statistics
+ID: 74
 LongName: SURAgrid
 MembershipServicesURL: https://voms.hpcc.ttu.edu:8443/voms/suragrid/
-MemeberResources:
-  Resource:
-  - ID: '340'
-    Name: TAMU_BRAZOS
-  - ID: '381'
-    Name: TAMU_Calclab
-  - ID: '382'
-    Name: TAMU_Calclab_SE
-  - ID: '384'
-    Name: UGA_Sgrid_CE
-  - ID: '446'
-    Name: ATLab testing node
-  - ID: '448'
-    Name: UGA_Sgrid_Test_CE
-  - ID: '527'
-    Name: TTU-TINGE
-  - ID: '538'
-    Name: TAMU_Calclab_CE2
-  - ID: '542'
-    Name: OSG_TEST_CE
-  - ID: '601'
-    Name: TAMU_BRAZOS_SE
-  - ID: '604'
-    Name: TAMU_BRAZOS_SRM
-  - ID: '630'
-    Name: TAMU_BRAZOS_CE
-  - ID: '634'
-    Name: TAMU_BRAZOS_perfSONAR_Bandwidth
-  - ID: '635'
-    Name: TAMU_BRAZOS_perfSONAR_Latency
-  - ID: '637'
-    Name: TAMU_BRAZOS_GridFTP1
-  - ID: '795'
-    Name: TAMU_BRAZOS_GridFTP2
 Name: SURAgrid
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://www.suragrid.org
 PurposeURL: http://www.suragrid.org/sura_grid.html
 ReportingGroups:
-  ReportingGroup:
+  SURAgrid:
     Contacts: null
     FQANs: null
-    Name: SURAgrid
 SupportURL: https://docs.uabgrid.uab.edu/suragrid/Welcome

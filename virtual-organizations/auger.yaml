@@ -1,52 +1,38 @@
-Active: 'True'
+Active: true
 AppDescription: Cosmic rays showers simulations will run (mostly within the framework
   CORSIKA)
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Pierre Auger Observatory studies ultra-high energy cosmic rays.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Jiri Chudoba
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-        Name: Jiri Chudoba
-    Type: Security Contact
-  - Contacts:
-      Contact:
-        Name: Jiri Chudoba
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-        Name: Jiri Chudoba
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Jiri Chudoba
+  Security Contact:
+  - Name: Jiri Chudoba
+  Submitter Contact:
+  - Name: Jiri Chudoba
+  VO Manager:
+  - Name: Jiri Chudoba
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Astrophysics
-ID: '102'
+  - Astrophysics
+ID: 102
 LongName: Pierre Auger Observatory
 MembershipServicesURL: https://voms1.egee.cesnet.cz:8443/voms/auger
-MemeberResources: null
 Name: auger
 OASIS:
   Managers:
-    Manager:
-      ContactID: '1285'
-      DNs:
-        DN: /DC=cz/DC=cesnet-ca/O=Institute of Physics of the Academy of Sciences
-          of the CR/CN=Jiri Chudoba
-      Name: Jiri Chudoba
+    Jiri Chudoba:
+      ContactID: 1285
+      DNs: /DC=cz/DC=cesnet-ca/O=Institute of Physics of the Academy of Sciences of
+        the CR/CN=Jiri Chudoba
   OASISRepoURLs:
-    URL: http://cvmfs-stratum0.gridpp.rl.ac.uk:8000/cvmfs/auger.egi.eu
-  UseOASIS: 'True'
-ParentVO: null
+  - http://cvmfs-stratum0.gridpp.rl.ac.uk:8000/cvmfs/auger.egi.eu
+  UseOASIS: true
 PrimaryURL: http://www.auger.org
 PurposeURL: http://operations-portal.egi.eu/vo/view/voname/auger
 ReportingGroups:
-  ReportingGroup:
+  auger:
     Contacts: null
     FQANs: null
-    Name: auger
 SupportURL: http://ggus.eu

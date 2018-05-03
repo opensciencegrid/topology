@@ -1,53 +1,32 @@
-Active: 'True'
+Active: true
 AppDescription: The GlueX collaboration in JLab's experimental Hall D will use OSG
   for its data simulations and analysis.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: JLab explores the nature of matter with our Continuous Electron Beam Accelerator
   Facility and 4 experimental nuclear physics halls.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Sandra Philpott
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-        Name: Sandra Philpott
-    Type: Security Contact
-  - Contacts:
-      Contact:
-        Name: Sandra Philpott
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-        Name: Sandra Philpott
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Sandra Philpott
+  Security Contact:
+  - Name: Sandra Philpott
+  Submitter Contact:
+  - Name: Sandra Philpott
+  VO Manager:
+  - Name: Sandra Philpott
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: National Laboratory
+  - National Laboratory
   SecondaryFields:
-    Field:
-    - Multi-Science Community
-    - Nuclear Physics
-ID: '99'
+  - Multi-Science Community
+  - Nuclear Physics
+ID: 99
 LongName: Jefferson Lab
-MembershipServicesURL: null
-MemeberResources:
-  Resource:
-    ID: '878'
-    Name: scosg16
 Name: JLab
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://www.jlab.org/div_dept/cio/index.html
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
+  JLab:
     Contacts: null
     FQANs: null
-    Name: JLab
-SupportURL: null

@@ -1,322 +1,182 @@
-Active: 'True'
+Active: true
 AppDescription: High energy physics data analysis and simulation.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Fermilab Virtual Organization (VO) - The Fermilab VO is an "umbrella" VO
   that includes the Fermilab Campus Grid (FermiGrid) and Fermilab Grid Testing (ITB)
   infrastructures, and all Fermilab computing activities that are not big enough to
   have their own Virtual Organization. Broadly these include the intensity frontier
   program, theoretical simulations, fixed target analysis, and accelerator and beamline
   design as well as activities performed by the Fermilab Campus Grid administrators.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Keith Chadwick
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Anthony Tiradani
-      - Name: Anthony Tiradani
-      - Name: Anthony Tiradani
-      - Name: Tanya Levshina
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Nicholas Peregonow
-      - Name: Nicholas Peregonow
-      - Name: Nicholas Peregonow
-      - Name: Kevin Retzke
-      - Name: Kevin Retzke
-      - Name: Shreyas Bhat
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Darnell Green
-      - Name: Yolanda Valadez
-      - Name: Yolanda Valadez
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Joe Boyd
+  Miscellaneous Contact:
+  - Name: Anthony Tiradani
+  - Name: Tanya Levshina
+  - Name: Joe Boyd
+  - Name: Nicholas Peregonow
+  - Name: Kevin Retzke
+  - Name: Shreyas Bhat
+  Registration Authority:
+  - Name: Kyle Gross
+  - Name: Darnell Green
+  - Name: Yolanda Valadez
+  Submitter Contact:
+  - Name: Keith Chadwick
+  VO Manager:
+  - Name: Joe Boyd
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: National Laboratory
+  - National Laboratory
   SecondaryFields:
-    Field:
-    - High Energy Physics
-    - Multi-Science Community
-ID: '9'
+  - High Energy Physics
+  - Multi-Science Community
+ID: 9
 LongName: Fermi National Accelerator Laboratory
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
-MemeberResources:
-  Resource:
-  - ID: '19'
-    Name: FNAL_FERMIGRID
-  - ID: '20'
-    Name: FNAL_FERMIGRID_ITB
-  - ID: '172'
-    Name: FNAL_GPGRID_1
-  - ID: '189'
-    Name: FNAL_GPGRID_2
-  - ID: '208'
-    Name: FNAL_GPGRID_3
-  - ID: '291'
-    Name: GRATIA-OSG-PROD
-  - ID: '292'
-    Name: GRATIA-OSG-TRANSFER
-  - ID: '293'
-    Name: GRATIA-OSG-ITB
-  - ID: '294'
-    Name: GRATIA-OSG-ITB-PERM
-  - ID: '295'
-    Name: GRATIA-OSG-DAILY
-  - ID: '337'
-    Name: FNAL-ITB-GIP-TEST1
-  - ID: '353'
-    Name: OSG_Homepage_1
-  - ID: '354'
-    Name: OSG_DOCDB_1
-  - ID: '358'
-    Name: FNAL_FERMIGRID_ITB_PBS2
-  - ID: '359'
-    Name: FNAL_FERMIGRID_ITB_SGE2
-  - ID: '539'
-    Name: FNAL_GPGRID_OPP_3
-  - ID: '540'
-    Name: FNAL_GPGRID_QUOTA_3
-  - ID: '563'
-    Name: FIFE_UCSD_FRONTEND_01
-  - ID: '564'
-    Name: FIFE_SUBMIT_GPSN01
-  - ID: '565'
-    Name: FIFE_SUBMIT_1
-  - ID: '625'
-    Name: US-FNAL BW
-  - ID: '626'
-    Name: US-FNAL LT
-  - ID: '633'
-    Name: FIFEBATCH2
-  - ID: '744'
-    Name: USCMS PerfSonar IPV6 Test
-  - ID: '758'
-    Name: Gratia-main-osg
-  - ID: '759'
-    Name: gratia-itb-osg
-  - ID: '760'
-    Name: gratia-transfer-osg
-  - ID: '769'
-    Name: FNAL NRTB PerfSONAR Bandwidth
-  - ID: '770'
-    Name: FNAL NRTB PerfSONAR Latency
-  - ID: '776'
-    Name: FNAL_GPGRID_4
-  - ID: '777'
-    Name: FNAL_GPGRID_5
-  - ID: '838'
-    Name: FNAL Origin server
-  - ID: '841'
-    Name: FNAL_WILSON
-  - ID: '867'
-    Name: FNAL_WILSON_2
-  - ID: '883'
-    Name: gpgrid_squid
-  - ID: '901'
-    Name: FNAL_GPGRID_CE_03
-  - ID: '902'
-    Name: FNAL_GPGRID_CE_04
-  - ID: '903'
-    Name: FNAL_JOBSUB_01
-  - ID: '904'
-    Name: FNAL_JOBSUB_02
 Name: Fermilab
 OASIS:
   Managers:
-    Manager:
-    - ContactID: '217'
+    Dave Dykstra:
+      ContactID: 508
       DNs:
-        DN:
-        - /DC=gov/DC=fnal/O=Fermilab/OU=People/CN=Lynn A. Garren/CN=UID:garren
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Lynn Garren 217
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Lynn Garren
-          217
-      Name: Lynn Garren
-    - ContactID: '508'
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Dave Dykstra 508
+      - /DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Dave
+        Dykstra/CN=UID:dwd
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Dave Dykstra 508
+    Lynn Garren:
+      ContactID: 217
       DNs:
-        DN:
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Dave Dykstra 508
-        - /DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Dave
-          Dykstra/CN=UID:dwd
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Dave Dykstra
-          508
-      Name: Dave Dykstra
+      - /DC=gov/DC=fnal/O=Fermilab/OU=People/CN=Lynn A. Garren/CN=UID:garren
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Lynn Garren 217
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Lynn Garren 217
   OASISRepoURLs:
-    URL:
-    - http://oasiscfs.fnal.gov:8000/cvmfs/fermilab.opensciencegrid.org
-    - http://oasiscfs.fnal.gov:8000/cvmfs/larsoft.opensciencegrid.org
-  UseOASIS: 'True'
-ParentVO: null
+  - http://oasiscfs.fnal.gov:8000/cvmfs/fermilab.opensciencegrid.org
+  - http://oasiscfs.fnal.gov:8000/cvmfs/larsoft.opensciencegrid.org
+  UseOASIS: true
 PrimaryURL: http://fermigrid.fnal.gov/
 PurposeURL: http://www.fnal.gov/
 ReportingGroups:
-  ReportingGroup:
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Tanya Levshina
-      - Name: HYUNWOO KIM
-      - Name: HYUNWOO KIM
-      - Name: HYUNWOO KIM
-      - Name: HYUNWOO KIM
-      - Name: Nicholas Peregonow
-      - Name: Nicholas Peregonow
-      - Name: Nicholas Peregonow
+  accelerator:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab
-        Role: null
-    Name: fermilab
-  - Contacts: null
+    - GroupName: /fermilab/accelerator
+      Role: null
+  annie:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/accelerator
-        Role: null
-    Name: accelerator
-  - Contacts: null
+    - GroupName: /fermilab/annie
+      Role: Analysis
+    - GroupName: /fermilab/annie
+      Role: pilot
+    - GroupName: /fermilab/annie
+      Role: Production
+  cdms:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/cdms
-        Role: null
-    Name: cdms
-  - Contacts: null
+    - GroupName: /fermilab/cdms
+      Role: null
+  fermilab:
+    Contacts:
+    - Steve Timm
+    - Tanya Levshina
+    - HYUNWOO KIM
+    - Nicholas Peregonow
     FQANs:
-      FQAN:
-      - GroupName: /fermilab/miniboone
-        Role: null
-      - GroupName: /fermilab/miniboone
-        Role: Production
-    Name: miniboone
-  - Contacts: null
+    - GroupName: /fermilab
+      Role: null
+  fgstore:
+    Contacts: null
     FQANs:
-      FQAN:
-      - GroupName: /fermilab/minos
-        Role: null
-      - GroupName: /fermilab/minos
-        Role: pilot
-      - GroupName: /fermilab/minos
-        Role: Production
-    Name: minos
-  - Contacts: null
+    - GroupName: /fermilab/storage
+      Role: null
+  fgtest:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/mipp
-        Role: Production
-    Name: mipp
-  - Contacts: null
+    - GroupName: /fermilab/test
+      Role: null
+  genie:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/patriot
-        Role: null
-    Name: patriot
-  - Contacts: null
+    - GroupName: /fermilab/genie
+      Role: Analysis
+    - GroupName: /fermilab/genie
+      Role: pilot
+    - GroupName: /fermilab/genie
+      Role: Production
+  lar1nd:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/theory
-        Role: null
-    Name: theory
-  - Contacts: null
+    - GroupName: /fermilab/lar1nd
+      Role: Analysis
+    - GroupName: /fermilab/lar1nd
+      Role: pilot
+    - GroupName: /fermilab/lar1nd
+      Role: Production
+  mars:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/test
-        Role: null
-    Name: fgtest
-  - Contacts: null
+    - GroupName: /fermilab/mars
+      Role: null
+  minerva:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/numi
-        Role: null
-    Name: numi
-  - Contacts: null
+    - GroupName: /fermilab/minerva
+      Role: null
+  miniboone:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/minerva
-        Role: null
-    Name: minerva
-  - Contacts: null
+    - GroupName: /fermilab/miniboone
+      Role: null
+    - GroupName: /fermilab/miniboone
+      Role: Production
+  minos:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/nova
-        Role: null
-    Name: nova
-  - Contacts: null
+    - GroupName: /fermilab/minos
+      Role: null
+    - GroupName: /fermilab/minos
+      Role: pilot
+    - GroupName: /fermilab/minos
+      Role: Production
+  mipp:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/mu2e
-        Role: null
-    Name: mu2e
-  - Contacts: null
+    - GroupName: /fermilab/mipp
+      Role: Production
+  mu2e:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/storage
-        Role: null
-    Name: fgstore
-  - Contacts: null
+    - GroupName: /fermilab/mu2e
+      Role: null
+  nova:
+    Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/mars
-        Role: null
-    Name: mars
-  - Contacts: null
+    - GroupName: /fermilab/nova
+      Role: null
+  numi:
+    Contacts: null
     FQANs:
-      FQAN:
-      - GroupName: /fermilab/annie
-        Role: Analysis
-      - GroupName: /fermilab/annie
-        Role: pilot
-      - GroupName: /fermilab/annie
-        Role: Production
-    Name: annie
-  - Contacts: null
+    - GroupName: /fermilab/numi
+      Role: null
+  numix:
+    Contacts: null
     FQANs:
-      FQAN:
-      - GroupName: /fermilab/genie
-        Role: Analysis
-      - GroupName: /fermilab/genie
-        Role: pilot
-      - GroupName: /fermilab/genie
-        Role: Production
-    Name: genie
-  - Contacts: null
+    - GroupName: /fermilab/numix
+      Role: Analysis
+    - GroupName: /fermilab/numix
+      Role: pilot
+    - GroupName: /fermilab/numix
+      Role: Production
+  patriot:
+    Contacts: null
     FQANs:
-      FQAN:
-      - GroupName: /fermilab/lar1nd
-        Role: Analysis
-      - GroupName: /fermilab/lar1nd
-        Role: pilot
-      - GroupName: /fermilab/lar1nd
-        Role: Production
-    Name: lar1nd
-  - Contacts: null
+    - GroupName: /fermilab/patriot
+      Role: null
+  theory:
+    Contacts: null
     FQANs:
-      FQAN:
-      - GroupName: /fermilab/numix
-        Role: Analysis
-      - GroupName: /fermilab/numix
-        Role: pilot
-      - GroupName: /fermilab/numix
-        Role: Production
-    Name: numix
+    - GroupName: /fermilab/theory
+      Role: null
 SupportURL: http://fermigrid.fnal.gov/

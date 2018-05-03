@@ -1,91 +1,53 @@
-Active: 'True'
+Active: true
 AppDescription: Nanotechnology simulations. Time for a job varies from very short
   to very long.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The nanoHUB is a web-based initiative spearheaded by the NSF-funded Network
   for Computational Nanotechnology (NCN), which serves nanotechnology users.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Steven Clark
+  Registration Authority:
+  - Name: Steven Clark
+  VO Manager:
+  - Name: Steven Clark
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Technology
+  - Technology
   SecondaryFields:
-    Field:
-    - Chemistry
-    - Engineering
-    - Nanoelectronics
-    - Physics and astronomy
-ID: '26'
+  - Chemistry
+  - Engineering
+  - Nanoelectronics
+  - Physics and astronomy
+ID: 26
 LongName: nanoHUB Network for Computational Nanotechnology (NCN)
 MembershipServicesURL: https://voms.opensciencegrid.org:8443/voms/nanohub/admin/home.action
-MemeberResources:
-  Resource:
-  - ID: '13'
-    Name: Clemson-IT
-  - ID: '168'
-    Name: Clemson-ciTeam
-  - ID: '200'
-    Name: Clemson-Birdnest
 Name: nanoHUB
 OASIS:
   Managers:
-    Manager:
-    - ContactID: '174'
+    Scott Teige:
+      ContactID: 652
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Steven M Clark 138599
-        - /CN=Steven M Clark/OU=Purdue TeraGrid/O=Purdue University/ST=Indiana/C=US
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Steven Clark 174
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Steven Clark
-          174
-      Name: Steven Clark
-    - ContactID: '652'
+      - /DC=org/DC=doegrids/OU=People/CN=Scott Teige 689374
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Scott Teige 652
+      - /DC=org/DC=cilogon/C=US/O=Indiana University/CN=Scott Teige A7052
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Scott Teige 1
+    Steven Clark:
+      ContactID: 174
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Scott Teige 689374
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Scott Teige 652
-        - /DC=org/DC=cilogon/C=US/O=Indiana University/CN=Scott Teige A7052
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Scott Teige
-          1
-      Name: Scott Teige
-  OASISRepoURLs: null
-  UseOASIS: 'True'
-ParentVO: null
+      - /DC=org/DC=doegrids/OU=People/CN=Steven M Clark 138599
+      - /CN=Steven M Clark/OU=Purdue TeraGrid/O=Purdue University/ST=Indiana/C=US
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Steven Clark 174
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Steven Clark 174
+  UseOASIS: true
 PrimaryURL: http://nanohub.org
 PurposeURL: http://nanohub.org/cyberinfrastructure/osg
 ReportingGroups:
-  ReportingGroup:
+  nanohub:
     Contacts:
-      Contact:
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
-      - Name: Steven Clark
+    - Steven Clark
     FQANs:
-      FQAN:
-        GroupName: /nanohub
-        Role: null
-    Name: nanohub
+    - GroupName: /nanohub
+      Role: null
 SupportURL: http://nanohub.org/support

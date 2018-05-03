@@ -1,80 +1,56 @@
-Active: 'True'
+Active: true
 AppDescription: Simulation for future mu2e experiment
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Physics
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Miscellaneous Contact:
+  - Name: Steve Timm
+  - Name: Joe Boyd
+  - Name: Gerard Bernabeu Altayo
+  Submitter Contact:
+  - Name: Steve Timm
+  VO Manager:
+  - Name: Joe Boyd
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
-ID: '59'
+  - High Energy Physics
+ID: 59
 LongName: Fermilab/Mu2e
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
-MemeberResources: null
 Name: Mu2e
 OASIS:
   Managers:
-    Manager:
-    - ContactID: '8'
+    Brian Bockelman:
+      ContactID: 8
+      DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
+        Paul Bockelman
+    Derek Weitzel:
+      ContactID: 605
       DNs:
-        DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
-          Paul Bockelman
-      Name: Brian Bockelman
-    - ContactID: '605'
+      - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel 605
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Derek Weitzel
+    Raymond Lloyd Culbertson:
+      ContactID: 1119
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel
-          605
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Derek Weitzel
-      Name: Derek Weitzel
-    - ContactID: '1119'
-      DNs:
-        DN:
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Raymond Lloyd
-          Culbertson 1119
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Raymond Lloyd
-          Culbertson 1119
-      Name: Raymond Lloyd Culbertson
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Raymond Lloyd Culbertson
+        1119
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Raymond Lloyd
+        Culbertson 1119
   OASISRepoURLs:
-    URL:
-    - http://oasiscfs.fnal.gov:8000/cvmfs/mu2e.opensciencegrid.org
-    - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/mu2e.osgstorage.org
-  UseOASIS: 'True'
+  - http://oasiscfs.fnal.gov:8000/cvmfs/mu2e.opensciencegrid.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/mu2e.osgstorage.org
+  UseOASIS: true
 ParentVO:
-  ID: '9'
+  ID: 9
   Name: Fermilab
 PrimaryURL: http://mu2e.fnal.gov
 PurposeURL: http://mu2e.fnal.gov
 ReportingGroups:
-  ReportingGroup:
+  mu2e:
     Contacts: null
     FQANs:
-      FQAN:
-        GroupName: /fermilab/mu2e
-        Role: null
-    Name: mu2e
+    - GroupName: /fermilab/mu2e
+      Role: null
 SupportURL: http://fermigrid.fnal.gov/
