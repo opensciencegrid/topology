@@ -4,11 +4,7 @@ import anymarkup
 
 
 
-def get_projects_xml():
-    """
-    Returns the serailized xml (as a string)
-    """
-
+def get_projects():
     to_output = {"Projects":{"Project": []}}
     projects = []
 
@@ -19,7 +15,12 @@ def get_projects_xml():
 
     to_output["Projects"]["Project"] = projects
 
-    return anymarkup.serialize(to_output, 'xml').decode()
+    return to_output
+
+
+def get_projects_xml():
+    """Returns the serialized XML as a string"""
+    return anymarkup.serialize(get_projects(), 'xml').decode()
 
 
 if __name__ == "__main__":

@@ -138,9 +138,14 @@ def get_vos_xml():
     """
     Returns the serialized xml (as a string)
     """
-    to_output = {"VOSummary":{"VO": []}}
-    vos = []
+    to_output = get_vos()
 
+    return anymarkup.serialize(to_output, 'xml').decode()
+
+
+def get_vos():
+    to_output = {"VOSummary": {"VO": []}}
+    vos = []
     reportinggroups_data = anymarkup.parse_file("virtual-organizations/REPORTING_GROUPS.yaml")
     for file in os.listdir("virtual-organizations"):
         if file == "REPORTING_GROUPS.yaml": continue
@@ -150,10 +155,8 @@ def get_vos_xml():
         except Exception:
             pprint.pprint(vo)
             raise
-
     to_output["VOSummary"]["VO"] = vos
-
-    return anymarkup.serialize(to_output, 'xml').decode()
+    return to_output
 
 
 if __name__ == "__main__":

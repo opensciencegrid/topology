@@ -1,7 +1,8 @@
-from flask import Flask, Response
-from converters.project_yaml_to_xml import get_projects_xml
-from converters.vo_yaml_to_xml import get_vos_xml
-from converters.resourcegroup_yaml_to_xml import get_rgsummary_xml
+from flask import Flask, Response, request
+from converters.convertlib import to_xml
+from converters.project_yaml_to_xml import get_projects
+from converters.vo_yaml_to_xml import get_vos
+from converters.resourcegroup_yaml_to_xml import get_rgsummary
 app = Flask(__name__)
 
 @app.route('/')
@@ -12,31 +13,33 @@ def homepage():
     <a href="https://github.com/opensciencegrid/topology">Source Repo</a>
     """
 
-projects_xml = None
-vos_xml = None
-rgsummary_xml = None
+projects = None
+vos = None
+rgsummary = None
 
 
 @app.route('/miscproject/xml')
 def projects():
-    global projects_xml
-
-    if not projects_xml:
-        projects_xml = get_projects_xml()
+    global projects
+    if not projects:
+        projects = get_projects()
+    projects_xml = to_xml(projects)
     return Response(projects_xml, mimetype='text/xml')
 
 @app.route('/vosummary/xml')
 def voinfo():
-    global vos_xml
-    if not vos_xml:
-        vos_xml = get_vos_xml()
+    global vos
+    if not vos:
+        vos = get_vos()
+    vos_xml = to_xml(vos)
     return Response(vos_xml, mimetype='text/xml')
 
 @app.route('/rgsummary/xml')
 def resources():
-    global rgsummary_xml
-    if not rgsummary_xml:
-        rgsummary_xml = get_rgsummary_xml()
+    global rgsummary
+    if not rgsummary:
+        rgsummary = get_rgsummary()
+    rgsummary_xml = to_xml(rgsummary)
     return Response(rgsummary_xml, mimetype='text/xml')
 
 if __name__ == '__main__':
