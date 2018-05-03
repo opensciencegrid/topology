@@ -29,20 +29,19 @@ params = {
 }
 
 parser = ArgumentParser()
-parser.add_argument("--show-inactive", choices=[YES, NO, ONLY], default=YES)  # original GRACC URL used NO
+parser.add_argument("--show-inactive-resources", choices=[YES, NO, ONLY], default=YES)  # original GRACC URL used NO
 parser.add_argument("--show-itb", choices=[YES, NO, ONLY], default=YES)  # original GRACC URL used NO
-parser.add_argument("--show-disabled-resource", choices=[YES, NO, ONLY], default=YES)
-# can't filter on disabled _ResourceGroup_, but can show/hide RG's if they have _any_ Resources enabled/disabled
+parser.add_argument("--show-disabled-resources", choices=[YES, NO, ONLY], default=YES)
 
 args = parser.parse_args()
 
-if args.show_inactive == ONLY:
+if args.show_inactive_resources == ONLY:
     params["active"] = "on"
     params["active_value"] = "0"
-elif args.show_inactive == NO:
+elif args.show_inactive_resources == NO:
     params["active"] = "on"
     params["active_value"] = "1"
-elif args.show_inactive == YES:
+elif args.show_inactive_resources == YES:
     params.pop("active", None)
 else: assert False
 
@@ -56,13 +55,13 @@ elif args.show_itb == YES:
     params.pop("gridtype", None)
 else: assert False
 
-if args.show_disabled_resource == ONLY:
+if args.show_disabled_resources == ONLY:
     params["disable"] = "on"
     params["disable_value"] = "1"
-elif args.show_disabled_resource == NO:
+elif args.show_disabled_resources == NO:
     params["disable"] = "on"
     params["disable_value"] = "0"
-elif args.show_disabled_resource == YES:
+elif args.show_disabled_resources == YES:
     params.pop("disable", None)
 else: assert False
 
