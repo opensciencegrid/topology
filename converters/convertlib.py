@@ -1,8 +1,10 @@
 from collections import OrderedDict
 from typing import Dict, List, Union
 
-def is_null(x, key=None) -> bool:
-    if key is not None:
+
+def is_null(x, *keys) -> bool:
+    for key in keys:
+        if not key: continue
         if not isinstance(x, dict) or key not in x:
             return True
         else:
@@ -35,6 +37,8 @@ def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
     new_data = {}
     for d in ensure_list(data):
         new_d = dict(d)
+        if is_null(new_d, namekey):
+            continue
         name = new_d[namekey]
         del new_d[namekey]
         new_data[name] = new_d
@@ -67,7 +71,7 @@ def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=T
     return singleton_list_to_value(newdata)
 
 
-def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]) -> Union[Union[Dict, OrderedDict], List[Union[Dict, OrderedDict]]]:
+def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None) -> Union[Union[Dict, OrderedDict], List[Union[Dict, OrderedDict]]]:
     """
     Expand
         {"name1": {"attr1": "val1", ...},
