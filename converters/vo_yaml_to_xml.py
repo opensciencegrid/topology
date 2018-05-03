@@ -4,7 +4,7 @@ import os
 
 import anymarkup
 
-from typing import Dict
+from typing import Dict, List
 
 try:
     from convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, ensure_list
@@ -29,39 +29,35 @@ def expand_contacttypes(contacts: Dict) -> Dict:
     return {"ContactType": singleton_list_to_value(new_contacttypes)}
 
 
-def expand_reportinggroups(reportinggroups: Dict) -> Dict:
+def expand_reportinggroups(reportinggroups_list: List, reportinggroups_data: Dict) -> Dict:
     """Expand
-    {"ZZZ": {"Contacts": ["a", "b"],
-             "FQANs": [{"GroupName": "XXX", "Role": "YYY"}]
-            }
-    }
-    to
+    ["XXX", "YYY", "ZZZ"]
+    using data from reportinggroups_data into
     {"ReportingGroup": [{"Contacts": {"Contact": [{"Name": "a"},
                                                  {"Name": "b"}
                                      },
-                         "FQANs": {"FQAN": [{"GroupName": "XXX",
-                                             "Role": "YYY"}]
+                         "FQANs": {"FQAN": [{"GroupName": "...",
+                                             "Role": "..."}]
                                   }
-                         "Name": "ZZZ"
+                         "Name": "XXX"
                        }]
     }
     """
-    # {"ZZZ": {"Contacts": ..., "FQANs": ...}}
-    # to
-    # [{"Contacts": ..., "FQANs": ..., "Name": "ZZZ"}]
-
-    new_reportinggroups = reportinggroups.copy()
-    for name, data in new_reportinggroups.items():
+    new_reportinggroups = {}
+    for name, data in reportinggroups_data.items():
+        if name not in reportinggroups_list: continue
+        new_reportinggroups[name] = {}
+        newdata = new_reportinggroups[name]
         if not is_null(data, "Contacts"):
             new_contact = [{"Name": x} for x in data["Contacts"]]
-            data["Contacts"] = {"Contacts": {"Contact": singleton_list_to_value(new_contact)}}
+            newdata["Contacts"] = {"Contacts": {"Contact": singleton_list_to_value(new_contact)}}
         else:
-            data["Contacts"] = None
+            newdata["Contacts"] = None
         if not is_null(data, "FQANs"):
-            data["FQANs"] = {"FQAN": singleton_list_to_value(data["FQANs"])}
+            newdata["FQANs"] = {"FQAN": singleton_list_to_value(data["FQANs"])}
         else:
-            data["FQANs"] = None
-    new_reportinggroups = expand_attr_list(reportinggroups, "Name")
+            newdata["FQANs"] = None
+    new_reportinggroups = expand_attr_list(new_reportinggroups, "Name")
     return {"ReportingGroup": new_reportinggroups}
 
 
@@ -96,7 +92,7 @@ def expand_fields_of_science(fields_of_science):
     return new_fields
 
 
-def expand_vo(vo):
+def expand_vo(vo, reportinggroups_data):
     vo = vo.copy()
 
     if is_null(vo, "Contacts"):
@@ -107,7 +103,7 @@ def expand_vo(vo):
     if is_null(vo, "ReportingGroups"):
         vo["ReportingGroups"] = None
     else:
-        vo["ReportingGroups"] = expand_reportinggroups(vo["ReportingGroups"])
+        vo["ReportingGroups"] = expand_reportinggroups(vo["ReportingGroups"], reportinggroups_data)
     if is_null(vo, "OASIS"):
         vo["OASIS"] = None
     else:
@@ -142,14 +138,15 @@ def get_vos_xml():
     """
     Returns the serialized xml (as a string)
     """
-
     to_output = {"VOSummary":{"VO": []}}
     vos = []
 
+    reportinggroups_data = anymarkup.parse_file("virtual-organizations/REPORTING_GROUPS.yaml")
     for file in os.listdir("virtual-organizations"):
+        if file == "REPORTING_GROUPS.yaml": continue
         vo = anymarkup.parse_file("virtual-organizations/{0}".format(file))
         try:
-            vos.append(expand_vo(vo))
+            vos.append(expand_vo(vo, reportinggroups_data))
         except Exception:
             pprint.pprint(vo)
             raise

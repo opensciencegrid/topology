@@ -140,6 +140,8 @@ def simplify_fields_of_science(fos: Dict) -> Union[Dict, None]:
     return new_fields
 
 
+reportinggroup_data = {}
+
 for vo in parsed['VOSummary']['VO']:
     name = vo["Name"]
     if "/" in name: continue  # bad name
@@ -153,7 +155,10 @@ for vo in parsed['VOSummary']['VO']:
         vo["Contacts"] = simplify_contacttypes(vo["ContactTypes"])
         del vo["ContactTypes"]
     if "ReportingGroups" in vo:
-        vo["ReportingGroups"] = simplify_reportinggroups(vo["ReportingGroups"])
+        rgs = simplify_reportinggroups(vo["ReportingGroups"])
+        if rgs is not None:
+            vo["ReportingGroups"] = sorted(set(rgs.keys()))
+            reportinggroup_data.update(rgs)
     if "OASIS" in vo:
         if not is_null(vo["OASIS"], "Managers"):
             vo["OASIS"]["Managers"] = simplify_oasis_managers(vo["OASIS"]["Managers"])
@@ -180,3 +185,5 @@ for vo in parsed['VOSummary']['VO']:
     with open("virtual-organizations/{0}.yaml".format(name), 'w') as f:
         f.write(serialized.decode())
 
+with open("virtual-organizations/REPORTING_GROUPS.yaml", "w") as f:
+    f.write(yaml.safe_dump(reportinggroup_data, encoding="utf-8").decode())
