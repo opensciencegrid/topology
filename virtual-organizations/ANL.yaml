@@ -1,62 +1,40 @@
-Active: 'True'
+Active: true
 AppDescription: Can be various applications. On this site are numerous high energy
   physics researchers and Globus developers.
-CertificateOnly: 'True'
+CertificateOnly: true
 Community: This VO serves the staff and collaborators of Argonne National Laboratory.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: John Volmer
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-        Name: John Volmer
-    Type: Security Contact
-  - Contacts:
-      Contact:
-        Name: John Volmer
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-        Name: John Volmer
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Matthew Komaniecki
-      - Name: Michael Palmisano
-      - Name: Lech J. Deregowski
-      - Name: Jeremy J Sladetz
-      - Name: Margaret Galka
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: John Volmer
+  Registration Authority:
+  - Name: Matthew Komaniecki
+  - Name: Michael Palmisano
+  - Name: Lech J. Deregowski
+  - Name: Jeremy J Sladetz
+  - Name: Margaret Galka
+  Security Contact:
+  - Name: John Volmer
+  Submitter Contact:
+  - Name: John Volmer
+  VO Manager:
+  - Name: John Volmer
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: National Laboratory
+  - National Laboratory
   SecondaryFields:
-    Field:
-    - Chemistry
-    - Computer and Information Science and Engineering
-    - Earth Sciences
-    - High Energy Physics
-    - Multi-Science Community
-    - Nuclear Physics
-    - Physics and astronomy
-ID: '90'
+  - Chemistry
+  - Computer and Information Science and Engineering
+  - Earth Sciences
+  - High Energy Physics
+  - Multi-Science Community
+  - Nuclear Physics
+  - Physics and astronomy
+ID: 90
 LongName: Argonne National Laboratory
-MembershipServicesURL: null
-MemeberResources: null
 Name: ANL
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://www.anl.gov
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: ANL
-SupportURL: null
+- ANL

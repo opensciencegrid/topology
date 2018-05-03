@@ -1,87 +1,41 @@
-Active: 'True'
+Active: true
 AppDescription: (TODO)
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: HEP
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Latchezar Betev
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Latchezar Betev
-    Type: Security Contact
-  - Contacts:
-      Contact:
-        Name: Latchezar Betev
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Latchezar Betev
-      - Name: Pablo Saiz
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Latchezar Betev
-      - Name: Maarten Litmaath
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-    Type: Registration Authority
-  - Contacts:
-      Contact:
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Jeff Porter
-      - Name: Kenneth Read
-      - Name: Kenneth Read
-    Type: Sponsors
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Latchezar Betev
+  Miscellaneous Contact:
+  - Name: Jeff Porter
+  - Name: Latchezar Betev
+  - Name: Pablo Saiz
+  Registration Authority:
+  - Name: Jeff Porter
+  Security Contact:
+  - Name: Jeff Porter
+  - Name: Latchezar Betev
+  Sponsors:
+  - Name: Jeff Porter
+  - Name: Kenneth Read
+  Submitter Contact:
+  - Name: Latchezar Betev
+  VO Manager:
+  - Name: Latchezar Betev
+  - Name: Maarten Litmaath
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
+  - High Energy Physics
   SecondaryFields:
-    Field: Physics and astronomy
-ID: '58'
+  - Physics and astronomy
+ID: 58
 LongName: ALICE collaboration, High Energy Physics experiment at CERN LHC
 MembershipServicesURL: https://lcg-voms.cern.ch:8443/voms/alice
-MemeberResources:
-  Resource:
-  - ID: '75'
-    Name: NERSC-PDSF
-  - ID: '360'
-    Name: LC-glcc
-  - ID: '546'
-    Name: NERSC-PDSF2
-  - ID: '702'
-    Name: SAMPA PerfSONAR Bandwidth
-  - ID: '706'
-    Name: SAMPA PerfSONAR Latency
-  - ID: '798'
-    Name: perfSONAR_SAMPA_Latency
-  - ID: '799'
-    Name: perfSONAR_SAMPA_Bandwidth
 Name: ALICE
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://aliceinfo.cern.ch
 PurposeURL: http://aliceinfo.cern.ch
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: alice
+- alice
 SupportURL: http://aliceinfo.cern.ch

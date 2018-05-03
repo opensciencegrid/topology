@@ -1,67 +1,35 @@
-Active: 'True'
+Active: true
 AppDescription: Can be various applications. There are multiple scientific disciplines
   researched at this site
-CertificateOnly: 'True'
+CertificateOnly: true
 Community: This VO serves the staff and guests of Brookhaven National Laboratory
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Jason Federico
-      - Name: Jason Federico
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Jason Federico
-      - Name: Jason Federico
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Jason Federico
-      - Name: Jason Federico
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Jason Federico
-      - Name: Jason Federico
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Jason Federico
-      - Name: Jason Federico
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Jason Federico
+  Registration Authority:
+  - Name: Jason Federico
+  Security Contact:
+  - Name: Jason Federico
+  Submitter Contact:
+  - Name: Jason Federico
+  VO Manager:
+  - Name: Jason Federico
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: National Laboratory
+  - National Laboratory
   SecondaryFields:
-    Field:
-    - Biological Sciences
-    - Chemistry
-    - High Energy Physics
-    - Multi-Science Community
-    - Nuclear Physics
-    - Physics and astronomy
-ID: '114'
+  - Biological Sciences
+  - Chemistry
+  - High Energy Physics
+  - Multi-Science Community
+  - Nuclear Physics
+  - Physics and astronomy
+ID: 114
 LongName: Brookhaven National Laboratory
-MembershipServicesURL: null
-MemeberResources:
-  Resource:
-  - ID: '755'
-    Name: BNL Atlas StashCache instance
-  - ID: '925'
-    Name: BNL_ATLAS_Frontier_Squid
 Name: BNL
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://www.bnl.gov
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: BNL
-SupportURL: null
+- BNL

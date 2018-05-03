@@ -1,73 +1,34 @@
-Active: 'True'
+Active: true
 AppDescription: TBD
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The STAR collaboration members and people working closely with STAR.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Jerome Lauret
-      - Name: Jerome Lauret
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Jerome Lauret
-      - Name: Jerome Lauret
-      - Name: John Hover
-      - Name: John Hover
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Wayne Betts
-      - Name: Wayne Betts
-      - Name: Wayne Betts
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Jerome Lauret
-      - Name: Jerome Lauret
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: John S. De Stefano Jr.
-      - Name: John S. De Stefano Jr.
-      - Name: John S. De Stefano Jr.
-      - Name: John S. De Stefano Jr.
-      - Name: Saroj Kandasamy
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Wayne Betts
+  Registration Authority:
+  - Name: John S. De Stefano Jr.
+  - Name: Saroj Kandasamy
+  Security Contact:
+  - Name: Jerome Lauret
+  - Name: John Hover
+  Submitter Contact:
+  - Name: Jerome Lauret
+  VO Manager:
+  - Name: Jerome Lauret
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Nuclear Physics
+  - Nuclear Physics
   SecondaryFields:
-    Field: Physics and astronomy
-ID: '34'
+  - Physics and astronomy
+ID: 34
 LongName: Solenoidal Tracker at RHIC
 MembershipServicesURL: https://vo.racf.bnl.gov:8443/voms/star/
-MemeberResources:
-  Resource:
-  - ID: '102'
-    Name: STAR-BNL
-  - ID: '103'
-    Name: STAR-WSU
-  - ID: '124'
-    Name: UIC_PHYSICS
-  - ID: '741'
-    Name: STAR-OnlinePool
 Name: STAR
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://www.star.bnl.gov
 PurposeURL: http://www.star.bnl.gov/central/physics/
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs:
-      FQAN:
-        GroupName: /star
-        Role: null
-    Name: star
+- star
 SupportURL: http://www.star.bnl.gov

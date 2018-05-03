@@ -1,123 +1,50 @@
-Active: 'True'
+Active: true
 AppDescription: GLOW applications are diverse.  Minimal requirements are machines
   with ~500MB RAM and working scratch space of ~500MB per job.  The GLOW VO is managed
   by the Center for High Throughput Computing.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The Grid Laboratory of Wisconsin is a campus-wide distributed computing
   environment designed to meet the scientific computing needs of the University of
   Wisconsin, Madison.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Aaron Moate
-      - Name: Aaron Moate
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Daniel Bradley
-      - Name: Aaron Moate
-      - Name: Aaron Moate
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Aaron Moate
-      - Name: Aaron Moate
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-        Name: Neil Van Lysel
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-        Name: Miron Livny
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Daniel Bradley
-      - Name: Aaron Moate
-      - Name: Aaron Moate
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Aaron Moate
+  Miscellaneous Contact:
+  - Name: Neil Van Lysel
+  Registration Authority:
+  - Name: Daniel Bradley
+  - Name: Aaron Moate
+  Security Contact:
+  - Name: Daniel Bradley
+  - Name: Aaron Moate
+  Submitter Contact:
+  - Name: Aaron Moate
+  VO Manager:
+  - Name: Miron Livny
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Multi-Science Community
+  - Multi-Science Community
   SecondaryFields:
-    Field: Community Grid
-ID: '13'
+  - Community Grid
+ID: 13
 LongName: Grid Laboratory of Wisconsin
 MembershipServicesURL: https://glow-voms.cs.wisc.edu:8443/voms/GLOW
-MemeberResources:
-  Resource:
-  - ID: '13'
-    Name: Clemson-IT
-  - ID: '60'
-    Name: Lehigh_coral
-  - ID: '201'
-    Name: GLOW_MINIOSG_UCSB
-  - ID: '270'
-    Name: piranha
-  - ID: '330'
-    Name: Lehigh_piranha
-  - ID: '412'
-    Name: CHTC-glidein
-  - ID: '426'
-    Name: GLOW-CHTC VOMS server
-  - ID: '569'
-    Name: Discovery_PerfSonar_Latency
-  - ID: '570'
-    Name: Discovery_PerfSonar_Bandwidth
-  - ID: '608'
-    Name: CHTC and BATLAB OSG Mirror
-  - ID: '638'
-    Name: CHTC-glidein2
-  - ID: '719'
-    Name: CHTC_SUBMIT_3
-  - ID: '721'
-    Name: CHTC_SUBMIT_4
-  - ID: '722'
-    Name: CHTC_SUBMIT_5
-  - ID: '723'
-    Name: CHTC-submit-1
-  - ID: '739'
-    Name: CHTC-glidein3
-  - ID: '848'
-    Name: GLOW_SUBMIT5
-  - ID: '849'
-    Name: GLOW_SUBMIT6
 Name: GLOW
 OASIS:
   Managers:
-    Manager:
-    - ContactID: '894'
+    Aaron Moate:
+      ContactID: 894
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Aaron Moate 717557
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Aaron Moate
-          894
-      Name: Aaron Moate
-    - ContactID: '1600'
-      DNs:
-        DN: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Neil Van Lysel
-          1600
-      Name: Neil Van Lysel
-  OASISRepoURLs: null
-  UseOASIS: 'True'
-ParentVO: null
+      - /DC=org/DC=doegrids/OU=People/CN=Aaron Moate 717557
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Aaron Moate 894
+    Neil Van Lysel:
+      ContactID: 1600
+      DNs: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Neil Van Lysel
+        1600
+  UseOASIS: true
 PrimaryURL: http://www.chtc.cs.wisc.edu
 PurposeURL: http://www.cs.wisc.edu/condor/glow/index.html
 ReportingGroups:
-  ReportingGroup:
-    Contacts:
-      Contact:
-      - Name: Miron Livny
-      - Name: Lauren Michael
-      - Name: Greg Thain
-      - Name: Greg Thain
-      - Name: Greg Thain
-    FQANs:
-      FQAN:
-        GroupName: /GLOW
-        Role: null
-    Name: glow
+- glow
 SupportURL: http://www.cs.wisc.edu/condor/glow/

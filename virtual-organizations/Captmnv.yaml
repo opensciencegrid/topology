@@ -1,57 +1,40 @@
-Active: 'True'
+Active: true
 AppDescription: Experiment production and user physics analysis jobs.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: It serves the CAPTAIN-MINERvA collaboration. The collaboration is a collection
   of scientists and new members must apply and prove they will benefit the scientific
   program in order to be accepted.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-      - Name: Gerard Bernabeu Altayo
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-        Name: Gabriel Nathan Perdue
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Miscellaneous Contact:
+  - Name: Joe Boyd
+  - Name: Gerard Bernabeu Altayo
+  VO Manager:
+  - Name: Gabriel Nathan Perdue
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
+  - High Energy Physics
   SecondaryFields:
-    Field: Nuclear Physics
-ID: '120'
+  - Nuclear Physics
+ID: 120
 LongName: CAPTAIN-MINERvA
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
-MemeberResources: null
 Name: Captmnv
 OASIS:
   Managers:
-    Manager:
-      ContactID: '579'
+    Joe Boyd:
+      ContactID: 579
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
-      Name: Joe Boyd
+      - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
   OASISRepoURLs:
-    URL: http://oasiscfs.fnal.gov:8000/cvmfs/captmnv.opensciencegrid.org/
-  UseOASIS: 'True'
+  - http://oasiscfs.fnal.gov:8000/cvmfs/captmnv.opensciencegrid.org/
+  UseOASIS: true
 ParentVO:
-  ID: '9'
+  ID: 9
   Name: Fermilab
 PrimaryURL: http://captain-minerva.fnal.gov
 PurposeURL: http://captain-minerva.fnal.gov
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs:
-      FQAN:
-        GroupName: fermilab/captmnv
-        Role: null
-    Name: captmnv
+- captmnv
 SupportURL: http://fermigrid.fnal.gov/

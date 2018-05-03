@@ -1,60 +1,30 @@
-Active: 'True'
+Active: true
 AppDescription: Use of grid middle ware to process/analyze data
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: SuperCDMS SNOLAB Collaboration
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Concetta Cartaro
-      - Name: Concetta Cartaro
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Concetta Cartaro
-      - Name: Concetta Cartaro
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Concetta Cartaro
-      - Name: Concetta Cartaro
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Wei Yang
-      - Name: Wei Yang
-      - Name: Wei Yang
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Concetta Cartaro
-      - Name: Concetta Cartaro
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Concetta Cartaro
+  Miscellaneous Contact:
+  - Name: Wei Yang
+  Security Contact:
+  - Name: Concetta Cartaro
+  Submitter Contact:
+  - Name: Concetta Cartaro
+  VO Manager:
+  - Name: Concetta Cartaro
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Physics
-ID: '121'
+  - Physics
+ID: 121
 LongName: SuperCDMS
 MembershipServicesURL: https://voms.slac.stanford.edu:8443/voms/supercdms
-MemeberResources: null
 Name: SuperCDMS
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: https://confluence.slac.stanford.edu/display/CDMSPUB/Home
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
-  - Contacts: null
-    FQANs: null
-    Name: SuperCDMS
-  - Contacts: null
-    FQANs: null
-    Name: supercdms
-  - Contacts: null
-    FQANs: null
-    Name: scdms
-SupportURL: null
+- SuperCDMS
+- scdms
+- supercdms

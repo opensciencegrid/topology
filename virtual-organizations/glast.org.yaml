@@ -1,6 +1,6 @@
-Active: 'True'
+Active: true
 AppDescription: Primarily, simulation jobs will be run
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: 'The Fermi collaboration operates the Fermi Gamma-ray Space Telescope (FGST,
   formerly GLAST, Gamma-ray Large Area Space Telescope) on board of the Fermi satellite.
   The collaboration is international, composed of members of research institutions
@@ -16,59 +16,37 @@ Community: 'The Fermi collaboration operates the Fermi Gamma-ray Space Telescope
   pulsar wind nebulae, and supernova remnants. Moreover, FGST could resolve the nature
   of dark matter, and is sensitive to effects proposed by theories extending the standard
   model of particle physics, like quantum-gravity.'
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Michael Kuss
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Francesco Longo
-      - Name: Michael Kuss
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Michael Kuss
-      - Name: Francesco Longo
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Michael Kuss
-      - Name: Francesco Longo
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Michael Kuss
-      - Name: Francesco Longo
-    Type: Registration Authority
-  - Contacts:
-      Contact:
-      - Name: Thomas Glanzman
-      - Name: Thomas Glanzman
-    Type: Sponsors
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Michael Kuss
+  - Name: Francesco Longo
+  Registration Authority:
+  - Name: Michael Kuss
+  - Name: Francesco Longo
+  Security Contact:
+  - Name: Francesco Longo
+  - Name: Michael Kuss
+  Sponsors:
+  - Name: Thomas Glanzman
+  Submitter Contact:
+  - Name: Michael Kuss
+  VO Manager:
+  - Name: Michael Kuss
+  - Name: Francesco Longo
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Astrophysics
+  - Astrophysics
   SecondaryFields:
-    Field: Physics and astronomy
-ID: '98'
+  - Physics and astronomy
+ID: 98
 LongName: Fermi Gamma-Ray Space Telescope
 MembershipServicesURL: https://voms2.cnaf.infn.it:8443/voms/glast.org/
-MemeberResources: null
 Name: glast.org
 OASIS:
-  Managers: null
   OASISRepoURLs:
-    URL: http://cvmfs-stratum0.gridpp.rl.ac.uk:8000/cvmfs/glast.egi.eu
-  UseOASIS: 'False'
-ParentVO: null
+  - http://cvmfs-stratum0.gridpp.rl.ac.uk:8000/cvmfs/glast.egi.eu
+  UseOASIS: false
 PrimaryURL: http://glast.gsfc.nasa.gov/
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: glast.org
-SupportURL: null
+- glast.org

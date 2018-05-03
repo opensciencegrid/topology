@@ -1,65 +1,31 @@
-Active: 'True'
+Active: true
 AppDescription: Grid tools will be used to transfer data files.
-CertificateOnly: 'True'
+CertificateOnly: true
 Community: The Tokai-to-Kamioka (T2K) experimental collaboration is committed to studying
   neutrinos using detectors located in Tokai and Kamioka Japan.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Alysia Marino
-      - Name: Alysia Marino
-      - Name: Alysia Marino
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Alysia Marino
-      - Name: Alysia Marino
-      - Name: Alysia Marino
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Alysia Marino
-      - Name: Alysia Marino
-      - Name: Alysia Marino
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Alysia Marino
-      - Name: Alysia Marino
-      - Name: Alysia Marino
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Alysia Marino
-      - Name: Alysia Marino
-      - Name: Alysia Marino
-    Type: Registration Authority
-  - Contacts:
-      Contact:
-      - Name: Alysia Marino
-      - Name: Alysia Marino
-      - Name: Alysia Marino
-    Type: Sponsors
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Alysia Marino
+  Registration Authority:
+  - Name: Alysia Marino
+  Security Contact:
+  - Name: Alysia Marino
+  Sponsors:
+  - Name: Alysia Marino
+  Submitter Contact:
+  - Name: Alysia Marino
+  VO Manager:
+  - Name: Alysia Marino
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
-ID: '100'
+  - High Energy Physics
+ID: 100
 LongName: Tokai-to-Kamioka
-MembershipServicesURL: null
-MemeberResources: null
 Name: T2K
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://t2k-experiment.org/
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: T2K
+- T2K
 SupportURL: http://www.t2k.org/

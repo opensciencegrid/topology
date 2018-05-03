@@ -1,54 +1,31 @@
-Active: 'True'
+Active: true
 AppDescription: Analysis jobs will be run for LHC experiments ALICE, ATLAS and CMS.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The Worldwide LHC Computing Grid (WLCG) project is a global collaboration
   of more than 170 computing centres in 36 countries, linking up national and international
   grid infrastructures.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Maria Dimou
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-        Name: Maarten Litmaath
-    Type: Security Contact
-  - Contacts:
-      Contact:
-        Name: Maarten Litmaath
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-        Name: Maarten Litmaath
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-        Name: Maarten Litmaath
-    Type: VO Manager
-  - Contacts:
-      Contact:
-        Name: Maarten Litmaath
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Maarten Litmaath
+  Miscellaneous Contact:
+  - Name: Maarten Litmaath
+  Registration Authority:
+  - Name: Maarten Litmaath
+  Security Contact:
+  - Name: Maarten Litmaath
+  Submitter Contact:
+  - Name: Maria Dimou
+  VO Manager:
+  - Name: Maarten Litmaath
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
-ID: '96'
+  - High Energy Physics
+ID: 96
 LongName: Worldwide LHC Computing Grid
-MembershipServicesURL: null
-MemeberResources: null
 Name: LCG
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://cern.ch/lcg
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: LCG
-SupportURL: null
+- LCG

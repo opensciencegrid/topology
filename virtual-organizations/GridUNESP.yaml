@@ -1,4 +1,4 @@
-Active: 'True'
+Active: true
 AppDescription: 'Several different research areas will use the infrastructure like:
   High Energy Physics, Numerical Simulations of Quantum Chromodynamics (Lattice QCD),
   High Tc superconductivity and modeling of electric properties of ceramics, Bio-informatics,
@@ -6,77 +6,51 @@ AppDescription: 'Several different research areas will use the infrastructure li
   of Protein Folding, Geological and Hydrographic Modeling, Fluid Dynamics and Turbulent
   Flow, Numerical Methods in Mechanical Engineering, Condensed Matter, numerical study
   of strongly correlated electrons in low dimensionality'
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The purpose of GridUNESP is to supply computing resources for the research
   groups whose scientific activities demand high performance computing and deals with
   large amount of data.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Sergio Novaes
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-        Name: Marcio Antonio Costa
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Sergio Novaes
-      - Name: Marcio Antonio Costa
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Marcio Antonio Costa
-      - Name: Jadir Marra da Silva
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Sergio Novaes
-      - Name: Marcio Antonio Costa
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Sergio Novaes
+  - Name: Marcio Antonio Costa
+  Miscellaneous Contact:
+  - Name: Marcio Antonio Costa
+  - Name: Jadir Marra da Silva
+  Security Contact:
+  - Name: Marcio Antonio Costa
+  Submitter Contact:
+  - Name: Sergio Novaes
+  VO Manager:
+  - Name: Sergio Novaes
+  - Name: Marcio Antonio Costa
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Multi-Science Community
+  - Multi-Science Community
   SecondaryFields:
-    Field:
-    - Biochemistry
-    - Bioinformatics
-    - Biophysics
-    - Cellular Biology
-    - Chemistry
-    - Computer and Information Science and Engineering
-    - Earth Sciences
-    - Engineering
-    - High Energy Physics
-    - Materials Science
-    - Medical Sciences
-    - Molecular and Structural Biosciences
-    - Nuclear Physics
-    - Physics and astronomy
-ID: '63'
+  - Biochemistry
+  - Bioinformatics
+  - Biophysics
+  - Cellular Biology
+  - Chemistry
+  - Computer and Information Science and Engineering
+  - Earth Sciences
+  - Engineering
+  - High Energy Physics
+  - Materials Science
+  - Medical Sciences
+  - Molecular and Structural Biosciences
+  - Nuclear Physics
+  - Physics and astronomy
+ID: 63
 LongName: "S\xE3o Paulo State University Grid"
 MembershipServicesURL: https://voms.grid.unesp.br:8443/voms/GridUNESP
-MemeberResources:
-  Resource:
-  - ID: '308'
-    Name: GridUNESP
-  - ID: '309'
-    Name: GridUNESP_SE
-  - ID: '338'
-    Name: GridUNESP_SPO
 Name: GridUNESP
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://www.ncc.unesp.br
 PurposeURL: http://www.ncc.unesp.br
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: GridUNESP
+- GridUNESP
 SupportURL: https://www.ncc.unesp.br/its/

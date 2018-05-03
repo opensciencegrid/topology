@@ -1,56 +1,35 @@
-Active: 'True'
+Active: true
 AppDescription: 'The primary applications for now will be small-scale demonstration
   applications for educational use.  However, the list of applications will be kept
   here:'
-CertificateOnly: 'True'
+CertificateOnly: true
 Community: This VO will support the Great Plains Network community, a set of regional
   multi-disciplinary collaborators in the Great Plains region.  It will be used both
   by researchers and students.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Brian Bockelman
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-        Name: Gregory E. Monaco
-    Type: Security Contact
-  - Contacts:
-      Contact:
-        Name: Gregory E. Monaco
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Brian Bockelman
-      - Name: Gregory E. Monaco
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-        Name: Gregory E. Monaco
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Gregory E. Monaco
+  Miscellaneous Contact:
+  - Name: Brian Bockelman
+  - Name: Gregory E. Monaco
+  Security Contact:
+  - Name: Gregory E. Monaco
+  Submitter Contact:
+  - Name: Brian Bockelman
+  VO Manager:
+  - Name: Gregory E. Monaco
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Community Grid
-ID: '14'
+  - Community Grid
+ID: 14
 LongName: Great Plains Network
 MembershipServicesURL: https://cluster.greatplains.net:8443/voms/gpn
-MemeberResources: null
 Name: GPN
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://www.greatplains.net/
 PurposeURL: http://t2.unl.edu/documentation/gpn/gpngrid-mission-statement
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs:
-      FQAN:
-        GroupName: /gpn
-        Role: null
-    Name: gpn
+- gpn
 SupportURL: http://t2.unl.edu/documentation/gpn

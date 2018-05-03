@@ -1,11 +1,11 @@
-Active: 'True'
+Active: true
 AppDescription: The main categories of applications are event simulation, data reconstruction,
   and data analysis. Applications are data and CPU intensive, consisting of a few
   GBytes of input/output per batch process. The typical volume of batch jobs submitted
   through the grid is a few thousand per day. The average local storage space needed
   for I/O management is a few GB per worker node. The typical required scratch space
   at the worker node is 5 GB per job.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The D0 experiment is a high energy physics experiment collecting data at
   the FNAL Tevatron.  The VO associated with the D0 collaboration wishes to use OSG
   resources to reconstruct the raw data from the detector into physics objects and
@@ -13,122 +13,44 @@ Community: The D0 experiment is a high energy physics experiment collecting data
   create simulated events samples as they would appear in the D0 Detector.  Such samples
   are essential to calculate the efficiency for detection of the various processes
   in the sample of collider data.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Qizhong Li
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Michael Diesburg
-      - Name: Michael Diesburg
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Michael Diesburg
-      - Name: Michael Diesburg
-      - Name: Qizhong Li
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Steve Timm
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-        Name: Qizhong Li
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Darnell Green
-      - Name: Yolanda Valadez
-      - Name: Yolanda Valadez
-    Type: Registration Authority
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Michael Diesburg
+  - Name: Qizhong Li
+  Miscellaneous Contact:
+  - Name: Steve Timm
+  - Name: Joe Boyd
+  Registration Authority:
+  - Name: Darnell Green
+  - Name: Yolanda Valadez
+  Security Contact:
+  - Name: Michael Diesburg
+  Submitter Contact:
+  - Name: Qizhong Li
+  VO Manager:
+  - Name: Qizhong Li
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
+  - High Energy Physics
   SecondaryFields:
-    Field: Physics and astronomy
-ID: '7'
+  - Physics and astronomy
+ID: 7
 LongName: D0 Experiment at Fermilab
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/dzero
-MemeberResources:
-  Resource:
-  - ID: '64'
-    Name: LTU_OSG
-  - ID: '86'
-    Name: OUHEP_ITB
-  - ID: '87'
-    Name: OUHEP_OSG
-  - ID: '146'
-    Name: UMissHEP
-  - ID: '149'
-    Name: MSU-OSG
-  - ID: '150'
-    Name: MSU-OSG_SE
-  - ID: '151'
-    Name: LONI_OSG1
-  - ID: '187'
-    Name: FNAL_DZEROOSG_1
-  - ID: '188'
-    Name: FNAL_DZEROOSG_2
-  - ID: '331'
-    Name: LUHEP_SE
-  - ID: '333'
-    Name: UMissHEP_SE
-  - ID: '405'
-    Name: LUHEP_OSG2
-  - ID: '435'
-    Name: FNAL_DZEROOSG_3
-  - ID: '436'
-    Name: FNAL_DZEROOSG_4
-  - ID: '600'
-    Name: FZU_NOVA
-  - ID: '780'
-    Name: FZU_NOVA_CE
-  - ID: '900'
-    Name: FZU_OSG_CE1
-  - ID: '932'
-    Name: FZU_OSG_CE2
 Name: DZero
 OASIS:
   Managers:
-    Manager:
-      ContactID: '579'
+    Joe Boyd:
+      ContactID: 579
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
-      Name: Joe Boyd
+      - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
   OASISRepoURLs:
-    URL: http://oasiscfs.fnal.gov:8000/cvmfs/d0.opensciencegrid.org/
-  UseOASIS: 'True'
-ParentVO: null
+  - http://oasiscfs.fnal.gov:8000/cvmfs/d0.opensciencegrid.org/
+  UseOASIS: true
 PrimaryURL: http://www-d0.fnal.gov/
 PurposeURL: http://www-d0.fnal.gov/
 ReportingGroups:
-  ReportingGroup:
-    Contacts:
-      Contact:
-      - Name: Horst Severini
-      - Name: Horst Severini
-      - Name: Joel Snow
-      - Name: Joel Snow
-      - Name: Joel Snow
-      - Name: Joel Snow
-      - Name: Qizhong Li
-    FQANs:
-      FQAN:
-      - GroupName: /dzero
-        Role: null
-      - GroupName: /dzero/users
-        Role: null
-      - GroupName: /dzero/users
-        Role: D0Production
-    Name: dzero
+- dzero
 SupportURL: http://www-d0.fnal.gov/VO/DZero_VO_Instructions.html

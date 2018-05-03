@@ -1,70 +1,48 @@
-Active: 'True'
+Active: true
 AppDescription: Large scale scientific simulations
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The ORNL community served by this VO consists of ORNL staff researchers
   and ORNL afilliates who have compute allocations on ORNL resources.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Ross Miller
-    Type: Security Contact
-  - Contacts:
-      Contact:
-        Name: Ross Miller
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-        Name: Ross Miller
-    Type: VO Manager
-  - Contacts:
-      Contact:
-        Name: Ross Miller
-    Type: Registration Authority
-  - Contacts:
-      Contact:
-        Name: Ross Miller
-    Type: Sponsors
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Ross Miller
+  Registration Authority:
+  - Name: Ross Miller
+  Security Contact:
+  - Name: Ross Miller
+  Sponsors:
+  - Name: Ross Miller
+  VO Manager:
+  - Name: Ross Miller
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: National Laboratory
+  - National Laboratory
   SecondaryFields:
-    Field:
-    - Astrophysics
-    - Biochemistry
-    - Chemistry
-    - Computer and Information Science and Engineering
-    - Earth Sciences
-    - Ecological and Environmental Sciences
-    - Geographic Information Science
-    - Gravitational Physics
-    - High Energy Physics
-    - Information Theory
-    - Materials Science
-    - Mathematical Sciences
-    - Medical Sciences
-    - Multi-Science Community
-    - Nanoelectronics
-    - Network Science
-    - Nuclear Physics
-    - Physics and astronomy
-    - Statistics
-ID: '89'
+  - Astrophysics
+  - Biochemistry
+  - Chemistry
+  - Computer and Information Science and Engineering
+  - Earth Sciences
+  - Ecological and Environmental Sciences
+  - Geographic Information Science
+  - Gravitational Physics
+  - High Energy Physics
+  - Information Theory
+  - Materials Science
+  - Mathematical Sciences
+  - Medical Sciences
+  - Multi-Science Community
+  - Nanoelectronics
+  - Network Science
+  - Nuclear Physics
+  - Physics and astronomy
+  - Statistics
+ID: 89
 LongName: Oak Ridge National Laboratory
-MembershipServicesURL: null
-MemeberResources: null
 Name: ORNL
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://www.ornl.gov
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: ORNL
-SupportURL: null
+- ORNL

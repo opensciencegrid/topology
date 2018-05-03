@@ -1,138 +1,57 @@
-Active: 'True'
+Active: true
 AppDescription: Belle Monte Carlo production
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The Belle experiment is a particle physics experiment conducted by the
   Belle Collaboration, an international collaboration of more than 400 physicists
   and engineers investigating CP-violation effects at the High Energy Accelerator
   Research Organisation (KEK) in Tsukuba, Ibaraki Prefecture, Japan.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Tom Fifield
-      - Name: Tom Fifield
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: David Earl Cowley
-      - Name: David Earl Cowley
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: David Earl Cowley
-      - Name: David Earl Cowley
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: David Earl Cowley
-      - Name: David Earl Cowley
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: David Earl Cowley
-      - Name: David Earl Cowley
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: David Earl Cowley
-      - Name: David Earl Cowley
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Leo Eric Piilonen
-      - Name: Leo Eric Piilonen
-    Type: Registration Authority
-  - Contacts:
-      Contact:
-      - Name: David Earl Cowley
-      - Name: David Earl Cowley
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Leo Eric Piilonen
-      - Name: Leo Eric Piilonen
-    Type: Sponsors
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: David Earl Cowley
+  - Name: Malachi Schram
+  Miscellaneous Contact:
+  - Name: David Earl Cowley
+  - Name: Malachi Schram
+  Registration Authority:
+  - Name: David Earl Cowley
+  - Name: Malachi Schram
+  - Name: Leo Eric Piilonen
+  Security Contact:
+  - Name: David Earl Cowley
+  - Name: Malachi Schram
+  Sponsors:
+  - Name: David Earl Cowley
+  - Name: Malachi Schram
+  - Name: Leo Eric Piilonen
+  Submitter Contact:
+  - Name: Tom Fifield
+  VO Manager:
+  - Name: David Earl Cowley
+  - Name: Malachi Schram
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
-ID: '69'
+  - High Energy Physics
+ID: 69
 LongName: The Belle Experiment at KEK
 MembershipServicesURL: https://voms.cc.kek.jp:8443/voms/belle
-MemeberResources:
-  Resource:
-  - ID: '146'
-    Name: UMissHEP
-  - ID: '333'
-    Name: UMissHEP_SE
-  - ID: '362'
-    Name: VT_OSG
-  - ID: '475'
-    Name: PNNL_CE_1
-  - ID: '485'
-    Name: PNNL_OSG-Misregistered
-  - ID: '551'
-    Name: Kennesaw_Dell_Nodes
-  - ID: '567'
-    Name: PNNL_SE
-  - ID: '616'
-    Name: Belle_CE_2
-  - ID: '656'
-    Name: AMS_GEANT LHCONE
-  - ID: '663'
-    Name: PNNL_BelleII_SE
-  - ID: '716'
-    Name: US-PNNL LT
-  - ID: '717'
-    Name: US-PNNL BW
-  - ID: '718'
-    Name: PNNL_CE00
-  - ID: '746'
-    Name: PNNL_HEP_CE00
-  - ID: '879'
-    Name: PNNL VOMS Server
-  - ID: '908'
-    Name: BNL_BELLE_II_SE
-  - ID: '930'
-    Name: BNL_BELLE_II_CE_1
 Name: Belle
 OASIS:
   Managers:
-    Manager:
-    - ContactID: '2690'
+    Hideki Miyake:
+      ContactID: 2690
+      DNs: /C=JP/O=KEK/OU=CRC/CN=Hideki Miyake
+    I Ueda:
+      ContactID: 2693
       DNs:
-        DN: /C=JP/O=KEK/OU=CRC/CN=Hideki Miyake
-      Name: Hideki Miyake
-    - ContactID: '2693'
-      DNs:
-        DN:
-        - /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ueda/CN=482702/CN=I Ueda
-        - /C=JP/O=KEK/OU=CRC/CN=UEDA Ikuo
-      Name: I Ueda
-    - ContactID: '2694'
-      DNs:
-        DN: /C=JP/O=KEK/OU=CRC/CN=HAYASAKA Kiyoshi
-      Name: Kiyoshi Hayasaka
-  OASISRepoURLs: null
-  UseOASIS: 'True'
-ParentVO: null
+      - /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ueda/CN=482702/CN=I Ueda
+      - /C=JP/O=KEK/OU=CRC/CN=UEDA Ikuo
+    Kiyoshi Hayasaka:
+      ContactID: 2694
+      DNs: /C=JP/O=KEK/OU=CRC/CN=HAYASAKA Kiyoshi
+  UseOASIS: true
 PrimaryURL: http://belle.kek.jp
 PurposeURL: http://belle.kek.jp
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: belle
+- belle
 SupportURL: http://www.ggus.org

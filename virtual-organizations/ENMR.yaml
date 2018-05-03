@@ -1,4 +1,4 @@
-Active: 'True'
+Active: true
 AppDescription: "The most CPU intensive application is CS-ROSETTA, that allows structure\
   \ determination of proteins based on chemical shift \ninformation alone. It thus\
   \ bypasses the need for NOE based distance restraints, which usually require \n\
@@ -10,108 +10,40 @@ AppDescription: "The most CPU intensive application is CS-ROSETTA, that allows s
   \ using distance restraints.  However, the most time consuming part of a CS-ROSETTA\
   \ run \nconsists of a large number of independent calculations that can be easily\
   \ distributed over the GRID."
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: ENMR VO serves the bio-NMR and SAXS user communities. The VO is already
   enabled in the European EGI grid
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Marco Verlato
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-        Name: Marco Verlato
-    Type: Security Contact
-  - Contacts:
-      Contact:
-        Name: Marco Verlato
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-        Name: Marco Verlato
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Marco Verlato
+  Security Contact:
+  - Name: Marco Verlato
+  Submitter Contact:
+  - Name: Marco Verlato
+  VO Manager:
+  - Name: Marco Verlato
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Biological Sciences
+  - Biological Sciences
   SecondaryFields:
-    Field:
-    - Biochemistry
-    - Bioinformatics
-    - Medical Sciences
-    - Microbiology
-    - Molecular and Structural Biosciences
-ID: '73'
+  - Biochemistry
+  - Bioinformatics
+  - Medical Sciences
+  - Microbiology
+  - Molecular and Structural Biosciences
+ID: 73
 LongName: A worldwide e-Infrastructure for NMR and structural biology
 MembershipServicesURL: https://voms2.cnaf.infn.it:8443/voms/enmr.eu/
-MemeberResources:
-  Resource:
-    ID: '457'
-    Name: INFNPD-GlideinWMS-Schedd
 Name: ENMR
 OASIS:
   Managers:
-    Manager:
-      ContactID: '751'
-      DNs:
-        DN: /C=IT/O=INFN/OU=Personal Certificate/L=Padova/CN=Marco Verlato
-      Name: Marco Verlato
-  OASISRepoURLs: null
-  UseOASIS: 'True'
-ParentVO: null
+    Marco Verlato:
+      ContactID: 751
+      DNs: /C=IT/O=INFN/OU=Personal Certificate/L=Padova/CN=Marco Verlato
+  UseOASIS: true
 PrimaryURL: http://www.wenmr.eu
 PurposeURL: http://www.wenmr.eu
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs:
-      FQAN:
-      - GroupName: amber
-        Role: null
-      - GroupName: aria
-        Role: null
-      - GroupName: atsas
-        Role: null
-      - GroupName: cns
-        Role: null
-      - GroupName: csrosetta
-        Role: null
-      - GroupName: cyana
-        Role: null
-      - GroupName: demo
-        Role: null
-      - GroupName: dirac
-        Role: null
-      - GroupName: disvis
-        Role: null
-      - GroupName: gromacs
-        Role: null
-      - GroupName: haddock
-        Role: null
-      - GroupName: mars
-        Role: null
-      - GroupName: matlab
-        Role: null
-      - GroupName: maxocc
-        Role: null
-      - GroupName: mddnmr
-        Role: null
-      - GroupName: ops
-        Role: null
-      - GroupName: phaser
-        Role: null
-      - GroupName: powerfit
-        Role: null
-      - GroupName: talos
-        Role: null
-      - GroupName: unio
-        Role: null
-      - GroupName: uplabel
-        Role: null
-      - GroupName: westlife
-        Role: null
-      - GroupName: xplornih
-        Role: null
-    Name: enmr
+- enmr
 SupportURL: http://www.wenmr.eu

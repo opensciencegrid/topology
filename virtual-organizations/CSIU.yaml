@@ -1,111 +1,56 @@
-Active: 'True'
+Active: true
 AppDescription: A wide variety of applications is anticipated
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Indiana University researchers and their collaborators
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Kyle Gross
-      - Name: Elizabeth Prout
-      - Name: Elizabeth Prout
-      - Name: Elizabeth Prout
-    Type: Registration Authority
-  - Contacts:
-      Contact:
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-      - Name: Scott Teige
-    Type: Sponsors
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Scott Teige
+  Registration Authority:
+  - Name: Kyle Gross
+  - Name: Elizabeth Prout
+  Security Contact:
+  - Name: Scott Teige
+  Sponsors:
+  - Name: Scott Teige
+  Submitter Contact:
+  - Name: Scott Teige
+  VO Manager:
+  - Name: Scott Teige
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Multi-Science Community
+  - Multi-Science Community
   SecondaryFields:
-    Field:
-    - Astrophysics
-    - Biochemistry
-    - Bioinformatics
-    - Biophysics
-    - Cellular Biology
-    - Chemistry
-    - Computer and Information Science and Engineering
-    - Economics
-    - Education
-    - Medical Sciences
-    - Microbiology
-    - Molecular and Structural Biosciences
-    - Physics and astronomy
-    - Technology
-ID: '72'
+  - Astrophysics
+  - Biochemistry
+  - Bioinformatics
+  - Biophysics
+  - Cellular Biology
+  - Chemistry
+  - Computer and Information Science and Engineering
+  - Economics
+  - Education
+  - Medical Sciences
+  - Microbiology
+  - Molecular and Structural Biosciences
+  - Physics and astronomy
+  - Technology
+ID: 72
 LongName: Computational Sciences at Indiana University
 MembershipServicesURL: https://voms.grid.iu.edu:8443/voms/CSIU/
-MemeberResources:
-  Resource:
-  - ID: '56'
-    Name: IU_OSG
-  - ID: '494'
-    Name: CSIU Submit
-  - ID: '510'
-    Name: ILS_compute
-  - ID: '561'
-    Name: cns1
-  - ID: '562'
-    Name: cns2
 Name: CSIU
 OASIS:
   Managers:
-    Manager:
-      ContactID: '652'
+    Scott Teige:
+      ContactID: 652
       DNs:
-        DN:
-        - /DC=org/DC=doegrids/OU=People/CN=Scott Teige 689374
-        - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Scott Teige 652
-        - /DC=org/DC=cilogon/C=US/O=Indiana University/CN=Scott Teige A7052
-        - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Scott Teige
-          1
-      Name: Scott Teige
-  OASISRepoURLs: null
-  UseOASIS: 'True'
-ParentVO: null
+      - /DC=org/DC=doegrids/OU=People/CN=Scott Teige 689374
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Scott Teige 652
+      - /DC=org/DC=cilogon/C=US/O=Indiana University/CN=Scott Teige A7052
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Scott Teige 1
+  UseOASIS: true
 PrimaryURL: https://twiki.grid.iu.edu/bin/view/VirtualOrganizations/CSatIU
 PurposeURL: https://twiki.grid.iu.edu/bin/view/VirtualOrganizations/CSatIU
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: CSIU
+- CSIU
 SupportURL: http://osggoc.blogspot.com/

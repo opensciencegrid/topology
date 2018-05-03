@@ -1,63 +1,34 @@
-Active: 'True'
+Active: true
 AppDescription: PNNL provides grid-enabled CPU and storage for external and internal
   users.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The Pacific Northwest National Laboratory VO serves different user communities
   in High Energy and Nuclear Physics. In addition to users on collaborations that
   are already grid-enabled, we support smaller experiments with a possibly short life
   time that would like to take advantage of our grid-enabled infrastructure.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-      - Name: Jan Strube
-      - Name: Jan Strube
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Jan Strube
-      - Name: Jan Strube
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Jan Strube
-      - Name: Jan Strube
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Malachi Schram
-      - Name: Jan Strube
-      - Name: Jan Strube
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Malachi Schram
+  - Name: Jan Strube
+  Security Contact:
+  - Name: Malachi Schram
+  - Name: Jan Strube
+  Submitter Contact:
+  - Name: Jan Strube
+  VO Manager:
+  - Name: Malachi Schram
+  - Name: Jan Strube
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
+  - High Energy Physics
   SecondaryFields:
-    Field: Nuclear Physics
-ID: '119'
+  - Nuclear Physics
+ID: 119
 LongName: Pacific Northwest National Laboratory
-MembershipServicesURL: null
-MemeberResources: null
 Name: PNNL
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
-ParentVO: null
+  UseOASIS: false
 PrimaryURL: http://www.pnnl.gov/
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: PNNL
-SupportURL: null
+- PNNL

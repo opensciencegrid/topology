@@ -1,74 +1,34 @@
-Active: 'True'
+Active: true
 AppDescription: Grid Colombia Education VO
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Grid Colombia Sites Admins, Scientific Community and Students Associated
   to a Research Projects
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Diego Alberto Rincon Yanez
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-        Name: Diego Alberto Rincon Yanez
-    Type: Security Contact
-  - Contacts:
-      Contact:
-        Name: Diego Alberto Rincon Yanez
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-        Name: Diego Alberto Rincon Yanez
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-        Name: Diego Alberto Rincon Yanez
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Diego Alberto Rincon Yanez
+  Miscellaneous Contact:
+  - Name: Diego Alberto Rincon Yanez
+  Security Contact:
+  - Name: Diego Alberto Rincon Yanez
+  Submitter Contact:
+  - Name: Diego Alberto Rincon Yanez
+  VO Manager:
+  - Name: Diego Alberto Rincon Yanez
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Education
-ID: '78'
+  - Education
+ID: 78
 LongName: Grid Colombia Education
 MembershipServicesURL: https://gc-voms.javeriana.edu.co:8443/voms/gcedu/
-MemeberResources:
-  Resource:
-  - ID: '388'
-    Name: GCVO_PUJ_CE
-  - ID: '413'
-    Name: GCVO_PUJ_CE_TEST
-  - ID: '414'
-    Name: GCVO_UC_CE
-  - ID: '415'
-    Name: GCVO_UCALDAS_CE
-  - ID: '417'
-    Name: GCVO_UPB_CE
-  - ID: '420'
-    Name: GCVO_UDEM_CE
-  - ID: '422'
-    Name: GCVO_UAM_CE
-  - ID: '427'
-    Name: GCVO_UAC_CE
-  - ID: '428'
-    Name: GCVO_UV_CE
-  - ID: '429'
-    Name: GCVO_UIS_CE
-  - ID: '434'
-    Name: GCVO_UNIANDES_CE
 Name: GCEDU
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
+  UseOASIS: false
 ParentVO:
-  ID: '77'
+  ID: 77
   Name: GCVO
 PrimaryURL: http://www.gridcolombia.org
 PurposeURL: http://www.gridcolombia.org
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: gcvo
+- gcvo
 SupportURL: http://wiki.gridcolombia.org

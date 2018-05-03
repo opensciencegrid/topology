@@ -1,48 +1,30 @@
-Active: 'True'
+Active: true
 AppDescription: next production and analysis jobs will be run on the OSG.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: Various Neutrino physicists and collaborators.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Shreyas Bhat
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-      - Name: Shreyas Bhat
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Joe Boyd
-      - Name: Joe Boyd
-    Type: VO Manager
-Disable: 'False'
+Contacts:
+  Miscellaneous Contact:
+  - Name: Joe Boyd
+  - Name: Shreyas Bhat
+  Submitter Contact:
+  - Name: Shreyas Bhat
+  VO Manager:
+  - Name: Joe Boyd
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: High Energy Physics
-ID: '131'
+  - High Energy Physics
+ID: 131
 LongName: Neutrino Experiment with a Xenon TPC
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
-MemeberResources: null
 Name: next
 OASIS:
-  Managers: null
-  OASISRepoURLs: null
-  UseOASIS: 'False'
+  UseOASIS: false
 ParentVO:
-  ID: '9'
+  ID: 9
   Name: Fermilab
 PrimaryURL: http://next.ific.uv.es/next/experiment.html
 PurposeURL: http://www.fnal.gov/
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs:
-      FQAN:
-        GroupName: /fermilab/next
-        Role: null
-    Name: next
+- next
 SupportURL: http://fermigrid.fnal.gov/

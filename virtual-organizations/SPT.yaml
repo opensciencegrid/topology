@@ -1,91 +1,51 @@
-Active: 'True'
+Active: true
 AppDescription: Simulations and data analysis jobs will be run, in particular simulation
   of time-ordered data from telescope observations.
-CertificateOnly: 'False'
+CertificateOnly: false
 Community: The South Pole Telescope observes the structure and polarization of the
   cosmic microwave background in the millimeter band from Amundsen-Scott South Pole
   Station, Antarctica.
-ContactTypes:
-  ContactType:
-  - Contacts:
-      Contact:
-        Name: Nathan Whitehorn
-    Type: Submitter Contact
-  - Contacts:
-      Contact:
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Nathan Whitehorn
-    Type: Security Contact
-  - Contacts:
-      Contact:
-      - Name: Nathan Whitehorn
-      - Name: Robert William Gardner Jr
-    Type: Administrative Contact
-  - Contacts:
-      Contact:
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Judith Stephen
-      - Name: Nathan Whitehorn
-    Type: Miscellaneous Contact
-  - Contacts:
-      Contact:
-      - Name: Nathan Whitehorn
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-    Type: VO Manager
-  - Contacts:
-      Contact:
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-    Type: Registration Authority
-  - Contacts:
-      Contact:
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Benedikt Riedel
-      - Name: Nathan Whitehorn
-    Type: Sponsors
-Disable: 'False'
+Contacts:
+  Administrative Contact:
+  - Name: Nathan Whitehorn
+  - Name: Robert William Gardner Jr
+  Miscellaneous Contact:
+  - Name: Benedikt Riedel
+  - Name: Judith Stephen
+  - Name: Nathan Whitehorn
+  Registration Authority:
+  - Name: Benedikt Riedel
+  Security Contact:
+  - Name: Benedikt Riedel
+  - Name: Nathan Whitehorn
+  Sponsors:
+  - Name: Benedikt Riedel
+  - Name: Nathan Whitehorn
+  Submitter Contact:
+  - Name: Nathan Whitehorn
+  VO Manager:
+  - Name: Nathan Whitehorn
+  - Name: Benedikt Riedel
+Disable: false
 FieldsOfScience:
   PrimaryFields:
-    Field: Astrophysics
+  - Astrophysics
   SecondaryFields:
-    Field:
-    - Particle Physics
-    - Physics
-ID: '124'
+  - Particle Physics
+  - Physics
+ID: 124
 LongName: South Pole Telescope
 MembershipServicesURL: https://spt-mgt.grid.uchicago.edu:8443/voms/SPT
-MemeberResources: null
 Name: SPT
 OASIS:
   Managers:
-    Manager:
-      ContactID: '3937'
-      DNs:
-        DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Nathan Whitehorn
-          3937
-      Name: Nathan Whitehorn
+    Nathan Whitehorn:
+      ContactID: 3937
+      DNs: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Nathan Whitehorn
+        3937
   OASISRepoURLs:
-    URL: http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/spt.opensciencegrid.org
-  UseOASIS: 'True'
-ParentVO: null
+  - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/spt.opensciencegrid.org
+  UseOASIS: true
 PrimaryURL: http://pole.uchicago.edu
-PurposeURL: null
 ReportingGroups:
-  ReportingGroup:
-    Contacts: null
-    FQANs: null
-    Name: SPT
-SupportURL: null
+- SPT
