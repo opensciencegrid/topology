@@ -27,7 +27,7 @@ params = {
 }
 
 parser = ArgumentParser()
-parser.add_argument("--show-inactive", choices=[YES, NO, ONLY], default=NO)
+parser.add_argument("--show-inactive", choices=[YES, NO, ONLY], default=YES)
 
 args = parser.parse_args()
 
