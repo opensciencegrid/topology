@@ -78,41 +78,5 @@ OASIS:
 PrimaryURL: http://www.uscms.org
 PurposeURL: http://www.uscms.org/SoftwareComputing/Grid/index.html
 ReportingGroups:
-  cms:
-    Contacts:
-    - Burt Holzman
-    - Miron Livny
-    - Frank Wuerthwein
-    - Kenneth Bloom
-    FQANs:
-    - GroupName: /cms
-      Role: null
-    - GroupName: /cms
-      Role: cmssoft
-    - GroupName: /cms
-      Role: cmsuser
-    - GroupName: /cms
-      Role: lcgadmin
-    - GroupName: /cms
-      Role: production
-    - GroupName: /cms/analysis
-      Role: null
-    - GroupName: /cms/becms
-      Role: null
-    - GroupName: /cms/dcms
-      Role: null
-    - GroupName: /cms/dcms
-      Role: cmsphedex
-    - GroupName: /cms/itcms
-      Role: null
-    - GroupName: /cms/twcms
-      Role: null
-    - GroupName: /cms/uscms
-      Role: null
-    - GroupName: /cms/uscms
-      Role: cmsprod
-    - GroupName: /cms/uscms
-      Role: cmssoft
-    - GroupName: /cms/uscms
-      Role: cmsuser
+- cms
 SupportURL: http://helpdesk.fnal.gov

@@ -17,11 +17,5 @@ OASIS:
 PrimaryURL: http://www.grid.iu.edu
 PurposeURL: https://lcg-voms.cern.ch:8443/vo/ops/vomrs?path=/RootNode&amp;action=execute
 ReportingGroups:
-  ops:
-    Contacts: null
-    FQANs:
-    - GroupName: /ops
-      Role: null
-    - GroupName: /ops
-      Role: lcgadmin
+- ops
 SupportURL: https://lcg-voms.cern.ch:8443/vo/ops/vomrs?path=/RootNode&amp;action=execute

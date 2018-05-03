@@ -31,29 +31,9 @@ ParentVO:
 PrimaryURL: http://fermigrid.fnal.gov/
 PurposeURL: http://www.fnal.gov/
 ReportingGroups:
-  mars:
-    Contacts: null
-    FQANs:
-    - GroupName: /fermilab/mars
-      Role: null
-  marsaccel:
-    Contacts: null
-    FQANs:
-    - GroupName: /fermilab/mars/accel
-      Role: null
-  marsgm2:
-    Contacts: null
-    FQANs:
-    - GroupName: /fermilab/mars/gm2
-      Role: null
-  marslbne:
-    Contacts: null
-    FQANs:
-    - GroupName: /fermilab/mars/lbne
-      Role: null
-  marsmu2e:
-    Contacts: null
-    FQANs:
-    - GroupName: /fermilab/mars/mu2e
-      Role: null
+- mars
+- marsaccel
+- marsgm2
+- marslbne
+- marsmu2e
 SupportURL: http://fermigrid.fnal.gov/

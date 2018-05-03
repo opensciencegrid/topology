@@ -43,29 +43,7 @@ OASIS:
 PrimaryURL: http://ilc.fnal.gov/
 PurposeURL: http://ilcdoc.linearcollider.org/record/7272
 ReportingGroups:
-  ilc:
-    Contacts:
-    - Steve Timm
-    - Lynn Garren
-    - GP Yeh
-    FQANs:
-    - GroupName: /ilc
-      Role: null
-  ilc4c:
-    Contacts:
-    - Steve Timm
-    FQANs:
-    - GroupName: /ilc/ilc4c
-      Role: null
-  ilddet:
-    Contacts:
-    - Steve Timm
-    FQANs:
-    - GroupName: /ilc/ild
-      Role: null
-  siddet:
-    Contacts:
-    - Steve Timm
-    FQANs:
-    - GroupName: /ilc/sid
-      Role: null
+- ilc
+- ilc4c
+- ilddet
+- siddet

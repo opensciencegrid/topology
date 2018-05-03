@@ -48,27 +48,5 @@ OASIS:
 PrimaryURL: http://www.usatlas.bnl.gov
 PurposeURL: http://www.usatlas.bnl.gov/index.shtml
 ReportingGroups:
-  atlas:
-    Contacts:
-    - Horst Severini
-    - Joel Snow
-    - Xin Zhao
-    - Armen Vartapetian
-    FQANs:
-    - GroupName: /atlas
-      Role: null
-    - GroupName: /atlas
-      Role: lcgadmin
-    - GroupName: /atlas
-      Role: production
-    - GroupName: /atlas/ca
-      Role: null
-    - GroupName: /atlas/usatlas
-      Role: null
-    - GroupName: /atlas/usatlas
-      Role: pilot
-    - GroupName: /atlas/usatlas
-      Role: production
-    - GroupName: /atlas/usatlas
-      Role: software
+- atlas
 SupportURL: http://www.usatlas.bnl.gov/index.shtml
