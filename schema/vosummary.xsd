@@ -17,7 +17,7 @@
               <xsd:element name="LongName" type="xsd:string" />
               <xsd:element name="CertificateOnly" type="boolean" />
               <xsd:element name="PrimaryURL" type="xsd:string" />
-              <xsd:element name="MembershipServicesURL" type="xsd:string" />
+              <xsd:element minOccurs="0" name="MembershipServicesURL" type="xsd:string" />
               <xsd:element name="PurposeURL" type="xsd:string" />
               <xsd:element name="SupportURL" type="xsd:string" />
               <xsd:element name="AppDescription" type="xsd:string" />
