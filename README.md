@@ -19,7 +19,9 @@ as follows:
 
 -   `virtual-organizations/` contains information about Virtual Organizations
     (VOs).
-    Each VO has its own file, named `<VO>.yaml`
+    Each VO has its own file, named `<VO>.yaml`.  In addition, there is a file
+    containing information about "reporting groups" called
+    `REPORTING_GROUPS.yaml`.
 
 -   `topology/` contains information about the topology of the resources that
     OSG sites provide.  Resources are collected into "resource groups."  Each
@@ -35,9 +37,9 @@ Data can be accessed in two formats: the YAML files can be accessed directly
 from a clone of the GitHub repository.  Alternatively, the data can be accessed
 in XML format at the following URLs:
 
--   **TODO** for projects
--   **TODO** for VOs
--   **TODO** for topology of resource groups
+-   For projects: https://my.opensciencegrid.org/miscproject/xml
+-   For VOs: https://my.opensciencegrid.org/vosummary/xml
+-   For resource group topology: https://my.opensciencegrid.org/rgsummary/xml
 
 These XML pages are compatible with the XML format once provided by
 `myosg.grid.iu.edu`.
@@ -62,7 +64,7 @@ The template files are:
 
 -   `template-project.yaml` for new projects; should be put in
     `projects/<PROJECT NAME>.yaml`
--   `template-vo.yaml` for new VOs; should be put in
+-   `template-virtual-organization.yaml` for new VOs; should be put in
     `virtual-organizations/<VO NAME>.yaml`
 -   `template-resourcegroup.yaml` for new resource groups;
     should be put in `<FACILITY>/<SITE>/<RESOURCE GROUP NAME>.yaml`.
@@ -85,6 +87,15 @@ Scripts inside the `converters` directory are used for two things:
     modifications
 
 
+#### download_projects.py
+
+Usage:
+
+    download_projects.py > projects.xml
+
+Download the current XML of projects from MyOSG.
+
+
 #### download_rgsummary.py
 
 Usage:
@@ -93,11 +104,24 @@ Usage:
 
 Options:
 
-    --show-inactive=YES|NO|ONLY     Show inactive resource groups [default: YES]
+    --show-inactive=YES|NO|ONLY     Show inactive resources [default: YES]
     --show-itb=YES|NO|ONLY          Show ITB resource groups [default: YES]
-    --show-disabled-resource=YES|NO|ONLY    Show resource groups with disabled resources [default: YES]
+    --show-disabled-resource=YES|NO|ONLY    Show disabled resources [default: YES]
 
 Download the current XML of the resource groups from MyOSG.
+
+
+#### download_vosummary.py
+
+Usage:
+
+    download_vosummary.py [options] > vos.xml
+
+Options:
+
+    --show-inactive=YES|NO|ONLY     Show inactive VOs [default: YES]
+
+Download the current XML of the VO data from MyOSG.
 
 
 #### project_xml_to_yaml.py
