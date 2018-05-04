@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-16"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:complexType name="downtime_information">
     <xsd:sequence>
@@ -21,6 +21,7 @@
             <xsd:element name="EndTime" type="xsd:string" />
             <xsd:element name="Class" type="xsd:string" />
             <xsd:element name="Severity" type="xsd:string" />
+            <xsd:element minOccurs="0" name="CreatedTime" type="xsd:string" />
             <xsd:element minOccurs="0" name="DN" type="xsd:string" />
             <xsd:element name="UpdateTime" type="xsd:string" />
             <xsd:element name="Services">
