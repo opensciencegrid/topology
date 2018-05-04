@@ -6,17 +6,21 @@ Community: The LIGO Scientific Collaboration
 Contacts:
   Administrative Contact:
   - Peter Couvares
+  - Thomas Downes
   Miscellaneous Contact:
   - Peter Couvares
   - Larne Pekowsky
+  - James Alexander Clark
   Registration Authority:
   - Peter Couvares
   Security Contact:
   - Peter Couvares
+  - Sharon Brunett
   Submitter Contact:
-  - Kent Blackburn
+  - Peter Couvares
   VO Manager:
   - Peter Couvares
+  - James Alexander Clark
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -27,7 +31,6 @@ FieldsOfScience:
   - Physics and astronomy
 ID: 23
 LongName: Laser Interferometer Gravitational-Wave Observatory
-MembershipServicesURL: https://voms.ligo.org:8443/voms/LIGO/Configuration.do
 Name: LIGO
 OASIS:
   Managers:
@@ -35,9 +38,6 @@ OASIS:
       ContactID: 8
       DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
         Paul Bockelman
-    Duncan Brown:
-      ContactID: 2799
-      DNs: /DC=org/DC=cilogon/C=US/O=LIGO/CN=Duncan Brown duncan.brown@ligo.org
     James Alexander Clark:
       ContactID: 4038
       DNs: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=James Alexander
@@ -59,9 +59,9 @@ OASIS:
   OASISRepoURLs:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/ligo.osgstorage.org
   - http://binaries.ligo.uwm.edu:8000/cvmfs/ligo-containers.opensciencegrid.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/gwosc.osgstorage.org
   UseOASIS: true
 PrimaryURL: http://www.ligo.org
 PurposeURL: http://www.ligo.org
 ReportingGroups:
 - ligo
-SupportURL: http://www.lsc-group.phys.uwm.edu/lscdatagrid/OSG/index.html
