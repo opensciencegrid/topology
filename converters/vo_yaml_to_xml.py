@@ -12,6 +12,9 @@ except ModuleNotFoundError:
     from .convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, ensure_list
 
 
+VO_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/vosummary.xsd"
+
+
 def expand_contacttypes(contacts: Dict) -> Dict:
     """Expand
     {"Submitter Contact": ["a", "b"],
@@ -144,7 +147,10 @@ def get_vos_xml():
 
 
 def get_vos():
-    to_output = {"VOSummary": {"VO": []}}
+    to_output = {"VOSummary": {
+        "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "@xsi:schemaLocation": VO_SCHEMA_LOCATION,
+        "VO": []}}
     vos = []
     reportinggroups_data = anymarkup.parse_file("virtual-organizations/REPORTING_GROUPS.yaml")
     for file in os.listdir("virtual-organizations"):

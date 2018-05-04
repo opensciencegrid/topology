@@ -1,8 +1,9 @@
 import copy
 
-# TODO: Put xsi:schemaLocation in the XMLs
 
-from flask import Flask, Response, request
+
+import flask
+from flask import Flask, Response
 from converters.convertlib import to_xml, ensure_list, is_null
 from converters.project_yaml_to_xml import get_projects
 from converters.vo_yaml_to_xml import get_vos
@@ -22,6 +23,15 @@ _vos = None
 _rgsummary = None
 
 
+@app.route('/schema/<xsdfile>')
+def schema(xsdfile):
+    if xsdfile in ["vosummary.xsd", "rgsummary.xsd"]:
+        with open("schema/" + xsdfile, "r") as xsdfh:
+            return Response(xsdfh.read(), mimetype="text/xml")
+    else:
+        flask.abort(404)
+
+
 @app.route('/miscproject/xml')
 def projects():
     global _projects
@@ -35,10 +45,10 @@ def voinfo():
     global _vos
     if not _vos:
         _vos = get_vos()
-
-    if "active" in request.args:
+    args = flask.request.args
+    if "active" in args:
         vos = copy.deepcopy(_vos)
-        active_value = request.args.get("active_value", "")
+        active_value = args.get("active_value", "")
         if active_value == "0":
             vos["VOSummary"]["VO"] = [vo for vo in vos["VOSummary"]["VO"] if not vo["Active"]]
         elif active_value == "1":
@@ -57,10 +67,11 @@ def resources():
     if not _rgsummary:
         _rgsummary = get_rgsummary()
 
-    rgsummary = {"ResourceSummary": {"ResourceGroup": []}}
-    rgs = copy.deepcopy(_rgsummary["ResourceSummary"]["ResourceGroup"])
-    if "active" in request.args:
-        active_value = request.args.get("active_value", "")
+    rgsummary = copy.deepcopy(_rgsummary)
+    rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
+    args = flask.request.args
+    if "active" in args:
+        active_value = args.get("active_value", "")
         if active_value == "0":
             for rg in rgs:
                 rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if not r["Active"]]
@@ -70,8 +81,8 @@ def resources():
         else:
             # invalid arguments: no RGs for you!
             return Response("<ResourceSummary/>", mimetype='text/xml')
-    if "disable" in request.args:
-        disable_value = request.args.get("disable_value", "")
+    if "disable" in args:
+        disable_value = args.get("disable_value", "")
         if disable_value == "0":
             for rg in rgs:
                 rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if not r["Disable"]]
@@ -82,8 +93,8 @@ def resources():
             # invalid arguments: no RGs for you!
             return Response("<ResourceSummary/>", mimetype='text/xml')
 
-    if "gridtype" in request.args:
-        gridtype_1, gridtype_2 = request.args.get("gridtype_1", ""), request.args.get("gridtype_2", "")
+    if "gridtype" in args:
+        gridtype_1, gridtype_2 = args.get("gridtype_1", ""), args.get("gridtype_2", "")
         if gridtype_1 == "on" and gridtype_2 == "on":
             pass
         elif gridtype_1 == "on":

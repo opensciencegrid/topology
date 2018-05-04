@@ -32,7 +32,7 @@ try:
 except ModuleNotFoundError:
     from .convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, to_xml, to_xml_file
 
-SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
+RG_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 
 
 class RGError(Exception):
@@ -90,7 +90,7 @@ class Topology(object):
         rgs.sort(key=lambda x: x["GroupName"].lower())
         return {"ResourceSummary":
                 {"@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-                 "@xsi:schemaLocation": SCHEMA_LOCATION,
+                 "@xsi:schemaLocation": RG_SCHEMA_LOCATION,
                  "ResourceGroup": rgs}}
 
     def to_xml(self):
