@@ -28,11 +28,11 @@ from pathlib import Path
 from typing import Dict, Iterable
 
 try:
-    from convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list
+    from convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, to_xml, to_xml_file
 except ModuleNotFoundError:
-    from .convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list
+    from .convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, to_xml, to_xml_file
 
-SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
+RG_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 
 
 class RGError(Exception):
@@ -90,14 +90,14 @@ class Topology(object):
         rgs.sort(key=lambda x: x["GroupName"].lower())
         return {"ResourceSummary":
                 {"@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-                 "@xsi:schemaLocation": SCHEMA_LOCATION,
+                 "@xsi:schemaLocation": RG_SCHEMA_LOCATION,
                  "ResourceGroup": rgs}}
 
     def to_xml(self):
-        return anymarkup.serialize(self.get_resource_summary(), "xml").decode("utf-8")
+        return to_xml(self.get_resource_summary())
 
     def serialize_file(self, outfile):
-        return anymarkup.serialize_file(self.get_resource_summary(), outfile, "xml")
+        return to_xml_file(self.get_resource_summary(), outfile)
 
 
 def expand_services(services: Dict, service_name_to_id: Dict[str, int]) -> Dict:
@@ -265,22 +265,27 @@ def get_rgsummary_xml(indir="topology", outfile=None):
 
     Returns the text of the XML document.
     """
+    rgsummary = get_rgsummary(indir)
+
+    if outfile:
+        to_xml_file(rgsummary, outfile)
+
+    return to_xml(rgsummary)
+
+
+def get_rgsummary(indir="topology"):
     topology = Topology()
     root = Path(indir)
-
     support_center_name_to_id = anymarkup.parse_file(root / "support-centers.yaml")
     service_name_to_id = anymarkup.parse_file(root / "services.yaml")
-
     for facility_path in root.glob("*/FACILITY.yaml"):
         name = facility_path.parts[-2]
         id_ = anymarkup.parse_file(facility_path)["ID"]
         topology.add_facility(name, id_)
-
     for site_path in root.glob("*/*/SITE.yaml"):
         facility, name = site_path.parts[-3:-1]
         id_ = anymarkup.parse_file(site_path)["ID"]
         topology.add_site(facility, name, id_)
-
     for yaml_path in root.glob("*/*/*.yaml"):
         facility, site, name = yaml_path.parts[-3:]
         if name == "SITE.yaml": continue
@@ -295,15 +300,13 @@ def get_rgsummary_xml(indir="topology", outfile=None):
             rg["Site"] = OrderedDict([("ID", site_id), ("Name", site)])
             rg["GroupName"] = name
 
-            topology.add_rg(facility, site, name, expand_resourcegroup(rg, service_name_to_id, support_center_name_to_id))
+            topology.add_rg(facility, site, name,
+                            expand_resourcegroup(rg, service_name_to_id, support_center_name_to_id))
         except Exception as e:
             if not isinstance(e, RGError):
                 raise RGError(rg) from e
 
-    if outfile:
-        topology.serialize_file(outfile)
-
-    return topology.to_xml()
+    return topology.get_resource_summary()
 
 
 def main(argv=sys.argv):

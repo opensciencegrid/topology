@@ -52,8 +52,8 @@ def simplify_contacttypes(contacttypes):
         # Remove duplicates but keep ordering
         contacts = []
         for c in ensure_list(ct["Contacts"]["Contact"]):
-            if c not in contacts:
-                contacts.append(c)
+            if c["Name"] not in contacts:
+                contacts.append(c["Name"])
         new_contacttypes[type_] = contacts
 
     return new_contacttypes

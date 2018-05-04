@@ -1,4 +1,5 @@
 import pprint
+from collections import OrderedDict
 
 import os
 
@@ -10,6 +11,9 @@ try:
     from convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, ensure_list
 except ModuleNotFoundError:
     from .convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, ensure_list
+
+
+VO_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/vosummary.xsd"
 
 
 def expand_contacttypes(contacts: Dict) -> Dict:
@@ -50,14 +54,17 @@ def expand_reportinggroups(reportinggroups_list: List, reportinggroups_data: Dic
         newdata = new_reportinggroups[name]
         if not is_null(data, "Contacts"):
             new_contact = [{"Name": x} for x in data["Contacts"]]
-            newdata["Contacts"] = {"Contacts": {"Contact": singleton_list_to_value(new_contact)}}
+            newdata["Contacts"] = {"Contact": singleton_list_to_value(new_contact)}
         else:
             newdata["Contacts"] = None
         if not is_null(data, "FQANs"):
-            newdata["FQANs"] = {"FQAN": singleton_list_to_value(data["FQANs"])}
+            fqans = []
+            for fqan in data["FQANs"]:
+                fqans.append(OrderedDict([("GroupName", fqan["GroupName"]), ("Role", fqan["Role"])]))
+            newdata["FQANs"] = {"FQAN": singleton_list_to_value(fqans)}
         else:
             newdata["FQANs"] = None
-    new_reportinggroups = expand_attr_list(new_reportinggroups, "Name")
+    new_reportinggroups = expand_attr_list(new_reportinggroups, "Name", ordering=["Name", "FQANs", "Contacts"])
     return {"ReportingGroup": new_reportinggroups}
 
 
@@ -73,7 +80,7 @@ def expand_oasis_managers(managers):
             new_managers[name]["DNs"] = {"DN": singleton_list_to_value(data["DNs"])}
         else:
             new_managers[name]["DNs"] = None
-    return {"Manager": expand_attr_list(new_managers, "Name")}
+    return {"Manager": expand_attr_list(new_managers, "Name", ordering=["ContactID", "Name", "DNs"], ignore_missing=True)}
 
 
 def expand_fields_of_science(fields_of_science):
@@ -86,8 +93,9 @@ def expand_fields_of_science(fields_of_science):
     """
     if is_null(fields_of_science, "PrimaryFields"):
         return None
-    new_fields = {"PrimaryFields": {"Field": singleton_list_to_value(fields_of_science["PrimaryFields"])}}
-    if not is_null(fields_of_science, "Secondary"):
+    new_fields = OrderedDict()
+    new_fields["PrimaryFields"] = {"Field": singleton_list_to_value(fields_of_science["PrimaryFields"])}
+    if not is_null(fields_of_science, "SecondaryFields"):
         new_fields["SecondaryFields"] = {"Field": singleton_list_to_value(fields_of_science["SecondaryFields"])}
     return new_fields
 
@@ -99,7 +107,7 @@ def expand_vo(vo, reportinggroups_data):
         vo["ContactTypes"] = None
     else:
         vo["ContactTypes"] = expand_contacttypes(vo["Contacts"])
-        del vo["Contacts"]
+    vo.pop("Contacts", None)
     if is_null(vo, "ReportingGroups"):
         vo["ReportingGroups"] = None
     else:
@@ -107,20 +115,33 @@ def expand_vo(vo, reportinggroups_data):
     if is_null(vo, "OASIS"):
         vo["OASIS"] = None
     else:
+        oasis = OrderedDict()
+        oasis["UseOASIS"] = vo["OASIS"].get("UseOASIS", False)
         if is_null(vo["OASIS"], "Managers"):
-            vo["OASIS"]["Managers"] = None
+            oasis["Managers"] = None
         else:
-            vo["OASIS"]["Managers"] = expand_oasis_managers(vo["OASIS"]["Managers"])
+            oasis["Managers"] = expand_oasis_managers(vo["OASIS"]["Managers"])
         if is_null(vo["OASIS"], "OASISRepoURLs"):
-            vo["OASIS"]["OASISRepoURLs"] = None
+            oasis["OASISRepoURLs"] = None
         else:
-            vo["OASIS"]["OASISRepoURLs"] = {"URL": singleton_list_to_value(vo["OASIS"]["OASISRepoURLs"])}
+            oasis["OASISRepoURLs"] = {"URL": singleton_list_to_value(vo["OASIS"]["OASISRepoURLs"])}
+        vo["OASIS"] = oasis
     if is_null(vo, "FieldsOfScience"):
         vo["FieldsOfScience"] = None
     else:
         vo["FieldsOfScience"] = expand_fields_of_science(vo["FieldsOfScience"])
 
-    for key in ["MembershipServicesURL", "ParentVO", "PrimaryURL", "PurposeURL", "SupportURL"]:
+    # Restore ordering
+    if not is_null(vo, "ParentVO"):
+        parentvo = OrderedDict()
+        for elem in ["ID", "Name"]:
+            if elem in vo["ParentVO"]:
+                parentvo[elem] = vo["ParentVO"][elem]
+        vo["ParentVO"] = parentvo
+    else:
+        vo["ParentVO"] = None
+
+    for key in ["MembershipServicesURL", "PrimaryURL", "PurposeURL", "SupportURL"]:
         if key not in vo:
             vo[key] = None
 
@@ -132,15 +153,32 @@ def expand_vo(vo, reportinggroups_data):
     #    ...
     #  </MemeberResources>
 
-    return vo
+    # Restore ordering
+    new_vo = OrderedDict()
+    for elem in ["ID", "Name", "LongName", "CertificateOnly", "PrimaryURL", "MembershipServicesURL", "PurposeURL",
+                 "SupportURL", "AppDescription", "Community",
+                 # TODO "MemeberResources",
+                 "FieldsOfScience", "ParentVO", "ReportingGroups", "Active", "Disable", "ContactTypes", "OASIS"]:
+        if elem in vo:
+            new_vo[elem] = vo[elem]
+
+    return new_vo
 
 def get_vos_xml():
     """
     Returns the serialized xml (as a string)
     """
-    to_output = {"VOSummary":{"VO": []}}
-    vos = []
+    to_output = get_vos()
 
+    return anymarkup.serialize(to_output, 'xml').decode()
+
+
+def get_vos():
+    to_output = {"VOSummary": {
+        "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "@xsi:schemaLocation": VO_SCHEMA_LOCATION,
+        "VO": []}}
+    vos = []
     reportinggroups_data = anymarkup.parse_file("virtual-organizations/REPORTING_GROUPS.yaml")
     for file in os.listdir("virtual-organizations"):
         if file == "REPORTING_GROUPS.yaml": continue
@@ -150,10 +188,8 @@ def get_vos_xml():
         except Exception:
             pprint.pprint(vo)
             raise
-
     to_output["VOSummary"]["VO"] = vos
-
-    return anymarkup.serialize(to_output, 'xml').decode()
+    return to_output
 
 
 if __name__ == "__main__":

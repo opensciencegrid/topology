@@ -20,6 +20,6 @@ with open(infile, "r") as infh:
 
 if not os.path.exists(outdir):
     os.makedirs(outdir)
-vos = parsed["VOSummary"]["VO"]
-for vo in vos:
+_vos = parsed["VOSummary"]["VO"]
+for vo in _vos:
     anymarkup.serialize_file({"VO": vo}, os.path.join(outdir, vo["Name"]+".xml"), format="xml")
