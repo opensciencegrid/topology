@@ -1,5 +1,11 @@
 ANL: {Contacts: null, FQANs: null}
 BNL: {Contacts: null, FQANs: null}
+Beocat:
+  Contacts: [Adam Tygart]
+  FQANs: null
+CALICE:
+  Contacts: [Patrick Salcido]
+  FQANs: null
 CSIU: {Contacts: null, FQANs: null}
 CTA: {Contacts: null, FQANs: null}
 DREAM: {Contacts: null, FQANs: null}
@@ -103,6 +109,11 @@ cms:
   - {GroupName: /cms/uscms, Role: cmsprod}
   - {GroupName: /cms/uscms, Role: cmssoft}
   - {GroupName: /cms/uscms, Role: cmsuser}
+compchem:
+  Contacts: null
+  FQANs:
+  - {GroupName: compchem, Role: null}
+  - {GroupName: compchem, Role: SoftwareManager}
 coupp:
   Contacts: null
   FQANs:
@@ -214,17 +225,12 @@ ilddet:
   Contacts: [Steve Timm]
   FQANs:
   - {GroupName: /ilc/ild, Role: null}
-jetstream: {Contacts: null, FQANs: null}
-lar1nd:
-  Contacts: null
-  FQANs:
-  - {GroupName: /fermilab/lar1nd, Role: Analysis}
-  - {GroupName: /fermilab/lar1nd, Role: pilot}
-  - {GroupName: /fermilab/lar1nd, Role: Production}
+lar1nd: {Contacts: null, FQANs: null}
 lariat:
   Contacts: null
   FQANs:
   - {GroupName: /fermilab/lariat, Role: null}
+larsoft: {Contacts: null, FQANs: null}
 lbnl: {Contacts: null, FQANs: null}
 ligo:
   Contacts: [Peter Couvares]
@@ -274,6 +280,7 @@ miniboone:
   Contacts: null
   FQANs:
   - {GroupName: /fermilab/miniboone, Role: null}
+miniclean: {Contacts: null, FQANs: null}
 minos:
   Contacts: [Tanya Levshina]
   FQANs:
@@ -339,6 +346,10 @@ sbnd:
   FQANs:
   - {GroupName: /fermilab/sbnd, Role: null}
 scdms: {Contacts: null, FQANs: null}
+sdss:
+  Contacts: null
+  FQANs:
+  - {GroupName: /sdss/production, Role: null}
 siddet:
   Contacts: [Steve Timm]
   FQANs:
