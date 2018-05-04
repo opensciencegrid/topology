@@ -4,17 +4,6 @@ GroupID: 387
 Resources:
   FZU_NOVA:
     Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary: Petr Vokac
-      Miscellaneous Contact:
-        Primary: Petr Vokac
-      Resource Report Contact:
-        Primary: Petr Vokac
-      Security Contact:
-        Primary: Petr Vokac
-      Submitter Contact:
-        Primary: Petr Vokac
     Disable: true
     FQDN: novastore.farm.particle.cz
     ID: 600
@@ -34,17 +23,6 @@ Resources:
       Nova: 60
   FZU_NOVA_CE:
     Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary: Petr Vokac
-      Miscellaneous Contact:
-        Primary: Petr Vokac
-      Resource Report Contact:
-        Primary: Petr Vokac
-      Security Contact:
-        Primary: Petr Vokac
-      Submitter Contact:
-        Primary: Petr Vokac
     Disable: false
     FQDN: novace.farm.particle.cz
     ID: 780
@@ -68,17 +46,6 @@ Resources:
       Nova: 60
   FZU_OSG_CE1:
     Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary: Petr Vokac
-      Miscellaneous Contact:
-        Primary: Petr Vokac
-      Resource Report Contact:
-        Primary: Petr Vokac
-      Security Contact:
-        Primary: Petr Vokac
-      Submitter Contact:
-        Primary: Petr Vokac
     Disable: false
     FQDN: osgce1.farm.particle.cz
     ID: 900
@@ -94,17 +61,6 @@ Resources:
       Nova: 45
   FZU_OSG_CE2:
     Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary: Petr Vokac
-      Miscellaneous Contact:
-        Primary: Petr Vokac
-      Resource Report Contact:
-        Primary: Petr Vokac
-      Security Contact:
-        Primary: Petr Vokac
-      Submitter Contact:
-        Primary: Petr Vokac
     Disable: false
     FQDN: osgce2.farm.particle.cz
     ID: 932
@@ -120,13 +76,6 @@ Resources:
       Nova: 45
   perfSONAR_FZU_bandwidth:
     Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary: Petr Vokac
-      Security Contact:
-        Primary: Petr Vokac
-      Submitter Contact:
-        Primary: Petr Vokac
     Disable: false
     FQDN: ps02-b.farm.particle.cz
     ID: 824
@@ -139,13 +88,6 @@ Resources:
       ATLAS: 50
   perfSONAR_FZU_latency:
     Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary: Petr Vokac
-      Security Contact:
-        Primary: Petr Vokac
-      Submitter Contact:
-        Primary: Petr Vokac
     Disable: false
     FQDN: ps01-l.farm.particle.cz
     ID: 823
