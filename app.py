@@ -54,8 +54,7 @@ def voinfo():
         elif active_value == "1":
             vos["VOSummary"]["VO"] = [vo for vo in vos["VOSummary"]["VO"] if vo["Active"]]
         else:
-            # invalid arguments: no VOs for you!
-            return Response("<VOSummary/>", mimetype='text/xml')
+            return Response("Invalid arguments: active_value must be 0 or 1", status=400)
     else:
         vos = _vos
     vos_xml = to_xml(vos)
@@ -79,8 +78,7 @@ def resources():
             for rg in rgs:
                 rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if r["Active"]]
         else:
-            # invalid arguments: no RGs for you!
-            return Response("<ResourceSummary/>", mimetype='text/xml')
+            return Response("Invalid arguments: active_value must be 0 or 1", status=400)
     if "disable" in args:
         disable_value = args.get("disable_value", "")
         if disable_value == "0":
@@ -90,8 +88,7 @@ def resources():
             for rg in rgs:
                 rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if r["Disable"]]
         else:
-            # invalid arguments: no RGs for you!
-            return Response("<ResourceSummary/>", mimetype='text/xml')
+            return Response("Invalid arguments: disable_value must be 0 or 1", status=400)
 
     if "gridtype" in args:
         gridtype_1, gridtype_2 = args.get("gridtype_1", ""), args.get("gridtype_2", "")
@@ -105,7 +102,7 @@ def resources():
                                                              rg["GridType"] == "OSG Integration Test Bed Resource"]
         else:
             # invalid arguments: no RGs for you!
-            return Response("<ResourceSummary/>", mimetype='text/xml')
+            return Response("Invalid arguments: gridtype_1 or gridtype_2 or both must be \"on\"", status=400)
 
     # Drop RGs with no resources
     new_rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
