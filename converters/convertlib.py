@@ -72,7 +72,7 @@ def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=T
     return singleton_list_to_value(newdata)
 
 
-def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None) -> Union[Union[Dict, OrderedDict], List[Union[Dict, OrderedDict]]]:
+def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None, ignore_missing=False) -> Union[Union[Dict, OrderedDict], List[Union[Dict, OrderedDict]]]:
     """
     Expand
         {"name1": {"attr1": "val1", ...},
@@ -94,7 +94,7 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None)
                     new_value[elem] = name
                 elif elem in value:
                     new_value[elem] = value[elem]
-                else:
+                elif not ignore_missing:
                     new_value[elem] = None
         else:
             new_value = dict(value)

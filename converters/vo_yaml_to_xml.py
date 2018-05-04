@@ -80,7 +80,7 @@ def expand_oasis_managers(managers):
             new_managers[name]["DNs"] = {"DN": singleton_list_to_value(data["DNs"])}
         else:
             new_managers[name]["DNs"] = None
-    return {"Manager": expand_attr_list(new_managers, "Name", ordering=["Name", "DNs"])}
+    return {"Manager": expand_attr_list(new_managers, "Name", ordering=["ContactID", "Name", "DNs"], ignore_missing=True)}
 
 
 def expand_fields_of_science(fields_of_science):
@@ -95,7 +95,7 @@ def expand_fields_of_science(fields_of_science):
         return None
     new_fields = OrderedDict()
     new_fields["PrimaryFields"] = {"Field": singleton_list_to_value(fields_of_science["PrimaryFields"])}
-    if not is_null(fields_of_science, "Secondary"):
+    if not is_null(fields_of_science, "SecondaryFields"):
         new_fields["SecondaryFields"] = {"Field": singleton_list_to_value(fields_of_science["SecondaryFields"])}
     return new_fields
 
@@ -155,7 +155,7 @@ def expand_vo(vo, reportinggroups_data):
 
     # Restore ordering
     new_vo = OrderedDict()
-    for elem in ["Name", "LongName", "CertificateOnly", "PrimaryURL", "MembershipServicesURL", "PurposeURL",
+    for elem in ["ID", "Name", "LongName", "CertificateOnly", "PrimaryURL", "MembershipServicesURL", "PurposeURL",
                  "SupportURL", "AppDescription", "Community",
                  # TODO "MemeberResources",
                  "FieldsOfScience", "ParentVO", "ReportingGroups", "Active", "Disable", "ContactTypes", "OASIS"]:
