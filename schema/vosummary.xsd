@@ -12,22 +12,23 @@
         <xsd:element maxOccurs="unbounded" name="VO">
           <xsd:complexType>
             <xsd:sequence>
-              <xsd:element name="ID" type="xsd:int" />
+              <xsd:element minOccurs="0" name="ID" type="xsd:int" />
               <xsd:element name="Name" type="xsd:string" />
               <xsd:element name="LongName" type="xsd:string" />
+              <xsd:element name="CertificateOnly" type="boolean" />
               <xsd:element name="PrimaryURL" type="xsd:string" />
               <xsd:element name="MembershipServicesURL" type="xsd:string" />
               <xsd:element name="PurposeURL" type="xsd:string" />
               <xsd:element name="SupportURL" type="xsd:string" />
               <xsd:element name="AppDescription" type="xsd:string" />
               <xsd:element name="Community" type="xsd:string" />
-              <xsd:element name="MemeberResources">
+              <xsd:element minOccurs="0" name="MemeberResources">
                 <xsd:complexType>
                   <xsd:sequence>
                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="Resource">
                       <xsd:complexType>
                         <xsd:sequence>
-                          <xsd:element name="ID" type="xsd:int" />
+                          <xsd:element minOccurs="0" name="ID" type="xsd:int" />
                           <xsd:element name="Name" type="xsd:string" />
                         </xsd:sequence>
                       </xsd:complexType>
@@ -35,10 +36,23 @@
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>
-              <xsd:element name="FieldsOfScience">
+              <xsd:element minOccurs="0" name="FieldsOfScience">
                 <xsd:complexType>
                   <xsd:sequence>
-                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="Field" type="xsd:string" />
+                    <xsd:element minOccurs="0" name="PrimaryFields">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Field" type="xsd:string" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="SecondaryFields">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Field" type="xsd:string" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>
@@ -112,6 +126,41 @@
                               </xsd:sequence>
                             </xsd:complexType>
                           </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element minOccurs="0" name="OASIS">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="UseOASIS" type="boolean"/>
+                    <xsd:element name="Managers">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Manager">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element minOccurs="0" name="ContactID" type="xsd:string"/>
+                                <xsd:element name="Name" type="xsd:string"/>
+                                <xsd:element name="DNs">
+                                  <xsd:complexType>
+                                    <xsd:sequence>
+                                      <xsd:element minOccurs="0" maxOccurs="unbounded" name="DN" type="xsd:string"/>
+                                    </xsd:sequence>
+                                  </xsd:complexType>
+                                </xsd:element>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="OASISRepoURLs">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element minOccurs="0" maxOccurs="unbounded" name="URL" type="xsd:string"/>
                         </xsd:sequence>
                       </xsd:complexType>
                     </xsd:element>
