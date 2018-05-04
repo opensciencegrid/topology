@@ -10,7 +10,6 @@ import urllib.request
 
 YES, NO, ONLY = "yes", "no", "only"
 
-# summary_attrs_showfield_of_science=on&all_vos=on&active=on&active_value=1&oasis_value=1&sort_key=name
 params = {
     "all_vos": "on",
     "sort_key": "name",
@@ -18,7 +17,7 @@ params = {
     "summary_attrs_showcontact": "on",
     "summary_attrs_showdesc": "on",
     "summary_attrs_showfield_of_science": "on",
-    "summary_attrs_showmember_resource": "on",
+    #"summary_attrs_showmember_resource": "on",
     "summary_attrs_showoasis": "on",
     "summary_attrs_showparent_vo": "on",
     "summary_attrs_showreporting_group": "on",
