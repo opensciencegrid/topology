@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+from argparse import ArgumentParser
 from subprocess import Popen, PIPE
 import os
 import sys
@@ -9,9 +9,14 @@ import urllib.request
 
 params = {
     "all_resources": "on",
-
-    "downtime_attrs_showpast": "7",  # number of days or "all"
 }
+
+
+parser = ArgumentParser()
+parser.add_argument("--past-days", default="7", help="Number of days of past downtime, '', or 'all'")
+args = parser.parse_args()
+
+params["downtime_attrs_showpast"] = args.past_days
 
 query = urllib.parse.urlencode(params)
 
