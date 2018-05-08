@@ -25,7 +25,7 @@ _rgsummary = None
 
 @app.route('/schema/<xsdfile>')
 def schema(xsdfile):
-    if xsdfile in ["vosummary.xsd", "rgsummary.xsd"]:
+    if xsdfile in ["vosummary.xsd", "rgsummary.xsd", "miscuser.xsd"]:
         with open("schema/" + xsdfile, "r") as xsdfh:
             return Response(xsdfh.read(), mimetype="text/xml")
     else:
