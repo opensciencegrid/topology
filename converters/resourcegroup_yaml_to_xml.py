@@ -137,6 +137,8 @@ class Topology(object):
         return time
 
     def add_downtime(self, downtime):
+        if downtime is None:
+            return
         start_time = self._parsetime(downtime["StartTime"])
         end_time = self._parsetime(downtime["EndTime"])
         current_time = datetime.now(timezone.utc)
@@ -356,7 +358,10 @@ def expand_downtime(downtime, rg_expanded):
             print("Service %s does not exist in resource %s" % (dts, downtime["ResourceName"]), file=sys.stderr)
 
     if new_services:
-        new_downtime["Services"] = {"Service": singleton_list_to_value(new_services)}
+        new_downtime["Services"] = {"Service": new_services}
+    else:
+        print("No existing services listed for downtime; skipping downtime")
+        return None
 
     new_downtime["CreatedTime"] = "Not Available"
     new_downtime["UpdateTime"] = "Not Available"
