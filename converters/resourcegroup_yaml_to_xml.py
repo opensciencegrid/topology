@@ -342,7 +342,8 @@ def expand_downtime(downtime, rg_expanded):
             services = ensure_list(r["Services"]["Service"])
             break
     else:
-        raise RuntimeError("Resource %s does not exist" % downtime["ResourceName"])
+        print("Resource %s does not exist" % downtime["ResourceName"], file=sys.stderr)
+        return None
 
     new_services = []
     for dts in downtime["Services"]:
