@@ -15,7 +15,15 @@ def homepage():
 
     return """
     <h1>OSG Topology Interface</h1>
-    <a href="https://github.com/opensciencegrid/topology">Source Repo</a>
+    <a href="https://github.com/opensciencegrid/topology">Source Repo</a><br/>
+    <p>XML data:
+        <ul>
+            <li><a href="miscproject/xml">Projects data</a></li>
+            <li><a href="rgsummary/xml">Resource topology data</a></li>
+            <li><a href="rgdowntime/xml">Resource downtime data</a></li>
+            <li><a href="vosummary/xml">Virtual Organization data</a></li>
+        </ul>
+    </p>
     """
 
 _projects = None
