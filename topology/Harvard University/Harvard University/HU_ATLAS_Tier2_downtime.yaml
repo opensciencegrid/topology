@@ -1,0 +1,137 @@
+- Class: SCHEDULED
+  Description: Annual MGHPCC maintenance downtime. All NET2 systems, BU and HU will
+    be powered down all day May 17.
+  EndTime: May 18, 2016 10:00 AM UTC
+  ID: 1004893
+  ResourceName: NET2_HU
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: May 16, 2016 16:00 PM UTC
+- Class: SCHEDULED
+  Description: Annual MGHPCC power maintenance
+  EndTime: May 24, 2017 16:00 PM UTC
+  ID: 1005316
+  ResourceName: HU_ATLAS_Tier2
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: May 22, 2017 12:00 PM UTC
+- Class: SCHEDULED
+  Description: Annual MGHPCC power maintenance
+  EndTime: May 24, 2017 16:00 PM UTC
+  ID: 1005317
+  ResourceName: HU_ATLAS_Tier2_CE
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: May 22, 2017 12:00 PM UTC
+- Class: SCHEDULED
+  Description: Annual MGHPCC power maintenance
+  EndTime: May 24, 2017 16:00 PM UTC
+  ID: 1005319
+  ResourceName: NET2_HU
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: May 22, 2017 12:00 PM UTC
+- Class: SCHEDULED
+  Description: Down for puppet migration
+  EndTime: Jul 19, 2017 16:00 PM UTC
+  ID: 1005367
+  ResourceName: HU_ATLAS_Tier2
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Jul 18, 2017 16:00 PM UTC
+- Class: SCHEDULED
+  Description: Down for puppet migration
+  EndTime: Jul 19, 2017 16:00 PM UTC
+  ID: 1005368
+  ResourceName: HU_ATLAS_Tier2_CE
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Jul 18, 2017 16:00 PM UTC
+- Class: SCHEDULED
+  Description: Down for puppet migration
+  EndTime: Jul 19, 2017 16:00 PM UTC
+  ID: 1005369
+  ResourceName: NET2_HU
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Jul 18, 2017 16:00 PM UTC
+- Class: SCHEDULED
+  Description: NET2 Network reconfiguration.
+  EndTime: Oct 19, 2017 17:00 PM UTC
+  ID: 1005474
+  ResourceName: HU_ATLAS_Tier2
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Oct 19, 2017 13:00 PM UTC
+- Class: SCHEDULED
+  Description: NET2 Network reconfiguration
+  EndTime: Oct 19, 2017 17:00 PM UTC
+  ID: 1005475
+  ResourceName: HU_ATLAS_Tier2_CE
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Oct 19, 2017 13:00 PM UTC
+- Class: SCHEDULED
+  Description: NET2 Network reconfiguration
+  EndTime: Oct 19, 2017 17:00 PM UTC
+  ID: 1005477
+  ResourceName: NET2_HU
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Oct 19, 2017 13:00 PM UTC
+- Class: SCHEDULED
+  Description: GPFS maintenance and SRM rebuild
+  EndTime: Jan 25, 2018 20:00 PM UTC
+  ID: 1005576
+  ResourceName: HU_ATLAS_Tier2
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Jan 24, 2018 14:00 PM UTC
+- Class: SCHEDULED
+  Description: GPFS maintenance and SRM rebuild
+  EndTime: Jan 25, 2018 20:00 PM UTC
+  ID: 1005577
+  ResourceName: HU_ATLAS_Tier2_CE
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Jan 24, 2018 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Re-IP ing the Harvard gatekeeper has caused a problem, most likely
+    a firewall issue between BNL (pilots) and Harvard
+  EndTime: Mar 8, 2018 22:00 PM UTC
+  ID: 1005609
+  ResourceName: HU_ATLAS_Tier2
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Mar 5, 2018 22:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Unexpected downtime due to problem cause by re-IPing the Harvard gatekeeper.
+  EndTime: Mar 8, 2018 22:00 PM UTC
+  ID: 1005610
+  ResourceName: HU_ATLAS_Tier2_CE
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Mar 5, 2018 22:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Problem caused by re-IPing the Harvard gatekeeper.
+  EndTime: Mar 6, 2018 22:00 PM UTC
+  ID: 1005611
+  ResourceName: NET2_HU
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Mar 5, 2018 22:00 PM UTC

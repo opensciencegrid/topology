@@ -1,0 +1,278 @@
+- Class: SCHEDULED
+  Description: OS upgrade, reboot
+  EndTime: Jun 14, 2016 18:00 PM UTC
+  ID: 1004933
+  ResourceName: Lucille_CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Jun 14, 2016 11:00 AM UTC
+- Class: SCHEDULED
+  Description: OS upgrade, reboot
+  EndTime: Jun 14, 2016 18:00 PM UTC
+  ID: 1004934
+  ResourceName: Lucille_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Jun 14, 2016 11:00 AM UTC
+- Class: UNSCHEDULED
+  Description: A/C failure
+  EndTime: Jun 21, 2016 17:00 PM UTC
+  ID: 1004937
+  ResourceName: Lucille_CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Jun 20, 2016 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: A/C failure
+  EndTime: Jun 21, 2016 17:00 PM UTC
+  ID: 1004938
+  ResourceName: Lucille_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Jun 20, 2016 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: A/C and power failures
+  EndTime: Aug 12, 2016 19:00 PM UTC
+  ID: 1005002
+  ResourceName: Lucille_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Aug 12, 2016 00:00 AM UTC
+- Class: UNSCHEDULED
+  Description: A/C and power failures
+  EndTime: Aug 12, 2016 19:00 PM UTC
+  ID: 1005001
+  ResourceName: Lucille_CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Aug 12, 2016 01:00 AM UTC
+- Class: UNSCHEDULED
+  Description: Cooling failure
+  EndTime: Apr 20, 2017 16:00 PM UTC
+  ID: 1005274
+  ResourceName: Lucille_CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Apr 17, 2017 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: cooling failure
+  EndTime: Apr 20, 2017 16:00 PM UTC
+  ID: 1005275
+  ResourceName: Lucille_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Apr 17, 2017 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Power outage.
+  EndTime: May 10, 2017 18:00 PM UTC
+  ID: 1005295
+  ResourceName: Lucille_CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: May 9, 2017 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Power Outage
+  EndTime: May 10, 2017 18:00 PM UTC
+  ID: 1005296
+  ResourceName: Lucille_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: May 9, 2017 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Storage problems
+  EndTime: Sep 29, 2017 15:00 PM UTC
+  ID: 1005458
+  ResourceName: Lucille_CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Sep 26, 2017 18:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Storage problems
+  EndTime: Sep 28, 2017 13:00 PM UTC
+  ID: 1005459
+  ResourceName: Lucille_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Sep 26, 2017 18:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Storage failure.
+  EndTime: Nov 20, 2017 00:00 AM UTC
+  ID: 1005504
+  ResourceName: Lucille_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Nov 12, 2017 15:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Storage failure
+  EndTime: Nov 20, 2017 00:00 AM UTC
+  ID: 1005505
+  ResourceName: Lucille_CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Nov 12, 2017 15:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Storage failure.
+  EndTime: Nov 20, 2017 00:00 AM UTC
+  ID: 1005506
+  ResourceName: Lucille-squid
+  Services:
+  - Squid
+  Severity: Outage
+  StartTime: Nov 12, 2017 15:00 PM UTC
+- Class: UNSCHEDULED
+  Description: |-
+    Lost connectivity of network provider.  No estimate available of connectivity returning.
+    Connectivity retstored.
+  EndTime: Jan 6, 2018 17:00 PM UTC
+  ID: 1005542
+  ResourceName: Lucille_CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Dec 29, 2017 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: |-
+    Lost connectivity of network provider.  No estimate available of connectivity returning.
+    Connectivity retstored.
+  EndTime: Jan 6, 2018 17:00 PM UTC
+  ID: 1005544
+  ResourceName: Lucille-squid
+  Services:
+  - Squid
+  Severity: Outage
+  StartTime: Dec 29, 2017 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Storage system down.
+  EndTime: Jan 22, 2018 15:00 PM UTC
+  ID: 1005543
+  ResourceName: Lucille_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Jan 16, 2018 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Storage system down.
+  EndTime: Jan 22, 2018 15:00 PM UTC
+  ID: 1005559
+  ResourceName: Lucille-squid
+  Services:
+  - Squid
+  Severity: Outage
+  StartTime: Jan 16, 2018 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Storage system down.
+  EndTime: Jan 22, 2018 15:00 PM UTC
+  ID: 1005560
+  ResourceName: Lucille_CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Jan 16, 2018 14:00 PM UTC
+- Class: SCHEDULED
+  Description: Storage maintenance.
+  EndTime: Mar 19, 2018 23:00 PM UTC
+  ID: 1005573
+  ResourceName: Lucille-squid
+  Services:
+  - Squid
+  Severity: Outage
+  StartTime: Jan 22, 2018 15:00 PM UTC
+- Class: SCHEDULED
+  Description: Storage maintenance.
+  EndTime: Apr 30, 2018 23:00 PM UTC
+  ID: 1005575
+  ResourceName: Lucille_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Jan 22, 2018 15:00 PM UTC
+- Class: UNSCHEDULED
+  Description: cooling failure
+  EndTime: Apr 23, 2018 13:00 PM UTC
+  ID: 1005644
+  ResourceName: Lucille-squid
+  Services:
+  - Squid
+  Severity: Outage
+  StartTime: Apr 7, 2018 13:00 PM UTC
+- Class: UNSCHEDULED
+  Description: cooling failure
+  EndTime: Apr 23, 2018 13:00 PM UTC
+  ID: 1005645
+  ResourceName: Lucille_CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Apr 7, 2018 13:00 PM UTC
+- Class: UNSCHEDULED
+  Description: cooling failure
+  EndTime: Apr 23, 2018 13:00 PM UTC
+  ID: 1005646
+  ResourceName: Lucille_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Apr 7, 2018 13:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Cooling failure again.
+  EndTime: May 1, 2018 13:00 PM UTC
+  ID: 1005574
+  ResourceName: Lucille_CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Apr 24, 2018 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Cooling failure again.
+  EndTime: May 1, 2018 13:00 PM UTC
+  ID: 1005664
+  ResourceName: Lucille-squid
+  Services:
+  - Squid
+  Severity: Outage
+  StartTime: Apr 24, 2018 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: Cooling failure again.
+  EndTime: May 1, 2018 13:00 PM UTC
+  ID: 1005665
+  ResourceName: Lucille_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Apr 24, 2018 14:00 PM UTC
