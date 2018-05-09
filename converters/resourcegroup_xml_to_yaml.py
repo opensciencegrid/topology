@@ -38,6 +38,7 @@ from argparse import ArgumentParser
 import anymarkup
 import os
 import pprint
+import re
 import sys
 from collections import OrderedDict
 from typing import Dict, List, Union
@@ -103,6 +104,9 @@ class Topology(object):
         del dt_copy["CreatedTime"]
         del dt_copy["UpdateTime"]
         dt_copy["Services"] = self.simplify_downtime_services(downtime["Services"])
+        # leading and trailing whitespace causes "\n"'s in the resulting string
+        dt_copy["Description"] = re.sub(r"(?m)[ \t]+$", "", dt_copy["Description"])
+        dt_copy["Description"] = re.sub(r"(?m)^[ \t]+", "", dt_copy["Description"])
         rgname = downtime["ResourceGroup"]["GroupName"]
         if rgname not in self.downtimes:
             self.downtimes[rgname] = []
