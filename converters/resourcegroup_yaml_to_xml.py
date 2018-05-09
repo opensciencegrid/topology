@@ -21,30 +21,45 @@ where the return value `xml` is a string.
 import urllib.parse
 
 import anymarkup
+import re
 from collections import OrderedDict
+from datetime import datetime, timezone
 import pprint
 import sys
 from pathlib import Path
 from typing import Dict, Iterable
 
+import dateparser
+
 try:
-    from convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, to_xml, to_xml_file
+    from convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, to_xml, to_xml_file, ensure_list
 except ModuleNotFoundError:
-    from .convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, to_xml, to_xml_file
+    from .convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, to_xml, to_xml_file, ensure_list
 
 RG_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
-
+DOWNTIME_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
 
 class RGError(Exception):
-    """An error with converting a specifig RG"""
+    """An error with converting a specific RG"""
     def __init__(self, rg, *args, **kwargs):
         Exception.__init__(self, *args, **kwargs)
+        self.rg = rg
+
+
+class DowntimeError(Exception):
+    """An error with converting a specific piece of downtime info"""
+    def __init__(self, downtime, rg, *args, **kwargs):
+        Exception.__init__(self, *args, **kwargs)
+        self.downtime = downtime
         self.rg = rg
 
 
 class Topology(object):
     def __init__(self):
         self.data = {}
+        self.past_downtimes = []
+        self.current_downtimes = []
+        self.future_downtimes = []
 
     def add_rg(self, facility, site, rg, rgdata):
         if facility not in self.data:
@@ -93,11 +108,46 @@ class Topology(object):
                  "@xsi:schemaLocation": RG_SCHEMA_LOCATION,
                  "ResourceGroup": rgs}}
 
+    def get_downtimes(self) -> Dict:
+        return {"Downtimes":
+                    {"@xsi:schemaLocation": DOWNTIME_SCHEMA_LOCATION,
+                     "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                     "PastDowntimes": {"Downtime": self.past_downtimes},
+                     "CurrentDowntimes": {"Downtime": self.current_downtimes},
+                     "FutureDowntimes": {"Downtime": self.future_downtimes}}}
+
     def to_xml(self):
         return to_xml(self.get_resource_summary())
 
     def serialize_file(self, outfile):
         return to_xml_file(self.get_resource_summary(), outfile)
+
+    @staticmethod
+    def _parsetime(time_str: str) -> datetime:
+        # get rid of stupid times like "00:00 AM" or "17:00 PM"
+        if re.search(r"\s+00:\d\d\s+AM", time_str):
+            time_str = time_str.replace(" AM", "")
+        elif re.search(r"\s+(1[3-9]|2[0-3]):\d\d\s+PM", time_str):
+            time_str = time_str.replace(" PM", "")
+        time = dateparser.parse(time_str)
+        if not time:
+            raise ValueError("Invalid time %s" % time_str)
+        if not time.tzinfo:
+            time = time.replace(tzinfo=timezone.utc)
+        return time
+
+    def add_downtime(self, downtime):
+        start_time = self._parsetime(downtime["StartTime"])
+        end_time = self._parsetime(downtime["EndTime"])
+        current_time = datetime.now(timezone.utc)
+        # ^ not to be confused with datetime.utcnow(), which does not include tz info in the result
+
+        if end_time < current_time:
+            self.past_downtimes.append(downtime)
+        elif start_time > current_time:
+            self.future_downtimes.append(downtime)
+        else:
+            self.current_downtimes.append(downtime)
 
 
 def expand_services(services: Dict, service_name_to_id: Dict[str, int]) -> Dict:
@@ -258,22 +308,66 @@ def expand_resourcegroup(rg: Dict, service_name_to_id: Dict[str, int], support_c
     return new_rg
 
 
-def get_rgsummary_xml(indir="topology", outfile=None):
+def get_rgsummary_rgdowntime_xml(indir="topology", outfile=None, downtime_outfile=None):
     """Convert a directory tree of topology data into a single XML document.
     `indir` is the name of the directory tree. The document is written to a
     file at `outfile`, if `outfile` is specified.
 
     Returns the text of the XML document.
     """
-    rgsummary = get_rgsummary(indir)
+    rgsummary, rgdowntime = get_rgsummary_rgdowntime(indir)
 
     if outfile:
         to_xml_file(rgsummary, outfile)
+    if downtime_outfile:
+        to_xml_file(rgdowntime, downtime_outfile)
 
-    return to_xml(rgsummary)
+    return to_xml(rgsummary), to_xml(rgdowntime)
 
 
-def get_rgsummary(indir="topology"):
+def expand_downtime(downtime, rg_expanded):
+    new_downtime = OrderedDict.fromkeys(["ID", "ResourceID", "ResourceGroup", "ResourceName", "ResourceFQDN",
+                                         "StartTime", "EndTime", "Class", "Severity", "CreatedTime", "UpdateTime",
+                                         "Services", "Description"])
+    new_downtime["ResourceGroup"] = OrderedDict([("GroupName", rg_expanded["GroupName"]),
+                                                 ("GroupID", rg_expanded["GroupID"])])
+    resources = ensure_list(rg_expanded["Resources"]["Resource"])
+    for r in resources:
+        if r["Name"] == downtime["ResourceName"]:
+            new_downtime["ResourceFQDN"] = r["FQDN"]
+            new_downtime["ResourceID"] = r["ID"]
+            new_downtime["ResourceName"] = r["Name"]
+            services = ensure_list(r["Services"]["Service"])
+            break
+    else:
+        raise RuntimeError("Resource %s does not exist" % downtime["ResourceName"])
+
+    new_services = []
+    for dts in downtime["Services"]:
+        for s in services:
+            if s["Name"] == dts:
+                new_services.append(OrderedDict([
+                    ("ID", s["ID"]),
+                    ("Name", s["Name"]),
+                    ("Description", s["Description"])
+                ]))
+                break
+        else:
+            print("Service %s does not exist in resource %s" % (dts, downtime["ResourceName"]), file=sys.stderr)
+
+    if new_services:
+        new_downtime["Services"] = {"Service": singleton_list_to_value(new_services)}
+
+    new_downtime["CreatedTime"] = "Not Available"
+    new_downtime["UpdateTime"] = "Not Available"
+
+    for k in ["ID", "StartTime", "EndTime", "Class", "Severity", "Description"]:
+        new_downtime[k] = downtime[k]
+
+    return new_downtime
+
+
+def get_rgsummary_rgdowntime(indir="topology"):
     topology = Topology()
     root = Path(indir)
     support_center_name_to_id = anymarkup.parse_file(root / "support-centers.yaml")
@@ -289,9 +383,14 @@ def get_rgsummary(indir="topology"):
     for yaml_path in root.glob("*/*/*.yaml"):
         facility, site, name = yaml_path.parts[-3:]
         if name == "SITE.yaml": continue
+        if name.endswith("_downtime.yaml"): continue
 
         name = name.replace(".yaml", "")
         rg = anymarkup.parse_file(yaml_path)
+        downtime_yaml_path = yaml_path.with_name(name + "_downtime.yaml")
+        downtimes = None
+        if downtime_yaml_path.exists():
+            downtimes = ensure_list(anymarkup.parse_file(downtime_yaml_path))
 
         try:
             facility_id = topology.data[facility]["ID"]
@@ -299,31 +398,51 @@ def get_rgsummary(indir="topology"):
             rg["Facility"] = OrderedDict([("ID", facility_id), ("Name", facility)])
             rg["Site"] = OrderedDict([("ID", site_id), ("Name", site)])
             rg["GroupName"] = name
+            rg_expanded = expand_resourcegroup(rg, service_name_to_id, support_center_name_to_id)
 
-            topology.add_rg(facility, site, name,
-                            expand_resourcegroup(rg, service_name_to_id, support_center_name_to_id))
+            topology.add_rg(facility, site, name, rg_expanded)
         except Exception as e:
             if not isinstance(e, RGError):
                 raise RGError(rg) from e
+            raise
+        if downtimes:
+            for downtime in downtimes:
+                try:
+                    topology.add_downtime(expand_downtime(downtime, rg_expanded))
+                except Exception as e:
+                    if not isinstance(e, DowntimeError):
+                        raise DowntimeError(downtime, rg) from e
+                    raise
 
-    return topology.get_resource_summary()
+    return topology.get_resource_summary(), topology.get_downtimes()
 
 
 def main(argv=sys.argv):
     if len(argv) < 2:
-        print("Usage: %s <input dir> [<output xml>]" % argv[0], file=sys.stderr)
+        print("Usage: %s <input dir> [<output xml>] [<downtime output xml>]" % argv[0], file=sys.stderr)
         return 2
     indir = argv[1]
     outfile = None
+    downtime_outfile = None
     if len(argv) > 2:
         outfile = argv[2]
+    if len(argv) > 3:
+        downtime_outfile = argv[3]
 
     try:
-        xml = get_rgsummary_xml(indir, outfile)
+        rgsummary_xml, rgdowntime_xml = get_rgsummary_rgdowntime_xml(indir, outfile, downtime_outfile)
         if not outfile:
-            print(xml)
+            print(rgsummary_xml)
+        if not downtime_outfile:
+            print(rgdowntime_xml)
     except RGError as e:
         print("Error happened while processing RG:", file=sys.stderr)
+        pprint.pprint(e.rg, stream=sys.stderr)
+        raise
+    except DowntimeError as e:
+        print("Error happened while processing downtime:", file=sys.stderr)
+        pprint.pprint(e.downtime, stream=sys.stderr)
+        print("RG:", file=sys.stderr)
         pprint.pprint(e.rg, stream=sys.stderr)
         raise
 

@@ -99,10 +99,14 @@ class Topology(object):
         dt_copy = dict(downtime)
         del dt_copy["ResourceGroup"]
         del dt_copy["ResourceFQDN"]  # we can reconstruct this from the ResourceGroup and the ResourceName
+        del dt_copy["ResourceID"]  # ditto
         del dt_copy["CreatedTime"]
         del dt_copy["UpdateTime"]
         dt_copy["Services"] = self.simplify_downtime_services(downtime["Services"])
-        self.downtimes[downtime["ResourceGroup"]["GroupName"]] = dt_copy
+        rgname = downtime["ResourceGroup"]["GroupName"]
+        if rgname not in self.downtimes:
+            self.downtimes[rgname] = []
+        self.downtimes[rgname].append(dt_copy)
 
     def simplify_services(self, services):
         """
