@@ -8,9 +8,9 @@ import anymarkup
 from typing import Dict, List
 
 try:
-    from convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, ensure_list
+    from convertlib import is_null, expand_attr_list_single, expand_attr_list, ensure_list
 except ModuleNotFoundError:
-    from .convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, ensure_list
+    from .convertlib import is_null, expand_attr_list_single, expand_attr_list, ensure_list
 
 
 VO_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/vosummary.xsd"
@@ -28,9 +28,9 @@ def expand_contacttypes(contacts: Dict) -> Dict:
     """
     new_contacttypes = []
     for type_, list_ in contacts.items():
-        contact_data = singleton_list_to_value([{"Name": x} for x in list_])
+        contact_data = [{"Name": x} for x in list_]
         new_contacttypes.append({"Type": type_, "Contacts": {"Contact": contact_data}})
-    return {"ContactType": singleton_list_to_value(new_contacttypes)}
+    return {"ContactType": new_contacttypes}
 
 
 def expand_reportinggroups(reportinggroups_list: List, reportinggroups_data: Dict) -> Dict:
@@ -54,14 +54,14 @@ def expand_reportinggroups(reportinggroups_list: List, reportinggroups_data: Dic
         newdata = new_reportinggroups[name]
         if not is_null(data, "Contacts"):
             new_contact = [{"Name": x} for x in data["Contacts"]]
-            newdata["Contacts"] = {"Contact": singleton_list_to_value(new_contact)}
+            newdata["Contacts"] = {"Contact": new_contact}
         else:
             newdata["Contacts"] = None
         if not is_null(data, "FQANs"):
             fqans = []
             for fqan in data["FQANs"]:
                 fqans.append(OrderedDict([("GroupName", fqan["GroupName"]), ("Role", fqan["Role"])]))
-            newdata["FQANs"] = {"FQAN": singleton_list_to_value(fqans)}
+            newdata["FQANs"] = {"FQAN": fqans}
         else:
             newdata["FQANs"] = None
     new_reportinggroups = expand_attr_list(new_reportinggroups, "Name", ordering=["Name", "FQANs", "Contacts"])
@@ -77,7 +77,7 @@ def expand_oasis_managers(managers):
     new_managers = managers.copy()
     for name, data in managers.items():
         if not is_null(data, "DNs"):
-            new_managers[name]["DNs"] = {"DN": singleton_list_to_value(data["DNs"])}
+            new_managers[name]["DNs"] = {"DN": data["DNs"]}
         else:
             new_managers[name]["DNs"] = None
     return {"Manager": expand_attr_list(new_managers, "Name", ordering=["ContactID", "Name", "DNs"], ignore_missing=True)}
@@ -94,9 +94,9 @@ def expand_fields_of_science(fields_of_science):
     if is_null(fields_of_science, "PrimaryFields"):
         return None
     new_fields = OrderedDict()
-    new_fields["PrimaryFields"] = {"Field": singleton_list_to_value(fields_of_science["PrimaryFields"])}
+    new_fields["PrimaryFields"] = {"Field": fields_of_science["PrimaryFields"]}
     if not is_null(fields_of_science, "SecondaryFields"):
-        new_fields["SecondaryFields"] = {"Field": singleton_list_to_value(fields_of_science["SecondaryFields"])}
+        new_fields["SecondaryFields"] = {"Field": fields_of_science["SecondaryFields"]}
     return new_fields
 
 
@@ -124,7 +124,7 @@ def expand_vo(vo, reportinggroups_data):
         if is_null(vo["OASIS"], "OASISRepoURLs"):
             oasis["OASISRepoURLs"] = None
         else:
-            oasis["OASISRepoURLs"] = {"URL": singleton_list_to_value(vo["OASIS"]["OASISRepoURLs"])}
+            oasis["OASISRepoURLs"] = {"URL": vo["OASIS"]["OASISRepoURLs"]}
         vo["OASIS"] = oasis
     if is_null(vo, "FieldsOfScience"):
         vo["FieldsOfScience"] = None

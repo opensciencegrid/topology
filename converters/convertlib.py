@@ -48,13 +48,7 @@ def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
     return new_data
 
 
-def singleton_list_to_value(a_list):
-    if len(a_list) == 1:
-        return a_list[0]
-    return a_list
-
-
-def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=True) -> Union[Dict, List]:
+def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=True) -> List:
     """
     Expand
         {"name1": "val1",
@@ -71,10 +65,10 @@ def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=T
             newdata.append(OrderedDict([(namekey, name), (valuekey, value)]))
         else:
             newdata.append(OrderedDict([(valuekey, value), (namekey, name)]))
-    return singleton_list_to_value(newdata)
+    return newdata
 
 
-def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None, ignore_missing=False) -> Union[Union[Dict, OrderedDict], List[Union[Dict, OrderedDict]]]:
+def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None, ignore_missing=False) -> List[Union[Dict, OrderedDict]]:
     """
     Expand
         {"name1": {"attr1": "val1", ...},
@@ -102,7 +96,7 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
             new_value = dict(value)
             new_value[namekey] = name
         newdata.append(new_value)
-    return singleton_list_to_value(newdata)
+    return newdata
 
 
 def to_xml(data):

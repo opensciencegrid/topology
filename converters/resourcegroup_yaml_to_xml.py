@@ -32,9 +32,9 @@ from typing import Dict, Iterable
 import dateparser
 
 try:
-    from convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, to_xml, to_xml_file, ensure_list
+    from convertlib import is_null, expand_attr_list_single, expand_attr_list, to_xml, to_xml_file, ensure_list
 except ModuleNotFoundError:
-    from .convertlib import is_null, expand_attr_list_single, singleton_list_to_value, expand_attr_list, to_xml, to_xml_file, ensure_list
+    from .convertlib import is_null, expand_attr_list_single, expand_attr_list, to_xml, to_xml_file, ensure_list
 
 RG_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 DOWNTIME_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
@@ -210,7 +210,7 @@ def expand_contactlists(contactlists: Dict) -> Dict:
     for contact_type, contact_data in contactlists.items():
         contact_data = expand_attr_list_single(contact_data, "ContactRank", "Name", name_first=False)
         new_contactlists.append(OrderedDict([("ContactType", contact_type), ("Contacts", {"Contact": contact_data})]))
-    return {"ContactList": singleton_list_to_value(new_contactlists)}
+    return {"ContactList": new_contactlists}
 
 
 def expand_wlcginformation(wlcg: Dict) -> OrderedDict:
@@ -257,7 +257,7 @@ def expand_resource(name: str, res: Dict, service_name_to_id: Dict[str, int]) ->
     if "VOOwnership" in res:
         res["VOOwnership"] = expand_voownership(res["VOOwnership"])
     if "FQDNAliases" in res:
-        res["FQDNAliases"] = {"FQDNAlias": singleton_list_to_value(res["FQDNAliases"])}
+        res["FQDNAliases"] = {"FQDNAlias": res["FQDNAliases"]}
     if not is_null(res, "ContactLists"):
         res["ContactLists"] = expand_contactlists(res["ContactLists"])
     res["Name"] = name
@@ -298,7 +298,7 @@ def expand_resourcegroup(rg: Dict, service_name_to_id: Dict[str, int], support_c
             pprint.pprint(res, stream=sys.stderr)
             raise
     new_resources.sort(key=lambda x: x["Name"])
-    rg["Resources"] = {"Resource": singleton_list_to_value(new_resources)}
+    rg["Resources"] = {"Resource": new_resources}
 
     new_rg = OrderedDict()
 
