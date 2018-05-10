@@ -21,6 +21,8 @@ def is_null(x, *keys) -> bool:
 def ensure_list(x) -> List:
     if isinstance(x, list):
         return x
+    elif x is None:
+        return []
     return [x]
 
 
