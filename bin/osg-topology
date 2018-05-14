@@ -4,6 +4,7 @@ from __future__ import print_function
 
 import os
 import sys
+import urllib
 import urlparse
 import argparse
 import xml.etree.ElementTree as ET
@@ -40,6 +41,14 @@ def get_auth_session(args):
     return session
 
 
+SERVICE_IDS = {'ce': 1,
+               'srmv2': 3,
+               'gridftp': 5,
+               'xrootd': 142,
+               'perfsonar-bandwidth': 130,
+               'perfsonar-latency': 130,
+               'gums': 101,
+              }
 def mangle_url(url, args):
     """
     Given a MyOSG URL, switch to using the hostname specified in the
@@ -49,6 +58,23 @@ def mangle_url(url, args):
         return url
     url_tuple = list(urlparse.urlsplit(url))
     url_tuple[1] = args.host
+
+    qs_dict = urlparse.parse_qs(url_tuple[3])
+    qs_list = urlparse.parse_qsl(url_tuple[3])
+
+    if args.provides_service:
+        if 'service' not in qs_dict:
+            qs_list.append(("service", "on"))
+        for service in args.provides_service.split(","):
+            service = service.strip().lower()
+            service_id = SERVICE_IDS.get(service)
+            if not service_id:
+                raise Exception("Requested service %s not known; known service"
+                    " names: %s" % (service, ", ".join(SERVICE_IDS)))
+            qs_list.append(("service_sel[]", str(service_id)))
+
+    url_tuple[3] = urllib.urlencode(qs_list, doseq=True)
+
     return urlparse.urlunsplit(url_tuple)
 
 
@@ -134,8 +160,11 @@ def get_parser():
     subparsers = oparser.add_subparsers()
 
     list_security_contacts_parser = subparsers.add_parser('list-security-contacts',
-        help='List the OSG security contacts.')
+        help='List the OSG security contacts by resource name.')
     list_security_contacts_parser.set_defaults(which="list_security_contacts")
+    list_security_contacts_parser.add_argument("--provides-service",
+        dest="provides_service", help="Filter on resources that provide a given "
+        "service")
 
     return oparser
 
