@@ -1,10 +1,12 @@
 #!/usr/bin/python2.7
+# -*- coding: utf-8 -*-
 
 from __future__ import print_function
 
 import os
 import sys
 import urllib
+import fnmatch
 import urlparse
 import argparse
 import xml.etree.ElementTree as ET
@@ -135,9 +137,11 @@ def list_security_contacts(args):
     """
     base_url = "https://my.opensciencegrid.org/rgsummary/xml" \
                "?summary_attrs_showcontact=on&facility=on&gridtype=on" \
-               "&gridtype_1=on&all_resources=on&active_value=1&disable_value=1"
+               "&gridtype_1=on&all_resources=on&active_value=1&active=on&" \
+               "disable=on&disable_value=0"
     with get_auth_session(args) as session:
         url = mangle_url(base_url, args, session)
+        #print(url)
         response = session.get(url)
 
     if response.status_code != requests.codes.ok:
@@ -183,7 +187,7 @@ def list_security_contacts(args):
                             if contact_list_type == 'Security Contact':
                                 security_contacts = contact_list_info
 
-                if name and security_contacts:
+                if name and security_contacts and (not args.name_filter or fnmatch.fnmatch(name, args.name_filter) or args.name_filter in name):
                     print("- Resource: %s" % name)
                     keys = set()
                     for contact in security_contacts:
@@ -194,7 +198,7 @@ def list_security_contacts(args):
                             key = contact['Name']
                         if key:
                             if key not in keys:
-                                print("  * %s" % key)
+                                print(u"  * %s" % key)
                                 keys.add(key)
 
 def get_parser():
@@ -210,7 +214,7 @@ def get_parser():
 
     subparsers = oparser.add_subparsers()
 
-    list_security_contacts_parser = subparsers.add_parser('list-security-contacts',
+    list_security_contacts_parser = subparsers.add_parser('list-resource-security-contacts',
         help='List the OSG security contacts by resource name.')
     list_security_contacts_parser.set_defaults(which="list_security_contacts")
     list_security_contacts_parser.add_argument("--service",
@@ -219,6 +223,8 @@ def get_parser():
     list_security_contacts_parser.add_argument("--vo",
         dest="owner_vo", help="Filter on resources that list a VO as a"
         "partial owner")
+    list_security_contacts_parser.add_argument(dest="name_filter", action="store",
+        nargs="?", help="Filter on the resource name for results.")
 
     return oparser
 
