@@ -41,6 +41,45 @@ def get_auth_session(args):
     return session
 
 
+def update_url_hostname(url, args):
+
+    if not args.host:
+        return url
+    url_tuple = list(urlparse.urlsplit(url))
+    url_tuple[1] = args.host
+    return urlparse.urlunsplit(url_tuple)
+
+
+def get_vo_map(args, session = None):
+    url = update_url_hostname("https://my.opensciencegrid.org/vosummary"
+                              "/xml?all_vos=on&active_value=1", args)
+    if session == None:
+        with get_auth_session(args) as session:
+            response = session.get(url)
+    else:
+        response = session.get(url)
+
+    if response.status_code != requests.codes.ok:
+        raise Exception("MyOSG request failed (status %d): %s" % \
+              (response.status_code, response.text[:2048]))
+
+    root = ET.fromstring(response.content)
+    if root.tag != 'VOSummary':
+        raise Exception("MyOSG returned invalid XML with root tag %s" % root.tag)
+    vo_map = {}
+    for child_vo in root:
+        if child_vo.tag != "VO":
+            raise Exception("MyOSG returned a non-VO  (%s) inside VO summary." % \
+                            root.tag)
+        vo_info = {}
+        for child_info in child_vo:
+            vo_info[child_info.tag] = child_info.text
+        if 'ID' in vo_info and 'Name' in vo_info:
+            vo_map[vo_info['Name'].lower()] = vo_info['ID']
+
+    return vo_map
+
+
 SERVICE_IDS = {'ce': 1,
                'srmv2': 3,
                'gridftp': 5,
@@ -49,7 +88,7 @@ SERVICE_IDS = {'ce': 1,
                'perfsonar-latency': 130,
                'gums': 101,
               }
-def mangle_url(url, args):
+def mangle_url(url, args, session = None):
     """
     Given a MyOSG URL, switch to using the hostname specified in the
     arguments
@@ -73,6 +112,18 @@ def mangle_url(url, args):
                     " names: %s" % (service, ", ".join(SERVICE_IDS)))
             qs_list.append(("service_sel[]", str(service_id)))
 
+    if args.owner_vo:
+        vo_map = get_vo_map(args, session)
+        if 'voown' not in qs_dict:
+            qs_list.append(("voown", "on"))
+        for vo in args.owner_vo.split(","):
+            vo = vo.strip().lower()
+            vo_id = vo_map.get(vo)
+            if not vo_id:
+                raise Exception("Requested owner VO %s not known; known VOs: %s" \
+                    % (vo, ", ".join(vo_map)))
+            qs_list.append(("voown_sel[]", str(vo_id)))
+
     url_tuple[3] = urllib.urlencode(qs_list, doseq=True)
 
     return urlparse.urlunsplit(url_tuple)
@@ -85,8 +136,8 @@ def list_security_contacts(args):
     base_url = "https://my.opensciencegrid.org/rgsummary/xml" \
                "?summary_attrs_showcontact=on&facility=on&gridtype=on" \
                "&gridtype_1=on&all_resources=on&active_value=1&disable_value=1"
-    url = mangle_url(base_url, args)
     with get_auth_session(args) as session:
+        url = mangle_url(base_url, args, session)
         response = session.get(url)
 
     if response.status_code != requests.codes.ok:
@@ -162,9 +213,12 @@ def get_parser():
     list_security_contacts_parser = subparsers.add_parser('list-security-contacts',
         help='List the OSG security contacts by resource name.')
     list_security_contacts_parser.set_defaults(which="list_security_contacts")
-    list_security_contacts_parser.add_argument("--provides-service",
+    list_security_contacts_parser.add_argument("--service",
         dest="provides_service", help="Filter on resources that provide a given "
         "service")
+    list_security_contacts_parser.add_argument("--vo",
+        dest="owner_vo", help="Filter on resources that list a VO as a"
+        "partial owner")
 
     return oparser
 
