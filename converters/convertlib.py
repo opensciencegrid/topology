@@ -68,7 +68,7 @@ def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=T
     return newdata
 
 
-def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None, ignore_missing=False) -> List[Union[Dict, OrderedDict]]:
+def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None, ignore_missing=False) -> List[OrderedDict]:
     """
     Expand
         {"name1": {"attr1": "val1", ...},
@@ -76,15 +76,13 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
     to
         [{namekey: "name1", "attr1": "val1", ...},
          {namekey: "name2", "attr1": "val1", ...}]}
-    or, if there's only one,
-        {namekey: "name1", "attr1": "val1", ...}
-    If ``ordering`` is not None, instead of using a dict, use an OrderedDict with the keys in the order provided by
-    ``ordering``.
+    (except using an OrderedDict)
+    If ``ordering`` is not None, the keys are used in the order provided by ``ordering``.
     """
     newdata = []
     for name, value in data.items():
+        new_value = OrderedDict()
         if ordering:
-            new_value = OrderedDict()
             for elem in ordering:
                 if elem == namekey:
                     new_value[elem] = name
@@ -93,8 +91,8 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
                 elif not ignore_missing:
                     new_value[elem] = None
         else:
-            new_value = dict(value)
             new_value[namekey] = name
+            new_value.update(value)
         newdata.append(new_value)
     return newdata
 

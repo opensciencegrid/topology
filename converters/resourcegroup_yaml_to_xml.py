@@ -159,11 +159,8 @@ def expand_services(services: Dict, service_name_to_id: Dict[str, int]) -> Dict:
         svc.move_to_end("ID", last=False)
 
     services_list = expand_attr_list(services, "Name", ordering=["Name", "Description", "Details"])
-    if isinstance(services_list, list):
-        for svc in services_list:
-            _expand_svc(svc)
-    else:
-        _expand_svc(services_list)
+    for svc in services_list:
+        _expand_svc(svc)
     return {"Service": services_list}
 
 
