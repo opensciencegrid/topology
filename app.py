@@ -3,7 +3,8 @@ import copy
 
 
 import flask
-from flask import Flask, Response
+from flask import Flask, Response, request
+import configparser
 from converters.convertlib import to_xml, ensure_list, is_null
 from converters.project_yaml_to_xml import get_projects
 from converters.vo_yaml_to_xml import get_vos
@@ -21,6 +22,7 @@ def homepage():
 _projects = None
 _vos = None
 _rgsummary = None
+_contacts = None
 
 
 @app.route('/schema/<xsdfile>')
@@ -104,11 +106,41 @@ def resources():
             # invalid arguments: no RGs for you!
             return Response("Invalid arguments: gridtype_1 or gridtype_2 or both must be \"on\"", status=400)
 
+    if 'GRST_CRED_AURI_0' in request.environ:
+        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
+        # Gridsite already made sure it matches something in the CA distribution
+        
+        # Ok, print the contacts
+        contacts = _getContacts()
+        
+        # match the contacts data structure with the resource group
+        
+
     # Drop RGs with no resources
     new_rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
     rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in new_rgs if not is_null(rg, "Resources", "Resource")]
     rgsummary_xml = to_xml(rgsummary)
     return Response(rgsummary_xml, mimetype='text/xml')
+
+def _getContacts():
+    """
+    Get the contact information.  For now this is from a private github repo, but in the future
+    it could be much more complicated to get the contact details
+    """
+    
+    global _contacts
+    if not _contacts:
+        # Get the contacts from bitbucket
+        # Read in the config file with the SSH key location
+        config = configparser.ConfigParser()
+        config.read("config.ini")
+        ssh_key = config['git']['ssh_key']
+        
+        # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
+        cmd = "ssh-agent bash -c 'ssh-add {0}; git clone git@bitbucket.org:opensciencegrid/contact.git'".format(ssh_key)
+        
+        
+    return _contacts
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
