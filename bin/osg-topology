@@ -1,0 +1,258 @@
+#!/usr/bin/python2.7
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function
+
+import os
+import sys
+import urllib
+import fnmatch
+import urlparse
+import argparse
+import xml.etree.ElementTree as ET
+
+import requests
+
+def get_auth_session(args):
+    """
+    Return a requests session ready for an XML query.
+    """
+    euid = os.geteuid()
+    if euid == 0:
+        cert = '/etc/grid-security/hostcert.pem'
+        key = '/etc/grid-security/hostkey.pem'
+    else:
+        cert = '/tmp/x509up_u%d' % euid
+        key = '/tmp/x509up_u%d' % euid
+
+    cert = os.environ.get('X509_USER_PROXY', cert)
+    key = os.environ.get('X509_USER_PROXY', key)
+
+    if args.cert:
+        cert = args.cert
+    if args.key:
+        key = args.key
+
+    session = requests.Session()
+
+    if os.path.exists(cert):
+        session.cert = cert
+    if os.path.exists(key):
+        session.cert = (cert, key)
+
+    return session
+
+
+def update_url_hostname(url, args):
+
+    if not args.host:
+        return url
+    url_tuple = list(urlparse.urlsplit(url))
+    url_tuple[1] = args.host
+    return urlparse.urlunsplit(url_tuple)
+
+
+def get_vo_map(args, session = None):
+    url = update_url_hostname("https://my.opensciencegrid.org/vosummary"
+                              "/xml?all_vos=on&active_value=1", args)
+    if session == None:
+        with get_auth_session(args) as session:
+            response = session.get(url)
+    else:
+        response = session.get(url)
+
+    if response.status_code != requests.codes.ok:
+        raise Exception("MyOSG request failed (status %d): %s" % \
+              (response.status_code, response.text[:2048]))
+
+    root = ET.fromstring(response.content)
+    if root.tag != 'VOSummary':
+        raise Exception("MyOSG returned invalid XML with root tag %s" % root.tag)
+    vo_map = {}
+    for child_vo in root:
+        if child_vo.tag != "VO":
+            raise Exception("MyOSG returned a non-VO  (%s) inside VO summary." % \
+                            root.tag)
+        vo_info = {}
+        for child_info in child_vo:
+            vo_info[child_info.tag] = child_info.text
+        if 'ID' in vo_info and 'Name' in vo_info:
+            vo_map[vo_info['Name'].lower()] = vo_info['ID']
+
+    return vo_map
+
+
+SERVICE_IDS = {'ce': 1,
+               'srmv2': 3,
+               'gridftp': 5,
+               'xrootd': 142,
+               'perfsonar-bandwidth': 130,
+               'perfsonar-latency': 130,
+               'gums': 101,
+              }
+def mangle_url(url, args, session = None):
+    """
+    Given a MyOSG URL, switch to using the hostname specified in the
+    arguments
+    """
+    if not args.host:
+        return url
+    url_tuple = list(urlparse.urlsplit(url))
+    url_tuple[1] = args.host
+
+    qs_dict = urlparse.parse_qs(url_tuple[3])
+    qs_list = urlparse.parse_qsl(url_tuple[3])
+
+    if args.provides_service:
+        if 'service' not in qs_dict:
+            qs_list.append(("service", "on"))
+        for service in args.provides_service.split(","):
+            service = service.strip().lower()
+            service_id = SERVICE_IDS.get(service)
+            if not service_id:
+                raise Exception("Requested service %s not known; known service"
+                    " names: %s" % (service, ", ".join(SERVICE_IDS)))
+            qs_list.append(("service_sel[]", str(service_id)))
+
+    if args.owner_vo:
+        vo_map = get_vo_map(args, session)
+        if 'voown' not in qs_dict:
+            qs_list.append(("voown", "on"))
+        for vo in args.owner_vo.split(","):
+            vo = vo.strip().lower()
+            vo_id = vo_map.get(vo)
+            if not vo_id:
+                raise Exception("Requested owner VO %s not known; known VOs: %s" \
+                    % (vo, ", ".join(vo_map)))
+            qs_list.append(("voown_sel[]", str(vo_id)))
+
+    url_tuple[3] = urllib.urlencode(qs_list, doseq=True)
+
+    return urlparse.urlunsplit(url_tuple)
+
+
+def list_security_contacts(args):
+    """
+    List security contacts for OSG.
+    """
+    base_url = "https://my.opensciencegrid.org/rgsummary/xml" \
+               "?summary_attrs_showcontact=on&facility=on&gridtype=on" \
+               "&gridtype_1=on&all_resources=on&active_value=1&active=on&" \
+               "disable=on&disable_value=0"
+    with get_auth_session(args) as session:
+        url = mangle_url(base_url, args, session)
+        #print(url)
+        response = session.get(url)
+
+    if response.status_code != requests.codes.ok:
+        print("MyOSG request failed (status %d): %s" % (response.status_code,
+              response.text[:2048]), file=sys.stderr)
+        return 1
+
+    root = ET.fromstring(response.content)
+    if root.tag != 'ResourceSummary':
+        print("MyOSG returned invalid XML with root tag %s" % root.tag,
+              file=sys.stderr)
+        return 1
+
+    results = {}
+    for child_rg in root:
+        if child_rg.tag != "ResourceGroup":
+            print("MyOSG returned a non-resource group (%s) inside summary." % \
+                  root.tag, file=sys.stderr)
+            return 1
+        for child_res in child_rg:
+            if child_res.tag != "Resources":
+                continue
+            for resource in child_res:
+                name = None
+                security_contacts = None
+                for resource_tag in resource:
+                    if resource_tag.tag == 'Name':
+                        name = resource_tag.text
+                    if resource_tag.tag == 'ContactLists':
+                        for contact_list in resource_tag:
+                            contact_list_info = []
+                            contact_list_type = None
+                            if contact_list.tag != 'ContactList':
+                                continue
+                            for child in contact_list:
+                                if child.tag == 'ContactType':
+                                    contact_list_type = child.text
+                                if child.tag == 'Contacts':
+                                    for contact in child:
+                                        contact_info = {}
+                                        for contact_contents in contact:
+                                            contact_info[contact_contents.tag] = \
+                                                contact_contents.text
+                                        contact_list_info.append(contact_info)
+                            if contact_list_type == 'Security Contact':
+                                security_contacts = contact_list_info
+
+                if name and security_contacts and (not args.name_filter or fnmatch.fnmatch(name, args.name_filter) or args.name_filter in name):
+                    keys = results.setdefault(name, set())
+                    for contact in security_contacts:
+                        key = None
+                        if 'Name' in contact and 'Email' in contact:
+                            key = "%s<%s>" % (contact['Name'], contact['Email'])
+                        elif 'Name' in contact:
+                            key = contact['Name']
+                        if key:
+                            keys.add(key)
+
+    sites = results.keys()
+    sites.sort()
+    for site in sites:
+        keys = list(results[site])
+        keys.sort()
+        print("- Resource: %s" % site)
+        for key in keys:
+             print(u"  * %s" % key)
+
+
+def get_parser():
+    """
+    Return a parser object useable for interacting with OSG topology services.
+    """
+    oparser = argparse.ArgumentParser(prog=os.path.basename(sys.argv[0]),
+                                      add_help=True)
+    oparser.add_argument("--host", dest="host", help="Remote topology host",
+                         default="my.opensciencegrid.org")
+    oparser.add_argument("--cert", dest="cert", help="Client certificate")
+    oparser.add_argument("--key", dest="key", help="Client certificate private key")
+
+    subparsers = oparser.add_subparsers()
+
+    list_security_contacts_parser = subparsers.add_parser('list-resource-security-contacts',
+        help='List the OSG security contacts by resource name.')
+    list_security_contacts_parser.set_defaults(which="list_security_contacts")
+    list_security_contacts_parser.add_argument("--service",
+        dest="provides_service", help="Filter on resources that provide a given "
+        "service")
+    list_security_contacts_parser.add_argument("--vo",
+        dest="owner_vo", help="Filter on resources that list a VO as a"
+        "partial owner")
+    list_security_contacts_parser.add_argument(dest="name_filter", action="store",
+        nargs="?", help="Filter on the resource name for results.")
+
+    return oparser
+
+
+def main():
+    """
+    Main utility function for OSG topology CLI.
+    """
+    oparser = get_parser()
+
+    args = oparser.parse_args()
+
+    commands = {"list_security_contacts": list_security_contacts,
+               }
+
+    command = commands[args.which]
+    return command(args)
+
+
+if __name__ == '__main__':
+    sys.exit(main())
+
