@@ -1,0 +1,189 @@
+<style>
+* {
+margin: 0px;
+padding: 0px;
+}
+body {
+font-family: "Arial";
+color: #333;
+line-height:1.5em;
+font-size: 10pt;
+height: 100%;
+}
+h2, h3 {
+border-bottom:1px dotted #AAAAAA;
+padding-bottom:0.3em;
+margin-bottom: 3px;
+}
+h3, h4, h5 {
+font-size: 90%;
+margin-bottom: 2px;
+}
+a {
+color:white;
+cursor:pointer;
+text-decoration:underline;
+}
+p {
+margin-bottom: 1px;
+}
+
+</style>
+
+<link href="<?=fullbase()?>/css/html.css" rel="stylesheet" type="text/css" />
+<script type='text/javascript' src='<?=fullbase()?>/lib/jquery-ui-1.8.1/js/jquery-1.4.2.min.js'></script>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+
+var map;
+var anchor;
+var marker_id = {};
+var infowindow = new google.maps.InfoWindow({maxWidth: 300});
+
+function update_anchor() {
+    var pos = map.getCenter();
+    var new_anchor ="#"+pos.toUrlValue()+"|"+map.getZoom()+"|"+map.getMapTypeId();
+    if(anchor != new_anchor) {
+        document.location.hash=pos.toUrlValue()+"|"+map.getZoom()+"|"+map.getMapTypeId();
+        anchor = new_anchor;
+    }
+    setTimeout("update_anchor()", 1000);
+}
+
+function init(scrollwheel) {
+    //default
+    //var location = new google.maps.LatLng(38.61687,-96.767578);
+    var location = new google.maps.LatLng(29.22889,-90.08789);//show south americas
+    var zoom = 4;
+    var maptype = google.maps.MapTypeId.TERRAIN;
+    
+    //overrride with hash params
+    anchor = document.location.hash.split("#")[1];
+
+    if(anchor) {
+        var params = anchor.split("|");
+        var coords = params[0].split(",");
+        location = new google.maps.LatLng(coords[0], coords[1]);
+        zoom = parseInt(params[1]);
+        maptype = params[2];
+    }
+
+    //create map
+    map = new google.maps.Map(document.getElementById('map_canvas'), {
+        scrollwheel: scrollwheel,
+        center: location,
+        zoom: zoom,
+        mapTypeControl: false,
+        mapTypeId: maptype
+    });
+
+    //setup listeners
+    setTimeout("update_anchor()", 1000);//don't hook centerre_changed event.. it fires too often now
+    {% set counter = 0 %}
+    //add sites
+    {% for site in sites %}
+    var html = '<h2>{{ site["Facility"]["Name"] }}</h2><div style=\"overflow: auto; max-height: 300px; width: 300px;\">';
+    {% for resourcegroup in site.resourcegroups %}
+    html += "<div class=\"resource_group_header round\"><span class=\"h3\">Resource Group: {{ resourcegroup.name }}</span></div>";
+    
+    {% for resource in resourcegroup %}
+    html += "<div class=\"resource round\" style=\"margin-bottom: 0;\"><span class=\"h4\">{{ resource.name }}</span></div>";
+    {% endfor %}
+    
+    {% endfor %}
+    
+    html += "</div>"
+    
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng({{ site.latitude }}, {{ site.longitude }}),
+        map: map,
+        zIndex: 1,
+        icon: '/images/status_nr_map.png',
+        title: '{{ site.name }}'
+    });
+    marker_id[{{ counter }}] = marker;
+    setInfoWindow({{ counter }}, marker, html);
+    {% set counter = counter + 1 %}
+    $("#site").append("<option value='{{ counter }}'>{{ site.name }}</option>");
+    
+    {% endfor %}
+    
+
+    $("#site").change(function() {
+            var id = $(this).val();
+            var marker = marker_id[id];
+            if(marker) {
+                google.maps.event.trigger(marker, 'click');
+            } else {
+                infowindow.close();
+            }
+    });
+
+
+    google.maps.event.addListener(infowindow, 'closeclick', function() {
+        $("#site option[value=]").attr("selected", "selected");
+    });
+}
+
+function setInfoWindow(id,marker, content) {
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.close();
+        infowindow.setContent(content);
+        infowindow.open(map, marker);
+        if(id != null) {
+            $("#site option[value='"+id+"']").attr("selected", "selected");
+        }
+    });
+}
+
+
+$(document).ready(function() {
+    init(false);//scroll wheel -- off
+});
+</script>
+
+<style>
+#map_canvas {
+width: 100%;
+height: 600px;
+font-size: 10px;
+}
+/*shrink the font size slightly*/
+#map_canvas h2 {
+font-size: 12px;
+}
+#map_canvas span.h3, #map_canvas span.h4 {
+font-size: 10px;
+}
+#map_canvas .resource_group_header {
+padding: 2px 4px;
+}
+#map_canvas .resource {
+padding-top: 0px;
+padding-bottom: 0px;
+background-position: 2px 1px;
+}
+#map_control {
+float: right;
+right: 3px;
+top: 3px;
+position: absolute;
+z-index: 1;
+background-color: white;
+color: #666;
+box-shadow: 1px 1px 5px #333;
+}
+</style>
+<div style="position: relative; height: 100%;">
+<div id="map_control">&nbsp;Site&nbsp;&nbsp;<select id="site" style="border: none;">
+    <option value="">(None)</option>
+    </select>
+</div>
+<div id="map_canvas"></div>
+</div>
+
+<style>
+#map_canvas {
+height: 100%;
+}
+</style>

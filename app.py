@@ -1,9 +1,11 @@
 import copy
 
 
+import sys
+print(sys.path)
 
 import flask
-from flask import Flask, Response
+from flask import Flask, Response, render_template
 from converters.convertlib import to_xml, ensure_list, is_null
 from converters.project_yaml_to_xml import get_projects
 from converters.vo_yaml_to_xml import get_vos
@@ -22,6 +24,15 @@ _projects = None
 _vos = None
 _rgsummary = None
 
+@app.route('/map')
+def map():
+    global _rgsummary
+    if not _rgsummary:
+        _rgsummary = get_rgsummary()
+    print(_rgsummary["ResourceSummary"]["ResourceGroup"])
+    print(len(_rgsummary["ResourceSummary"]["ResourceGroup"]))
+    print(_rgsummary["ResourceSummary"]["ResourceGroup"][0]["Resources"]["Resource"].keys())
+    return render_template('iframe.tmpl', sites=_rgsummary["ResourceSummary"]["ResourceGroup"])
 
 @app.route('/schema/<xsdfile>')
 def schema(xsdfile):
