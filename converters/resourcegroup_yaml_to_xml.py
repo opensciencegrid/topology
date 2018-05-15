@@ -4,21 +4,21 @@ XML document.
 
 Usage as a script:
 
-    resourcegroup_yaml_to_xml.py <input directory> [<output file>]
+    resourcegroup_yaml_to_xml.py <input directory> [<output file>] [<downtime output file>]
 
-If output file not specified, results are printed to stdout.
+If output file not specified or downtime output file not specified, results are printed to stdout.
 
 Usage as a module
 
-    from converters.resourcegroup_yaml_to_xml import get_rgsummary_xml
-    xml = get_rgsummary_xml(input_dir[, output_file])
+    from converters.resourcegroup_yaml_to_xml import get_rgsummary_rgdowntime_xml
+    rgsummary_xml, rgdowntime_xml = get_rgsummary_rgdowntime_xml(input_dir[, output_file, downtime_output_file])
 
 where the return value `xml` is a string.
 
 """
-
-
+import argparse
 import urllib.parse
+from argparse import ArgumentParser
 
 import anymarkup
 import re
@@ -339,7 +339,7 @@ def expand_downtime(downtime, rg_expanded):
             services = ensure_list(r["Services"]["Service"])
             break
     else:
-        print("Resource %s does not exist" % downtime["ResourceName"], file=sys.stderr)
+        # print("Resource %s does not exist" % downtime["ResourceName"], file=sys.stderr)
         return None
 
     new_services = []
@@ -353,12 +353,13 @@ def expand_downtime(downtime, rg_expanded):
                 ]))
                 break
         else:
-            print("Service %s does not exist in resource %s" % (dts, downtime["ResourceName"]), file=sys.stderr)
+            # print("Service %s does not exist in resource %s" % (dts, downtime["ResourceName"]), file=sys.stderr)
+            pass
 
     if new_services:
         new_downtime["Services"] = {"Service": new_services}
     else:
-        print("No existing services listed for downtime; skipping downtime")
+        # print("No existing services listed for downtime; skipping downtime")
         return None
 
     new_downtime["CreatedTime"] = "Not Available"
@@ -420,24 +421,17 @@ def get_rgsummary_rgdowntime(indir="topology"):
     return topology.get_resource_summary(), topology.get_downtimes()
 
 
-def main(argv=sys.argv):
-    if len(argv) < 2:
-        print("Usage: %s <input dir> [<output xml>] [<downtime output xml>]" % argv[0], file=sys.stderr)
-        return 2
-    indir = argv[1]
-    outfile = None
-    downtime_outfile = None
-    if len(argv) > 2:
-        outfile = argv[2]
-    if len(argv) > 3:
-        downtime_outfile = argv[3]
+def main(argv):
+    parser = ArgumentParser()
+    parser.add_argument("indir", help="input dir for topology data")
+    parser.add_argument("outfile", nargs='?', type=argparse.FileType('w'), default=sys.stdout, help="output file for rgsummary")
+    parser.add_argument("downtimefile", nargs='?', type=argparse.FileType('w'), default=sys.stdout, help="output file for rgdowntime")
+    args = parser.parse_args(argv[1:])
 
     try:
-        rgsummary_xml, rgdowntime_xml = get_rgsummary_rgdowntime_xml(indir, outfile, downtime_outfile)
-        if not outfile:
-            print(rgsummary_xml)
-        if not downtime_outfile:
-            print(rgdowntime_xml)
+        rgsummary_xml, rgdowntime_xml = get_rgsummary_rgdowntime_xml(args.indir)
+        print(rgsummary_xml, file=args.outfile)
+        print(rgdowntime_xml, file=args.downtimefile)
     except RGError as e:
         print("Error happened while processing RG:", file=sys.stderr)
         pprint.pprint(e.rg, stream=sys.stderr)
