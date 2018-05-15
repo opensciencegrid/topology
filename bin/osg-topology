@@ -154,6 +154,8 @@ def list_security_contacts(args):
         print("MyOSG returned invalid XML with root tag %s" % root.tag,
               file=sys.stderr)
         return 1
+
+    results = {}
     for child_rg in root:
         if child_rg.tag != "ResourceGroup":
             print("MyOSG returned a non-resource group (%s) inside summary." % \
@@ -188,8 +190,7 @@ def list_security_contacts(args):
                                 security_contacts = contact_list_info
 
                 if name and security_contacts and (not args.name_filter or fnmatch.fnmatch(name, args.name_filter) or args.name_filter in name):
-                    print("- Resource: %s" % name)
-                    keys = set()
+                    keys = results.setdefault(name, set())
                     for contact in security_contacts:
                         key = None
                         if 'Name' in contact and 'Email' in contact:
@@ -197,9 +198,17 @@ def list_security_contacts(args):
                         elif 'Name' in contact:
                             key = contact['Name']
                         if key:
-                            if key not in keys:
-                                print(u"  * %s" % key)
-                                keys.add(key)
+                            keys.add(key)
+
+    sites = results.keys()
+    sites.sort()
+    for site in sites:
+        keys = list(results[site])
+        keys.sort()
+        print("- Resource: %s" % site)
+        for key in keys:
+             print(u"  * %s" % key)
+
 
 def get_parser():
     """
