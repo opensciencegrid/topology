@@ -7,7 +7,7 @@ from flask import Flask, Response
 from converters.convertlib import to_xml, ensure_list, is_null
 from converters.project_yaml_to_xml import get_projects
 from converters.vo_yaml_to_xml import get_vos
-from converters.resourcegroup_yaml_to_xml import get_rgsummary
+from converters.resourcegroup_yaml_to_xml import get_rgsummary_rgdowntime
 app = Flask(__name__)
 
 @app.route('/')
@@ -15,17 +15,26 @@ def homepage():
 
     return """
     <h1>OSG Topology Interface</h1>
-    <a href="https://github.com/opensciencegrid/topology">Source Repo</a>
+    <a href="https://github.com/opensciencegrid/topology">Source Repo</a><br/>
+    <p>XML data:
+        <ul>
+            <li><a href="miscproject/xml">Projects data</a></li>
+            <li><a href="rgsummary/xml">Resource topology data</a></li>
+            <li><a href="rgdowntime/xml">Resource downtime data</a></li>
+            <li><a href="vosummary/xml">Virtual Organization data</a></li>
+        </ul>
+    </p>
     """
 
 _projects = None
 _vos = None
 _rgsummary = None
+_rgdowntime = None
 
 
 @app.route('/schema/<xsdfile>')
 def schema(xsdfile):
-    if xsdfile in ["vosummary.xsd", "rgsummary.xsd", "miscuser.xsd"]:
+    if xsdfile in ["vosummary.xsd", "rgsummary.xsd", "rgdowntime.xsd", "miscuser.xsd"]:
         with open("schema/" + xsdfile, "r") as xsdfh:
             return Response(xsdfh.read(), mimetype="text/xml")
     else:
@@ -62,9 +71,9 @@ def voinfo():
 
 @app.route('/rgsummary/xml')
 def resources():
-    global _rgsummary
+    global _rgsummary, _rgdowntime
     if not _rgsummary:
-        _rgsummary = get_rgsummary()
+        _rgsummary, _rgdowntime = get_rgsummary_rgdowntime()
 
     rgsummary = copy.deepcopy(_rgsummary)
     rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
@@ -109,6 +118,17 @@ def resources():
     rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in new_rgs if not is_null(rg, "Resources", "Resource")]
     rgsummary_xml = to_xml(rgsummary)
     return Response(rgsummary_xml, mimetype='text/xml')
+
+
+@app.route('/rgdowntime/xml')
+def downtime():
+    global _rgsummary, _rgdowntime
+    if not _rgdowntime:
+        _rgsummary, _rgdowntime = get_rgsummary_rgdowntime()
+    # TODO Filter
+    rgdowntime_xml = to_xml(_rgdowntime)
+    return Response(rgdowntime_xml, mimetype='text/xml')
+
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)

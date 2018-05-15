@@ -33,9 +33,12 @@ will have a ``SITE.yaml`` file containing facility and site information.
 
 Ordering is lost in the YAML file but the YAML to XML converter restores it.
 """
+from argparse import ArgumentParser
+
 import anymarkup
 import os
 import pprint
+import re
 import sys
 from collections import OrderedDict
 from typing import Dict, List, Union
@@ -63,6 +66,8 @@ class Topology(object):
         self.data = {}
         self.services = {}
         self.support_centers = {}
+        self.downtime_paths = {}
+        self.downtimes = {}
 
     def add_rg(self, rg: Dict):
         sanfacility = to_file_name(rg["Facility"]["Name"])
@@ -71,7 +76,11 @@ class Topology(object):
         sansite = to_file_name(rg["Site"]["Name"])
         if sansite not in self.data[sanfacility]:
             self.data[sanfacility][sansite] = {"ID": rg["Site"]["ID"]}
-        sanrg = to_file_name(rg["GroupName"]) + ".yaml"
+        sanrg = to_file_name(rg["GroupName"])
+        sanrg_filename = sanrg + ".yaml"
+        # The assumption here is that RG names are unique, even between sites. As of 2018-05-07, this is true.
+        downtime_path = os.path.join(sanfacility, sansite, sanrg) + "_downtime.yaml"
+        self.downtime_paths[rg["GroupName"]] = downtime_path
 
         rg_copy = dict(rg)
         # Get rid of these fields; we're already putting them in the file/dir names.
@@ -80,12 +89,28 @@ class Topology(object):
         del rg_copy["GroupName"]
 
         try:
-            self.data[sanfacility][sansite][sanrg] = self.simplify_resourcegroup(rg_copy)
+            self.data[sanfacility][sansite][sanrg_filename] = self.simplify_resourcegroup(rg_copy)
         except Exception:
-            print("*** We were parsing %s/%s/%s" % (sanfacility, sansite, sanrg), file=sys.stderr)
+            print("*** We were parsing %s/%s/%s" % (sanfacility, sansite, sanrg_filename), file=sys.stderr)
             pprint.pprint(rg_copy, stream=sys.stderr)
             print("\n\n", file=sys.stderr)
             raise
+
+    def add_downtime(self, downtime: Dict):
+        dt_copy = dict(downtime)
+        del dt_copy["ResourceGroup"]
+        del dt_copy["ResourceFQDN"]  # we can reconstruct this from the ResourceGroup and the ResourceName
+        del dt_copy["ResourceID"]  # ditto
+        del dt_copy["CreatedTime"]
+        del dt_copy["UpdateTime"]
+        dt_copy["Services"] = self.simplify_downtime_services(downtime["Services"])
+        # leading and trailing whitespace causes "\n"'s in the resulting string
+        dt_copy["Description"] = re.sub(r"(?m)[ \t]+$", "", dt_copy["Description"])
+        dt_copy["Description"] = re.sub(r"(?m)^[ \t]+", "", dt_copy["Description"])
+        rgname = downtime["ResourceGroup"]["GroupName"]
+        if rgname not in self.downtimes:
+            self.downtimes[rgname] = []
+        self.downtimes[rgname].append(dt_copy)
 
     def simplify_services(self, services):
         """
@@ -243,15 +268,36 @@ class Topology(object):
 
         return rg
 
+    def simplify_downtime_services(self, services):
+        """Simplify the data structure for services in downtime. Return the simplified data structure.
+        Convert this:
+        {"Service":
+            [{"ID": "1", "Name": "CE", "Description": "Compute Element"}, ...]}
+        into
+        ["CE", ...]
+        since the ID and Description can be filled in from ResourceGroup data
+        """
+        new_services = []
+        if not is_null(services, "Service"):
+            for svc in ensure_list(services["Service"]):
+                new_services.append(svc["Name"])
+        return new_services
 
-def topology_from_parsed_xml(parsed) -> Topology:
+
+def topology_from_parsed_xml(parsed, downtime=None) -> Topology:
     """Returns a dict of the topology created from the parsed XML file."""
     topology = Topology()
     for rg in ensure_list(parsed["ResourceGroup"]):
         topology.add_rg(rg)
+    if downtime:
+        for dt in downtime["PastDowntimes"].get("Downtime", []) + \
+                  downtime["CurrentDowntimes"].get("Downtime", []) + \
+                  downtime["FutureDowntimes"].get("Downtime", []):
+            topology.add_downtime(dt)
     return topology
 
 
+# TODO This should be part of the Topology class again
 def write_topology_to_yamls(topology: Topology, outdir):
     os.makedirs(outdir, exist_ok=True)
 
@@ -282,23 +328,31 @@ def write_topology_to_yamls(topology: Topology, outdir):
             for name, id_ in sorted(data.items(), key=lambda x: x[1]):
                 print("%s: %s" % (name, id_), file=outfh)
 
-def main(argv=sys.argv):
-    try:
-        infile, outdir = argv[1:3]
-    except ValueError:
-        print("Usage: %s <input xml> <output dir>" % argv[0], file=sys.stderr)
-        return 2
+    # Write downtime data
+    for rg, data in topology.downtimes.items():
+        fp = os.path.join(outdir, topology.downtime_paths[rg])
+        anymarkup.serialize_file(data, fp)
 
-    if os.path.exists(outdir):
-        print("Warning: %s already exists" % outdir, file=sys.stderr)
-    parsed = anymarkup.parse_file(infile)['ResourceSummary']
-    topology = topology_from_parsed_xml(parsed)
-    write_topology_to_yamls(topology, outdir)
-    print("Topology written to", outdir)
+
+def main(argv=sys.argv):
+    parser = ArgumentParser()
+    parser.add_argument("infile", help="input rgsummary xml file")
+    parser.add_argument("outdir", help="output yaml directory tree")
+    parser.add_argument("--downtime", default=None, help="input rgdowntime xml file")
+    args = parser.parse_args(argv[1:])
+
+    if os.path.exists(args.outdir):
+        print("Warning: %s already exists" % args.outdir, file=sys.stderr)
+    parsed_topology = anymarkup.parse_file(args.infile)['ResourceSummary']
+    parsed_downtime = None
+    if args.downtime:
+        parsed_downtime = anymarkup.parse_file(args.downtime)['Downtimes']
+    topology = topology_from_parsed_xml(parsed_topology, downtime=parsed_downtime)
+    write_topology_to_yamls(topology, args.outdir)
+    print("Topology written to", args.outdir)
 
     return 0
 
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))
-
