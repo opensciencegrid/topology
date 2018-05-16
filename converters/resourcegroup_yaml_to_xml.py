@@ -179,18 +179,6 @@ class Topology(object):
             svc.move_to_end("ID", last=False)
         return {"Service": services_list}
 
-    def pprint(self):
-        for f in self.data:
-            print("[%s %s]" % (f, self.data[f]["ID"]), end=" ")
-            for s in self.data[f]:
-                if s == "ID": continue
-                print("[%s %s]" % (s, self.data[f][s]["ID"]), end=" ")
-                for r in self.data[f][s]:
-                    if r == "ID": continue
-                    print("[%s]" % r)
-                    pprint.pprint(self.data[f][s][r])
-                    print("")
-
     @staticmethod
     def _expand_voownership(voownership: Dict) -> OrderedDict:
         """Return the data structure for an expanded VOOwnership for a single Resource."""
@@ -281,9 +269,6 @@ class Topology(object):
     def to_xml(self):
         return to_xml(self.get_resource_summary())
 
-    def serialize_file(self, outfile):
-        return to_xml_file(self.get_resource_summary(), outfile)
-
     @staticmethod
     def _parsetime(time_str: str) -> datetime:
         # get rid of stupid times like "00:00 AM" or "17:00 PM"
@@ -362,19 +347,13 @@ class Topology(object):
         return new_downtime
 
 
-def get_rgsummary_rgdowntime_xml(indir="topology", outfile=None, downtime_outfile=None):
-    """Convert a directory tree of topology data into a single XML document.
-    `indir` is the name of the directory tree. The document is written to a
-    file at `outfile`, if `outfile` is specified.
+def get_rgsummary_rgdowntime_xml(indir="topology"):
+    """Convert a directory tree of topology data into two XML documents.
+    `indir` is the name of the directory tree.
 
-    Returns the text of the XML document.
+    Returns the texts of the XML documents.
     """
     rgsummary, rgdowntime = get_rgsummary_rgdowntime(indir)
-
-    if outfile:
-        to_xml_file(rgsummary, outfile)
-    if downtime_outfile:
-        to_xml_file(rgdowntime, downtime_outfile)
 
     return to_xml(rgsummary), to_xml(rgdowntime)
 
