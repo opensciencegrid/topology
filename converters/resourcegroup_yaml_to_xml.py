@@ -39,6 +39,7 @@ except ModuleNotFoundError:
 RG_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 DOWNTIME_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
 
+
 class RGError(Exception):
     """An error with converting a specific RG"""
     def __init__(self, rg, *args, **kwargs):
@@ -54,6 +55,9 @@ class DowntimeError(Exception):
         self.rg = rg
 
 
+class TopologyError(Exception): pass
+
+
 class Topology(object):
     def __init__(self, service_types: Dict, support_centers: Dict):
         self.data = {}
@@ -63,13 +67,13 @@ class Topology(object):
         self.service_types = service_types
         self.support_centers = support_centers
 
-    def add_rg(self, facility, site, rg, rgdata):
+    def add_rg(self, facility, site, rgname, rgdata):
         if facility not in self.data:
-            self.data[facility] = {}
+            raise TopologyError("Unknown facility %s -- call add_facility first" % facility)
         if site not in self.data[facility]:
-            self.data[facility][site] = {}
-        if rg not in self.data[facility][site]:
-            self.data[facility][site][rg] = self._expand_rg(rgdata)
+            raise TopologyError("Unknown site %s in facility %s -- call add_site first" % (site, facility))
+        if rgname not in self.data[facility][site]:
+            self.data[facility][site][rgname] = self._expand_rg(facility, site, rgname, rgdata)
 
     def add_facility(self, name, id):
         if name not in self.data:
@@ -78,12 +82,12 @@ class Topology(object):
 
     def add_site(self, facility, name, id):
         if facility not in self.data:
-            self.data[facility] = {}
+            raise TopologyError("Unknown facility %s -- call add_facility first" % facility)
         if name not in self.data[facility]:
             self.data[facility][name] = {}
         self.data[facility][name]["ID"] = id
 
-    def _expand_rg(self, rg: Dict) -> OrderedDict:
+    def _expand_rg(self, facility: str, site: str, rgname: str, rg: Dict) -> OrderedDict:
         """Expand a single ResourceGroup from the format in a yaml file to the xml format.
 
         {"SupportCenterName": ...} and {"SupportCenterID": ...} are turned into
@@ -94,6 +98,13 @@ class Topology(object):
         with the ordering to fit the xml schema for rgsummary.
         """
         rg = dict(rg)  # copy
+
+        facility_id = self.data[facility]["ID"]
+        site_id = self.data[facility][site]["ID"]
+
+        rg["Facility"] = OrderedDict([("ID", facility_id), ("Name", facility)])
+        rg["Site"] = OrderedDict([("ID", site_id), ("Name", site)])
+        rg["GroupName"] = rgname
 
         scname, scid = rg["SupportCenter"], self.support_centers[rg["SupportCenter"]]
         rg["SupportCenter"] = OrderedDict([("ID", scid), ("Name", scname)])
@@ -143,14 +154,14 @@ class Topology(object):
         else:
             res.pop("Services", None)
         if "VOOwnership" in res:
-            res["VOOwnership"] = expand_voownership(res["VOOwnership"])
+            res["VOOwnership"] = self._expand_voownership(res["VOOwnership"])
         if "FQDNAliases" in res:
             res["FQDNAliases"] = {"FQDNAlias": res["FQDNAliases"]}
         if not is_null(res, "ContactLists"):
-            res["ContactLists"] = expand_contactlists(res["ContactLists"])
+            res["ContactLists"] = self._expand_contactlists(res["ContactLists"])
         res["Name"] = name
         if "WLCGInformation" in res and isinstance(res["WLCGInformation"], dict):
-            res["WLCGInformation"] = expand_wlcginformation(res["WLCGInformation"])
+            res["WLCGInformation"] = self._expand_wlcginformation(res["WLCGInformation"])
         new_res = OrderedDict()
         for elem in ["ID", "Name", "Active", "Disable", "Services", "Description", "FQDN", "FQDNAliases", "VOOwnership",
                      "WLCGInformation", "ContactLists"]:
@@ -179,6 +190,70 @@ class Topology(object):
                     print("[%s]" % r)
                     pprint.pprint(self.data[f][s][r])
                     print("")
+
+    @staticmethod
+    def _expand_voownership(voownership: Dict) -> OrderedDict:
+        """Return the data structure for an expanded VOOwnership for a single Resource."""
+
+        def _get_charturl(ownership):
+            # Return a URL for a pie chart based on (VO, Percent) pairs.
+            chd = ""
+            chl = ""
+
+            for name, percent in ownership:
+                chd += "%s," % percent
+                if name == "(Other)":
+                    name = "Other"
+                chl += "%s(%s%%)|" % (percent, name)
+            chd = chd.rstrip(",")
+            chl = chl.rstrip("|")
+
+            query = urllib.parse.urlencode({
+                "chco": "00cc00",
+                "cht": "p3",
+                "chd": "t:" + chd,
+                "chs": "280x65",
+                "chl": chl
+            })
+            return "http://chart.apis.google.com/chart?%s" % query
+
+        voo = voownership.copy()
+        totalpercent = sum(voo.values())
+        if totalpercent < 100:
+            voo["(Other)"] = 100 - totalpercent
+        return OrderedDict([
+            ("Ownership", expand_attr_list_single(voo, "VO", "Percent", name_first=False)),
+            ("ChartURL", _get_charturl(voownership.items()))
+        ])
+
+    @staticmethod
+    def _expand_contactlists(contactlists: Dict) -> Dict:
+        """Return the data structure for an expanded ContactLists for a single Resource."""
+        new_contactlists = []
+        for contact_type, contact_data in contactlists.items():
+            contact_data = expand_attr_list_single(contact_data, "ContactRank", "Name", name_first=False)
+            new_contactlists.append(
+                OrderedDict([("ContactType", contact_type), ("Contacts", {"Contact": contact_data})]))
+        return {"ContactList": new_contactlists}
+
+    @staticmethod
+    def _expand_wlcginformation(wlcg: Dict) -> OrderedDict:
+        defaults = {
+            "AccountingName": None,
+            "InteropBDII": False,
+            "LDAPURL": None,
+            "TapeCapacity": 0,
+        }
+
+        new_wlcg = OrderedDict()
+        for elem in ["InteropBDII", "LDAPURL", "InteropMonitoring", "InteropAccounting", "AccountingName", "KSI2KMin",
+                     "KSI2KMax", "StorageCapacityMin", "StorageCapacityMax", "HEPSPEC", "APELNormalFactor",
+                     "TapeCapacity"]:
+            if elem in wlcg:
+                new_wlcg[elem] = wlcg[elem]
+            elif elem in defaults:
+                new_wlcg[elem] = defaults[elem]
+        return new_wlcg
 
     def get_resource_summary(self) -> Dict:
         rgs = []
@@ -287,70 +362,6 @@ class Topology(object):
         return new_downtime
 
 
-def get_charturl(ownership: Iterable) -> str:
-    """Return a URL for a pie chart based on VOOwnership data.
-    ``ownership`` consists of (VO, Percent) pairs.
-    """
-    chd = ""
-    chl = ""
-
-    for name, percent in ownership:
-        chd += "%s," % percent
-        if name == "(Other)":
-            name = "Other"
-        chl += "%s(%s%%)|" % (percent, name)
-    chd = chd.rstrip(",")
-    chl = chl.rstrip("|")
-
-    query = urllib.parse.urlencode({
-        "chco": "00cc00",
-        "cht": "p3",
-        "chd": "t:" + chd,
-        "chs": "280x65",
-        "chl": chl
-    })
-    return "http://chart.apis.google.com/chart?%s" % query
-
-
-def expand_voownership(voownership: Dict) -> OrderedDict:
-    """Return the data structure for an expanded VOOwnership for a single Resource."""
-    voo = voownership.copy()
-    totalpercent = sum(voo.values())
-    if totalpercent < 100:
-        voo["(Other)"] = 100 - totalpercent
-    return OrderedDict([
-        ("Ownership", expand_attr_list_single(voo, "VO", "Percent", name_first=False)),
-        ("ChartURL", get_charturl(voownership.items()))
-    ])
-
-
-def expand_contactlists(contactlists: Dict) -> Dict:
-    """Return the data structure for an expanded ContactLists for a single Resource."""
-    new_contactlists = []
-    for contact_type, contact_data in contactlists.items():
-        contact_data = expand_attr_list_single(contact_data, "ContactRank", "Name", name_first=False)
-        new_contactlists.append(OrderedDict([("ContactType", contact_type), ("Contacts", {"Contact": contact_data})]))
-    return {"ContactList": new_contactlists}
-
-
-def expand_wlcginformation(wlcg: Dict) -> OrderedDict:
-    defaults = {
-        "AccountingName": None,
-        "InteropBDII": False,
-        "LDAPURL": None,
-        "TapeCapacity": 0,
-    }
-
-    new_wlcg = OrderedDict()
-    for elem in ["InteropBDII", "LDAPURL", "InteropMonitoring", "InteropAccounting", "AccountingName", "KSI2KMin",
-                 "KSI2KMax", "StorageCapacityMin", "StorageCapacityMax", "HEPSPEC", "APELNormalFactor", "TapeCapacity"]:
-        if elem in wlcg:
-            new_wlcg[elem] = wlcg[elem]
-        elif elem in defaults:
-            new_wlcg[elem] = defaults[elem]
-    return new_wlcg
-
-
 def get_rgsummary_rgdowntime_xml(indir="topology", outfile=None, downtime_outfile=None):
     """Convert a directory tree of topology data into a single XML document.
     `indir` is the name of the directory tree. The document is written to a
@@ -393,11 +404,6 @@ def get_rgsummary_rgdowntime(indir="topology"):
         if downtime_yaml_path.exists():
             downtimes = ensure_list(anymarkup.parse_file(downtime_yaml_path))
 
-        facility_id = topology.data[facility]["ID"]
-        site_id = topology.data[facility][site]["ID"]
-        rg["Facility"] = OrderedDict([("ID", facility_id), ("Name", facility)])
-        rg["Site"] = OrderedDict([("ID", site_id), ("Name", site)])
-        rg["GroupName"] = name
         topology.add_rg(facility, site, name, rg)
         if downtimes:
             for downtime in downtimes:
