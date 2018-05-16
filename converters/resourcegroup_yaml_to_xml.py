@@ -27,7 +27,7 @@ from datetime import datetime, timezone
 import pprint
 import sys
 from pathlib import Path
-from typing import Dict, Iterable
+from typing import Dict, Iterable, Union
 
 import dateparser
 
@@ -55,11 +55,13 @@ class DowntimeError(Exception):
 
 
 class Topology(object):
-    def __init__(self):
+    def __init__(self, service_types: Dict, support_centers: Dict):
         self.data = {}
         self.past_downtimes = []
         self.current_downtimes = []
         self.future_downtimes = []
+        self.service_types = service_types
+        self.support_centers = support_centers
 
     def add_rg(self, facility, site, rg, rgdata):
         if facility not in self.data:
@@ -67,7 +69,7 @@ class Topology(object):
         if site not in self.data[facility]:
             self.data[facility][site] = {}
         if rg not in self.data[facility][site]:
-            self.data[facility][site][rg] = rgdata
+            self.data[facility][site][rg] = self._expand_rg(rgdata)
 
     def add_facility(self, name, id):
         if name not in self.data:
@@ -80,6 +82,91 @@ class Topology(object):
         if name not in self.data[facility]:
             self.data[facility][name] = {}
         self.data[facility][name]["ID"] = id
+
+    def _expand_rg(self, rg: Dict) -> OrderedDict:
+        """Expand a single ResourceGroup from the format in a yaml file to the xml format.
+
+        {"SupportCenterName": ...} and {"SupportCenterID": ...} are turned into
+        {"SupportCenter": {"Name": ...}, {"ID": ...}} and each individual Resource is expanded and collected in a
+        <Resources> block.
+
+        Return the data structure for the expanded ResourceGroup, as an OrderedDict,
+        with the ordering to fit the xml schema for rgsummary.
+        """
+        rg = dict(rg)  # copy
+
+        scname, scid = rg["SupportCenter"], self.support_centers[rg["SupportCenter"]]
+        rg["SupportCenter"] = OrderedDict([("ID", scid), ("Name", scname)])
+
+        new_resources = []
+        for name, res in rg["Resources"].items():
+            try:
+                res = self._expand_resource(name, res)
+                new_resources.append(res)
+            except Exception:
+                pprint.pprint(res, stream=sys.stderr)
+                raise
+        new_resources.sort(key=lambda x: x["Name"])
+        rg["Resources"] = {"Resource": new_resources}
+
+        new_rg = OrderedDict()
+
+        for elem in ["GridType", "GroupID", "GroupName", "Disable", "Facility", "Site", "SupportCenter",
+                     "GroupDescription",
+                     "Resources"]:
+            if elem in rg:
+                new_rg[elem] = rg[elem]
+
+        return new_rg
+
+    def _expand_resource(self, name: str, res: Dict) -> OrderedDict:
+        """Expand a single Resource from the format in a yaml file to the xml format.
+
+        Services, VOOwnership, FQDNAliases, ContactLists are expanded;
+        ``name`` is inserted into the Resource as the "Name" attribute;
+        Defaults are added for VOOwnership, FQDNAliases, and WLCGInformation if they're missing from the yaml file.
+
+        Return the data structure for the expanded Resource as an OrderedDict to fit the xml schema.
+        """
+        defaults = {
+            "ContactLists": None,
+            "FQDNAliases": None,
+            "Services": "no applicable service exists",
+            "VOOwnership": "(Information not available)",
+            "WLCGInformation": "(Information not available)",
+        }
+
+        res = dict(res)
+
+        if not is_null(res, "Services"):
+            res["Services"] = self._expand_services(res["Services"])
+        else:
+            res.pop("Services", None)
+        if "VOOwnership" in res:
+            res["VOOwnership"] = expand_voownership(res["VOOwnership"])
+        if "FQDNAliases" in res:
+            res["FQDNAliases"] = {"FQDNAlias": res["FQDNAliases"]}
+        if not is_null(res, "ContactLists"):
+            res["ContactLists"] = expand_contactlists(res["ContactLists"])
+        res["Name"] = name
+        if "WLCGInformation" in res and isinstance(res["WLCGInformation"], dict):
+            res["WLCGInformation"] = expand_wlcginformation(res["WLCGInformation"])
+        new_res = OrderedDict()
+        for elem in ["ID", "Name", "Active", "Disable", "Services", "Description", "FQDN", "FQDNAliases", "VOOwnership",
+                     "WLCGInformation", "ContactLists"]:
+            if elem in res:
+                new_res[elem] = res[elem]
+            elif elem in defaults:
+                new_res[elem] = defaults[elem]
+
+        return new_res
+
+    def _expand_services(self, services: Dict) -> Dict:
+        services_list = expand_attr_list(services, "Name", ordering=["Name", "Description", "Details"])
+        for svc in services_list:
+            svc["ID"] = self.service_types[svc["Name"]]
+            svc.move_to_end("ID", last=False)
+        return {"Service": services_list}
 
     def pprint(self):
         for f in self.data:
@@ -136,32 +223,68 @@ class Topology(object):
             time = time.replace(tzinfo=timezone.utc)
         return time
 
-    def add_downtime(self, downtime):
-        if downtime is None:
+    def add_downtime(self, facility: str, site: str, rgname: str, downtime: Dict):
+        downtime_expanded = self._expand_downtime(facility, site, rgname, downtime)
+        if downtime_expanded is None:
             return
-        start_time = self._parsetime(downtime["StartTime"])
-        end_time = self._parsetime(downtime["EndTime"])
+        start_time = self._parsetime(downtime_expanded["StartTime"])
+        end_time = self._parsetime(downtime_expanded["EndTime"])
         current_time = datetime.now(timezone.utc)
         # ^ not to be confused with datetime.utcnow(), which does not include tz info in the result
 
         if end_time < current_time:
-            self.past_downtimes.append(downtime)
+            self.past_downtimes.append(downtime_expanded)
         elif start_time > current_time:
-            self.future_downtimes.append(downtime)
+            self.future_downtimes.append(downtime_expanded)
         else:
-            self.current_downtimes.append(downtime)
+            self.current_downtimes.append(downtime_expanded)
 
+    def _expand_downtime(self, facility: str, site: str, rgname: str, downtime: Dict) -> Union[OrderedDict, None]:
+        rg_expanded = self.data[facility][site][rgname]
+        new_downtime = OrderedDict.fromkeys(["ID", "ResourceID", "ResourceGroup", "ResourceName", "ResourceFQDN",
+                                             "StartTime", "EndTime", "Class", "Severity", "CreatedTime", "UpdateTime",
+                                             "Services", "Description"])
+        new_downtime["ResourceGroup"] = OrderedDict([("GroupName", rg_expanded["GroupName"]),
+                                                     ("GroupID", rg_expanded["GroupID"])])
+        resources = ensure_list(rg_expanded["Resources"]["Resource"])
+        for r in resources:
+            if r["Name"] == downtime["ResourceName"]:
+                new_downtime["ResourceFQDN"] = r["FQDN"]
+                new_downtime["ResourceID"] = r["ID"]
+                new_downtime["ResourceName"] = r["Name"]
+                services = ensure_list(r["Services"]["Service"])
+                break
+        else:
+            # print("Resource %s does not exist" % downtime["ResourceName"], file=sys.stderr)
+            return None
 
-def expand_services(services: Dict, service_name_to_id: Dict[str, int]) -> Dict:
+        new_services = []
+        for dts in downtime["Services"]:
+            for s in services:
+                if s["Name"] == dts:
+                    new_services.append(OrderedDict([
+                        ("ID", s["ID"]),
+                        ("Name", s["Name"]),
+                        ("Description", s["Description"])
+                    ]))
+                    break
+            else:
+                # print("Service %s does not exist in resource %s" % (dts, downtime["ResourceName"]), file=sys.stderr)
+                pass
 
-    def _expand_svc(svc):
-        svc["ID"] = service_name_to_id[svc["Name"]]
-        svc.move_to_end("ID", last=False)
+        if new_services:
+            new_downtime["Services"] = {"Service": new_services}
+        else:
+            # print("No existing services listed for downtime; skipping downtime")
+            return None
 
-    services_list = expand_attr_list(services, "Name", ordering=["Name", "Description", "Details"])
-    for svc in services_list:
-        _expand_svc(svc)
-    return {"Service": services_list}
+        new_downtime["CreatedTime"] = "Not Available"
+        new_downtime["UpdateTime"] = "Not Available"
+
+        for k in ["ID", "StartTime", "EndTime", "Class", "Severity", "Description"]:
+            new_downtime[k] = downtime[k]
+
+        return new_downtime
 
 
 def get_charturl(ownership: Iterable) -> str:
@@ -228,85 +351,6 @@ def expand_wlcginformation(wlcg: Dict) -> OrderedDict:
     return new_wlcg
 
 
-def expand_resource(name: str, res: Dict, service_name_to_id: Dict[str, int]) -> OrderedDict:
-    """Expand a single Resource from the format in a yaml file to the xml format.
-
-    Services, VOOwnership, FQDNAliases, ContactLists are expanded;
-    ``name`` is inserted into the Resource as the "Name" attribute;
-    Defaults are added for VOOwnership, FQDNAliases, and WLCGInformation if they're missing from the yaml file.
-
-    Return the data structure for the expanded Resource as an OrderedDict to fit the xml schema.
-    """
-    defaults = {
-        "ContactLists": None,
-        "FQDNAliases": None,
-        "Services": "no applicable service exists",
-        "VOOwnership": "(Information not available)",
-        "WLCGInformation": "(Information not available)",
-    }
-
-    res = dict(res)
-
-    if not is_null(res, "Services"):
-        res["Services"] = expand_services(res["Services"], service_name_to_id)
-    else:
-        res.pop("Services", None)
-    if "VOOwnership" in res:
-        res["VOOwnership"] = expand_voownership(res["VOOwnership"])
-    if "FQDNAliases" in res:
-        res["FQDNAliases"] = {"FQDNAlias": res["FQDNAliases"]}
-    if not is_null(res, "ContactLists"):
-        res["ContactLists"] = expand_contactlists(res["ContactLists"])
-    res["Name"] = name
-    if "WLCGInformation" in res and isinstance(res["WLCGInformation"], dict):
-        res["WLCGInformation"] = expand_wlcginformation(res["WLCGInformation"])
-    new_res = OrderedDict()
-    for elem in ["ID", "Name", "Active", "Disable", "Services", "Description", "FQDN", "FQDNAliases", "VOOwnership",
-                 "WLCGInformation", "ContactLists"]:
-        if elem in res:
-            new_res[elem] = res[elem]
-        elif elem in defaults:
-            new_res[elem] = defaults[elem]
-
-    return new_res
-
-
-def expand_resourcegroup(rg: Dict, service_name_to_id: Dict[str, int], support_center_name_to_id: Dict[str, int]) -> OrderedDict:
-    """Expand a single ResourceGroup from the format in a yaml file to the xml format.
-
-    {"SupportCenterName": ...} and {"SupportCenterID": ...} are turned into
-    {"SupportCenter": {"Name": ...}, {"ID": ...}} and each individual Resource is expanded and collected in a
-    <Resources> block.
-
-    Return the data structure for the expanded ResourceGroup, as an OrderedDict,
-    with the ordering to fit the xml schema for rgsummary.
-    """
-    rg = dict(rg)  # copy
-
-    scname, scid = rg["SupportCenter"], support_center_name_to_id[rg["SupportCenter"]]
-    rg["SupportCenter"] = OrderedDict([("ID", scid), ("Name", scname)])
-
-    new_resources = []
-    for name, res in rg["Resources"].items():
-        try:
-            res = expand_resource(name, res, service_name_to_id)
-            new_resources.append(res)
-        except Exception:
-            pprint.pprint(res, stream=sys.stderr)
-            raise
-    new_resources.sort(key=lambda x: x["Name"])
-    rg["Resources"] = {"Resource": new_resources}
-
-    new_rg = OrderedDict()
-
-    for elem in ["GridType", "GroupID", "GroupName", "Disable", "Facility", "Site", "SupportCenter", "GroupDescription",
-                 "Resources"]:
-        if elem in rg:
-            new_rg[elem] = rg[elem]
-
-    return new_rg
-
-
 def get_rgsummary_rgdowntime_xml(indir="topology", outfile=None, downtime_outfile=None):
     """Convert a directory tree of topology data into a single XML document.
     `indir` is the name of the directory tree. The document is written to a
@@ -324,58 +368,11 @@ def get_rgsummary_rgdowntime_xml(indir="topology", outfile=None, downtime_outfil
     return to_xml(rgsummary), to_xml(rgdowntime)
 
 
-def expand_downtime(downtime, rg_expanded):
-    new_downtime = OrderedDict.fromkeys(["ID", "ResourceID", "ResourceGroup", "ResourceName", "ResourceFQDN",
-                                         "StartTime", "EndTime", "Class", "Severity", "CreatedTime", "UpdateTime",
-                                         "Services", "Description"])
-    new_downtime["ResourceGroup"] = OrderedDict([("GroupName", rg_expanded["GroupName"]),
-                                                 ("GroupID", rg_expanded["GroupID"])])
-    resources = ensure_list(rg_expanded["Resources"]["Resource"])
-    for r in resources:
-        if r["Name"] == downtime["ResourceName"]:
-            new_downtime["ResourceFQDN"] = r["FQDN"]
-            new_downtime["ResourceID"] = r["ID"]
-            new_downtime["ResourceName"] = r["Name"]
-            services = ensure_list(r["Services"]["Service"])
-            break
-    else:
-        # print("Resource %s does not exist" % downtime["ResourceName"], file=sys.stderr)
-        return None
-
-    new_services = []
-    for dts in downtime["Services"]:
-        for s in services:
-            if s["Name"] == dts:
-                new_services.append(OrderedDict([
-                    ("ID", s["ID"]),
-                    ("Name", s["Name"]),
-                    ("Description", s["Description"])
-                ]))
-                break
-        else:
-            # print("Service %s does not exist in resource %s" % (dts, downtime["ResourceName"]), file=sys.stderr)
-            pass
-
-    if new_services:
-        new_downtime["Services"] = {"Service": new_services}
-    else:
-        # print("No existing services listed for downtime; skipping downtime")
-        return None
-
-    new_downtime["CreatedTime"] = "Not Available"
-    new_downtime["UpdateTime"] = "Not Available"
-
-    for k in ["ID", "StartTime", "EndTime", "Class", "Severity", "Description"]:
-        new_downtime[k] = downtime[k]
-
-    return new_downtime
-
-
 def get_rgsummary_rgdowntime(indir="topology"):
-    topology = Topology()
     root = Path(indir)
-    support_center_name_to_id = anymarkup.parse_file(root / "support-centers.yaml")
-    service_name_to_id = anymarkup.parse_file(root / "services.yaml")
+    support_centers = anymarkup.parse_file(root / "support-centers.yaml")
+    service_types = anymarkup.parse_file(root / "services.yaml")
+    topology = Topology(service_types, support_centers)
     for facility_path in root.glob("*/FACILITY.yaml"):
         name = facility_path.parts[-2]
         id_ = anymarkup.parse_file(facility_path)["ID"]
@@ -396,27 +393,15 @@ def get_rgsummary_rgdowntime(indir="topology"):
         if downtime_yaml_path.exists():
             downtimes = ensure_list(anymarkup.parse_file(downtime_yaml_path))
 
-        try:
-            facility_id = topology.data[facility]["ID"]
-            site_id = topology.data[facility][site]["ID"]
-            rg["Facility"] = OrderedDict([("ID", facility_id), ("Name", facility)])
-            rg["Site"] = OrderedDict([("ID", site_id), ("Name", site)])
-            rg["GroupName"] = name
-            rg_expanded = expand_resourcegroup(rg, service_name_to_id, support_center_name_to_id)
-
-            topology.add_rg(facility, site, name, rg_expanded)
-        except Exception as e:
-            if not isinstance(e, RGError):
-                raise RGError(rg) from e
-            raise
+        facility_id = topology.data[facility]["ID"]
+        site_id = topology.data[facility][site]["ID"]
+        rg["Facility"] = OrderedDict([("ID", facility_id), ("Name", facility)])
+        rg["Site"] = OrderedDict([("ID", site_id), ("Name", site)])
+        rg["GroupName"] = name
+        topology.add_rg(facility, site, name, rg)
         if downtimes:
             for downtime in downtimes:
-                try:
-                    topology.add_downtime(expand_downtime(downtime, rg_expanded))
-                except Exception as e:
-                    if not isinstance(e, DowntimeError):
-                        raise DowntimeError(downtime, rg) from e
-                    raise
+                topology.add_downtime(facility, site, name, downtime)
 
     return topology.get_resource_summary(), topology.get_downtimes()
 
