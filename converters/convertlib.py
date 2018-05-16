@@ -48,7 +48,7 @@ def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
     return new_data
 
 
-def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=True) -> List:
+def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=True) -> List[OrderedDict]:
     """
     Expand
         {"name1": "val1",
@@ -56,8 +56,7 @@ def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=T
     to
         [{namekey: "name1", valuekey: "val1"},
          {namekey: "name2", valuekey: "val2"}]
-    or, if there's only one,
-        {namekey: "name1", valuekey: "val1"}
+    (except using an OrderedDict)
     """
     newdata = []
     for name, value in data.items():
