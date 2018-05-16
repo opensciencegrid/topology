@@ -19,8 +19,8 @@ as follows:
 
 -   `virtual-organizations/` contains information about Virtual Organizations
     (VOs).
-    Each VO has its own file, named `<VO>.yaml`.  In addition, there is a file
-    containing information about "reporting groups" called
+    Each VO has its own file, named `<VO>.yaml`.
+    Additionally, each VO has a file that contains information about WLCG metric reporting groups called
     `REPORTING_GROUPS.yaml`.
 
 -   `topology/` contains information about the topology of the resources that OSG sites provide.
