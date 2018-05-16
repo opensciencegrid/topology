@@ -5,10 +5,16 @@ import copy
 import flask
 from flask import Flask, Response, request
 import configparser
+import tempfile
+import anymarkup
+import os
+import subprocess
+import shlex
 from converters.convertlib import to_xml, ensure_list, is_null
 from converters.project_yaml_to_xml import get_projects
 from converters.vo_yaml_to_xml import get_vos
 from converters.resourcegroup_yaml_to_xml import get_rgsummary
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -109,12 +115,12 @@ def resources():
     if 'GRST_CRED_AURI_0' in request.environ:
         # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
         # Gridsite already made sure it matches something in the CA distribution
-        
+        pass
         # Ok, print the contacts
         contacts = _getContacts()
         
         # match the contacts data structure with the resource group
-        
+        # TODO: Mat
 
     # Drop RGs with no resources
     new_rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
@@ -135,9 +141,18 @@ def _getContacts():
         config = configparser.ConfigParser()
         config.read("config.ini")
         ssh_key = config['git']['ssh_key']
-        
-        # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
-        cmd = "ssh-agent bash -c 'ssh-add {0}; git clone git@bitbucket.org:opensciencegrid/contact.git'".format(ssh_key)
+        # Create a temporary directory to store the contact information
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
+            cmd = "ssh-agent bash -c 'ssh-add {0}; git clone git@bitbucket.org:opensciencegrid/contact.git {1}'".format(ssh_key, tmp_dir)
+            
+            # I know this should be Popen or similar.  But.. I am unable to make that work.
+            # I suspect it has something to do with the subshell that is being executed
+            git_cmd = subprocess.call(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            if git_cmd != 0:
+                # Git command exited with nonzero!
+                pass
+            _contacts = anymarkup.parse_file(os.path.join(tmp_dir, 'contacts.yaml'))
         
         
     return _contacts
