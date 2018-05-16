@@ -2,10 +2,9 @@ Topology
 ========
 
 
-This repository contains information for known projects, site resources, and
-Virtual Organizations known to the OSG, as well as scripts for managing and
-displaying this information.  The information was sourced from the old OIM site
-that was hosted at oim.grid.iu.edu.
+This repository contains data for known projects, site resources, and Virtual Organizations known to the OSG, as well as
+scripts for managing and displaying this information.
+The information was sourced from the former OIM site that was hosted at `oim.grid.iu.edu`.
 
 
 Structure of the Data
@@ -47,30 +46,36 @@ These XML pages are compatible with the XML format once provided by
 `myosg.grid.iu.edu`.
 
 
-Updating the Data or Creating New Data
---------------------------------------
+Modifying the Data
+------------------
 
-To update the data for your site, project, or VO, please either edit the
-matching YAML file and submit a GitHub pull request.
-Or, if you are not comfortable directly making those changes, send an email to <mailto:help@opensciencegrid.org> with
-the changes you want made.
+The formatting of the YAML files for the different types of data are described in the following template files:
 
-To create a new resource group, project, or VO, please use one of the template
-files to create the file in the appropriate directory, and fill out the
-information.  The comments in the template files should explain the structure
-and the meaning of the data.
-If you do not feel comfortable creating the new file yourself, send an email to <mailto:help@opensciencegrid.org> with
-details about your resource group, project, or VO.
+| The following data... | Is defined by template file...       | And should be copied to location, relative to the Git root directory... |
+|-----------------------|--------------------------------------|-------------------------------------------------------------------------|
+| Project               | `template-project.yaml`              | `projects/<PROJECT NAME>.yaml`                                          |
+| Virtual Organization  | `template-virtual-organization.yaml` | `virtual-organizations/<VO NAME>.yaml`                                  |
+| Resource Topology     | `template-resourcegroup.yaml`        | `topology/<FACILITY>/<SITE>/<RESOURCE GROUP NAME>.yaml`                 |
 
-The template files are:
-
--   `template-project.yaml` for new projects; should be put in
-    `projects/<PROJECT NAME>.yaml`
--   `template-virtual-organization.yaml` for new VOs; should be put in
-    `virtual-organizations/<VO NAME>.yaml`
--   `template-resourcegroup.yaml` for new resource groups;
-    should be put in `<FACILITY>/<SITE>/<RESOURCE GROUP NAME>.yaml`.
+The comments in the template files explain the structure and the meaning of the data.
 
 **Note**: File and directory names _must_ match the name of your project, VO,
 facility, site, or resource group, as appropriate.  This includes case and
 spaces.
+
+### Creating new data ###
+
+To create a new resource group, project, or VO, please create the YAML file according to the table above, and use the
+corresponding template file to fill in the appropriate information.
+If you do not feel comfortable creating the new file yourself, send an email to <help@opensciencegrid.org> with
+details about your resource group, project, or VO.
+
+### Updating existing data ###
+
+To update the data for your site, project, or VO, make and submit your changes using one of the following methods:
+
+- [Modify the corresponding YAML file](https://help.github.com/articles/editing-files-in-your-repository/) and submit
+  your changes as a GitHub pull request.
+- Send an email to <help@opensciencegrid.org> requesting your desired changes.
+
+For definitions for the various fields, consult the corresponding template file for the type of data you are updating.
