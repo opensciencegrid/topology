@@ -42,8 +42,9 @@ class Site(object):
 
 
 class ResourceGroup(object):
-    def __init__(self, data: OrderedDict):  # TODO
+    def __init__(self, data: OrderedDict, site: Site):  # TODO
         self.data = data
+        self.site = site
 
     def get_tree(self) -> OrderedDict:
         return self.data
@@ -60,6 +61,10 @@ class ResourceGroup(object):
     def resources(self):
         return ensure_list(self.data["Resources"]["Resource"])
 
+    @property
+    def key(self):
+        return (self.site.name, self.name)
+
 
 class Topology(object):
     def __init__(self, service_types: Dict, support_centers: Dict):
@@ -70,6 +75,7 @@ class Topology(object):
         self.support_centers = support_centers
         self.facilities = {}
         self.sites = {}
+        # rgs are keyed by (sitename, rgname) tuple
         self.rgs = {}
 
     def add_rg(self, facility, site, rgname, rgdata):
@@ -77,10 +83,10 @@ class Topology(object):
             raise TopologyError("Unknown facility %s -- call add_facility first" % facility)
         if site not in self.sites:
             raise TopologyError("Unknown site %s in facility %s -- call add_site first" % (site, facility))
-        if rgname in self.rgs:
-            raise TopologyError("Duplicate RG %s" % rgname)
+        if (site, rgname) in self.rgs:
+            raise TopologyError("Duplicate RG %s in site %s" % (rgname, site))
         exp_rg = self._expand_rg(self.facilities[facility], self.sites[site], rgname, rgdata)
-        self.rgs[rgname] = ResourceGroup(exp_rg)
+        self.rgs[(site, rgname)] = ResourceGroup(exp_rg, site)
 
     def add_facility(self, name, id):
         if name in self.facilities:
@@ -250,10 +256,10 @@ class Topology(object):
 
     def get_resource_summary(self) -> Dict:
         rglist = []
-        for rg in sorted(self.rgs.keys(), key=lambda x: x.lower()):
-            rgval = self.rgs[rg]
+        for rgkey in sorted(self.rgs.keys(), key=lambda x: x[1].lower()):
+            rgval = self.rgs[rgkey]
             assert isinstance(rgval, ResourceGroup)
-            rglist.append(self.rgs[rg].get_tree())
+            rglist.append(rgval.get_tree())
         return {"ResourceSummary":
                 {"@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
                  "@xsi:schemaLocation": RG_SCHEMA_LOCATION,
@@ -281,8 +287,8 @@ class Topology(object):
             time = time.replace(tzinfo=timezone.utc)
         return time
 
-    def add_downtime(self, rgname: str, downtime: Dict):
-        downtime_expanded = self._expand_downtime(self.rgs[rgname], downtime)
+    def add_downtime(self, sitename: str, rgname: str, downtime: Dict):
+        downtime_expanded = self._expand_downtime(self.rgs[(sitename, rgname)], downtime)
         if downtime_expanded is None:
             return
         start_time = self._parsetime(downtime_expanded["StartTime"])
