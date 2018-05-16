@@ -200,23 +200,31 @@ class Resource(object):
 
 class ResourceGroup(object):
     def __init__(self, name: str, parsed_data: Dict, site: Site, tables: Tables):  # TODO
+        self.name = name
         self.site = site
         self.service_types = tables.service_types
         self.support_centers = tables.support_centers
         self.tables = tables
+
         self.resources = []
-        self.data = self._expand_rg(site, name, parsed_data)
+        for name, res in parsed_data["Resources"].items():
+            try:
+                assert isinstance(res, dict)
+                res = Resource(name, res, self.tables)
+                self.resources.append(res)
+            except Exception:
+                pprint.pprint(res, stream=sys.stderr)
+                raise
+        self.resources.sort(key=lambda x: x.name)
+
+        self.data = parsed_data
 
     def get_tree(self, authorized=True, filters=None) -> OrderedDict:
         filters = ensure_list(filters)
-        filtered_data = copy.deepcopy(self.data)
+        filtered_data = self._expand_rg()
         filtered_data["Resources"] = {}
         filtered_data["Resources"]["Resource"] = filter(None, [x.get_tree(authorized) for x in self.resources])
         return filtered_data
-
-    @property
-    def name(self):
-        return self.data["GroupName"]
 
     @property
     def id(self):
@@ -226,7 +234,7 @@ class ResourceGroup(object):
     def key(self):
         return (self.site.name, self.name)
 
-    def _expand_rg(self, site: Site, rgname: str, rg: Dict) -> OrderedDict:
+    def _expand_rg(self) -> OrderedDict:
         """Expand a single ResourceGroup from the format in a yaml file to the xml format.
 
         {"SupportCenterName": ...} and {"SupportCenterID": ...} are turned into
@@ -236,26 +244,14 @@ class ResourceGroup(object):
         Return the data structure for the expanded ResourceGroup, as an OrderedDict,
         with the ordering to fit the xml schema for rgsummary.
         """
-        rg = dict(rg)  # copy
+        rg = dict(self.data)  # copy
 
-        rg["Facility"] = site.facility.get_tree()
-        rg["Site"] = site.get_tree()
-        rg["GroupName"] = rgname
+        rg["Facility"] = self.site.facility.get_tree()
+        rg["Site"] = self.site.get_tree()
+        rg["GroupName"] = self.name
 
         scname, scid = rg["SupportCenter"], self.support_centers[rg["SupportCenter"]]
         rg["SupportCenter"] = OrderedDict([("ID", scid), ("Name", scname)])
-
-        new_resources = []
-        for name, res in rg["Resources"].items():
-            try:
-                assert isinstance(res, dict)
-                res = Resource(name, res, self.tables)
-                new_resources.append(res)
-            except Exception:
-                pprint.pprint(res, stream=sys.stderr)
-                raise
-        new_resources.sort(key=lambda x: x.name)
-        self.resources = new_resources
 
         new_rg = OrderedDict()
 
