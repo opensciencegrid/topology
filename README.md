@@ -27,7 +27,7 @@ as follows:
     Each resource group has its own file, which are further organized by facility, and then by site.
     Resource group files are named `<FACILITY>/<SITE>/<RESOURCEGROUP>.yaml`
 
-    For example, the OSG resources in the CHTC can be found in the following file:
+    For example, the OSG resources in the Center for High Throughput Computing can be found in the following file:
     `topology/University of Wisconsin/CHTC/CHTC.yaml`
 
 
