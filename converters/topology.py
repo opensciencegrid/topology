@@ -46,6 +46,14 @@ class ResourceFilters(object):
 class TopologyError(Exception): pass
 
 
+class Tables(object):
+    """Global data, e.g. various mappings"""
+    def __init__(self, contacts, service_types, support_centers):
+        self.contacts = contacts
+        self.service_types = service_types
+        self.support_centers = support_centers
+
+
 class Facility(object):
     def __init__(self, name: str, id: int):
         self.name = name
@@ -67,16 +75,17 @@ class Site(object):
 
 
 class Resource(object):
-    def __init__(self, name: str, parsed_data: Dict, service_types: Dict):  # TODO
+    def __init__(self, name: str, parsed_data: Dict, tables: Tables):  # TODO
         self.name = name
-        self.service_types = service_types
+        self.service_types = tables.service_types
+        self.tables = tables
         if not is_null(parsed_data, "Services"):
             self.services = self._expand_services(parsed_data["Services"])
         else:
             self.services = []
         self.data = parsed_data
 
-    def get_tree(self) -> OrderedDict:
+    def get_tree(self, authorized=True) -> OrderedDict:
         defaults = {
             "ContactLists": None,
             "FQDNAliases": None,
@@ -96,7 +105,7 @@ class Resource(object):
         if "FQDNAliases" in res:
             res["FQDNAliases"] = {"FQDNAlias": res["FQDNAliases"]}
         if not is_null(res, "ContactLists"):
-            res["ContactLists"] = self._expand_contactlists(res["ContactLists"])
+            res["ContactLists"] = self._expand_contactlists(res["ContactLists"], authorized)
         res["Name"] = self.name
         if "WLCGInformation" in res and isinstance(res["WLCGInformation"], dict):
             res["WLCGInformation"] = self._expand_wlcginformation(res["WLCGInformation"])
@@ -152,12 +161,20 @@ class Resource(object):
             ("ChartURL", _get_charturl(voownership.items()))
         ])
 
-    @staticmethod
-    def _expand_contactlists(contactlists: Dict) -> Dict:
+    def _expand_contactlists(self, contactlists: Dict, authorized: bool) -> Dict:
         """Return the data structure for an expanded ContactLists for a single Resource."""
         new_contactlists = []
         for contact_type, contact_data in contactlists.items():
-            contact_data = expand_attr_list_single(contact_data, "ContactRank", "Name", name_first=False)
+            contact_data = expand_attr_list(contact_data, "ContactRank", ["Name", "ID", "ContactRank"], ignore_missing=True)
+            for contact in contact_data:
+                contact_id = contact.pop("ID", None)  # ID is for internal use - don't put it in the results
+                if authorized:
+                    if contact_id in self.tables.contacts:
+                        extra_data = self.tables.contacts[contact_id]
+                        contact["Email"] = extra_data["Email"]
+                        contact["Phone"] = extra_data.get("Phone", "")
+                        contact["SMSAddress"] = extra_data.get("SMS", "")
+                        contact.move_to_end("ContactRank", last=True)
             new_contactlists.append(
                 OrderedDict([("ContactType", contact_type), ("Contacts", {"Contact": contact_data})]))
         return {"ContactList": new_contactlists}
@@ -182,18 +199,19 @@ class Resource(object):
         return new_wlcg
 
 class ResourceGroup(object):
-    def __init__(self, name: str, parsed_data: Dict, site: Site, service_types: Dict, support_centers: Dict):  # TODO
+    def __init__(self, name: str, parsed_data: Dict, site: Site, tables: Tables):  # TODO
         self.site = site
-        self.service_types = service_types
-        self.support_centers = support_centers
+        self.service_types = tables.service_types
+        self.support_centers = tables.support_centers
+        self.tables = tables
         self.resources = []
         self.data = self._expand_rg(site, name, parsed_data)
 
-    def get_tree(self, filters=None) -> OrderedDict:
+    def get_tree(self, authorized=True, filters=None) -> OrderedDict:
         filters = ensure_list(filters)
         filtered_data = copy.deepcopy(self.data)
         filtered_data["Resources"] = {}
-        filtered_data["Resources"]["Resource"] = filter(None, [x.get_tree() for x in self.resources])
+        filtered_data["Resources"]["Resource"] = filter(None, [x.get_tree(authorized) for x in self.resources])
         return filtered_data
 
     @property
@@ -231,7 +249,7 @@ class ResourceGroup(object):
         for name, res in rg["Resources"].items():
             try:
                 assert isinstance(res, dict)
-                res = Resource(name, res, self.service_types)
+                res = Resource(name, res, self.tables)
                 new_resources.append(res)
             except Exception:
                 pprint.pprint(res, stream=sys.stderr)
@@ -250,12 +268,11 @@ class ResourceGroup(object):
 
 
 class Topology(object):
-    def __init__(self, service_types: Dict, support_centers: Dict):
+    def __init__(self, tables: Tables):
         self.past_downtimes = []
         self.current_downtimes = []
         self.future_downtimes = []
-        self.service_types = service_types
-        self.support_centers = support_centers
+        self.tables = tables
         self.facilities = {}
         self.sites = {}
         # rgs are keyed by (site_name, rg_name) tuple
@@ -268,7 +285,7 @@ class Topology(object):
             raise TopologyError("Unknown site %s in facility %s -- call add_site first" % (site_name, facility_name))
         if (site_name, name) in self.rgs:
             raise TopologyError("Duplicate RG %s in site %s" % (name, site_name))
-        self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.service_types, self.support_centers)
+        self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.tables)
 
     def add_facility(self, name, id):
         if name in self.facilities:
@@ -282,12 +299,12 @@ class Topology(object):
             raise TopologyError("Duplicate site %s" % name)
         self.sites[name] = Site(name, id, self.facilities[facility_name])
 
-    def get_resource_summary(self) -> Dict:
+    def get_resource_summary(self, authorized=True) -> Dict:
         rglist = []
         for rgkey in sorted(self.rgs.keys(), key=lambda x: x[1].lower()):
             rgval = self.rgs[rgkey]
             assert isinstance(rgval, ResourceGroup)
-            rglist.append(rgval.get_tree())
+            rglist.append(rgval.get_tree(authorized))
         return {"ResourceSummary":
                 {"@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
                  "@xsi:schemaLocation": RG_SCHEMA_LOCATION,

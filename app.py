@@ -13,7 +13,7 @@ import shlex
 from converters.convertlib import to_xml, ensure_list, is_null
 from converters.project_yaml_to_xml import get_projects
 from converters.vo_yaml_to_xml import get_vos
-from converters.resourcegroup_yaml_to_xml import get_rgsummary_rgdowntime
+from converters.resourcegroup_yaml_to_xml import get_topology
 app = Flask(__name__)
 
 @app.route('/')
@@ -34,9 +34,8 @@ def homepage():
 
 _projects = None
 _vos = None
-_rgsummary = None
-_rgdowntime = None
 _contacts = None
+_topology = None
 
 @app.route('/schema/<xsdfile>')
 def schema(xsdfile):
@@ -77,20 +76,21 @@ def voinfo():
 
 @app.route('/rgsummary/xml')
 def resources():
-    global _rgsummary, _rgdowntime
-    if not _rgsummary:
-        _rgsummary, _rgdowntime = get_rgsummary_rgdowntime()
+    authorized = False
+    # Ok, print the contacts
+    contacts = _getContacts()
 
     if 'GRST_CRED_AURI_0' in request.environ:
         # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
         # Gridsite already made sure it matches something in the CA distribution
-        pass
-        # Ok, print the contacts
-        contacts = _getContacts()
+        authorized = True
 
         # match the contacts data structure with the resource group
         # TODO: Mat
 
+    global _topology
+    if not _topology:
+        _topology = get_topology("topology", contacts)
     # rgsummary = copy.deepcopy(_rgsummary)
     # rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
     # args = flask.request.args
@@ -132,15 +132,18 @@ def resources():
     # # Drop RGs with no resources
     # new_rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
     # rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in new_rgs if not is_null(rg, "Resources", "Resource")]
+    rgsummary = _topology.get_resource_summary(authorized=authorized)
+    rgsummary_xml = to_xml(rgsummary)
     return Response(rgsummary_xml, mimetype='text/xml')
 
 @app.route('/rgdowntime/xml')
 def downtime():
-    global _rgsummary, _rgdowntime
-    if not _rgdowntime:
-        _rgsummary, _rgdowntime = get_rgsummary_rgdowntime()
+    global _topology
+    if not _topology:
+        _topology = get_topology()
+    rgdowntime = _topology.get_downtimes()
     # TODO Filter
-    rgdowntime_xml = to_xml(_rgdowntime)
+    rgdowntime_xml = to_xml(rgdowntime)
     return Response(rgdowntime_xml, mimetype='text/xml')
 
 def _getContacts():
@@ -151,25 +154,28 @@ def _getContacts():
     
     global _contacts
     if not _contacts:
-        # Get the contacts from bitbucket
-        # Read in the config file with the SSH key location
-        config = configparser.ConfigParser()
-        config.read("config.ini")
-        ssh_key = config['git']['ssh_key']
-        # Create a temporary directory to store the contact information
-        with tempfile.TemporaryDirectory() as tmp_dir:
-            # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
-            cmd = "ssh-agent bash -c 'ssh-add {0}; git clone git@bitbucket.org:opensciencegrid/contact.git {1}'".format(ssh_key, tmp_dir)
-            
-            # I know this should be Popen or similar.  But.. I am unable to make that work.
-            # I suspect it has something to do with the subshell that is being executed
-            git_cmd = subprocess.call(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            if git_cmd != 0:
-                # Git command exited with nonzero!
-                pass
-            _contacts = anymarkup.parse_file(os.path.join(tmp_dir, 'contacts.yaml'))
-        
-        
+        # use local copy if it exists
+        if os.path.exists("contacts.yaml"):
+            _contacts = anymarkup.parse_file("contacts.yaml")
+        else:
+            # Get the contacts from bitbucket
+            # Read in the config file with the SSH key location
+            config = configparser.ConfigParser()
+            config.read("config.ini")
+            ssh_key = config['git']['ssh_key']
+            # Create a temporary directory to store the contact information
+            with tempfile.TemporaryDirectory() as tmp_dir:
+                # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
+                cmd = "ssh-agent bash -c 'ssh-add {0}; git clone git@bitbucket.org:opensciencegrid/contact.git {1}'".format(ssh_key, tmp_dir)
+
+                # I know this should be Popen or similar.  But.. I am unable to make that work.
+                # I suspect it has something to do with the subshell that is being executed
+                git_cmd = subprocess.call(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                if git_cmd != 0:
+                    # Git command exited with nonzero!
+                    pass
+                _contacts = anymarkup.parse_file(os.path.join(tmp_dir, 'contacts.yaml'))
+
     return _contacts
 
 if __name__ == '__main__':

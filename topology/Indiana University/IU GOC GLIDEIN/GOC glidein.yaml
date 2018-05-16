@@ -6,15 +6,27 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Jeffrey Michael Dost
+        Primary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
       Resource Report Contact:
-        Primary: Jeffrey Michael Dost
-        Tertiary: Marty Kandes
+        Primary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
+        Tertiary:
+          ID: 0b633ec3133996ca049d45a11bc7ab4804244c80
+          Name: Marty Kandes
       Security Contact:
-        Primary: Scott Teige
-        Secondary: Jeffrey Michael Dost
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+        Secondary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
       Submitter Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
     Disable: false
     FQDN: glidein.grid.iu.edu
     ID: 406
@@ -29,11 +41,17 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Security Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Submitter Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
     Disable: true
     FQDN: gfactory-1.t2.ucsd.edu
     ID: 653

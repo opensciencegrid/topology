@@ -25,10 +25,10 @@ import sys
 from pathlib import Path
 
 try:
-    from topology import Topology
+    from topology import Tables, Topology
     from convertlib import ensure_list, to_xml
 except ImportError:
-    from .topology import Topology
+    from .topology import Tables, Topology
     from .convertlib import ensure_list, to_xml
 
 class RGError(Exception):
@@ -46,22 +46,20 @@ class DowntimeError(Exception):
         self.rg = rg
 
 
-def get_rgsummary_rgdowntime_xml(indir="topology"):
-    """Convert a directory tree of topology data into two XML documents.
-    `indir` is the name of the directory tree.
-
-    Returns the texts of the XML documents.
-    """
-    rgsummary, rgdowntime = get_rgsummary_rgdowntime(indir)
-
-    return to_xml(rgsummary), to_xml(rgdowntime)
+def get_rgsummary_rgdowntime(indir="topology", contacts_file=None):
+    contacts_data = None
+    if contacts_file:
+        contacts_data = anymarkup.parse_file(contacts_file)
+    topology = get_topology(indir, contacts_data)
+    return topology.get_resource_summary(), topology.get_downtimes()
 
 
-def get_rgsummary_rgdowntime(indir="topology"):
+def get_topology(indir="topology", contacts_data=None):
     root = Path(indir)
     support_centers = anymarkup.parse_file(root / "support-centers.yaml")
     service_types = anymarkup.parse_file(root / "services.yaml")
-    topology = Topology(service_types, support_centers)
+    tables = Tables(contacts=contacts_data, service_types=service_types, support_centers=support_centers)
+    topology = Topology(tables)
 
     for facility_path in root.glob("*/FACILITY.yaml"):
         name = facility_path.parts[-2]
@@ -88,7 +86,7 @@ def get_rgsummary_rgdowntime(indir="topology"):
             for downtime in downtimes:
                 topology.add_downtime(site, name, downtime)
 
-    return topology.get_resource_summary(), topology.get_downtimes()
+    return topology
 
 
 def main(argv):
@@ -96,12 +94,13 @@ def main(argv):
     parser.add_argument("indir", help="input dir for topology data")
     parser.add_argument("outfile", nargs='?', type=argparse.FileType('w'), default=sys.stdout, help="output file for rgsummary")
     parser.add_argument("downtimefile", nargs='?', type=argparse.FileType('w'), default=sys.stdout, help="output file for rgdowntime")
+    parser.add_argument("--contacts", help="contacts yaml file")
     args = parser.parse_args(argv[1:])
 
     try:
-        rgsummary_xml, rgdowntime_xml = get_rgsummary_rgdowntime_xml(args.indir)
-        print(rgsummary_xml, file=args.outfile)
-        print(rgdowntime_xml, file=args.downtimefile)
+        rgsummary, rgdowntime = get_rgsummary_rgdowntime(args.indir, args.contacts)
+        print(to_xml(rgsummary), file=args.outfile)
+        print(to_xml(rgdowntime), file=args.downtimefile)
     except RGError as e:
         print("Error happened while processing RG:", file=sys.stderr)
         pprint.pprint(e.rg, stream=sys.stderr)

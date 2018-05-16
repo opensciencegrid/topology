@@ -6,7 +6,9 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: David Matthews-Morgan
+        Secondary:
+          ID: 2d57698fb41355073f4378e002a7cfb46aa66cd6
+          Name: David Matthews-Morgan
     Disable: false
     FQDN: scluster.rcc.uga.edu
     ID: 384
@@ -21,11 +23,17 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: David Matthews-Morgan
+        Primary:
+          ID: 2d57698fb41355073f4378e002a7cfb46aa66cd6
+          Name: David Matthews-Morgan
       Security Contact:
-        Primary: David Matthews-Morgan
+        Primary:
+          ID: 2d57698fb41355073f4378e002a7cfb46aa66cd6
+          Name: David Matthews-Morgan
       Submitter Contact:
-        Primary: David Matthews-Morgan
+        Primary:
+          ID: 2d57698fb41355073f4378e002a7cfb46aa66cd6
+          Name: David Matthews-Morgan
     Disable: false
     FQDN: sgrid-test.rcc.uga.edu
     ID: 448

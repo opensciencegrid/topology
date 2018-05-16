@@ -6,14 +6,24 @@ Resources:
     Active: true
     ContactLists:
       Miscellaneous Contact:
-        Secondary: Manoj Kumar Jha
+        Secondary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
       Resource Report Contact:
-        Secondary: Majid Arabgol
-        Tertiary: Manoj Kumar Jha
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Tertiary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
       Security Contact:
-        Secondary: Majid Arabgol
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Submitter Contact:
-        Primary: Manoj Kumar Jha
+        Primary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
     Disable: false
     FQDN: hadoop-osg.rcac.purdue.edu
     ID: 620
@@ -43,17 +53,31 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Erik Gough
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Miscellaneous Contact:
-        Primary: Majid Arabgol
-        Tertiary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Tertiary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Resource Report Contact:
-        Primary: Majid Arabgol
-        Tertiary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Tertiary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Security Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Submitter Contact:
-        Primary: Manoj Kumar Jha
+        Primary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
     Disable: false
     FQDN: cmspbs-osg.rcac.purdue.edu
     ID: 724
@@ -82,9 +106,13 @@ Resources:
     Active: false
     ContactLists:
       Miscellaneous Contact:
-        Secondary: Majid Arabgol
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Submitter Contact:
-        Primary: Manoj Kumar Jha
+        Primary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
     Disable: true
     FQDN: cms-ce1-osg.rcac.purdue.edu
     ID: 647
@@ -112,17 +140,31 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Erik Gough
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Miscellaneous Contact:
-        Secondary: Erik Gough
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Resource Report Contact:
-        Primary: Majid Arabgol
-        Tertiary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Tertiary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Security Contact:
-        Primary: Majid Arabgol
-        Secondary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Submitter Contact:
-        Primary: Manoj Kumar Jha
+        Primary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
     Disable: true
     FQDN: srm.rcac.purdue.edu
     ID: 621
@@ -138,16 +180,28 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Stefan Piperov
+        Secondary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
       Miscellaneous Contact:
-        Primary: Stefan Piperov
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
       Resource Report Contact:
-        Secondary: Erik Gough
-        Tertiary: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+        Tertiary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
       Security Contact:
-        Secondary: Stefan Piperov
+        Secondary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
       Submitter Contact:
-        Primary: Erik Gough
+        Primary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
     Disable: false
     FQDN: cms-gridftp.rcac.purdue.edu
     ID: 852
@@ -174,15 +228,27 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Majid Arabgol
-        Secondary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Resource Report Contact:
-        Primary: Erik Gough
-        Tertiary: Manoj Kumar Jha
+        Primary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+        Tertiary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
       Security Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Submitter Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
     Disable: true
     FQDN: srm6.rcac.purdue.edu
     ID: 732
@@ -198,14 +264,24 @@ Resources:
     Active: true
     ContactLists:
       Miscellaneous Contact:
-        Secondary: Manoj Kumar Jha
+        Secondary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
       Resource Report Contact:
-        Primary: Majid Arabgol
-        Tertiary: Manoj Kumar Jha
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Tertiary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
       Security Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Submitter Contact:
-        Primary: Manoj Kumar Jha
+        Primary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
     Disable: false
     FQDN: cmstest1.rcac.purdue.edu
     ID: 624
@@ -233,16 +309,28 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Miscellaneous Contact:
-        Primary: Majid Arabgol
-        Tertiary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Tertiary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Resource Report Contact:
-        Secondary: Erik Gough
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Security Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Submitter Contact:
-        Primary: Manoj Kumar Jha
+        Primary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
     Disable: false
     FQDN: squid1.rcac.purdue.edu
     ID: 681
@@ -255,16 +343,28 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Miscellaneous Contact:
-        Secondary: Majid Arabgol
-        Tertiary: Manoj Kumar Jha
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Tertiary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
       Resource Report Contact:
-        Secondary: Majid Arabgol
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Security Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Submitter Contact:
-        Primary: Manoj Kumar Jha
+        Primary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
     Disable: false
     FQDN: squid2.rcac.purdue.edu
     ID: 682
@@ -277,17 +377,31 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Miscellaneous Contact:
-        Secondary: Majid Arabgol
-        Tertiary: Erik Gough
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Tertiary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Resource Report Contact:
-        Secondary: Majid Arabgol
-        Tertiary: Erik Gough
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Tertiary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Security Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Submitter Contact:
-        Primary: Manoj Kumar Jha
+        Primary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
     Disable: false
     FQDN: squid3.rcac.purdue.edu
     ID: 683
@@ -300,11 +414,17 @@ Resources:
     Active: true
     ContactLists:
       Resource Report Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Security Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Submitter Contact:
-        Primary: Manoj Kumar Jha
+        Primary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
     Disable: false
     FQDN: perfsonar-cms2.itns.purdue.edu
     ID: 622
@@ -332,17 +452,31 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Erik Gough
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Miscellaneous Contact:
-        Secondary: Erik Gough
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Resource Report Contact:
-        Primary: Majid Arabgol
-        Secondary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Security Contact:
-        Primary: Majid Arabgol
-        Secondary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Submitter Contact:
-        Primary: Manoj Kumar Jha
+        Primary:
+          ID: e336c6489e0af6281bdf9dd532f86a0983817608
+          Name: Manoj Kumar Jha
     Disable: false
     FQDN: perfsonar-cms1.itns.purdue.edu
     ID: 623
