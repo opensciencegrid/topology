@@ -4,7 +4,7 @@ import pprint
 import re
 import urllib.parse
 import sys
-from typing import Dict, Iterable, Union
+from typing import Dict, Union
 
 import dateparser
 
@@ -21,40 +21,80 @@ DOWNTIME_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgdowntime.xsd
 class TopologyError(Exception): pass
 
 
+class Facility(object):
+    def __init__(self, name: str, id: int):
+        self.name = name
+        self.id = id
 
+    def get_tree(self) -> OrderedDict:
+        return OrderedDict([("ID", self.id), ("Name", self.name)])
+
+
+class Site(object):
+    # probably will have some other attributes like address, latitude, longitude, etc.
+    def __init__(self, name: str, id: int, facility: Facility):
+        self.name = name
+        self.id = id
+        self.facility = facility
+
+    def get_tree(self) -> OrderedDict:
+        return OrderedDict([("ID", self.id), ("Name", self.name)])
+
+
+class ResourceGroup(object):
+    def __init__(self, data: OrderedDict):  # TODO
+        self.data = data
+
+    def get_tree(self) -> OrderedDict:
+        return self.data
+
+    @property
+    def name(self):
+        return self.data["GroupName"]
+
+    @property
+    def id(self):
+        return self.data["GroupID"]
+
+    @property
+    def resources(self):
+        return ensure_list(self.data["Resources"]["Resource"])
 
 
 class Topology(object):
     def __init__(self, service_types: Dict, support_centers: Dict):
-        self.data = {}
         self.past_downtimes = []
         self.current_downtimes = []
         self.future_downtimes = []
         self.service_types = service_types
         self.support_centers = support_centers
+        self.facilities = {}
+        self.sites = {}
+        self.rgs = {}
 
     def add_rg(self, facility, site, rgname, rgdata):
-        if facility not in self.data:
+        if facility not in self.facilities:
             raise TopologyError("Unknown facility %s -- call add_facility first" % facility)
-        if site not in self.data[facility]:
+        if site not in self.sites:
             raise TopologyError("Unknown site %s in facility %s -- call add_site first" % (site, facility))
-        if rgname in self.data[facility][site]:
+        if rgname in self.rgs:
             raise TopologyError("Duplicate RG %s" % rgname)
-        self.data[facility][site][rgname] = self._expand_rg(facility, site, rgname, rgdata)
+        exp_rg = self._expand_rg(self.facilities[facility], self.sites[site], rgname, rgdata)
+        self.rgs[rgname] = ResourceGroup(exp_rg)
 
     def add_facility(self, name, id):
-        if name not in self.data:
-            self.data[name] = {}
-        self.data[name]["ID"] = id
+        if name in self.facilities:
+            raise TopologyError("Duplicate facility %s" % name)
+        self.facilities[name] = Facility(name, id)
 
-    def add_site(self, facility, name, id):
-        if facility not in self.data:
-            raise TopologyError("Unknown facility %s -- call add_facility first" % facility)
-        if name not in self.data[facility]:
-            self.data[facility][name] = {}
-        self.data[facility][name]["ID"] = id
+    def add_site(self, facility_name, name, id):
+        if facility_name not in self.facilities:
+            raise TopologyError("Unknown facility %s -- call add_facility first" % facility_name)
+        if name in self.sites:
+            raise TopologyError("Duplicate site %s" % name)
+        self.sites[name] = Site(name, id, self.facilities[facility_name])
 
-    def _expand_rg(self, facility: str, site: str, rgname: str, rg: Dict) -> OrderedDict:
+    def _expand_rg(self, facility: Facility, site: Site, rgname: str, rg: Dict) -> OrderedDict:
         """Expand a single ResourceGroup from the format in a yaml file to the xml format.
 
         {"SupportCenterName": ...} and {"SupportCenterID": ...} are turned into
@@ -66,11 +106,8 @@ class Topology(object):
         """
         rg = dict(rg)  # copy
 
-        facility_id = self.data[facility]["ID"]
-        site_id = self.data[facility][site]["ID"]
-
-        rg["Facility"] = OrderedDict([("ID", facility_id), ("Name", facility)])
-        rg["Site"] = OrderedDict([("ID", site_id), ("Name", site)])
+        rg["Facility"] = facility.get_tree()
+        rg["Site"] = site.get_tree()
         rg["GroupName"] = rgname
 
         scname, scid = rg["SupportCenter"], self.support_centers[rg["SupportCenter"]]
@@ -212,19 +249,15 @@ class Topology(object):
         return new_wlcg
 
     def get_resource_summary(self) -> Dict:
-        rgs = []
-        for fval in self.data.values():
-            for s, sval in fval.items():
-                if s == "ID": continue
-                for r, rval in sval.items():
-                    if r == "ID": continue
-                    rgs.append(rval)
-
-        rgs.sort(key=lambda x: x["GroupName"].lower())
+        rglist = []
+        for rg in sorted(self.rgs.keys(), key=lambda x: x.lower()):
+            rgval = self.rgs[rg]
+            assert isinstance(rgval, ResourceGroup)
+            rglist.append(self.rgs[rg].get_tree())
         return {"ResourceSummary":
                 {"@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
                  "@xsi:schemaLocation": RG_SCHEMA_LOCATION,
-                 "ResourceGroup": rgs}}
+                 "ResourceGroup": rglist}}
 
     def get_downtimes(self) -> Dict:
         return {"Downtimes":
@@ -233,9 +266,6 @@ class Topology(object):
                      "PastDowntimes": {"Downtime": self.past_downtimes},
                      "CurrentDowntimes": {"Downtime": self.current_downtimes},
                      "FutureDowntimes": {"Downtime": self.future_downtimes}}}
-
-    def to_xml(self):
-        return to_xml(self.get_resource_summary())
 
     @staticmethod
     def _parsetime(time_str: str) -> datetime:
@@ -251,8 +281,8 @@ class Topology(object):
             time = time.replace(tzinfo=timezone.utc)
         return time
 
-    def add_downtime(self, facility: str, site: str, rgname: str, downtime: Dict):
-        downtime_expanded = self._expand_downtime(facility, site, rgname, downtime)
+    def add_downtime(self, rgname: str, downtime: Dict):
+        downtime_expanded = self._expand_downtime(self.rgs[rgname], downtime)
         if downtime_expanded is None:
             return
         start_time = self._parsetime(downtime_expanded["StartTime"])
@@ -267,15 +297,13 @@ class Topology(object):
         else:
             self.current_downtimes.append(downtime_expanded)
 
-    def _expand_downtime(self, facility: str, site: str, rgname: str, downtime: Dict) -> Union[OrderedDict, None]:
-        rg_expanded = self.data[facility][site][rgname]
+    def _expand_downtime(self, rg: ResourceGroup, downtime: Dict) -> Union[OrderedDict, None]:
         new_downtime = OrderedDict.fromkeys(["ID", "ResourceID", "ResourceGroup", "ResourceName", "ResourceFQDN",
                                              "StartTime", "EndTime", "Class", "Severity", "CreatedTime", "UpdateTime",
                                              "Services", "Description"])
-        new_downtime["ResourceGroup"] = OrderedDict([("GroupName", rg_expanded["GroupName"]),
-                                                     ("GroupID", rg_expanded["GroupID"])])
-        resources = ensure_list(rg_expanded["Resources"]["Resource"])
-        for r in resources:
+        new_downtime["ResourceGroup"] = OrderedDict([("GroupName", rg.name),
+                                                     ("GroupID", rg.id)])
+        for r in rg.resources:
             if r["Name"] == downtime["ResourceName"]:
                 new_downtime["ResourceFQDN"] = r["FQDN"]
                 new_downtime["ResourceID"] = r["ID"]

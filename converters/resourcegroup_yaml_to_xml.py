@@ -62,6 +62,7 @@ def get_rgsummary_rgdowntime(indir="topology"):
     support_centers = anymarkup.parse_file(root / "support-centers.yaml")
     service_types = anymarkup.parse_file(root / "services.yaml")
     topology = Topology(service_types, support_centers)
+
     for facility_path in root.glob("*/FACILITY.yaml"):
         name = facility_path.parts[-2]
         id_ = anymarkup.parse_file(facility_path)["ID"]
@@ -85,7 +86,7 @@ def get_rgsummary_rgdowntime(indir="topology"):
         topology.add_rg(facility, site, name, rg)
         if downtimes:
             for downtime in downtimes:
-                topology.add_downtime(facility, site, name, downtime)
+                topology.add_downtime(name, downtime)
 
     return topology.get_resource_summary(), topology.get_downtimes()
 
