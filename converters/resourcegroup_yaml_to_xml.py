@@ -72,8 +72,9 @@ class Topology(object):
             raise TopologyError("Unknown facility %s -- call add_facility first" % facility)
         if site not in self.data[facility]:
             raise TopologyError("Unknown site %s in facility %s -- call add_site first" % (site, facility))
-        if rgname not in self.data[facility][site]:
-            self.data[facility][site][rgname] = self._expand_rg(facility, site, rgname, rgdata)
+        if rgname in self.data[facility][site]:
+            raise TopologyError("Duplicate RG %s" % rgname)
+        self.data[facility][site][rgname] = self._expand_rg(facility, site, rgname, rgdata)
 
     def add_facility(self, name, id):
         if name not in self.data:
@@ -112,6 +113,7 @@ class Topology(object):
         new_resources = []
         for name, res in rg["Resources"].items():
             try:
+                assert isinstance(res, dict)
                 res = self._expand_resource(name, res)
                 new_resources.append(res)
             except Exception:
