@@ -86,7 +86,7 @@ def get_rgsummary_rgdowntime(indir="topology"):
         topology.add_rg(facility, site, name, rg)
         if downtimes:
             for downtime in downtimes:
-                topology.add_downtime(name, downtime)
+                topology.add_downtime(site, name, downtime)
 
     return topology.get_resource_summary(), topology.get_downtimes()
 

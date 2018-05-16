@@ -81,58 +81,57 @@ def resources():
     if not _rgsummary:
         _rgsummary, _rgdowntime = get_rgsummary_rgdowntime()
 
-    rgsummary = copy.deepcopy(_rgsummary)
-    rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
-    args = flask.request.args
-    if "active" in args:
-        active_value = args.get("active_value", "")
-        if active_value == "0":
-            for rg in rgs:
-                rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if not r["Active"]]
-        elif active_value == "1":
-            for rg in rgs:
-                rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if r["Active"]]
-        else:
-            return Response("Invalid arguments: active_value must be 0 or 1", status=400)
-    if "disable" in args:
-        disable_value = args.get("disable_value", "")
-        if disable_value == "0":
-            for rg in rgs:
-                rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if not r["Disable"]]
-        elif disable_value == "1":
-            for rg in rgs:
-                rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if r["Disable"]]
-        else:
-            return Response("Invalid arguments: disable_value must be 0 or 1", status=400)
-
-    if "gridtype" in args:
-        gridtype_1, gridtype_2 = args.get("gridtype_1", ""), args.get("gridtype_2", "")
-        if gridtype_1 == "on" and gridtype_2 == "on":
-            pass
-        elif gridtype_1 == "on":
-            rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in rgs if
-                                                             rg["GridType"] == "OSG Production Resource"]
-        elif gridtype_2 == "on":
-            rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in rgs if
-                                                             rg["GridType"] == "OSG Integration Test Bed Resource"]
-        else:
-            # invalid arguments: no RGs for you!
-            return Response("Invalid arguments: gridtype_1 or gridtype_2 or both must be \"on\"", status=400)
-
     if 'GRST_CRED_AURI_0' in request.environ:
         # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
         # Gridsite already made sure it matches something in the CA distribution
         pass
         # Ok, print the contacts
         contacts = _getContacts()
-        
+
         # match the contacts data structure with the resource group
         # TODO: Mat
 
-    # Drop RGs with no resources
-    new_rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
-    rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in new_rgs if not is_null(rg, "Resources", "Resource")]
-    rgsummary_xml = to_xml(rgsummary)
+    # rgsummary = copy.deepcopy(_rgsummary)
+    # rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
+    # args = flask.request.args
+    # if "active" in args:
+    #     active_value = args.get("active_value", "")
+    #     if active_value == "0":
+    #         for rg in rgs:
+    #             rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if not r["Active"]]
+    #     elif active_value == "1":
+    #         for rg in rgs:
+    #             rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if r["Active"]]
+    #     else:
+    #         return Response("Invalid arguments: active_value must be 0 or 1", status=400)
+    # if "disable" in args:
+    #     disable_value = args.get("disable_value", "")
+    #     if disable_value == "0":
+    #         for rg in rgs:
+    #             rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if not r["Disable"]]
+    #     elif disable_value == "1":
+    #         for rg in rgs:
+    #             rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if r["Disable"]]
+    #     else:
+    #         return Response("Invalid arguments: disable_value must be 0 or 1", status=400)
+    #
+    # if "gridtype" in args:
+    #     gridtype_1, gridtype_2 = args.get("gridtype_1", ""), args.get("gridtype_2", "")
+    #     if gridtype_1 == "on" and gridtype_2 == "on":
+    #         pass
+    #     elif gridtype_1 == "on":
+    #         rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in rgs if
+    #                                                          rg["GridType"] == "OSG Production Resource"]
+    #     elif gridtype_2 == "on":
+    #         rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in rgs if
+    #                                                          rg["GridType"] == "OSG Integration Test Bed Resource"]
+    #     else:
+    #         # invalid arguments: no RGs for you!
+    #         return Response("Invalid arguments: gridtype_1 or gridtype_2 or both must be \"on\"", status=400)
+    #
+    # # Drop RGs with no resources
+    # new_rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
+    # rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in new_rgs if not is_null(rg, "Resources", "Resource")]
     return Response(rgsummary_xml, mimetype='text/xml')
 
 @app.route('/rgdowntime/xml')

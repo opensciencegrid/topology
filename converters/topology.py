@@ -1,10 +1,12 @@
 from collections import OrderedDict
+import copy
 from datetime import datetime, timezone
+import enum
 import pprint
 import re
 import urllib.parse
 import sys
-from typing import Dict, Union
+from typing import Dict, List, Union
 
 import dateparser
 
@@ -15,6 +17,29 @@ except ModuleNotFoundError:
 
 RG_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 DOWNTIME_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
+
+
+class FilterType(enum.Enum):
+    FACILITY = 1
+    SITE = 2
+    SUPPORT_CENTER = 3
+    SERVICE_ID = 4
+    GRID_TYPE = 5
+
+
+class ResourceFilters(object):
+    def __init__(self, resource: OrderedDict):
+        self.resource = resource
+
+    def filter_active(self, active):
+        return self.resource["Active"] == active
+
+    def filter_disable(self, disable):
+        return self.resource["Disable"] == disable
+
+    def filter_service(self, service_id):
+        pass
+
 
 
 
@@ -41,115 +66,17 @@ class Site(object):
         return OrderedDict([("ID", self.id), ("Name", self.name)])
 
 
-class ResourceGroup(object):
-    def __init__(self, data: OrderedDict, site: Site):  # TODO
-        self.data = data
-        self.site = site
+class Resource(object):
+    def __init__(self, name: str, parsed_data: Dict, service_types: Dict):  # TODO
+        self.name = name
+        self.service_types = service_types
+        if not is_null(parsed_data, "Services"):
+            self.services = self._expand_services(parsed_data["Services"])
+        else:
+            self.services = []
+        self.data = parsed_data
 
     def get_tree(self) -> OrderedDict:
-        return self.data
-
-    @property
-    def name(self):
-        return self.data["GroupName"]
-
-    @property
-    def id(self):
-        return self.data["GroupID"]
-
-    @property
-    def resources(self):
-        return ensure_list(self.data["Resources"]["Resource"])
-
-    @property
-    def key(self):
-        return (self.site.name, self.name)
-
-
-class Topology(object):
-    def __init__(self, service_types: Dict, support_centers: Dict):
-        self.past_downtimes = []
-        self.current_downtimes = []
-        self.future_downtimes = []
-        self.service_types = service_types
-        self.support_centers = support_centers
-        self.facilities = {}
-        self.sites = {}
-        # rgs are keyed by (sitename, rgname) tuple
-        self.rgs = {}
-
-    def add_rg(self, facility, site, rgname, rgdata):
-        if facility not in self.facilities:
-            raise TopologyError("Unknown facility %s -- call add_facility first" % facility)
-        if site not in self.sites:
-            raise TopologyError("Unknown site %s in facility %s -- call add_site first" % (site, facility))
-        if (site, rgname) in self.rgs:
-            raise TopologyError("Duplicate RG %s in site %s" % (rgname, site))
-        exp_rg = self._expand_rg(self.facilities[facility], self.sites[site], rgname, rgdata)
-        self.rgs[(site, rgname)] = ResourceGroup(exp_rg, site)
-
-    def add_facility(self, name, id):
-        if name in self.facilities:
-            raise TopologyError("Duplicate facility %s" % name)
-        self.facilities[name] = Facility(name, id)
-
-    def add_site(self, facility_name, name, id):
-        if facility_name not in self.facilities:
-            raise TopologyError("Unknown facility %s -- call add_facility first" % facility_name)
-        if name in self.sites:
-            raise TopologyError("Duplicate site %s" % name)
-        self.sites[name] = Site(name, id, self.facilities[facility_name])
-
-    def _expand_rg(self, facility: Facility, site: Site, rgname: str, rg: Dict) -> OrderedDict:
-        """Expand a single ResourceGroup from the format in a yaml file to the xml format.
-
-        {"SupportCenterName": ...} and {"SupportCenterID": ...} are turned into
-        {"SupportCenter": {"Name": ...}, {"ID": ...}} and each individual Resource is expanded and collected in a
-        <Resources> block.
-
-        Return the data structure for the expanded ResourceGroup, as an OrderedDict,
-        with the ordering to fit the xml schema for rgsummary.
-        """
-        rg = dict(rg)  # copy
-
-        rg["Facility"] = facility.get_tree()
-        rg["Site"] = site.get_tree()
-        rg["GroupName"] = rgname
-
-        scname, scid = rg["SupportCenter"], self.support_centers[rg["SupportCenter"]]
-        rg["SupportCenter"] = OrderedDict([("ID", scid), ("Name", scname)])
-
-        new_resources = []
-        for name, res in rg["Resources"].items():
-            try:
-                assert isinstance(res, dict)
-                res = self._expand_resource(name, res)
-                new_resources.append(res)
-            except Exception:
-                pprint.pprint(res, stream=sys.stderr)
-                raise
-        new_resources.sort(key=lambda x: x["Name"])
-        rg["Resources"] = {"Resource": new_resources}
-
-        new_rg = OrderedDict()
-
-        for elem in ["GridType", "GroupID", "GroupName", "Disable", "Facility", "Site", "SupportCenter",
-                     "GroupDescription",
-                     "Resources"]:
-            if elem in rg:
-                new_rg[elem] = rg[elem]
-
-        return new_rg
-
-    def _expand_resource(self, name: str, res: Dict) -> OrderedDict:
-        """Expand a single Resource from the format in a yaml file to the xml format.
-
-        Services, VOOwnership, FQDNAliases, ContactLists are expanded;
-        ``name`` is inserted into the Resource as the "Name" attribute;
-        Defaults are added for VOOwnership, FQDNAliases, and WLCGInformation if they're missing from the yaml file.
-
-        Return the data structure for the expanded Resource as an OrderedDict to fit the xml schema.
-        """
         defaults = {
             "ContactLists": None,
             "FQDNAliases": None,
@@ -158,10 +85,10 @@ class Topology(object):
             "WLCGInformation": "(Information not available)",
         }
 
-        res = dict(res)
+        res = dict(self.data)
 
-        if not is_null(res, "Services"):
-            res["Services"] = self._expand_services(res["Services"])
+        if self.services:
+            res["Services"] = {"Service": self.services}
         else:
             res.pop("Services", None)
         if "VOOwnership" in res:
@@ -170,7 +97,7 @@ class Topology(object):
             res["FQDNAliases"] = {"FQDNAlias": res["FQDNAliases"]}
         if not is_null(res, "ContactLists"):
             res["ContactLists"] = self._expand_contactlists(res["ContactLists"])
-        res["Name"] = name
+        res["Name"] = self.name
         if "WLCGInformation" in res and isinstance(res["WLCGInformation"], dict):
             res["WLCGInformation"] = self._expand_wlcginformation(res["WLCGInformation"])
         new_res = OrderedDict()
@@ -183,12 +110,12 @@ class Topology(object):
 
         return new_res
 
-    def _expand_services(self, services: Dict) -> Dict:
+    def _expand_services(self, services: Dict) -> List[OrderedDict]:
         services_list = expand_attr_list(services, "Name", ordering=["Name", "Description", "Details"])
         for svc in services_list:
             svc["ID"] = self.service_types[svc["Name"]]
             svc.move_to_end("ID", last=False)
-        return {"Service": services_list}
+        return services_list
 
     @staticmethod
     def _expand_voownership(voownership: Dict) -> OrderedDict:
@@ -254,6 +181,107 @@ class Topology(object):
                 new_wlcg[elem] = defaults[elem]
         return new_wlcg
 
+class ResourceGroup(object):
+    def __init__(self, name: str, parsed_data: Dict, site: Site, service_types: Dict, support_centers: Dict):  # TODO
+        self.site = site
+        self.service_types = service_types
+        self.support_centers = support_centers
+        self.resources = []
+        self.data = self._expand_rg(site, name, parsed_data)
+
+    def get_tree(self, filters=None) -> OrderedDict:
+        filters = ensure_list(filters)
+        filtered_data = copy.deepcopy(self.data)
+        filtered_data["Resources"] = {}
+        filtered_data["Resources"]["Resource"] = filter(None, [x.get_tree() for x in self.resources])
+        return filtered_data
+
+    @property
+    def name(self):
+        return self.data["GroupName"]
+
+    @property
+    def id(self):
+        return self.data["GroupID"]
+
+    @property
+    def key(self):
+        return (self.site.name, self.name)
+
+    def _expand_rg(self, site: Site, rgname: str, rg: Dict) -> OrderedDict:
+        """Expand a single ResourceGroup from the format in a yaml file to the xml format.
+
+        {"SupportCenterName": ...} and {"SupportCenterID": ...} are turned into
+        {"SupportCenter": {"Name": ...}, {"ID": ...}} and each individual Resource is expanded and collected in a
+        <Resources> block.
+
+        Return the data structure for the expanded ResourceGroup, as an OrderedDict,
+        with the ordering to fit the xml schema for rgsummary.
+        """
+        rg = dict(rg)  # copy
+
+        rg["Facility"] = site.facility.get_tree()
+        rg["Site"] = site.get_tree()
+        rg["GroupName"] = rgname
+
+        scname, scid = rg["SupportCenter"], self.support_centers[rg["SupportCenter"]]
+        rg["SupportCenter"] = OrderedDict([("ID", scid), ("Name", scname)])
+
+        new_resources = []
+        for name, res in rg["Resources"].items():
+            try:
+                assert isinstance(res, dict)
+                res = Resource(name, res, self.service_types)
+                new_resources.append(res)
+            except Exception:
+                pprint.pprint(res, stream=sys.stderr)
+                raise
+        new_resources.sort(key=lambda x: x.name)
+        self.resources = new_resources
+
+        new_rg = OrderedDict()
+
+        for elem in ["GridType", "GroupID", "GroupName", "Disable", "Facility", "Site", "SupportCenter",
+                     "GroupDescription"]:
+            if elem in rg:
+                new_rg[elem] = rg[elem]
+
+        return new_rg
+
+
+class Topology(object):
+    def __init__(self, service_types: Dict, support_centers: Dict):
+        self.past_downtimes = []
+        self.current_downtimes = []
+        self.future_downtimes = []
+        self.service_types = service_types
+        self.support_centers = support_centers
+        self.facilities = {}
+        self.sites = {}
+        # rgs are keyed by (site_name, rg_name) tuple
+        self.rgs = {}
+
+    def add_rg(self, facility_name, site_name, name, parsed_data):
+        if facility_name not in self.facilities:
+            raise TopologyError("Unknown facility %s -- call add_facility first" % facility_name)
+        if site_name not in self.sites:
+            raise TopologyError("Unknown site %s in facility %s -- call add_site first" % (site_name, facility_name))
+        if (site_name, name) in self.rgs:
+            raise TopologyError("Duplicate RG %s in site %s" % (name, site_name))
+        self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.service_types, self.support_centers)
+
+    def add_facility(self, name, id):
+        if name in self.facilities:
+            raise TopologyError("Duplicate facility %s" % name)
+        self.facilities[name] = Facility(name, id)
+
+    def add_site(self, facility_name, name, id):
+        if facility_name not in self.facilities:
+            raise TopologyError("Unknown facility %s -- call add_facility first" % facility_name)
+        if name in self.sites:
+            raise TopologyError("Duplicate site %s" % name)
+        self.sites[name] = Site(name, id, self.facilities[facility_name])
+
     def get_resource_summary(self) -> Dict:
         rglist = []
         for rgkey in sorted(self.rgs.keys(), key=lambda x: x[1].lower()):
@@ -310,11 +338,11 @@ class Topology(object):
         new_downtime["ResourceGroup"] = OrderedDict([("GroupName", rg.name),
                                                      ("GroupID", rg.id)])
         for r in rg.resources:
-            if r["Name"] == downtime["ResourceName"]:
-                new_downtime["ResourceFQDN"] = r["FQDN"]
-                new_downtime["ResourceID"] = r["ID"]
-                new_downtime["ResourceName"] = r["Name"]
-                services = ensure_list(r["Services"]["Service"])
+            if r.name == downtime["ResourceName"]:
+                new_downtime["ResourceFQDN"] = r.data["FQDN"]
+                new_downtime["ResourceID"] = r.data["ID"]
+                new_downtime["ResourceName"] = r.name
+                services = ensure_list(r.services)
                 break
         else:
             # print("Resource %s does not exist" % downtime["ResourceName"], file=sys.stderr)

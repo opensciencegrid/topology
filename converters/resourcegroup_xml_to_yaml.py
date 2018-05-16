@@ -78,7 +78,6 @@ class Topology(object):
             self.data[sanfacility][sansite] = {"ID": rg["Site"]["ID"]}
         sanrg = to_file_name(rg["GroupName"])
         sanrg_filename = sanrg + ".yaml"
-        # The assumption here is that RG names are unique, even between sites. As of 2018-05-07, this is true.
         downtime_path = os.path.join(sanfacility, sansite, sanrg) + "_downtime.yaml"
         self.downtime_paths[rg["GroupName"]] = downtime_path
 
