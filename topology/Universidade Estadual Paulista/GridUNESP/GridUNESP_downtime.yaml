@@ -1,0 +1,35 @@
+- Class: UNSCHEDULED
+  Description: |-
+    We had to extend the downtime due to problems with some virtual machines responsible for important services like gatekeeper and others.
+
+
+
+    >Unschedule downtime for GridUNESP due to a very long power outage over our generator capacity time.
+    >Due to the holiday in Brazil we expect to go back by next Wednesday.
+  EndTime: Mar 2, 2017 21:00 PM UTC
+  ID: 1005218
+  ResourceName: GridUNESP
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Feb 25, 2017 03:30 AM UTC
+- Class: SCHEDULED
+  Description: Our Academic Internet Service Provider is going to perform a 6-hour
+    maintenance in order to move some racks and switches. During maintenance GridUNESP
+    will be unreachable.
+  EndTime: May 7, 2017 18:00 PM UTC
+  ID: 1005294
+  ResourceName: GridUNESP
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: May 7, 2017 12:00 PM UTC
+- Class: SCHEDULED
+  Description: Downtime due to storage/NFS system updates
+  EndTime: May 16, 2018 13:00 PM UTC
+  ID: 1005655
+  ResourceName: GridUNESP
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Apr 16, 2018 13:00 PM UTC

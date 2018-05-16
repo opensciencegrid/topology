@@ -1,0 +1,46 @@
+- Class: SCHEDULED
+  Description: Moving SE to new hardware and new software configuration.
+  EndTime: Jul 31, 2016 05:00 AM UTC
+  ID: 1004939
+  ResourceName: NUMEP_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Jun 23, 2016 05:00 AM UTC
+- Class: SCHEDULED
+  Description: Scheduled maintenance.
+  EndTime: Jun 28, 2016 05:00 AM UTC
+  ID: 1004940
+  ResourceName: NUMEP_CE
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Jun 23, 2016 05:00 AM UTC
+- Class: SCHEDULED
+  Description: Scheduled downtime for maintenance and upgrades.
+  EndTime: Dec 23, 2016 18:00 PM UTC
+  ID: 1005138
+  ResourceName: NUMEP_CE
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Dec 9, 2016 18:00 PM UTC
+- Class: SCHEDULED
+  Description: Downtime to fix chronic network hardware failures.
+  EndTime: Feb 5, 2017 06:00 AM UTC
+  ID: 1005158
+  ResourceName: NUMEP_CE
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Jan 5, 2017 06:00 AM UTC
+- Class: UNSCHEDULED
+  Description: Certificate problems, being resolved...
+  EndTime: May 10, 2017 05:00 AM UTC
+  ID: 1005287
+  ResourceName: NUMEP_CE
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: May 4, 2017 05:00 AM UTC

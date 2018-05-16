@@ -1,0 +1,88 @@
+- Class: SCHEDULED
+  Description: Annual MGHPCC maintenance downtime.  All NET2 systems, BU and HU will
+    be powered down all day May 17.
+  EndTime: May 18, 2016 01:00 AM UTC
+  ID: 1004892
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+  Severity: Outage
+  StartTime: May 16, 2016 16:00 PM UTC
+- Class: SCHEDULED
+  Description: Annual MGHPCC maintenance downtime. All NET2 systems, BU and HU will
+    be powered down all day May 17.
+  EndTime: May 18, 2016 01:00 AM UTC
+  ID: 1004894
+  ResourceName: perfSONAR-NET2-bw
+  Services:
+  - net.perfSONAR.Bandwidth
+  Severity: Outage
+  StartTime: May 16, 2016 16:00 PM UTC
+- Class: SCHEDULED
+  Description: Annual MGHPCC maintenance downtime. All NET2 systems, BU and HU will
+    be powered down all day May 17.
+  EndTime: May 18, 2016 01:00 AM UTC
+  ID: 1004895
+  ResourceName: perfSONAR-NET2-lat
+  Services:
+  - net.perfSONAR.Latency
+  Severity: Outage
+  StartTime: May 16, 2016 16:00 PM UTC
+- Class: SCHEDULED
+  Description: Annual MGHPCC power maintenance
+  EndTime: May 24, 2017 01:00 AM UTC
+  ID: 1005318
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+  Severity: Outage
+  StartTime: May 22, 2017 12:00 PM UTC
+- Class: SCHEDULED
+  Description: Annual MGHPCC power maintenance
+  EndTime: May 24, 2017 16:00 PM UTC
+  ID: 1005320
+  ResourceName: perfSONAR-NET2-bw
+  Services:
+  - net.perfSONAR.Bandwidth
+  Severity: Outage
+  StartTime: May 22, 2017 12:00 PM UTC
+- Class: SCHEDULED
+  Description: Annual MGHPCC power maintenance
+  EndTime: May 24, 2017 16:00 PM UTC
+  ID: 1005321
+  ResourceName: perfSONAR-NET2-lat
+  Services:
+  - net.perfSONAR.Latency
+  Severity: Outage
+  StartTime: May 22, 2017 12:00 PM UTC
+- Class: SCHEDULED
+  Description: Annual MGHPCC power maintenance
+  EndTime: May 24, 2017 16:00 PM UTC
+  ID: 1005322
+  ResourceName: perfSONAR_BU
+  Services:
+  - net.perfSONAR.Latency
+  Severity: Outage
+  StartTime: May 22, 2017 12:00 PM UTC
+- Class: SCHEDULED
+  Description: NET2 Network reconfiguration
+  EndTime: Oct 19, 2017 17:00 PM UTC
+  ID: 1005476
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+  Severity: Outage
+  StartTime: Oct 19, 2017 13:00 PM UTC
+- Class: SCHEDULED
+  Description: GPFS maintenance and SRM rebuild
+  EndTime: Jan 25, 2018 20:00 PM UTC
+  ID: 1005578
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+  Severity: Outage
+  StartTime: Jan 24, 2018 14:00 PM UTC
