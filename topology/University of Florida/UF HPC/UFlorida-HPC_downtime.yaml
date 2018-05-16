@@ -1,0 +1,216 @@
+- Class: SCHEDULED
+  Description: Scheduler Migration from PBS to SLURM.
+  EndTime: May 14, 2016 00:00 AM UTC
+  ID: 1004891
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: May 13, 2016 16:00 PM UTC
+- Class: UNSCHEDULED
+  Description: The CE state became corrupt after the htcondor-ce upgrade.
+  EndTime: Oct 22, 2016 19:00 PM UTC
+  ID: 1005079
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Oct 21, 2016 12:00 PM UTC
+- Class: SCHEDULED
+  Description: Kernel Update
+  EndTime: Nov 4, 2016 16:00 PM UTC
+  ID: 1005107
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Nov 4, 2016 13:00 PM UTC
+- Class: SCHEDULED
+  Description: Kernel Update
+  EndTime: Nov 4, 2016 16:00 PM UTC
+  ID: 1005108
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Nov 4, 2016 13:00 PM UTC
+- Class: UNSCHEDULED
+  Description: One of lustre cmsoss is down due to a dead RAID controller.
+  EndTime: Feb 7, 2017 22:00 PM UTC
+  ID: 1005199
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Feb 7, 2017 17:00 PM UTC
+- Class: UNSCHEDULED
+  Description: One of lustre cmsoss is down due to a dead RAID controller.
+  EndTime: Feb 7, 2017 22:00 PM UTC
+  ID: 1005200
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Feb 7, 2017 17:00 PM UTC
+- Class: SCHEDULED
+  Description: Kernel on all worker nodes is required to be upgraded.
+  EndTime: Mar 16, 2017 18:00 PM UTC
+  ID: 1005236
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Mar 16, 2017 13:00 PM UTC
+- Class: SCHEDULED
+  Description: Kernel on all worker nodes is required to be upgraded.
+  EndTime: Mar 16, 2017 18:00 PM UTC
+  ID: 1005237
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Mar 16, 2017 13:00 PM UTC
+- Class: UNSCHEDULED
+  Description: |-
+    At Florida CMS T2, we  need to move two
+    ( cms.rc.ufl.edu and osg.rc.ufl.edu ) of our 3 CEs to use the new Lustre file system.
+    I need to shut them down immediately.
+    The need for the immediate shutdown is due to the continuing SAM test  failures
+    due to the stageout issue as the new Lustre filesystem is not available.
+    The ETA of them is not easy to predict. So, I will let you know when the CE becomes
+    available.
+  EndTime: Jun 27, 2017 13:00 PM UTC
+  ID: 1005344
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Jun 12, 2017 17:00 PM UTC
+- Class: UNSCHEDULED
+  Description: |-
+    At Florida CMS T2, we  need to move two
+    ( cms.rc.ufl.edu and osg.rc.ufl.edu ) of our 3 CEs to use the new Lustre file system.
+    I need to shut them down immediately.
+    The need for the immediate shutdown is due to the continuing SAM test  failures
+    due to the stageout issue as the new Lustre filesystem is not available.
+    The ETA of them is not easy to predict. So, I will let you know when the CE becomes
+    available.
+  EndTime: Jun 27, 2017 13:00 PM UTC
+  ID: 1005345
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Jun 12, 2017 17:00 PM UTC
+- Class: UNSCHEDULED
+  Description: The downtime is required to upgrade one of the CEs to the RHEL7.
+  EndTime: Nov 16, 2017 14:30 PM UTC
+  ID: 1005478
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Nov 2, 2017 13:00 PM UTC
+- Class: UNSCHEDULED
+  Description: One of the Lustre OSSes requires a maintenance.
+  EndTime: Jan 4, 2018 17:00 PM UTC
+  ID: 1005549
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+  Severity: Outage
+  StartTime: Jan 4, 2018 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: One of lustre oss (cmsoss3) is not responsive. This causes a stall
+    in the entire site.
+  EndTime: Mar 9, 2018 16:00 PM UTC
+  ID: 1005620
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+  Severity: Outage
+  StartTime: Mar 9, 2018 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: One of lustre oss (cmsoss3) is not responsive. This causes a stall
+    in the entire site.
+  EndTime: Mar 9, 2018 16:00 PM UTC
+  ID: 1005621
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Mar 9, 2018 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: One of lustre oss (cmsoss3) is not responsive. This causes a stall
+    in the entire site.
+  EndTime: Mar 9, 2018 16:00 PM UTC
+  ID: 1005622
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Mar 9, 2018 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: One of lustre oss (cmsoss3) is not responsive. This causes a stall
+    in the entire site.
+  EndTime: Mar 9, 2018 16:00 PM UTC
+  ID: 1005623
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Mar 9, 2018 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: apply FW and kernel updates to cms for Spectre/Meltdown mitigation.
+  EndTime: Apr 16, 2018 21:00 PM UTC
+  ID: 1005653
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Apr 16, 2018 14:00 PM UTC
+- Class: UNSCHEDULED
+  Description: apply FW and kernel updates to  cslrm for Spectre/Meltdown mitigation.
+  EndTime: Apr 17, 2018 21:00 PM UTC
+  ID: 1005654
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Apr 17, 2018 14:00 PM UTC
+- Class: SCHEDULED
+  Description: Update Lustre client, Spectre/Meltdown patches
+  EndTime: Apr 23, 2018 21:00 PM UTC
+  ID: 1005660
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Apr 23, 2018 13:00 PM UTC
+- Class: SCHEDULED
+  Description: IB HCA FW on this resource needs updating.
+  EndTime: Apr 23, 2018 16:00 PM UTC
+  ID: 1005661
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Apr 23, 2018 13:00 PM UTC
+- Class: SCHEDULED
+  Description: Spectre/Meltdown patches and EL7 upgrade
+  EndTime: Apr 25, 2018 21:00 PM UTC
+  ID: 1005662
+  ResourceName: UFlorida_squid2
+  Services:
+  - Squid
+  Severity: Outage
+  StartTime: Apr 25, 2018 13:00 PM UTC
+- Class: SCHEDULED
+  Description: Spectre/Meltdown patches and EL7 upgrade
+  EndTime: Apr 26, 2018 21:00 PM UTC
+  ID: 1005663
+  ResourceName: UFlorida_squid
+  Services:
+  - Squid
+  Severity: Outage
+  StartTime: Apr 26, 2018 13:00 PM UTC
