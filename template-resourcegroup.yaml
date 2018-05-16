@@ -49,7 +49,7 @@ Resources:
     #   - <HOSTNAME2>
 
     # Services is one or more services provided by this resource;
-    # valid services are listed in topology/services.yaml
+    # valid services are listed in topology/services.yaml with the format <SERVICE NAME>: <ID>
     Services:
       <SERVICE NAME>:
         # Description is a brief description of the service
@@ -90,4 +90,5 @@ Resources:
     #   TapeCapacity: 0
 
   # Other resources if you have any...
-
+  #   <SERVICE NAME>:
+  #   ...
