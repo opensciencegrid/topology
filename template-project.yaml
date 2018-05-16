@@ -1,0 +1,24 @@
+# Name is the short name of the project. It must match the file name
+Name: <NAME>
+# Description is a human-readable description of what the project is about
+Description: <TEXT>
+# Department is the department of the project, e.g. "Physics"
+Department: <DEPT>
+# FieldOfScience is a more specific description, e.g. "High Energy Physics"
+FieldOfScience: <FOS>
+# Organization is the organization where the project is hosted, e.g. "UCSD"
+Organization: <ORG>
+# PIName is the prinicipal investigator for the project
+PIName: <FIRSTNAME> <LASTNAME>
+
+Sponsor:
+  ### Uncomment the CampusGrid block if the project was sponsored by a campus grid e.g. OSG Connect
+  # CampusGrid:
+  ##### Name is the specific campus grid that sponsored the project
+  #   Name: <NAME>
+
+  ### Uncomment the VirtualOrganization block if the project was sponsored by a VO
+  # VirtualOrganization:
+  ##### Name is the name of the VO that sponsored the project
+  #   Name: <VO>
+
