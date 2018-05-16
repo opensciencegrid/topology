@@ -34,16 +34,17 @@ as follows:
 Accessing the Data
 ------------------
 
-Data can be accessed in two formats: the YAML files can be accessed directly
-from a clone of the GitHub repository.  Alternatively, the data can be accessed
-in XML format at the following URLs:
+Data can be accessed in two formats: the YAML files can be accessed directly through the GitHub interface or from a
+clone of the GitHub repository.
+Alternatively, the data can be accessed in XML format at the following URLs:
 
--   For projects: https://my.opensciencegrid.org/miscproject/xml
--   For VOs: https://my.opensciencegrid.org/vosummary/xml
--   For resource group topology: https://my.opensciencegrid.org/rgsummary/xml
+| The following data... | Can be accessed in XML format via URL...         |
+|-----------------------|--------------------------------------------------|
+| Project               | <https://my.opensciencegrid.org/miscproject/xml> |
+| Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
+| Resource Topology     | <https://my.opensciencegrid.org/rgsummary/xml>   |
 
-These XML pages are compatible with the XML format once provided by
-`myosg.grid.iu.edu`.
+These XML pages are compatible with the XML format once provided by `myosg.grid.iu.edu`.
 
 
 Modifying the Data
