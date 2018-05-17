@@ -123,18 +123,18 @@ def get_filters_from_args(args) -> Filters:
         except ValueError:
             raise InvalidArgumentsError("downtime_attrs_showpast must be an integer, \"\", or \"all\"")
 
-    # 2 ways to filter by service: either pass service_1=on, service_2=on, etc.
-    # or pass service_sel[]=1, service_sel[]=2, etc. (multiple service_sel[] args).
-    # Same for facility, sc, and site
-    for filter_name, filter_list, description in [
+    # 2 ways to filter by a key like "facility", "service", "sc", "site", etc.:
+    # - either pass KEY_1=on, KEY_2=on, etc.
+    # - pass KEY_sel[]=1, KEY_sel[]=2, etc. (multiple KEY_sel[] args).
+    for filter_key, filter_list, description in [
         ("facility", filters.facility_id, "facility ID"),
         ("service", filters.service_id, "service ID"),
         ("sc", filters.support_center_id, "support center ID"),
         ("site", filters.site_id, "site ID"),
     ]:
-        if filter_name in args:
-            pat = re.compile(r"{0}_(\d+)".format(filter_name))
-            arg_sel = "{0}_sel[]".format(filter_name)
+        if filter_key in args:
+            pat = re.compile(r"{0}_(\d+)".format(filter_key))
+            arg_sel = "{0}_sel[]".format(filter_key)
             for k, v in args.items():
                 if k == arg_sel:
                     try:
