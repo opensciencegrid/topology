@@ -211,10 +211,10 @@ def _getContacts():
 
                 # I know this should be Popen or similar.  But.. I am unable to make that work.
                 # I suspect it has something to do with the subshell that is being executed
-                git_cmd = subprocess.call(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                if git_cmd != 0:
+                git_result = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                if git_result.returncode != 0:
                     # Git command exited with nonzero!
-                    pass
+                    print("Git failed:\n" + git_result.stdout, file=sys.stderr)
                 _contacts = anymarkup.parse_file(os.path.join(tmp_dir, 'contacts.yaml'))
 
     return _contacts
