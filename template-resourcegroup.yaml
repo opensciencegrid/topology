@@ -66,6 +66,8 @@ Resources:
         #   # endpoint: <HOSTNAME>
 
       # Other services if you have any
+      # <SERVICE NAME>:
+      # ...
 
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
     ### If part of the resource is not owned by the VO, do not list it.
@@ -90,5 +92,5 @@ Resources:
     #   TapeCapacity: 0
 
   # Other resources if you have any...
-  #   <SERVICE NAME>:
-  #   ...
+  # <RESOURCE NAME>:
+  # ...
