@@ -1,4 +1,4 @@
-from collections import OrderedDict
+from collections import OrderedDict, namedtuple
 import copy
 from datetime import datetime, timezone
 import enum
@@ -19,28 +19,18 @@ RG_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 DOWNTIME_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
 
 
-class FilterType(enum.Enum):
-    FACILITY = 1
-    SITE = 2
-    SUPPORT_CENTER = 3
-    SERVICE_ID = 4
-    GRID_TYPE = 5
+class Filters(object):
+    def __init__(self, facility_id: List[int] = None, site_id: List[int] = None,
+                 support_center_id: List[int] = None,
+                 service_id: List[int] = None, grid_type: List[int] = None):
+        self.facility_id = ensure_list(facility_id)
+        self.site_id = ensure_list(site_id)
+        self.support_center_id = ensure_list(support_center_id)
+        self.service_id = ensure_list(service_id)
+        self.grid_type = ensure_list(grid_type)
 
 
-class ResourceFilters(object):
-    def __init__(self, resource: OrderedDict):
-        self.resource = resource
-
-    def filter_active(self, active):
-        return self.resource["Active"] == active
-
-    def filter_disable(self, disable):
-        return self.resource["Disable"] == disable
-
-    def filter_service(self, service_id):
-        pass
-
-
+EMPTY_FILTER = Filters()
 
 
 class TopologyError(Exception): pass
@@ -75,17 +65,18 @@ class Site(object):
 
 
 class Resource(object):
-    def __init__(self, name: str, parsed_data: Dict, tables: Tables):  # TODO
+    def __init__(self, name: str, parsed_data: Dict, tables: Tables):
         self.name = name
         self.service_types = tables.service_types
         self.tables = tables
         if not is_null(parsed_data, "Services"):
             self.services = self._expand_services(parsed_data["Services"])
         else:
+            print("{0} does not have any services".format(name), file=sys.stderr)
             self.services = []
         self.data = parsed_data
 
-    def get_tree(self, authorized=True) -> OrderedDict:
+    def get_tree(self, authorized=True, filters: Filters = EMPTY_FILTER) -> OrderedDict:
         defaults = {
             "ContactLists": None,
             "FQDNAliases": None,
@@ -96,10 +87,14 @@ class Resource(object):
 
         res = dict(self.data)
 
-        if self.services:
-            res["Services"] = {"Service": self.services}
+        if filters.service_id:
+            filtered_services = [svc for svc in self.services if svc["ID"] in filters.service_id]
+            if not filtered_services:
+                return OrderedDict()  # all services filtered out
+            res["Services"] = {"Service": filtered_services}
         else:
-            res.pop("Services", None)
+            res["Services"] = {"Service": self.services}
+
         if "VOOwnership" in res:
             res["VOOwnership"] = self._expand_voownership(res["VOOwnership"])
         if "FQDNAliases" in res:
@@ -199,7 +194,7 @@ class Resource(object):
         return new_wlcg
 
 class ResourceGroup(object):
-    def __init__(self, name: str, parsed_data: Dict, site: Site, tables: Tables):  # TODO
+    def __init__(self, name: str, parsed_data: Dict, site: Site, tables: Tables):
         self.name = name
         self.site = site
         self.service_types = tables.service_types
@@ -219,11 +214,10 @@ class ResourceGroup(object):
 
         self.data = parsed_data
 
-    def get_tree(self, authorized=True, filters=None) -> OrderedDict:
-        filters = ensure_list(filters)
+    def get_tree(self, authorized=True, filters: Filters = EMPTY_FILTER) -> OrderedDict:
         filtered_data = self._expand_rg()
         filtered_data["Resources"] = {}
-        filtered_data["Resources"]["Resource"] = filter(None, [x.get_tree(authorized) for x in self.resources])
+        filtered_data["Resources"]["Resource"] = filter(None, [x.get_tree(authorized, filters) for x in self.resources])
         return filtered_data
 
     @property
