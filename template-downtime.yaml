@@ -1,0 +1,35 @@
+# Class describes whether or not the downtime was planned. Choose one of the
+# following classes:
+# - SCHEDULED: donwtime that has been scheduled long before the actual downtime
+# - UNSCHEDULED: donwtime that has occurred due to an event such as a sudden
+#   hardware failure, or any unforseen circumstances
+- Class: <TEXT>
+  # Summary of the reason for the downtime
+  Description: <TEXT>
+  # Downtime severity in descending order:
+  # - Outage
+  # - Severe
+  # - Intermittent Outage
+  # - No Significant Outage Expected
+  Severity: <TEXT>
+  # Start date and time of the donwtime in the following format:
+  # <MONTH> <DAY>, <YEAR> <UTC TIME>
+  # e.g. Mar 28, 2017 22:00 PM UTC
+  StartTime: <DATE AND TIME>
+  # End date and time of the donwtime in the following format:
+  # <MONTH> <DAY>, <YEAR> <UTC TIME>
+  # e.g. Mar 30, 2017 22:00 PM UTC
+  EndTime: <DATE AND TIME>
+  # ID (optional)
+  ID: <INTEGER>
+  # The resource affected by the downtime
+  ResourceName: <RESOURCE NAME>
+  # The serivce(s) affected by the downtime as a list
+  Services:
+    - <SERVICE NAME>
+    # Additional services if there are any...
+    # - GridFTP
+    # - SRMv2
+# Additional downtimes can be added
+# - Class: UNSCHEDULED
+#   ...
