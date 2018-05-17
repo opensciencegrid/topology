@@ -1,5 +1,6 @@
 from collections import OrderedDict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
+from enum import Enum
 import pprint
 import re
 import urllib.parse
@@ -19,6 +20,11 @@ DOWNTIME_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgdowntime.xsd
 GRIDTYPE_1 = "OSG Production Resource"
 GRIDTYPE_2 = "OSG Integration Test Bed Resource"
 
+class Timeframe(Enum):
+    PAST = 1
+    PRESENT = 2
+    FUTURE = 3
+
 MaybeOrderedDict = Union[None, OrderedDict]
 
 
@@ -26,7 +32,8 @@ class Filters(object):
     def __init__(self, facility_id: List[int] = None, site_id: List[int] = None,
                  support_center_id: List[int] = None,
                  service_id: List[int] = None, grid_type: str = None,
-                 active: bool = None, disable: bool = None):
+                 active: bool = None, disable: bool = None,
+                 past_days: int = 0):
 
         self.facility_id = ensure_list(facility_id)
         self.site_id = ensure_list(site_id)
@@ -35,6 +42,7 @@ class Filters(object):
         self.grid_type = grid_type
         self.active = active
         self.disable = disable
+        self.past_days = past_days
 
 
 class TopologyError(Exception): pass
@@ -69,16 +77,16 @@ class Site(object):
 
 
 class Resource(object):
-    def __init__(self, name: str, parsed_data: Dict, tables: Tables):
+    def __init__(self, name: str, yaml_data: Dict, tables: Tables):
         self.name = name
         self.service_types = tables.service_types
         self.tables = tables
-        if not is_null(parsed_data, "Services"):
-            self.services = self._expand_services(parsed_data["Services"])
+        if not is_null(yaml_data, "Services"):
+            self.services = self._expand_services(yaml_data["Services"])
         else:
             print("{0} does not have any services".format(name), file=sys.stderr)
             self.services = []
-        self.data = parsed_data
+        self.data = yaml_data
 
     def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
         if filters is None:
@@ -207,18 +215,18 @@ class Resource(object):
 
 
 class ResourceGroup(object):
-    def __init__(self, name: str, parsed_data: Dict, site: Site, tables: Tables):
+    def __init__(self, name: str, yaml_data: Dict, site: Site, tables: Tables):
         self.name = name
         self.site = site
         self.service_types = tables.service_types
         self.tables = tables
 
-        scname = parsed_data["SupportCenter"]
+        scname = yaml_data["SupportCenter"]
         scid = tables.support_centers[scname]
         self.support_center = OrderedDict([("ID", scid), ("Name", scname)])
 
         self.resources = []
-        for name, res in parsed_data["Resources"].items():
+        for name, res in yaml_data["Resources"].items():
             try:
                 assert isinstance(res, dict)
                 res = Resource(name, res, self.tables)
@@ -228,7 +236,7 @@ class ResourceGroup(object):
                 raise
         self.resources.sort(key=lambda x: x.name)
 
-        self.data = parsed_data
+        self.data = yaml_data
 
     def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
         if filters is None:
@@ -276,11 +284,114 @@ class ResourceGroup(object):
         return new_rg
 
 
+class Downtime(object):
+    def __init__(self, rg: ResourceGroup, yaml_data: Dict):
+        self.rg = rg
+        self.data = yaml_data
+        self.start_time = self._parsetime(yaml_data["StartTime"])
+        self.end_time = self._parsetime(yaml_data["EndTime"])
+
+    @property
+    def timeframe(self) -> Timeframe:
+        current_time = datetime.now(timezone.utc)
+        # ^ not to be confused with datetime.utcnow(), which does not include tz info in the result
+
+        if self.end_time < current_time:
+            return Timeframe.PAST
+        elif self.start_time > current_time:
+            return Timeframe.FUTURE
+        else:
+            return Timeframe.PRESENT
+
+    @property
+    def end_age(self) -> timedelta:
+        current_time = datetime.now(timezone.utc)
+        return self.end_time - current_time
+
+    def get_tree(self, filters: Filters = None) -> MaybeOrderedDict:
+        if filters is None:
+            filters = Filters()
+        if filters.facility_id and self.rg.site.facility.id not in filters.facility_id:
+            return
+        if filters.site_id and self.rg.site.id not in filters.site_id:
+            return
+        if filters.grid_type is not None and self.rg.data["GridType"] != filters.grid_type:
+            return
+        if filters.support_center_id:
+            if int(self.rg.support_center["ID"]) not in filters.support_center_id:
+                return
+        # unlike the other filters, if past_days is not specified, _no_ past downtime is shown
+        if filters.past_days >= 0:
+            if self.end_age.total_seconds() // 86400 < filters.past_days:
+                return
+
+        return self._expand_downtime(filters.service_id)
+
+    def _expand_downtime(self, service_filter=None) -> MaybeOrderedDict:
+        new_downtime = OrderedDict.fromkeys(["ID", "ResourceID", "ResourceGroup", "ResourceName", "ResourceFQDN",
+                                             "StartTime", "EndTime", "Class", "Severity", "CreatedTime", "UpdateTime",
+                                             "Services", "Description"])
+        new_downtime["ResourceGroup"] = OrderedDict([("GroupName", self.rg.name),
+                                                     ("GroupID", self.rg.id)])
+        for r in self.rg.resources:
+            if r.name == self.data["ResourceName"]:
+                new_downtime["ResourceFQDN"] = r.data["FQDN"]
+                new_downtime["ResourceID"] = r.data["ID"]
+                new_downtime["ResourceName"] = r.name
+                services = ensure_list(r.services)
+                break
+        else:
+            # print("Resource %s does not exist" % downtime["ResourceName"], file=sys.stderr)
+            return None
+
+        new_services = []
+        for dts in self.data["Services"]:
+            for s in services:
+                if s["Name"] == dts:
+                    if not service_filter or s["ID"] in service_filter:
+                        new_services.append(OrderedDict([
+                            ("ID", s["ID"]),
+                            ("Name", s["Name"]),
+                            ("Description", s["Description"])
+                        ]))
+                    break
+            else:
+                pass
+
+        if new_services:
+            new_downtime["Services"] = {"Service": new_services}
+        else:
+            return None
+
+        new_downtime["CreatedTime"] = "Not Available"
+        new_downtime["UpdateTime"] = "Not Available"
+
+        for k in ["ID", "StartTime", "EndTime", "Class", "Severity", "Description"]:
+            new_downtime[k] = self.data[k]
+
+        return new_downtime
+
+    @staticmethod
+    def _parsetime(time_str: str) -> datetime:
+        # get rid of stupid times like "00:00 AM" or "17:00 PM"
+        if re.search(r"\s+00:\d\d\s+AM", time_str):
+            time_str = time_str.replace(" AM", "")
+        elif re.search(r"\s+(1[3-9]|2[0-3]):\d\d\s+PM", time_str):
+            time_str = time_str.replace(" PM", "")
+        time = dateparser.parse(time_str)
+        if not time:
+            raise ValueError("Invalid time {0}".format(time_str))
+        if not time.tzinfo:
+            time = time.replace(tzinfo=timezone.utc)
+        return time
+
+
 class Topology(object):
     def __init__(self, tables: Tables):
-        self.past_downtimes = []
-        self.current_downtimes = []
-        self.future_downtimes = []
+        self.downtimes_by_timeframe = {
+            Timeframe.PAST: [],
+            Timeframe.PRESENT: [],
+            Timeframe.FUTURE: []}
         self.tables = tables
         self.facilities = {}
         self.sites = {}
@@ -324,87 +435,24 @@ class Topology(object):
                  "ResourceGroup": rglist}}
 
     def get_downtimes(self, authorized=False, filters: Filters = None) -> Dict:
-        # TODO
+        _ = authorized
         if filters is None:
             filters = Filters()
-        return {"Downtimes":
-                    {"@xsi:schemaLocation": DOWNTIME_SCHEMA_LOCATION,
-                     "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-                     "PastDowntimes": {"Downtime": self.past_downtimes},
-                     "CurrentDowntimes": {"Downtime": self.current_downtimes},
-                     "FutureDowntimes": {"Downtime": self.future_downtimes}}}
 
-    @staticmethod
-    def _parsetime(time_str: str) -> datetime:
-        # get rid of stupid times like "00:00 AM" or "17:00 PM"
-        if re.search(r"\s+00:\d\d\s+AM", time_str):
-            time_str = time_str.replace(" AM", "")
-        elif re.search(r"\s+(1[3-9]|2[0-3]):\d\d\s+PM", time_str):
-            time_str = time_str.replace(" PM", "")
-        time = dateparser.parse(time_str)
-        if not time:
-            raise ValueError("Invalid time {0}".format(time_str))
-        if not time.tzinfo:
-            time = time.replace(tzinfo=timezone.utc)
-        return time
+        tree = {"Downtimes": {"@xsi:schemaLocation": DOWNTIME_SCHEMA_LOCATION,
+                              "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"}}
+
+        for treekey, dtkey in [("PastDowntimes", Timeframe.PAST),
+                               ("CurrentDowntimes", Timeframe.PRESENT),
+                               ("FutureDowntimes", Timeframe.FUTURE)]:
+            dtlist = list(
+                filter(None,
+                       [dt.get_tree(filters) for dt in self.downtimes_by_timeframe[dtkey]]))
+            tree["Downtimes"][treekey] = {
+                "Downtime": dtlist}
+
+        return tree
 
     def add_downtime(self, sitename: str, rgname: str, downtime: Dict):
-        downtime_expanded = self._expand_downtime(self.rgs[(sitename, rgname)], downtime)
-        if downtime_expanded is None:
-            return
-        start_time = self._parsetime(downtime_expanded["StartTime"])
-        end_time = self._parsetime(downtime_expanded["EndTime"])
-        current_time = datetime.now(timezone.utc)
-        # ^ not to be confused with datetime.utcnow(), which does not include tz info in the result
-
-        if end_time < current_time:
-            self.past_downtimes.append(downtime_expanded)
-        elif start_time > current_time:
-            self.future_downtimes.append(downtime_expanded)
-        else:
-            self.current_downtimes.append(downtime_expanded)
-
-    def _expand_downtime(self, rg: ResourceGroup, downtime: Dict) -> Union[OrderedDict, None]:
-        new_downtime = OrderedDict.fromkeys(["ID", "ResourceID", "ResourceGroup", "ResourceName", "ResourceFQDN",
-                                             "StartTime", "EndTime", "Class", "Severity", "CreatedTime", "UpdateTime",
-                                             "Services", "Description"])
-        new_downtime["ResourceGroup"] = OrderedDict([("GroupName", rg.name),
-                                                     ("GroupID", rg.id)])
-        for r in rg.resources:
-            if r.name == downtime["ResourceName"]:
-                new_downtime["ResourceFQDN"] = r.data["FQDN"]
-                new_downtime["ResourceID"] = r.data["ID"]
-                new_downtime["ResourceName"] = r.name
-                services = ensure_list(r.services)
-                break
-        else:
-            # print("Resource %s does not exist" % downtime["ResourceName"], file=sys.stderr)
-            return None
-
-        new_services = []
-        for dts in downtime["Services"]:
-            for s in services:
-                if s["Name"] == dts:
-                    new_services.append(OrderedDict([
-                        ("ID", s["ID"]),
-                        ("Name", s["Name"]),
-                        ("Description", s["Description"])
-                    ]))
-                    break
-            else:
-                # print("Service %s does not exist in resource %s" % (dts, downtime["ResourceName"]), file=sys.stderr)
-                pass
-
-        if new_services:
-            new_downtime["Services"] = {"Service": new_services}
-        else:
-            # print("No existing services listed for downtime; skipping downtime")
-            return None
-
-        new_downtime["CreatedTime"] = "Not Available"
-        new_downtime["UpdateTime"] = "Not Available"
-
-        for k in ["ID", "StartTime", "EndTime", "Class", "Severity", "Description"]:
-            new_downtime[k] = downtime[k]
-
-        return new_downtime
+        dt = Downtime(self.rgs[(sitename, rgname)], downtime)
+        self.downtimes_by_timeframe[dt.timeframe].append(dt)

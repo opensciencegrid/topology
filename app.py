@@ -110,6 +110,12 @@ def get_filters_from_args(args) -> Filters:
             filters.grid_type = GRIDTYPE_2
         else:
             raise InvalidArgumentsError("gridtype_1 or gridtype_2 or both must be \"on\"")
+    if "downtime_attrs_showpast" in args:
+        # doesn't make sense for rgsummary but will be ignored anyway
+        try:
+            filters.past_days = int(args["downtime_attrs_showpast"])
+        except ValueError:
+            raise InvalidArgumentsError("downtime_attrs_showpast must be an integer")
 
     # 2 ways to filter by service: either pass service_1=on, service_2=on, etc.
     # or pass service_sel[]=1, service_sel[]=2, etc. (multiple service_sel[] args).
@@ -181,6 +187,7 @@ def _getContacts():
     """
     
     global _contacts
+    # TODO: periodically update contacts info
     if not _contacts:
         # use local copy if it exists
         if os.path.exists("contacts.yaml"):
