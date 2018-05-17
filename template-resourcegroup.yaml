@@ -9,6 +9,9 @@ SupportCenterName: <NAME>
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
 Resources:
+  # Resource Name should be a short descriptor of the resource.
+  # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
+  # Resource Names need to be unique across all resources in the OSG.
   <RESOURCE NAME>:
     # Active is true if the resource is fully set up, and
     # false otherwise
