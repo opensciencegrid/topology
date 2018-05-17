@@ -9,6 +9,7 @@ import anymarkup
 import os
 import re
 import subprocess
+import sys
 from converters.convertlib import to_xml
 from converters.project_yaml_to_xml import get_projects
 from converters.vo_yaml_to_xml import get_vos
@@ -211,7 +212,7 @@ def _getContacts():
 
                 # I know this should be Popen or similar.  But.. I am unable to make that work.
                 # I suspect it has something to do with the subshell that is being executed
-                git_result = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                git_result = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding="utf-8")
                 if git_result.returncode != 0:
                     # Git command exited with nonzero!
                     print("Git failed:\n" + git_result.stdout, file=sys.stderr)

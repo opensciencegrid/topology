@@ -2,6 +2,7 @@ from collections import OrderedDict
 from typing import Dict, List, Union
 
 import anymarkup
+import xmltodict
 
 def is_null(x, *keys) -> bool:
     for key in keys:
@@ -97,8 +98,4 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
 
 
 def to_xml(data):
-    return anymarkup.serialize(data, "xml").decode("utf-8")
-
-
-def to_xml_file(data, outfile):
-    return anymarkup.serialize_file(data, outfile, "xml")
+    return xmltodict.unparse(data, pretty=True, encoding="utf-8").encode("utf-8", errors="ignore")

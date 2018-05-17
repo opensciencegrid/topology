@@ -10,9 +10,9 @@ from typing import Dict, List, Union
 import dateparser
 
 try:
-    from convertlib import is_null, expand_attr_list_single, expand_attr_list, to_xml, to_xml_file, ensure_list
+    from convertlib import is_null, expand_attr_list_single, expand_attr_list, to_xml, ensure_list
 except ModuleNotFoundError:
-    from .convertlib import is_null, expand_attr_list_single, expand_attr_list, to_xml, to_xml_file, ensure_list
+    from .convertlib import is_null, expand_attr_list_single, expand_attr_list, to_xml, ensure_list
 
 RG_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 DOWNTIME_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
