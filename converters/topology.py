@@ -18,19 +18,25 @@ except ModuleNotFoundError:
 RG_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 DOWNTIME_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
 
+GRIDTYPE_1 = "OSG Production Resource"
+GRIDTYPE_2 = "OSG Integration Test Bed Resource"
+
+MaybeOrderedDict = Union[None, OrderedDict]
+
 
 class Filters(object):
     def __init__(self, facility_id: List[int] = None, site_id: List[int] = None,
                  support_center_id: List[int] = None,
-                 service_id: List[int] = None, grid_type: List[int] = None):
+                 service_id: List[int] = None, grid_type: List[int] = None,
+                 active: List[bool] = None, disable: List[bool] = None):
+
         self.facility_id = ensure_list(facility_id)
         self.site_id = ensure_list(site_id)
         self.support_center_id = ensure_list(support_center_id)
         self.service_id = ensure_list(service_id)
         self.grid_type = ensure_list(grid_type)
-
-
-EMPTY_FILTER = Filters()
+        self.active = ensure_list(active)
+        self.disable = ensure_list(disable)
 
 
 class TopologyError(Exception): pass
@@ -76,21 +82,28 @@ class Resource(object):
             self.services = []
         self.data = parsed_data
 
-    def get_tree(self, authorized=True, filters: Filters = EMPTY_FILTER) -> OrderedDict:
+    def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
+        if filters is None:
+            filters = Filters()
+
         defaults = {
             "ContactLists": None,
             "FQDNAliases": None,
-            "Services": "no applicable service exists",
             "VOOwnership": "(Information not available)",
             "WLCGInformation": "(Information not available)",
         }
 
         res = dict(self.data)
 
+        if filters.active and res["Active"] not in filters.active:
+            return
+        if filters.disable and res["Disable"] not in filters.disable:
+            return
+
         if filters.service_id:
             filtered_services = [svc for svc in self.services if svc["ID"] in filters.service_id]
             if not filtered_services:
-                return OrderedDict()  # all services filtered out
+                return  # all services filtered out
             res["Services"] = {"Service": filtered_services}
         else:
             res["Services"] = {"Service": self.services}
@@ -104,6 +117,7 @@ class Resource(object):
         res["Name"] = self.name
         if "WLCGInformation" in res and isinstance(res["WLCGInformation"], dict):
             res["WLCGInformation"] = self._expand_wlcginformation(res["WLCGInformation"])
+
         new_res = OrderedDict()
         for elem in ["ID", "Name", "Active", "Disable", "Services", "Description", "FQDN", "FQDNAliases", "VOOwnership",
                      "WLCGInformation", "ContactLists"]:
@@ -198,8 +212,11 @@ class ResourceGroup(object):
         self.name = name
         self.site = site
         self.service_types = tables.service_types
-        self.support_centers = tables.support_centers
         self.tables = tables
+
+        scname = parsed_data["SupportCenter"]
+        scid = tables.support_centers[scname]
+        self.support_center = OrderedDict([("ID", scid), ("Name", scname)])
 
         self.resources = []
         for name, res in parsed_data["Resources"].items():
@@ -214,10 +231,27 @@ class ResourceGroup(object):
 
         self.data = parsed_data
 
-    def get_tree(self, authorized=True, filters: Filters = EMPTY_FILTER) -> OrderedDict:
+    def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
+        if filters is None:
+            filters = Filters()
+        if filters.facility_id and self.site.facility.id not in filters.facility_id:
+            return
+        if filters.site_id and self.site.id not in filters.site_id:
+            return
+        if filters.grid_type:
+            if self.data["GridType"] == GRIDTYPE_1 and 1 not in filters.grid_type:
+                return
+            elif self.data["GridType"] == GRIDTYPE_2 and 2 not in filters.grid_type:
+                return
+        if filters.support_center_id:
+            if int(self.support_center["ID"]) not in filters.support_center_id:
+                return
+
+        filtered_resources = list(filter(None, [x.get_tree(authorized, filters) for x in self.resources]))
+        if not filtered_resources:
+            return  # all resources filtered out
         filtered_data = self._expand_rg()
-        filtered_data["Resources"] = {}
-        filtered_data["Resources"]["Resource"] = filter(None, [x.get_tree(authorized, filters) for x in self.resources])
+        filtered_data["Resources"] = {"Resource": filtered_resources}
         return filtered_data
 
     @property
@@ -243,9 +277,7 @@ class ResourceGroup(object):
         rg["Facility"] = self.site.facility.get_tree()
         rg["Site"] = self.site.get_tree()
         rg["GroupName"] = self.name
-
-        scname, scid = rg["SupportCenter"], self.support_centers[rg["SupportCenter"]]
-        rg["SupportCenter"] = OrderedDict([("ID", scid), ("Name", scname)])
+        rg["SupportCenter"] = self.support_center
 
         new_rg = OrderedDict()
 
@@ -289,12 +321,16 @@ class Topology(object):
             raise TopologyError("Duplicate site %s" % name)
         self.sites[name] = Site(name, id, self.facilities[facility_name])
 
-    def get_resource_summary(self, authorized=True) -> Dict:
+    def get_resource_summary(self, authorized=False, filters: Filters = None) -> Dict:
+        if filters is None:
+            filters = Filters()
         rglist = []
         for rgkey in sorted(self.rgs.keys(), key=lambda x: x[1].lower()):
             rgval = self.rgs[rgkey]
             assert isinstance(rgval, ResourceGroup)
-            rglist.append(rgval.get_tree(authorized))
+            rgtree = rgval.get_tree(authorized, filters)
+            if rgtree:
+                rglist.append(rgtree)
         return {"ResourceSummary":
                 {"@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
                  "@xsi:schemaLocation": RG_SCHEMA_LOCATION,
