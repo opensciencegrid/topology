@@ -1,19 +1,24 @@
 import copy
 
 
-
 import flask
 from flask import Flask, Response, request
 import configparser
 import tempfile
 import anymarkup
 import os
+import re
 import subprocess
-import shlex
 from converters.convertlib import to_xml, ensure_list, is_null
 from converters.project_yaml_to_xml import get_projects
 from converters.vo_yaml_to_xml import get_vos
 from converters.resourcegroup_yaml_to_xml import get_topology
+from converters.topology import Filters, GRIDTYPE_1, GRIDTYPE_2
+
+
+class InvalidArgumentsError(Exception): pass
+
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -74,77 +79,100 @@ def voinfo():
     vos_xml = to_xml(vos)
     return Response(vos_xml, mimetype='text/xml')
 
+
+
+
+def get_filters_from_args(args) -> Filters:
+    filters = Filters()
+    if "active" in args:
+        active_value = args.get("active_value", "")
+        if active_value == "0":
+            filters.active = False
+        elif active_value == "1":
+            filters.active = True
+        else:
+            raise InvalidArgumentsError("active_value must be 0 or 1")
+    if "disable" in args:
+        disable_value = args.get("disable_value", "")
+        if disable_value == "0":
+            filters.disable = False
+        elif disable_value == "1":
+            filters.disable = True
+        else:
+            raise InvalidArgumentsError("disable_value must be 0 or 1")
+    if "gridtype" in args:
+        gridtype_1, gridtype_2 = args.get("gridtype_1", ""), args.get("gridtype_2", "")
+        if gridtype_1 == "on" and gridtype_2 == "on":
+            pass
+        elif gridtype_1 == "on":
+            filters.grid_type = GRIDTYPE_1
+        elif gridtype_2 == "on":
+            filters.grid_type = GRIDTYPE_2
+        else:
+            raise InvalidArgumentsError("gridtype_1 or gridtype_2 or both must be \"on\"")
+
+    # 2 ways to filter by service: either pass service_1=on, service_2=on, etc.
+    # or pass service_sel[]=1, service_sel[]=2, etc. (multiple service_sel[] args).
+    # Same for facility, sc, and site
+    for filter_name, filter_list, description in [
+        ("facility", filters.facility_id, "facility ID"),
+        ("service", filters.service_id, "service ID"),
+        ("sc", filters.support_center_id, "support center ID"),
+        ("site", filters.site_id, "site ID"),
+    ]:
+        if filter_name in args:
+            pat = re.compile(r"{0}_(\d+)".format(filter_name))
+            arg_sel = "{0}_sel[]".format(filter_name)
+            for k, v in args.items():
+                if k == arg_sel:
+                    try:
+                        filter_list.append(int(v))
+                    except ValueError:
+                        raise InvalidArgumentsError("{0}={1}: must be int".format(k,v))
+                elif pat.match(k):
+                    m = pat.match(k)
+                    filter_list.append(int(m.group(1)))
+            if not filter_list:
+                raise InvalidArgumentsError("at least one {0} must be specified".format(description))
+
+    return filters
+
+
 @app.route('/rgsummary/xml')
 def resources():
-    authorized = False
-    # Ok, print the contacts
-    contacts = _getContacts()
+    try:
+        filters = get_filters_from_args(request.args)
+    except InvalidArgumentsError as e:
+        return Response("Invalid arguments: " + str(e), status=400)
 
+    authorized = False
     if 'GRST_CRED_AURI_0' in request.environ:
         # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
         # Gridsite already made sure it matches something in the CA distribution
         authorized = True
 
-        # match the contacts data structure with the resource group
-        # TODO: Mat
-
-    global _topology
-    if not _topology:
-        _topology = get_topology("topology", contacts)
-    # rgsummary = copy.deepcopy(_rgsummary)
-    # rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
-    # args = flask.request.args
-    # if "active" in args:
-    #     active_value = args.get("active_value", "")
-    #     if active_value == "0":
-    #         for rg in rgs:
-    #             rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if not r["Active"]]
-    #     elif active_value == "1":
-    #         for rg in rgs:
-    #             rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if r["Active"]]
-    #     else:
-    #         return Response("Invalid arguments: active_value must be 0 or 1", status=400)
-    # if "disable" in args:
-    #     disable_value = args.get("disable_value", "")
-    #     if disable_value == "0":
-    #         for rg in rgs:
-    #             rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if not r["Disable"]]
-    #     elif disable_value == "1":
-    #         for rg in rgs:
-    #             rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if r["Disable"]]
-    #     else:
-    #         return Response("Invalid arguments: disable_value must be 0 or 1", status=400)
-    #
-    # if "gridtype" in args:
-    #     gridtype_1, gridtype_2 = args.get("gridtype_1", ""), args.get("gridtype_2", "")
-    #     if gridtype_1 == "on" and gridtype_2 == "on":
-    #         pass
-    #     elif gridtype_1 == "on":
-    #         rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in rgs if
-    #                                                          rg["GridType"] == "OSG Production Resource"]
-    #     elif gridtype_2 == "on":
-    #         rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in rgs if
-    #                                                          rg["GridType"] == "OSG Integration Test Bed Resource"]
-    #     else:
-    #         # invalid arguments: no RGs for you!
-    #         return Response("Invalid arguments: gridtype_1 or gridtype_2 or both must be \"on\"", status=400)
-    #
-    # # Drop RGs with no resources
-    # new_rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
-    # rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in new_rgs if not is_null(rg, "Resources", "Resource")]
-    rgsummary = _topology.get_resource_summary(authorized=authorized)
+    rgsummary = _getTopology().get_resource_summary(authorized=authorized, filters=filters)
     rgsummary_xml = to_xml(rgsummary)
     return Response(rgsummary_xml, mimetype='text/xml')
 
+
 @app.route('/rgdowntime/xml')
 def downtime():
-    global _topology
-    if not _topology:
-        _topology = get_topology()
-    rgdowntime = _topology.get_downtimes()
-    # TODO Filter
+    try:
+        filters = get_filters_from_args(request.args)
+    except InvalidArgumentsError as e:
+        return Response("Invalid arguments: " + str(e), status=400)
+
+    authorized = False
+    if 'GRST_CRED_AURI_0' in request.environ:
+        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
+        # Gridsite already made sure it matches something in the CA distribution
+        authorized = True
+
+    rgdowntime = _getTopology().get_downtimes(authorized=authorized, filters=filters)
     rgdowntime_xml = to_xml(rgdowntime)
     return Response(rgdowntime_xml, mimetype='text/xml')
+
 
 def _getContacts():
     """
@@ -177,6 +205,16 @@ def _getContacts():
                 _contacts = anymarkup.parse_file(os.path.join(tmp_dir, 'contacts.yaml'))
 
     return _contacts
+
+
+def _getTopology():
+    contacts = _getContacts()
+    global _topology
+    if not _topology:
+        _topology = get_topology("topology", contacts)
+
+    return _topology
+
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)

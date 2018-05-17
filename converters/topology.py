@@ -27,16 +27,16 @@ MaybeOrderedDict = Union[None, OrderedDict]
 class Filters(object):
     def __init__(self, facility_id: List[int] = None, site_id: List[int] = None,
                  support_center_id: List[int] = None,
-                 service_id: List[int] = None, grid_type: List[int] = None,
-                 active: List[bool] = None, disable: List[bool] = None):
+                 service_id: List[int] = None, grid_type: str = None,
+                 active: bool = None, disable: bool = None):
 
         self.facility_id = ensure_list(facility_id)
         self.site_id = ensure_list(site_id)
         self.support_center_id = ensure_list(support_center_id)
         self.service_id = ensure_list(service_id)
-        self.grid_type = ensure_list(grid_type)
-        self.active = ensure_list(active)
-        self.disable = ensure_list(disable)
+        self.grid_type = grid_type
+        self.active = active
+        self.disable = disable
 
 
 class TopologyError(Exception): pass
@@ -95,9 +95,9 @@ class Resource(object):
 
         res = dict(self.data)
 
-        if filters.active and res["Active"] not in filters.active:
+        if filters.active is not None and res["Active"] != filters.active:
             return
-        if filters.disable and res["Disable"] not in filters.disable:
+        if filters.disable is not None and res["Disable"] != filters.disable:
             return
 
         if filters.service_id:
@@ -238,11 +238,8 @@ class ResourceGroup(object):
             return
         if filters.site_id and self.site.id not in filters.site_id:
             return
-        if filters.grid_type:
-            if self.data["GridType"] == GRIDTYPE_1 and 1 not in filters.grid_type:
-                return
-            elif self.data["GridType"] == GRIDTYPE_2 and 2 not in filters.grid_type:
-                return
+        if filters.grid_type is not None and self.data["GridType"] != filters.grid_type:
+            return
         if filters.support_center_id:
             if int(self.support_center["ID"]) not in filters.support_center_id:
                 return
@@ -336,7 +333,10 @@ class Topology(object):
                  "@xsi:schemaLocation": RG_SCHEMA_LOCATION,
                  "ResourceGroup": rglist}}
 
-    def get_downtimes(self) -> Dict:
+    def get_downtimes(self, authorized=False, filters: Filters = None) -> Dict:
+        # TODO
+        if filters is None:
+            filters = Filters()
         return {"Downtimes":
                     {"@xsi:schemaLocation": DOWNTIME_SCHEMA_LOCATION,
                      "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
