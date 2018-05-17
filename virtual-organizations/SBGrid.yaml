@@ -11,21 +11,31 @@ Community: Structural biology focuses primarily on the study of molecular struct
   algorithms for protein folding, docking, structure determination, and dynamics.
 Contacts:
   Administrative Contact:
-  - Piotr Sliz
-  - Michael (Mick) Timony
+  - ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
+    Name: Piotr Sliz
+  - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
+    Name: Michael (Mick) Timony
   Miscellaneous Contact:
-  - Piotr Sliz
-  - Michael (Mick) Timony
-  - Peter Meyer
+  - ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
+    Name: Piotr Sliz
+  - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
+    Name: Michael (Mick) Timony
+  - ID: d5ebc623588d1696614076faf0257d83806891a2
+    Name: Peter Meyer
   Registration Authority:
-  - Michael (Mick) Timony
-  - Michelle Ottaviano
+  - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
+    Name: Michael (Mick) Timony
+  - ID: 589c29d386da475eb7115c7e333346ae8f5db6f7
+    Name: Michelle Ottaviano
   Security Contact:
-  - Michael (Mick) Timony
+  - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
+    Name: Michael (Mick) Timony
   Submitter Contact:
-  - Piotr Sliz
+  - ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
+    Name: Piotr Sliz
   VO Manager:
-  - Michael (Mick) Timony
+  - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
+    Name: Michael (Mick) Timony
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -46,7 +56,6 @@ Name: SBGrid
 OASIS:
   Managers:
     Michael (Mick) Timony:
-      ContactID: 888
       DNs:
       - /DC=org/DC=doegrids/OU=People/CN=Michael Timony 230546
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Michael Timony 888
@@ -57,9 +66,10 @@ OASIS:
         Timony 888
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Michael Timony
         (Portal) 888
+      ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
     Peter Meyer:
-      ContactID: 2982
       DNs: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Peter Meyer 2982
+      ID: d5ebc623588d1696614076faf0257d83806891a2
   UseOASIS: true
 PrimaryURL: https://portal.sbgrid.org/
 PurposeURL: http://portal.sbgrid.org/contact/about

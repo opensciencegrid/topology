@@ -4,13 +4,17 @@ CertificateOnly: true
 Community: This VO is for people doing ILC detector and accelerator simulation.
 Contacts:
   Miscellaneous Contact:
-  - Lynn Garren
+  - ID: 848367d300cbdf6ae1c61ef86594ce7b642f2984
+    Name: Lynn Garren
   Registration Authority:
-  - Jan Strube
+  - ID: cabf79676b207b3f4859d5a2ac67698802bb8d7d
+    Name: Jan Strube
   Security Contact:
-  - Lynn Garren
+  - ID: 848367d300cbdf6ae1c61ef86594ce7b642f2984
+    Name: Lynn Garren
   Submitter Contact:
-  - Lynn Garren
+  - ID: 848367d300cbdf6ae1c61ef86594ce7b642f2984
+    Name: Lynn Garren
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -24,19 +28,19 @@ Name: ILC
 OASIS:
   Managers:
     Andre Philippe Sailer:
-      ContactID: 2805
       DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=sailer/CN=683529/CN=Andre Sailer
+      ID: ee4849a97f735597bed71dff0b7866d90065a5f3
     Dorian Kcira:
-      ContactID: 589
       DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=dkcira/CN=655958/CN=Dorian
         Kcira
+      ID: 1fd41017c89ee21ca274634207ddb71cf35518af
     Scott Teige:
-      ContactID: 652
       DNs:
       - /DC=org/DC=doegrids/OU=People/CN=Scott Teige 689374
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Scott Teige 652
       - /DC=org/DC=cilogon/C=US/O=Indiana University/CN=Scott Teige A7052
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Scott Teige 1
+      ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
   OASISRepoURLs:
   - http://grid-cvmfs-null.desy.de:8000/cvmfs/ilc.desy.de
   UseOASIS: true

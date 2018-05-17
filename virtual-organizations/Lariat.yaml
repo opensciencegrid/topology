@@ -6,15 +6,21 @@ CertificateOnly: false
 Community: Members of the Lariat experiment.
 Contacts:
   Administrative Contact:
-  - Joe Boyd
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
   Miscellaneous Contact:
-  - Steve Timm
-  - Joe Boyd
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
   Submitter Contact:
-  - Karen Shepelak
+  - ID: fc0b69a4e4de74224d1c262c626776185892cd14
+    Name: Karen Shepelak
   VO Manager:
-  - Gabriele Garzoglio
-  - Joe Boyd
+  - ID: 81b1a18848c9e41c87ee7104aac70b5fcf0c2176
+    Name: Gabriele Garzoglio
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -26,11 +32,11 @@ Name: Lariat
 OASIS:
   Managers:
     Joe Boyd:
-      ContactID: 579
       DNs:
       - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
+      ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
   OASISRepoURLs:
   - http://oasiscfs.fnal.gov:8000/cvmfs/lariat.opensciencegrid.org
   UseOASIS: true
