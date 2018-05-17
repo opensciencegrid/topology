@@ -1,7 +1,5 @@
-from collections import OrderedDict, namedtuple
-import copy
+from collections import OrderedDict
 from datetime import datetime, timezone
-import enum
 import pprint
 import re
 import urllib.parse
@@ -145,10 +143,10 @@ class Resource(object):
             chl = ""
 
             for name, percent in ownership:
-                chd += "%s," % percent
+                chd += "{0},".format(percent)
                 if name == "(Other)":
                     name = "Other"
-                chl += "%s(%s%%)|" % (percent, name)
+                chl += "{0}({1}%)|".format(percent, name)
             chd = chd.rstrip(",")
             chl = chl.rstrip("|")
 
@@ -159,7 +157,7 @@ class Resource(object):
                 "chs": "280x65",
                 "chl": chl
             })
-            return "http://chart.apis.google.com/chart?%s" % query
+            return "http://chart.apis.google.com/chart?" + query
 
         voo = voownership.copy()
         totalpercent = sum(voo.values())
@@ -206,6 +204,7 @@ class Resource(object):
             elif elem in defaults:
                 new_wlcg[elem] = defaults[elem]
         return new_wlcg
+
 
 class ResourceGroup(object):
     def __init__(self, name: str, parsed_data: Dict, site: Site, tables: Tables):
@@ -260,15 +259,6 @@ class ResourceGroup(object):
         return (self.site.name, self.name)
 
     def _expand_rg(self) -> OrderedDict:
-        """Expand a single ResourceGroup from the format in a yaml file to the xml format.
-
-        {"SupportCenterName": ...} and {"SupportCenterID": ...} are turned into
-        {"SupportCenter": {"Name": ...}, {"ID": ...}} and each individual Resource is expanded and collected in a
-        <Resources> block.
-
-        Return the data structure for the expanded ResourceGroup, as an OrderedDict,
-        with the ordering to fit the xml schema for rgsummary.
-        """
         rg = dict(self.data)  # copy
 
         rg["Facility"] = self.site.facility.get_tree()
@@ -299,23 +289,23 @@ class Topology(object):
 
     def add_rg(self, facility_name, site_name, name, parsed_data):
         if facility_name not in self.facilities:
-            raise TopologyError("Unknown facility %s -- call add_facility first" % facility_name)
+            raise TopologyError("Unknown facility {0} -- call add_facility first".format(facility_name))
         if site_name not in self.sites:
-            raise TopologyError("Unknown site %s in facility %s -- call add_site first" % (site_name, facility_name))
+            raise TopologyError("Unknown site {0} in facility {1} -- call add_site first".format(site_name, facility_name))
         if (site_name, name) in self.rgs:
-            raise TopologyError("Duplicate RG %s in site %s" % (name, site_name))
+            raise TopologyError("Duplicate RG {0} in site {1}".format(name, site_name))
         self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.tables)
 
     def add_facility(self, name, id):
         if name in self.facilities:
-            raise TopologyError("Duplicate facility %s" % name)
+            raise TopologyError("Duplicate facility " + name)
         self.facilities[name] = Facility(name, id)
 
     def add_site(self, facility_name, name, id):
         if facility_name not in self.facilities:
-            raise TopologyError("Unknown facility %s -- call add_facility first" % facility_name)
+            raise TopologyError("Unknown facility {0} -- call add_facility first".format(facility_name))
         if name in self.sites:
-            raise TopologyError("Duplicate site %s" % name)
+            raise TopologyError("Duplicate site " + name)
         self.sites[name] = Site(name, id, self.facilities[facility_name])
 
     def get_resource_summary(self, authorized=False, filters: Filters = None) -> Dict:
@@ -353,7 +343,7 @@ class Topology(object):
             time_str = time_str.replace(" PM", "")
         time = dateparser.parse(time_str)
         if not time:
-            raise ValueError("Invalid time %s" % time_str)
+            raise ValueError("Invalid time {0}".format(time_str))
         if not time.tzinfo:
             time = time.replace(tzinfo=timezone.utc)
         return time
@@ -418,5 +408,3 @@ class Topology(object):
             new_downtime[k] = downtime[k]
 
         return new_downtime
-
-

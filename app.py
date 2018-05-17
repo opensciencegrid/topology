@@ -9,7 +9,7 @@ import anymarkup
 import os
 import re
 import subprocess
-from converters.convertlib import to_xml, ensure_list, is_null
+from converters.convertlib import to_xml
 from converters.project_yaml_to_xml import get_projects
 from converters.vo_yaml_to_xml import get_vos
 from converters.resourcegroup_yaml_to_xml import get_topology
