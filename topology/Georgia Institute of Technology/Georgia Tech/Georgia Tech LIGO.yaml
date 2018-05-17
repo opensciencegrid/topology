@@ -1,5 +1,7 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Submit-side resources dedicated to serving the local LIGO group
+  @ Georgia Tech.
 GroupID: 424
 Resources:
   Georgia_Tech_LIGO_Submit_1:
@@ -37,6 +39,7 @@ Resources:
         Primary:
           ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
           Name: Peter Couvares
+    Description: Georgia Tech submit node for LIGO.
     Disable: false
     FQDN: ligo-6.pace.gatech.edu
     ID: 736

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Production resources of CIGI VO
 GroupID: 244
 Resources:
   CIGI-VOMS:
@@ -21,6 +22,7 @@ Resources:
         Primary:
           ID: f8f288e7f10d6cec4ea77c35484d3cee55b0f6a4
           Name: Anand Padmanabhan
+    Description: VOMS server for CIGI VO
     Disable: false
     FQDN: voms.cigi.uiuc.edu
     ID: 267

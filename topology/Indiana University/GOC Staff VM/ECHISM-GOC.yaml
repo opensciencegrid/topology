@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: Services hosted by Elizabeth's VMs
 GroupID: 352
 Resources:
   ECE:
@@ -25,6 +26,8 @@ Resources:
         Primary:
           ID: 8350a764268bd8a041059caaccad8f029720f212
           Name: Elizabeth Prout
+    Description: Elizabeth's Compute Element for testing and troubleshooting. Only
+      supports MIS VO, but manual mappings can be added upon request if appropriate.
     Disable: false
     FQDN: echism.grid.iu.edu
     ID: 479
@@ -58,6 +61,7 @@ Resources:
         Primary:
           ID: 8350a764268bd8a041059caaccad8f029720f212
           Name: Elizabeth Prout
+    Description: this is a test pbs CE
     Disable: false
     FQDN: ece2.grid.iu.edu
     ID: 536
@@ -90,6 +94,7 @@ Resources:
         Primary:
           ID: 8350a764268bd8a041059caaccad8f029720f212
           Name: Elizabeth Prout
+    Description: test sge resource
     Disable: false
     FQDN: ece3.grid.iu.edu
     ID: 556

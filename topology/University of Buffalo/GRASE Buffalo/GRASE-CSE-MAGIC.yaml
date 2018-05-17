@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: https://ticket.opensciencegrid.org/24224
 GroupID: 222
 Resources:
   GRASE-CSE-MAGIC:
@@ -25,6 +26,7 @@ Resources:
         Primary:
           ID: 5aafc9af56cc8789093c310c75a9564d2c72caf6
           Name: Jon Bednasz
+    Description: GRASE resource
     Disable: true
     FQDN: magic.cse.buffalo.edu
     ID: 220

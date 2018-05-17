@@ -1,9 +1,11 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: UCI ATLAS Tier-3
 GroupID: 287
 Resources:
   UCI_ATLAS_GRIDFTP:
     Active: true
+    Description: UCI gridftp
     Disable: false
     FQDN: gpatlas2.ps.uci.edu
     ID: 441
@@ -49,6 +51,8 @@ Resources:
         Primary:
           ID: a89087e73b4e9d1732c5a7112332688940f06440
           Name: Edgar Mauricio Fajardo Hernandez
+    Description: LHC @ UC glidein scheduler submit host. This host is hosted at UCI
+      and managed via puppet at UCSD.
     Disable: false
     FQDN: uclhc-1.ps.uci.edu
     ID: 778

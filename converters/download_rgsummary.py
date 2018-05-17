@@ -25,6 +25,7 @@ params = {
     "summary_attrs_showcontact": "1",
     "summary_attrs_showfqdn": "1",
     "summary_attrs_showhierarchy": "1",  # <- shows facility & site info
+    "summary_attrs_showdesc": "1",  # <- shows description
 
     # "summary_attrs_showticket": "1",  # <- shows open GOC tickets
 }

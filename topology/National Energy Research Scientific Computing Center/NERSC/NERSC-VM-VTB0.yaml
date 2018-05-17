@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: (No resource group description)
 GroupID: 77
 Resources:
   NERSC-VM-VTB0:
@@ -34,6 +35,9 @@ Resources:
         Primary:
           ID: 41ca5de13b2c0475060d6bc2847d8baa6cd0cbba
           Name: Iwona Sakrejda
+    Description: |-
+      It is a testbed system on a virtual resource. Testing deployments of a gatekeepers.
+      Accessible only from NERSC systems. Often re-installed.
     Disable: false
     FQDN: osp-vtb00.nersc.gov
     ID: 77

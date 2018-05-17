@@ -1,5 +1,7 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: These resources are used and managed by the greater Caltech High
+  Energy Physics department.
 GroupID: 292
 Resources:
   CIT_HEP_SE:
@@ -28,6 +30,7 @@ Resources:
         Primary:
           ID: 646d38b93b70c6322c555a70f3bc69c6cbc5a9eb
           Name: Michael Thomas
+    Description: SRM server for the superbvo.org vo
     Disable: true
     FQDN: osg-se.hep.caltech.edu
     ID: 367

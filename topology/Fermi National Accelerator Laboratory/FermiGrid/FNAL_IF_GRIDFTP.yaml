@@ -1,5 +1,7 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: A collection of GridFTP servers for the Intensity Frontier experiments
+  at Fermilab, all of which report to Gratia.
 GroupID: 368
 Resources:
   FNAL_IF_GRIDFTP_NOVA:
@@ -23,6 +25,7 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: This is a gridftp server for the NOVA experiment at Fermilab
     Disable: true
     FQDN: if-gridftp-nova.fnal.gov
     ID: 541

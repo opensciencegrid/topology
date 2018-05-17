@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: CMS Tier3 at The Ohio State University
 GroupID: 237
 Resources:
   T3_US_OSU:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: bec4a561ac3125b30f7b56f8216482e785fd0cbc
           Name: Grayson Laurent Williams
+    Description: This is the Ohio State Tier3.
     Disable: true
     FQDN: cmshead.mps.ohio-state.edu
     ID: 419
@@ -62,6 +64,8 @@ Resources:
         Primary:
           ID: ee9066802b88d34c2905a9e0cd2016118aa72dbf
           Name: Grayson Williams
+    Description: Tier-3 computing center. Priority given to local users, but opportunistic
+      use by CMS VO allowed.
     Disable: false
     FQDN: cms-0.mps.ohio-state.edu
     ID: 244

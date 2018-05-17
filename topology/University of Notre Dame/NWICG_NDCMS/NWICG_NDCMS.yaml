@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: NWICG_NDCMS
 GroupID: 78
 Resources:
   NWICG_NDCCL:
@@ -21,6 +22,9 @@ Resources:
         Primary:
           ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
           Name: In-Saeng Suh
+    Description: |-
+      The FQDN was changed from "condor.hpcc.nd.edu" to
+      "condor.crc.nd.edu"
     Disable: true
     FQDN: condor.crc.nd.edu
     ID: 78
@@ -65,6 +69,7 @@ Resources:
         Primary:
           ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
           Name: In-Saeng Suh
+    Description: For the CMS Tier 3 site at Notre Dame.
     Disable: false
     FQDN: deepthought.crc.nd.edu
     ID: 264

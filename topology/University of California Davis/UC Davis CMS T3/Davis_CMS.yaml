@@ -1,9 +1,11 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: Rob confirmed to Arvind this resource is de-activated. 2008-06-06
 GroupID: 15
 Resources:
   Davis_CMS:
     Active: false
+    Description: Rob confirmed to Arvind this resource is de-activated. 2008-06-06
     Disable: true
     FQDN: cms.physics.ucdavis.edu
     ID: 15
@@ -25,6 +27,8 @@ Resources:
         Primary:
           ID: 67012139a03cbea5ab5111e07b25fa667051e18e
           Name: Teresa Knight
+    Description: Configuring a backup SE hadoop node (and secondary name node) before
+      upgrading to OSG 3.3 as hadoop is affected by the upgrade.
     Disable: false
     FQDN: se2.tier3.ucdavis.edu
     ID: 767

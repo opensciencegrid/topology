@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Purdue Halstead
 GroupID: 461
 Resources:
   Purdue-Halstead:
@@ -31,6 +32,9 @@ Resources:
         Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
+    Description: |-
+      Computing element for Purdue Halstead cluster.
+      https://www.rcac.purdue.edu/compute/halstead/
     Disable: false
     FQDN: halstead-osg.rcac.purdue.edu
     ID: 857

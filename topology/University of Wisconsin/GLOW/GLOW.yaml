@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 24
 Resources:
   GLOW:
@@ -30,6 +31,7 @@ Resources:
         Primary:
           ID: 210d07bf782db9938049eaf11820ec908fdda3b5
           Name: Daniel Bradley
+    Description: US CMS Tier-2 site at Wisconsin
     Disable: false
     FQDN: cmsgrid01.hep.wisc.edu
     ID: 24
@@ -81,6 +83,7 @@ Resources:
         Primary:
           ID: 210d07bf782db9938049eaf11820ec908fdda3b5
           Name: Daniel Bradley
+    Description: US CMS Tier-2 sites at Wisconsin. Another CONDOR CE.
     Disable: false
     FQDN: cmsgrid02.hep.wisc.edu
     ID: 26
@@ -139,6 +142,7 @@ Resources:
         Primary:
           ID: 210d07bf782db9938049eaf11820ec908fdda3b5
           Name: Daniel Bradley
+    Description: US CMS Tier-2 site at Wisconsin
     Disable: false
     FQDN: cmssrm.hep.wisc.edu
     ID: 27
@@ -191,6 +195,7 @@ Resources:
         Primary:
           ID: 81f1ed1fc89dbcb985364a7da00107eb90b05098
           Name: Tapas Sarangi
+    Description: This is a CONDOR-CE for site T2_US_Wisconsin serving CMS.
     Disable: false
     FQDN: cmsgrid03.hep.wisc.edu
     ID: 644
@@ -242,6 +247,7 @@ Resources:
         Primary:
           ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
           Name: AJIT MOHAPATRA
+    Description: CE for all OSG VOs.
     Disable: false
     FQDN: osggrid01.hep.wisc.edu
     ID: 361
@@ -267,6 +273,7 @@ Resources:
         Primary:
           ID: 81f1ed1fc89dbcb985364a7da00107eb90b05098
           Name: Tapas Sarangi
+    Description: Squid Servers RR alias
     Disable: false
     FQDN: frontier.hep.wisc.edu
     ID: 678
@@ -306,6 +313,7 @@ Resources:
         Primary:
           ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
           Name: Will Maier
+    Description: GLOw submit machine.
     Disable: false
     FQDN: login01.hep.wisc.edu
     ID: 319
@@ -358,6 +366,7 @@ Resources:
         Primary:
           ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
           Name: Will Maier
+    Description: GLOW submit machine.
     Disable: false
     FQDN: login02.hep.wisc.edu
     ID: 320
@@ -410,6 +419,7 @@ Resources:
         Primary:
           ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
           Name: Will Maier
+    Description: GLOW submit machine.
     Disable: false
     FQDN: login03.hep.wisc.edu
     ID: 321
@@ -472,6 +482,7 @@ Resources:
         Primary:
           ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
           Name: Will Maier
+    Description: GLOW submit machine.
     Disable: false
     FQDN: login04.hep.wisc.edu
     ID: 322
@@ -522,6 +533,7 @@ Resources:
         Primary:
           ID: 210d07bf782db9938049eaf11820ec908fdda3b5
           Name: Daniel Bradley
+    Description: HTCondor submit node, mostly used by CMS.
     Disable: false
     FQDN: login05.hep.wisc.edu
     ID: 848
@@ -576,6 +588,7 @@ Resources:
         Primary:
           ID: 210d07bf782db9938049eaf11820ec908fdda3b5
           Name: Daniel Bradley
+    Description: HTCondor submit node, mostly used by CMS.
     Disable: false
     FQDN: login06.hep.wisc.edu
     ID: 849
@@ -629,6 +642,7 @@ Resources:
         Primary:
           ID: 210d07bf782db9938049eaf11820ec908fdda3b5
           Name: Daniel Bradley
+    Description: This is a condor submit node used by the Wisconsin CMS group at CERN.
     Disable: false
     FQDN: uwlogin.cern.ch
     ID: 856
@@ -679,6 +693,7 @@ Resources:
         Primary:
           ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
           Name: Julio C. Goez
+    Description: This is a gatekeeper visible to the grid
     Disable: true
     FQDN: piranha.ie.lehigh.edu
     ID: 330
@@ -718,6 +733,7 @@ Resources:
         Primary:
           ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
           Name: AJIT MOHAPATRA
+    Description: T2_US_Wisconsin perfSonar bandwidth node
     Disable: false
     FQDN: perfsonar02.hep.wisc.edu
     ID: 506
@@ -759,6 +775,7 @@ Resources:
         Primary:
           ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
           Name: AJIT MOHAPATRA
+    Description: T2_US_Wisconsin perfSonar latency node
     Disable: false
     FQDN: perfsonar01.hep.wisc.edu
     ID: 507

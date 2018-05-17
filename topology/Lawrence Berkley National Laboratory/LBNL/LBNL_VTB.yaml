@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: (No resource group description)
 GroupID: 59
 Resources:
   LBNL_VTB:
@@ -25,6 +26,7 @@ Resources:
         Primary:
           ID: c3d417180e9c3738a32032eda0b9cf1252288870
           Name: Jeff Porter
+    Description: very small VTB site used for OSG Integration work.
     Disable: true
     FQDN: osp1.lbl.gov
     ID: 59

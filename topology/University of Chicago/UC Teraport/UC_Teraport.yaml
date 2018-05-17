@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: 7/26 disabling empty resource group
 GroupID: 119
 Resources:
   UC_Teraport:
@@ -9,6 +10,10 @@ Resources:
         Secondary:
           ID: 452f1bdc43096962404b4e6dd177136b41cd36ca
           Name: Greg Cross
+    Description: Teraport is a general purpose compute cluster at the University of
+      Chicago Computation Institute.  It is not affiliated with any OSG VO and is
+      considered a leveraged resource.  Scheduler access is provided to local CI users
+      and all OSG VOs.
     Disable: true
     FQDN: tp-osg.ci.uchicago.edu
     FQDNAliases:

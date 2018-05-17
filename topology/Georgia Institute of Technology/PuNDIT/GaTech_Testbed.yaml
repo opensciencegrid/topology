@@ -1,9 +1,11 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: PuNDIT Testbed nodes in Georgia Tech
 GroupID: 413
 Resources:
   perfSONAR_GT_testbed_latency:
     Active: false
+    Description: This is the PuNDIT testbed instance at Georgia Tech
     Disable: false
     FQDN: psum09.cc.gt.atl.ga.us
     ID: 701

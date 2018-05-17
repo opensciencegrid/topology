@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Resources in the Georgia Tech PACE cluster, to be used by LIGO.
 GroupID: 423
 Resources:
   Georgia_Tech_PACE_CE_1:
@@ -43,6 +44,7 @@ Resources:
         Primary:
           ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
           Name: Peter Couvares
+    Description: This is a Condor CE in front of the PACE cluster, for use by LIGO.
     Disable: false
     FQDN: ligo-ce1.pace.gatech.edu
     ID: 734
@@ -88,6 +90,8 @@ Resources:
         Primary:
           ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
           Name: Peter Couvares
+    Description: GridFTP server, initially for incoming LIGO frame data pushed from
+      CIT.
     Disable: false
     FQDN: ligo-gftp.pace.gatech.edu
     ID: 737
@@ -126,6 +130,7 @@ Resources:
         Primary:
           ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
           Name: Peter Couvares
+    Description: Squid server for PACE.
     Disable: false
     FQDN: ligo-prx.pace.gatech.edu
     ID: 735

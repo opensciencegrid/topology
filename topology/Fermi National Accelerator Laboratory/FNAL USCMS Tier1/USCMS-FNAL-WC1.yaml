@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 210
 Resources:
   FNAL NRTB PerfSONAR Bandwidth:
@@ -17,6 +18,8 @@ Resources:
         Primary:
           ID: 86d6367e268ad10200b21b1a85f114e758052fcb
           Name: Darryl K Wohlt
+    Description: This is a PerfSONAR instance configured for BWCTL only, with a 10Gb
+      Ethernet interface residing on the FNAL Network Research Testbed network.
     Disable: false
     FQDN: psonartest1.fnal.gov
     ID: 769
@@ -42,6 +45,8 @@ Resources:
         Primary:
           ID: 86d6367e268ad10200b21b1a85f114e758052fcb
           Name: Darryl K Wohlt
+    Description: This is a PerfSONAR instance configured for OWAMP only, with a 1Gb
+      Ethernet interface residing on the FNAL Network Research Testbed network.
     Disable: false
     FQDN: psonartest2.fnal.gov
     ID: 770
@@ -67,6 +72,7 @@ Resources:
         Primary:
           ID: 86d6367e268ad10200b21b1a85f114e758052fcb
           Name: Darryl K Wohlt
+    Description: This PerfSONAR node has a 10Gbps interface.
     Disable: false
     FQDN: psonar3.fnal.gov
     ID: 625
@@ -92,6 +98,7 @@ Resources:
         Primary:
           ID: 86d6367e268ad10200b21b1a85f114e758052fcb
           Name: Darryl K Wohlt
+    Description: PerfSONAR latency node
     Disable: false
     FQDN: psonar4.fnal.gov
     ID: 626
@@ -121,6 +128,7 @@ Resources:
         Primary:
           ID: d15cab2ba1421aca11ec451ae36a771822db0778
           Name: Burt Holzman
+    Description: This is a PerfSonar dual stack instance
     Disable: false
     FQDN: psonartest1.fnal.gov
     ID: 744
@@ -160,6 +168,7 @@ Resources:
         Primary:
           ID: d15cab2ba1421aca11ec451ae36a771822db0778
           Name: Burt Holzman
+    Description: CMS Tier 1 Gatekeeper
     Disable: false
     FQDN: cmsosgce.fnal.gov
     ID: 127
@@ -213,6 +222,7 @@ Resources:
         Primary:
           ID: d15cab2ba1421aca11ec451ae36a771822db0778
           Name: Burt Holzman
+    Description: CMS T1 Gatekeeper
     Disable: false
     FQDN: cmsosgce2.fnal.gov
     ID: 128
@@ -269,6 +279,7 @@ Resources:
         Primary:
           ID: d15cab2ba1421aca11ec451ae36a771822db0778
           Name: Burt Holzman
+    Description: Gatekeeper for non-CMS VOs at the FNAL Tier 1
     Disable: false
     FQDN: cmsosgce3.fnal.gov
     ID: 129
@@ -320,6 +331,7 @@ Resources:
         Primary:
           ID: d15cab2ba1421aca11ec451ae36a771822db0778
           Name: Burt Holzman
+    Description: CMS T1 gatekeeper
     Disable: false
     FQDN: cmsosgce4.fnal.gov
     ID: 130
@@ -362,6 +374,7 @@ Resources:
         Primary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
+    Description: Gatekeeper for Opportunistic usage at the FNAL CMS Tier-1
     Disable: false
     FQDN: cmsosgce-opp1.fnal.gov
     ID: 934
@@ -393,6 +406,7 @@ Resources:
         Primary:
           ID: d15cab2ba1421aca11ec451ae36a771822db0778
           Name: Burt Holzman
+    Description: This is the dCache SE at the USCMS Tier 1
     Disable: false
     FQDN: cmsdcatape01.fnal.gov
     ID: 236
@@ -432,6 +446,7 @@ Resources:
         Primary:
           ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
           Name: David Alexander Mason
+    Description: This is the disk-only dCache SE at the USCMS Tier 1
     Disable: false
     FQDN: cmsdcadisk01.fnal.gov
     ID: 865
@@ -483,6 +498,7 @@ Resources:
         Primary:
           ID: d15cab2ba1421aca11ec451ae36a771822db0778
           Name: Burt Holzman
+    Description: This is a submit host for a USCMS glidein factory based at FNAL
     Disable: false
     FQDN: cmssrv98
     ID: 393
@@ -506,6 +522,7 @@ Resources:
         Primary:
           ID: 632c61dc27aa93233499a9ac3820c0995a5c4f08
           Name: Jorge Alberto Diaz Cruz
+    Description: This is the PerfSONAR-PS latency instance at Fermilab
     Disable: false
     FQDN: psonar4.fnl.gov
     ID: 700

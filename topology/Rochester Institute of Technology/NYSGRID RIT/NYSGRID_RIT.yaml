@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: Ticket 8128
 GroupID: 198
 Resources:
   NYSGRID_RIT:
@@ -40,6 +41,7 @@ Resources:
         Primary:
           ID: 2ecf54897414787478ad2d9ad71526b634996210
           Name: Brent Strong
+    Description: Compute element install at RIT to leverage our Condor pool.
     Disable: true
     FQDN: grid.rc.rit.edu
     ID: 198

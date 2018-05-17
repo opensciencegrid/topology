@@ -1,9 +1,13 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: submit nodes
 GroupID: 381
 Resources:
   FIFEBATCH2:
     Active: false
+    Description: |-
+      Job submission node behind fifebatch.fnal.gov
+      Used to submit jobs to grid resources on behalf of users using jobsub software
     Disable: true
     FQDN: fifebatch2.fnal.gov
     ID: 633
@@ -29,6 +33,7 @@ Resources:
         Primary:
           ID: 13bc4aa08af2a4cd59b36b73fcefc5ade6bc95b9
           Name: Dennis Box
+    Description: glideinWMS installation and submit node
     Disable: true
     FQDN: fifebatch1.fnal.gov
     ID: 565
@@ -62,6 +67,7 @@ Resources:
         Primary:
           ID: 13bc4aa08af2a4cd59b36b73fcefc5ade6bc95b9
           Name: Dennis Box
+    Description: glideinWMS installation and submit node
     Disable: true
     FQDN: gpsn01.fnal.gov
     ID: 564
@@ -91,6 +97,7 @@ Resources:
         Primary:
           ID: 13bc4aa08af2a4cd59b36b73fcefc5ade6bc95b9
           Name: Dennis Box
+    Description: glideinWMS frontend to UCSD Glidein Factory
     Disable: true
     FQDN: sngpvm02.fnal.gov
     ID: 563

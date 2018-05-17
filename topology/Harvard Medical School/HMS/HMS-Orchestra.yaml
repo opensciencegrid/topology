@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Resources that are part of the Research IT Group's cluster, "Orchestra."
 GroupID: 312
 Resources:
   HMS-Orchestra-Dev:
@@ -21,6 +22,8 @@ Resources:
         Primary:
           ID: 22ef5608a23fb90ea01f4178b22cda87fa177ef3
           Name: Peter Doherty
+    Description: This is the development instance of the CE at HMS.  It's used for
+      internal testing and development.
     Disable: true
     FQDN: dev.osg.orchestra.med.harvard.edu
     ID: 411

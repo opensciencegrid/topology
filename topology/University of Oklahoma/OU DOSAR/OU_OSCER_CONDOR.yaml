@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 90
 Resources:
   OU_OSCER_CONDOR:
@@ -33,6 +34,7 @@ Resources:
         Primary:
           ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
           Name: Horst Severini
+    Description: OU Campus condor pool
     Disable: true
     FQDN: condor1.oscer.ou.edu
     ID: 90

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Jetstream resource Group
 GroupID: 466
 Resources:
   Jetstream-CE-1:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: 51e80537c5f71fa8bee57b6196025fd78c0fde0d
           Name: Kyle Gross
+    Description: Jetstream-CE-1
     Disable: false
     FQDN: js-156-186.jetstream-cloud.org
     ID: 882

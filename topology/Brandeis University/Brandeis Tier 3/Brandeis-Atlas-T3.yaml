@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Brandeis ATLAS Tier 3
 GroupID: 284
 Resources:
   BRND-HEAD:
@@ -25,6 +26,7 @@ Resources:
         Primary:
           ID: 7c262c463e87a47df564ee8af763ae8d049194fb
           Name: Craig Blocker
+    Description: gridftp server for Brandeis T3 cluster.
     Disable: false
     FQDN: brndt3head.hep.brandeis.edu
     ID: 364
@@ -56,6 +58,7 @@ Resources:
         Primary:
           ID: 7c262c463e87a47df564ee8af763ae8d049194fb
           Name: Craig Blocker
+    Description: gridftp server for Brandeis T3 cluster
     Disable: false
     FQDN: brndt3nfs.hep.brandeis.edu
     ID: 365

@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: 21 dual AMD Opteron Processor 240 1.4GHz, 2 GB RAM
 GroupID: 142
 Resources:
   SBGrid-Harvard-East:
@@ -31,6 +32,7 @@ Resources:
         Primary:
           ID: 00f0f2dd4e52f1448305bef4c6c228c50e412a6b
           Name: Ian Levesque
+    Description: 42 job slots on 1.4 GHz AMD Opterons with 2 GB RAM per node.
     Disable: true
     FQDN: osg-east.hms.harvard.edu
     ID: 142

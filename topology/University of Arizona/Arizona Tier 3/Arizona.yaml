@@ -1,5 +1,8 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: |-
+  University of Arizona  Tier 3
+  US ATLAS Event service
 GroupID: 428
 Resources:
   Arizona Squid:
@@ -17,6 +20,7 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: hidden squid to serve University of Arizona T3
     Disable: false
     FQDN: atlt3gm.physics.arizona.edu
     ID: 768
@@ -44,6 +48,8 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: University of Arizona Tier 3 Compute element used for Tier 3 Event
+      service
     Disable: false
     FQDN: atlt3gm.physics.arizona.edu
     ID: 745

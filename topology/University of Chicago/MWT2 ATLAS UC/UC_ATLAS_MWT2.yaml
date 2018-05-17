@@ -1,5 +1,9 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: |-
+  disabling by request
+
+  https://ticket.grid.iu.edu/30682
 GroupID: 116
 Resources:
   UC_ATLAS_MWT2:
@@ -17,6 +21,7 @@ Resources:
         Secondary:
           ID: 0657e94a4698a8c50a881bac434a70c4f006d893
           Name: Aaron van Meerten
+    Description: Prototype Tier2 site at U Chicago.
     Disable: false
     FQDN: tier2-osg.uchicago.edu
     ID: 116

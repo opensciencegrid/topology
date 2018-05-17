@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: General PNNL HEP resource
 GroupID: 429
 Resources:
   PNNL_HEP_CE00:
@@ -34,6 +35,7 @@ Resources:
         Primary:
           ID: c4df94d16cbe5aefb61bac44706452f823118d1c
           Name: Malachi Schram
+    Description: Compute Element use for general HEP needs
     Disable: false
     FQDN: gridgk00.hep.pnnl.gov
     ID: 746

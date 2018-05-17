@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: A resource
 GroupID: 311
 Resources:
   Vanderbilt_EC2_CE:
@@ -20,6 +21,7 @@ Resources:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
+    Description: CE for grid interoperability
     Disable: false
     FQDN: se2.accre.vanderbilt.edu
     ID: 410
@@ -61,6 +63,7 @@ Resources:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
+    Description: SE endpoint for the cloud
     Disable: false
     FQDN: se2.accre.vanderbilt.edu
     FQDNAliases:

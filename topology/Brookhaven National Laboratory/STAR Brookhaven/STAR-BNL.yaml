@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 102
 Resources:
   STAR-BNL:
@@ -30,6 +31,7 @@ Resources:
         Primary:
           ID: d7cf9cf9bc00275cab0a73717cc68528f9971761
           Name: Wayne Betts
+    Description: STAR's Tier 0 facility, with limited support for VOs other than STAR.
     Disable: false
     FQDN: stargrid02.rcf.bnl.gov
     ID: 102

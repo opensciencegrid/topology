@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: The GOC hosted, UCSD maintained glidein factory.
 GroupID: 308
 Resources:
   GOC glidein:
@@ -27,6 +28,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: The GOC hosted, UCSD maintained glidein factory.
     Disable: false
     FQDN: glidein.grid.iu.edu
     ID: 406
@@ -52,6 +54,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: for monitoring
     Disable: true
     FQDN: gfactory-1.t2.ucsd.edu
     ID: 653

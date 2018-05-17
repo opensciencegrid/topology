@@ -1,5 +1,9 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: |-
+  Out of service.
+
+  7/26 disabling empty resource group
 GroupID: 13
 Resources:
   Clemson-IT:
@@ -27,6 +31,7 @@ Resources:
         Primary:
           ID: ddaeec46e941e8db261b0927b07e65a42dfa726b
           Name: Sam Hoover
+    Description: Out of service.
     Disable: true
     FQDN: osggate.clemson.edu
     ID: 13

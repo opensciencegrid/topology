@@ -1,5 +1,8 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: |-
+  KISTI_CMS_T3_CE
+  KISTI_CMS_T3_SE
 GroupID: 394
 Resources:
   KISTI-NSDC-GUMS:
@@ -37,6 +40,7 @@ Resources:
         Primary:
           ID: fe3540e478fa913baaa562db69e68af8015f6d80
           Name: Beob Kyun Kim
+    Description: GUMS server to handle ce03.sdfarm.kr
     Disable: true
     FQDN: gums.sdfarm.kr
     ID: 272
@@ -80,6 +84,7 @@ Resources:
         Primary:
           ID: 7666504787c8cac2af7ffc7d79b74b9625960f5d
           Name: GyeongRyoon Kim
+    Description: kisti cm-squid
     Disable: false
     FQDN: cms-squid.sdfarm.kr
     ID: 690
@@ -123,6 +128,9 @@ Resources:
         Primary:
           ID: 7666504787c8cac2af7ffc7d79b74b9625960f5d
           Name: GyeongRyoon Kim
+    Description: |-
+      KISTI_CMS_T3_CE
+      cms-sejong.sdfarm.kr
     Disable: false
     FQDN: cms-sejong.sdfarm.kr
     ID: 627
@@ -180,6 +188,9 @@ Resources:
         Primary:
           ID: 7666504787c8cac2af7ffc7d79b74b9625960f5d
           Name: GyeongRyoon Kim
+    Description: |-
+      KISTI_CMS_T3_SE
+      cms-se.sdfarm.kr
     Disable: false
     FQDN: cms-se.sdfarm.kr
     ID: 628

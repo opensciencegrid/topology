@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: FSU CMS tier3 computing center.
 GroupID: 23
 Resources:
   FSU-HEP:
@@ -33,6 +34,8 @@ Resources:
         Secondary:
           ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
           Name: Douglas Johnson
+    Description: We believe that the FQDN was incorrectly given as  t3.hep.fsu.edu,
+      but it should be the FQDN of the CE, which is ce.hep.fsu.edu.
     Disable: false
     FQDN: ce.hep.fsu.edu
     ID: 23

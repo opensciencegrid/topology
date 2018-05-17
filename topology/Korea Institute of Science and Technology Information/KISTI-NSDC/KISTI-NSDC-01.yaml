@@ -1,5 +1,8 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: |-
+  CDF
+  provided by KISTI-NSDC project
 GroupID: 245
 Resources:
   KISTI-NSDC-CE03:
@@ -37,6 +40,7 @@ Resources:
         Primary:
           ID: f19765ab94943fcfa470308c6ad0df06c1aa30f8
           Name: Seoyoung Roh
+    Description: .
     Disable: true
     FQDN: ce03.sdfarm.kr
     ID: 271

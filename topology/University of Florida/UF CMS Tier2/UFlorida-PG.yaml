@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 122
 Resources:
   UFlorida-PG:
@@ -31,6 +32,7 @@ Resources:
         Primary:
           ID: dcc5225ec8889c92053920bbd934bedadc799908
           Name: Craig Prescott
+    Description: US CMS Tier-2 site at Florida
     Disable: true
     FQDN: pg.ihepa.ufl.edu
     ID: 122
@@ -63,6 +65,7 @@ Resources:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
+    Description: US CMS Tier-2 sites at Florida
     Disable: true
     FQDN: srm.ihepa.ufl.edu
     ID: 123
@@ -114,6 +117,9 @@ Resources:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
+    Description: |-
+      This is the secondary SE at UF CMS Tier2 to be used as the
+      backup SE
     Disable: true
     FQDN: srm1.ihepa.ufl.edu
     ID: 458
@@ -140,6 +146,7 @@ Resources:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
+    Description: Perf SONAR latency
     Disable: true
     FQDN: perfsonar1.ihepa.ufl.edu
     ID: 574

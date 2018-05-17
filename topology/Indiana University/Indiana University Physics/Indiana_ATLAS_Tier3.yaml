@@ -1,5 +1,9 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: |-
+  Indiana University Physics Department cluster for ATLAS.
+
+  7/26 disabling empty resource group
 GroupID: 290
 Resources:
   Indiana_Physics_ATLAS:
@@ -30,6 +34,8 @@ Resources:
         Primary:
           ID: 0cbf8c66d9f6f84b569ee86e917249ed80d2fcc3
           Name: Thom Sulanke
+    Description: grid-ftp gateway to bolt cluster of IU High Energy Physics group
+      for ATLAS analysis.
     Disable: true
     FQDN: bolt.physics.indiana.edu
     ID: 537

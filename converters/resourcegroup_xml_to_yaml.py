@@ -61,6 +61,14 @@ def to_file_name(name: str) -> str:
     return filename
 
 
+def trim_space(s: str) -> str:
+    """Remove leading and trailing whitespace but not newlines"""
+    # leading and trailing whitespace causes "\n"'s in the resulting string
+    ret = re.sub(r"(?m)[ \t]+$", "", s)
+    ret = re.sub(r"(?m)^[ \t]+", "", ret)
+    return ret
+
+
 class Topology(object):
 
     def __init__(self):
@@ -83,6 +91,7 @@ class Topology(object):
         self.downtime_paths[rg["GroupName"]] = downtime_path
 
         rg_copy = dict(rg)
+        rg_copy["GroupDescription"] = trim_space(rg_copy["GroupDescription"])
         # Get rid of these fields; we're already putting them in the file/dir names.
         del rg_copy["Facility"]
         del rg_copy["Site"]
@@ -104,9 +113,7 @@ class Topology(object):
         del dt_copy["CreatedTime"]
         del dt_copy["UpdateTime"]
         dt_copy["Services"] = self.simplify_downtime_services(downtime["Services"])
-        # leading and trailing whitespace causes "\n"'s in the resulting string
-        dt_copy["Description"] = re.sub(r"(?m)[ \t]+$", "", dt_copy["Description"])
-        dt_copy["Description"] = re.sub(r"(?m)^[ \t]+", "", dt_copy["Description"])
+        dt_copy["Description"] = trim_space(dt_copy["Description"])
         rgname = downtime["ResourceGroup"]["GroupName"]
         if rgname not in self.downtimes:
             self.downtimes[rgname] = []
@@ -227,6 +234,10 @@ class Topology(object):
                 res["ContactLists"] = new_contactlists
         else:
             res.pop("ContactLists", None)
+        if not is_null(res, "Description"):
+            res["Description"] = trim_space(res["Description"])
+        else:
+            res.pop("Description")
 
         return res
 

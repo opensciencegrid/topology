@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 134
 Resources:
   UTA_SWT2:
@@ -27,6 +28,7 @@ Resources:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
+    Description: ATLAS Tier2 Production Only Facility
     Disable: false
     FQDN: gk04.swt2.uta.edu
     ID: 134
@@ -89,6 +91,7 @@ Resources:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
+    Description: (No resource description)
     Disable: false
     FQDN: gk05.swt2.uta.edu
     ID: 209
@@ -135,6 +138,7 @@ Resources:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
+    Description: Frontier/CVMFS squid for UTA
     Disable: false
     FQDN: fsquid.swt2.uta.edu
     ID: 921
@@ -158,6 +162,8 @@ Resources:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
+    Description: This is an ATLAS only resource used for testing with the ATLAS production
+      system
     Disable: false
     FQDN: gk06.swt2.uta.edu
     ID: 447
@@ -205,6 +211,7 @@ Resources:
         Primary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
+    Description: This is the perfSONAR-PS bandwidth instance at UTA_SWT2
     Disable: false
     FQDN: psuta02.atlas-swt2.org
     ID: 611
@@ -240,6 +247,7 @@ Resources:
         Primary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
+    Description: This is the perfSONAR-PS latency instance at UTA_SWT2
     Disable: false
     FQDN: psuta01.atlas-swt2.org
     ID: 612

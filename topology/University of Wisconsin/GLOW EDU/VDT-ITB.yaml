@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Integration Test Bed Resource
+GroupDescription: Resource group for Wisconsin's persistent ITB site.
 GroupID: 260
 Resources:
   VDT-ITB:
@@ -21,6 +22,7 @@ Resources:
         Secondary:
           ID: 19511ac08de9fbb51709a05a707decfe36de286f
           Name: Tim Cartwright
+    Description: VDT's persistent ITB site
     Disable: true
     FQDN: vdt-itb.cs.wisc.edu
     ID: 307
@@ -55,6 +57,7 @@ Resources:
         Secondary:
           ID: 19511ac08de9fbb51709a05a707decfe36de286f
           Name: Tim Cartwright
+    Description: This is an ITB site run by the OSG Software Team at UW-Madison.
     Disable: true
     FQDN: itb-ce1.chtc.wisc.edu
     ID: 467

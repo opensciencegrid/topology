@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: A collection of monitored StashCaches
 GroupID: 433
 Resources:
   BNL Atlas StashCache instance:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: StashCache instance
     Disable: false
     FQDN: osgxroot.usatlas.bnl.gov
     ID: 755
@@ -42,6 +44,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: For monitoring
     Disable: true
     FQDN: novastore.farm.particle.cz
     ID: 818
@@ -54,6 +57,10 @@ Resources:
       OSG: 100
   FZU StashCache instance:
     Active: true
+    Description: |-
+      StashCache instance in Prague (Czech Republic)
+
+      Not sure about its real future utilization because development of StashCache support in Fermilab ifdh client seems to be stalled.
     Disable: false
     FQDN: stash.farm.particle.cz
     ID: 933
@@ -80,6 +87,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: Nebraska StashCache instance
     Disable: false
     FQDN: hcc-stash.unl.edu
     ID: 756
@@ -113,6 +121,7 @@ Resources:
         Primary:
           ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
           Name: Derek Weitzel
+    Description: StashCache Instance
     Disable: false
     FQDN: its-condor-xrootd1.syr.edu
     ID: 851
@@ -138,6 +147,7 @@ Resources:
         Primary:
           ID: 6de508d85a82c5471f917bf28f879fb968c0b33b
           Name: Matevz Tadel
+    Description: StashCache instance
     Disable: false
     FQDN: xrd-cache-1.t2.ucsd.edu
     ID: 786
@@ -177,6 +187,8 @@ Resources:
         Primary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+    Description: StashCache instance co-located with OSG Connect and ATLAS Midwest  Tier
+      2 facilities.
     Disable: false
     FQDN: stashcache.grid.uchicago.edu
     ID: 757
@@ -229,6 +241,7 @@ Resources:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
+    Description: Midwest Tier2 Illinois StashCache Instance
     Disable: false
     FQDN: mwt2-stashcache.campuscluster.illinois.edu
     ID: 761

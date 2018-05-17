@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 81
 Resources:
   NYSGRID_CORNELL_NYS1:
@@ -40,6 +41,7 @@ Resources:
         Primary:
           ID: ff61df460b7411081be3e4411c695a7c712f589b
           Name: Steven Lee
+    Description: OSG cluster with Compute Element and Bestman-Xrootd Storage Element.
     Disable: false
     FQDN: nys1.cac.cornell.edu
     FQDNAliases:

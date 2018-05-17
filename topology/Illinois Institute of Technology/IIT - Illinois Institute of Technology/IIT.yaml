@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: HPC & HTC computing resources at IIT
 GroupID: 445
 Resources:
   IIT_CE:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
           Name: Grigoriy Abramov
+    Description: HPC & HTC computing resources
     Disable: false
     FQDN: iitgrid.iit.edu
     ID: 825
@@ -42,6 +44,7 @@ Resources:
         Primary:
           ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
           Name: Grigoriy Abramov
+    Description: IIT HPC/HTC computing resources. CE
     Disable: false
     FQDN: iitce1.iit.edu
     ID: 844
@@ -67,6 +70,7 @@ Resources:
         Primary:
           ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
           Name: Grigoriy Abramov
+    Description: IIT HPC/HTC computing resources. CE
     Disable: false
     FQDN: iitce2.iit.edu
     ID: 847
@@ -92,6 +96,7 @@ Resources:
         Primary:
           ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
           Name: Grigoriy Abramov
+    Description: Illinois Institute of Technology
     Disable: false
     FQDN: otsgrid.iit.edu
     ID: 840

@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: Enabled for April. Disabling https://ticket.grid.iu.edu/20663
 GroupID: 96
 Resources:
   Purdue-CMS-SE:
@@ -24,6 +25,7 @@ Resources:
         Primary:
           ID: 4fc95aafd347aa59450057af01eaeeec070648cf
           Name: Fengping Hu
+    Description: US CMS Tier-2 site at Purdue
     Disable: true
     FQDN: srm-dcache.rcac.purdue.edu
     ID: 171
@@ -81,6 +83,7 @@ Resources:
         Primary:
           ID: e336c6489e0af6281bdf9dd532f86a0983817608
           Name: Manoj Kumar Jha
+    Description: Test instance for CMS  computing element
     Disable: true
     FQDN: cmstest1.rcac.purdue.edu
     ID: 594
@@ -125,6 +128,7 @@ Resources:
         Primary:
           ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
           Name: Preston Smith
+    Description: US CMS Tier-2 site at Purdue
     Disable: true
     FQDN: osg.rcac.purdue.edu
     ID: 96
@@ -170,6 +174,7 @@ Resources:
         Primary:
           ID: 4fc95aafd347aa59450057af01eaeeec070648cf
           Name: Fengping Hu
+    Description: The Perfsonar Bandwidtth node
     Disable: true
     FQDN: mannperf2.itns.purdue.edu
     ID: 513
@@ -195,6 +200,7 @@ Resources:
         Primary:
           ID: 4fc95aafd347aa59450057af01eaeeec070648cf
           Name: Fengping Hu
+    Description: The Purdue Perfsonar Latency node
     Disable: true
     FQDN: mannperf.itns.purdue.edu
     ID: 514

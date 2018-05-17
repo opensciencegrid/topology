@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: The Purdue Carter Cluster --http://www.rcac.purdue.edu/userinfo/resources/carter/
 GroupID: 354
 Resources:
   Purdue-Carter:
@@ -34,6 +35,9 @@ Resources:
         Primary:
           ID: 4fc95aafd347aa59450057af01eaeeec070648cf
           Name: Fengping Hu
+    Description: |-
+      The Purdue Carter cluster --
+      http://www.rcac.purdue.edu/userinfo/resources/carter/
     Disable: true
     FQDN: carter-osg.rcac.purdue.edu
     ID: 484

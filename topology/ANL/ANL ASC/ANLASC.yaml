@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: ANL ASC Tier 3 site
 GroupID: 283
 Resources:
   ANL-ATLAS-GRIDFTP1:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: This is a gridftp server for ANL ATLAS and ANL ASC users.
     Disable: false
     FQDN: atlasgridftp.hep.anl.gov
     FQDNAliases:
@@ -57,6 +59,7 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: This is a storage element - Bestman gateway SRM and gridftp server
     Disable: false
     FQDN: atlasgridftp1.hep.anl.gov
     ID: 747
@@ -82,6 +85,8 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: This is a squid server running on the internal Yellow network at
+      ANL
     Disable: false
     FQDN: squid.hep.anl.gov
     ID: 595
@@ -118,6 +123,7 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: Gridftp server for ANL ASC cluster
     Disable: true
     FQDN: aschead.hep.anl.gov
     ID: 363
@@ -155,6 +161,7 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: Gridftp server as part of ANL ASC cluster
     Disable: true
     FQDN: ascnfs.hep.anl.gov
     ID: 357
@@ -180,6 +187,8 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: This is a compute element providing the frontend for ANL HEP group
+      HPC work
     Disable: true
     FQDN: atlasce.hep.anl.gov
     ID: 526
@@ -205,6 +214,8 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: This is a Bestman SRM/Gridftp server used as part of the ANL HPC
+      test
     Disable: false
     FQDN: atlasgridftp02.hep.anl.gov
     ID: 356
@@ -246,6 +257,7 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: squid service for frontier and cvmfs
     Disable: false
     FQDN: squid.hep.anl.gov
     ID: 453
@@ -269,6 +281,7 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: gridftp server used for access to Rucio for ATLAS
     Disable: false
     FQDN: rucio01.hep.anl.gov
     ID: 714

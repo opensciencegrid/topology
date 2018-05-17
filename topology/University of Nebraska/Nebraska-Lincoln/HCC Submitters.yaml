@@ -1,5 +1,7 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: This is the group of HCC Submitters that submit jobs through the
+  HCC GlideinWMS machine.
 GroupID: 332
 Resources:
   HCC GlideinWMS Frontend:
@@ -34,6 +36,7 @@ Resources:
         Primary:
           ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
           Name: Derek Weitzel
+    Description: This is the GlideinWMS frontend for the HCC VO.
     Disable: false
     FQDN: glidein.unl.edu
     ID: 328
@@ -79,6 +82,7 @@ Resources:
         Primary:
           ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
           Name: Derek Weitzel
+    Description: This is the glideinwms submitter for the CPASS web application.
     Disable: false
     FQDN: cpass.unl.edu
     ID: 444

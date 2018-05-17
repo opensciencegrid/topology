@@ -1,5 +1,12 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: |-
+  This resource replaces FNAL_GPFARM.
+  It is the General Purpose Grid Cluster at Fermilab,
+  sponsored by the Fermilab VO.  currently 700 slots.
+  Other non-Fermilab VO\'s are allotted slot allocations
+  on this cluster through request to the FermiGrid management.
+  All VO\'s are supported at the level of at least 1 slot.
 GroupID: 172
 Resources:
   FNAL_GPGRID_1:
@@ -30,6 +37,13 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: |-
+      This resource replaces FNAL_GPFARM.
+      It is the General Purpose Grid Cluster at Fermilab,
+      sponsored by the Fermilab VO.  currently 700 slots.
+      Other non-Fermilab VO\'s are allotted slot allocations
+      on this cluster through request to the FermiGrid management.
+      All VO\'s are supported at the level of at least 1 slot.
     Disable: true
     FQDN: fnpcosg1.fnal.gov
     FQDNAliases:

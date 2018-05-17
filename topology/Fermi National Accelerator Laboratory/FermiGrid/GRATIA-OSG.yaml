@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: The OSG Gratia services as provided by FermiGrid at FNAL.
 GroupID: 255
 Resources:
   GRATIA-OSG-DAILY:
@@ -24,6 +25,10 @@ Resources:
         Primary:
           ID: a84160713fdad792b3467db2ffc853c6a9b1fc44
           Name: Chris Green
+    Description: |-
+      The Gratia collector for aggregated accounting data regarding OSG sites.
+
+      If you don't *know* you should be reporting to this collector: you shouldn't be reporting to this collector.
     Disable: true
     FQDN: gratia-osg-daily.opensciencegrid.org
     ID: 295
@@ -54,6 +59,10 @@ Resources:
         Primary:
           ID: a84160713fdad792b3467db2ffc853c6a9b1fc44
           Name: Chris Green
+    Description: |-
+      The Gratia collector for all accounting information from all OSG-ITB sites.
+
+      Note that this is a *production* accounting service for the ITB, not an ITB service.
     Disable: false
     FQDN: gratia-osg-itb.opensciencegrid.org
     ID: 293
@@ -84,6 +93,12 @@ Resources:
         Primary:
           ID: a84160713fdad792b3467db2ffc853c6a9b1fc44
           Name: Chris Green
+    Description: |-
+      The Gratia collector for all accounting information from "permanent" OSG-ITB sites.
+
+      Note that this is a *production* accounting service for the ITB, not an ITB service.
+
+      Do *not* report to this service -- records are replicated from the global OSG-ITB collector
     Disable: true
     FQDN: gratia-osg-integration.opensciencegrid.org
     ID: 294
@@ -117,6 +132,8 @@ Resources:
         Primary:
           ID: a84160713fdad792b3467db2ffc853c6a9b1fc44
           Name: Chris Green
+    Description: The Gratia collector for job accounting information from all production
+      OSG sites.
     Disable: false
     FQDN: gratia-osg-prod.opensciencegrid.org
     ID: 291
@@ -147,6 +164,8 @@ Resources:
         Primary:
           ID: a84160713fdad792b3467db2ffc853c6a9b1fc44
           Name: Chris Green
+    Description: The Gratia collector for storage and transfer accounting information
+      from all production OSG sites.
     Disable: false
     FQDN: gratia-osg-transfer.opensciencegrid.org
     ID: 292
@@ -177,6 +196,8 @@ Resources:
         Primary:
           ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
           Name: Nicholas Peregonow
+    Description: The Gratia collector for job accounting information from all production
+      OSG sites.
     Disable: false
     FQDN: gratia-main-osg.fnal.gov
     ID: 758
@@ -207,6 +228,9 @@ Resources:
         Primary:
           ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
           Name: Nicholas Peregonow
+    Description: The Gratia collector for all accounting information from all OSG-ITB
+      sites. Note that this is a *production* accounting service for the ITB, not
+      an ITB service.
     Disable: false
     FQDN: gratia-itb-osg.fnal.gov
     ID: 759
@@ -237,6 +261,8 @@ Resources:
         Primary:
           ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
           Name: Nicholas Peregonow
+    Description: The Gratia collector for storage and transfer accounting information
+      from all production OSG sites.
     Disable: false
     FQDN: gratia-transfer-osg.fnal.gov
     ID: 760

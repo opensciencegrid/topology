@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 88
 Resources:
   OU_OCHEP_SWT2:
@@ -33,6 +34,7 @@ Resources:
         Primary:
           ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
           Name: Horst Severini
+    Description: Tier 2 cluster for the University of Oklahoma for ATLAS VO.
     Disable: false
     FQDN: tier2-01.ochep.ou.edu
     FQDNAliases:
@@ -94,6 +96,7 @@ Resources:
         Primary:
           ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
           Name: Horst Severini
+    Description: OU_OCHEP_SWT2 squid
     Disable: false
     FQDN: tier2-05.ochep.ou.edu
     ID: 916
@@ -143,6 +146,7 @@ Resources:
         Primary:
           ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
           Name: Horst Severini
+    Description: perfSONAR instances at OU
     Disable: true
     FQDN: ps1.ochep.ou.edu
     ID: 528
@@ -198,6 +202,7 @@ Resources:
         Primary:
           ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
           Name: Horst Severini
+    Description: perfSONAR bandwidth host at OU
     Disable: false
     FQDN: ps2.ochep.ou.edu
     ID: 589
@@ -249,6 +254,7 @@ Resources:
         Primary:
           ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
           Name: Horst Severini
+    Description: perfSONAR latency host at OU
     Disable: false
     FQDN: ps1.ochep.ou.edu
     ID: 588
@@ -300,6 +306,7 @@ Resources:
         Primary:
           ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
           Name: Horst Severini
+    Description: perfSONAR latency test host at OU
     Disable: false
     FQDN: ps3.ochep.ou.edu
     ID: 707

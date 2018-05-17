@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 76
 Resources:
   NERSC-PDSFDTN:
@@ -43,6 +44,8 @@ Resources:
         Primary:
           ID: 41ca5de13b2c0475060d6bc2847d8baa6cd0cbba
           Name: Iwona Sakrejda
+    Description: This is a storage element designated primarily to data transfers
+      between PDSF and BNL.
     Disable: false
     FQDN: pdsfdtn1.nersc.gov
     FQDNAliases:
@@ -103,6 +106,7 @@ Resources:
         Primary:
           ID: 41ca5de13b2c0475060d6bc2847d8baa6cd0cbba
           Name: Iwona Sakrejda
+    Description: This is a production SRM server (Bestman) for STAR
     Disable: true
     FQDN: pdsfsrm.nersc.gov
     FQDNAliases:
@@ -150,6 +154,7 @@ Resources:
         Primary:
           ID: 41ca5de13b2c0475060d6bc2847d8baa6cd0cbba
           Name: Iwona Sakrejda
+    Description: This is a gsiftp server that serves locally managed atlas area.
     Disable: false
     FQDN: pdsfgsiftp1.nersc.gov
     FQDNAliases:

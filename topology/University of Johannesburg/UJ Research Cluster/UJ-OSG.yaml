@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 215
 Resources:
   UJ-OSG:
@@ -37,6 +38,8 @@ Resources:
         Primary:
           ID: 088885edc871a037be0ccca51d3209d69c4ba95c
           Name: Sergio Ballestrero
+    Description: OSG Compute Element for the Research Cluster at the University of
+      Johannesburg, South Africa - http://physics.uj.ac.za/cluster
     Disable: false
     FQDN: osg-ce.grid.uj.ac.za
     ID: 213
@@ -62,6 +65,7 @@ Resources:
         Primary:
           ID: 48cb7f74b2427ff6181ebd34303d4c34bf141470
           Name: Christopher Jon Lee
+    Description: OSG CE machine
     Disable: false
     FQDN: osg-ce.grid.uj.ac.za
     ID: 558

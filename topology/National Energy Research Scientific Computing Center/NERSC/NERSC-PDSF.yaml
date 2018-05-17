@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 75
 Resources:
   NERSC-PDSF:
@@ -40,6 +41,7 @@ Resources:
         Primary:
           ID: 41ca5de13b2c0475060d6bc2847d8baa6cd0cbba
           Name: Iwona Sakrejda
+    Description: This is a production gatekeeper for the PDSF cluster at NERSC
     Disable: false
     FQDN: pdsfgrid.nersc.gov
     FQDNAliases:
@@ -94,6 +96,8 @@ Resources:
         Primary:
           ID: 41ca5de13b2c0475060d6bc2847d8baa6cd0cbba
           Name: Iwona Sakrejda
+    Description: This is a backup gatekeeper protecting Alice production at PDSF from
+      single point of failure
     Disable: false
     FQDN: pdsfgrid2.nersc.gov
     ID: 546

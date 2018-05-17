@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Opportunistic resources utilized by the Tier 1.
 GroupID: 453
 Resources:
   BNL_CLOUD:
@@ -40,6 +41,7 @@ Resources:
         Primary:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
+    Description: Submit host for ATLAS backfill on our Institutional Openstack Cloud
     Disable: false
     FQDN: gridtest06.racf.bnl.gov
     ID: 836

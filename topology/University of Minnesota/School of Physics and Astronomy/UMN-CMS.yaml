@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: University of Minnesota CMS Resources
 GroupID: 357
 Resources:
   UMN-CMS-CE:
@@ -27,6 +28,7 @@ Resources:
         Primary:
           ID: b2c6bf09ccf53e3c7c7a7d738193032db77631ea
           Name: Nick Bertrand
+    Description: University of Minnesota CMS CE
     Disable: false
     FQDN: gc1-ce.spa.umn.edu
     ID: 486
@@ -75,6 +77,7 @@ Resources:
         Primary:
           ID: a43bd7829e74491d726a4f45c6b5d8e544b154a3
           Name: Jesse Clair Bren
+    Description: University of Minnesota CMS Compute Element
     Disable: false
     FQDN: gc2-ce.spa.umn.edu
     ID: 941
@@ -104,6 +107,7 @@ Resources:
         Primary:
           ID: b2c6bf09ccf53e3c7c7a7d738193032db77631ea
           Name: Nick Bertrand
+    Description: University of Minnesota CMS SE Resource
     Disable: false
     FQDN: gc1-se.spa.umn.edu
     ID: 488

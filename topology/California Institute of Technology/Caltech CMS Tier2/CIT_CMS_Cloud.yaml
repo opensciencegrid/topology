@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: Test resource group to be used for cloud tests.
 GroupID: 397
 Resources:
   CIT_ITB2:
@@ -21,6 +22,7 @@ Resources:
         Primary:
           ID: 78c0cedf2bc566b31787f7d831a76ea25b095654
           Name: Samir Cury Siqueira
+    Description: Test CE at CERN
     Disable: false
     FQDN: samir-test-ce.cern.ch
     ID: 632

@@ -1,5 +1,7 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: The Firefly cluster at the Holland Computer Center, located at the
+  University of Nebraska at Omaha.
 GroupID: 231
 Resources:
   Firefly:
@@ -43,6 +45,8 @@ Resources:
         Primary:
           ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
           Name: Carl Lundstedt
+    Description: OSG opportunistic access to the Firefly compute cluster at U. of
+      Nebraska, Omaha (managed by U. of Nebraska, Lincoln)
     Disable: true
     FQDN: ff-grid.unl.edu
     ID: 229
@@ -105,6 +109,7 @@ Resources:
         Primary:
           ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
           Name: Brian Bockelman
+    Description: This is the secondary gatekeeper for the Firefly cluster
     Disable: true
     FQDN: ff-grid2.unl.edu
     ID: 247
@@ -166,6 +171,7 @@ Resources:
         Primary:
           ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
           Name: Brian Bockelman
+    Description: The third gatekeeper at the Firefly cluster
     Disable: true
     FQDN: ff-grid3.unl.edu
     ID: 248
@@ -217,6 +223,7 @@ Resources:
         Primary:
           ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
           Name: Brian Bockelman
+    Description: This is the SRM endpoint to access the Panasas install on Firefly.
     Disable: true
     FQDN: ff-se.unl.edu
     ID: 243

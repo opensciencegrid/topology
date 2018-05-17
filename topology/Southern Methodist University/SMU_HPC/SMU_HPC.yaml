@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Southern Methodist University HPC
 GroupID: 242
 Resources:
   SMU_ManeFrame_CE:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: d8be00fb90a6a6da5bc80cf9ccb19e7f971c626b
           Name: Amit Kumar
+    Description: This is a new CE for our new cluster name ManeFrame
     Disable: false
     FQDN: mfosgce.hpc.smu.edu
     ID: 651
@@ -64,6 +66,7 @@ Resources:
         Primary:
           ID: d8be00fb90a6a6da5bc80cf9ccb19e7f971c626b
           Name: Amit Kumar
+    Description: This is our new Storage Element for our new cluster ManeFrame.
     Disable: false
     FQDN: mfosgse.ehpc.smu.edu
     ID: 699

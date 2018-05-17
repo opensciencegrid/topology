@@ -1,9 +1,11 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: 'Neutrino Computing Cluster at CERN: https://twiki.cern.ch/twiki/bin/view/CENF/NeutrinoClusterCERN'
 GroupID: 450
 Resources:
   CENF_NeutrinoCluster:
     Active: true
+    Description: Head node for the CENF Neutrino Computing Cluster.
     Disable: false
     FQDN: neut00.cern.ch
     ID: 834

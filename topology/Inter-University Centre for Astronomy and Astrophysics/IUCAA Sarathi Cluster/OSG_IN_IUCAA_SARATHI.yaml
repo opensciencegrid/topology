@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Hosted CE submitting to Sarathi Cluster
 GroupID: 481
 Resources:
   OSG_IN_IUCAA_SARATHI:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
+    Description: Hosted CE submitting to the Sarathi Cluster at IUCAA
     Disable: false
     FQDN: hosted-ce08.grid.uchicago.edu
     ID: 927

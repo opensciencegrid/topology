@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: This resource group will contain the GOC-run VOMS server, etc.
 GroupID: 248
 Resources:
   GOC_Auth_Services:
@@ -24,6 +25,8 @@ Resources:
         Primary:
           ID: a86faef88b867839882fcc12d719171113acafd6
           Name: OSG Operations Center
+    Description: VOMS and GUMS at the GOC. This includes the VOMS for OSGEDU, fMRI,
+      MIS, and gridex.
     Disable: false
     FQDN: jazmine.grid.iu.edu
     FQDNAliases:

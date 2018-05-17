@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: A collection of Engagement infrastructure hosts
 GroupID: 322
 Resources:
   Engage-Submit3-Frontend:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
           Name: Mats Rynge
+    Description: Engagement glideinWMS frontend
     Disable: true
     FQDN: engage-submit3.renci.org
     ID: 421

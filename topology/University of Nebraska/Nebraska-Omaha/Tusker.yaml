@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: The Tusker HPC Cluster.
 GroupID: 333
 Resources:
   Tusker:
@@ -17,6 +18,8 @@ Resources:
         Primary:
           ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
           Name: Carl Lundstedt
+    Description: Gateway interface to the cluster 'tusker' located at the HCC Omaha
+      facility.
     Disable: true
     FQDN: disabled.tusker-gw1.unl.edu
     ID: 455
@@ -62,6 +65,10 @@ Resources:
         Primary:
           ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
           Name: Brian Bockelman
+    Description: |-
+      This is the primary CE for the HCC community cluster "Tusker".
+
+      OSG VOs may use this opportunistically.
     Disable: false
     FQDN: tusker-gw1.unl.edu
     ID: 454

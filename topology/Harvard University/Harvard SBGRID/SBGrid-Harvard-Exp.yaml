@@ -1,5 +1,8 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: 3 node, 20 core site.  2.4 GHz x86_64, 300 GB local storage, 300
+  GB shared storage, 1 GB RAM/core.  All VOs welcome.  gsi-ssh available by request
+  to allow debugging.
 GroupID: 143
 Resources:
   SBGrid-Harvard-Exp:
@@ -30,6 +33,9 @@ Resources:
         Primary:
           ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
           Name: Ian Stokes-Rees
+    Description: |-
+      3 node, 20 core site.  2.4 GHz x86_64, 300 GB local storage, 300 GB shared storage, 1 GB RAM/core.  All VOs welcome.  gsi-ssh available by request to allow debugging.
+      Newly added: 28 Intel Xeon Mac OS X nodes, 107 cores
     Disable: true
     FQDN: abitibi.sbgrid.org
     FQDNAliases:

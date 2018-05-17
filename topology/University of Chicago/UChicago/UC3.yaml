@@ -1,5 +1,8 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: |-
+  University of Chicago Computing Cooperative
+  https://uc3.uchicago.edu/
 GroupID: 373
 Resources:
   UC3 UChicago VO Frontend:
@@ -28,6 +31,7 @@ Resources:
         Primary:
           ID: 2b91a41c252366aae93d9b6b81a1b7ba7c00c17e
           Name: Marco Mambelli
+    Description: VO Frontend using UC3 VO for the UC3 campus grid
     Disable: false
     FQDN: uc3-vofe.uchicago.edu
     ID: 590
@@ -57,6 +61,7 @@ Resources:
         Primary:
           ID: 2b91a41c252366aae93d9b6b81a1b7ba7c00c17e
           Name: Marco Mambelli
+    Description: UC3 Submit and Login Node
     Disable: false
     FQDN: uc3-sub.uchicago.edu
     ID: 549

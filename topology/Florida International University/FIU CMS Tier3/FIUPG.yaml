@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Tier3 site at Florida International University
 GroupID: 307
 Resources:
   FIU_CE:
@@ -21,6 +22,7 @@ Resources:
         Primary:
           ID: 5f25696557fb1e80d9d44dca0e0d222d4ac3a965
           Name: Jorge Luis Rodriguez
+    Description: FIU's Tier3 compute element.
     Disable: false
     FQDN: fiupg.hep.fiu.edu
     ID: 404
@@ -59,6 +61,7 @@ Resources:
         Primary:
           ID: 5f25696557fb1e80d9d44dca0e0d222d4ac3a965
           Name: Jorge Luis Rodriguez
+    Description: Storage element for the CMS Tier3 site at Florida International University
     Disable: false
     FQDN: srm.hep.fiu.edu
     ID: 432

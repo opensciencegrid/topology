@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: Hampton ATLAS Tier3
 GroupID: 305
 Resources:
   Hampton_ATLAS_CE:
@@ -17,6 +18,8 @@ Resources:
         Primary:
           ID: 12a2abe6c92321d1acb89c47755ea2611a488363
           Name: Vassilios Vassilakopoulos
+    Description: This is the OSG access gateway for Hampton Particle Physics Computing
+      Facility, Atlas Tier3 cloud.
     Disable: true
     FQDN: hugrid02.hamptonu.edu
     ID: 394

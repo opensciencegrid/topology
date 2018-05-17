@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: glcc is the "Green Linux Collaboration Cluster" in LC
 GroupID: 286
 Resources:
   LC-glcc:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: c2cb7234bc2f0f824e3be4c5bd4daaac9408ff1a
           Name: Jeff Cunningham
+    Description: Green Linux Collaboration Cluster in LC
     Disable: true
     FQDN: glcc88.ucllnl.org
     ID: 360

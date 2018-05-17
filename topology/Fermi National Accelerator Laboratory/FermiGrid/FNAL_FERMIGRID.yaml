@@ -1,5 +1,9 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: |-
+  This is the FermiGrid site gateway and includes
+  the site gatekeeper and all the hidden CE's that are
+  attached
 GroupID: 19
 Resources:
   FNAL_CDFOSG_0:
@@ -33,6 +37,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: |-
+      This is a hidden gatekeeper accessible from
+      inside the Fermilab site only.
     Disable: true
     FQDN: fcdfosg0.fnal.gov
     ID: 279
@@ -71,6 +78,12 @@ Resources:
         Primary:
           ID: a161cf4dfb39e13eaf5fa890b6920c7af89a7784
           Name: Keith Chadwick
+    Description: |-
+      System fcdfosg1 is an internal FermiGrid gatekeeper.
+
+      This gatekeeper is not directly accessible to OSG, it may only be accessed by submitting jobs through FNAL_FERMIGRID.
+
+      Updated to be a hidden CE/SE.. i.e it\'ll not be deemed a normal CE --Arvind 2008-08-13
     Disable: true
     FQDN: fcdfosg1.fnal.gov
     ID: 181
@@ -106,6 +119,11 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: |-
+      This is a hidden gatekeeper accessible from the FermiGrid
+      site only.  It reports to Gratia and RSV directly but
+      offsite jobs can only get to it via the
+      FermiGrid job gateway fermigridosg1
     Disable: true
     FQDN: fcdfosg2.fnal.gov
     ID: 183
@@ -144,6 +162,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: This is a hidden gatekeeper accessible from the FermiGrid site only.
+      It reports to Gratia and RSV directly but offsite jobs can only get to it via
+      the FermiGrid job gateway fermigridosg1.
     Disable: true
     FQDN: fcdfosg3.fnal.gov
     ID: 184
@@ -182,6 +203,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: This is a hidden gatekeeper accessible from the FermiGrid site only.
+      It reports to Gratia and RSV directly but offsite jobs can only get to it via
+      the FermiGrid job gateway fermigridosg1.
     Disable: true
     FQDN: fcdfosg4.fnal.gov
     ID: 186
@@ -210,6 +234,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: This is a hidden gatekeeper accessible from the FermiGrid site only.
+      It reports to Gratia and RSV directly but offsite jobs can only get to it via
+      the FermiGrid job gateway fermigridosg1.
     Disable: true
     FQDN: d0cabosg1.fnal.gov
     ID: 187
@@ -245,6 +272,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: This is a hidden gatekeeper accessible from the FermiGrid site only.
+      It reports to Gratia and RSV directly but offsite jobs can only get to it via
+      the FermiGrid job gateway fermigridosg1.
     Disable: true
     FQDN: d0cabosg2.fnal.gov
     ID: 188
@@ -286,6 +316,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: This is a hidden gatekeeper accessible from the FermiGrid site only.
+      It reports to Gratia and RSV directly but offsite jobs can only get to it via
+      the FermiGrid job gateway fermigridosg1.
     Disable: true
     FQDN: d0cabosg3.fnal.gov
     ID: 435
@@ -327,6 +360,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: This is a hidden gatekeeper accessible from the FermiGrid site only.
+      It reports to Gratia and RSV directly but offsite jobs can only get to it via
+      the FermiGrid job gateway fermigridosg1.
     Disable: true
     FQDN: d0cabosg4.fnal.gov
     ID: 436
@@ -368,6 +404,10 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: |-
+      This is the FermiGrid site gateway.  It forwards
+      jobs to the many \"hidden ce\"s listed in this resource
+      group.
     Disable: true
     FQDN: fermigridosg1.fnal.gov
     ID: 19
@@ -418,6 +458,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: This is a hidden gatekeeper accessible from the FermiGrid site only.
+      It reports to Gratia and RSV directly but offsite jobs can only get to it via
+      the FermiGrid job gateway fermigridosg1.
     Disable: true
     FQDN: fnpcfg1.fnal.gov
     ID: 189
@@ -456,6 +499,10 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: |-
+      New sub-CE of FermiGrid that allows opportunistic
+      access to our General Purpose Grid cluster, VO\'s
+      have no quota of jobs but can be pre-empted after 48hrs.
     Disable: true
     FQDN: fnpcfg2.fnal.gov
     ID: 208
@@ -488,6 +535,7 @@ Resources:
         Primary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
+    Description: This is an HTCondor-CE the directs jobs into GPGrid.
     Disable: true
     FQDN: gpce01.fnal.gov
     ID: 776
@@ -525,6 +573,7 @@ Resources:
         Primary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
+    Description: This is an HTCondor-CE the directs jobs into GPGrid.
     Disable: true
     FQDN: gpce02.fnal.gov
     ID: 777
@@ -561,6 +610,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: This is a hidden gatekeeper accessible from the FermiGrid site only.
+      It reports to Gratia and RSV directly but offsite jobs can only get to it via
+      the FermiGrid job gateway fermigridosg1
     Disable: true
     FQDN: fnpcfg3.fnal.gov
     ID: 539
@@ -599,6 +651,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: This is a hidden gatekeeper accessible from the FermiGrid site only.
+      It reports to Gratia and RSV directly but offsite jobs can only get to it via
+      the FermiGrid job gateway fermigridosg1
     Disable: true
     FQDN: fnpcfg4.fnal.gov
     ID: 540
@@ -624,6 +679,7 @@ Resources:
         Primary:
           ID: e2799203e652f11e24de11fcf85b7e8d2b1783f7
           Name: HYUNWOO KIM
+    Description: squid service for frontier and cvmfs
     Disable: false
     FQDN: squids.fnal.gov
     ID: 883

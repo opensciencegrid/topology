@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: (No resource group description)
 GroupID: 12
 Resources:
   CIT_ITB_1:
@@ -24,6 +25,7 @@ Resources:
         Primary:
           ID: 646d38b93b70c6322c555a70f3bc69c6cbc5a9eb
           Name: Michael Thomas
+    Description: Caltech CMS ITB resource available to all VOs for testing.
     Disable: false
     FQDN: ce-itb.ultralight.org
     ID: 12

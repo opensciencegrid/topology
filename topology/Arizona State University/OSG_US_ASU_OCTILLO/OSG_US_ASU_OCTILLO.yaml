@@ -1,5 +1,7 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Entry for Hosted CE submitting to Arizona State University OCTILLO
+  cluster.
 GroupID: 474
 Resources:
   OSG_US_ASU_OCTILLO:
@@ -17,6 +19,7 @@ Resources:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
+    Description: Hosted CE instance submitting to Octillo cluster at ASU
     Disable: false
     FQDN: pearc-ce-3.grid.uchicago.edu
     ID: 897

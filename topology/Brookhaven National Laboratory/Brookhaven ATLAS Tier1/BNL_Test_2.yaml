@@ -1,5 +1,9 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: This is an ATLAS production testbed. This site runs inside the OSG
+  production environment, as far as BDII info publishing and other central services
+  are concerned. But its main purpose is to test new ATLAS production workflow, before
+  migrating them to the real ATLAS production environment.
 GroupID: 306
 Resources:
   BNL_Test_2_CE_1:
@@ -25,6 +29,9 @@ Resources:
         Primary:
           ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
           Name: Xin Zhao
+    Description: This is an ATLAS production testbed CE, running inside the OSG production
+      environment, with main purpose of validating and testing the new ATLAS production
+      workflow, before migrating them to the real ATLAS production sites.
     Disable: false
     FQDN: gridtest02.racf.bnl.gov
     ID: 399

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: University of Iowa Tier 3 cluster
 GroupID: 40
 Resources:
   GROW-GRID:
@@ -25,6 +26,7 @@ Resources:
         Primary:
           ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
           Name: Daniel Squires
+    Description: GROW Compute and Storage Element
     Disable: false
     FQDN: grow-grid.its.uiowa.edu
     ID: 407
@@ -74,6 +76,7 @@ Resources:
         Primary:
           ID: ba76025c25398c295e14938585110878a441f09e
           Name: Jeff DeReus
+    Description: compute element for GROW
     Disable: true
     FQDN: grow-prod.its.uiowa.edu
     ID: 260
@@ -119,6 +122,7 @@ Resources:
         Primary:
           ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
           Name: Daniel Squires
+    Description: GROW Storage element
     Disable: true
     FQDN: grow-grid.its.uiowa.edu
     ID: 40
@@ -160,6 +164,7 @@ Resources:
         Primary:
           ID: ba76025c25398c295e14938585110878a441f09e
           Name: Jeff DeReus
+    Description: GROW gums server
     Disable: true
     FQDN: grow-voms.its.uiowa.edu
     ID: 262
@@ -187,6 +192,7 @@ Resources:
         Primary:
           ID: ba76025c25398c295e14938585110878a441f09e
           Name: Jeff DeReus
+    Description: GROW storage element
     Disable: true
     FQDN: grow-stor.its.uiowa.edu
     ID: 263
@@ -214,6 +220,7 @@ Resources:
         Primary:
           ID: ba76025c25398c295e14938585110878a441f09e
           Name: Jeff DeReus
+    Description: GROW voms server
     Disable: true
     FQDN: grow-voms.its.uiowa.edu
     ID: 261

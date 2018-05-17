@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: WIX PerfSONAR
 GroupID: 405
 Resources:
   ESnet LHCONE perfSONAR Washington:
@@ -9,6 +10,7 @@ Resources:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+    Description: The ESnet LHCONE instance in Washington
     Disable: false
     FQDN: lhcone-wash-opt1.es.net
     ID: 658
@@ -34,6 +36,7 @@ Resources:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+    Description: Internet2 LHCONE perfSONAR instance at the Washington Exchange
     Disable: false
     FQDN: lhcone.test.wix.internet2.edu
     ID: 657

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: CMS Hadoop cluster at Purdue University, West Lafayette, IN.
 GroupID: 393
 Resources:
   Purdue-Hadoop-CE:
@@ -24,6 +25,7 @@ Resources:
         Primary:
           ID: e336c6489e0af6281bdf9dd532f86a0983817608
           Name: Manoj Kumar Jha
+    Description: Computing element for CMS Hadoop cluster at Purdue University.
     Disable: false
     FQDN: hadoop-osg.rcac.purdue.edu
     ID: 620
@@ -78,6 +80,8 @@ Resources:
         Primary:
           ID: e336c6489e0af6281bdf9dd532f86a0983817608
           Name: Manoj Kumar Jha
+    Description: This is the HTCE for clusters managed by PBS batch system at Purdue
+      Tier-2.
     Disable: false
     FQDN: cmspbs-osg.rcac.purdue.edu
     ID: 724
@@ -113,6 +117,7 @@ Resources:
         Primary:
           ID: e336c6489e0af6281bdf9dd532f86a0983817608
           Name: Manoj Kumar Jha
+    Description: HTCondor CE at Purdue Tier-2
     Disable: true
     FQDN: cms-ce1-osg.rcac.purdue.edu
     ID: 647
@@ -165,6 +170,7 @@ Resources:
         Primary:
           ID: e336c6489e0af6281bdf9dd532f86a0983817608
           Name: Manoj Kumar Jha
+    Description: Storage element for CMS Hadoop cluster at Purdue University.
     Disable: true
     FQDN: srm.rcac.purdue.edu
     ID: 621
@@ -202,6 +208,7 @@ Resources:
         Primary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
+    Description: IPVS frontend to gridftp servers at Purdue University
     Disable: false
     FQDN: cms-gridftp.rcac.purdue.edu
     ID: 852
@@ -249,6 +256,7 @@ Resources:
         Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
+    Description: Storage element, IPV6 enabled  for CMS Hadoop cluster at Purdue University.
     Disable: true
     FQDN: srm6.rcac.purdue.edu
     ID: 732
@@ -282,6 +290,7 @@ Resources:
         Primary:
           ID: e336c6489e0af6281bdf9dd532f86a0983817608
           Name: Manoj Kumar Jha
+    Description: This is a computing element used for testing  CMS VO at Purdue University.
     Disable: false
     FQDN: cmstest1.rcac.purdue.edu
     ID: 624
@@ -331,6 +340,8 @@ Resources:
         Primary:
           ID: e336c6489e0af6281bdf9dd532f86a0983817608
           Name: Manoj Kumar Jha
+    Description: This is the squid services at Purdue Tier-2.  This host runs two  instances
+      of squid services.
     Disable: false
     FQDN: squid1.rcac.purdue.edu
     ID: 681
@@ -365,6 +376,8 @@ Resources:
         Primary:
           ID: e336c6489e0af6281bdf9dd532f86a0983817608
           Name: Manoj Kumar Jha
+    Description: This is the squid server at Purdue Tier-2.  This host runs two instance
+      of squid services.
     Disable: false
     FQDN: squid2.rcac.purdue.edu
     ID: 682
@@ -402,6 +415,8 @@ Resources:
         Primary:
           ID: e336c6489e0af6281bdf9dd532f86a0983817608
           Name: Manoj Kumar Jha
+    Description: This is squid server at Purdue Tier-2.  There are two instances of
+      squid services running on this host.
     Disable: false
     FQDN: squid3.rcac.purdue.edu
     ID: 683
@@ -425,6 +440,7 @@ Resources:
         Primary:
           ID: e336c6489e0af6281bdf9dd532f86a0983817608
           Name: Manoj Kumar Jha
+    Description: Perfsonar bandwidth node for Purdue Tier-2 CMS center.
     Disable: false
     FQDN: perfsonar-cms2.itns.purdue.edu
     ID: 622
@@ -477,6 +493,7 @@ Resources:
         Primary:
           ID: e336c6489e0af6281bdf9dd532f86a0983817608
           Name: Manoj Kumar Jha
+    Description: Perfsonar latency node for CMS clusters at Purdue University.
     Disable: false
     FQDN: perfsonar-cms1.itns.purdue.edu
     ID: 623

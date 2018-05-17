@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Glidein submit nodes for GLUEX
 GroupID: 465
 Resources:
   scosg16:
@@ -20,6 +21,7 @@ Resources:
         Primary:
           ID: 818acb7ebcd1865a17551799f0cfeb5256e0db20
           Name: Kurt Strosahl
+    Description: Glidein submit nodes for GLUEX
     Disable: false
     FQDN: scosg16.jlab.org
     ID: 878

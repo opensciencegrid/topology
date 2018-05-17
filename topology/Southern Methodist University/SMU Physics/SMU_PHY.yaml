@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: Disabling this Resource as it is decommissioned.
 GroupID: 98
 Resources:
   SMU_PHY:
@@ -25,6 +26,7 @@ Resources:
         Primary:
           ID: 5cfab52c4a14e53017d88b15e2d362c3be964bd9
           Name: Justin Ross
+    Description: SMU Physics Gatekeeper
     Disable: false
     FQDN: smufarm.physics.smu.edu
     ID: 98

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Enable per request
 GroupID: 3
 Resources:
   BNL_TEST_UST3:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
           Name: Hironori Ito
+    Description: Testing publication of ALL US T3 SEs from single host
     Disable: false
     FQDN: grid37.racf.bnl.gov
     ID: 345

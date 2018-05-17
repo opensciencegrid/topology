@@ -1,5 +1,9 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: |-
+  new resource is under construction (OSG 1.0)
+
+  7/26 disabling empty resource group
 GroupID: 157
 Resources:
   Gridplexus:
@@ -21,6 +25,7 @@ Resources:
         Primary:
           ID: 73603ce19d4ac9aea9a5f11e374d82f9ef4d2239
           Name: Robert Rusinko
+    Description: CE01
     Disable: true
     FQDN: CE01.OSG.gridplexus.net
     ID: 157

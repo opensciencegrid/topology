@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 99
 Resources:
   BR-Sprace BW:
@@ -27,6 +28,7 @@ Resources:
         Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
+    Description: This is the perfSONAR bandwidth server at SPRACE
     Disable: false
     FQDN: perfsonar-bw.sprace.org.br
     ID: 709
@@ -62,6 +64,7 @@ Resources:
         Primary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
+    Description: This is the perfSONAR latency server at SPRACE
     Disable: false
     FQDN: perfsonar-lt.sprace.org.br
     ID: 523
@@ -113,6 +116,7 @@ Resources:
         Primary:
           ID: 57a195ebd64ac6607fa1acd18f267095d6f0a167
           Name: Rogerio Iope
+    Description: Gatekeeper and condor master for SPRACE resource
     Disable: false
     FQDN: osg-ce.sprace.org.br
     ID: 99
@@ -169,6 +173,7 @@ Resources:
         Primary:
           ID: 40286076881f9672e9b5e4cc27655657af6cf8b6
           Name: Marco Dias
+    Description: This is a OSG-RSV server and gums server used by our site.
     Disable: true
     FQDN: spserv01.sprace.org.br
     ID: 306
@@ -215,6 +220,7 @@ Resources:
         Primary:
           ID: 084c6602f2a21e310fc5acc2645cb6892f804a0b
           Name: Eduardo Gregores
+    Description: Storage element for SPRACE resource
     Disable: false
     FQDN: osg-se.sprace.org.br
     ID: 100
@@ -259,6 +265,7 @@ Resources:
         Primary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
+    Description: PerfSonar bandwidth instance
     Disable: true
     FQDN: perfsonar-bw.sprace.org.br
     ID: 508
@@ -294,6 +301,7 @@ Resources:
         Primary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
+    Description: PerfSonar latency instance
     Disable: true
     FQDN: perfsonar-lt.sprace.org.br
     ID: 509
@@ -345,6 +353,7 @@ Resources:
         Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
+    Description: 'Squid Frontier Server #1'
     Disable: false
     FQDN: frontier.sprace.org.br
     ID: 696
@@ -394,6 +403,7 @@ Resources:
         Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
+    Description: 'Squid Frontier Server #2'
     Disable: false
     FQDN: frontier2.sprace.org.br
     ID: 697

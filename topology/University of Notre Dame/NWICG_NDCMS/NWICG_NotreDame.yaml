@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: https://ticket.grid.iu.edu/goc/12807
 GroupID: 79
 Resources:
   NDCMS_Primeradiant01:
@@ -27,6 +28,8 @@ Resources:
         Primary:
           ID: 82122a855bc0fe808efd91e402e7975a39511d7b
           Name: Kenyi Hurtado Anampa
+    Description: XrootD Proxy Cache server. Will use it as a proxy to cache CMS data
+      through cmsxrootd.fnal.gov
     Disable: false
     FQDN: primeradiant01.crc.nd.edu
     ID: 821
@@ -60,6 +63,7 @@ Resources:
         Primary:
           ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
           Name: In-Saeng Suh
+    Description: The FQDN is "opteron03.crc.nd.edu"
     Disable: true
     FQDN: opteron03.crc.nd.edu
     ID: 79

@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: https://ticket.grid.iu.edu/24249
 GroupID: 56
 Resources:
   IU_OSG:
@@ -31,6 +32,7 @@ Resources:
         Primary:
           ID: 24630e3640f14cce02f88e52676948706c05da84
           Name: George Turner
+    Description: Gatekeeper in front of IU Quarry cluster dedicated to the CSIU VO
     Disable: true
     FQDN: m3.quarry.teragrid.iu.edu
     ID: 56

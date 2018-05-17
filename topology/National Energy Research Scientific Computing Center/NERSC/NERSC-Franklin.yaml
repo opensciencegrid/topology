@@ -1,5 +1,11 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: |-
+  The NERSC Cray XT4 system, named Franklin, is a massively parallel processing (MPP) system with 9,660 compute nodes. Each node has dual processor cores, and the entire system has a total of 19,320 processor cores available for scientific applications. The system is named in honor of Benjamin Franklin.
+
+  Each of Franklin\'s compute nodes consists of a 2.6 GHz dual-core AMD Opteron processor with a theoretical peak performance of 5.2 GFlop/sec. Each compute node has 4 GBytes of memory, and each service node (e.g. login node) has 8 GBytes of memory. The full system consists of 102 cabinets with 39 TBytes of aggregate memory. The theoretical peak performance of Franklin is about 101.5 TFlop/sec. Each compute node is connected to a dedicated SeaStar2 router through Hypertransport with a 3D torus topology which ensures high performance, low-latency communication for MPI and SHMEM jobs.
+
+  Franklin uses two different operating systems. Full-featured SuSE Linux is run on service nodes (16 login nodes and other I/O, network and system nodes). A light weight OS based on Linux, Compute Node Linux (CNL), is run on each compute node. CNL reduces system overhead, and is critical for the system to scale to very large concurrency. The Parallel file system on Franklin is provided by Lustre with approximately 350 TBytes of user disk space.
 GroupID: 180
 Resources:
   NERSC-Franklin:
@@ -21,6 +27,12 @@ Resources:
         Primary:
           ID: 738dae0c6c2d0bc7a93f694348e9c15b71d95f93
           Name: Shreyas Cholia
+    Description: |-
+      The NERSC Cray XT4 system, named Franklin, is a massively parallel processing (MPP) system with 9,660 compute nodes. Each node has quad processor cores, and the entire system has a total of 38,640 processor cores available for scientific applications. The system is named in honor of Benjamin Franklin.
+
+      Each of Franklin\'s compute nodes consists of a 2.3 GHz single socket quad-core AMD Opteron processor (Budapest) with a theoretical peak performance of 9.2 GFlop/sec per core (4 flops/cycle if using SSE128 instructions). Each compute node has 8 GB of memory (2 GB of memory per core), and each service node (e.g. login node) has 8 GB of memory. The full system consists of 102 cabinets with 78 TBytes of aggregate memory. The memory speed is 800 MHz. The theoretical peak performance of Franklin is about 356 TFlop/sec. Each compute node is connected to a dedicated SeaStar2 router through Hypertransport with a 3D torus topology which ensures high performance, low-latency communication for MPI and SHMEM jobs.
+
+      Franklin uses two different operating systems. Full-featured SuSE Linux is run on service nodes (10 login nodes and other I/O, network and system nodes). A light weight OS based on Linux, Compute Node Linux (CNL), is run on each compute node. CNL reduces system overhead, and is critical for the system to scale to very large concurrency. The overall operating system on Franklin is called Cray Linux Environment (CLE). The Parallel file system on Franklin is provided by Lustre with approximately 350 TB of user disk space.
     Disable: true
     FQDN: franklingrid.nersc.gov
     FQDNAliases:

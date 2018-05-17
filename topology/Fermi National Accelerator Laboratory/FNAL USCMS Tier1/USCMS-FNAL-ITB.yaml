@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: USCMS Fermilab ITB Resources
 GroupID: 263
 Resources:
   USCMS-FNAL-ITB:
@@ -23,6 +24,7 @@ Resources:
         Primary:
           ID: d15cab2ba1421aca11ec451ae36a771822db0778
           Name: Burt Holzman
+    Description: This is an ITB CE for USCMS-FNAL-ITB resource group.
     Disable: false
     FQDN: cms-xen13.fnal.gov
     ID: 14
@@ -65,6 +67,7 @@ Resources:
         Primary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
+    Description: This is an ITB CE for USCMS-FNAL-ITB resource group.
     Disable: false
     FQDN: cms-xen15.fnal.gov
     ID: 174

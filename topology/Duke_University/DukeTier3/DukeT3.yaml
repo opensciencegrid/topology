@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Duke University HEP Tier 3 site
 GroupID: 213
 Resources:
   DUKET3-SE:
@@ -25,6 +26,7 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: Duke University US Atlas Tier 3 Storage Element (Bestman-gateway)
     Disable: true
     FQDN: atlfs02.phy.duke.edu
     FQDNAliases:
@@ -67,6 +69,7 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: Squid server for Duke T3 resource
     Disable: true
     FQDN: atlhn02.phy.duke.edu
     ID: 452
@@ -94,6 +97,7 @@ Resources:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
+    Description: Gridftp server for Duke ATLAS group serving xrootd storage
     Disable: false
     FQDN: atlgridftp01.phy.duke.edu
     ID: 442

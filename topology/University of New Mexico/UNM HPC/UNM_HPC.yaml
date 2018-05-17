@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 126
 Resources:
   UNM_HPC:
@@ -21,6 +22,7 @@ Resources:
         Primary:
           ID: 44de0ffc27df9ee76c06604efc57c997be48e1cf
           Name: Daniel Felker
+    Description: UNM_HPC
     Disable: false
     FQDN: m3.alliance.unm.edu
     ID: 126

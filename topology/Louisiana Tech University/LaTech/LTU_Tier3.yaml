@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: ATLAS Tier 3 Computing Center at Louisiana Tech University
 GroupID: 64
 Resources:
   LTU_OSG:
@@ -27,6 +28,8 @@ Resources:
         Primary:
           ID: 7c80ef26c4e6c6aea18716c2bcbd98c5e3667625
           Name: Dick Greenwood
+    Description: The local OSG compute element located at Louisiana Tech University
+      primarily for DZero MC production.
     Disable: true
     FQDN: caps10.phys.LaTech.edu
     ID: 64
@@ -61,6 +64,7 @@ Resources:
         Primary:
           ID: 9e038944c93d17b8c41f350211f566fd25eedd97
           Name: Michael Bryant
+    Description: Tier 3 CE for the Cerberus HPC cluster
     Disable: false
     FQDN: grid1.hpc.latech.edu
     ID: 492

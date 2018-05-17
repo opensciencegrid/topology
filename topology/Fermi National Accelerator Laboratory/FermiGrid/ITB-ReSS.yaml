@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: OSG-ITB Resource Selection Machines
 GroupID: 234
 Resources:
   ITB-ReSS:
@@ -26,6 +27,7 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: ITB Resource Selection Service Collector
     Disable: true
     FQDN: osg-ress-4.fnal.gov
     ID: 239

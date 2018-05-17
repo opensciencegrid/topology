@@ -1,5 +1,7 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Tier3gs installation which consists of a CE, SE and a cluster of
+  worker nodes
 GroupID: 147
 Resources:
   IllinoisHEP:
@@ -37,6 +39,7 @@ Resources:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
+    Description: Tier3gs Compute Element
     Disable: false
     FQDN: osgx0.hep.uiuc.edu
     ID: 147
@@ -86,6 +89,7 @@ Resources:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
+    Description: IllinoisHEP GUMS server
     Disable: false
     FQDN: osggums.hep.uiuc.edu
     ID: 256
@@ -129,6 +133,7 @@ Resources:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
+    Description: This is the LFC node for the DDM in our Tier3gs
     Disable: false
     FQDN: osgx3.hep.uiuc.edu
     ID: 265
@@ -174,6 +179,7 @@ Resources:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
+    Description: Tier3gs Storage Element
     Disable: false
     FQDN: osgx1.hep.uiuc.edu
     ID: 207
@@ -219,6 +225,7 @@ Resources:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
+    Description: IllinoisHEP perfSONAR-PS instances at University of Illinois at Urbana-Champaign
     Disable: false
     FQDN: osgpfsr.hep.uiuc.edu
     ID: 568

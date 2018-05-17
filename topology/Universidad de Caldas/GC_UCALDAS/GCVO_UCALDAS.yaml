@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Support for GCVO and GCEDU VO Universidad de Caldas, GridColombia
 GroupID: 316
 Resources:
   GCVO_UCALDAS_CE:
@@ -31,6 +32,7 @@ Resources:
         Primary:
           ID: 26c5115b9afd0044ba052dc342afd36ab38f4e97
           Name: Gustavo Isaza
+    Description: Gatekeeper for UCALDAS
     Disable: false
     FQDN: c-head.ucaldas.edu.co
     ID: 415

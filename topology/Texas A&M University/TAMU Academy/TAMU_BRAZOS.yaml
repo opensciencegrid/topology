@@ -1,5 +1,7 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: The 300+ node Brazos cluster, a shared stakeholder resource for
+  Texas A&M and OSG researchers.
 GroupID: 273
 Resources:
   TAMU_BRAZOS:
@@ -37,6 +39,8 @@ Resources:
         Primary:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
+    Description: This is the gatekeeper, gridftp, and srmv2 host supporting the Texas
+      A&M CMS T3 site.
     Disable: true
     FQDN: hurr.tamu.edu
     ID: 340
@@ -94,6 +98,7 @@ Resources:
         Primary:
           ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
           Name: John Dockendorf
+    Description: This is the gatekeeper host supporting the Texas A&M CMS T3 site.
     Disable: false
     FQDN: ce01.brazos.tamu.edu
     ID: 630
@@ -143,6 +148,7 @@ Resources:
         Primary:
           ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
           Name: John Dockendorf
+    Description: GridFTP service for TAMU_BRAZOS
     Disable: false
     FQDN: gw01.brazos.tamu.edu
     ID: 637
@@ -177,6 +183,7 @@ Resources:
         Primary:
           ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
           Name: John Dockendorf
+    Description: GridFTP service for TAMU_BRAZOS
     Disable: false
     FQDN: gw02.brazos.tamu.edu
     ID: 795
@@ -221,6 +228,8 @@ Resources:
         Primary:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
+    Description: This is a secondary SE for the TAMU_BRAZOS resource group. This will
+      replace the SE running on the TAMU_BRAZOS resource, hurr.tamu.edu
     Disable: false
     FQDN: srm.brazos.tamu.edu
     ID: 601
@@ -273,6 +282,8 @@ Resources:
         Primary:
           ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
           Name: John Dockendorf
+    Description: This is a secondary SE for the TAMU_BRAZOS resource group. This will
+      replace the SE running on the TAMU_BRAZOS resource, hurr.tamu.edu
     Disable: true
     FQDN: brazos-srm.tamu.edu
     ID: 604
@@ -312,6 +323,7 @@ Resources:
         Primary:
           ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
           Name: John Dockendorf
+    Description: This PerfSONAR node has a 10Gbps interface.
     Disable: false
     FQDN: psonar-bwctl.brazos.tamu.edu
     ID: 634
@@ -351,6 +363,7 @@ Resources:
         Primary:
           ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
           Name: John Dockendorf
+    Description: PerfSONAR latency node
     Disable: false
     FQDN: psonar-owamp.brazos.tamu.edu
     ID: 635

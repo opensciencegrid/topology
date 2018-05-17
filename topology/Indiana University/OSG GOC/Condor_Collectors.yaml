@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: HTCondor collector
 GroupID: 403
 Resources:
   collector-itb:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: HTCondor collector, ITB instance
     Disable: false
     FQDN: collector-itb.opensciencegrid.org
     ID: 649

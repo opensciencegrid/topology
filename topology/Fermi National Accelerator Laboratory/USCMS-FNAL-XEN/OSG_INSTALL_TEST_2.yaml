@@ -1,5 +1,10 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: |-
+  Changing site of resource group so it is not a part of fermigrid.
+
+  Disabled per John Weigand (8-25-2014)
+  https://ticket.grid.iu.edu/22201
 GroupID: 83
 Resources:
   OSG_INSTALL_TEST_2:
@@ -20,6 +25,9 @@ Resources:
         Primary:
           ID: f366aee2da77dc5245967eed336ce98ac194ccd8
           Name: John Weigand
+    Description: 'Note from Arvind Gopu: Tony Tiradani tells me that this indeed has
+      to be flagged as a production resource even though it has the word TEST in it;
+      they \"use it to verify the install chain through to production\". -agopu 2008-10-17'
     Disable: true
     FQDN: cms-xen2.fnal.gov
     ID: 83

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Langston University HEP
 GroupID: 249
 Resources:
   LUHEP_OSG:
@@ -25,6 +26,7 @@ Resources:
         Primary:
           ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
           Name: Joel Snow
+    Description: Small HTCondor-CE.
     Disable: false
     FQDN: luhepce.lunet.edu
     ID: 276
@@ -64,6 +66,7 @@ Resources:
         Primary:
           ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
           Name: Joel Snow
+    Description: Computing Element on a Virtual Machine
     Disable: false
     FQDN: elixir.lunet.edu
     ID: 405
@@ -93,6 +96,7 @@ Resources:
         Primary:
           ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
           Name: Joel Snow
+    Description: LUHEP Bestman gateway Storage Element
     Disable: false
     FQDN: luhepse.lunet.edu
     ID: 331

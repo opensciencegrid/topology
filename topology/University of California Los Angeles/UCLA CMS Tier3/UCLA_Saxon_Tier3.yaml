@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: 7/26 disabling empty resource group
 GroupID: 109
 Resources:
   UCLA_Saxon_Tier3:
@@ -37,6 +38,9 @@ Resources:
         Primary:
           ID: 9e689ddd0829512821e0dfb8eeaa88e4a60499ca
           Name: Prakashan Korambath
+    Description: UCLA Saxon Cluster is Part of OSG/CMS experiment.  It consists of
+      19 Opteron compute nodes, one compute element, one storage element and  around
+      10 TB of storage space.
     Disable: true
     FQDN: saxon.hosted.ats.ucla.edu
     ID: 109

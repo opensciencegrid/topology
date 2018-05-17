@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: This group contains the Cross OSG nodes.
 GroupID: 343
 Resources:
   CrossOSG-CE-UCSD:
@@ -24,6 +25,8 @@ Resources:
         Primary:
           ID: 593daf4f680b3135849201036e1055f03f89cfac
           Name: Igor Sfiligoi
+    Description: This is the Cross-OSG CE, a glidein-based CE that can be used by
+      many OSG VOs to access sites that do not support them directly.
     Disable: true
     FQDN: osg-glidein-ce.t2.ucsd.edu
     ID: 461

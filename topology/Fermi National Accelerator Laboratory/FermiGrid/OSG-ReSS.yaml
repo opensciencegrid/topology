@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: OSG Production Resource Selection machines
 GroupID: 233
 Resources:
   OSG-ReSS-PROD:
@@ -26,6 +27,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: |-
+      This is the production Resource Selection
+      service for the Open Science Grid
     Disable: true
     FQDN: osg-ress-1.fnal.gov
     ID: 238
@@ -50,6 +54,7 @@ Resources:
         Primary:
           ID: 8925b88534dbfeac0df5aa2d7777726c5ae223bd
           Name: Luis Salas
+    Description: this is a test gatekeeper for Grid Colombia UNAB Node
     Disable: true
     FQDN: unab.edu.co
     ID: 329

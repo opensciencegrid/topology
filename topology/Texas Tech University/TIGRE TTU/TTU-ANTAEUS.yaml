@@ -1,5 +1,9 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Primary OSG compute element resource at TTU.  Consists of a mix
+  of dual-core dual-cpu and quad-core dual-cpu Xeons, 240 cores total, operating at
+  2.5 to 3.0 GHz and associated with a cluster-wide Lustre file system.  The file
+  system is also accessible through the associated TTU-SIGMORGH storage element.
 GroupID: 105
 Resources:
   TTU-ANTAEUS:
@@ -24,6 +28,10 @@ Resources:
         Primary:
           ID: 96c9aa36d89eb7c4e8ae1a44bf5d7ca873fd28e8
           Name: Alan Sill
+    Description: Primary OSG compute element resource at TTU.  Consists of a mix of
+      dual-core dual-cpu and quad-core dual-cpu Xeons, 240 cores total, operating
+      at 2.5 to 3.0 GHz and associated with a cluster-wide Lustre file system.  The
+      file system is also accessible through the associated TTU-SIGMORGH storage element.
     Disable: false
     FQDN: antaeus.hpcc.ttu.edu
     ID: 105
@@ -68,6 +76,9 @@ Resources:
         Primary:
           ID: 96c9aa36d89eb7c4e8ae1a44bf5d7ca873fd28e8
           Name: Alan Sill
+    Description: Primary SRMv2 storage interface for TTU OSG systems.  Implemented
+      using BeStMan with GUMS mapping.  Ownership and permissions on files match those
+      on the OSG compute resources at TTU.
     Disable: false
     FQDN: sigmorgh.hpcc.ttu.edu
     ID: 106

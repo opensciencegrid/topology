@@ -16,6 +16,8 @@ def is_null(x, *keys) -> bool:
             or (isinstance(x, (list, dict)) and len(x) < 1)
             or x in ["(Information not available)",
                      "no applicable service exists",
+                     "(No resource group description)",
+                     "(No resource description)",
                      ])
 
 

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Purdue Rossmann Cluster
 GroupID: 275
 Resources:
   Purdue-Rossmann:
@@ -23,6 +24,7 @@ Resources:
         Primary:
           ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
           Name: Preston Smith
+    Description: This is the gateway to the Purdue Rossmann cluster - http://www.rcac.purdue.edu/userinfo/resources/rossmann/
     Disable: true
     FQDN: rossmann-osg.rcac.purdue.edu
     ID: 346

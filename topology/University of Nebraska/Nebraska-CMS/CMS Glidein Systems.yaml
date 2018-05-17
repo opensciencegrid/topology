@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: CMS glidein submitter nodes
 GroupID: 361
 Resources:
   Nebraska_glidein_hcc_crabserver:
@@ -20,6 +21,7 @@ Resources:
         Primary:
           ID: 593daf4f680b3135849201036e1055f03f89cfac
           Name: Igor Sfiligoi
+    Description: CMS AnaOps glidein submit node
     Disable: false
     FQDN: hcc-crabserver.unl.edu
     ID: 503

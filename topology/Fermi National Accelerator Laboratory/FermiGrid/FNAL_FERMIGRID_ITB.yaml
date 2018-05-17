@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: (No resource group description)
 GroupID: 20
 Resources:
   FNAL-ITB-GIP-TEST1:
@@ -23,6 +24,11 @@ Resources:
         Primary:
           ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
           Name: Tanya Levshina
+    Description: We (VDT/GIP/ReSS group) are testing the ability to run CeMon/GIP
+      on standalone storage element and report it to BDII. We have configured both
+      services and are sending the information to http://is-itb1.grid.iu.edu:14001.
+      The resource name is FNAL-ITB-GIP-TEST1. Could somebody responsible for ITB
+      BDII make modification so the information is accepted in BDII
     Disable: true
     FQDN: fg0x5.fnal.gov
     ID: 337
@@ -52,6 +58,10 @@ Resources:
         Primary:
           ID: a161cf4dfb39e13eaf5fa890b6920c7af89a7784
           Name: Keith Chadwick
+    Description: |-
+      This is our new production gatekeeper for the
+      Fermilab Persistent ITB, it replaces
+      fgitb-gk.fnal.gov
     Disable: true
     FQDN: fgitbgkc2.fnal.gov
     ID: 20
@@ -95,6 +105,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: |-
+      This is our PBS sample gatekeeper for use in
+      the OSG Persistent ITB.
     Disable: true
     FQDN: fgitbgkp2.fnal.gov
     ID: 358
@@ -126,6 +139,9 @@ Resources:
         Primary:
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
           Name: Steve Timm
+    Description: |-
+      This is FermiGrid's ITB SGE gatekeeper, part
+      of the OSG Persistent ITB at Fermilab.
     Disable: true
     FQDN: fgitbgks2.fnal.gov
     ID: 359

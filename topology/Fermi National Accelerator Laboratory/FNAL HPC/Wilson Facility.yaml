@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Wilson Facility is a General Purpose HPC cluster at Fermilab
 GroupID: 455
 Resources:
   FNAL_WILSON:
@@ -21,6 +22,7 @@ Resources:
         Primary:
           ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
           Name: Gerard Bernabeu Altayo
+    Description: This is the Wilson cluster headnode
     Disable: false
     FQDN: tev.fnal.gov
     ID: 841
@@ -54,6 +56,7 @@ Resources:
         Primary:
           ID: a25fbb4a1aa71648897c1a76ed6ab3ab7c707d5e
           Name: Kevin Retzke
+    Description: This is the Wilson cluster secondary headnode
     Disable: false
     FQDN: mic.fnal.gov
     ID: 867

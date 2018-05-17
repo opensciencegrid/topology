@@ -1,5 +1,9 @@
 Disable: true
 GridType: OSG Integration Test Bed Resource
+GroupDescription: |-
+  ITB Group for Nebraska CMS.
+
+  7/26 disabling empty resource group
 GroupID: 313
 Resources:
   red-gateway3-ITB:
@@ -33,6 +37,8 @@ Resources:
         Primary:
           ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
           Name: Carl Lundstedt
+    Description: red-gw3 is our ITB endpoint.  Limited to 10 jobs running on the CMS
+      Tier-2.
     Disable: true
     FQDN: red-gw3.unl.edu
     ID: 408

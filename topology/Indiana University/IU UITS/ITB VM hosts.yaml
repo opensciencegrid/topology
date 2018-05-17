@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: VM hosts for ITB services
 GroupID: 442
 Resources:
   DEVM01:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: A VM host for ITB machines
     Disable: false
     FQDN: devm01.grid.iu.edu
     ID: 811
@@ -40,6 +42,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: A VM host for ITB services
     Disable: false
     FQDN: devm02.grid.iu.edu
     ID: 812
@@ -63,6 +66,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: A VM host for ITB services
     Disable: true
     FQDN: devm03.grid.iu.edu
     ID: 813
@@ -86,6 +90,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: A VM host for ITB services
     Disable: false
     FQDN: devm04.grid.iu.edu
     ID: 814
@@ -109,6 +114,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: A VM host for ITB services
     Disable: false
     FQDN: devm05.grid.iu.edu
     ID: 815
@@ -132,6 +138,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: A VM host for ITB services
     Disable: false
     FQDN: devm06.grid.iu.edu
     ID: 816

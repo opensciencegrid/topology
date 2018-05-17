@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Single virtual xen node for Tier 3 support
 GroupID: 232
 Resources:
   USCMS-FNAL-XEN:
@@ -37,6 +38,7 @@ Resources:
         Primary:
           ID: 02817f2abfcfd7d5e527097f4df942d8dd35a1aa
           Name: Rob Snihur
+    Description: This is a single virtual xen node.
     Disable: true
     FQDN: cms-xen19.fnal.gov
     ID: 237

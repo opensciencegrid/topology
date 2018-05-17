@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: A computing element for the JINR cloud.
 GroupID: 458
 Resources:
   JINR_CONDOR_CE:
@@ -30,6 +31,7 @@ Resources:
         Primary:
           ID: 6b9e9d9f99dcb757f2fa333d717c14bff167d457
           Name: Nikita Balashov
+    Description: This is a gatekeeper for the JINR cloud accessible by the Nova VO
     Disable: false
     FQDN: cloud-osg-ce.jinr.ru
     ID: 853
@@ -69,6 +71,7 @@ Resources:
         Primary:
           ID: 61486d6bfdb2dfe01de30e4dbe98067ceee54bff
           Name: Evgeniy Alexeevich Kuznetsov
+    Description: StashCache Server for NOvA tasks, role server.
     Disable: false
     FQDN: osg-stashcache.jinr.ru
     ID: 942

@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Integration Test Bed Resource
+GroupDescription: Resources in ITB group
 GroupID: 416
 Resources:
   SMU_HPC:
@@ -25,6 +26,7 @@ Resources:
         Primary:
           ID: 5cfab52c4a14e53017d88b15e2d362c3be964bd9
           Name: Justin Ross
+    Description: Southern Methodist University HPC
     Disable: false
     FQDN: smuosg1.hpc.smu.edu
     ID: 259
@@ -69,6 +71,7 @@ Resources:
         Primary:
           ID: 5cfab52c4a14e53017d88b15e2d362c3be964bd9
           Name: Justin Ross
+    Description: SMU Storage Element
     Disable: false
     FQDN: smuosgse.hpc.smu.edu
     ID: 303

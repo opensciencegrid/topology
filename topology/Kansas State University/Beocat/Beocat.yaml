@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: The Beocat Cluster at Kansas State University
 GroupID: 278
 Resources:
   Beocat_CE:
@@ -17,6 +18,8 @@ Resources:
         Primary:
           ID: 0a9828ed72cb7d3bdf773a1043f43fa20bb420b6
           Name: Adam Tygart
+    Description: This is the CE associated with the Beocat compute cluster at Kansas
+      State University
     Disable: false
     FQDN: beocat.cis.ksu.edu
     ID: 352
@@ -35,6 +38,8 @@ Resources:
       Beocat: 100
   Beocat_KSU_CE:
     Active: true
+    Description: HTCondor specifically setup for OSG. Worker nodes dynamically change
+      based on cluster usage.
     Disable: false
     FQDN: osg-ce.beocat.cis.ksu.edu
     ID: 648

@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: disabled 1/26
 GroupID: 229
 Resources:
   WQCG-Harvard-OSG:
@@ -28,6 +29,7 @@ Resources:
         Primary:
           ID: 22ef5608a23fb90ea01f4178b22cda87fa177ef3
           Name: Peter Doherty
+    Description: 10 node, 40 core Intel Xeon 64bit 3GHz, 2GB RAM per core.
     Disable: true
     FQDN: tuscany.med.harvard.edu
     ID: 227

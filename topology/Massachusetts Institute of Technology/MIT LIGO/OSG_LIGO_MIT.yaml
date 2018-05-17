@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 84
 Resources:
   OSG_LIGO_GUMS:
@@ -37,6 +38,7 @@ Resources:
         Primary:
           ID: 2054ae8af5a8fd51effad8c91b8f83429057b319
           Name: Fred Donovan
+    Description: gums server for MIT LIGO osg site
     Disable: true
     FQDN: osg-ligo-gums.mit.edu
     ID: 343
@@ -60,6 +62,7 @@ Resources:
         Primary:
           ID: 0b0da3518b8aa265e2ed70eb69c749f92ff57c12
           Name: Filippo Grimaldi
+    Description: OSG LIGO MIT
     Disable: true
     FQDN: osg-ligo.mit.edu
     ID: 84

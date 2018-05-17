@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: This is the Tier1 for Belle-II at BNL
 GroupID: 478
 Resources:
   BNL_BELLE_II_CE_1:
@@ -34,6 +35,8 @@ Resources:
         Primary:
           ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
           Name: Xin Zhao
+    Description: This is the HTCondor-CE for Belle II  at the Belle-II T1 center at
+      BNL
     Disable: false
     FQDN: bgk01.sdcc.bnl.gov
     ID: 930
@@ -60,6 +63,7 @@ Resources:
         Primary:
           ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
           Name: Hironori Ito
+    Description: BNL Belle II dCache
     Disable: false
     FQDN: dcblsrm.sdcc.bnl.gov
     ID: 908

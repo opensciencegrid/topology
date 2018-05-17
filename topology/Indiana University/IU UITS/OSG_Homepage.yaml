@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: OSG Homepage (http://opensciencegrid.org)
 GroupID: 280
 Resources:
   OSG_Homepage_1:
@@ -24,6 +25,8 @@ Resources:
         Primary:
           ID: 410b3bfb4ed7d81f0e9ea2f853c0214f104168e1
           Name: Soichi Hayashi
+    Description: This resource exists in order to monitor OSG Homepage (http://opensciencegrid.org/)
+      status.
     Disable: false
     FQDN: opensciencegrid.org
     ID: 353

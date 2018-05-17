@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: new T3 cluster
 GroupID: 346
 Resources:
   brown-cms-new:
@@ -25,6 +26,7 @@ Resources:
         Primary:
           ID: 2388cd587abc14dec462b70de32c34d11c596db4
           Name: Jack Fowler
+    Description: New CMS T3 at Brown
     Disable: false
     FQDN: brux3.hep.brown.edu
     ID: 445
@@ -70,6 +72,7 @@ Resources:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
           Name: Stefan Piperov
+    Description: New SE for Brown
     Disable: false
     FQDN: srm.hep.brown.edu
     ID: 489

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 68
 Resources:
   MWT2_IU:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: 3b1876c30549a51501329cbb9678289fc786ac29
           Name: Frederick Luehring
+    Description: Part of the MWT2 facility.
     Disable: false
     FQDN: iut2-grid6.iu.edu
     ID: 68
@@ -42,6 +44,7 @@ Resources:
         Secondary:
           ID: 3b1876c30549a51501329cbb9678289fc786ac29
           Name: Frederick Luehring
+    Description: Part of the MWT2 facility.
     Disable: true
     FQDN: iut2-dc1.iu.edu
     ID: 140

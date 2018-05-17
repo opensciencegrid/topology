@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Resource group for the OIM topology system
 GroupID: 266
 Resources:
   GOC_OIM:
@@ -27,6 +28,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: Resource that hosts the OIM topology system.
     Disable: false
     FQDN: oim.grid.iu.edu
     ID: 315

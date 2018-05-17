@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Primary CE for the University of Utah
 GroupID: 440
 Resources:
   OSG_US_UUTAH_EMBER:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
+    Description: Hosted CE for the Ember cluster at CHPC
     Disable: false
     FQDN: hosted-ce15.grid.uchicago.edu
     ID: 938
@@ -42,6 +44,7 @@ Resources:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
+    Description: Hosted CE for the Kingspeak cluster at CHPC
     Disable: false
     FQDN: hosted-ce14.grid.uchicago.edu
     ID: 937
@@ -59,6 +62,7 @@ Resources:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
+    Description: Hosted CE for the lonepeak cluster
     Disable: false
     FQDN: hosted-ce12.grid.uchicago.edu
     ID: 936
@@ -80,6 +84,7 @@ Resources:
         Primary:
           ID: 443c32443113f2e2dbf7dc77c0e5697d4f27f90a
           Name: Irvin Allen
+    Description: This is our main CE for the University of Utah
     Disable: false
     FQDN: osggate.chpc.utah.edu
     ID: 800

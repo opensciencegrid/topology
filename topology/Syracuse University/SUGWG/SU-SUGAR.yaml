@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: SUGWG SUGAR Cluster
 GroupID: 435
 Resources:
   SU_SUGAR_Submit_1:
@@ -30,6 +31,7 @@ Resources:
         Primary:
           ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
           Name: Peter Couvares
+    Description: Sugar cluster submit node for LIGO.
     Disable: false
     FQDN: sugar-dev2.phy.syr.edu
     ID: 771
@@ -71,6 +73,7 @@ Resources:
         Primary:
           ID: c6023fb07e902f43edffdbaab50d7a13e32ae55e
           Name: Larne Pekowsky
+    Description: SL7-Based Sugar cluster submit node for LIGO.
     Disable: false
     FQDN: sugwg-osg.phy.syr.edu
     ID: 822
@@ -112,6 +115,7 @@ Resources:
         Primary:
           ID: c6023fb07e902f43edffdbaab50d7a13e32ae55e
           Name: Larne Pekowsky
+    Description: Second SL7-Based Sugar cluster submit node for LIGO.
     Disable: false
     FQDN: sugwg-condor.phy.syr.edu
     ID: 898

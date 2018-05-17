@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: This is the BNL ITB resource group, not production services.
 GroupID: 243
 Resources:
   BNL-ps-testbed:
@@ -24,6 +25,7 @@ Resources:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+    Description: BNLs perfSONAR testbed instance.
     Disable: false
     FQDN: ps-development.bnl.gov
     ID: 691
@@ -57,6 +59,7 @@ Resources:
         Primary:
           ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
           Name: Xin Zhao
+    Description: Move this BNL ITB CE to under the group of BNL-LCG2.
     Disable: false
     FQDN: gridtest01.racf.bnl.gov
     ID: 6
@@ -98,6 +101,7 @@ Resources:
         Primary:
           ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
           Name: Xin Zhao
+    Description: Move BNL ITB SE to under BNL-LCG2 group name.
     Disable: false
     FQDN: grid16.racf.bnl.gov
     FQDNAliases:

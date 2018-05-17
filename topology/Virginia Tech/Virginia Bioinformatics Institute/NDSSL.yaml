@@ -1,5 +1,7 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Campus Infrastructure components managed by the Network Dynamics
+  and Simulation Science Laboratory (NDSSL) at VBI.
 GroupID: 335
 Resources:
   VBI_OSG_Submit1:
@@ -21,6 +23,7 @@ Resources:
         Primary:
           ID: 5a63469cd94f64288d586997a97069526023a1a8
           Name: Bill Marmagas
+    Description: VBI NDSSL OSG Submit Host.
     Disable: false
     FQDN: submit1.bioinformatics.vt.edu
     ID: 449

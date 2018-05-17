@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: The Purdue Conte cluster -- http://www.rcac.purdue.edu/userinfo/resources/conte/
 GroupID: 389
 Resources:
   Purdue-Conte:
@@ -27,6 +28,9 @@ Resources:
         Primary:
           ID: e336c6489e0af6281bdf9dd532f86a0983817608
           Name: Manoj Kumar Jha
+    Description: |-
+      Computing element for Purdue Conte cluster.
+      http://www.rcac.purdue.edu/userinfo/resources/conte/
     Disable: false
     FQDN: conte-osg.rcac.purdue.edu
     ID: 603

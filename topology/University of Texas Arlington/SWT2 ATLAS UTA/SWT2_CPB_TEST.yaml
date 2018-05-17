@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Testing Resource Group
 GroupID: 411
 Resources:
   perfSONAR_SWT2_CPB_testbed_bandwidth:
@@ -27,6 +28,7 @@ Resources:
         Primary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
+    Description: perfSONAR testbed bandwidth instance at SWT2_CPB
     Disable: false
     FQDN: netmon2.atlas-swt2.org
     ID: 695
@@ -62,6 +64,7 @@ Resources:
         Primary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
+    Description: perfSONAR testbed latency instance at SWT2_CPB
     Disable: false
     FQDN: netmon1.atlas-swt2.org
     ID: 694

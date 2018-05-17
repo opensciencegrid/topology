@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: This is the General Purpose Grid cluster at Fermilab.
 GroupID: 476
 Resources:
   FNAL_GPGRID_CE_03:
@@ -24,6 +25,7 @@ Resources:
         Primary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
+    Description: This is an HTCondor-CE that provides opportunistic access to GPGrid
     Disable: false
     FQDN: gpce03.fnal.gov
     ID: 901
@@ -57,6 +59,7 @@ Resources:
         Primary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
+    Description: This is an HTCondor-CE the directs jobs into GPGrid.
     Disable: false
     FQDN: gpce04.fnal.gov
     ID: 902
@@ -90,6 +93,7 @@ Resources:
         Primary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
+    Description: This is a Jobsub server that provides FIFE access to GPGrid
     Disable: false
     FQDN: jobsub01.fnal.gov
     ID: 903
@@ -122,6 +126,7 @@ Resources:
         Primary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
+    Description: This is a Jobsub server that provides FIFE access to GPGrid
     Disable: false
     FQDN: jobsub02.fnal.gov
     ID: 904

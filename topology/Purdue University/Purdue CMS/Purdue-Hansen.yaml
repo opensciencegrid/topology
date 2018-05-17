@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: Purdue Hansen Cluster
 GroupID: 324
 Resources:
   Purdue-Hansen:
@@ -31,6 +32,7 @@ Resources:
         Primary:
           ID: 4fc95aafd347aa59450057af01eaeeec070648cf
           Name: Fengping Hu
+    Description: This is the gateway to the Purdue Hansen cluster - http://www.rcac.purdue.edu/userinfo/resources/hansen/
     Disable: true
     FQDN: hansen-osg.rcac.purdue.edu
     ID: 423

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: PNNL Grid Resources
 GroupID: 355
 Resources:
   PNNL_OSG-Misregistered:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: 18ccbf28e8365d2b6ccb8e50c81fdb4aa6664b4a
           Name: Brock Erwin
+    Description: PNNL Grid Resource
     Disable: true
     FQDN: osg.pnl.gov
     ID: 485

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 1
 Resources:
   AGLT2-squid:
@@ -25,6 +26,7 @@ Resources:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+    Description: This is the round-robin DNS alias for the SQUIDs at AGLT2
     Disable: false
     FQDN: squid.aglt2.org
     ID: 677
@@ -65,6 +67,8 @@ Resources:
         Primary:
           ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
           Name: Bob Ball
+    Description: This is the gate keeper at AGLT2 for non-ATLAS VOs that wish to use
+      our site.
     Disable: false
     FQDN: gate02.grid.umich.edu
     ID: 250
@@ -122,6 +126,7 @@ Resources:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+    Description: dCache/SRM headnode for AGLT2
     Disable: false
     FQDN: head01.aglt2.org
     ID: 175
@@ -173,6 +178,7 @@ Resources:
         Primary:
           ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
           Name: Bob Ball
+    Description: New SL6 CE at AGLT2
     Disable: false
     FQDN: gate04.aglt2.org
     ID: 547
@@ -230,6 +236,7 @@ Resources:
         Primary:
           ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
           Name: Bob Ball
+    Description: New SL7 gatekeeper, December, 2017.
     Disable: false
     FQDN: gate01.aglt2.org
     ID: 928
@@ -272,6 +279,8 @@ Resources:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+    Description: This resource is the perfSONAR-PS instances at the AGLT2 East Lansing
+      site
     Disable: true
     FQDN: not.used
     ID: 512
@@ -301,6 +310,8 @@ Resources:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+    Description: This is the perfSONAR-PS instances at the AGLT2 University of Michigan
+      site
     Disable: true
     FQDN: not.used
     ID: 511
@@ -343,6 +354,8 @@ Resources:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+    Description: This is the perfSONAR-PS bandwidth instance at the Michigan State
+      University AGLT2 site.
     Disable: false
     FQDN: psmsu02.aglt2.org
     ID: 586
@@ -381,6 +394,8 @@ Resources:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+    Description: This is the perfSONAR-PS latency instance at the Michigan State University
+      AGLT2 site.
     Disable: false
     FQDN: psmsu01.aglt2.org
     ID: 585
@@ -406,6 +421,8 @@ Resources:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+    Description: This is the perfSONAR-PS bandwidth instance at the University of
+      Michigan AGLT2 site.
     Disable: false
     FQDN: psum02.aglt2.org
     ID: 584
@@ -431,6 +448,8 @@ Resources:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+    Description: This is the perfSONAR-PS latenchy instance at the University of Michigan
+      AGLT2 site.
     Disable: false
     FQDN: psum01.aglt2.org
     ID: 583

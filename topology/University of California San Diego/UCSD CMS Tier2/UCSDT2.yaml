@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 113
 Resources:
   UCSDCMST2-2-squid:
@@ -21,6 +22,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: Squid service for Frontier at UCSD CMS T2
     Disable: false
     FQDN: cvmfs-2.t2.ucsd.edu
     ID: 720
@@ -44,6 +46,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: Squid service for Frontier at UCSD CMS T2
     Disable: false
     FQDN: cvmfs-1.t2.ucsd.edu
     ID: 679
@@ -63,6 +66,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: US CMS Tier-2 site at UCSD
     Disable: false
     FQDN: osg-gw-2.t2.ucsd.edu
     ID: 113
@@ -97,6 +101,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: OSG HTCondor CE
     Disable: false
     FQDN: osg-gw-4.t2.ucsd.edu
     ID: 114
@@ -136,6 +141,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: UCSD CMS T2 Gatekeeper
     Disable: false
     FQDN: osg-gw-6.t2.ucsd.edu
     ID: 531
@@ -174,6 +180,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: Additional CE
     Disable: false
     FQDN: osg-gw-7.t2.ucsd.edu
     ID: 532
@@ -213,6 +220,19 @@ Resources:
         Primary:
           ID: 903732da995c5cfc467541693f9c8f4afaf7e2ae
           Name: Abhishek Rana
+    Description: |-
+      Primary function: SRM Hadoop Testbed to package, produce, and release official OSG/VDT Hadoop HDFS releases (http://vdt.cs.wisc.edu/components/hadoop.html).
+
+      Disk capacity is nearly 20-30 TB with O(15) datanodes and O(10) GridFTP servers.
+
+      Secondary functions:
+
+      1. Hadoop HDFS Benchmarking and scalability evaluation.
+      2. BeStMan scalability profiling.
+      3. Benchmarking and I/O profiling of HDFS (without GridFTP).
+      4. I/O profiling of HDFS with GridFTP.
+      5. GridFTP optimizations.
+      6. GlideinWMS scalability tool.
     Disable: true
     FQDN: tbsrm-1.t2.ucsd.edu
     ID: 112
@@ -254,6 +274,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: This is a LVS frontend to our 10Gbps gridftp servers.
     Disable: false
     FQDN: gftp.t2.ucsd.edu
     ID: 845
@@ -288,6 +309,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: UCSDT2-SE2 is a Bestman/Hadoop(HDFS) storage system
     Disable: false
     FQDN: bsrm-1.t2.ucsd.edu
     ID: 232
@@ -327,6 +349,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: UCSD CMS Tier2 Center Bestman SRM Server
     Disable: false
     FQDN: bsrm-3.t2.ucsd.edu
     ID: 533
@@ -365,6 +388,7 @@ Resources:
         Primary:
           ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
           Name: James Letts
+    Description: GlideinWMS submit node for CMS.
     Disable: false
     FQDN: glidein-2.t2.ucsd.edu
     ID: 396
@@ -390,6 +414,7 @@ Resources:
         Primary:
           ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
           Name: James Letts
+    Description: GlideinWMS submit host for CMS.
     Disable: false
     FQDN: submit-2.t2.ucsd.edu
     ID: 397
@@ -415,6 +440,7 @@ Resources:
         Primary:
           ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
           Name: James Letts
+    Description: GlideinWMS submit host for CMS.
     Disable: false
     FQDN: submit-1.t2.ucsd.edu
     ID: 403
@@ -436,6 +462,7 @@ Resources:
         Primary:
           ID: 903732da995c5cfc467541693f9c8f4afaf7e2ae
           Name: Abhishek Rana
+    Description: Validation SE
     Disable: true
     FQDN: tbsrm-1.t2.ucsd.edu
     ID: 111
@@ -458,6 +485,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: Deprecated
     Disable: true
     FQDN: srm-3.t2.ucsd.edu
     ID: 255
@@ -495,6 +523,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: UCSD CMS T2 Bandwidth Perfsonar Node
     Disable: false
     FQDN: perfsonar-1.t2.ucsd.edu
     ID: 599
@@ -520,6 +549,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: This is the latency PerfSonar instance at the UCSD CMS T2 center
     Disable: false
     FQDN: perfsonar-2.t2.ucsd.edu
     ID: 522

@@ -1,5 +1,9 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: |-
+  Added manually by Arvind from old RegDB - please update if need be.
+
+  7/26 disabling empty resource group
 GroupID: 148
 Resources:
   NCSA_TUNGSTEN:
@@ -21,6 +25,7 @@ Resources:
         Primary:
           ID: ea73d9d356385150ef99677c4b7ee38c58faf551
           Name: Doru Marcusiu
+    Description: Added manually by Arvind from old RegDB - please update if need be.
     Disable: true
     FQDN: ncsa-ce.ncsa.uiuc.edu
     ID: 148

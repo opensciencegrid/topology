@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: SBGrid VO resources
 GroupID: 338
 Resources:
   INFNPD-GlideinWMS-Schedd:
@@ -25,6 +26,7 @@ Resources:
         Primary:
           ID: 4943840ab1a99a05a5c49bf4447a90eb07cd8caa
           Name: Marco Verlato
+    Description: SBGrid's glideinWMS submission node
     Disable: false
     FQDN: ui-wenmr.pd.infn.it
     ID: 457

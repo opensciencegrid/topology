@@ -1,5 +1,7 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: The University of Wisconsin's Center for High Throughput Computing.  Note
+  that CHTC and GLOW are closely related, and in many contexts, they are synonyms.
 GroupID: 314
 Resources:
   CHTC and BATLAB OSG Mirror:
@@ -27,6 +29,8 @@ Resources:
         Primary:
           ID: 46a55ac4815b2b8c00ff283549f413113b45d628
           Name: Aaron Moate
+    Description: This is the CHTC and BATLAB mirror of the OSG repos at repo.grid.iu.edu/osg
+      via rsync every two hours.
     Disable: false
     FQDN: mirror.batlab.org
     ID: 608
@@ -52,6 +56,7 @@ Resources:
         Primary:
           ID: 210d07bf782db9938049eaf11820ec908fdda3b5
           Name: Daniel Bradley
+    Description: This is the GLOW/CHTC glidein frontend.
     Disable: true
     FQDN: glidein.chtc.wisc.edu
     ID: 412
@@ -81,6 +86,7 @@ Resources:
         Primary:
           ID: 46a55ac4815b2b8c00ff283549f413113b45d628
           Name: Aaron Moate
+    Description: This is the GLOW/CHTC glidein frontend.
     Disable: false
     FQDN: glidein2.chtc.wisc.edu
     ID: 638
@@ -110,6 +116,7 @@ Resources:
         Primary:
           ID: 46a55ac4815b2b8c00ff283549f413113b45d628
           Name: Aaron Moate
+    Description: Test GLOW/CHTC glidein frontend.
     Disable: false
     FQDN: glidein3.chtc.wisc.edu
     ID: 739
@@ -135,6 +142,7 @@ Resources:
         Primary:
           ID: 46a55ac4815b2b8c00ff283549f413113b45d628
           Name: Aaron Moate
+    Description: CHTC Submit Node
     Disable: false
     FQDN: submit-1.chtc.wisc.edu
     ID: 723
@@ -164,6 +172,7 @@ Resources:
         Primary:
           ID: 46a55ac4815b2b8c00ff283549f413113b45d628
           Name: Aaron Moate
+    Description: CHTC Submit Node
     Disable: false
     FQDN: submit-3.chtc.wisc.edu
     ID: 719
@@ -189,6 +198,7 @@ Resources:
         Primary:
           ID: 46a55ac4815b2b8c00ff283549f413113b45d628
           Name: Aaron Moate
+    Description: CHTC Submit Node for SOAR work flows written by bt@cs.wisc.edu
     Disable: false
     FQDN: submit-4.chtc.wisc.edu
     ID: 721
@@ -214,6 +224,7 @@ Resources:
         Primary:
           ID: 46a55ac4815b2b8c00ff283549f413113b45d628
           Name: Aaron Moate
+    Description: CHTC Submit Node for users created after 2014
     Disable: false
     FQDN: submit-5.chtc.wisc.edu
     ID: 722
@@ -248,6 +259,7 @@ Resources:
         Secondary:
           ID: 210d07bf782db9938049eaf11820ec908fdda3b5
           Name: Daniel Bradley
+    Description: This is the VOMS server for the GLOW and CHTC sites.
     Disable: false
     FQDN: glow-voms.cs.wisc.edu
     ID: 426

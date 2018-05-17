@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: CE for the HPC cluster at CCHDV
 GroupID: 448
 Resources:
   CancerComputer_Hotel_CE:
@@ -21,6 +22,7 @@ Resources:
         Primary:
           ID: 0182f725a01a98ce2359736e09f181f07ad646d5
           Name: Ian Stakenvicius
+    Description: This is the gatekeeper for CancerComputer's OSG compute resources
     Disable: false
     FQDN: osg.cancercomputer.com
     ID: 829

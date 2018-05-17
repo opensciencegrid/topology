@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: The central site of GridUNESP infrastructure.
 GroupID: 259
 Resources:
   GridUNESP:
@@ -31,6 +32,8 @@ Resources:
         Primary:
           ID: 6ae031dad274319a94846e1930ddc0082aab6612
           Name: Gabriel Araujo von Winckler
+    Description: This is the gatekeeper (condor-ce), RSV, GUMS and Gratia for the
+      GrdiUnesp cluster.
     Disable: false
     FQDN: osg-ce.grid.unesp.br
     ID: 308
@@ -70,6 +73,7 @@ Resources:
         Primary:
           ID: 6ae031dad274319a94846e1930ddc0082aab6612
           Name: Gabriel Araujo von Winckler
+    Description: The SRM server for GridUNESP main cluster.
     Disable: true
     FQDN: se.grid.unesp.br
     ID: 309

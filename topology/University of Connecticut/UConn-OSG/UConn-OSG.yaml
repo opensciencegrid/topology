@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: UConn Physics Cluster Computing Group
 GroupID: 254
 Resources:
   Gluex_VOMRS:
@@ -21,6 +22,7 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
+    Description: VOMRS server for the Gluex VO
     Disable: false
     FQDN: gryphn.phys.uconn.edu
     FQDNAliases:
@@ -54,6 +56,7 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
+    Description: VOMS server for the Gluex VO
     Disable: false
     FQDN: gryphn.phys.uconn.edu
     FQDNAliases:
@@ -83,6 +86,7 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
+    Description: HTcondor-CE server for the UConn-OSG compute resources
     Disable: false
     FQDN: gluskap.phys.uconn.edu
     FQDNAliases:
@@ -120,6 +124,7 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
+    Description: GUMS server for OSG users at the UConn-OSG site
     Disable: false
     FQDN: gryphn.phys.uconn.edu
     FQDNAliases:
@@ -149,6 +154,7 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
+    Description: dcache/SRM data store for the UConn-OSG site.
     Disable: false
     FQDN: grinch.phys.uconn.edu
     FQDNAliases:

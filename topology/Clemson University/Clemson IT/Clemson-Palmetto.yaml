@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: osg-ce.clemson.edu
 GroupID: 212
 Resources:
   Clemson-Connect:
@@ -37,6 +38,8 @@ Resources:
         Primary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+    Description: This is the Connect factory for Clemson-Palmetto, primarily used
+      by OSG Connect.
     Disable: false
     FQDN: rccf-osg.ci-connect.net
     ID: 781
@@ -83,6 +86,9 @@ Resources:
         Primary:
           ID: ddaeec46e941e8db261b0927b07e65a42dfa726b
           Name: Sam Hoover
+    Description: This machine is directly connected to our Palmetto cluster (with
+      approximately 20,000 cores) and has a shared file systems for /home, $OSG_APP
+      and $OSG_DATA.
     Disable: false
     FQDN: osg-ce.clemson.edu
     ID: 211

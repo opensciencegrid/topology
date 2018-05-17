@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Integration Test Bed Resource
+GroupDescription: A secundary cluster at GridUNESP main site.
 GroupID: 272
 Resources:
   GridUNESP_SPO:
@@ -31,6 +32,8 @@ Resources:
         Primary:
           ID: 6ae031dad274319a94846e1930ddc0082aab6612
           Name: Gabriel Araujo von Winckler
+    Description: This is the gatekeeper and RSV monitor for the secundary cluster.
+      Used as ITB at the moment.
     Disable: true
     FQDN: ce.spo.grid.unesp.br
     ID: 338

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Small pool of hosts at the STAR experiment, for STAR jobs only.
 GroupID: 426
 Resources:
   STAR-OnlinePool:
@@ -25,6 +26,9 @@ Resources:
         Primary:
           ID: d7cf9cf9bc00275cab0a73717cc68528f9971761
           Name: Wayne Betts
+    Description: This is a small site intended only for STAR jobs (testing grid submission
+      and small batches of simulation, production and possibly STAR user analysis),
+      primarily while RHIC is not running.
     Disable: false
     FQDN: stargw3.starp.bnl.gov
     ID: 741

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: UC Davis T3 CMS SE and CE nodes
 GroupID: 239
 Resources:
   UCD:
@@ -25,6 +26,8 @@ Resources:
         Primary:
           ID: 8f0c27ad0a4c4e35e665ba348424dced8151a3bd
           Name: Scott Beardsley
+    Description: 320 cores each with access to 1.5GB of memory. 1Gbps interconnect
+      and 2x10Gbps internet connection. See the Info URL for details.
     Disable: false
     FQDN: cms.tier3.ucdavis.edu
     ID: 246
@@ -70,6 +73,8 @@ Resources:
         Primary:
           ID: 8f0c27ad0a4c4e35e665ba348424dced8151a3bd
           Name: Scott Beardsley
+    Description: This serves as our primary squid server, our GUMS auth server. Regular
+      users don't have access.
     Disable: false
     FQDN: agent.tier3.ucdavis.edu
     ID: 311
@@ -113,6 +118,7 @@ Resources:
         Primary:
           ID: 8f0c27ad0a4c4e35e665ba348424dced8151a3bd
           Name: Scott Beardsley
+    Description: Bestman/SRM, Phedex server for UCD CMS T3.
     Disable: false
     FQDN: se.tier3.ucdavis.edu
     ID: 251

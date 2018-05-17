@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: (No resource group description)
 GroupID: 45
 Resources:
   ITB_INSTALL_TEST:
@@ -20,6 +21,7 @@ Resources:
         Primary:
           ID: f366aee2da77dc5245967eed336ce98ac194ccd8
           Name: John Weigand
+    Description: This is a part of an integration test bed.
     Disable: false
     FQDN: cmsitb1.fnal.gov
     ID: 45

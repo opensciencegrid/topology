@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Integration Test Bed Resource
+GroupDescription: disabling empty resource group
 GroupID: 6
 Resources:
   BNL_ATLAS_5:
@@ -24,6 +25,7 @@ Resources:
         Primary:
           ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
           Name: Xin Zhao
+    Description: Not a valid CE anymore, needs to be removed soon
     Disable: false
     FQDN: gridgk05.racf.bnl.gov
     ID: 313

@@ -1,5 +1,7 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Support for GCVO, GCEDU, CMS, Biomed and Auger VO Universidad de
+  los Andes, GridColombia
 GroupID: 318
 Resources:
   GCVO_UNIANDES_CE:
@@ -40,6 +42,7 @@ Resources:
         Primary:
           ID: d466d764188ca5ecf5cc53424d9e9e5a7b0b579f
           Name: Daniel Alberto Burbano Sefair
+    Description: PBS queue manager
     Disable: false
     FQDN: kuragua.uniandes.edu.co
     ID: 434

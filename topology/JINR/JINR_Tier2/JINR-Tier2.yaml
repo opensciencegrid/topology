@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: CE for the JINR_Tier2 site
 GroupID: 427
 Resources:
   JINR_Tier2_CE1:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: 6b9e9d9f99dcb757f2fa333d717c14bff167d457
           Name: Nikita Balashov
+    Description: This is a JINR CE for NOvA
     Disable: false
     FQDN: lcgce12.jinr.ru
     ID: 742
@@ -42,6 +44,7 @@ Resources:
         Primary:
           ID: 6b9e9d9f99dcb757f2fa333d717c14bff167d457
           Name: Nikita Balashov
+    Description: This is a JINR CE for NOvA
     Disable: false
     FQDN: lcgce21.jinr.ru
     ID: 743

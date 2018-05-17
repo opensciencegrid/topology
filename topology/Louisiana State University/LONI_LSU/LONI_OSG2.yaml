@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: OSG Compute Element to support LIGO workflow submission using pegasus
 GroupID: 179
 Resources:
   LONI_OSG2:
@@ -21,6 +22,7 @@ Resources:
         Primary:
           ID: a79161adf0ee191aad0c76aef99cb8509e0af594
           Name: Lisa Giaime
+    Description: OSG Compute Element to support LIGO workflow submission using pegasus
     Disable: false
     FQDN: osg2.loni.org
     ID: 179

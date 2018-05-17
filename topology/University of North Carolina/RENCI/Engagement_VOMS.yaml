@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: disabled 4/3
 GroupID: 185
 Resources:
   Engagement_VOMS:
@@ -28,6 +29,7 @@ Resources:
         Primary:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
           Name: Mats Rynge
+    Description: VOMS server for Engage VO
     Disable: true
     FQDN: osg-engage.renci.org
     ID: 185

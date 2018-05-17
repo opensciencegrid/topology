@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: ITB Resource Group for SE Testing.
 GroupID: 279
 Resources:
   Vanderbilt_ITB_CE:
@@ -33,6 +34,7 @@ Resources:
         Secondary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
+    Description: This is our ITB CE and interfaces to our test cluster.
     Disable: false
     FQDN: testce1.accre.vanderbilt.edu
     ID: 439
@@ -74,6 +76,7 @@ Resources:
         Secondary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
+    Description: This is the SE for our ITB site and interfaces to our test cluster.
     Disable: false
     FQDN: testse1.accre.vanderbilt.edu
     ID: 440

@@ -1,5 +1,7 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: This is the SGE submit host for UGA's SURAGrid queues on our local
+  linux cluster.
 GroupID: 301
 Resources:
   UGA_Sgrid_CE:
@@ -9,6 +11,8 @@ Resources:
         Secondary:
           ID: 2d57698fb41355073f4378e002a7cfb46aa66cd6
           Name: David Matthews-Morgan
+    Description: This is the SGE submit node for the SURAGrid queue on our local linux
+      cluster.
     Disable: false
     FQDN: scluster.rcc.uga.edu
     ID: 384
@@ -34,6 +38,7 @@ Resources:
         Primary:
           ID: 2d57698fb41355073f4378e002a7cfb46aa66cd6
           Name: David Matthews-Morgan
+    Description: This is a test compute element for UGA.
     Disable: false
     FQDN: sgrid-test.rcc.uga.edu
     ID: 448

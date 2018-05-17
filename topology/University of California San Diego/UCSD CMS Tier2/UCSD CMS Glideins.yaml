@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: This group holds the glidein-related resources for CMS.
 GroupID: 359
 Resources:
   UAF 1:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: CMS Submit Host at UCSD
     Disable: false
     FQDN: uaf-1.t2.ucsd.edu
     ID: 869
@@ -42,6 +44,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: UCSD Submit Host
     Disable: false
     FQDN: uaf-10.t2.ucsd.edu
     ID: 877
@@ -67,6 +70,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: UCSD Submit Host
     Disable: false
     FQDN: uaf-2.t2.ucsd.edu
     ID: 870
@@ -92,6 +96,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: UCSD Submit Host
     Disable: false
     FQDN: uaf-3.t2.ucsd.edu
     ID: 871
@@ -117,6 +122,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: UCSD Submit Host
     Disable: false
     FQDN: uaf-4.t2.ucsd.edu
     ID: 872
@@ -142,6 +148,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: UCSD Submit Host
     Disable: false
     FQDN: uaf-5.t2.ucsd.edu
     ID: 873
@@ -167,6 +174,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: UCSD Submit Host
     Disable: false
     FQDN: uaf-6.t2.ucsd.edu
     ID: 874
@@ -215,6 +223,7 @@ Resources:
         Primary:
           ID: a89087e73b4e9d1732c5a7112332688940f06440
           Name: Edgar Mauricio Fajardo Hernandez
+    Description: UCSD CMS submit node.
     Disable: false
     FQDN: uaf-7.t2.ucsd.edu
     ID: 868
@@ -240,6 +249,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: UCSD Submit Host
     Disable: false
     FQDN: uaf-8.t2.ucsd.edu
     ID: 875
@@ -265,6 +275,7 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+    Description: UCSD Submit Host
     Disable: false
     FQDN: uaf-9.t2.ucsd.edu
     ID: 876
@@ -289,6 +300,7 @@ Resources:
         Primary:
           ID: 593daf4f680b3135849201036e1055f03f89cfac
           Name: Igor Sfiligoi
+    Description: CMS glidein submit node
     Disable: false
     FQDN: cmssubmit-r1.t2.ucsd.edu
     ID: 498
@@ -310,6 +322,7 @@ Resources:
         Primary:
           ID: 593daf4f680b3135849201036e1055f03f89cfac
           Name: Igor Sfiligoi
+    Description: CMS AnaOps glidein submit node
     Disable: false
     FQDN: glidein-2.t2.ucsd.edu
     ID: 497
@@ -334,6 +347,7 @@ Resources:
         Primary:
           ID: 593daf4f680b3135849201036e1055f03f89cfac
           Name: Igor Sfiligoi
+    Description: CMS Anaops glidein Submit node.
     Disable: false
     FQDN: submit-2.t2.ucsd.edu
     ID: 493
@@ -358,6 +372,7 @@ Resources:
         Primary:
           ID: 593daf4f680b3135849201036e1055f03f89cfac
           Name: Igor Sfiligoi
+    Description: CMS AnaOps glidein submit node.
     Disable: false
     FQDN: submit-3.t2.ucsd.edu
     ID: 495
@@ -382,6 +397,7 @@ Resources:
         Primary:
           ID: 593daf4f680b3135849201036e1055f03f89cfac
           Name: Igor Sfiligoi
+    Description: CMS Anaops glidein submit node
     Disable: false
     FQDN: submit-4.t2.ucsd.edu
     ID: 496

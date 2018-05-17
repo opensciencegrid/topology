@@ -1,5 +1,7 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: OSG resources connected to the LONI Eric 5TF cluster at LSU in Baton
+  Rouge, LA.
 GroupID: 151
 Resources:
   LONI_OSG1:
@@ -34,6 +36,8 @@ Resources:
         Primary:
           ID: 9e038944c93d17b8c41f350211f566fd25eedd97
           Name: Michael Bryant
+    Description: The Louisiana Optical Network Initiative (LONI) OSG compute element
+      connected to the Eric 5TF cluster located at LSU in Baton Rouge, LA.
     Disable: true
     FQDN: osg1.loni.org
     ID: 151

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Group of BDIIs run by the GOC to serve both OSG and WLCG users.
 GroupID: 247
 Resources:
   GOC_BDII_1:
@@ -20,6 +21,7 @@ Resources:
         Primary:
           ID: a86faef88b867839882fcc12d719171113acafd6
           Name: OSG Operations Center
+    Description: One of the production BDII servers run by the OSG GOC
     Disable: true
     FQDN: is1.grid.iu.edu
     FQDNAliases:
@@ -50,6 +52,7 @@ Resources:
         Primary:
           ID: a86faef88b867839882fcc12d719171113acafd6
           Name: OSG Operations Center
+    Description: One of the BDII servers run by the OSG GOC
     Disable: true
     FQDN: is2.grid.iu.edu
     FQDNAliases:

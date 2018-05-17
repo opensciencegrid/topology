@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: This resource group will be used as a Tier 3 site for the CMS experiment.
 GroupID: 264
 Resources:
   Baylor-Tier3-CE:
@@ -37,6 +38,7 @@ Resources:
         Primary:
           ID: e39b1c7cb2d4dbe20c021b0cfc4502b7c74b4cdb
           Name: Kenichi Hatakeyama
+    Description: CE for 128-node/1024-core HPC Cluster used for CMS
     Disable: true
     FQDN: kodiak-ce.baylor.edu
     ID: 314
@@ -92,6 +94,7 @@ Resources:
         Primary:
           ID: 3986e50c462605269d20a863a0ca3cf99ece1b62
           Name: James Hutcheson
+    Description: SE for Baylor Tier 3 Cluster
     Disable: true
     FQDN: kodiak-se.baylor.edu
     ID: 400

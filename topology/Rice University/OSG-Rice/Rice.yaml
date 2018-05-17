@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 216
 Resources:
   OSG-Rice:
@@ -37,6 +38,8 @@ Resources:
         Primary:
           ID: 018d13f74f253622c6edd3b68f692cca5890b38f
           Name: Pablo Yepes
+    Description: Tier-3 computing center. Priority given to local users, but opportunistic
+      use by CMS VO allowed.
     Disable: false
     FQDN: bonner06.rice.edu
     ID: 348
@@ -88,6 +91,8 @@ Resources:
         Primary:
           ID: 018d13f74f253622c6edd3b68f692cca5890b38f
           Name: Pablo Yepes
+    Description: Tier-3 computing center. Priority given to local users, but opportunistic
+      use by CMS VO allowed.
     Disable: true
     FQDN: osg-gate.rice.edu
     ID: 214

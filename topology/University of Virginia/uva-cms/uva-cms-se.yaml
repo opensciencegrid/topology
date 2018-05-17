@@ -1,5 +1,9 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: |-
+  Storage Element on the University of Virginia - High Energy Physics Cluster
+
+  7/26 disabling empty resource group
 GroupID: 258
 Resources:
   T3_US_UVA:
@@ -17,6 +21,8 @@ Resources:
         Primary:
           ID: 0ba732ae59269e06588b77cbac0d4b6e5d852443
           Name: Michael Arenton
+    Description: This is the storage element gateway for the University of Virginia
+      CMS tier3 cluster.
     Disable: false
     FQDN: osg-hep.phys.virginia.edu
     ID: 614
@@ -42,6 +48,7 @@ Resources:
         Primary:
           ID: 871e984bff6a635ced6e6f73871c5ed6cc4c01fa
           Name: Michael A. Balazs
+    Description: Grid Head Node offer SE services
     Disable: true
     FQDN: osg-hep.phys.virginia.edu
     ID: 305

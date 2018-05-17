@@ -1,5 +1,7 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Entry for hosted CE running at UChicago but submitting to KU cluster
+  resources
 GroupID: 462
 Resources:
   HOSTED_KANSAS_CE:
@@ -17,6 +19,7 @@ Resources:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
+    Description: BOSCO CE gatekeeper for the cluster at KU Community Cluster
     Disable: false
     FQDN: hosted-ce01.grid.uchicago.edu
     ID: 862

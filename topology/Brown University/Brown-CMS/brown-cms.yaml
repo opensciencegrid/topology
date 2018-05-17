@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: T3 Computing center for CMS VO.
 GroupID: 241
 Resources:
   brown-cms:
@@ -21,6 +22,7 @@ Resources:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
           Name: Stefan Piperov
+    Description: CMS T3 CE.
     Disable: false
     FQDN: grid-0.hep.brown.edu
     ID: 258

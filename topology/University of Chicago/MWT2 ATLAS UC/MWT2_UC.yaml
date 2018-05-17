@@ -1,5 +1,6 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: 7/26 disabling empty resource group
 GroupID: 69
 Resources:
   MWT2_UC:
@@ -24,6 +25,7 @@ Resources:
         Primary:
           ID: 6d5915fca586e4702c3f4ecbf56750132c6896c2
           Name: Nathan Yehle (disabled)
+    Description: Formerly part of the MWT2 facility.
     Disable: true
     FQDN: uct2-grid6.uchicago.edu
     ID: 69
@@ -49,6 +51,7 @@ Resources:
       TapeCapacity: 0
   MWT2_X_SE:
     Active: false
+    Description: Part of the MWT2 Facility.  Test xrootd SE.
     Disable: true
     FQDN: iut2-grid8.iu.edu
     ID: 304

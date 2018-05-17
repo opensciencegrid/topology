@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Machines associated with Fermilab public dCache
 GroupID: 369
 Resources:
   Fermilab Public dCache:
@@ -31,6 +32,7 @@ Resources:
         Primary:
           ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
           Name: Tanya Levshina
+    Description: Fermilab Public dCache
     Disable: false
     FQDN: fndca2a.fnal.gov
     FQDNAliases:

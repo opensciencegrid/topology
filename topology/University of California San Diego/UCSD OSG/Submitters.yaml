@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: This group is for the Submitter nodes at UCSD.
 GroupID: 337
 Resources:
   Physics Computing Facility UCSD Submit Host:
@@ -24,6 +25,8 @@ Resources:
         Primary:
           ID: a89087e73b4e9d1732c5a7112332688940f06440
           Name: Edgar Mauricio Fajardo Hernandez
+    Description: This is a submitter host for running the physics computing facilities
+      at the UCSD physics department to access Comet and OSG.
     Disable: false
     FQDN: pcf-osg.t2.ucsd.edu
     ID: 789
@@ -53,6 +56,7 @@ Resources:
         Primary:
           ID: 593daf4f680b3135849201036e1055f03f89cfac
           Name: Igor Sfiligoi
+    Description: This is the glidein submit node used by the Engage UCSDGrid group.
     Disable: false
     FQDN: osg.ctbp.ucsd.edu
     ID: 456
@@ -94,6 +98,7 @@ Resources:
         Primary:
           ID: a89087e73b4e9d1732c5a7112332688940f06440
           Name: Edgar Mauricio Fajardo Hernandez
+    Description: Test configuration submit host for the LHC @ UC project
     Disable: false
     FQDN: uclhctest.t2.ucsd.edu
     ID: 889

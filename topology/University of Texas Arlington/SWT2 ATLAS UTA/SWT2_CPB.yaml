@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 139
 Resources:
   SWT2_CPB:
@@ -27,6 +28,7 @@ Resources:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
+    Description: ATLAS Tier2 Production/Analysis facility
     Disable: false
     FQDN: gk01.atlas-swt2.org
     ID: 139
@@ -77,6 +79,9 @@ Resources:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
+    Description: This is a small testing resource for the ATLAS resource only.  It
+      needs to report to WLCG BDII, but gratia reporting is not important.  It will
+      be used to work on a new software distribution mechanism within ATLAS
     Disable: false
     FQDN: test06.atlas-swt2.org
     ID: 398
@@ -127,6 +132,7 @@ Resources:
         Primary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
+    Description: (No resource description)
     Disable: false
     FQDN: gk03.atlas-swt2.org
     ID: 191
@@ -173,6 +179,7 @@ Resources:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
+    Description: Frontier/CVMFS round robin squid system
     Disable: false
     FQDN: fsquid.atlas-swt2.org
     ID: 920
@@ -209,6 +216,7 @@ Resources:
         Primary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
+    Description: This is the perfSONAR-PS bandwidth instance at SWT2_CPB
     Disable: false
     FQDN: psuta02.atlas-swt2.org
     ID: 587
@@ -254,6 +262,7 @@ Resources:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
+    Description: This is the perfSONAR-PS latency instance at SWT2_CPB
     Disable: false
     FQDN: psuta01.atlas-swt2.org
     ID: 520

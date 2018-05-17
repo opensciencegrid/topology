@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Resource group at California State University, Fresno
 GroupID: 340
 Resources:
   FSU-TEST-SE:
@@ -23,6 +24,9 @@ Resources:
         Primary:
           ID: 00559377ad4d5a83f0f60cc13284fc09ed71d105
           Name: Sergey Uzunyan
+    Description: |-
+      10TB storage accessible via SRM or GridFTP; for now
+      only for local users of Fresno T3 cluster
     Disable: false
     FQDN: t3nfs.atlas.csufresno.edu
     ID: 459

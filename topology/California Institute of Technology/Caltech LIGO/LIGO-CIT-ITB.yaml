@@ -1,9 +1,11 @@
 Disable: true
 GridType: OSG Integration Test Bed Resource
+GroupDescription: disabling empty resource group
 GroupID: 61
 Resources:
   LIGO-CIT-ITB:
     Active: false
+    Description: (No resource description)
     Disable: true
     FQDN: osg-itb.ligo.caltech.edu
     ID: 61
@@ -33,6 +35,7 @@ Resources:
         Primary:
           ID: f97e23d8efcbcead011b0ac5d76f4770c7ce8135
           Name: Robert Engel
+    Description: A small Linux cluster at Caltech.
     Disable: true
     FQDN: osg-ce.ligo.caltech.edu
     ID: 221
@@ -64,6 +67,11 @@ Resources:
         Primary:
           ID: f97e23d8efcbcead011b0ac5d76f4770c7ce8135
           Name: Robert Engel
+    Description: LIGO_CIT_SE consists of a headnode osg-se.ligo.caltech.edu, which
+      is connected to 13 storage nodes. Each storage node provides approx. 2TB local
+      disk storage. The Hadoop file system is used to join the local disks to create
+      a 23TB storage partition. The storage partition can be accessed using GridFTP
+      and SRM.
     Disable: true
     FQDN: osg-se.ligo.caltech.edu
     ID: 223

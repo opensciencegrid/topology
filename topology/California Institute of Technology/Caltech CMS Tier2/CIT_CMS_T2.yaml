@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 10
 Resources:
   CIT_CMS_SE:
@@ -24,6 +25,7 @@ Resources:
         Primary:
           ID: 646d38b93b70c6322c555a70f3bc69c6cbc5a9eb
           Name: Michael Thomas
+    Description: US CMS Tier-2 sites at Caltech.
     Disable: false
     FQDN: cit-se.ultralight.org
     ID: 169
@@ -77,6 +79,7 @@ Resources:
         Primary:
           ID: 646d38b93b70c6322c555a70f3bc69c6cbc5a9eb
           Name: Michael Thomas
+    Description: Hadoop + Bestman storage element for the Caltech CMS Tier2
     Disable: true
     FQDN: cit-se2.ultralight.org
     FQDNAliases:
@@ -115,6 +118,7 @@ Resources:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
           Name: Justas Balcas
+    Description: US CMS Tier-2 site at Caltech
     Disable: false
     FQDN: cit-gatekeeper.ultralight.org
     FQDNAliases:
@@ -158,6 +162,7 @@ Resources:
         Primary:
           ID: 646d38b93b70c6322c555a70f3bc69c6cbc5a9eb
           Name: Michael Thomas
+    Description: CE for Caltech CMS Tier2 facility.
     Disable: false
     FQDN: cit-gatekeeper2.ultralight.org
     FQDNAliases:
@@ -201,6 +206,7 @@ Resources:
         Primary:
           ID: 78c0cedf2bc566b31787f7d831a76ea25b095654
           Name: Samir Cury Siqueira
+    Description: Squid service for frontier and cvmfs
     Disable: false
     FQDN: proxy-1.ultralight.org
     ID: 688
@@ -224,6 +230,7 @@ Resources:
         Primary:
           ID: 78c0cedf2bc566b31787f7d831a76ea25b095654
           Name: Samir Cury Siqueira
+    Description: Latency host for PerfSonar.
     Disable: true
     FQDN: perfsonar2.ultralight.org
     ID: 525
@@ -257,6 +264,8 @@ Resources:
         Primary:
           ID: 646d38b93b70c6322c555a70f3bc69c6cbc5a9eb
           Name: Michael Thomas
+    Description: Local department general purpose cluster providing opportunistic
+      CPUs to CMS.
     Disable: false
     FQDN: muon.hep.caltech.edu
     FQDNAliases:
@@ -300,6 +309,7 @@ Resources:
         Primary:
           ID: 78c0cedf2bc566b31787f7d831a76ea25b095654
           Name: Samir Cury Siqueira
+    Description: Bandwidth PerfSonar node
     Disable: false
     FQDN: perfsonar.ultralight.org
     ID: 610
@@ -329,6 +339,7 @@ Resources:
         Primary:
           ID: 78c0cedf2bc566b31787f7d831a76ea25b095654
           Name: Samir Cury Siqueira
+    Description: Latency host for PerfSonar.
     Disable: false
     FQDN: perfsonar2.ultralight.org
     ID: 609

@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: UERJ Resource Group.
 GroupID: 42
 Resources:
   UERJ_CE:
@@ -43,6 +44,7 @@ Resources:
         Primary:
           ID: 0eb77df1dee0abb02d8b1bc8fe4eed8a0a126d76
           Name: Patricia Bittencourt
+    Description: CE Gatekeeper of T2_BR_UERJ
     Disable: true
     FQDN: osgce.hepgrid.uerj.br
     ID: 42
@@ -106,6 +108,7 @@ Resources:
         Primary:
           ID: 406d0b79a5fdab59cccdc75a640caa80a32ff255
           Name: Felipe Silva Araujo
+    Description: Second CE Gatekeeper of T2_BR_UERJ.
     Disable: false
     FQDN: osgce2.hepgrid.uerj.br
     ID: 210
@@ -170,6 +173,7 @@ Resources:
         Primary:
           ID: e841eee054eaa3cf8ade9ddf1a259755c95a160c
           Name: Thiago Comicio
+    Description: SE resource of T2_BR_UERJ.
     Disable: false
     FQDN: se.hepgrid.uerj.br
     ID: 164

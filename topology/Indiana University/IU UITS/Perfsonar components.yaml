@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Perfsonar components operated by the GOC
 GroupID: 432
 Resources:
   Cassandra 1:
@@ -21,6 +22,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: Cassandra component
     Disable: false
     FQDN: cassandra1.grid.iu.edu
     ID: 749
@@ -50,6 +52,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: Cassandra component
     Disable: false
     FQDN: cassandra2.grid.iu.edu
     ID: 750
@@ -78,6 +81,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: Cassandra component
     Disable: false
     FQDN: cassandra3.grid.iu.edu
     ID: 772
@@ -103,6 +107,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: The meshconfig resource for perfsonar
     Disable: false
     FQDN: meshconfig.grid.iu.edu
     ID: 917
@@ -128,6 +133,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: perfsonar component
     Disable: true
     FQDN: perfsonar1.grid.iu.edu
     ID: 787
@@ -153,6 +159,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: perfsonar component
     Disable: false
     FQDN: perfsonar2.grid.iu.edu
     ID: 788
@@ -185,6 +192,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: perfsonar datastore
     Disable: false
     FQDN: psds0.grid.iu.edu
     ID: 751
@@ -217,6 +225,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: perfsonar datastore
     Disable: false
     FQDN: psds1.grid.iu.edu
     ID: 752
@@ -249,6 +258,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: perfsonar data store
     Disable: false
     FQDN: psds2.grid.iu.edu
     ID: 753
@@ -277,6 +287,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: perfsonar component
     Disable: false
     FQDN: psetf.grid.iu.edu
     ID: 918
@@ -305,6 +316,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: perfsonar component
     Disable: false
     FQDN: psrsv.grid.iu.edu
     ID: 935
@@ -333,6 +345,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: perfsonar VM host
     Disable: false
     FQDN: psvm01.grid.iu.edu
     ID: 919

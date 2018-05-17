@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: A place for monitoring stash cache origin servers
 GroupID: 454
 Resources:
   Caltech StashCache instance:
@@ -17,6 +18,7 @@ Resources:
         Primary:
           ID: 2774337cfe3d359a4ccfdcbd8fe48657f07e3f78
           Name: Marian Zvada
+    Description: LIGO origin server at Caltech.
     Disable: false
     FQDN: origin.ligo.caltech.edu
     ID: 940
@@ -42,6 +44,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: Origin server instance
     Disable: false
     FQDN: stashcache.fnal.gov
     ID: 838
@@ -67,6 +70,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: IU Origin server and submit node
     Disable: false
     FQDN: csiu-itb.grid.iu.edu
     ID: 839
@@ -92,6 +96,7 @@ Resources:
         Primary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
+    Description: Origin server instance
     Disable: false
     FQDN: stash.osgconnect.net
     ID: 837

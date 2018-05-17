@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Various infrastructure services for SBGrid.
 GroupID: 339
 Resources:
   SBGrid-Harvard-Security:
@@ -40,6 +41,7 @@ Resources:
         Primary:
           ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
           Name: Ian Stokes-Rees
+    Description: GUMS, VOMS and VOMSAdmin host for SBGrid and NEBioGrid
     Disable: false
     FQDN: hpc.sbgrid.org
     ID: 298

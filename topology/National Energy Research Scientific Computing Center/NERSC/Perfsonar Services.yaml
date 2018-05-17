@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Perfsonar Services
 GroupID: 456
 Resources:
   perfSONAR_NERSC_bw:
@@ -37,6 +38,7 @@ Resources:
         Primary:
           ID: f25ad275ead305d5a3eab2b4aad50bb97fba2d10
           Name: Jason Russell Lee
+    Description: perfsonar node for NERSC
     Disable: false
     FQDN: perfsonar.nersc.gov
     ID: 843

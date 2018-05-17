@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 138
 Resources:
   WISC-OSG-EDU:
@@ -17,6 +18,8 @@ Resources:
         Primary:
           ID: 19511ac08de9fbb51709a05a707decfe36de286f
           Name: Tim Cartwright
+    Description: This is the Wisconsin site meant primarily for supporting our educational
+      efforts.
     Disable: false
     FQDN: osg-edu.cs.wisc.edu
     ID: 138
@@ -42,6 +45,7 @@ Resources:
         Primary:
           ID: 19511ac08de9fbb51709a05a707decfe36de286f
           Name: Tim Cartwright
+    Description: OSG Software 3 based CE, used for the OSGEDU VO
     Disable: false
     FQDN: osg-ss-ce.chtc.wisc.edu
     ID: 472

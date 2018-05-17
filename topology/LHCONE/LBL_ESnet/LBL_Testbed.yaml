@@ -1,5 +1,6 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: perfSONAR testbed
 GroupID: 417
 Resources:
   LBL_nettest:
@@ -30,6 +31,7 @@ Resources:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+    Description: LBL/ESnet perfsonar testbed instance
     Disable: false
     FQDN: nettest.lbl.gov
     ID: 708
