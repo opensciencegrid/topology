@@ -3,11 +3,15 @@ Disable: false
 # GridType is either "OSG Production Resource" or "OSG Integration Test Bed Resource"
 GridType: OSG Production Resource
 # SupportCenterName is one of the support centers in topology/support-centers.yaml
+# with the format "<NAME>: <ID>"
 SupportCenterName: <NAME>
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
 Resources:
+  # Resource Name should be a short descriptor of the resource.
+  # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
+  # Resource Names need to be unique across all resources in the OSG.
   <RESOURCE NAME>:
     # Active is true if the resource is fully set up, and
     # false otherwise
@@ -49,7 +53,7 @@ Resources:
     #   - <HOSTNAME2>
 
     # Services is one or more services provided by this resource;
-    # valid services are listed in topology/services.yaml
+    # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
       <SERVICE NAME>:
         # Description is a brief description of the service
@@ -66,6 +70,8 @@ Resources:
         #   # endpoint: <HOSTNAME>
 
       # Other services if you have any
+      # <SERVICE NAME>:
+      # ...
 
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
     ### If part of the resource is not owned by the VO, do not list it.
@@ -90,4 +96,5 @@ Resources:
     #   TapeCapacity: 0
 
   # Other resources if you have any...
-
+  # <RESOURCE NAME>:
+  # ...
