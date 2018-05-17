@@ -202,7 +202,7 @@ def _getContacts():
             # Get the contacts from bitbucket
             # Read in the config file with the SSH key location
             config = configparser.ConfigParser()
-            config.read("config.ini")
+            config.read(["/etc/opt/topology/config.ini", "config.ini"])
             ssh_key = config['git']['ssh_key']
             # Create a temporary directory to store the contact information
             with tempfile.TemporaryDirectory() as tmp_dir:
