@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import hashlib
@@ -7,4 +7,4 @@ if len(sys.argv) < 2:
     sys.exit("usage: %s <EMAIL> [<EMAIL 2>..<EMAIL N>]" % sys.argv[0])
 
 for string in sys.argv[1:]:
-    print hashlib.sha1(string).hexdigest()
+    print(hashlib.sha1(string.encode()).hexdigest())
