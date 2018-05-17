@@ -113,9 +113,15 @@ def get_filters_from_args(args) -> Filters:
     if "downtime_attrs_showpast" in args:
         # doesn't make sense for rgsummary but will be ignored anyway
         try:
-            filters.past_days = int(args["downtime_attrs_showpast"])
+            v = args["downtime_attrs_showpast"]
+            if v == "all":
+                filters.past_days = -1
+            elif not v:
+                filters.past_days = 0
+            else:
+                filters.past_days = int(args["downtime_attrs_showpast"])
         except ValueError:
-            raise InvalidArgumentsError("downtime_attrs_showpast must be an integer")
+            raise InvalidArgumentsError("downtime_attrs_showpast must be an integer, \"\", or \"all\"")
 
     # 2 ways to filter by service: either pass service_1=on, service_2=on, etc.
     # or pass service_sel[]=1, service_sel[]=2, etc. (multiple service_sel[] args).
