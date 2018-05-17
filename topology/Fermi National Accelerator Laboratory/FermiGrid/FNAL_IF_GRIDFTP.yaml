@@ -6,13 +6,23 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Miscellaneous Contact:
-        Primary: Joe Boyd
-        Secondary: Gerard Bernabeu Altayo
-        Tertiary: Steve Timm
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
+        Secondary:
+          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+          Name: Gerard Bernabeu Altayo
+        Tertiary:
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+          Name: Steve Timm
       Submitter Contact:
-        Primary: Steve Timm
+        Primary:
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+          Name: Steve Timm
     Disable: true
     FQDN: if-gridftp-nova.fnal.gov
     ID: 541

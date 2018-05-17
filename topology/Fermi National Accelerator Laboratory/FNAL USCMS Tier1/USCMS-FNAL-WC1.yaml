@@ -6,11 +6,17 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
       Security Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
       Submitter Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
     Disable: false
     FQDN: psonartest1.fnal.gov
     ID: 769
@@ -25,11 +31,17 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
       Security Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
       Submitter Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
     Disable: false
     FQDN: psonartest2.fnal.gov
     ID: 770
@@ -44,11 +56,17 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
       Security Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
       Submitter Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
     Disable: false
     FQDN: psonar3.fnal.gov
     ID: 625
@@ -63,11 +81,17 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
       Security Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
       Submitter Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
     Disable: false
     FQDN: psonar4.fnal.gov
     ID: 626
@@ -82,13 +106,21 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
       Miscellaneous Contact:
-        Primary: Burt Holzman
+        Primary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
       Resource Report Contact:
-        Primary: Darryl K Wohlt
+        Primary:
+          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
+          Name: Darryl K Wohlt
       Submitter Contact:
-        Primary: Burt Holzman
+        Primary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
     Disable: false
     FQDN: psonartest1.fnal.gov
     ID: 744
@@ -103,12 +135,31 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Anthony Tiradani
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+        Secondary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
       Miscellaneous Contact:
-        Primary: David Alexander Mason
-        Tertiary: Farrukh Aftab Khan
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+        Tertiary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
+      Resource Report Contact:
+        Secondary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+      Security Contact:
+        Secondary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
       Submitter Contact:
-        Primary: Burt Holzman
+        Primary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
     Disable: false
     FQDN: cmsosgce.fnal.gov
     ID: 127
@@ -141,12 +192,27 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Anthony Tiradani
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+        Secondary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
       Miscellaneous Contact:
-        Primary: David Alexander Mason
-        Tertiary: Farrukh Aftab Khan
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+        Tertiary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
+      Security Contact:
+        Secondary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
       Submitter Contact:
-        Primary: Burt Holzman
+        Primary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
     Disable: false
     FQDN: cmsosgce2.fnal.gov
     ID: 128
@@ -178,12 +244,31 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Anthony Tiradani
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+        Secondary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
       Miscellaneous Contact:
-        Primary: David Alexander Mason
-        Tertiary: Farrukh Aftab Khan
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+        Tertiary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
+      Resource Report Contact:
+        Secondary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+      Security Contact:
+        Secondary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
       Submitter Contact:
-        Primary: Burt Holzman
+        Primary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
     Disable: false
     FQDN: cmsosgce3.fnal.gov
     ID: 129
@@ -210,12 +295,31 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Anthony Tiradani
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+        Secondary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
       Miscellaneous Contact:
-        Primary: David Alexander Mason
-        Tertiary: Farrukh Aftab Khan
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+        Tertiary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
+      Resource Report Contact:
+        Secondary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+      Security Contact:
+        Secondary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
       Submitter Contact:
-        Primary: Burt Holzman
+        Primary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
     Disable: false
     FQDN: cmsosgce4.fnal.gov
     ID: 130
@@ -247,11 +351,17 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Secondary: Farrukh Aftab Khan
+        Secondary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
       Miscellaneous Contact:
-        Tertiary: Farrukh Aftab Khan
+        Tertiary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
       Submitter Contact:
-        Primary: Anthony Tiradani
+        Primary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
     Disable: false
     FQDN: cmsosgce-opp1.fnal.gov
     ID: 934
@@ -266,13 +376,23 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Anthony Tiradani
+        Secondary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
       Miscellaneous Contact:
-        Primary: David Alexander Mason
-        Secondary: Lisa Giacchetti
-        Tertiary: Chih-Hao Huang
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+        Secondary:
+          ID: eec48e00eea58d6a626fb4c0b6dd0734e5c113b9
+          Name: Lisa Giacchetti
+        Tertiary:
+          ID: ae2bc50d651cb793a15bfce35c6717988715f519
+          Name: Chih-Hao Huang
       Submitter Contact:
-        Primary: Burt Holzman
+        Primary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
     Disable: false
     FQDN: cmsdcatape01.fnal.gov
     ID: 236
@@ -301,11 +421,17 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: David Alexander Mason
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
       Security Contact:
-        Primary: David Alexander Mason
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
       Submitter Contact:
-        Primary: David Alexander Mason
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
     Disable: false
     FQDN: cmsdcadisk01.fnal.gov
     ID: 865
@@ -340,13 +466,23 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Burt Holzman
+        Primary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
       Miscellaneous Contact:
-        Primary: Burt Holzman
-        Secondary: Catalin Dumitrescu
-        Tertiary: Anthony Tiradani
+        Primary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
+        Secondary:
+          ID: f142df3b4d56dac64950f25bac9e31a6d44fcdc6
+          Name: Catalin Dumitrescu
+        Tertiary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
       Submitter Contact:
-        Primary: Burt Holzman
+        Primary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
     Disable: false
     FQDN: cmssrv98
     ID: 393
@@ -359,11 +495,17 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Jorge Alberto Diaz Cruz
+        Primary:
+          ID: 632c61dc27aa93233499a9ac3820c0995a5c4f08
+          Name: Jorge Alberto Diaz Cruz
       Security Contact:
-        Primary: Jorge Alberto Diaz Cruz
+        Primary:
+          ID: 632c61dc27aa93233499a9ac3820c0995a5c4f08
+          Name: Jorge Alberto Diaz Cruz
       Submitter Contact:
-        Primary: Jorge Alberto Diaz Cruz
+        Primary:
+          ID: 632c61dc27aa93233499a9ac3820c0995a5c4f08
+          Name: Jorge Alberto Diaz Cruz
     Disable: false
     FQDN: psonar4.fnl.gov
     ID: 700

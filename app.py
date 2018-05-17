@@ -1,19 +1,24 @@
 import copy
 
 
-
 import flask
 from flask import Flask, Response, request
 import configparser
 import tempfile
 import anymarkup
 import os
+import re
 import subprocess
-import shlex
-from converters.convertlib import to_xml, ensure_list, is_null
+from converters.convertlib import to_xml
 from converters.project_yaml_to_xml import get_projects
 from converters.vo_yaml_to_xml import get_vos
-from converters.resourcegroup_yaml_to_xml import get_rgsummary_rgdowntime
+from converters.resourcegroup_yaml_to_xml import get_topology
+from converters.topology import Filters, GRIDTYPE_1, GRIDTYPE_2
+
+
+class InvalidArgumentsError(Exception): pass
+
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -34,9 +39,8 @@ def homepage():
 
 _projects = None
 _vos = None
-_rgsummary = None
-_rgdowntime = None
 _contacts = None
+_topology = None
 
 @app.route('/schema/<xsdfile>')
 def schema(xsdfile):
@@ -75,74 +79,112 @@ def voinfo():
     vos_xml = to_xml(vos)
     return Response(vos_xml, mimetype='text/xml')
 
-@app.route('/rgsummary/xml')
-def resources():
-    global _rgsummary, _rgdowntime
-    if not _rgsummary:
-        _rgsummary, _rgdowntime = get_rgsummary_rgdowntime()
 
-    rgsummary = copy.deepcopy(_rgsummary)
-    rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
-    args = flask.request.args
+
+
+def get_filters_from_args(args) -> Filters:
+    filters = Filters()
     if "active" in args:
         active_value = args.get("active_value", "")
         if active_value == "0":
-            for rg in rgs:
-                rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if not r["Active"]]
+            filters.active = False
         elif active_value == "1":
-            for rg in rgs:
-                rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if r["Active"]]
+            filters.active = True
         else:
-            return Response("Invalid arguments: active_value must be 0 or 1", status=400)
+            raise InvalidArgumentsError("active_value must be 0 or 1")
     if "disable" in args:
         disable_value = args.get("disable_value", "")
         if disable_value == "0":
-            for rg in rgs:
-                rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if not r["Disable"]]
+            filters.disable = False
         elif disable_value == "1":
-            for rg in rgs:
-                rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if r["Disable"]]
+            filters.disable = True
         else:
-            return Response("Invalid arguments: disable_value must be 0 or 1", status=400)
-
+            raise InvalidArgumentsError("disable_value must be 0 or 1")
     if "gridtype" in args:
         gridtype_1, gridtype_2 = args.get("gridtype_1", ""), args.get("gridtype_2", "")
         if gridtype_1 == "on" and gridtype_2 == "on":
             pass
         elif gridtype_1 == "on":
-            rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in rgs if
-                                                             rg["GridType"] == "OSG Production Resource"]
+            filters.grid_type = GRIDTYPE_1
         elif gridtype_2 == "on":
-            rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in rgs if
-                                                             rg["GridType"] == "OSG Integration Test Bed Resource"]
+            filters.grid_type = GRIDTYPE_2
         else:
-            # invalid arguments: no RGs for you!
-            return Response("Invalid arguments: gridtype_1 or gridtype_2 or both must be \"on\"", status=400)
+            raise InvalidArgumentsError("gridtype_1 or gridtype_2 or both must be \"on\"")
+    if "downtime_attrs_showpast" in args:
+        # doesn't make sense for rgsummary but will be ignored anyway
+        try:
+            v = args["downtime_attrs_showpast"]
+            if v == "all":
+                filters.past_days = -1
+            elif not v:
+                filters.past_days = 0
+            else:
+                filters.past_days = int(args["downtime_attrs_showpast"])
+        except ValueError:
+            raise InvalidArgumentsError("downtime_attrs_showpast must be an integer, \"\", or \"all\"")
 
+    # 2 ways to filter by a key like "facility", "service", "sc", "site", etc.:
+    # - either pass KEY_1=on, KEY_2=on, etc.
+    # - pass KEY_sel[]=1, KEY_sel[]=2, etc. (multiple KEY_sel[] args).
+    for filter_key, filter_list, description in [
+        ("facility", filters.facility_id, "facility ID"),
+        ("service", filters.service_id, "service ID"),
+        ("sc", filters.support_center_id, "support center ID"),
+        ("site", filters.site_id, "site ID"),
+    ]:
+        if filter_key in args:
+            pat = re.compile(r"{0}_(\d+)".format(filter_key))
+            arg_sel = "{0}_sel[]".format(filter_key)
+            for k, v in args.items():
+                if k == arg_sel:
+                    try:
+                        filter_list.append(int(v))
+                    except ValueError:
+                        raise InvalidArgumentsError("{0}={1}: must be int".format(k,v))
+                elif pat.match(k):
+                    m = pat.match(k)
+                    filter_list.append(int(m.group(1)))
+            if not filter_list:
+                raise InvalidArgumentsError("at least one {0} must be specified".format(description))
+
+    return filters
+
+
+@app.route('/rgsummary/xml')
+def resources():
+    try:
+        filters = get_filters_from_args(request.args)
+    except InvalidArgumentsError as e:
+        return Response("Invalid arguments: " + str(e), status=400)
+
+    authorized = False
     if 'GRST_CRED_AURI_0' in request.environ:
         # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
         # Gridsite already made sure it matches something in the CA distribution
-        pass
-        # Ok, print the contacts
-        contacts = _getContacts()
-        
-        # match the contacts data structure with the resource group
-        # TODO: Mat
+        authorized = True
 
-    # Drop RGs with no resources
-    new_rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
-    rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in new_rgs if not is_null(rg, "Resources", "Resource")]
+    rgsummary = _getTopology().get_resource_summary(authorized=authorized, filters=filters)
     rgsummary_xml = to_xml(rgsummary)
     return Response(rgsummary_xml, mimetype='text/xml')
 
+
 @app.route('/rgdowntime/xml')
 def downtime():
-    global _rgsummary, _rgdowntime
-    if not _rgdowntime:
-        _rgsummary, _rgdowntime = get_rgsummary_rgdowntime()
-    # TODO Filter
-    rgdowntime_xml = to_xml(_rgdowntime)
+    try:
+        filters = get_filters_from_args(request.args)
+    except InvalidArgumentsError as e:
+        return Response("Invalid arguments: " + str(e), status=400)
+
+    authorized = False
+    if 'GRST_CRED_AURI_0' in request.environ:
+        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
+        # Gridsite already made sure it matches something in the CA distribution
+        authorized = True
+
+    rgdowntime = _getTopology().get_downtimes(authorized=authorized, filters=filters)
+    rgdowntime_xml = to_xml(rgdowntime)
     return Response(rgdowntime_xml, mimetype='text/xml')
+
 
 def _getContacts():
     """
@@ -151,27 +193,41 @@ def _getContacts():
     """
     
     global _contacts
+    # TODO: periodically update contacts info
     if not _contacts:
-        # Get the contacts from bitbucket
-        # Read in the config file with the SSH key location
-        config = configparser.ConfigParser()
-        config.read("config.ini")
-        ssh_key = config['git']['ssh_key']
-        # Create a temporary directory to store the contact information
-        with tempfile.TemporaryDirectory() as tmp_dir:
-            # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
-            cmd = "ssh-agent bash -c 'ssh-add {0}; git clone git@bitbucket.org:opensciencegrid/contact.git {1}'".format(ssh_key, tmp_dir)
-            
-            # I know this should be Popen or similar.  But.. I am unable to make that work.
-            # I suspect it has something to do with the subshell that is being executed
-            git_cmd = subprocess.call(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            if git_cmd != 0:
-                # Git command exited with nonzero!
-                pass
-            _contacts = anymarkup.parse_file(os.path.join(tmp_dir, 'contacts.yaml'))
-        
-        
+        # use local copy if it exists
+        if os.path.exists("contacts.yaml"):
+            _contacts = anymarkup.parse_file("contacts.yaml")
+        else:
+            # Get the contacts from bitbucket
+            # Read in the config file with the SSH key location
+            config = configparser.ConfigParser()
+            config.read("config.ini")
+            ssh_key = config['git']['ssh_key']
+            # Create a temporary directory to store the contact information
+            with tempfile.TemporaryDirectory() as tmp_dir:
+                # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
+                cmd = "ssh-agent bash -c 'ssh-add {0}; git clone git@bitbucket.org:opensciencegrid/contact.git {1}'".format(ssh_key, tmp_dir)
+
+                # I know this should be Popen or similar.  But.. I am unable to make that work.
+                # I suspect it has something to do with the subshell that is being executed
+                git_cmd = subprocess.call(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                if git_cmd != 0:
+                    # Git command exited with nonzero!
+                    pass
+                _contacts = anymarkup.parse_file(os.path.join(tmp_dir, 'contacts.yaml'))
+
     return _contacts
+
+
+def _getTopology():
+    contacts = _getContacts()
+    global _topology
+    if not _topology:
+        _topology = get_topology("topology", contacts)
+
+    return _topology
+
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)

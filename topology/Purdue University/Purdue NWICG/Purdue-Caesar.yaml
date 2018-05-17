@@ -6,16 +6,30 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Fengping Hu
-        Secondary: Preston Smith
+        Primary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
+        Secondary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
       Resource Report Contact:
-        Primary: Preston Smith
-        Secondary: Fengping Hu
+        Primary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
+        Secondary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
       Security Contact:
-        Primary: Fengping Hu
-        Secondary: Preston Smith
+        Primary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
+        Secondary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
       Submitter Contact:
-        Primary: Preston Smith
+        Primary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
     Disable: true
     FQDN: julius.rcac.purdue.edu
     ID: 92

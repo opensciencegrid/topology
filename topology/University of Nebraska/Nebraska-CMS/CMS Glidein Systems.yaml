@@ -6,12 +6,20 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Garhan Attebury
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Security Contact:
-        Primary: Igor Sfiligoi
-        Secondary: Garhan Attebury
+        Primary:
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+          Name: Igor Sfiligoi
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Submitter Contact:
-        Primary: Igor Sfiligoi
+        Primary:
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+          Name: Igor Sfiligoi
     Disable: false
     FQDN: hcc-crabserver.unl.edu
     ID: 503

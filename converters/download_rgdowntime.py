@@ -6,6 +6,7 @@ import sys
 import urllib.parse
 import urllib.request
 
+# TODO Add the filtering arguments from download_rgsummary.py
 
 params = {
     "all_resources": "on",

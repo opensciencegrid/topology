@@ -6,15 +6,25 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Miscellaneous Contact:
-        Primary: Bob Ball
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
       Resource Report Contact:
-        Primary: Benjeman J. Meekhof
+        Primary:
+          ID: ef1e31e182fce56d329c05c9a7cdeb11a572d9f4
+          Name: Benjeman J. Meekhof
       Security Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
     Disable: false
     FQDN: squid.aglt2.org
     ID: 677
@@ -27,18 +37,34 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Shawn McKee
-        Secondary: Bob Ball
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+        Secondary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
       Miscellaneous Contact:
-        Primary: Shawn McKee
-        Secondary: Bob Ball
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+        Secondary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
       Resource Report Contact:
-        Primary: Shawn McKee
-        Secondary: Bob Ball
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+        Secondary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
       Security Contact:
-        Primary: Bob Ball
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
       Submitter Contact:
-        Primary: Bob Ball
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
     Disable: false
     FQDN: gate02.grid.umich.edu
     ID: 250
@@ -65,19 +91,37 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Shawn McKee
-        Secondary: Bob Ball
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+        Secondary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
       Miscellaneous Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Resource Report Contact:
-        Primary: Benjeman J. Meekhof
-        Secondary: Shawn McKee
-        Tertiary: Bob Ball
+        Primary:
+          ID: ef1e31e182fce56d329c05c9a7cdeb11a572d9f4
+          Name: Benjeman J. Meekhof
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+        Tertiary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
       Security Contact:
-        Primary: Bob Ball
-        Secondary: Shawn McKee
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
     Disable: false
     FQDN: head01.aglt2.org
     ID: 175
@@ -104,17 +148,31 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Bob Ball
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
       Miscellaneous Contact:
-        Primary: Bob Ball
-        Secondary: Shawn McKee
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Resource Report Contact:
-        Primary: Bob Ball
-        Secondary: Shawn McKee
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Security Contact:
-        Primary: Bob Ball
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
       Submitter Contact:
-        Primary: Bob Ball
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
     Disable: false
     FQDN: gate04.aglt2.org
     ID: 547
@@ -126,14 +184,14 @@ Resources:
     VOOwnership:
       ATLAS: 90
     WLCGInformation:
-      APELNormalFactor: 10.55
+      APELNormalFactor: 10.69
       AccountingName: US-AGLT2
-      HEPSPEC: 117234
+      HEPSPEC: 124200
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
-      KSI2KMax: 29308
-      KSI2KMin: 20875
+      KSI2KMax: 31050
+      KSI2KMin: 31050
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=AGLT2,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
@@ -141,19 +199,37 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Bob Ball
-        Secondary: Shawn McKee
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Miscellaneous Contact:
-        Primary: Bob Ball
-        Secondary: Shawn McKee
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Resource Report Contact:
-        Primary: Bob Ball
-        Secondary: Shawn McKee
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Security Contact:
-        Primary: Bob Ball
-        Secondary: Shawn McKee
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Submitter Contact:
-        Primary: Bob Ball
+        Primary:
+          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
+          Name: Bob Ball
     Disable: false
     FQDN: gate01.aglt2.org
     ID: 928
@@ -165,14 +241,14 @@ Resources:
     VOOwnership:
       ATLAS: 90
     WLCGInformation:
-      APELNormalFactor: 10.55
+      APELNormalFactor: 10.69
       AccountingName: US-AGLT2
-      HEPSPEC: 117234
+      HEPSPEC: 124200
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
-      KSI2KMax: 29308
-      KSI2KMin: 20875
+      KSI2KMax: 31050
+      KSI2KMin: 31050
       LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=AGLT2,o=grid
       StorageCapacityMax: 0
       StorageCapacityMin: 0
@@ -181,13 +257,21 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Philippe Laurens
+        Primary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
       Resource Report Contact:
-        Primary: Philippe Laurens
+        Primary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
       Security Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
     Disable: true
     FQDN: not.used
     ID: 512
@@ -206,11 +290,17 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Security Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
     Disable: true
     FQDN: not.used
     ID: 511
@@ -229,16 +319,30 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Philippe Laurens
-        Secondary: Shawn McKee
+        Primary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Resource Report Contact:
-        Primary: Philippe Laurens
-        Secondary: Shawn McKee
+        Primary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Security Contact:
-        Primary: Philippe Laurens
-        Secondary: Shawn McKee
+        Primary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
     Disable: false
     FQDN: psmsu02.aglt2.org
     ID: 586
@@ -253,16 +357,30 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Philippe Laurens
-        Secondary: Shawn McKee
+        Primary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Resource Report Contact:
-        Primary: Philippe Laurens
-        Secondary: Shawn McKee
+        Primary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Security Contact:
-        Primary: Philippe Laurens
-        Secondary: Shawn McKee
+        Primary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
     Disable: false
     FQDN: psmsu01.aglt2.org
     ID: 585
@@ -277,11 +395,17 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Security Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
     Disable: false
     FQDN: psum02.aglt2.org
     ID: 584
@@ -296,11 +420,17 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Security Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
     Disable: false
     FQDN: psum01.aglt2.org
     ID: 583

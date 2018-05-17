@@ -36,6 +36,7 @@ Ordering is lost in the YAML file but the YAML to XML converter restores it.
 from argparse import ArgumentParser
 
 import anymarkup
+import hashlib
 import os
 import pprint
 import re
@@ -78,7 +79,6 @@ class Topology(object):
             self.data[sanfacility][sansite] = {"ID": rg["Site"]["ID"]}
         sanrg = to_file_name(rg["GroupName"])
         sanrg_filename = sanrg + ".yaml"
-        # The assumption here is that RG names are unique, even between sites. As of 2018-05-07, this is true.
         downtime_path = os.path.join(sanfacility, sansite, sanrg) + "_downtime.yaml"
         self.downtime_paths[rg["GroupName"]] = downtime_path
 
@@ -184,12 +184,11 @@ class Topology(object):
         for contact_type, contact_data in contactlists_simple.items():
             contacts = simplify_attr_list(contact_data["Contacts"]["Contact"], "ContactRank")
             new_contacts = {}
-            for contact_rank in contacts:
-                if contact_rank in new_contacts and contacts[contact_rank]["Name"] != new_contacts[contact_rank]:
-                    # Multiple people with the same rank -- hope this never happens.
-                    # Duplicates are fine though -- we collapse them into one.
-                    raise RuntimeError("dammit %s" % contacts[contact_rank]["Name"])
-                new_contacts[contact_rank] = contacts[contact_rank]["Name"]
+            for contact_rank, contact_rank_data in contacts.items():
+                new_contacts[contact_rank] = {"Name": contacts[contact_rank]["Name"]}
+                if "Email" in contact_rank_data:
+                    chksum = hashlib.sha1(contact_rank_data["Email"].encode()).hexdigest()
+                    new_contacts[contact_rank]["ID"] = chksum
             new_contactlists[contact_type] = new_contacts
         return new_contactlists
 
