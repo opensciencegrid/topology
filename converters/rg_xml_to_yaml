@@ -338,16 +338,14 @@ def write_topology_to_yamls(topology: Topology, outdir):
 def main(argv=sys.argv):
     parser = ArgumentParser()
     parser.add_argument("infile", help="input rgsummary xml file")
+    parser.add_argument("downtime", default=None, help="input rgdowntime xml file")
     parser.add_argument("outdir", help="output yaml directory tree")
-    parser.add_argument("--downtime", default=None, help="input rgdowntime xml file")
     args = parser.parse_args(argv[1:])
 
     if os.path.exists(args.outdir):
         print("Warning: %s already exists" % args.outdir, file=sys.stderr)
     parsed_topology = anymarkup.parse_file(args.infile)['ResourceSummary']
-    parsed_downtime = None
-    if args.downtime:
-        parsed_downtime = anymarkup.parse_file(args.downtime)['Downtimes']
+    parsed_downtime = anymarkup.parse_file(args.downtime)['Downtimes']
     topology = topology_from_parsed_xml(parsed_topology, downtime=parsed_downtime)
     write_topology_to_yamls(topology, args.outdir)
     print("Topology written to", args.outdir)

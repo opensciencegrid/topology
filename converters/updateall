@@ -7,4 +7,4 @@ set -ev
 
 ./converters/project_xml_to_yaml miscproject.xml projects
 ./converters/vo_xml_to_yaml vosummary-auth.xml virtual-organizations
-./converters/rg_xml_to_yaml rgsummary-auth.xml --downtime rgdowntime.xml topology
+./converters/rg_xml_to_yaml rgsummary-auth.xml rgdowntime.xml topology
