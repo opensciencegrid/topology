@@ -7,7 +7,7 @@ import xmltodict
 import yaml
 
 from typing import Dict, Union
-from ..topoapp.utils import is_null, simplify_attr_list, ensure_list
+from utils import is_null, simplify_attr_list, ensure_list
 
 
 def email_to_id(email: str) -> str:
@@ -18,7 +18,7 @@ def is_true_str(a_str: Union[str, None]) -> bool:
     return a_str and a_str.strip("'\" ").lower() in ["1", "on", "true"]
 
 
-# Multiline string to look nice'er
+# Multiline string to look nicer
 def str_presenter(dumper, data):
     if len(data.splitlines()) > 1:  # check for multiline string
         return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='|')

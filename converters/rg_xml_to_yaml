@@ -43,7 +43,7 @@ from typing import Dict
 
 import anymarkup
 
-from ..topoapp.utils import is_null, ensure_list, simplify_attr_list
+from utils import is_null, ensure_list, simplify_attr_list
 
 
 def to_file_name(name: str) -> str:
