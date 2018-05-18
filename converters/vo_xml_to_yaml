@@ -7,7 +7,7 @@ import xmltodict
 import yaml
 
 from typing import Dict, Union
-from utils import is_null, simplify_attr_list, ensure_list
+from utils import is_null, simplify_attr_list, ensure_list, trim_space
 
 
 def email_to_id(email: str) -> str:
@@ -206,6 +206,10 @@ def main(argv=sys.argv):
         for key in ["Contacts", "MembershipServicesURL", "ParentVO", "PrimaryURL", "PurposeURL", "ReportingGroups", "SupportURL"]:
             if is_null(vo, key):
                 vo.pop(key, None)
+
+        for key in ["AppDescription", "Community"]:
+            if not is_null(vo, key):
+                vo[key] = trim_space(vo[key])
 
         serialized = yaml.safe_dump(vo, encoding='utf-8', default_flow_style=False)
 

@@ -43,7 +43,7 @@ from typing import Dict
 
 import anymarkup
 
-from utils import is_null, ensure_list, simplify_attr_list
+from utils import is_null, ensure_list, simplify_attr_list, trim_space
 
 
 def to_file_name(name: str) -> str:
@@ -58,14 +58,6 @@ def to_file_name(name: str) -> str:
         else:
             filename += char
     return filename
-
-
-def trim_space(s: str) -> str:
-    """Remove leading and trailing whitespace but not newlines"""
-    # leading and trailing whitespace causes "\n"'s in the resulting string
-    ret = re.sub(r"(?m)[ \t]+$", "", s)
-    ret = re.sub(r"(?m)^[ \t]+", "", ret)
-    return ret
 
 
 class Topology(object):
@@ -299,10 +291,10 @@ def topology_from_parsed_xml(parsed, downtime=None) -> Topology:
     for rg in ensure_list(parsed["ResourceGroup"]):
         topology.add_rg(rg)
     if downtime:
-        for dt in downtime["PastDowntimes"].get("Downtime", []) + \
-                  downtime["CurrentDowntimes"].get("Downtime", []) + \
-                  downtime["FutureDowntimes"].get("Downtime", []):
-            topology.add_downtime(dt)
+        for elem in ["PastDowntimes", "CurrentDowntimes", "FutureDowntimes"]:
+            if not is_null(downtime, elem):
+                for dt in downtime[elem].get("Downtime", []):
+                    topology.add_downtime(dt)
     return topology
 
 
