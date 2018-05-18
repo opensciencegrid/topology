@@ -1,14 +1,4 @@
 - Class: SCHEDULED
-  Description: Annual MGHPCC maintenance downtime. All NET2 systems, BU and HU will
-    be powered down all day May 17.
-  EndTime: May 18, 2016 10:00 AM UTC
-  ID: 1004893
-  ResourceName: NET2_HU
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: May 16, 2016 16:00 PM UTC
-- Class: SCHEDULED
   Description: Annual MGHPCC power maintenance
   EndTime: May 24, 2017 16:00 PM UTC
   ID: 1005316

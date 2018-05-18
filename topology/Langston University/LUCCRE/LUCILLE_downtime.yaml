@@ -276,3 +276,32 @@
   - GridFtp
   Severity: Outage
   StartTime: Apr 24, 2018 14:00 PM UTC
+- Class: SCHEDULED
+  Description: OSG upgrade
+  EndTime: May 18, 2018 13:00 PM UTC
+  ID: 1005678
+  ResourceName: Lucille-squid
+  Services:
+  - Squid
+  Severity: Outage
+  StartTime: May 16, 2018 13:00 PM UTC
+- Class: SCHEDULED
+  Description: OSG upgrade
+  EndTime: May 18, 2018 13:00 PM UTC
+  ID: 1005679
+  ResourceName: Lucille_CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: May 16, 2018 13:00 PM UTC
+- Class: SCHEDULED
+  Description: OSG upgrade
+  EndTime: May 18, 2018 13:00 PM UTC
+  ID: 1005680
+  ResourceName: Lucille_SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: May 16, 2018 13:00 PM UTC
