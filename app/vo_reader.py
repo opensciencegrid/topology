@@ -1,36 +1,13 @@
-import pprint
+from argparse import ArgumentParser, FileType
 from collections import OrderedDict
-
 import os
+import pprint
+import sys
+from typing import Dict, List
 
 import anymarkup
 
-from typing import Dict, List
-
-from app.utils import is_null, expand_attr_list_single, expand_attr_list, ensure_list
-
-
-VO_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/vosummary.xsd"
-
-
-def expand_contacttypes(contacts: Dict) -> Dict:
-    """Expand
-    {"Submitter Contact": ["a", "b"],
-     "Miscellaneous Contact": ["c", "d"]}
-    to
-    {"ContactType": [{"Type": "Submitter Contact", {"Contacts": {"Contact": [{"Name": "a"}, {"Name": "b"}]}}},
-                     {"Type": "Miscellaneous Contact", {"Contacts": {"Contact": [{"Name": "a"}, {"Name": "b"}]}}}
-                    ]
-    }
-    """
-    new_contacttypes = []
-    for type_, list_ in contacts.items():
-        contact_data = []
-        for contact in list_:
-            new_contact = {"Name": contact["Name"], "ID": contact["ID"]}
-            contact_data.append(new_contact)
-        new_contacttypes.append({"Type": type_, "Contacts": {"Contact": contact_data}})
-    return {"ContactType": new_contacttypes}
+from app.common import MaybeOrderedDict, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, to_xml
 
 
 def expand_reportinggroups(reportinggroups_list: List, reportinggroups_data: Dict) -> Dict:
@@ -100,69 +77,98 @@ def expand_fields_of_science(fields_of_science):
     return new_fields
 
 
-def expand_vo(vo, reportinggroups_data):
-    vo = vo.copy()
+class VOData(object):
+    def __init__(self, contacts, reporting_groups):
+        self.contacts = contacts
+        self.vos = []
+        self.reporting_groups = reporting_groups
 
-    if is_null(vo, "Contacts"):
-        vo["ContactTypes"] = None
-    else:
-        vo["ContactTypes"] = expand_contacttypes(vo["Contacts"])
-    vo.pop("Contacts", None)
-    if is_null(vo, "ReportingGroups"):
-        vo["ReportingGroups"] = None
-    else:
-        vo["ReportingGroups"] = expand_reportinggroups(vo["ReportingGroups"], reportinggroups_data)
-    if is_null(vo, "OASIS"):
-        vo["OASIS"] = None
-    else:
-        oasis = OrderedDict()
-        oasis["UseOASIS"] = vo["OASIS"].get("UseOASIS", False)
-        if is_null(vo["OASIS"], "Managers"):
-            oasis["Managers"] = None
+    def add_vo(self, vo):
+        self.vos.append(vo)
+
+    def get_tree(self, authorized=False, filters=None) -> Dict:
+        expanded_vos = [self._expand_vo(vo) for vo in self.vos]
+
+        return {"VOSummary": {
+            "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "@xsi:schemaLocation": VOSUMMARY_SCHEMA_URL,
+            "VO": expanded_vos}}
+
+    def _expand_vo(self, vo: Dict) -> MaybeOrderedDict:
+        vo = vo.copy()
+
+        if is_null(vo, "Contacts"):
+            vo["ContactTypes"] = None
         else:
-            oasis["Managers"] = expand_oasis_managers(vo["OASIS"]["Managers"])
-        if is_null(vo["OASIS"], "OASISRepoURLs"):
-            oasis["OASISRepoURLs"] = None
+            vo["ContactTypes"] = self._expand_contacttypes(vo["Contacts"])
+        vo.pop("Contacts", None)
+        if is_null(vo, "ReportingGroups"):
+            vo["ReportingGroups"] = None
         else:
-            oasis["OASISRepoURLs"] = {"URL": vo["OASIS"]["OASISRepoURLs"]}
-        vo["OASIS"] = oasis
-    if is_null(vo, "FieldsOfScience"):
-        vo["FieldsOfScience"] = None
-    else:
-        vo["FieldsOfScience"] = expand_fields_of_science(vo["FieldsOfScience"])
+            vo["ReportingGroups"] = expand_reportinggroups(vo["ReportingGroups"], self.reporting_groups)
+        if is_null(vo, "OASIS"):
+            vo["OASIS"] = None
+        else:
+            oasis = OrderedDict()
+            oasis["UseOASIS"] = vo["OASIS"].get("UseOASIS", False)
+            if is_null(vo["OASIS"], "Managers"):
+                oasis["Managers"] = None
+            else:
+                oasis["Managers"] = expand_oasis_managers(vo["OASIS"]["Managers"])
+            if is_null(vo["OASIS"], "OASISRepoURLs"):
+                oasis["OASISRepoURLs"] = None
+            else:
+                oasis["OASISRepoURLs"] = {"URL": vo["OASIS"]["OASISRepoURLs"]}
+            vo["OASIS"] = oasis
+        if is_null(vo, "FieldsOfScience"):
+            vo["FieldsOfScience"] = None
+        else:
+            vo["FieldsOfScience"] = expand_fields_of_science(vo["FieldsOfScience"])
 
-    # Restore ordering
-    if not is_null(vo, "ParentVO"):
-        parentvo = OrderedDict()
-        for elem in ["ID", "Name"]:
-            if elem in vo["ParentVO"]:
-                parentvo[elem] = vo["ParentVO"][elem]
-        vo["ParentVO"] = parentvo
-    else:
-        vo["ParentVO"] = None
+        # Restore ordering
+        if not is_null(vo, "ParentVO"):
+            parentvo = OrderedDict()
+            for elem in ["ID", "Name"]:
+                if elem in vo["ParentVO"]:
+                    parentvo[elem] = vo["ParentVO"][elem]
+            vo["ParentVO"] = parentvo
+        else:
+            vo["ParentVO"] = None
 
-    for key in ["MembershipServicesURL", "PrimaryURL", "PurposeURL", "SupportURL"]:
-        if key not in vo:
-            vo[key] = None
+        for key in ["MembershipServicesURL", "PrimaryURL", "PurposeURL", "SupportURL"]:
+            if key not in vo:
+                vo[key] = None
 
 
-    # TODO: Recreate <MemeberResources> [sic]
-    #  should look like
-    #  <MemeberResources>
-    #    <Resource><ID>75</ID><Name>NERSC-PDSF</Name></Resource>
-    #    ...
-    #  </MemeberResources>
+        # TODO: Recreate <MemeberResources> [sic]
+        #  should look like
+        #  <MemeberResources>
+        #    <Resource><ID>75</ID><Name>NERSC-PDSF</Name></Resource>
+        #    ...
+        #  </MemeberResources>
 
-    # Restore ordering
-    new_vo = OrderedDict()
-    for elem in ["ID", "Name", "LongName", "CertificateOnly", "PrimaryURL", "MembershipServicesURL", "PurposeURL",
-                 "SupportURL", "AppDescription", "Community",
-                 # TODO "MemeberResources",
-                 "FieldsOfScience", "ParentVO", "ReportingGroups", "Active", "Disable", "ContactTypes", "OASIS"]:
-        if elem in vo:
-            new_vo[elem] = vo[elem]
+        # Restore ordering
+        new_vo = OrderedDict()
+        for elem in ["ID", "Name", "LongName", "CertificateOnly", "PrimaryURL", "MembershipServicesURL", "PurposeURL",
+                     "SupportURL", "AppDescription", "Community",
+                     # TODO "MemeberResources",
+                     "FieldsOfScience", "ParentVO", "ReportingGroups", "Active", "Disable", "ContactTypes", "OASIS"]:
+            if elem in vo:
+                new_vo[elem] = vo[elem]
 
-    return new_vo
+        return new_vo
+
+    @staticmethod
+    def _expand_contacttypes(contacts: Dict) -> Dict:
+        new_contacttypes = []
+        for type_, list_ in contacts.items():
+            contact_data = []
+            for contact in list_:
+                new_contact = {"Name": contact["Name"], "ID": contact["ID"]}
+                contact_data.append(new_contact)
+            new_contacttypes.append({"Type": type_, "Contacts": {"Contact": contact_data}})
+        return {"ContactType": new_contacttypes}
+
 
 def get_vos_xml():
     """
@@ -173,28 +179,31 @@ def get_vos_xml():
     return anymarkup.serialize(to_output, 'xml').decode()
 
 
-def get_vos():
-    to_output = {"VOSummary": {
-        "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-        "@xsi:schemaLocation": VO_SCHEMA_LOCATION,
-        "VO": []}}
-    vos = []
-    reportinggroups_data = anymarkup.parse_file("virtual-organizations/REPORTING_GROUPS.yaml")
-    for file in os.listdir("virtual-organizations"):
+def get_vos(indir="virtual-organizations", contacts_file=None):
+    contacts_data = None
+    if contacts_file:
+        contacts_data = anymarkup.parse_file(contacts_file)
+    reporting_groups_data = anymarkup.parse_file(os.path.join(indir, "REPORTING_GROUPS.yaml"))
+    vo_data = VOData(contacts=contacts_data, reporting_groups=reporting_groups_data)
+    for file in os.listdir(indir):
         if file == "REPORTING_GROUPS.yaml": continue
-        vo = anymarkup.parse_file("virtual-organizations/{0}".format(file))
+        vo = anymarkup.parse_file(os.path.join(indir, file))
         try:
-            vos.append(expand_vo(vo, reportinggroups_data))
+            vo_data.add_vo(vo)
         except Exception:
             pprint.pprint(vo)
             raise
-    to_output["VOSummary"]["VO"] = vos
-    return to_output
+    return vo_data.get_tree()
 
 
-if __name__ == "__main__":
-    # We are running as the main script
+def main(argv):
+    parser = ArgumentParser()
+    parser.add_argument("indir", help="input dir for virtual-organizations data")
+    parser.add_argument("outfile", nargs='?', type=FileType('w'), default=sys.stdout, help="output file for vosummary")
+    parser.add_argument("--contacts", help="contacts yaml file")
+    args = parser.parse_args(argv[1:])
 
-    with open('new_vos.xml', 'w') as xml_file:
-        xml_file.write(get_vos_xml())
+    args.outfile.write(to_xml(get_vos(args.indir, contacts_file=args.contacts)))
 
+if __name__ == '__main__':
+    sys.exit(main(sys.argv))

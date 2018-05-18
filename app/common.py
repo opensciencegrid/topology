@@ -1,8 +1,18 @@
 from collections import OrderedDict
+import hashlib
 import re
 from typing import Dict, List, Union
 
 import xmltodict
+
+
+MaybeOrderedDict = Union[None, OrderedDict]
+
+MISCUSER_SCHEMA_URL = "https://my.opensciencegrid.org/schema/miscuser.xsd"
+RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
+RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
+VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
+
 
 def is_null(x, *keys) -> bool:
     for key in keys:
@@ -99,8 +109,8 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
     return newdata
 
 
-def to_xml(data):
-    return xmltodict.unparse(data, pretty=True, encoding="utf-8").encode("utf-8", errors="ignore")
+def to_xml(data) -> str:
+    return xmltodict.unparse(data, pretty=True, encoding="utf-8")
 
 
 def trim_space(s: str) -> str:
@@ -109,3 +119,7 @@ def trim_space(s: str) -> str:
     ret = re.sub(r"(?m)[ \t]+$", "", s)
     ret = re.sub(r"(?m)^[ \t]+", "", ret)
     return ret
+
+
+def email_to_id(email: str) -> str:
+    return hashlib.sha1(email.encode()).hexdigest()

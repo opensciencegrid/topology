@@ -10,7 +10,7 @@ import os
 import re
 import subprocess
 import sys
-from app.utils import to_xml
+from app.common import to_xml
 from app.project_reader import get_projects
 from app.vo_reader import get_vos
 from app.rg_reader import get_topology
