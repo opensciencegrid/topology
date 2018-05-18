@@ -41,6 +41,9 @@ parser.add_argument("--site", action="append", type=int, help="site id(s) to sho
 parser.add_argument("--sc", action="append", type=int, help="support center id(s) to show", default=[])
 parser.add_argument("--voown", action="append", type=int, help="vo owner id(s) to show", default=[])
 parser.add_argument("--wlcg", action="store_true", help="WLCG resources only")
+parser.add_argument("--auth", action="store_true", help="Authenticated access (needs key and cert)")
+parser.add_argument("--key", default="key.pem", help="key for auth access")
+parser.add_argument("--cert", default="cert.pem", help="cert for auth access")
 
 args = parser.parse_args()
 
@@ -116,8 +119,11 @@ class HTTPSClientAuthHandler(urllib.request.HTTPSHandler):
     def getConnection(self, host, timeout=300):
         return http.client.HTTPSConnection(host, key_file=self.key, cert_file=self.cert)
 
-opener = urllib.request.build_opener(HTTPSClientAuthHandler('key.pem', 'cert.pem') )
-response = opener.open(url)
+if args.auth:
+    opener = urllib.request.build_opener(HTTPSClientAuthHandler(args.key, args.cert))
+    response = opener.open(url)
+else:
+    response = urllib.request.urlopen(url)
 data = response.read().decode("utf-8")
 
 
