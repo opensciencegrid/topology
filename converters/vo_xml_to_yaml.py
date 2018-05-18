@@ -6,8 +6,8 @@ import sys
 import xmltodict
 import yaml
 
-from typing import Dict, List, Union
-from convertlib import is_null, simplify_attr_list, ensure_list
+from typing import Dict, Union
+from ..topoapp.utils import is_null, simplify_attr_list, ensure_list
 
 
 def email_to_id(email: str) -> str:

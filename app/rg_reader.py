@@ -24,12 +24,8 @@ import pprint
 import sys
 from pathlib import Path
 
-try:
-    from topology import Tables, Topology
-    from convertlib import ensure_list, to_xml
-except ImportError:
-    from .topology import Tables, Topology
-    from .convertlib import ensure_list, to_xml
+from app.topology import Tables, Topology
+from app.utils import ensure_list, to_xml
 
 class RGError(Exception):
     """An error with converting a specific RG"""

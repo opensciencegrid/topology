@@ -7,10 +7,7 @@ import anymarkup
 
 from typing import Dict, List
 
-try:
-    from convertlib import is_null, expand_attr_list_single, expand_attr_list, ensure_list
-except ModuleNotFoundError:
-    from .convertlib import is_null, expand_attr_list_single, expand_attr_list, ensure_list
+from app.utils import is_null, expand_attr_list_single, expand_attr_list, ensure_list
 
 
 VO_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/vosummary.xsd"

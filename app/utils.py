@@ -1,7 +1,6 @@
 from collections import OrderedDict
 from typing import Dict, List, Union
 
-import anymarkup
 import xmltodict
 
 def is_null(x, *keys) -> bool:

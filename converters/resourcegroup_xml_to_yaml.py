@@ -34,17 +34,16 @@ will have a ``SITE.yaml`` file containing facility and site information.
 Ordering is lost in the YAML file but the YAML to XML converter restores it.
 """
 from argparse import ArgumentParser
-
-import anymarkup
 import hashlib
 import os
 import pprint
 import re
 import sys
-from collections import OrderedDict
-from typing import Dict, List, Union
+from typing import Dict
 
-from convertlib import is_null, ensure_list, simplify_attr_list
+import anymarkup
+
+from ..topoapp.utils import is_null, ensure_list, simplify_attr_list
 
 
 def to_file_name(name: str) -> str:
