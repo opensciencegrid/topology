@@ -1,0 +1,222 @@
+#!/usr/bin/env python3
+
+from subprocess import Popen, PIPE
+from argparse import ArgumentParser, FileType
+import os
+import sys
+import urllib.parse
+import urllib.request
+import http.client
+
+
+YES, NO, ONLY = "yes", "no", "only"
+
+
+# From SO:
+# https://stackoverflow.com/questions/1875052/using-client-certificates-with-urllib2
+class HTTPSClientAuthHandler(urllib.request.HTTPSHandler):
+    def __init__(self, key, cert):
+        urllib.request.HTTPSHandler.__init__(self)
+        self.key = key
+        self.cert = cert
+
+    def https_open(self, req):
+        # Rather than pass in a reference to a connection class, we pass in
+        # a reference to a function which, for all intents and purposes,
+        # will behave as a constructor
+        return self.do_open(self.getConnection, req)
+
+    def getConnection(self, host, timeout=300):
+        return http.client.HTTPSConnection(host, key_file=self.key, cert_file=self.cert)
+
+
+def download(url, args) -> str:
+    if args.auth:
+        opener = urllib.request.build_opener(HTTPSClientAuthHandler(args.key, args.cert))
+        response = opener.open(url)
+    else:
+        response = urllib.request.urlopen(url)
+    return response.read().decode("utf-8")
+
+
+def write(data: str, outfile):
+    newenv = os.environ.copy()
+    newenv["XMLLINT_INDENT"] = "\t"
+    proc = Popen("xmllint --format -", stdin=PIPE, stdout=outfile, shell=True, encoding="utf-8", env=newenv)
+    proc.communicate(data)
+
+
+def miscproject_url(args) -> str:
+    params = {
+        "count_active": "on",
+        "count_enabled": "on",
+    }
+
+    query = urllib.parse.urlencode(params)
+
+    return "https://myosg.grid.iu.edu/miscproject/xml?count_sg_1&" + query
+
+
+def rgdowntime_url(args) -> str:
+    params = {
+        "all_resources": "on",
+    }
+    # TODO: filtering (same as rgsummary)
+
+    params["downtime_attrs_showpast"] = args.past_days
+
+    query = urllib.parse.urlencode(params)
+    return "https://myosg.grid.iu.edu/rgdowntime/xml?" + query
+
+
+def rgsummary_url(args) -> str:
+    params = {
+        "all_resources": "on",
+
+        "summary_attrs_showservice": "1",
+        # "summary_attrs_showrsvstatus": "1",  # <- rsv is dead
+        # "summary_attrs_showgipstatus": "1",  # <- gip is dead
+        # "summary_attrs_showvomembership": "1",  # <- shows "SupportedVOs" field, reported by rsv (which is dead)
+        "summary_attrs_showvoownership": "1",
+        "summary_attrs_showwlcg": "1",
+        # "summary_attrs_showenv": "1",  # <- this one is never filled out
+        "summary_attrs_showcontact": "1",
+        "summary_attrs_showfqdn": "1",
+        "summary_attrs_showhierarchy": "1",  # <- shows facility & site info
+        "summary_attrs_showdesc": "1",  # <- shows description
+
+        # "summary_attrs_showticket": "1",  # <- shows open GOC tickets
+    }
+
+    if args.show_inactive_resources == ONLY:
+        params["active"] = "on"
+        params["active_value"] = "0"
+    elif args.show_inactive_resources == NO:
+        params["active"] = "on"
+        params["active_value"] = "1"
+    elif args.show_inactive_resources == YES:
+        params.pop("active", None)
+    else:
+        assert False
+
+    if args.show_itb == ONLY:
+        params["gridtype"] = "on"
+        params["gridtype_2"] = "on"
+    elif args.show_itb == NO:
+        params["gridtype"] = "on"
+        params["gridtype_1"] = "on"
+    elif args.show_itb == YES:
+        params.pop("gridtype", None)
+    else:
+        assert False
+
+    if args.show_disabled_resources == ONLY:
+        params["disable"] = "on"
+        params["disable_value"] = "1"
+    elif args.show_disabled_resources == NO:
+        params["disable"] = "on"
+        params["disable_value"] = "0"
+    elif args.show_disabled_resources == YES:
+        params.pop("disable", None)
+    else:
+        assert False
+
+    if args.wlcg:
+        params["has_wlcg"] = "on"
+
+    filter_params = []
+
+    for id_list, main_param, sel_param, pop_all_resources in [
+        (args.facility, "facility", "facility_sel[]", True),
+        (args.rg, "rg", "rg_sel[]", True),
+        (args.sc, "sc", "sc_sel[]", True),
+        (args.service, "service", "service_sel[]", False),
+        (args.site, "site", "site_sel[]", True),
+        (args.voown, "voown", "voown_sel[]", False),
+    ]:
+
+        if id_list:
+            if pop_all_resources:
+                params.pop("all_resources", None)
+            params[main_param] = "on"
+            filter_params.extend([(sel_param, str(id_)) for id_ in id_list])
+
+    params_list = list(params.items()) + filter_params
+    query = urllib.parse.urlencode(params_list, doseq=True)
+    return "https://myosg.grid.iu.edu/rgsummary/xml?" + query
+
+
+def vosummary_url(args):
+    params = {
+        "all_vos": "on",
+        "sort_key": "name",
+
+        "summary_attrs_showcontact": "on",
+        "summary_attrs_showdesc": "on",
+        "summary_attrs_showfield_of_science": "on",
+        # "summary_attrs_showmember_resource": "on",
+        "summary_attrs_showoasis": "on",
+        "summary_attrs_showparent_vo": "on",
+        "summary_attrs_showreporting_group": "on",
+
+        "oasis_value": "1",
+    }
+
+    if args.show_inactive == ONLY:
+        params["active"] = "on"
+        params["active_value"] = "0"
+    elif args.show_inactive == NO:
+        params["active"] = "on"
+        params["active_value"] = "1"
+    elif args.show_inactive == YES:
+        params.pop("active", None)
+    else:
+        assert False
+
+    query = urllib.parse.urlencode(params)
+
+    return "https://myosg.grid.iu.edu/vosummary/xml?" + query
+
+
+def main(argv):
+    parser = ArgumentParser()
+    parser.add_argument("--auth", action="store_true", help="Authenticated access (needs key and cert)")
+    parser.add_argument("--key", default="key.pem", help="key for auth access")
+    parser.add_argument("--cert", default="cert.pem", help="cert for auth access")
+    parser.add_argument("--out", nargs='?', default=sys.stdout, type=FileType('w'), help="output file")
+
+    subparsers = parser.add_subparsers()
+
+    parser_miscproject = subparsers.add_parser("miscproject")
+    parser_miscproject.set_defaults(url_func=miscproject_url)
+
+    parser_rgdowntime = subparsers.add_parser("rgdowntime")
+    parser_rgdowntime.add_argument("--past-days", default="730", help="Number of days of past downtime, '', or 'all'")
+    parser_rgdowntime.set_defaults(url_func=rgdowntime_url)
+
+    parser_rgsummary = subparsers.add_parser("rgsummary")
+    parser_rgsummary.add_argument("--show-inactive-resources", choices=[YES, NO, ONLY], default=YES)  # original GRACC URL used NO
+    parser_rgsummary.add_argument("--show-itb", choices=[YES, NO, ONLY], default=YES)  # original GRACC URL used NO
+    parser_rgsummary.add_argument("--show-disabled-resources", choices=[YES, NO, ONLY], default=YES)
+    parser_rgsummary.add_argument("--facility", action="append", type=int, help="facility id(s) to show", default=[])
+    parser_rgsummary.add_argument("--rg", action="append", type=int, help="resource group id(s) to show", default=[])
+    parser_rgsummary.add_argument("--service", action="append", type=int, help="service id(s) to show", default=[])
+    parser_rgsummary.add_argument("--site", action="append", type=int, help="site id(s) to show", default=[])
+    parser_rgsummary.add_argument("--sc", action="append", type=int, help="support center id(s) to show", default=[])
+    parser_rgsummary.add_argument("--voown", action="append", type=int, help="vo owner id(s) to show", default=[])
+    parser_rgsummary.add_argument("--wlcg", action="store_true", help="WLCG resources only")
+    parser_rgsummary.set_defaults(url_func=rgsummary_url)
+
+    parser_vosummary = subparsers.add_parser("vosummary")
+    parser_vosummary.add_argument("--show-inactive", choices=[YES, NO, ONLY], default=YES)
+    parser_vosummary.set_defaults(url_func=vosummary_url)
+
+    args = parser.parse_args(argv[1:])
+    url = args.url_func(args)
+
+    data = download(url, args)
+    write(data, args.out)
+
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv))
