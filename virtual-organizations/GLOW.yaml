@@ -8,19 +8,27 @@ Community: The Grid Laboratory of Wisconsin is a campus-wide distributed computi
   Wisconsin, Madison.
 Contacts:
   Administrative Contact:
-  - Aaron Moate
+  - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+    Name: Aaron Moate
   Miscellaneous Contact:
-  - Neil Van Lysel
+  - ID: 9a39cacc57e09cb90be41c93c204231ac1b15aee
+    Name: Neil Van Lysel
   Registration Authority:
-  - Daniel Bradley
-  - Aaron Moate
+  - ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+    Name: Daniel Bradley
+  - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+    Name: Aaron Moate
   Security Contact:
-  - Daniel Bradley
-  - Aaron Moate
+  - ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+    Name: Daniel Bradley
+  - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+    Name: Aaron Moate
   Submitter Contact:
-  - Aaron Moate
+  - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+    Name: Aaron Moate
   VO Manager:
-  - Miron Livny
+  - ID: 48e1c2f26dc3479a6cf9b2de7c79d654ac27b1d1
+    Name: Miron Livny
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -34,14 +42,12 @@ Name: GLOW
 OASIS:
   Managers:
     Aaron Moate:
-      ContactID: 894
-      DNs:
-      - /DC=org/DC=doegrids/OU=People/CN=Aaron Moate 717557
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Aaron Moate 894
+      DNs: /DC=org/DC=doegrids/OU=People/CN=Aaron Moate 717557
+      ID: 46a55ac4815b2b8c00ff283549f413113b45d628
     Neil Van Lysel:
-      ContactID: 1600
       DNs: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Neil Van Lysel
         1600
+      ID: 9a39cacc57e09cb90be41c93c204231ac1b15aee
   UseOASIS: true
 PrimaryURL: http://www.chtc.cs.wisc.edu
 PurposeURL: http://www.cs.wisc.edu/condor/glow/index.html

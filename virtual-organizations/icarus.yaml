@@ -4,12 +4,16 @@ CertificateOnly: false
 Community: Various Fermilab Short-Baseline Neutrino program collaborators
 Contacts:
   Miscellaneous Contact:
-  - Joe Boyd
-  - Shreyas Bhat
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
+  - ID: 888a771df50d76d5e229d97e37949dcca5af5b61
+    Name: Shreyas Bhat
   Submitter Contact:
-  - Shreyas Bhat
+  - ID: 888a771df50d76d5e229d97e37949dcca5af5b61
+    Name: Shreyas Bhat
   VO Manager:
-  - Joe Boyd
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -21,13 +25,13 @@ Name: icarus
 OASIS:
   Managers:
     HYUNWOO KIM:
-      ContactID: 882
       DNs:
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=HYUNWOO KIM 882
       - /DC=gov/DC=fnal/O=Fermilab/OU=People/CN=Hyun woo Kim/CN=UID:hyunwoo
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=HYUNWOO KIM 882
       - /DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Hyun
         Kim/CN=UID:hyunwoo
+      ID: e2799203e652f11e24de11fcf85b7e8d2b1783f7
   OASISRepoURLs:
   - http://oasiscfs.fnal.gov:8000/cvmfs/icarus.opensciencegrid.org
   UseOASIS: true

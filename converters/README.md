@@ -4,107 +4,59 @@ Sources
 Conversion scripts
 ------------------
 
-Scripts inside the `converters` directory are used for two things:
--   the initial conversion of XML data (obtained from myosg.grid.iu.edu)
-    into directory trees of YAML files
--   the conversion of the YAML files back into XML so that scripts that
-    use the XML interface to MyOSG continue to work with minimal
-    modifications
+Scripts inside the `converters` directory are used for the initial conversion
+of XML data (obtained from myosg.grid.iu.edu) into directory trees of YAML
+files.
 
-
-### download_projects.py ###
+### updateall ###
 
 Usage:
 
-    download_projects.py > projects.xml
+    updateall
 
-Download the current XML of projects from MyOSG.
+Download current XML from MyOSG and convert to YAML directory trees.
 
-
-#### download_rgsummary.py
-
-Usage:
-
-    download_rgsummary.py [options] > rgsummary.xml
-
-Options:
-
-    --show-inactive=YES|NO|ONLY     Show inactive resources [default: YES]
-    --show-itb=YES|NO|ONLY          Show ITB resource groups [default: YES]
-    --show-disabled-resource=YES|NO|ONLY    Show disabled resources [default: YES]
-
-Download the current XML of the resource groups from MyOSG.
-
-
-### download_vosummary.py ###
+### download ###
 
 Usage:
 
-    download_vosummary.py [options] > vos.xml
+    download [--auth --key KEY.PEM --cert CERT.PEM] [--out OUTPUT.XML] <data> [<options>]
 
-Options:
+Download current XML from MyOSG.  If you pass `--auth`, authenticated access with an x509 cert will be used.
 
-    --show-inactive=YES|NO|ONLY     Show inactive VOs [default: YES]
+`<data>` is the data file to download, one of:
 
-Download the current XML of the VO data from MyOSG.
+- `miscproject`: project data
+- `rgdowntime`: downtime data
+- `rgsummary`: topology data
+- `vosummary`: VO data
 
+Run `download <data> -h` to see the various filtering options.
 
-### project_xml_to_yaml.py ###
-
-Usage:
-
-    project_xml_to_yaml.py
-
-Convert an XML projects file named `projects.xml` into a YAML directory tree
-in `./projects`.
-
-
-### project_yaml_to_xml.py ###
+### project_xml_to_yaml ###
 
 Usage:
 
-    project_yaml_to_xml.py
+    project_xml_to_yaml <input XML> <output directory>
 
-Convert a YAML projects directory tree named `projects` into an XML file named
-`new_projects.xml`.
-
-
-### resourcegroup_xml_to_yaml.py ###
-
-Usage:
-
-    resourcegroup_xml_to_yaml.py <input XML> <output directory>
-
-Convert an XML resource group summary file into a YAML resource topology tree.
+Convert an XML projects file into a YAML directory tree.
 
 
-### resourcegroup_yaml_to_xml.py ###
+### resourcegroup_xml_to_yaml ###
 
 Usage:
 
-    resourcegroup_yaml_to_xml.py <input directory> [<output XML>]
+    resourcegroup_xml_to_yaml <input XML> <downtime XML> <output directory>
 
-Convert a YAML resource topology directory tree into XML.  If the output file
-is not specified, the contents are printed to standard output.
-
-
-### vo_xml_to_yaml.py ###
-
-Usage:
-
-    vo_xml_to_yaml.py
-
-Convert an XML VOs file named `vos.xml` into a YAML directory tree
-in `./virtual-organizations`.
+Convert an XML resource group summary file into a YAML resource topology tree,
+with downtime info.
 
 
-### vo_yaml_to_xml.py ###
+### vo_xml_to_yaml ###
 
 Usage:
 
-    vo_yaml_to_xml.py
+    vo_xml_to_yaml <input XML> <output directory>
 
-Convert a YAML VOs directory tree named `virtual-organizations` into an XML
-file named `new_vos.xml`.
-
+Convert an XML VOs file into a YAML directory tree.
 

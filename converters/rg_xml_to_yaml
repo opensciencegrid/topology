@@ -34,17 +34,16 @@ will have a ``SITE.yaml`` file containing facility and site information.
 Ordering is lost in the YAML file but the YAML to XML converter restores it.
 """
 from argparse import ArgumentParser
-
-import anymarkup
 import hashlib
 import os
 import pprint
 import re
 import sys
-from collections import OrderedDict
-from typing import Dict, List, Union
+from typing import Dict
 
-from convertlib import is_null, ensure_list, simplify_attr_list
+import anymarkup
+
+from utils import is_null, ensure_list, simplify_attr_list, trim_space
 
 
 def to_file_name(name: str) -> str:
@@ -59,14 +58,6 @@ def to_file_name(name: str) -> str:
         else:
             filename += char
     return filename
-
-
-def trim_space(s: str) -> str:
-    """Remove leading and trailing whitespace but not newlines"""
-    # leading and trailing whitespace causes "\n"'s in the resulting string
-    ret = re.sub(r"(?m)[ \t]+$", "", s)
-    ret = re.sub(r"(?m)^[ \t]+", "", ret)
-    return ret
 
 
 class Topology(object):
@@ -300,10 +291,10 @@ def topology_from_parsed_xml(parsed, downtime=None) -> Topology:
     for rg in ensure_list(parsed["ResourceGroup"]):
         topology.add_rg(rg)
     if downtime:
-        for dt in downtime["PastDowntimes"].get("Downtime", []) + \
-                  downtime["CurrentDowntimes"].get("Downtime", []) + \
-                  downtime["FutureDowntimes"].get("Downtime", []):
-            topology.add_downtime(dt)
+        for elem in ["PastDowntimes", "CurrentDowntimes", "FutureDowntimes"]:
+            if not is_null(downtime, elem):
+                for dt in downtime[elem].get("Downtime", []):
+                    topology.add_downtime(dt)
     return topology
 
 
@@ -347,16 +338,14 @@ def write_topology_to_yamls(topology: Topology, outdir):
 def main(argv=sys.argv):
     parser = ArgumentParser()
     parser.add_argument("infile", help="input rgsummary xml file")
+    parser.add_argument("downtime", default=None, help="input rgdowntime xml file")
     parser.add_argument("outdir", help="output yaml directory tree")
-    parser.add_argument("--downtime", default=None, help="input rgdowntime xml file")
     args = parser.parse_args(argv[1:])
 
     if os.path.exists(args.outdir):
         print("Warning: %s already exists" % args.outdir, file=sys.stderr)
     parsed_topology = anymarkup.parse_file(args.infile)['ResourceSummary']
-    parsed_downtime = None
-    if args.downtime:
-        parsed_downtime = anymarkup.parse_file(args.downtime)['Downtimes']
+    parsed_downtime = anymarkup.parse_file(args.downtime)['Downtimes']
     topology = topology_from_parsed_xml(parsed_topology, downtime=parsed_downtime)
     write_topology_to_yamls(topology, args.outdir)
     print("Topology written to", args.outdir)

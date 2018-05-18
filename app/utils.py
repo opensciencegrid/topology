@@ -1,7 +1,7 @@
 from collections import OrderedDict
+import re
 from typing import Dict, List, Union
 
-import anymarkup
 import xmltodict
 
 def is_null(x, *keys) -> bool:
@@ -101,3 +101,11 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
 
 def to_xml(data):
     return xmltodict.unparse(data, pretty=True, encoding="utf-8").encode("utf-8", errors="ignore")
+
+
+def trim_space(s: str) -> str:
+    """Remove leading and trailing whitespace but not newlines"""
+    # leading and trailing whitespace causes "\n"'s in the resulting string
+    ret = re.sub(r"(?m)[ \t]+$", "", s)
+    ret = re.sub(r"(?m)^[ \t]+", "", ret)
+    return ret

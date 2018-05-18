@@ -10,11 +10,11 @@ import os
 import re
 import subprocess
 import sys
-from converters.convertlib import to_xml
-from converters.project_yaml_to_xml import get_projects
-from converters.vo_yaml_to_xml import get_vos
-from converters.resourcegroup_yaml_to_xml import get_topology
-from converters.topology import Filters, GRIDTYPE_1, GRIDTYPE_2
+from app.utils import to_xml
+from app.project_reader import get_projects
+from app.vo_reader import get_vos
+from app.rg_reader import get_topology
+from app.topology import Filters, GRIDTYPE_1, GRIDTYPE_2
 
 
 class InvalidArgumentsError(Exception): pass

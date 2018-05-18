@@ -4,13 +4,18 @@ CertificateOnly: false
 Community: Physics
 Contacts:
   Miscellaneous Contact:
-  - Steve Timm
-  - Joe Boyd
-  - Gerard Bernabeu Altayo
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
+  - ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+    Name: Gerard Bernabeu Altayo
   Submitter Contact:
-  - Steve Timm
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
   VO Manager:
-  - Joe Boyd
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -22,22 +27,19 @@ Name: Mu2e
 OASIS:
   Managers:
     Brian Bockelman:
-      ContactID: 8
       DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
         Paul Bockelman
+      ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
     Derek Weitzel:
-      ContactID: 605
       DNs:
       - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel 605
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Derek Weitzel
+      ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
     Raymond Lloyd Culbertson:
-      ContactID: 1119
-      DNs:
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Raymond Lloyd Culbertson
-        1119
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Raymond Lloyd
+      DNs: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Raymond Lloyd
         Culbertson 1119
+      ID: d2c84720987c5e6a0d6290f84a9677c044147808
   OASISRepoURLs:
   - http://oasiscfs.fnal.gov:8000/cvmfs/mu2e.opensciencegrid.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/mu2e.osgstorage.org

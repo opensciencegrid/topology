@@ -1,27 +1,43 @@
 Active: true
-AppDescription: "The most CPU intensive application is CS-ROSETTA, that allows structure\
-  \ determination of proteins based on chemical shift \ninformation alone. It thus\
-  \ bypasses the need for NOE based distance restraints, which usually require \n\
-  considerable time to obtain. Further advantages of using chemical shifts are that\
-  \ these are among the \nmost reliable parameters that can be obtained from NMR spectroscopy\
-  \ and that they can potentially be \nobtained for larger macromolecules for which\
-  \ NOEs become impractical. On the other hand, direct \nchemical shift based structure\
-  \ determination is computationally much more expensive than structure \ncalculations\
-  \ using distance restraints.  However, the most time consuming part of a CS-ROSETTA\
-  \ run \nconsists of a large number of independent calculations that can be easily\
-  \ distributed over the GRID."
+AppDescription: 'The most CPU intensive application is CS-ROSETTA, that allows structure
+  determination of proteins based on chemical shift
+
+  information alone. It thus bypasses the need for NOE based distance restraints,
+  which usually require
+
+  considerable time to obtain. Further advantages of using chemical shifts are that
+  these are among the
+
+  most reliable parameters that can be obtained from NMR spectroscopy and that they
+  can potentially be
+
+  obtained for larger macromolecules for which NOEs become impractical. On the other
+  hand, direct
+
+  chemical shift based structure determination is computationally much more expensive
+  than structure
+
+  calculations using distance restraints.  However, the most time consuming part of
+  a CS-ROSETTA run
+
+  consists of a large number of independent calculations that can be easily distributed
+  over the GRID.'
 CertificateOnly: false
 Community: ENMR VO serves the bio-NMR and SAXS user communities. The VO is already
   enabled in the European EGI grid
 Contacts:
   Administrative Contact:
-  - Marco Verlato
+  - ID: 4943840ab1a99a05a5c49bf4447a90eb07cd8caa
+    Name: Marco Verlato
   Security Contact:
-  - Marco Verlato
+  - ID: 4943840ab1a99a05a5c49bf4447a90eb07cd8caa
+    Name: Marco Verlato
   Submitter Contact:
-  - Marco Verlato
+  - ID: 4943840ab1a99a05a5c49bf4447a90eb07cd8caa
+    Name: Marco Verlato
   VO Manager:
-  - Marco Verlato
+  - ID: 4943840ab1a99a05a5c49bf4447a90eb07cd8caa
+    Name: Marco Verlato
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -39,8 +55,8 @@ Name: ENMR
 OASIS:
   Managers:
     Marco Verlato:
-      ContactID: 751
       DNs: /C=IT/O=INFN/OU=Personal Certificate/L=Padova/CN=Marco Verlato
+      ID: 4943840ab1a99a05a5c49bf4447a90eb07cd8caa
   UseOASIS: true
 PrimaryURL: http://www.wenmr.eu
 PurposeURL: http://www.wenmr.eu

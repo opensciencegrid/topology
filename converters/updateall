@@ -1,0 +1,11 @@
+#!/bin/bash
+set -ev
+./converters/download --auth --out rgsummary-auth.xml rgsummary
+./converters/download --auth --out vosummary-auth.xml vosummary
+./converters/download --out miscproject.xml miscproject
+./converters/download --out rgdowntime.xml rgdowntime
+
+./converters/project_xml_to_yaml miscproject.xml projects
+./converters/vo_xml_to_yaml vosummary-auth.xml virtual-organizations
+./converters/rg_xml_to_yaml rgsummary-auth.xml rgdowntime.xml topology
+git checkout -- ./topology/services.yaml || :  # we made manual changes so don't update

@@ -7,10 +7,7 @@ import anymarkup
 
 from typing import Dict, List
 
-try:
-    from convertlib import is_null, expand_attr_list_single, expand_attr_list, ensure_list
-except ModuleNotFoundError:
-    from .convertlib import is_null, expand_attr_list_single, expand_attr_list, ensure_list
+from app.utils import is_null, expand_attr_list_single, expand_attr_list, ensure_list
 
 
 VO_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/vosummary.xsd"
@@ -28,7 +25,10 @@ def expand_contacttypes(contacts: Dict) -> Dict:
     """
     new_contacttypes = []
     for type_, list_ in contacts.items():
-        contact_data = [{"Name": x} for x in list_]
+        contact_data = []
+        for contact in list_:
+            new_contact = {"Name": contact["Name"], "ID": contact["ID"]}
+            contact_data.append(new_contact)
         new_contacttypes.append({"Type": type_, "Contacts": {"Contact": contact_data}})
     return {"ContactType": new_contacttypes}
 

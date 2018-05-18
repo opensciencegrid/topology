@@ -1,24 +1,37 @@
 Active: true
 AppDescription: XENON MC Simulation based on GEANT4 and ROOT will run
 CertificateOnly: false
-Community: |-
-  The Xenon VO xenon.biggrid.nl is the incubator grid community for work on the
-  international Xenon 1T and related experiments in the search for dark matter. Members of the
-  VO will work to build, understand and analyse the detector and results related to the Xenon
+Community: 'The Xenon VO xenon.biggrid.nl is the incubator grid community for work
+  on the
+
+  international Xenon 1T and related experiments in the search for dark matter. Members
+  of the
+
+  VO will work to build, understand and analyse the detector and results related to
+  the Xenon
+
   experiment and to "Monte-Carlo" studies that will be used to design, build and
-  understand the detector, as well as work with the supporting computing infrastructure to make this happen.
+
+  understand the detector, as well as work with the supporting computing infrastructure
+  to make this happen.'
 Contacts:
   Administrative Contact:
-  - Luca Scotto Lavina
+  - ID: 34d0a2a03bbffad439ae7c732042d7ad6a609da8
+    Name: Luca Scotto Lavina
   Registration Authority:
-  - Benedikt Riedel
-  - Luca Scotto Lavina
+  - ID: 78ea3b6350f56c5004290f5df4ba427f6be79199
+    Name: Benedikt Riedel
+  - ID: 34d0a2a03bbffad439ae7c732042d7ad6a609da8
+    Name: Luca Scotto Lavina
   Security Contact:
-  - Luca Scotto Lavina
+  - ID: 34d0a2a03bbffad439ae7c732042d7ad6a609da8
+    Name: Luca Scotto Lavina
   Submitter Contact:
-  - Luca Scotto Lavina
+  - ID: 34d0a2a03bbffad439ae7c732042d7ad6a609da8
+    Name: Luca Scotto Lavina
   VO Manager:
-  - Luca Scotto Lavina
+  - ID: 34d0a2a03bbffad439ae7c732042d7ad6a609da8
+    Name: Luca Scotto Lavina
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -33,8 +46,8 @@ Name: XENON
 OASIS:
   Managers:
     Luca Scotto Lavina:
-      ContactID: 4310
       DNs: /O=GRID-FR/C=FR/O=CNRS/OU=LPNHE/CN=Luca Scotto Lavina
+      ID: 34d0a2a03bbffad439ae7c732042d7ad6a609da8
   OASISRepoURLs:
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/xenon.opensciencegrid.org
   UseOASIS: true
