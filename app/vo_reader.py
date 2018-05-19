@@ -7,7 +7,7 @@ from typing import Dict, List
 
 import anymarkup
 
-from app.common import MaybeOrderedDict, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, to_xml
+from app.common import Filters, MaybeOrderedDict, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, to_xml
 
 
 def expand_oasis_managers(managers):
@@ -51,15 +51,23 @@ class VOData(object):
     def add_vo(self, vo):
         self.vos.append(vo)
 
-    def get_tree(self, authorized=False, filters=None) -> Dict:
-        expanded_vos = [self._expand_vo(vo, authorized=authorized) for vo in self.vos]
+    def get_tree(self, authorized=False, filters: Filters = None) -> Dict:
+        if not filters:
+            filters = Filters()
+        expanded_vos = list(
+            filter(None,
+                   [self._expand_vo(vo, authorized=authorized, filters=filters) for vo in self.vos]))
 
         return {"VOSummary": {
             "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
             "@xsi:schemaLocation": VOSUMMARY_SCHEMA_URL,
             "VO": expanded_vos}}
 
-    def _expand_vo(self, vo: Dict, authorized: bool) -> MaybeOrderedDict:
+    def _expand_vo(self, vo: Dict, authorized: bool, filters: Filters) -> MaybeOrderedDict:
+        if filters.active is not None:
+            if filters.active != vo["Active"]:
+                return None
+
         vo = vo.copy()
 
         if is_null(vo, "Contacts"):
@@ -170,10 +178,7 @@ class VOData(object):
         return {"ReportingGroup": new_reporting_groups}
 
 
-def get_vos(indir="virtual-organizations", contacts_file=None, authorized=False):
-    contacts_table = None
-    if contacts_file:
-        contacts_table = anymarkup.parse_file(contacts_file)
+def get_vo_data(indir="virtual-organizations", contacts_table=None) -> VOData:
     reporting_groups_table = anymarkup.parse_file(os.path.join(indir, "REPORTING_GROUPS.yaml"))
     vo_data = VOData(contacts_table=contacts_table, reporting_groups_table=reporting_groups_table)
     for file in os.listdir(indir):
@@ -184,7 +189,7 @@ def get_vos(indir="virtual-organizations", contacts_file=None, authorized=False)
         except Exception:
             pprint.pprint(vo)
             raise
-    return vo_data.get_tree(authorized)
+    return vo_data
 
 
 def main(argv):
@@ -194,7 +199,10 @@ def main(argv):
     parser.add_argument("--contacts", help="contacts yaml file")
     args = parser.parse_args(argv[1:])
 
-    args.outfile.write(to_xml(get_vos(args.indir, contacts_file=args.contacts, authorized=True)))
+    contacts_table = None
+    if args.contacts:
+        contacts_table = anymarkup.parse_file(args.contacts)
+    args.outfile.write(to_xml(get_vo_data(args.indir, contacts_table=contacts_table).get_tree(authorized=True)))
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))

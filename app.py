@@ -10,11 +10,11 @@ import os
 import re
 import subprocess
 import sys
-from app.common import to_xml
+from app.common import to_xml, Filters
 from app.project_reader import get_projects
-from app.vo_reader import get_vos
+from app.vo_reader import get_vo_data
 from app.rg_reader import get_topology
-from app.topology import Filters, GRIDTYPE_1, GRIDTYPE_2
+from app.topology import GRIDTYPE_1, GRIDTYPE_2
 
 
 class InvalidArgumentsError(Exception): pass
@@ -39,7 +39,7 @@ def homepage():
     """
 
 _projects = None
-_vos = None
+_vo_data = None
 _contacts = None
 _topology = None
 
@@ -60,27 +60,21 @@ def projects():
     projects_xml = to_xml(_projects)
     return Response(projects_xml, mimetype='text/xml')
 
+
 @app.route('/vosummary/xml')
 def voinfo():
-    global _vos
-    if not _vos:
-        _vos = get_vos()
-    args = flask.request.args
-    if "active" in args:
-        vos = copy.deepcopy(_vos)
-        active_value = args.get("active_value", "")
-        if active_value == "0":
-            vos["VOSummary"]["VO"] = [vo for vo in vos["VOSummary"]["VO"] if not vo["Active"]]
-        elif active_value == "1":
-            vos["VOSummary"]["VO"] = [vo for vo in vos["VOSummary"]["VO"] if vo["Active"]]
-        else:
-            return Response("Invalid arguments: active_value must be 0 or 1", status=400)
-    else:
-        vos = _vos
-    vos_xml = to_xml(vos)
+    try:
+        filters = get_filters_from_args(request.args)
+    except InvalidArgumentsError as e:
+        return Response("Invalid arguments: " + str(e), status=400)
+
+    authorized = False
+    if 'GRST_CRED_AURI_0' in request.environ:
+        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
+        # Gridsite already made sure it matches something in the CA distribution
+        authorized = True
+    vos_xml = to_xml(_getVOData().get_tree(authorized, filters))
     return Response(vos_xml, mimetype='text/xml')
-
-
 
 
 def get_filters_from_args(args) -> Filters:
@@ -229,6 +223,13 @@ def _getTopology():
 
     return _topology
 
+
+def _getVOData():
+    contacts = _getContacts()
+    global _vo_data
+    if not _vo_data:
+        _vo_data = get_vo_data("virtual-organizations", contacts)
+    return _vo_data
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)

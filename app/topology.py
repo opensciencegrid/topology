@@ -9,7 +9,8 @@ from typing import Dict, List
 
 import dateparser
 
-from .common import MaybeOrderedDict, RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, is_null, expand_attr_list_single, expand_attr_list, ensure_list
+from .common import MaybeOrderedDict, RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
+    is_null, expand_attr_list_single, expand_attr_list, ensure_list
 
 
 GRIDTYPE_1 = "OSG Production Resource"
@@ -19,23 +20,6 @@ class Timeframe(Enum):
     PAST = 1
     PRESENT = 2
     FUTURE = 3
-
-
-class Filters(object):
-    def __init__(self, facility_id: List[int] = None, site_id: List[int] = None,
-                 support_center_id: List[int] = None,
-                 service_id: List[int] = None, grid_type: str = None,
-                 active: bool = None, disable: bool = None,
-                 past_days: int = 0):
-
-        self.facility_id = ensure_list(facility_id)
-        self.site_id = ensure_list(site_id)
-        self.support_center_id = ensure_list(support_center_id)
-        self.service_id = ensure_list(service_id)
-        self.grid_type = grid_type
-        self.active = active
-        self.disable = disable
-        self.past_days = past_days
 
 
 class TopologyError(Exception): pass
