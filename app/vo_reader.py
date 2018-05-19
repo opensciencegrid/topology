@@ -43,10 +43,10 @@ def expand_fields_of_science(fields_of_science):
 
 
 class VOData(object):
-    def __init__(self, contacts_table, reporting_groups_table):
-        self.contacts_table = contacts_table or {}
+    def __init__(self, contacts_data, reporting_groups_data):
+        self.contacts_data = contacts_data or {}
         self.vos = []
-        self.reporting_groups_table = reporting_groups_table
+        self.reporting_groups_data = reporting_groups_data
 
     def add_vo(self, vo):
         self.vos.append(vo)
@@ -138,8 +138,8 @@ class VOData(object):
             for contact in list_:
                 new_contact = OrderedDict([("Name", contact["Name"])])
                 if authorized:
-                    if contact["ID"] in self.contacts_table:
-                        extra_data = self.contacts_table[contact["ID"]]
+                    if contact["ID"] in self.contacts_data:
+                        extra_data = self.contacts_data[contact["ID"]]
                         new_contact["Email"] = extra_data["Email"]
                         new_contact["Phone"] = extra_data.get("Phone", "")
                         new_contact["SMSAddress"] = extra_data.get("SMS", "")
@@ -149,7 +149,7 @@ class VOData(object):
 
     def _expand_reporting_groups(self, reporting_groups_list: List, authorized: bool) -> Dict:
         new_reporting_groups = {}
-        for name, data in self.reporting_groups_table.items():
+        for name, data in self.reporting_groups_data.items():
             if name not in reporting_groups_list: continue
             new_reporting_groups[name] = {}
             newdata = new_reporting_groups[name]
@@ -158,8 +158,8 @@ class VOData(object):
                 for contact in data["Contacts"]:
                     new_contact = OrderedDict([("Name", contact["Name"])])
                     if authorized:
-                        if contact["ID"] in self.contacts_table:
-                            extra_data = self.contacts_table[contact["ID"]]
+                        if contact["ID"] in self.contacts_data:
+                            extra_data = self.contacts_data[contact["ID"]]
                             new_contact["Email"] = extra_data["Email"]
                             new_contact["Phone"] = extra_data.get("Phone", "")
                             new_contact["SMSAddress"] = extra_data.get("SMS", "")
@@ -178,9 +178,9 @@ class VOData(object):
         return {"ReportingGroup": new_reporting_groups}
 
 
-def get_vo_data(indir="virtual-organizations", contacts_table=None) -> VOData:
-    reporting_groups_table = anymarkup.parse_file(os.path.join(indir, "REPORTING_GROUPS.yaml"))
-    vo_data = VOData(contacts_table=contacts_table, reporting_groups_table=reporting_groups_table)
+def get_vo_data(indir="virtual-organizations", contacts_data=None) -> VOData:
+    reporting_groups_data = anymarkup.parse_file(os.path.join(indir, "REPORTING_GROUPS.yaml"))
+    vo_data = VOData(contacts_data=contacts_data, reporting_groups_data=reporting_groups_data)
     for file in os.listdir(indir):
         if file == "REPORTING_GROUPS.yaml": continue
         vo = anymarkup.parse_file(os.path.join(indir, file))
@@ -199,10 +199,10 @@ def main(argv):
     parser.add_argument("--contacts", help="contacts yaml file")
     args = parser.parse_args(argv[1:])
 
-    contacts_table = None
+    contacts_data = None
     if args.contacts:
-        contacts_table = anymarkup.parse_file(args.contacts)
-    args.outfile.write(to_xml(get_vo_data(args.indir, contacts_table=contacts_table).get_tree(authorized=True)))
+        contacts_data = anymarkup.parse_file(args.contacts)
+    args.outfile.write(to_xml(get_vo_data(args.indir, contacts_data=contacts_data).get_tree(authorized=True)))
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))

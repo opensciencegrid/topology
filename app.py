@@ -1,6 +1,3 @@
-import copy
-
-
 import flask
 from flask import Flask, Response, request
 import configparser
@@ -40,7 +37,7 @@ def homepage():
 
 _projects = None
 _vo_data = None
-_contacts = None
+_contacts_data = None
 _topology = None
 
 @app.route('/schema/<xsdfile>')
@@ -53,7 +50,7 @@ def schema(xsdfile):
 
 
 @app.route('/miscproject/xml')
-def projects():
+def miscproject_xml():
     global _projects
     if not _projects:
         _projects = get_projects()
@@ -62,7 +59,7 @@ def projects():
 
 
 @app.route('/vosummary/xml')
-def voinfo():
+def vosummary_xml():
     try:
         filters = get_filters_from_args(request.args)
     except InvalidArgumentsError as e:
@@ -73,7 +70,7 @@ def voinfo():
         # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
         # Gridsite already made sure it matches something in the CA distribution
         authorized = True
-    vos_xml = to_xml(_getVOData().get_tree(authorized, filters))
+    vos_xml = to_xml(_get_vo_data().get_tree(authorized, filters))
     return Response(vos_xml, mimetype='text/xml')
 
 
@@ -146,7 +143,7 @@ def get_filters_from_args(args) -> Filters:
 
 
 @app.route('/rgsummary/xml')
-def resources():
+def rgsummary_xml():
     try:
         filters = get_filters_from_args(request.args)
     except InvalidArgumentsError as e:
@@ -158,13 +155,13 @@ def resources():
         # Gridsite already made sure it matches something in the CA distribution
         authorized = True
 
-    rgsummary = _getTopology().get_resource_summary(authorized=authorized, filters=filters)
+    rgsummary = _get_topology().get_resource_summary(authorized=authorized, filters=filters)
     rgsummary_xml = to_xml(rgsummary)
     return Response(rgsummary_xml, mimetype='text/xml')
 
 
 @app.route('/rgdowntime/xml')
-def downtime():
+def rgdowntime_xml():
     try:
         filters = get_filters_from_args(request.args)
     except InvalidArgumentsError as e:
@@ -176,23 +173,23 @@ def downtime():
         # Gridsite already made sure it matches something in the CA distribution
         authorized = True
 
-    rgdowntime = _getTopology().get_downtimes(authorized=authorized, filters=filters)
+    rgdowntime = _get_topology().get_downtimes(authorized=authorized, filters=filters)
     rgdowntime_xml = to_xml(rgdowntime)
     return Response(rgdowntime_xml, mimetype='text/xml')
 
 
-def _getContacts():
+def _get_contacts_data():
     """
     Get the contact information.  For now this is from a private github repo, but in the future
     it could be much more complicated to get the contact details
     """
     
-    global _contacts
+    global _contacts_data
     # TODO: periodically update contacts info
-    if not _contacts:
+    if not _contacts_data:
         # use local copy if it exists
         if os.path.exists("contacts.yaml"):
-            _contacts = anymarkup.parse_file("contacts.yaml")
+            _contacts_data = anymarkup.parse_file("contacts.yaml")
         else:
             # Get the contacts from bitbucket
             # Read in the config file with the SSH key location
@@ -210,26 +207,24 @@ def _getContacts():
                 if git_result.returncode != 0:
                     # Git command exited with nonzero!
                     print("Git failed:\n" + git_result.stdout, file=sys.stderr)
-                _contacts = anymarkup.parse_file(os.path.join(tmp_dir, 'contacts.yaml'))
+                _contacts_data = anymarkup.parse_file(os.path.join(tmp_dir, 'contacts.yaml'))
 
-    return _contacts
+    return _contacts_data
 
 
-def _getTopology():
-    contacts = _getContacts()
+def _get_topology():
     global _topology
     if not _topology:
-        _topology = get_topology("topology", contacts)
-
+        _topology = get_topology("topology", _get_contacts_data())
     return _topology
 
 
-def _getVOData():
-    contacts = _getContacts()
+def _get_vo_data():
     global _vo_data
     if not _vo_data:
-        _vo_data = get_vo_data("virtual-organizations", contacts)
+        _vo_data = get_vo_data("virtual-organizations", _get_contacts_data())
     return _vo_data
+
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
