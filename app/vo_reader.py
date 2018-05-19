@@ -10,41 +10,6 @@ import anymarkup
 from app.common import MaybeOrderedDict, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, to_xml
 
 
-def expand_reportinggroups(reportinggroups_list: List, reportinggroups_data: Dict) -> Dict:
-    """Expand
-    ["XXX", "YYY", "ZZZ"]
-    using data from reportinggroups_data into
-    {"ReportingGroup": [{"Contacts": {"Contact": [{"Name": "a"},
-                                                 {"Name": "b"}
-                                     },
-                         "FQANs": {"FQAN": [{"GroupName": "...",
-                                             "Role": "..."}]
-                                  }
-                         "Name": "XXX"
-                       }]
-    }
-    """
-    new_reportinggroups = {}
-    for name, data in reportinggroups_data.items():
-        if name not in reportinggroups_list: continue
-        new_reportinggroups[name] = {}
-        newdata = new_reportinggroups[name]
-        if not is_null(data, "Contacts"):
-            new_contact = [{"Name": x} for x in data["Contacts"]]
-            newdata["Contacts"] = {"Contact": new_contact}
-        else:
-            newdata["Contacts"] = None
-        if not is_null(data, "FQANs"):
-            fqans = []
-            for fqan in data["FQANs"]:
-                fqans.append(OrderedDict([("GroupName", fqan["GroupName"]), ("Role", fqan["Role"])]))
-            newdata["FQANs"] = {"FQAN": fqans}
-        else:
-            newdata["FQANs"] = None
-    new_reportinggroups = expand_attr_list(new_reportinggroups, "Name", ordering=["Name", "FQANs", "Contacts"])
-    return {"ReportingGroup": new_reportinggroups}
-
-
 def expand_oasis_managers(managers):
     """Expand
     {"a": {"DNs": [...]}}
@@ -78,23 +43,23 @@ def expand_fields_of_science(fields_of_science):
 
 
 class VOData(object):
-    def __init__(self, contacts_table, reporting_groups):
+    def __init__(self, contacts_table, reporting_groups_table):
         self.contacts_table = contacts_table or {}
         self.vos = []
-        self.reporting_groups = reporting_groups
+        self.reporting_groups_table = reporting_groups_table
 
     def add_vo(self, vo):
         self.vos.append(vo)
 
     def get_tree(self, authorized=False, filters=None) -> Dict:
-        expanded_vos = [self._expand_vo(authorized, vo) for vo in self.vos]
+        expanded_vos = [self._expand_vo(vo, authorized=authorized) for vo in self.vos]
 
         return {"VOSummary": {
             "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
             "@xsi:schemaLocation": VOSUMMARY_SCHEMA_URL,
             "VO": expanded_vos}}
 
-    def _expand_vo(self, authorized: bool, vo: Dict) -> MaybeOrderedDict:
+    def _expand_vo(self, vo: Dict, authorized: bool) -> MaybeOrderedDict:
         vo = vo.copy()
 
         if is_null(vo, "Contacts"):
@@ -105,7 +70,7 @@ class VOData(object):
         if is_null(vo, "ReportingGroups"):
             vo["ReportingGroups"] = None
         else:
-            vo["ReportingGroups"] = expand_reportinggroups(vo["ReportingGroups"], self.reporting_groups)
+            vo["ReportingGroups"] = self._expand_reporting_groups(vo["ReportingGroups"], authorized)
         if is_null(vo, "OASIS"):
             vo["OASIS"] = None
         else:
@@ -174,22 +139,43 @@ class VOData(object):
             new_contacttypes.append({"Type": type_, "Contacts": {"Contact": contact_data}})
         return {"ContactType": new_contacttypes}
 
-
-def get_vos_xml():
-    """
-    Returns the serialized xml (as a string)
-    """
-    to_output = get_vos()
-
-    return anymarkup.serialize(to_output, 'xml').decode()
+    def _expand_reporting_groups(self, reporting_groups_list: List, authorized: bool) -> Dict:
+        new_reporting_groups = {}
+        for name, data in self.reporting_groups_table.items():
+            if name not in reporting_groups_list: continue
+            new_reporting_groups[name] = {}
+            newdata = new_reporting_groups[name]
+            if not is_null(data, "Contacts"):
+                new_contacts = []
+                for contact in data["Contacts"]:
+                    new_contact = OrderedDict([("Name", contact["Name"])])
+                    if authorized:
+                        if contact["ID"] in self.contacts_table:
+                            extra_data = self.contacts_table[contact["ID"]]
+                            new_contact["Email"] = extra_data["Email"]
+                            new_contact["Phone"] = extra_data.get("Phone", "")
+                            new_contact["SMSAddress"] = extra_data.get("SMS", "")
+                    new_contacts.append(new_contact)
+                newdata["Contacts"] = {"Contact": new_contacts}
+            else:
+                newdata["Contacts"] = None
+            if not is_null(data, "FQANs"):
+                fqans = []
+                for fqan in data["FQANs"]:
+                    fqans.append(OrderedDict([("GroupName", fqan["GroupName"]), ("Role", fqan["Role"])]))
+                newdata["FQANs"] = {"FQAN": fqans}
+            else:
+                newdata["FQANs"] = None
+        new_reporting_groups = expand_attr_list(new_reporting_groups, "Name", ordering=["Name", "FQANs", "Contacts"])
+        return {"ReportingGroup": new_reporting_groups}
 
 
 def get_vos(indir="virtual-organizations", contacts_file=None, authorized=False):
     contacts_table = None
     if contacts_file:
         contacts_table = anymarkup.parse_file(contacts_file)
-    reporting_groups_data = anymarkup.parse_file(os.path.join(indir, "REPORTING_GROUPS.yaml"))
-    vo_data = VOData(contacts_table=contacts_table, reporting_groups=reporting_groups_data)
+    reporting_groups_table = anymarkup.parse_file(os.path.join(indir, "REPORTING_GROUPS.yaml"))
+    vo_data = VOData(contacts_table=contacts_table, reporting_groups_table=reporting_groups_table)
     for file in os.listdir(indir):
         if file == "REPORTING_GROUPS.yaml": continue
         vo = anymarkup.parse_file(os.path.join(indir, file))
