@@ -78,8 +78,8 @@ def expand_fields_of_science(fields_of_science):
 
 
 class VOData(object):
-    def __init__(self, contacts, reporting_groups):
-        self.contacts = contacts
+    def __init__(self, contacts_table, reporting_groups):
+        self.contacts_table = contacts_table or {}
         self.vos = []
         self.reporting_groups = reporting_groups
 
@@ -87,20 +87,20 @@ class VOData(object):
         self.vos.append(vo)
 
     def get_tree(self, authorized=False, filters=None) -> Dict:
-        expanded_vos = [self._expand_vo(vo) for vo in self.vos]
+        expanded_vos = [self._expand_vo(authorized, vo) for vo in self.vos]
 
         return {"VOSummary": {
             "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
             "@xsi:schemaLocation": VOSUMMARY_SCHEMA_URL,
             "VO": expanded_vos}}
 
-    def _expand_vo(self, vo: Dict) -> MaybeOrderedDict:
+    def _expand_vo(self, authorized: bool, vo: Dict) -> MaybeOrderedDict:
         vo = vo.copy()
 
         if is_null(vo, "Contacts"):
             vo["ContactTypes"] = None
         else:
-            vo["ContactTypes"] = self._expand_contacttypes(vo["Contacts"])
+            vo["ContactTypes"] = self._expand_contacttypes(vo["Contacts"], authorized)
         vo.pop("Contacts", None)
         if is_null(vo, "ReportingGroups"):
             vo["ReportingGroups"] = None
@@ -158,13 +158,18 @@ class VOData(object):
 
         return new_vo
 
-    @staticmethod
-    def _expand_contacttypes(contacts: Dict) -> Dict:
+    def _expand_contacttypes(self, vo_contacts: Dict, authorized: bool) -> Dict:
         new_contacttypes = []
-        for type_, list_ in contacts.items():
+        for type_, list_ in vo_contacts.items():
             contact_data = []
             for contact in list_:
-                new_contact = {"Name": contact["Name"], "ID": contact["ID"]}
+                new_contact = OrderedDict([("Name", contact["Name"])])
+                if authorized:
+                    if contact["ID"] in self.contacts_table:
+                        extra_data = self.contacts_table[contact["ID"]]
+                        new_contact["Email"] = extra_data["Email"]
+                        new_contact["Phone"] = extra_data.get("Phone", "")
+                        new_contact["SMSAddress"] = extra_data.get("SMS", "")
                 contact_data.append(new_contact)
             new_contacttypes.append({"Type": type_, "Contacts": {"Contact": contact_data}})
         return {"ContactType": new_contacttypes}
@@ -179,12 +184,12 @@ def get_vos_xml():
     return anymarkup.serialize(to_output, 'xml').decode()
 
 
-def get_vos(indir="virtual-organizations", contacts_file=None):
-    contacts_data = None
+def get_vos(indir="virtual-organizations", contacts_file=None, authorized=False):
+    contacts_table = None
     if contacts_file:
-        contacts_data = anymarkup.parse_file(contacts_file)
+        contacts_table = anymarkup.parse_file(contacts_file)
     reporting_groups_data = anymarkup.parse_file(os.path.join(indir, "REPORTING_GROUPS.yaml"))
-    vo_data = VOData(contacts=contacts_data, reporting_groups=reporting_groups_data)
+    vo_data = VOData(contacts_table=contacts_table, reporting_groups=reporting_groups_data)
     for file in os.listdir(indir):
         if file == "REPORTING_GROUPS.yaml": continue
         vo = anymarkup.parse_file(os.path.join(indir, file))
@@ -193,7 +198,7 @@ def get_vos(indir="virtual-organizations", contacts_file=None):
         except Exception:
             pprint.pprint(vo)
             raise
-    return vo_data.get_tree()
+    return vo_data.get_tree(authorized)
 
 
 def main(argv):
@@ -203,7 +208,7 @@ def main(argv):
     parser.add_argument("--contacts", help="contacts yaml file")
     args = parser.parse_args(argv[1:])
 
-    args.outfile.write(to_xml(get_vos(args.indir, contacts_file=args.contacts)))
+    args.outfile.write(to_xml(get_vos(args.indir, contacts_file=args.contacts, authorized=True)))
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))
