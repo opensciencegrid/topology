@@ -7,11 +7,11 @@ import os
 import re
 import subprocess
 import sys
-from app.common import to_xml, Filters
-from app.project_reader import get_projects
-from app.vo_reader import get_vo_data
-from app.rg_reader import get_topology
-from app.topology import GRIDTYPE_1, GRIDTYPE_2
+from webapp.common import to_xml, Filters
+from webapp.project_reader import get_projects
+from webapp.vo_reader import get_vo_data
+from webapp.rg_reader import get_topology
+from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 
 
 class InvalidArgumentsError(Exception): pass

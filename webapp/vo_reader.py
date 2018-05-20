@@ -7,7 +7,7 @@ from typing import Dict, List
 
 import anymarkup
 
-from app.common import Filters, MaybeOrderedDict, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, to_xml
+from webapp.common import Filters, MaybeOrderedDict, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, to_xml
 
 
 def expand_oasis_managers(managers):

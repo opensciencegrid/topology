@@ -24,8 +24,8 @@ import pprint
 import sys
 from pathlib import Path
 
-from app.topology import Tables, Topology
-from app.common import ensure_list, to_xml
+from webapp.topology import Tables, Topology
+from webapp.common import ensure_list, to_xml
 
 class RGError(Exception):
     """An error with converting a specific RG"""
