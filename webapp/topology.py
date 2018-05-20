@@ -203,7 +203,7 @@ class ResourceGroup(object):
         self.tables = tables
 
         scname = yaml_data["SupportCenter"]
-        scid = tables.support_centers[scname]
+        scid = int(tables.support_centers[scname])
         self.support_center = OrderedDict([("ID", scid), ("Name", scname)])
 
         self.resources = []
@@ -222,15 +222,14 @@ class ResourceGroup(object):
     def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
         if filters is None:
             filters = Filters()
-        if filters.facility_id and self.site.facility.id not in filters.facility_id:
-            return
-        if filters.site_id and self.site.id not in filters.site_id:
-            return
+        for filter_list, attribute in [(filters.facility_id, self.site.facility.id),
+                                       (filters.site_id, self.site.id),
+                                       (filters.support_center_id, self.support_center["ID"]),
+                                       (filters.rg_id, self.id)]:
+            if filter_list and attribute not in filter_list:
+                return
         if filters.grid_type is not None and self.data["GridType"] != filters.grid_type:
             return
-        if filters.support_center_id:
-            if int(self.support_center["ID"]) not in filters.support_center_id:
-                return
 
         filtered_resources = list(filter(None, [x.get_tree(authorized, filters) for x in self.resources]))
         if not filtered_resources:
@@ -292,15 +291,14 @@ class Downtime(object):
     def get_tree(self, filters: Filters = None) -> MaybeOrderedDict:
         if filters is None:
             filters = Filters()
-        if filters.facility_id and self.rg.site.facility.id not in filters.facility_id:
-            return
-        if filters.site_id and self.rg.site.id not in filters.site_id:
-            return
+        for filter_list, attribute in [(filters.facility_id, self.rg.site.facility.id),
+                                       (filters.site_id, self.rg.site.id),
+                                       (filters.support_center_id, self.rg.support_center["ID"]),
+                                       (filters.rg_id, self.rg.id)]:
+            if filter_list and attribute not in filter_list:
+                return
         if filters.grid_type is not None and self.rg.data["GridType"] != filters.grid_type:
             return
-        if filters.support_center_id:
-            if int(self.rg.support_center["ID"]) not in filters.support_center_id:
-                return
         # unlike the other filters, if past_days is not specified, _no_ past downtime is shown
         if filters.past_days >= 0:
             if self.end_age.total_seconds() // 86400 < filters.past_days:

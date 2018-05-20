@@ -128,6 +128,7 @@ def get_filters_from_args(args) -> Filters:
     # - pass KEY_sel[]=1, KEY_sel[]=2, etc. (multiple KEY_sel[] args).
     for filter_key, filter_list, description in [
         ("facility", filters.facility_id, "facility ID"),
+        ("rg", filters.rg_id, "resource group ID"),
         ("service", filters.service_id, "service ID"),
         ("sc", filters.support_center_id, "support center ID"),
         ("site", filters.site_id, "site ID"),
