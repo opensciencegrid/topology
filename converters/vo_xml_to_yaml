@@ -6,7 +6,12 @@ import xmltodict
 import yaml
 
 from typing import Dict, Union
-from common import is_null, simplify_attr_list, ensure_list, trim_space, email_to_id
+
+# thanks stackoverflow
+if __name__ == "__main__" and __package__ is None:
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from webapp.common import is_null, simplify_attr_list, ensure_list, trim_space, email_to_id
 
 
 def is_true_str(a_str: Union[str, None]) -> bool:
