@@ -7,7 +7,7 @@ import os
 import re
 import subprocess
 import sys
-from webapp.common import to_xml, Filters
+from webapp.common import to_xml_bytes, Filters
 from webapp.project_reader import get_projects
 from webapp.vo_reader import get_vo_data
 from webapp.rg_reader import get_topology
@@ -54,7 +54,7 @@ def miscproject_xml():
     global _projects
     if not _projects:
         _projects = get_projects()
-    projects_xml = to_xml(_projects)
+    projects_xml = to_xml_bytes(_projects)
     return Response(projects_xml, mimetype='text/xml')
 
 
@@ -70,7 +70,7 @@ def vosummary_xml():
         # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
         # Gridsite already made sure it matches something in the CA distribution
         authorized = True
-    vos_xml = to_xml(_get_vo_data().get_tree(authorized, filters))
+    vos_xml = to_xml_bytes(_get_vo_data().get_tree(authorized, filters))
     return Response(vos_xml, mimetype='text/xml')
 
 
@@ -156,7 +156,7 @@ def rgsummary_xml():
         authorized = True
 
     rgsummary = _get_topology().get_resource_summary(authorized=authorized, filters=filters)
-    rgsummary_xml = to_xml(rgsummary)
+    rgsummary_xml = to_xml_bytes(rgsummary)
     return Response(rgsummary_xml, mimetype='text/xml')
 
 
@@ -174,7 +174,7 @@ def rgdowntime_xml():
         authorized = True
 
     rgdowntime = _get_topology().get_downtimes(authorized=authorized, filters=filters)
-    rgdowntime_xml = to_xml(rgdowntime)
+    rgdowntime_xml = to_xml_bytes(rgdowntime)
     return Response(rgdowntime_xml, mimetype='text/xml')
 
 
@@ -228,4 +228,3 @@ def _get_vo_data():
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
-

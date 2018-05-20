@@ -130,6 +130,10 @@ def to_xml(data) -> str:
     return xmltodict.unparse(data, pretty=True, encoding="utf-8")
 
 
+def to_xml_bytes(data) -> bytes:
+    return to_xml(data).encode("utf-8", errors="replace")
+
+
 def trim_space(s: str) -> str:
     """Remove leading and trailing whitespace but not newlines"""
     # leading and trailing whitespace causes "\n"'s in the resulting string
