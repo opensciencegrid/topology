@@ -1,8 +1,35 @@
 from collections import OrderedDict
+import hashlib
 import re
 from typing import Dict, List, Union
 
 import xmltodict
+
+
+MaybeOrderedDict = Union[None, OrderedDict]
+
+MISCUSER_SCHEMA_URL = "https://my.opensciencegrid.org/schema/miscuser.xsd"
+RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
+RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
+VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
+
+
+class Filters(object):
+    def __init__(self, facility_id: List[int] = None, site_id: List[int] = None,
+                 support_center_id: List[int] = None,
+                 service_id: List[int] = None, grid_type: str = None,
+                 active: bool = None, disable: bool = None,
+                 past_days: int = 0):
+
+        self.facility_id = ensure_list(facility_id)
+        self.site_id = ensure_list(site_id)
+        self.support_center_id = ensure_list(support_center_id)
+        self.service_id = ensure_list(service_id)
+        self.grid_type = grid_type
+        self.active = active
+        self.disable = disable
+        self.past_days = past_days
+
 
 def is_null(x, *keys) -> bool:
     for key in keys:
@@ -99,8 +126,12 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
     return newdata
 
 
-def to_xml(data):
-    return xmltodict.unparse(data, pretty=True, encoding="utf-8").encode("utf-8", errors="ignore")
+def to_xml(data) -> str:
+    return xmltodict.unparse(data, pretty=True, encoding="utf-8")
+
+
+def to_xml_bytes(data) -> bytes:
+    return to_xml(data).encode("utf-8", errors="replace")
 
 
 def trim_space(s: str) -> str:
@@ -109,3 +140,7 @@ def trim_space(s: str) -> str:
     ret = re.sub(r"(?m)[ \t]+$", "", s)
     ret = re.sub(r"(?m)^[ \t]+", "", ret)
     return ret
+
+
+def email_to_id(email: str) -> str:
+    return hashlib.sha1(email.encode()).hexdigest()

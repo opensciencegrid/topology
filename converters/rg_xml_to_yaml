@@ -34,7 +34,6 @@ will have a ``SITE.yaml`` file containing facility and site information.
 Ordering is lost in the YAML file but the YAML to XML converter restores it.
 """
 from argparse import ArgumentParser
-import hashlib
 import os
 import pprint
 import re
@@ -43,7 +42,7 @@ from typing import Dict
 
 import anymarkup
 
-from utils import is_null, ensure_list, simplify_attr_list, trim_space
+from common import is_null, ensure_list, simplify_attr_list, trim_space, email_to_id
 
 
 def to_file_name(name: str) -> str:
@@ -185,8 +184,7 @@ class Topology(object):
             for contact_rank, contact_rank_data in contacts.items():
                 new_contacts[contact_rank] = {"Name": contacts[contact_rank]["Name"]}
                 if "Email" in contact_rank_data:
-                    chksum = hashlib.sha1(contact_rank_data["Email"].encode()).hexdigest()
-                    new_contacts[contact_rank]["ID"] = chksum
+                    new_contacts[contact_rank]["ID"] = email_to_id(contact_rank_data["Email"])
             new_contactlists[contact_type] = new_contacts
         return new_contactlists
 

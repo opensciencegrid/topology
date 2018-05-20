@@ -5,14 +5,13 @@ import pprint
 import re
 import urllib.parse
 import sys
-from typing import Dict, List, Union
+from typing import Dict, List
 
 import dateparser
 
-from .utils import is_null, expand_attr_list_single, expand_attr_list, ensure_list
+from .common import MaybeOrderedDict, RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
+    is_null, expand_attr_list_single, expand_attr_list, ensure_list
 
-RG_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
-DOWNTIME_SCHEMA_LOCATION = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
 
 GRIDTYPE_1 = "OSG Production Resource"
 GRIDTYPE_2 = "OSG Integration Test Bed Resource"
@@ -22,32 +21,13 @@ class Timeframe(Enum):
     PRESENT = 2
     FUTURE = 3
 
-MaybeOrderedDict = Union[None, OrderedDict]
-
-
-class Filters(object):
-    def __init__(self, facility_id: List[int] = None, site_id: List[int] = None,
-                 support_center_id: List[int] = None,
-                 service_id: List[int] = None, grid_type: str = None,
-                 active: bool = None, disable: bool = None,
-                 past_days: int = 0):
-
-        self.facility_id = ensure_list(facility_id)
-        self.site_id = ensure_list(site_id)
-        self.support_center_id = ensure_list(support_center_id)
-        self.service_id = ensure_list(service_id)
-        self.grid_type = grid_type
-        self.active = active
-        self.disable = disable
-        self.past_days = past_days
-
 
 class TopologyError(Exception): pass
 
 
 class Tables(object):
     """Global data, e.g. various mappings"""
-    def __init__(self, contacts, service_types, support_centers):
+    def __init__(self, contacts: Dict, service_types: Dict, support_centers: Dict):
         self.contacts = contacts
         self.service_types = service_types
         self.support_centers = support_centers
@@ -428,7 +408,7 @@ class Topology(object):
                 rglist.append(rgtree)
         return {"ResourceSummary":
                 {"@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-                 "@xsi:schemaLocation": RG_SCHEMA_LOCATION,
+                 "@xsi:schemaLocation": RGSUMMARY_SCHEMA_URL,
                  "ResourceGroup": rglist}}
 
     def get_downtimes(self, authorized=False, filters: Filters = None) -> Dict:
@@ -436,7 +416,7 @@ class Topology(object):
         if filters is None:
             filters = Filters()
 
-        tree = {"Downtimes": {"@xsi:schemaLocation": DOWNTIME_SCHEMA_LOCATION,
+        tree = {"Downtimes": {"@xsi:schemaLocation": RGDOWNTIME_SCHEMA_URL,
                               "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"}}
 
         for treekey, dtkey in [("PastDowntimes", Timeframe.PAST),
