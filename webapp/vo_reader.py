@@ -42,31 +42,39 @@ def expand_fields_of_science(fields_of_science):
     return new_fields
 
 
-class VOData(object):
+class VOsData(object):
     def __init__(self, contacts_data, reporting_groups_data):
         self.contacts_data = contacts_data or {}
-        self.vos = []
+        self.vos = {}
         self.reporting_groups_data = reporting_groups_data
 
-    def add_vo(self, vo):
-        self.vos.append(vo)
+    def add_vo(self, vo_name, vo_data):
+        self.vos[vo_name] = vo_data
 
     def get_tree(self, authorized=False, filters: Filters = None) -> Dict:
         if not filters:
             filters = Filters()
-        expanded_vos = list(
-            filter(None,
-                   [self._expand_vo(vo, authorized=authorized, filters=filters) for vo in self.vos]))
+        expanded_vo_list = []
+        for vo_name in sorted(self.vos.keys(), key=lambda x: x.lower()):
+            expanded_vo_data = self._expand_vo(self.vos[vo_name], authorized=authorized, filters=filters)
+            if expanded_vo_data:
+                expanded_vo_list.append(expanded_vo_data)
 
         return {"VOSummary": {
             "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
             "@xsi:schemaLocation": VOSUMMARY_SCHEMA_URL,
-            "VO": expanded_vos}}
+            "VO": expanded_vo_list}}
 
     def _expand_vo(self, vo: Dict, authorized: bool, filters: Filters) -> MaybeOrderedDict:
-        if filters.active is not None:
-            if filters.active != vo["Active"]:
-                return None
+        if filters.active is not None and filters.active != vo["Active"]:
+            return
+        if filters.disable is not None and filters.disable != vo["Disable"]:
+            return
+        if filters.oasis is not None and (is_null(vo, "OASIS", "UseOASIS") or
+                                          filters.oasis != vo["OASIS"]["UseOASIS"]):
+            return
+        if filters.vo_id and vo["ID"] not in filters.vo_id:
+            return
 
         vo = vo.copy()
 
@@ -178,18 +186,20 @@ class VOData(object):
         return {"ReportingGroup": new_reporting_groups}
 
 
-def get_vo_data(indir="virtual-organizations", contacts_data=None) -> VOData:
+def get_vos_data(indir="virtual-organizations", contacts_data=None) -> VOsData:
     reporting_groups_data = anymarkup.parse_file(os.path.join(indir, "REPORTING_GROUPS.yaml"))
-    vo_data = VOData(contacts_data=contacts_data, reporting_groups_data=reporting_groups_data)
+    vos_data = VOsData(contacts_data=contacts_data, reporting_groups_data=reporting_groups_data)
     for file in os.listdir(indir):
         if file == "REPORTING_GROUPS.yaml": continue
-        vo = anymarkup.parse_file(os.path.join(indir, file))
+        if not file.endswith(".yaml"): continue
+        name = file[:-5]
+        data = anymarkup.parse_file(os.path.join(indir, file))
         try:
-            vo_data.add_vo(vo)
+            vos_data.add_vo(name, data)
         except Exception:
-            pprint.pprint(vo)
+            pprint.pprint(name, data)
             raise
-    return vo_data
+    return vos_data
 
 
 def main(argv):
@@ -202,7 +212,7 @@ def main(argv):
     contacts_data = None
     if args.contacts:
         contacts_data = anymarkup.parse_file(args.contacts)
-    args.outfile.write(to_xml(get_vo_data(args.indir, contacts_data=contacts_data).get_tree(authorized=True)))
+    args.outfile.write(to_xml(get_vos_data(args.indir, contacts_data=contacts_data).get_tree(authorized=True)))
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))

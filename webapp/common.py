@@ -23,10 +23,12 @@ class Filters(object):
         self.grid_type = None
         self.active = None
         self.disable = None
-        self.past_days = 0
+        self.past_days = 0  # for rgdowntime
         self.voown_id = []
         self.rg_id = []
         self.service_hidden = None
+        self.oasis = None  # for vosummary
+        self.vo_id = []  # for vosummary
 
 
 def is_null(x, *keys) -> bool:

@@ -9,7 +9,7 @@ import subprocess
 import sys
 from webapp.common import to_xml_bytes, Filters
 from webapp.project_reader import get_projects
-from webapp.vo_reader import get_vo_data
+from webapp.vo_reader import get_vos_data
 from webapp.rg_reader import get_topology
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 
@@ -37,7 +37,7 @@ def homepage():
     """
 
 _projects = None
-_vo_data = None
+_vos_data = None
 _contacts_data = None
 _topology = None
 
@@ -71,28 +71,26 @@ def vosummary_xml():
         # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
         # Gridsite already made sure it matches something in the CA distribution
         authorized = True
-    vos_xml = to_xml_bytes(_get_vo_data().get_tree(authorized, filters))
+    vos_xml = to_xml_bytes(_get_vos_data().get_tree(authorized, filters))
     return Response(vos_xml, mimetype='text/xml')
 
 
 def get_filters_from_args(args) -> Filters:
     filters = Filters()
-    if "active" in args:
-        active_value = args.get("active_value", "")
-        if active_value == "0":
-            filters.active = False
-        elif active_value == "1":
-            filters.active = True
-        else:
-            raise InvalidArgumentsError("active_value must be 0 or 1")
-    if "disable" in args:
-        disable_value = args.get("disable_value", "")
-        if disable_value == "0":
-            filters.disable = False
-        elif disable_value == "1":
-            filters.disable = True
-        else:
-            raise InvalidArgumentsError("disable_value must be 0 or 1")
+    def filter_value(filter_key):
+        filter_value_key = filter_key + "_value"
+        if filter_key in args:
+            filter_value_str = args.get(filter_value_key, "")
+            if filter_value_str == "0":
+                return False
+            elif filter_value_str == "1":
+                return True
+            else:
+                raise InvalidArgumentsError("{0} must be 0 or 1".format(filter_value_key))
+    filters.active = filter_value("active")
+    filters.disable = filter_value("disable")
+    filters.oasis = filter_value("oasis")
+
     if "gridtype" in args:
         gridtype_1, gridtype_2 = args.get("gridtype_1", ""), args.get("gridtype_2", "")
         if gridtype_1 == "on" and gridtype_2 == "on":
@@ -103,7 +101,7 @@ def get_filters_from_args(args) -> Filters:
             filters.grid_type = GRIDTYPE_2
         else:
             raise InvalidArgumentsError("gridtype_1 or gridtype_2 or both must be \"on\"")
-    if "service_hidden_value" in args:
+    if "service_hidden_value" in args:  # note no "service_hidden" args
         if args["service_hidden_value"] == "0":
             filters.service_hidden = False
         elif args["service_hidden_value"] == "1":
@@ -132,6 +130,8 @@ def get_filters_from_args(args) -> Filters:
         ("service", filters.service_id, "service ID"),
         ("sc", filters.support_center_id, "support center ID"),
         ("site", filters.site_id, "site ID"),
+        ("vo", filters.vo_id, "VO ID"),
+        ("voown", filters.voown_id, "VO owner ID"),
     ]:
         if filter_key in args:
             pat = re.compile(r"{0}_(\d+)".format(filter_key))
@@ -228,11 +228,11 @@ def _get_topology():
     return _topology
 
 
-def _get_vo_data():
-    global _vo_data
-    if not _vo_data:
-        _vo_data = get_vo_data("virtual-organizations", _get_contacts_data())
-    return _vo_data
+def _get_vos_data():
+    global _vos_data
+    if not _vos_data:
+        _vos_data = get_vos_data("virtual-organizations", _get_contacts_data())
+    return _vos_data
 
 
 if __name__ == '__main__':
