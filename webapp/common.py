@@ -147,4 +147,4 @@ def trim_space(s: str) -> str:
 
 
 def email_to_id(email: str) -> str:
-    return hashlib.sha1(email.encode()).hexdigest()
+    return hashlib.sha1(email.strip().lower().encode()).hexdigest()
