@@ -5,7 +5,6 @@ from typing import Dict, List, Union
 
 import xmltodict
 
-
 MaybeOrderedDict = Union[None, OrderedDict]
 
 MISCUSER_SCHEMA_URL = "https://my.opensciencegrid.org/schema/miscuser.xsd"
@@ -15,20 +14,25 @@ VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
 
 
 class Filters(object):
-    def __init__(self, facility_id: List[int] = None, site_id: List[int] = None,
-                 support_center_id: List[int] = None,
-                 service_id: List[int] = None, grid_type: str = None,
-                 active: bool = None, disable: bool = None,
-                 past_days: int = 0):
+    def __init__(self):
+        self.facility_id = []
+        self.site_id = []
+        self.support_center_id = []
+        self.service_id = []
+        self.grid_type = None
+        self.active = None
+        self.disable = None
+        self.past_days = 0  # for rgdowntime
+        self.voown_id = []
+        self.voown_name = []
+        self.rg_id = []
+        self.service_hidden = None
+        self.oasis = None  # for vosummary
+        self.vo_id = []  # for vosummary
+        self.has_wlcg = None
 
-        self.facility_id = ensure_list(facility_id)
-        self.site_id = ensure_list(site_id)
-        self.support_center_id = ensure_list(support_center_id)
-        self.service_id = ensure_list(service_id)
-        self.grid_type = grid_type
-        self.active = active
-        self.disable = disable
-        self.past_days = past_days
+    def populate_voown_name(self, vo_id_to_name: Dict):
+        self.voown_name = [vo_id_to_name.get(i, "") for i in self.voown_id]
 
 
 def is_null(x, *keys) -> bool:

@@ -176,11 +176,10 @@ def main(argv=sys.argv):
         os.mkdir(args.outdir)
 
     for vo in parsed['VOSummary']['VO']:
-        name = vo["Name"]
+        name = vo.pop("Name")
         if "/" in name: continue  # bad name
 
-        if "ID" in vo:
-            vo["ID"] = int(vo["ID"])
+        vo["ID"] = int(vo["ID"])
         vo["Active"] = is_true_str(vo.get("Active", ""))
         vo["CertificateOnly"] = is_true_str(vo.get("CertificateOnly", ""))
         vo["Disable"] = is_true_str(vo.get("Disable", ""))
