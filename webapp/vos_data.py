@@ -22,7 +22,7 @@ class VOsData(object):
             filters = Filters()
         expanded_vo_list = []
         for vo_name in sorted(self.vos.keys(), key=lambda x: x.lower()):
-            expanded_vo_data = self._expand_vo(self.vos[vo_name], authorized=authorized, filters=filters)
+            expanded_vo_data = self._expand_vo(vo_name, authorized=authorized, filters=filters)
             if expanded_vo_data:
                 expanded_vo_list.append(expanded_vo_data)
 
@@ -31,7 +31,9 @@ class VOsData(object):
             "@xsi:schemaLocation": VOSUMMARY_SCHEMA_URL,
             "VO": expanded_vo_list}}
 
-    def _expand_vo(self, vo: Dict, authorized: bool, filters: Filters) -> MaybeOrderedDict:
+    def _expand_vo(self, name: str, authorized: bool, filters: Filters) -> MaybeOrderedDict:
+        vo = self.vos[name].copy()
+
         if filters.active is not None and filters.active != vo["Active"]:
             return
         if filters.disable is not None and filters.disable != vo["Disable"]:
@@ -42,8 +44,7 @@ class VOsData(object):
         if filters.vo_id and vo["ID"] not in filters.vo_id:
             return
 
-        vo = vo.copy()
-
+        vo["Name"] = name
         if is_null(vo, "Contacts"):
             vo["ContactTypes"] = None
         else:
