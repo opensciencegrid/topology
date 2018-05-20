@@ -148,6 +148,9 @@ def get_filters_from_args(args) -> Filters:
             if not filter_list:
                 raise InvalidArgumentsError("at least one {0} must be specified".format(description))
 
+    if filters.voown_id:
+        filters.populate_voown_name(_get_vos_data().get_vo_id_to_name())
+
     return filters
 
 
@@ -165,8 +168,7 @@ def rgsummary_xml():
         authorized = True
 
     rgsummary = _get_topology().get_resource_summary(authorized=authorized, filters=filters)
-    rgsummary_xml = to_xml_bytes(rgsummary)
-    return Response(rgsummary_xml, mimetype='text/xml')
+    return Response(to_xml_bytes(rgsummary), mimetype='text/xml')
 
 
 @app.route('/rgdowntime/xml')
@@ -183,8 +185,7 @@ def rgdowntime_xml():
         authorized = True
 
     rgdowntime = _get_topology().get_downtimes(authorized=authorized, filters=filters)
-    rgdowntime_xml = to_xml_bytes(rgdowntime)
-    return Response(rgdowntime_xml, mimetype='text/xml')
+    return Response(to_xml_bytes(rgdowntime), mimetype='text/xml')
 
 
 def _get_contacts_data():

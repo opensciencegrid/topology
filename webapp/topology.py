@@ -95,6 +95,10 @@ class Resource(object):
             return  # all services filtered out
         res["Services"] = {"Service": filtered_services}
 
+        if filters.voown_name:
+            if "VOOwnership" not in res \
+                    or set(filters.voown_name).isdisjoint(res["VOOwnership"].keys()):
+                return
         if "VOOwnership" in res:
             res["VOOwnership"] = self._expand_voownership(res["VOOwnership"])
         if "FQDNAliases" in res:

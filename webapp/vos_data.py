@@ -11,6 +11,9 @@ class VOsData(object):
         self.vos = {}
         self.reporting_groups_data = reporting_groups_data
 
+    def get_vo_id_to_name(self) -> Dict:
+        return {self.vos[name]["ID"]: name for name in self.vos}
+
     def add_vo(self, vo_name, vo_data):
         self.vos[vo_name] = vo_data
 

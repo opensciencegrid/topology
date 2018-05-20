@@ -5,7 +5,6 @@ from typing import Dict, List, Union
 
 import xmltodict
 
-
 MaybeOrderedDict = Union[None, OrderedDict]
 
 MISCUSER_SCHEMA_URL = "https://my.opensciencegrid.org/schema/miscuser.xsd"
@@ -25,10 +24,14 @@ class Filters(object):
         self.disable = None
         self.past_days = 0  # for rgdowntime
         self.voown_id = []
+        self.voown_name = []
         self.rg_id = []
         self.service_hidden = None
         self.oasis = None  # for vosummary
         self.vo_id = []  # for vosummary
+
+    def populate_voown_name(self, vo_id_to_name: Dict):
+        self.voown_name = [vo_id_to_name.get(i, "") for i in self.voown_id]
 
 
 def is_null(x, *keys) -> bool:
