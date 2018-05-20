@@ -29,6 +29,7 @@ class Filters(object):
         self.service_hidden = None
         self.oasis = None  # for vosummary
         self.vo_id = []  # for vosummary
+        self.has_wlcg = None
 
     def populate_voown_name(self, vo_id_to_name: Dict):
         self.voown_name = [vo_id_to_name.get(i, "") for i in self.voown_id]

@@ -108,6 +108,8 @@ class Resource(object):
         res["Name"] = self.name
         if "WLCGInformation" in res and isinstance(res["WLCGInformation"], dict):
             res["WLCGInformation"] = self._expand_wlcginformation(res["WLCGInformation"])
+        elif filters.has_wlcg is True:
+            return
 
         new_res = OrderedDict()
         for elem in ["ID", "Name", "Active", "Disable", "Services", "Description", "FQDN", "FQDNAliases", "VOOwnership",

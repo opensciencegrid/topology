@@ -120,6 +120,8 @@ def get_filters_from_args(args) -> Filters:
                 filters.past_days = int(args["downtime_attrs_showpast"])
         except ValueError:
             raise InvalidArgumentsError("downtime_attrs_showpast must be an integer, \"\", or \"all\"")
+    if "has_wlcg" in args:
+        filters.has_wlcg = True
 
     # 2 ways to filter by a key like "facility", "service", "sc", "site", etc.:
     # - either pass KEY_1=on, KEY_2=on, etc.
