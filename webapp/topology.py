@@ -83,13 +83,17 @@ class Resource(object):
         if filters.disable is not None and res["Disable"] != filters.disable:
             return
 
+        filtered_services = self.services
         if filters.service_id:
-            filtered_services = [svc for svc in self.services if svc["ID"] in filters.service_id]
-            if not filtered_services:
-                return  # all services filtered out
-            res["Services"] = {"Service": filtered_services}
-        else:
-            res["Services"] = {"Service": self.services}
+            filtered_services = [svc for svc in filtered_services
+                                 if svc["ID"] in filters.service_id]
+        if filters.service_hidden is not None:
+            filtered_services = [svc for svc in filtered_services
+                                 if not is_null(svc, "Details", "hidden")
+                                 and svc["Details"]["hidden"] == filters.service_hidden]
+        if not filtered_services:
+            return  # all services filtered out
+        res["Services"] = {"Service": filtered_services}
 
         if "VOOwnership" in res:
             res["VOOwnership"] = self._expand_voownership(res["VOOwnership"])

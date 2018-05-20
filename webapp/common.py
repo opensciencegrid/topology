@@ -19,7 +19,8 @@ class Filters(object):
                  support_center_id: List[int] = None,
                  service_id: List[int] = None, grid_type: str = None,
                  active: bool = None, disable: bool = None,
-                 past_days: int = 0):
+                 past_days: int = 0, voown_id: List[int] = None, rg_id: List[int] = None,
+                 service_hidden: bool = None):
 
         self.facility_id = ensure_list(facility_id)
         self.site_id = ensure_list(site_id)
@@ -29,6 +30,9 @@ class Filters(object):
         self.active = active
         self.disable = disable
         self.past_days = past_days
+        self.voown_id = voown_id
+        self.rg_id = rg_id
+        self.service_hidden = service_hidden
 
 
 def is_null(x, *keys) -> bool:

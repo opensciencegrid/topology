@@ -27,10 +27,11 @@ def homepage():
     <a href="https://github.com/opensciencegrid/topology">Source Repo</a><br/>
     <p>XML data:
         <ul>
-            <li><a href="miscproject/xml">Projects data</a></li>
-            <li><a href="rgsummary/xml">Resource topology data</a></li>
-            <li><a href="rgdowntime/xml">Resource downtime data</a></li>
-            <li><a href="vosummary/xml">Virtual Organization data</a></li>
+            <li><a href="miscproject/xml?">Projects data</a></li>
+            <li><a href="rgsummary/xml?">Resource topology data</a></li>
+            <li><a href="rgdowntime/xml?">Resource downtime data</a>
+                (<a href="rgdowntime/xml?downtime_attrs_showpast=all">with past downtimes</a>)</li>
+            <li><a href="vosummary/xml?">Virtual Organization data</a></li>
         </ul>
     </p>
     """
@@ -102,6 +103,13 @@ def get_filters_from_args(args) -> Filters:
             filters.grid_type = GRIDTYPE_2
         else:
             raise InvalidArgumentsError("gridtype_1 or gridtype_2 or both must be \"on\"")
+    if "service_hidden_value" in args:
+        if args["service_hidden_value"] == "0":
+            filters.service_hidden = False
+        elif args["service_hidden_value"] == "1":
+            filters.service_hidden = True
+        else:
+            raise InvalidArgumentsError("service_hidden_value must be 0 or 1")
     if "downtime_attrs_showpast" in args:
         # doesn't make sense for rgsummary but will be ignored anyway
         try:
