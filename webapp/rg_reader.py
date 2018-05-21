@@ -48,14 +48,15 @@ class DowntimeError(Exception):
         self.rg = rg
 
 
-def get_rgsummary_rgdowntime(indir, contacts_file=None):
+def get_rgsummary_rgdowntime(indir, contacts_file=None, authorized=False):
     contacts_data = None
     if contacts_file:
         contacts_data = get_contacts_data(contacts_file)
     topology = get_topology(indir, contacts_data)
     filters = Filters()
     filters.past_days = -1
-    return topology.get_resource_summary(authorized=True, filters=filters), topology.get_downtimes(authorized=True, filters=filters)
+    return topology.get_resource_summary(authorized=authorized, filters=filters), \
+           topology.get_downtimes(authorized=authorized, filters=filters)
 
 
 def get_topology(indir="topology", contacts_data=None):
@@ -102,7 +103,8 @@ def main(argv):
     args = parser.parse_args(argv[1:])
 
     try:
-        rgsummary, rgdowntime = get_rgsummary_rgdowntime(args.indir, args.contacts)
+        rgsummary, rgdowntime = get_rgsummary_rgdowntime(args.indir, args.contacts,
+                                                         authorized=True)
         if args.outfile:
             with open(args.outfile, "w") as fh:
                 fh.write(to_xml(rgsummary))
