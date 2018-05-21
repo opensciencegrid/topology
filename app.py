@@ -7,7 +7,9 @@ import os
 import re
 import subprocess
 import sys
+
 from webapp.common import to_xml_bytes, Filters
+from webapp.contacts_reader import get_contacts_data
 from webapp.project_reader import get_projects
 from webapp.vo_reader import get_vos_data
 from webapp.rg_reader import get_topology
@@ -16,6 +18,8 @@ from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 
 class InvalidArgumentsError(Exception): pass
 
+
+default_authorized = False
 
 app = Flask(__name__)
 
@@ -28,6 +32,7 @@ def homepage():
     <p>XML data:
         <ul>
             <li><a href="miscproject/xml?">Projects data</a></li>
+            <li><a href="miscuser/xml?">User data (authorized users only)</a></li>
             <li><a href="rgsummary/xml?">Resource topology data</a></li>
             <li><a href="rgdowntime/xml?">Resource downtime data</a>
                 (<a href="rgdowntime/xml?downtime_attrs_showpast=all">with past downtimes</a>)</li>
@@ -50,6 +55,18 @@ def schema(xsdfile):
         flask.abort(404)
 
 
+@app.route('/miscuser/xml')
+def miscuser_xml():
+    authorized = default_authorized
+    if 'GRST_CRED_AURI_0' in request.environ:
+        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
+        # Gridsite already made sure it matches something in the CA distribution
+        authorized = True
+    if not authorized:
+        return Response("Access denied: user cert not found or not accepted", status=403)
+    return Response(to_xml_bytes(_get_contacts_data().get_tree(authorized)), mimetype='text/xml')
+
+
 @app.route('/miscproject/xml')
 def miscproject_xml():
     global _projects
@@ -66,7 +83,7 @@ def vosummary_xml():
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
 
-    authorized = False
+    authorized = default_authorized
     if 'GRST_CRED_AURI_0' in request.environ:
         # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
         # Gridsite already made sure it matches something in the CA distribution
@@ -163,7 +180,7 @@ def rgsummary_xml():
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
 
-    authorized = False
+    authorized = default_authorized
     if 'GRST_CRED_AURI_0' in request.environ:
         # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
         # Gridsite already made sure it matches something in the CA distribution
@@ -180,7 +197,7 @@ def rgdowntime_xml():
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
 
-    authorized = False
+    authorized = default_authorized
     if 'GRST_CRED_AURI_0' in request.environ:
         # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
         # Gridsite already made sure it matches something in the CA distribution
@@ -201,7 +218,7 @@ def _get_contacts_data():
     if not _contacts_data:
         # use local copy if it exists
         if os.path.exists("contacts.yaml"):
-            _contacts_data = anymarkup.parse_file("contacts.yaml")
+            _contacts_data = get_contacts_data("contacts.yaml")
         else:
             # Get the contacts from bitbucket
             # Read in the config file with the SSH key location
@@ -219,7 +236,7 @@ def _get_contacts_data():
                 if git_result.returncode != 0:
                     # Git command exited with nonzero!
                     print("Git failed:\n" + git_result.stdout, file=sys.stderr)
-                _contacts_data = anymarkup.parse_file(os.path.join(tmp_dir, 'contacts.yaml'))
+                _contacts_data = get_contacts_data(os.path.join(tmp_dir, 'contacts.yaml'))
 
     return _contacts_data
 
@@ -239,4 +256,8 @@ def _get_vos_data():
 
 
 if __name__ == '__main__':
+    try:
+        if sys.argv[1] == "--auth":
+            default_authorized = True
+    except IndexError: pass
     app.run(debug=True, use_reloader=True)

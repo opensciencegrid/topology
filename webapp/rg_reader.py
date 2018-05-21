@@ -24,7 +24,7 @@ import pprint
 import sys
 from pathlib import Path
 
-from webapp.topology import Tables, Topology
+from webapp.topology import CommonData, Topology
 from webapp.common import ensure_list, to_xml
 
 class RGError(Exception):
@@ -54,7 +54,7 @@ def get_topology(indir="topology", contacts_data=None):
     root = Path(indir)
     support_centers = anymarkup.parse_file(root / "support-centers.yaml")
     service_types = anymarkup.parse_file(root / "services.yaml")
-    tables = Tables(contacts=contacts_data, service_types=service_types, support_centers=support_centers)
+    tables = CommonData(contacts=contacts_data, service_types=service_types, support_centers=support_centers)
     topology = Topology(tables)
 
     for facility_path in root.glob("*/FACILITY.yaml"):

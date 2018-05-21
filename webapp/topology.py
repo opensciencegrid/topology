@@ -11,7 +11,7 @@ import dateparser
 
 from .common import MaybeOrderedDict, RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
     is_null, expand_attr_list_single, expand_attr_list, ensure_list
-
+from .contacts_reader import ContactsData
 
 GRIDTYPE_1 = "OSG Production Resource"
 GRIDTYPE_2 = "OSG Integration Test Bed Resource"
@@ -25,9 +25,9 @@ class Timeframe(Enum):
 class TopologyError(Exception): pass
 
 
-class Tables(object):
-    """Global data, e.g. various mappings"""
-    def __init__(self, contacts: Dict, service_types: Dict, support_centers: Dict):
+class CommonData(object):
+    """Global data, e.g. various mappings and contacts info"""
+    def __init__(self, contacts: ContactsData, service_types: Dict, support_centers: Dict):
         self.contacts = contacts
         self.service_types = service_types
         self.support_centers = support_centers
@@ -54,10 +54,10 @@ class Site(object):
 
 
 class Resource(object):
-    def __init__(self, name: str, yaml_data: Dict, tables: Tables):
+    def __init__(self, name: str, yaml_data: Dict, common_data: CommonData):
         self.name = name
-        self.service_types = tables.service_types
-        self.tables = tables
+        self.service_types = common_data.service_types
+        self.common_data = common_data
         if not is_null(yaml_data, "Services"):
             self.services = self._expand_services(yaml_data["Services"])
         else:
@@ -171,11 +171,11 @@ class Resource(object):
             for contact in contact_data:
                 contact_id = contact.pop("ID", None)  # ID is for internal use - don't put it in the results
                 if authorized:
-                    if contact_id in self.tables.contacts:
-                        extra_data = self.tables.contacts[contact_id]
-                        contact["Email"] = extra_data["Email"]
-                        contact["Phone"] = extra_data.get("Phone", "")
-                        contact["SMSAddress"] = extra_data.get("SMS", "")
+                    if contact_id in self.common_data.contacts.users_by_id:
+                        extra_data = self.common_data.contacts.users_by_id[contact_id]
+                        contact["Email"] = extra_data.email
+                        contact["Phone"] = extra_data.phone
+                        contact["SMSAddress"] = extra_data.sms_address
                         contact.move_to_end("ContactRank", last=True)
             new_contactlists.append(
                 OrderedDict([("ContactType", contact_type), ("Contacts", {"Contact": contact_data})]))
@@ -202,21 +202,21 @@ class Resource(object):
 
 
 class ResourceGroup(object):
-    def __init__(self, name: str, yaml_data: Dict, site: Site, tables: Tables):
+    def __init__(self, name: str, yaml_data: Dict, site: Site, common_data: CommonData):
         self.name = name
         self.site = site
-        self.service_types = tables.service_types
-        self.tables = tables
+        self.service_types = common_data.service_types
+        self.common_data = common_data
 
         scname = yaml_data["SupportCenter"]
-        scid = int(tables.support_centers[scname])
+        scid = int(common_data.support_centers[scname])
         self.support_center = OrderedDict([("ID", scid), ("Name", scname)])
 
         self.resources = []
         for name, res in yaml_data["Resources"].items():
             try:
                 assert isinstance(res, dict)
-                res = Resource(name, res, self.tables)
+                res = Resource(name, res, self.common_data)
                 self.resources.append(res)
             except Exception:
                 pprint.pprint(res, stream=sys.stderr)
@@ -372,12 +372,12 @@ class Downtime(object):
 
 
 class Topology(object):
-    def __init__(self, tables: Tables):
+    def __init__(self, common_data: CommonData):
         self.downtimes_by_timeframe = {
             Timeframe.PAST: [],
             Timeframe.PRESENT: [],
             Timeframe.FUTURE: []}
-        self.tables = tables
+        self.common_data = common_data
         self.facilities = {}
         self.sites = {}
         # rgs are keyed by (site_name, rg_name) tuple
@@ -390,7 +390,7 @@ class Topology(object):
             raise TopologyError("Unknown site {0} in facility {1} -- call add_site first".format(site_name, facility_name))
         if (site_name, name) in self.rgs:
             raise TopologyError("Duplicate RG {0} in site {1}".format(name, site_name))
-        self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.tables)
+        self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
 
     def add_facility(self, name, id):
         if name in self.facilities:
