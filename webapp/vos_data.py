@@ -1,3 +1,5 @@
+import copy
+
 from collections import OrderedDict
 from typing import Dict, List
 
@@ -125,7 +127,7 @@ class VOsData(object):
         into
         {"Manager": [{"Name": "a", "DNs": {"DN": [...]}}]}
         """
-        new_managers = managers.copy()
+        new_managers = copy.deepcopy(managers)
         for name, data in managers.items():
             if not is_null(data, "DNs"):
                 new_managers[name]["DNs"] = {"DN": data["DNs"]}
