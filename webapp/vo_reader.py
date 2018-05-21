@@ -39,7 +39,7 @@ def main(argv):
 
     contacts_data = None
     if args.contacts:
-        get_contacts_data(args.contacts)
+        contacts_data = get_contacts_data(args.contacts)
     xml = to_xml(
         get_vos_data(args.indir, contacts_data=contacts_data).get_tree(authorized=True))
     if args.outfile:
