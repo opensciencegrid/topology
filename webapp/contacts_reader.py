@@ -10,13 +10,13 @@ from webapp.common import MaybeOrderedDict, to_xml, MISCUSER_SCHEMA_URL
 
 
 class User(object):
-    def __init__(self, name, yaml_data):
-        self.name = name
+    def __init__(self, id_, yaml_data):
+        self.id = id_
         self.yaml_data = yaml_data
 
     def get_tree(self, authorized=False, filters=None) -> MaybeOrderedDict:
         tree = OrderedDict()
-        tree["FullName"] = self.name
+        tree["FullName"] = self.yaml_data["FullName"]
         tree["PhotoURL"] = self.yaml_data.get("PhotoURL", None)
         tree["GravatarURL"] = self._get_gravatar_url(
             self.yaml_data["ContactInformation"]["PrimaryEmail"])
@@ -24,6 +24,10 @@ class User(object):
         if authorized:
             tree["ContactInformation"] = self._expand_contact_info()
         return tree
+
+    @property
+    def name(self):
+        return self.yaml_data["FullName"]
 
     @property
     def email(self):
@@ -36,6 +40,11 @@ class User(object):
     @property
     def sms_address(self):
         return self.yaml_data["ContactInformation"].get("SMSAddress", None)
+
+    @property
+    def dns(self):
+        dns = self.yaml_data["ContactInformation"].get("DNs", None)
+        return dns
 
     @staticmethod
     def _get_gravatar_url(email):
@@ -60,9 +69,8 @@ class ContactsData(object):
     def __init__(self, yaml_data):
         self.yaml_data = yaml_data
         self.users_by_id = {}
-        for user_name, user_data in self.yaml_data.items():
-            id_ = user_data["ID"]
-            self.users_by_id[id_] = User(user_name, user_data)
+        for user_id, user_data in self.yaml_data.items():
+            self.users_by_id[user_id] = User(user_id, user_data)
 
     def get_tree(self, authorized=False, filters=None) -> Dict:
         user_list = []

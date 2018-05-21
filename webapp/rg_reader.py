@@ -20,12 +20,18 @@ import argparse
 from argparse import ArgumentParser
 
 import anymarkup
+import os
 import pprint
 import sys
 from pathlib import Path
 
+# thanks stackoverflow
+if __name__ == "__main__" and __package__ is None:
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from webapp.common import ensure_list, to_xml, Filters
+from webapp.contacts_reader import get_contacts_data
 from webapp.topology import CommonData, Topology
-from webapp.common import ensure_list, to_xml
 
 class RGError(Exception):
     """An error with converting a specific RG"""
@@ -42,12 +48,11 @@ class DowntimeError(Exception):
         self.rg = rg
 
 
-def get_rgsummary_rgdowntime(indir="topology", contacts_file=None):
-    contacts_data = None
-    if contacts_file:
-        contacts_data = anymarkup.parse_file(contacts_file)
-    topology = get_topology(indir, contacts_data)
-    return topology.get_resource_summary(), topology.get_downtimes()
+def get_rgsummary_rgdowntime(indir, contacts_file):
+    topology = get_topology(indir, get_contacts_data(contacts_file))
+    filters = Filters()
+    filters.past_days = -1
+    return topology.get_resource_summary(authorized=True, filters=filters), topology.get_downtimes(authorized=True, filters=filters)
 
 
 def get_topology(indir="topology", contacts_data=None):
@@ -88,15 +93,23 @@ def get_topology(indir="topology", contacts_data=None):
 def main(argv):
     parser = ArgumentParser()
     parser.add_argument("indir", help="input dir for topology data")
-    parser.add_argument("outfile", nargs='?', type=argparse.FileType('w'), default=sys.stdout, help="output file for rgsummary")
-    parser.add_argument("downtimefile", nargs='?', type=argparse.FileType('w'), default=sys.stdout, help="output file for rgdowntime")
-    parser.add_argument("--contacts", help="contacts yaml file")
+    parser.add_argument("contacts", help="contacts yaml file")
+    parser.add_argument("outfile", nargs='?', default=None, help="output file for rgsummary")
+    parser.add_argument("downtimefile", nargs='?', default=None, help="output file for rgdowntime")
     args = parser.parse_args(argv[1:])
 
     try:
         rgsummary, rgdowntime = get_rgsummary_rgdowntime(args.indir, args.contacts)
-        print(to_xml(rgsummary), file=args.outfile)
-        print(to_xml(rgdowntime), file=args.downtimefile)
+        if args.outfile:
+            with open(args.outfile, "w") as fh:
+                fh.write(to_xml(rgsummary))
+        else:
+            print(to_xml(rgsummary))
+        if args.downtimefile:
+            with open(args.downtimefile, "w") as fh:
+                fh.write(to_xml(rgdowntime))
+        else:
+            print(to_xml(rgdowntime))
     except RGError as e:
         print("Error happened while processing RG:", file=sys.stderr)
         pprint.pprint(e.rg, stream=sys.stderr)

@@ -46,14 +46,13 @@ def simplify_contacttypes(contacttypes):
         type_ = ct["Type"]
         # Remove duplicates but keep ordering
         contacts = []
-        _names = set()
+        ids_ = set()
         for c in ensure_list(ct["Contacts"]["Contact"]):
-            if c["Name"] not in _names:
-                new_c = {"Name": c["Name"]}
-                if not is_null(c, "Email"):
-                    new_c["ID"] = email_to_id(c["Email"])
+            new_id = email_to_id(c["Email"])
+            if new_id not in ids_:
+                new_c = {"Name": c["Name"], "ID": new_id}
                 contacts.append(new_c)
-                _names.add(c["Name"])
+                ids_.add(new_id)
         new_contacttypes[type_] = contacts
 
     return new_contacttypes
@@ -94,14 +93,13 @@ def simplify_reportinggroups(reportinggroups):
             # {"Contacts": {"Contact": [{"Name": "a", "Email": "..."}, ...]}} becomes
             # {"Contacts": [{"Name": "a", "ID": "<email hash>"}, ...]}
             new_contacts = []
-            _names = set()
+            ids = set()
             for c in ensure_list(rgdata["Contacts"]["Contact"]):
-                if not is_null(c, "Name") and c["Name"] not in _names:
-                    new_c = {"Name": c["Name"]}
-                    if not is_null(c, "Email"):
-                        new_c["ID"] = email_to_id(c["Email"])
+                new_id = email_to_id(c["Email"])
+                if not is_null(c, "Name") and new_id not in ids:
+                    new_c = {"Name": c["Name"], "ID": new_id}
                     new_contacts.append(new_c)
-                    _names.add(c["Name"])
+                    ids.add(new_id)
 
             rgdata["Contacts"] = new_contacts
 

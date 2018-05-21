@@ -115,9 +115,16 @@ class VOsData(object):
                 if authorized:
                     if contact["ID"] in self.contacts_data.users_by_id:
                         extra_data = self.contacts_data.users_by_id[contact["ID"]]
-                        contact["Email"] = extra_data.email
-                        contact["Phone"] = extra_data.phone
-                        contact["SMSAddress"] = extra_data.sms_address
+                        new_contact["Email"] = extra_data.email
+                        new_contact["Phone"] = extra_data.phone
+                        new_contact["SMSAddress"] = extra_data.sms_address
+                        dns = extra_data.dns
+                        if dns:
+                            new_contact["DN"] = dns[0]
+                    else:
+                        print("id {0} not found for {1}".format(
+                            contact["ID"], contact["Name"]
+                        ))
                 contact_items.append(new_contact)
             new_contacttypes.append({"Type": type_, "Contacts": {"Contact": contact_items}})
         return {"ContactType": new_contacttypes}
@@ -166,11 +173,11 @@ class VOsData(object):
                 for contact in data["Contacts"]:
                     new_contact = OrderedDict([("Name", contact["Name"])])
                     if authorized:
-                        if contact["ID"] in self.contacts_data:
-                            extra_data = self.contacts_data[contact["ID"]]
-                            new_contact["Email"] = extra_data["Email"]
-                            new_contact["Phone"] = extra_data.get("Phone", "")
-                            new_contact["SMSAddress"] = extra_data.get("SMS", "")
+                        if contact["ID"] in self.contacts_data.users_by_id:
+                            extra_data = self.contacts_data.users_by_id[contact["ID"]]
+                            new_contact["Email"] = extra_data.email
+                            new_contact["Phone"] = extra_data.phone
+                            new_contact["SMSAddress"] = extra_data.sms_address
                     new_contacts.append(new_contact)
                 newdata["Contacts"] = {"Contact": new_contacts}
             else:
