@@ -7,10 +7,11 @@ set -ev
 ./converters/download --out vosummary.xml vosummary  # just for comparison
 ./converters/download --out miscproject.xml miscproject
 ./converters/download --out rgdowntime.xml rgdowntime
+#./converters/get_site_table site.tab
 
 ./converters/project_xml_to_yaml miscproject.xml projects
 ./converters/vo_xml_to_yaml vosummary-auth.xml virtual-organizations
-./converters/rg_xml_to_yaml rgsummary-auth.xml rgdowntime.xml topology
+./converters/rg_xml_to_yaml rgsummary-auth.xml rgdowntime.xml topology --site-table-file site.tab
 git checkout -- ./topology/services.yaml || :  # we made manual changes so don't update
 
 python3 webapp/project_reader.py projects new-miscproject.xml

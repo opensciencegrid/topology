@@ -72,7 +72,7 @@ def get_topology(indir="topology", contacts_data=None):
         topology.add_facility(name, id_)
     for site_path in root.glob("*/*/SITE.yaml"):
         facility, name = site_path.parts[-3:-1]
-        id_ = anymarkup.parse_file(site_path)["ID"]
+        id_ = anymarkup.parse_file(site_path)["ID"]  # TODO put other site attributes in topology?
         topology.add_site(facility, name, id_)
     for yaml_path in root.glob("*/*/*.yaml"):
         facility, site, name = yaml_path.parts[-3:]
