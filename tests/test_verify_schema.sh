@@ -10,6 +10,8 @@ function verify_xml {
     xmllint --noout --schema "$TRAVIS_BUILD_DIR/schema/$type.xsd" $xml
 }
 
+git clone git@bitbucket.org:opensciencegrid/contact.git /tmp/contact
+
 echo -e "===================================================\n"\
      "DOWNLOADING AND VERIFYING XML AGAINST THEIR SCHEMAS\n"\
      "==================================================="
@@ -34,8 +36,9 @@ for XML_TYPE in miscproject rgsummary vosummary; do
         miscproject)
             YAML_DIR="$YAML_DIR/projects/"
             ./converters/project_xml_to_yaml $ORIG_XML $YAML_DIR
+            cp /tmp/contact/contacts.yaml .
             python3 webapp/project_reader.py $YAML_DIR /tmp/$XML_TYPE.xml
-            # TODO convert project XML
+            # TODO verify project XML
             ;;
         rgsummary)
             YAML_DIR="$YAML_DIR/topology/"
