@@ -32,7 +32,13 @@ class VOsData(object):
             "VO": expanded_vo_list}}
 
     def _expand_vo(self, name: str, authorized: bool, filters: Filters) -> MaybeOrderedDict:
-        vo = self.vos[name].copy()
+        # Restore ordering
+        new_vo = OrderedDict.fromkeys(["ID", "Name", "LongName", "CertificateOnly", "PrimaryURL",
+                                       "MembershipServicesURL", "PurposeURL", "SupportURL", "AppDescription",
+                                       "Community", "FieldsOfScience", "ParentVO", "ReportingGroups", "Active",
+                                       "Disable", "ContactTypes", "OASIS"])
+        vo = self.vos[name]
+        new_vo.update(vo)
 
         if filters.active is not None and filters.active != vo["Active"]:
             return
@@ -44,65 +50,31 @@ class VOsData(object):
         if filters.vo_id and vo["ID"] not in filters.vo_id:
             return
 
-        vo["Name"] = name
-        if is_null(vo, "Contacts"):
-            vo["ContactTypes"] = None
-        else:
-            vo["ContactTypes"] = self._expand_contacttypes(vo["Contacts"], authorized)
-        vo.pop("Contacts", None)
-        if is_null(vo, "ReportingGroups"):
-            vo["ReportingGroups"] = None
-        else:
-            vo["ReportingGroups"] = self._expand_reporting_groups(vo["ReportingGroups"], authorized)
-        if is_null(vo, "OASIS"):
-            vo["OASIS"] = None
-        else:
-            oasis = OrderedDict()
+        new_vo["Name"] = name
+
+        if not is_null(vo, "Contacts"):
+            new_vo["ContactTypes"] = self._expand_contacttypes(vo["Contacts"], authorized)
+        new_vo.pop("Contacts", None)
+
+        if not is_null(vo, "ReportingGroups"):
+            new_vo["ReportingGroups"] = self._expand_reporting_groups(vo["ReportingGroups"], authorized)
+
+        if not is_null(vo, "OASIS"):
+            oasis = OrderedDict.fromkeys(["UseOASIS", "Managers", "OASISRepoURLs"])
             oasis["UseOASIS"] = vo["OASIS"].get("UseOASIS", False)
-            if is_null(vo["OASIS"], "Managers"):
-                oasis["Managers"] = None
-            else:
+            if not is_null(vo["OASIS"], "Managers"):
                 oasis["Managers"] = self._expand_oasis_managers(vo["OASIS"]["Managers"])
-            if is_null(vo["OASIS"], "OASISRepoURLs"):
-                oasis["OASISRepoURLs"] = None
-            else:
+            if not is_null(vo["OASIS"], "OASISRepoURLs"):
                 oasis["OASISRepoURLs"] = {"URL": vo["OASIS"]["OASISRepoURLs"]}
-            vo["OASIS"] = oasis
-        if is_null(vo, "FieldsOfScience"):
-            vo["FieldsOfScience"] = None
-        else:
-            vo["FieldsOfScience"] = self._expand_fields_of_science(vo["FieldsOfScience"])
+            new_vo["OASIS"] = oasis
 
-        # Restore ordering
+        if not is_null(vo, "FieldsOfScience"):
+            new_vo["FieldsOfScience"] = self._expand_fields_of_science(vo["FieldsOfScience"])
+
         if not is_null(vo, "ParentVO"):
-            parentvo = OrderedDict()
-            for elem in ["ID", "Name"]:
-                if elem in vo["ParentVO"]:
-                    parentvo[elem] = vo["ParentVO"][elem]
-            vo["ParentVO"] = parentvo
-        else:
-            vo["ParentVO"] = None
-
-        for key in ["MembershipServicesURL", "PrimaryURL", "PurposeURL", "SupportURL"]:
-            if key not in vo:
-                vo[key] = None
-
-
-        # TODO: Recreate <MemeberResources> [sic]
-        #  should look like
-        #  <MemeberResources>
-        #    <Resource><ID>75</ID><Name>NERSC-PDSF</Name></Resource>
-        #    ...
-        #  </MemeberResources>
-
-        # Restore ordering
-        new_vo = OrderedDict()
-        for elem in ["ID", "Name", "LongName", "CertificateOnly", "PrimaryURL", "MembershipServicesURL", "PurposeURL",
-                     "SupportURL", "AppDescription", "Community",
-                     # TODO "MemeberResources",
-                     "FieldsOfScience", "ParentVO", "ReportingGroups", "Active", "Disable", "ContactTypes", "OASIS"]:
-            if elem in vo:
-                new_vo[elem] = vo[elem]
+            parentvo = OrderedDict.fromkeys(["ID", "Name"])
+            parentvo.update(vo["ParentVO"])
+            new_vo["ParentVO"] = parentvo
 
         return new_vo
 

@@ -71,16 +71,21 @@ class Resource(object):
 
         defaults = {
             "ContactLists": None,
+            "Description": "(No resource description)",
             "FQDNAliases": None,
             "VOOwnership": "(Information not available)",
             "WLCGInformation": "(Information not available)",
         }
 
-        res = dict(self.data)
+        new_res = OrderedDict.fromkeys(["ID", "Name", "Active", "Disable", "Services", "Description",
+                                        "FQDN", "FQDNAliases", "VOOwnership",
+                                        "WLCGInformation", "ContactLists"])
+        new_res.update(defaults)
+        new_res.update(self.data)
 
-        if filters.active is not None and res["Active"] != filters.active:
+        if filters.active is not None and self.data["Active"] != filters.active:
             return
-        if filters.disable is not None and res["Disable"] != filters.disable:
+        if filters.disable is not None and self.data["Disable"] != filters.disable:
             return
 
         filtered_services = self.services
@@ -93,31 +98,23 @@ class Resource(object):
                                  and svc["Details"]["hidden"] == filters.service_hidden]
         if not filtered_services:
             return  # all services filtered out
-        res["Services"] = {"Service": filtered_services}
+        new_res["Services"] = {"Service": filtered_services}
 
         if filters.voown_name:
-            if "VOOwnership" not in res \
-                    or set(filters.voown_name).isdisjoint(res["VOOwnership"].keys()):
+            if "VOOwnership" not in self.data \
+                    or set(filters.voown_name).isdisjoint(self.data["VOOwnership"].keys()):
                 return
-        if "VOOwnership" in res:
-            res["VOOwnership"] = self._expand_voownership(res["VOOwnership"])
-        if "FQDNAliases" in res:
-            res["FQDNAliases"] = {"FQDNAlias": res["FQDNAliases"]}
-        if not is_null(res, "ContactLists"):
-            res["ContactLists"] = self._expand_contactlists(res["ContactLists"], authorized)
-        res["Name"] = self.name
-        if "WLCGInformation" in res and isinstance(res["WLCGInformation"], dict):
-            res["WLCGInformation"] = self._expand_wlcginformation(res["WLCGInformation"])
+        if "VOOwnership" in self.data:
+            new_res["VOOwnership"] = self._expand_voownership(self.data["VOOwnership"])
+        if "FQDNAliases" in self.data:
+            new_res["FQDNAliases"] = {"FQDNAlias": self.data["FQDNAliases"]}
+        if not is_null(self.data, "ContactLists"):
+            new_res["ContactLists"] = self._expand_contactlists(self.data["ContactLists"], authorized)
+        new_res["Name"] = self.name
+        if "WLCGInformation" in self.data and isinstance(self.data["WLCGInformation"], dict):
+            new_res["WLCGInformation"] = self._expand_wlcginformation(self.data["WLCGInformation"])
         elif filters.has_wlcg is True:
             return
-
-        new_res = OrderedDict()
-        for elem in ["ID", "Name", "Active", "Disable", "Services", "Description", "FQDN", "FQDNAliases", "VOOwnership",
-                     "WLCGInformation", "ContactLists"]:
-            if elem in res:
-                new_res[elem] = res[elem]
-            elif elem in defaults:
-                new_res[elem] = defaults[elem]
 
         return new_res
 
@@ -193,14 +190,11 @@ class Resource(object):
             "TapeCapacity": 0,
         }
 
-        new_wlcg = OrderedDict()
-        for elem in ["InteropBDII", "LDAPURL", "InteropMonitoring", "InteropAccounting", "AccountingName", "KSI2KMin",
-                     "KSI2KMax", "StorageCapacityMin", "StorageCapacityMax", "HEPSPEC", "APELNormalFactor",
-                     "TapeCapacity"]:
-            if elem in wlcg:
-                new_wlcg[elem] = wlcg[elem]
-            elif elem in defaults:
-                new_wlcg[elem] = defaults[elem]
+        new_wlcg = OrderedDict.fromkeys(["InteropBDII", "LDAPURL", "InteropMonitoring", "InteropAccounting",
+                                         "AccountingName", "KSI2KMin", "KSI2KMax", "StorageCapacityMin",
+                                         "StorageCapacityMax", "HEPSPEC", "APELNormalFactor", "TapeCapacity"])
+        new_wlcg.update(defaults)
+        new_wlcg.update(wlcg)
         return new_wlcg
 
 
@@ -256,19 +250,14 @@ class ResourceGroup(object):
         return (self.site.name, self.name)
 
     def _expand_rg(self) -> OrderedDict:
-        rg = dict(self.data)  # copy
+        new_rg = OrderedDict.fromkeys(["GridType", "GroupID", "GroupName", "Disable", "Facility", "Site",
+                                       "SupportCenter", "GroupDescription"])
+        new_rg.update(self.data)
 
-        rg["Facility"] = self.site.facility.get_tree()
-        rg["Site"] = self.site.get_tree()
-        rg["GroupName"] = self.name
-        rg["SupportCenter"] = self.support_center
-
-        new_rg = OrderedDict()
-
-        for elem in ["GridType", "GroupID", "GroupName", "Disable", "Facility", "Site", "SupportCenter",
-                     "GroupDescription"]:
-            if elem in rg:
-                new_rg[elem] = rg[elem]
+        new_rg["Facility"] = self.site.facility.get_tree()
+        new_rg["Site"] = self.site.get_tree()
+        new_rg["GroupName"] = self.name
+        new_rg["SupportCenter"] = self.support_center
 
         return new_rg
 
