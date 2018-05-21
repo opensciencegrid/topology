@@ -3,11 +3,11 @@ from typing import Dict, List
 
 
 from .common import Filters, MaybeOrderedDict, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list
-
+from .contacts_reader import ContactsData
 
 class VOsData(object):
-    def __init__(self, contacts_data, reporting_groups_data):
-        self.contacts_data = contacts_data or {}
+    def __init__(self, contacts_data: ContactsData, reporting_groups_data):
+        self.contacts_data = contacts_data
         self.vos = {}
         self.reporting_groups_data = reporting_groups_data
 
@@ -109,17 +109,24 @@ class VOsData(object):
     def _expand_contacttypes(self, vo_contacts: Dict, authorized: bool) -> Dict:
         new_contacttypes = []
         for type_, list_ in vo_contacts.items():
-            contact_data = []
+            contact_items = []
             for contact in list_:
                 new_contact = OrderedDict([("Name", contact["Name"])])
-                if authorized:
-                    if contact["ID"] in self.contacts_data:
-                        extra_data = self.contacts_data[contact["ID"]]
-                        new_contact["Email"] = extra_data["Email"]
-                        new_contact["Phone"] = extra_data.get("Phone", "")
-                        new_contact["SMSAddress"] = extra_data.get("SMS", "")
-                contact_data.append(new_contact)
-            new_contacttypes.append({"Type": type_, "Contacts": {"Contact": contact_data}})
+                if authorized and self.contacts_data:
+                    if contact["ID"] in self.contacts_data.users_by_id:
+                        extra_data = self.contacts_data.users_by_id[contact["ID"]]
+                        new_contact["Email"] = extra_data.email
+                        new_contact["Phone"] = extra_data.phone
+                        new_contact["SMSAddress"] = extra_data.sms_address
+                        dns = extra_data.dns
+                        if dns:
+                            new_contact["DN"] = dns[0]
+                    else:
+                        print("id {0} not found for {1}".format(
+                            contact["ID"], contact["Name"]
+                        ))
+                contact_items.append(new_contact)
+            new_contacttypes.append({"Type": type_, "Contacts": {"Contact": contact_items}})
         return {"ContactType": new_contacttypes}
 
     @staticmethod
@@ -165,12 +172,12 @@ class VOsData(object):
                 new_contacts = []
                 for contact in data["Contacts"]:
                     new_contact = OrderedDict([("Name", contact["Name"])])
-                    if authorized:
-                        if contact["ID"] in self.contacts_data:
-                            extra_data = self.contacts_data[contact["ID"]]
-                            new_contact["Email"] = extra_data["Email"]
-                            new_contact["Phone"] = extra_data.get("Phone", "")
-                            new_contact["SMSAddress"] = extra_data.get("SMS", "")
+                    if authorized and self.contacts_data:
+                        if contact["ID"] in self.contacts_data.users_by_id:
+                            extra_data = self.contacts_data.users_by_id[contact["ID"]]
+                            new_contact["Email"] = extra_data.email
+                            new_contact["Phone"] = extra_data.phone
+                            new_contact["SMSAddress"] = extra_data.sms_address
                     new_contacts.append(new_contact)
                 newdata["Contacts"] = {"Contact": new_contacts}
             else:

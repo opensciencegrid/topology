@@ -3,40 +3,50 @@
 from subprocess import Popen, PIPE
 from argparse import ArgumentParser, FileType
 import os
+import requests
 import sys
 import urllib.parse
-import urllib.request
-import http.client
-
 
 YES, NO, ONLY = "yes", "no", "only"
 
 
-# From SO:
-# https://stackoverflow.com/questions/1875052/using-client-certificates-with-urllib2
-class HTTPSClientAuthHandler(urllib.request.HTTPSHandler):
-    def __init__(self, key, cert):
-        urllib.request.HTTPSHandler.__init__(self)
-        self.key = key
-        self.cert = cert
-
-    def https_open(self, req):
-        # Rather than pass in a reference to a connection class, we pass in
-        # a reference to a function which, for all intents and purposes,
-        # will behave as a constructor
-        return self.do_open(self.getConnection, req)
-
-    def getConnection(self, host, timeout=300):
-        return http.client.HTTPSConnection(host, key_file=self.key, cert_file=self.cert)
-
-
 def download(url, args) -> str:
     if args.auth:
-        opener = urllib.request.build_opener(HTTPSClientAuthHandler(args.key, args.cert))
-        response = opener.open(url)
+        session = get_auth_session(args.cert, args.key)
+        return session.get(url).text
     else:
-        response = urllib.request.urlopen(url)
-    return response.read().decode("utf-8")
+        return requests.get(url).text
+
+
+def get_auth_session(cert=None, key=None):
+    # thanks Brian
+    """
+    Return a requests session ready for an XML query.
+    """
+    if not cert or not key:
+        if "X509_USER_PROXY" in os.environ:
+            cert = key = os.environ["X509_USER_PROXY"]
+        else:
+            euid = os.geteuid()
+            proxypath = "/tmp/x509up_u%d" % euid
+            if euid == 0:
+                cert = '/etc/grid-security/hostcert.pem'
+                key = '/etc/grid-security/hostkey.pem'
+            elif os.path.exists(proxypath):
+                cert = key = proxypath
+            else:
+                cert = os.path.expanduser(os.environ.get("X509_USER_CERT", "~/.globus/usercert.pem"))
+                key = os.path.expanduser(os.environ.get("X509_USER_KEY", "~/.globus/userkey.pem"))
+
+    session = requests.Session()
+
+    if not os.path.exists(cert):
+        raise FileNotFoundError(cert)
+    if not os.path.exists(key):
+        raise FileNotFoundError(key)
+
+    session.cert = (cert, key)
+    return session
 
 
 def write(data: str, outfile):
@@ -44,6 +54,12 @@ def write(data: str, outfile):
     newenv["XMLLINT_INDENT"] = "\t"
     proc = Popen("xmllint --format -", stdin=PIPE, stdout=outfile, shell=True, encoding="utf-8", env=newenv)
     proc.communicate(data)
+
+
+def miscuser_url(args) -> str:
+    if not args.auth:
+        raise RuntimeError("Authenticated access required for miscuser")
+    return "https://myosg.grid.iu.edu/miscuser/xml"
 
 
 def miscproject_url(args) -> str:
@@ -181,11 +197,16 @@ def vosummary_url(args):
 def main(argv):
     parser = ArgumentParser()
     parser.add_argument("--auth", action="store_true", help="Authenticated access (needs key and cert)")
-    parser.add_argument("--key", default="key.pem", help="key for auth access")
-    parser.add_argument("--cert", default="cert.pem", help="cert for auth access")
+    parser.add_argument("--key", help="key for auth access (default: use proxy or"
+                                      " user key (non-root) or host key (root))")
+    parser.add_argument("--cert", help="cert for auth access (default: use proxy or"
+                                       " user cert (non-root) or host cert (root))")
     parser.add_argument("--out", nargs='?', default=sys.stdout, type=FileType('w'), help="output file")
 
     subparsers = parser.add_subparsers()
+
+    parser_miscuser = subparsers.add_parser("miscuser")
+    parser_miscuser.set_defaults(url_func=miscuser_url)
 
     parser_miscproject = subparsers.add_parser("miscproject")
     parser_miscproject.set_defaults(url_func=miscproject_url)
