@@ -71,6 +71,7 @@ class Resource(object):
 
         defaults = {
             "ContactLists": None,
+            "Description": "(No resource description)",
             "FQDNAliases": None,
             "VOOwnership": "(Information not available)",
             "WLCGInformation": "(Information not available)",
