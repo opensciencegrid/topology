@@ -33,12 +33,15 @@ def get_vos_data(indir, contacts_data) -> VOsData:
 def main(argv):
     parser = ArgumentParser()
     parser.add_argument("indir", help="input dir for virtual-organizations data")
-    parser.add_argument("contacts", help="contacts yaml file")
     parser.add_argument("outfile", nargs='?', default=None, help="output file for vosummary")
+    parser.add_argument("--contacts", help="contacts yaml file")
     args = parser.parse_args(argv[1:])
 
+    contacts_data = None
+    if args.contacts:
+        get_contacts_data(args.contacts)
     xml = to_xml(
-        get_vos_data(args.indir, contacts_data=get_contacts_data(args.contacts)).get_tree(authorized=True))
+        get_vos_data(args.indir, contacts_data=contacts_data).get_tree(authorized=True))
     if args.outfile:
         with open(args.outfile, "w") as fh:
             fh.write(xml)

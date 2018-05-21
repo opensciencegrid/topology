@@ -170,12 +170,15 @@ class Resource(object):
             contact_data = expand_attr_list(contact_data, "ContactRank", ["Name", "ID", "ContactRank"], ignore_missing=True)
             for contact in contact_data:
                 contact_id = contact.pop("ID", None)  # ID is for internal use - don't put it in the results
-                if authorized:
+                if authorized and self.common_data.contacts:
                     if contact_id in self.common_data.contacts.users_by_id:
                         extra_data = self.common_data.contacts.users_by_id[contact_id]
                         contact["Email"] = extra_data.email
                         contact["Phone"] = extra_data.phone
                         contact["SMSAddress"] = extra_data.sms_address
+                        dns = extra_data.dns
+                        if dns:
+                            contact["DN"] = dns[0]
                         contact.move_to_end("ContactRank", last=True)
             new_contactlists.append(
                 OrderedDict([("ContactType", contact_type), ("Contacts", {"Contact": contact_data})]))

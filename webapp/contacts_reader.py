@@ -1,10 +1,15 @@
 from argparse import ArgumentParser, FileType
 from collections import OrderedDict
 import hashlib
+import os
 import sys
 from typing import Dict
 
 import anymarkup
+
+# thanks stackoverflow
+if __name__ == "__main__" and __package__ is None:
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from webapp.common import MaybeOrderedDict, to_xml, MISCUSER_SCHEMA_URL
 
@@ -94,9 +99,15 @@ def get_contacts_data(infile) -> ContactsData:
 def main(argv):
     parser = ArgumentParser()
     parser.add_argument("infile", help="input file for contacts data")
-    parser.add_argument("outfile", nargs='?', type=FileType('w'), default=sys.stdout, help="output file for miscuser")
+    parser.add_argument("outfile", nargs='?', default=None, help="output file for miscuser")
     args = parser.parse_args(argv[1:])
-    args.outfile.write(to_xml(get_contacts_data(args.infile).get_tree(authorized=True)))
+    xml = to_xml(get_contacts_data(args.infile).get_tree(authorized=True))
+    if args.outfile:
+        with open(args.outfile, "w") as fh:
+            fh.write(xml)
+    else:
+        print(xml)
+
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))

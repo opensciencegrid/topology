@@ -112,7 +112,7 @@ class VOsData(object):
             contact_items = []
             for contact in list_:
                 new_contact = OrderedDict([("Name", contact["Name"])])
-                if authorized:
+                if authorized and self.contacts_data:
                     if contact["ID"] in self.contacts_data.users_by_id:
                         extra_data = self.contacts_data.users_by_id[contact["ID"]]
                         new_contact["Email"] = extra_data.email
@@ -172,7 +172,7 @@ class VOsData(object):
                 new_contacts = []
                 for contact in data["Contacts"]:
                     new_contact = OrderedDict([("Name", contact["Name"])])
-                    if authorized:
+                    if authorized and self.contacts_data:
                         if contact["ID"] in self.contacts_data.users_by_id:
                             extra_data = self.contacts_data.users_by_id[contact["ID"]]
                             new_contact["Email"] = extra_data.email
