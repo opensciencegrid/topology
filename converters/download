@@ -35,8 +35,8 @@ def get_auth_session(cert=None, key=None):
             elif os.path.exists(proxypath):
                 cert = key = proxypath
             else:
-                cert = os.path.expanduser("~/.globus/usercert.pem")
-                key = os.path.expanduser("~/.globus/userkey.pem")
+                cert = os.path.expanduser(os.environ.get("X509_USER_CERT", "~/.globus/usercert.pem"))
+                key = os.path.expanduser(os.environ.get("X509_USER_KEY", "~/.globus/userkey.pem"))
 
     session = requests.Session()
 
