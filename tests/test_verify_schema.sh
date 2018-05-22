@@ -35,28 +35,29 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
         verify_xml /tmp/rgdowntime.orig.xml rgdowntime
     fi
 
+    CONVERTED_XML=/tmp/$DATA_TYPE.xml
+
     case $DATA_TYPE in
         miscproject)
             YAML_DIR="$TRAVIS_BUILD_DIR/projects"
             READER=webapp/project_reader.py
+            READER_ARGS="$YAML_DIR $CONVERTED_XML"
             ;;
         rgsummary)
             YAML_DIR="$TRAVIS_BUILD_DIR/topology"
             READER=webapp/rg_reader.py
+            READER_ARGS="$YAML_DIR $CONVERTED_XML /tmp/rgdowntime.xml"
             ;;
         vosummary)
             YAML_DIR="$TRAVIS_BUILD_DIR/virtual-organizations"
             READER=webapp/vo_reader.py
+            READER_ARGS="$YAML_DIR $CONVERTED_XML"
             ;;
     esac
 
     echo -e "=========================\n"\
          "$DATA_TYPE YAML READER\n"\
          "========================="
-    
-    CONVERTED_XML=/tmp/$DATA_TYPE.xml
-    READER_ARGS="$YAML_DIR $CONVERTED_XML"
-    [[ $DATA_TYPE == 'rgsummary' ]] && READER_ARGS="$READER_ARGS /tmp/rgdowntime.xml"
 
     # Resource group and VO readers should use the contact info if we have
     # access to the SSH keys for the contacts repo
