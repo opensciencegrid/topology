@@ -22,7 +22,7 @@
               <xsd:element name="Sponsor">
                 <xsd:complexType>
                   <xsd:sequence>
-                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="VirtualOrganization">
+                    <xsd:element minOccurs="0" name="VirtualOrganization">
                       <xsd:complexType>
                         <xsd:sequence>
                           <xsd:element name="ID" type="xsd:int"/>
@@ -30,7 +30,7 @@
                         </xsd:sequence>
                       </xsd:complexType>
                     </xsd:element>
-                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="CampusGrid">
+                    <xsd:element minOccurs="0" name="CampusGrid">
                       <xsd:complexType>
                         <xsd:sequence>
                           <xsd:element name="ID" type="xsd:int"/>
