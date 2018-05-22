@@ -73,5 +73,5 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
     [[ $DATA_TYPE == 'rgsummary' ]] && verify_xml /tmp/rgdowntime.xml rgdowntime
 done
 
-# If we get to the end, make sure we exit 0
-return
+# Exit 0 if we get to the end
+exit 0
