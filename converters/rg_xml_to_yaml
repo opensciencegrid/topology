@@ -302,6 +302,9 @@ def parse_sites(site_file) -> Dict:
                 if r[k] in ["", "NULL", "00000"]:
                     del r[k]
             r["ID"] = int(r["ID"])
+            for k in ["Longitude", "Latitude"]:
+                if k in r:
+                    r[k] = float(r[k])
 
             sites[name] = r
     return sites
