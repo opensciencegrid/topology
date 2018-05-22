@@ -1,23 +1,42 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: This is the Tier1 for Belle-II at BNL
 GroupID: 478
 Resources:
   BNL_BELLE_II_CE_1:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Xin Zhao
-        Secondary: Hironori Ito
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+        Secondary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
       Miscellaneous Contact:
-        Primary: Hironori Ito
+        Primary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
       Resource Report Contact:
-        Primary: Xin Zhao
-        Secondary: Hironori Ito
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+        Secondary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
       Security Contact:
-        Primary: John Hover
-        Secondary: Hironori Ito
+        Primary:
+          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
+          Name: John Hover
+        Secondary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
       Submitter Contact:
-        Primary: Xin Zhao
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+    Description: This is the HTCondor-CE for Belle II  at the Belle-II T1 center at
+      BNL
     Disable: false
     FQDN: bgk01.sdcc.bnl.gov
     ID: 930
@@ -33,11 +52,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Hironori Ito
+        Primary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
       Security Contact:
-        Primary: Hironori Ito
+        Primary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
       Submitter Contact:
-        Primary: Hironori Ito
+        Primary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+    Description: BNL Belle II dCache
     Disable: false
     FQDN: dcblsrm.sdcc.bnl.gov
     ID: 908

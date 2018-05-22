@@ -1,18 +1,32 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Resource group at California State University, Fresno
 GroupID: 340
 Resources:
   FSU-TEST-SE:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Jay Fowler
-        Secondary: Harinder Singh Bawa
+        Primary:
+          ID: 21c73698260070b2c38dcdec28661da551077279
+          Name: Jay Fowler
+        Secondary:
+          ID: 1163978b326c535effb8801603f5e7c3a5ad6eac
+          Name: Harinder Singh Bawa
       Security Contact:
-        Primary: Jay Fowler
-        Secondary: Harinder Singh Bawa
+        Primary:
+          ID: 21c73698260070b2c38dcdec28661da551077279
+          Name: Jay Fowler
+        Secondary:
+          ID: 1163978b326c535effb8801603f5e7c3a5ad6eac
+          Name: Harinder Singh Bawa
       Submitter Contact:
-        Primary: Sergey Uzunyan
+        Primary:
+          ID: 00559377ad4d5a83f0f60cc13284fc09ed71d105
+          Name: Sergey Uzunyan
+    Description: |-
+      10TB storage accessible via SRM or GridFTP; for now
+      only for local users of Fresno T3 cluster
     Disable: false
     FQDN: t3nfs.atlas.csufresno.edu
     ID: 459

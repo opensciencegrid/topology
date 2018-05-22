@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+
+# thanks stackoverflow
+if __name__ == "__main__" and __package__ is None:
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from webapp.common import email_to_id
+
+if len(sys.argv) < 2:
+    sys.exit("usage: %s <EMAIL> [<EMAIL 2>..<EMAIL N>]" % sys.argv[0])
+
+for string in sys.argv[1:]:
+    print(email_to_id(string))

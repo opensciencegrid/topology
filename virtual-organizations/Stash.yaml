@@ -4,26 +4,31 @@ CertificateOnly: false
 Community: OSG wide
 Contacts:
   Administrative Contact:
-  - Brian Bockelman
-  - Derek Weitzel
+  - ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+    Name: Brian Bockelman
+  - ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
+    Name: Derek Weitzel
   Security Contact:
-  - Brian Bockelman
-  - Dave Dykstra
+  - ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+    Name: Brian Bockelman
+  - ID: 85fe79f7c8a447834460b6852f46d3eef32fb714
+    Name: Dave Dykstra
   Submitter Contact:
-  - Scott Teige
+  - ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+    Name: Scott Teige
   VO Manager:
-  - Brian Bockelman
+  - ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+    Name: Brian Bockelman
 Disable: false
 ID: 122
 LongName: Stash Cache VO
 MembershipServicesURL: https://voms.opensciencegrid.org:8443/voms/osg
-Name: Stash
 OASIS:
   Managers:
     Brian Bockelman:
-      ContactID: 8
       DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
         Paul Bockelman
+      ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
   OASISRepoURLs:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/stash.osgstorage.org
   UseOASIS: true

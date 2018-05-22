@@ -1,20 +1,32 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: JIRA ticket system for OSG staff
 GroupID: 334
 Resources:
   jira:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Miscellaneous Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Resource Report Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Security Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Submitter Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+    Description: IU Jira Instant
     Disable: false
     FQDN: jira.opensciencegrid.org
     ID: 450

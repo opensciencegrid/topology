@@ -1,25 +1,47 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 81
 Resources:
   NYSGRID_CORNELL_NYS1:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Steven Lee
-        Secondary: Jodie Sprouse
+        Primary:
+          ID: ff61df460b7411081be3e4411c695a7c712f589b
+          Name: Steven Lee
+        Secondary:
+          ID: aafd3325e57068a2af3471b86f8aeb1357910a2a
+          Name: Jodie Sprouse
       Miscellaneous Contact:
-        Primary: Steven Lee
-        Secondary: Steve Gallo
-        Tertiary: Jon Bednasz
+        Primary:
+          ID: ff61df460b7411081be3e4411c695a7c712f589b
+          Name: Steven Lee
+        Secondary:
+          ID: 7ced1836cd81f6c556ec6a02e55d41775ddeab57
+          Name: Steve Gallo
+        Tertiary:
+          ID: 5aafc9af56cc8789093c310c75a9564d2c72caf6
+          Name: Jon Bednasz
       Resource Report Contact:
-        Primary: Steven Lee
-        Secondary: Jodie Sprouse
+        Primary:
+          ID: ff61df460b7411081be3e4411c695a7c712f589b
+          Name: Steven Lee
+        Secondary:
+          ID: aafd3325e57068a2af3471b86f8aeb1357910a2a
+          Name: Jodie Sprouse
       Security Contact:
-        Primary: Steven Lee
-        Secondary: Jodie Sprouse
+        Primary:
+          ID: ff61df460b7411081be3e4411c695a7c712f589b
+          Name: Steven Lee
+        Secondary:
+          ID: aafd3325e57068a2af3471b86f8aeb1357910a2a
+          Name: Jodie Sprouse
       Submitter Contact:
-        Primary: Steven Lee
+        Primary:
+          ID: ff61df460b7411081be3e4411c695a7c712f589b
+          Name: Steven Lee
+    Description: OSG cluster with Compute Element and Bestman-Xrootd Storage Element.
     Disable: false
     FQDN: nys1.cac.cornell.edu
     FQDNAliases:

@@ -1,16 +1,25 @@
 Disable: true
 GridType: OSG Integration Test Bed Resource
+GroupDescription: This is a resource group used to host test resources
 GroupID: 396
 Resources:
   Soichi_Test_Resource:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Soichi Hayashi
+        Primary:
+          ID: 410b3bfb4ed7d81f0e9ea2f853c0214f104168e1
+          Name: Soichi Hayashi
       Security Contact:
-        Primary: Soichi Hayashi
+        Primary:
+          ID: 410b3bfb4ed7d81f0e9ea2f853c0214f104168e1
+          Name: Soichi Hayashi
       Submitter Contact:
-        Primary: Soichi Hayashi
+        Primary:
+          ID: 410b3bfb4ed7d81f0e9ea2f853c0214f104168e1
+          Name: Soichi Hayashi
+    Description: This is not a real resource, but rather a test resource to test OIM
+      functionality after it was upgraded to RHEL6.
     Disable: true
     FQDN: test.example.org
     FQDNAliases:

@@ -1,16 +1,20 @@
 Active: true
 AppDescription: CDMS Experiment
 CertificateOnly: false
-Community: |-
-  CDMS Experiment
-  Cryogenic Dark Matter Search
+Community: 'CDMS Experiment
+
+  Cryogenic Dark Matter Search'
 Contacts:
   Miscellaneous Contact:
-  - Steve Timm
-  - Joe Boyd
-  - Gerard Bernabeu Altayo
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
+  - ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+    Name: Gerard Bernabeu Altayo
   Submitter Contact:
-  - Keith Chadwick
+  - ID: a161cf4dfb39e13eaf5fa890b6920c7af89a7784
+    Name: Keith Chadwick
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -18,15 +22,14 @@ FieldsOfScience:
 ID: 49
 LongName: Fermilab/Cdms
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
-Name: Cdms
 OASIS:
   Managers:
     Joe Boyd:
-      ContactID: 579
       DNs:
       - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
+      ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
   OASISRepoURLs:
   - http://oasiscfs.fnal.gov:8000/cvmfs/cdms.opensciencegrid.org/
   UseOASIS: true

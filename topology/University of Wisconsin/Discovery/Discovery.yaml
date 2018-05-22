@@ -1,9 +1,11 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: stuff
 GroupID: 383
 Resources:
   Discovery_PerfSonar_Bandwidth:
     Active: true
+    Description: bandwidth node
     Disable: false
     FQDN: perfsonar02.discovery.wisc.edu
     ID: 570
@@ -16,6 +18,7 @@ Resources:
       GLOW: 100
   Discovery_PerfSonar_Latency:
     Active: true
+    Description: latency node
     Disable: false
     FQDN: perfsonar01.discovery.wisc.edu
     ID: 569

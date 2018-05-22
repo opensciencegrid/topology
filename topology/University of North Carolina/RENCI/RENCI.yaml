@@ -1,14 +1,20 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: Resource Group for all RENCI Clusters @ University of North Carolina
 GroupID: 330
 Resources:
   RENCI-Blueberry:
     Active: false
     ContactLists:
       Miscellaneous Contact:
-        Primary: John McGee
+        Primary:
+          ID: a1a65b78454e9eff9627ebcc1a7c81a073b79280
+          Name: John McGee
       Resource Report Contact:
-        Tertiary: John McGee
+        Tertiary:
+          ID: a1a65b78454e9eff9627ebcc1a7c81a073b79280
+          Name: John McGee
+    Description: RENCI-Blueberry is a small cluster of older hardware.
     Disable: true
     FQDN: hpgw0.renci.org
     ID: 433
@@ -27,7 +33,10 @@ Resources:
     Active: false
     ContactLists:
       Resource Report Contact:
-        Tertiary: John McGee
+        Tertiary:
+          ID: a1a65b78454e9eff9627ebcc1a7c81a073b79280
+          Name: John McGee
+    Description: OSG CE for RENCI-Blueridge cluster.
     Disable: true
     FQDN: brgw1.renci.org
     ID: 347
@@ -58,7 +67,12 @@ Resources:
     Active: false
     ContactLists:
       Resource Report Contact:
-        Tertiary: John McGee
+        Tertiary:
+          ID: a1a65b78454e9eff9627ebcc1a7c81a073b79280
+          Name: John McGee
+    Description: RENCI-Hatteras is RENCI's newest cluster, composed of four Dell m1000e
+      chassis, each with 32 quarter-height Dell M420 blades.  Each M420 has 16 Xeon
+      cores and 96GB of RAM.
     Disable: true
     FQDN: htgw0.renci.org
     ID: 575

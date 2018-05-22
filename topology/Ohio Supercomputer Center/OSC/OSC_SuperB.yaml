@@ -1,16 +1,24 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: Resource group at OSC for the SuperB collaboration.
 GroupID: 353
 Resources:
   OSC_SuperB_CE:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Doug Johnson
+        Primary:
+          ID: ef74443fbff08cb97203d3fa7c99ae3966679569
+          Name: Doug Johnson
       Security Contact:
-        Primary: Doug Johnson
+        Primary:
+          ID: ef74443fbff08cb97203d3fa7c99ae3966679569
+          Name: Doug Johnson
       Submitter Contact:
-        Primary: Doug Johnson
+        Primary:
+          ID: ef74443fbff08cb97203d3fa7c99ae3966679569
+          Name: Doug Johnson
+    Description: This is the CE service for the SuperB VO at OSC.
     Disable: true
     FQDN: superbvo.osc.edu
     ID: 481
@@ -25,11 +33,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Doug Johnson
+        Primary:
+          ID: ef74443fbff08cb97203d3fa7c99ae3966679569
+          Name: Doug Johnson
       Security Contact:
-        Primary: Doug Johnson
+        Primary:
+          ID: ef74443fbff08cb97203d3fa7c99ae3966679569
+          Name: Doug Johnson
       Submitter Contact:
-        Primary: Doug Johnson
+        Primary:
+          ID: ef74443fbff08cb97203d3fa7c99ae3966679569
+          Name: Doug Johnson
+    Description: GridFTP server at OSC for the SuperB collaboration.
     Disable: true
     FQDN: superbvo.osc.edu
     ID: 482

@@ -1,18 +1,28 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Nevis
 GroupID: 296
 Resources:
   Nevis:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Gustaaf Brooijmans
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
       Resource Report Contact:
-        Primary: Gustaaf Brooijmans
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
       Security Contact:
-        Primary: Gustaaf Brooijmans
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
       Submitter Contact:
-        Primary: Gustaaf Brooijmans
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
+    Description: Nevis
     Disable: false
     FQDN: nevis.columbia.edu
     ID: 376
@@ -32,19 +42,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Gustaaf Brooijmans
-        Secondary: Timothy Robert Andeen
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
+        Secondary:
+          ID: ebd3922bbcb45ecfa48d4d4196cfc2b7e6682b6b
+          Name: Timothy Robert Andeen
       Miscellaneous Contact:
-        Primary: Gustaaf Brooijmans
-        Secondary: Timothy Robert Andeen
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
+        Secondary:
+          ID: ebd3922bbcb45ecfa48d4d4196cfc2b7e6682b6b
+          Name: Timothy Robert Andeen
       Resource Report Contact:
-        Primary: Gustaaf Brooijmans
-        Secondary: Timothy Robert Andeen
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
+        Secondary:
+          ID: ebd3922bbcb45ecfa48d4d4196cfc2b7e6682b6b
+          Name: Timothy Robert Andeen
       Security Contact:
-        Primary: Gustaaf Brooijmans
-        Secondary: Timothy Robert Andeen
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
+        Secondary:
+          ID: ebd3922bbcb45ecfa48d4d4196cfc2b7e6682b6b
+          Name: Timothy Robert Andeen
       Submitter Contact:
-        Primary: Gustaaf Brooijmans
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
+    Description: Nevis squid for cvmfs
     Disable: false
     FQDN: xenia.nevis.columbia.edu
     ID: 474
@@ -69,16 +98,32 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Gustaaf Brooijmans
-        Secondary: Timothy Robert Andeen
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
+        Secondary:
+          ID: ebd3922bbcb45ecfa48d4d4196cfc2b7e6682b6b
+          Name: Timothy Robert Andeen
       Resource Report Contact:
-        Primary: Gustaaf Brooijmans
-        Secondary: Timothy Robert Andeen
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
+        Secondary:
+          ID: ebd3922bbcb45ecfa48d4d4196cfc2b7e6682b6b
+          Name: Timothy Robert Andeen
       Security Contact:
-        Primary: Gustaaf Brooijmans
-        Secondary: Timothy Robert Andeen
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
+        Secondary:
+          ID: ebd3922bbcb45ecfa48d4d4196cfc2b7e6682b6b
+          Name: Timothy Robert Andeen
       Submitter Contact:
-        Primary: Gustaaf Brooijmans
+        Primary:
+          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
+          Name: Gustaaf Brooijmans
+    Description: This is the nevis gridftp server used to download datasets directly
+      into xrootd.
     Disable: false
     FQDN: xenia.nevis.columbia.edu
     ID: 473

@@ -1,16 +1,24 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: Repo ITB
 GroupID: 431
 Resources:
   GOC_Repo_ITB:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Sarah Schmiechen
+        Primary:
+          ID: 9aa94bd49f147af5b1e202a71c07505444e97aeb
+          Name: Sarah Schmiechen
       Security Contact:
-        Primary: Sarah Schmiechen
+        Primary:
+          ID: 9aa94bd49f147af5b1e202a71c07505444e97aeb
+          Name: Sarah Schmiechen
       Submitter Contact:
-        Primary: Sarah Schmiechen
+        Primary:
+          ID: 9aa94bd49f147af5b1e202a71c07505444e97aeb
+          Name: Sarah Schmiechen
+    Description: REPO ITB
     Disable: false
     FQDN: repo-itb.grid.iu.edu
     ID: 748

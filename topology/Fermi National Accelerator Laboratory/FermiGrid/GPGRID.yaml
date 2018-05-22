@@ -1,19 +1,31 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: This is the General Purpose Grid cluster at Fermilab.
 GroupID: 476
 Resources:
   FNAL_GPGRID_CE_03:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Farrukh Aftab Khan
-        Secondary: Krista Majewski
+        Primary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
+        Secondary:
+          ID: f1b1a12174cd4760e9553c82004d38609f77c8e1
+          Name: Krista Majewski
       Miscellaneous Contact:
-        Tertiary: Farrukh Aftab Khan
+        Tertiary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
       Resource Report Contact:
-        Primary: Anthony Tiradani
+        Primary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
       Submitter Contact:
-        Primary: Anthony Tiradani
+        Primary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
+    Description: This is an HTCondor-CE that provides opportunistic access to GPGrid
     Disable: false
     FQDN: gpce03.fnal.gov
     ID: 901
@@ -29,14 +41,25 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Farrukh Aftab Khan
-        Secondary: Krista Majewski
+        Primary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
+        Secondary:
+          ID: f1b1a12174cd4760e9553c82004d38609f77c8e1
+          Name: Krista Majewski
       Miscellaneous Contact:
-        Tertiary: Farrukh Aftab Khan
+        Tertiary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
       Resource Report Contact:
-        Primary: Anthony Tiradani
+        Primary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
       Submitter Contact:
-        Primary: Anthony Tiradani
+        Primary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
+    Description: This is an HTCondor-CE the directs jobs into GPGrid.
     Disable: false
     FQDN: gpce04.fnal.gov
     ID: 902
@@ -52,14 +75,25 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Nicholas Peregonow
-        Secondary: Farrukh Aftab Khan
+        Primary:
+          ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+          Name: Nicholas Peregonow
+        Secondary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
       Miscellaneous Contact:
-        Tertiary: Farrukh Aftab Khan
+        Tertiary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
       Resource Report Contact:
-        Primary: Anthony Tiradani
+        Primary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
       Submitter Contact:
-        Primary: Anthony Tiradani
+        Primary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
+    Description: This is a Jobsub server that provides FIFE access to GPGrid
     Disable: false
     FQDN: jobsub01.fnal.gov
     ID: 903
@@ -74,14 +108,25 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Nicholas Peregonow
-        Secondary: Farrukh Aftab Khan
+        Primary:
+          ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+          Name: Nicholas Peregonow
+        Secondary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
       Miscellaneous Contact:
-        Tertiary: Farrukh Aftab Khan
+        Tertiary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
       Resource Report Contact:
-        Primary: Anthony Tiradani
+        Primary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
       Submitter Contact:
-        Primary: Anthony Tiradani
+        Primary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
+    Description: This is a Jobsub server that provides FIFE access to GPGrid
     Disable: false
     FQDN: jobsub02.fnal.gov
     ID: 904

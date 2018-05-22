@@ -1,21 +1,49 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: |-
+  This resource replaces FNAL_GPFARM.
+  It is the General Purpose Grid Cluster at Fermilab,
+  sponsored by the Fermilab VO.  currently 700 slots.
+  Other non-Fermilab VO\'s are allotted slot allocations
+  on this cluster through request to the FermiGrid management.
+  All VO\'s are supported at the level of at least 1 slot.
 GroupID: 172
 Resources:
   FNAL_GPGRID_1:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Miscellaneous Contact:
-        Primary: Joe Boyd
-        Secondary: Gerard Bernabeu Altayo
-        Tertiary: Nicholas Peregonow
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
+        Secondary:
+          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+          Name: Gerard Bernabeu Altayo
+        Tertiary:
+          ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+          Name: Nicholas Peregonow
       Resource Report Contact:
-        Primary: Joe Boyd
-        Tertiary: Nicholas Peregonow
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
+        Tertiary:
+          ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+          Name: Nicholas Peregonow
       Submitter Contact:
-        Primary: Steve Timm
+        Primary:
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+          Name: Steve Timm
+    Description: |-
+      This resource replaces FNAL_GPFARM.
+      It is the General Purpose Grid Cluster at Fermilab,
+      sponsored by the Fermilab VO.  currently 700 slots.
+      Other non-Fermilab VO\'s are allotted slot allocations
+      on this cluster through request to the FermiGrid management.
+      All VO\'s are supported at the level of at least 1 slot.
     Disable: true
     FQDN: fnpcosg1.fnal.gov
     FQDNAliases:

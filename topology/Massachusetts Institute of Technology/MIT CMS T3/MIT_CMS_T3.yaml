@@ -1,24 +1,44 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: MIT CMS Tier3 cluster.
 GroupID: 367
 Resources:
   MIT_CMS_T3-CE1:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Yutaro Iiyama
-        Secondary: Max Goncharov
+        Primary:
+          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
+          Name: Yutaro Iiyama
+        Secondary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
       Miscellaneous Contact:
-        Primary: Yutaro Iiyama
-        Secondary: Max Goncharov
+        Primary:
+          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
+          Name: Yutaro Iiyama
+        Secondary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
       Resource Report Contact:
-        Primary: Yutaro Iiyama
-        Secondary: Max Goncharov
+        Primary:
+          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
+          Name: Yutaro Iiyama
+        Secondary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
       Security Contact:
-        Primary: Yutaro Iiyama
-        Secondary: Max Goncharov
+        Primary:
+          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
+          Name: Yutaro Iiyama
+        Secondary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
       Submitter Contact:
-        Primary: Leonardo Di Matteo
+        Primary:
+          ID: c7cff50f825623fe061afb38510d3b7253d88f9b
+          Name: Leonardo Di Matteo
+    Description: US CMS Tier-3 computing element.
     Disable: false
     FQDN: t3serv007.mit.edu
     ID: 534
@@ -49,19 +69,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Yutaro Iiyama
-        Secondary: Max Goncharov
+        Primary:
+          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
+          Name: Yutaro Iiyama
+        Secondary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
       Miscellaneous Contact:
-        Primary: Yutaro Iiyama
-        Secondary: Max Goncharov
+        Primary:
+          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
+          Name: Yutaro Iiyama
+        Secondary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
       Resource Report Contact:
-        Primary: Yutaro Iiyama
-        Secondary: Max Goncharov
+        Primary:
+          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
+          Name: Yutaro Iiyama
+        Secondary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
       Security Contact:
-        Primary: Yutaro Iiyama
-        Secondary: Max Goncharov
+        Primary:
+          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
+          Name: Yutaro Iiyama
+        Secondary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
       Submitter Contact:
-        Primary: Leonardo Di Matteo
+        Primary:
+          ID: c7cff50f825623fe061afb38510d3b7253d88f9b
+          Name: Leonardo Di Matteo
+    Description: US CMS Tier-3 storage element at MIT.
     Disable: false
     FQDN: t3serv006.mit.edu
     ID: 535

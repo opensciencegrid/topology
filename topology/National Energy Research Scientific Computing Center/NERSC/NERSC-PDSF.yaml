@@ -1,25 +1,47 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 75
 Resources:
   NERSC-PDSF:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: James Botts
-        Secondary: Lisa Gerhardt
+        Primary:
+          ID: c9b700f14f63f4046e9d1d00442d7f1653ec165d
+          Name: James Botts
+        Secondary:
+          ID: 9231bdd673f982e47b3be0005910b187f64842b6
+          Name: Lisa Gerhardt
       Miscellaneous Contact:
-        Primary: Jeff Porter
-        Secondary: Lisa Gerhardt
+        Primary:
+          ID: c3d417180e9c3738a32032eda0b9cf1252288870
+          Name: Jeff Porter
+        Secondary:
+          ID: 9231bdd673f982e47b3be0005910b187f64842b6
+          Name: Lisa Gerhardt
       Resource Report Contact:
-        Primary: James Botts
-        Secondary: Jeff Porter
-        Tertiary: Lisa Gerhardt
+        Primary:
+          ID: c9b700f14f63f4046e9d1d00442d7f1653ec165d
+          Name: James Botts
+        Secondary:
+          ID: c3d417180e9c3738a32032eda0b9cf1252288870
+          Name: Jeff Porter
+        Tertiary:
+          ID: 9231bdd673f982e47b3be0005910b187f64842b6
+          Name: Lisa Gerhardt
       Security Contact:
-        Primary: James Botts
-        Secondary: Jeff Porter
+        Primary:
+          ID: c9b700f14f63f4046e9d1d00442d7f1653ec165d
+          Name: James Botts
+        Secondary:
+          ID: c3d417180e9c3738a32032eda0b9cf1252288870
+          Name: Jeff Porter
       Submitter Contact:
-        Primary: Iwona Sakrejda
+        Primary:
+          ID: d7dd32d900c2fbbd7559da13371e83d012e7e1f3
+          Name: Iwona Sakrejda
+    Description: This is a production gatekeeper for the PDSF cluster at NERSC
     Disable: false
     FQDN: pdsfgrid.nersc.gov
     FQDNAliases:
@@ -49,17 +71,33 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: James Botts
+        Primary:
+          ID: c9b700f14f63f4046e9d1d00442d7f1653ec165d
+          Name: James Botts
       Miscellaneous Contact:
-        Secondary: Jeff Porter
+        Secondary:
+          ID: c3d417180e9c3738a32032eda0b9cf1252288870
+          Name: Jeff Porter
       Resource Report Contact:
-        Primary: James Botts
-        Tertiary: Shreyas Cholia
+        Primary:
+          ID: c9b700f14f63f4046e9d1d00442d7f1653ec165d
+          Name: James Botts
+        Tertiary:
+          ID: 738dae0c6c2d0bc7a93f694348e9c15b71d95f93
+          Name: Shreyas Cholia
       Security Contact:
-        Primary: Shreyas Cholia
-        Secondary: James Botts
+        Primary:
+          ID: 738dae0c6c2d0bc7a93f694348e9c15b71d95f93
+          Name: Shreyas Cholia
+        Secondary:
+          ID: c9b700f14f63f4046e9d1d00442d7f1653ec165d
+          Name: James Botts
       Submitter Contact:
-        Primary: Iwona Sakrejda
+        Primary:
+          ID: d7dd32d900c2fbbd7559da13371e83d012e7e1f3
+          Name: Iwona Sakrejda
+    Description: This is a backup gatekeeper protecting Alice production at PDSF from
+      single point of failure
     Disable: false
     FQDN: pdsfgrid2.nersc.gov
     ID: 546

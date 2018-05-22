@@ -1,25 +1,47 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Various infrastructure services for SBGrid.
 GroupID: 339
 Resources:
   SBGrid-Harvard-Security:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Peter Doherty
-        Secondary: Ian Stokes-Rees
+        Primary:
+          ID: 22ef5608a23fb90ea01f4178b22cda87fa177ef3
+          Name: Peter Doherty
+        Secondary:
+          ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
+          Name: Ian Stokes-Rees
       Miscellaneous Contact:
-        Primary: Peter Doherty
-        Secondary: Ian Stokes-Rees
-        Tertiary: Piotr Sliz
+        Primary:
+          ID: 22ef5608a23fb90ea01f4178b22cda87fa177ef3
+          Name: Peter Doherty
+        Secondary:
+          ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
+          Name: Ian Stokes-Rees
+        Tertiary:
+          ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
+          Name: Piotr Sliz
       Resource Report Contact:
-        Secondary: Peter Doherty
-        Tertiary: Ian Stokes-Rees
+        Secondary:
+          ID: 22ef5608a23fb90ea01f4178b22cda87fa177ef3
+          Name: Peter Doherty
+        Tertiary:
+          ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
+          Name: Ian Stokes-Rees
       Security Contact:
-        Primary: Peter Doherty
-        Secondary: Ian Stokes-Rees
+        Primary:
+          ID: 22ef5608a23fb90ea01f4178b22cda87fa177ef3
+          Name: Peter Doherty
+        Secondary:
+          ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
+          Name: Ian Stokes-Rees
       Submitter Contact:
-        Primary: Ian Stokes-Rees
+        Primary:
+          ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
+          Name: Ian Stokes-Rees
+    Description: GUMS, VOMS and VOMSAdmin host for SBGrid and NEBioGrid
     Disable: false
     FQDN: hpc.sbgrid.org
     ID: 298

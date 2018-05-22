@@ -1,16 +1,24 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: 7/26 disabling empty resource group
 GroupID: 95
 Resources:
   Purdue-LSST:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Security Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Submitter Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+    Description: This is a new submitter for LSST members at Purdue
     Disable: false
     FQDN: lsst-glidein.rcac.purdue.edu
     ID: 880
@@ -25,13 +33,21 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Mark Linvill
+        Primary:
+          ID: 03ea61cc58051f44336158f614276cf9a09fabba
+          Name: Mark Linvill
       Resource Report Contact:
-        Primary: Mark Linvill
+        Primary:
+          ID: 03ea61cc58051f44336158f614276cf9a09fabba
+          Name: Mark Linvill
       Security Contact:
-        Primary: Mark Linvill
+        Primary:
+          ID: 03ea61cc58051f44336158f614276cf9a09fabba
+          Name: Mark Linvill
       Submitter Contact:
-        Primary: Mark Linvill
+        Primary:
+          ID: 03ea61cc58051f44336158f614276cf9a09fabba
+          Name: Mark Linvill
     Disable: true
     FQDN: grid.physics.purdue.edu
     ID: 95

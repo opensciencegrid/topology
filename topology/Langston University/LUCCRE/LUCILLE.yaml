@@ -1,21 +1,37 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: CE & SE
 GroupID: 379
 Resources:
   Lucille-squid:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Joel Snow
-        Secondary: Horst Severini
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+        Secondary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Resource Report Contact:
-        Primary: Joel Snow
-        Secondary: Horst Severini
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+        Secondary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Security Contact:
-        Primary: Joel Snow
-        Secondary: Horst Severini
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+        Secondary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Submitter Contact:
-        Primary: Joel Snow
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+    Description: Generic squid service
     Disable: false
     FQDN: lutse1.lunet.edu
     ID: 915
@@ -28,14 +44,25 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Joel Snow
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
       Resource Report Contact:
-        Primary: Joel Snow
-        Tertiary: Horst Severini
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+        Tertiary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Security Contact:
-        Primary: Joel Snow
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
       Submitter Contact:
-        Primary: Joel Snow
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+    Description: OSG gatekeeper for Lucille cluster
     Disable: false
     FQDN: lutgw1.lunet.edu
     ID: 559
@@ -69,14 +96,25 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Joel Snow
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
       Resource Report Contact:
-        Primary: Joel Snow
-        Tertiary: Horst Severini
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+        Tertiary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Security Contact:
-        Primary: Joel Snow
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
       Submitter Contact:
-        Primary: Joel Snow
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+    Description: This is a storage element associated with lutgw1.lunet.edu CE.
     Disable: false
     FQDN: lutse1.lunet.edu
     ID: 560
@@ -111,16 +149,31 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Joel Snow
-        Secondary: Horst Severini
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+        Secondary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Resource Report Contact:
-        Primary: Joel Snow
-        Secondary: Horst Severini
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+        Secondary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Security Contact:
-        Primary: Joel Snow
-        Secondary: Horst Severini
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+        Secondary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Submitter Contact:
-        Primary: Joel Snow
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+    Description: perfSonar bandwidth node for LU
     Disable: false
     FQDN: lutps.lunet.edu
     ID: 618
@@ -135,16 +188,31 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Joel Snow
-        Secondary: Horst Severini
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+        Secondary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Resource Report Contact:
-        Primary: Joel Snow
-        Secondary: Horst Severini
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+        Secondary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Security Contact:
-        Primary: Joel Snow
-        Secondary: Horst Severini
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+        Secondary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Submitter Contact:
-        Primary: Joel Snow
+        Primary:
+          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+          Name: Joel Snow
+    Description: perfSonar latency node for LU
     Disable: false
     FQDN: lutps1.lunet.edu
     ID: 619

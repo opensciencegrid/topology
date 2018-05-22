@@ -1,22 +1,38 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: https://ticket.grid.iu.edu/24249
 GroupID: 56
 Resources:
   IU_OSG:
     Active: false
     ContactLists:
       Administrative Contact:
-        Secondary: Jeff Gronek
+        Secondary:
+          ID: 9f8d7621cc9c6083ffb2d2a78f171a83c96d3f4e
+          Name: Jeff Gronek
       Miscellaneous Contact:
-        Primary: George Turner
-        Tertiary: Frederick Luehring
+        Primary:
+          ID: 24630e3640f14cce02f88e52676948706c05da84
+          Name: George Turner
+        Tertiary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
       Resource Report Contact:
-        Secondary: Jeff Gronek
-        Tertiary: George Turner
+        Secondary:
+          ID: 9f8d7621cc9c6083ffb2d2a78f171a83c96d3f4e
+          Name: Jeff Gronek
+        Tertiary:
+          ID: 24630e3640f14cce02f88e52676948706c05da84
+          Name: George Turner
       Security Contact:
-        Secondary: Jeff Gronek
+        Secondary:
+          ID: 9f8d7621cc9c6083ffb2d2a78f171a83c96d3f4e
+          Name: Jeff Gronek
       Submitter Contact:
-        Primary: George Turner
+        Primary:
+          ID: 24630e3640f14cce02f88e52676948706c05da84
+          Name: George Turner
+    Description: Gatekeeper in front of IU Quarry cluster dedicated to the CSIU VO
     Disable: true
     FQDN: m3.quarry.teragrid.iu.edu
     ID: 56

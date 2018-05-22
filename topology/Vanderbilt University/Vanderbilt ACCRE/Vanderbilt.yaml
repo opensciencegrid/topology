@@ -1,19 +1,31 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 137
 Resources:
   US-Vanderbilt BW:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Kevin Buterbaugh
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
       Miscellaneous Contact:
-        Secondary: Kevin Buterbaugh
-        Tertiary: Paul Sheldon
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Tertiary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Resource Report Contact:
-        Secondary: Kevin Buterbaugh
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
       Security Contact:
-        Secondary: Kevin Buterbaugh
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+    Description: This is the perfsonar bandwidth server at Vanderbilt University
     Disable: false
     FQDN: perfsonar-bwctl.accre.vanderbilt.edu
     ID: 597
@@ -28,14 +40,25 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Kevin Buterbaugh
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
       Miscellaneous Contact:
-        Secondary: Kevin Buterbaugh
-        Tertiary: Paul Sheldon
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Tertiary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Resource Report Contact:
-        Secondary: Kevin Buterbaugh
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
       Security Contact:
-        Secondary: Kevin Buterbaugh
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+    Description: This is the perfsonar latency server at Vanderbilt University
     Disable: false
     FQDN: perfsonar-owamp.accre.vanderbilt.edu
     ID: 598
@@ -50,20 +73,42 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Miscellaneous Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Andrew Malone Melo
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Resource Report Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
-        Tertiary: Andrew Malone Melo
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+        Tertiary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Security Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Submitter Contact:
-        Primary: Kevin Buterbaugh
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+    Description: Vanderbilt University Advanced Computing Center for Research and
+      Education
     Disable: false
     FQDN: ce1.accre.vanderbilt.edu
     ID: 137
@@ -91,19 +136,41 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Miscellaneous Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
-        Tertiary: Andrew Malone Melo
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+        Tertiary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Resource Report Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
-        Tertiary: Andrew Malone Melo
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+        Tertiary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Security Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+    Description: Vanderbilt University Advanced Computing Center for Research and
+      Education
     Disable: false
     FQDN: ce2.accre.vanderbilt.edu
     ID: 344
@@ -131,11 +198,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Andrew Malone Melo
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Security Contact:
-        Primary: Andrew Malone Melo
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Submitter Contact:
-        Primary: Andrew Malone Melo
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+    Description: Centos7-based CE
     Disable: false
     FQDN: ce3.accre.vanderbilt.edu
     ID: 850
@@ -163,15 +237,26 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Andrew Malone Melo
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Miscellaneous Contact:
-        Primary: Andrew Malone Melo
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Resource Report Contact:
-        Primary: Andrew Malone Melo
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Security Contact:
-        Primary: Andrew Malone Melo
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Submitter Contact:
-        Primary: Andrew Malone Melo
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+    Description: HTCondor-CE based compute element, to replace ce4
     Disable: false
     FQDN: ce4.accre.vanderbilt.edu
     ID: 855
@@ -200,19 +285,41 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Miscellaneous Contact:
-        Primary: Paul Sheldon
-        Secondary: Kevin Buterbaugh
-        Tertiary: Andrew Malone Melo
+        Primary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Tertiary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Resource Report Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
-        Tertiary: Andrew Malone Melo
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+        Tertiary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Security Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+    Description: This is the BeStMan gateway running on our testing / development
+      SE.
     Disable: true
     FQDN: se3.accre.vanderbilt.edu
     ID: 351
@@ -240,17 +347,34 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Andrew Malone Melo
-        Secondary: Kevin Buterbaugh
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
       Resource Report Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Andrew Malone Melo
-        Tertiary: Paul Sheldon
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Tertiary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Security Contact:
-        Primary: Andrew Malone Melo
-        Secondary: Kevin Buterbaugh
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
       Submitter Contact:
-        Primary: Andrew Malone Melo
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+    Description: Vanderbilt Gridftp
     Disable: false
     FQDN: gridftp.accre.vanderbilt.edu
     ID: 884
@@ -277,7 +401,10 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Secondary: Kevin Buterbaugh
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+    Description: PerfSONAR server for the Vanderbilt T2
     Disable: true
     FQDN: perfsonar-bwctl.accre.vanderbilt.edu
     ID: 499
@@ -292,7 +419,10 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Secondary: Kevin Buterbaugh
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+    Description: Vanderbilt PerfSONAR service (Latency)
     Disable: true
     FQDN: perfsonar-owamp.accre.vanderbilt.edu
     ID: 500
@@ -307,21 +437,44 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Miscellaneous Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
-        Tertiary: Andrew Malone Melo
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+        Tertiary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Resource Report Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
-        Tertiary: Andrew Malone Melo
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+        Tertiary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Security Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Paul Sheldon
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Submitter Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+    Description: SE attached to Vanderbilt resource group
     Disable: false
     FQDN: se1.accre.vanderbilt.edu
     ID: 241
@@ -349,21 +502,44 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Andrew Malone Melo
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Miscellaneous Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Andrew Malone Melo
-        Tertiary: Paul Sheldon
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Tertiary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Resource Report Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Andrew Malone Melo
-        Tertiary: Paul Sheldon
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Tertiary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Security Contact:
-        Primary: Kevin Buterbaugh
-        Secondary: Andrew Malone Melo
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Submitter Contact:
-        Primary: Kevin Buterbaugh
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+    Description: One of our two squid servers
     Disable: false
     FQDN: fs1.accre.vanderbilt.edu
     ID: 680
@@ -376,11 +552,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Andrew Malone Melo
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Security Contact:
-        Primary: Andrew Malone Melo
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
       Submitter Contact:
-        Primary: Andrew Malone Melo
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+    Description: Frontier squid host
     Disable: false
     FQDN: fs2.accre.vanderbilt.edu
     ID: 835

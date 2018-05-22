@@ -1,15 +1,28 @@
-import copy
+import flask
+from flask import Flask, Response, request
+import configparser
+import tempfile
+import anymarkup
+import os
+import re
+import subprocess
+import sys
 
+from webapp.common import to_xml_bytes, Filters
+from webapp.contacts_reader import get_contacts_data
+from webapp.project_reader import get_projects
+from webapp.vo_reader import get_vos_data
+from webapp.rg_reader import get_topology
+from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 
 import sys
 print(sys.path)
 
-import flask
-from flask import Flask, Response, render_template
-from converters.convertlib import to_xml, ensure_list, is_null
-from converters.project_yaml_to_xml import get_projects
-from converters.vo_yaml_to_xml import get_vos
-from converters.resourcegroup_yaml_to_xml import get_rgsummary
+class InvalidArgumentsError(Exception): pass
+
+
+default_authorized = False
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -17,12 +30,23 @@ def homepage():
 
     return """
     <h1>OSG Topology Interface</h1>
-    <a href="https://github.com/opensciencegrid/topology">Source Repo</a>
+    <a href="https://github.com/opensciencegrid/topology">Source Repo</a><br/>
+    <p>XML data:
+        <ul>
+            <li><a href="miscproject/xml?">Projects data</a></li>
+            <li><a href="miscuser/xml?">User data (authorized users only)</a></li>
+            <li><a href="rgsummary/xml?">Resource topology data</a></li>
+            <li><a href="rgdowntime/xml?">Resource downtime data</a>
+                (<a href="rgdowntime/xml?downtime_attrs_showpast=all">with past downtimes</a>)</li>
+            <li><a href="vosummary/xml?">Virtual Organization data</a></li>
+        </ul>
+    </p>
     """
 
 _projects = None
 _vos = None
 _rgsummary = None
+_topology = None
 
 @app.route('/map')
 def map():
@@ -34,93 +58,219 @@ def map():
     print(_rgsummary["ResourceSummary"]["ResourceGroup"][0]["Resources"]["Resource"].keys())
     return render_template('iframe.tmpl', sites=_rgsummary["ResourceSummary"]["ResourceGroup"])
 
+
 @app.route('/schema/<xsdfile>')
 def schema(xsdfile):
-    if xsdfile in ["vosummary.xsd", "rgsummary.xsd", "miscuser.xsd"]:
+    if xsdfile in ["vosummary.xsd", "rgsummary.xsd", "rgdowntime.xsd", "miscuser.xsd"]:
         with open("schema/" + xsdfile, "r") as xsdfh:
             return Response(xsdfh.read(), mimetype="text/xml")
     else:
         flask.abort(404)
 
 
+@app.route('/miscuser/xml')
+def miscuser_xml():
+    authorized = default_authorized
+    if 'GRST_CRED_AURI_0' in request.environ:
+        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
+        # Gridsite already made sure it matches something in the CA distribution
+        authorized = True
+    if not authorized:
+        return Response("Access denied: user cert not found or not accepted", status=403)
+    return Response(to_xml_bytes(_get_contacts_data().get_tree(authorized)), mimetype='text/xml')
+
+
 @app.route('/miscproject/xml')
-def projects():
+def miscproject_xml():
     global _projects
     if not _projects:
         _projects = get_projects()
-    projects_xml = to_xml(_projects)
+    projects_xml = to_xml_bytes(_projects)
     return Response(projects_xml, mimetype='text/xml')
 
+
 @app.route('/vosummary/xml')
-def voinfo():
-    global _vos
-    if not _vos:
-        _vos = get_vos()
-    args = flask.request.args
-    if "active" in args:
-        vos = copy.deepcopy(_vos)
-        active_value = args.get("active_value", "")
-        if active_value == "0":
-            vos["VOSummary"]["VO"] = [vo for vo in vos["VOSummary"]["VO"] if not vo["Active"]]
-        elif active_value == "1":
-            vos["VOSummary"]["VO"] = [vo for vo in vos["VOSummary"]["VO"] if vo["Active"]]
-        else:
-            return Response("Invalid arguments: active_value must be 0 or 1", status=400)
-    else:
-        vos = _vos
-    vos_xml = to_xml(vos)
+def vosummary_xml():
+    try:
+        filters = get_filters_from_args(request.args)
+    except InvalidArgumentsError as e:
+        return Response("Invalid arguments: " + str(e), status=400)
+
+    authorized = default_authorized
+    if 'GRST_CRED_AURI_0' in request.environ:
+        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
+        # Gridsite already made sure it matches something in the CA distribution
+        authorized = True
+    vos_xml = to_xml_bytes(_get_vos_data().get_tree(authorized, filters))
     return Response(vos_xml, mimetype='text/xml')
 
-@app.route('/rgsummary/xml')
-def resources():
-    global _rgsummary
-    if not _rgsummary:
-        _rgsummary = get_rgsummary()
 
-    rgsummary = copy.deepcopy(_rgsummary)
-    rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
-    args = flask.request.args
-    if "active" in args:
-        active_value = args.get("active_value", "")
-        if active_value == "0":
-            for rg in rgs:
-                rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if not r["Active"]]
-        elif active_value == "1":
-            for rg in rgs:
-                rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if r["Active"]]
-        else:
-            return Response("Invalid arguments: active_value must be 0 or 1", status=400)
-    if "disable" in args:
-        disable_value = args.get("disable_value", "")
-        if disable_value == "0":
-            for rg in rgs:
-                rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if not r["Disable"]]
-        elif disable_value == "1":
-            for rg in rgs:
-                rg["Resources"]["Resource"] = [r for r in ensure_list(rg["Resources"]["Resource"]) if r["Disable"]]
-        else:
-            return Response("Invalid arguments: disable_value must be 0 or 1", status=400)
+def get_filters_from_args(args) -> Filters:
+    filters = Filters()
+    def filter_value(filter_key):
+        filter_value_key = filter_key + "_value"
+        if filter_key in args:
+            filter_value_str = args.get(filter_value_key, "")
+            if filter_value_str == "0":
+                return False
+            elif filter_value_str == "1":
+                return True
+            else:
+                raise InvalidArgumentsError("{0} must be 0 or 1".format(filter_value_key))
+    filters.active = filter_value("active")
+    filters.disable = filter_value("disable")
+    filters.oasis = filter_value("oasis")
 
     if "gridtype" in args:
         gridtype_1, gridtype_2 = args.get("gridtype_1", ""), args.get("gridtype_2", "")
         if gridtype_1 == "on" and gridtype_2 == "on":
             pass
         elif gridtype_1 == "on":
-            rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in rgs if
-                                                             rg["GridType"] == "OSG Production Resource"]
+            filters.grid_type = GRIDTYPE_1
         elif gridtype_2 == "on":
-            rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in rgs if
-                                                             rg["GridType"] == "OSG Integration Test Bed Resource"]
+            filters.grid_type = GRIDTYPE_2
         else:
-            # invalid arguments: no RGs for you!
-            return Response("Invalid arguments: gridtype_1 or gridtype_2 or both must be \"on\"", status=400)
+            raise InvalidArgumentsError("gridtype_1 or gridtype_2 or both must be \"on\"")
+    if "service_hidden_value" in args:  # note no "service_hidden" args
+        if args["service_hidden_value"] == "0":
+            filters.service_hidden = False
+        elif args["service_hidden_value"] == "1":
+            filters.service_hidden = True
+        else:
+            raise InvalidArgumentsError("service_hidden_value must be 0 or 1")
+    if "downtime_attrs_showpast" in args:
+        # doesn't make sense for rgsummary but will be ignored anyway
+        try:
+            v = args["downtime_attrs_showpast"]
+            if v == "all":
+                filters.past_days = -1
+            elif not v:
+                filters.past_days = 0
+            else:
+                filters.past_days = int(args["downtime_attrs_showpast"])
+        except ValueError:
+            raise InvalidArgumentsError("downtime_attrs_showpast must be an integer, \"\", or \"all\"")
+    if "has_wlcg" in args:
+        filters.has_wlcg = True
 
-    # Drop RGs with no resources
-    new_rgs = rgsummary["ResourceSummary"]["ResourceGroup"]
-    rgsummary["ResourceSummary"]["ResourceGroup"] = [rg for rg in new_rgs if not is_null(rg, "Resources", "Resource")]
-    rgsummary_xml = to_xml(rgsummary)
-    return Response(rgsummary_xml, mimetype='text/xml')
+    # 2 ways to filter by a key like "facility", "service", "sc", "site", etc.:
+    # - either pass KEY_1=on, KEY_2=on, etc.
+    # - pass KEY_sel[]=1, KEY_sel[]=2, etc. (multiple KEY_sel[] args).
+    for filter_key, filter_list, description in [
+        ("facility", filters.facility_id, "facility ID"),
+        ("rg", filters.rg_id, "resource group ID"),
+        ("service", filters.service_id, "service ID"),
+        ("sc", filters.support_center_id, "support center ID"),
+        ("site", filters.site_id, "site ID"),
+        ("vo", filters.vo_id, "VO ID"),
+        ("voown", filters.voown_id, "VO owner ID"),
+    ]:
+        if filter_key in args:
+            pat = re.compile(r"{0}_(\d+)".format(filter_key))
+            arg_sel = "{0}_sel[]".format(filter_key)
+            for k, v in args.items():
+                if k == arg_sel:
+                    try:
+                        filter_list.append(int(v))
+                    except ValueError:
+                        raise InvalidArgumentsError("{0}={1}: must be int".format(k,v))
+                elif pat.match(k):
+                    m = pat.match(k)
+                    filter_list.append(int(m.group(1)))
+            if not filter_list:
+                raise InvalidArgumentsError("at least one {0} must be specified".format(description))
+
+    if filters.voown_id:
+        filters.populate_voown_name(_get_vos_data().get_vo_id_to_name())
+
+    return filters
+
+
+@app.route('/rgsummary/xml')
+def rgsummary_xml():
+    try:
+        filters = get_filters_from_args(request.args)
+    except InvalidArgumentsError as e:
+        return Response("Invalid arguments: " + str(e), status=400)
+
+    authorized = default_authorized
+    if 'GRST_CRED_AURI_0' in request.environ:
+        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
+        # Gridsite already made sure it matches something in the CA distribution
+        authorized = True
+
+    rgsummary = _get_topology().get_resource_summary(authorized=authorized, filters=filters)
+    return Response(to_xml_bytes(rgsummary), mimetype='text/xml')
+
+
+@app.route('/rgdowntime/xml')
+def rgdowntime_xml():
+    try:
+        filters = get_filters_from_args(request.args)
+    except InvalidArgumentsError as e:
+        return Response("Invalid arguments: " + str(e), status=400)
+
+    authorized = default_authorized
+    if 'GRST_CRED_AURI_0' in request.environ:
+        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
+        # Gridsite already made sure it matches something in the CA distribution
+        authorized = True
+
+    rgdowntime = _get_topology().get_downtimes(authorized=authorized, filters=filters)
+    return Response(to_xml_bytes(rgdowntime), mimetype='text/xml')
+
+
+def _get_contacts_data():
+    """
+    Get the contact information.  For now this is from a private github repo, but in the future
+    it could be much more complicated to get the contact details
+    """
+    
+    global _contacts_data
+    # TODO: periodically update contacts info
+    if not _contacts_data:
+        # use local copy if it exists
+        if os.path.exists("contacts.yaml"):
+            _contacts_data = get_contacts_data("contacts.yaml")
+        else:
+            # Get the contacts from bitbucket
+            # Read in the config file with the SSH key location
+            config = configparser.ConfigParser()
+            config.read(["/etc/opt/topology/config.ini", "config.ini"])
+            ssh_key = config['git']['ssh_key']
+            # Create a temporary directory to store the contact information
+            with tempfile.TemporaryDirectory() as tmp_dir:
+                # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
+                cmd = "ssh-agent bash -c 'ssh-add {0}; git clone git@bitbucket.org:opensciencegrid/contact.git {1}'".format(ssh_key, tmp_dir)
+
+                # I know this should be Popen or similar.  But.. I am unable to make that work.
+                # I suspect it has something to do with the subshell that is being executed
+                git_result = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding="utf-8")
+                if git_result.returncode != 0:
+                    # Git command exited with nonzero!
+                    print("Git failed:\n" + git_result.stdout, file=sys.stderr)
+                _contacts_data = get_contacts_data(os.path.join(tmp_dir, 'contacts.yaml'))
+
+    return _contacts_data
+
+
+def _get_topology():
+    global _topology
+    if not _topology:
+        _topology = get_topology("topology", _get_contacts_data())
+    return _topology
+
+
+def _get_vos_data():
+    global _vos_data
+    if not _vos_data:
+        _vos_data = get_vos_data("virtual-organizations", _get_contacts_data())
+    return _vos_data
+
 
 if __name__ == '__main__':
+    try:
+        if sys.argv[1] == "--auth":
+            default_authorized = True
+    except IndexError: pass
     app.run(debug=True, use_reloader=True)
-

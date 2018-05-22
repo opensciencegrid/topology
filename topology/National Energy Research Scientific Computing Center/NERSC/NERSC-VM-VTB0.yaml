@@ -1,23 +1,43 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: (No resource group description)
 GroupID: 77
 Resources:
   NERSC-VM-VTB0:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Shreyas Cholia
-        Secondary: Jeff Porter
+        Primary:
+          ID: 738dae0c6c2d0bc7a93f694348e9c15b71d95f93
+          Name: Shreyas Cholia
+        Secondary:
+          ID: c3d417180e9c3738a32032eda0b9cf1252288870
+          Name: Jeff Porter
       Miscellaneous Contact:
-        Primary: Lisa Gerhardt
+        Primary:
+          ID: 9231bdd673f982e47b3be0005910b187f64842b6
+          Name: Lisa Gerhardt
       Resource Report Contact:
-        Primary: Jeff Porter
-        Secondary: Shreyas Cholia
+        Primary:
+          ID: c3d417180e9c3738a32032eda0b9cf1252288870
+          Name: Jeff Porter
+        Secondary:
+          ID: 738dae0c6c2d0bc7a93f694348e9c15b71d95f93
+          Name: Shreyas Cholia
       Security Contact:
-        Primary: Jeff Porter
-        Secondary: Shreyas Cholia
+        Primary:
+          ID: c3d417180e9c3738a32032eda0b9cf1252288870
+          Name: Jeff Porter
+        Secondary:
+          ID: 738dae0c6c2d0bc7a93f694348e9c15b71d95f93
+          Name: Shreyas Cholia
       Submitter Contact:
-        Primary: Iwona Sakrejda
+        Primary:
+          ID: d7dd32d900c2fbbd7559da13371e83d012e7e1f3
+          Name: Iwona Sakrejda
+    Description: |-
+      It is a testbed system on a virtual resource. Testing deployments of a gatekeepers.
+      Accessible only from NERSC systems. Often re-installed.
     Disable: false
     FQDN: osp-vtb00.nersc.gov
     ID: 77

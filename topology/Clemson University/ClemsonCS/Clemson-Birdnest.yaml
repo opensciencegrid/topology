@@ -1,22 +1,39 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: Cluster which provides virtualized resources to OSG.
 GroupID: 200
 Resources:
   Clemson-Birdnest:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Michael Fenn
+        Primary:
+          ID: dc7141ea660e18694922e99221768b1228f1e290
+          Name: Michael Fenn
       Miscellaneous Contact:
-        Primary: Sebastien Goasguen
-        Secondary: Michael Fenn
-        Tertiary: Dru Sepulveda
+        Primary:
+          ID: 5d2e64d35ac11e3252c387eb3cbdcd1b691ec4ca
+          Name: Sebastien Goasguen
+        Secondary:
+          ID: dc7141ea660e18694922e99221768b1228f1e290
+          Name: Michael Fenn
+        Tertiary:
+          ID: 3708184eb8f5c9698319f9d35b8f78d7880dc7db
+          Name: Dru Sepulveda
       Resource Report Contact:
-        Primary: Michael Fenn
+        Primary:
+          ID: dc7141ea660e18694922e99221768b1228f1e290
+          Name: Michael Fenn
       Security Contact:
-        Primary: Michael Fenn
+        Primary:
+          ID: dc7141ea660e18694922e99221768b1228f1e290
+          Name: Michael Fenn
       Submitter Contact:
-        Primary: Dru Sepulveda
+        Primary:
+          ID: 3708184eb8f5c9698319f9d35b8f78d7880dc7db
+          Name: Dru Sepulveda
+    Description: Birdnest is a virtual machine which acts as a CE for both a real
+      and virtual cluster.
     Disable: true
     FQDN: birdnest.cs.clemson.edu
     ID: 200

@@ -1,9 +1,11 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: NOvA production site
 GroupID: 387
 Resources:
   FZU_NOVA:
     Active: false
+    Description: This is CE for NOvA production at FZU
     Disable: true
     FQDN: novastore.farm.particle.cz
     ID: 600
@@ -23,6 +25,7 @@ Resources:
       Nova: 60
   FZU_NOVA_CE:
     Active: true
+    Description: This is CE for NOvA production at FZU (new local HTCondor batch)
     Disable: false
     FQDN: novace.farm.particle.cz
     ID: 780
@@ -46,6 +49,8 @@ Resources:
       Nova: 60
   FZU_OSG_CE1:
     Active: true
+    Description: This is CE for OSG (NOvA, DUNE) production at FZU (new cluster with
+      HTCondor local batch system)
     Disable: false
     FQDN: osgce1.farm.particle.cz
     ID: 900
@@ -61,6 +66,8 @@ Resources:
       Nova: 45
   FZU_OSG_CE2:
     Active: true
+    Description: This is CE for OSG (NOvA, DUNE) production at FZU (new cluster with
+      HTCondor local batch system)
     Disable: false
     FQDN: osgce2.farm.particle.cz
     ID: 932
@@ -76,6 +83,7 @@ Resources:
       Nova: 45
   perfSONAR_FZU_bandwidth:
     Active: true
+    Description: This is the perfSONAR-PS bandwidth instance at the FZU cluster farm.particle.cz
     Disable: false
     FQDN: ps02-b.farm.particle.cz
     ID: 824
@@ -88,6 +96,7 @@ Resources:
       ATLAS: 50
   perfSONAR_FZU_latency:
     Active: true
+    Description: This is the perfSONAR-PS latency instance at the FZU cluster farm.particle.cz
     Disable: false
     FQDN: ps01-l.farm.particle.cz
     ID: 823

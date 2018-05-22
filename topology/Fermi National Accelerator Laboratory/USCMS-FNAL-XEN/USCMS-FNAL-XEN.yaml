@@ -1,24 +1,44 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Single virtual xen node for Tier 3 support
 GroupID: 232
 Resources:
   USCMS-FNAL-XEN:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Rob Snihur
-        Secondary: Burt Holzman
+        Primary:
+          ID: 02817f2abfcfd7d5e527097f4df942d8dd35a1aa
+          Name: Rob Snihur
+        Secondary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
       Miscellaneous Contact:
-        Primary: Rob Snihur
-        Secondary: Burt Holzman
+        Primary:
+          ID: 02817f2abfcfd7d5e527097f4df942d8dd35a1aa
+          Name: Rob Snihur
+        Secondary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
       Resource Report Contact:
-        Primary: Rob Snihur
-        Secondary: Burt Holzman
+        Primary:
+          ID: 02817f2abfcfd7d5e527097f4df942d8dd35a1aa
+          Name: Rob Snihur
+        Secondary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
       Security Contact:
-        Primary: Rob Snihur
-        Secondary: Burt Holzman
+        Primary:
+          ID: 02817f2abfcfd7d5e527097f4df942d8dd35a1aa
+          Name: Rob Snihur
+        Secondary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
       Submitter Contact:
-        Primary: Rob Snihur
+        Primary:
+          ID: 02817f2abfcfd7d5e527097f4df942d8dd35a1aa
+          Name: Rob Snihur
+    Description: This is a single virtual xen node.
     Disable: true
     FQDN: cms-xen19.fnal.gov
     ID: 237

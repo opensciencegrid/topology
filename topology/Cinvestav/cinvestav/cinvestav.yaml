@@ -1,18 +1,28 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: CE for CINVESTAV OSG resources
 GroupID: 9
 Resources:
   cinvestav:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Alberto Sanchez-Hernandez
+        Primary:
+          ID: a713ce32599e684ba84aa67990cd2ead99c891ae
+          Name: Alberto Sanchez-Hernandez
       Resource Report Contact:
-        Primary: Alberto Sanchez-Hernandez
+        Primary:
+          ID: a713ce32599e684ba84aa67990cd2ead99c891ae
+          Name: Alberto Sanchez-Hernandez
       Security Contact:
-        Primary: Alberto Sanchez-Hernandez
+        Primary:
+          ID: a713ce32599e684ba84aa67990cd2ead99c891ae
+          Name: Alberto Sanchez-Hernandez
       Submitter Contact:
-        Primary: Alberto Sanchez-Hernandez
+        Primary:
+          ID: a713ce32599e684ba84aa67990cd2ead99c891ae
+          Name: Alberto Sanchez-Hernandez
+    Description: CE at CINVESTAV Mexico City, accesible via grid
     Disable: false
     FQDN: proton.fis.cinvestav.mx
     ID: 9
@@ -37,15 +47,26 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Alberto Sanchez-Hernandez
+        Primary:
+          ID: a713ce32599e684ba84aa67990cd2ead99c891ae
+          Name: Alberto Sanchez-Hernandez
       Miscellaneous Contact:
-        Primary: Alberto Sanchez-Hernandez
+        Primary:
+          ID: a713ce32599e684ba84aa67990cd2ead99c891ae
+          Name: Alberto Sanchez-Hernandez
       Resource Report Contact:
-        Primary: Alberto Sanchez-Hernandez
+        Primary:
+          ID: a713ce32599e684ba84aa67990cd2ead99c891ae
+          Name: Alberto Sanchez-Hernandez
       Security Contact:
-        Primary: Alberto Sanchez-Hernandez
+        Primary:
+          ID: a713ce32599e684ba84aa67990cd2ead99c891ae
+          Name: Alberto Sanchez-Hernandez
       Submitter Contact:
-        Primary: Alberto Sanchez-Hernandez
+        Primary:
+          ID: a713ce32599e684ba84aa67990cd2ead99c891ae
+          Name: Alberto Sanchez-Hernandez
+    Description: gridftp SE for CINVESTAV
     Disable: false
     FQDN: meson.fis.cinvestav.mx
     ID: 281

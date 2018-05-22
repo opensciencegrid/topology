@@ -1,17 +1,27 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Group of BDIIs run by the GOC to serve both OSG and WLCG users.
 GroupID: 247
 Resources:
   GOC_BDII_1:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Scott Teige
-        Secondary: Soichi Hayashi
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+        Secondary:
+          ID: 410b3bfb4ed7d81f0e9ea2f853c0214f104168e1
+          Name: Soichi Hayashi
       Miscellaneous Contact:
-        Primary: Tom Lee
+        Primary:
+          ID: 49ec14150fca7cebb3d0883d790fc9980fc80dfa
+          Name: Tom Lee
       Security Contact:
-        Primary: OSG Operations Center
+        Primary:
+          ID: a86faef88b867839882fcc12d719171113acafd6
+          Name: OSG Operations Center
+    Description: One of the production BDII servers run by the OSG GOC
     Disable: true
     FQDN: is1.grid.iu.edu
     FQDNAliases:
@@ -28,12 +38,21 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Scott Teige
-        Secondary: Soichi Hayashi
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+        Secondary:
+          ID: 410b3bfb4ed7d81f0e9ea2f853c0214f104168e1
+          Name: Soichi Hayashi
       Miscellaneous Contact:
-        Primary: Tom Lee
+        Primary:
+          ID: 49ec14150fca7cebb3d0883d790fc9980fc80dfa
+          Name: Tom Lee
       Security Contact:
-        Primary: OSG Operations Center
+        Primary:
+          ID: a86faef88b867839882fcc12d719171113acafd6
+          Name: OSG Operations Center
+    Description: One of the BDII servers run by the OSG GOC
     Disable: true
     FQDN: is2.grid.iu.edu
     FQDNAliases:

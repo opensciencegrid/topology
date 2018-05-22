@@ -1,23 +1,43 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: The Purdue Carter Cluster --http://www.rcac.purdue.edu/userinfo/resources/carter/
 GroupID: 354
 Resources:
   Purdue-Carter:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Erik Gough
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Miscellaneous Contact:
-        Primary: Majid Arabgol
-        Secondary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Resource Report Contact:
-        Primary: Majid Arabgol
-        Secondary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Security Contact:
-        Primary: Majid Arabgol
-        Secondary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Submitter Contact:
-        Primary: Fengping Hu
+        Primary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
+    Description: |-
+      The Purdue Carter cluster --
+      http://www.rcac.purdue.edu/userinfo/resources/carter/
     Disable: true
     FQDN: carter-osg.rcac.purdue.edu
     ID: 484

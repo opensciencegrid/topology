@@ -1,16 +1,27 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: ITB Resource Group provided by Grid Operations Center. The purpose
+  of this resource group is to host ITB instances of CE, SE, and other OSG resources
+  in order to test new OSG components / train our GOC staff with the latest OSG (&
+  Grid in general) technologies.
 GroupID: 299
 Resources:
   GOC_ITB_CE:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Soichi Hayashi
+        Primary:
+          ID: 410b3bfb4ed7d81f0e9ea2f853c0214f104168e1
+          Name: Soichi Hayashi
       Security Contact:
-        Primary: Soichi Hayashi
+        Primary:
+          ID: 410b3bfb4ed7d81f0e9ea2f853c0214f104168e1
+          Name: Soichi Hayashi
       Submitter Contact:
-        Primary: Soichi Hayashi
+        Primary:
+          ID: 410b3bfb4ed7d81f0e9ea2f853c0214f104168e1
+          Name: Soichi Hayashi
+    Description: GOC's ITB CE used for test / training purpose.
     Disable: true
     FQDN: ce.grid.iu.edu
     ID: 383

@@ -1,16 +1,24 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: PerfSONAR Services of SAMPA Group
 GroupID: 414
 Resources:
   SAMPA PerfSONAR Bandwidth:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Douglas Vieira
+        Primary:
+          ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
+          Name: Douglas Vieira
       Security Contact:
-        Primary: Douglas Vieira
+        Primary:
+          ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
+          Name: Douglas Vieira
       Submitter Contact:
-        Primary: Douglas Vieira
+        Primary:
+          ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
+          Name: Douglas Vieira
+    Description: This is perfSONAR Bandwidth of SAMPA Group
     Disable: true
     FQDN: sampaps02.if.usp.br
     ID: 702
@@ -25,11 +33,18 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Douglas Vieira
+        Primary:
+          ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
+          Name: Douglas Vieira
       Security Contact:
-        Primary: Douglas Vieira
+        Primary:
+          ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
+          Name: Douglas Vieira
       Submitter Contact:
-        Primary: Douglas Vieira
+        Primary:
+          ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
+          Name: Douglas Vieira
+    Description: This is perfSONAR Bandwidth of SAMPA Group
     Disable: true
     FQDN: sampaps01.if.usp.br
     ID: 706
@@ -44,11 +59,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Douglas Vieira
+        Primary:
+          ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
+          Name: Douglas Vieira
       Security Contact:
-        Primary: Douglas Vieira
+        Primary:
+          ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
+          Name: Douglas Vieira
       Submitter Contact:
-        Primary: Douglas Vieira
+        Primary:
+          ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
+          Name: Douglas Vieira
+    Description: This is the perfSONAR-PS Bandwidth instance at SAMPA
     Disable: false
     FQDN: sampaps02.if.usp.br
     ID: 799
@@ -63,11 +85,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Douglas Vieira
+        Primary:
+          ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
+          Name: Douglas Vieira
       Security Contact:
-        Primary: Douglas Vieira
+        Primary:
+          ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
+          Name: Douglas Vieira
       Submitter Contact:
-        Primary: Douglas Vieira
+        Primary:
+          ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
+          Name: Douglas Vieira
+    Description: This is the perfSONAR-PS Latency instance at SAMPA
     Disable: false
     FQDN: sampaps01.if.usp.br
     ID: 798

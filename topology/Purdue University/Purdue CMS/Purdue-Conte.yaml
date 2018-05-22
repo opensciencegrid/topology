@@ -1,20 +1,36 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: The Purdue Conte cluster -- http://www.rcac.purdue.edu/userinfo/resources/conte/
 GroupID: 389
 Resources:
   Purdue-Conte:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Erik Gough
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Resource Report Contact:
-        Primary: Majid Arabgol
-        Secondary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Security Contact:
-        Primary: Majid Arabgol
-        Secondary: Erik Gough
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Submitter Contact:
-        Primary: Manoj Kumar Jha
+        Primary:
+          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
+          Name: Manoj Kumar Jha
+    Description: |-
+      Computing element for Purdue Conte cluster.
+      http://www.rcac.purdue.edu/userinfo/resources/conte/
     Disable: false
     FQDN: conte-osg.rcac.purdue.edu
     ID: 603

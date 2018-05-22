@@ -1,21 +1,37 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: perfSONAR testbed
 GroupID: 417
 Resources:
   LBL_nettest:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Shawn McKee
-        Secondary: Brian Tierney
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+        Secondary:
+          ID: cda4e68f952557d23d63ff6994d4f43991df2ff0
+          Name: Brian Tierney
       Resource Report Contact:
-        Primary: Shawn McKee
-        Secondary: Brian Tierney
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+        Secondary:
+          ID: cda4e68f952557d23d63ff6994d4f43991df2ff0
+          Name: Brian Tierney
       Security Contact:
-        Primary: Shawn McKee
-        Secondary: Brian Tierney
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+        Secondary:
+          ID: cda4e68f952557d23d63ff6994d4f43991df2ff0
+          Name: Brian Tierney
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: LBL/ESnet perfsonar testbed instance
     Disable: false
     FQDN: nettest.lbl.gov
     ID: 708

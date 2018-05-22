@@ -1,0 +1,93 @@
+# Name is the short name of the VO
+Name: ATLAS
+# LongName is the full name of the VO
+LongName: United States ATLAS Collaboration
+# AppDescription is a brief description of the VO
+AppDescription: ATLAS Production and Analysis
+# Community is the description of the community the VO belongs to
+Community: The ATLAS physics community.
+
+Active: true
+Disable: false
+CertificateOnly: false
+
+Contacts:
+  # Administrative Contact is a list of people to contact regarding administrative issues
+  Administrative Contact:
+  - <NAME>
+  - ...
+
+  # Security Contact is a list of people to contact regarding security issues
+  Security Contact:
+  - <NAME>
+  - ...
+
+  ### Registration Authority (optional) is a list of people to contact regarding registration issues
+  # Registration Authority:
+  # - <NAME>
+  # - ...
+
+  ### Submitter Contact (optional) is the person who submitted this VO
+  # Submitter Contact:
+  # - <NAME>
+
+  ### Miscellaneous Contact (optional) is a list of people to contact regarding miscellaneous issues
+  # Miscellaneous Contact:
+  # - <NAME>
+  # - ...
+
+  ### VO Manager (optional) is the list of people who manage this VO
+  # VO Manager:
+  # - <NAME>
+  # - ...
+
+  ### Sponsors (optional) is the list of sponsors of this VO
+  # Sponsors:
+  # - <NAME>
+  # - ...
+
+FieldsOfScience:
+
+  # PrimaryFields are the fields of science this VO mostly deals with
+  PrimaryFields:
+  - <FIELD>
+
+  ### SecondaryFields (optional) are fields of science this VO occasionally deals with
+  # SecondaryFields:
+  # - <FIELD>
+  # - ...
+
+### MembershipServicesURL (optional) is the URL to use for membership issues, e.g. a VOMS-Admin server
+# MembershipServicesURL: <URL>
+
+# PrimaryURL is for general information about the VO
+PrimaryURL: <URL>
+# PurposeURL explains the VO's purpose
+PurposeURL: http://www.usatlas.bnl.gov/index.shtml
+# SupportURL is for support issues
+SupportURL: http://www.usatlas.bnl.gov/index.shtml
+
+### ReportingGroups (optional) is a list of groups this VO reports to
+# ReportingGroups:
+# - <GROUP>
+# - ...
+
+### OASIS (optional) is information about OASIS usage by the VO
+# OASIS:
+##### UseOASIS is true if this VO uses space on OASIS
+#   UseOASIS: true
+#
+####### Managers (optional) are one or more people with manager access to this VO's OASIS space
+#   # Managers:
+#   #   <MANAGER NAME>:
+#   #     # DNs are one or more DNs for this manager's cert(s)
+#   #     DNs:
+#   #     - <DN>
+#   #     - ...
+#   #   ...
+#
+####### OASISRepoURLs (optional) are one or more URLs for OASIS content owned by this VO
+#   # OASISRepoURLs:
+#   # - <URL>
+#   # - ...
+

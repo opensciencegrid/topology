@@ -1,16 +1,26 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: CE at UMSNH Morelia Michoacan
 GroupID: 372
 Resources:
   umsnh_ce_se:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: HEBER ORLANDO ARTEAGA CHAVEZ
+        Primary:
+          ID: 215923d419adb3079146dab3eac25380457beefe
+          Name: HEBER ORLANDO ARTEAGA CHAVEZ
       Security Contact:
-        Primary: HEBER ORLANDO ARTEAGA CHAVEZ
+        Primary:
+          ID: 215923d419adb3079146dab3eac25380457beefe
+          Name: HEBER ORLANDO ARTEAGA CHAVEZ
       Submitter Contact:
-        Primary: HEBER ORLANDO ARTEAGA CHAVEZ
+        Primary:
+          ID: 215923d419adb3079146dab3eac25380457beefe
+          Name: HEBER ORLANDO ARTEAGA CHAVEZ
+    Description: Project developed in order to continue CMS research.The projecto
+      will be 5 machine cluster with 8 CPU cores per machine. 2 of the cores are reserved
+      for running the CE.
     Disable: false
     FQDN: higgs.cms.umich.mx
     ID: 557

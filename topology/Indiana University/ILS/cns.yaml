@@ -1,9 +1,11 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Cyberinfrastructure for Network Science Center
 GroupID: 380
 Resources:
   cns1:
     Active: true
+    Description: Cyberinfrastructure for Network Science Center server
     Disable: false
     FQDN: cns1.cns.iu.edu
     ID: 561
@@ -16,6 +18,7 @@ Resources:
       CSIU: 100
   cns2:
     Active: true
+    Description: Cyberinfrastructure for Network Science Center server
     Disable: false
     FQDN: cns2.cns.iu.edu
     ID: 562

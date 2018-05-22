@@ -1,19 +1,34 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: The OSG Gratia services as provided by FermiGrid at FNAL.
 GroupID: 255
 Resources:
   GRATIA-OSG-DAILY:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Miscellaneous Contact:
-        Primary: Gratia Accounting Service
-        Tertiary: Steve Timm
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
+        Tertiary:
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+          Name: Steve Timm
       Resource Report Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Submitter Contact:
-        Primary: Chris Green
+        Primary:
+          ID: a84160713fdad792b3467db2ffc853c6a9b1fc44
+          Name: Chris Green
+    Description: |-
+      The Gratia collector for aggregated accounting data regarding OSG sites.
+
+      If you don't *know* you should be reporting to this collector: you shouldn't be reporting to this collector.
     Disable: true
     FQDN: gratia-osg-daily.opensciencegrid.org
     ID: 295
@@ -26,14 +41,28 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Miscellaneous Contact:
-        Primary: Gratia Accounting Service
-        Tertiary: Joe Boyd
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
+        Tertiary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Resource Report Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Submitter Contact:
-        Primary: Chris Green
+        Primary:
+          ID: a84160713fdad792b3467db2ffc853c6a9b1fc44
+          Name: Chris Green
+    Description: |-
+      The Gratia collector for all accounting information from all OSG-ITB sites.
+
+      Note that this is a *production* accounting service for the ITB, not an ITB service.
     Disable: false
     FQDN: gratia-osg-itb.opensciencegrid.org
     ID: 293
@@ -46,14 +75,30 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Miscellaneous Contact:
-        Primary: Gratia Accounting Service
-        Tertiary: Steve Timm
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
+        Tertiary:
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+          Name: Steve Timm
       Resource Report Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Submitter Contact:
-        Primary: Chris Green
+        Primary:
+          ID: a84160713fdad792b3467db2ffc853c6a9b1fc44
+          Name: Chris Green
+    Description: |-
+      The Gratia collector for all accounting information from "permanent" OSG-ITB sites.
+
+      Note that this is a *production* accounting service for the ITB, not an ITB service.
+
+      Do *not* report to this service -- records are replicated from the global OSG-ITB collector
     Disable: true
     FQDN: gratia-osg-integration.opensciencegrid.org
     ID: 294
@@ -66,15 +111,29 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Gratia Accounting Service
-        Secondary: Nicholas Peregonow
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
+        Secondary:
+          ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+          Name: Nicholas Peregonow
       Miscellaneous Contact:
-        Primary: Gratia Accounting Service
-        Tertiary: Steve Timm
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
+        Tertiary:
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+          Name: Steve Timm
       Resource Report Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Submitter Contact:
-        Primary: Chris Green
+        Primary:
+          ID: a84160713fdad792b3467db2ffc853c6a9b1fc44
+          Name: Chris Green
+    Description: The Gratia collector for job accounting information from all production
+      OSG sites.
     Disable: false
     FQDN: gratia-osg-prod.opensciencegrid.org
     ID: 291
@@ -87,14 +146,26 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Miscellaneous Contact:
-        Primary: Gratia Accounting Service
-        Tertiary: Steve Timm
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
+        Tertiary:
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+          Name: Steve Timm
       Resource Report Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Submitter Contact:
-        Primary: Chris Green
+        Primary:
+          ID: a84160713fdad792b3467db2ffc853c6a9b1fc44
+          Name: Chris Green
+    Description: The Gratia collector for storage and transfer accounting information
+      from all production OSG sites.
     Disable: false
     FQDN: gratia-osg-transfer.opensciencegrid.org
     ID: 292
@@ -107,14 +178,26 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Miscellaneous Contact:
-        Primary: Gratia Accounting Service
-        Tertiary: Nicholas Peregonow
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
+        Tertiary:
+          ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+          Name: Nicholas Peregonow
       Resource Report Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Submitter Contact:
-        Primary: Nicholas Peregonow
+        Primary:
+          ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+          Name: Nicholas Peregonow
+    Description: The Gratia collector for job accounting information from all production
+      OSG sites.
     Disable: false
     FQDN: gratia-main-osg.fnal.gov
     ID: 758
@@ -127,14 +210,27 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Miscellaneous Contact:
-        Primary: Gratia Accounting Service
-        Tertiary: Nicholas Peregonow
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
+        Tertiary:
+          ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+          Name: Nicholas Peregonow
       Resource Report Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Submitter Contact:
-        Primary: Nicholas Peregonow
+        Primary:
+          ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+          Name: Nicholas Peregonow
+    Description: The Gratia collector for all accounting information from all OSG-ITB
+      sites. Note that this is a *production* accounting service for the ITB, not
+      an ITB service.
     Disable: false
     FQDN: gratia-itb-osg.fnal.gov
     ID: 759
@@ -147,14 +243,26 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Miscellaneous Contact:
-        Primary: Gratia Accounting Service
-        Tertiary: Nicholas Peregonow
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
+        Tertiary:
+          ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+          Name: Nicholas Peregonow
       Resource Report Contact:
-        Primary: Gratia Accounting Service
+        Primary:
+          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
+          Name: Gratia Accounting Service
       Submitter Contact:
-        Primary: Nicholas Peregonow
+        Primary:
+          ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+          Name: Nicholas Peregonow
+    Description: The Gratia collector for storage and transfer accounting information
+      from all production OSG sites.
     Disable: false
     FQDN: gratia-transfer-osg.fnal.gov
     ID: 760

@@ -148,8 +148,12 @@
                                             <xsd:element maxOccurs="unbounded" name="Contact">
                                               <xsd:complexType>
                                                 <xsd:sequence>
-                                                  <xsd:element name="Name" type="xsd:string" />
-                                                  <xsd:element name="ContactRank" type="xsd:string" />
+                                                  <xsd:element minOccurs="0" name="Name" type="xsd:string" />
+                                                  <xsd:element minOccurs="0" name="Email" type="xsd:string" />
+                                                  <xsd:element minOccurs="0" name="Phone" type="xsd:string" />
+                                                  <xsd:element minOccurs="0" name="SMSAddress" type="xsd:string" />
+                                                  <xsd:element minOccurs="0" name="DN" type="xsd:string" />
+                                                  <xsd:element minOccurs="0" name="ContactRank" type="xsd:string" />
                                                 </xsd:sequence>
                                               </xsd:complexType>
                                             </xsd:element>

@@ -1,20 +1,35 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: ATLAS Tier 3 Computing Center at Louisiana Tech University
 GroupID: 64
 Resources:
   LTU_OSG:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Dick Greenwood
-        Secondary: Michael Bryant
+        Primary:
+          ID: 7c80ef26c4e6c6aea18716c2bcbd98c5e3667625
+          Name: Dick Greenwood
+        Secondary:
+          ID: 9e038944c93d17b8c41f350211f566fd25eedd97
+          Name: Michael Bryant
       Resource Report Contact:
-        Primary: Dick Greenwood
+        Primary:
+          ID: 7c80ef26c4e6c6aea18716c2bcbd98c5e3667625
+          Name: Dick Greenwood
       Security Contact:
-        Primary: Dick Greenwood
-        Secondary: Michael Bryant
+        Primary:
+          ID: 7c80ef26c4e6c6aea18716c2bcbd98c5e3667625
+          Name: Dick Greenwood
+        Secondary:
+          ID: 9e038944c93d17b8c41f350211f566fd25eedd97
+          Name: Michael Bryant
       Submitter Contact:
-        Primary: Dick Greenwood
+        Primary:
+          ID: 7c80ef26c4e6c6aea18716c2bcbd98c5e3667625
+          Name: Dick Greenwood
+    Description: The local OSG compute element located at Louisiana Tech University
+      primarily for DZero MC production.
     Disable: true
     FQDN: caps10.phys.LaTech.edu
     ID: 64
@@ -30,15 +45,26 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Dick Greenwood
+        Primary:
+          ID: 7c80ef26c4e6c6aea18716c2bcbd98c5e3667625
+          Name: Dick Greenwood
       Miscellaneous Contact:
-        Primary: Dick Greenwood
+        Primary:
+          ID: 7c80ef26c4e6c6aea18716c2bcbd98c5e3667625
+          Name: Dick Greenwood
       Resource Report Contact:
-        Primary: Dick Greenwood
+        Primary:
+          ID: 7c80ef26c4e6c6aea18716c2bcbd98c5e3667625
+          Name: Dick Greenwood
       Security Contact:
-        Primary: Dick Greenwood
+        Primary:
+          ID: 7c80ef26c4e6c6aea18716c2bcbd98c5e3667625
+          Name: Dick Greenwood
       Submitter Contact:
-        Primary: Michael Bryant
+        Primary:
+          ID: 9e038944c93d17b8c41f350211f566fd25eedd97
+          Name: Michael Bryant
+    Description: Tier 3 CE for the Cerberus HPC cluster
     Disable: false
     FQDN: grid1.hpc.latech.edu
     ID: 492

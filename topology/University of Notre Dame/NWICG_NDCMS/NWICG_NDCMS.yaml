@@ -1,18 +1,30 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: NWICG_NDCMS
 GroupID: 78
 Resources:
   NWICG_NDCCL:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: In-Saeng Suh
+        Primary:
+          ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
+          Name: In-Saeng Suh
       Resource Report Contact:
-        Primary: In-Saeng Suh
+        Primary:
+          ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
+          Name: In-Saeng Suh
       Security Contact:
-        Primary: In-Saeng Suh
+        Primary:
+          ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
+          Name: In-Saeng Suh
       Submitter Contact:
-        Primary: In-Saeng Suh
+        Primary:
+          ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
+          Name: In-Saeng Suh
+    Description: |-
+      The FQDN was changed from "condor.hpcc.nd.edu" to
+      "condor.crc.nd.edu"
     Disable: true
     FQDN: condor.crc.nd.edu
     ID: 78
@@ -38,15 +50,26 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Serguei Fedorov
+        Primary:
+          ID: f3e4dd036f64201f6102520de9dc80a250aa7cc2
+          Name: Serguei Fedorov
       Miscellaneous Contact:
-        Primary: Serguei Fedorov
+        Primary:
+          ID: f3e4dd036f64201f6102520de9dc80a250aa7cc2
+          Name: Serguei Fedorov
       Resource Report Contact:
-        Primary: Serguei Fedorov
+        Primary:
+          ID: f3e4dd036f64201f6102520de9dc80a250aa7cc2
+          Name: Serguei Fedorov
       Security Contact:
-        Primary: Serguei Fedorov
+        Primary:
+          ID: f3e4dd036f64201f6102520de9dc80a250aa7cc2
+          Name: Serguei Fedorov
       Submitter Contact:
-        Primary: In-Saeng Suh
+        Primary:
+          ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
+          Name: In-Saeng Suh
+    Description: For the CMS Tier 3 site at Notre Dame.
     Disable: false
     FQDN: deepthought.crc.nd.edu
     ID: 264

@@ -9,22 +9,34 @@ Community: Fermilab Virtual Organization (VO) - The Fermilab VO is an "umbrella"
   design as well as activities performed by the Fermilab Campus Grid administrators.
 Contacts:
   Administrative Contact:
-  - Joe Boyd
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
   Miscellaneous Contact:
-  - Anthony Tiradani
-  - Joe Boyd
-  - Tanya Levshina
-  - Nicholas Peregonow
-  - Kevin Retzke
-  - Shreyas Bhat
+  - ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+    Name: Anthony Tiradani
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
+  - ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
+    Name: Tanya Levshina
+  - ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+    Name: Nicholas Peregonow
+  - ID: a25fbb4a1aa71648897c1a76ed6ab3ab7c707d5e
+    Name: Kevin Retzke
+  - ID: 888a771df50d76d5e229d97e37949dcca5af5b61
+    Name: Shreyas Bhat
   Registration Authority:
-  - Kyle Gross
-  - Darnell Green
-  - Yolanda Valadez
+  - ID: 51e80537c5f71fa8bee57b6196025fd78c0fde0d
+    Name: Kyle Gross
+  - ID: 98a1d4a1e17386ec3a1dd7af2e07e9b68d80b23d
+    Name: Darnell Green
+  - ID: 959ae483acc2487ee4e8842ec68ef1c713762697
+    Name: Yolanda Valadez
   Submitter Contact:
-  - Keith Chadwick
+  - ID: a161cf4dfb39e13eaf5fa890b6920c7af89a7784
+    Name: Keith Chadwick
   VO Manager:
-  - Joe Boyd
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -35,22 +47,21 @@ FieldsOfScience:
 ID: 9
 LongName: Fermi National Accelerator Laboratory
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
-Name: Fermilab
 OASIS:
   Managers:
     Dave Dykstra:
-      ContactID: 508
       DNs:
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Dave Dykstra 508
       - /DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Dave
         Dykstra/CN=UID:dwd
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Dave Dykstra 508
+      ID: 85fe79f7c8a447834460b6852f46d3eef32fb714
     Lynn Garren:
-      ContactID: 217
       DNs:
       - /DC=gov/DC=fnal/O=Fermilab/OU=People/CN=Lynn A. Garren/CN=UID:garren
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Lynn Garren 217
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Lynn Garren 217
+      ID: 848367d300cbdf6ae1c61ef86594ce7b642f2984
   OASISRepoURLs:
   - http://oasiscfs.fnal.gov:8000/cvmfs/fermilab.opensciencegrid.org
   - http://oasiscfs.fnal.gov:8000/cvmfs/larsoft.opensciencegrid.org

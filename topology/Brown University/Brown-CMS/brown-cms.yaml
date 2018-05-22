@@ -1,24 +1,28 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: T3 Computing center for CMS VO.
 GroupID: 241
 Resources:
   brown-cms:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Stefan Piperov
-        Secondary: Vipin Bhatnagar
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
       Miscellaneous Contact:
-        Secondary: Vipin Bhatnagar
-        Tertiary: Stefan Piperov
+        Tertiary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
       Resource Report Contact:
-        Secondary: Vipin Bhatnagar
-        Tertiary: Stefan Piperov
+        Tertiary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
       Security Contact:
-        Primary: Stefan Piperov
-        Secondary: Vipin Bhatnagar
-      Submitter Contact:
-        Primary: Vipin Bhatnagar
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+    Description: CMS T3 CE.
     Disable: false
     FQDN: grid-0.hep.brown.edu
     ID: 258

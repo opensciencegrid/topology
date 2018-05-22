@@ -1,0 +1,78 @@
+- Class: SCHEDULED
+  Description: power cut
+  EndTime: Mar 9, 2017 00:00 AM UTC
+  ID: 1005224
+  ResourceName: ANLASC_RUCIO
+  Services:
+  - GridFtp
+  Severity: Outage
+  StartTime: Mar 3, 2017 00:00 AM UTC
+- Class: SCHEDULED
+  Description: power outage
+  EndTime: Mar 7, 2017 03:00 AM UTC
+  ID: 1005223
+  ResourceName: ANLASC-SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Mar 5, 2017 12:00 PM UTC
+- Class: SCHEDULED
+  Description: power cut
+  EndTime: Mar 7, 2017 03:00 AM UTC
+  ID: 1005225
+  ResourceName: ANL-ATLAS-GRIDFTP1
+  Services:
+  - GridFtp
+  Severity: Outage
+  StartTime: Mar 5, 2017 12:00 PM UTC
+- Class: SCHEDULED
+  Description: power cut
+  EndTime: Mar 7, 2017 03:00 AM UTC
+  ID: 1005226
+  ResourceName: ANL-ATLAS-SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Mar 5, 2017 12:00 PM UTC
+- Class: SCHEDULED
+  Description: outage to repair power supplies on storage servers
+  EndTime: May 15, 2017 21:00 PM UTC
+  ID: 1005308
+  ResourceName: ANL-ATLAS-GRIDFTP1
+  Services:
+  - GridFtp
+  Severity: Outage
+  StartTime: May 15, 2017 17:00 PM UTC
+- Class: SCHEDULED
+  Description: storage outage on backend storage device
+  EndTime: May 15, 2017 21:00 PM UTC
+  ID: 1005309
+  ResourceName: ANL-ATLAS-SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: May 15, 2017 17:00 PM UTC
+- Class: SCHEDULED
+  Description: down time to decommission various space tokens and arraign the space
+    differently
+  EndTime: Jun 6, 2017 14:00 PM UTC
+  ID: 1005339
+  ResourceName: ANLASC-SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Jun 5, 2017 00:00 AM UTC
+- Class: UNSCHEDULED
+  Description: down time to reduce space tokens and remove SRM
+  EndTime: Jul 14, 2017 00:00 AM UTC
+  ID: 1005359
+  ResourceName: ANLASC-SE
+  Services:
+  - SRMv2
+  - GridFtp
+  Severity: Outage
+  StartTime: Jul 10, 2017 00:00 AM UTC

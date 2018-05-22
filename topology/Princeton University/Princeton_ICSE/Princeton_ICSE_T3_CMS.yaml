@@ -1,20 +1,32 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: CMS Tier3 site at Princeton
 GroupID: 268
 Resources:
   Princeton_ICSE_T3_CMS_SE:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Christopher Tully
+        Primary:
+          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
+          Name: Christopher Tully
       Miscellaneous Contact:
-        Primary: Burt Holzman
+        Primary:
+          ID: d15cab2ba1421aca11ec451ae36a771822db0778
+          Name: Burt Holzman
       Resource Report Contact:
-        Primary: Christopher Tully
+        Primary:
+          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
+          Name: Christopher Tully
       Security Contact:
-        Primary: Christopher Tully
+        Primary:
+          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
+          Name: Christopher Tully
       Submitter Contact:
-        Primary: Christopher Tully
+        Primary:
+          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
+          Name: Christopher Tully
+    Description: Tier3 SE
     Disable: false
     FQDN: cmssw3.princeton.edu
     ID: 327
@@ -41,15 +53,27 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Christopher Tully
+        Primary:
+          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
+          Name: Christopher Tully
       Miscellaneous Contact:
-        Primary: Christopher Tully
+        Primary:
+          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
+          Name: Christopher Tully
       Resource Report Contact:
-        Primary: Christopher Tully
+        Primary:
+          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
+          Name: Christopher Tully
       Security Contact:
-        Primary: Christopher Tully
+        Primary:
+          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
+          Name: Christopher Tully
       Submitter Contact:
-        Primary: Christopher Tully
+        Primary:
+          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
+          Name: Christopher Tully
+    Description: This is a CMS T3 site at Princeton University.  The site manager
+      is Chris Tully.  The servers are managed at Fermilab by Rob Snihur.
     Disable: false
     FQDN: cmssw3.princeton.edu
     ID: 596

@@ -1,18 +1,34 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: (No resource group description)
 GroupID: 20
 Resources:
   FNAL-ITB-GIP-TEST1:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Tanya Levshina
-        Secondary: Parag Mhashilkar
+        Primary:
+          ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
+          Name: Tanya Levshina
+        Secondary:
+          ID: b761f3b14de08b5f188326e138b605caae337017
+          Name: Parag Mhashilkar
       Security Contact:
-        Primary: Tanya Levshina
-        Secondary: Parag Mhashilkar
+        Primary:
+          ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
+          Name: Tanya Levshina
+        Secondary:
+          ID: b761f3b14de08b5f188326e138b605caae337017
+          Name: Parag Mhashilkar
       Submitter Contact:
-        Primary: Tanya Levshina
+        Primary:
+          ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
+          Name: Tanya Levshina
+    Description: We (VDT/GIP/ReSS group) are testing the ability to run CeMon/GIP
+      on standalone storage element and report it to BDII. We have configured both
+      services and are sending the information to http://is-itb1.grid.iu.edu:14001.
+      The resource name is FNAL-ITB-GIP-TEST1. Could somebody responsible for ITB
+      BDII make modification so the information is accepted in BDII
     Disable: true
     FQDN: fg0x5.fnal.gov
     ID: 337
@@ -28,12 +44,24 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Miscellaneous Contact:
-        Primary: Joe Boyd
-        Tertiary: Steve Timm
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
+        Tertiary:
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+          Name: Steve Timm
       Submitter Contact:
-        Primary: Keith Chadwick
+        Primary:
+          ID: a161cf4dfb39e13eaf5fa890b6920c7af89a7784
+          Name: Keith Chadwick
+    Description: |-
+      This is our new production gatekeeper for the
+      Fermilab Persistent ITB, it replaces
+      fgitb-gk.fnal.gov
     Disable: true
     FQDN: fgitbgkc2.fnal.gov
     ID: 20
@@ -63,12 +91,23 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Miscellaneous Contact:
-        Primary: Joe Boyd
-        Secondary: Gerard Bernabeu Altayo
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
+        Secondary:
+          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+          Name: Gerard Bernabeu Altayo
       Submitter Contact:
-        Primary: Steve Timm
+        Primary:
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+          Name: Steve Timm
+    Description: |-
+      This is our PBS sample gatekeeper for use in
+      the OSG Persistent ITB.
     Disable: true
     FQDN: fgitbgkp2.fnal.gov
     ID: 358
@@ -83,13 +122,26 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Miscellaneous Contact:
-        Primary: Joe Boyd
-        Secondary: Gerard Bernabeu Altayo
-        Tertiary: Steve Timm
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
+        Secondary:
+          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+          Name: Gerard Bernabeu Altayo
+        Tertiary:
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+          Name: Steve Timm
       Submitter Contact:
-        Primary: Steve Timm
+        Primary:
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+          Name: Steve Timm
+    Description: |-
+      This is FermiGrid's ITB SGE gatekeeper, part
+      of the OSG Persistent ITB at Fermilab.
     Disable: true
     FQDN: fgitbgks2.fnal.gov
     ID: 359

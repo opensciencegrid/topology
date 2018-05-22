@@ -1,9 +1,11 @@
 Disable: true
 GridType: OSG Integration Test Bed Resource
+GroupDescription: 7/26 disabling empty resource group
 GroupID: 52
 Resources:
   IUPUI-ITB:
     Active: false
+    Description: Rob's ITB resource
     Disable: true
     FQDN: feynman.uits.iupui.edu
     FQDNAliases:

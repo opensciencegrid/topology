@@ -1,14 +1,20 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: ITB Resources for UCSDT2
 GroupID: 262
 Resources:
   UCSDT2-ITB1:
     Active: true
     ContactLists:
       Miscellaneous Contact:
-        Tertiary: Terrence Martin
+        Tertiary:
+          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
+          Name: Terrence Martin
       Submitter Contact:
-        Primary: Terrence Martin
+        Primary:
+          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
+          Name: Terrence Martin
+    Description: ITB CE
     Disable: false
     FQDN: osg-gw-3.t2.ucsd.edu
     ID: 115
@@ -32,11 +38,19 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Terrence Martin
+        Secondary:
+          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
+          Name: Terrence Martin
       Miscellaneous Contact:
-        Tertiary: Scott Teige
+        Tertiary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Submitter Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+    Description: Added by Arvind so Terrence\'s new CEMon test data will be published
+      to BDII -- replicated UCSDT2-ITB1 on this one. -agopu 2008-09-04
     Disable: false
     FQDN: osg-gw-5.t2.ucsd.edu
     ID: 192

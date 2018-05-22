@@ -1,24 +1,46 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: The 300+ node Brazos cluster, a shared stakeholder resource for
+  Texas A&M and OSG researchers.
 GroupID: 273
 Resources:
   TAMU_BRAZOS:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Miscellaneous Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Resource Report Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Security Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Submitter Contact:
-        Primary: Steve Johnson
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+    Description: This is the gatekeeper, gridftp, and srmv2 host supporting the Texas
+      A&M CMS T3 site.
     Disable: true
     FQDN: hurr.tamu.edu
     ID: 340
@@ -51,17 +73,32 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Steve Johnson
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
       Miscellaneous Contact:
-        Primary: Steve Johnson
-        Tertiary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Tertiary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Resource Report Contact:
-        Primary: Steve Johnson
-        Tertiary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Tertiary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Security Contact:
-        Primary: Steve Johnson
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
       Submitter Contact:
-        Primary: John Dockendorf
+        Primary:
+          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
+          Name: John Dockendorf
+    Description: This is the gatekeeper host supporting the Texas A&M CMS T3 site.
     Disable: false
     FQDN: ce01.brazos.tamu.edu
     ID: 630
@@ -93,14 +130,25 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Steve Johnson
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
       Resource Report Contact:
-        Primary: Steve Johnson
-        Tertiary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Tertiary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Security Contact:
-        Primary: Steve Johnson
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
       Submitter Contact:
-        Primary: John Dockendorf
+        Primary:
+          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
+          Name: John Dockendorf
+    Description: GridFTP service for TAMU_BRAZOS
     Disable: false
     FQDN: gw01.brazos.tamu.edu
     ID: 637
@@ -117,14 +165,25 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Steve Johnson
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
       Resource Report Contact:
-        Primary: Steve Johnson
-        Tertiary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Tertiary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Security Contact:
-        Primary: Steve Johnson
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
       Submitter Contact:
-        Primary: John Dockendorf
+        Primary:
+          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
+          Name: John Dockendorf
+    Description: GridFTP service for TAMU_BRAZOS
     Disable: false
     FQDN: gw02.brazos.tamu.edu
     ID: 795
@@ -141,18 +200,36 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Miscellaneous Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Resource Report Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Security Contact:
-        Primary: Steve Johnson
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
       Submitter Contact:
-        Primary: Steve Johnson
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+    Description: This is a secondary SE for the TAMU_BRAZOS resource group. This will
+      replace the SE running on the TAMU_BRAZOS resource, hurr.tamu.edu
     Disable: false
     FQDN: srm.brazos.tamu.edu
     ID: 601
@@ -180,17 +257,33 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Steve Johnson
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
       Miscellaneous Contact:
-        Primary: Steve Johnson
-        Tertiary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Tertiary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Resource Report Contact:
-        Primary: Steve Johnson
-        Tertiary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Tertiary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Security Contact:
-        Primary: Steve Johnson
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
       Submitter Contact:
-        Primary: John Dockendorf
+        Primary:
+          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
+          Name: John Dockendorf
+    Description: This is a secondary SE for the TAMU_BRAZOS resource group. This will
+      replace the SE running on the TAMU_BRAZOS resource, hurr.tamu.edu
     Disable: true
     FQDN: brazos-srm.tamu.edu
     ID: 604
@@ -206,16 +299,31 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Resource Report Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Security Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Submitter Contact:
-        Primary: John Dockendorf
+        Primary:
+          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
+          Name: John Dockendorf
+    Description: This PerfSONAR node has a 10Gbps interface.
     Disable: false
     FQDN: psonar-bwctl.brazos.tamu.edu
     ID: 634
@@ -231,16 +339,31 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Resource Report Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Security Contact:
-        Primary: Steve Johnson
-        Secondary: Guy T Almes
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 36286151aba761fb0b42068c2320c47b932a21bc
+          Name: Guy T Almes
       Submitter Contact:
-        Primary: John Dockendorf
+        Primary:
+          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
+          Name: John Dockendorf
+    Description: PerfSONAR latency node
     Disable: false
     FQDN: psonar-owamp.brazos.tamu.edu
     ID: 635

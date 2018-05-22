@@ -1,12 +1,16 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: perfSONAR instances at Starlight
 GroupID: 410
 Resources:
   ESnet Starlight perfSONAR:
     Active: true
     ContactLists:
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: The ESnet perfSONAR instance at Starlight
     Disable: false
     FQDN: lhcone-star-opt1.es.net
     ID: 665
