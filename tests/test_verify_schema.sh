@@ -29,7 +29,7 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
         "======================"
     ORIG_XML=/tmp/$DATA_TYPE.orig.xml
     ./converters/download --out  $ORIG_XML $DATA_TYPE
-    [[ $DATA_TYPE != 'miscproject' ]] && verify_xml $ORIG_XML $DATA_TYPE
+    verify_xml $ORIG_XML $DATA_TYPE
     if [[ $DATA_TYPE == 'rgsummary' ]]; then
         ./converters/download --out /tmp/rgdowntime.orig.xml rgdowntime
         verify_xml /tmp/rgdowntime.orig.xml rgdowntime
@@ -69,7 +69,7 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
     fi
 
     python3 $READER $READER_ARGS
-    [[ $DATA_TYPE != 'miscproject' ]] && verify_xml $CONVERTED_XML $DATA_TYPE
+    verify_xml $CONVERTED_XML $DATA_TYPE
     
     [[ $DATA_TYPE == 'rgsummary' ]] && verify_xml /tmp/rgdowntime.xml rgdowntime
 done
