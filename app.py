@@ -1,5 +1,5 @@
 import flask
-from flask import Flask, Response, request
+from flask import Flask, Response, request, render_template
 import configparser
 import tempfile
 import anymarkup
@@ -45,18 +45,17 @@ def homepage():
 
 _projects = None
 _vos = None
-_rgsummary = None
+_contacts_data = None
 _topology = None
 
-@app.route('/map')
+@app.route('/map/iframe')
 def map():
-    global _rgsummary
-    if not _rgsummary:
-        _rgsummary = get_rgsummary()
-    print(_rgsummary["ResourceSummary"]["ResourceGroup"])
-    print(len(_rgsummary["ResourceSummary"]["ResourceGroup"]))
-    print(_rgsummary["ResourceSummary"]["ResourceGroup"][0]["Resources"]["Resource"].keys())
-    return render_template('iframe.tmpl', sites=_rgsummary["ResourceSummary"]["ResourceGroup"])
+    rgsummary = _get_topology().get_resource_summary()
+    print(rgsummary)
+    print(rgsummary["ResourceSummary"]["ResourceGroup"])
+    print(len(rgsummary["ResourceSummary"]["ResourceGroup"]))
+    print(rgsummary["ResourceSummary"]["ResourceGroup"][0])
+    return render_template('iframe.tmpl', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"])
 
 
 @app.route('/schema/<xsdfile>')

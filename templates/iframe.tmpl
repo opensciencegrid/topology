@@ -28,10 +28,72 @@ p {
 margin-bottom: 1px;
 }
 
+div.resource_group_header, div.downtime_group, div.group_header
+{
+background-color: #555;
+background: -moz-linear-gradient(center top , #777, #444) repeat scroll 0 0 #555;
+color: white;
+margin-bottom: 0.3em;
+margin-top: 0.5em;
+padding: 4px 8px 4px 8px;
+}
+#content div.resource_group_header a {
+color: white;
+padding-left:0px;
+background: none;
+}
+
+div.resource
+{
+padding: 2px;
+padding-left:20px;
+background:#ccc url(../images/server.png) no-repeat 2px 3px;
+min-height: 16px;
+margin-bottom: 5px;
+border: 1px solid #bbb;
+}
+div.h4
+{
+background-color: #ddd;
+font-weight: bold;
+font-size: 12px;
+}
+
+div.resource_group
+{
+padding-left:5px;
+padding-right:5px;
+}
+
+.round, .vo_report h4, .vo_report_fqan, .contact_info, .service_info
+{
+-moz-border-radius-topleft: 4px;
+-moz-border-radius-topright: 4px;
+-moz-border-radius-bottomright: 4px;
+-moz-border-radius-bottomleft: 4px;
+-webkit-border-top-left-radius: 4px;
+-webkit-border-top-right-radius: 4px;
+-webkit-border-bottom-left-radius: 4px;
+-webkit-border-bottom-right-radius: 4px;
+}
+
+span.h3
+{
+margin-bottom: 3px;
+font-weight: bold;
+font-size: 13px;
+}
+span.h4
+{
+margin-bottom: 3px;
+font-weight: bold;
+font-size: 12px;
+}
+
 </style>
 
-<link href="<?=fullbase()?>/css/html.css" rel="stylesheet" type="text/css" />
-<script type='text/javascript' src='<?=fullbase()?>/lib/jquery-ui-1.8.1/js/jquery-1.4.2.min.js'></script>
+<!-- <link href="<?=fullbase()?>/css/html.css" rel="stylesheet" type="text/css" /> -->
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.1/jquery.min.js'></script>
 <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
 
@@ -79,34 +141,65 @@ function init(scrollwheel) {
 
     //setup listeners
     setTimeout("update_anchor()", 1000);//don't hook centerre_changed event.. it fires too often now
+    
+    var sites = {};
+    {% for resourcegroup in resourcegroups %}
+    {% if "Latitude" in resourcegroup["Site"] and resourcegroup["Disable"] != True %}
+    
+    var curSite = "{{ resourcegroup['Site']['Name'] }}";
+    // Add each resource group to the site
+    if (!(curSite in sites)) {
+        sites[curSite] = [ {{ resourcegroup["Site"]["Latitude"] }},
+                           {{ resourcegroup["Site"]["Longitude"] }},
+                           "{{ resourcegroup["Facility"]["Name"] }}",
+                            Array() ]
+    }
+    
+    var resourceGroup = {};
+    resourceGroup["Name"] = "{{ resourcegroup['GroupName'] }}"
+    resourceGroup["Resources"] = Array()
+    
+    {% for resource in resourcegroup['Resources']['Resource'] %}
+    resourceGroup["Resources"].push("{{ resource['Name'] }}");
+    {% endfor %}
+    
+    sites[curSite][3].push(resourceGroup);
+    
+    {% endif %}
+    {% endfor %}
+    
     {% set counter = 0 %}
     //add sites
-    {% for site in sites %}
-    var html = '<h2>{{ site["Facility"]["Name"] }}</h2><div style=\"overflow: auto; max-height: 300px; width: 300px;\">';
-    {% for resourcegroup in site.resourcegroups %}
-    html += "<div class=\"resource_group_header round\"><span class=\"h3\">Resource Group: {{ resourcegroup.name }}</span></div>";
     
-    {% for resource in resourcegroup %}
-    html += "<div class=\"resource round\" style=\"margin-bottom: 0;\"><span class=\"h4\">{{ resource.name }}</span></div>";
-    {% endfor %}
-    
-    {% endfor %}
-    
-    html += "</div>"
-    
-    var marker = new google.maps.Marker({
-        position: new google.maps.LatLng({{ site.latitude }}, {{ site.longitude }}),
-        map: map,
-        zIndex: 1,
-        icon: '/images/status_nr_map.png',
-        title: '{{ site.name }}'
-    });
-    marker_id[{{ counter }}] = marker;
-    setInfoWindow({{ counter }}, marker, html);
-    {% set counter = counter + 1 %}
-    $("#site").append("<option value='{{ counter }}'>{{ site.name }}</option>");
-    
-    {% endfor %}
+    var counter = 0;
+    for (site in sites) {
+        var resourceCounter = 0;
+        // Build the site
+        var html = '<h2>' + sites[site][2] + '</h2><div style=\"overflow: auto; max-height: 300px; width: 300px;\">';
+        for (var i = 0; i < sites[site][3].length; i++) {
+            resourcegroup = sites[site][3][i];
+            html += "<div class=\"resource_group_header round\"><span class=\"h3\">Resource Group: " + resourcegroup["Name"] + "</span></div>";
+            resourceCounter += resourcegroup["Resources"].length;
+            for (var a = 0; a < resourcegroup["Resources"].length; a++) {
+                resource = resourcegroup["Resources"][a];
+                html += "<div class=\"resource round\" style=\"margin-bottom: 0;\"><span class=\"h4\">" + resource + "</span></div>";
+                
+            }
+        }
+        
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(sites[site][0], sites[site][1]),
+            map: map,
+            zIndex: resourceCounter,
+            icon: 'https://raw.githubusercontent.com/opensciencegrid/myosg/master/images/status_nr_map.png',
+            title: sites[site][2]
+        });
+        
+        setInfoWindow(counter, marker, html);
+        marker_id[counter] = marker;
+        $("#site").append("<option value='" + counter + "'>" + site + "</option>");
+        counter += 1;
+    }
     
 
     $("#site").change(function() {
@@ -159,7 +252,7 @@ font-size: 10px;
 padding: 2px 4px;
 }
 #map_canvas .resource {
-padding-top: 0px;
+padding-top: 3px;
 padding-bottom: 0px;
 background-position: 2px 1px;
 }
