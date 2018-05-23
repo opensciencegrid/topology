@@ -231,7 +231,7 @@ def _get_contacts_data():
         # use local copy if it exists
         if os.path.exists("contacts.yaml"):
             _contacts_data = get_contacts_data("contacts.yaml")
-        else:
+        elif os.path.exists("/etc/opt/topology/config.ini") or os.path.exists("config.ini"):
             # Get the contacts from bitbucket
             # Read in the config file with the SSH key location
             config = configparser.ConfigParser()
