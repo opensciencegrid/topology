@@ -1,3 +1,6 @@
+"""
+Application File
+"""
 import flask
 from flask import Flask, Response, request
 import configparser
@@ -7,6 +10,7 @@ import os
 import re
 import subprocess
 import sys
+import urllib.parse
 
 from webapp.common import to_xml_bytes, Filters
 from webapp.contacts_reader import get_contacts_data
@@ -45,6 +49,7 @@ _projects = None
 _vos_data = None
 _contacts_data = None
 _topology = None
+_dn_set = None
 
 @app.route('/schema/<xsdfile>')
 def schema(xsdfile):
@@ -182,9 +187,18 @@ def rgsummary_xml():
 
     authorized = default_authorized
     if 'GRST_CRED_AURI_0' in request.environ:
-        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
+        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN (probably).  Match that to something.
         # Gridsite already made sure it matches something in the CA distribution
-        authorized = True
+        
+        # HTTP unquote the DN:
+        client_dn = urllib.parse.unquote_plus(request.environ[GRST_CRED_AURI_0])
+        
+        # Get list of authorized DNs
+        authorized_dns = _get_dns()
+        
+        # Authorized dns should be a set, or dict, that supports the "in"
+        if client_dn in authorized_dns:
+            authorized = True
 
     rgsummary = _get_topology().get_resource_summary(authorized=authorized, filters=filters)
     return Response(to_xml_bytes(rgsummary), mimetype='text/xml')
@@ -239,6 +253,21 @@ def _get_contacts_data():
                 _contacts_data = get_contacts_data(os.path.join(tmp_dir, 'contacts.yaml'))
 
     return _contacts_data
+    
+def _get_dns():
+    """
+    Get the set of DNs allowed to access "special" data (such as contact info)
+    """
+    # Get the contacts data
+    contacts_data = _get_contacts_data()
+    dns = []
+
+    # Extract all the DNs
+    for key, contact in contacts_data.items():
+        for DN in contact["ContactInformation"]["DNs"]:
+            dns.append(DN)
+
+    return set(dns)
 
 
 def _get_topology():
