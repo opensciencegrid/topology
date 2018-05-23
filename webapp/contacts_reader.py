@@ -82,8 +82,11 @@ class ContactsData(object):
         Get the DNs for all of the users (useful for auth)
         """
         dns = []
-        for id, user in self.users_by_id:
-            dns.append(user.dns())
+        for id, user in self.users_by_id.items():
+            if not user.dns:
+                continue
+            for dn in user.dns:
+                dns.append(dn)
         return dns
 
     def get_tree(self, authorized=False, filters=None) -> Dict:

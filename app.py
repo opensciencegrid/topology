@@ -62,12 +62,9 @@ def schema(xsdfile):
 
 @app.route('/miscuser/xml')
 def miscuser_xml():
-    authorized = default_authorized
-    if 'GRST_CRED_AURI_0' in request.environ:
-        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
-        # Gridsite already made sure it matches something in the CA distribution
-        authorized = True
-    if not authorized:
+    authorized = _get_authorized()
+
+    if not authorized():
         return Response("Access denied: user cert not found or not accepted", status=403)
     return Response(to_xml_bytes(_get_contacts_data().get_tree(authorized)), mimetype='text/xml')
 
@@ -88,11 +85,7 @@ def vosummary_xml():
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
 
-    authorized = default_authorized
-    if 'GRST_CRED_AURI_0' in request.environ:
-        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
-        # Gridsite already made sure it matches something in the CA distribution
-        authorized = True
+    authorized = _get_authorized()
     vos_xml = to_xml_bytes(_get_vos_data().get_tree(authorized, filters))
     return Response(vos_xml, mimetype='text/xml')
 
@@ -185,21 +178,7 @@ def rgsummary_xml():
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
 
-    authorized = default_authorized
-    if 'GRST_CRED_AURI_0' in request.environ:
-        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN (probably).  Match that to something.
-        # Gridsite already made sure it matches something in the CA distribution
-        
-        # HTTP unquote the DN:
-        client_dn = urllib.parse.unquote_plus(request.environ['GRST_CRED_AURI_0'])
-        
-        # Get list of authorized DNs
-        authorized_dns = _get_dns()
-        
-        # Authorized dns should be a set, or dict, that supports the "in"
-        if client_dn in authorized_dns:
-            authorized = True
-
+    authorized = _get_authorized()
     rgsummary = _get_topology().get_resource_summary(authorized=authorized, filters=filters)
     return Response(to_xml_bytes(rgsummary), mimetype='text/xml')
 
@@ -211,11 +190,7 @@ def rgdowntime_xml():
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
 
-    authorized = default_authorized
-    if 'GRST_CRED_AURI_0' in request.environ:
-        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
-        # Gridsite already made sure it matches something in the CA distribution
-        authorized = True
+    authorized = _get_authorized()
 
     rgdowntime = _get_topology().get_downtimes(authorized=authorized, filters=filters)
     return Response(to_xml_bytes(rgdowntime), mimetype='text/xml')
@@ -253,7 +228,31 @@ def _get_contacts_data():
                 _contacts_data = get_contacts_data(os.path.join(tmp_dir, 'contacts.yaml'))
 
     return _contacts_data
-    
+
+
+def _get_authorized():
+    """
+    Determine if the client is authorized
+
+    returns: True if authorized, False otherwise
+    """
+    if 'GRST_CRED_AURI_0' in request.environ:
+        # Ok, there may be a cert presented.  GRST_CRED_AURI_0 is the DN (probably).  Match that to something.
+        # Gridsite already made sure it matches something in the CA distribution
+
+        # HTTP unquote the DN:
+        client_dn = urllib.parse.unquote_plus(request.environ['GRST_CRED_AURI_0'])
+
+        # Get list of authorized DNs
+        authorized_dns = _get_dns()
+
+        # Authorized dns should be a set, or dict, that supports the "in"
+        if client_dn[3:] in authorized_dns:
+            return True
+
+    # If it gets here, then it is not authorized
+    return default_authorized
+
 def _get_dns():
     """
     Get the set of DNs allowed to access "special" data (such as contact info)
