@@ -191,7 +191,7 @@ def rgsummary_xml():
         # Gridsite already made sure it matches something in the CA distribution
         
         # HTTP unquote the DN:
-        client_dn = urllib.parse.unquote_plus(request.environ[GRST_CRED_AURI_0])
+        client_dn = urllib.parse.unquote_plus(request.environ['GRST_CRED_AURI_0'])
         
         # Get list of authorized DNs
         authorized_dns = _get_dns()
@@ -258,16 +258,11 @@ def _get_dns():
     """
     Get the set of DNs allowed to access "special" data (such as contact info)
     """
-    # Get the contacts data
-    contacts_data = _get_contacts_data()
-    dns = []
-
-    # Extract all the DNs
-    for key, contact in contacts_data.items():
-        for DN in contact["ContactInformation"]["DNs"]:
-            dns.append(DN)
-
-    return set(dns)
+    global _dn_set
+    if not _dn_set:
+        contacts_data = _get_contacts_data()
+        _dn_set = set(contacts_data.get_dns())
+    return _dn_set
 
 
 def _get_topology():
