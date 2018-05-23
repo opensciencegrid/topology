@@ -247,7 +247,7 @@ def _get_authorized():
         authorized_dns = _get_dns()
 
         # Authorized dns should be a set, or dict, that supports the "in"
-        if client_dn[3:] in authorized_dns:
+        if client_dn[3:] in authorized_dns: # "dn:" is at the beginning of the DN
             return True
 
     # If it gets here, then it is not authorized
