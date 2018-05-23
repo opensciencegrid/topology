@@ -236,19 +236,19 @@ def _get_authorized():
 
     returns: True if authorized, False otherwise
     """
-    if 'GRST_CRED_AURI_0' in request.environ:
-        # Ok, there may be a cert presented.  GRST_CRED_AURI_0 is the DN (probably).  Match that to something.
-        # Gridsite already made sure it matches something in the CA distribution
+    # Loop through looking for all of the creds
+    for key, value in request.environ.items():
+        if key.startswith('GRST_CRED_AURI_') and value.startswith("dn:"):
 
-        # HTTP unquote the DN:
-        client_dn = urllib.parse.unquote_plus(request.environ['GRST_CRED_AURI_0'])
+            # HTTP unquote the DN:
+            client_dn = urllib.parse.unquote_plus(value)
 
-        # Get list of authorized DNs
-        authorized_dns = _get_dns()
+            # Get list of authorized DNs
+            authorized_dns = _get_dns()
 
-        # Authorized dns should be a set, or dict, that supports the "in"
-        if client_dn[3:] in authorized_dns: # "dn:" is at the beginning of the DN
-            return True
+            # Authorized dns should be a set, or dict, that supports the "in"
+            if client_dn[3:] in authorized_dns: # "dn:" is at the beginning of the DN
+                return True     
 
     # If it gets here, then it is not authorized
     return default_authorized
