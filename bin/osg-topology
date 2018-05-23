@@ -103,7 +103,7 @@ def mangle_url(url, args, session = None):
     qs_dict = urlparse.parse_qs(url_tuple[3])
     qs_list = urlparse.parse_qsl(url_tuple[3])
 
-    if args.provides_service:
+    if hasattr(args, 'provides_service') and args.provides_service:
         if 'service' not in qs_dict:
             qs_list.append(("service", "on"))
         for service in args.provides_service.split(","):
@@ -114,7 +114,7 @@ def mangle_url(url, args, session = None):
                     " names: %s" % (service, ", ".join(SERVICE_IDS)))
             qs_list.append(("service_sel[]", str(service_id)))
 
-    if args.owner_vo:
+    if hasattr(args, 'owner_vo') and args.owner_vo:
         vo_map = get_vo_map(args, session)
         if 'voown' not in qs_dict:
             qs_list.append(("voown", "on"))
@@ -166,43 +166,118 @@ def list_resource_contacts(args):
                 continue
             for resource in child_res:
                 name = None
-                contacts = None
+                contact_list_info = []
                 for resource_tag in resource:
                     if resource_tag.tag == 'Name':
                         name = resource_tag.text
                     if resource_tag.tag == 'ContactLists':
                         for contact_list in resource_tag:
-                            contact_list_info = []
                             contact_list_type = None
                             if contact_list.tag != 'ContactList':
                                 continue
                             for child in contact_list:
                                 if child.tag == 'ContactType':
-                                    contact_list_type = child.text
+                                    contact_list_type = child.text.lower()
                                 if child.tag == 'Contacts':
                                     for contact in child:
-                                        contact_info = {}
+                                        contact_info = \
+                                            { 'ContactType' : contact_list_type }
                                         for contact_contents in contact:
                                             contact_info[contact_contents.tag] = \
                                                 contact_contents.text
                                         contact_list_info.append(contact_info)
-                            if args.contact_type:
-                                lowtype = contact_list_type.lower();
-                                for contact_type in args.contact_type.split(','):
-                                    if lowtype.startswith(contact_type) or \
-                                            contact_type == "all":
-                                        contacts = contact_list_info
-                            else:
-                                contacts = contact_list_info
 
-                if name and contacts and (not args.name_filter or fnmatch.fnmatch(name, args.name_filter) or args.name_filter in name):
-                    results[name] = contacts
+                if name and contact_list_info:
+                    results[name] = contact_list_info
+
+    print_contacts(args, 'Resource', results)
+
+def list_vo_contacts(args):
+    """
+    List vo contacts for OSG.
+    """
+    base_url = "https://my.opensciencegrid.org/vosummary/xml" \
+                "?summary_attrs_showcontact=on&all_vos=on" \
+                "&active_value=1&active=on&disable=on&disable_value=0"
+
+    with get_auth_session(args) as session:
+        url = mangle_url(base_url, args, session)
+        #print(url)
+        response = session.get(url)
+
+    if response.status_code != requests.codes.ok:
+        print("MyOSG request failed (status %d): %s" % (response.status_code,
+              response.text[:2048]), file=sys.stderr)
+        return 1
+
+    root = ET.fromstring(response.content)
+    if root.tag != 'VOSummary':
+        print("MyOSG returned invalid XML with root tag %s" % root.tag,
+              file=sys.stderr)
+        return 1
+
+    results = {}
+    for child_vo in root:
+        if child_vo.tag != "VO":
+            print("MyOSG returned a non-VO (%s) inside summary." % \
+                  root.tag, file=sys.stderr)
+            return 1
+        name = None
+        contact_list_info = []
+        for item in child_vo:
+            if item.tag == 'Name':
+                name = item.text
+                continue
+            if item.tag != "ContactTypes":
+                continue
+            for contact_type in item:
+                if contact_type.tag == 'ContactType':
+                    for child in contact_type:
+                        if child.tag == 'Type':
+                            contact_list_type = child.text.lower()
+                        if child.tag != 'Contacts':
+                            continue
+                        for contact in child:
+                            contact_info = { 'ContactType' : contact_list_type }
+                            for contact_contents in contact:
+                                contact_info[contact_contents.tag] = \
+                                    contact_contents.text
+                            contact_list_info.append(contact_info)
+
+        if name and contact_list_info:
+            results[name] = contact_list_info
+
+    print_contacts(args, 'VO', results)
+
+def print_contacts(args, type, results):
+    """
+    Print contacts of given type with the given results
+    """
+
+    if args.name_filter:
+        # filter out undesired names
+        for name in results.keys():
+            if not fnmatch.fnmatch(name, args.name_filter) and \
+                    args.name_filter not in name:
+                del results[name]
+
+    if args.contact_type and args.contact_type != 'all':
+        # filter out undesired contact types
+        for name in results.keys():
+            contact_list = []
+            for contact in results[name]:
+                contact_type = contact['ContactType']
+                if contact_type.startswith(args.contact_type):
+                    contact_list.append(contact)
+            if contact_list == []:
+                del results[name]
+            else:
+                results[name] = contact_list
 
     if args.output_mode == "email":
-        sites = results.keys()
         emails = set()
-        for site in sites:
-            for contact in results[site]:
+        for name in results.keys():
+            for contact in results[name]:
                 if 'Email' in contact:
                     emails.add(contact['Email'])
         emails = list(emails)
@@ -216,12 +291,12 @@ def list_resource_contacts(args):
             sys.stdout.write(email)
         sys.stdout.write('\n')
     else:
-        sites = results.keys()
-        sites.sort()
-        for site in sites:
-            print("- Resource: %s" % site)
+        names = results.keys()
+        names.sort()
+        for name in names:
+            print("- %s: %s" % (type, name))
             keys = set()
-            for contact in results[site]:
+            for contact in results[name]:
                 key = None
                 if 'Name' in contact and 'Email' in contact:
                     key = "%s <%s>" % (contact['Name'], contact['Email'])
@@ -248,23 +323,35 @@ def get_parser():
 
     subparsers = oparser.add_subparsers()
 
+    contactparsers = []
+
     list_resource_contacts_parser = subparsers.add_parser('list-resource-contacts',
-        help='List the OSG contacts by resource name.')
+        help='List OSG contacts by resource name.')
+    contactparsers.append(list_resource_contacts_parser)
     list_resource_contacts_parser.set_defaults(which="list_resource_contacts")
     list_resource_contacts_parser.add_argument("--service",
-        dest="provides_service", help="Filter on resources that provide a given "
-        "service")
+        dest="provides_service", help="Filter on resources that provide given "
+        "service(s)")
     list_resource_contacts_parser.add_argument("--vo",
-        dest="owner_vo", help="Filter on resources that list a VO as a "
+        dest="owner_vo", help="Filter on resources that list VO(s) as a "
         "partial owner")
-    list_resource_contacts_parser.add_argument("--type",
-        dest="contact_type", help="Filter on contact type "
-        "(e.g. security, default all)")
-    list_resource_contacts_parser.add_argument("--output",
-        dest="output_mode", help="Select the output mode "
-        "(email or full; default full)")
     list_resource_contacts_parser.add_argument(dest="name_filter", action="store",
-        nargs="?", help="Filter on the resource name for results.")
+        nargs="?", help="Shell expression filter on the resource name")
+
+    list_vo_contacts_parser = subparsers.add_parser('list-vo-contacts',
+        help='List OSG contacts by VO name.')
+    contactparsers.append(list_vo_contacts_parser)
+    list_vo_contacts_parser.set_defaults(which="list_vo_contacts")
+    list_vo_contacts_parser.add_argument(dest="name_filter", action="store",
+        nargs="?", help="Shell expression filter on the VO name")
+
+    for parser in contactparsers:
+        parser.add_argument("--type",
+            dest="contact_type", help="Filter on contact type "
+            "(e.g. security, default all)")
+        parser.add_argument("--output",
+            dest="output_mode", help="Select the output mode "
+            "(email or full; default full)")
 
     return oparser
 
@@ -278,6 +365,7 @@ def main():
     args = oparser.parse_args()
 
     commands = {"list_resource_contacts": list_resource_contacts,
+                "list_vo_contacts": list_vo_contacts,
                }
 
     command = commands[args.which]
