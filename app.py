@@ -1,3 +1,6 @@
+"""
+Application File
+"""
 import flask
 from flask import Flask, Response, request
 import configparser
@@ -7,6 +10,7 @@ import os
 import re
 import subprocess
 import sys
+import urllib.parse
 
 from webapp.common import to_xml_bytes, Filters
 from webapp.contacts_reader import get_contacts_data
@@ -45,6 +49,7 @@ _projects = None
 _vos_data = None
 _contacts_data = None
 _topology = None
+_dn_set = None
 
 @app.route('/schema/<xsdfile>')
 def schema(xsdfile):
@@ -57,11 +62,8 @@ def schema(xsdfile):
 
 @app.route('/miscuser/xml')
 def miscuser_xml():
-    authorized = default_authorized
-    if 'GRST_CRED_AURI_0' in request.environ:
-        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
-        # Gridsite already made sure it matches something in the CA distribution
-        authorized = True
+    authorized = _get_authorized()
+
     if not authorized:
         return Response("Access denied: user cert not found or not accepted", status=403)
     return Response(to_xml_bytes(_get_contacts_data().get_tree(authorized)), mimetype='text/xml')
@@ -83,11 +85,7 @@ def vosummary_xml():
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
 
-    authorized = default_authorized
-    if 'GRST_CRED_AURI_0' in request.environ:
-        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
-        # Gridsite already made sure it matches something in the CA distribution
-        authorized = True
+    authorized = _get_authorized()
     vos_xml = to_xml_bytes(_get_vos_data().get_tree(authorized, filters))
     return Response(vos_xml, mimetype='text/xml')
 
@@ -180,12 +178,7 @@ def rgsummary_xml():
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
 
-    authorized = default_authorized
-    if 'GRST_CRED_AURI_0' in request.environ:
-        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
-        # Gridsite already made sure it matches something in the CA distribution
-        authorized = True
-
+    authorized = _get_authorized()
     rgsummary = _get_topology().get_resource_summary(authorized=authorized, filters=filters)
     return Response(to_xml_bytes(rgsummary), mimetype='text/xml')
 
@@ -197,11 +190,7 @@ def rgdowntime_xml():
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
 
-    authorized = default_authorized
-    if 'GRST_CRED_AURI_0' in request.environ:
-        # Ok, there is a cert presented.  GRST_CRED_AURI_0 is the DN.  Match that to something.
-        # Gridsite already made sure it matches something in the CA distribution
-        authorized = True
+    authorized = _get_authorized()
 
     rgdowntime = _get_topology().get_downtimes(authorized=authorized, filters=filters)
     return Response(to_xml_bytes(rgdowntime), mimetype='text/xml')
@@ -239,6 +228,40 @@ def _get_contacts_data():
                 _contacts_data = get_contacts_data(os.path.join(tmp_dir, 'contacts.yaml'))
 
     return _contacts_data
+
+
+def _get_authorized():
+    """
+    Determine if the client is authorized
+
+    returns: True if authorized, False otherwise
+    """
+    # Loop through looking for all of the creds
+    for key, value in request.environ.items():
+        if key.startswith('GRST_CRED_AURI_') and value.startswith("dn:"):
+
+            # HTTP unquote the DN:
+            client_dn = urllib.parse.unquote_plus(value)
+
+            # Get list of authorized DNs
+            authorized_dns = _get_dns()
+
+            # Authorized dns should be a set, or dict, that supports the "in"
+            if client_dn[3:] in authorized_dns: # "dn:" is at the beginning of the DN
+                return True     
+
+    # If it gets here, then it is not authorized
+    return default_authorized
+
+def _get_dns():
+    """
+    Get the set of DNs allowed to access "special" data (such as contact info)
+    """
+    global _dn_set
+    if not _dn_set:
+        contacts_data = _get_contacts_data()
+        _dn_set = set(contacts_data.get_dns())
+    return _dn_set
 
 
 def _get_topology():
