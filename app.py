@@ -51,10 +51,7 @@ _topology = None
 @app.route('/map/iframe')
 def map():
     rgsummary = _get_topology().get_resource_summary()
-    print(rgsummary)
-    print(rgsummary["ResourceSummary"]["ResourceGroup"])
-    print(len(rgsummary["ResourceSummary"]["ResourceGroup"]))
-    print(rgsummary["ResourceSummary"]["ResourceGroup"][0])
+
     return render_template('iframe.tmpl', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"])
 
 
