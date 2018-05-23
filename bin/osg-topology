@@ -196,24 +196,43 @@ def list_resource_contacts(args):
                                 contacts = contact_list_info
 
                 if name and contacts and (not args.name_filter or fnmatch.fnmatch(name, args.name_filter) or args.name_filter in name):
-                    keys = results.setdefault(name, set())
-                    for contact in contacts:
-                        key = None
-                        if 'Name' in contact and 'Email' in contact:
-                            key = "%s<%s>" % (contact['Name'], contact['Email'])
-                        elif 'Name' in contact:
-                            key = contact['Name']
-                        if key:
-                            keys.add(key)
+                    results[name] = contacts
 
-    sites = results.keys()
-    sites.sort()
-    for site in sites:
-        keys = list(results[site])
-        keys.sort()
-        print("- Resource: %s" % site)
-        for key in keys:
-             print(u"  * %s" % key)
+    if args.output_mode == "email":
+        sites = results.keys()
+        emails = set()
+        for site in sites:
+            for contact in results[site]:
+                if 'Email' in contact:
+                    emails.add(contact['Email'])
+        emails = list(emails)
+        emails.sort()
+        hadone = False
+        for email in emails:
+            if hadone:
+                sys.stdout.write(' ')
+            else:
+                hadone = True
+            sys.stdout.write(email)
+        sys.stdout.write('\n')
+    else:
+        sites = results.keys()
+        sites.sort()
+        for site in sites:
+            print("- Resource: %s" % site)
+            keys = set()
+            for contact in results[site]:
+                key = None
+                if 'Name' in contact and 'Email' in contact:
+                    key = "%s <%s>" % (contact['Name'], contact['Email'])
+                elif 'Name' in contact:
+                    key = contact['Name']
+                if key:
+                    keys.add(key)
+            keys = list(keys)
+            keys.sort()
+            for key in keys:
+                 print(u"  * %s" % key)
 
 
 def get_parser():
@@ -241,6 +260,9 @@ def get_parser():
     list_resource_contacts_parser.add_argument("--type",
         dest="contact_type", help="Filter on contact type "
         "(e.g. security, default all)")
+    list_resource_contacts_parser.add_argument("--output",
+        dest="output_mode", help="Select the output mode "
+        "(email or full; default full)")
     list_resource_contacts_parser.add_argument(dest="name_filter", action="store",
         nargs="?", help="Filter on the resource name for results.")
 
