@@ -93,7 +93,7 @@ font-size: 12px;
 </style>
 
 <!-- <link href="<?=fullbase()?>/css/html.css" rel="stylesheet" type="text/css" /> -->
-<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.1/jquery.min.js'></script>
+<script type='text/javascript' src='/static/js/jquery-1.8.1.min.js'></script>
 <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyBN3KAdtotBzRlw_CzohzisMgqNapTA7lE"></script>
 <script type="text/javascript">
 
@@ -191,7 +191,7 @@ function init(scrollwheel) {
             position: new google.maps.LatLng(sites[site][0], sites[site][1]),
             map: map,
             zIndex: resourceCounter,
-            icon: 'https://raw.githubusercontent.com/opensciencegrid/myosg/master/images/status_nr_map.png',
+            icon: '/static/images/status_green_map.png',
             title: sites[site][2]
         });
         
