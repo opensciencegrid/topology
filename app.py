@@ -48,7 +48,7 @@ def homepage():
     """
 
 _projects = None
-_vos = None
+_vos_data = None
 _contacts_data = None
 _topology = None
 _dn_set = None
