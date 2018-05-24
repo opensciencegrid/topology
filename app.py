@@ -55,6 +55,10 @@ _dn_set = None
 
 @app.route('/map/iframe')
 def map():
+    @app.template_filter()
+    def encode(text):
+        """Convert a partial unicode string to full unicode"""
+        return text.encode('utf-8', 'surrogateescape').decode('utf-8')
     rgsummary = _get_topology().get_resource_summary()
 
     return render_template('iframe.tmpl', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"])
