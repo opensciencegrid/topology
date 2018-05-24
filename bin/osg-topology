@@ -130,6 +130,7 @@ def mangle_url(url, args, session = None):
 
     return urlparse.urlunsplit(url_tuple)
 
+
 def get_contact_list_info(contact_list):
     """
     Get contact list info out of contact list
@@ -146,6 +147,7 @@ def get_contact_list_info(contact_list):
                 contact_list_info.append(contact_info)
 
     return contact_list_info
+
 
 def get_contacts(args, urltype, roottype):
     """
@@ -171,9 +173,10 @@ def get_contacts(args, urltype, roottype):
 
     return root
 
-def list_resource_contacts(args):
+
+def get_resource_contacts(args):
     """
-    List resource contacts for OSG.
+    Get resource contacts for OSG.  Return results.
     """
     root = get_contacts(args, 'rg', 'Resource')
     if root == None:
@@ -203,11 +206,20 @@ def list_resource_contacts(args):
                 if name and contact_list_info:
                     results[name] = contact_list_info
 
+    return results
+
+
+def list_resource_contacts(args):
+    """
+    List resource contacts for OSG.
+    """
+    results = get_resource_contacts(args)
     print_contacts(args, 'Resource', results)
 
-def list_vo_contacts(args):
+
+def get_vo_contacts(args):
     """
-    List vo contacts for OSG.
+    Get resource contacts for OSG.  Return results.
     """
     root = get_contacts(args, 'vo', 'VO')
     if root == None:
@@ -232,14 +244,36 @@ def list_vo_contacts(args):
         if name and contact_list_info:
             results[name] = contact_list_info
 
+    return results
+
+
+def list_vo_contacts(args):
+    """
+    List VO contacts for OSG.
+    """
+    results = get_vo_contacts(args)
     print_contacts(args, 'VO', results)
+
+
+def list_contacts(args):
+    """
+    List resource and VO contacts for OSG.
+    """
+    if args.output_mode == "email":
+        results = get_resource_contacts(args)
+        results.update(get_vo_contacts(args))
+        print_contacts(args, 'combined', results)
+    else:
+        list_resource_contacts(args)
+        list_vo_contacts(args)
+
 
 def print_contacts(args, type, results):
     """
     Print contacts of given type with the given results
     """
 
-    if args.name_filter:
+    if getattr(args, 'name_filter', None):
         # filter out undesired names
         for name in results.keys():
             if not fnmatch.fnmatch(name, args.name_filter) and \
@@ -330,6 +364,11 @@ def get_parser():
     list_vo_contacts_parser.add_argument(dest="name_filter", action="store",
         nargs="?", help="Shell expression filter on the VO name")
 
+    list_contacts_parser = subparsers.add_parser('list-contacts',
+        help='List OSG resource and VO contacts.')
+    contactparsers.append(list_contacts_parser)
+    list_contacts_parser.set_defaults(which="list_contacts")
+
     for parser in contactparsers:
         parser.add_argument("--type", default="all",
             dest="contact_type", help="Filter on contact type "
@@ -351,6 +390,7 @@ def main():
 
     commands = {"list_resource_contacts": list_resource_contacts,
                 "list_vo_contacts": list_vo_contacts,
+                "list_contacts": list_contacts,
                }
 
     command = commands[args.which]
