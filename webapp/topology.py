@@ -53,7 +53,9 @@ class Site(object):
             del self.other_data["ID"]
 
     def get_tree(self) -> OrderedDict:
-        return OrderedDict([("ID", self.id), ("Name", self.name)] + list(self.other_data.items()))
+        # Sort the other_data
+        sorted_other_data = sorted(list(self.other_data.items()), key=lambda tup: tup[0])
+        return OrderedDict([("ID", self.id), ("Name", self.name)] + sorted_other_data)
 
 
 class Resource(object):
