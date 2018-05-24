@@ -6,6 +6,23 @@ This repository contains data for known projects, site resources, and Virtual Or
 scripts for managing and displaying this information.
 The information was sourced from the former OIM site that was hosted at `oim.grid.iu.edu`.
 
+### Creating new data ###
+
+To create a new resource group, project, or VO, please create the YAML file according to the table below, and use the
+corresponding template file to fill in the appropriate information.
+If you do not feel comfortable creating the new file yourself, send an email to <help@opensciencegrid.org> with
+details about your resource group, project, or VO.
+
+### Updating existing data ###
+
+To update the data for your site, project, or VO, make and submit your changes using one of the following methods:
+
+- [Modify the corresponding YAML file](https://help.github.com/articles/editing-files-in-your-repository/) and submit
+  your changes as a GitHub pull request.
+- Send an email to <help@opensciencegrid.org> requesting your desired changes.
+
+For definitions for the various fields, consult the corresponding template file for the type of data you are updating.
+
 
 Structure of the Data
 ---------------------
@@ -66,19 +83,3 @@ The comments in the template files explain the structure and the meaning of the 
 facility, site, or resource group, as appropriate.  This includes case and
 spaces.
 
-### Creating new data ###
-
-To create a new resource group, project, or VO, please create the YAML file according to the table above, and use the
-corresponding template file to fill in the appropriate information.
-If you do not feel comfortable creating the new file yourself, send an email to <help@opensciencegrid.org> with
-details about your resource group, project, or VO.
-
-### Updating existing data ###
-
-To update the data for your site, project, or VO, make and submit your changes using one of the following methods:
-
-- [Modify the corresponding YAML file](https://help.github.com/articles/editing-files-in-your-repository/) and submit
-  your changes as a GitHub pull request.
-- Send an email to <help@opensciencegrid.org> requesting your desired changes.
-
-For definitions for the various fields, consult the corresponding template file for the type of data you are updating.
