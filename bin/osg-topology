@@ -103,7 +103,7 @@ def mangle_url(url, args, session = None):
     qs_dict = urlparse.parse_qs(url_tuple[3])
     qs_list = urlparse.parse_qsl(url_tuple[3])
 
-    if hasattr(args, 'provides_service') and args.provides_service:
+    if getattr(args, 'provides_service', None):
         if 'service' not in qs_dict:
             qs_list.append(("service", "on"))
         for service in args.provides_service.split(","):
@@ -114,7 +114,7 @@ def mangle_url(url, args, session = None):
                     " names: %s" % (service, ", ".join(SERVICE_IDS)))
             qs_list.append(("service_sel[]", str(service_id)))
 
-    if hasattr(args, 'owner_vo') and args.owner_vo:
+    if getattr(args, 'owner_vo', None):
         vo_map = get_vo_map(args, session)
         if 'voown' not in qs_dict:
             qs_list.append(("voown", "on"))
@@ -130,15 +130,29 @@ def mangle_url(url, args, session = None):
 
     return urlparse.urlunsplit(url_tuple)
 
+def get_contact_list_info(contact_list):
+    """
+    Get contact list info out of contact list
+    """
+    contact_list_info = []
+    for contact in contact_list:
+        if contact.tag == 'ContactType' or contact.tag == 'Type':
+            contact_list_type = contact.text.lower()
+        if contact.tag == 'Contacts':
+            for contact in contact:
+                contact_info = { 'ContactType' : contact_list_type }
+                for contact_contents in contact:
+                    contact_info[contact_contents.tag] = contact_contents.text
+                contact_list_info.append(contact_info)
 
-def list_resource_contacts(args):
+    return contact_list_info
+
+def get_contacts(args, urltype, roottype):
     """
-    List resource contacts for OSG.
+    Get one type of contacts for OSG.
     """
-    base_url = "https://my.opensciencegrid.org/rgsummary/xml" \
-               "?summary_attrs_showcontact=on&facility=on&gridtype=on" \
-               "&gridtype_1=on&all_resources=on&active_value=1&active=on&" \
-               "disable=on&disable_value=0"
+    base_url = "https://my.opensciencegrid.org/" + urltype + "summary/xml?" \
+               "&active=on&active_value=1&disable=on&disable_value=0"
     with get_auth_session(args) as session:
         url = mangle_url(base_url, args, session)
         #print(url)
@@ -147,12 +161,22 @@ def list_resource_contacts(args):
     if response.status_code != requests.codes.ok:
         print("MyOSG request failed (status %d): %s" % (response.status_code,
               response.text[:2048]), file=sys.stderr)
-        return 1
+        return None
 
     root = ET.fromstring(response.content)
-    if root.tag != 'ResourceSummary':
+    if root.tag != roottype + 'Summary':
         print("MyOSG returned invalid XML with root tag %s" % root.tag,
               file=sys.stderr)
+        return None
+
+    return root
+
+def list_resource_contacts(args):
+    """
+    List resource contacts for OSG.
+    """
+    root = get_contacts(args, 'rg', 'Resource')
+    if root == None:
         return 1
 
     results = {}
@@ -172,20 +196,9 @@ def list_resource_contacts(args):
                         name = resource_tag.text
                     if resource_tag.tag == 'ContactLists':
                         for contact_list in resource_tag:
-                            contact_list_type = None
-                            if contact_list.tag != 'ContactList':
-                                continue
-                            for child in contact_list:
-                                if child.tag == 'ContactType':
-                                    contact_list_type = child.text.lower()
-                                if child.tag == 'Contacts':
-                                    for contact in child:
-                                        contact_info = \
-                                            { 'ContactType' : contact_list_type }
-                                        for contact_contents in contact:
-                                            contact_info[contact_contents.tag] = \
-                                                contact_contents.text
-                                        contact_list_info.append(contact_info)
+                            if contact_list.tag == 'ContactList':
+                                contact_list_info.extend( \
+                                    get_contact_list_info(contact_list))
 
                 if name and contact_list_info:
                     results[name] = contact_list_info
@@ -196,24 +209,8 @@ def list_vo_contacts(args):
     """
     List vo contacts for OSG.
     """
-    base_url = "https://my.opensciencegrid.org/vosummary/xml" \
-                "?summary_attrs_showcontact=on&all_vos=on" \
-                "&active_value=1&active=on&disable=on&disable_value=0"
-
-    with get_auth_session(args) as session:
-        url = mangle_url(base_url, args, session)
-        #print(url)
-        response = session.get(url)
-
-    if response.status_code != requests.codes.ok:
-        print("MyOSG request failed (status %d): %s" % (response.status_code,
-              response.text[:2048]), file=sys.stderr)
-        return 1
-
-    root = ET.fromstring(response.content)
-    if root.tag != 'VOSummary':
-        print("MyOSG returned invalid XML with root tag %s" % root.tag,
-              file=sys.stderr)
+    root = get_contacts(args, 'vo', 'VO')
+    if root == None:
         return 1
 
     results = {}
@@ -227,22 +224,10 @@ def list_vo_contacts(args):
         for item in child_vo:
             if item.tag == 'Name':
                 name = item.text
-                continue
-            if item.tag != "ContactTypes":
-                continue
-            for contact_type in item:
-                if contact_type.tag == 'ContactType':
-                    for child in contact_type:
-                        if child.tag == 'Type':
-                            contact_list_type = child.text.lower()
-                        if child.tag != 'Contacts':
-                            continue
-                        for contact in child:
-                            contact_info = { 'ContactType' : contact_list_type }
-                            for contact_contents in contact:
-                                contact_info[contact_contents.tag] = \
-                                    contact_contents.text
-                            contact_list_info.append(contact_info)
+            if item.tag == "ContactTypes":
+                for contact_type in item:
+                    contact_list_info.extend( \
+                        get_contact_list_info(contact_type))
 
         if name and contact_list_info:
             results[name] = contact_list_info
@@ -261,7 +246,7 @@ def print_contacts(args, type, results):
                     args.name_filter not in name:
                 del results[name]
 
-    if args.contact_type and args.contact_type != 'all':
+    if args.contact_type != 'all':
         # filter out undesired contact types
         for name in results.keys():
             contact_list = []
@@ -316,8 +301,8 @@ def get_parser():
     """
     oparser = argparse.ArgumentParser(prog=os.path.basename(sys.argv[0]),
                                       add_help=True)
-    oparser.add_argument("--host", dest="host", help="Remote topology host",
-                         default="my.opensciencegrid.org")
+    oparser.add_argument("--host", dest="host", default="my.opensciencegrid.org",
+                help="Remote topology host (default my.opensciencegrid.org)")
     oparser.add_argument("--cert", dest="cert", help="Client certificate")
     oparser.add_argument("--key", dest="key", help="Client certificate private key")
 
@@ -346,10 +331,10 @@ def get_parser():
         nargs="?", help="Shell expression filter on the VO name")
 
     for parser in contactparsers:
-        parser.add_argument("--type",
+        parser.add_argument("--type", default="all",
             dest="contact_type", help="Filter on contact type "
             "(e.g. security, default all)")
-        parser.add_argument("--output",
+        parser.add_argument("--output", default="full",
             dest="output_mode", help="Select the output mode "
             "(email or full; default full)")
 
