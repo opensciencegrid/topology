@@ -37,6 +37,15 @@
                   <xsd:sequence>
                     <xsd:element name="ID" type="xsd:int" />
                     <xsd:element name="Name" type="xsd:string" />
+                    <xsd:element name="AddressLine1" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="AddressLine2" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="Country" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="Description" type="xsd:string" minOccurs="0" /> 
+                    <xsd:element name="Latitude" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="LongName" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="Longitude" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="State" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="Zipcode" type="xsd:string" minOccurs="0" />
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>
