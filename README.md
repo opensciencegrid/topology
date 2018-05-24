@@ -48,23 +48,6 @@ as follows:
     `topology/University of Wisconsin/CHTC/CHTC.yaml`
 
 
-Accessing the Data
-------------------
-
-Data can be accessed in two formats: the YAML files can be accessed directly through the GitHub interface or from a
-clone of the GitHub repository.
-Alternatively, the data can be accessed in XML format at the following URLs:
-
-| The following data... | Can be accessed in XML format via URL...         |
-|-----------------------|--------------------------------------------------|
-| Project               | <https://my.opensciencegrid.org/miscproject/xml> |
-| Resource Downtime     | <https://my.opensciencegrid.org/rgdowntime/xml>  |
-| Resource Topology     | <https://my.opensciencegrid.org/rgsummary/xml>   |
-| Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
-
-These XML pages are compatible with the XML format once provided by `myosg.grid.iu.edu`.
-
-
 Modifying the Data
 ------------------
 
@@ -82,4 +65,21 @@ The comments in the template files explain the structure and the meaning of the 
 **Note**: File and directory names _must_ match the name of your project, VO,
 facility, site, or resource group, as appropriate.  This includes case and
 spaces.
+
+Accessing the Data
+------------------
+
+Data can be accessed in two formats: the YAML files can be accessed directly through the GitHub interface or from a
+clone of the GitHub repository.
+Alternatively, the data can be accessed in XML format at the following URLs:
+
+| The following data... | Can be accessed in XML format via URL...         |
+|-----------------------|--------------------------------------------------|
+| Project               | <https://my.opensciencegrid.org/miscproject/xml> |
+| Resource Downtime     | <https://my.opensciencegrid.org/rgdowntime/xml>  |
+| Resource Topology     | <https://my.opensciencegrid.org/rgsummary/xml>   |
+| Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
+
+These XML pages are compatible with the XML format once provided by `myosg.grid.iu.edu`.
+
 
