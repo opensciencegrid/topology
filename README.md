@@ -21,7 +21,7 @@ To update the data for your site, project, or VO, make and submit your changes u
   your changes as a GitHub pull request.
 - Send an email to <help@opensciencegrid.org> requesting your desired changes.
 
-For definitions for the various fields, consult the corresponding template file for the type of data you are updating.
+For definitions for the various fields, consult the corresponding template file below for the type of data you are updating.
 
 
 Structure of the Data
