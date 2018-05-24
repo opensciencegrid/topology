@@ -372,7 +372,8 @@ def get_parser():
     for parser in contactparsers:
         parser.add_argument("--type", default="all",
             dest="contact_type", help="Filter on contact type "
-            "(e.g. security, default all)")
+            "(e.g. administrative, miscellaneous, security, or submitter; "
+            "default all)")
         parser.add_argument("--output", default="full",
             dest="output_mode", help="Select the output mode "
             "(email or full; default full)")
