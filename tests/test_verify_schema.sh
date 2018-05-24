@@ -29,34 +29,35 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
         "======================"
     ORIG_XML=/tmp/$DATA_TYPE.orig.xml
     ./converters/download --out  $ORIG_XML $DATA_TYPE
-    [[ $DATA_TYPE != 'miscproject' ]] && verify_xml $ORIG_XML $DATA_TYPE
+    verify_xml $ORIG_XML $DATA_TYPE
     if [[ $DATA_TYPE == 'rgsummary' ]]; then
         ./converters/download --out /tmp/rgdowntime.orig.xml rgdowntime
         verify_xml /tmp/rgdowntime.orig.xml rgdowntime
     fi
 
+    CONVERTED_XML=/tmp/$DATA_TYPE.xml
+
     case $DATA_TYPE in
         miscproject)
             YAML_DIR="$TRAVIS_BUILD_DIR/projects"
             READER=webapp/project_reader.py
+            READER_ARGS="$YAML_DIR $CONVERTED_XML"
             ;;
         rgsummary)
             YAML_DIR="$TRAVIS_BUILD_DIR/topology"
             READER=webapp/rg_reader.py
+            READER_ARGS="$YAML_DIR $CONVERTED_XML /tmp/rgdowntime.xml"
             ;;
         vosummary)
             YAML_DIR="$TRAVIS_BUILD_DIR/virtual-organizations"
             READER=webapp/vo_reader.py
+            READER_ARGS="$YAML_DIR $CONVERTED_XML"
             ;;
     esac
 
     echo -e "=========================\n"\
          "$DATA_TYPE YAML READER\n"\
          "========================="
-    
-    CONVERTED_XML=/tmp/$DATA_TYPE.xml
-    READER_ARGS="$YAML_DIR $CONVERTED_XML"
-    [[ $DATA_TYPE == 'rgsummary' ]] && READER_ARGS="$READER_ARGS /tmp/rgdowntime.xml"
 
     # Resource group and VO readers should use the contact info if we have
     # access to the SSH keys for the contacts repo
@@ -68,7 +69,7 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
     fi
 
     python3 $READER $READER_ARGS
-    [[ $DATA_TYPE != 'miscproject' ]] && verify_xml $CONVERTED_XML $DATA_TYPE
+    verify_xml $CONVERTED_XML $DATA_TYPE
     
     [[ $DATA_TYPE == 'rgsummary' ]] && verify_xml /tmp/rgdowntime.xml rgdowntime
 done

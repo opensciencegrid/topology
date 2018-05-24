@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from collections import OrderedDict
 
 import os
 
@@ -11,7 +12,9 @@ def get_projects(indir="projects"):
     projects = []
 
     for file in os.listdir(indir):
-        project = anymarkup.parse_file(os.path.join(indir, file))
+        project = OrderedDict.fromkeys(["ID", "Name", "Description", "PIName", "Organization", "Department",
+                                        "FieldOfScience", "Sponsor"])
+        project.update(anymarkup.parse_file(os.path.join(indir, file)))
         projects.append(project)
 
     to_output["Projects"]["Project"] = projects
