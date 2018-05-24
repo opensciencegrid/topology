@@ -44,13 +44,18 @@ class Facility(object):
 
 class Site(object):
     # probably will have some other attributes like address, latitude, longitude, etc.
-    def __init__(self, name: str, id: int, facility: Facility):
+    def __init__(self, name: str, id: int, facility: Facility, site_info):
         self.name = name
         self.id = id
         self.facility = facility
+        self.other_data = site_info
+        if "ID" in self.other_data:
+            del self.other_data["ID"]
 
     def get_tree(self) -> OrderedDict:
-        return OrderedDict([("ID", self.id), ("Name", self.name)])
+        # Sort the other_data
+        sorted_other_data = sorted(list(self.other_data.items()), key=lambda tup: tup[0])
+        return OrderedDict([("ID", self.id), ("Name", self.name)] + sorted_other_data)
 
 
 class Resource(object):
@@ -389,12 +394,12 @@ class Topology(object):
             raise TopologyError("Duplicate facility " + name)
         self.facilities[name] = Facility(name, id)
 
-    def add_site(self, facility_name, name, id):
+    def add_site(self, facility_name, name, id, site_info):
         if facility_name not in self.facilities:
             raise TopologyError("Unknown facility {0} -- call add_facility first".format(facility_name))
         if name in self.sites:
             raise TopologyError("Duplicate site " + name)
-        self.sites[name] = Site(name, id, self.facilities[facility_name])
+        self.sites[name] = Site(name, id, self.facilities[facility_name], site_info)
 
     def get_resource_summary(self, authorized=False, filters: Filters = None) -> Dict:
         if filters is None:

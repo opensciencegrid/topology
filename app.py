@@ -2,7 +2,7 @@
 Application File
 """
 import flask
-from flask import Flask, Response, request
+from flask import Flask, Response, request, render_template
 import configparser
 import tempfile
 import anymarkup
@@ -19,6 +19,8 @@ from webapp.vo_reader import get_vos_data
 from webapp.rg_reader import get_topology
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 
+import sys
+print(sys.path)
 
 class InvalidArgumentsError(Exception): pass
 
@@ -46,10 +48,17 @@ def homepage():
     """
 
 _projects = None
-_vos_data = None
+_vos = None
 _contacts_data = None
 _topology = None
 _dn_set = None
+
+@app.route('/map/iframe')
+def map():
+    rgsummary = _get_topology().get_resource_summary()
+
+    return render_template('iframe.tmpl', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"])
+
 
 @app.route('/schema/<xsdfile>')
 def schema(xsdfile):
@@ -208,7 +217,7 @@ def _get_contacts_data():
         # use local copy if it exists
         if os.path.exists("contacts.yaml"):
             _contacts_data = get_contacts_data("contacts.yaml")
-        else:
+        elif os.path.exists("/etc/opt/topology/config.ini") or os.path.exists("config.ini"):
             # Get the contacts from bitbucket
             # Read in the config file with the SSH key location
             config = configparser.ConfigParser()
