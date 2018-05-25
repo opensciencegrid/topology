@@ -10,6 +10,7 @@ This README contains the following sections:
 - [Structure of the Registry](#structure-of-the-registry)
 - [How to Register](#how-to-register)
 - [Viewing the Registry](#accessing-the-data)
+- [Getting Help](#getting-help)
 
 
 Structure of the Registry
@@ -88,3 +89,10 @@ Alternatively, the registry data can be accessed in XML format at the following 
 | Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
 
 These XML pages are compatible with the XML format once provided by `myosg.grid.iu.edu`.
+
+
+Getting Help
+------------
+
+If you have any questions or encounter any issues with the registry, please contact open a ticket at
+https://support.opensciencegrid.org or email us at help@opensciencegrid.org.
