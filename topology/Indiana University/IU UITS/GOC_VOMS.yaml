@@ -1,16 +1,24 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: A VOMS run by the GOC for the VOs CSIU, mis and osgedu
 GroupID: 344
 Resources:
   GOC Voms:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Security Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Submitter Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+    Description: GOC operated VOMS for the CSIU, mis and osgedu VOs
     Disable: false
     FQDN: voms.grid.iu.edu
     ID: 466
@@ -23,12 +31,24 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Resource Report Contact:
-        Primary: Scott Teige
-        Secondary: Kyle Gross
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+        Secondary:
+          ID: 51e80537c5f71fa8bee57b6196025fd78c0fde0d
+          Name: Kyle Gross
       Submitter Contact:
-        Primary: Steve Timm
+        Primary:
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+          Name: Steve Timm
+    Description: |-
+      VOMS server for the OSG VO.
+
+      Also available on https://voms.grid.iu.edu to which voms.opensciencegrid.org is now an alias."
     Disable: false
     FQDN: voms.opensciencegrid.org
     ID: 190

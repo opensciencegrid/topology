@@ -1,20 +1,36 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: The University of Wisconsin's Center for High Throughput Computing.  Note
+  that CHTC and GLOW are closely related, and in many contexts, they are synonyms.
 GroupID: 314
 Resources:
   CHTC and BATLAB OSG Mirror:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Miscellaneous Contact:
-        Primary: Aaron Moate
-        Tertiary: Neil Van Lysel
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Tertiary:
+          ID: 9a39cacc57e09cb90be41c93c204231ac1b15aee
+          Name: Neil Van Lysel
       Resource Report Contact:
-        Primary: Aaron Moate
-        Tertiary: Neil Van Lysel
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Tertiary:
+          ID: 9a39cacc57e09cb90be41c93c204231ac1b15aee
+          Name: Neil Van Lysel
       Security Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+    Description: This is the CHTC and BATLAB mirror of the OSG repos at repo.grid.iu.edu/osg
+      via rsync every two hours.
     Disable: false
     FQDN: mirror.batlab.org
     ID: 608
@@ -29,11 +45,18 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Security Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Submitter Contact:
-        Primary: Daniel Bradley
+        Primary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
+    Description: This is the GLOW/CHTC glidein frontend.
     Disable: true
     FQDN: glidein.chtc.wisc.edu
     ID: 412
@@ -48,13 +71,22 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Miscellaneous Contact:
-        Primary: Neil Van Lysel
+        Primary:
+          ID: 9a39cacc57e09cb90be41c93c204231ac1b15aee
+          Name: Neil Van Lysel
       Resource Report Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Security Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+    Description: This is the GLOW/CHTC glidein frontend.
     Disable: false
     FQDN: glidein2.chtc.wisc.edu
     ID: 638
@@ -69,13 +101,22 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Miscellaneous Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Resource Report Contact:
-        Secondary: Aaron Moate
+        Secondary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Security Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+    Description: Test GLOW/CHTC glidein frontend.
     Disable: false
     FQDN: glidein3.chtc.wisc.edu
     ID: 739
@@ -90,11 +131,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Resource Report Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Security Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+    Description: CHTC Submit Node
     Disable: false
     FQDN: submit-1.chtc.wisc.edu
     ID: 723
@@ -109,13 +157,22 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Miscellaneous Contact:
-        Primary: Neil Van Lysel
+        Primary:
+          ID: 9a39cacc57e09cb90be41c93c204231ac1b15aee
+          Name: Neil Van Lysel
       Resource Report Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Security Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+    Description: CHTC Submit Node
     Disable: false
     FQDN: submit-3.chtc.wisc.edu
     ID: 719
@@ -130,11 +187,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Resource Report Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Security Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+    Description: CHTC Submit Node for SOAR work flows written by bt@cs.wisc.edu
     Disable: false
     FQDN: submit-4.chtc.wisc.edu
     ID: 721
@@ -149,11 +213,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Resource Report Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Security Contact:
-        Primary: Aaron Moate
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+    Description: CHTC Submit Node for users created after 2014
     Disable: false
     FQDN: submit-5.chtc.wisc.edu
     ID: 722
@@ -168,14 +239,27 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Aaron Moate
-        Secondary: Daniel Bradley
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
       Resource Report Contact:
-        Primary: Daniel Bradley
-        Secondary: Aaron Moate
+        Primary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
+        Secondary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
       Security Contact:
-        Primary: Aaron Moate
-        Secondary: Daniel Bradley
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
+    Description: This is the VOMS server for the GLOW and CHTC sites.
     Disable: false
     FQDN: glow-voms.cs.wisc.edu
     ID: 426

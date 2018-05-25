@@ -1,21 +1,38 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 120
 Resources:
   T2_Florida_BW:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Yu Fu
-        Secondary: Bockjoo Kim
+        Primary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Resource Report Contact:
-        Primary: Yu Fu
-        Secondary: Bockjoo Kim
+        Primary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Security Contact:
-        Primary: Yu Fu
-        Secondary: Bockjoo Kim
+        Primary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Submitter Contact:
-        Primary: Yu Fu
+        Primary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+    Description: This is the perfSONAR-ps bandwidth instance at the University of
+      Florida CMS T2 site.
     Disable: false
     FQDN: perfsonar2.ihepa.ufl.edu
     ID: 607
@@ -30,19 +47,39 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Yu Fu
-        Secondary: Bockjoo Kim
+        Primary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Miscellaneous Contact:
-        Primary: Yu Fu
-        Secondary: Bockjoo Kim
+        Primary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Resource Report Contact:
-        Primary: Yu Fu
-        Secondary: Bockjoo Kim
+        Primary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Security Contact:
-        Primary: Yu Fu
-        Secondary: Bockjoo Kim
+        Primary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Submitter Contact:
-        Primary: Yu Fu
+        Primary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+    Description: This is the perfSONAR-ps latency instance at the University of Florida
+      CMS T2 site.
     Disable: false
     FQDN: perfsonar1.ihepa.ufl.edu
     ID: 606
@@ -57,9 +94,14 @@ Resources:
     Active: true
     ContactLists:
       Miscellaneous Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Submitter Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: HTCondor-CE
     Disable: false
     FQDN: cms.rc.ufl.edu
     ID: 666
@@ -88,9 +130,14 @@ Resources:
     Active: true
     ContactLists:
       Miscellaneous Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Submitter Contact:
-        Primary: Craig Prescott
+        Primary:
+          ID: dcc5225ec8889c92053920bbd934bedadc799908
+          Name: Craig Prescott
+    Description: US CMS Tier-2 site at Florida
     Disable: false
     FQDN: osg.rc.ufl.edu
     ID: 120
@@ -119,9 +166,14 @@ Resources:
     Active: true
     ContactLists:
       Miscellaneous Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Submitter Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: The CE for the U of Florida HiperGator2 Cluster.
     Disable: false
     FQDN: cslrm.rc.ufl.edu
     ID: 887
@@ -149,15 +201,26 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Miscellaneous Contact:
-        Primary: Craig Prescott
+        Primary:
+          ID: dcc5225ec8889c92053920bbd934bedadc799908
+          Name: Craig Prescott
       Resource Report Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Security Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Submitter Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: Simple Load Balance GridFTP server.
     Disable: false
     FQDN: cmsio.rc.ufl.edu
     ID: 888
@@ -186,11 +249,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Security Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Submitter Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: The first squid server for the U of Florida CMS Tier2.
     Disable: false
     FQDN: squid.ihepa.ufl.edu
     ID: 684
@@ -203,11 +273,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Security Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Submitter Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: Second squid server for U of Florida CMS Tier2
     Disable: false
     FQDN: squid2.ihepa.ufl.edu
     ID: 685

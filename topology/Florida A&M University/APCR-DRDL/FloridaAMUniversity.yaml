@@ -1,16 +1,28 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: |-
+  Site for FAMU's Engagement resource.
+
+  7/26 disabling empty resource group
 GroupID: 297
 Resources:
   FloridaAMUniversity_CE:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Antony Jepson
+        Primary:
+          ID: f9d7227558955dee253695c5025e225f0605e2c6
+          Name: Antony Jepson
       Security Contact:
-        Primary: Antony Jepson
+        Primary:
+          ID: f9d7227558955dee253695c5025e225f0605e2c6
+          Name: Antony Jepson
       Submitter Contact:
-        Primary: Antony Jepson
+        Primary:
+          ID: f9d7227558955dee253695c5025e225f0605e2c6
+          Name: Antony Jepson
+    Description: OSG Xserve Component for Florida A&M University, Tallahassee, Florida,
+      United States of America.
     Disable: true
     FQDN: xserve.physics.famu.edu
     ID: 377

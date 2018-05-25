@@ -1,19 +1,32 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: OSG Homepage (http://opensciencegrid.org)
 GroupID: 280
 Resources:
   OSG_Homepage_1:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Kyle Gross
+        Secondary:
+          ID: 51e80537c5f71fa8bee57b6196025fd78c0fde0d
+          Name: Kyle Gross
       Miscellaneous Contact:
-        Secondary: Kyle Gross
-        Tertiary: Elizabeth Prout
+        Secondary:
+          ID: 51e80537c5f71fa8bee57b6196025fd78c0fde0d
+          Name: Kyle Gross
+        Tertiary:
+          ID: 8350a764268bd8a041059caaccad8f029720f212
+          Name: Elizabeth Prout
       Security Contact:
-        Primary: OSG Operations Center
+        Primary:
+          ID: a86faef88b867839882fcc12d719171113acafd6
+          Name: OSG Operations Center
       Submitter Contact:
-        Primary: Soichi Hayashi
+        Primary:
+          ID: 410b3bfb4ed7d81f0e9ea2f853c0214f104168e1
+          Name: Soichi Hayashi
+    Description: This resource exists in order to monitor OSG Homepage (http://opensciencegrid.org/)
+      status.
     Disable: false
     FQDN: opensciencegrid.org
     ID: 353

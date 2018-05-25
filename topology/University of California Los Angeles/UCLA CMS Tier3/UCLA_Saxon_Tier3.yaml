@@ -1,24 +1,46 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: 7/26 disabling empty resource group
 GroupID: 109
 Resources:
   UCLA_Saxon_Tier3:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: David Saltzberg
-        Secondary: Prakashan Korambath
+        Primary:
+          ID: 5dd0fdb92038a38d51148dd2c7c7f89f396a89bd
+          Name: David Saltzberg
+        Secondary:
+          ID: 9e689ddd0829512821e0dfb8eeaa88e4a60499ca
+          Name: Prakashan Korambath
       Miscellaneous Contact:
-        Primary: David Saltzberg
-        Secondary: Prakashan Korambath
+        Primary:
+          ID: 5dd0fdb92038a38d51148dd2c7c7f89f396a89bd
+          Name: David Saltzberg
+        Secondary:
+          ID: 9e689ddd0829512821e0dfb8eeaa88e4a60499ca
+          Name: Prakashan Korambath
       Resource Report Contact:
-        Primary: David Saltzberg
-        Secondary: Prakashan Korambath
+        Primary:
+          ID: 5dd0fdb92038a38d51148dd2c7c7f89f396a89bd
+          Name: David Saltzberg
+        Secondary:
+          ID: 9e689ddd0829512821e0dfb8eeaa88e4a60499ca
+          Name: Prakashan Korambath
       Security Contact:
-        Primary: David Saltzberg
-        Secondary: Prakashan Korambath
+        Primary:
+          ID: 5dd0fdb92038a38d51148dd2c7c7f89f396a89bd
+          Name: David Saltzberg
+        Secondary:
+          ID: 9e689ddd0829512821e0dfb8eeaa88e4a60499ca
+          Name: Prakashan Korambath
       Submitter Contact:
-        Primary: Prakashan Korambath
+        Primary:
+          ID: 9e689ddd0829512821e0dfb8eeaa88e4a60499ca
+          Name: Prakashan Korambath
+    Description: UCLA Saxon Cluster is Part of OSG/CMS experiment.  It consists of
+      19 Opteron compute nodes, one compute element, one storage element and  around
+      10 TB of storage space.
     Disable: true
     FQDN: saxon.hosted.ats.ucla.edu
     ID: 109

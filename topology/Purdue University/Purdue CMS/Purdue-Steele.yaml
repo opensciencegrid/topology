@@ -1,17 +1,27 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: deprecated 3/8/13
 GroupID: 94
 Resources:
   Purdue-Steele:
     Active: false
     ContactLists:
       Administrative Contact:
-        Secondary: Majid Arabgol
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Security Contact:
-        Primary: Preston Smith
-        Secondary: Fengping Hu
+        Primary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
+        Secondary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
       Submitter Contact:
-        Primary: Preston Smith
+        Primary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
+    Description: US CMS Tier-2 site at Purdue
     Disable: true
     FQDN: lepton.rcac.purdue.edu
     ID: 94

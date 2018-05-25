@@ -1,18 +1,28 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: (No resource group description)
 GroupID: 93
 Resources:
   Purdue-ITB:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Fengping Hu
+        Secondary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
       Resource Report Contact:
-        Primary: Preston Smith
+        Primary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
       Security Contact:
-        Primary: Preston Smith
+        Primary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
       Submitter Contact:
-        Primary: Preston Smith
+        Primary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
+    Description: purdue itb
     Disable: false
     FQDN: itb.rcac.purdue.edu
     ID: 93

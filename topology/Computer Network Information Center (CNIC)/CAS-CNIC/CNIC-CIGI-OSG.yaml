@@ -1,21 +1,44 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: CNIC Resources that are participating in OSG through CIGI
 GroupID: 238
 Resources:
   CNIC-OSG:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Zhenghua Xue
+        Primary:
+          ID: 78771370ef5613c19be102de1d49dbc28f3e6ac6
+          Name: Zhenghua Xue
       Miscellaneous Contact:
-        Primary: Anand Padmanabhan
+        Primary:
+          ID: f8f288e7f10d6cec4ea77c35484d3cee55b0f6a4
+          Name: Anand Padmanabhan
       Resource Report Contact:
-        Primary: Zhenghua Xue
-        Tertiary: Anand Padmanabhan
+        Primary:
+          ID: 78771370ef5613c19be102de1d49dbc28f3e6ac6
+          Name: Zhenghua Xue
+        Tertiary:
+          ID: f8f288e7f10d6cec4ea77c35484d3cee55b0f6a4
+          Name: Anand Padmanabhan
       Security Contact:
-        Primary: Zhenghua Xue
+        Primary:
+          ID: 78771370ef5613c19be102de1d49dbc28f3e6ac6
+          Name: Zhenghua Xue
       Submitter Contact:
-        Primary: Anand Padmanabhan
+        Primary:
+          ID: f8f288e7f10d6cec4ea77c35484d3cee55b0f6a4
+          Name: Anand Padmanabhan
+    Description: |-
+      Currently, this site provides a cluster with 128 cores. The cluster consists of a head node and 16 blades. The configuration information of each blade are as follows:
+
+      8 cores Intel(R) Xeon(R) E5504  @ 2.00GHz (X86_64)
+      32GB Memory
+      147GB Disk
+      dual 1Gb NIC
+      Gigabit Ether Net Switch
+
+      + a 8-core x86-64 head node
     Disable: false
     FQDN: osg.cnic.cn
     ID: 245
@@ -28,14 +51,32 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Zhenghua Xue
+        Primary:
+          ID: 78771370ef5613c19be102de1d49dbc28f3e6ac6
+          Name: Zhenghua Xue
       Resource Report Contact:
-        Primary: Zhenghua Xue
-        Tertiary: Anand Padmanabhan
+        Primary:
+          ID: 78771370ef5613c19be102de1d49dbc28f3e6ac6
+          Name: Zhenghua Xue
+        Tertiary:
+          ID: f8f288e7f10d6cec4ea77c35484d3cee55b0f6a4
+          Name: Anand Padmanabhan
       Security Contact:
-        Primary: Zhenghua Xue
+        Primary:
+          ID: 78771370ef5613c19be102de1d49dbc28f3e6ac6
+          Name: Zhenghua Xue
       Submitter Contact:
-        Primary: Anand Padmanabhan
+        Primary:
+          ID: f8f288e7f10d6cec4ea77c35484d3cee55b0f6a4
+          Name: Anand Padmanabhan
+    Description: |-
+      CNIC-OSG-SE leverages Bestman-Gateway as the load balancing frontend for transfer servers. It works with many file transfer services, such as gsiftp, http, https, bbftp and ftp. Our site provides a 30TB storage. It has a SE head and 2 GSIFTP nodes. These nodes have the same configuration as follows:
+
+      16 cores Intel(R) Xeon(R) E5520  @ 2.27GHz (X86_64)
+      32GB Memory
+      147GB Disk
+      dual 1Gb NIC
+      Gigabit Ether Net Switch
     Disable: false
     FQDN: se.osg.cnic.cn
     ID: 318

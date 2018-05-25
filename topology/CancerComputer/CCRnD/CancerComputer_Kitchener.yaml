@@ -1,16 +1,25 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Virtualized compute cluster at CCRnD, supporting VOs and projects
+  dealing with cancer-related research
 GroupID: 479
 Resources:
   CancerComputer_Kitchener_CE:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Ian Stakenvicius
+        Primary:
+          ID: 0182f725a01a98ce2359736e09f181f07ad646d5
+          Name: Ian Stakenvicius
       Security Contact:
-        Primary: Ian Stakenvicius
+        Primary:
+          ID: 0182f725a01a98ce2359736e09f181f07ad646d5
+          Name: Ian Stakenvicius
       Submitter Contact:
-        Primary: Ian Stakenvicius
+        Primary:
+          ID: 0182f725a01a98ce2359736e09f181f07ad646d5
+          Name: Ian Stakenvicius
+    Description: The CE for the virtualized compute cluster at CCRnD
     Disable: false
     FQDN: osg-kitchener.cancercomputer.com
     ID: 922

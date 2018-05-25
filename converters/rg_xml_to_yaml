@@ -34,16 +34,20 @@ will have a ``SITE.yaml`` file containing facility and site information.
 Ordering is lost in the YAML file but the YAML to XML converter restores it.
 """
 from argparse import ArgumentParser
-
-import anymarkup
+import csv
 import os
 import pprint
 import re
 import sys
-from collections import OrderedDict
-from typing import Dict, List, Union
+from typing import Dict
 
-from convertlib import is_null, ensure_list, simplify_attr_list
+import anymarkup
+
+# thanks stackoverflow
+if __name__ == "__main__" and __package__ is None:
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from webapp.common import is_null, ensure_list, simplify_attr_list, trim_space, email_to_id
 
 
 def to_file_name(name: str) -> str:
@@ -62,12 +66,13 @@ def to_file_name(name: str) -> str:
 
 class Topology(object):
 
-    def __init__(self):
+    def __init__(self, site_data=None):
         self.data = {}
         self.services = {}
         self.support_centers = {}
         self.downtime_paths = {}
         self.downtimes = {}
+        self.site_data = site_data or {}
 
     def add_rg(self, rg: Dict):
         sanfacility = to_file_name(rg["Facility"]["Name"])
@@ -78,11 +83,11 @@ class Topology(object):
             self.data[sanfacility][sansite] = {"ID": rg["Site"]["ID"]}
         sanrg = to_file_name(rg["GroupName"])
         sanrg_filename = sanrg + ".yaml"
-        # The assumption here is that RG names are unique, even between sites. As of 2018-05-07, this is true.
         downtime_path = os.path.join(sanfacility, sansite, sanrg) + "_downtime.yaml"
         self.downtime_paths[rg["GroupName"]] = downtime_path
 
         rg_copy = dict(rg)
+        rg_copy["GroupDescription"] = trim_space(rg_copy["GroupDescription"])
         # Get rid of these fields; we're already putting them in the file/dir names.
         del rg_copy["Facility"]
         del rg_copy["Site"]
@@ -103,10 +108,9 @@ class Topology(object):
         del dt_copy["ResourceID"]  # ditto
         del dt_copy["CreatedTime"]
         del dt_copy["UpdateTime"]
+        dt_copy.pop("DN", None)  # DN is only shown when authed
         dt_copy["Services"] = self.simplify_downtime_services(downtime["Services"])
-        # leading and trailing whitespace causes "\n"'s in the resulting string
-        dt_copy["Description"] = re.sub(r"(?m)[ \t]+$", "", dt_copy["Description"])
-        dt_copy["Description"] = re.sub(r"(?m)^[ \t]+", "", dt_copy["Description"])
+        dt_copy["Description"] = trim_space(dt_copy["Description"])
         rgname = downtime["ResourceGroup"]["GroupName"]
         if rgname not in self.downtimes:
             self.downtimes[rgname] = []
@@ -184,12 +188,10 @@ class Topology(object):
         for contact_type, contact_data in contactlists_simple.items():
             contacts = simplify_attr_list(contact_data["Contacts"]["Contact"], "ContactRank")
             new_contacts = {}
-            for contact_rank in contacts:
-                if contact_rank in new_contacts and contacts[contact_rank]["Name"] != new_contacts[contact_rank]:
-                    # Multiple people with the same rank -- hope this never happens.
-                    # Duplicates are fine though -- we collapse them into one.
-                    raise RuntimeError("dammit %s" % contacts[contact_rank]["Name"])
-                new_contacts[contact_rank] = contacts[contact_rank]["Name"]
+            for contact_rank, contact_rank_data in contacts.items():
+                new_contacts[contact_rank] = {"Name": contacts[contact_rank]["Name"]}
+                if "Email" in contact_rank_data:
+                    new_contacts[contact_rank]["ID"] = email_to_id(contact_rank_data["Email"])
             new_contactlists[contact_type] = new_contacts
         return new_contactlists
 
@@ -228,6 +230,10 @@ class Topology(object):
                 res["ContactLists"] = new_contactlists
         else:
             res.pop("ContactLists", None)
+        if not is_null(res, "Description"):
+            res["Description"] = trim_space(res["Description"])
+        else:
+            res.pop("Description")
 
         return res
 
@@ -284,16 +290,36 @@ class Topology(object):
         return new_services
 
 
-def topology_from_parsed_xml(parsed, downtime=None) -> Topology:
+def parse_sites(site_file) -> Dict:
+    sites = {}
+    with open(site_file, 'r') as infh:
+        reader = csv.DictReader(infh, dialect="excel-tab")
+        for r_in in reader:
+            r = {k: trim_space(re.sub(r"\\n", "\n", v)) for k, v in r_in.items() if v is not None}
+            name = to_file_name(r.pop("Name"))
+
+            for k in list(r):
+                if r[k] in ["", "NULL", "00000"]:
+                    del r[k]
+            r["ID"] = int(r["ID"])
+            for k in ["Longitude", "Latitude"]:
+                if k in r:
+                    r[k] = float(r[k])
+
+            sites[name] = r
+    return sites
+
+
+def topology_from_parsed_xml(parsed, downtime=None, site_data=None) -> Topology:
     """Returns a dict of the topology created from the parsed XML file."""
-    topology = Topology()
+    topology = Topology(site_data=site_data)
     for rg in ensure_list(parsed["ResourceGroup"]):
         topology.add_rg(rg)
     if downtime:
-        for dt in downtime["PastDowntimes"].get("Downtime", []) + \
-                  downtime["CurrentDowntimes"].get("Downtime", []) + \
-                  downtime["FutureDowntimes"].get("Downtime", []):
-            topology.add_downtime(dt)
+        for elem in ["PastDowntimes", "CurrentDowntimes", "FutureDowntimes"]:
+            if not is_null(downtime, elem):
+                for dt in downtime[elem].get("Downtime", []):
+                    topology.add_downtime(dt)
     return topology
 
 
@@ -301,24 +327,24 @@ def topology_from_parsed_xml(parsed, downtime=None) -> Topology:
 def write_topology_to_yamls(topology: Topology, outdir):
     os.makedirs(outdir, exist_ok=True)
 
-    for facility_name, facility_data in topology.data.items():
+    for facility_name, facility_sites in topology.data.items():
         facility_dir = os.path.join(outdir, facility_name)
         os.makedirs(facility_dir, exist_ok=True)
 
-        anymarkup.serialize_file({"ID": facility_data["ID"]},
+        facility_id = facility_sites.pop("ID")
+        anymarkup.serialize_file({"ID": facility_id},
                                  os.path.join(facility_dir, "FACILITY.yaml"))
 
-        for site_name, site_data in facility_data.items():
-            if site_name == "ID": continue
-
+        for site_name, site_rgs in facility_sites.items():
             site_dir = os.path.join(facility_dir, site_name)
             os.makedirs(site_dir, exist_ok=True)
 
-            anymarkup.serialize_file({"ID": site_data["ID"]}, os.path.join(site_dir, "SITE.yaml"))
+            site_id = site_rgs.pop("ID")
+            site_yaml_path = os.path.join(site_dir, "SITE.yaml")
+            site_data = topology.site_data.get(site_name, {"ID": site_id})
+            anymarkup.serialize_file(site_data, site_yaml_path)
 
-            for rg_name, rg_data in site_data.items():
-                if rg_name == "ID": continue
-
+            for rg_name, rg_data in site_rgs.items():
                 anymarkup.serialize_file(rg_data, os.path.join(site_dir, rg_name))
 
     # We want to sort this so write it out ourselves
@@ -337,17 +363,19 @@ def write_topology_to_yamls(topology: Topology, outdir):
 def main(argv=sys.argv):
     parser = ArgumentParser()
     parser.add_argument("infile", help="input rgsummary xml file")
+    parser.add_argument("downtime", help="input rgdowntime xml file")
     parser.add_argument("outdir", help="output yaml directory tree")
-    parser.add_argument("--downtime", default=None, help="input rgdowntime xml file")
+    parser.add_argument("--site-table-file", help="input site table file")
     args = parser.parse_args(argv[1:])
 
     if os.path.exists(args.outdir):
         print("Warning: %s already exists" % args.outdir, file=sys.stderr)
     parsed_topology = anymarkup.parse_file(args.infile)['ResourceSummary']
-    parsed_downtime = None
-    if args.downtime:
-        parsed_downtime = anymarkup.parse_file(args.downtime)['Downtimes']
-    topology = topology_from_parsed_xml(parsed_topology, downtime=parsed_downtime)
+    parsed_downtime = anymarkup.parse_file(args.downtime)['Downtimes']
+    parsed_sites = None
+    if args.site_table_file:
+        parsed_sites = parse_sites(args.site_table_file)
+    topology = topology_from_parsed_xml(parsed_topology, downtime=parsed_downtime, site_data=parsed_sites)
     write_topology_to_yamls(topology, args.outdir)
     print("Topology written to", args.outdir)
 

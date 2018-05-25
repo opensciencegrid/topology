@@ -1,15 +1,23 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: perfSONAR LHCONE instance in Amsterdam
 GroupID: 407
 Resources:
   AMS_GEANT LHCONE:
     Active: true
     ContactLists:
       Miscellaneous Contact:
-        Primary: Shawn McKee
-        Secondary: Marian Babik
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+        Secondary:
+          ID: 760e6e3d4cbf5c00a06a590134e92100f92ed017
+          Name: Marian Babik
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: GEANT LHCONE perfSONAR instance in Amsterdam
     Disable: false
     FQDN: ps01-nl.geant.nl
     ID: 656

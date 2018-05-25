@@ -1,18 +1,27 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: 7/26 disabling empty resource group
 GroupID: 41
 Resources:
   UNI-OSGEDU:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Paul Gray
+        Primary:
+          ID: 1f807a45f5e21806e3d3bff7370fda3852b9074b
+          Name: Paul Gray
       Resource Report Contact:
-        Primary: Paul Gray
+        Primary:
+          ID: 1f807a45f5e21806e3d3bff7370fda3852b9074b
+          Name: Paul Gray
       Security Contact:
-        Primary: Paul Gray
+        Primary:
+          ID: 1f807a45f5e21806e3d3bff7370fda3852b9074b
+          Name: Paul Gray
       Submitter Contact:
-        Primary: Paul Gray
+        Primary:
+          ID: 1f807a45f5e21806e3d3bff7370fda3852b9074b
+          Name: Paul Gray
     Disable: true
     FQDN: grow.cs.uni.edu
     ID: 41

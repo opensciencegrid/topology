@@ -1,16 +1,24 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: University of Connecticut Health Center - CE
 GroupID: 217
 Resources:
   UCHC_CBG:
     Active: true
     ContactLists:
       Resource Report Contact:
-        Primary: Jeffrey Dutton
+        Primary:
+          ID: 1f6862aea176028635c4f77da3ba012806933108
+          Name: Jeffrey Dutton
       Security Contact:
-        Primary: Jeffrey Dutton
+        Primary:
+          ID: 1f6862aea176028635c4f77da3ba012806933108
+          Name: Jeffrey Dutton
       Submitter Contact:
-        Primary: Jeffrey Dutton
+        Primary:
+          ID: 1f6862aea176028635c4f77da3ba012806933108
+          Name: Jeffrey Dutton
+    Description: A 29 node, 58 CPU cluster
     Disable: false
     FQDN: vdgateway.vcell.uchc.edu
     ID: 215

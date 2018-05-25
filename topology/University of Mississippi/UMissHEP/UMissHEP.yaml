@@ -1,18 +1,31 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Added manually by Arvind from old RegDB - please update if need
+  be.
 GroupID: 146
 Resources:
   UMissHEP:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: David Sanders
+        Primary:
+          ID: 11187982dba54fcdface33f933ff4bb324c08d72
+          Name: David Sanders
       Resource Report Contact:
-        Primary: David Sanders
+        Primary:
+          ID: 11187982dba54fcdface33f933ff4bb324c08d72
+          Name: David Sanders
       Security Contact:
-        Primary: David Sanders
+        Primary:
+          ID: 11187982dba54fcdface33f933ff4bb324c08d72
+          Name: David Sanders
       Submitter Contact:
-        Primary: David Sanders
+        Primary:
+          ID: 11187982dba54fcdface33f933ff4bb324c08d72
+          Name: David Sanders
+    Description: This is the CE and HN for the UMissHEP computing farm. The SE is
+      UMissHEP_SE but is a different server and has been added as a separate entry.
+      (Added manually by Arvind from old RegDB.)
     Disable: false
     FQDN: umiss001.hep.olemiss.edu
     ID: 146
@@ -40,13 +53,23 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: David Sanders
+        Primary:
+          ID: 11187982dba54fcdface33f933ff4bb324c08d72
+          Name: David Sanders
       Resource Report Contact:
-        Primary: David Sanders
+        Primary:
+          ID: 11187982dba54fcdface33f933ff4bb324c08d72
+          Name: David Sanders
       Security Contact:
-        Primary: David Sanders
+        Primary:
+          ID: 11187982dba54fcdface33f933ff4bb324c08d72
+          Name: David Sanders
       Submitter Contact:
-        Primary: David Sanders
+        Primary:
+          ID: 11187982dba54fcdface33f933ff4bb324c08d72
+          Name: David Sanders
+    Description: This is a Bestman-gateway SE using SRM v2 for the UMissHEP computing
+      farm.
     Disable: false
     FQDN: umiss005.hep.olemiss.edu
     ID: 333

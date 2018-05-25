@@ -1,24 +1,46 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: |-
+  KISTI_CMS_T3_CE
+  KISTI_CMS_T3_SE
 GroupID: 394
 Resources:
   KISTI-NSDC-GUMS:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Seo-Young Noh
-        Secondary: Geonmo Ryu
+        Primary:
+          ID: b8831170b8f9b26f6bab78befb2c463e406c396f
+          Name: Seo-Young Noh
+        Secondary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
       Miscellaneous Contact:
-        Primary: Seo-Young Noh
-        Tertiary: Geonmo Ryu
+        Primary:
+          ID: b8831170b8f9b26f6bab78befb2c463e406c396f
+          Name: Seo-Young Noh
+        Tertiary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
       Resource Report Contact:
-        Primary: Seo-Young Noh
-        Secondary: Geonmo Ryu
+        Primary:
+          ID: b8831170b8f9b26f6bab78befb2c463e406c396f
+          Name: Seo-Young Noh
+        Secondary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
       Security Contact:
-        Primary: Seo-Young Noh
-        Secondary: Geonmo Ryu
+        Primary:
+          ID: b8831170b8f9b26f6bab78befb2c463e406c396f
+          Name: Seo-Young Noh
+        Secondary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
       Submitter Contact:
-        Primary: Beob Kyun Kim
+        Primary:
+          ID: fe3540e478fa913baaa562db69e68af8015f6d80
+          Name: Beob Kyun Kim
+    Description: GUMS server to handle ce03.sdfarm.kr
     Disable: true
     FQDN: gums.sdfarm.kr
     ID: 272
@@ -31,19 +53,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Geonmo Ryu
-        Secondary: Seoyoung Roh
+        Primary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
+        Secondary:
+          ID: f19765ab94943fcfa470308c6ad0df06c1aa30f8
+          Name: Seoyoung Roh
       Miscellaneous Contact:
-        Primary: Seoyoung Roh
-        Secondary: Geonmo Ryu
+        Primary:
+          ID: f19765ab94943fcfa470308c6ad0df06c1aa30f8
+          Name: Seoyoung Roh
+        Secondary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
       Resource Report Contact:
-        Primary: Geonmo Ryu
-        Secondary: GyeongRyoon Kim
+        Primary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
+        Secondary:
+          ID: 7666504787c8cac2af7ffc7d79b74b9625960f5d
+          Name: GyeongRyoon Kim
       Security Contact:
-        Primary: Geonmo Ryu
-        Secondary: Seoyoung Roh
+        Primary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
+        Secondary:
+          ID: f19765ab94943fcfa470308c6ad0df06c1aa30f8
+          Name: Seoyoung Roh
       Submitter Contact:
-        Primary: GyeongRyoon Kim
+        Primary:
+          ID: 7666504787c8cac2af7ffc7d79b74b9625960f5d
+          Name: GyeongRyoon Kim
+    Description: kisti cm-squid
     Disable: false
     FQDN: cms-squid.sdfarm.kr
     ID: 690
@@ -56,19 +97,40 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Geonmo Ryu
-        Secondary: Sangwook Bae
+        Primary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
+        Secondary:
+          ID: 5046620531f5b7cc0d89aec6bb0ea30c738bbbb2
+          Name: Sangwook Bae
       Miscellaneous Contact:
-        Primary: Geonmo Ryu
-        Secondary: Sangwook Bae
+        Primary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
+        Secondary:
+          ID: 5046620531f5b7cc0d89aec6bb0ea30c738bbbb2
+          Name: Sangwook Bae
       Resource Report Contact:
-        Primary: Geonmo Ryu
-        Secondary: Sangwook Bae
+        Primary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
+        Secondary:
+          ID: 5046620531f5b7cc0d89aec6bb0ea30c738bbbb2
+          Name: Sangwook Bae
       Security Contact:
-        Primary: Geonmo Ryu
-        Secondary: Sangwook Bae
+        Primary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
+        Secondary:
+          ID: 5046620531f5b7cc0d89aec6bb0ea30c738bbbb2
+          Name: Sangwook Bae
       Submitter Contact:
-        Primary: GyeongRyoon Kim
+        Primary:
+          ID: 7666504787c8cac2af7ffc7d79b74b9625960f5d
+          Name: GyeongRyoon Kim
+    Description: |-
+      KISTI_CMS_T3_CE
+      cms-sejong.sdfarm.kr
     Disable: false
     FQDN: cms-sejong.sdfarm.kr
     ID: 627
@@ -95,19 +157,40 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Geonmo Ryu
-        Secondary: Seo-Young Noh
+        Primary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
+        Secondary:
+          ID: b8831170b8f9b26f6bab78befb2c463e406c396f
+          Name: Seo-Young Noh
       Miscellaneous Contact:
-        Primary: Geonmo Ryu
-        Secondary: Seo-Young Noh
+        Primary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
+        Secondary:
+          ID: b8831170b8f9b26f6bab78befb2c463e406c396f
+          Name: Seo-Young Noh
       Resource Report Contact:
-        Primary: Seo-Young Noh
-        Secondary: Geonmo Ryu
+        Primary:
+          ID: b8831170b8f9b26f6bab78befb2c463e406c396f
+          Name: Seo-Young Noh
+        Secondary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
       Security Contact:
-        Primary: Geonmo Ryu
-        Secondary: Seo-Young Noh
+        Primary:
+          ID: 941eaf1c521eceb1c2858e949aa6e4afdd096599
+          Name: Geonmo Ryu
+        Secondary:
+          ID: b8831170b8f9b26f6bab78befb2c463e406c396f
+          Name: Seo-Young Noh
       Submitter Contact:
-        Primary: GyeongRyoon Kim
+        Primary:
+          ID: 7666504787c8cac2af7ffc7d79b74b9625960f5d
+          Name: GyeongRyoon Kim
+    Description: |-
+      KISTI_CMS_T3_SE
+      cms-se.sdfarm.kr
     Disable: false
     FQDN: cms-se.sdfarm.kr
     ID: 628

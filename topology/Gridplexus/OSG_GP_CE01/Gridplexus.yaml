@@ -1,18 +1,31 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: |-
+  new resource is under construction (OSG 1.0)
+
+  7/26 disabling empty resource group
 GroupID: 157
 Resources:
   Gridplexus:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Robert Rusinko
+        Primary:
+          ID: ece76c1aecfcc606d9d31a9a17afb004bea811e8
+          Name: Robert Rusinko
       Resource Report Contact:
-        Primary: Robert Rusinko
+        Primary:
+          ID: ece76c1aecfcc606d9d31a9a17afb004bea811e8
+          Name: Robert Rusinko
       Security Contact:
-        Primary: Robert Rusinko
+        Primary:
+          ID: ece76c1aecfcc606d9d31a9a17afb004bea811e8
+          Name: Robert Rusinko
       Submitter Contact:
-        Primary: Robert Rusinko
+        Primary:
+          ID: ece76c1aecfcc606d9d31a9a17afb004bea811e8
+          Name: Robert Rusinko
+    Description: CE01
     Disable: true
     FQDN: CE01.OSG.gridplexus.net
     ID: 157

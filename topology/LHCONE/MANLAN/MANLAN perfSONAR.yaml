@@ -1,12 +1,16 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: LHCONE perfSONAR instances at MANLAN
 GroupID: 408
 Resources:
   BNL/ESnet perfSONAR:
     Active: true
     ContactLists:
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: The BNL / ESnet LHCONE perfSONAR instance
     Disable: false
     FQDN: quark.es.net
     ID: 659
@@ -25,9 +29,14 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Shawn McKee
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: The Internet2 perfSONAR instance for LHCONE at MANLAN
     Disable: false
     FQDN: lhcone.test.manlan.internet2.edu
     ID: 660

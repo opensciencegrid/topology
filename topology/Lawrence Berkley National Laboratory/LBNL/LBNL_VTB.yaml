@@ -1,20 +1,32 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: (No resource group description)
 GroupID: 59
 Resources:
   LBNL_VTB:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Doug Olson
+        Primary:
+          ID: f3e52e6e61abc55a928031a2c843d7e2eb67728c
+          Name: Doug Olson
       Miscellaneous Contact:
-        Tertiary: Jeff Porter
+        Tertiary:
+          ID: c3d417180e9c3738a32032eda0b9cf1252288870
+          Name: Jeff Porter
       Resource Report Contact:
-        Primary: Doug Olson
+        Primary:
+          ID: f3e52e6e61abc55a928031a2c843d7e2eb67728c
+          Name: Doug Olson
       Security Contact:
-        Primary: Doug Olson
+        Primary:
+          ID: f3e52e6e61abc55a928031a2c843d7e2eb67728c
+          Name: Doug Olson
       Submitter Contact:
-        Primary: Jeff Porter
+        Primary:
+          ID: c3d417180e9c3738a32032eda0b9cf1252288870
+          Name: Jeff Porter
+    Description: very small VTB site used for OSG Integration work.
     Disable: true
     FQDN: osp1.lbl.gov
     ID: 59

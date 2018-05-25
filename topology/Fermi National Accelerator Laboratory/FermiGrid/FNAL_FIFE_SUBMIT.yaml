@@ -1,9 +1,13 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: submit nodes
 GroupID: 381
 Resources:
   FIFEBATCH2:
     Active: false
+    Description: |-
+      Job submission node behind fifebatch.fnal.gov
+      Used to submit jobs to grid resources on behalf of users using jobsub software
     Disable: true
     FQDN: fifebatch2.fnal.gov
     ID: 633
@@ -18,11 +22,18 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Security Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Submitter Contact:
-        Primary: Dennis Box
+        Primary:
+          ID: 13bc4aa08af2a4cd59b36b73fcefc5ade6bc95b9
+          Name: Dennis Box
+    Description: glideinWMS installation and submit node
     Disable: true
     FQDN: fifebatch1.fnal.gov
     ID: 565
@@ -37,15 +48,26 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Miscellaneous Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Resource Report Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Security Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Submitter Contact:
-        Primary: Dennis Box
+        Primary:
+          ID: 13bc4aa08af2a4cd59b36b73fcefc5ade6bc95b9
+          Name: Dennis Box
+    Description: glideinWMS installation and submit node
     Disable: true
     FQDN: gpsn01.fnal.gov
     ID: 564
@@ -60,13 +82,22 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Resource Report Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Security Contact:
-        Primary: Joe Boyd
+        Primary:
+          ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+          Name: Joe Boyd
       Submitter Contact:
-        Primary: Dennis Box
+        Primary:
+          ID: 13bc4aa08af2a4cd59b36b73fcefc5ade6bc95b9
+          Name: Dennis Box
+    Description: glideinWMS frontend to UCSD Glidein Factory
     Disable: true
     FQDN: sngpvm02.fnal.gov
     ID: 563

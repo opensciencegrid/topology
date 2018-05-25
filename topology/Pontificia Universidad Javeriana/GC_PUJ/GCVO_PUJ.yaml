@@ -1,20 +1,34 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: |-
+  Support for GCVO and GCEDU VO
+  Pontificia Universidad Javeriana, GridColombia
 GroupID: 303
 Resources:
   GCVO_PUJ_CE:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
       Miscellaneous Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
       Resource Report Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
       Security Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
       Submitter Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
+    Description: Supports for GridColombia VOs and OSGEDU VO
     Disable: false
     FQDN: gc1-ce.javeriana.edu.co
     ID: 388
@@ -31,15 +45,26 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
       Miscellaneous Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
       Resource Report Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
       Security Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
       Submitter Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
+    Description: Private CE for TestBed Services
     Disable: false
     FQDN: gc2-ce.javeriana.edu.co
     ID: 413
@@ -56,15 +81,28 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
       Miscellaneous Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
       Resource Report Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
       Security Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
       Submitter Contact:
-        Primary: Diego Alberto Rincon Yanez
+        Primary:
+          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
+          Name: Diego Alberto Rincon Yanez
+    Description: |-
+      PUJ GUMS Server
+      SUpport for GCVO, GCEDU and GCBIO
     Disable: false
     FQDN: gc1-gums.javeriana.edu.co
     ID: 389

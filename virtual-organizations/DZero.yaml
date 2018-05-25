@@ -15,20 +15,29 @@ Community: The D0 experiment is a high energy physics experiment collecting data
   in the sample of collider data.
 Contacts:
   Administrative Contact:
-  - Michael Diesburg
-  - Qizhong Li
+  - ID: ffc9ff0f27ebd113597fa3404c4b2de4a1e5d845
+    Name: Michael Diesburg
+  - ID: 23f93987fe0ad118363e08cdd9e3513f17ed8b00
+    Name: Qizhong Li
   Miscellaneous Contact:
-  - Steve Timm
-  - Joe Boyd
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
   Registration Authority:
-  - Darnell Green
-  - Yolanda Valadez
+  - ID: 98a1d4a1e17386ec3a1dd7af2e07e9b68d80b23d
+    Name: Darnell Green
+  - ID: 959ae483acc2487ee4e8842ec68ef1c713762697
+    Name: Yolanda Valadez
   Security Contact:
-  - Michael Diesburg
+  - ID: ffc9ff0f27ebd113597fa3404c4b2de4a1e5d845
+    Name: Michael Diesburg
   Submitter Contact:
-  - Qizhong Li
+  - ID: 23f93987fe0ad118363e08cdd9e3513f17ed8b00
+    Name: Qizhong Li
   VO Manager:
-  - Qizhong Li
+  - ID: 23f93987fe0ad118363e08cdd9e3513f17ed8b00
+    Name: Qizhong Li
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -38,15 +47,14 @@ FieldsOfScience:
 ID: 7
 LongName: D0 Experiment at Fermilab
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/dzero
-Name: DZero
 OASIS:
   Managers:
     Joe Boyd:
-      ContactID: 579
       DNs:
       - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
+      ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
   OASISRepoURLs:
   - http://oasiscfs.fnal.gov:8000/cvmfs/d0.opensciencegrid.org/
   UseOASIS: true

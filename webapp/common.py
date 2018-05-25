@@ -1,7 +1,39 @@
 from collections import OrderedDict
+import hashlib
+import re
 from typing import Dict, List, Union
 
-import anymarkup
+import xmltodict
+
+MaybeOrderedDict = Union[None, OrderedDict]
+
+MISCUSER_SCHEMA_URL = "https://my.opensciencegrid.org/schema/miscuser.xsd"
+RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
+RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
+VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
+
+
+class Filters(object):
+    def __init__(self):
+        self.facility_id = []
+        self.site_id = []
+        self.support_center_id = []
+        self.service_id = []
+        self.grid_type = None
+        self.active = None
+        self.disable = None
+        self.past_days = 0  # for rgdowntime
+        self.voown_id = []
+        self.voown_name = []
+        self.rg_id = []
+        self.service_hidden = None
+        self.oasis = None  # for vosummary
+        self.vo_id = []  # for vosummary
+        self.has_wlcg = None
+
+    def populate_voown_name(self, vo_id_to_name: Dict):
+        self.voown_name = [vo_id_to_name.get(i, "") for i in self.voown_id]
+
 
 def is_null(x, *keys) -> bool:
     for key in keys:
@@ -15,12 +47,16 @@ def is_null(x, *keys) -> bool:
             or (isinstance(x, (list, dict)) and len(x) < 1)
             or x in ["(Information not available)",
                      "no applicable service exists",
+                     "(No resource group description)",
+                     "(No resource description)",
                      ])
 
 
 def ensure_list(x) -> List:
     if isinstance(x, list):
         return x
+    elif x is None:
+        return []
     return [x]
 
 
@@ -46,13 +82,7 @@ def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
     return new_data
 
 
-def singleton_list_to_value(a_list):
-    if len(a_list) == 1:
-        return a_list[0]
-    return a_list
-
-
-def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=True) -> Union[Dict, List]:
+def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=True) -> List[OrderedDict]:
     """
     Expand
         {"name1": "val1",
@@ -60,8 +90,7 @@ def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=T
     to
         [{namekey: "name1", valuekey: "val1"},
          {namekey: "name2", valuekey: "val2"}]
-    or, if there's only one,
-        {namekey: "name1", valuekey: "val1"}
+    (except using an OrderedDict)
     """
     newdata = []
     for name, value in data.items():
@@ -69,10 +98,10 @@ def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=T
             newdata.append(OrderedDict([(namekey, name), (valuekey, value)]))
         else:
             newdata.append(OrderedDict([(valuekey, value), (namekey, name)]))
-    return singleton_list_to_value(newdata)
+    return newdata
 
 
-def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None, ignore_missing=False) -> Union[Union[Dict, OrderedDict], List[Union[Dict, OrderedDict]]]:
+def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None, ignore_missing=False) -> List[OrderedDict]:
     """
     Expand
         {"name1": {"attr1": "val1", ...},
@@ -80,15 +109,13 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
     to
         [{namekey: "name1", "attr1": "val1", ...},
          {namekey: "name2", "attr1": "val1", ...}]}
-    or, if there's only one,
-        {namekey: "name1", "attr1": "val1", ...}
-    If ``ordering`` is not None, instead of using a dict, use an OrderedDict with the keys in the order provided by
-    ``ordering``.
+    (except using an OrderedDict)
+    If ``ordering`` is not None, the keys are used in the order provided by ``ordering``.
     """
     newdata = []
     for name, value in data.items():
+        new_value = OrderedDict()
         if ordering:
-            new_value = OrderedDict()
             for elem in ordering:
                 if elem == namekey:
                     new_value[elem] = name
@@ -97,15 +124,27 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
                 elif not ignore_missing:
                     new_value[elem] = None
         else:
-            new_value = dict(value)
             new_value[namekey] = name
+            new_value.update(value)
         newdata.append(new_value)
-    return singleton_list_to_value(newdata)
+    return newdata
 
 
-def to_xml(data):
-    return anymarkup.serialize(data, "xml").decode("utf-8")
+def to_xml(data) -> str:
+    return xmltodict.unparse(data, pretty=True, encoding="utf-8")
 
 
-def to_xml_file(data, outfile):
-    return anymarkup.serialize_file(data, outfile, "xml")
+def to_xml_bytes(data) -> bytes:
+    return to_xml(data).encode("utf-8", errors="replace")
+
+
+def trim_space(s: str) -> str:
+    """Remove leading and trailing whitespace but not newlines"""
+    # leading and trailing whitespace causes "\n"'s in the resulting string
+    ret = re.sub(r"(?m)[ \t]+$", "", s)
+    ret = re.sub(r"(?m)^[ \t]+", "", ret)
+    return ret
+
+
+def email_to_id(email: str) -> str:
+    return hashlib.sha1(email.strip().lower().encode()).hexdigest()

@@ -1,20 +1,34 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Renamed to UColorado_HEP by agopu after Doug agreed it was ok. 2008-07-18.
+  Assigned appropriate site as well.
 GroupID: 177
 Resources:
   UColorado_HEP:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Douglas Johnson
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
       Miscellaneous Contact:
-        Primary: Douglas Johnson
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
       Resource Report Contact:
-        Primary: Douglas Johnson
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
       Security Contact:
-        Primary: Douglas Johnson
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
       Submitter Contact:
-        Primary: Douglas Johnson
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+    Description: Renamed to UColorado_HEP by agopu after Doug agreed it was ok. 2008-07-18.
+      Assigned appropriate site as well.
     Disable: false
     FQDN: heposg01.colorado.edu
     ID: 177
@@ -44,16 +58,29 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Douglas Johnson
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
       Miscellaneous Contact:
-        Primary: Douglas Johnson
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
       Resource Report Contact:
-        Primary: Douglas Johnson
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
       Security Contact:
-        Primary: Douglas Johnson
-        Secondary: Brian R Drell
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+        Secondary:
+          ID: 4d3d056cf65ebc778382313412964003ce8f5358
+          Name: Brian R Drell
       Submitter Contact:
-        Primary: Douglas Johnson
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+    Description: Bestman 2.2.1.x SRM V2.2 Storage Element
     Disable: false
     FQDN: hepse01.colorado.edu
     ID: 204

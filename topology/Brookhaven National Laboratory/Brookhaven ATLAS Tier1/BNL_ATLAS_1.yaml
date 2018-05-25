@@ -1,16 +1,24 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Enable per request
 GroupID: 3
 Resources:
   BNL_TEST_UST3:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Xin Zhao
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
       Security Contact:
-        Primary: Hironori Ito
+        Primary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
       Submitter Contact:
-        Primary: Hironori Ito
+        Primary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+    Description: Testing publication of ALL US T3 SEs from single host
     Disable: false
     FQDN: grid37.racf.bnl.gov
     ID: 345

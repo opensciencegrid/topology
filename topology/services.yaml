@@ -1,25 +1,9 @@
 CE: 1
-SRMv1: 2
-SRMv2: 3
 GridFtp: 5
 LFC: 6
 FTS: 7
-GUMS Server: 101
-VOMS Server: 102
-Gratia Collector: 103
-RSV Collector: 104
-OSG BDII: 105
-Twiki Server: 106
-ReSS Collector: 108
 Submit Node: 109
-VOMRS Server: 110
-WLCG Interoperability BDII: 111
-MyOSG: 112
-VOMS_Monitoring: 113
-CADIST_Monitoring: 114
-CRL_Monitoring: 115
 OSG_Display: 116
-GOCTicket: 117
 OIM: 118
 Software Cache: 119
 OSG Homepage: 120
@@ -34,18 +18,37 @@ CVMFS Stratum-1: 132
 Oasis Server: 133
 (removed): 134
 Software Repo Mirror: 135
-Ticket Exchange: 136
 Squid: 138
 Condor Collector: 139
 oasis-login: 140
-GratiaWeb: 141
 XRootD component: 142
-OSG blogs: 143
 Cassandra DB: 144
 perfsonar data store: 145
+Connect: 149
 XRootD origin server: 147
 XRootD HA component: 148
-Connect: 149
 Virtual Machine Host: 150
 Certificate Provider: 151
 Message Bus: 154
+# deprecated
+SRMv2: 3
+GUMS Server: 101
+VOMS Server: 102
+Gratia Collector: 103
+RSV Collector: 104
+# unsupported
+SRMv1: 2
+OSG BDII: 105
+Twiki Server: 106
+ReSS Collector: 108
+VOMRS Server: 110
+WLCG Interoperability BDII: 111
+MyOSG: 112
+VOMS_Monitoring: 113
+CADIST_Monitoring: 114
+CRL_Monitoring: 115
+GOCTicket: 117
+Ticket Exchange: 136
+GratiaWeb: 141
+OSG blogs: 143
+

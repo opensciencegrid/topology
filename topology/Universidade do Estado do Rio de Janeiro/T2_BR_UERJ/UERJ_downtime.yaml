@@ -1,22 +1,4 @@
 - Class: SCHEDULED
-  Description: Required to apply security patches and other assorted maintenance tasks.
-  EndTime: May 16, 2016 22:00 PM UTC
-  ID: 1004889
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: May 16, 2016 03:00 AM UTC
-- Class: SCHEDULED
-  Description: Required to apply security patches and other assorted maintenance tasks.
-  EndTime: May 16, 2016 22:00 PM UTC
-  ID: 1004890
-  ResourceName: UERJ_SE
-  Services:
-  - SRMv2
-  Severity: Outage
-  StartTime: May 16, 2016 03:00 AM UTC
-- Class: SCHEDULED
   Description: Required to apply security patches, run manufacturer's diagnostics
     tools to RMA faulty components, and other assorted maintenance tasks.
   EndTime: Jun 6, 2016 22:00 PM UTC

@@ -1,19 +1,31 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: Enabled for April. Disabling https://ticket.grid.iu.edu/20663
 GroupID: 96
 Resources:
   Purdue-CMS-SE:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Majid Arabgol
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Resource Report Contact:
-        Primary: Fengping Hu
-        Secondary: Preston Smith
+        Primary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
+        Secondary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
       Security Contact:
-        Secondary: Preston Smith
+        Secondary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
       Submitter Contact:
-        Primary: Fengping Hu
+        Primary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
+    Description: US CMS Tier-2 site at Purdue
     Disable: true
     FQDN: srm-dcache.rcac.purdue.edu
     ID: 171
@@ -40,19 +52,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Manoj Kumar Jha
-        Secondary: Majid Arabgol
+        Primary:
+          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
+          Name: Manoj Kumar Jha
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Miscellaneous Contact:
-        Primary: Manoj Kumar Jha
-        Secondary: Majid Arabgol
+        Primary:
+          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
+          Name: Manoj Kumar Jha
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Resource Report Contact:
-        Primary: Manoj Kumar Jha
-        Secondary: Majid Arabgol
+        Primary:
+          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
+          Name: Manoj Kumar Jha
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Security Contact:
-        Primary: Manoj Kumar Jha
-        Secondary: Majid Arabgol
+        Primary:
+          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
+          Name: Manoj Kumar Jha
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Submitter Contact:
-        Primary: Manoj Kumar Jha
+        Primary:
+          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
+          Name: Manoj Kumar Jha
+    Description: Test instance for CMS  computing element
     Disable: true
     FQDN: cmstest1.rcac.purdue.edu
     ID: 594
@@ -79,14 +110,25 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Majid Arabgol
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Resource Report Contact:
-        Primary: Fengping Hu
+        Primary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
       Security Contact:
-        Primary: Preston Smith
-        Secondary: Fengping Hu
+        Primary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
+        Secondary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
       Submitter Contact:
-        Primary: Preston Smith
+        Primary:
+          ID: f7bf61cf10278ef2f77d09aeef2fa56b52b53248
+          Name: Preston Smith
+    Description: US CMS Tier-2 site at Purdue
     Disable: true
     FQDN: osg.rcac.purdue.edu
     ID: 96
@@ -117,13 +159,22 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Erik Gough
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Resource Report Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Security Contact:
-        Primary: Erik Gough
+        Primary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Submitter Contact:
-        Primary: Fengping Hu
+        Primary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
+    Description: The Perfsonar Bandwidtth node
     Disable: true
     FQDN: mannperf2.itns.purdue.edu
     ID: 513
@@ -138,11 +189,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Majid Arabgol
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Security Contact:
-        Primary: Fengping Hu
+        Primary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
       Submitter Contact:
-        Primary: Fengping Hu
+        Primary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
+    Description: The Purdue Perfsonar Latency node
     Disable: true
     FQDN: mannperf.itns.purdue.edu
     ID: 514

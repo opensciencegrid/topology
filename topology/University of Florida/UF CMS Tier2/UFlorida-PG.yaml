@@ -1,22 +1,38 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 122
 Resources:
   UFlorida-PG:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Yu Fu
-        Secondary: Bockjoo Kim
+        Primary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Miscellaneous Contact:
-        Tertiary: Craig Prescott
+        Tertiary:
+          ID: dcc5225ec8889c92053920bbd934bedadc799908
+          Name: Craig Prescott
       Resource Report Contact:
-        Primary: Yu Fu
+        Primary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
       Security Contact:
-        Primary: Yu Fu
-        Secondary: Bockjoo Kim
+        Primary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Submitter Contact:
-        Primary: Craig Prescott
+        Primary:
+          ID: dcc5225ec8889c92053920bbd934bedadc799908
+          Name: Craig Prescott
+    Description: US CMS Tier-2 site at Florida
     Disable: true
     FQDN: pg.ihepa.ufl.edu
     ID: 122
@@ -31,14 +47,25 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Bockjoo Kim
-        Secondary: Yu Fu
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
       Resource Report Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Security Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Submitter Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: US CMS Tier-2 sites at Florida
     Disable: true
     FQDN: srm.ihepa.ufl.edu
     ID: 123
@@ -53,21 +80,46 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Bockjoo Kim
-        Secondary: Yu Fu
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
       Miscellaneous Contact:
-        Primary: Bockjoo Kim
-        Secondary: Yu Fu
-        Tertiary: Paul Avery
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+        Tertiary:
+          ID: 3846a3bb6148109f781a1ad8634b880011bcd6f5
+          Name: Paul Avery
       Resource Report Contact:
-        Primary: Bockjoo Kim
-        Secondary: Yu Fu
-        Tertiary: Paul Avery
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
+        Tertiary:
+          ID: 3846a3bb6148109f781a1ad8634b880011bcd6f5
+          Name: Paul Avery
       Security Contact:
-        Primary: Bockjoo Kim
-        Secondary: Yu Fu
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: db835291658341e71188973d9ea7c713114a9264
+          Name: Yu Fu
       Submitter Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: |-
+      This is the secondary SE at UF CMS Tier2 to be used as the
+      backup SE
     Disable: true
     FQDN: srm1.ihepa.ufl.edu
     ID: 458
@@ -83,11 +135,18 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Security Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
       Submitter Contact:
-        Primary: Bockjoo Kim
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: Perf SONAR latency
     Disable: true
     FQDN: perfsonar1.ihepa.ufl.edu
     ID: 574

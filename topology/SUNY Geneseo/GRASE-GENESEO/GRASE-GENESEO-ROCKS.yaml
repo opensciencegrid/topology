@@ -1,24 +1,44 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: GRASE-GENESEO-ROCKS
 GroupID: 31
 Resources:
   GRASE-GENESEO-ROCKS:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Kirk Anne
-        Secondary: Jon Bednasz
+        Primary:
+          ID: edc988d7c9a5eb61e9dd7ec94220c51fc42cad42
+          Name: Kirk Anne
+        Secondary:
+          ID: 5aafc9af56cc8789093c310c75a9564d2c72caf6
+          Name: Jon Bednasz
       Miscellaneous Contact:
-        Primary: Steve Gallo
-        Tertiary: Elizabeth Prout
+        Primary:
+          ID: 7ced1836cd81f6c556ec6a02e55d41775ddeab57
+          Name: Steve Gallo
+        Tertiary:
+          ID: 8350a764268bd8a041059caaccad8f029720f212
+          Name: Elizabeth Prout
       Resource Report Contact:
-        Primary: Kirk Anne
-        Secondary: Jon Bednasz
+        Primary:
+          ID: edc988d7c9a5eb61e9dd7ec94220c51fc42cad42
+          Name: Kirk Anne
+        Secondary:
+          ID: 5aafc9af56cc8789093c310c75a9564d2c72caf6
+          Name: Jon Bednasz
       Security Contact:
-        Primary: Kirk Anne
-        Secondary: Jon Bednasz
+        Primary:
+          ID: edc988d7c9a5eb61e9dd7ec94220c51fc42cad42
+          Name: Kirk Anne
+        Secondary:
+          ID: 5aafc9af56cc8789093c310c75a9564d2c72caf6
+          Name: Jon Bednasz
       Submitter Contact:
-        Primary: Elizabeth Prout
+        Primary:
+          ID: 8350a764268bd8a041059caaccad8f029720f212
+          Name: Elizabeth Prout
+    Description: NYSGRID - geneseo resource
     Disable: true
     FQDN: rocks.ds.geneseo.edu
     ID: 31

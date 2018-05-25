@@ -1,19 +1,31 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: disabled
 GroupID: 74
 Resources:
   NERSC-Jacquard:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Shreyas Cholia
-        Secondary: Tina Declerck
+        Primary:
+          ID: 738dae0c6c2d0bc7a93f694348e9c15b71d95f93
+          Name: Shreyas Cholia
+        Secondary:
+          ID: 38b392cf1af17177a5d3a0614651f700878096fa
+          Name: Tina Declerck
       Resource Report Contact:
-        Primary: Shreyas Cholia
+        Primary:
+          ID: 738dae0c6c2d0bc7a93f694348e9c15b71d95f93
+          Name: Shreyas Cholia
       Security Contact:
-        Secondary: Shreyas Cholia
+        Secondary:
+          ID: 738dae0c6c2d0bc7a93f694348e9c15b71d95f93
+          Name: Shreyas Cholia
       Submitter Contact:
-        Primary: Shreyas Cholia
+        Primary:
+          ID: 738dae0c6c2d0bc7a93f694348e9c15b71d95f93
+          Name: Shreyas Cholia
+    Description: Disabled
     Disable: true
     FQDN: jacquardgrid.nersc.gov
     FQDNAliases:

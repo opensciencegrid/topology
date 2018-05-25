@@ -4,12 +4,16 @@ CertificateOnly: false
 Community: Various Neutrino physicists and collaborators.
 Contacts:
   Miscellaneous Contact:
-  - Joe Boyd
-  - Shreyas Bhat
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
+  - ID: 888a771df50d76d5e229d97e37949dcca5af5b61
+    Name: Shreyas Bhat
   Submitter Contact:
-  - Shreyas Bhat
+  - ID: 888a771df50d76d5e229d97e37949dcca5af5b61
+    Name: Shreyas Bhat
   VO Manager:
-  - Joe Boyd
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -17,9 +21,15 @@ FieldsOfScience:
 ID: 131
 LongName: Neutrino Experiment with a Xenon TPC
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
-Name: next
 OASIS:
-  UseOASIS: false
+  Managers:
+    Michael Diesburg:
+      DNs: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Michael Diesburg
+        47
+      ID: ffc9ff0f27ebd113597fa3404c4b2de4a1e5d845
+  OASISRepoURLs:
+  - http://oasiscfs.fnal.gov:8000/cvmfs/next.opensciencegrid.org
+  UseOASIS: true
 ParentVO:
   ID: 9
   Name: Fermilab

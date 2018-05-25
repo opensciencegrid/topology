@@ -1,16 +1,24 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: USP - LCCA tier 3 datacenter
 GroupID: 295
 Resources:
   USP-LCCA-CE-test:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Ettore Enrico Delfino Ligorio
+        Primary:
+          ID: ee3e1f66ec27b282b11b06779713319320bebd0c
+          Name: Ettore Enrico Delfino Ligorio
       Security Contact:
-        Primary: Ettore Enrico Delfino Ligorio
+        Primary:
+          ID: ee3e1f66ec27b282b11b06779713319320bebd0c
+          Name: Ettore Enrico Delfino Ligorio
       Submitter Contact:
-        Primary: Ettore Enrico Delfino Ligorio
+        Primary:
+          ID: ee3e1f66ec27b282b11b06779713319320bebd0c
+          Name: Ettore Enrico Delfino Ligorio
+    Description: Testing the setup of CE
     Disable: false
     FQDN: osg-ce.lcca.usp.br
     FQDNAliases:
@@ -27,11 +35,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Ettore Enrico Delfino Ligorio
+        Primary:
+          ID: ee3e1f66ec27b282b11b06779713319320bebd0c
+          Name: Ettore Enrico Delfino Ligorio
       Security Contact:
-        Primary: Ettore Enrico Delfino Ligorio
+        Primary:
+          ID: ee3e1f66ec27b282b11b06779713319320bebd0c
+          Name: Ettore Enrico Delfino Ligorio
       Submitter Contact:
-        Primary: Ettore Enrico Delfino Ligorio
+        Primary:
+          ID: ee3e1f66ec27b282b11b06779713319320bebd0c
+          Name: Ettore Enrico Delfino Ligorio
+    Description: Testing the gums service setup.
     Disable: false
     FQDN: osg-gums.lcca.usp.br
     ID: 380
@@ -46,11 +61,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Ettore Enrico Delfino Ligorio
+        Primary:
+          ID: ee3e1f66ec27b282b11b06779713319320bebd0c
+          Name: Ettore Enrico Delfino Ligorio
       Security Contact:
-        Primary: Ettore Enrico Delfino Ligorio
+        Primary:
+          ID: ee3e1f66ec27b282b11b06779713319320bebd0c
+          Name: Ettore Enrico Delfino Ligorio
       Submitter Contact:
-        Primary: Ettore Enrico Delfino Ligorio
+        Primary:
+          ID: ee3e1f66ec27b282b11b06779713319320bebd0c
+          Name: Ettore Enrico Delfino Ligorio
+    Description: Testing the setup of SE
     Disable: false
     FQDN: osg-se.lcca.usp.br
     ID: 379

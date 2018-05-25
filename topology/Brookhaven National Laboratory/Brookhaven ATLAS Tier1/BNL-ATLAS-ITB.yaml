@@ -1,19 +1,31 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: This is the BNL ITB resource group, not production services.
 GroupID: 243
 Resources:
   BNL-ps-testbed:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Shawn McKee
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Resource Report Contact:
-        Secondary: Hironori Ito
-        Tertiary: Shawn McKee
+        Secondary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Security Contact:
-        Primary: John Hover
+        Primary:
+          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
+          Name: John Hover
       Submitter Contact:
-        Primary: Shawn McKee
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: BNLs perfSONAR testbed instance.
     Disable: false
     FQDN: ps-development.bnl.gov
     ID: 691
@@ -32,13 +44,22 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Xin Zhao
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
       Resource Report Contact:
-        Primary: Xin Zhao
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
       Security Contact:
-        Primary: John Hover
+        Primary:
+          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
+          Name: John Hover
       Submitter Contact:
-        Primary: Xin Zhao
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+    Description: Move this BNL ITB CE to under the group of BNL-LCG2.
     Disable: false
     FQDN: gridtest01.racf.bnl.gov
     ID: 6
@@ -65,13 +86,22 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Xin Zhao
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
       Resource Report Contact:
-        Primary: Xin Zhao
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
       Security Contact:
-        Primary: John Hover
+        Primary:
+          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
+          Name: John Hover
       Submitter Contact:
-        Primary: Xin Zhao
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+    Description: Move BNL ITB SE to under BNL-LCG2 group name.
     Disable: false
     FQDN: grid16.racf.bnl.gov
     FQDNAliases:

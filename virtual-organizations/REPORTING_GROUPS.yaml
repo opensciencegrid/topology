@@ -1,367 +1,681 @@
-ANL: {Contacts: null, FQANs: null}
-BNL: {Contacts: null, FQANs: null}
+ANL:
+  Contacts: null
+  FQANs: null
+BNL:
+  Contacts: null
+  FQANs: null
 Beocat:
-  Contacts: [Adam Tygart]
+  Contacts:
+  - ID: 0a9828ed72cb7d3bdf773a1043f43fa20bb420b6
+    Name: Adam Tygart
   FQANs: null
 CALICE:
-  Contacts: [Patrick Salcido]
+  Contacts:
+  - ID: e884ef1dc5ece2db80aae351c126960b5849877d
+    Name: Patrick Salcido
   FQANs: null
-CSIU: {Contacts: null, FQANs: null}
-CTA: {Contacts: null, FQANs: null}
-DREAM: {Contacts: null, FQANs: null}
+CSIU:
+  Contacts: null
+  FQANs: null
+CTA:
+  Contacts: null
+  FQANs: null
+DREAM:
+  Contacts: null
+  FQANs: null
 DUNE:
-  Contacts: [Steve Timm]
+  Contacts:
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
   FQANs: null
-GLUEX: {Contacts: null, FQANs: null}
-GridUNESP: {Contacts: null, FQANs: null}
+GLUEX:
+  Contacts: null
+  FQANs: null
+GridUNESP:
+  Contacts: null
+  FQANs: null
 HCC:
-  Contacts: [David Swanson, Derek Weitzel]
+  Contacts:
+  - ID: 64724e33523c051cbf52bcd224a965875735aafc
+    Name: David Swanson
+  - ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
+    Name: Derek Weitzel
   FQANs: null
-I2U2: {Contacts: null, FQANs: null}
+I2U2:
+  Contacts: null
+  FQANs: null
 IceCube:
-  Contacts: [Steve Barnet, Vladimir Brik, Gonzalo Merino]
+  Contacts:
+  - ID: 67523ec91c983a4c0c1c576beeac1037aa863da3
+    Name: Steve Barnet
+  - ID: bc87af94d3512f536e417f1e45808b975fb2874f
+    Name: Vladimir Brik
+  - ID: 3fbb3d844448b2df9802a4aef8294f83785d090c
+    Name: Gonzalo Merino
   FQANs: null
-JLab: {Contacts: null, FQANs: null}
-LCG: {Contacts: null, FQANs: null}
-LHCb: {Contacts: null, FQANs: null}
-LQCD: {Contacts: null, FQANs: null}
-LSST: {Contacts: null, FQANs: null}
-LZ: {Contacts: null, FQANs: null}
-NEES: {Contacts: null, FQANs: null}
-ORNL: {Contacts: null, FQANs: null}
-PNNL: {Contacts: null, FQANs: null}
+JLab:
+  Contacts: null
+  FQANs: null
+LCG:
+  Contacts: null
+  FQANs: null
+LHCb:
+  Contacts: null
+  FQANs: null
+LQCD:
+  Contacts: null
+  FQANs: null
+LSST:
+  Contacts: null
+  FQANs: null
+LZ:
+  Contacts: null
+  FQANs: null
+NEES:
+  Contacts: null
+  FQANs: null
+ORNL:
+  Contacts: null
+  FQANs: null
+PNNL:
+  Contacts: null
+  FQANs: null
 SCDA:
-  Contacts: [Ian Fisk]
+  Contacts:
+  - ID: 8fa1ff19e2847a666d6bbae8d6074999f5a9f9c1
+    Name: Ian Fisk
   FQANs: null
-SLAC: {Contacts: null, FQANs: null}
-SPT: {Contacts: null, FQANs: null}
-SURAgrid: {Contacts: null, FQANs: null}
-SeaQuest: {Contacts: null, FQANs: null}
-SuperCDMS: {Contacts: null, FQANs: null}
-T2K: {Contacts: null, FQANs: null}
-XENON: {Contacts: null, FQANs: null}
+SLAC:
+  Contacts: null
+  FQANs: null
+SPT:
+  Contacts: null
+  FQANs: null
+SURAgrid:
+  Contacts: null
+  FQANs: null
+SeaQuest:
+  Contacts: null
+  FQANs: null
+SuperCDMS:
+  Contacts: null
+  FQANs: null
+T2K:
+  Contacts: null
+  FQANs: null
+XENON:
+  Contacts: null
+  FQANs: null
 accelerator:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/accelerator, Role: null}
-alice: {Contacts: null, FQANs: null}
+  - GroupName: /fermilab/accelerator
+    Role: null
+alice:
+  Contacts: null
+  FQANs: null
 annie:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/annie, Role: Analysis}
-  - {GroupName: /fermilab/annie, Role: pilot}
-  - {GroupName: /fermilab/annie, Role: Production}
+  - GroupName: /fermilab/annie
+    Role: Analysis
+  - GroupName: /fermilab/annie
+    Role: pilot
+  - GroupName: /fermilab/annie
+    Role: Production
 argoneut:
-  Contacts: [Steve Timm]
+  Contacts:
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
   FQANs:
-  - {GroupName: /fermilab/argoneut, Role: null}
-  - {GroupName: /fermilab/argoneut/Role=Analysis, Role: null}
-  - {GroupName: /fermilab/argoneut/Role=pilot, Role: null}
-  - {GroupName: /fermilab/argoneut/Role=Production, Role: null}
+  - GroupName: /fermilab/argoneut
+    Role: null
+  - GroupName: /fermilab/argoneut/Role=Analysis
+    Role: null
+  - GroupName: /fermilab/argoneut/Role=pilot
+    Role: null
+  - GroupName: /fermilab/argoneut/Role=Production
+    Role: null
 atlas:
-  Contacts: [Horst Severini, Joel Snow, Xin Zhao, Armen Vartapetian]
+  Contacts:
+  - ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+    Name: Horst Severini
+  - ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+    Name: Joel Snow
+  - ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+    Name: Xin Zhao
+  - ID: 4884a2d919bc5079022317a8403f84a117f2d25b
+    Name: Armen Vartapetian
   FQANs:
-  - {GroupName: /atlas, Role: null}
-  - {GroupName: /atlas, Role: lcgadmin}
-  - {GroupName: /atlas, Role: production}
-  - {GroupName: /atlas/ca, Role: null}
-  - {GroupName: /atlas/usatlas, Role: null}
-  - {GroupName: /atlas/usatlas, Role: pilot}
-  - {GroupName: /atlas/usatlas, Role: production}
-  - {GroupName: /atlas/usatlas, Role: software}
-auger: {Contacts: null, FQANs: null}
-belle: {Contacts: null, FQANs: null}
+  - GroupName: /atlas
+    Role: null
+  - GroupName: /atlas
+    Role: lcgadmin
+  - GroupName: /atlas
+    Role: production
+  - GroupName: /atlas/ca
+    Role: null
+  - GroupName: /atlas/usatlas
+    Role: null
+  - GroupName: /atlas/usatlas
+    Role: pilot
+  - GroupName: /atlas/usatlas
+    Role: production
+  - GroupName: /atlas/usatlas
+    Role: software
+auger:
+  Contacts: null
+  FQANs: null
+belle:
+  Contacts: null
+  FQANs: null
 captmnv:
   Contacts: null
   FQANs:
-  - {GroupName: fermilab/captmnv, Role: null}
+  - GroupName: fermilab/captmnv
+    Role: null
 cdf:
-  Contacts: [Joe Boyd]
+  Contacts:
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
   FQANs:
-  - {GroupName: /cdf, Role: null}
-  - {GroupName: /cdf/glidecaf, Role: development}
-  - {GroupName: /cdf/glidecaf, Role: fermigrid}
-  - {GroupName: /cdf/glidecaf, Role: namcaf}
-  - {GroupName: /cdf/glidecaf, Role: testcaf}
+  - GroupName: /cdf
+    Role: null
+  - GroupName: /cdf/glidecaf
+    Role: development
+  - GroupName: /cdf/glidecaf
+    Role: fermigrid
+  - GroupName: /cdf/glidecaf
+    Role: namcaf
+  - GroupName: /cdf/glidecaf
+    Role: testcaf
 cdms:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/cdms, Role: null}
+  - GroupName: /fermilab/cdms
+    Role: null
 cigi:
   Contacts: null
   FQANs:
-  - {GroupName: /cigi, Role: null}
+  - GroupName: /cigi
+    Role: null
 cms:
-  Contacts: [Burt Holzman, Miron Livny, Frank Wuerthwein, Kenneth Bloom]
+  Contacts:
+  - ID: d15cab2ba1421aca11ec451ae36a771822db0778
+    Name: Burt Holzman
+  - ID: 48e1c2f26dc3479a6cf9b2de7c79d654ac27b1d1
+    Name: Miron Livny
+  - ID: c412f5f57dca8fe5c73fb3bc4e86bcf243e9edf7
+    Name: Frank Wuerthwein
+  - ID: 758ec3ac4ef1eab1111267c5efd26871fb33d4e2
+    Name: Kenneth Bloom
   FQANs:
-  - {GroupName: /cms, Role: null}
-  - {GroupName: /cms, Role: cmssoft}
-  - {GroupName: /cms, Role: cmsuser}
-  - {GroupName: /cms, Role: lcgadmin}
-  - {GroupName: /cms, Role: production}
-  - {GroupName: /cms/analysis, Role: null}
-  - {GroupName: /cms/becms, Role: null}
-  - {GroupName: /cms/dcms, Role: null}
-  - {GroupName: /cms/dcms, Role: cmsphedex}
-  - {GroupName: /cms/itcms, Role: null}
-  - {GroupName: /cms/twcms, Role: null}
-  - {GroupName: /cms/uscms, Role: null}
-  - {GroupName: /cms/uscms, Role: cmsprod}
-  - {GroupName: /cms/uscms, Role: cmssoft}
-  - {GroupName: /cms/uscms, Role: cmsuser}
+  - GroupName: /cms
+    Role: null
+  - GroupName: /cms
+    Role: cmssoft
+  - GroupName: /cms
+    Role: cmsuser
+  - GroupName: /cms
+    Role: lcgadmin
+  - GroupName: /cms
+    Role: production
+  - GroupName: /cms/analysis
+    Role: null
+  - GroupName: /cms/becms
+    Role: null
+  - GroupName: /cms/dcms
+    Role: null
+  - GroupName: /cms/dcms
+    Role: cmsphedex
+  - GroupName: /cms/itcms
+    Role: null
+  - GroupName: /cms/twcms
+    Role: null
+  - GroupName: /cms/uscms
+    Role: null
+  - GroupName: /cms/uscms
+    Role: cmsprod
+  - GroupName: /cms/uscms
+    Role: cmssoft
+  - GroupName: /cms/uscms
+    Role: cmsuser
 compchem:
   Contacts: null
   FQANs:
-  - {GroupName: compchem, Role: null}
-  - {GroupName: compchem, Role: SoftwareManager}
+  - GroupName: compchem
+    Role: null
+  - GroupName: compchem
+    Role: SoftwareManager
 coupp:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/coupp, Role: null}
-darkside: {Contacts: null, FQANs: null}
+  - GroupName: /fermilab/coupp
+    Role: null
+darkside:
+  Contacts: null
+  FQANs: null
 des:
-  Contacts: [Nikolay Kuropatkin]
+  Contacts:
+  - ID: c3dfd5645bfdb6953c42f5e69a505778cf7a2dc3
+    Name: Nikolay Kuropatkin
   FQANs:
-  - {GroupName: /des/production, Role: null}
+  - GroupName: /des/production
+    Role: null
 dosar:
-  Contacts: [Horst Severini, Dick Greenwood]
+  Contacts:
+  - ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+    Name: Horst Severini
+  - ID: 7c80ef26c4e6c6aea18716c2bcbd98c5e3667625
+    Name: Dick Greenwood
   FQANs:
-  - {GroupName: /dosar, Role: null}
+  - GroupName: /dosar
+    Role: null
 dzero:
-  Contacts: [Horst Severini, Joel Snow, Qizhong Li]
+  Contacts:
+  - ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+    Name: Horst Severini
+  - ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
+    Name: Joel Snow
+  - ID: 23f93987fe0ad118363e08cdd9e3513f17ed8b00
+    Name: Qizhong Li
   FQANs:
-  - {GroupName: /dzero, Role: null}
-  - {GroupName: /dzero/users, Role: null}
-  - {GroupName: /dzero/users, Role: D0Production}
+  - GroupName: /dzero
+    Role: null
+  - GroupName: /dzero/users
+    Role: null
+  - GroupName: /dzero/users
+    Role: D0Production
 enmr:
   Contacts: null
   FQANs:
-  - {GroupName: amber, Role: null}
-  - {GroupName: aria, Role: null}
-  - {GroupName: atsas, Role: null}
-  - {GroupName: cns, Role: null}
-  - {GroupName: csrosetta, Role: null}
-  - {GroupName: cyana, Role: null}
-  - {GroupName: demo, Role: null}
-  - {GroupName: dirac, Role: null}
-  - {GroupName: disvis, Role: null}
-  - {GroupName: gromacs, Role: null}
-  - {GroupName: haddock, Role: null}
-  - {GroupName: mars, Role: null}
-  - {GroupName: matlab, Role: null}
-  - {GroupName: maxocc, Role: null}
-  - {GroupName: mddnmr, Role: null}
-  - {GroupName: ops, Role: null}
-  - {GroupName: phaser, Role: null}
-  - {GroupName: powerfit, Role: null}
-  - {GroupName: talos, Role: null}
-  - {GroupName: unio, Role: null}
-  - {GroupName: uplabel, Role: null}
-  - {GroupName: westlife, Role: null}
-  - {GroupName: xplornih, Role: null}
+  - GroupName: amber
+    Role: null
+  - GroupName: aria
+    Role: null
+  - GroupName: atsas
+    Role: null
+  - GroupName: cns
+    Role: null
+  - GroupName: csrosetta
+    Role: null
+  - GroupName: cyana
+    Role: null
+  - GroupName: demo
+    Role: null
+  - GroupName: dirac
+    Role: null
+  - GroupName: disvis
+    Role: null
+  - GroupName: gromacs
+    Role: null
+  - GroupName: haddock
+    Role: null
+  - GroupName: mars
+    Role: null
+  - GroupName: matlab
+    Role: null
+  - GroupName: maxocc
+    Role: null
+  - GroupName: mddnmr
+    Role: null
+  - GroupName: ops
+    Role: null
+  - GroupName: phaser
+    Role: null
+  - GroupName: powerfit
+    Role: null
+  - GroupName: talos
+    Role: null
+  - GroupName: unio
+    Role: null
+  - GroupName: uplabel
+    Role: null
+  - GroupName: westlife
+    Role: null
+  - GroupName: xplornih
+    Role: null
 fermilab:
-  Contacts: [Steve Timm, Tanya Levshina, HYUNWOO KIM, Nicholas Peregonow]
+  Contacts:
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
+  - ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
+    Name: Tanya Levshina
+  - ID: e2799203e652f11e24de11fcf85b7e8d2b1783f7
+    Name: HYUNWOO KIM
+  - ID: 9e775c1738fe149d9afcb5ba4ceaaec1598fd117
+    Name: Nicholas Peregonow
   FQANs:
-  - {GroupName: /fermilab, Role: null}
+  - GroupName: /fermilab
+    Role: null
 fermitest:
-  Contacts: [Steve Timm]
+  Contacts:
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
   FQANs:
-  - {GroupName: /fermilab/test, Role: /Role=admin}
-  - {GroupName: /fermilab/test, Role: /Role=NULL}
-  - {GroupName: /fermilab/test, Role: /Role=pilot}
-  - {GroupName: /fermilab/test, Role: /Role=Production}
-  - {GroupName: /fermilab/test, Role: /Role=rsv}
-  - {GroupName: /fermilab/test, Role: /Role=Storage}
+  - GroupName: /fermilab/test
+    Role: /Role=admin
+  - GroupName: /fermilab/test
+    Role: /Role=NULL
+  - GroupName: /fermilab/test
+    Role: /Role=pilot
+  - GroupName: /fermilab/test
+    Role: /Role=Production
+  - GroupName: /fermilab/test
+    Role: /Role=rsv
+  - GroupName: /fermilab/test
+    Role: /Role=Storage
 fgstore:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/storage, Role: null}
+  - GroupName: /fermilab/storage
+    Role: null
 fgtest:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/test, Role: null}
-gcedu: {Contacts: null, FQANs: null}
-gcvo: {Contacts: null, FQANs: null}
+  - GroupName: /fermilab/test
+    Role: null
+gcedu:
+  Contacts: null
+  FQANs: null
+gcvo:
+  Contacts: null
+  FQANs: null
 geant4:
   Contacts: null
   FQANs:
-  - {GroupName: /geant4, Role: lcgadmin}
+  - GroupName: /geant4
+    Role: lcgadmin
 gendetrd:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/gendetrd, Role: null}
+  - GroupName: /fermilab/gendetrd
+    Role: null
 genie:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/genie, Role: Analysis}
-  - {GroupName: /fermilab/genie, Role: pilot}
-  - {GroupName: /fermilab/genie, Role: Production}
-glast.org: {Contacts: null, FQANs: null}
+  - GroupName: /fermilab/genie
+    Role: Analysis
+  - GroupName: /fermilab/genie
+    Role: pilot
+  - GroupName: /fermilab/genie
+    Role: Production
+glast.org:
+  Contacts: null
+  FQANs: null
 glow:
-  Contacts: [Miron Livny, Lauren Michael, Greg Thain]
+  Contacts:
+  - ID: 48e1c2f26dc3479a6cf9b2de7c79d654ac27b1d1
+    Name: Miron Livny
+  - ID: 29a39113245cb237d6377e22152a1cb2585445e3
+    Name: Lauren Michael
+  - ID: 6227448ebe06b0e0e9ad3538508ad295d5933dc9
+    Name: Greg Thain
   FQANs:
-  - {GroupName: /GLOW, Role: null}
+  - GroupName: /GLOW
+    Role: null
 gm2:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/gm2, Role: null}
+  - GroupName: /fermilab/gm2
+    Role: null
 gpn:
   Contacts: null
   FQANs:
-  - {GroupName: /gpn, Role: null}
+  - GroupName: /gpn
+    Role: null
 icarus:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/icarus, Role: null}
+  - GroupName: /fermilab/icarus
+    Role: null
 ilc:
-  Contacts: [Steve Timm, Lynn Garren, GP Yeh]
+  Contacts:
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
+  - ID: 848367d300cbdf6ae1c61ef86594ce7b642f2984
+    Name: Lynn Garren
+  - ID: 98027562afb9a937ec8cbb849652a2fe43aeb570
+    Name: GP Yeh
   FQANs:
-  - {GroupName: /ilc, Role: null}
+  - GroupName: /ilc
+    Role: null
 ilc4c:
-  Contacts: [Steve Timm]
+  Contacts:
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
   FQANs:
-  - {GroupName: /ilc/ilc4c, Role: null}
+  - GroupName: /ilc/ilc4c
+    Role: null
 ilddet:
-  Contacts: [Steve Timm]
+  Contacts:
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
   FQANs:
-  - {GroupName: /ilc/ild, Role: null}
-lar1nd: {Contacts: null, FQANs: null}
+  - GroupName: /ilc/ild
+    Role: null
+lar1nd:
+  Contacts: null
+  FQANs: null
 lariat:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/lariat, Role: null}
-larsoft: {Contacts: null, FQANs: null}
-lbnl: {Contacts: null, FQANs: null}
+  - GroupName: /fermilab/lariat
+    Role: null
+larsoft:
+  Contacts: null
+  FQANs: null
+lbnl:
+  Contacts: null
+  FQANs: null
 ligo:
-  Contacts: [Peter Couvares]
+  Contacts:
+  - ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+    Name: Peter Couvares
   FQANs:
-  - {GroupName: /LIGO, Role: null}
+  - GroupName: /LIGO
+    Role: null
 map:
-  Contacts: [Steve Timm]
+  Contacts:
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
   FQANs:
-  - {GroupName: /fermilab/map, Role: null}
-  - {GroupName: /fermilab/map, Role: Analysis}
-  - {GroupName: /fermilab/map, Role: Calibration}
-  - {GroupName: /fermilab/map, Role: pilot}
-  - {GroupName: /fermilab/map, Role: Production}
+  - GroupName: /fermilab/map
+    Role: null
+  - GroupName: /fermilab/map
+    Role: Analysis
+  - GroupName: /fermilab/map
+    Role: Calibration
+  - GroupName: /fermilab/map
+    Role: pilot
+  - GroupName: /fermilab/map
+    Role: Production
 mars:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/mars, Role: null}
+  - GroupName: /fermilab/mars
+    Role: null
 marsaccel:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/mars/accel, Role: null}
+  - GroupName: /fermilab/mars/accel
+    Role: null
 marsgm2:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/mars/gm2, Role: null}
+  - GroupName: /fermilab/mars/gm2
+    Role: null
 marslbne:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/mars/lbne, Role: null}
+  - GroupName: /fermilab/mars/lbne
+    Role: null
 marsmu2e:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/mars/mu2e, Role: null}
+  - GroupName: /fermilab/mars/mu2e
+    Role: null
 microboone:
-  Contacts: [Keith Chadwick, Steve Timm]
+  Contacts:
+  - ID: a161cf4dfb39e13eaf5fa890b6920c7af89a7784
+    Name: Keith Chadwick
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
   FQANs:
-  - {GroupName: /fermilab/uboone, Role: null}
-  - {GroupName: /fermilab/uboone, Role: Analysis}
-  - {GroupName: /fermilab/uboone, Role: Calibration}
-  - {GroupName: /fermilab/uboone, Role: pilot}
-  - {GroupName: /fermilab/uboone, Role: Production}
+  - GroupName: /fermilab/uboone
+    Role: null
+  - GroupName: /fermilab/uboone
+    Role: Analysis
+  - GroupName: /fermilab/uboone
+    Role: Calibration
+  - GroupName: /fermilab/uboone
+    Role: pilot
+  - GroupName: /fermilab/uboone
+    Role: Production
 minerva:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/minerva, Role: null}
+  - GroupName: /fermilab/minerva
+    Role: null
 miniboone:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/miniboone, Role: null}
-miniclean: {Contacts: null, FQANs: null}
+  - GroupName: /fermilab/miniboone
+    Role: null
+miniclean:
+  Contacts: null
+  FQANs: null
 minos:
-  Contacts: [Tanya Levshina]
+  Contacts:
+  - ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
+    Name: Tanya Levshina
   FQANs:
-  - {GroupName: /fermilab/minos, Role: null}
+  - GroupName: /fermilab/minos
+    Role: null
 mipp:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/mipp, Role: null}
+  - GroupName: /fermilab/mipp
+    Role: null
 mis:
   Contacts: null
   FQANs:
-  - {GroupName: /mis, Role: null}
+  - GroupName: /mis
+    Role: null
 mu2e:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/mu2e, Role: null}
+  - GroupName: /fermilab/mu2e
+    Role: null
 nanohub:
-  Contacts: [Steven Clark]
+  Contacts:
+  - ID: e3cdbed422208e751519e8e03a85ab6a2d567f6b
+    Name: Steven Clark
   FQANs:
-  - {GroupName: /nanohub, Role: null}
+  - GroupName: /nanohub
+    Role: null
 next:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/next, Role: null}
+  - GroupName: /fermilab/next
+    Role: null
 nova:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/nova, Role: null}
+  - GroupName: /fermilab/nova
+    Role: null
 numi:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/numi, Role: null}
+  - GroupName: /fermilab/numi
+    Role: null
 numix:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/numix, Role: Analysis}
-  - {GroupName: /fermilab/numix, Role: pilot}
-  - {GroupName: /fermilab/numix, Role: Production}
+  - GroupName: /fermilab/numix
+    Role: Analysis
+  - GroupName: /fermilab/numix
+    Role: pilot
+  - GroupName: /fermilab/numix
+    Role: Production
 ops:
   Contacts: null
   FQANs:
-  - {GroupName: /ops, Role: null}
-  - {GroupName: /ops, Role: lcgadmin}
+  - GroupName: /ops
+    Role: null
+  - GroupName: /ops
+    Role: lcgadmin
 orka:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/orka, Role: null}
+  - GroupName: /fermilab/orka
+    Role: null
 osg:
-  Contacts: [Mats Rynge, Tanya Levshina, Chander Sehgal]
+  Contacts:
+  - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+    Name: Mats Rynge
+  - ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
+    Name: Tanya Levshina
+  - ID: e9d66d7d2447c639f63fb6fcc18989c11fbc4777
+    Name: Chander Sehgal
   FQANs:
-  - {GroupName: /osg, Role: null}
+  - GroupName: /osg
+    Role: null
 patriot:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/patriot, Role: null}
-project8: {Contacts: null, FQANs: null}
+  - GroupName: /fermilab/patriot
+    Role: null
+project8:
+  Contacts: null
+  FQANs: null
 sbgrid:
-  Contacts: [Piotr Sliz, Michael (Mick) Timony, Peter Meyer]
+  Contacts:
+  - ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
+    Name: Piotr Sliz
+  - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
+    Name: Michael (Mick) Timony
+  - ID: d5ebc623588d1696614076faf0257d83806891a2
+    Name: Peter Meyer
   FQANs:
-  - {GroupName: /SBGrid, Role: null}
+  - GroupName: /SBGrid
+    Role: null
 sbnd:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/sbnd, Role: null}
-scdms: {Contacts: null, FQANs: null}
+  - GroupName: /fermilab/sbnd
+    Role: null
+scdms:
+  Contacts: null
+  FQANs: null
 sdss:
   Contacts: null
   FQANs:
-  - {GroupName: /sdss/production, Role: null}
+  - GroupName: /sdss/production
+    Role: null
 siddet:
-  Contacts: [Steve Timm]
+  Contacts:
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
   FQANs:
-  - {GroupName: /ilc/sid, Role: null}
-snoplus: {Contacts: null, FQANs: null}
+  - GroupName: /ilc/sid
+    Role: null
+snoplus:
+  Contacts: null
+  FQANs: null
 star:
   Contacts: null
   FQANs:
-  - {GroupName: /star, Role: null}
-stashcache: {Contacts: null, FQANs: null}
-supercdms: {Contacts: null, FQANs: null}
+  - GroupName: /star
+    Role: null
+stashcache:
+  Contacts: null
+  FQANs: null
+supercdms:
+  Contacts: null
+  FQANs: null
 theory:
   Contacts: null
   FQANs:
-  - {GroupName: /fermilab/theory, Role: null}
+  - GroupName: /fermilab/theory
+    Role: null

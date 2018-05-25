@@ -1,35 +1,4 @@
 - Class: SCHEDULED
-  Description: Annual MGHPCC maintenance downtime.  All NET2 systems, BU and HU will
-    be powered down all day May 17.
-  EndTime: May 18, 2016 01:00 AM UTC
-  ID: 1004892
-  ResourceName: NET2
-  Services:
-  - CE
-  - SRMv2
-  Severity: Outage
-  StartTime: May 16, 2016 16:00 PM UTC
-- Class: SCHEDULED
-  Description: Annual MGHPCC maintenance downtime. All NET2 systems, BU and HU will
-    be powered down all day May 17.
-  EndTime: May 18, 2016 01:00 AM UTC
-  ID: 1004894
-  ResourceName: perfSONAR-NET2-bw
-  Services:
-  - net.perfSONAR.Bandwidth
-  Severity: Outage
-  StartTime: May 16, 2016 16:00 PM UTC
-- Class: SCHEDULED
-  Description: Annual MGHPCC maintenance downtime. All NET2 systems, BU and HU will
-    be powered down all day May 17.
-  EndTime: May 18, 2016 01:00 AM UTC
-  ID: 1004895
-  ResourceName: perfSONAR-NET2-lat
-  Services:
-  - net.perfSONAR.Latency
-  Severity: Outage
-  StartTime: May 16, 2016 16:00 PM UTC
-- Class: SCHEDULED
   Description: Annual MGHPCC power maintenance
   EndTime: May 24, 2017 01:00 AM UTC
   ID: 1005318
@@ -86,3 +55,13 @@
   - SRMv2
   Severity: Outage
   StartTime: Jan 24, 2018 14:00 PM UTC
+- Class: SCHEDULED
+  Description: Annual MGHPCC-wide power maintenance day
+  EndTime: May 22, 2018 18:00 PM UTC
+  ID: 1005683
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+  Severity: Outage
+  StartTime: May 21, 2018 14:00 PM UTC

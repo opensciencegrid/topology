@@ -1,16 +1,26 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Support for GCVO and GCEDU VO Universidad Tecnologica de Bolivar,
+  GridColombia
 GroupID: 327
 Resources:
   GCVO_UV_CE:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: John Alexander Sanabria Ordonez
+        Primary:
+          ID: 057265d8fe8d16b6fab4b45d5f3db2028f30a115
+          Name: John Alexander Sanabria Ordonez
       Security Contact:
-        Primary: John Alexander Sanabria Ordonez
+        Primary:
+          ID: 057265d8fe8d16b6fab4b45d5f3db2028f30a115
+          Name: John Alexander Sanabria Ordonez
       Submitter Contact:
-        Primary: John Alexander Sanabria Ordonez
+        Primary:
+          ID: 057265d8fe8d16b6fab4b45d5f3db2028f30a115
+          Name: John Alexander Sanabria Ordonez
+    Description: A cluster facility which most of its nodes are workstations therefore
+      its computational capacity is highly variable.
     Disable: false
     FQDN: ce-eisc-02.univalle.edu.co
     ID: 428

@@ -1,12 +1,16 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: vince's VM set
 GroupID: 391
 Resources:
   VJNEAL_CE:
     Active: true
     ContactLists:
       Submitter Contact:
-        Primary: Elizabeth Prout
+        Primary:
+          ID: 8350a764268bd8a041059caaccad8f029720f212
+          Name: Elizabeth Prout
+    Description: this is vince's dev machine
     Disable: false
     FQDN: vjneal.grid.iu.edu
     ID: 615

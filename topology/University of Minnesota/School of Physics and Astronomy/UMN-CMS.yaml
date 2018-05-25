@@ -1,20 +1,34 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: University of Minnesota CMS Resources
 GroupID: 357
 Resources:
   UMN-CMS-CE:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Nick Bertrand
-        Secondary: Graham Allan
+        Primary:
+          ID: b2c6bf09ccf53e3c7c7a7d738193032db77631ea
+          Name: Nick Bertrand
+        Secondary:
+          ID: b005baa38f0923b8acc8284f870cf289791f79ad
+          Name: Graham Allan
       Miscellaneous Contact:
-        Primary: Jeremiah Mans
+        Primary:
+          ID: 4385b697e55b95ed097380e05d7b5157d370e469
+          Name: Jeremiah Mans
       Security Contact:
-        Primary: Nick Bertrand
-        Secondary: Graham Allan
+        Primary:
+          ID: b2c6bf09ccf53e3c7c7a7d738193032db77631ea
+          Name: Nick Bertrand
+        Secondary:
+          ID: b005baa38f0923b8acc8284f870cf289791f79ad
+          Name: Graham Allan
       Submitter Contact:
-        Primary: Nick Bertrand
+        Primary:
+          ID: b2c6bf09ccf53e3c7c7a7d738193032db77631ea
+          Name: Nick Bertrand
+    Description: University of Minnesota CMS CE
     Disable: false
     FQDN: gc1-ce.spa.umn.edu
     ID: 486
@@ -44,15 +58,26 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Jesse Clair Bren
+        Primary:
+          ID: a43bd7829e74491d726a4f45c6b5d8e544b154a3
+          Name: Jesse Clair Bren
       Miscellaneous Contact:
-        Primary: Jeremiah Mans
+        Primary:
+          ID: 4385b697e55b95ed097380e05d7b5157d370e469
+          Name: Jeremiah Mans
       Resource Report Contact:
-        Primary: Jesse Clair Bren
+        Primary:
+          ID: a43bd7829e74491d726a4f45c6b5d8e544b154a3
+          Name: Jesse Clair Bren
       Security Contact:
-        Primary: Jesse Clair Bren
+        Primary:
+          ID: a43bd7829e74491d726a4f45c6b5d8e544b154a3
+          Name: Jesse Clair Bren
       Submitter Contact:
-        Primary: Jesse Clair Bren
+        Primary:
+          ID: a43bd7829e74491d726a4f45c6b5d8e544b154a3
+          Name: Jesse Clair Bren
+    Description: University of Minnesota CMS Compute Element
     Disable: false
     FQDN: gc2-ce.spa.umn.edu
     ID: 941
@@ -71,11 +96,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Nick Bertrand
+        Primary:
+          ID: b2c6bf09ccf53e3c7c7a7d738193032db77631ea
+          Name: Nick Bertrand
       Security Contact:
-        Primary: Nick Bertrand
+        Primary:
+          ID: b2c6bf09ccf53e3c7c7a7d738193032db77631ea
+          Name: Nick Bertrand
       Submitter Contact:
-        Primary: Nick Bertrand
+        Primary:
+          ID: b2c6bf09ccf53e3c7c7a7d738193032db77631ea
+          Name: Nick Bertrand
+    Description: University of Minnesota CMS SE Resource
     Disable: false
     FQDN: gc1-se.spa.umn.edu
     ID: 488

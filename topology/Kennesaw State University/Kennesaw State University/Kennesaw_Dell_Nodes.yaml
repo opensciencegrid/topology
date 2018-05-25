@@ -1,9 +1,11 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: 10 Dual Quad-Core Dell R410 blades
 GroupID: 375
 Resources:
   Kennesaw_Dell_Nodes:
     Active: true
+    Description: 10 Dell R410 dual-quad core blades
     Disable: false
     FQDN: Prometheus.kennesaw.edu
     ID: 551

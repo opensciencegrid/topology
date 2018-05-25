@@ -1,9 +1,11 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: UCI ATLAS Tier-3
 GroupID: 287
 Resources:
   UCI_ATLAS_GRIDFTP:
     Active: true
+    Description: UCI gridftp
     Disable: false
     FQDN: gpatlas2.ps.uci.edu
     ID: 441
@@ -18,19 +20,39 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Edgar Mauricio Fajardo Hernandez
-        Secondary: Jeffrey Michael Dost
+        Primary:
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
+        Secondary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
       Miscellaneous Contact:
-        Primary: Jeffrey Michael Dost
-        Secondary: Edgar Mauricio Fajardo Hernandez
+        Primary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
+        Secondary:
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
       Resource Report Contact:
-        Primary: Jeffrey Michael Dost
-        Secondary: Edgar Mauricio Fajardo Hernandez
+        Primary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
+        Secondary:
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
       Security Contact:
-        Primary: Edgar Mauricio Fajardo Hernandez
-        Secondary: Jeffrey Michael Dost
+        Primary:
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
+        Secondary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
       Submitter Contact:
-        Primary: Edgar Mauricio Fajardo Hernandez
+        Primary:
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
+    Description: LHC @ UC glidein scheduler submit host. This host is hosted at UCI
+      and managed via puppet at UCSD.
     Disable: false
     FQDN: uclhc-1.ps.uci.edu
     ID: 778

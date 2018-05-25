@@ -1,16 +1,24 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 68
 Resources:
   MWT2_IU:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Frederick Luehring
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
       Resource Report Contact:
-        Primary: Frederick Luehring
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
       Security Contact:
-        Primary: Frederick Luehring
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+    Description: Part of the MWT2 facility.
     Disable: false
     FQDN: iut2-grid6.iu.edu
     ID: 68
@@ -25,11 +33,18 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Secondary: Charles Waldman
+        Secondary:
+          ID: b90b81a135d90def08b891806a5ff56409ceeb8c
+          Name: Charles Waldman
       Miscellaneous Contact:
-        Tertiary: Nathan Yehle (disabled)
+        Tertiary:
+          ID: 6d5915fca586e4702c3f4ecbf56750132c6896c2
+          Name: Nathan Yehle (disabled)
       Security Contact:
-        Secondary: Frederick Luehring
+        Secondary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+    Description: Part of the MWT2 facility.
     Disable: true
     FQDN: iut2-dc1.iu.edu
     ID: 140

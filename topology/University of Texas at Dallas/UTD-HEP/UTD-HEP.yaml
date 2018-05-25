@@ -1,25 +1,47 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: (No resource group description)
 GroupID: 206
 Resources:
   UTD-HEP:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Don Moore
-        Secondary: Joseph Izen
+        Primary:
+          ID: 298bbddcaf1d6786ce9ad0dd47ca1352ded74e9d
+          Name: Don Moore
+        Secondary:
+          ID: 4a72e218310a01c90c6be406a6fa07b39bbac9c9
+          Name: Joseph Izen
       Miscellaneous Contact:
-        Primary: Joseph Izen
-        Secondary: Kendall Reeves
-        Tertiary: Hari Namasivayam
+        Primary:
+          ID: 4a72e218310a01c90c6be406a6fa07b39bbac9c9
+          Name: Joseph Izen
+        Secondary:
+          ID: 2299721fcaf9cacca4a0e328a48fba67759bec4e
+          Name: Kendall Reeves
+        Tertiary:
+          ID: 3a381c068df88e33656ccbb21e461210ffd027f9
+          Name: Hari Namasivayam
       Resource Report Contact:
-        Primary: Joseph Izen
-        Secondary: Kendall Reeves
-        Tertiary: Hari Namasivayam
+        Primary:
+          ID: 4a72e218310a01c90c6be406a6fa07b39bbac9c9
+          Name: Joseph Izen
+        Secondary:
+          ID: 2299721fcaf9cacca4a0e328a48fba67759bec4e
+          Name: Kendall Reeves
+        Tertiary:
+          ID: 3a381c068df88e33656ccbb21e461210ffd027f9
+          Name: Hari Namasivayam
       Security Contact:
-        Primary: Don Moore
+        Primary:
+          ID: 298bbddcaf1d6786ce9ad0dd47ca1352ded74e9d
+          Name: Don Moore
       Submitter Contact:
-        Primary: Joseph Izen
+        Primary:
+          ID: 4a72e218310a01c90c6be406a6fa07b39bbac9c9
+          Name: Joseph Izen
+    Description: US Atlas Production Tier3gs
     Disable: true
     FQDN: gomez.utdallas.edu
     ID: 206
@@ -46,20 +68,41 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Don Moore
-        Secondary: Joseph Izen
+        Primary:
+          ID: 298bbddcaf1d6786ce9ad0dd47ca1352ded74e9d
+          Name: Don Moore
+        Secondary:
+          ID: 4a72e218310a01c90c6be406a6fa07b39bbac9c9
+          Name: Joseph Izen
       Miscellaneous Contact:
-        Primary: Don Moore
-        Secondary: Joseph Izen
-        Tertiary: Hari Namasivayam
+        Primary:
+          ID: 298bbddcaf1d6786ce9ad0dd47ca1352ded74e9d
+          Name: Don Moore
+        Secondary:
+          ID: 4a72e218310a01c90c6be406a6fa07b39bbac9c9
+          Name: Joseph Izen
+        Tertiary:
+          ID: 3a381c068df88e33656ccbb21e461210ffd027f9
+          Name: Hari Namasivayam
       Resource Report Contact:
-        Primary: Don Moore
-        Secondary: Joseph Izen
-        Tertiary: Hari Namasivayam
+        Primary:
+          ID: 298bbddcaf1d6786ce9ad0dd47ca1352ded74e9d
+          Name: Don Moore
+        Secondary:
+          ID: 4a72e218310a01c90c6be406a6fa07b39bbac9c9
+          Name: Joseph Izen
+        Tertiary:
+          ID: 3a381c068df88e33656ccbb21e461210ffd027f9
+          Name: Hari Namasivayam
       Security Contact:
-        Primary: Don Moore
+        Primary:
+          ID: 298bbddcaf1d6786ce9ad0dd47ca1352ded74e9d
+          Name: Don Moore
       Submitter Contact:
-        Primary: Joseph Izen
+        Primary:
+          ID: 4a72e218310a01c90c6be406a6fa07b39bbac9c9
+          Name: Joseph Izen
+    Description: This is and SRMv2 Storage element for UTD-HEP's ATLAS tier3gs site
     Disable: false
     FQDN: fester.utdallas.edu
     ID: 401
@@ -74,20 +117,44 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Don Moore
-        Secondary: Joseph Izen
+        Primary:
+          ID: 298bbddcaf1d6786ce9ad0dd47ca1352ded74e9d
+          Name: Don Moore
+        Secondary:
+          ID: 4a72e218310a01c90c6be406a6fa07b39bbac9c9
+          Name: Joseph Izen
       Miscellaneous Contact:
-        Primary: Joseph Izen
-        Secondary: Kendall Reeves
-        Tertiary: Hari Namasivayam
+        Primary:
+          ID: 4a72e218310a01c90c6be406a6fa07b39bbac9c9
+          Name: Joseph Izen
+        Secondary:
+          ID: 2299721fcaf9cacca4a0e328a48fba67759bec4e
+          Name: Kendall Reeves
+        Tertiary:
+          ID: 3a381c068df88e33656ccbb21e461210ffd027f9
+          Name: Hari Namasivayam
       Resource Report Contact:
-        Primary: Joseph Izen
-        Secondary: Kendall Reeves
-        Tertiary: Hari Namasivayam
+        Primary:
+          ID: 4a72e218310a01c90c6be406a6fa07b39bbac9c9
+          Name: Joseph Izen
+        Secondary:
+          ID: 2299721fcaf9cacca4a0e328a48fba67759bec4e
+          Name: Kendall Reeves
+        Tertiary:
+          ID: 3a381c068df88e33656ccbb21e461210ffd027f9
+          Name: Hari Namasivayam
       Security Contact:
-        Primary: Don Moore
+        Primary:
+          ID: 298bbddcaf1d6786ce9ad0dd47ca1352ded74e9d
+          Name: Don Moore
       Submitter Contact:
-        Primary: Joseph Izen
+        Primary:
+          ID: 4a72e218310a01c90c6be406a6fa07b39bbac9c9
+          Name: Joseph Izen
+    Description: |-
+      This is UTD's second OSG cluster. It is a US ATLAS Production Tier3gs. At some point in the future, the resources of our first, UTD_HEP fester.utdallas.edu cluster may be merged, but for starters, they are independent.
+
+      The SE is morticia.utdallas.edu
     Disable: true
     FQDN: gomez.utdallas.edu
     ID: 395

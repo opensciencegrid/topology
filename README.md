@@ -41,8 +41,9 @@ Alternatively, the data can be accessed in XML format at the following URLs:
 | The following data... | Can be accessed in XML format via URL...         |
 |-----------------------|--------------------------------------------------|
 | Project               | <https://my.opensciencegrid.org/miscproject/xml> |
-| Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
+| Resource Downtime     | <https://my.opensciencegrid.org/rgdowntime/xml>  |
 | Resource Topology     | <https://my.opensciencegrid.org/rgsummary/xml>   |
+| Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
 
 These XML pages are compatible with the XML format once provided by `myosg.grid.iu.edu`.
 
@@ -55,8 +56,9 @@ The formatting of the YAML files for the different types of data are described i
 | The following data... | Is defined by template file...       | And should be copied to location, relative to the Git root directory... |
 |-----------------------|--------------------------------------|-------------------------------------------------------------------------|
 | Project               | `template-project.yaml`              | `projects/<PROJECT NAME>.yaml`                                          |
-| Virtual Organization  | `template-virtual-organization.yaml` | `virtual-organizations/<VO NAME>.yaml`                                  |
+| Resource Downtime     | `template-downtime.yaml`             | `topology/<FACILITY>/<SITE>/<RESOURCE GROUP NAME>_downtime.yaml`        |
 | Resource Topology     | `template-resourcegroup.yaml`        | `topology/<FACILITY>/<SITE>/<RESOURCE GROUP NAME>.yaml`                 |
+| Virtual Organization  | `template-virtual-organization.yaml` | `virtual-organizations/<VO NAME>.yaml`                                  |
 
 The comments in the template files explain the structure and the meaning of the data.
 

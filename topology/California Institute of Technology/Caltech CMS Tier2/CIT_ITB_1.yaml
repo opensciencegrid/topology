@@ -1,19 +1,31 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: (No resource group description)
 GroupID: 12
 Resources:
   CIT_ITB_1:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Justas Balcas
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
       Resource Report Contact:
-        Primary: Justas Balcas
-        Tertiary: Michael Thomas
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Tertiary:
+          ID: 646d38b93b70c6322c555a70f3bc69c6cbc5a9eb
+          Name: Michael Thomas
       Security Contact:
-        Primary: Justas Balcas
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
       Submitter Contact:
-        Primary: Michael Thomas
+        Primary:
+          ID: 646d38b93b70c6322c555a70f3bc69c6cbc5a9eb
+          Name: Michael Thomas
+    Description: Caltech CMS ITB resource available to all VOs for testing.
     Disable: false
     FQDN: ce-itb.ultralight.org
     ID: 12

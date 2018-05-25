@@ -1,16 +1,24 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: PerfSONAR services for the CBPF site.
 GroupID: 415
 Resources:
   PerfSONAR_CBPF_bw:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Pedro Henrique Diniz da Silva
+        Primary:
+          ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
+          Name: Pedro Henrique Diniz da Silva
       Security Contact:
-        Primary: Pedro Henrique Diniz da Silva
+        Primary:
+          ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
+          Name: Pedro Henrique Diniz da Silva
       Submitter Contact:
-        Primary: Pedro Henrique Diniz da Silva
+        Primary:
+          ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
+          Name: Pedro Henrique Diniz da Silva
+    Description: This is the PerfSONAR latency service of CBPF site.
     Disable: false
     FQDN: ps02.cat.cbpf.br
     ID: 704
@@ -25,13 +33,22 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Pedro Henrique Diniz da Silva
+        Primary:
+          ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
+          Name: Pedro Henrique Diniz da Silva
       Resource Report Contact:
-        Primary: Pedro Henrique Diniz da Silva
+        Primary:
+          ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
+          Name: Pedro Henrique Diniz da Silva
       Security Contact:
-        Primary: Pedro Henrique Diniz da Silva
+        Primary:
+          ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
+          Name: Pedro Henrique Diniz da Silva
       Submitter Contact:
-        Primary: Pedro Henrique Diniz da Silva
+        Primary:
+          ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
+          Name: Pedro Henrique Diniz da Silva
+    Description: This is the perfSONAR resource for latency tests.
     Disable: false
     FQDN: ps01.cat.cbpf.br
     ID: 703

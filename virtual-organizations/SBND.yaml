@@ -4,13 +4,18 @@ CertificateOnly: false
 Community: Short-Baseline Near Detector collaborators
 Contacts:
   Miscellaneous Contact:
-  - Joe Boyd
-  - Gerard Bernabeu Altayo
-  - Shreyas Bhat
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
+  - ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+    Name: Gerard Bernabeu Altayo
+  - ID: 888a771df50d76d5e229d97e37949dcca5af5b61
+    Name: Shreyas Bhat
   Submitter Contact:
-  - Shreyas Bhat
+  - ID: 888a771df50d76d5e229d97e37949dcca5af5b61
+    Name: Shreyas Bhat
   VO Manager:
-  - Joe Boyd
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -18,15 +23,14 @@ FieldsOfScience:
 ID: 123
 LongName: Short-Baseline Near Detector
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
-Name: SBND
 OASIS:
   Managers:
     Joe Boyd:
-      ContactID: 579
       DNs:
       - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
+      ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
   OASISRepoURLs:
   - http://oasiscfs.fnal.gov:8000/cvmfs/sbnd.opensciencegrid.org/
   UseOASIS: true

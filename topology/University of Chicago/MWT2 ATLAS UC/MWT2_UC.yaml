@@ -1,19 +1,31 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: 7/26 disabling empty resource group
 GroupID: 69
 Resources:
   MWT2_UC:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Nathan Yehle (disabled)
+        Primary:
+          ID: 6d5915fca586e4702c3f4ecbf56750132c6896c2
+          Name: Nathan Yehle (disabled)
       Miscellaneous Contact:
-        Secondary: Frederick Luehring
-        Tertiary: Nathan Yehle (disabled)
+        Secondary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+        Tertiary:
+          ID: 6d5915fca586e4702c3f4ecbf56750132c6896c2
+          Name: Nathan Yehle (disabled)
       Resource Report Contact:
-        Primary: Nathan Yehle (disabled)
+        Primary:
+          ID: 6d5915fca586e4702c3f4ecbf56750132c6896c2
+          Name: Nathan Yehle (disabled)
       Security Contact:
-        Primary: Nathan Yehle (disabled)
+        Primary:
+          ID: 6d5915fca586e4702c3f4ecbf56750132c6896c2
+          Name: Nathan Yehle (disabled)
+    Description: Formerly part of the MWT2 facility.
     Disable: true
     FQDN: uct2-grid6.uchicago.edu
     ID: 69
@@ -39,6 +51,7 @@ Resources:
       TapeCapacity: 0
   MWT2_X_SE:
     Active: false
+    Description: Part of the MWT2 Facility.  Test xrootd SE.
     Disable: true
     FQDN: iut2-grid8.iu.edu
     ID: 304

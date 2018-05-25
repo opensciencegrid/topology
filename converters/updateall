@@ -1,0 +1,24 @@
+#!/bin/bash
+set -ev
+./converters/download --auth --out rgsummary-auth.xml rgsummary
+./converters/download --auth --out vosummary-auth.xml vosummary
+./converters/download --auth --out miscuser-auth.xml miscuser
+./converters/download --out rgsummary.xml rgsummary  # just for comparison
+./converters/download --out vosummary.xml vosummary  # just for comparison
+./converters/download --out miscproject.xml miscproject
+./converters/download --out rgdowntime.xml rgdowntime
+#./converters/get_site_table site.tab
+
+./converters/project_xml_to_yaml miscproject.xml projects
+./converters/vo_xml_to_yaml vosummary-auth.xml virtual-organizations
+./converters/rg_xml_to_yaml rgsummary-auth.xml rgdowntime.xml topology --site-table-file site.tab
+git checkout -- ./topology/services.yaml || :  # we made manual changes so don't update
+
+python3 webapp/project_reader.py projects new-miscproject.xml
+python3 webapp/vo_reader.py virtual-organizations new-vosummary.xml
+python3 webapp/rg_reader.py topology new-rgsummary.xml new-rgdowntime.xml
+if [[ -e contacts.yaml ]]; then
+    python3 webapp/vo_reader.py --contacts contacts.yaml virtual-organizations new-vosummary-auth.xml
+    python3 webapp/rg_reader.py --contacts contacts.yaml topology new-rgsummary-auth.xml new-rgdowntime-auth.xml
+    python3 webapp/contacts_reader.py contacts.yaml new-miscuser-auth.xml
+fi

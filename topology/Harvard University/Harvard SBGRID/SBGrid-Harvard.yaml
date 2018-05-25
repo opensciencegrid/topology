@@ -1,21 +1,37 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: (No resource group description)
 GroupID: 97
 Resources:
   SBGrid-GlideinWMS-Frontend:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Piotr Sliz
-        Secondary: Ian Stokes-Rees
+        Primary:
+          ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
+          Name: Piotr Sliz
+        Secondary:
+          ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
+          Name: Ian Stokes-Rees
       Resource Report Contact:
-        Primary: Piotr Sliz
-        Secondary: Ian Stokes-Rees
+        Primary:
+          ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
+          Name: Piotr Sliz
+        Secondary:
+          ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
+          Name: Ian Stokes-Rees
       Security Contact:
-        Primary: Piotr Sliz
-        Secondary: Ian Stokes-Rees
+        Primary:
+          ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
+          Name: Piotr Sliz
+        Secondary:
+          ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
+          Name: Ian Stokes-Rees
       Submitter Contact:
-        Primary: Peter Doherty
+        Primary:
+          ID: 22ef5608a23fb90ea01f4178b22cda87fa177ef3
+          Name: Peter Doherty
+    Description: SBGrid's glideinwms frontend
     Disable: false
     FQDN: glidein.nebiogrid.org
     ID: 402
@@ -28,11 +44,18 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Secondary: Ian Levesque
+        Secondary:
+          ID: 00f0f2dd4e52f1448305bef4c6c228c50e412a6b
+          Name: Ian Levesque
       Security Contact:
-        Secondary: Ian Levesque
+        Secondary:
+          ID: 00f0f2dd4e52f1448305bef4c6c228c50e412a6b
+          Name: Ian Levesque
       Submitter Contact:
-        Primary: Ian Levesque
+        Primary:
+          ID: 00f0f2dd4e52f1448305bef4c6c228c50e412a6b
+          Name: Ian Levesque
+    Description: Deactivated.  REplaced by sbgrid-harvard-security
     Disable: true
     FQDN: hpc.sbgrid.org
     ID: 97

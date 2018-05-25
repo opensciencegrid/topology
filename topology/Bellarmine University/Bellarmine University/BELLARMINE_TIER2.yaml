@@ -1,26 +1,50 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: LSST Tier2 Site at Bellarmine University
 GroupID: 277
 Resources:
   BELLARMINE_TIER2:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Akhtar
-        Secondary: Earle George Foskett
+        Primary:
+          ID: 777dc430c1655783abe24bcfd1cbbe38e2f796f2
+          Name: Akhtar
+        Secondary:
+          ID: 0da261a83862f36e325fe1cd9201410d26421f0d
+          Name: Earle George Foskett
       Miscellaneous Contact:
-        Primary: Akhtar
-        Secondary: Earle George Foskett
-        Tertiary: Horst Severini
+        Primary:
+          ID: 777dc430c1655783abe24bcfd1cbbe38e2f796f2
+          Name: Akhtar
+        Secondary:
+          ID: 0da261a83862f36e325fe1cd9201410d26421f0d
+          Name: Earle George Foskett
+        Tertiary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Resource Report Contact:
-        Primary: Akhtar
-        Secondary: Earle George Foskett
-        Tertiary: Horst Severini
+        Primary:
+          ID: 777dc430c1655783abe24bcfd1cbbe38e2f796f2
+          Name: Akhtar
+        Secondary:
+          ID: 0da261a83862f36e325fe1cd9201410d26421f0d
+          Name: Earle George Foskett
+        Tertiary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
       Security Contact:
-        Primary: Akhtar
-        Secondary: Earle George Foskett
+        Primary:
+          ID: 777dc430c1655783abe24bcfd1cbbe38e2f796f2
+          Name: Akhtar
+        Secondary:
+          ID: 0da261a83862f36e325fe1cd9201410d26421f0d
+          Name: Earle George Foskett
       Submitter Contact:
-        Primary: Akhtar
+        Primary:
+          ID: 777dc430c1655783abe24bcfd1cbbe38e2f796f2
+          Name: Akhtar
+    Description: LSST Tier2 site at Bellarmine University
     Disable: false
     FQDN: tier2-osg1.bellarmine.edu
     FQDNAliases:

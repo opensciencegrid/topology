@@ -1,18 +1,28 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: (No resource group description)
 GroupID: 154
 Resources:
   CIGI-ITB:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Anand Padmanabhan
+        Primary:
+          ID: f8f288e7f10d6cec4ea77c35484d3cee55b0f6a4
+          Name: Anand Padmanabhan
       Resource Report Contact:
-        Primary: Anand Padmanabhan
+        Primary:
+          ID: f8f288e7f10d6cec4ea77c35484d3cee55b0f6a4
+          Name: Anand Padmanabhan
       Security Contact:
-        Primary: Anand Padmanabhan
+        Primary:
+          ID: f8f288e7f10d6cec4ea77c35484d3cee55b0f6a4
+          Name: Anand Padmanabhan
       Submitter Contact:
-        Primary: Anand Padmanabhan
+        Primary:
+          ID: f8f288e7f10d6cec4ea77c35484d3cee55b0f6a4
+          Name: Anand Padmanabhan
+    Description: This is a ITB site for CIGI VO
     Disable: false
     FQDN: everest.cigi.uiuc.edu
     ID: 154

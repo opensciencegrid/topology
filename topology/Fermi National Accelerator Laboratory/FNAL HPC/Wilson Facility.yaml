@@ -1,18 +1,28 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Wilson Facility is a General Purpose HPC cluster at Fermilab
 GroupID: 455
 Resources:
   FNAL_WILSON:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Gerard Bernabeu Altayo
+        Primary:
+          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+          Name: Gerard Bernabeu Altayo
       Resource Report Contact:
-        Secondary: Gerard Bernabeu Altayo
+        Secondary:
+          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+          Name: Gerard Bernabeu Altayo
       Security Contact:
-        Primary: Gerard Bernabeu Altayo
+        Primary:
+          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+          Name: Gerard Bernabeu Altayo
       Submitter Contact:
-        Primary: Gerard Bernabeu Altayo
+        Primary:
+          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+          Name: Gerard Bernabeu Altayo
+    Description: This is the Wilson cluster headnode
     Disable: false
     FQDN: tev.fnal.gov
     ID: 841
@@ -27,15 +37,26 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Gerard Bernabeu Altayo
+        Primary:
+          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+          Name: Gerard Bernabeu Altayo
       Miscellaneous Contact:
-        Primary: Kevin Retzke
+        Primary:
+          ID: a25fbb4a1aa71648897c1a76ed6ab3ab7c707d5e
+          Name: Kevin Retzke
       Resource Report Contact:
-        Secondary: Gerard Bernabeu Altayo
+        Secondary:
+          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+          Name: Gerard Bernabeu Altayo
       Security Contact:
-        Primary: Gerard Bernabeu Altayo
+        Primary:
+          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
+          Name: Gerard Bernabeu Altayo
       Submitter Contact:
-        Primary: Kevin Retzke
+        Primary:
+          ID: a25fbb4a1aa71648897c1a76ed6ab3ab7c707d5e
+          Name: Kevin Retzke
+    Description: This is the Wilson cluster secondary headnode
     Disable: false
     FQDN: mic.fnal.gov
     ID: 867

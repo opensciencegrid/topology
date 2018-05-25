@@ -1,16 +1,26 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: New rpm-based OSG 3 Compute Element to replace the old pacman-based
+  CE TTU-ANTAEUS.
 GroupID: 365
 Resources:
   TTU-TINGE:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Alan Sill
+        Secondary:
+          ID: 342c6483676fe7d2be4df2b602ca5bec233ce684
+          Name: Alan Sill
       Resource Report Contact:
-        Secondary: Alan Sill
+        Secondary:
+          ID: 342c6483676fe7d2be4df2b602ca5bec233ce684
+          Name: Alan Sill
       Security Contact:
-        Secondary: Alan Sill
+        Secondary:
+          ID: 342c6483676fe7d2be4df2b602ca5bec233ce684
+          Name: Alan Sill
+    Description: New rpm-based OSG 3 Compute Element to replace the old pacman-based
+      CE TTU-ANTAEUS.
     Disable: true
     FQDN: tinge.hpcc.ttu.edu
     ID: 527

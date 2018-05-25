@@ -1,22 +1,38 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: Purdue Hansen Cluster
 GroupID: 324
 Resources:
   Purdue-Hansen:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Majid Arabgol
+        Secondary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Miscellaneous Contact:
-        Primary: Majid Arabgol
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Resource Report Contact:
-        Primary: Majid Arabgol
-        Secondary: Manoj Kumar Jha
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Secondary:
+          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
+          Name: Manoj Kumar Jha
       Security Contact:
-        Primary: Majid Arabgol
-        Secondary: Manoj Kumar Jha
+        Primary:
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
+        Secondary:
+          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
+          Name: Manoj Kumar Jha
       Submitter Contact:
-        Primary: Fengping Hu
+        Primary:
+          ID: 4fc95aafd347aa59450057af01eaeeec070648cf
+          Name: Fengping Hu
+    Description: This is the gateway to the Purdue Hansen cluster - http://www.rcac.purdue.edu/userinfo/resources/hansen/
     Disable: true
     FQDN: hansen-osg.rcac.purdue.edu
     ID: 423

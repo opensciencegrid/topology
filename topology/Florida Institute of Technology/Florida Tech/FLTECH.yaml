@@ -1,20 +1,32 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Compute Cluster at the Florida Tech High Energy Physics lab
 GroupID: 163
 Resources:
   FLTECH:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Ryan Wojtyla
+        Primary:
+          ID: dbdac6f745c5a7762318d51445220b2c4727d649
+          Name: Ryan Wojtyla
       Miscellaneous Contact:
-        Primary: Ryan Wojtyla
+        Primary:
+          ID: dbdac6f745c5a7762318d51445220b2c4727d649
+          Name: Ryan Wojtyla
       Resource Report Contact:
-        Primary: Ryan Wojtyla
+        Primary:
+          ID: dbdac6f745c5a7762318d51445220b2c4727d649
+          Name: Ryan Wojtyla
       Security Contact:
-        Primary: Ryan Wojtyla
+        Primary:
+          ID: dbdac6f745c5a7762318d51445220b2c4727d649
+          Name: Ryan Wojtyla
       Submitter Contact:
-        Primary: Patrick Ford
+        Primary:
+          ID: b621a99e78f58b25c90031007911fdfc97fad81a
+          Name: Patrick Ford
+    Description: Compute Element at the Florida Tech High Energy Physics lab.
     Disable: false
     FQDN: uscms1.fltech-grid3.fit.edu
     ID: 163
@@ -41,15 +53,26 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Ankit Durgasis Mohapatra
+        Secondary:
+          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
+          Name: Ankit Durgasis Mohapatra
       Miscellaneous Contact:
-        Secondary: Ankit Durgasis Mohapatra
+        Secondary:
+          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
+          Name: Ankit Durgasis Mohapatra
       Resource Report Contact:
-        Secondary: Ankit Durgasis Mohapatra
+        Secondary:
+          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
+          Name: Ankit Durgasis Mohapatra
       Security Contact:
-        Secondary: Ankit Durgasis Mohapatra
+        Secondary:
+          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
+          Name: Ankit Durgasis Mohapatra
       Submitter Contact:
-        Primary: Xenia Janice Fave
+        Primary:
+          ID: 714e99777b9937f3459a17454c905c234421684f
+          Name: Xenia Janice Fave
+    Description: Test server for the benefit of campus IT.
     Disable: false
     FQDN: gridtest.fit.edu
     ID: 339
@@ -64,15 +87,27 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Ankit Durgasis Mohapatra
+        Secondary:
+          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
+          Name: Ankit Durgasis Mohapatra
       Miscellaneous Contact:
-        Secondary: Ankit Durgasis Mohapatra
+        Secondary:
+          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
+          Name: Ankit Durgasis Mohapatra
       Resource Report Contact:
-        Secondary: Ankit Durgasis Mohapatra
+        Secondary:
+          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
+          Name: Ankit Durgasis Mohapatra
       Security Contact:
-        Secondary: Ankit Durgasis Mohapatra
+        Secondary:
+          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
+          Name: Ankit Durgasis Mohapatra
       Submitter Contact:
-        Primary: Jordan Robertson
+        Primary:
+          ID: c618db2bb0d32eb27afc2a8125df3ed925470dd4
+          Name: Jordan Robertson
+    Description: Management node at the Florida Tech High Energy Physics lab (GUMS
+      server).
     Disable: false
     FQDN: uscms1-mgmt.fltech-grid3.fit.edu
     ID: 592
@@ -85,15 +120,27 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Ryan Wojtyla
+        Primary:
+          ID: dbdac6f745c5a7762318d51445220b2c4727d649
+          Name: Ryan Wojtyla
       Miscellaneous Contact:
-        Primary: Ryan Wojtyla
+        Primary:
+          ID: dbdac6f745c5a7762318d51445220b2c4727d649
+          Name: Ryan Wojtyla
       Resource Report Contact:
-        Primary: Ryan Wojtyla
+        Primary:
+          ID: dbdac6f745c5a7762318d51445220b2c4727d649
+          Name: Ryan Wojtyla
       Security Contact:
-        Primary: Ryan Wojtyla
+        Primary:
+          ID: dbdac6f745c5a7762318d51445220b2c4727d649
+          Name: Ryan Wojtyla
       Submitter Contact:
-        Primary: Patrick Ford
+        Primary:
+          ID: b621a99e78f58b25c90031007911fdfc97fad81a
+          Name: Patrick Ford
+    Description: This is the Storage Element at Florida Institute of Technology that
+      provides Squid cache, Bestman SE, and Phedex services.
     Disable: false
     FQDN: uscms1-se.fltech-grid3.fit.edu
     ID: 269
@@ -119,11 +166,18 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Johanna-Laina Fischer
+        Primary:
+          ID: d074c6dc45a1e2146f0b00cd04f8404beedf9c2c
+          Name: Johanna-Laina Fischer
       Security Contact:
-        Primary: Johanna-Laina Fischer
+        Primary:
+          ID: d074c6dc45a1e2146f0b00cd04f8404beedf9c2c
+          Name: Johanna-Laina Fischer
       Submitter Contact:
-        Primary: Johanna-Laina Fischer
+        Primary:
+          ID: d074c6dc45a1e2146f0b00cd04f8404beedf9c2c
+          Name: Johanna-Laina Fischer
+    Description: Tier 3 Grid Computing Cluster, a member of the OSG
     Disable: true
     FQDN: uscms1.fltech-grid3.fit.edu-disabled
     ID: 443

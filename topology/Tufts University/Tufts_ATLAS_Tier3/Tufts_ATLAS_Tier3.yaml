@@ -1,20 +1,34 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: |-
+  Tufts University Linux Cluster
+  Red Hat EL5.4
 GroupID: 267
 Resources:
   Tufts_ATLAS_Tier3:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Austin Napier
+        Primary:
+          ID: b426e7716d2154226222b819a24d95525dcbb947
+          Name: Austin Napier
       Miscellaneous Contact:
-        Secondary: Austin Napier
+        Secondary:
+          ID: b426e7716d2154226222b819a24d95525dcbb947
+          Name: Austin Napier
       Resource Report Contact:
-        Primary: Austin Napier
+        Primary:
+          ID: b426e7716d2154226222b819a24d95525dcbb947
+          Name: Austin Napier
       Security Contact:
-        Secondary: Austin Napier
+        Secondary:
+          ID: b426e7716d2154226222b819a24d95525dcbb947
+          Name: Austin Napier
       Submitter Contact:
-        Primary: Austin Napier
+        Primary:
+          ID: b426e7716d2154226222b819a24d95525dcbb947
+          Name: Austin Napier
+    Description: This is the gatekeeper node and repository for ATLAS software releases.
     Disable: true
     FQDN: cobalt.uit.tufts.edu
     ID: 324

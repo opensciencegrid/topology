@@ -1,20 +1,32 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: University of Iowa Tier 3 cluster
 GroupID: 40
 Resources:
   GROW-GRID:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Burak Bilki
+        Primary:
+          ID: b6d168c5555f08d7a515270bd58ba302506e3afa
+          Name: Burak Bilki
       Miscellaneous Contact:
-        Primary: Burak Bilki
+        Primary:
+          ID: b6d168c5555f08d7a515270bd58ba302506e3afa
+          Name: Burak Bilki
       Resource Report Contact:
-        Primary: Burak Bilki
+        Primary:
+          ID: b6d168c5555f08d7a515270bd58ba302506e3afa
+          Name: Burak Bilki
       Security Contact:
-        Primary: Burak Bilki
+        Primary:
+          ID: b6d168c5555f08d7a515270bd58ba302506e3afa
+          Name: Burak Bilki
       Submitter Contact:
-        Primary: Daniel Squires
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
+    Description: GROW Compute and Storage Element
     Disable: false
     FQDN: grow-grid.its.uiowa.edu
     ID: 407
@@ -45,15 +57,26 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Jeff DeReus
+        Primary:
+          ID: ba76025c25398c295e14938585110878a441f09e
+          Name: Jeff DeReus
       Miscellaneous Contact:
-        Primary: Jeff DeReus
+        Primary:
+          ID: ba76025c25398c295e14938585110878a441f09e
+          Name: Jeff DeReus
       Resource Report Contact:
-        Primary: Jeff DeReus
+        Primary:
+          ID: ba76025c25398c295e14938585110878a441f09e
+          Name: Jeff DeReus
       Security Contact:
-        Primary: Jeff DeReus
+        Primary:
+          ID: ba76025c25398c295e14938585110878a441f09e
+          Name: Jeff DeReus
       Submitter Contact:
-        Primary: Jeff DeReus
+        Primary:
+          ID: ba76025c25398c295e14938585110878a441f09e
+          Name: Jeff DeReus
+    Description: compute element for GROW
     Disable: true
     FQDN: grow-prod.its.uiowa.edu
     ID: 260
@@ -68,19 +91,38 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Daniel Squires
-        Secondary: Glenn Johnson
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
+        Secondary:
+          ID: 22b8d862d0fdbbd93d8831165cae7bcd946456a7
+          Name: Glenn Johnson
       Miscellaneous Contact:
-        Primary: Daniel Squires
-        Secondary: Glenn Johnson
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
+        Secondary:
+          ID: 22b8d862d0fdbbd93d8831165cae7bcd946456a7
+          Name: Glenn Johnson
       Resource Report Contact:
-        Primary: Daniel Squires
-        Secondary: Glenn Johnson
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
+        Secondary:
+          ID: 22b8d862d0fdbbd93d8831165cae7bcd946456a7
+          Name: Glenn Johnson
       Security Contact:
-        Primary: Daniel Squires
-        Secondary: Glenn Johnson
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
+        Secondary:
+          ID: 22b8d862d0fdbbd93d8831165cae7bcd946456a7
+          Name: Glenn Johnson
       Submitter Contact:
-        Primary: Daniel Squires
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
+    Description: GROW Storage element
     Disable: true
     FQDN: grow-grid.its.uiowa.edu
     ID: 40
@@ -107,13 +149,22 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Daniel Squires
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
       Resource Report Contact:
-        Primary: Daniel Squires
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
       Security Contact:
-        Primary: Daniel Squires
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
       Submitter Contact:
-        Primary: Jeff DeReus
+        Primary:
+          ID: ba76025c25398c295e14938585110878a441f09e
+          Name: Jeff DeReus
+    Description: GROW gums server
     Disable: true
     FQDN: grow-voms.its.uiowa.edu
     ID: 262
@@ -126,13 +177,22 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Daniel Squires
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
       Resource Report Contact:
-        Primary: Daniel Squires
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
       Security Contact:
-        Primary: Daniel Squires
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
       Submitter Contact:
-        Primary: Jeff DeReus
+        Primary:
+          ID: ba76025c25398c295e14938585110878a441f09e
+          Name: Jeff DeReus
+    Description: GROW storage element
     Disable: true
     FQDN: grow-stor.its.uiowa.edu
     ID: 263
@@ -145,13 +205,22 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Daniel Squires
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
       Resource Report Contact:
-        Primary: Daniel Squires
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
       Security Contact:
-        Primary: Daniel Squires
+        Primary:
+          ID: 771822d1146c76c1cef073e09731e7bcf4485aa0
+          Name: Daniel Squires
       Submitter Contact:
-        Primary: Jeff DeReus
+        Primary:
+          ID: ba76025c25398c295e14938585110878a441f09e
+          Name: Jeff DeReus
+    Description: GROW voms server
     Disable: true
     FQDN: grow-voms.its.uiowa.edu
     ID: 261

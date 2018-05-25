@@ -1,20 +1,32 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: Nebraska CMS T2 Resource.
 GroupID: 71
 Resources:
   GPN-HUSKER:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary: Garhan Attebury
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Miscellaneous Contact:
-        Primary: Brian Bockelman
+        Primary:
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+          Name: Brian Bockelman
       Resource Report Contact:
-        Primary: Carl Lundstedt
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Security Contact:
-        Primary: Carl Lundstedt
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Submitter Contact:
-        Primary: Carl Lundstedt
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: Secondary gatekeeper to red.unl.edu workers
     Disable: true
     FQDN: gpn-husker.unl.edu
     ID: 202
@@ -27,19 +39,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Miscellaneous Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Resource Report Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Security Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Submitter Contact:
-        Primary: Carl Lundstedt
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: US CMS Tier-2 site at Nebraska.
     Disable: false
     FQDN: red.unl.edu
     ID: 71
@@ -68,19 +99,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Miscellaneous Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Resource Report Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Security Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Submitter Contact:
-        Primary: Carl Lundstedt
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: US CMS Tier-2 site at Nebraska
     Disable: true
     FQDN: dcache07.unl.edu
     ID: 203
@@ -95,19 +145,39 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Miscellaneous Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Resource Report Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Security Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Submitter Contact:
-        Primary: Carl Lundstedt
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: Secondary srm interface for our hadoop storage.  Primarily for non-cms
+      VOs to use and abuse.
     Disable: true
     FQDN: red-srm1.unl.edu
     ID: 226
@@ -122,12 +192,21 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Miscellaneous Contact:
-        Tertiary: Brian Bockelman
+        Tertiary:
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+          Name: Brian Bockelman
       Submitter Contact:
-        Primary: Brian Bockelman
+        Primary:
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+          Name: Brian Bockelman
+    Description: This is the third SRM endpoint for Hadoop.
     Disable: true
     FQDN: srm.unl.edu
     ID: 266
@@ -137,19 +216,39 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Miscellaneous Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Resource Report Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Security Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Submitter Contact:
-        Primary: Carl Lundstedt
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: This is the general use srm endpoint put up to offload OSG general
+      traffic off our cms centric srm server.
     Disable: true
     FQDN: red-srm1.unl.edu
     ID: 312
@@ -164,19 +263,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Miscellaneous Contact:
-        Primary: John Thiltges
+        Primary:
+          ID: f7fbc93bc8a7d276e8b5a94fb4ff905841a7763f
+          Name: John Thiltges
       Resource Report Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
-        Tertiary: John Thiltges
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Tertiary:
+          ID: f7fbc93bc8a7d276e8b5a94fb4ff905841a7763f
+          Name: John Thiltges
       Security Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Submitter Contact:
-        Primary: Carl Lundstedt
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: LVS frontend to our gridftp servers.
     Disable: false
     FQDN: red-gridftp.unl.edu
     ID: 830
@@ -203,19 +321,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Miscellaneous Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Resource Report Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Security Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Submitter Contact:
-        Primary: Carl Lundstedt
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: US CMS Tier-2 site at Nebraska
     Disable: true
     FQDN: srm.unl.edu
     ID: 104
@@ -243,19 +380,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Miscellaneous Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Resource Report Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Security Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Submitter Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+    Description: Squid server for T2_US_Nebraska
     Disable: false
     FQDN: red-squid2.unl.edu
     FQDNAliases:
@@ -270,19 +426,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Miscellaneous Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Resource Report Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Security Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Submitter Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+    Description: Squid server for T2_US_Nebraska
     Disable: false
     FQDN: red-squid1.unl.edu
     FQDNAliases:
@@ -297,19 +472,39 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Miscellaneous Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Resource Report Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Security Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Submitter Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+    Description: perfSONAR-PS bandwidth instance at T2_US_Nebraska, University of
+      Nebraska-Lincoln
     Disable: false
     FQDN: hcc-ps02.unl.edu
     ID: 519
@@ -324,15 +519,26 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Miscellaneous Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Resource Report Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Security Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Submitter Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+    Description: perfSONAR bandwidth testbed host at the University of Nebraska-Lincoln
     Disable: false
     FQDN: perfsonar.unl.edu
     ID: 693
@@ -347,19 +553,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Miscellaneous Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Resource Report Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Security Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Submitter Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+    Description: perfSonar bandwidth node for T2_US_Nebraska
     Disable: true
     FQDN: hcc-ps02.unl.edu
     ID: 504
@@ -374,19 +599,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Miscellaneous Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Resource Report Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Security Contact:
-        Primary: Garhan Attebury
-        Secondary: Carl Lundstedt
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
       Submitter Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+    Description: perfSonar node at T2_US_Nebraska for latency
     Disable: false
     FQDN: hcc-ps01.unl.edu
     ID: 505
@@ -401,15 +645,26 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Miscellaneous Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Resource Report Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Security Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Submitter Contact:
-        Primary: Garhan Attebury
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+    Description: perfSONAR testbed latency host at the University of Nebraska-Lincoln.
     Disable: false
     FQDN: perfsonar.unl.edu
     ID: 692
@@ -424,19 +679,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Miscellaneous Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Resource Report Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Security Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Submitter Contact:
-        Primary: Carl Lundstedt
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: red-gw1 is a gatekeeper for the red cluster.
     Disable: false
     FQDN: red-gw1.unl.edu
     ID: 386
@@ -465,19 +739,38 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Miscellaneous Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Resource Report Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Security Contact:
-        Primary: Carl Lundstedt
-        Secondary: Garhan Attebury
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+        Secondary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
       Submitter Contact:
-        Primary: Carl Lundstedt
+        Primary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: Generic gateway to Nebraska's CMS Tier 2 compute nodes
     Disable: false
     FQDN: red-gw2.unl.edu
     ID: 387

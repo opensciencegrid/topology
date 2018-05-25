@@ -1,16 +1,24 @@
 Disable: false
 GridType: OSG Integration Test Bed Resource
+GroupDescription: ITB version of production components
 GroupID: 434
 Resources:
   Cassandra-itb1:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Security Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Submitter Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+    Description: Cassandra component
     Disable: false
     FQDN: cassandra-itb1.grid.iu.edu
     ID: 762
@@ -25,11 +33,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Security Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Submitter Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+    Description: Cassandra component
     Disable: false
     FQDN: cassandra-itb2.grid.iu.edu
     ID: 763
@@ -44,11 +59,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Security Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Submitter Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+    Description: Maddash
     Disable: false
     FQDN: perfsonar-itb.grid.iu.edu
     ID: 766
@@ -63,11 +85,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Security Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Submitter Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+    Description: perfsonar data store
     Disable: false
     FQDN: psds-itb1.grid.iu.edu
     ID: 764
@@ -82,11 +111,18 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Security Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
       Submitter Contact:
-        Primary: Scott Teige
+        Primary:
+          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
+          Name: Scott Teige
+    Description: Perfsonar datastore
     Disable: false
     FQDN: psds-itb2.grid.iu.edu
     ID: 765

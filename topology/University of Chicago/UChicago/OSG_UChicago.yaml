@@ -1,20 +1,35 @@
 Disable: true
 GridType: OSG Production Resource
+GroupDescription: OSG resources at UChicago
 GroupID: 374
 Resources:
   OSG UChicago VO Frontend:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Marco Mambelli
+        Primary:
+          ID: 2b91a41c252366aae93d9b6b81a1b7ba7c00c17e
+          Name: Marco Mambelli
       Miscellaneous Contact:
-        Primary: Marco Mambelli
+        Primary:
+          ID: 2b91a41c252366aae93d9b6b81a1b7ba7c00c17e
+          Name: Marco Mambelli
       Resource Report Contact:
-        Primary: Marco Mambelli
+        Primary:
+          ID: 2b91a41c252366aae93d9b6b81a1b7ba7c00c17e
+          Name: Marco Mambelli
       Security Contact:
-        Primary: Marco Mambelli
+        Primary:
+          ID: 2b91a41c252366aae93d9b6b81a1b7ba7c00c17e
+          Name: Marco Mambelli
       Submitter Contact:
-        Primary: Marco Mambelli
+        Primary:
+          ID: 2b91a41c252366aae93d9b6b81a1b7ba7c00c17e
+          Name: Marco Mambelli
+    Description: |-
+      Glidein WMS VO Frontend used for OSG testing and outreach.
+
+      Currently used also to run opportunistic jobs on the OSG VO for UC3
     Disable: false
     FQDN: ui-gwms.uchicago.edu
     ID: 548

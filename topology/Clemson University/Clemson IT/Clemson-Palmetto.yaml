@@ -1,24 +1,45 @@
 Disable: false
 GridType: OSG Production Resource
+GroupDescription: osg-ce.clemson.edu
 GroupID: 212
 Resources:
   Clemson-Connect:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Lincoln Bryant
-        Secondary: Randall Martin
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
+          Name: Randall Martin
       Miscellaneous Contact:
-        Primary: Lincoln Bryant
-        Secondary: Randall Martin
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
+          Name: Randall Martin
       Resource Report Contact:
-        Primary: Randall Martin
-        Secondary: Lincoln Bryant
+        Primary:
+          ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
+          Name: Randall Martin
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
       Security Contact:
-        Primary: Lincoln Bryant
-        Secondary: Randall Martin
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
+          Name: Randall Martin
       Submitter Contact:
-        Primary: Lincoln Bryant
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+    Description: This is the Connect factory for Clemson-Palmetto, primarily used
+      by OSG Connect.
     Disable: false
     FQDN: rccf-osg.ci-connect.net
     ID: 781
@@ -34,19 +55,40 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary: Randall Martin
-        Secondary: Xizhou Feng
+        Primary:
+          ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
+          Name: Randall Martin
+        Secondary:
+          ID: 3bcc3ad9d34109e097abe24fa0bfe528359b61b8
+          Name: Xizhou Feng
       Miscellaneous Contact:
-        Primary: Randall Martin
-        Secondary: Xizhou Feng
+        Primary:
+          ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
+          Name: Randall Martin
+        Secondary:
+          ID: 3bcc3ad9d34109e097abe24fa0bfe528359b61b8
+          Name: Xizhou Feng
       Resource Report Contact:
-        Primary: Randall Martin
-        Secondary: Xizhou Feng
+        Primary:
+          ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
+          Name: Randall Martin
+        Secondary:
+          ID: 3bcc3ad9d34109e097abe24fa0bfe528359b61b8
+          Name: Xizhou Feng
       Security Contact:
-        Primary: Randall Martin
-        Secondary: Xizhou Feng
+        Primary:
+          ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
+          Name: Randall Martin
+        Secondary:
+          ID: 3bcc3ad9d34109e097abe24fa0bfe528359b61b8
+          Name: Xizhou Feng
       Submitter Contact:
-        Primary: Sam Hoover
+        Primary:
+          ID: ddaeec46e941e8db261b0927b07e65a42dfa726b
+          Name: Sam Hoover
+    Description: This machine is directly connected to our Palmetto cluster (with
+      approximately 20,000 cores) and has a shared file systems for /home, $OSG_APP
+      and $OSG_DATA.
     Disable: false
     FQDN: osg-ce.clemson.edu
     ID: 211
