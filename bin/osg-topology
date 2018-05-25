@@ -268,9 +268,9 @@ def list_contacts(args):
         list_vo_contacts(args)
 
 
-def print_contacts(args, type, results):
+def print_contacts(args, contacttype, results):
     """
-    Print contacts of given type with the given results
+    Print contacts of given contacttype with the given results
     """
 
     if getattr(args, 'name_filter', None):
@@ -313,7 +313,7 @@ def print_contacts(args, type, results):
         names = results.keys()
         names.sort()
         for name in names:
-            print("- %s: %s" % (type, name))
+            print("- %s: %s" % (contacttype, name))
             keys = set()
             for contact in results[name]:
                 key = None
