@@ -8,8 +8,8 @@ The information was sourced from the former OIM site that was hosted at `oim.gri
 This README contains the following sections:
 
 - [Structure of the Registry](#structure-of-the-registry) - An overview of the different types of registration
-- [Accessing the Registry](#accessing-the-data) - Instructions for accessing registry data
 - [Modifying the Registry](#modifying-the-registry) - Registration instructions
+- [Accessing the Registry](#accessing-the-data) - Instructions for accessing registry data
 
 
 Structure of the Registry
@@ -34,23 +34,6 @@ as follows:
 
     For example, the OSG resources in the Center for High Throughput Computing can be found in the following file:
     `topology/University of Wisconsin/CHTC/CHTC.yaml`
-
-
-Accessing the Registry
-----------------------
-
-Registry data can be accessed in two formats: the YAML files can be accessed directly through the GitHub interface or
-from a clone of the GitHub repository.
-Alternatively, the registry data can be accessed in XML format at the following URLs:
-
-| The following data... | Can be accessed in XML format via URL...         |
-|-----------------------|--------------------------------------------------|
-| Project               | <https://my.opensciencegrid.org/miscproject/xml> |
-| Resource Downtime     | <https://my.opensciencegrid.org/rgdowntime/xml>  |
-| Resource Topology     | <https://my.opensciencegrid.org/rgsummary/xml>   |
-| Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
-
-These XML pages are compatible with the XML format once provided by `myosg.grid.iu.edu`.
 
 
 Modifying the Registry
@@ -88,3 +71,20 @@ To update the data for your site, project, or VO, make and submit your changes u
 - Send an email to <help@opensciencegrid.org> requesting your desired changes.
 
 For definitions for the various fields, consult the corresponding template file for the type of data you are updating.
+
+
+Accessing the Registry
+----------------------
+
+Registry data can be accessed in two formats: the YAML files can be accessed directly through the GitHub interface or
+from a clone of the GitHub repository.
+Alternatively, the registry data can be accessed in XML format at the following URLs:
+
+| The following data... | Can be accessed in XML format via URL...         |
+|-----------------------|--------------------------------------------------|
+| Project               | <https://my.opensciencegrid.org/miscproject/xml> |
+| Resource Downtime     | <https://my.opensciencegrid.org/rgdowntime/xml>  |
+| Resource Topology     | <https://my.opensciencegrid.org/rgsummary/xml>   |
+| Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
+
+These XML pages are compatible with the XML format once provided by `myosg.grid.iu.edu`.
