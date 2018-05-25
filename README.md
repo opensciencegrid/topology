@@ -2,13 +2,19 @@ Topology
 ========
 
 
-This repository contains data for known projects, site resources, and Virtual Organizations known to the OSG, as well as
+This repository contains the registry of OSG projects, site resources, and Virtual Organizations, as well as
 scripts for managing and displaying this information.
 The information was sourced from the former OIM site that was hosted at `oim.grid.iu.edu`.
+This README contains the following sections:
+
+- [Structure of the Registry](#structure-of-the-registry)
+- [How to Register](#how-to-register)
+- [Viewing the Registry](#accessing-the-data)
+- [Getting Help](#getting-help)
 
 
-Structure of the Data
----------------------
+Structure of the Registry
+-------------------------
 
 The data is organized as files in [YAML format](https://en.wikipedia.org/wiki/YAML)
 as follows:
@@ -31,27 +37,11 @@ as follows:
     `topology/University of Wisconsin/CHTC/CHTC.yaml`
 
 
-Accessing the Data
-------------------
+How to Register
+---------------
 
-Data can be accessed in two formats: the YAML files can be accessed directly through the GitHub interface or from a
-clone of the GitHub repository.
-Alternatively, the data can be accessed in XML format at the following URLs:
-
-| The following data... | Can be accessed in XML format via URL...         |
-|-----------------------|--------------------------------------------------|
-| Project               | <https://my.opensciencegrid.org/miscproject/xml> |
-| Resource Downtime     | <https://my.opensciencegrid.org/rgdowntime/xml>  |
-| Resource Topology     | <https://my.opensciencegrid.org/rgsummary/xml>   |
-| Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
-
-These XML pages are compatible with the XML format once provided by `myosg.grid.iu.edu`.
-
-
-Modifying the Data
-------------------
-
-The formatting of the YAML files for the different types of data are described in the following template files:
+The formatting of the YAML files for the different types of registration data are described in the following template
+files:
 
 | The following data... | Is defined by template file...       | And should be copied to location, relative to the Git root directory... |
 |-----------------------|--------------------------------------|-------------------------------------------------------------------------|
@@ -66,19 +56,44 @@ The comments in the template files explain the structure and the meaning of the 
 facility, site, or resource group, as appropriate.  This includes case and
 spaces.
 
-### Creating new data ###
+### New registrations ###
 
 To create a new resource group, project, or VO, please create the YAML file according to the table above, and use the
 corresponding template file to fill in the appropriate information.
 If you do not feel comfortable creating the new file yourself, send an email to <help@opensciencegrid.org> with
 details about your resource group, project, or VO.
 
-### Updating existing data ###
+### Updating existing registrations ###
 
-To update the data for your site, project, or VO, make and submit your changes using one of the following methods:
+To update the data for your site resources, project, or VO, make and submit your changes using one of the following
+methods:
 
 - [Modify the corresponding YAML file](https://help.github.com/articles/editing-files-in-your-repository/) and submit
   your changes as a GitHub pull request.
 - Send an email to <help@opensciencegrid.org> requesting your desired changes.
 
 For definitions for the various fields, consult the corresponding template file for the type of data you are updating.
+
+
+Viewing the Registry
+--------------------
+
+Registry data can be accessed in two formats: the YAML files can be accessed directly through the GitHub interface or
+from a clone of the GitHub repository.
+Alternatively, the registry data can be accessed in XML format at the following URLs:
+
+| The following data... | Can be accessed in XML format via URL...         |
+|-----------------------|--------------------------------------------------|
+| Project               | <https://my.opensciencegrid.org/miscproject/xml> |
+| Resource Downtime     | <https://my.opensciencegrid.org/rgdowntime/xml>  |
+| Resource Topology     | <https://my.opensciencegrid.org/rgsummary/xml>   |
+| Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
+
+These XML pages are compatible with the XML format once provided by `myosg.grid.iu.edu`.
+
+
+Getting Help
+------------
+
+If you have any questions or encounter any issues with the registry, please contact open a ticket at
+https://support.opensciencegrid.org or email us at help@opensciencegrid.org.
