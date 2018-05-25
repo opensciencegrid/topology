@@ -267,6 +267,13 @@ class Topology(object):
             if self.support_centers[scname] != scid:
                 raise RuntimeError("Identical support centers with different IDs: %s" % scname)
         rg["SupportCenter"] = scname
+        gridtype = rg.pop("GridType", None)
+        if gridtype == "OSG Production Resource":
+            rg["Production"] = True
+        elif gridtype == "OSG Integration Test Bed Resource":
+            rg["Production"] = False
+        else:
+            raise RuntimeError("Missing or invalid GridType attribute")
 
         rg["Resources"] = simplify_attr_list(rg["Resources"]["Resource"], "Name")
         for key, val in rg["Resources"].items():
