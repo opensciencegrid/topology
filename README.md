@@ -65,7 +65,8 @@ details about your resource group, project, or VO.
 
 ### Updating existing registrations ###
 
-To update the data for your site, project, or VO, make and submit your changes using one of the following methods:
+To update the data for your site resources, project, or VO, make and submit your changes using one of the following
+methods:
 
 - [Modify the corresponding YAML file](https://help.github.com/articles/editing-files-in-your-repository/) and submit
   your changes as a GitHub pull request.
