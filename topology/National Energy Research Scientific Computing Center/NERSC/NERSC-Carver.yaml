@@ -1,11 +1,11 @@
 Disable: true
-GridType: OSG Production Resource
 GroupDescription: "Carver contains 800 Intel Nehalem quad-core processors, for a total\
   \ of 3,200 cores. The system\u2019s 400 compute nodes are interconnected by 4X QDR\
   \ InfiniBand technology, meaning that 32 Gb/s of point-to-point bandwidth is available\
   \ for high-performance message passing and access to the global File System (NGF),\
   \ which holds Carver\u2019s home, system and scratch storage."
 GroupID: 269
+Production: true
 Resources:
   NERSC-Carver:
     Active: false

@@ -1,8 +1,8 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: This is the group of HCC Submitters that submit jobs through the
   HCC GlideinWMS machine.
 GroupID: 332
+Production: true
 Resources:
   HCC GlideinWMS Frontend:
     Active: true

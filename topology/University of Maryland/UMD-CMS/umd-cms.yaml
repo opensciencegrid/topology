@@ -1,8 +1,8 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: Tier-3 computing center.  Priority given to local users, but opportunistic
   use by CMS VO allowed.
 GroupID: 159
+Production: true
 Resources:
   UMD_GUMS:
     Active: true

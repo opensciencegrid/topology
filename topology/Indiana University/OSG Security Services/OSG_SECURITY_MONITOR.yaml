@@ -1,10 +1,10 @@
 Disable: true
-GridType: OSG Production Resource
 GroupDescription: This resource group will include virtual resources that are mapped
   to CA/CRL-testing services. The OSG security group will use this resource group's
   status to keep track of whether CA/CRL processes work, as well as to keep track
   of CA/CRL content problems.
 GroupID: 257
+Production: true
 Resources:
   SECMON_CADIST_GOC:
     Active: true

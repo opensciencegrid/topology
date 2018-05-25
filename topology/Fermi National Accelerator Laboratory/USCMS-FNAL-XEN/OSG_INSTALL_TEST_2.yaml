@@ -1,11 +1,11 @@
 Disable: true
-GridType: OSG Production Resource
 GroupDescription: |-
   Changing site of resource group so it is not a part of fermigrid.
 
   Disabled per John Weigand (8-25-2014)
   https://ticket.grid.iu.edu/22201
 GroupID: 83
+Production: true
 Resources:
   OSG_INSTALL_TEST_2:
     Active: false

@@ -1,8 +1,8 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: This resource group consists of resources that provide the "OSG
   Display" service.
 GroupID: 261
+Production: true
 Resources:
   OSG_Display_1:
     Active: true

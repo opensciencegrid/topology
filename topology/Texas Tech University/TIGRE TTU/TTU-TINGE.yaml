@@ -1,8 +1,8 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: New rpm-based OSG 3 Compute Element to replace the old pacman-based
   CE TTU-ANTAEUS.
 GroupID: 365
+Production: true
 Resources:
   TTU-TINGE:
     Active: true

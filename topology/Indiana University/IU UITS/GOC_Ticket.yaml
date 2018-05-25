@@ -1,8 +1,8 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: Resource group that contains the resources that host the OSG ticketing
   system GOCTicket
 GroupID: 265
+Production: true
 Resources:
   GOC_Ticket_1:
     Active: true

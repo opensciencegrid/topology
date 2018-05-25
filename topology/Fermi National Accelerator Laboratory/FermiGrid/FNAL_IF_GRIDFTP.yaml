@@ -1,8 +1,8 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: A collection of GridFTP servers for the Intensity Frontier experiments
   at Fermilab, all of which report to Gratia.
 GroupID: 368
+Production: true
 Resources:
   FNAL_IF_GRIDFTP_NOVA:
     Active: false

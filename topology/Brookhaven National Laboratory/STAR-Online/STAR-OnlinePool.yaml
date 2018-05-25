@@ -1,7 +1,7 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: Small pool of hosts at the STAR experiment, for STAR jobs only.
 GroupID: 426
+Production: true
 Resources:
   STAR-OnlinePool:
     Active: true

@@ -1,5 +1,4 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: |-
   The NERSC Cray XT4 system, named Franklin, is a massively parallel processing (MPP) system with 9,660 compute nodes. Each node has dual processor cores, and the entire system has a total of 19,320 processor cores available for scientific applications. The system is named in honor of Benjamin Franklin.
 
@@ -7,6 +6,7 @@ GroupDescription: |-
 
   Franklin uses two different operating systems. Full-featured SuSE Linux is run on service nodes (16 login nodes and other I/O, network and system nodes). A light weight OS based on Linux, Compute Node Linux (CNL), is run on each compute node. CNL reduces system overhead, and is critical for the system to scale to very large concurrency. The Parallel file system on Franklin is provided by Lustre with approximately 350 TBytes of user disk space.
 GroupID: 180
+Production: true
 Resources:
   NERSC-Franklin:
     Active: false
