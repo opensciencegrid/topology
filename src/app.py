@@ -31,16 +31,18 @@ class DataError(Exception): pass
 class CachedData:
     MAX_DATA_AGE = 60 * 15
 
-    def __init__(self, data=None, timestamp=0):
+    def __init__(self, data=None, timestamp=0, force_update=True):
         self.data = data
         self.timestamp = timestamp
+        self.force_update = force_update
 
     def should_update(self):
-        return not self.data or time.time() - self.timestamp > self.MAX_DATA_AGE
+        return self.force_update or (not self.data or time.time() - self.timestamp > self.MAX_DATA_AGE)
 
     def update(self, data):
         self.data = data
         self.timestamp = time.time()
+        self.force_update = False
 
 
 class GlobalData:
