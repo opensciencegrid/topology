@@ -265,9 +265,9 @@ class ResourceGroup(object):
         new_rg["SupportCenter"] = self.support_center
         production = new_rg.pop("Production")
         if production:
-            new_rg["GridType"] = "OSG Production Resource"
+            new_rg["GridType"] = GRIDTYPE_1
         else:
-            new_rg["GridType"] = "OSG Integration Test Bed Resource"
+            new_rg["GridType"] = GRIDTYPE_2
 
         return new_rg
 
