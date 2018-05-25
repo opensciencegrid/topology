@@ -10,19 +10,113 @@ import os
 import re
 import subprocess
 import sys
+import time
+from typing import Dict, Set
 import urllib.parse
 
+from webapp import contacts_reader, project_reader, rg_reader, vo_reader
 from webapp.common import to_xml_bytes, Filters
-from webapp.contacts_reader import get_contacts_data
-from webapp.project_reader import get_projects
-from webapp.vo_reader import get_vos_data
-from webapp.rg_reader import get_topology
-from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
+from webapp.contacts_reader import ContactsData
+from webapp.topology import GRIDTYPE_1, GRIDTYPE_2, Topology
+from webapp.vos_data import VOsData
 
 import sys
 print(sys.path)
 
 class InvalidArgumentsError(Exception): pass
+
+class DataError(Exception): pass
+
+
+class CachedData:
+    MAX_DATA_AGE = 60 * 15
+
+    def __init__(self, data=None, timestamp=0):
+        self.data = data
+        self.timestamp = timestamp
+
+    def should_update(self):
+        return not self.data or time.time() - self.timestamp > self.MAX_DATA_AGE
+
+    def update(self, data):
+        self.data = data
+        self.timestamp = time.time()
+
+
+class GlobalData:
+    contacts_data = CachedData()
+    dn_set = CachedData()
+    projects = CachedData()
+    topology = CachedData()
+    vos_data = CachedData()
+
+    @classmethod
+    def get_contacts_data(cls) -> ContactsData:
+        """
+        Get the contact information.  For now this is from a private github repo, but in the future
+        it could be much more complicated to get the contact details
+        """
+        if cls.contacts_data.should_update():
+            # use local copy if it exists
+            if os.path.exists("../contacts.yaml"):
+                filename = "../contacts.yaml"
+            elif os.path.exists("/etc/opt/topology/config.ini") or os.path.exists("../config.ini"):
+                # Get the contacts from bitbucket
+                # Read in the config file with the SSH key location
+                config = configparser.ConfigParser()
+                config.read(["/etc/opt/topology/config.ini", "../config.ini"])
+                ssh_key = config['git']['ssh_key']
+                # Create a temporary directory to store the contact information
+                with tempfile.TemporaryDirectory() as tmp_dir:
+                    # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
+                    cmd = "ssh-agent bash -c 'ssh-add {0}; git clone git@bitbucket.org:opensciencegrid/contact.git {1}'".format(
+                        ssh_key, tmp_dir)
+
+                    # I know this should be Popen or similar.  But.. I am unable to make that work.
+                    # I suspect it has something to do with the subshell that is being executed
+                    git_result = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                                encoding="utf-8")
+                    if git_result.returncode != 0:
+                        # Git command exited with nonzero!
+                        print("Git failed:\n" + git_result.stdout, file=sys.stderr)
+                    filename = os.path.join(tmp_dir, 'contacts.yaml')
+                    if not os.path.exists(filename):
+                        raise DataError("contacts.yaml not found from git checkout")
+            else:
+                raise DataError("contacts.yaml or config.ini not found -- don't know where to get"
+                                   " contacts data from")
+
+            cls.contacts_data.update(contacts_reader.get_contacts_data(filename))
+
+        return cls.contacts_data.data
+
+    @classmethod
+    def get_dns(cls) -> Set:
+        """
+        Get the set of DNs allowed to access "special" data (such as contact info)
+        """
+        if cls.dn_set.should_update():
+            contacts_data = cls.get_contacts_data()
+            cls.dn_set.update(set(contacts_data.get_dns()))
+        return cls.dn_set.data
+
+    @classmethod
+    def get_topology(cls) -> Topology:
+        if cls.topology.should_update():
+            cls.topology.update(rg_reader.get_topology("../topology", cls.get_contacts_data()))
+        return cls.topology.data
+
+    @classmethod
+    def get_vos_data(cls) -> VOsData:
+        if cls.vos_data.should_update():
+            cls.vos_data.update(vo_reader.get_vos_data("../virtual-organizations", cls.get_contacts_data()))
+        return cls.vos_data.data
+
+    @classmethod
+    def get_projects(cls) -> Dict:
+        if cls.projects.should_update():
+            cls.projects.update(project_reader.get_projects("../projects"))
+        return cls.projects.data
 
 
 default_authorized = False
@@ -47,19 +141,13 @@ def homepage():
     </p>
     """
 
-_projects = None
-_vos_data = None
-_contacts_data = None
-_topology = None
-_dn_set = None
-
 @app.route('/map/iframe')
 def map():
     @app.template_filter()
     def encode(text):
         """Convert a partial unicode string to full unicode"""
         return text.encode('utf-8', 'surrogateescape').decode('utf-8')
-    rgsummary = _get_topology().get_resource_summary()
+    rgsummary = GlobalData.get_topology().get_resource_summary()
 
     return render_template('iframe.tmpl', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"])
 
@@ -79,15 +167,12 @@ def miscuser_xml():
 
     if not authorized:
         return Response("Access denied: user cert not found or not accepted", status=403)
-    return Response(to_xml_bytes(_get_contacts_data().get_tree(authorized)), mimetype='text/xml')
+    return Response(to_xml_bytes(GlobalData.get_contacts_data().get_tree(authorized)), mimetype='text/xml')
 
 
 @app.route('/miscproject/xml')
 def miscproject_xml():
-    global _projects
-    if not _projects:
-        _projects = get_projects()
-    projects_xml = to_xml_bytes(_projects)
+    projects_xml = to_xml_bytes(GlobalData.get_projects())
     return Response(projects_xml, mimetype='text/xml')
 
 
@@ -99,7 +184,7 @@ def vosummary_xml():
         return Response("Invalid arguments: " + str(e), status=400)
 
     authorized = _get_authorized()
-    vos_xml = to_xml_bytes(_get_vos_data().get_tree(authorized, filters))
+    vos_xml = to_xml_bytes(GlobalData.get_vos_data().get_tree(authorized, filters))
     return Response(vos_xml, mimetype='text/xml')
 
 
@@ -179,7 +264,7 @@ def get_filters_from_args(args) -> Filters:
                 raise InvalidArgumentsError("at least one {0} must be specified".format(description))
 
     if filters.voown_id:
-        filters.populate_voown_name(_get_vos_data().get_vo_id_to_name())
+        filters.populate_voown_name(GlobalData.get_vos_data().get_vo_id_to_name())
 
     return filters
 
@@ -192,7 +277,7 @@ def rgsummary_xml():
         return Response("Invalid arguments: " + str(e), status=400)
 
     authorized = _get_authorized()
-    rgsummary = _get_topology().get_resource_summary(authorized=authorized, filters=filters)
+    rgsummary = GlobalData.get_topology().get_resource_summary(authorized=authorized, filters=filters)
     return Response(to_xml_bytes(rgsummary), mimetype='text/xml')
 
 
@@ -205,42 +290,8 @@ def rgdowntime_xml():
 
     authorized = _get_authorized()
 
-    rgdowntime = _get_topology().get_downtimes(authorized=authorized, filters=filters)
+    rgdowntime = GlobalData.get_topology().get_downtimes(authorized=authorized, filters=filters)
     return Response(to_xml_bytes(rgdowntime), mimetype='text/xml')
-
-
-def _get_contacts_data():
-    """
-    Get the contact information.  For now this is from a private github repo, but in the future
-    it could be much more complicated to get the contact details
-    """
-    
-    global _contacts_data
-    # TODO: periodically update contacts info
-    if not _contacts_data:
-        # use local copy if it exists
-        if os.path.exists("../contacts.yaml"):
-            _contacts_data = get_contacts_data("../contacts.yaml")
-        elif os.path.exists("/etc/opt/topology/config.ini") or os.path.exists("../config.ini"):
-            # Get the contacts from bitbucket
-            # Read in the config file with the SSH key location
-            config = configparser.ConfigParser()
-            config.read(["/etc/opt/topology/config.ini", "../config.ini"])
-            ssh_key = config['git']['ssh_key']
-            # Create a temporary directory to store the contact information
-            with tempfile.TemporaryDirectory() as tmp_dir:
-                # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
-                cmd = "ssh-agent bash -c 'ssh-add {0}; git clone git@bitbucket.org:opensciencegrid/contact.git {1}'".format(ssh_key, tmp_dir)
-
-                # I know this should be Popen or similar.  But.. I am unable to make that work.
-                # I suspect it has something to do with the subshell that is being executed
-                git_result = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding="utf-8")
-                if git_result.returncode != 0:
-                    # Git command exited with nonzero!
-                    print("Git failed:\n" + git_result.stdout, file=sys.stderr)
-                _contacts_data = get_contacts_data(os.path.join(tmp_dir, 'contacts.yaml'))
-
-    return _contacts_data
 
 
 def _get_authorized():
@@ -257,7 +308,7 @@ def _get_authorized():
             client_dn = urllib.parse.unquote_plus(value)
 
             # Get list of authorized DNs
-            authorized_dns = _get_dns()
+            authorized_dns = GlobalData.get_dns()
 
             # Authorized dns should be a set, or dict, that supports the "in"
             if client_dn[3:] in authorized_dns: # "dn:" is at the beginning of the DN
@@ -265,30 +316,6 @@ def _get_authorized():
 
     # If it gets here, then it is not authorized
     return default_authorized
-
-def _get_dns():
-    """
-    Get the set of DNs allowed to access "special" data (such as contact info)
-    """
-    global _dn_set
-    if not _dn_set:
-        contacts_data = _get_contacts_data()
-        _dn_set = set(contacts_data.get_dns())
-    return _dn_set
-
-
-def _get_topology():
-    global _topology
-    if not _topology:
-        _topology = get_topology("../topology", _get_contacts_data())
-    return _topology
-
-
-def _get_vos_data():
-    global _vos_data
-    if not _vos_data:
-        _vos_data = get_vos_data("../virtual-organizations", _get_contacts_data())
-    return _vos_data
 
 
 if __name__ == '__main__':
