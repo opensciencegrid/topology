@@ -6,6 +6,23 @@ This repository contains data for known projects, site resources, and Virtual Or
 scripts for managing and displaying this information.
 The information was sourced from the former OIM site that was hosted at `oim.grid.iu.edu`.
 
+### Creating new data ###
+
+To create a new resource group, project, or VO, please create the YAML file according to the table below, and use the
+corresponding template file to fill in the appropriate information.
+If you do not feel comfortable creating the new file yourself, send an email to <help@opensciencegrid.org> with
+details about your resource group, project, or VO.
+
+### Updating existing data ###
+
+To update the data for your site, project, or VO, make and submit your changes using one of the following methods:
+
+- [Modify the corresponding YAML file](https://help.github.com/articles/editing-files-in-your-repository/) and submit
+  your changes as a GitHub pull request.
+- Send an email to <help@opensciencegrid.org> requesting your desired changes.
+
+For definitions for the various fields, consult the corresponding template file below for the type of data you are updating.
+
 
 Structure of the Data
 ---------------------
@@ -31,23 +48,6 @@ as follows:
     `topology/University of Wisconsin/CHTC/CHTC.yaml`
 
 
-Accessing the Data
-------------------
-
-Data can be accessed in two formats: the YAML files can be accessed directly through the GitHub interface or from a
-clone of the GitHub repository.
-Alternatively, the data can be accessed in XML format at the following URLs:
-
-| The following data... | Can be accessed in XML format via URL...         |
-|-----------------------|--------------------------------------------------|
-| Project               | <https://my.opensciencegrid.org/miscproject/xml> |
-| Resource Downtime     | <https://my.opensciencegrid.org/rgdowntime/xml>  |
-| Resource Topology     | <https://my.opensciencegrid.org/rgsummary/xml>   |
-| Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
-
-These XML pages are compatible with the XML format once provided by `myosg.grid.iu.edu`.
-
-
 Modifying the Data
 ------------------
 
@@ -66,19 +66,20 @@ The comments in the template files explain the structure and the meaning of the 
 facility, site, or resource group, as appropriate.  This includes case and
 spaces.
 
-### Creating new data ###
+Accessing the Data
+------------------
 
-To create a new resource group, project, or VO, please create the YAML file according to the table above, and use the
-corresponding template file to fill in the appropriate information.
-If you do not feel comfortable creating the new file yourself, send an email to <help@opensciencegrid.org> with
-details about your resource group, project, or VO.
+Data can be accessed in two formats: the YAML files can be accessed directly through the GitHub interface or from a
+clone of the GitHub repository.
+Alternatively, the data can be accessed in XML format at the following URLs:
 
-### Updating existing data ###
+| The following data... | Can be accessed in XML format via URL...         |
+|-----------------------|--------------------------------------------------|
+| Project               | <https://my.opensciencegrid.org/miscproject/xml> |
+| Resource Downtime     | <https://my.opensciencegrid.org/rgdowntime/xml>  |
+| Resource Topology     | <https://my.opensciencegrid.org/rgsummary/xml>   |
+| Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
 
-To update the data for your site, project, or VO, make and submit your changes using one of the following methods:
+These XML pages are compatible with the XML format once provided by `myosg.grid.iu.edu`.
 
-- [Modify the corresponding YAML file](https://help.github.com/articles/editing-files-in-your-repository/) and submit
-  your changes as a GitHub pull request.
-- Send an email to <help@opensciencegrid.org> requesting your desired changes.
 
-For definitions for the various fields, consult the corresponding template file for the type of data you are updating.
