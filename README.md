@@ -7,9 +7,9 @@ scripts for managing and displaying this information.
 The information was sourced from the former OIM site that was hosted at `oim.grid.iu.edu`.
 This README contains the following sections:
 
-- [Structure of the Registry](#structure-of-the-registry) - An overview of the different types of registration
-- [Modifying the Registry](#modifying-the-registry) - Registration instructions
-- [Accessing the Registry](#accessing-the-data) - Instructions for accessing registry data
+- [Structure of the Registry](#structure-of-the-registry)
+- [How to Register](#how-to-register)
+- [Viewing the Registry](#accessing-the-data)
 
 
 Structure of the Registry
@@ -36,8 +36,8 @@ as follows:
     `topology/University of Wisconsin/CHTC/CHTC.yaml`
 
 
-Modifying the Registry
-----------------------
+How to Register
+---------------
 
 The formatting of the YAML files for the different types of registration data are described in the following template
 files:
@@ -73,8 +73,8 @@ To update the data for your site, project, or VO, make and submit your changes u
 For definitions for the various fields, consult the corresponding template file for the type of data you are updating.
 
 
-Accessing the Registry
-----------------------
+Viewing the Registry
+--------------------
 
 Registry data can be accessed in two formats: the YAML files can be accessed directly through the GitHub interface or
 from a clone of the GitHub repository.
