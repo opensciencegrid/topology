@@ -52,7 +52,6 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
     # access to the SSH keys for the contacts repo
     if [[ $DATA_TYPE == 'vosummary' ]] || [[ $DATA_TYPE == 'rgsummary' ]]; then
         if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
-            echo "double true"
             READER_ARGS="--contacts $CONTACT_YAML $READER_ARGS"
         fi
     fi
