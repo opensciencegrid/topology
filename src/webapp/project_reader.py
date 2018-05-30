@@ -7,7 +7,7 @@ import anymarkup
 
 
 
-def get_projects(indir="projects"):
+def get_projects(indir="../projects"):
     to_output = {"Projects":{"Project": []}}
     projects = []
 
@@ -22,9 +22,9 @@ def get_projects(indir="projects"):
     return to_output
 
 
-def get_projects_xml():
+def get_projects_xml(indir="../projects"):
     """Returns the serialized XML as a string"""
-    return anymarkup.serialize(get_projects(), 'xml').decode()
+    return anymarkup.serialize(get_projects(indir), 'xml').decode()
 
 
 if __name__ == "__main__":
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     parser.add_argument("outfile", nargs='?', default=None, help="output file for vosummary")
     args = parser.parse_args()
 
-    xml = get_projects_xml()
+    xml = get_projects_xml(args.indir)
     if args.outfile:
         with open(args.outfile, "w") as fh:
             fh.write(xml)

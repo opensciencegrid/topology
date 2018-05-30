@@ -59,7 +59,7 @@ def get_rgsummary_rgdowntime(indir, contacts_file=None, authorized=False):
            topology.get_downtimes(authorized=authorized, filters=filters)
 
 
-def get_topology(indir="topology", contacts_data=None):
+def get_topology(indir="../topology", contacts_data=None):
     root = Path(indir)
     support_centers = anymarkup.parse_file(root / "support-centers.yaml")
     service_types = anymarkup.parse_file(root / "services.yaml")
