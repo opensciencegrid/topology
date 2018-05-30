@@ -7,7 +7,7 @@ import anymarkup
 
 
 
-def get_projects(indir="projects"):
+def get_projects(indir="../projects"):
     to_output = {"Projects":{"Project": []}}
     projects = []
 

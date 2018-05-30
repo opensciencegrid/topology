@@ -219,13 +219,13 @@ def _get_contacts_data():
     # TODO: periodically update contacts info
     if not _contacts_data:
         # use local copy if it exists
-        if os.path.exists("contacts.yaml"):
-            _contacts_data = get_contacts_data("contacts.yaml")
-        elif os.path.exists("/etc/opt/topology/config.ini") or os.path.exists("config.ini"):
+        if os.path.exists("../contacts.yaml"):
+            _contacts_data = get_contacts_data("../contacts.yaml")
+        elif os.path.exists("/etc/opt/topology/config.ini") or os.path.exists("../config.ini"):
             # Get the contacts from bitbucket
             # Read in the config file with the SSH key location
             config = configparser.ConfigParser()
-            config.read(["/etc/opt/topology/config.ini", "config.ini"])
+            config.read(["/etc/opt/topology/config.ini", "../config.ini"])
             ssh_key = config['git']['ssh_key']
             # Create a temporary directory to store the contact information
             with tempfile.TemporaryDirectory() as tmp_dir:
@@ -280,14 +280,14 @@ def _get_dns():
 def _get_topology():
     global _topology
     if not _topology:
-        _topology = get_topology("topology", _get_contacts_data())
+        _topology = get_topology("../topology", _get_contacts_data())
     return _topology
 
 
 def _get_vos_data():
     global _vos_data
     if not _vos_data:
-        _vos_data = get_vos_data("virtual-organizations", _get_contacts_data())
+        _vos_data = get_vos_data("../virtual-organizations", _get_contacts_data())
     return _vos_data
 
 
