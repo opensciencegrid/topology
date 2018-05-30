@@ -1,13 +1,13 @@
 #!/bin/bash -xe
 
-PYTHONPATH="$PYTHONPATH:$TRAVIS_BUILD_DIR/"
+PYTHONPATH="$PYTHONPATH:$TRAVIS_BUILD_DIR/src"
 export PYTHONPATH
 
 function verify_xml {
     # Verifies XML data against the schema
     xml="$1"
     type="$2"
-    xmllint --noout --schema "$TRAVIS_BUILD_DIR/schema/$type.xsd" $xml
+    xmllint --noout --schema "$TRAVIS_BUILD_DIR/src/schema/$type.xsd" $xml
 }
 
 if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
@@ -15,7 +15,7 @@ if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
 bitbucket.org ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAubiN81eDcafrgMeLzaFPsw2kNvEcqTKl/VqLat/MaB33pZy0y3rJZtnqwR2qOOvbwKZYKiEO1O6VqNEBxKvJJelCq0dTXWT5pbO2gDXC6h6QDXCaHo6pOHGPUy+YBaGQRGuSusMEASYiWunYN0vCAI8QaXnWMXNMdFP3jHAJH0eDsoiGnLPBlBp4TNm6rYI74nMzgz3B9IikW4WVK+dc8KZJZWYjAuORU3jc1c/NPskD2ASinf8v3xnfXeukU0sJ5N6m5E8VLjObPEO+mN2t/FZTMZLiFqPWc/ALSqnMnnhwrNi2rbfg/rd/IpL8Le3pSBne8+seeFVBoGqzHM9yXw==
 EOF
 
-    openssl aes-256-cbc -K $encrypted_457175ef53a3_key -iv $encrypted_457175ef53a3_iv -in tests/contacts.enc -out contacts -d
+    openssl aes-256-cbc -K $encrypted_457175ef53a3_key -iv $encrypted_457175ef53a3_iv -in src/tests/contacts.enc -out contacts -d
     chmod 600 contacts
     eval `ssh-agent -s`
     ssh-add contacts
@@ -28,18 +28,18 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
 
     case $DATA_TYPE in
         miscproject)
-            YAML_DIR="$TRAVIS_BUILD_DIR/projects"
-            READER=webapp/project_reader.py
+            YAML_DIR="$TRAVIS_BUILD_DIR/src/projects"
+            READER=src/webapp/project_reader.py
             READER_ARGS="$YAML_DIR $CONVERTED_XML"
             ;;
         rgsummary)
-            YAML_DIR="$TRAVIS_BUILD_DIR/topology"
-            READER=webapp/rg_reader.py
+            YAML_DIR="$TRAVIS_BUILD_DIR/src/topology"
+            READER=src/webapp/rg_reader.py
             READER_ARGS="$YAML_DIR $CONVERTED_XML /tmp/rgdowntime.xml"
             ;;
         vosummary)
-            YAML_DIR="$TRAVIS_BUILD_DIR/virtual-organizations"
-            READER=webapp/vo_reader.py
+            YAML_DIR="$TRAVIS_BUILD_DIR/src/virtual-organizations"
+            READER=src/webapp/vo_reader.py
             READER_ARGS="$YAML_DIR $CONVERTED_XML"
             ;;
     esac
