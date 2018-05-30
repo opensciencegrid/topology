@@ -24,17 +24,6 @@ EOF
 fi
 
 for DATA_TYPE in miscproject vosummary rgsummary; do
-    echo -e "======================\n"\
-        "VERIFYING $DATA_TYPE\n"\
-        "======================"
-    ORIG_XML=/tmp/$DATA_TYPE.orig.xml
-    ./converters/download --out  $ORIG_XML $DATA_TYPE
-    verify_xml $ORIG_XML $DATA_TYPE
-    if [[ $DATA_TYPE == 'rgsummary' ]]; then
-        ./converters/download --out /tmp/rgdowntime.orig.xml rgdowntime
-        verify_xml /tmp/rgdowntime.orig.xml rgdowntime
-    fi
-
     CONVERTED_XML=/tmp/$DATA_TYPE.xml
 
     case $DATA_TYPE in
@@ -63,7 +52,6 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
     # access to the SSH keys for the contacts repo
     if [[ $DATA_TYPE == 'vosummary' ]] || [[ $DATA_TYPE == 'rgsummary' ]]; then
         if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
-            echo "double true"
             READER_ARGS="--contacts $CONTACT_YAML $READER_ARGS"
         fi
     fi
