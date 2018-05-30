@@ -1,8 +1,8 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: Hosts perfsonar toolkit instances to help administrators to troubleshoot
   network connectivity issues between GOC and their sites.
 GroupID: 371
+Production: true
 Resources:
   GOC_Perfsonar_Bandwidth:
     Active: true

@@ -1,9 +1,9 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: 3 node, 20 core site.  2.4 GHz x86_64, 300 GB local storage, 300
   GB shared storage, 1 GB RAM/core.  All VOs welcome.  gsi-ssh available by request
   to allow debugging.
 GroupID: 143
+Production: true
 Resources:
   SBGrid-Harvard-Exp:
     Active: false

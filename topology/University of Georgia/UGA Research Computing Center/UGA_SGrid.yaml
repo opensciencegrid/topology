@@ -1,8 +1,8 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: This is the SGE submit host for UGA's SURAGrid queues on our local
   linux cluster.
 GroupID: 301
+Production: true
 Resources:
   UGA_Sgrid_CE:
     Active: true

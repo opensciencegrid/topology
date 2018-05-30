@@ -1,9 +1,9 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: The original name of the first CCHDV CE Resource.  Keeping this
   record around so that GRACC and related accounting still makes sense.  Actual resources
   are now located under the CancerComputer_Hotel resource name
 GroupID: 469
+Production: true
 Resources:
   CancerComputer_Miron_CE:
     Active: false

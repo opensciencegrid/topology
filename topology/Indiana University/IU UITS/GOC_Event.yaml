@@ -1,7 +1,7 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: Resource group for the message bus
 GroupID: 477
+Production: true
 Resources:
   RabbitMQ message bus:
     Active: true

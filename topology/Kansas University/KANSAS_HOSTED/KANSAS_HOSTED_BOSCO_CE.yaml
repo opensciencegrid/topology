@@ -1,8 +1,8 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: Entry for hosted CE running at UChicago but submitting to KU cluster
   resources
 GroupID: 462
+Production: true
 Resources:
   HOSTED_KANSAS_CE:
     Active: true

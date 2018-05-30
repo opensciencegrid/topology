@@ -1,10 +1,10 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: |-
   This is the FermiGrid site gateway and includes
   the site gatekeeper and all the hidden CE's that are
   attached
 GroupID: 19
+Production: true
 Resources:
   FNAL_CDFOSG_0:
     Active: false

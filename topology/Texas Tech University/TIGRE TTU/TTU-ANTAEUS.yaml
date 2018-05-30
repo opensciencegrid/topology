@@ -1,10 +1,10 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: Primary OSG compute element resource at TTU.  Consists of a mix
   of dual-core dual-cpu and quad-core dual-cpu Xeons, 240 cores total, operating at
   2.5 to 3.0 GHz and associated with a cluster-wide Lustre file system.  The file
   system is also accessible through the associated TTU-SIGMORGH storage element.
 GroupID: 105
+Production: true
 Resources:
   TTU-ANTAEUS:
     Active: true

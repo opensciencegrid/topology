@@ -1,8 +1,8 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: This is the general OSG resource group at OSC.  It is designed to
   support multiple VOs.
 GroupID: 384
+Production: true
 Resources:
   OSC_OSG_CE:
     Active: true

@@ -1,10 +1,10 @@
 Disable: false
-GridType: OSG Integration Test Bed Resource
 GroupDescription: ITB Resource Group provided by Grid Operations Center. The purpose
   of this resource group is to host ITB instances of CE, SE, and other OSG resources
   in order to test new OSG components / train our GOC staff with the latest OSG (&
   Grid in general) technologies.
 GroupID: 299
+Production: false
 Resources:
   GOC_ITB_CE:
     Active: false

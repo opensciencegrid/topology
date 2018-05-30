@@ -1,7 +1,7 @@
 Disable: true
-GridType: OSG Production Resource
 GroupDescription: This resource group will contain the GOC-run VOMS server, etc.
 GroupID: 248
+Production: true
 Resources:
   GOC_Auth_Services:
     Active: true

@@ -1,5 +1,4 @@
 Disable: false
-GridType: OSG Production Resource
 GroupDescription: |-
   This resource replaces FNAL_GPFARM.
   It is the General Purpose Grid Cluster at Fermilab,
@@ -8,6 +7,7 @@ GroupDescription: |-
   on this cluster through request to the FermiGrid management.
   All VO\'s are supported at the level of at least 1 slot.
 GroupID: 172
+Production: true
 Resources:
   FNAL_GPGRID_1:
     Active: false
