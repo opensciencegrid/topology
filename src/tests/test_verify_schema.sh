@@ -28,17 +28,17 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
 
     case $DATA_TYPE in
         miscproject)
-            YAML_DIR="$TRAVIS_BUILD_DIR/src/projects"
+            YAML_DIR="$TRAVIS_BUILD_DIR/projects"
             READER=src/webapp/project_reader.py
             READER_ARGS="$YAML_DIR $CONVERTED_XML"
             ;;
         rgsummary)
-            YAML_DIR="$TRAVIS_BUILD_DIR/src/topology"
+            YAML_DIR="$TRAVIS_BUILD_DIR/topology"
             READER=src/webapp/rg_reader.py
             READER_ARGS="$YAML_DIR $CONVERTED_XML /tmp/rgdowntime.xml"
             ;;
         vosummary)
-            YAML_DIR="$TRAVIS_BUILD_DIR/src/virtual-organizations"
+            YAML_DIR="$TRAVIS_BUILD_DIR/virtual-organizations"
             READER=src/webapp/vo_reader.py
             READER_ARGS="$YAML_DIR $CONVERTED_XML"
             ;;
