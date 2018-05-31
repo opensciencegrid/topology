@@ -45,43 +45,40 @@ class GlobalData:
         self.projects = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
         self.topology = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
         self.vos_data = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
-        self.ssh_key = config["GIT_SSH_KEY"]
+        self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         self.projects_dir = os.path.join(config["TOPOLOGY_DATA_DIR"], "projects")
         self.topology_dir = os.path.join(config["TOPOLOGY_DATA_DIR"], "topology")
         self.vos_dir = os.path.join(config["TOPOLOGY_DATA_DIR"], "virtual-organizations")
         self.config = config
 
     def _update_topology_repo(self):
-        if self.config["NO_GIT"]:
-            return
-        data_dir = self.config["TOPOLOGY_DATA_DIR"]
-        parent = os.path.dirname(data_dir)
-        os.makedirs(parent, mode=0o755, exist_ok=True)
-        git_clone_or_pull(self.config["TOPOLOGY_DATA_REPO"], data_dir,
-                          self.config["TOPOLOGY_DATA_BRANCH"])
+        if not self.config["NO_GIT"]:
+            parent = os.path.dirname(self.config["TOPOLOGY_DATA_DIR"])
+            os.makedirs(parent, mode=0o755, exist_ok=True)
+            git_clone_or_pull(self.config["TOPOLOGY_DATA_REPO"], self.config["TOPOLOGY_DATA_DIR"],
+                              self.config["TOPOLOGY_DATA_BRANCH"])
         for d in [self.projects_dir, self.topology_dir, self.vos_dir]:
             if not os.path.exists(d):
                 raise FileNotFoundError(d)
+
+    def _update_contacts_repo(self):
+        if not self.config["NO_GIT"]:
+            if not self.config["GIT_SSH_KEY"]:
+                raise RuntimeError("Contacts data requires an SSH key")
+            parent = os.path.dirname(self.config["CONTACT_DATA_DIR"])
+            os.makedirs(parent, mode=0o700, exist_ok=True)
+            git_clone_or_pull(self.config["CONTACT_DATA_REPO"], self.config["CONTACT_DATA_DIR"],
+                              self.config["CONTACT_DATA_BRANCH"], self.config["GIT_SSH_KEY"])
+        if not os.path.exists(self.contacts_file):
+            raise FileNotFoundError(self.contacts_file)
 
     def get_contacts_data(self) -> ContactsData:
         """
         Get the contact information from a private git repo
         """
         if self.contacts_data.should_update():
-            data_dir = self.config["CONTACT_DATA_DIR"]
-            filename = os.path.join(data_dir, "contacts.yaml")
-            if not self.config["NO_GIT"]:
-                if not self.ssh_key:
-                    raise RuntimeError("Contacts data requires an SSH key")
-                elif not os.path.exists(self.ssh_key):
-                    raise FileNotFoundError(self.ssh_key)
-                parent = os.path.dirname(data_dir)
-                os.makedirs(parent, mode=0o700, exist_ok=True)
-                git_clone_or_pull(self.config["CONTACT_DATA_REPO"], data_dir,
-                                  self.config["CONTACT_DATA_BRANCH"], self.ssh_key)
-            if not os.path.exists(filename):
-                raise FileNotFoundError(filename)
-            self.contacts_data.update(contacts_reader.get_contacts_data(filename))
+            self._update_contacts_repo()
+            self.contacts_data.update(contacts_reader.get_contacts_data(self.contacts_file))
 
         return self.contacts_data.data
 
