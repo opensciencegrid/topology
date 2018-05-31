@@ -75,8 +75,10 @@ class Resource(object):
             filters = Filters()
 
         defaults = {
+            "Active": True,
             "ContactLists": None,
             "Description": "(No resource description)",
+            "Disable": False,
             "FQDNAliases": None,
             "VOOwnership": "(Information not available)",
             "WLCGInformation": "(Information not available)",
@@ -88,9 +90,9 @@ class Resource(object):
         new_res.update(defaults)
         new_res.update(self.data)
 
-        if filters.active is not None and self.data["Active"] != filters.active:
+        if filters.active is not None and new_res["Active"] != filters.active:
             return
-        if filters.disable is not None and self.data["Disable"] != filters.disable:
+        if filters.disable is not None and new_res["Disable"] != filters.disable:
             return
 
         filtered_services = self.services
@@ -257,6 +259,7 @@ class ResourceGroup(object):
     def _expand_rg(self) -> OrderedDict:
         new_rg = OrderedDict.fromkeys(["GridType", "GroupID", "GroupName", "Disable", "Facility", "Site",
                                        "SupportCenter", "GroupDescription"])
+        new_rg.update({"Disable": False})
         new_rg.update(self.data)
 
         new_rg["Facility"] = self.site.facility.get_tree()
