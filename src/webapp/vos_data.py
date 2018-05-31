@@ -46,9 +46,9 @@ class VOsData(object):
         vo = self.vos[name]
         new_vo.update(vo)
 
-        if filters.active is not None and filters.active != vo["Active"]:
+        if filters.active is not None and filters.active != new_vo["Active"]:
             return
-        if filters.disable is not None and filters.disable != vo["Disable"]:
+        if filters.disable is not None and filters.disable != new_vo["Disable"]:
             return
         if filters.oasis is not None and (is_null(vo, "OASIS", "UseOASIS") or
                                           filters.oasis != vo["OASIS"]["UseOASIS"]):
