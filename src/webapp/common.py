@@ -1,6 +1,10 @@
 from collections import OrderedDict
 import hashlib
+import os
 import re
+import shlex
+import subprocess
+import sys
 from typing import Dict, List, Union
 
 import xmltodict
@@ -148,3 +152,42 @@ def trim_space(s: str) -> str:
 
 def email_to_id(email: str) -> str:
     return hashlib.sha1(email.strip().lower().encode()).hexdigest()
+
+
+def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
+    if ssh_key and not os.path.exists(ssh_key):
+        raise FileNotFoundError(ssh_key)
+    if dir:
+        base_cmd = ["git", "--git-dir", os.path.join(dir, ".git"), "--work-tree", dir]
+    else:
+        base_cmd = ["git"]
+
+    if ssh_key:
+        shell = True
+        full_cmd = "ssh-agent bash -c " + \
+                   shlex.quote("ssh-add {0}; {1}".format(shlex.quote(ssh_key),
+                               " ".join([shlex.quote(s) for s in (base_cmd + cmd)])))
+    else:
+        shell = False
+        full_cmd = base_cmd + cmd
+
+    git_result = subprocess.run(full_cmd, shell=shell, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                encoding="utf-8")
+    if git_result.returncode != 0:
+        # Git command exited with nonzero!
+        print("Git failed:\nCommand was {0}\nOutput was:\n{1}".format(full_cmd, git_result.stdout),
+              file=sys.stderr)
+        return False
+
+    return True
+
+
+def git_clone_or_pull(repo, dir, branch, ssh_key=None) -> bool:
+    if os.path.exists(os.path.join(dir, ".git")):
+        _ = run_git_cmd(["clean", "-df"], dir=dir)
+        ok = run_git_cmd(["fetch", "origin"], dir=dir, ssh_key=ssh_key)
+        ok = ok and run_git_cmd(["reset", "--hard", "origin/{0}".format(branch)], dir=dir)
+    else:
+        ok = run_git_cmd(["clone", repo, dir], ssh_key=ssh_key)
+        ok = ok and run_git_cmd(["checkout", branch], dir=dir)
+    return ok
