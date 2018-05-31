@@ -164,6 +164,7 @@ def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
 
     if ssh_key:
         shell = True
+        # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
         full_cmd = "ssh-agent bash -c " + \
                    shlex.quote("ssh-add {0}; {1}".format(shlex.quote(ssh_key),
                                " ".join([shlex.quote(s) for s in (base_cmd + cmd)])))

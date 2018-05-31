@@ -15,7 +15,7 @@ from typing import Dict, Set
 import urllib.parse
 
 from webapp import contacts_reader, project_reader, rg_reader, vo_reader
-from webapp.common import to_xml_bytes, Filters
+from webapp.common import git_clone_or_pull, to_xml_bytes, Filters
 from webapp.contacts_reader import ContactsData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2, Topology
 from webapp.vos_data import VOsData
@@ -61,7 +61,7 @@ class GlobalData:
         if cls.contacts_data.should_update():
             # use local copy if it exists
             if os.path.exists("../contacts.yaml"):
-                filename = "../contacts.yaml"
+                cls.contacts_data.update(contacts_reader.get_contacts_data("../contacts.yaml"))
             elif os.path.exists("/etc/opt/topology/config.ini") or os.path.exists("../config.ini"):
                 # Get the contacts from bitbucket
                 # Read in the config file with the SSH key location
@@ -70,25 +70,15 @@ class GlobalData:
                 ssh_key = config['git']['ssh_key']
                 # Create a temporary directory to store the contact information
                 with tempfile.TemporaryDirectory() as tmp_dir:
-                    # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
-                    cmd = "ssh-agent bash -c 'ssh-add {0}; git clone git@bitbucket.org:opensciencegrid/contact.git {1}'".format(
-                        ssh_key, tmp_dir)
-
-                    # I know this should be Popen or similar.  But.. I am unable to make that work.
-                    # I suspect it has something to do with the subshell that is being executed
-                    git_result = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                                encoding="utf-8")
-                    if git_result.returncode != 0:
-                        # Git command exited with nonzero!
-                        print("Git failed:\n" + git_result.stdout, file=sys.stderr)
+                    git_clone_or_pull("git@bitbucket.org:opensciencegrid/contact.git", tmp_dir,
+                                      "master", ssh_key)
                     filename = os.path.join(tmp_dir, 'contacts.yaml')
                     if not os.path.exists(filename):
                         raise DataError("contacts.yaml not found from git checkout")
+                    cls.contacts_data.update(contacts_reader.get_contacts_data(filename))
             else:
                 raise DataError("contacts.yaml or config.ini not found -- don't know where to get"
                                    " contacts data from")
-
-            cls.contacts_data.update(contacts_reader.get_contacts_data(filename))
 
         return cls.contacts_data.data
 
