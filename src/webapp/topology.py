@@ -238,7 +238,8 @@ class ResourceGroup(object):
                                        (filters.rg_id, self.id)]:
             if filter_list and attribute not in filter_list:
                 return
-        if filters.grid_type is not None and self.data["GridType"] != filters.grid_type:
+        data_gridtype = GRIDTYPE_1 if self.data.get("Production", None) else GRIDTYPE_2
+        if filters.grid_type is not None and data_gridtype != filters.grid_type:
             return
 
         filtered_resources = list(filter(None, [x.get_tree(authorized, filters) for x in self.resources]))
@@ -308,7 +309,8 @@ class Downtime(object):
                                        (filters.rg_id, self.rg.id)]:
             if filter_list and attribute not in filter_list:
                 return
-        if filters.grid_type is not None and self.rg.data["GridType"] != filters.grid_type:
+        rg_data_gridtype = GRIDTYPE_1 if self.rg.data.get("Production", None) else GRIDTYPE_2
+        if filters.grid_type is not None and rg_data_gridtype != filters.grid_type:
             return
         # unlike the other filters, if past_days is not specified, _no_ past downtime is shown
         if filters.past_days >= 0:
