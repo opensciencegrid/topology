@@ -14,7 +14,7 @@ import time
 from typing import Dict, Set
 import urllib.parse
 
-from webapp import contacts_reader, project_reader, rg_reader, vo_reader
+from webapp import contacts_reader, project_reader, rg_reader, vo_reader, default_config
 from webapp.common import git_clone_or_pull, to_xml_bytes, Filters
 from webapp.contacts_reader import ContactsData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2, Topology
@@ -29,15 +29,14 @@ class DataError(Exception): pass
 
 
 class CachedData:
-    MAX_DATA_AGE = 60 * 15
-
-    def __init__(self, data=None, timestamp=0, force_update=True):
+    def __init__(self, data=None, timestamp=0, force_update=True, cache_lifetime=60*15):
         self.data = data
         self.timestamp = timestamp
         self.force_update = force_update
+        self.cache_lifetime = cache_lifetime
 
     def should_update(self):
-        return self.force_update or (not self.data or time.time() - self.timestamp > self.MAX_DATA_AGE)
+        return self.force_update or (not self.data or time.time() - self.timestamp > self.cache_lifetime)
 
     def update(self, data):
         self.data = data
@@ -46,74 +45,73 @@ class CachedData:
 
 
 class GlobalData:
-    contacts_data = CachedData()
-    dn_set = CachedData()
-    projects = CachedData()
-    topology = CachedData()
-    vos_data = CachedData()
+    def __init__(self, config):
+        self.contacts_data = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
+        self.dn_set = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
+        self.projects = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
+        self.topology = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
+        self.vos_data = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
+        self.ssh_key = config["GIT_SSH_KEY"]
+        self.config = config
 
-    @classmethod
-    def get_contacts_data(cls) -> ContactsData:
+    def get_contacts_data(self) -> ContactsData:
         """
         Get the contact information.  For now this is from a private github repo, but in the future
         it could be much more complicated to get the contact details
         """
-        if cls.contacts_data.should_update():
+        if self.contacts_data.should_update():
             # use local copy if it exists
             if os.path.exists("../contacts.yaml"):
-                cls.contacts_data.update(contacts_reader.get_contacts_data("../contacts.yaml"))
-            elif os.path.exists("/etc/opt/topology/config.ini") or os.path.exists("../config.ini"):
-                # Get the contacts from bitbucket
-                # Read in the config file with the SSH key location
-                config = configparser.ConfigParser()
-                config.read(["/etc/opt/topology/config.ini", "../config.ini"])
-                ssh_key = config['git']['ssh_key']
-                # Create a temporary directory to store the contact information
-                with tempfile.TemporaryDirectory() as tmp_dir:
-                    git_clone_or_pull("git@bitbucket.org:opensciencegrid/contact.git", tmp_dir,
-                                      "master", ssh_key)
-                    filename = os.path.join(tmp_dir, 'contacts.yaml')
-                    if not os.path.exists(filename):
-                        raise DataError("contacts.yaml not found from git checkout")
-                    cls.contacts_data.update(contacts_reader.get_contacts_data(filename))
+                self.contacts_data.update(contacts_reader.get_contacts_data("../contacts.yaml"))
+            elif self.ssh_key and os.path.exists(self.ssh_key):
+                data_dir = self.config["CONTACT_DATA_DIR"]
+                parent = os.path.dirname(data_dir)
+                os.makedirs(parent, mode=0o700, exist_ok=True)
+                git_clone_or_pull(self.config["CONTACT_DATA_REPO"], data_dir,
+                                  self.config["CONTACT_DATA_BRANCH"], self.ssh_key)
+                filename = os.path.join(data_dir, 'contacts.yaml')
+                if not os.path.exists(filename):
+                    raise DataError("contacts.yaml not found from git checkout")
+                self.contacts_data.update(contacts_reader.get_contacts_data(filename))
             else:
-                raise DataError("contacts.yaml or config.ini not found -- don't know where to get"
+                raise DataError("contacts.yaml or ssh key not found -- don't know where to get"
                                    " contacts data from")
 
-        return cls.contacts_data.data
+        return self.contacts_data.data
 
-    @classmethod
-    def get_dns(cls) -> Set:
+    def get_dns(self) -> Set:
         """
         Get the set of DNs allowed to access "special" data (such as contact info)
         """
-        if cls.dn_set.should_update():
-            contacts_data = cls.get_contacts_data()
-            cls.dn_set.update(set(contacts_data.get_dns()))
-        return cls.dn_set.data
+        if self.dn_set.should_update():
+            contacts_data = self.get_contacts_data()
+            self.dn_set.update(set(contacts_data.get_dns()))
+        return self.dn_set.data
 
-    @classmethod
-    def get_topology(cls) -> Topology:
-        if cls.topology.should_update():
-            cls.topology.update(rg_reader.get_topology("../topology", cls.get_contacts_data()))
-        return cls.topology.data
+    def get_topology(self) -> Topology:
+        if self.topology.should_update():
+            self.topology.update(rg_reader.get_topology("../topology", self.get_contacts_data()))
+        return self.topology.data
 
-    @classmethod
-    def get_vos_data(cls) -> VOsData:
-        if cls.vos_data.should_update():
-            cls.vos_data.update(vo_reader.get_vos_data("../virtual-organizations", cls.get_contacts_data()))
-        return cls.vos_data.data
+    def get_vos_data(self) -> VOsData:
+        if self.vos_data.should_update():
+            self.vos_data.update(vo_reader.get_vos_data("../virtual-organizations", self.get_contacts_data()))
+        return self.vos_data.data
 
-    @classmethod
-    def get_projects(cls) -> Dict:
-        if cls.projects.should_update():
-            cls.projects.update(project_reader.get_projects("../projects"))
-        return cls.projects.data
+    def get_projects(self) -> Dict:
+        if self.projects.should_update():
+            self.projects.update(project_reader.get_projects("../projects"))
+        return self.projects.data
 
 
 default_authorized = False
 
 app = Flask(__name__)
+app.config.from_object(default_config)
+app.config.from_pyfile("config.py", silent=True)
+app.config.from_envvar("TOPOLOGY_CONFIG", silent=True)
+global_data = GlobalData(app.config)
+
 
 @app.route('/')
 def homepage():
@@ -139,7 +137,7 @@ def map():
     def encode(text):
         """Convert a partial unicode string to full unicode"""
         return text.encode('utf-8', 'surrogateescape').decode('utf-8')
-    rgsummary = GlobalData.get_topology().get_resource_summary()
+    rgsummary = global_data.get_topology().get_resource_summary()
 
     return render_template('iframe.tmpl', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"])
 
@@ -159,12 +157,12 @@ def miscuser_xml():
 
     if not authorized:
         return Response("Access denied: user cert not found or not accepted", status=403)
-    return Response(to_xml_bytes(GlobalData.get_contacts_data().get_tree(authorized)), mimetype='text/xml')
+    return Response(to_xml_bytes(global_data.get_contacts_data().get_tree(authorized)), mimetype='text/xml')
 
 
 @app.route('/miscproject/xml')
 def miscproject_xml():
-    projects_xml = to_xml_bytes(GlobalData.get_projects())
+    projects_xml = to_xml_bytes(global_data.get_projects())
     return Response(projects_xml, mimetype='text/xml')
 
 
@@ -176,7 +174,7 @@ def vosummary_xml():
         return Response("Invalid arguments: " + str(e), status=400)
 
     authorized = _get_authorized()
-    vos_xml = to_xml_bytes(GlobalData.get_vos_data().get_tree(authorized, filters))
+    vos_xml = to_xml_bytes(global_data.get_vos_data().get_tree(authorized, filters))
     return Response(vos_xml, mimetype='text/xml')
 
 
@@ -256,7 +254,7 @@ def get_filters_from_args(args) -> Filters:
                 raise InvalidArgumentsError("at least one {0} must be specified".format(description))
 
     if filters.voown_id:
-        filters.populate_voown_name(GlobalData.get_vos_data().get_vo_id_to_name())
+        filters.populate_voown_name(global_data.get_vos_data().get_vo_id_to_name())
 
     return filters
 
@@ -269,7 +267,7 @@ def rgsummary_xml():
         return Response("Invalid arguments: " + str(e), status=400)
 
     authorized = _get_authorized()
-    rgsummary = GlobalData.get_topology().get_resource_summary(authorized=authorized, filters=filters)
+    rgsummary = global_data.get_topology().get_resource_summary(authorized=authorized, filters=filters)
     return Response(to_xml_bytes(rgsummary), mimetype='text/xml')
 
 
@@ -282,7 +280,7 @@ def rgdowntime_xml():
 
     authorized = _get_authorized()
 
-    rgdowntime = GlobalData.get_topology().get_downtimes(authorized=authorized, filters=filters)
+    rgdowntime = global_data.get_topology().get_downtimes(authorized=authorized, filters=filters)
     return Response(to_xml_bytes(rgdowntime), mimetype='text/xml')
 
 
@@ -300,7 +298,7 @@ def _get_authorized():
             client_dn = urllib.parse.unquote_plus(value)
 
             # Get list of authorized DNs
-            authorized_dns = GlobalData.get_dns()
+            authorized_dns = global_data.get_dns()
 
             # Authorized dns should be a set, or dict, that supports the "in"
             if client_dn[3:] in authorized_dns: # "dn:" is at the beginning of the DN
