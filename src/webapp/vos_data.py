@@ -39,6 +39,10 @@ class VOsData(object):
                                        "MembershipServicesURL", "PurposeURL", "SupportURL", "AppDescription",
                                        "Community", "FieldsOfScience", "ParentVO", "ReportingGroups", "Active",
                                        "Disable", "ContactTypes", "OASIS"])
+        new_vo.update({
+            "Disable": False,
+            "Active": True,
+        })
         vo = self.vos[name]
         new_vo.update(vo)
 
