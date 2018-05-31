@@ -1,0 +1,96 @@
+#!/usr/bin/python2.7
+# -*- coding: utf-8 -*-
+
+"""
+A simple tool for generating notification emails to the OSG
+"""
+from __future__ import print_function
+
+import sys
+import getpass
+import smtplib
+import argparse
+import email.message
+import email.mime.text
+import email.mime.multipart
+
+import gnupg
+
+# Parts of this implementation are from the following StackOverflow answer:
+# https://stackoverflow.com/questions/10496902/pgp-signing-multipart-e-mails-with-python
+# Licensed under CC-BY-SA
+
+def messageFromSignature(signature):
+    """
+    Given a GnuPG signature, generate a corresponding MIME message.
+    """
+    message = email.message.Message()
+    message['Content-Type'] = 'application/pgp-signature; name="signature.asc"'
+    message['Content-Description'] = 'OpenPGP digital signature'
+    message.set_payload(signature)
+    return message
+
+
+def generateFullMessage(subject, to, from_name, message, sign=True):
+    basemsg = email.mime.text.MIMEText(message)
+    basetext = basemsg.as_string().replace("\n", "\r\n")
+    if sign:
+        gpg = gnupg.GPG()
+        passphrase = getpass.getpass("Please input passphrase: ")
+        signature = str(gpg.sign(basetext, passphrase=passphrase, detach=True))
+        if not signature:
+            raise RuntimeError("GnuPG signature of message failed")
+
+        signmsg = messageFromSignature(signature)
+        msg = email.mime.multipart.MIMEMultipart(_subtype="signed", micalg="pgp-sha1", protocol="application/pgp-signature")
+        msg.attach(basemsg)
+        msg.attach(signmsg)
+        msg['Subject'] = subject
+        msg['Bcc'] = ", ".join(to)
+        msg['To'] = '"Open Science Grid Helpdesk" <help@opensciencegrid.org>'
+        msg['From'] = '"%s" <help@opensciencegrid.org>' % from_name
+        return msg.as_string(unixfrom=True)
+    else:
+        raise NotImplementedError("This notification tool requires PGP signatures")
+
+
+def parseargs():
+    oparser = argparse.ArgumentParser()
+    oparser.add_argument("--sign", dest="sign", default=True, action="store_true", help="Whether to sign with GPG")
+    oparser.add_argument("--no-sign", dest="sign", action="store_false", help="Whether to sign with GPG")
+    oparser.add_argument("--type", dest="type", required=True, help="Whether notification is test or production", choices=["test", "production"])
+    oparser.add_argument("--recipients", dest="recipients", required=True,
+        help="Recipients of notification email")
+    oparser.add_argument("--message", dest="message", help="File containing message contents", required=True)
+    oparser.add_argument("--subject", dest="subject", help="Contents of the subject line", required=True)
+    oparser.add_argument("--from", dest="from_name", help="Human-friendly name for 'From' address", default="Open Science Grid")
+    return oparser.parse_args()
+
+def main():
+    args = parseargs()
+
+    recipients = args.recipients.split()
+
+    with open(args.message, 'r') as fp:
+        contents = fp.read()
+
+    if args.type != "production":
+        if len(recipients) > 5:
+            raise Exception("Cowardly refusing to send a test email to more than 5 people")
+        contents = """
+===================================================
+** This is a test of the osg-notify tool
+** Please IGNORE the contents of this message
+** If you received this message in error, please
+** contact help@opensciencegrid.org
+===================================================
+""" + contents
+
+    msg = generateFullMessage(subject=args.subject, to=recipients, from_name = args.from_name, message=contents, sign=args.sign)
+
+    session = smtplib.SMTP('localhost')
+    session.sendmail("help@opensciencegrid.org", recipients, msg)
+    session.quit()
+
+if __name__ == '__main__':
+    main()
