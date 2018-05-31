@@ -46,7 +46,20 @@ class GlobalData:
         self.topology = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
         self.vos_data = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
         self.ssh_key = config["GIT_SSH_KEY"]
+        self.projects_dir = os.path.join(config["TOPOLOGY_DATA_DIR"], "projects")
+        self.topology_dir = os.path.join(config["TOPOLOGY_DATA_DIR"], "topology")
+        self.vos_dir = os.path.join(config["TOPOLOGY_DATA_DIR"], "virtual-organizations")
         self.config = config
+
+    def _update_topology_repo(self):
+        data_dir = self.config["TOPOLOGY_DATA_DIR"]
+        parent = os.path.dirname(data_dir)
+        os.makedirs(parent, mode=0o755, exist_ok=True)
+        git_clone_or_pull(self.config["TOPOLOGY_DATA_REPO"], data_dir,
+                          self.config["TOPOLOGY_DATA_BRANCH"])
+        for d in [self.projects_dir, self.topology_dir, self.vos_dir]:
+            if not os.path.exists(d):
+                raise FileNotFoundError(d)
 
     def get_contacts_data(self) -> ContactsData:
         """
@@ -64,7 +77,7 @@ class GlobalData:
                                   self.config["CONTACT_DATA_BRANCH"], self.ssh_key)
                 filename = os.path.join(data_dir, 'contacts.yaml')
                 if not os.path.exists(filename):
-                    raise DataError("contacts.yaml not found from git checkout")
+                    raise FileNotFoundError(filename)
                 self.contacts_data.update(contacts_reader.get_contacts_data(filename))
             else:
                 raise DataError("contacts.yaml or ssh key not found -- don't know where to get"
@@ -83,17 +96,20 @@ class GlobalData:
 
     def get_topology(self) -> Topology:
         if self.topology.should_update():
-            self.topology.update(rg_reader.get_topology("../topology", self.get_contacts_data()))
+            self._update_topology_repo()
+            self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data()))
         return self.topology.data
 
     def get_vos_data(self) -> VOsData:
         if self.vos_data.should_update():
-            self.vos_data.update(vo_reader.get_vos_data("../virtual-organizations", self.get_contacts_data()))
+            self._update_topology_repo()
+            self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data()))
         return self.vos_data.data
 
     def get_projects(self) -> Dict:
         if self.projects.should_update():
-            self.projects.update(project_reader.get_projects("../projects"))
+            self._update_topology_repo()
+            self.projects.update(project_reader.get_projects(self.projects_dir))
         return self.projects.data
 
 
