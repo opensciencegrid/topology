@@ -52,6 +52,8 @@ class GlobalData:
         self.config = config
 
     def _update_topology_repo(self):
+        if self.config["NO_GIT"]:
+            return
         data_dir = self.config["TOPOLOGY_DATA_DIR"]
         parent = os.path.dirname(data_dir)
         os.makedirs(parent, mode=0o755, exist_ok=True)
@@ -66,22 +68,20 @@ class GlobalData:
         Get the contact information from a private git repo
         """
         if self.contacts_data.should_update():
-            # use local copy if it exists
-            if os.path.exists("../contacts.yaml"):
-                self.contacts_data.update(contacts_reader.get_contacts_data("../contacts.yaml"))
-            elif self.ssh_key and os.path.exists(self.ssh_key):
-                data_dir = self.config["CONTACT_DATA_DIR"]
+            data_dir = self.config["CONTACT_DATA_DIR"]
+            filename = os.path.join(data_dir, "contacts.yaml")
+            if not self.config["NO_GIT"]:
+                if not self.ssh_key:
+                    raise RuntimeError("Contacts data requires an SSH key")
+                elif not os.path.exists(self.ssh_key):
+                    raise FileNotFoundError(self.ssh_key)
                 parent = os.path.dirname(data_dir)
                 os.makedirs(parent, mode=0o700, exist_ok=True)
                 git_clone_or_pull(self.config["CONTACT_DATA_REPO"], data_dir,
                                   self.config["CONTACT_DATA_BRANCH"], self.ssh_key)
-                filename = os.path.join(data_dir, 'contacts.yaml')
-                if not os.path.exists(filename):
-                    raise FileNotFoundError(filename)
-                self.contacts_data.update(contacts_reader.get_contacts_data(filename))
-            else:
-                raise DataError("contacts.yaml or ssh key not found -- don't know where to get"
-                                   " contacts data from")
+            if not os.path.exists(filename):
+                raise FileNotFoundError(filename)
+            self.contacts_data.update(contacts_reader.get_contacts_data(filename))
 
         return self.contacts_data.data
 

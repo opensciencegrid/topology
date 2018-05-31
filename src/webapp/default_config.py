@@ -9,3 +9,5 @@ CONTACT_DATA_REPO = "git@bitbucket.org:opensciencegrid/contact.git"
 CONTACT_DATA_BRANCH = "master"
 
 CACHE_LIFETIME = 60 * 15
+
+NO_GIT = False
