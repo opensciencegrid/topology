@@ -66,7 +66,6 @@ class Resource(object):
         if not is_null(yaml_data, "Services"):
             self.services = self._expand_services(yaml_data["Services"])
         else:
-            print("{0} does not have any services".format(name), file=sys.stderr)
             self.services = []
         self.data = yaml_data
 
