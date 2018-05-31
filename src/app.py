@@ -3,12 +3,8 @@ Application File
 """
 import flask
 from flask import Flask, Response, request, render_template
-import configparser
-import tempfile
-import anymarkup
 import os
 import re
-import subprocess
 import sys
 import time
 from typing import Dict, Set
@@ -20,8 +16,6 @@ from webapp.contacts_reader import ContactsData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2, Topology
 from webapp.vos_data import VOsData
 
-import sys
-print(sys.path)
 
 class InvalidArgumentsError(Exception): pass
 
@@ -56,8 +50,7 @@ class GlobalData:
 
     def get_contacts_data(self) -> ContactsData:
         """
-        Get the contact information.  For now this is from a private github repo, but in the future
-        it could be much more complicated to get the contact details
+        Get the contact information from a private git repo
         """
         if self.contacts_data.should_update():
             # use local copy if it exists
