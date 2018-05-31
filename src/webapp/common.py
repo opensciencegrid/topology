@@ -175,7 +175,12 @@ def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
     git_result = subprocess.run(full_cmd, shell=shell, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                 encoding="utf-8")
     if git_result.returncode != 0:
-        # Git command exited with nonzero!
+        out = git_result.stdout
+        if "error: cannot lock ref" in out \
+                or re.search(r"Unable to create.*\.lock.*File exists", out):
+            # just a locking fail, ignore
+            return True
+
         print("Git failed:\nCommand was {0}\nOutput was:\n{1}".format(full_cmd, git_result.stdout),
               file=sys.stderr)
         return False
