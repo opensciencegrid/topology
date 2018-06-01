@@ -75,10 +75,8 @@ class Resource(object):
 
         defaults = {
             "Active": True,
-            "ContactLists": None,
             "Description": "(No resource description)",
             "Disable": False,
-            "FQDNAliases": None,
             "VOOwnership": "(Information not available)",
             "WLCGInformation": "(Information not available)",
         }
@@ -190,9 +188,7 @@ class Resource(object):
     @staticmethod
     def _expand_wlcginformation(wlcg: Dict) -> OrderedDict:
         defaults = {
-            "AccountingName": None,
             "InteropBDII": False,
-            "LDAPURL": None,
             "TapeCapacity": 0,
         }
 
