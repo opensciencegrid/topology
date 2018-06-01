@@ -29,28 +29,4 @@ Resources:
           hidden: false
     VOOwnership:
       ATLAS: 100
-  MWT2_IU_SE:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Secondary:
-          ID: b90b81a135d90def08b891806a5ff56409ceeb8c
-          Name: Charles Waldman
-      Miscellaneous Contact:
-        Tertiary:
-          ID: 6d5915fca586e4702c3f4ecbf56750132c6896c2
-          Name: Nathan Yehle (disabled)
-      Security Contact:
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-    Description: Part of the MWT2 facility.
-    Disable: true
-    FQDN: iut2-dc1.iu.edu
-    ID: 140
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-    VOOwnership:
-      ATLAS: 100
 SupportCenter: USATLAS
