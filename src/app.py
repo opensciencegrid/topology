@@ -55,8 +55,12 @@ class GlobalData:
         if not self.config["NO_GIT"]:
             parent = os.path.dirname(self.config["TOPOLOGY_DATA_DIR"])
             os.makedirs(parent, mode=0o755, exist_ok=True)
-            git_clone_or_pull(self.config["TOPOLOGY_DATA_REPO"], self.config["TOPOLOGY_DATA_DIR"],
-                              self.config["TOPOLOGY_DATA_BRANCH"])
+            ok = git_clone_or_pull(self.config["TOPOLOGY_DATA_REPO"], self.config["TOPOLOGY_DATA_DIR"],
+                                   self.config["TOPOLOGY_DATA_BRANCH"])
+            if ok:
+                app.logger.debug("topology repo update ok")
+            else:
+                app.logger.warning("topology repo update failed")
         for d in [self.projects_dir, self.topology_dir, self.vos_dir]:
             if not os.path.exists(d):
                 raise FileNotFoundError(d)
@@ -67,8 +71,12 @@ class GlobalData:
                 raise RuntimeError("Contacts data requires an SSH key")
             parent = os.path.dirname(self.config["CONTACT_DATA_DIR"])
             os.makedirs(parent, mode=0o700, exist_ok=True)
-            git_clone_or_pull(self.config["CONTACT_DATA_REPO"], self.config["CONTACT_DATA_DIR"],
-                              self.config["CONTACT_DATA_BRANCH"], self.config["GIT_SSH_KEY"])
+            ok = git_clone_or_pull(self.config["CONTACT_DATA_REPO"], self.config["CONTACT_DATA_DIR"],
+                                   self.config["CONTACT_DATA_BRANCH"], self.config["GIT_SSH_KEY"])
+            if ok:
+                app.logger.debug("contact repo update ok")
+            else:
+                app.logger.warning("contact repo update failed")
         if not os.path.exists(self.contacts_file):
             raise FileNotFoundError(self.contacts_file)
 
