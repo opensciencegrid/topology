@@ -51,7 +51,11 @@ def generateFullMessage(subject, to, from_name, message, sign=True):
         msg['From'] = '"%s" <help@opensciencegrid.org>' % from_name
         return msg.as_string(unixfrom=True)
     else:
-        raise NotImplementedError("This notification tool requires PGP signatures")
+        basemsg['Subject'] = subject
+        basemsg['Bcc'] = ", ".join(to)
+        basemsg['To'] = '"Open Science Grid Helpdesk" <help@opensciencegrid.org>'
+        basemsg['From'] = '"%s" <help@opensciencegrid.org>' % from_name
+        return basemsg.as_string(unixfrom=True)
 
 
 def parseargs():
@@ -64,7 +68,9 @@ def parseargs():
     oparser.add_argument("--message", dest="message", help="File containing message contents", required=True)
     oparser.add_argument("--subject", dest="subject", help="Contents of the subject line", required=True)
     oparser.add_argument("--from", dest="from_name", help="Human-friendly name for 'From' address", default="Open Science Grid")
+    oparser.add_argument("--dry-run", dest="dryrun", default=False, action="store_true", help="Print out the email instead of sending it.")
     return oparser.parse_args()
+
 
 def main():
     args = parseargs()
@@ -75,7 +81,7 @@ def main():
         contents = fp.read()
 
     if args.type != "production":
-        if len(recipients) > 5:
+        if not args.dryrun and (len(recipients) > 5):
             raise Exception("Cowardly refusing to send a test email to more than 5 people")
         contents = """
 ===================================================
@@ -88,9 +94,13 @@ def main():
 
     msg = generateFullMessage(subject=args.subject, to=recipients, from_name = args.from_name, message=contents, sign=args.sign)
 
-    session = smtplib.SMTP('localhost')
-    session.sendmail("help@opensciencegrid.org", recipients, msg)
-    session.quit()
+    if args.dryrun:
+        print(msg)
+    else:
+        session = smtplib.SMTP('localhost')
+        session.sendmail("help@opensciencegrid.org", recipients, msg)
+        session.quit()
+
 
 if __name__ == '__main__':
     main()
