@@ -205,6 +205,56 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
+  UCSDT2-SE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Secondary:
+          ID: db58c4989eaca84489f300aebd0a806a673bd151
+          Name: Haifeng Pi
+      Miscellaneous Contact:
+        Tertiary:
+          ID: 903732da995c5cfc467541693f9c8f4afaf7e2ae
+          Name: Abhishek Rana
+      Submitter Contact:
+        Primary:
+          ID: 903732da995c5cfc467541693f9c8f4afaf7e2ae
+          Name: Abhishek Rana
+    Description: |-
+      Primary function: SRM Hadoop Testbed to package, produce, and release official OSG/VDT Hadoop HDFS releases (http://vdt.cs.wisc.edu/components/hadoop.html).
+
+      Disk capacity is nearly 20-30 TB with O(15) datanodes and O(10) GridFTP servers.
+
+      Secondary functions:
+
+      1. Hadoop HDFS Benchmarking and scalability evaluation.
+      2. BeStMan scalability profiling.
+      3. Benchmarking and I/O profiling of HDFS (without GridFTP).
+      4. I/O profiling of HDFS with GridFTP.
+      5. GridFTP optimizations.
+      6. GlideinWMS scalability tool.
+    Disable: true
+    FQDN: tbsrm-1.t2.ucsd.edu
+    ID: 112
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 50
+      OSG: 50
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_UCSD
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 1000
+      StorageCapacityMin: 1000
   UCSDT2-SE1:
     Active: true
     ContactLists:
@@ -401,6 +451,29 @@ Resources:
           hidden: false
     VOOwnership:
       CMS: 100
+  UCSanDiego-OSG-Validation-SE-SRM_v2:
+    Active: false
+    ContactLists:
+      Miscellaneous Contact:
+        Tertiary:
+          ID: 903732da995c5cfc467541693f9c8f4afaf7e2ae
+          Name: Abhishek Rana
+      Submitter Contact:
+        Primary:
+          ID: 903732da995c5cfc467541693f9c8f4afaf7e2ae
+          Name: Abhishek Rana
+    Description: Validation SE
+    Disable: true
+    FQDN: tbsrm-1.t2.ucsd.edu
+    ID: 111
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 50
+      OSG: 50
   UCSandiegoOSG-Prod-SE:
     Active: false
     ContactLists:

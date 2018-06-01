@@ -1,0 +1,82 @@
+Disable: true
+GroupDescription: disabling empty resource group
+GroupID: 61
+Production: false
+Resources:
+  LIGO-CIT-ITB:
+    Active: false
+    Disable: true
+    FQDN: osg-itb.ligo.caltech.edu
+    ID: 61
+    Services:
+      CE:
+        Description: Compute Element
+  LIGO_CIT:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: f97e23d8efcbcead011b0ac5d76f4770c7ce8135
+          Name: Robert Engel
+      Miscellaneous Contact:
+        Primary:
+          ID: f97e23d8efcbcead011b0ac5d76f4770c7ce8135
+          Name: Robert Engel
+      Resource Report Contact:
+        Primary:
+          ID: f97e23d8efcbcead011b0ac5d76f4770c7ce8135
+          Name: Robert Engel
+      Security Contact:
+        Primary:
+          ID: f97e23d8efcbcead011b0ac5d76f4770c7ce8135
+          Name: Robert Engel
+      Submitter Contact:
+        Primary:
+          ID: f97e23d8efcbcead011b0ac5d76f4770c7ce8135
+          Name: Robert Engel
+    Description: A small Linux cluster at Caltech.
+    Disable: true
+    FQDN: osg-ce.ligo.caltech.edu
+    ID: 221
+    Services:
+      CE:
+        Description: Compute Element
+    VOOwnership:
+      LIGO: 100
+  LIGO_CIT_SE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: f97e23d8efcbcead011b0ac5d76f4770c7ce8135
+          Name: Robert Engel
+      Miscellaneous Contact:
+        Primary:
+          ID: f97e23d8efcbcead011b0ac5d76f4770c7ce8135
+          Name: Robert Engel
+      Resource Report Contact:
+        Primary:
+          ID: f97e23d8efcbcead011b0ac5d76f4770c7ce8135
+          Name: Robert Engel
+      Security Contact:
+        Primary:
+          ID: f97e23d8efcbcead011b0ac5d76f4770c7ce8135
+          Name: Robert Engel
+      Submitter Contact:
+        Primary:
+          ID: f97e23d8efcbcead011b0ac5d76f4770c7ce8135
+          Name: Robert Engel
+    Description: LIGO_CIT_SE consists of a headnode osg-se.ligo.caltech.edu, which
+      is connected to 13 storage nodes. Each storage node provides approx. 2TB local
+      disk storage. The Hadoop file system is used to join the local disks to create
+      a 23TB storage partition. The storage partition can be accessed using GridFTP
+      and SRM.
+    Disable: true
+    FQDN: osg-se.ligo.caltech.edu
+    ID: 223
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+    VOOwnership:
+      LIGO: 100
+SupportCenter: LIGO
