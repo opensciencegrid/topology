@@ -115,7 +115,8 @@ default_authorized = False
 app = Flask(__name__)
 app.config.from_object(default_config)
 app.config.from_pyfile("config.py", silent=True)
-app.config.from_envvar("TOPOLOGY_CONFIG", silent=True)
+if "TOPOLOGY_CONFIG" in os.environ:
+    app.config.from_envvar("TOPOLOGY_CONFIG", silent=False)
 global_data = GlobalData(app.config)
 
 
