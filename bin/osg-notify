@@ -118,7 +118,7 @@ def main():
     args = parseargs()
 
     recipients = set(args.recipients.split())
-    if 'vos' in args.oim_recipients:
+    if args.oim_recipients and 'vos' in args.oim_recipients:
         results = topology_utils.get_vo_contacts(args)
         results = topology_utils.filter_contacts(args, results)
         emails = set()
@@ -127,7 +127,7 @@ def main():
                 if 'Email' in contact:
                     emails.add(contact['Email'])
         recipients.update(emails)
-    if 'resources' in args.oim_recipients:
+    if args.oim_recipients and 'resources' in args.oim_recipients:
         results = topology_utils.get_resource_contacts(args)
         results = topology_utils.filter_contacts(args, results)
         emails = set()
@@ -157,8 +157,6 @@ def main():
     if args.dryrun:
         print(msg)
     else:
-        raise NotImplementedError()
-
         session = smtplib.SMTP('localhost')
         session.sendmail("help@opensciencegrid.org", recipients, msg)
         session.quit()
