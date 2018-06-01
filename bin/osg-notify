@@ -6,7 +6,6 @@ A simple tool for generating notification emails to the OSG
 """
 from __future__ import print_function
 
-import sys
 import getpass
 import smtplib
 import argparse
@@ -15,6 +14,8 @@ import email.mime.text
 import email.mime.multipart
 
 import gnupg
+
+import topology_utils
 
 # Parts of this implementation are from the following StackOverflow answer:
 # https://stackoverflow.com/questions/10496902/pgp-signing-multipart-e-mails-with-python
@@ -60,22 +61,66 @@ def generateFullMessage(subject, to, from_name, message, sign=True):
 
 def parseargs():
     oparser = argparse.ArgumentParser()
+    oparser.add_argument("--host", dest="host", default="my.opensciencegrid.org",
+                help="Remote topology host (default my.opensciencegrid.org)")
+    oparser.add_argument("--cert", dest="cert", help="Client certificate")
+    oparser.add_argument("--key", dest="key", help="Client certificate private key")
     oparser.add_argument("--sign", dest="sign", default=True, action="store_true", help="Whether to sign with GPG")
     oparser.add_argument("--no-sign", dest="sign", action="store_false", help="Whether to sign with GPG")
     oparser.add_argument("--type", dest="type", required=True, help="Whether notification is test or production", choices=["test", "production"])
     oparser.add_argument("--recipients", dest="recipients", required=True,
         help="Recipients of notification email")
+    oparser.add_argument("--oim-recipients", dest="oim_recipients", action="append", choices=["resources", "vos"])
     oparser.add_argument("--message", dest="message", help="File containing message contents", required=True)
     oparser.add_argument("--subject", dest="subject", help="Contents of the subject line", required=True)
     oparser.add_argument("--from", dest="from_name", help="Human-friendly name for 'From' address", default="Open Science Grid")
     oparser.add_argument("--dry-run", dest="dryrun", default=False, action="store_true", help="Print out the email instead of sending it.")
-    return oparser.parse_args()
+
+    oparser.add_argument("--oim-name-filter", dest="name_filter", action="store",
+        nargs="?", help="Shell expression filter on the VO or resource name")
+    oparser.add_argument( \
+        "--oim-service-filter",
+             dest="provides_service", help="Filter on resources that provide given "
+            "service(s)")
+    oparser.add_argument("--oim-owner-filter",
+        dest="owner_vo", help="Filter on resources that list VO(s) as a "
+        "partial owner")
+
+    oparser.add_argument("--oim-contact-type", default="all",
+                         dest="contact_type", help="Filter on contact type "
+                         "(e.g. administrative, miscellaneous, security, or submitter; "
+                         "default all)", choices=["all", "administrative", "miscellaneous", "security", "submitter"])
+
+    args = oparser.parse_args()
+
+    if args.oim_recipients == 'vos' and args.owner_vo:
+        raise Exception("--oim-owner-filter and --oim-recipients=vos options are conflicting.")
+
+    return args
 
 
 def main():
     args = parseargs()
 
-    recipients = args.recipients.split()
+    recipients = set(args.recipients.split())
+    if 'vos' in args.oim_recipients:
+        results = topology_utils.get_vo_contacts(args)
+        results = topology_utils.filter_contacts(args, results)
+        emails = set()
+        for name in results.keys():
+            for contact in results[name]:
+                if 'Email' in contact:
+                    emails.add(contact['Email'])
+        recipients.update(emails)
+    if 'resources' in args.oim_recipients:
+        results = topology_utils.get_resource_contacts(args)
+        results = topology_utils.filter_contacts(args, results)
+        emails = set()
+        for name in results.keys():
+            for contact in results[name]:
+                if 'Email' in contact:
+                    emails.add(contact['Email'])
+        recipients.update(emails)
 
     with open(args.message, 'r') as fp:
         contents = fp.read()
@@ -97,6 +142,8 @@ def main():
     if args.dryrun:
         print(msg)
     else:
+        raise NotImplementedError()
+
         session = smtplib.SMTP('localhost')
         session.sendmail("help@opensciencegrid.org", recipients, msg)
         session.quit()
