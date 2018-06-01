@@ -73,7 +73,7 @@ def parseargs():
     oparser.add_argument("--oim-recipients", dest="oim_recipients", action="append", choices=["resources", "vos"])
     oparser.add_argument("--message", dest="message", help="File containing message contents", required=True)
     oparser.add_argument("--subject", dest="subject", help="Contents of the subject line", required=True)
-    oparser.add_argument("--from", dest="from_name", help="Human-friendly name for 'From' address", default="Open Science Grid")
+    oparser.add_argument("--from", dest="from_name", help="Human-friendly name for 'From' address", choices=["default", "security"], default="default")
     oparser.add_argument("--dry-run", dest="dryrun", default=False, action="store_true", help="Print out the email instead of sending it.")
 
     oparser.add_argument("--oim-name-filter", dest="name_filter", action="store",
@@ -95,6 +95,11 @@ def parseargs():
 
     if args.oim_recipients == 'vos' and args.owner_vo:
         raise Exception("--oim-owner-filter and --oim-recipients=vos options are conflicting.")
+
+    if args.from_name == 'security':
+        args.from_name = 'OSG Security Team'
+    else:
+        args.from_name = 'Open Science Grid'
 
     return args
 
