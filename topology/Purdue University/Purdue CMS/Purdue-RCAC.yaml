@@ -4,7 +4,6 @@ GroupID: 96
 Production: true
 Resources:
   Purdue-CMS-SE:
-    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -48,7 +47,6 @@ Resources:
       StorageCapacityMax: 1000
       StorageCapacityMin: 1000
   Purdue-CMS-Test:
-    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -105,7 +103,6 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 5.5
   Purdue-RCAC:
-    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -153,7 +150,6 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   T2_Purdue_Perfsonar_Bandwidth:
-    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -183,7 +179,6 @@ Resources:
     VOOwnership:
       CMS: 100
   T2_Purdue_Perfsonar_Latency:
-    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:

@@ -4,7 +4,6 @@ GroupID: 342
 Production: true
 Resources:
   UPittTier3_DTN:
-    Active: true
     Description: Data transfer node connected to ScienceDMZ for the ATLAS Tier3 at
       the University of Pittsburgh
     Disable: false
@@ -33,7 +32,6 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   UPittTier3_gridftp:
-    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

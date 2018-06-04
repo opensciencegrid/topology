@@ -4,7 +4,6 @@ GroupID: 278
 Production: true
 Resources:
   Beocat_CE:
-    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -37,7 +36,6 @@ Resources:
     VOOwnership:
       Beocat: 100
   Beocat_KSU_CE:
-    Active: true
     Description: HTCondor specifically setup for OSG. Worker nodes dynamically change
       based on cluster usage.
     Disable: false

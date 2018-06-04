@@ -4,7 +4,6 @@ GroupID: 383
 Production: true
 Resources:
   Discovery_PerfSonar_Bandwidth:
-    Active: true
     Description: bandwidth node
     Disable: false
     FQDN: perfsonar02.discovery.wisc.edu
@@ -17,7 +16,6 @@ Resources:
     VOOwnership:
       GLOW: 100
   Discovery_PerfSonar_Latency:
-    Active: true
     Description: latency node
     Disable: false
     FQDN: perfsonar01.discovery.wisc.edu

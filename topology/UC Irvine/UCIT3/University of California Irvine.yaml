@@ -4,7 +4,6 @@ GroupID: 287
 Production: true
 Resources:
   UCI_ATLAS_GRIDFTP:
-    Active: true
     Description: UCI gridftp
     Disable: false
     FQDN: gpatlas2.ps.uci.edu
@@ -17,7 +16,6 @@ Resources:
     VOOwnership:
       ATLAS: 100
   UCLHC IRVINE SUBMIT HOST:
-    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

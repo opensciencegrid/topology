@@ -5,7 +5,6 @@ GroupID: 159
 Production: true
 Resources:
   UMD_GUMS:
-    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -35,7 +34,6 @@ Resources:
     VOOwnership:
       CMS: 100
   umd-ce:
-    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -80,7 +78,6 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 5.5
   umd-cms:
-    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -131,7 +128,6 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   umd-gridftp:
-    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -155,7 +151,6 @@ Resources:
         Details:
           hidden: false
   umd-squid:
-    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
