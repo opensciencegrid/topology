@@ -19,6 +19,9 @@ Resources:
     # Active is true if the resource is fully set up, and
     # false otherwise
     Active: true
+    # Disable is true if the resource is not accepting requests, and
+    # false otherwise
+    Disable: false
     # Description is a long description of the resource; may be multiple lines
     Description: This is a <RESOURCE> for <SITE>.
     # ContactLists contain information about people to contact regarding this resource.
