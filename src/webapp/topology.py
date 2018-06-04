@@ -367,7 +367,11 @@ class Downtime(object):
         new_downtime["CreatedTime"] = "Not Available"
         new_downtime["UpdateTime"] = "Not Available"
 
-        for k in ["ID", "StartTime", "EndTime", "Class", "Severity", "Description"]:
+        fmt = "%b %d, %Y %H:%M"
+        new_downtime["StartTime"] = self.start_time.strftime(fmt)
+        new_downtime["EndTime"] = self.end_time.strftime(fmt)
+
+        for k in ["ID", "Class", "Severity", "Description"]:
             new_downtime[k] = self.data.get(k, None)
 
         return new_downtime
