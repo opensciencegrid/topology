@@ -354,7 +354,7 @@ class Downtime(object):
         new_downtime["UpdateTime"] = "Not Available"
 
         for k in ["ID", "StartTime", "EndTime", "Class", "Severity", "Description"]:
-            new_downtime[k] = self.data[k]
+            new_downtime[k] = self.data.get(k, None)
 
         return new_downtime
 
