@@ -1,10 +1,9 @@
 from collections import OrderedDict
 from datetime import datetime, timedelta, timezone
 from enum import Enum
-import pprint
+from logging import getLogger
 import re
 import urllib.parse
-import sys
 from typing import Dict, List
 
 import dateparser
@@ -15,6 +14,9 @@ from .contacts_reader import ContactsData
 
 GRIDTYPE_1 = "OSG Production Resource"
 GRIDTYPE_2 = "OSG Integration Test Bed Resource"
+
+log = getLogger(__name__)
+
 
 class Timeframe(Enum):
     PAST = 1
@@ -217,9 +219,9 @@ class ResourceGroup(object):
                 assert isinstance(res, dict)
                 res = Resource(name, res, self.common_data)
                 self.resources.append(res)
-            except Exception:
-                pprint.pprint(res, stream=sys.stderr)
-                raise
+            except (AttributeError, KeyError, ValueError) as err:
+                log.exception("Error with resource %s: %s", name, err)
+                continue
         self.resources.sort(key=lambda x: x.name)
 
         self.data = yaml_data
@@ -237,10 +239,22 @@ class ResourceGroup(object):
         if filters.grid_type is not None and data_gridtype != filters.grid_type:
             return
 
-        filtered_resources = list(filter(None, [x.get_tree(authorized, filters) for x in self.resources]))
+        filtered_resources = []
+        for res in self.resources:
+            try:
+                tree = res.get_tree(authorized, filters)
+                if tree:
+                    filtered_resources.append(tree)
+            except (AttributeError, KeyError, ValueError) as err:
+                log.exception("Error with resource %s: %s", res.name, err)
+                continue
         if not filtered_resources:
             return  # all resources filtered out
-        filtered_data = self._expand_rg()
+        try:
+            filtered_data = self._expand_rg()
+        except (AttributeError, KeyError, ValueError) as err:
+            log.exception("Error with resource group %s/%s: %s", self.site, self.name, err)
+            return
         filtered_data["Resources"] = {"Resource": filtered_resources}
         return filtered_data
 
@@ -328,7 +342,7 @@ class Downtime(object):
                 services = ensure_list(r.services)
                 break
         else:
-            # print("Resource %s does not exist" % downtime["ResourceName"], file=sys.stderr)
+            log.warning("Resource %s does not exist -- ignoring downtime", new_downtime["ResourceName"])
             return None
 
         new_services = []
@@ -420,14 +434,29 @@ class Topology(object):
         for treekey, dtkey in [("PastDowntimes", Timeframe.PAST),
                                ("CurrentDowntimes", Timeframe.PRESENT),
                                ("FutureDowntimes", Timeframe.FUTURE)]:
-            dtlist = list(
-                filter(None,
-                       [dt.get_tree(filters) for dt in self.downtimes_by_timeframe[dtkey]]))
+            dtlist = []
+            for dt in self.downtimes_by_timeframe[dtkey]:
+                try:
+                    dttree = dt.get_tree(filters)
+                except (AttributeError, KeyError, ValueError) as err:
+                    log.exception("Error with downtime %s: %s", dt, err)
+                    continue
+                if dttree:
+                    dtlist.append(dttree)
             tree["Downtimes"][treekey] = {
                 "Downtime": dtlist}
 
         return tree
 
     def add_downtime(self, sitename: str, rgname: str, downtime: Dict):
-        dt = Downtime(self.rgs[(sitename, rgname)], downtime)
+        try:
+            rg = self.rgs[(sitename, rgname)]
+        except KeyError:
+            log.warning("RG %s/%s does not exist -- skipping downtime", sitename, rgname)
+            return
+        try:
+            dt = Downtime(rg, downtime)
+        except ValueError as err:
+            log.warning("Invalid data in downtime -- skipping: %s", err)
+            return
         self.downtimes_by_timeframe[dt.timeframe].append(dt)

@@ -1,11 +1,16 @@
 import copy
 
 from collections import OrderedDict
+from logging import getLogger
 from typing import Dict, List
 
 
 from .common import Filters, MaybeOrderedDict, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list
 from .contacts_reader import ContactsData
+
+
+log = getLogger(__name__)
+
 
 class VOsData(object):
     def __init__(self, contacts_data: ContactsData, reporting_groups_data):
@@ -24,9 +29,12 @@ class VOsData(object):
             filters = Filters()
         expanded_vo_list = []
         for vo_name in sorted(self.vos.keys(), key=lambda x: x.lower()):
-            expanded_vo_data = self._expand_vo(vo_name, authorized=authorized, filters=filters)
-            if expanded_vo_data:
-                expanded_vo_list.append(expanded_vo_data)
+            try:
+                expanded_vo_data = self._expand_vo(vo_name, authorized=authorized, filters=filters)
+                if expanded_vo_data:
+                    expanded_vo_list.append(expanded_vo_data)
+            except (KeyError, ValueError, AttributeError) as err:
+                log.exception("Problem with VO data for %s: %s", vo_name, err)
 
         return {"VOSummary": {
             "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
@@ -100,9 +108,7 @@ class VOsData(object):
                         if dns:
                             new_contact["DN"] = dns[0]
                     else:
-                        print("id {0} not found for {1}".format(
-                            contact["ID"], contact["Name"]
-                        ))
+                        log.warning("id %s not found for %s", contact["ID"], contact["Name"])
                 contact_items.append(new_contact)
             new_contacttypes.append({"Type": type_, "Contacts": {"Contact": contact_items}})
         return {"ContactType": new_contacttypes}
@@ -169,5 +175,3 @@ class VOsData(object):
                 newdata["FQANs"] = None
         new_reporting_groups = expand_attr_list(new_reporting_groups, "Name", ordering=["Name", "FQANs", "Contacts"])
         return {"ReportingGroup": new_reporting_groups}
-
-
