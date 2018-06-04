@@ -131,20 +131,7 @@ global_data = GlobalData(app.config)
 @app.route('/')
 def homepage():
 
-    return """
-    <h1>OSG Topology Interface</h1>
-    <a href="https://github.com/opensciencegrid/topology">Source Repo</a><br/>
-    <p>XML data:
-        <ul>
-            <li><a href="miscproject/xml?">Projects data</a></li>
-            <li><a href="miscuser/xml?">User data (authorized users only)</a></li>
-            <li><a href="rgsummary/xml?">Resource topology data</a></li>
-            <li><a href="rgdowntime/xml?">Resource downtime data</a>
-                (<a href="rgdowntime/xml?downtime_attrs_showpast=all">with past downtimes</a>)</li>
-            <li><a href="vosummary/xml?">Virtual Organization data</a></li>
-        </ul>
-    </p>
-    """
+    return render_template('homepage.tmpl')
 
 @app.route('/map/iframe')
 def map():
