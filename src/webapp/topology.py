@@ -386,24 +386,12 @@ class Topology(object):
         self.rgs = {}
 
     def add_rg(self, facility_name, site_name, name, parsed_data):
-        if facility_name not in self.facilities:
-            raise TopologyError("Unknown facility {0} -- call add_facility first".format(facility_name))
-        if site_name not in self.sites:
-            raise TopologyError("Unknown site {0} in facility {1} -- call add_site first".format(site_name, facility_name))
-        if (site_name, name) in self.rgs:
-            raise TopologyError("Duplicate RG {0} in site {1}".format(name, site_name))
         self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
 
     def add_facility(self, name, id):
-        if name in self.facilities:
-            raise TopologyError("Duplicate facility " + name)
         self.facilities[name] = Facility(name, id)
 
     def add_site(self, facility_name, name, id, site_info):
-        if facility_name not in self.facilities:
-            raise TopologyError("Unknown facility {0} -- call add_facility first".format(facility_name))
-        if name in self.sites:
-            raise TopologyError("Duplicate site " + name)
         self.sites[name] = Site(name, id, self.facilities[facility_name], site_info)
 
     def get_resource_summary(self, authorized=False, filters: Filters = None) -> Dict:
