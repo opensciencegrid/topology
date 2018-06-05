@@ -24,7 +24,6 @@ Resources:
       DZero: 10
       Nova: 60
   FZU_NOVA_CE:
-    Active: true
     Description: This is CE for NOvA production at FZU (new local HTCondor batch)
     Disable: false
     FQDN: novace.farm.particle.cz
@@ -48,7 +47,6 @@ Resources:
       DZero: 10
       Nova: 60
   FZU_OSG_CE1:
-    Active: true
     Description: This is CE for OSG (NOvA, DUNE) production at FZU (new cluster with
       HTCondor local batch system)
     Disable: false
@@ -65,7 +63,6 @@ Resources:
       DZero: 10
       Nova: 45
   FZU_OSG_CE2:
-    Active: true
     Description: This is CE for OSG (NOvA, DUNE) production at FZU (new cluster with
       HTCondor local batch system)
     Disable: false
@@ -82,7 +79,6 @@ Resources:
       DZero: 10
       Nova: 45
   perfSONAR_FZU_bandwidth:
-    Active: true
     Description: This is the perfSONAR-PS bandwidth instance at the FZU cluster farm.particle.cz
     Disable: false
     FQDN: ps02-b.farm.particle.cz
@@ -95,7 +91,6 @@ Resources:
     VOOwnership:
       ATLAS: 50
   perfSONAR_FZU_latency:
-    Active: true
     Description: This is the perfSONAR-PS latency instance at the FZU cluster farm.particle.cz
     Disable: false
     FQDN: ps01-l.farm.particle.cz
