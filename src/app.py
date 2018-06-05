@@ -38,6 +38,19 @@ class CachedData:
         self.force_update = False
 
 
+def _verify_config(cfg):
+    if not cfg["NO_GIT"]:
+        ssh_key = cfg["GIT_SSH_KEY"]
+        if not ssh_key:
+            raise ValueError("GIT_SSH_KEY must be specified if using Git")
+        elif not os.path.exists(ssh_key):
+            raise FileNotFoundError(ssh_key)
+        else:
+            st = os.stat(ssh_key)
+            if st.st_uid != os.getuid() or (st.st_mode & 0o7777) not in (0o700, 0o600, 0o400):
+                raise PermissionError(ssh_key)
+
+
 class GlobalData:
     def __init__(self, config):
         self.contacts_data = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
@@ -63,12 +76,11 @@ class GlobalData:
                 app.logger.warning("topology repo update failed")
         for d in [self.projects_dir, self.topology_dir, self.vos_dir]:
             if not os.path.exists(d):
+                app.logger.error("%s not in topology repo", d)
                 raise FileNotFoundError(d)
 
     def _update_contacts_repo(self):
         if not self.config["NO_GIT"]:
-            if not self.config["GIT_SSH_KEY"]:
-                raise RuntimeError("Contacts data requires an SSH key")
             parent = os.path.dirname(self.config["CONTACT_DATA_DIR"])
             os.makedirs(parent, mode=0o700, exist_ok=True)
             ok = git_clone_or_pull(self.config["CONTACT_DATA_REPO"], self.config["CONTACT_DATA_DIR"],
@@ -78,7 +90,7 @@ class GlobalData:
             else:
                 app.logger.warning("contact repo update failed")
         if not os.path.exists(self.contacts_file):
-            raise FileNotFoundError(self.contacts_file)
+            app.logger.error("%s not in contact repo", self.contacts_file)
 
     def get_contacts_data(self) -> ContactsData:
         """
@@ -125,6 +137,8 @@ app.config.from_object(default_config)
 app.config.from_pyfile("config.py", silent=True)
 if "TOPOLOGY_CONFIG" in os.environ:
     app.config.from_envvar("TOPOLOGY_CONFIG", silent=False)
+_verify_config(app.config)
+
 global_data = GlobalData(app.config)
 
 
