@@ -160,7 +160,9 @@ def email_to_id(email: str) -> str:
 
 def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
     if ssh_key and not os.path.exists(ssh_key):
-        raise FileNotFoundError(ssh_key)
+        log.critical("ssh key not found at %s: unable to update secure repo",
+                     ssh_key)
+        return False
     if dir:
         base_cmd = ["git", "--git-dir", os.path.join(dir, ".git"), "--work-tree", dir]
     else:
