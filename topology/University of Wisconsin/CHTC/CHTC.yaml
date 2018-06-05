@@ -5,6 +5,7 @@ GroupID: 314
 Production: true
 Resources:
   CHTC and BATLAB OSG Mirror:
+    Disable: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -14,28 +15,20 @@ Resources:
         Primary:
           ID: 46a55ac4815b2b8c00ff283549f413113b45d628
           Name: Aaron Moate
-        Tertiary:
-          ID: 9a39cacc57e09cb90be41c93c204231ac1b15aee
-          Name: Neil Van Lysel
       Resource Report Contact:
         Primary:
           ID: 46a55ac4815b2b8c00ff283549f413113b45d628
           Name: Aaron Moate
-        Tertiary:
-          ID: 9a39cacc57e09cb90be41c93c204231ac1b15aee
-          Name: Neil Van Lysel
       Security Contact:
         Primary:
           ID: 46a55ac4815b2b8c00ff283549f413113b45d628
           Name: Aaron Moate
-    Description: This is the CHTC and BATLAB mirror of the OSG repos at repo.grid.iu.edu/osg
-      via rsync every two hours.
-    Disable: false
+    Description: This was the CHTC and BATLAB mirror of the OSG repos at repo.grid.iu.edu/osg but is no longer active
     FQDN: mirror.batlab.org
     ID: 608
     Services:
       Software Repo Mirror:
-        Description: OSG software repository mirror server
+        Description: OSG software repository mirror server (inactive)
         Details:
           root: http://mirror.batlab.org/repos/osg/
     VOOwnership:
