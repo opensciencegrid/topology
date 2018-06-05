@@ -1,4 +1,5 @@
 from collections import OrderedDict
+from logging import getLogger
 import hashlib
 import os
 import re
@@ -15,6 +16,9 @@ MISCUSER_SCHEMA_URL = "https://my.opensciencegrid.org/schema/miscuser.xsd"
 RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
 VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
+
+
+log = getLogger(__name__)
 
 
 class Filters(object):
@@ -181,8 +185,7 @@ def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
             # just a locking fail, ignore
             return True
 
-        print("Git failed:\nCommand was {0}\nOutput was:\n{1}".format(full_cmd, git_result.stdout),
-              file=sys.stderr)
+        log.warning("Git failed:\nCommand was {0}\nOutput was:\n{1}".format(full_cmd, git_result.stdout))
         return False
 
     return True
