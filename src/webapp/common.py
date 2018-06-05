@@ -182,11 +182,6 @@ def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
                                 encoding="utf-8")
     if git_result.returncode != 0:
         out = git_result.stdout
-        if "error: cannot lock ref" in out \
-                or re.search(r"Unable to create.*\.lock.*File exists", out):
-            # just a locking fail, ignore
-            return True
-
         log.warning("Git failed:\nCommand was {0}\nOutput was:\n{1}".format(full_cmd, git_result.stdout))
         return False
 
