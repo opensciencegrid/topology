@@ -34,9 +34,10 @@ class CachedData:
     def should_update(self):
         return self.force_update or (not self.data or time.time() - self.timestamp > self.cache_lifetime)
 
-    def update(self, data):
+    def update(self, data, bump_timestamp=True):
         self.data = data
-        self.timestamp = time.time()
+        if bump_timestamp:
+            self.timestamp = time.time()
         self.force_update = False
 
 
@@ -76,10 +77,12 @@ class GlobalData:
                 app.logger.debug("topology repo update ok")
             else:
                 app.logger.warning("topology repo update failed")
+                return False
         for d in [self.projects_dir, self.topology_dir, self.vos_dir]:
             if not os.path.exists(d):
                 app.logger.error("%s not in topology repo", d)
-                raise FileNotFoundError(d)
+                return False
+        return True
 
     def _update_contacts_repo(self):
         if not self.config["NO_GIT"]:
@@ -91,16 +94,20 @@ class GlobalData:
                 app.logger.debug("contact repo update ok")
             else:
                 app.logger.warning("contact repo update failed")
+                return False
         if not os.path.exists(self.contacts_file):
             app.logger.error("%s not in contact repo", self.contacts_file)
+            return False
+        return True
 
     def get_contacts_data(self) -> ContactsData:
         """
         Get the contact information from a private git repo
         """
         if self.contacts_data.should_update():
-            self._update_contacts_repo()
-            self.contacts_data.update(contacts_reader.get_contacts_data(self.contacts_file))
+            ok = self._update_contacts_repo()
+            self.contacts_data.update(contacts_reader.get_contacts_data(self.contacts_file),
+                                      bump_timestamp=ok)
 
         return self.contacts_data.data
 
@@ -115,20 +122,23 @@ class GlobalData:
 
     def get_topology(self) -> Topology:
         if self.topology.should_update():
-            self._update_topology_repo()
-            self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data()))
+            ok = self._update_topology_repo()
+            self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data()),
+                                 bump_timestamp=ok)
         return self.topology.data
 
     def get_vos_data(self) -> VOsData:
         if self.vos_data.should_update():
-            self._update_topology_repo()
-            self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data()))
+            ok = self._update_topology_repo()
+            self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data()),
+                                 bump_timestamp=ok)
         return self.vos_data.data
 
     def get_projects(self) -> Dict:
         if self.projects.should_update():
-            self._update_topology_repo()
-            self.projects.update(project_reader.get_projects(self.projects_dir))
+            ok = self._update_topology_repo()
+            self.projects.update(project_reader.get_projects(self.projects_dir),
+                                 bump_timestamp=ok)
         return self.projects.data
 
 
