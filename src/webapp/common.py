@@ -1,6 +1,11 @@
 from collections import OrderedDict
+from logging import getLogger
 import hashlib
+import os
 import re
+import shlex
+import subprocess
+import sys
 from typing import Dict, List, Union
 
 import xmltodict
@@ -11,6 +16,9 @@ MISCUSER_SCHEMA_URL = "https://my.opensciencegrid.org/schema/miscuser.xsd"
 RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
 VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
+
+
+log = getLogger(__name__)
 
 
 class Filters(object):
@@ -148,3 +156,47 @@ def trim_space(s: str) -> str:
 
 def email_to_id(email: str) -> str:
     return hashlib.sha1(email.strip().lower().encode()).hexdigest()
+
+
+def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
+    if ssh_key and not os.path.exists(ssh_key):
+        raise FileNotFoundError(ssh_key)
+    if dir:
+        base_cmd = ["git", "--git-dir", os.path.join(dir, ".git"), "--work-tree", dir]
+    else:
+        base_cmd = ["git"]
+
+    if ssh_key:
+        shell = True
+        # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
+        full_cmd = "ssh-agent bash -c " + \
+                   shlex.quote("ssh-add {0}; {1}".format(shlex.quote(ssh_key),
+                               " ".join([shlex.quote(s) for s in (base_cmd + cmd)])))
+    else:
+        shell = False
+        full_cmd = base_cmd + cmd
+
+    git_result = subprocess.run(full_cmd, shell=shell, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                encoding="utf-8")
+    if git_result.returncode != 0:
+        out = git_result.stdout
+        if "error: cannot lock ref" in out \
+                or re.search(r"Unable to create.*\.lock.*File exists", out):
+            # just a locking fail, ignore
+            return True
+
+        log.warning("Git failed:\nCommand was {0}\nOutput was:\n{1}".format(full_cmd, git_result.stdout))
+        return False
+
+    return True
+
+
+def git_clone_or_pull(repo, dir, branch, ssh_key=None) -> bool:
+    if os.path.exists(os.path.join(dir, ".git")):
+        _ = run_git_cmd(["clean", "-df"], dir=dir)
+        ok = run_git_cmd(["fetch", "origin"], dir=dir, ssh_key=ssh_key)
+        ok = ok and run_git_cmd(["reset", "--hard", "origin/{0}".format(branch)], dir=dir)
+    else:
+        ok = run_git_cmd(["clone", repo, dir], ssh_key=ssh_key)
+        ok = ok and run_git_cmd(["checkout", branch], dir=dir)
+    return ok
