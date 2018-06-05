@@ -2,7 +2,9 @@
 Application File
 """
 import flask
+import flask.logging
 from flask import Flask, Response, request, render_template
+import logging
 import os
 import re
 import sys
@@ -329,4 +331,8 @@ if __name__ == '__main__':
         if sys.argv[1] == "--auth":
             default_authorized = True
     except IndexError: pass
+    logging.basicConfig(level=logging.DEBUG)
     app.run(debug=True, use_reloader=True)
+else:
+    root = logging.getLogger()
+    root.addHandler(flask.logging.default_handler)
