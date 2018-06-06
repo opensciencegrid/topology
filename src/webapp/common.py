@@ -160,7 +160,9 @@ def email_to_id(email: str) -> str:
 
 def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
     if ssh_key and not os.path.exists(ssh_key):
-        raise FileNotFoundError(ssh_key)
+        log.critical("ssh key not found at %s: unable to update secure repo",
+                     ssh_key)
+        return False
     if dir:
         base_cmd = ["git", "--git-dir", os.path.join(dir, ".git"), "--work-tree", dir]
     else:
@@ -180,11 +182,6 @@ def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
                                 encoding="utf-8")
     if git_result.returncode != 0:
         out = git_result.stdout
-        if "error: cannot lock ref" in out \
-                or re.search(r"Unable to create.*\.lock.*File exists", out):
-            # just a locking fail, ignore
-            return True
-
         log.warning("Git failed:\nCommand was {0}\nOutput was:\n{1}".format(full_cmd, git_result.stdout))
         return False
 

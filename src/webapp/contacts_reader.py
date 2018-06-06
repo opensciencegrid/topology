@@ -1,6 +1,7 @@
 from argparse import ArgumentParser, FileType
 from collections import OrderedDict
 import hashlib
+from logging import getLogger
 import os
 import sys
 from typing import Dict
@@ -12,6 +13,9 @@ if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from webapp.common import MaybeOrderedDict, to_xml, MISCUSER_SCHEMA_URL
+
+
+log = getLogger(__name__)
 
 
 class User(object):
@@ -95,7 +99,11 @@ class ContactsData(object):
                           key=lambda x: self.users_by_id[x].name.lower()):
             user = self.users_by_id[id_]
             assert isinstance(user, User)
-            user_tree = user.get_tree(authorized, filters)
+            try:
+                user_tree = user.get_tree(authorized, filters)
+            except (AttributeError, KeyError, ValueError) as err:
+                log.exception("Error adding user with id %s: err", id_, err)
+                continue
             if user_tree:
                 user_list.append(user_tree)
         return {"Users":

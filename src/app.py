@@ -2,7 +2,9 @@
 Application File
 """
 import flask
+import flask.logging
 from flask import Flask, Response, request, render_template
+import logging
 import os
 import re
 import sys
@@ -32,10 +34,24 @@ class CachedData:
     def should_update(self):
         return self.force_update or (not self.data or time.time() - self.timestamp > self.cache_lifetime)
 
-    def update(self, data):
+    def update(self, data, bump_timestamp=True):
         self.data = data
-        self.timestamp = time.time()
+        if bump_timestamp:
+            self.timestamp = time.time()
         self.force_update = False
+
+
+def _verify_config(cfg):
+    if not cfg["NO_GIT"]:
+        ssh_key = cfg["GIT_SSH_KEY"]
+        if not ssh_key:
+            raise ValueError("GIT_SSH_KEY must be specified if using Git")
+        elif not os.path.exists(ssh_key):
+            raise FileNotFoundError(ssh_key)
+        else:
+            st = os.stat(ssh_key)
+            if st.st_uid != os.getuid() or (st.st_mode & 0o7777) not in (0o700, 0o600, 0o400):
+                raise PermissionError(ssh_key)
 
 
 class GlobalData:
@@ -61,14 +77,15 @@ class GlobalData:
                 app.logger.debug("topology repo update ok")
             else:
                 app.logger.warning("topology repo update failed")
+                return False
         for d in [self.projects_dir, self.topology_dir, self.vos_dir]:
             if not os.path.exists(d):
-                raise FileNotFoundError(d)
+                app.logger.error("%s not in topology repo", d)
+                return False
+        return True
 
     def _update_contacts_repo(self):
         if not self.config["NO_GIT"]:
-            if not self.config["GIT_SSH_KEY"]:
-                raise RuntimeError("Contacts data requires an SSH key")
             parent = os.path.dirname(self.config["CONTACT_DATA_DIR"])
             os.makedirs(parent, mode=0o700, exist_ok=True)
             ok = git_clone_or_pull(self.config["CONTACT_DATA_REPO"], self.config["CONTACT_DATA_DIR"],
@@ -77,16 +94,20 @@ class GlobalData:
                 app.logger.debug("contact repo update ok")
             else:
                 app.logger.warning("contact repo update failed")
+                return False
         if not os.path.exists(self.contacts_file):
-            raise FileNotFoundError(self.contacts_file)
+            app.logger.error("%s not in contact repo", self.contacts_file)
+            return False
+        return True
 
     def get_contacts_data(self) -> ContactsData:
         """
         Get the contact information from a private git repo
         """
         if self.contacts_data.should_update():
-            self._update_contacts_repo()
-            self.contacts_data.update(contacts_reader.get_contacts_data(self.contacts_file))
+            ok = self._update_contacts_repo()
+            self.contacts_data.update(contacts_reader.get_contacts_data(self.contacts_file),
+                                      bump_timestamp=ok)
 
         return self.contacts_data.data
 
@@ -101,20 +122,23 @@ class GlobalData:
 
     def get_topology(self) -> Topology:
         if self.topology.should_update():
-            self._update_topology_repo()
-            self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data()))
+            ok = self._update_topology_repo()
+            self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data()),
+                                 bump_timestamp=ok)
         return self.topology.data
 
     def get_vos_data(self) -> VOsData:
         if self.vos_data.should_update():
-            self._update_topology_repo()
-            self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data()))
+            ok = self._update_topology_repo()
+            self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data()),
+                                 bump_timestamp=ok)
         return self.vos_data.data
 
     def get_projects(self) -> Dict:
         if self.projects.should_update():
-            self._update_topology_repo()
-            self.projects.update(project_reader.get_projects(self.projects_dir))
+            ok = self._update_topology_repo()
+            self.projects.update(project_reader.get_projects(self.projects_dir),
+                                 bump_timestamp=ok)
         return self.projects.data
 
 
@@ -125,6 +149,8 @@ app.config.from_object(default_config)
 app.config.from_pyfile("config.py", silent=True)
 if "TOPOLOGY_CONFIG" in os.environ:
     app.config.from_envvar("TOPOLOGY_CONFIG", silent=False)
+_verify_config(app.config)
+
 global_data = GlobalData(app.config)
 
 
@@ -315,4 +341,8 @@ if __name__ == '__main__':
         if sys.argv[1] == "--auth":
             default_authorized = True
     except IndexError: pass
+    logging.basicConfig(level=logging.DEBUG)
     app.run(debug=True, use_reloader=True)
+else:
+    root = logging.getLogger()
+    root.addHandler(flask.logging.default_handler)

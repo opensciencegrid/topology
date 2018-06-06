@@ -1,10 +1,9 @@
 from collections import OrderedDict
 from datetime import datetime, timedelta, timezone
 from enum import Enum
-import pprint
+from logging import getLogger
 import re
 import urllib.parse
-import sys
 from typing import Dict, List
 
 import dateparser
@@ -15,6 +14,9 @@ from .contacts_reader import ContactsData
 
 GRIDTYPE_1 = "OSG Production Resource"
 GRIDTYPE_2 = "OSG Integration Test Bed Resource"
+
+log = getLogger(__name__)
+
 
 class Timeframe(Enum):
     PAST = 1
@@ -217,9 +219,9 @@ class ResourceGroup(object):
                 assert isinstance(res, dict)
                 res = Resource(name, res, self.common_data)
                 self.resources.append(res)
-            except Exception:
-                pprint.pprint(res, stream=sys.stderr)
-                raise
+            except (AttributeError, KeyError, ValueError) as err:
+                log.exception("Error with resource %s: %s", name, err)
+                continue
         self.resources.sort(key=lambda x: x.name)
 
         self.data = yaml_data
@@ -237,10 +239,22 @@ class ResourceGroup(object):
         if filters.grid_type is not None and data_gridtype != filters.grid_type:
             return
 
-        filtered_resources = list(filter(None, [x.get_tree(authorized, filters) for x in self.resources]))
+        filtered_resources = []
+        for res in self.resources:
+            try:
+                tree = res.get_tree(authorized, filters)
+                if tree:
+                    filtered_resources.append(tree)
+            except (AttributeError, KeyError, ValueError) as err:
+                log.exception("Error with resource %s: %s", res.name, err)
+                continue
         if not filtered_resources:
             return  # all resources filtered out
-        filtered_data = self._expand_rg()
+        try:
+            filtered_data = self._expand_rg()
+        except (AttributeError, KeyError, ValueError) as err:
+            log.exception("Error with resource group %s/%s: %s", self.site, self.name, err)
+            return
         filtered_data["Resources"] = {"Resource": filtered_resources}
         return filtered_data
 
@@ -328,7 +342,7 @@ class Downtime(object):
                 services = ensure_list(r.services)
                 break
         else:
-            # print("Resource %s does not exist" % downtime["ResourceName"], file=sys.stderr)
+            log.warning("Resource %s does not exist -- ignoring downtime", new_downtime["ResourceName"])
             return None
 
         new_services = []
@@ -353,7 +367,11 @@ class Downtime(object):
         new_downtime["CreatedTime"] = "Not Available"
         new_downtime["UpdateTime"] = "Not Available"
 
-        for k in ["ID", "StartTime", "EndTime", "Class", "Severity", "Description"]:
+        fmt = "%b %d, %Y %H:%M"
+        new_downtime["StartTime"] = self.start_time.strftime(fmt)
+        new_downtime["EndTime"] = self.end_time.strftime(fmt)
+
+        for k in ["ID", "Class", "Severity", "Description"]:
             new_downtime[k] = self.data.get(k, None)
 
         return new_downtime
@@ -386,24 +404,12 @@ class Topology(object):
         self.rgs = {}
 
     def add_rg(self, facility_name, site_name, name, parsed_data):
-        if facility_name not in self.facilities:
-            raise TopologyError("Unknown facility {0} -- call add_facility first".format(facility_name))
-        if site_name not in self.sites:
-            raise TopologyError("Unknown site {0} in facility {1} -- call add_site first".format(site_name, facility_name))
-        if (site_name, name) in self.rgs:
-            raise TopologyError("Duplicate RG {0} in site {1}".format(name, site_name))
         self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
 
     def add_facility(self, name, id):
-        if name in self.facilities:
-            raise TopologyError("Duplicate facility " + name)
         self.facilities[name] = Facility(name, id)
 
     def add_site(self, facility_name, name, id, site_info):
-        if facility_name not in self.facilities:
-            raise TopologyError("Unknown facility {0} -- call add_facility first".format(facility_name))
-        if name in self.sites:
-            raise TopologyError("Duplicate site " + name)
         self.sites[name] = Site(name, id, self.facilities[facility_name], site_info)
 
     def get_resource_summary(self, authorized=False, filters: Filters = None) -> Dict:
@@ -432,14 +438,29 @@ class Topology(object):
         for treekey, dtkey in [("PastDowntimes", Timeframe.PAST),
                                ("CurrentDowntimes", Timeframe.PRESENT),
                                ("FutureDowntimes", Timeframe.FUTURE)]:
-            dtlist = list(
-                filter(None,
-                       [dt.get_tree(filters) for dt in self.downtimes_by_timeframe[dtkey]]))
+            dtlist = []
+            for dt in self.downtimes_by_timeframe[dtkey]:
+                try:
+                    dttree = dt.get_tree(filters)
+                except (AttributeError, KeyError, ValueError) as err:
+                    log.exception("Error with downtime %s: %s", dt, err)
+                    continue
+                if dttree:
+                    dtlist.append(dttree)
             tree["Downtimes"][treekey] = {
                 "Downtime": dtlist}
 
         return tree
 
     def add_downtime(self, sitename: str, rgname: str, downtime: Dict):
-        dt = Downtime(self.rgs[(sitename, rgname)], downtime)
+        try:
+            rg = self.rgs[(sitename, rgname)]
+        except KeyError:
+            log.warning("RG %s/%s does not exist -- skipping downtime", sitename, rgname)
+            return
+        try:
+            dt = Downtime(rg, downtime)
+        except ValueError as err:
+            log.warning("Invalid data in downtime -- skipping: %s", err)
+            return
         self.downtimes_by_timeframe[dt.timeframe].append(dt)
