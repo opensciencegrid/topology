@@ -210,7 +210,7 @@ class ResourceGroup(object):
         self.common_data = common_data
 
         scname = yaml_data["SupportCenter"]
-        scid = int(common_data.support_centers[scname])
+        scid = int(common_data.support_centers[scname]["ID"])
         self.support_center = OrderedDict([("ID", scid), ("Name", scname)])
 
         self.resources = []
