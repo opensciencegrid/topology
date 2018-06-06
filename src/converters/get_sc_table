@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [[ $# -lt 1 || $1 = -h || $1 = --help ]]; then
+    echo "Usage: ${0##*/} <output file> [<mysql options>]"
+    exit 2
+fi
+
+outfile=$1
+shift
+set -e
+mysql --batch "$@" > "$outfile" <<__EOF__
+USE oim;
+SELECT
+    sc.id AS ID,
+    sc.name AS Name,
+    sc.long_name AS LongName,
+    sc.description AS Description,
+    sc.community AS Community,
+    c.name AS Contact,
+    c.primary_email AS PrimaryEmail,
+    ct.name AS ContactType
+    FROM sc JOIN sc_contact scc, contact c, contact_type ct
+    WHERE scc.sc_id = sc.id AND scc.contact_id = c.id AND scc.contact_type_id = ct.id
+    AND (SELECT COUNT(*) FROM site WHERE sc_id = sc.id) > 0
+;
+__EOF__
+sed -i -e "s/\r//g" "$outfile"
+[[ -s $outfile ]] && echo "file ok"
+
+echo "NOTE: do not commit this file to a public repo b/c it contains email addresses"
