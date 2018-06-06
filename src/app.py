@@ -150,6 +150,11 @@ app.config.from_pyfile("config.py", silent=True)
 if "TOPOLOGY_CONFIG" in os.environ:
     app.config.from_envvar("TOPOLOGY_CONFIG", silent=False)
 _verify_config(app.config)
+if "AUTH" in app.config:
+    if app.debug:
+        default_authorized = app.config["AUTH"]
+    else:
+        print("ignoring AUTH option in non-debugging mode", file=sys.stderr)
 
 global_data = GlobalData(app.config)
 
