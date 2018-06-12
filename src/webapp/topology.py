@@ -367,7 +367,7 @@ class Downtime(object):
         new_downtime["CreatedTime"] = "Not Available"
         new_downtime["UpdateTime"] = "Not Available"
 
-        fmt = "%b %d, %Y %H:%M %p %Z"
+        fmt = "%b %d, %Y %H:%M %Z"
         new_downtime["StartTime"] = self.start_time.strftime(fmt)
         new_downtime["EndTime"] = self.end_time.strftime(fmt)
 
