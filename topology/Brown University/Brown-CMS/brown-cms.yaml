@@ -1,37 +1,45 @@
-Disable: false
-GroupDescription: T3 Computing center for CMS VO.
-GroupID: 241
+GroupDescription: Brown CMS T3 cluster
+GroupID: 346
 Production: true
 Resources:
-  brown-cms:
+  brown-cms-gen3:
+    Description: Third generation CMS T3 at Brown
+    FQDN: brux11.hep.brown.edu
+    Active: false
+    # ^^^ CE not set up yet
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
+          ID: 87a12d0fb0bc3305dea8d81ea7905b324b9932f3
+          Name: David D. Johnson
+        Secondary:
+          ID: b00d8f35a7a528ab7843300ab74e3a4c63ae9b2e
+          Name: Samuel Fulcomer
       Miscellaneous Contact:
-        Tertiary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
+        Primary:
+          ID: 87a12d0fb0bc3305dea8d81ea7905b324b9932f3
+          Name: David D. Johnson
+        Secondary:
+          ID: b00d8f35a7a528ab7843300ab74e3a4c63ae9b2e
+          Name: Samuel Fulcomer
       Resource Report Contact:
-        Tertiary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
+        Primary:
+          ID: 87a12d0fb0bc3305dea8d81ea7905b324b9932f3
+          Name: David D. Johnson
+        Secondary:
+          ID: b00d8f35a7a528ab7843300ab74e3a4c63ae9b2e
+          Name: Samuel Fulcomer
       Security Contact:
         Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-    Description: CMS T3 CE.
-    Disable: false
-    FQDN: grid-0.hep.brown.edu
-    ID: 258
+          ID: 87a12d0fb0bc3305dea8d81ea7905b324b9932f3
+          Name: David D. Johnson
+        Secondary:
+          ID: b00d8f35a7a528ab7843300ab74e3a4c63ae9b2e
+          Name: Samuel Fulcomer
+    ID: 445
     Services:
       CE:
         Description: Compute Element
-        Details:
-          hidden: false
-      SRMv2:
-        Description: SRM V2 Storage Element
         Details:
           hidden: false
     VOOwnership:
