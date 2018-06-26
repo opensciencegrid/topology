@@ -41,7 +41,7 @@ def validate_downtime_file(dt_fname):
             if service not in services:
                 errors += ["Unknown service '%s' in %s" % (service, dt_fname)]
 
-    return []
+    return errors
 
 
 def main():
