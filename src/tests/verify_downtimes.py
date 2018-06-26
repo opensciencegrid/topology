@@ -8,6 +8,9 @@ import sys
 import os
 import re
 
+_topdir = os.path.abspath(os.path.dirname(__file__) + "/../..")
+sys.path.append(_topdir + "/src")
+
 from webapp import topology
 
 def validate_downtime_file(dt_fname):
@@ -43,7 +46,7 @@ def validate_downtime_file(dt_fname):
 
 def main():
     global services
-    os.chdir(os.path.dirname(__file__) + "/../../topology/")
+    os.chdir(_topdir + "/topology")
 
     downtime_filenames = sorted(glob.glob("*/*/*_downtime.yaml"))
 
