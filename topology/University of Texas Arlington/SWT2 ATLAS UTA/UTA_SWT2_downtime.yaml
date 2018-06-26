@@ -1,147 +1,147 @@
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
-  EndTime: Aug 25, 2016 00:00 AM UTC
+  EndTime: Aug 25, 2016 00:00 +0000
   ID: 1005019
   ResourceName: UTA_SWT2
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Aug 24, 2016 22:00 PM UTC
+  StartTime: Aug 24, 2016 22:00 +0000
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
-  EndTime: Aug 25, 2016 00:00 AM UTC
+  EndTime: Aug 25, 2016 00:00 +0000
   ID: 1005020
   ResourceName: UTA_SWT2_perfSONAR_bandwidth
   Services:
   - net.perfSONAR.Bandwidth
   Severity: Outage
-  StartTime: Aug 24, 2016 22:00 PM UTC
+  StartTime: Aug 24, 2016 22:00 +0000
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
-  EndTime: Aug 25, 2016 00:00 AM UTC
+  EndTime: Aug 25, 2016 00:00 +0000
   ID: 1005021
   ResourceName: UTA_SWT2_perfSONAR_latency
   Services:
   - net.perfSONAR.Latency
   Severity: Outage
-  StartTime: Aug 24, 2016 22:00 PM UTC
+  StartTime: Aug 24, 2016 22:00 +0000
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
-  EndTime: Aug 25, 2016 00:00 AM UTC
+  EndTime: Aug 25, 2016 00:00 +0000
   ID: 1005022
   ResourceName: UTA_SWT2_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Aug 24, 2016 22:00 PM UTC
+  StartTime: Aug 24, 2016 22:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
 
     The networking has been restored.
-  EndTime: Nov 8, 2016 08:40 AM UTC
+  EndTime: Nov 8, 2016 08:40 +0000
   ID: 1005119
   ResourceName: UTA_SWT2
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Nov 8, 2016 06:00 AM UTC
+  StartTime: Nov 8, 2016 06:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
     The networking has been restored.
-  EndTime: Nov 8, 2016 08:40 AM UTC
+  EndTime: Nov 8, 2016 08:40 +0000
   ID: 1005120
   ResourceName: UTA_SWT2_perfSONAR_bandwidth
   Services:
   - net.perfSONAR.Bandwidth
   Severity: Outage
-  StartTime: Nov 8, 2016 06:00 AM UTC
+  StartTime: Nov 8, 2016 06:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
 
     The networking has been restored.
-  EndTime: Nov 8, 2016 08:40 AM UTC
+  EndTime: Nov 8, 2016 08:40 +0000
   ID: 1005121
   ResourceName: UTA_SWT2_perfSONAR_latency
   Services:
   - net.perfSONAR.Latency
   Severity: Outage
-  StartTime: Nov 8, 2016 06:00 AM UTC
+  StartTime: Nov 8, 2016 06:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
 
     The networking has been restored.
-  EndTime: Nov 8, 2016 08:40 AM UTC
+  EndTime: Nov 8, 2016 08:40 +0000
   ID: 1005122
   ResourceName: UTA_SWT2_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Nov 8, 2016 06:00 AM UTC
+  StartTime: Nov 8, 2016 06:00 +0000
 - Class: SCHEDULED
   Description: We will be replacing the switch fabric of the cluster and moving various
     machines
-  EndTime: Sep 1, 2017 23:00 PM UTC
+  EndTime: Sep 1, 2017 23:00 +0000
   ID: 1005417
   ResourceName: UTA_SWT2
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Aug 31, 2017 17:00 PM UTC
+  StartTime: Aug 31, 2017 17:00 +0000
 - Class: SCHEDULED
   Description: We will be replacing the switch fabric of the cluster and moving machines
     around.
-  EndTime: Sep 1, 2017 23:00 PM UTC
+  EndTime: Sep 1, 2017 23:00 +0000
   ID: 1005418
   ResourceName: UTA_SWT2_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Aug 31, 2017 17:00 PM UTC
+  StartTime: Aug 31, 2017 17:00 +0000
 - Class: UNSCHEDULED
   Description: Need to reboot a storage host.
-  EndTime: Dec 5, 2017 03:00 AM UTC
+  EndTime: Dec 5, 2017 03:00 +0000
   ID: 1005514
   ResourceName: UTA_SWT2_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Dec 4, 2017 23:45 PM UTC
+  StartTime: Dec 4, 2017 23:45 +0000
 - Class: UNSCHEDULED
   Description: Loss of network connectivity to the cluster.
-  EndTime: Mar 7, 2018 06:00 AM UTC
+  EndTime: Mar 7, 2018 06:00 +0000
   ID: 1005615
   ResourceName: UTA_SWT2
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Mar 5, 2018 20:00 PM UTC
+  StartTime: Mar 5, 2018 20:00 +0000
 - Class: UNSCHEDULED
   Description: Loss of network connectivity to the cluster.
-  EndTime: Mar 7, 2018 06:00 AM UTC
+  EndTime: Mar 7, 2018 06:00 +0000
   ID: 1005616
   ResourceName: UTA_SWT2_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Mar 5, 2018 20:00 PM UTC
+  StartTime: Mar 5, 2018 20:00 +0000
 - Class: UNSCHEDULED
   Description: Loss of network connectivity to the cluster.
-  EndTime: Mar 7, 2018 06:00 AM UTC
+  EndTime: Mar 7, 2018 06:00 +0000
   ID: 1005617
   ResourceName: UTA_SWT2_Squid
   Services:
   - Squid
   Severity: Outage
-  StartTime: Mar 5, 2018 20:00 PM UTC
+  StartTime: Mar 5, 2018 20:00 +0000
