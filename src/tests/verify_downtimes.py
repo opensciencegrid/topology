@@ -1,0 +1,66 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+import glob
+import yaml
+import sys
+import os
+import re
+
+from webapp import topology
+
+def validate_downtime_file(dt_fname):
+    rg_fname = re.sub(r'_downtime.yaml$', '.yaml', dt_fname)
+    if not os.path.exists(rg_fname):
+        return ["Resource Group file missing: " + rg_fname]
+    dt_yaml = yaml.safe_load(open(dt_fname))
+    rg_yaml = yaml.safe_load(open(rg_fname))
+
+    errors = []
+    for downtime in dt_yaml:
+        if downtime['ResourceName'] not in rg_yaml['Resources']:
+            errors += ["Resource '%s' not found in resource group file %s" %
+                       (downtime['ResourceName'], rg_fname)]
+        try:
+            dt_start = topology.Downtime.parsetime(downtime['StartTime'])
+            dt_end   = topology.Downtime.parsetime(downtime['EndTime'])
+
+            if dt_start >= dt_end:
+                errors += [
+                    "Downtime start does not precede end in %s: %s -> %s" %
+                    (dt_fname, dt_start, dt_end)]
+
+        except ValueError as e:
+            errors += ["Invalid date in %s: %s" % (dt_fname, e)]
+
+        for service in downtime['Services']:
+            if service not in services:
+                errors += ["Unknown service '%s' in %s" % (service, dt_fname)]
+
+    return []
+
+
+def main():
+    global services
+    os.chdir(os.path.dirname(__file__) + "/../../topology/")
+
+    downtime_filenames = sorted(glob.glob("*/*/*_downtime.yaml"))
+
+    services = yaml.load(open("services.yaml"))
+
+    errors = []
+    for dt_fname in downtime_filenames:
+        errors += validate_downtime_file(dt_fname)
+
+    if errors:
+        for e in errors:
+            print(e, file=sys.stderr)
+
+        return 1
+    else:
+        return 0
+
+if __name__ == '__main__':
+    sys.exit(main())
+
