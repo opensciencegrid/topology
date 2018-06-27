@@ -14,6 +14,7 @@ sys.path.append(_topdir + "/src")
 from webapp import topology
 
 def validate_downtime_file(dt_fname):
+    #print("processing %s ..." % dt_fname)
     rg_fname = re.sub(r'_downtime.yaml$', '.yaml', dt_fname)
     if not os.path.exists(rg_fname):
         return ["Resource Group file missing: " + rg_fname]
@@ -56,12 +57,14 @@ def main():
     for dt_fname in downtime_filenames:
         errors += validate_downtime_file(dt_fname)
 
+    print("%d downtime files processed." % len(downtime_filenames))
     if errors:
+        print("%d errors encountered:" % len(downtime_filenames))
         for e in errors:
             print(e, file=sys.stderr)
-
         return 1
     else:
+        print("A-OK.")
         return 0
 
 if __name__ == '__main__':
