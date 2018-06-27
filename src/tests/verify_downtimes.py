@@ -23,24 +23,27 @@ def validate_downtime_file(dt_fname):
 
     errors = []
     for downtime in dt_yaml:
+        def add_err(msg):
+            errors += ["%s: Downtime ID %d: %s" %
+                       (dt_fname, downtime['ID'], msg)]
+
         if downtime['ResourceName'] not in rg_yaml['Resources']:
-            errors += ["Resource '%s' not found in resource group file %s" %
-                       (downtime['ResourceName'], rg_fname)]
+            add_err("Resource '%s' not found in resource group file" %
+                    downtime['ResourceName'])
         try:
             dt_start = topology.Downtime.parsetime(downtime['StartTime'])
             dt_end   = topology.Downtime.parsetime(downtime['EndTime'])
 
             if dt_start >= dt_end:
-                errors += [
-                    "Downtime start does not precede end in %s: %s -> %s" %
-                    (dt_fname, downtime['StartTime'], downtime['EndTime'])]
+                add_err("StartTime does not precede EndTime: '%s' -> '%s'" %
+                        (downtime['StartTime'], downtime['EndTime']))
 
         except ValueError as e:
-            errors += ["Invalid date in %s: %s" % (dt_fname, e)]
+            add_err("Invalid date: '%s'" % e)
 
         for service in downtime['Services']:
             if service not in services:
-                errors += ["Unknown service '%s' in %s" % (service, dt_fname)]
+                add_err("Unknown service: '%s'" % service)
 
     return errors
 
