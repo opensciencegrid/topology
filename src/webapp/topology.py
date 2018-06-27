@@ -2,11 +2,8 @@ from collections import OrderedDict
 from datetime import datetime, timedelta, timezone
 from enum import Enum
 from logging import getLogger
-import re
 import urllib.parse
 from typing import Dict, List
-
-import dateparser
 
 from .common import MaybeOrderedDict, RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
     is_null, expand_attr_list_single, expand_attr_list, ensure_list
@@ -289,8 +286,8 @@ class Downtime(object):
     def __init__(self, rg: ResourceGroup, yaml_data: Dict):
         self.rg = rg
         self.data = yaml_data
-        self.start_time = self._parsetime(yaml_data["StartTime"])
-        self.end_time = self._parsetime(yaml_data["EndTime"])
+        self.start_time = self.parsetime(yaml_data["StartTime"])
+        self.end_time = self.parsetime(yaml_data["EndTime"])
 
     @property
     def timeframe(self) -> Timeframe:
@@ -367,9 +364,9 @@ class Downtime(object):
         new_downtime["CreatedTime"] = "Not Available"
         new_downtime["UpdateTime"] = "Not Available"
 
-        fmt = "%b %d, %Y %H:%M %p %Z"
-        new_downtime["StartTime"] = self.start_time.strftime(fmt)
-        new_downtime["EndTime"] = self.end_time.strftime(fmt)
+        output_fmt = "%b %d, %Y %H:%M %p %Z"
+        new_downtime["StartTime"] = self.start_time.strftime(output_fmt)
+        new_downtime["EndTime"] = self.end_time.strftime(output_fmt)
 
         for k in ["ID", "Class", "Severity", "Description"]:
             new_downtime[k] = self.data.get(k, None)
@@ -377,18 +374,29 @@ class Downtime(object):
         return new_downtime
 
     @staticmethod
-    def _parsetime(time_str: str) -> datetime:
-        # get rid of stupid times like "00:00 AM" or "17:00 PM"
-        if re.search(r"\s+00:\d\d\s+AM", time_str):
-            time_str = time_str.replace(" AM", "")
-        elif re.search(r"\s+(1[3-9]|2[0-3]):\d\d\s+PM", time_str):
-            time_str = time_str.replace(" PM", "")
-        time = dateparser.parse(time_str)
-        if not time:
-            raise ValueError("Invalid time {0}".format(time_str))
-        if not time.tzinfo:
-            time = time.replace(tzinfo=timezone.utc)
-        return time
+    def parsetime(time_str: str) -> datetime:
+        """Parse the downtime found in the YAML file; tries multiple formats,
+        returns the first one that matches.
+
+        Raises ValueError if time_str cannot be parsed with any of the formats.
+        """
+
+        fmts = ["%b %d, %Y %H:%M %z",  # preferred format, e.g. "Mar 7, 2017 03:00 -0500"
+                "%b %d, %Y %H:%M UTC",  # explicit UTC timezone
+                "%b %d, %Y %H:%M",  # without timezone (assumes UTC)
+                "%b %d, %Y %H:%M %p UTC"]  # format existing data is in, e.g. "Mar 7, 2017 03:00 AM UTC"
+
+        time = None
+        for fmt in fmts:
+            try:
+                time = datetime.strptime(time_str, fmt)
+            except ValueError:
+                pass
+            if time:
+                if not time.tzinfo:
+                    time = time.replace(tzinfo=timezone.utc)
+                return time
+        raise ValueError("Cannot parse time {}".format(time_str))
 
 
 class Topology(object):
