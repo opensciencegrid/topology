@@ -24,8 +24,10 @@ def validate_downtime_file(dt_fname):
     errors = []
     for downtime in dt_yaml:
         def add_err(msg):
-            errors.append("%s: Downtime ID %d: %s" %
-                          (dt_fname, downtime['ID'], msg))
+            msg = "ResourceName: '%s'; %s" % (downtime['ResourceName'], msg)
+            if 'ID' in downtime:
+                msg = "ID: %d; %s" % (downtime['ID'], msg)
+            errors.append("%s: %s" % (dt_fname, msg))
 
         if downtime['ResourceName'] not in rg_yaml['Resources']:
             add_err("Resource '%s' not found in resource group file" %
