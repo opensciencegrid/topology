@@ -32,7 +32,7 @@ def validate_downtime_file(dt_fname):
             if dt_start >= dt_end:
                 errors += [
                     "Downtime start does not precede end in %s: %s -> %s" %
-                    (dt_fname, dt_start, dt_end)]
+                    (dt_fname, downtime['StartTime'], downtime['EndTime'])]
 
         except ValueError as e:
             errors += ["Invalid date in %s: %s" % (dt_fname, e)]
