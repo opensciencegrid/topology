@@ -59,7 +59,7 @@ def main():
 
     print("%d downtime files processed." % len(downtime_filenames))
     if errors:
-        print("%d errors encountered:" % len(downtime_filenames))
+        print("%d errors encountered:" % len(errors))
         for e in errors:
             print(e, file=sys.stderr)
         return 1
