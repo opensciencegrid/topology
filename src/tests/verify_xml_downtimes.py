@@ -35,9 +35,9 @@ def validate_xml(xml_fname):
             validate_time(dt.find('StartTime').text)
             validate_time(dt.find('EndTime').text)
 
-    print("%d times checked" % check_count)
+    print("%d time(s) checked" % check_count)
     if errors:
-        print("%d time format errors" % len(errors))
+        print("%d time format error(s)" % len(errors))
         for e in errors:
             print("Invalid time format: '%s'" % e, file=sys.stderr)
         return 1
