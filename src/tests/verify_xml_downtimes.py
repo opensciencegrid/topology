@@ -15,10 +15,6 @@ sys.path.append(_topdir + "/src")
 
 from webapp import topology
 
-xml_fname = sys.argv[1]
-xml_txt = open(xml_fname).read()
-xml = et.fromstring(xml_txt)
-
 check_count = 0
 errors = []
 
@@ -30,18 +26,28 @@ def validate_time(t):
         errors.append(t)
     check_count += 1
 
-for dttype in ("PastDowntimes", "CurrentDowntimes", "FutureDowntimes"):
-    for dt in xml.find(dttype).findall('Downtime'):
-        validate_time(dt.find('StartTime').text)
-        validate_time(dt.find('EndTime').text)
+def validate_xml(xml_fname):
+    xml_txt = open(xml_fname).read()
+    xml = et.fromstring(xml_txt)
 
-print("%d times checked" % check_count)
-if errors:
-    print("%d time format errors" % len(errors))
-    for e in errors:
-        print("Invalid time format: '%s'" % e, file=sys.stderr)
-    sys.exit(1)
-else:
-    print("A-OK")
-    sys.exit(0)
+    for dttype in ("PastDowntimes", "CurrentDowntimes", "FutureDowntimes"):
+        for dt in xml.find(dttype).findall('Downtime'):
+            validate_time(dt.find('StartTime').text)
+            validate_time(dt.find('EndTime').text)
+
+    print("%d times checked" % check_count)
+    if errors:
+        print("%d time format errors" % len(errors))
+        for e in errors:
+            print("Invalid time format: '%s'" % e, file=sys.stderr)
+        return 1
+    else:
+        print("A-OK")
+        return 0
+
+def main():
+    return validate_xml(sys.argv[1])
+
+if __name__ == '__main__':
+    sys.exit(main())
 
