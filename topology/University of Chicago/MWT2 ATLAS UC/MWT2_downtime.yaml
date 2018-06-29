@@ -1,32 +1,32 @@
 - Class: SCHEDULED
   Description: ICC PM to upgrade GPFS to V4
-  EndTime: May 26, 2016 17:00 PM UTC
+  EndTime: May 26, 2016 17:00 +0000
   ID: 1004908
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: May 25, 2016 13:00 PM UTC
+  StartTime: May 25, 2016 13:00 +0000
 - Class: SCHEDULED
   Description: Monthly PM
-  EndTime: Jun 16, 2016 13:00 PM UTC
+  EndTime: Jun 16, 2016 13:00 +0000
   ID: 1004935
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Jun 15, 2016 13:00 PM UTC
+  StartTime: Jun 15, 2016 13:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     MWT2 is having serious problems with its internal network
     which prevents dCache from serving any data
-  EndTime: Jun 16, 2016 22:30 PM UTC
+  EndTime: Jun 16, 2016 22:30 +0000
   ID: 1004936
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Jun 16, 2016 17:00 PM UTC
+  StartTime: Jun 16, 2016 17:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     Networking at the UChicago site is currently down due to an unknown problem.
@@ -36,34 +36,34 @@
     -----
 
     The network engineers at UChicago reset a malfunctioning 100Gb interface which resolved the networking problems
-  EndTime: Jun 26, 2016 14:00 PM UTC
+  EndTime: Jun 26, 2016 14:00 +0000
   ID: 1004941
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Severe
-  StartTime: Jun 25, 2016 16:00 PM UTC
+  StartTime: Jun 25, 2016 16:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     The dCache name server is having a hardware problem
 
     The UC admins are investigating
-  EndTime: Jul 18, 2016 16:20 PM UTC
+  EndTime: Jul 18, 2016 16:20 +0000
   ID: 1004961
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Severe
-  StartTime: Jul 18, 2016 16:00 PM UTC
+  StartTime: Jul 18, 2016 16:00 +0000
 - Class: SCHEDULED
   Description: ICC Monthly PM
-  EndTime: Jul 20, 2016 19:00 PM UTC
+  EndTime: Jul 20, 2016 19:00 +0000
   ID: 1004970
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Jul 20, 2016 13:00 PM UTC
+  StartTime: Jul 20, 2016 13:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     Fiber cut knocked out the the UIUC connection to LHC1 and UChicago, etc
@@ -71,54 +71,54 @@
     A manual reroute of the network path via an alternate route got UIUC backonline.
 
     The fiber was fixed at 10PM and the original route restored
-  EndTime: Aug 4, 2016 18:00 PM UTC
+  EndTime: Aug 4, 2016 18:00 +0000
   ID: 1004995
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Aug 4, 2016 17:00 PM UTC
+  StartTime: Aug 4, 2016 17:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     Network connectivity between UIUC and UChicago broke around 12:45 CDT
 
     Network administrators have been notified
-  EndTime: Aug 6, 2016 22:00 PM UTC
+  EndTime: Aug 6, 2016 22:00 +0000
   ID: 1004994
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Aug 6, 2016 17:45 PM UTC
+  StartTime: Aug 6, 2016 17:45 +0000
 - Class: UNSCHEDULED
   Description: Unexpected network issues. Workers are seeing something as high as
     90% packet loss internally
-  EndTime: Aug 18, 2016 17:00 PM UTC
+  EndTime: Aug 18, 2016 17:00 +0000
   ID: 1005006
   ResourceName: MWT2_CE_UC
   Services:
   - CE
   Severity: Intermittent Outage
-  StartTime: Aug 17, 2016 22:00 PM UTC
+  StartTime: Aug 17, 2016 22:00 +0000
 - Class: UNSCHEDULED
   Description: Unexpected network issues. We're seeing as high as 90% packet loss
     internally.
-  EndTime: Aug 18, 2016 17:00 PM UTC
+  EndTime: Aug 18, 2016 17:00 +0000
   ID: 1005007
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Intermittent Outage
-  StartTime: Aug 17, 2016 22:00 PM UTC
+  StartTime: Aug 17, 2016 22:00 +0000
 - Class: SCHEDULED
   Description: Firmware upgrade for switches
-  EndTime: Aug 23, 2016 19:00 PM UTC
+  EndTime: Aug 23, 2016 19:00 +0000
   ID: 1005011
   ResourceName: MWT2_CE_IU
   Services:
   - CE
   Severity: Outage
-  StartTime: Aug 23, 2016 15:00 PM UTC
+  StartTime: Aug 23, 2016 15:00 +0000
 - Class: SCHEDULED
   Description: |-
     Networking at UChicago will be down for a firmware update on the central Juniper EX9208 switch
@@ -128,545 +128,545 @@
 
 
     Also the ICC will have its monthly PM. Downtime is from 8AM until 5PM
-  EndTime: Sep 22, 2016 01:00 AM UTC
+  EndTime: Sep 22, 2016 01:00 +0000
   ID: 1005041
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 21, 2016 13:00 PM UTC
+  StartTime: Sep 21, 2016 13:00 +0000
 - Class: SCHEDULED
   Description: |-
     Networking at UChicago will be down for a firmware update on the central Juniper EX9208 switch
 
     Though the update and installation of new line cards should only take 15 minutes,
     two hours are reserved for contingency
-  EndTime: Sep 21, 2016 19:00 PM UTC
+  EndTime: Sep 21, 2016 19:00 +0000
   ID: 1005039
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Sep 21, 2016 14:00 PM UTC
+  StartTime: Sep 21, 2016 14:00 +0000
 - Class: SCHEDULED
   Description: |-
     Networking at UChicago will be down for a firmware update on the central Juniper EX9208 switch
 
     Though the update and installation of new line cards should only take 15 minutes,
     two hours are reserved for contingency
-  EndTime: Sep 21, 2016 19:00 PM UTC
+  EndTime: Sep 21, 2016 19:00 +0000
   ID: 1005040
   ResourceName: MWT2_CE_IU
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 21, 2016 14:00 PM UTC
+  StartTime: Sep 21, 2016 14:00 +0000
 - Class: SCHEDULED
   Description: |-
     Networking at UChicago will be down for a firmware update on the central Juniper EX9208 switch
 
     Though the update and installation of new line cards should only take 15 minutes,
     two hours are reserved for contingency
-  EndTime: Sep 21, 2016 19:00 PM UTC
+  EndTime: Sep 21, 2016 19:00 +0000
   ID: 1005042
   ResourceName: MWT2
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 21, 2016 14:00 PM UTC
+  StartTime: Sep 21, 2016 14:00 +0000
 - Class: SCHEDULED
   Description: |-
     Networking at UChicago will be down for a firmware update on the central Juniper EX9208 switch
 
     Though the update and installation of new line cards should only take 15 minutes,
     two hours are reserved for contingency
-  EndTime: Sep 21, 2016 19:00 PM UTC
+  EndTime: Sep 21, 2016 19:00 +0000
   ID: 1005043
   ResourceName: MWT2_CE_UC
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 21, 2016 14:00 PM UTC
+  StartTime: Sep 21, 2016 14:00 +0000
 - Class: SCHEDULED
   Description: Networking at UChicago will be down for a firmware update on the central
     Juniper EX9208. This is a continuation of the downtime scheduled on September
     21.
-  EndTime: Sep 29, 2016 17:00 PM UTC
+  EndTime: Sep 29, 2016 17:00 +0000
   ID: 1005056
   ResourceName: MWT2_CE_UC
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 29, 2016 14:00 PM UTC
+  StartTime: Sep 29, 2016 14:00 +0000
 - Class: SCHEDULED
   Description: Networking at UChicago will be down for a firmware update on the central
     Juniper EX9208. This is a continuation of the downtime scheduled on September
     21.
-  EndTime: Sep 29, 2016 17:00 PM UTC
+  EndTime: Sep 29, 2016 17:00 +0000
   ID: 1005057
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 29, 2016 14:00 PM UTC
+  StartTime: Sep 29, 2016 14:00 +0000
 - Class: SCHEDULED
   Description: Networking at UChicago will be down for a firmware update on the central
     Juniper EX9208. This is a continuation of the downtime scheduled on September
     21.
-  EndTime: Sep 29, 2016 17:00 PM UTC
+  EndTime: Sep 29, 2016 17:00 +0000
   ID: 1005058
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Sep 29, 2016 14:00 PM UTC
+  StartTime: Sep 29, 2016 14:00 +0000
 - Class: SCHEDULED
   Description: Networking at UChicago will be down for a firmware update on the central
     Juniper EX9208. This is a continuation of the downtime scheduled on September
     21.
-  EndTime: Sep 29, 2016 17:00 PM UTC
+  EndTime: Sep 29, 2016 17:00 +0000
   ID: 1005054
   ResourceName: MWT2
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 29, 2016 14:00 PM UTC
+  StartTime: Sep 29, 2016 14:00 +0000
 - Class: SCHEDULED
   Description: Networking at UChicago will be down for a firmware update on the central
     Juniper EX9208. This is a continuation of the downtime scheduled on September
     21.
-  EndTime: Sep 29, 2016 17:00 PM UTC
+  EndTime: Sep 29, 2016 17:00 +0000
   ID: 1005055
   ResourceName: MWT2_CE_IU
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 29, 2016 14:00 PM UTC
+  StartTime: Sep 29, 2016 14:00 +0000
 - Class: SCHEDULED
   Description: Monthly ICC PM
-  EndTime: Nov 9, 2016 23:00 PM UTC
+  EndTime: Nov 9, 2016 23:00 +0000
   ID: 1005125
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Nov 9, 2016 14:00 PM UTC
+  StartTime: Nov 9, 2016 14:00 +0000
 - Class: UNSCHEDULED
   Description: GPFS file system failure on campus cluster
-  EndTime: Nov 20, 2016 03:00 AM UTC
+  EndTime: Nov 20, 2016 03:00 +0000
   ID: 1005132
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Severe
-  StartTime: Nov 20, 2016 01:00 AM UTC
+  StartTime: Nov 20, 2016 01:00 +0000
 - Class: SCHEDULED
   Description: Monthy ICC PM
-  EndTime: Dec 8, 2016 04:00 AM UTC
+  EndTime: Dec 8, 2016 04:00 +0000
   ID: 1005135
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Dec 7, 2016 14:00 PM UTC
+  StartTime: Dec 7, 2016 14:00 +0000
 - Class: UNSCHEDULED
   Description: Major cooling loss at UChicago site has taken all of MWT2 down
-  EndTime: Jan 11, 2017 04:00 AM UTC
+  EndTime: Jan 11, 2017 04:00 +0000
   ID: 1005163
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Severe
-  StartTime: Jan 10, 2017 12:00 PM UTC
+  StartTime: Jan 10, 2017 12:00 +0000
 - Class: UNSCHEDULED
   Description: Major cooling loss at UChicago site has taken all of MWT2 down
-  EndTime: Jan 11, 2017 04:00 AM UTC
+  EndTime: Jan 11, 2017 04:00 +0000
   ID: 1005164
   ResourceName: MWT2_CE_IU
   Services:
   - CE
   Severity: Severe
-  StartTime: Jan 10, 2017 12:00 PM UTC
+  StartTime: Jan 10, 2017 12:00 +0000
 - Class: UNSCHEDULED
   Description: Major cooling loss at UChicago site has taken all of MWT2 down
-  EndTime: Jan 11, 2017 04:00 AM UTC
+  EndTime: Jan 11, 2017 04:00 +0000
   ID: 1005165
   ResourceName: MWT2_CE_UC
   Services:
   - CE
   Severity: Severe
-  StartTime: Jan 10, 2017 12:00 PM UTC
+  StartTime: Jan 10, 2017 12:00 +0000
 - Class: UNSCHEDULED
   Description: Major cooling loss at UChicago site has taken all of MWT2 down
-  EndTime: Jan 11, 2017 04:00 AM UTC
+  EndTime: Jan 11, 2017 04:00 +0000
   ID: 1005166
   ResourceName: MWT2
   Services:
   - CE
   Severity: Severe
-  StartTime: Jan 10, 2017 12:00 PM UTC
+  StartTime: Jan 10, 2017 12:00 +0000
 - Class: UNSCHEDULED
   Description: Major cooling loss at UChicago site has taken all of MWT2 down
-  EndTime: Jan 11, 2017 04:00 AM UTC
+  EndTime: Jan 11, 2017 04:00 +0000
   ID: 1005167
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Severe
-  StartTime: Jan 10, 2017 12:00 PM UTC
+  StartTime: Jan 10, 2017 12:00 +0000
 - Class: UNSCHEDULED
   Description: Data corruption on the data01 (home/projects) disk has taken all Illinois
     nodes offline
-  EndTime: Jan 14, 2017 17:00 PM UTC
+  EndTime: Jan 14, 2017 17:00 +0000
   ID: 1005173
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Severe
-  StartTime: Jan 12, 2017 13:00 PM UTC
+  StartTime: Jan 12, 2017 13:00 +0000
 - Class: UNSCHEDULED
   Description: GPFS problems
-  EndTime: Jan 16, 2017 18:00 PM UTC
+  EndTime: Jan 16, 2017 18:00 +0000
   ID: 1005186
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Severe
-  StartTime: Jan 14, 2017 17:00 PM UTC
+  StartTime: Jan 14, 2017 17:00 +0000
 - Class: SCHEDULED
   Description: Monthly ICC PM
-  EndTime: Feb 17, 2017 00:00 AM UTC
+  EndTime: Feb 17, 2017 00:00 +0000
   ID: 1005203
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Feb 15, 2017 14:00 PM UTC
+  StartTime: Feb 15, 2017 14:00 +0000
 - Class: SCHEDULED
   Description: Switch upgrade
-  EndTime: Mar 2, 2017 23:00 PM UTC
+  EndTime: Mar 2, 2017 23:00 +0000
   ID: 1005221
   ResourceName: MWT2
   Services:
   - CE
   Severity: Outage
-  StartTime: Mar 2, 2017 14:00 PM UTC
+  StartTime: Mar 2, 2017 14:00 +0000
 - Class: SCHEDULED
   Description: Switch upgrade
-  EndTime: Mar 2, 2017 23:00 PM UTC
+  EndTime: Mar 2, 2017 23:00 +0000
   ID: 1005222
   ResourceName: MWT2_CE_UC
   Services:
   - CE
   Severity: Outage
-  StartTime: Mar 2, 2017 14:00 PM UTC
+  StartTime: Mar 2, 2017 14:00 +0000
 - Class: SCHEDULED
   Description: move dCache SRM and Nameserver to new hardware
-  EndTime: May 18, 2017 16:45 PM UTC
+  EndTime: May 18, 2017 16:45 +0000
   ID: 1005313
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: May 16, 2017 13:00 PM UTC
+  StartTime: May 16, 2017 13:00 +0000
 - Class: SCHEDULED
   Description: |-
     Schedule total power outage for the Advanced Compution Build where the Illinois Campus Cluster resides.
 
     The power will return on May 20 in the early afternoon, but the ICC Admins are reserving an extra day
     to handle the issues which will result from a cold start
-  EndTime: May 26, 2017 22:00 PM UTC
+  EndTime: May 26, 2017 22:00 +0000
   ID: 1005315
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: May 20, 2017 12:00 PM UTC
+  StartTime: May 20, 2017 12:00 +0000
 - Class: UNSCHEDULED
   Description: Emergency downtime due to IUT2 hypervisor failure
-  EndTime: Aug 9, 2017 17:00 PM UTC
+  EndTime: Aug 9, 2017 17:00 +0000
   ID: 1005400
   ResourceName: MWT2_CE_IU
   Services:
   - CE
   Severity: Outage
-  StartTime: Aug 9, 2017 00:00 AM UTC
+  StartTime: Aug 9, 2017 00:00 +0000
 - Class: SCHEDULED
   Description: dCache upgrade to 3.1
-  EndTime: Aug 18, 2017 22:00 PM UTC
+  EndTime: Aug 18, 2017 22:00 +0000
   ID: 1005401
   ResourceName: MWT2_CE_IU
   Services:
   - CE
   Severity: Outage
-  StartTime: Aug 14, 2017 14:00 PM UTC
+  StartTime: Aug 14, 2017 14:00 +0000
 - Class: SCHEDULED
   Description: dCache upgrade to 3.1
-  EndTime: Aug 18, 2017 22:00 PM UTC
+  EndTime: Aug 18, 2017 22:00 +0000
   ID: 1005402
   ResourceName: MWT2_CE_UC
   Services:
   - CE
   Severity: Outage
-  StartTime: Aug 14, 2017 14:00 PM UTC
+  StartTime: Aug 14, 2017 14:00 +0000
 - Class: SCHEDULED
   Description: dCache upgrade to 3.1
-  EndTime: Aug 18, 2017 22:00 PM UTC
+  EndTime: Aug 18, 2017 22:00 +0000
   ID: 1005403
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Aug 14, 2017 14:00 PM UTC
+  StartTime: Aug 14, 2017 14:00 +0000
 - Class: SCHEDULED
   Description: dCache upgrade to 3.1
-  EndTime: Aug 18, 2017 22:00 PM UTC
+  EndTime: Aug 18, 2017 22:00 +0000
   ID: 1005404
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Aug 14, 2017 14:00 PM UTC
+  StartTime: Aug 14, 2017 14:00 +0000
 - Class: UNSCHEDULED
   Description: dCache maintenance
-  EndTime: Aug 22, 2017 18:20 PM UTC
+  EndTime: Aug 22, 2017 18:20 +0000
   ID: 1005409
   ResourceName: MWT2_CE_IU
   Services:
   - CE
   Severity: Outage
-  StartTime: Aug 22, 2017 15:00 PM UTC
+  StartTime: Aug 22, 2017 15:00 +0000
 - Class: UNSCHEDULED
   Description: dCache maintenance
-  EndTime: Aug 22, 2017 18:20 PM UTC
+  EndTime: Aug 22, 2017 18:20 +0000
   ID: 1005410
   ResourceName: MWT2_CE_UC
   Services:
   - CE
   Severity: Outage
-  StartTime: Aug 22, 2017 15:00 PM UTC
+  StartTime: Aug 22, 2017 15:00 +0000
 - Class: UNSCHEDULED
   Description: dCache maintenance
-  EndTime: Aug 22, 2017 18:20 PM UTC
+  EndTime: Aug 22, 2017 18:20 +0000
   ID: 1005411
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Aug 22, 2017 15:00 PM UTC
+  StartTime: Aug 22, 2017 15:00 +0000
 - Class: UNSCHEDULED
   Description: dCache maintenance
-  EndTime: Aug 22, 2017 18:20 PM UTC
+  EndTime: Aug 22, 2017 18:20 +0000
   ID: 1005412
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Aug 22, 2017 15:00 PM UTC
+  StartTime: Aug 22, 2017 15:00 +0000
 - Class: SCHEDULED
   Description: ICC PM
-  EndTime: Sep 20, 2017 20:00 PM UTC
+  EndTime: Sep 20, 2017 20:00 +0000
   ID: 1005442
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 20, 2017 14:00 PM UTC
+  StartTime: Sep 20, 2017 14:00 +0000
 - Class: SCHEDULED
   Description: Scheduled maintenance for UC hypervisors
-  EndTime: Oct 23, 2017 18:00 PM UTC
+  EndTime: Oct 23, 2017 18:00 +0000
   ID: 1005470
   ResourceName: MWT2_CE_UC
   Services:
   - CE
   Severity: Outage
-  StartTime: Oct 23, 2017 14:00 PM UTC
+  StartTime: Oct 23, 2017 14:00 +0000
 - Class: SCHEDULED
   Description: Scheduled maintenance for UC hypervisors
-  EndTime: Oct 23, 2017 18:00 PM UTC
+  EndTime: Oct 23, 2017 18:00 +0000
   ID: 1005471
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Oct 23, 2017 14:00 PM UTC
+  StartTime: Oct 23, 2017 14:00 +0000
 - Class: SCHEDULED
   Description: Scheduled maintenance for UC hypervisors
-  EndTime: Oct 23, 2017 18:00 PM UTC
+  EndTime: Oct 23, 2017 18:00 +0000
   ID: 1005472
   ResourceName: MWT2_CE_IU
   Services:
   - CE
   Severity: Outage
-  StartTime: Oct 23, 2017 14:00 PM UTC
+  StartTime: Oct 23, 2017 14:00 +0000
 - Class: SCHEDULED
   Description: Scheduled maintenance for UC hypervisors
-  EndTime: Oct 23, 2017 22:00 PM UTC
+  EndTime: Oct 23, 2017 22:00 +0000
   ID: 1005473
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Oct 23, 2017 14:00 PM UTC
+  StartTime: Oct 23, 2017 14:00 +0000
 - Class: SCHEDULED
   Description: dCache maintenance
-  EndTime: Nov 20, 2017 19:00 PM UTC
+  EndTime: Nov 20, 2017 19:00 +0000
   ID: 1005508
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Nov 20, 2017 15:00 PM UTC
+  StartTime: Nov 20, 2017 15:00 +0000
 - Class: SCHEDULED
   Description: dCache maintenance
-  EndTime: Nov 20, 2017 19:00 PM UTC
+  EndTime: Nov 20, 2017 19:00 +0000
   ID: 1005509
   ResourceName: MWT2_CE_IU
   Services:
   - CE
   Severity: Outage
-  StartTime: Nov 20, 2017 15:00 PM UTC
+  StartTime: Nov 20, 2017 15:00 +0000
 - Class: SCHEDULED
   Description: dCache maintenance
-  EndTime: Nov 20, 2017 19:00 PM UTC
+  EndTime: Nov 20, 2017 19:00 +0000
   ID: 1005510
   ResourceName: MWT2_CE_UC
   Services:
   - CE
   Severity: Outage
-  StartTime: Nov 20, 2017 15:00 PM UTC
+  StartTime: Nov 20, 2017 15:00 +0000
 - Class: SCHEDULED
   Description: dCache maintenance
-  EndTime: Nov 20, 2017 19:00 PM UTC
+  EndTime: Nov 20, 2017 19:00 +0000
   ID: 1005511
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Nov 20, 2017 15:00 PM UTC
+  StartTime: Nov 20, 2017 15:00 +0000
 - Class: SCHEDULED
   Description: ICC PM
-  EndTime: Jan 20, 2018 05:00 AM UTC
+  EndTime: Jan 20, 2018 05:00 +0000
   ID: 1005565
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Jan 17, 2018 06:00 AM UTC
+  StartTime: Jan 17, 2018 06:00 +0000
 - Class: SCHEDULED
   Description: Replace grid9 home disks
-  EndTime: Jan 18, 2018 15:00 PM UTC
+  EndTime: Jan 18, 2018 15:00 +0000
   ID: 1005561
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Jan 17, 2018 14:00 PM UTC
+  StartTime: Jan 17, 2018 14:00 +0000
 - Class: SCHEDULED
   Description: Replace grid9 home disk
-  EndTime: Jan 18, 2018 15:00 PM UTC
+  EndTime: Jan 18, 2018 15:00 +0000
   ID: 1005562
   ResourceName: MWT2_CE_UC
   Services:
   - CE
   Severity: Outage
-  StartTime: Jan 17, 2018 14:00 PM UTC
+  StartTime: Jan 17, 2018 14:00 +0000
 - Class: SCHEDULED
   Description: Replace grid9 home disk
-  EndTime: Jan 18, 2018 15:00 PM UTC
+  EndTime: Jan 18, 2018 15:00 +0000
   ID: 1005563
   ResourceName: MWT2_CE_IU
   Services:
   - CE
   Severity: Outage
-  StartTime: Jan 17, 2018 14:00 PM UTC
+  StartTime: Jan 17, 2018 14:00 +0000
 - Class: SCHEDULED
   Description: Replace grid9 home disk
-  EndTime: Jan 18, 2018 15:00 PM UTC
+  EndTime: Jan 18, 2018 15:00 +0000
   ID: 1005564
   ResourceName: MWT2
   Services:
   - CE
   Severity: Outage
-  StartTime: Jan 17, 2018 14:00 PM UTC
+  StartTime: Jan 17, 2018 14:00 +0000
 - Class: UNSCHEDULED
   Description: Hypervisor failure with VMs critical for dCache operations
-  EndTime: Jan 27, 2018 00:00 AM UTC
+  EndTime: Jan 27, 2018 00:00 +0000
   ID: 1005583
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Jan 26, 2018 21:00 PM UTC
+  StartTime: Jan 26, 2018 21:00 +0000
 - Class: UNSCHEDULED
   Description: Network Switch failure
-  EndTime: Feb 6, 2018 05:00 AM UTC
+  EndTime: Feb 6, 2018 05:00 +0000
   ID: 1005587
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Feb 5, 2018 16:00 PM UTC
+  StartTime: Feb 5, 2018 16:00 +0000
 - Class: SCHEDULED
   Description: Move GRIDFTP door to new hypervisor
-  EndTime: Feb 21, 2018 15:45 PM UTC
+  EndTime: Feb 21, 2018 15:45 +0000
   ID: 1005606
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Feb 21, 2018 15:00 PM UTC
+  StartTime: Feb 21, 2018 15:00 +0000
 - Class: SCHEDULED
   Description: dCache maintenance
-  EndTime: Apr 11, 2018 15:40 PM UTC
+  EndTime: Apr 11, 2018 15:40 +0000
   ID: 1005648
   ResourceName: MWT2_CE_IU
   Services:
   - CE
   Severity: Outage
-  StartTime: Apr 11, 2018 14:00 PM UTC
+  StartTime: Apr 11, 2018 14:00 +0000
 - Class: SCHEDULED
   Description: dCache maintenance
-  EndTime: Apr 11, 2018 15:40 PM UTC
+  EndTime: Apr 11, 2018 15:40 +0000
   ID: 1005649
   ResourceName: MWT2_CE_UC
   Services:
   - CE
   Severity: Outage
-  StartTime: Apr 11, 2018 14:00 PM UTC
+  StartTime: Apr 11, 2018 14:00 +0000
 - Class: SCHEDULED
   Description: dCache maintenance
-  EndTime: Apr 11, 2018 15:40 PM UTC
+  EndTime: Apr 11, 2018 15:40 +0000
   ID: 1005650
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: Apr 11, 2018 14:00 PM UTC
+  StartTime: Apr 11, 2018 14:00 +0000
 - Class: SCHEDULED
   Description: dCache maintenance
-  EndTime: Apr 11, 2018 15:40 PM UTC
+  EndTime: Apr 11, 2018 15:40 +0000
   ID: 1005651
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Apr 11, 2018 14:00 PM UTC
+  StartTime: Apr 11, 2018 14:00 +0000
 - Class: SCHEDULED
   Description: ICC PM
-  EndTime: May 16, 2018 22:00 PM UTC
+  EndTime: May 16, 2018 22:00 +0000
   ID: 1005681
   ResourceName: MWT2_CE_UIUC
   Services:
   - CE
   Severity: Outage
-  StartTime: May 16, 2018 13:30 PM UTC
+  StartTime: May 16, 2018 13:30 +0000
 - Class: UNSCHEDULED
   Description: Emergency dCache maintenance
-  EndTime: May 18, 2018 18:00 PM UTC
+  EndTime: May 18, 2018 18:00 +0000
   ID: 1005682
   ResourceName: MWT2_UC_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: May 18, 2018 16:00 PM UTC
+  StartTime: May 18, 2018 16:00 +0000
