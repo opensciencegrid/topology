@@ -15,10 +15,11 @@ from webapp import topology
 check_count = 0
 errors = []
 
+_timefmt = "%b %d, %Y %H:%M %p %Z"
 def validate_time(t):
     global check_count
     try:
-        topology.Downtime.parsetime(t)
+        time.strptime(t, _timefmt)
     except ValueError:
         errors.append(t)
     check_count += 1
