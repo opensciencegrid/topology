@@ -1,141 +1,141 @@
 - Class: SCHEDULED
   Description: Scheduled campus Outage
-  EndTime: Jul 26, 2016 16:00 +0000
+  EndTime: Jul 26, 2016 16:00 PM UTC
   ID: 1004977
   ResourceName: uprm-cms-ce
   Services:
   - CE
   Severity: Outage
-  StartTime: Jul 23, 2016 04:00 +0000
+  StartTime: Jul 23, 2016 04:00 AM UTC
 - Class: SCHEDULED
   Description: Scheduled Power Outage
-  EndTime: Jul 26, 2016 16:00 +0000
+  EndTime: Jul 26, 2016 16:00 PM UTC
   ID: 1004978
   ResourceName: uprm-cms-se
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Jul 23, 2016 04:00 +0000
+  StartTime: Jul 23, 2016 04:00 AM UTC
 - Class: SCHEDULED
   Description: Air Condition problem. Repair is delayed by strike at campus. Undefined
     date for getting back. Cluster has been turned off for protection.
-  EndTime: Apr 30, 2017 04:00 +0000
+  EndTime: Apr 30, 2017 04:00 AM UTC
   ID: 1005269
   ResourceName: uprm-cms-ce
   Services:
   - CE
   Severity: Outage
-  StartTime: Apr 7, 2017 13:00 +0000
+  StartTime: Apr 7, 2017 13:00 PM UTC
 - Class: UNSCHEDULED
   Description: Air Condition problem. Repair is delayed by strike at campus. Undefined
     date for getting back. Cluster has been turned off for protection.
-  EndTime: Apr 30, 2017 04:00 +0000
+  EndTime: Apr 30, 2017 04:00 AM UTC
   ID: 1005270
   ResourceName: uprm-cms-se
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Apr 7, 2017 13:00 +0000
+  StartTime: Apr 7, 2017 13:00 PM UTC
 - Class: UNSCHEDULED
   Description: |-
     We are under hurricane warning. Cat5 hurricane Irma is approaching Puerto Rico.
     Taking measures to protect equipment.
-  EndTime: Sep 11, 2017 16:00 +0000
+  EndTime: Sep 11, 2017 16:00 PM UTC
   ID: 1005422
   ResourceName: uprm-cms-se
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Sep 5, 2017 14:00 +0000
+  StartTime: Sep 5, 2017 14:00 PM UTC
 - Class: UNSCHEDULED
   Description: |-
     We are under hurricane warning. Cat5 hurricane Irma is approaching Puerto Rico.
     Taking measures to protect equipment.
-  EndTime: Sep 11, 2017 16:00 +0000
+  EndTime: Sep 11, 2017 16:00 PM UTC
   ID: 1005423
   ResourceName: uprm-cms-ce
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 5, 2017 14:00 +0000
+  StartTime: Sep 5, 2017 14:00 PM UTC
 - Class: UNSCHEDULED
   Description: |-
     We are under hurricane warning. Cat5 hurricane Irma is approaching Puerto Rico.
     Taking measures to protect equipment.
-  EndTime: Sep 11, 2017 16:00 +0000
+  EndTime: Sep 11, 2017 16:00 PM UTC
   ID: 1005424
   ResourceName: uprm-cms-gums
   Services:
   - GUMS Server
   Severity: Outage
-  StartTime: Sep 5, 2017 14:00 +0000
+  StartTime: Sep 5, 2017 14:00 PM UTC
 - Class: SCHEDULED
   Description: Another hurricane is approaching Puerto Rico (Maria). With high probability
     to pass across the Island. For protection, cluster will the shut off.
-  EndTime: Sep 26, 2017 16:00 +0000
+  EndTime: Sep 26, 2017 16:00 PM UTC
   ID: 1005430
   ResourceName: uprm-cms-ce
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 19, 2017 13:00 +0000
+  StartTime: Sep 19, 2017 13:00 PM UTC
 - Class: SCHEDULED
   Description: Another hurricane is approaching Puerto Rico (Maria). With high probability
     to pass across the Island. For protection, cluster will the shut off.
-  EndTime: Sep 26, 2017 16:00 +0000
+  EndTime: Sep 26, 2017 16:00 PM UTC
   ID: 1005431
   ResourceName: uprm-cms-se
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Sep 19, 2017 13:00 +0000
+  StartTime: Sep 19, 2017 13:00 PM UTC
 - Class: SCHEDULED
   Description: Another hurricane is approaching Puerto Rico (Maria). With high probability
     to pass across the Island. For protection, cluster will the shut off.
-  EndTime: Sep 26, 2017 16:00 +0000
+  EndTime: Sep 26, 2017 16:00 PM UTC
   ID: 1005432
   ResourceName: uprm-cms-gums
   Services:
   - GUMS Server
   Severity: Outage
-  StartTime: Sep 19, 2017 13:00 +0000
+  StartTime: Sep 19, 2017 13:00 PM UTC
 - Class: UNSCHEDULED
   Description: |-
     Last night power black out. took out the JBOD in which is stored the CE image and raid live.
     Working on recovering  raid and CE image.
     Need to replace our SAS expander (bpn-sas-846el1). A possible best choice to go ebay 35 bucks.
-  EndTime: Jan 15, 2018 04:00 +0000
+  EndTime: Jan 15, 2018 04:00 AM UTC
   ID: 1005518
   ResourceName: uprm-cms-ce
   Services:
   - CE
   Severity: Outage
-  StartTime: Dec 11, 2017 23:00 +0000
+  StartTime: Dec 11, 2017 23:00 PM UTC
 - Class: UNSCHEDULED
   Description: Last night power black out. took out the JBOD in which is stored the
     CE image and raid live. Working on recovering raid and CE image.
-  EndTime: Jan 15, 2018 04:00 +0000
+  EndTime: Jan 15, 2018 04:00 AM UTC
   ID: 1005519
   ResourceName: uprm-cms-se
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Dec 11, 2017 23:00 +0000
+  StartTime: Dec 11, 2017 23:00 PM UTC
 - Class: UNSCHEDULED
   Description: A/C is broken. Shutting down the cluster until AC is back.
-  EndTime: Aug 17, 2018 04:00 +0000
+  EndTime: Aug 17, 2018 04:00 AM UTC
   ID: 1005656
   ResourceName: uprm-cms-se
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Apr 17, 2018 04:00 +0000
+  StartTime: Apr 17, 2018 04:00 AM UTC
 - Class: SCHEDULED
   Description: Air Conditioner is broken. Shutting down cluster until AC is repaired.
-  EndTime: Aug 17, 2018 04:00 +0000
+  EndTime: Aug 17, 2018 04:00 AM UTC
   ID: 1005657
   ResourceName: uprm-cms-ce
   Services:
   - CE
   Severity: Outage
-  StartTime: Apr 17, 2018 04:00 +0000
+  StartTime: Apr 17, 2018 04:00 AM UTC
