@@ -13,12 +13,12 @@
   # - No Significant Outage Expected
   Severity: <TEXT>
   # Start date and time of the donwtime in the following format:
-  # <MONTH> <DAY>, <YEAR> <TIME> <TIME ZONE>
-  # e.g. Mar 28, 2017 22:00 UTC
+  # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
+  # e.g. Mar 28, 2017 22:00 -0500
   StartTime: <DATE AND TIME>
   # End date and time of the donwtime in the following format:
-  # <MONTH> <DAY>, <YEAR> <TIME> <TIME ZONE>
-  # e.g. Mar 30, 2017 22:00 UTC
+  # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
+  # e.g. Mar 30, 2017 22:00 -0500
   EndTime: <DATE AND TIME>
   # The resource affected by the downtime
   ResourceName: <RESOURCE NAME>

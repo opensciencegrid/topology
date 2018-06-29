@@ -1,69 +1,70 @@
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
-  EndTime: Aug 25, 2016 00:00 AM UTC
+  EndTime: Aug 25, 2016 00:00 +0000
   ID: 1005013
   ResourceName: perfSONAR_SWT2_CPB_testbed_bandwidth
   Services:
   - net.perfSONAR.Bandwidth
   Severity: Outage
-  StartTime: Aug 24, 2016 22:00 PM UTC
+  StartTime: Aug 24, 2016 22:00 +0000
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
-  EndTime: Aug 25, 2016 00:00 AM UTC
+  EndTime: Aug 25, 2016 00:00 +0000
   ID: 1005014
   ResourceName: perfSONAR_SWT2_CPB_testbed_latency
   Services:
   - net.perfSONAR.Latency
   Severity: Outage
-  StartTime: Aug 24, 2016 22:00 PM UTC
+  StartTime: Aug 24, 2016 22:00 +0000
 - Class: UNSCHEDULED
   Description: Loss of cooling in the machine room is forcing us to shutdown
-  EndTime: Oct 14, 2016 23:00 PM UTC
+  EndTime: Oct 14, 2016 23:00 +0000
   ID: 1005070
   ResourceName: perfSONAR_SWT2_CPB_testbed_bandwidth
   Services:
   - net.perfSONAR.Bandwidth
   Severity: Outage
-  StartTime: Oct 14, 2016 05:00 AM UTC
+  StartTime: Oct 14, 2016 05:00 +0000
 - Class: UNSCHEDULED
   Description: Loss of cooling in the machine room is forcing us to shutdown
-  EndTime: Oct 14, 2016 23:00 PM UTC
+  EndTime: Oct 14, 2016 23:00 +0000
   ID: 1005071
   ResourceName: perfSONAR_SWT2_CPB_testbed_latency
   Services:
   - net.perfSONAR.Latency
   Severity: Outage
-  StartTime: Oct 14, 2016 05:00 AM UTC
+  StartTime: Oct 14, 2016 05:00 +0000
 - Class: UNSCHEDULED
   Description: We are experiencing an extended network outage.  Waiting to hear when
     it will be resolved
-  EndTime: Nov 8, 2016 08:40 AM UTC
+  EndTime: Nov 8, 2016 08:40 +0000
   ID: 1005114
   ResourceName: perfSONAR_SWT2_CPB_testbed_bandwidth
   Services:
   - net.perfSONAR.Bandwidth
   Severity: Outage
-  StartTime: Nov 8, 2016 06:00 AM UTC
+  StartTime: Nov 8, 2016 06:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
 
     The networking has been restored.
-  EndTime: Nov 8, 2016 08:40 AM UTC
+  EndTime: Nov 8, 2016 08:40 +0000
   ID: 1005115
   ResourceName: perfSONAR_SWT2_CPB_testbed_latency
   Services:
   - net.perfSONAR.Latency
   Severity: Outage
-  StartTime: Nov 8, 2016 06:00 AM UTC
+  StartTime: Nov 8, 2016 06:00 +0000
 - Class: UNSCHEDULED
   ID: 1005686
   Description: Testing the downtime mechanism post OIM
   Severity: Outage
-  StartTime: Jun 28, 2018 9:00 PM UTC
-  EndTime: Jun 28, 2018 11:00 PM UTC
+  StartTime: Jun 28, 2018 21:00 +0000
+  EndTime: Jun 28, 2018 23:00 +0000
   ResourceName: perfSONAR_SWT2_CPB_testbed_latency
   Services:
   - net.perfSONAR.Latency
+
