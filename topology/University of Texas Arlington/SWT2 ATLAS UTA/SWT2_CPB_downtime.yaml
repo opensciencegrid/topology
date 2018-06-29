@@ -1,224 +1,224 @@
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
-  EndTime: Aug 25, 2016 00:00 AM UTC
+  EndTime: Aug 25, 2016 00:00 +0000
   ID: 1005012
   ResourceName: SWT2_CPB
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Aug 24, 2016 22:00 PM UTC
+  StartTime: Aug 24, 2016 22:00 +0000
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
-  EndTime: Aug 25, 2016 00:00 AM UTC
+  EndTime: Aug 25, 2016 00:00 +0000
   ID: 1005015
   ResourceName: SWT2_CPB_DEV
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Aug 24, 2016 22:00 PM UTC
+  StartTime: Aug 24, 2016 22:00 +0000
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
-  EndTime: Aug 25, 2016 00:00 AM UTC
+  EndTime: Aug 25, 2016 00:00 +0000
   ID: 1005016
   ResourceName: SWT2_CPB_perfSONAR_bandwidth
   Services:
   - net.perfSONAR.Bandwidth
   Severity: Outage
-  StartTime: Aug 24, 2016 22:00 PM UTC
+  StartTime: Aug 24, 2016 22:00 +0000
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
-  EndTime: Aug 25, 2016 00:00 AM UTC
+  EndTime: Aug 25, 2016 00:00 +0000
   ID: 1005017
   ResourceName: SWT2_CPB_perfSONAR_latency
   Services:
   - net.perfSONAR.Latency
   Severity: Outage
-  StartTime: Aug 24, 2016 22:00 PM UTC
+  StartTime: Aug 24, 2016 22:00 +0000
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
-  EndTime: Aug 25, 2016 00:00 AM UTC
+  EndTime: Aug 25, 2016 00:00 +0000
   ID: 1005018
   ResourceName: SWT2_CPB_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Aug 24, 2016 22:00 PM UTC
+  StartTime: Aug 24, 2016 22:00 +0000
 - Class: UNSCHEDULED
   Description: Cooling restored. Ending downtime a little early
-  EndTime: Oct 14, 2016 21:30 PM UTC
+  EndTime: Oct 14, 2016 21:30 +0000
   ID: 1005072
   ResourceName: SWT2_CPB_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Oct 14, 2016 05:00 AM UTC
+  StartTime: Oct 14, 2016 05:00 +0000
 - Class: UNSCHEDULED
   Description: Loss of cooling in the machine room is forcing us to shutdown
-  EndTime: Oct 14, 2016 23:00 PM UTC
+  EndTime: Oct 14, 2016 23:00 +0000
   ID: 1005073
   ResourceName: SWT2_CPB
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Oct 14, 2016 05:00 AM UTC
+  StartTime: Oct 14, 2016 05:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     We are having problems with our storage and SRM services.  We are shutting down the SRM as we investigate.
 
     Investigations are going longer than expected.  We will keep the SRM off for several additional hours.
-  EndTime: Oct 27, 2016 08:00 AM UTC
+  EndTime: Oct 27, 2016 08:00 +0000
   ID: 1005081
   ResourceName: SWT2_CPB_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Oct 26, 2016 21:45 PM UTC
+  StartTime: Oct 26, 2016 21:45 +0000
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
     The networking has been restored.
-  EndTime: Nov 8, 2016 08:40 AM UTC
+  EndTime: Nov 8, 2016 08:40 +0000
   ID: 1005116
   ResourceName: SWT2_CPB
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Nov 8, 2016 06:00 AM UTC
+  StartTime: Nov 8, 2016 06:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
     The networking has been restored.
-  EndTime: Nov 8, 2016 08:40 AM UTC
+  EndTime: Nov 8, 2016 08:40 +0000
   ID: 1005117
   ResourceName: SWT2_CPB_perfSONAR_bandwidth
   Services:
   - net.perfSONAR.Bandwidth
   Severity: Outage
-  StartTime: Nov 8, 2016 06:00 AM UTC
+  StartTime: Nov 8, 2016 06:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
     The networking has been restored.
-  EndTime: Nov 8, 2016 08:40 AM UTC
+  EndTime: Nov 8, 2016 08:40 +0000
   ID: 1005118
   ResourceName: SWT2_CPB_perfSONAR_latency
   Services:
   - net.perfSONAR.Latency
   Severity: Outage
-  StartTime: Nov 8, 2016 06:00 AM UTC
+  StartTime: Nov 8, 2016 06:00 +0000
 - Class: SCHEDULED
   Description: We need to perform maintenance on a pair of data servers that will
     disruptive.  Rather than deal with errors, we will take a downtime to get everything
     in order.
-  EndTime: Nov 10, 2016 03:00 AM UTC
+  EndTime: Nov 10, 2016 03:00 +0000
   ID: 1005126
   ResourceName: SWT2_CPB_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Nov 10, 2016 00:00 AM UTC
+  StartTime: Nov 10, 2016 00:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     We are having issues in our NFS server and will need a downtime to correct the issue.
 
     Repairs are taking longer than hoped.  We are extending the downtime
-  EndTime: Mar 20, 2017 02:00 AM UTC
+  EndTime: Mar 20, 2017 02:00 +0000
   ID: 1005246
   ResourceName: SWT2_CPB
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Mar 19, 2017 02:00 AM UTC
+  StartTime: Mar 19, 2017 02:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     A rebuild of our SRM has led to problems with the SRM service.  We are looking into the issues.
 
     The SRM is functional, ending downtime.
-  EndTime: Aug 17, 2017 04:00 AM UTC
+  EndTime: Aug 17, 2017 04:00 +0000
   ID: 1005406
   ResourceName: SWT2_CPB_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Aug 16, 2017 06:30 AM UTC
+  StartTime: Aug 16, 2017 06:30 +0000
 - Class: UNSCHEDULED
   Description: |-
     A rebuild of our SRM has led to problems with the SRM service. We are looking into the issues.
 
     The SRM is functional, ending downtime
-  EndTime: Aug 17, 2017 04:00 AM UTC
+  EndTime: Aug 17, 2017 04:00 +0000
   ID: 1005407
   ResourceName: SWT2_CPB
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Aug 16, 2017 06:30 AM UTC
+  StartTime: Aug 16, 2017 06:30 +0000
 - Class: UNSCHEDULED
   Description: Loss of power in the machine room due to building generator testing.
-  EndTime: Jan 13, 2018 23:30 PM UTC
+  EndTime: Jan 13, 2018 23:30 +0000
   ID: 1005557
   ResourceName: SWT2_CPB
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Jan 13, 2018 15:30 PM UTC
+  StartTime: Jan 13, 2018 15:30 +0000
 - Class: UNSCHEDULED
   Description: Loss of power in the machine room due to building generator testing.
-  EndTime: Jan 13, 2018 23:30 PM UTC
+  EndTime: Jan 13, 2018 23:30 +0000
   ID: 1005558
   ResourceName: SWT2_CPB_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Jan 13, 2018 15:30 PM UTC
+  StartTime: Jan 13, 2018 15:30 +0000
 - Class: UNSCHEDULED
   Description: We need to do some work on a problematic storage server.  While working
     on it, the SRM service will have major problems, so we are calling for the down
     time.
-  EndTime: Jan 19, 2018 01:00 AM UTC
+  EndTime: Jan 19, 2018 01:00 +0000
   ID: 1005566
   ResourceName: SWT2_CPB_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Jan 18, 2018 21:00 PM UTC
+  StartTime: Jan 18, 2018 21:00 +0000
 - Class: UNSCHEDULED
   Description: Complete loss of utility power in the data center.
-  EndTime: Mar 8, 2018 08:00 AM UTC
+  EndTime: Mar 8, 2018 08:00 +0000
   ID: 1005612
   ResourceName: SWT2_CPB
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Mar 5, 2018 20:00 PM UTC
+  StartTime: Mar 5, 2018 20:00 +0000
 - Class: UNSCHEDULED
   Description: Complete loss of utility power in the data center.
-  EndTime: Mar 8, 2018 08:00 AM UTC
+  EndTime: Mar 8, 2018 08:00 +0000
   ID: 1005613
   ResourceName: SWT2_CPB_SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Mar 5, 2018 20:00 PM UTC
+  StartTime: Mar 5, 2018 20:00 +0000
 - Class: UNSCHEDULED
   Description: Complete loss of utility power in the data center.
-  EndTime: Mar 8, 2018 06:00 AM UTC
+  EndTime: Mar 8, 2018 06:00 +0000
   ID: 1005614
   ResourceName: SWT2_CPB_SQUID
   Services:
   - Squid
   Severity: Outage
-  StartTime: Mar 5, 2018 20:00 PM UTC
+  StartTime: Mar 5, 2018 20:00 +0000

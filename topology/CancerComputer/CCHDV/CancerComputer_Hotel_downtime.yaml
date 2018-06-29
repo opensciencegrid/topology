@@ -1,23 +1,23 @@
 - Class: SCHEDULED
   Description: Infrastructure work will require all nodes to be powered down during
     this time frame.
-  EndTime: Sep 7, 2016 03:00 AM UTC
+  EndTime: Sep 7, 2016 03:00 +0000
   ID: 1005023
   ResourceName: CancerComputer_Hotel_CE
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Sep 6, 2016 22:00 PM UTC
+  StartTime: Sep 6, 2016 22:00 +0000
 - Class: SCHEDULED
   Description: Significant network infrastructure changes to entire datacentre will
     require some downtime of both OSG CE and WNs; downtime will be intermittent during
     the specified time span.
-  EndTime: Dec 15, 2016 22:00 PM UTC
+  EndTime: Dec 15, 2016 22:00 +0000
   ID: 1005141
   ResourceName: CancerComputer_Hotel_CE
   Services:
   - CE
   - GridFtp
   Severity: Intermittent Outage
-  StartTime: Dec 13, 2016 22:00 PM UTC
+  StartTime: Dec 13, 2016 22:00 +0000
