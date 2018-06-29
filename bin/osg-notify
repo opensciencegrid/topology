@@ -157,10 +157,19 @@ def main():
     if args.dryrun:
         print(msg)
     else:
-        session = smtplib.SMTP('localhost')
-        session.sendmail("help@opensciencegrid.org", recipients, msg)
-        session.quit()
-
+        while True:
+            verify_send = raw_input("Really send mail to {0} recipients? (y/N)".format(len(recipients)))
+            if verify_send.lower() == 'y':
+                session = smtplib.SMTP('localhost')
+                session.sendmail("help@opensciencegrid.org", recipients, msg)
+                session.quit()
+                break
+            elif verify_send.lower() == 'n' or verify_send.lower() == '':
+                print("Not sending email...")
+                print(msg)
+                break
+            else:
+                print("Unrecognized answer: '{0}'".format(verify_send))
 
 if __name__ == '__main__':
     main()
