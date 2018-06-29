@@ -2,11 +2,8 @@
 
 from __future__ import print_function
 
-import glob
-import yaml
 import sys
 import os
-import re
 
 import xml.etree.ElementTree as et
 
