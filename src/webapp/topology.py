@@ -395,6 +395,8 @@ class Downtime(object):
             if time:
                 if not time.tzinfo:
                     time = time.replace(tzinfo=timezone.utc)
+                else:
+                    time = time.astimezone(timezone.utc)
                 return time
         raise ValueError("Cannot parse time {}".format(time_str))
 

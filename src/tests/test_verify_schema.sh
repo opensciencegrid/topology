@@ -62,5 +62,9 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
     [[ $DATA_TYPE == 'rgsummary' ]] && verify_xml /tmp/rgdowntime.xml rgdowntime
 done
 
+echo
+echo "Validating timestamps in rgdowntime.xml ..."
+./src/tests/verify_xml_downtimes.py /tmp/rgdowntime.xml
+
 # Exit 0 if we get to the end
 exit 0

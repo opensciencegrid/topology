@@ -58,3 +58,13 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Nov 8, 2016 06:00 +0000
+- Class: UNSCHEDULED
+  ID: 1005686
+  Description: Testing the downtime mechanism post OIM
+  Severity: Outage
+  StartTime: Jun 28, 2018 21:00 +0000
+  EndTime: Jun 28, 2018 23:00 +0000
+  ResourceName: perfSONAR_SWT2_CPB_testbed_latency
+  Services:
+  - net.perfSONAR.Latency
+
