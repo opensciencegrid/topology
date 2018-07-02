@@ -9,6 +9,7 @@ This README contains the following sections:
 
 - [Structure of the Registry](#structure-of-the-registry)
 - [How to Register](#how-to-register)
+- [How to Register Downtime](#how-to-register-downtime)
 - [Viewing the Registry](#accessing-the-data)
 - [Getting Help](#getting-help)
 
@@ -73,6 +74,23 @@ methods:
 - Send an email to <help@opensciencegrid.org> requesting your desired changes.
 
 For definitions for the various fields, consult the corresponding template file for the type of data you are updating.
+
+
+### How to Register Downtime ###
+
+The file that contains downtime information about resources you own is named 
+`topology/<FACILITY>/<SITE>/<RESOURCE GROUP NAME>_downtime.yaml`.
+To find out what resource group a host is in, you can grep for the FQDN of the host.
+
+To add new downtime, add the contents of `template-downtime.yaml` to the end of the downtime file in the path above,
+and follow the instructions in the comments to fill out the necessary fields.
+Then, submit your changes as a GitHub pull request.
+
+**Note:** Make sure there is no additional indentation in the YAML data you add;
+the first line (with the `-`) must be completely unindented.
+
+Alternatively, send an email to <help@opensciencegrid.org> requesting your desired changes.
+
 
 
 Viewing the Registry
