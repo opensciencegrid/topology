@@ -38,12 +38,31 @@ def main():
 
     yamls = sorted(glob.glob("*/*/*.yaml"))
     rgfns = list(filter(rgfilter, yamls))
+    rgs = [ yaml.safe_load(open(fn)) for fn in rgfns ]
     #facility_site_rg = [ fn[:-len(".yaml")].split('/') for fn in rgfns ]
 
+    errors  = test_1_rg_unique(rgs, rgfns)
+    errors += test_2_res_unique(rgs, rgfns)
+    errors += test_3_voownership(rgs, rgfns)
+    errors += test_4_res_svcs(rgs, rgfns)
+    errors += test_5_sc(rgs, rgfns)
+    errors += test_6_site()
 
+    print("%d Resource Group files processed." % len(rgs))
+    if errors:
+        print("%d error(s) encountered." % errors)
+        return 1
+    else:
+        print("A-OK.")
+        return 0
+
+
+def test_1_rg_unique(rgs, rgfns):
     # 1. Name (file name) of RG must be unique across all sites
+
     errors = 0
     rgmap = autodict()
+
     for rgfile in rgfns:
         rgmap[rgname(rgfile)] += [rgfile]
 
@@ -53,13 +72,17 @@ def main():
             for rgfile in rgflist:
                 print(" - %s" % rgfile)
             errors += len(rgflist) - 1
-            
 
+    return errors
+
+
+def test_2_res_unique(rgs, rgfns):
     # 2. Name of each resource must be present and
     #    unique across all resources in all sites
 
+    errors = 0
     r2rg = autodict()
-    rgs = [ yaml.safe_load(open(fn)) for fn in rgfns ]
+
     for rg,rgfn in zip(rgs,rgfns):
         for r in rg['Resources']:
             r2rg[r] += [rgfn]
@@ -71,11 +94,15 @@ def main():
                 print(" - %s" % rgfile)
             errors += len(rgflist) - 1
 
+    return errors
 
+
+def test_3_voownership(rgs, rgfns):
     # 3. VOOwnership of each resource must:
     #    - add up to no greater than 100 (can be less)
     #    - refer to existing VOs or "(Other)"
 
+    errors = 0
     vo_names = get_vo_names()
 
     for rg,rgfn in zip(rgs,rgfns):
@@ -91,10 +118,13 @@ def main():
                         print("In '%s', Resource '%s' has unknown VO '%s'" %
                               (rgfn, rname, vo))
                         errors += 1
+    return errors
 
 
+def test_4_res_svcs(rgs, rgfns):
     # 4. Each Resource must have at least one Service
 
+    errors = 0
     services = yaml.safe_load(open("services.yaml"))
 
     for rg,rgfn in zip(rgs,rgfns):
@@ -108,10 +138,13 @@ def main():
                     print("In '%s', Resource '%s' has unknown Service '%s'" %
                           (rgfn, rname, svc))
                     errors += 1
+    return errors
 
 
+def test_5_sc(rgs, rgfns):
     # 5. SupportCenter must refer to an existing SC
 
+    errors = 0
     support_centers = yaml.safe_load(open("support-centers.yaml"))
 
     for rg,rgfn in zip(rgs,rgfns):
@@ -124,12 +157,16 @@ def main():
                   (rgfn, sc))
             errors += 1
 
+    return errors
 
+
+def test_6_site():
     # 6. Site name (directory name) must be unique across all facilities
 
+    errors = 0
+    smap = autodict()
     fac_sites = sorted( fs.split('/')[:2] for fs in glob.glob("*/*/"))
 
-    smap = autodict()
     for fac, site in fac_sites:
         smap[site] += [fac]
 
@@ -139,15 +176,8 @@ def main():
             for fac in faclist:
                 print(" - %s" % fac)
             errors += len(faclist) - 1
-            
 
-    print("%d Resource Group files processed." % len(rgs))
-    if errors:
-        print("%d error(s) encountered." % errors)
-        return 1
-    else:
-        print("A-OK.")
-        return 0
+    return errors
 
 if __name__ == '__main__':
     sys.exit(main())
