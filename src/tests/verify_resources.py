@@ -90,6 +90,7 @@ def main():
                     if vo not in vo_names:
                         print("In '%s', Resource '%s' has unknown VO '%s'" %
                               (rgfn, rname, vo))
+                        errors += 1
 
 
     # 4. Each Resource must have at least one Service
