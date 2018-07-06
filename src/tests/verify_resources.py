@@ -28,6 +28,12 @@ def rgname(fn):
 def sumvals(d):
     return sum(list(zip(*d.items()))[1]) if d else 0
 
+# temporary list of old vo names, until they are purged from our data
+def get_disabled_vo_names():
+    return set(['CompBioGrid', 'Engage', 'GROW', 'LBNL_DSD', 'NEBioGrid',
+                'NWICG', 'NYSGRID', 'OSGEDU', 'UC3', 'superbvo.org'])
+
+
 def get_vo_names():
     return set( re.search(r'/([^/]+)\.yaml$', path).group(1) for path in
                 glob.glob(_topdir + "/virtual-organizations/*.yaml") )
@@ -107,7 +113,7 @@ def test_3_voownership(rgs, rgfns):
     #    - refer to existing VOs or "(Other)"
 
     errors = 0
-    vo_names = get_vo_names()
+    vo_names = get_vo_names() | get_disabled_vo_names()
 
     for rg,rgfn in zip(rgs,rgfns):
         for rname,rdict in sorted(rg['Resources'].items()):
