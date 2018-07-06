@@ -32,13 +32,17 @@ def get_vo_names():
     return set( re.search(r'/([^/]+)\.yaml$', path).group(1) for path in
                 glob.glob(_topdir + "/virtual-organizations/*.yaml") )
 
+def load_yamlfile(fn):
+    with open(fn) as f:
+        return yaml.safe_load(f)
+
 def main():
     global services
     os.chdir(_topdir + "/topology")
 
     yamls = sorted(glob.glob("*/*/*.yaml"))
     rgfns = list(filter(rgfilter, yamls))
-    rgs = [ yaml.safe_load(open(fn)) for fn in rgfns ]
+    rgs = list(map(load_yamlfile, rgfns))
     #facility_site_rg = [ fn[:-len(".yaml")].split('/') for fn in rgfns ]
 
     errors  = test_1_rg_unique(rgs, rgfns)
@@ -125,7 +129,7 @@ def test_4_res_svcs(rgs, rgfns):
     # 4. Each Resource must have at least one Service
 
     errors = 0
-    services = yaml.safe_load(open("services.yaml"))
+    services = load_yamlfile("services.yaml")
 
     for rg,rgfn in zip(rgs,rgfns):
         for rname,rdict in sorted(rg['Resources'].items()):
@@ -145,7 +149,7 @@ def test_5_sc(rgs, rgfns):
     # 5. SupportCenter must refer to an existing SC
 
     errors = 0
-    support_centers = yaml.safe_load(open("support-centers.yaml"))
+    support_centers = load_yamlfile("support-centers.yaml")
 
     for rg,rgfn in zip(rgs,rgfns):
         sc = rg.get('SupportCenter')
