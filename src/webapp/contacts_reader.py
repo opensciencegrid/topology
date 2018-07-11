@@ -26,6 +26,7 @@ class User(object):
     def get_tree(self, authorized=False, filters=None) -> MaybeOrderedDict:
         tree = OrderedDict()
         tree["FullName"] = self.yaml_data["FullName"]
+        tree["ID"] = self.id
         tree["PhotoURL"] = self.yaml_data.get("PhotoURL", None)
         tree["GravatarURL"] = self._get_gravatar_url(
             self.yaml_data["ContactInformation"]["PrimaryEmail"])

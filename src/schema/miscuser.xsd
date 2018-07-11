@@ -7,6 +7,7 @@
           <xsd:complexType>
             <xsd:sequence>
               <xsd:element name="FullName" type="xsd:string" />
+              <xsd:element name="ID" type="xsd:string" />
               <xsd:element name="PhotoURL" type="xsd:string" />
               <xsd:element name="GravatarURL" type="xsd:string" />
               <xsd:element name="Profile" type="xsd:string" />
