@@ -1,8 +1,8 @@
 Active OSG Virtual Organizations
 ================================
 
-| Virtual Organization | Fields of Science | Support |
-|----------------------|-------------------|---------|
+| Virtual Organization | Field(s) of Science | Support |
+|----------------------|---------------------|---------|
 | A Large Ion Collider Experiment ([ALICE](http://aliceinfo.cern.ch)) | Physics and astronomy, High Energy Physics | http://aliceinfo.cern.ch |
 | A worldwide e-Infrastructure for NMR and structural biology ([ENMR](http://www.wenmr.eu)) | Biochemistry, Bioinformatics, Medical Sciences, Microbiology, Molecular and Structural Biosciences, Biological Sciences | http://www.wenmr.eu |
 | Accelerator Neutrino Neutron Interaction Experiment ([annie](https://annie.fnal.gov/)) | High Energy Physics | http://www.fnal.gov/ |
