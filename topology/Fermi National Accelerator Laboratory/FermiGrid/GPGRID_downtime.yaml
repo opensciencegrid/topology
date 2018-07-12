@@ -1,0 +1,33 @@
+- Class: SCHEDULED
+  Description: There will be a power outage in the machine room due to electrical maintenance.
+  Severity: Outage
+  StartTime: Jul 20, 2018 16:00 -0500
+  EndTime: Jul 21, 2018 17:00 -0500
+  ResourceName: FNAL_GPGRID_CE_03
+  Services:
+    - CE
+- Class: SCHEDULED
+  Description: There will be a power outage in the machine room due to electrical maintenance.
+  Severity: Outage
+  StartTime: Jul 20, 2018 16:00 -0500
+  EndTime: Jul 21, 2018 17:00 -0500
+  ResourceName: FNAL_GPGRID_CE_04
+  Services:
+    - CE
+- Class: SCHEDULED
+  Description: There will be a power outage in the machine room due to electrical maintenance.
+  Severity: Outage
+  StartTime: Jul 20, 2018 16:00 -0500
+  EndTime: Jul 21, 2018 17:00 -0500
+  ResourceName: FNAL_JOBSUB_01
+  Services:
+    - Submit Node
+- Class: SCHEDULED
+  Description: There will be a power outage in the machine room due to electrical maintenance.
+  Severity: Outage
+  StartTime: Jul 20, 2018 16:00 -0500
+  EndTime: Jul 21, 2018 17:00 -0500
+  ResourceName: FNAL_JOBSUB_02
+  Services:
+    - Submit Node
+
