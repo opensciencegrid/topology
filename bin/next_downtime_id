@@ -1,0 +1,9 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+cd "$(dirname "$0")"
+datadir=$(git rev-parse --show-toplevel)/topology
+lastid=$( grep -Eh '^ +ID: *[0-9]+' "$datadir"/*/*/*_downtime.yaml | 
+          cut -d: -f2 | awk '{print $1}' | sort -n | tail -n 1 )
+echo $(( lastid + 1 ))
+
