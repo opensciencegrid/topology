@@ -4,6 +4,8 @@
 # - UNSCHEDULED: donwtime that has occurred due to an event such as a sudden
 #   hardware failure, or any unforseen circumstances
 - Class: <TEXT>
+  # Unique ID, given by `bin/next_downtime_id`
+  ID: <ID>
   # Summary of the reason for the downtime
   Description: <TEXT>
   # Downtime severity in descending order:
