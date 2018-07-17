@@ -1,0 +1,16 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+cd "$(dirname "$0")"/..
+
+resource_group_files=()
+for f in topology/*/*/*.yaml; do
+  case $f in
+    */SITE.yaml | *_downtime.yaml ) ;;  # skip
+    * ) resource_group_files+=("$f") ;;
+  esac
+done
+
+egrep -h '^ *ID: *[0-9]{1,9}\>' "${resource_group_files[@]}" |
+  awk '$2 > max {max = $2}; END {print max + 1}'
+
