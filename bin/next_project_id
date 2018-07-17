@@ -2,6 +2,6 @@
 set -o errexit
 set -o pipefail
 cd "$(dirname "$0")"/..
-egrep -h '^ *ID: *[0-9]{1,9}\>' topology/*/*/*_downtime.yaml |
+egrep -h "^ID: *'?[0-9]{1,9}\>" projects/*.yaml | tr -d "'" |
   awk '$2 > max {max = $2}; END {print max + 1}'
 
