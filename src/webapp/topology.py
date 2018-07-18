@@ -321,7 +321,8 @@ class Downtime(object):
             return
         # unlike the other filters, if past_days is not specified, _no_ past downtime is shown
         if filters.past_days >= 0:
-            if self.end_age.total_seconds() // 86400 < filters.past_days:
+            # Filter out downtimes older than 'past_days'
+            if self.end_age.total_seconds() // 86400 > filters.past_days:
                 return
 
         return self._expand_downtime(filters.service_id)
