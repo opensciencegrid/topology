@@ -303,8 +303,9 @@ class Downtime(object):
 
     @property
     def end_age(self) -> timedelta:
+        """Return timedelta elapsed since end_time"""
         current_time = datetime.now(timezone.utc)
-        return self.end_time - current_time
+        return current_time - self.end_time
 
     def get_tree(self, filters: Filters = None) -> MaybeOrderedDict:
         if filters is None:
