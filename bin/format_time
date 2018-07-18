@@ -1,0 +1,9 @@
+#!/bin/bash
+
+time="$*"
+if [[ -z $time ]]; then
+    echo "Usage: ${0##*/} <time>"
+    exit 2
+fi
+
+date +"%b %e, %Y %H:%M %z" -d "$time"
