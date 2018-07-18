@@ -283,11 +283,16 @@ class ResourceGroup(object):
 
 
 class Downtime(object):
+    TIME_OUTPUT_FMT = "%b %d, %Y %H:%M %p %Z"
+
     def __init__(self, rg: ResourceGroup, yaml_data: Dict):
         self.rg = rg
         self.data = yaml_data
         self.start_time = self.parsetime(yaml_data["StartTime"])
         self.end_time = self.parsetime(yaml_data["EndTime"])
+        self.created_time = None
+        if not is_null(yaml_data, "CreatedTime"):
+            self.created_time = self.parsetime(yaml_data["CreatedTime"])
 
     @property
     def timeframe(self) -> Timeframe:
@@ -365,17 +370,23 @@ class Downtime(object):
         else:
             return None
 
-        new_downtime["CreatedTime"] = "Not Available"
+        if not is_null(self.created_time):
+            new_downtime["CreatedTime"] = self.fmttime(self.created_time)
+        else:
+            new_downtime["CreatedTime"] = "Not Available"
         new_downtime["UpdateTime"] = "Not Available"
 
-        output_fmt = "%b %d, %Y %H:%M %p %Z"
-        new_downtime["StartTime"] = self.start_time.strftime(output_fmt)
-        new_downtime["EndTime"] = self.end_time.strftime(output_fmt)
+        new_downtime["StartTime"] = self.fmttime(self.start_time)
+        new_downtime["EndTime"] = self.fmttime(self.end_time)
 
         for k in ["ID", "Class", "Severity", "Description"]:
             new_downtime[k] = self.data.get(k, None)
 
         return new_downtime
+
+    @classmethod
+    def fmttime(cls, a_time: datetime) -> str:
+        return a_time.strftime(cls.TIME_OUTPUT_FMT)
 
     @staticmethod
     def parsetime(time_str: str) -> datetime:
