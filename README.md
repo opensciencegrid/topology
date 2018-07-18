@@ -9,6 +9,7 @@ This README contains the following sections:
 
 - [Structure of the Registry](#structure-of-the-registry)
 - [How to Register](#how-to-register)
+    - [How to Register Downtime](#how-to-register-downtime)
 - [Viewing the Registry](#accessing-the-data)
 - [Getting Help](#getting-help)
 
@@ -73,6 +74,42 @@ methods:
 - Send an email to <help@opensciencegrid.org> requesting your desired changes.
 
 For definitions for the various fields, consult the corresponding template file for the type of data you are updating.
+
+
+### How to Register Downtime ###
+
+Downtime is a period of time for which one or more services you provide are unavailable.
+You should register downtime if one of these is true:
+
+-  your site is part of the WLCG
+-  your CE is one of the services affected
+
+1. Find the file that should contain downtime information about resources you own.
+   It is named `topology/<FACILITY>/<SITE>/<RESOURCE GROUP NAME>_downtime.yaml`.
+
+   For example, `topology/University of Wisconsin/GLOW/GLOW.yaml` has the corresponding downtime file
+   `topology/University of Wisconsin/GLOW/GLOW_downtime.yaml`.
+
+   If the downtime file does not exist, create it.
+
+   To find out what resource group a host is in, search for the FQDN of the host with something like:
+
+   `grep -F "<FQDN>" topology/*/*/*.yaml | grep -Fv _downtime.yaml | grep -Fv SITE.yaml`
+
+   If the above command returns nothing, then the host is not registered in the topology data
+   and you don't need to register downtime for it.
+
+2. Add the contents of `template-downtime.yaml` to the end of the downtime file in the path above.
+
+3. Follow the instructions in the comments to fill out the necessary fields.
+
+   **Note:** Make sure the info you add matches the formatting and indentation of the template or the other downtime entries in the file.
+   In particular, make sure no additional indentation gets added when pasting in the new data.
+
+4. Submit your changes as a GitHub pull request.
+
+Alternatively, send an email to <help@opensciencegrid.org> requesting your desired changes.
+
 
 
 Viewing the Registry

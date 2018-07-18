@@ -1,0 +1,7 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+cd "$(dirname "$0")"/..
+egrep -h '^ *ID: *[0-9]{1,9}\>' topology/*/*/SITE.yaml |
+  awk '$2 > max {max = $2}; END {print max + 1}'
+
