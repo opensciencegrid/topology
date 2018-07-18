@@ -329,7 +329,6 @@ class Downtime(object):
         new_downtime = OrderedDict.fromkeys(["ID", "ResourceID", "ResourceGroup", "ResourceName", "ResourceFQDN",
                                              "StartTime", "EndTime", "Class", "Severity", "CreatedTime", "UpdateTime",
                                              "Services", "Description"])
-        new_downtime["ID"] = 0  # default
         new_downtime["ResourceGroup"] = OrderedDict([("GroupName", self.rg.name),
                                                      ("GroupID", self.rg.id)])
         for r in self.rg.resources:
@@ -370,8 +369,7 @@ class Downtime(object):
         new_downtime["EndTime"] = self.end_time.strftime(output_fmt)
 
         for k in ["ID", "Class", "Severity", "Description"]:
-            if k in self.data:
-                new_downtime[k] = self.data[k]
+            new_downtime[k] = self.data.get(k, None)
 
         return new_downtime
 
