@@ -303,12 +303,10 @@ class Downtime(object):
 
     @property
     def end_age(self) -> timedelta:
-        """Returns a timedelta instance for the end time of a downtime relative
-        to the current time. Past end times yield a negative timedelta and
-        future end times yield a positive timedelta.
-        """
+        """Return timedelta elapsed since end_time.
+        The value returned is negative if end_time is in the future."""
         current_time = datetime.now(timezone.utc)
-        return self.end_time - current_time
+        return current_time - self.end_time
 
     def get_tree(self, filters: Filters = None) -> MaybeOrderedDict:
         if filters is None:
@@ -324,9 +322,9 @@ class Downtime(object):
             return
         # unlike the other filters, if past_days is not specified, _no_ past downtime is shown
         if filters.past_days >= 0:
-            # Filter out all downtimes that are older than 'past_days' so we swap its sign to account for end_age being
-            # negative for past end times. Always show downtimes with end_ages in the future.
-            if self.end_age.total_seconds() // 86400 < -filters.past_days:
+            # Filter out downtimes older than 'past_days'
+            # (current & future downtimes are not filtered out)
+            if self.end_age.total_seconds() > filters.past_days * 86400:
                 return
 
         return self._expand_downtime(filters.service_id)
