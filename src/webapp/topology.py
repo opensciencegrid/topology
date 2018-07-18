@@ -303,7 +303,8 @@ class Downtime(object):
 
     @property
     def end_age(self) -> timedelta:
-        """Return timedelta elapsed since end_time"""
+        """Return timedelta elapsed since end_time.
+        The value returned is negative if end_time is in the future."""
         current_time = datetime.now(timezone.utc)
         return current_time - self.end_time
 
@@ -322,6 +323,7 @@ class Downtime(object):
         # unlike the other filters, if past_days is not specified, _no_ past downtime is shown
         if filters.past_days >= 0:
             # Filter out downtimes older than 'past_days'
+            # (current & future downtimes are not filtered out)
             if self.end_age.total_seconds() > filters.past_days * 86400:
                 return
 
