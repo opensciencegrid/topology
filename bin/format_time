@@ -1,7 +1,7 @@
 #!/bin/bash
 
 time="$*"
-if [[ -z $time ]]; then
+if [[ -z $time || $time = -h* ]]; then
     echo "Usage: ${0##*/} <time>"
     echo "where <time> is anything date(1) can understand or 'forever'/'permanent'."
     exit 2
