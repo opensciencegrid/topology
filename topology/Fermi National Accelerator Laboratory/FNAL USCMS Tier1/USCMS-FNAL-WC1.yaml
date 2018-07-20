@@ -417,29 +417,4 @@ Resources:
       StorageCapacityMax: 10000
       StorageCapacityMin: 10000
       TapeCapacity: 22000
-  perfSONAR_fnal_latency:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 632c61dc27aa93233499a9ac3820c0995a5c4f08
-          Name: Jorge Alberto Diaz Cruz
-      Security Contact:
-        Primary:
-          ID: 632c61dc27aa93233499a9ac3820c0995a5c4f08
-          Name: Jorge Alberto Diaz Cruz
-      Submitter Contact:
-        Primary:
-          ID: 632c61dc27aa93233499a9ac3820c0995a5c4f08
-          Name: Jorge Alberto Diaz Cruz
-    Description: This is the PerfSONAR-PS latency instance at Fermilab
-    Disable: false
-    FQDN: psonar4.fnl.gov
-    ID: 700
-    Services:
-      net.perfSONAR.Latency:
-        Description: PerfSonar Latency monitoring node
-        Details:
-          endpoint: psonar4.fnl.gov
-    VOOwnership:
-      CMS: 100
 SupportCenter: USCMS
