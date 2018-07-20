@@ -6,25 +6,25 @@ Resources:
   GridUNESP:
     ContactLists:
       Administrative Contact:
-        Secondary:
+        Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
       Miscellaneous Contact:
-        Secondary:
+        Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
-        Tertiary:
+        Secondary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
       Resource Report Contact:
-        Secondary:
+        Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
-        Tertiary:
+        Secondary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
       Security Contact:
-        Secondary:
+        Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
       Submitter Contact:
@@ -32,10 +32,49 @@ Resources:
           ID: 6ae031dad274319a94846e1930ddc0082aab6612
           Name: Gabriel Araujo von Winckler
     Description: This is the gatekeeper (condor-ce), RSV, GUMS and Gratia for the
-      GrdiUnesp cluster.
+      GridUNESP cluster.
     Disable: false
     FQDN: osg-ce.grid.unesp.br
     ID: 308
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      GridUNESP: 100
+  GridUNESP_CENTRAL:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
+          Name: Marcio Antonio Costa
+      Miscellaneous Contact:
+        Primary:
+          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
+          Name: Marcio Antonio Costa
+        Secondary:
+          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
+          Name: Jadir Marra da Silva
+      Resource Report Contact:
+        Primary:
+          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
+          Name: Marcio Antonio Costa
+        Secondary:
+          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
+          Name: Jadir Marra da Silva
+      Security Contact:
+        Primary:
+          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
+          Name: Marcio Antonio Costa
+      Submitter Contact:
+        Primary:
+          ID: 6ae031dad274319a94846e1930ddc0082aab6612
+          Name: Gabriel Araujo von Winckler
+    Description: This is the Compute Element running SLURM for the GridUNESP cluster.
+    Disable: false
+    FQDN: ce.grid.unesp.br
+    ID: 944
     Services:
       CE:
         Description: Compute Element
