@@ -417,35 +417,6 @@ Resources:
       StorageCapacityMax: 10000
       StorageCapacityMin: 10000
       TapeCapacity: 22000
-  USCMS-FNAL-WC1-glideinWMS-submit-cmssrv98:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
-      Miscellaneous Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
-        Secondary:
-          ID: f142df3b4d56dac64950f25bac9e31a6d44fcdc6
-          Name: Catalin Dumitrescu
-        Tertiary:
-          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
-          Name: Anthony Tiradani
-      Submitter Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
-    Description: This is a submit host for a USCMS glidein factory based at FNAL
-    Disable: false
-    FQDN: cmssrv98
-    ID: 393
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-    VOOwnership:
-      CMS: 100
   perfSONAR_fnal_latency:
     ContactLists:
       Administrative Contact:
