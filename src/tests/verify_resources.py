@@ -11,8 +11,8 @@ import re
 
 _topdir = os.path.abspath(os.path.dirname(__file__) + "/../..")
 
-# defaultdict with auto-vivification
-# allows `d[k] += v` to work automatically before `d` contains `k`
+# autodict is a defaultdict returning a new autodict for missing keys.
+# __add__ allows `d[k] += v` to work automatically before `d` contains `k`.
 class autodict(collections.defaultdict):
     def __init__(self,*other):
         collections.defaultdict.__init__(self, self.__class__, *other)
