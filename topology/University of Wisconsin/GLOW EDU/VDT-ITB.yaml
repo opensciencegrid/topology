@@ -3,36 +3,6 @@ GroupDescription: Resource group for Wisconsin's persistent ITB site.
 GroupID: 260
 Production: false
 Resources:
-  VDT-ITB:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 19511ac08de9fbb51709a05a707decfe36de286f
-          Name: Tim Cartwright
-      Miscellaneous Contact:
-        Primary:
-          ID: 19511ac08de9fbb51709a05a707decfe36de286f
-          Name: Tim Cartwright
-      Resource Report Contact:
-        Secondary:
-          ID: 19511ac08de9fbb51709a05a707decfe36de286f
-          Name: Tim Cartwright
-      Security Contact:
-        Secondary:
-          ID: 19511ac08de9fbb51709a05a707decfe36de286f
-          Name: Tim Cartwright
-    Description: VDT's persistent ITB site
-    Disable: true
-    FQDN: vdt-itb.cs.wisc.edu
-    ID: 307
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-    VOOwnership:
-      OSG: 100
   VDT-ITB-MADISON:
     Active: false
     ContactLists:

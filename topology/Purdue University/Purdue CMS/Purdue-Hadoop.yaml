@@ -7,23 +7,20 @@ Resources:
     ContactLists:
       Miscellaneous Contact:
         Secondary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Resource Report Contact:
         Secondary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
-        Tertiary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
       Security Contact:
         Secondary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
       Submitter Contact:
         Primary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
     Description: Computing element for CMS Hadoop cluster at Purdue University.
     Disable: false
     FQDN: hadoop-osg.rcac.purdue.edu
@@ -75,8 +72,8 @@ Resources:
           Name: Majid Arabgol
       Submitter Contact:
         Primary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
     Description: This is the HTCE for clusters managed by PBS batch system at Purdue
       Tier-2.
     Disable: false
@@ -111,8 +108,8 @@ Resources:
           Name: Majid Arabgol
       Submitter Contact:
         Primary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
     Description: HTCondor CE at Purdue Tier-2
     Disable: true
     FQDN: cms-ce1-osg.rcac.purdue.edu
@@ -162,8 +159,8 @@ Resources:
           Name: Erik Gough
       Submitter Contact:
         Primary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
     Description: Storage element for CMS Hadoop cluster at Purdue University.
     Disable: true
     FQDN: srm.rcac.purdue.edu
@@ -224,64 +221,24 @@ Resources:
       StorageCapacityMax: 3800
       StorageCapacityMin: 3800
       TapeCapacity: 0
-  Purdue-Hadoop-SE2:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-        Tertiary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
-      Security Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Submitter Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-    Description: Storage element, IPV6 enabled  for CMS Hadoop cluster at Purdue University.
-    Disable: true
-    FQDN: srm6.rcac.purdue.edu
-    ID: 732
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: true
-          uri_override: srm6.rcac.purdue.edu:8443
-    VOOwnership:
-      CMS: 100
   Purdue-Hadoop-TestCE:
     ContactLists:
       Miscellaneous Contact:
         Secondary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
       Resource Report Contact:
         Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
-        Tertiary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
       Security Contact:
         Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
       Submitter Contact:
         Primary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
     Description: This is a computing element used for testing  CMS VO at Purdue University.
     Disable: false
     FQDN: cmstest1.rcac.purdue.edu
@@ -328,8 +285,8 @@ Resources:
           Name: Majid Arabgol
       Submitter Contact:
         Primary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
     Description: This is the squid services at Purdue Tier-2.  This host runs two  instances
       of squid services.
     Disable: false
@@ -350,9 +307,6 @@ Resources:
         Secondary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
-        Tertiary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
       Resource Report Contact:
         Secondary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
@@ -363,8 +317,8 @@ Resources:
           Name: Majid Arabgol
       Submitter Contact:
         Primary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
     Description: This is the squid server at Purdue Tier-2.  This host runs two instance
       of squid services.
     Disable: false
@@ -401,8 +355,8 @@ Resources:
           Name: Majid Arabgol
       Submitter Contact:
         Primary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
     Description: This is squid server at Purdue Tier-2.  There are two instances of
       squid services running on this host.
     Disable: false
@@ -425,8 +379,8 @@ Resources:
           Name: Majid Arabgol
       Submitter Contact:
         Primary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
     Description: Perfsonar bandwidth node for Purdue Tier-2 CMS center.
     Disable: false
     FQDN: perfsonar-cms2.itns.purdue.edu
@@ -476,8 +430,8 @@ Resources:
           Name: Erik Gough
       Submitter Contact:
         Primary:
-          ID: 167abf29d6c33c7a0da9f23be10756203afa8f36
-          Name: Manoj Kumar Jha
+          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+          Name: Majid Arabgol
     Description: Perfsonar latency node for CMS clusters at Purdue University.
     Disable: false
     FQDN: perfsonar-cms1.itns.purdue.edu

@@ -3,4 +3,7 @@ python:
   - "3.6"
 before_install: sudo apt-get install libxml2-utils
 install: pip install -r requirements.txt
-script: ./src/tests/test_verify_schema.sh
+script:
+  - ./src/tests/test_verify_schema.sh
+  - ./src/tests/verify_downtimes.py
+  - ./src/tests/verify_unique_downtime_ids.sh

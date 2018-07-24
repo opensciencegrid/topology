@@ -188,8 +188,6 @@ def schema(xsdfile):
 def miscuser_xml():
     authorized = _get_authorized()
 
-    if not authorized:
-        return Response("Access denied: user cert not found or not accepted", status=403)
     return Response(to_xml_bytes(global_data.get_contacts_data().get_tree(authorized)), mimetype='text/xml')
 
 

@@ -92,7 +92,7 @@
   StartTime: Jan 3, 2017 14:00 +0000
 - Class: SCHEDULED
   Description: Network switch reboots
-  EndTime: Jan 3, 2017 14:00 +0000
+  EndTime: Jan 3, 2017 15:00 +0000
   ID: 1005149
   ResourceName: USCMS-FNAL-WC1-CE3
   Services:
@@ -270,3 +270,57 @@
   - FTS
   Severity: Outage
   StartTime: Apr 3, 2018 13:00 +0000
+- Class: SCHEDULED
+  Description: Power infrastructure work in FCC compute center
+  EndTime: Jul 21, 2018 21:00 +0000
+  ID: 1005693
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+  Severity: Outage
+  StartTime: Jul 20, 2018 21:00 +0000
+  CreatedTime: Jul 16, 2018 15:09 -0500
+- Class: SCHEDULED
+  Description: Power infrastructure work in FCC compute center
+  EndTime: Jul 21, 2018 21:00 +0000
+  ID: 1005694
+  ResourceName: USCMS-FNAL-WC1-CE4
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Jul 20, 2018 21:00 +0000
+  CreatedTime: Jul 16, 2018 15:09 -0500
+- Class: SCHEDULED
+  Description: Power infrastructure work in FCC compute center
+  EndTime: Jul 21, 2018 21:00 +0000
+  ID: 1005695
+  ResourceName: USCMS-FNAL-WC1-CE3
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Jul 20, 2018 21:00 +0000
+  CreatedTime: Jul 16, 2018 15:09 -0500
+- Class: SCHEDULED
+  Description: Power infrastructure work in FCC compute center
+  EndTime: Jul 21, 2018 21:00 +0000
+  ID: 1005696
+  ResourceName: USCMS-FNAL-WC1-CE2
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Jul 20, 2018 21:00 +0000
+  CreatedTime: Jul 16, 2018 15:09 -0500
+- Class: SCHEDULED
+  Description: Power infrastructure work in FCC compute center
+  EndTime: Jul 21, 2018 21:00 +0000
+  ID: 1005697
+  ResourceName: USCMS-FNAL-WC1-CE
+  Services:
+  - CE
+  - GridFtp
+  Severity: Outage
+  StartTime: Jul 20, 2018 21:00 +0000
+  CreatedTime: Jul 16, 2018 15:09 -0500
