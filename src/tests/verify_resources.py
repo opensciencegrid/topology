@@ -21,11 +21,9 @@ class autodict(collections.defaultdict):
     def __repr__(self):
         return '%s(%s)' % (self.__class__.__name__, dict.__repr__(self))
 
-# resource group filename filter; exclude downtime and SITE files
 def rgfilter(fn):
     return not (fn.endswith("_downtime.yaml") or fn.endswith("/SITE.yaml"))
 
-# extract resource group name from filename
 def rgname(fn):
     return re.search(r'/([^/]+)\.yaml$', fn).group(1)
 
