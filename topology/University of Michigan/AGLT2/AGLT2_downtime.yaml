@@ -611,3 +611,12 @@
   ResourceName: AGLT2_SL6
   Services:
   - CE
+- Class: SCHEDULED
+  Description: Upgrade dCache version from 4.0 to 4.2 .
+  EndTime: Jul 25, 2018 18:00 +0000
+  ID: 1005698
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  Severity: Outage
+  StartTime: Jul 25, 2018 14:00 +0000
