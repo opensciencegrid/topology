@@ -11,6 +11,8 @@ import re
 
 _topdir = os.path.abspath(os.path.dirname(__file__) + "/../..")
 
+# defaultdict with auto-vivification
+# allows `d[k] += v` to work automatically before `d` contains `k`
 class autodict(collections.defaultdict):
     def __init__(self,*other):
         collections.defaultdict.__init__(self, self.__class__, *other)
@@ -19,9 +21,11 @@ class autodict(collections.defaultdict):
     def __repr__(self):
         return '%s(%s)' % (self.__class__.__name__, dict.__repr__(self))
 
+# resource group filename filter; exclude downtime and SITE files
 def rgfilter(fn):
     return not (fn.endswith("_downtime.yaml") or fn.endswith("/SITE.yaml"))
 
+# extract resource group name from filename
 def rgname(fn):
     return re.search(r'/([^/]+)\.yaml$', fn).group(1)
 
