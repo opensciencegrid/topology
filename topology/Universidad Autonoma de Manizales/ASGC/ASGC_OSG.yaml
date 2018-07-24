@@ -3,16 +3,6 @@ GroupDescription: 7/26 disabling empty resource group
 GroupID: 2
 Production: true
 Resources:
-  ASGC_OSG:
-    Active: false
-    Disable: true
-    FQDN: osgc01.grid.sinica.edu.tw
-    ID: 2
-    Services:
-      CE:
-        Description: Compute Element
-    VOOwnership:
-      OSG: 100
   perfSONAR_ASGC_bandwidth:
     ContactLists:
       Administrative Contact:

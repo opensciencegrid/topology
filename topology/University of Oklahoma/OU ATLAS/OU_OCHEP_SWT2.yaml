@@ -102,62 +102,6 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       ATLAS: 100
-  perfSONAR_OU:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
-          Name: Horst Severini
-        Secondary:
-          ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
-          Name: Christopher Arnold Walker
-      Miscellaneous Contact:
-        Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
-          Name: Horst Severini
-        Secondary:
-          ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
-          Name: Christopher Arnold Walker
-        Tertiary:
-          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
-          Name: Joel Snow
-      Resource Report Contact:
-        Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
-          Name: Horst Severini
-        Secondary:
-          ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
-          Name: Christopher Arnold Walker
-        Tertiary:
-          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
-          Name: Joel Snow
-      Security Contact:
-        Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
-          Name: Horst Severini
-        Secondary:
-          ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
-          Name: Christopher Arnold Walker
-      Submitter Contact:
-        Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
-          Name: Horst Severini
-    Description: perfSONAR instances at OU
-    Disable: true
-    FQDN: ps1.ochep.ou.edu
-    ID: 528
-    Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: ps2.ochep.ou.edu
-      net.perfSONAR.Latency:
-        Description: PerfSonar Latency monitoring node
-        Details:
-          endpoint: ps1.ochep.ou.edu
-    VOOwnership:
-      ATLAS: 100
   perfSONAR_OU_bandwidth:
     ContactLists:
       Administrative Contact:

@@ -43,43 +43,4 @@ Resources:
           hidden: false
     VOOwnership:
       GridUNESP: 100
-  GridUNESP_SE:
-    ContactLists:
-      Administrative Contact:
-        Secondary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-      Miscellaneous Contact:
-        Secondary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-        Tertiary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-      Resource Report Contact:
-        Secondary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-        Tertiary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-      Security Contact:
-        Secondary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-      Submitter Contact:
-        Primary:
-          ID: 6ae031dad274319a94846e1930ddc0082aab6612
-          Name: Gabriel Araujo von Winckler
-    Description: The SRM server for GridUNESP main cluster.
-    Disable: true
-    FQDN: se.grid.unesp.br
-    ID: 309
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      GridUNESP: 100
 SupportCenter: GridUNESP
