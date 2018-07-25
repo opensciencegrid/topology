@@ -68,6 +68,25 @@ def main():
         print("A-OK.")
         return 0
 
+_gh_baseurl   = 'https://github.com/opensciencegrid/topology/tree/master/'
+_services_url = _gh_baseurl + 'topology/services.yaml'
+_sups_url     = _gh_baseurl + 'topology/support-centers.yaml'
+_vos_url      = _gh_baseurl + 'virtual-organizations'
+
+_emsgs = {
+    'RGUnique'      : "Resource Group names must be unique across all Sites",
+    'ResUnique'     : "Resource names must be unique across the OSG topology",
+    'SiteUnique'    : "Site names must be unique across Facilities",
+    'VOOwnership100': "Total VOOwnership must not exceed 100%",
+    'NoServices'    : "Valid Services are listed here: %s" % _services_url,
+    'NoSupCenter'   : "Valid Support Centers are listed here: %s" % _sups_url,
+    'UnknownVO'     : "Valid VOs are listed here: %s" % _vos_url,
+}
+
+def print_emsg_once(msgtype):
+    if msgtype in _emsgs:
+        print("*** %s" % _emsgs[msgtype])
+        del _emsgs[msgtype]
 
 def test_1_rg_unique(rgs, rgfns):
     # 1. Name (file name) of RG must be unique across all sites
@@ -80,6 +99,7 @@ def test_1_rg_unique(rgs, rgfns):
 
     for name, rgflist in sorted(rgmap.items()):
         if len(rgflist) > 1:
+            print_emsg_once('RGUnique')
             print("Resource Group '%s' mentioned for multiple Sites:" % name)
             for rgfile in rgflist:
                 print(" - %s" % rgfile)
@@ -101,6 +121,7 @@ def test_2_res_unique(rgs, rgfns):
 
     for r, rgflist in sorted(r2rg.items()):
         if len(rgflist) > 1:
+            print_emsg_once('ResUnique')
             print("Resource '%s' mentioned for multiple groups:" % r)
             for rgfile in rgflist:
                 print(" - %s" % rgfile)
@@ -121,12 +142,14 @@ def test_3_voownership(rgs, rgfns):
         for rname,rdict in sorted(rg['Resources'].items()):
             total_vo_ownership = sumvals(rdict.get('VOOwnership'))
             if not 0 <= total_vo_ownership <= 100:
+                print_emsg_once('VOOwnership100')
                 print("In '%s', Resource '%s' has total VOOwnership = %d%%" %
                       (rgfn, rname, total_vo_ownership))
                 errors += 1
             if total_vo_ownership:
                 for vo in rdict['VOOwnership']:
                     if vo not in vo_names:
+                        print_emsg_once('UnknownVO')
                         print("In '%s', Resource '%s' has unknown VO '%s'" %
                               (rgfn, rname, vo))
                         errors += 1
@@ -143,10 +166,12 @@ def test_4_res_svcs(rgs, rgfns):
         for rname,rdict in sorted(rg['Resources'].items()):
             rsvcs = rdict.get('Services')
             if not rsvcs:
+                print_emsg_once('NoServices')
                 print("In '%s', Resource '%s' has no Services" % (rgfn, rname))
                 errors += 1
             else:
                 for svc in sorted(set(rsvcs) - set(services)):
+                    print_emsg_once('NoServices')
                     print("In '%s', Resource '%s' has unknown Service '%s'" %
                           (rgfn, rname, svc))
                     errors += 1
@@ -162,9 +187,11 @@ def test_5_sc(rgs, rgfns):
     for rg,rgfn in zip(rgs,rgfns):
         sc = rg.get('SupportCenter')
         if not sc:
+            print_emsg_once('NoSupCenter')
             print("Resource Group '%s' has no SupportCenter" % rgfn)
             errors += 1
         elif sc not in support_centers:
+            print_emsg_once('NoSupCenter')
             print("Resource Group '%s' has unknown SupportCenter '%s'" %
                   (rgfn, sc))
             errors += 1
@@ -184,6 +211,7 @@ def test_6_site():
 
     for site, faclist in sorted(smap.items()):
         if len(faclist) > 1:
+            print_emsg_once('SiteUnique')
             print("Site '%s' mentioned for multiple Facilities:" % site)
             for fac in faclist:
                 print(" - %s" % fac)
