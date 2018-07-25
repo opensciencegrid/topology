@@ -276,40 +276,22 @@ Resources:
           hidden: false
     VOOwnership:
       CMS: 100
-  UCSD_glidein_cmssubmit_r1:
-    ContactLists:
-      Security Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-        Secondary:
-          ID: 471e9a706f0e516a1ffd47a86ea1226025f1b918
-          Name: Stefano Belforte
-      Submitter Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-    Description: CMS glidein submit node
-    Disable: false
-    FQDN: cmssubmit-r1.t2.ucsd.edu
-    ID: 498
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
   UCSD_glidein_glidein_2:
     ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
+          Name: James Letts
+        Secondary:
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
       Security Contact:
         Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-      Submitter Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
+          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
+          Name: James Letts
+        Secondary:
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
     Description: CMS AnaOps glidein submit node
     Disable: false
     FQDN: glidein-2.t2.ucsd.edu
@@ -321,67 +303,15 @@ Resources:
           hidden: false
     VOOwnership:
       CMS: 100
-  UCSD_glidein_submit_2:
-    ContactLists:
-      Security Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-        Secondary:
-          ID: 471e9a706f0e516a1ffd47a86ea1226025f1b918
-          Name: Stefano Belforte
-      Submitter Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-    Description: CMS Anaops glidein Submit node.
-    Disable: false
-    FQDN: submit-2.t2.ucsd.edu
-    ID: 493
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-  UCSD_glidein_submit_3:
-    ContactLists:
-      Security Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-        Secondary:
-          ID: 471e9a706f0e516a1ffd47a86ea1226025f1b918
-          Name: Stefano Belforte
-      Submitter Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-    Description: CMS AnaOps glidein submit node.
-    Disable: false
-    FQDN: submit-3.t2.ucsd.edu
-    ID: 495
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
   UCSD_glidein_submit_4:
     ContactLists:
       Security Contact:
         Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
+          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
+          Name: James Letts
         Secondary:
           ID: 471e9a706f0e516a1ffd47a86ea1226025f1b918
           Name: Stefano Belforte
-      Submitter Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
     Description: CMS Anaops glidein submit node
     Disable: false
     FQDN: submit-4.t2.ucsd.edu
