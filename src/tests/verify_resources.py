@@ -28,7 +28,7 @@ def rgname(fn):
     return re.search(r'/([^/]+)\.yaml$', fn).group(1)
 
 def sumvals(d):
-    return sum(d.values())
+    return sum(d.values()) if d else 0
 
 # temporary list of old vo names, until they are purged from our data
 def get_disabled_vo_names():
