@@ -1,13 +1,4 @@
 - Class: SCHEDULED
-  Description: This gatekeeper being decommissioned for the foreseeable future.
-  EndTime: Jan 18, 2038 21:14 -0600
-  ID: 1002451
-  ResourceName: FNAL_CDFOSG_3
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jan 26, 2012 00:00 +0000
-- Class: SCHEDULED
   Description: The whole infrastructure behind the CE is being redone. The CE will
     need to be retired once the refactor is done. Putting it in downtime for now so
     we can rollback quickly if needed.
@@ -31,13 +22,3 @@
   - GridFtp
   Severity: Outage
   StartTime: Sep 18, 2017 14:00 +0000
-- Class: SCHEDULED
-  Description: This gatekeeper is being decommissioned, at least for the foreseeable
-    future.
-  EndTime: Jan 18, 2038 21:14 -0600
-  ID: 1002450
-  ResourceName: FNAL_CDFOSG_4
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jan 26, 2012 00:00 +0000

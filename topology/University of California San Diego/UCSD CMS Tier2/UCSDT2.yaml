@@ -236,40 +236,6 @@ Resources:
       StorageCapacityMax: 4700
       StorageCapacityMin: 1000
       TapeCapacity: 0
-  UCSDT2-SE2:
-    ContactLists:
-      Miscellaneous Contact:
-        Tertiary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-    Description: UCSDT2-SE2 is a Bestman/Hadoop(HDFS) storage system
-    Disable: false
-    FQDN: bsrm-1.t2.ucsd.edu
-    ID: 232
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-          uri_override: bsrm-1.t2.ucsd.edu:8443
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      AccountingName: T2_US_UCSD
-      HEPSPEC: 0
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 4700
-      StorageCapacityMin: 1000
-      TapeCapacity: 0
   UCSDT2-SE3:
     ContactLists:
       Administrative Contact:
