@@ -6,10 +6,19 @@ Resources:
   GridUNESP:
     ContactLists:
       Administrative Contact:
+        Primary:
+          ID: 6ababaab26e03d88a1baa4b8e0588471396cadf2
+          Name: Raphael Cóbe
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
+        Tertiary:
+          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
+          Name: Jadir Marra da Silva
       Miscellaneous Contact:
+        Primary:
+          ID: 6ababaab26e03d88a1baa4b8e0588471396cadf2
+          Name: Raphael Cóbe
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
@@ -17,6 +26,9 @@ Resources:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
       Resource Report Contact:
+        Primary:
+          ID: 6ababaab26e03d88a1baa4b8e0588471396cadf2
+          Name: Raphael Cóbe
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
@@ -24,15 +36,17 @@ Resources:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
       Security Contact:
+        Primary:
+          ID: 6ababaab26e03d88a1baa4b8e0588471396cadf2
+          Name: Raphael Cóbe
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
-      Submitter Contact:
-        Primary:
-          ID: 6ae031dad274319a94846e1930ddc0082aab6612
-          Name: Gabriel Araujo von Winckler
+        Tertiary:
+          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
+          Name: Jadir Marra da Silva
     Description: This is the gatekeeper (condor-ce), RSV, GUMS and Gratia for the
-      GrdiUnesp cluster.
+      GridUNESP cluster.
     Disable: false
     FQDN: osg-ce.grid.unesp.br
     ID: 308
@@ -43,13 +57,22 @@ Resources:
           hidden: false
     VOOwnership:
       GridUNESP: 100
-  GridUNESP_SE:
+  GridUNESP_CENTRAL:
     ContactLists:
       Administrative Contact:
+        Primary:
+          ID: 6ababaab26e03d88a1baa4b8e0588471396cadf2
+          Name: Raphael Cóbe
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
+        Tertiary:
+          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
+          Name: Jadir Marra da Silva
       Miscellaneous Contact:
+        Primary:
+          ID: 6ababaab26e03d88a1baa4b8e0588471396cadf2
+          Name: Raphael Cóbe
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
@@ -57,6 +80,9 @@ Resources:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
       Resource Report Contact:
+        Primary:
+          ID: 6ababaab26e03d88a1baa4b8e0588471396cadf2
+          Name: Raphael Cóbe
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
@@ -64,20 +90,22 @@ Resources:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
       Security Contact:
+        Primary:
+          ID: 6ababaab26e03d88a1baa4b8e0588471396cadf2
+          Name: Raphael Cóbe
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
-      Submitter Contact:
-        Primary:
-          ID: 6ae031dad274319a94846e1930ddc0082aab6612
-          Name: Gabriel Araujo von Winckler
-    Description: The SRM server for GridUNESP main cluster.
-    Disable: true
-    FQDN: se.grid.unesp.br
-    ID: 309
+        Tertiary:
+          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
+          Name: Jadir Marra da Silva
+    Description: This is the Compute Element running SLURM for the GridUNESP cluster.
+    Disable: false
+    FQDN: ce.grid.unesp.br
+    ID: 944
     Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
+      CE:
+        Description: Compute Element
         Details:
           hidden: false
     VOOwnership:

@@ -299,10 +299,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
-          Name: Will Maier
     Description: GLOw submit machine.
     Disable: false
     FQDN: login01.hep.wisc.edu
@@ -351,10 +347,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
-          Name: Will Maier
     Description: GLOW submit machine.
     Disable: false
     FQDN: login02.hep.wisc.edu
@@ -403,10 +395,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
-          Name: Will Maier
     Description: GLOW submit machine.
     Disable: false
     FQDN: login03.hep.wisc.edu
@@ -465,10 +453,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
-          Name: Will Maier
     Description: GLOW submit machine.
     Disable: false
     FQDN: login04.hep.wisc.edu
@@ -648,43 +632,6 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-  Lehigh_piranha:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
-          Name: Julio C. Goez
-        Secondary:
-          ID: 1f89c87b137579a6cbc2eaa6bc39f30502878edc
-          Name: Ashutosh Mahajan
-      Resource Report Contact:
-        Primary:
-          ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
-          Name: Julio C. Goez
-        Secondary:
-          ID: 1f89c87b137579a6cbc2eaa6bc39f30502878edc
-          Name: Ashutosh Mahajan
-      Security Contact:
-        Primary:
-          ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
-          Name: Julio C. Goez
-        Secondary:
-          ID: 1f89c87b137579a6cbc2eaa6bc39f30502878edc
-          Name: Ashutosh Mahajan
-      Submitter Contact:
-        Primary:
-          ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
-          Name: Julio C. Goez
-    Description: This is a gatekeeper visible to the grid
-    Disable: true
-    FQDN: piranha.ie.lehigh.edu
-    ID: 330
-    Services:
-      CE:
-        Description: Compute Element
-    VOOwnership:
-      GLOW: 100
   US-Wisconsin BW:
     ContactLists:
       Administrative Contact:
