@@ -36,34 +36,97 @@ Resources:
           hidden: false
     VOOwnership:
       CMS: 100
-  perfSONAR_UF:
+  perfSONAR_UF LAT:
     Active: false
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
       Security Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
       Submitter Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
-    Description: Perf SONAR latency
-    Disable: true
+    Description: perfSONAR latency
     FQDN: perfsonar1.ihepa.ufl.edu
     ID: 574
     Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: perfsonar2.ihepa.ufl.edu
       net.perfSONAR.Latency:
-        Description: PerfSonar Latency monitoring node
+        Description: perfSONAR Latency monitoring node
         Details:
           endpoint: perfsonar1.ihepa.ufl.edu
+    VOOwnership:
+      CMS: 100
+  perfSONAR_UF BW:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+      Security Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+      Submitter Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: perfSONAR bandwidth
+    FQDN: perfsonar2.ihepa.ufl.edu
+    ID: 5741
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: perfSONAR Bandwidth monitoring node
+        Details:
+          endpoint: perfsonar2.ihepa.ufl.edu
+    VOOwnership:
+      CMS: 100
+  perfSONAR_UF IPv6 BW:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+      Security Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+      Submitter Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: perfSONAR IPv6 bandwidth
+    FQDN: cmsps1.rc.ufl.edu
+    ID: 5742
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: perfSONAR IPv6 Bandwidth monitoring node
+        Details:
+          endpoint: cmsps1.rc.ufl.edu
     VOOwnership:
       CMS: 100
 SupportCenter: USCMS_Tier2
