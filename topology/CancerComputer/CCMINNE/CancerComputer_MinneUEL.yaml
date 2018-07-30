@@ -1,16 +1,12 @@
 Disable: false
-GroupDescription: CE for the HPC cluster(s) in Ottawa
-GroupID: 448
+GroupDescription: Multi-purpose cluster located at UEL-Minneapolis
+GroupID: 484
 Production: true
 Resources:
-  CancerComputer_Hotel_CE:
+  CancerComputer_MinneUEL_CE:
     ContactLists:
       Administrative Contact:
-        Secondary:
-          ID: 0182f725a01a98ce2359736e09f181f07ad646d5
-          Name: Ian Stakenvicius
-      Resource Report Contact:
-        Secondary:
+        Primary:
           ID: 0182f725a01a98ce2359736e09f181f07ad646d5
           Name: Ian Stakenvicius
       Security Contact:
@@ -21,20 +17,16 @@ Resources:
         Primary:
           ID: 0182f725a01a98ce2359736e09f181f07ad646d5
           Name: Ian Stakenvicius
-    Description: This is the gatekeeper for CancerComputer's OSG Ottawa compute resources
+    Description: The CE for the CancerComputer cluster at UEL-Minneapolis
     Disable: false
-    FQDN: osg.cancercomputer.com
-    ID: 829
+    FQDN: osg-minne.cancercomputer.com
+    ID: 945
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://osg.cancercomputer.com
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
+          sam_uri: htcondor://osg-minne.cancercomputer.com
     VOOwnership:
       OSG: 100
 SupportCenter: CCSUP
