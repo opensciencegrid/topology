@@ -1,8 +1,8 @@
 # Production is true if the resource is for production and not testing use
 Production: true
-# SupportCenterName is one of the support centers in topology/support-centers.yaml
+# SupportCenter is one of the support centers in topology/support-centers.yaml
 # with the format "<NAME>: <ID>"
-SupportCenterName: <NAME>
+SupportCenter: <NAME>
 
 # GroupDescription is a long description of the resource group; may be multiple lines.
 GroupDescription: This is a cluster of <SOMETHING> used for the <PROJECT>
