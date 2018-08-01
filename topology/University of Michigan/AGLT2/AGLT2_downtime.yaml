@@ -23,18 +23,6 @@
   Severity: Intermittent Outage
   StartTime: Jun 5, 2016 09:00 +0000
 - Class: SCHEDULED
-  Description: UMnet will be performing a software upgrade on r-bin-cath to bring
-    it up to par with the other MXs deployed at the University of Michigan.    Any
-    network interruption is expected to by brief but the whole window is reserved
-    for this  work.
-  EndTime: Jun 5, 2016 12:00 +0000
-  ID: 1004881
-  ResourceName: AGLT2_SL6
-  Services:
-  - CE
-  Severity: Intermittent Outage
-  StartTime: Jun 5, 2016 09:00 +0000
-- Class: SCHEDULED
   Description: openssl rpm update
   EndTime: Jun 13, 2016 16:00 +0000
   ID: 1004929
@@ -50,15 +38,6 @@
   ResourceName: AGLT2_SE
   Services:
   - SRMv2
-  Severity: No Significant Outage Expected
-  StartTime: Jun 13, 2016 14:30 +0000
-- Class: SCHEDULED
-  Description: openssl rpm update
-  EndTime: Jun 13, 2016 16:00 +0000
-  ID: 1004931
-  ResourceName: AGLT2_SL6
-  Services:
-  - CE
   Severity: No Significant Outage Expected
   StartTime: Jun 13, 2016 14:30 +0000
 - Class: SCHEDULED
@@ -146,15 +125,6 @@
   Severity: Outage
   StartTime: Dec 12, 2016 17:00 +0000
 - Class: SCHEDULED
-  Description: Software update
-  EndTime: Dec 12, 2016 18:00 +0000
-  ID: 1005140
-  ResourceName: AGLT2_SL6
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Dec 12, 2016 17:15 +0000
-- Class: SCHEDULED
   Description: dCache version update.
   EndTime: Dec 13, 2016 17:15 +0000
   ID: 1005142
@@ -182,15 +152,6 @@
   - SRMv2
   Severity: Outage
   StartTime: Feb 7, 2017 18:00 +0000
-- Class: SCHEDULED
-  Description: dCache update, so, block new jobs as well.
-  EndTime: Feb 7, 2017 23:20 +0000
-  ID: 1005197
-  ResourceName: AGLT2_SL6
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Feb 7, 2017 18:00 +0000
 - Class: UNSCHEDULED
   Description: |-
     There is a fiber cut in Indiana that happened between 8am-9:30am Eastern time today.
@@ -202,19 +163,6 @@
   ResourceName: AGLT2_SE
   Services:
   - SRMv2
-  Severity: No Significant Outage Expected
-  StartTime: Feb 8, 2017 14:25 +0000
-- Class: UNSCHEDULED
-  Description: |-
-    There is a fiber cut in Indiana that happened between 8am-9:30am Eastern time today.
-    This has taken out the 100Gb circuit to the University of Michigan and limited our WAN to the 10Gb backup via MSU until such time as the fiber is repaired.  Merit networks has dispatched a repair team but they are not going to be on-site until around 7 PM Eastern.    We will update as we find out more.
-
-    Service restored at 6:35 PM
-  EndTime: Feb 9, 2017 23:35 +0000
-  ID: 1005202
-  ResourceName: AGLT2_SL6
-  Services:
-  - CE
   Severity: No Significant Outage Expected
   StartTime: Feb 8, 2017 14:25 +0000
 - Class: SCHEDULED
@@ -255,15 +203,6 @@
   ResourceName: AGLT2_SE
   Services:
   - SRMv2
-  Severity: Outage
-  StartTime: Feb 28, 2017 17:30 +0000
-- Class: SCHEDULED
-  Description: Various updates
-  EndTime: Feb 28, 2017 21:15 +0000
-  ID: 1005207
-  ResourceName: AGLT2_SL6
-  Services:
-  - CE
   Severity: Outage
   StartTime: Feb 28, 2017 17:30 +0000
 - Class: SCHEDULED
@@ -330,15 +269,6 @@
   Severity: No Significant Outage Expected
   StartTime: Apr 12, 2017 14:00 +0000
 - Class: SCHEDULED
-  Description: UPS Battery replacements.
-  EndTime: Apr 12, 2017 17:00 +0000
-  ID: 1005273
-  ResourceName: AGLT2_SL6
-  Services:
-  - CE
-  Severity: No Significant Outage Expected
-  StartTime: Apr 12, 2017 14:00 +0000
-- Class: SCHEDULED
   Description: Gatekeeper is broken.
   EndTime: Apr 25, 2017 21:00 +0000
   ID: 1005279
@@ -368,15 +298,6 @@
   Severity: No Significant Outage Expected
   StartTime: Jun 1, 2017 09:45 +0000
 - Class: SCHEDULED
-  Description: Software update
-  EndTime: Jun 15, 2017 16:00 +0000
-  ID: 1005351
-  ResourceName: AGLT2_SL6
-  Services:
-  - CE
-  Severity: No Significant Outage Expected
-  StartTime: Jun 15, 2017 15:00 +0000
-- Class: SCHEDULED
   Description: Scheduled server room power outage.
   EndTime: Jun 26, 2017 21:00 +0000
   ID: 1005348
@@ -392,15 +313,6 @@
   ResourceName: AGLT2_SE
   Services:
   - SRMv2
-  Severity: Outage
-  StartTime: Jun 23, 2017 16:00 +0000
-- Class: SCHEDULED
-  Description: Scheduled server room power outage.
-  EndTime: Jun 26, 2017 21:00 +0000
-  ID: 1005350
-  ResourceName: AGLT2_SL6
-  Services:
-  - CE
   Severity: Outage
   StartTime: Jun 23, 2017 16:00 +0000
 - Class: SCHEDULED
@@ -538,16 +450,6 @@
   Description: A/C power work in the UM Center.  Interruptions are possible, but we
     are told that they are unlikely.
   EndTime: Dec 30, 2017 04:00 +0000
-  ID: 1005535
-  ResourceName: AGLT2_SL6
-  Services:
-  - CE
-  Severity: No Significant Outage Expected
-  StartTime: Dec 29, 2017 12:00 +0000
-- Class: SCHEDULED
-  Description: A/C power work in the UM Center.  Interruptions are possible, but we
-    are told that they are unlikely.
-  EndTime: Dec 30, 2017 04:00 +0000
   ID: 1005536
   ResourceName: AGLT2_CE_2
   Services:
@@ -607,7 +509,7 @@
   Description: Turning down/off our SL6 queues, hopefully permanently
   Severity: Outage
   StartTime: Jul 11, 2018 13:00 +0000
-  EndTime: Sep 11, 2018 13:00 +0000
+  EndTime: Jan 18, 2038 21:14 -0600
   ResourceName: AGLT2_SL6
   Services:
   - CE

@@ -4,6 +4,7 @@ GroupID: 113
 Production: true
 Resources:
   UCSDCMST2-2-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -31,6 +32,7 @@ Resources:
     VOOwnership:
       CMS: 100
   UCSDCMST2-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -54,6 +56,7 @@ Resources:
     VOOwnership:
       CMS: 100
   UCSDT2-A:
+    Active: true
     ContactLists:
       Miscellaneous Contact:
         Tertiary:
@@ -87,6 +90,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   UCSDT2-B:
+    Active: true
     ContactLists:
       Miscellaneous Contact:
         Tertiary:
@@ -121,6 +125,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   UCSDT2-C:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -158,6 +163,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   UCSDT2-D:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -196,6 +202,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   UCSDT2-SE1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -236,41 +243,8 @@ Resources:
       StorageCapacityMax: 4700
       StorageCapacityMin: 1000
       TapeCapacity: 0
-  UCSDT2-SE2:
-    ContactLists:
-      Miscellaneous Contact:
-        Tertiary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-    Description: UCSDT2-SE2 is a Bestman/Hadoop(HDFS) storage system
-    Disable: false
-    FQDN: bsrm-1.t2.ucsd.edu
-    ID: 232
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-          uri_override: bsrm-1.t2.ucsd.edu:8443
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      AccountingName: T2_US_UCSD
-      HEPSPEC: 0
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 4700
-      StorageCapacityMin: 1000
-      TapeCapacity: 0
   UCSDT2-SE3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -308,6 +282,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   US-UCSD BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -333,6 +308,7 @@ Resources:
     VOOwnership:
       CMS: 100
   US-UCSD LT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

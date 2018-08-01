@@ -22,6 +22,13 @@ def validate_downtime_file(dt_fname):
     rg_yaml = yaml.safe_load(open(rg_fname))
 
     errors = []
+    if dt_yaml is None:
+        errors.append("Downtime file is empty or invalid: %s" % dt_fname)
+    if rg_yaml is None:
+        errors.append("Resource Group file is empty or invalid: %s" % rg_fname)
+    if errors:
+        return errors
+
     for downtime in dt_yaml:
         def add_err(msg):
             err = "%s:\n" % dt_fname

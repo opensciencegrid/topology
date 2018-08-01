@@ -1,11 +1,9 @@
 Disable: false
-GroupDescription: Virtualized compute cluster at CCRnD, supporting VOs and projects
-  dealing with cancer-related research
-GroupID: 479
+GroupDescription: Multi-purpose cluster located at UEL-Minneapolis
+GroupID: 484
 Production: true
 Resources:
-  CancerComputer_Kitchener_CE:
-    Active: true
+  CancerComputer_MinneUEL_CE:
     ContactLists:
       Administrative Contact:
         Primary:
@@ -19,20 +17,16 @@ Resources:
         Primary:
           ID: 0182f725a01a98ce2359736e09f181f07ad646d5
           Name: Ian Stakenvicius
-    Description: The CE for the virtualized compute cluster at CCRnD
+    Description: The CE for the CancerComputer cluster at UEL-Minneapolis
     Disable: false
-    FQDN: osg-kitchener.cancercomputer.com
-    ID: 922
+    FQDN: osg-minne.cancercomputer.com
+    ID: 945
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://osg-kitchener.cancercomputer.com
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
+          sam_uri: htcondor://osg-minne.cancercomputer.com
     VOOwnership:
       OSG: 100
 SupportCenter: CCSUP
