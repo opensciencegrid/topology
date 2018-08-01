@@ -82,7 +82,7 @@ class ContactsData(object):
         self.users_by_id = {}
         for user_id, user_data in self.yaml_data.items():
             self.users_by_id[user_id] = User(user_id, user_data)
-    
+
     def get_dns(self):
         """
         Get the DNs for all of the users (useful for auth)
