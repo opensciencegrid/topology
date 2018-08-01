@@ -4,6 +4,7 @@ GroupID: 296
 Production: true
 Resources:
   Nevis:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -38,6 +39,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   Nevis cvmfs squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -92,6 +94,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   Nevis_gridftp:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

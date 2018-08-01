@@ -4,6 +4,7 @@ GroupID: 10
 Production: true
 Resources:
   CIT_CMS_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -47,6 +48,7 @@ Resources:
       StorageCapacityMax: 100
       StorageCapacityMin: 1000
   CIT_CMS_T2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -86,6 +88,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   CIT_CMS_T2B:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -129,6 +132,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   CIT_CMS_T2_Squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -183,6 +187,7 @@ Resources:
     VOOwnership:
       CMS: 100
   CIT_HEP_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -227,6 +232,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   Caltech PerfSonar Bandwidth:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -256,6 +262,7 @@ Resources:
     VOOwnership:
       CMS: 100
   Caltech PerfSonar Latency:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
