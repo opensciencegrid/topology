@@ -1,6 +1,9 @@
 Topology
 ========
 
+[![Build Status](https://travis-ci.org/opensciencegrid/topology.svg?branch=master)](https://travis-ci.org/opensciencegrid/topology)
+
+---
 
 This repository contains the registry of OSG projects, site resources, and Virtual Organizations, as well as
 scripts for managing and displaying this information.
