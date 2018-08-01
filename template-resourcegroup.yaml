@@ -1,5 +1,3 @@
-# Disable is true if the ResourceGroup is down for maintenance, false otherwise
-Disable: false
 # Production is true if the resource is for production and not testing use
 Production: true
 # SupportCenterName is one of the support centers in topology/support-centers.yaml
@@ -16,9 +14,9 @@ Resources:
   # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
   # Resource Names need to be unique across all resources in the OSG.
   <RESOURCE NAME>:
-    # Disable is true if the resource is not accepting requests, and
-    # false otherwise
-    Disable: false
+    # Active is true if the resource is accepting requests, and false otherwise.
+    # When first registering a resource, set this to false. Set it to true when it's ready for production.
+    Active: false
     # Description is a long description of the resource; may be multiple lines
     Description: This is a <RESOURCE> for <SITE>.
     # ContactLists contain information about people to contact regarding this resource.
