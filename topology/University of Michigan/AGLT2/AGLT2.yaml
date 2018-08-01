@@ -142,8 +142,8 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      StorageCapacityMax: 6898
-      StorageCapacityMin: 6898
+      StorageCapacityMax: 6879
+      StorageCapacityMin: 6879
   AGLT2_SL6:
     ContactLists:
       Administrative Contact:
@@ -174,7 +174,7 @@ Resources:
           Name: Bob Ball
     Description: New SL6 CE at AGLT2
     Active: false
-    Disable: false
+    Disable: true
     FQDN: gate04.aglt2.org
     ID: 547
     Services:
