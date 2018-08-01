@@ -1,0 +1,22 @@
+Disable: false
+Production: true
+GroupDescription: XRootD Origin Server for LIGO in OSG StashCache Federation
+Resources:
+  CIT_LIGO_ORIGIN:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c7043
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c7043
+      Resource Report Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c7043
+    FQDN: origin.ligo.caltech.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache Origin server
