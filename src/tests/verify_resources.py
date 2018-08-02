@@ -59,11 +59,15 @@ def main():
     errors += test_4_res_svcs(rgs, rgfns)
     errors += test_5_sc(rgs, rgfns)
     errors += test_6_site()
+    warnings = test_7_fqdn_unique(rgs, rgfns)
 
     print("%d Resource Group files processed." % len(rgs))
     if errors:
         print("%d error(s) encountered." % errors)
         return 1
+    elif warnings:
+        print("%d warning(s) encountered." % warnings)
+        return 0
     else:
         print("A-OK.")
         return 0
@@ -237,9 +241,8 @@ def test_7_fqdn_unique(rgs, rgfns):
             print_emsg_once('FQDNUnique')
             print("FQDN '%s' mentioned for multiple resources:" % fqdn)
             for rgfile,rname in rgflist:
-                print(" - %s (%s)" % (rgfile,rname))
-            # Uncomment error increment to enforce:
-            #errors += len(rgflist) - 1
+                print(" - %s (%s)" % (rname,rgfile))
+            errors += len(rgflist) - 1
 
     return errors
 
