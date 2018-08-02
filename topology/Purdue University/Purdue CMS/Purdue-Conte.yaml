@@ -4,6 +4,7 @@ GroupID: 389
 Production: true
 Resources:
   Purdue-Conte:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -30,6 +31,7 @@ Resources:
     Description: |-
       Computing element for Purdue Conte cluster.
       http://www.rcac.purdue.edu/userinfo/resources/conte/
+    Active: false
     Disable: false
     FQDN: conte-osg.rcac.purdue.edu
     ID: 603

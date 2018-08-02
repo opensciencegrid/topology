@@ -4,6 +4,7 @@ GroupID: 139
 Production: true
 Resources:
   SWT2_CPB:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -55,6 +56,7 @@ Resources:
       StorageCapacityMin: 5000
       TapeCapacity: 0
   SWT2_CPB_DEV:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -105,6 +107,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   SWT2_CPB_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -147,6 +150,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   SWT2_CPB_SQUID:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -183,6 +187,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   SWT2_CPB_perfSONAR_bandwidth:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -221,6 +226,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   SWT2_CPB_perfSONAR_latency:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
