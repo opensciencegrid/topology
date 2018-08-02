@@ -1,7 +1,7 @@
 Disable: false
 Production: true
-SupportCenter: Advanced LIGO
 GroupDescription: XRootD Origin Server for LIGO in OSG StashCache Federation
+GroupID: 485 
 Resources:
   CIT_LIGO_ORIGIN:
     ContactLists:
@@ -21,3 +21,4 @@ Resources:
     Services:
       XRootD origin server:
         Description: StashCache Origin server
+SupportCenter: Advanced LIGO
