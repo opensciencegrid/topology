@@ -1,0 +1,35 @@
+
+Disable: false
+Production: true
+SupportCenterName: OSG Software: 31
+GroupDescription: Arizona State University Research Computing.
+Resources:
+  DELL_M420_ASU:
+    Disable: false
+    Description: This is a small cluster to support ASU as well as the community.
+    ContactLists:
+      Submitter Contact:
+        Primary:
+          Name: Johnathan Lee
+          ID: 85b5432b3ad2712fb240dc7898a8e5a2
+      Administrative Contact:
+        Primary:
+          Name: Johnathan Lee
+          ID: 85b5432b3ad2712fb240dc7898a8e5a2
+      Security Contact:
+        Primary:
+          Name: Johnathan Lee
+          ID: 85b5432b3ad2712fb240dc7898a8e5a2
+      Resource Report Contact:
+        Primary:
+          Name: Johnathan Lee
+          ID: 85b5432b3ad2712fb240dc7898a8e5a2
+    FQDN: osgcondor1.rc.asu.edu
+    Services:
+      CE:
+        Description: ASU CE
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 50
+      ASU: 50
