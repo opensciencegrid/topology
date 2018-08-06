@@ -1,8 +1,8 @@
 Class: SCHEDULED
-  Description: Cluster installation
-  EndTime: Aug 30, 2018 18:00 +0000
-  ResourceName: DELL_M420_ASU
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Aug 6, 2018 15:00 +0000
+Description: Cluster installation
+ResourceName: DELL_M420_ASU
+Services:
+- CE
+Severity: Outage
+StartTime: Aug 6, 2018 15:00 +0000
+EndTime: Aug 30, 2018 18:00 +0000
