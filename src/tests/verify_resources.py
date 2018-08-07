@@ -53,11 +53,15 @@ def main():
     errors += test_4_res_svcs(rgs, rgfns)
     errors += test_5_sc(rgs, rgfns)
     errors += test_6_site()
+    warnings = test_7_fqdn_unique(rgs, rgfns)
 
     print("%d Resource Group files processed." % len(rgs))
     if errors:
         print("%d error(s) encountered." % errors)
         return 1
+    elif warnings:
+        print("%d warning(s) encountered." % warnings)
+        return 0
     else:
         print("A-OK.")
         return 0
@@ -71,6 +75,7 @@ _emsgs = {
     'RGUnique'      : "Resource Group names must be unique across all Sites",
     'ResUnique'     : "Resource names must be unique across the OSG topology",
     'SiteUnique'    : "Site names must be unique across Facilities",
+    'FQDNUnique'    : "FQDNs must be unique across the OSG topology",
     'VOOwnership100': "Total VOOwnership must not exceed 100%",
     'NoServices'    : "Valid Services are listed here: %s" % _services_url,
     'NoSupCenter'   : "Valid Support Centers are listed here: %s" % _sups_url,
@@ -210,6 +215,28 @@ def test_6_site():
             for fac in faclist:
                 print(" - %s" % fac)
             errors += len(faclist) - 1
+
+    return errors
+
+def test_7_fqdn_unique(rgs, rgfns):
+    # fqdns should be unique across all resources in all sites
+    # Just warning for now until we are able to enforce it (SOFTWARE-3374)
+
+    errors = 0
+    n2rg = autodict()
+
+    for rg,rgfn in zip(rgs,rgfns):
+        for rname,rdict in rg['Resources'].items():
+            fqdn = rdict['FQDN']
+            n2rg[fqdn] += [(rgfn,rname)]
+
+    for fqdn, rgflist in sorted(n2rg.items()):
+        if len(rgflist) > 1:
+            print_emsg_once('FQDNUnique')
+            print("FQDN '%s' mentioned for multiple resources:" % fqdn)
+            for rgfile,rname in rgflist:
+                print(" - %s (%s)" % (rname,rgfile))
+            errors += len(rgflist) - 1
 
     return errors
 
