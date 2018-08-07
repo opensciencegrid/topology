@@ -3,11 +3,14 @@
 from __future__ import print_function
 
 import collections
+import urllib2
 import glob
 import yaml
 import sys
 import os
 import re
+
+import xml.etree.ElementTree as et
 
 _topdir = os.path.abspath(os.path.dirname(__file__) + "/../..")
 
@@ -47,15 +50,25 @@ def load_yamlfile(fn):
 def filter_out_None_rgs(rgs, rgfns):
     return zip(*( (rg,rgfn) for rg,rgfn in zip(rgs, rgfns) if rg is not None ))
 
+def user_id_name(u):
+    return u.find('ID').text, u.find('FullName').text
+
+def get_contacts():
+    txt = urllib2.urlopen(_contacts_url).read()
+    xmltree = et.fromstring(txt)
+    users = xmltree.findall('User')
+    return dict(map(user_id_name, users))
+
 def main():
-    global services
     os.chdir(_topdir + "/topology")
 
+    contacts = get_contacts()
     yamls = sorted(glob.glob("*/*/*.yaml"))
     rgfns = list(filter(rgfilter, yamls))
     rgs = list(map(load_yamlfile, rgfns))
     #facility_site_rg = [ fn[:-len(".yaml")].split('/') for fn in rgfns ]
     errors = 0
+    warnings = 0
     if any( rg is None for rg in rgs ):
         errors += sum( rg is None for rg in rgs )
         rgs, rgfns = filter_out_None_rgs(rgs, rgfns)
@@ -66,7 +79,8 @@ def main():
     errors += test_4_res_svcs(rgs, rgfns)
     errors += test_5_sc(rgs, rgfns)
     errors += test_6_site()
-    warnings = test_7_fqdn_unique(rgs, rgfns)
+    warnings += test_7_fqdn_unique(rgs, rgfns)
+    errors += test_8_res_contacts(rgs, rgfns, contacts)
 
     print("%d Resource Group files processed." % len(rgs))
     if errors:
@@ -78,6 +92,8 @@ def main():
     else:
         print("A-OK.")
         return 0
+
+_contacts_url = 'https://topology.opensciencegrid.org/miscuser/xml'
 
 _gh_baseurl   = 'https://github.com/opensciencegrid/topology/tree/master/'
 _services_url = _gh_baseurl + 'topology/services.yaml'
@@ -255,6 +271,43 @@ def test_7_fqdn_unique(rgs, rgfns):
                 print(" - %s (%s)" % (rname,rgfile))
             errors += 1
 
+    return errors
+
+def flatten_res_contacts(rcls):
+    for ctype,ctype_d in sorted(rcls.items()):
+        for clevel,clevel_d in sorted(ctype_d.items()):
+            yield ctype, clevel, ctype_d["ID"], ctype_d["Name"]
+
+def test_8_res_contacts(rgs, rgfns, contacts):
+    # verify resource contacts against contact repo
+
+    errors = 0
+
+    for rg,rgfn in zip(rgs,rgfns):
+        for rname,rdict in sorted(rg['Resources'].items()):
+            rcls = rdict.get('ContactLists')
+            if not rcls:
+                print_emsg_once('NoResourceContactLists')
+                print("In '%s', Resource '%s' has no ContactLists"
+                      % (rgfn, rname))
+                errors += 1
+            else:
+                for ctype, clevel, ID, name in flatten_res_contacts(rcls)
+                    if ID not in contacts:
+                        print_emsg_once('UnknownContactID')
+                        print("In '%s', Resource '%s' has unknown %s %s '%s'"
+                              " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
+                    elif name != contacts[ID]:
+                        print_emsg_once('ContactNameMismatch')
+                        print("In '%s', Resource '%s' %s %s '%s' (%s) does not"
+                              " match name in contact repo (%s)" % (rgfn,
+                              rname, clevel, ctype, ID, name, contacts[ID]))
+
+                for svc in sorted(set(rsvcs) - set(services)):
+                    print_emsg_once('NoServices')
+                    print("In '%s', Resource '%s' has unknown Service '%s'" %
+                          (rgfn, rname, svc))
+                    errors += 1
     return errors
 
 if __name__ == '__main__':
