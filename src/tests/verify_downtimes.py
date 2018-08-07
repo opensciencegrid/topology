@@ -13,19 +13,25 @@ sys.path.append(_topdir + "/src")
 
 from webapp import topology
 
+def load_yaml_file(fname, errors):
+    try:
+        yml = yaml.safe_load(open(fname))
+        if yml is None:
+            errors.append("YAML file is empty or invalid: %s", fname)
+        return yml
+    except yaml.error.YAMLError as e:
+        errors.append("Failed to parse YAML file: %s\n%s" % (fname, e))
+
 def validate_downtime_file(dt_fname):
     #print("processing %s ..." % dt_fname)
     rg_fname = re.sub(r'_downtime.yaml$', '.yaml', dt_fname)
     if not os.path.exists(rg_fname):
         return ["Resource Group file missing: " + rg_fname]
-    dt_yaml = yaml.safe_load(open(dt_fname))
-    rg_yaml = yaml.safe_load(open(rg_fname))
 
     errors = []
-    if dt_yaml is None:
-        errors.append("Downtime file is empty or invalid: %s" % dt_fname)
-    if rg_yaml is None:
-        errors.append("Resource Group file is empty or invalid: %s" % rg_fname)
+    dt_yaml = load_yaml_file(dt_fname, errors)
+    rg_yaml = load_yaml_file(rg_fname, errors)
+
     if errors:
         return errors
 

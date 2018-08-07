@@ -36,7 +36,16 @@ def get_vo_names():
 
 def load_yamlfile(fn):
     with open(fn) as f:
-        return yaml.safe_load(f)
+        try:
+            yml = yaml.safe_load(f)
+            if yml is None:
+                print("YAML file is empty or invalid: %s", fn)
+            return yml
+        except yaml.error.YAMLError as e:
+            print("Failed to parse YAML file: %s\n%s" % (fn, e))
+
+def filter_out_None_rgs(rgs, rgfns):
+    return zip(*( (rg,rgfn) for rg,rgfn in zip(rgs, rgfns) if rg is not None ))
 
 def main():
     global services
@@ -46,8 +55,12 @@ def main():
     rgfns = list(filter(rgfilter, yamls))
     rgs = list(map(load_yamlfile, rgfns))
     #facility_site_rg = [ fn[:-len(".yaml")].split('/') for fn in rgfns ]
+    errors = 0
+    if any( rg is None for rg in rgs ):
+        errors += sum( rg is None for rg in rgs )
+        rgs, rgfns = filter_out_None_rgs(rgs, rgfns)
 
-    errors  = test_1_rg_unique(rgs, rgfns)
+    errors += test_1_rg_unique(rgs, rgfns)
     errors += test_2_res_unique(rgs, rgfns)
     errors += test_3_voownership(rgs, rgfns)
     errors += test_4_res_svcs(rgs, rgfns)
@@ -160,6 +173,8 @@ def test_4_res_svcs(rgs, rgfns):
 
     errors = 0
     services = load_yamlfile("services.yaml")
+    if services is None:
+        return 1
 
     for rg,rgfn in zip(rgs,rgfns):
         for rname,rdict in sorted(rg['Resources'].items()):
@@ -182,6 +197,8 @@ def test_5_sc(rgs, rgfns):
 
     errors = 0
     support_centers = load_yamlfile("support-centers.yaml")
+    if support_centers is None:
+        return 1
 
     for rg,rgfn in zip(rgs,rgfns):
         sc = rg.get('SupportCenter')
