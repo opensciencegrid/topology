@@ -102,7 +102,7 @@ def test_1_rg_unique(rgs, rgfns):
             print("Resource Group '%s' mentioned for multiple Sites:" % name)
             for rgfile in rgflist:
                 print(" - %s" % rgfile)
-            errors += len(rgflist) - 1
+            errors += 1
 
     return errors
 
@@ -124,7 +124,7 @@ def test_2_res_unique(rgs, rgfns):
             print("Resource '%s' mentioned for multiple groups:" % r)
             for rgfile in rgflist:
                 print(" - %s" % rgfile)
-            errors += len(rgflist) - 1
+            errors += 1
 
     return errors
 
@@ -214,7 +214,7 @@ def test_6_site():
             print("Site '%s' mentioned for multiple Facilities:" % site)
             for fac in faclist:
                 print(" - %s" % fac)
-            errors += len(faclist) - 1
+            errors += 1
 
     return errors
 
@@ -236,7 +236,7 @@ def test_7_fqdn_unique(rgs, rgfns):
             print("FQDN '%s' mentioned for multiple resources:" % fqdn)
             for rgfile,rname in rgflist:
                 print(" - %s (%s)" % (rname,rgfile))
-            errors += len(rgflist) - 1
+            errors += 1
 
     return errors
 
