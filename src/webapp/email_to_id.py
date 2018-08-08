@@ -1,6 +1,4 @@
 import hashlib
-import sys
-
 
 def email_to_id(email):
     email = email.strip().lower()
