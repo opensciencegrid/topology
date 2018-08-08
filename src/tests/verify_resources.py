@@ -293,7 +293,11 @@ def test_8_res_contacts(rgs, rgfns, contacts):
                 errors += 1
             else:
                 for ctype, clevel, ID, name in flatten_res_contacts(rcls)
-                    if ID not in contacts:
+                    if not re.search(r'^[0-9a-f]{40}$', ID):
+                        print_emsg_once('MalformedContactID')
+                        print("In '%s', Resource '%s' has malformed %s %s '%s'"
+                              " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
+                    elif ID not in contacts:
                         print_emsg_once('UnknownContactID')
                         print("In '%s', Resource '%s' has unknown %s %s '%s'"
                               " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
