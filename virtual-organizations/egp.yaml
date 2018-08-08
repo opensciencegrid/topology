@@ -1,0 +1,40 @@
+AppDescription: egp production and analysis jobs will be run on the OSG.
+CertificateOnly: false
+Community: Various Neutrino physicists and collaborators.
+Contacts:
+  Miscellaneous Contact:
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
+  - ID: 888a771df50d76d5e229d97e37949dcca5af5b61
+    Name: Shreyas Bhat
+  Submitter Contact:
+  - ID: 888a771df50d76d5e229d97e37949dcca5af5b61
+    Name: Shreyas Bhat
+  VO Manager:
+  - ID: cd8fd8df563619e96c0a09d1b87de447a818ff3d
+    Name: Alan Bross
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - High Energy Physics
+ID: 134
+LongName: Exploring the Great Pyramid
+MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
+## No OASIS info yet, but Alan Bross will be the owner of the CVMFS space for OASIS
+# OASIS:
+#   Managers:
+#     Alan Bross:
+#       ID: cd8fd8df563619e96c0a09d1b87de447a818ff3d
+#       DNs:
+#       - ?
+#   OASISRepoURLs:
+#   - ?
+#   UseOASIS: true
+ParentVO:
+  ID: 9
+  Name: Fermilab
+PrimaryURL: http://www.fnal.gov/
+PurposeURL: http://www.fnal.gov/
+ReportingGroups:
+- egp
+SupportURL: http://fermigrid.fnal.gov/
