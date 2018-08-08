@@ -285,7 +285,7 @@ def test_7_fqdn_unique(rgs, rgfns):
 def flatten_res_contacts(rcls):
     for ctype,ctype_d in sorted(rcls.items()):
         for clevel,clevel_d in sorted(ctype_d.items()):
-            yield ctype, clevel, ctype_d.get("ID"), ctype_d.get("Name")
+            yield ctype, clevel, clevel_d.get("ID"), clevel_d.get("Name")
 
 def test_8_res_contacts(rgs, rgfns, contacts):
     # verify resource contacts against contact repo
