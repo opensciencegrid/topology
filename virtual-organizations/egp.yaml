@@ -20,8 +20,10 @@ FieldsOfScience:
 ID: 134
 LongName: Exploring the Great Pyramid
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
-## No OASIS info yet, but Alan Bross will be the owner of the CVMFS space for OASIS
-# OASIS:
+OASIS:
+  UseOASIS: false
+## ^ replace above once we get more info
+#   UseOASIS: true
 #   Managers:
 #     Alan Bross:
 #       ID: cd8fd8df563619e96c0a09d1b87de447a818ff3d
@@ -29,7 +31,6 @@ MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
 #       - ?
 #   OASISRepoURLs:
 #   - ?
-#   UseOASIS: true
 ParentVO:
   ID: 9
   Name: Fermilab
