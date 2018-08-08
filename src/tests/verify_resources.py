@@ -312,11 +312,6 @@ def test_8_res_contacts(rgs, rgfns, contacts):
                               " match name in contact repo (%s)" % (rgfn,
                               rname, clevel, ctype, ID, name, contacts[ID]))
 
-                for svc in sorted(set(rsvcs) - set(services)):
-                    print_emsg_once('NoServices')
-                    print("In '%s', Resource '%s' has unknown Service '%s'" %
-                          (rgfn, rname, svc))
-                    errors += 1
     return errors
 
 if __name__ == '__main__':
