@@ -4,6 +4,7 @@ GroupID: 1
 Production: true
 Resources:
   AGLT2-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -35,6 +36,7 @@ Resources:
     VOOwnership:
       ATLAS: 90
   AGLT2_CE_2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -89,6 +91,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   AGLT2_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -142,9 +145,10 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      StorageCapacityMax: 6898
-      StorageCapacityMin: 6898
+      StorageCapacityMax: 6879
+      StorageCapacityMin: 6879
   AGLT2_SL6:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -173,6 +177,7 @@ Resources:
           ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
           Name: Bob Ball
     Description: New SL6 CE at AGLT2
+    Active: false
     Disable: false
     FQDN: gate04.aglt2.org
     ID: 547
@@ -195,6 +200,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   AGLT2_SL7:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -252,6 +258,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   US-AGLT2_MSU BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -291,6 +298,7 @@ Resources:
     VOOwnership:
       ATLAS: 90
   US-AGLT2_MSU LAT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -330,6 +338,7 @@ Resources:
     VOOwnership:
       ATLAS: 90
   US-AGLT2_UM BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -356,6 +365,7 @@ Resources:
     VOOwnership:
       ATLAS: 90
   US-AGLT2_UM LAT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
