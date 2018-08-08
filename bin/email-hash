@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+from __future__ import print_function
 
 import os
 import sys
@@ -9,7 +10,7 @@ if __name__ == "__main__" and __package__ is None:
     sys.path.append(_parent + "/src")
 
 
-from webapp.common import email_to_id
+from webapp.email_to_id import email_to_id
 
 if len(sys.argv) < 2:
     sys.exit("usage: %s <EMAIL> [<EMAIL 2>..<EMAIL N>]" % sys.argv[0])
