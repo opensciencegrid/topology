@@ -3,12 +3,16 @@
 from __future__ import print_function
 
 import collections
-import urllib2
 import glob
 import yaml
 import sys
 import os
 import re
+
+try:
+    from urllib.request import urlopen
+except ImportError:
+    from urllib2 import urlopen
 
 import xml.etree.ElementTree as et
 
@@ -54,7 +58,7 @@ def user_id_name(u):
     return u.find('ID').text, u.find('FullName').text
 
 def get_contacts():
-    txt = urllib2.urlopen(_contacts_url).read()
+    txt = urlopen(_contacts_url).read()
     xmltree = et.fromstring(txt)
     users = xmltree.findall('User')
     return dict(map(user_id_name, users))
