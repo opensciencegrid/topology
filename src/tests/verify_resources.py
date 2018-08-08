@@ -109,6 +109,11 @@ _emsgs = {
     'NoServices'    : "Valid Services are listed here: %s" % _services_url,
     'NoSupCenter'   : "Valid Support Centers are listed here: %s" % _sups_url,
     'UnknownVO'     : "Valid VOs are listed here: %s" % _vos_url,
+
+    'NoResourceContactLists' : "Resources must contain a ContactLists section",
+    'MalformedContactID'     : "Contact IDs must be exactly 40 hex digits",
+    'UnknownContactID'       : "Contact IDs must exist in contact repo",
+    'ContactNameMismatch'    : "Contact names must match in contact repo",
 }
 
 def print_emsg_once(msgtype):
