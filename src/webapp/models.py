@@ -12,22 +12,26 @@ from webapp.vos_data import VOsData
 log = logging.getLogger(__name__)
 
 
-class DataError(Exception): pass
-
 class CachedData:
-    def __init__(self, data=None, timestamp=0, force_update=True, cache_lifetime=60*15):
+    def __init__(self, data=None, timestamp=0, force_update=True, cache_lifetime=60*15,
+                 retry_delay=60):
         self.data = data
         self.timestamp = timestamp
         self.force_update = force_update
         self.cache_lifetime = cache_lifetime
+        self.retry_delay = retry_delay
+        self.next_update = self.timestamp + self.cache_lifetime
 
     def should_update(self):
-        return self.force_update or (not self.data or time.time() - self.timestamp > self.cache_lifetime)
+        return self.force_update or not self.data or time.time() > self.next_update
 
-    def update(self, data, bump_timestamp=True):
+    def try_again(self):
+        self.next_update = time.time() + self.retry_delay
+
+    def update(self, data):
         self.data = data
-        if bump_timestamp:
-            self.timestamp = time.time()
+        self.timestamp = time.time()
+        self.next_update = self.timestamp + self.cache_lifetime
         self.force_update = False
 
 
@@ -83,8 +87,10 @@ class GlobalData:
         """
         if self.contacts_data.should_update():
             ok = self._update_contacts_repo()
-            self.contacts_data.update(contacts_reader.get_contacts_data(self.contacts_file),
-                                      bump_timestamp=ok)
+            if ok:
+                self.contacts_data.update(contacts_reader.get_contacts_data(self.contacts_file))
+            else:
+                self.contacts_data.try_again()
 
         return self.contacts_data.data
 
@@ -100,20 +106,29 @@ class GlobalData:
     def get_topology(self) -> Topology:
         if self.topology.should_update():
             ok = self._update_topology_repo()
-            self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data()),
-                                 bump_timestamp=ok)
+            if ok:
+                self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data()))
+            else:
+                self.topology.try_again()
+
         return self.topology.data
 
     def get_vos_data(self) -> VOsData:
         if self.vos_data.should_update():
             ok = self._update_topology_repo()
-            self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data()),
-                                 bump_timestamp=ok)
+            if ok:
+                self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data()))
+            else:
+                self.vos_data.try_again()
+
         return self.vos_data.data
 
     def get_projects(self) -> Dict:
         if self.projects.should_update():
             ok = self._update_topology_repo()
-            self.projects.update(project_reader.get_projects(self.projects_dir),
-                                 bump_timestamp=ok)
+            if ok:
+                self.projects.update(project_reader.get_projects(self.projects_dir))
+            else:
+                self.projects.try_again()
+
         return self.projects.data
