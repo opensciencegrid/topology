@@ -6,7 +6,7 @@ from wtforms.validators import InputRequired
 
 
 class GenerateDowntimeForm(FlaskForm):
-    scheduled = BooleanField("Scheduled", [InputRequired()], default="checked")
+    scheduled = BooleanField("Scheduled", None, default="checked")
     severity = SelectField("Severity", [InputRequired()], choices=[
         ("Outage", "Outage"),
         ("Severe", "Severe"),
