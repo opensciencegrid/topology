@@ -20,15 +20,6 @@
 </head>
 <body>
 {% from "_formhelpers.html" import render_field, render_datefield, render_timefield %}
-{% if othererrors %}
-<p>Errors found:</p>
-<ul class=errors>
-    {% for error in othererrors %}
-    <li>{{ error }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-
 <p>Generating downtime for {{ resource }} in {{ facility }}<br/>
 <a href="{{ url_for('downtime_resource_select', facility=facility) }}">Change resource</a>
 |
@@ -39,8 +30,12 @@
 <form method=post>
     {{ form.csrf_token }}
     {% if form.csrf_token.errors %}
-    <div class="warning">You have submitted an invalid CSRF token</div>
+    <div class="warning">
+        You have submitted an invalid CSRF token.
+        Try submitting again.
+    </div>
     {% endif %}
+    {{ render_hidden_field(form.resource) }}
     <table>
         {{ render_field(form.scheduled) }}
         {{ render_field(form.severity) }}

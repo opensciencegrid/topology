@@ -2,6 +2,7 @@
 Application File
 """
 import datetime
+from typing import List
 
 import flask
 import flask.logging
@@ -151,6 +152,8 @@ Missing or invalid resource in facility {flask.escape(facility)}.
 or <a href="/{path}">select another facility.</a>
 """, 400))
 
+    form.resource.data = resource
+
     try:
         form.services.choices = _make_choices(topo.service_names_by_resource[resource])
     except (KeyError, IndexError):  # shouldn't happen but deal with anyway
@@ -160,36 +163,12 @@ Missing or invalid services in resource {flask.escape(resource)}.
 or <a href="/{path}">select another facility.</a>
 """, 400))
 
-    if request.method == "GET" or not form.validate():
+    if not form.validate_on_submit():
         return render_template(template, form=form, resource=resource, facility=facility)
 
-    othererrors = []
-    start_datetime = datetime.datetime.combine(form.start_date.data, form.start_time.data)
-    end_datetime = datetime.datetime.combine(form.end_date.data, form.end_time.data)
-    if start_datetime >= end_datetime:
-        othererrors.append("Start date/time not before end date/time")
-
-    if othererrors:
-        return render_template(template, form=form, othererrors=othererrors,
-                               resource=resource, facility=facility)
-
-    created_datetime = datetime.datetime.utcnow()
     filename = "topology/" + topo.downtime_path_by_resource[resource]
-    dtid = gen_id(f"{created_datetime.timestamp()}{resource}")
-    services = "\n  - " + "\n  - ".join(form.services.data)
-    dtclass = "SCHEDULED" if form.scheduled.data else "UNSCHEDULED"
+    yaml = form.get_yaml()
 
-    yaml = f"""
-- ID: {dtid}
-  Description: {form.description.data}
-  Class: {dtclass}
-  Severity: {form.severity.data}
-  StartTime: {start_datetime:%Y-%m-%d %H:%M} UTC
-  EndTime: {end_datetime:%Y-%m-%d %H:%M} UTC
-  CreatedTime: {created_datetime:%Y-%m-%d %H:%M} UTC
-  Resource: {resource}
-  Services: {services}
-"""
     return render_template(template, form=form, yaml=yaml, resource=resource,
                            filename=filename, facility=facility)
 
