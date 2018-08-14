@@ -1,0 +1,46 @@
+{% macro render_field(field) %}
+<tr>
+    <td>{{ field.label }}</td>
+    <td>{{ field(**kwargs)|safe }}
+        {% if field.errors %}
+        <ul class=errors>
+            {% for error in field.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </td>
+</tr>
+{% endmacro %}
+
+{% macro render_datefield(field) %}
+<tr>
+    <td>{{ field.label }}</td>
+    <td>{{ field(class="datepick", **kwargs)|safe }}
+        {% if field.errors %}
+        <ul class=errors>
+            {% for error in field.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </td>
+</tr>{% endmacro %}
+
+{% macro render_timefield(field) %}
+<tr>
+    <td>{{ field.label }}</td>
+    <td>{{ field(class="timepick", **kwargs)|safe }}
+        {% if field.errors %}
+        <ul class=errors>
+            {% for error in field.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </td>
+</tr>{% endmacro %}
+
+{% macro render_hidden_field(field) %}
+{{ field(**kwargs)|safe }}
+{% endmacro %}
