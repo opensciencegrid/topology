@@ -43,7 +43,7 @@ if "AUTH" in app.config:
     if app.debug:
         default_authorized = app.config["AUTH"]
     else:
-        print("ignoring AUTH option in non-debugging mode", file=sys.stderr)
+        print("ignoring AUTH option when FLASK_ENV != development", file=sys.stderr)
 
 global_data = GlobalData(app.config)
 
@@ -75,27 +75,28 @@ def schema(xsdfile):
 
 @app.route('/miscuser/xml')
 def miscuser_xml():
-    authorized = _get_authorized()
-
-    return Response(to_xml_bytes(global_data.get_contacts_data().get_tree(authorized)), mimetype='text/xml')
+    return Response(to_xml_bytes(global_data.get_contacts_data().get_tree(_get_authorized())),
+                    mimetype='text/xml')
 
 
 @app.route('/miscproject/xml')
 def miscproject_xml():
-    projects_xml = to_xml_bytes(global_data.get_projects())
-    return Response(projects_xml, mimetype='text/xml')
+    return Response(to_xml_bytes(global_data.get_projects()), mimetype='text/xml')
 
 
 @app.route('/vosummary/xml')
 def vosummary_xml():
-    try:
-        filters = get_filters_from_args(request.args)
-    except InvalidArgumentsError as e:
-        return Response("Invalid arguments: " + str(e), status=400)
+    return _get_xml_or_fail(global_data.get_vos_data().get_tree, request.args)
 
-    authorized = _get_authorized()
-    vos_xml = to_xml_bytes(global_data.get_vos_data().get_tree(authorized, filters))
-    return Response(vos_xml, mimetype='text/xml')
+
+@app.route('/rgsummary/xml')
+def rgsummary_xml():
+    return _get_xml_or_fail(global_data.get_topology().get_resource_summary, request.args)
+
+
+@app.route('/rgdowntime/xml')
+def rgdowntime_xml():
+    return _get_xml_or_fail(global_data.get_topology().get_downtimes, request.args)
 
 
 def get_filters_from_args(args) -> Filters:
@@ -179,29 +180,15 @@ def get_filters_from_args(args) -> Filters:
     return filters
 
 
-@app.route('/rgsummary/xml')
-def rgsummary_xml():
+def _get_xml_or_fail(getter_function, args):
     try:
-        filters = get_filters_from_args(request.args)
+        filters = get_filters_from_args(args)
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
-
-    authorized = _get_authorized()
-    rgsummary = global_data.get_topology().get_resource_summary(authorized=authorized, filters=filters)
-    return Response(to_xml_bytes(rgsummary), mimetype='text/xml')
-
-
-@app.route('/rgdowntime/xml')
-def rgdowntime_xml():
-    try:
-        filters = get_filters_from_args(request.args)
-    except InvalidArgumentsError as e:
-        return Response("Invalid arguments: " + str(e), status=400)
-
-    authorized = _get_authorized()
-
-    rgdowntime = global_data.get_topology().get_downtimes(authorized=authorized, filters=filters)
-    return Response(to_xml_bytes(rgdowntime), mimetype='text/xml')
+    return Response(
+        to_xml_bytes(getter_function(_get_authorized(), filters)),
+        mimetype="text/xml"
+    )
 
 
 def _get_authorized():
