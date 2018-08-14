@@ -1,9 +1,11 @@
 """
 Application File
 """
+import datetime
+
 import flask
 import flask.logging
-from flask import Flask, Response, request, render_template
+from flask import Flask, Response, request, render_template, make_response
 import logging
 import os
 import re
@@ -11,7 +13,8 @@ import sys
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import to_xml_bytes, Filters
+from webapp.common import gen_id, to_xml_bytes, Filters
+from webapp.forms import DowntimeResourceSelectForm, GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 
@@ -44,6 +47,11 @@ if "AUTH" in app.config:
         default_authorized = app.config["AUTH"]
     else:
         print("ignoring AUTH option when FLASK_ENV != development", file=sys.stderr)
+if not app.config.get("SECRET_KEY"):
+    if app.debug:
+        app.config["SECRET_KEY"] = "this is not very secret"
+    else:
+        raise Exception("SECRET_KEY required when FLASK_ENV != development")
 
 global_data = GlobalData(app.config)
 
@@ -97,6 +105,97 @@ def rgsummary_xml():
 @app.route('/rgdowntime/xml')
 def rgdowntime_xml():
     return _get_xml_or_fail(global_data.get_topology().get_downtimes, request.args)
+
+
+@app.route('/downtime_resource_select')
+def downtime_resource_select():
+    path = "downtime_resource_select"
+    template = f"{path}_form.html"
+
+    form = DowntimeResourceSelectForm(request.form)
+    topo = global_data.get_topology()
+    form.facility.choices = _make_choices(topo.facilities)
+
+    facility = request.args.get("facility", "")
+    if facility:
+        resource_names = topo.resource_names_by_facility.get(facility)
+        if not resource_names:
+            return make_response((f"""
+Missing or invalid facility. <a href="/{path}">Select a facility.</a>
+""", 400))
+        form.facility.data = facility
+        form.resource.choices = _make_choices(resource_names)
+        return render_template(template, form=form, facility=facility)
+    return render_template(template, form=form)
+
+
+@app.route("/generate_downtime", methods=["GET", "POST"])
+def generate_downtime():
+    path = "generate_downtime"
+    template = f"{path}_form.html"
+
+    form = GenerateDowntimeForm(request.form)
+    topo = global_data.get_topology()
+
+    facility = request.args.get("facility")
+    if not facility or facility not in topo.resource_names_by_facility:
+        return make_response((f"""
+Missing or invalid facility. <a href="/{path}">Select a facility.</a>
+""", 400))
+    resource = request.args.get("resource")
+    resource_names = topo.resource_names_by_facility[facility]
+    if not resource or not resource_names or resource not in resource_names:
+        return make_response((f"""
+Missing or invalid resource in facility {flask.escape(facility)}.
+<a href="/{path}?facility={urllib.parse.quote(facility)}">Select a resource</a>
+or <a href="/{path}">select another facility.</a>
+""", 400))
+
+    try:
+        form.services.choices = _make_choices(topo.service_names_by_resource[resource])
+    except (KeyError, IndexError):  # shouldn't happen but deal with anyway
+        return make_response((f"""
+Missing or invalid services in resource {flask.escape(resource)}.
+<a href="/{path}?facility={urllib.parse.quote(facility)}">Select another resource</a>
+or <a href="/{path}">select another facility.</a>
+""", 400))
+
+    if request.method == "GET" or not form.validate():
+        return render_template(template, form=form, resource=resource, facility=facility)
+
+    othererrors = []
+    start_datetime = datetime.datetime.combine(form.start_date.data, form.start_time.data)
+    end_datetime = datetime.datetime.combine(form.end_date.data, form.end_time.data)
+    if start_datetime >= end_datetime:
+        othererrors.append("Start date/time not before end date/time")
+
+    if othererrors:
+        return render_template(template, form=form, othererrors=othererrors,
+                               resource=resource, facility=facility)
+
+    created_datetime = datetime.datetime.utcnow()
+    filename = "topology/" + topo.downtime_path_by_resource[resource]
+    dtid = gen_id(f"{created_datetime.timestamp()}{resource}")
+    services = "\n  - " + "\n  - ".join(form.services.data)
+    dtclass = "SCHEDULED" if form.scheduled.data else "UNSCHEDULED"
+
+    yaml = f"""
+- ID: {dtid}
+  Description: {form.description.data}
+  Class: {dtclass}
+  Severity: {form.severity.data}
+  StartTime: {start_datetime:%Y-%m-%d %H:%M} UTC
+  EndTime: {end_datetime:%Y-%m-%d %H:%M} UTC
+  CreatedTime: {created_datetime:%Y-%m-%d %H:%M} UTC
+  Resource: {resource}
+  Services: {services}
+"""
+    return render_template(template, form=form, yaml=yaml, resource=resource,
+                           filename=filename, facility=facility)
+
+
+def _make_choices(iterable):
+    return [(x, x) for x in sorted(iterable)]
 
 
 def get_filters_from_args(args) -> Filters:

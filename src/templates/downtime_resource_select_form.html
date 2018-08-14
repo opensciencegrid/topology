@@ -13,7 +13,7 @@
     <p><input type=submit value="Select facility"></p>
 </form>
 {% if facility %}
-<form method="get" action="/dt">
+<form method="get" action="/generate_downtime">
     <input type="hidden" name="facility" value="{{ facility }}">
     <table>
         {{ render_field(form.resource) }}
