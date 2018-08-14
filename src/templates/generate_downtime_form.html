@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Downtime YAML</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/jquery-ui.min.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/jquery.ui.timepicker.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-1.8.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.ui.timepicker.js') }}"></script>
+    <script>
+	$(function() {
+		$( ".datepick" ).datepicker({dateFormat: "yy-mm-dd"});
+		$( ".timepick" ).timepicker({showCloseButton: true});
+	});
+
+    </script>
+</head>
+<body>
+{% from "_formhelpers.html" import render_field, render_datefield, render_timefield %}
+{% if othererrors %}
+<p>Errors found:</p>
+<ul class=errors>
+    {% for error in othererrors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<p>Generating downtime for {{ resource }} in {{ facility }}<br/>
+<a href="{{ url_for('downtime_resource_select', facility=facility) }}">Change resource</a>
+|
+<a href="{{ url_for('downtime_resource_select') }}">Change facility</a>
+</p>
+<p>Dates and times are 24-hour UTC.</p>
+
+<form method=post>
+    {{ form.csrf_token }}
+    {% if form.csrf_token.errors %}
+    <div class="warning">You have submitted an invalid CSRF token</div>
+    {% endif %}
+    <table>
+        {{ render_field(form.scheduled) }}
+        {{ render_field(form.severity) }}
+        {{ render_field(form.description ) }}
+        {{ render_datefield(form.start_date) }}
+        {{ render_timefield(form.start_time) }}
+        {{ render_datefield(form.end_date) }}
+        {{ render_timefield(form.end_time) }}
+        {{ render_field(form.services) }}
+        <tr>
+            <td>
+                <input type="submit" value="Generate"/>
+            </td>
+        </tr>
+    </table>
+</form>
+{% if yaml %}
+Paste the following YAML as-is to the end of "{{ filename }}"
+(create the file if it does not exist):
+<hr/>
+<pre>
+    {{ yaml }}
+</pre>
+<hr/>
+{% endif %}
+</body>
+</html>
