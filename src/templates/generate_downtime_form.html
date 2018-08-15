@@ -50,13 +50,10 @@
 <p>Dates and times are 24-hour UTC.</p>
 
 <form method=post>
-    {{ form.csrf_token }}
-    {% if form.csrf_token.errors %}
-    <div class="warning">
-        You have submitted an invalid CSRF token.
-        Try submitting again.
-    </div>
-    {% endif %}
+    <!-- NOTE: we are not using CSRF because none of the POST data is actually
+    used to change anything.  If that ever changes, see
+    https://flask-wtf.readthedocs.io/en/stable/csrf.html
+    -->
     {{ render_hidden_field(form.resource) }}
     <table>
         {{ render_field(form.scheduled) }}
