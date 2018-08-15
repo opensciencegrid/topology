@@ -57,7 +57,7 @@ class GlobalData:
             if ok:
                 log.debug("topology repo update ok")
             else:
-                log.warning("topology repo update failed")
+                log.error("topology repo update failed")
                 return False
         for d in [self.projects_dir, self.topology_dir, self.vos_dir]:
             if not os.path.exists(d):
@@ -74,7 +74,7 @@ class GlobalData:
             if ok:
                 log.debug("contact repo update ok")
             else:
-                log.warning("contact repo update failed")
+                log.error("contact repo update failed")
                 return False
         if not os.path.exists(self.contacts_file):
             log.error("%s not in contact repo", self.contacts_file)
