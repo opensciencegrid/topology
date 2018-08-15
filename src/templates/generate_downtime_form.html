@@ -17,10 +17,32 @@
 	});
 
     </script>
+    <style>
+    @supports (display: grid) {
+        @media only screen and (min-width: 800px) {
+            .wrapper {
+                display: grid;
+            }
+
+            .left {
+                grid-column: 1/2;
+                grid-row: 1;
+            }
+
+            .right {
+                grid-column: 2/2;
+                grid-row: 1;
+            }
+        }
+    }
+    </style>
 </head>
 <body>
-{% from "_formhelpers.html" import render_field, render_datefield, render_timefield %}
-<p>Generating downtime for {{ resource }} in {{ facility }}<br/>
+{% from "_formhelpers.html" import render_field, render_datefield, render_timefield, render_hidden_field %}
+
+<div class="wrapper">
+<div class="left">
+    <p>Generating downtime for {{ resource }} in {{ facility }}<br/>
 <a href="{{ url_for('downtime_resource_select', facility=facility) }}">Change resource</a>
 |
 <a href="{{ url_for('downtime_resource_select') }}">Change facility</a>
@@ -52,14 +74,16 @@
         </tr>
     </table>
 </form>
-{% if yaml %}
-Paste the following YAML as-is to the end of "{{ filename }}"
-(create the file if it does not exist):
-<hr/>
-<pre>
-    {{ yaml }}
-</pre>
-<hr/>
-{% endif %}
+</div>
+    <div class="right">
+        {% if yaml %}
+        Paste the following YAML as-is to the end of <pre>"{{ filename }}"</pre>
+        (create the file if it does not exist):
+        <hr/>
+        <pre>{{ yaml }}</pre>
+        <hr/>
+        {% endif %}
+    </div>
+</div>
 </body>
 </html>
