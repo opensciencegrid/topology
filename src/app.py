@@ -49,10 +49,12 @@ if "AUTH" in app.config:
     else:
         print("ignoring AUTH option when FLASK_ENV != development", file=sys.stderr)
 if not app.config.get("SECRET_KEY"):
-    if app.debug:
-        app.config["SECRET_KEY"] = "this is not very secret"
-    else:
-        raise Exception("SECRET_KEY required when FLASK_ENV != development")
+    app.config["SECRET_KEY"] = "this is not very secret"
+### Replace previous with this when we want to add CSRF protection
+#     if app.debug:
+#         app.config["SECRET_KEY"] = "this is not very secret"
+#     else:
+#         raise Exception("SECRET_KEY required when FLASK_ENV != development")
 
 global_data = GlobalData(app.config)
 
