@@ -26,6 +26,9 @@ class GenerateDowntimeForm(FlaskForm):
     services = SelectMultipleField("Services (select one or more)", [InputRequired()], choices=[])
     resource = HiddenField("Resource")
 
+    class Meta:
+        csrf = False  # CSRF not needed because no data gets modified
+
     # https://stackoverflow.com/a/21815180
     def validate(self):
         if not super().validate():
