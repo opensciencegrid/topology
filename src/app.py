@@ -176,7 +176,8 @@ or <a href="/{path}">select another facility.</a>
 
 
 def _make_choices(iterable):
-    return [(x, x) for x in sorted(iterable)]
+    return [(x.encode("utf-8", "surrogateescape").decode(), x.encode("utf-8", "surrogateescape").decode())
+            for x in sorted(iterable)]
 
 
 def get_filters_from_args(args) -> Filters:
