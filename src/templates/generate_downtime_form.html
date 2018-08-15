@@ -19,7 +19,7 @@
     </script>
     <style>
     @supports (display: grid) {
-        @media only screen and (min-width: 800px) {
+        @media only screen and (min-width: 75em) {
             .wrapper {
                 display: grid;
             }
@@ -34,6 +34,14 @@
                 grid-row: 1;
             }
         }
+    }
+    input, textarea, select, button {
+        width : 30em;
+        margin: 0;
+
+        -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+        -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+        box-sizing: border-box;
     }
     </style>
 </head>
@@ -65,6 +73,7 @@
         {{ render_timefield(form.end_time) }}
         {{ render_field(form.services) }}
         <tr>
+            <td></td>
             <td>
                 <input type="submit" value="Generate"/>
             </td>
