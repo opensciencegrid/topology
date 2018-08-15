@@ -117,7 +117,7 @@ def downtime_resource_select():
 
     form = DowntimeResourceSelectForm(request.form)
     topo = global_data.get_topology()
-    form.facility.choices = _make_choices(topo.facilities)
+    form.facility.choices = _make_choices(topo.resource_names_by_facility.keys())
 
     facility = request.args.get("facility", "")
     if facility:
