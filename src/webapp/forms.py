@@ -12,8 +12,8 @@ from webapp.common import gen_id
 
 class GenerateDowntimeForm(FlaskForm):
     scheduled = SelectField("Scheduled", [InputRequired()], choices=[
-        ("SCHEDULED", "Scheduled"),
-        ("UNSCHEDULED", "Unscheduled"),
+        ("SCHEDULED", "Yes"),
+        ("UNSCHEDULED", "No"),
     ])
     severity = SelectField("Severity", [InputRequired()], choices=[
         ("Outage", "Outage (completely inaccessible)"),
