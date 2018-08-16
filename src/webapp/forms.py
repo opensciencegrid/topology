@@ -13,17 +13,17 @@ from webapp.common import gen_id
 class GenerateDowntimeForm(FlaskForm):
     scheduled = BooleanField("Scheduled", None)  # default="checked" does not do anything
     severity = SelectField("Severity", [InputRequired()], choices=[
-        ("Outage", "Outage"),
-        ("Severe", "Severe"),
-        ("Intermittent Outage", "Intermittent Outage"),
-        ("No Significant Outage Expected", "No Significant Outage Expected")
+        ("Outage", "Outage (completely inaccessible)"),
+        ("Severe", "Severe (most services down)"),
+        ("Intermittent Outage", "Intermittent Outage (may be up for some of the time)"),
+        ("No Significant Outage Expected", "No Significant Outage Expected (you shouldn't notice)")
     ])
     description = StringField("Description", [InputRequired()])
     start_date = DateField("Start Date", [InputRequired()])
     start_time = TimeField("Start Time", [InputRequired()])
     end_date = DateField("End Date", [InputRequired()])
     end_time = TimeField("End Time", [InputRequired()])
-    services = SelectMultipleField("Services (select one or more)", [InputRequired()], choices=[])
+    services = SelectMultipleField("Services", [InputRequired()], choices=[])
     resource = HiddenField("Resource")
 
     class Meta:
