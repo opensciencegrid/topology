@@ -44,3 +44,7 @@
 {% macro render_hidden_field(field) %}
 {{ field(**kwargs)|safe }}
 {% endmacro %}
+
+{% macro render_fieldinfo(info) %}
+<tr><td colspan="2"><span class="fieldinfo">{{ info|safe }}</span></td></tr>
+{% endmacro %}

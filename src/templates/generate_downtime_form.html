@@ -46,10 +46,16 @@
     .errors {
         color: red;
     }
+    .fieldinfo {
+        font-size: small;
+        padding-left: 2em;
+        color: #555;
+    }
     </style>
 </head>
 <body>
-{% from "_formhelpers.html" import render_field, render_datefield, render_timefield, render_hidden_field %}
+{% from "_formhelpers.html" import render_field, render_datefield,
+      render_timefield, render_hidden_field, render_fieldinfo %}
 
 <div class="wrapper">
 <div class="left">
@@ -58,8 +64,6 @@
 |
 <a href="{{ url_for('downtime_resource_select') }}">Change facility</a>
 </p>
-<p>Dates and times are 24-hour UTC.</p>
-
 <form method=post>
     <!-- NOTE: we are not using CSRF because none of the POST data is actually
     used to change anything.  If that ever changes, see
@@ -68,13 +72,21 @@
     {{ render_hidden_field(form.resource) }}
     <table>
         {{ render_field(form.scheduled) }}
+        {{ render_fieldinfo("Outage known about for at least 48 hours in advance.") }}
         {{ render_field(form.severity) }}
+        {{ render_fieldinfo("How much of the resource the outage affects.") }}
         {{ render_field(form.description ) }}
+        {{ render_fieldinfo("The reason and/or impact of the outage.") }}
         {{ render_datefield(form.start_date) }}
+        {{ render_fieldinfo("YYYY-MM-DD format.") }}
         {{ render_timefield(form.start_time) }}
+        {{ render_fieldinfo("HH:MM format; UTC.") }}
         {{ render_datefield(form.end_date) }}
+        {{ render_fieldinfo("YYYY-MM-DD format.") }}
         {{ render_timefield(form.end_time) }}
+        {{ render_fieldinfo("HH:MM format; UTC.") }}
         {{ render_field(form.services) }}
+        {{ render_fieldinfo("Select one or more.") }}
         <tr>
             <td></td>
             <td>
@@ -86,7 +98,7 @@
 </div>
     <div class="right">
         {% if yaml %}
-        <p>
+            <br/>
             {% if site_dir_url %}
                 {% if edit_url %}
                     <a href="{{ edit_url }}" target="_blank">
@@ -108,7 +120,6 @@
             <hr/>
             <pre>{{ yaml }}</pre>
             <hr/>
-        </p>
         {% endif %}
     </div>
 </div>
