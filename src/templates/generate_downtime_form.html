@@ -59,11 +59,11 @@
 
 <div class="wrapper">
 <div class="left">
-    <p>Generating downtime for {{ resource }} in {{ facility }}<br/>
+Generating downtime for {{ resource }} in {{ facility }}<br/>
 <a href="{{ url_for('downtime_resource_select', facility=facility) }}">Change resource</a>
 |
 <a href="{{ url_for('downtime_resource_select') }}">Change facility</a>
-</p>
+<br/>
 <form method=post>
     <!-- NOTE: we are not using CSRF because none of the POST data is actually
     used to change anything.  If that ever changes, see
@@ -98,16 +98,15 @@
 </div>
     <div class="right">
         {% if yaml %}
-            <br/>
             {% if site_dir_url %}
                 {% if edit_url %}
                     <a href="{{ edit_url }}" target="_blank">
-                        Click here to edit the file on GitHub
-                    </a>.
+                        Click here to edit the file on GitHub.
+                    </a>
                 {% else %}
                     <a href="{{ site_dir_url }}" target="_blank">
-                        Click here to open the directory on GitHub
-                    </a>;
+                        Click here to open the directory on GitHub;
+                    </a>
                     use the "Create new file" button and name the file
                     <pre>"{{ filename }}"</pre>
                 {% endif %}
