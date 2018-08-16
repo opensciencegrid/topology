@@ -53,7 +53,10 @@ class GenerateDowntimeForm(FlaskForm):
 
     def get_yaml(self) -> str:
         created_datetime = datetime.datetime.utcnow()
-        dtid = gen_id(f"{created_datetime.timestamp()}{self.resource.data}")
+        start_time_str = _timestr(self.get_start_datetime())
+        end_time_str = _timestr(self.get_end_datetime())
+        created_time_str = _timestr(created_datetime)
+        dtid = gen_id(f"{created_time_str}{self.resource.data}")
         dtclass = "SCHEDULED" if self.scheduled.data else "UNSCHEDULED"
         services_text = self.get_services_text()
 
@@ -62,15 +65,16 @@ class GenerateDowntimeForm(FlaskForm):
   Description: {self.description.data}
   Class: {dtclass}
   Severity: {self.severity.data}
-  StartTime: {self.get_start_datetime():%Y-%m-%d %H:%M} +0000
-  EndTime: {self.get_end_datetime():%Y-%m-%d %H:%M} +0000
-  CreatedTime: {created_datetime:%Y-%m-%d %H:%M} +0000
+  StartTime: {start_time_str}
+  EndTime: {end_time_str}
+  CreatedTime: {created_time_str}
   ResourceName: {self.resource.data}
   Services: {services_text}
 """
-
 
 class DowntimeResourceSelectForm(FlaskForm):
     facility = SelectField("Facility", [InputRequired()])
     resource = SelectField("Resource", [InputRequired()])
 
+def _timestr(datetimeobj: datetime.datetime) -> str:
+    return "{:%Y-%m-%d %H:%M} +0000".format(datetimeobj)
