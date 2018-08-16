@@ -3,6 +3,7 @@ import datetime
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, SelectField, SelectMultipleField, StringField, \
     TimeField, HiddenField
+from wtforms.widgets.html5 import TimeInput
 from wtforms.ext.dateutil.fields import DateField
 from wtforms.validators import InputRequired
 
@@ -22,9 +23,9 @@ class GenerateDowntimeForm(FlaskForm):
     ])
     description = StringField("Description", [InputRequired()])
     start_date = DateField("Start Date", [InputRequired()])
-    start_time = TimeField("Start Time", [InputRequired()])
+    start_time = TimeField("Start Time", [InputRequired()], widget=TimeInput())
     end_date = DateField("End Date", [InputRequired()])
-    end_time = TimeField("End Time", [InputRequired()])
+    end_time = TimeField("End Time", [InputRequired()], widget=TimeInput())
     services = SelectMultipleField("Services", [InputRequired()], choices=[])
     resource = HiddenField("Resource")
 
