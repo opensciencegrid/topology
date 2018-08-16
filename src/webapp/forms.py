@@ -11,7 +11,10 @@ from webapp.common import gen_id
 
 
 class GenerateDowntimeForm(FlaskForm):
-    scheduled = BooleanField("Scheduled", None)  # default="checked" does not do anything
+    scheduled = SelectField("Scheduled", [InputRequired()], choices=[
+        ("SCHEDULED", "Scheduled"),
+        ("UNSCHEDULED", "Unscheduled"),
+    ])
     severity = SelectField("Severity", [InputRequired()], choices=[
         ("Outage", "Outage (completely inaccessible)"),
         ("Severe", "Severe (most services down)"),
@@ -57,13 +60,12 @@ class GenerateDowntimeForm(FlaskForm):
         end_time_str = _timestr(self.get_end_datetime())
         created_time_str = _timestr(created_datetime)
         dtid = gen_id(f"{created_time_str}{self.resource.data}")
-        dtclass = "SCHEDULED" if self.scheduled.data else "UNSCHEDULED"
         services_text = self.get_services_text()
 
         return f"""\
 - ID: {dtid}
   Description: {self.description.data}
-  Class: {dtclass}
+  Class: {self.scheduled.data}
   Severity: {self.severity.data}
   StartTime: {start_time_str}
   EndTime: {end_time_str}
