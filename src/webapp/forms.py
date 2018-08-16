@@ -33,11 +33,13 @@ class GenerateDowntimeForm(FlaskForm):
     def validate(self):
         if not super().validate():
             return False
-        start_datetime = datetime.datetime.combine(self.start_date.data, self.start_time.data)
-        end_datetime = datetime.datetime.combine(self.end_date.data, self.end_time.data)
-        if start_datetime >= end_datetime:
-            self.end_time.errors.append("End date/time must be after start date/time")
+        if self.start_date.data > self.end_date.data:
+            self.end_date.errors.append("End date/time must be after start date/time")
             return False
+        elif self.start_date.data == self.end_date.data:
+            if self.start_time.data >= self.end_time.data:
+                self.end_time.errors.append("End date/time must be after start date/time")
+                return False
         return True
 
     def get_start_datetime(self):
