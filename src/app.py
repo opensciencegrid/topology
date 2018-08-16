@@ -168,11 +168,27 @@ or <a href="/{path}">select another facility.</a>
     if not form.validate_on_submit():
         return render_template(template, form=form, resource=resource, facility=facility)
 
-    filename = "topology/" + topo.downtime_path_by_resource[resource]
+    filepath = "topology/" + topo.downtime_path_by_resource[resource]
+    # ^ filepath relative to the root of the topology repo checkout
+    filename = os.path.basename(filepath)
+
+    # Add github edit URLs or directory URLs for the repo, if we can.
+    edit_url = site_dir_url = ""
+    if re.match("http(s?)://github.com", global_data.topology_data_repo):
+        site_dir_url = "{0}/tree/{1}/{2}".format(global_data.topology_data_repo,
+                                                 urllib.parse.quote(global_data.topology_data_branch),
+                                                 urllib.parse.quote(os.path.dirname(filepath)))
+        if os.path.exists(os.path.join(global_data.topology_dir, topo.downtime_path_by_resource[resource])):
+            edit_url = "{0}/edit/{1}/{2}".format(global_data.topology_data_repo,
+                                                 urllib.parse.quote(global_data.topology_data_branch),
+                                                 urllib.parse.quote(filepath))
+
     yaml = form.get_yaml()
 
-    return render_template(template, form=form, yaml=yaml, resource=resource,
-                           filename=filename, facility=facility)
+    return render_template(
+        template, form=form, yaml=yaml, resource=resource, filepath=filepath,
+        filename=filename, facility=facility, edit_url=edit_url,
+        site_dir_url=site_dir_url)
 
 
 def _make_choices(iterable):

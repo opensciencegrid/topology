@@ -42,18 +42,21 @@ class GlobalData:
         self.projects = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
         self.topology = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
         self.vos_data = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
+        self.topology_data_dir = config["TOPOLOGY_DATA_DIR"]
+        self.topology_data_repo = config.get("TOPOLOGY_DATA_REPO", "")
+        self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
         self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
-        self.projects_dir = os.path.join(config["TOPOLOGY_DATA_DIR"], "projects")
-        self.topology_dir = os.path.join(config["TOPOLOGY_DATA_DIR"], "topology")
-        self.vos_dir = os.path.join(config["TOPOLOGY_DATA_DIR"], "virtual-organizations")
+        self.projects_dir = os.path.join(self.topology_data_dir, "projects")
+        self.topology_dir = os.path.join(self.topology_data_dir, "topology")
+        self.vos_dir = os.path.join(self.topology_data_dir, "virtual-organizations")
         self.config = config
 
     def _update_topology_repo(self):
         if not self.config["NO_GIT"]:
-            parent = os.path.dirname(self.config["TOPOLOGY_DATA_DIR"])
+            parent = os.path.dirname(self.topology_data_dir)
             os.makedirs(parent, mode=0o755, exist_ok=True)
-            ok = common.git_clone_or_pull(self.config["TOPOLOGY_DATA_REPO"], self.config["TOPOLOGY_DATA_DIR"],
-                                   self.config["TOPOLOGY_DATA_BRANCH"])
+            ok = common.git_clone_or_pull(self.topology_data_repo, self.topology_data_dir,
+                                          self.topology_data_branch)
             if ok:
                 log.debug("topology repo update ok")
             else:
