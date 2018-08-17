@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Generate Downtime YAML</title>
+    <title>Downtime YAML generator</title>
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/jquery-ui.min.css') }}">
     <link rel="stylesheet"
@@ -56,14 +56,11 @@
 <body>
 {% from "_formhelpers.html" import render_field, render_datefield,
       render_timefield, render_hidden_field, render_fieldinfo %}
-
+<center><h3>Downtime YAML generator</h3></center>
 <div class="wrapper">
 <div class="left">
-Generating downtime for {{ resource }} in {{ facility }}<br/>
-<a href="{{ url_for('downtime_resource_select', facility=facility) }}">Change resource</a>
-|
-<a href="{{ url_for('downtime_resource_select') }}">Change facility</a>
-<br/>
+<b>Resource:</b> {{resource}} (<a href="{{ url_for('downtime_resource_select', facility=facility) }}">change resource</a>)<br/>
+<b>Facility:</b> {{facility}} (<a href="{{ url_for('downtime_resource_select') }}">change facility</a>)<br/>
 <form method=post>
     <!-- NOTE: we are not using CSRF because none of the POST data is actually
     used to change anything.  If that ever changes, see
@@ -72,9 +69,9 @@ Generating downtime for {{ resource }} in {{ facility }}<br/>
     {{ render_hidden_field(form.resource) }}
     <table>
         {{ render_field(form.scheduled) }}
-        {{ render_fieldinfo("Outage known about for at least 48 hours in advance.") }}
+        {{ render_fieldinfo("Outages registered at least 48 hours in advance.") }}
         {{ render_field(form.severity) }}
-        {{ render_fieldinfo("How much of the resource the outage affects.") }}
+        {{ render_fieldinfo("How much of the resource is affected.") }}
         {{ render_field(form.description ) }}
         {{ render_fieldinfo("The reason and/or impact of the outage.") }}
         {{ render_datefield(form.start_date) }}
@@ -98,27 +95,30 @@ Generating downtime for {{ resource }} in {{ facility }}<br/>
 </div>
     <div class="right">
         {% if yaml %}
+            <ol>
             {% if site_dir_url %}
                 {% if edit_url %}
-                    <a href="{{ edit_url }}" target="_blank">
-                        Click here to edit the file on GitHub.
-                    </a>
+                <li><a href="{{ edit_url }}" target="_blank">Click here to edit the downtime file on GitHub.</a></li>
                 {% else %}
-                    <a href="{{ site_dir_url }}" target="_blank">
-                        Click here to open the directory on GitHub;
-                    </a>
-                    use the "Create new file" button and name the file
+                <li><a href="{{ site_dir_url }}" target="_blank">Click here to open the site directory on GitHub.</a></li>
+                <li>
+                    Use the "Create new file" button and name the file:
                     <pre>"{{ filename }}"</pre>
+                </li>
                 {% endif %}
             {% else %}
-                Open the file named
-                <pre>"{{ filepath }}"</pre>
-                in your topology repo checkout.
+                <li>
+                    In your topology repo checkout, open the file named:
+                    <pre>"{{ filepath }}"</pre>
+                </li>
             {% endif %}
-            <br/>Copy-and-paste the following YAML as-is to the end:
-            <hr/>
-            <pre>{{ yaml }}</pre>
-            <hr/>
+                <li>
+                    Copy-and-paste the following YAML as-is to the end:
+                    <hr/>
+                    <pre>{{ yaml }}</pre>
+                    <hr/>
+                </li>
+            </ol>
         {% endif %}
     </div>
 </div>
