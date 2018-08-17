@@ -4,6 +4,7 @@ GroupID: 398
 Production: true
 Resources:
   Hyak_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -17,10 +18,6 @@ Resources:
         Primary:
           ID: 52f6e89bf022d01dbb2c30705320737af426f521
           Name: Adam Hough
-      Submitter Contact:
-        Primary:
-          ID: fc5d95754a92e28287360d74cf33fc23140d47eb
-          Name: Stephen Fralich
     Description: CE for Hyak
     Disable: false
     FQDN: globus1.hyak.washington.edu

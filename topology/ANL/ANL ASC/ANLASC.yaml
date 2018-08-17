@@ -4,6 +4,7 @@ GroupID: 283
 Production: true
 Resources:
   ANL-ATLAS-GRIDFTP1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -43,6 +44,7 @@ Resources:
       StorageCapacityMin: 0.5
       TapeCapacity: 0
   ANL-ATLAS-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -67,134 +69,8 @@ Resources:
           hidden: false
     VOOwnership:
       ATLAS: 100
-  ANLASC Squid:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-      Security Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-      Submitter Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-    Description: This is a squid server running on the internal Yellow network at
-      ANL
-    Disable: false
-    FQDN: squid.hep.anl.gov
-    ID: 595
-    Services:
-      Squid:
-        Description: Generic squid service
-    VOOwnership:
-      ATLAS: 100
-  ANLASC-ASCHEAD:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-        Secondary:
-          ID: 7a88370282be73e3756393b891af447075e0a9e8
-          Name: Rik Yoshida
-      Resource Report Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-        Secondary:
-          ID: 7a88370282be73e3756393b891af447075e0a9e8
-          Name: Rik Yoshida
-      Security Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-        Secondary:
-          ID: 7a88370282be73e3756393b891af447075e0a9e8
-          Name: Rik Yoshida
-      Submitter Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-    Description: Gridftp server for ANL ASC cluster
-    Disable: true
-    FQDN: aschead.hep.anl.gov
-    ID: 363
-    Services:
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      ATLAS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 0
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: false
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 19
-      StorageCapacityMin: 0.5
-      TapeCapacity: 0
-  ANLASC-ASCNFS:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-      Security Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-      Submitter Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-    Description: Gridftp server as part of ANL ASC cluster
-    Disable: true
-    FQDN: ascnfs.hep.anl.gov
-    ID: 357
-    Services:
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      ATLAS: 100
-  ANLASC-CE:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-      Security Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-      Submitter Contact:
-        Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
-    Description: This is a compute element providing the frontend for ANL HEP group
-      HPC work
-    Disable: true
-    FQDN: atlasce.hep.anl.gov
-    ID: 526
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-    VOOwnership:
-      ATLAS: 100
   ANLASC-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -236,6 +112,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   ANLASC-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -259,6 +136,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   ANLASC_RUCIO:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

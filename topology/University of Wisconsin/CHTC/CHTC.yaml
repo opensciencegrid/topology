@@ -4,67 +4,6 @@ GroupDescription: The University of Wisconsin's Center for High Throughput Compu
 GroupID: 314
 Production: true
 Resources:
-  CHTC and BATLAB OSG Mirror:
-    Disable: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-      Miscellaneous Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-      Resource Report Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-      Security Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-    Description: This was the CHTC and BATLAB mirror of the OSG repos at repo.grid.iu.edu/osg but is no longer active
-    FQDN: mirror.batlab.org
-    ID: 608
-    Services:
-      Software Repo Mirror:
-        Description: OSG software repository mirror server (inactive)
-        Details:
-          root: http://mirror.batlab.org/repos/osg/
-    VOOwnership:
-      GLOW: 100
-  CHTC-glidein:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-        Secondary:
-          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
-          Name: Timothy Slauson
-      Security Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-        Secondary:
-          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
-          Name: Timothy Slauson
-      Submitter Contact:
-        Primary:
-          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-          Name: Daniel Bradley
-    Description: This is the GLOW/CHTC glidein frontend.
-    Disable: true
-    FQDN: glidein.chtc.wisc.edu
-    ID: 412
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      GLOW: 100
   CHTC-glidein2:
     ContactLists:
       Administrative Contact:
@@ -107,6 +46,7 @@ Resources:
     VOOwnership:
       GLOW: 100
   CHTC-glidein3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -148,6 +88,7 @@ Resources:
     VOOwnership:
       GLOW: 100
   CHTC-submit-1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -182,6 +123,7 @@ Resources:
     VOOwnership:
       GLOW: 100
   CHTC_SUBMIT_3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -223,6 +165,7 @@ Resources:
     VOOwnership:
       GLOW: 100
   CHTC_SUBMIT_4:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -257,6 +200,7 @@ Resources:
     VOOwnership:
       GLOW: 100
   CHTC_SUBMIT_5:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -288,38 +232,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-    VOOwnership:
-      GLOW: 100
-  GLOW-CHTC VOMS server:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-        Secondary:
-          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-          Name: Daniel Bradley
-      Resource Report Contact:
-        Primary:
-          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-          Name: Daniel Bradley
-        Secondary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-      Security Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-        Secondary:
-          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-          Name: Daniel Bradley
-    Description: This was the VOMS server for the GLOW and CHTC sites.
-    Disable: true
-    FQDN: glow-voms.cs.wisc.edu
-    ID: 426
-    Services:
-      VOMS Server:
-        Description: VOMS Server
     VOOwnership:
       GLOW: 100
 SupportCenter: GLOW-TECH

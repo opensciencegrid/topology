@@ -4,32 +4,38 @@ GroupID: 97
 Production: false
 Resources:
   SBGrid-GlideinWMS-Frontend:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
+          Name: Michael (Mick) Timony
+        Secondary:
+          ID: 5a210445cd71d7f59fa5c46b288762c93c8333b3
+          Name: Justin O'Connor
+        Tertiary:
           ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
           Name: Piotr Sliz
-        Secondary:
-          ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
-          Name: Ian Stokes-Rees
       Resource Report Contact:
         Primary:
+          ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
+          Name: Michael (Mick) Timony
+        Secondary:
+          ID: 5a210445cd71d7f59fa5c46b288762c93c8333b3
+          Name: Justin O'Connor
+        Tertiary:
           ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
           Name: Piotr Sliz
-        Secondary:
-          ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
-          Name: Ian Stokes-Rees
       Security Contact:
         Primary:
+          ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
+          Name: Michael (Mick) Timony
+        Secondary:
+          ID: 5a210445cd71d7f59fa5c46b288762c93c8333b3
+          Name: Justin O'Connor
+        Tertiary:
           ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
           Name: Piotr Sliz
-        Secondary:
-          ID: bc4f8d892c9762a14fc6f36ac32b8210b0828b03
-          Name: Ian Stokes-Rees
-      Submitter Contact:
-        Primary:
-          ID: 22ef5608a23fb90ea01f4178b22cda87fa177ef3
-          Name: Peter Doherty
     Description: SBGrid's glideinwms frontend
     Disable: false
     FQDN: glidein.nebiogrid.org
@@ -39,26 +45,4 @@ Resources:
         Description: OSG Submission Node
     VOOwnership:
       SBGrid: 100
-  SBGrid-Harvard:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Secondary:
-          ID: 00f0f2dd4e52f1448305bef4c6c228c50e412a6b
-          Name: Ian Levesque
-      Security Contact:
-        Secondary:
-          ID: 00f0f2dd4e52f1448305bef4c6c228c50e412a6b
-          Name: Ian Levesque
-      Submitter Contact:
-        Primary:
-          ID: 00f0f2dd4e52f1448305bef4c6c228c50e412a6b
-          Name: Ian Levesque
-    Description: Deactivated.  REplaced by sbgrid-harvard-security
-    Disable: true
-    FQDN: hpc.sbgrid.org
-    ID: 97
-    Services:
-      CE:
-        Description: Compute Element
 SupportCenter: SBGrid

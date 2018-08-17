@@ -4,6 +4,7 @@ GroupID: 182
 Production: true
 Resources:
   HU_ATLAS_Tier2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -57,6 +58,7 @@ Resources:
       StorageCapacityMax: 1
       StorageCapacityMin: 1
   HU_ATLAS_Tier2_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -104,6 +106,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   NET2_HU:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -130,10 +133,6 @@ Resources:
         Secondary:
           ID: 25fe4fbd05b36546e5f52f141fb2ef46a50f9cbd
           Name: Daniel Caunt
-      Submitter Contact:
-        Primary:
-          ID: e297eb17de4298113769ebab2591fbc8a8c0a283
-          Name: John Brunelle
     Description: US ATLAS Tier2
     Disable: false
     FQDN: net2.rc.fas.harvard.edu
@@ -157,6 +156,7 @@ Resources:
       StorageCapacityMax: 1
       StorageCapacityMin: 1
   net2.rc.fas.harvard.edu-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

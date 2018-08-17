@@ -4,6 +4,7 @@ GroupID: 393
 Production: true
 Resources:
   Purdue-Hadoop-CE:
+    Active: true
     ContactLists:
       Miscellaneous Contact:
         Secondary:
@@ -47,6 +48,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   Purdue-Hadoop-HT-PBS-CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -134,6 +136,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   Purdue-Hadoop-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -174,6 +177,7 @@ Resources:
     VOOwnership:
       CMS: 100
   Purdue-Hadoop-SE-Gridftp:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -221,44 +225,8 @@ Resources:
       StorageCapacityMax: 3800
       StorageCapacityMin: 3800
       TapeCapacity: 0
-  Purdue-Hadoop-SE2:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-        Tertiary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Security Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Submitter Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-    Description: Storage element, IPV6 enabled  for CMS Hadoop cluster at Purdue University.
-    Disable: true
-    FQDN: srm6.rcac.purdue.edu
-    ID: 732
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: true
-          uri_override: srm6.rcac.purdue.edu:8443
-    VOOwnership:
-      CMS: 100
   Purdue-Hadoop-TestCE:
+    Active: true
     ContactLists:
       Miscellaneous Contact:
         Secondary:
@@ -300,6 +268,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   T2_US_Purdue_Squid1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -335,6 +304,7 @@ Resources:
     VOOwnership:
       CMS: 100
   T2_US_Purdue_Squid2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -367,6 +337,7 @@ Resources:
     VOOwnership:
       CMS: 100
   T2_US_Purdue_Squid3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -405,6 +376,7 @@ Resources:
     VOOwnership:
       CMS: 100
   US-Purdue BW:
+    Active: true
     ContactLists:
       Resource Report Contact:
         Primary:
@@ -442,6 +414,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   US-Purdue LT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:

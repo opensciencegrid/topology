@@ -3,41 +3,8 @@ GroupDescription: The OSG Gratia services as provided by FermiGrid at FNAL.
 GroupID: 255
 Production: true
 Resources:
-  GRATIA-OSG-DAILY:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
-          Name: Gratia Accounting Service
-      Miscellaneous Contact:
-        Primary:
-          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
-          Name: Gratia Accounting Service
-        Tertiary:
-          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
-          Name: Steve Timm
-      Resource Report Contact:
-        Primary:
-          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
-          Name: Gratia Accounting Service
-      Submitter Contact:
-        Primary:
-          ID: a84160713fdad792b3467db2ffc853c6a9b1fc44
-          Name: Chris Green
-    Description: |-
-      The Gratia collector for aggregated accounting data regarding OSG sites.
-
-      If you don't *know* you should be reporting to this collector: you shouldn't be reporting to this collector.
-    Disable: true
-    FQDN: gratia-osg-daily.opensciencegrid.org
-    ID: 295
-    Services:
-      Gratia Collector:
-        Description: Gratia Collector
-    VOOwnership:
-      Fermilab: 100
   GRATIA-OSG-ITB:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -70,43 +37,8 @@ Resources:
         Description: Gratia Collector
     VOOwnership:
       Fermilab: 100
-  GRATIA-OSG-ITB-PERM:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
-          Name: Gratia Accounting Service
-      Miscellaneous Contact:
-        Primary:
-          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
-          Name: Gratia Accounting Service
-        Tertiary:
-          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
-          Name: Steve Timm
-      Resource Report Contact:
-        Primary:
-          ID: d1aab498fc9f9184921b35a94d2edaa9b10bf4a5
-          Name: Gratia Accounting Service
-      Submitter Contact:
-        Primary:
-          ID: a84160713fdad792b3467db2ffc853c6a9b1fc44
-          Name: Chris Green
-    Description: |-
-      The Gratia collector for all accounting information from "permanent" OSG-ITB sites.
-
-      Note that this is a *production* accounting service for the ITB, not an ITB service.
-
-      Do *not* report to this service -- records are replicated from the global OSG-ITB collector
-    Disable: true
-    FQDN: gratia-osg-integration.opensciencegrid.org
-    ID: 294
-    Services:
-      Gratia Collector:
-        Description: Gratia Collector
-    VOOwnership:
-      Fermilab: 100
   GRATIA-OSG-PROD:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -141,6 +73,7 @@ Resources:
     VOOwnership:
       Fermilab: 100
   GRATIA-OSG-TRANSFER:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -172,6 +105,7 @@ Resources:
     VOOwnership:
       Fermilab: 100
   Gratia-main-osg:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -203,6 +137,7 @@ Resources:
     VOOwnership:
       Fermilab: 100
   gratia-itb-osg:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -235,6 +170,7 @@ Resources:
     VOOwnership:
       Fermilab: 100
   gratia-transfer-osg:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
