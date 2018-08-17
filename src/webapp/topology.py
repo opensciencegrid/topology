@@ -1,9 +1,9 @@
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 from datetime import datetime, timedelta, timezone
 from enum import Enum
 from logging import getLogger
 import urllib.parse
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 from .common import MaybeOrderedDict, RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
     is_null, expand_attr_list_single, expand_attr_list, ensure_list
@@ -66,6 +66,7 @@ class Resource(object):
             self.services = self._expand_services(yaml_data["Services"])
         else:
             self.services = []
+        self.service_names = [n["Name"] for n in self.services if "Name" in n]
         self.data = yaml_data
 
     def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
@@ -213,10 +214,11 @@ class ResourceGroup(object):
         self.resources = []
         for name, res in yaml_data["Resources"].items():
             try:
-                assert isinstance(res, dict)
+                if not isinstance(res, dict):
+                    raise TypeError("expecting a dict")
                 res = Resource(name, res, self.common_data)
                 self.resources.append(res)
-            except (AttributeError, KeyError, ValueError) as err:
+            except (AttributeError, KeyError, TypeError, ValueError) as err:
                 log.exception("Error with resource %s: %s", name, err)
                 continue
         self.resources.sort(key=lambda x: x.name)
@@ -426,11 +428,19 @@ class Topology(object):
         self.facilities = {}
         self.sites = {}
         # rgs are keyed by (site_name, rg_name) tuple
-        self.rgs = {}
+        self.rgs = {}  # type: Dict[Tuple[str, str], ResourceGroup]
+        self.resource_names_by_facility = defaultdict(list)
+        self.service_names_by_resource = {}  # type: Dict[str, List[str]]
+        self.downtime_path_by_resource = {}
 
     def add_rg(self, facility_name, site_name, name, parsed_data):
         try:
-            self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
+            rg = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
+            self.rgs[(site_name, name)] = rg
+            for r in rg.resources:
+                self.resource_names_by_facility[facility_name].append(r.name)
+                self.service_names_by_resource[r.name] = r.service_names
+                self.downtime_path_by_resource[r.name] = f"{facility_name}/{site_name}/{name}_downtime.yaml"
         except (AttributeError, KeyError, ValueError) as err:
             log.exception("RG %s, %s error: %s; skipping", site_name, name, err)
 
