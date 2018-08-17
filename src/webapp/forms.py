@@ -59,7 +59,7 @@ class GenerateDowntimeForm(FlaskForm):
         start_time_str = _timestr(self.get_start_datetime())
         end_time_str = _timestr(self.get_end_datetime())
         created_time_str = _timestr(created_datetime)
-        dtid = gen_id(f"{created_time_str}{self.resource.data}")
+        dtid = gen_id(f"{created_time_str}{self.resource.data}", digits=11)
         services_text = self.get_services_text()
 
         return f"""\

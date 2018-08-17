@@ -195,6 +195,7 @@ def git_clone_or_pull(repo, dir, branch, ssh_key=None) -> bool:
     return ok
 
 
-def gen_id(instr: AnyStr, mod=2**64, hashfn=hashlib.md5) -> int:
+def gen_id(instr: AnyStr, digits, minimum=1, hashfn=hashlib.md5) -> int:
     instr_b = instr if isinstance(instr, bytes) else instr.encode("utf-8", "surrogateescape")
-    return int(hashfn(instr_b).hexdigest(), 16) % mod
+    mod = (10 ** digits) - minimum
+    return minimum + (int(hashfn(instr_b).hexdigest(), 16) % mod)
