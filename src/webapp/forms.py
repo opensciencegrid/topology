@@ -8,6 +8,7 @@ from wtforms.ext.dateutil.fields import DateField
 from wtforms.validators import InputRequired
 
 from webapp.common import gen_id
+from webapp.topology import Downtime
 
 
 class GenerateDowntimeForm(FlaskForm):
@@ -56,9 +57,9 @@ class GenerateDowntimeForm(FlaskForm):
 
     def get_yaml(self) -> str:
         created_datetime = datetime.datetime.utcnow()
-        start_time_str = _timestr(self.get_start_datetime())
-        end_time_str = _timestr(self.get_end_datetime())
-        created_time_str = _timestr(created_datetime)
+        start_time_str = Downtime.fmttime_preferred(self.get_start_datetime())
+        end_time_str = Downtime.fmttime_preferred(self.get_end_datetime())
+        created_time_str = Downtime.fmttime_preferred(created_datetime)
         dtid = gen_id(f"{created_time_str}{self.resource.data}", digits=11)
         services_text = self.get_services_text()
 
@@ -77,6 +78,3 @@ class GenerateDowntimeForm(FlaskForm):
 class DowntimeResourceSelectForm(FlaskForm):
     facility = SelectField("Facility", [InputRequired()])
     resource = SelectField("Resource", [InputRequired()])
-
-def _timestr(datetimeobj: datetime.datetime) -> str:
-    return "{:%Y-%m-%d %H:%M} +0000".format(datetimeobj)

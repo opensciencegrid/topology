@@ -286,6 +286,7 @@ class ResourceGroup(object):
 
 class Downtime(object):
     TIME_OUTPUT_FMT = "%b %d, %Y %H:%M %p %Z"
+    PREFERRED_TIME_FMT = "%b %d, %Y %H:%M %z"  # preferred format, e.g. "Mar 7, 2017 03:00 -0500"
 
     def __init__(self, rg: ResourceGroup, yaml_data: Dict):
         self.rg = rg
@@ -390,15 +391,19 @@ class Downtime(object):
     def fmttime(cls, a_time: datetime) -> str:
         return a_time.strftime(cls.TIME_OUTPUT_FMT)
 
-    @staticmethod
-    def parsetime(time_str: str) -> datetime:
+    @classmethod
+    def fmttime_preferred(cls, a_time: datetime) -> str:
+        return a_time.strftime(cls.PREFERRED_TIME_FMT)
+
+    @classmethod
+    def parsetime(cls, time_str: str) -> datetime:
         """Parse the downtime found in the YAML file; tries multiple formats,
         returns the first one that matches.
 
         Raises ValueError if time_str cannot be parsed with any of the formats.
         """
 
-        fmts = ["%b %d, %Y %H:%M %z",  # preferred format, e.g. "Mar 7, 2017 03:00 -0500"
+        fmts = [cls.PREFERRED_TIME_FMT,
                 "%b %d, %Y %H:%M UTC",  # explicit UTC timezone
                 "%b %d, %Y %H:%M",  # without timezone (assumes UTC)
                 "%b %d, %Y %H:%M %p UTC"]  # format existing data is in, e.g. "Mar 7, 2017 03:00 AM UTC"
