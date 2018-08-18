@@ -1,5 +1,4 @@
 import datetime
-from typing import List
 
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, SelectField, SelectMultipleField, StringField, \
@@ -7,8 +6,7 @@ from wtforms import BooleanField, SelectField, SelectMultipleField, StringField,
 from wtforms.ext.dateutil.fields import DateField
 from wtforms.validators import InputRequired
 
-from webapp.common import gen_id
-from webapp.topology import Downtime
+from . import models
 
 
 class GenerateDowntimeForm(FlaskForm):
@@ -52,28 +50,18 @@ class GenerateDowntimeForm(FlaskForm):
     def get_end_datetime(self):
         return datetime.datetime.combine(self.end_date.data, self.end_time.data)
 
-    def get_services_text(self):
-        return "\n  - " + "\n  - ".join(self.services.data)
-
     def get_yaml(self) -> str:
-        created_datetime = datetime.datetime.utcnow()
-        start_time_str = Downtime.fmttime_preferred(self.get_start_datetime())
-        end_time_str = Downtime.fmttime_preferred(self.get_end_datetime())
-        created_time_str = Downtime.fmttime_preferred(created_datetime)
-        dtid = gen_id(f"{created_time_str}{self.resource.data}", digits=11)
-        services_text = self.get_services_text()
+        return models.get_downtime_yaml(
+            start_datetime=self.get_start_datetime(),
+            end_datetime=self.get_end_datetime(),
+            created_datetime=datetime.datetime.utcnow(),
+            description=self.description.data,
+            severity=self.severity.data,
+            class_=self.scheduled.data,
+            resource_name=self.resource.data,
+            services=self.services.data,
+        )
 
-        return f"""\
-- ID: {dtid}
-  Description: {self.description.data}
-  Class: {self.scheduled.data}
-  Severity: {self.severity.data}
-  StartTime: {start_time_str}
-  EndTime: {end_time_str}
-  CreatedTime: {created_time_str}
-  ResourceName: {self.resource.data}
-  Services: {services_text}
-"""
 
 class DowntimeResourceSelectForm(FlaskForm):
     facility = SelectField("Facility", [InputRequired()])
