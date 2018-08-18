@@ -393,6 +393,8 @@ class Downtime(object):
 
     @classmethod
     def fmttime_preferred(cls, a_time: datetime) -> str:
+        if not a_time.tzinfo:
+            a_time = a_time.replace(tzinfo=timezone.utc)
         return a_time.strftime(cls.PREFERRED_TIME_FMT)
 
     @classmethod
