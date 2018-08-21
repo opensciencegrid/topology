@@ -8,6 +8,8 @@ SupportCenter: Community Support Center
 # GroupDescription is a long description of the resource group; may be multiple lines.
 GroupDescription: Submit node for CyVerse
 
+GroupID: 487
+
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
 Resources:
@@ -15,6 +17,7 @@ Resources:
   # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
   # Resource Names need to be unique across all resources in the OSG.
   CyVerse-Aragon:
+    ID: 950
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
     Active: true
