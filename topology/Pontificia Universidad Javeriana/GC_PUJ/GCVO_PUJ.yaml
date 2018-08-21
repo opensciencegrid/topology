@@ -5,79 +5,8 @@ GroupDescription: |-
 GroupID: 303
 Production: true
 Resources:
-  GCVO_PUJ_CE:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
-          Name: Diego Alberto Rincon Yanez
-      Miscellaneous Contact:
-        Primary:
-          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
-          Name: Diego Alberto Rincon Yanez
-      Resource Report Contact:
-        Primary:
-          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
-          Name: Diego Alberto Rincon Yanez
-      Security Contact:
-        Primary:
-          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
-          Name: Diego Alberto Rincon Yanez
-      Submitter Contact:
-        Primary:
-          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
-          Name: Diego Alberto Rincon Yanez
-    Description: Supports for GridColombia VOs and OSGEDU VO
-    Disable: false
-    FQDN: gc1-ce.javeriana.edu.co
-    ID: 388
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-          uri_override: gc1-ce.javeriana.edu.co
-    VOOwnership:
-      GCEDU: 50
-      GCVO: 50
-  GCVO_PUJ_CE_TEST:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
-          Name: Diego Alberto Rincon Yanez
-      Miscellaneous Contact:
-        Primary:
-          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
-          Name: Diego Alberto Rincon Yanez
-      Resource Report Contact:
-        Primary:
-          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
-          Name: Diego Alberto Rincon Yanez
-      Security Contact:
-        Primary:
-          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
-          Name: Diego Alberto Rincon Yanez
-      Submitter Contact:
-        Primary:
-          ID: 1a5f023e67a49749c2a8cacd5508160868f50d6c
-          Name: Diego Alberto Rincon Yanez
-    Description: Private CE for TestBed Services
-    Disable: false
-    FQDN: gc2-ce.javeriana.edu.co
-    ID: 413
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-          uri_override: gc2-ce.javeriana.edu.co:2119
-    VOOwnership:
-      GCEDU: 50
-      GCVO: 50
   GCVO_PUJ_GUMS:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

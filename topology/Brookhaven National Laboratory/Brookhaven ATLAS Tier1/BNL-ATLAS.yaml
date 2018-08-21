@@ -3,60 +3,8 @@ GroupDescription: This site is the ATLAS Tier 1 Facility at Brookhaven National 
 GroupID: 235
 Production: true
 Resources:
-  BNL-LCG2:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-          Name: BNL Atlas Tier 1 support
-      Miscellaneous Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-        Secondary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-        Tertiary:
-          ID: 6bbb19174a6315cab4ba840bf273a7c1d2336e1c
-          Name: Dantong Yu
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-        Tertiary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Security Contact:
-        Primary:
-          Name: BNL Atlas Tier 1 support
-          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-    Description: This is a new BNL resource name, that is created in order to publish
-      BNL resource information, i.e. SE/FTS/LFC/MyProxy, to WLCG BDII, to fulfill
-      requirements of WLCG on site availability and reliability tests.
-    Disable: true
-    FQDN: gridgk03.racf.bnl.gov
-    ID: 240
-    Services:
-      CE:
-        Description: Compute Element
-    VOOwnership:
-      ATLAS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 0
-      InteropAccounting: false
-      InteropBDII: false
-      InteropMonitoring: false
-      KSI2KMax: 500
-      KSI2KMin: 100
-      StorageCapacityMax: 10
-      StorageCapacityMin: 1
   BNL_ATLAS_1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -102,6 +50,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_ATLAS_2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -146,6 +95,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_ATLAS_3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -191,6 +141,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_ATLAS_4:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -239,6 +190,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_ATLAS_6:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -284,6 +236,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_ATLAS_7:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -333,6 +286,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   BNL_ATLAS_8:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -378,6 +332,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_ATLAS_Frontier_Squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -401,6 +356,7 @@ Resources:
     VOOwnership:
       BNL: 100
   BNL_ATLAS_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -450,6 +406,7 @@ Resources:
       StorageCapacityMin: 16800
       TapeCapacity: 27000
   BNL_ATLAS_SE_AWS_East:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -494,6 +451,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   BNL_ATLAS_SE_AWS_West:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -538,6 +496,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   BNL_ATLAS_SE_AWS_West2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -591,6 +550,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   lhcmon-bnl:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -616,6 +576,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   lhcperfmon-bnl:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -641,6 +602,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   ps-development:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

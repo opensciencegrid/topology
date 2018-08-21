@@ -283,11 +283,16 @@ class ResourceGroup(object):
 
 
 class Downtime(object):
+    TIME_OUTPUT_FMT = "%b %d, %Y %H:%M %p %Z"
+
     def __init__(self, rg: ResourceGroup, yaml_data: Dict):
         self.rg = rg
         self.data = yaml_data
         self.start_time = self.parsetime(yaml_data["StartTime"])
         self.end_time = self.parsetime(yaml_data["EndTime"])
+        self.created_time = None
+        if not is_null(yaml_data, "CreatedTime"):
+            self.created_time = self.parsetime(yaml_data["CreatedTime"])
 
     @property
     def timeframe(self) -> Timeframe:
@@ -303,8 +308,10 @@ class Downtime(object):
 
     @property
     def end_age(self) -> timedelta:
+        """Return timedelta elapsed since end_time.
+        The value returned is negative if end_time is in the future."""
         current_time = datetime.now(timezone.utc)
-        return self.end_time - current_time
+        return current_time - self.end_time
 
     def get_tree(self, filters: Filters = None) -> MaybeOrderedDict:
         if filters is None:
@@ -320,7 +327,9 @@ class Downtime(object):
             return
         # unlike the other filters, if past_days is not specified, _no_ past downtime is shown
         if filters.past_days >= 0:
-            if self.end_age.total_seconds() // 86400 < filters.past_days:
+            # Filter out downtimes older than 'past_days'
+            # (current & future downtimes are not filtered out)
+            if self.end_age.total_seconds() > filters.past_days * 86400:
                 return
 
         return self._expand_downtime(filters.service_id)
@@ -361,17 +370,23 @@ class Downtime(object):
         else:
             return None
 
-        new_downtime["CreatedTime"] = "Not Available"
+        if not is_null(self.created_time):
+            new_downtime["CreatedTime"] = self.fmttime(self.created_time)
+        else:
+            new_downtime["CreatedTime"] = "Not Available"
         new_downtime["UpdateTime"] = "Not Available"
 
-        output_fmt = "%b %d, %Y %H:%M %p %Z"
-        new_downtime["StartTime"] = self.start_time.strftime(output_fmt)
-        new_downtime["EndTime"] = self.end_time.strftime(output_fmt)
+        new_downtime["StartTime"] = self.fmttime(self.start_time)
+        new_downtime["EndTime"] = self.fmttime(self.end_time)
 
         for k in ["ID", "Class", "Severity", "Description"]:
             new_downtime[k] = self.data.get(k, None)
 
         return new_downtime
+
+    @classmethod
+    def fmttime(cls, a_time: datetime) -> str:
+        return a_time.strftime(cls.TIME_OUTPUT_FMT)
 
     @staticmethod
     def parsetime(time_str: str) -> datetime:
@@ -414,7 +429,10 @@ class Topology(object):
         self.rgs = {}
 
     def add_rg(self, facility_name, site_name, name, parsed_data):
-        self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
+        try:
+            self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
+        except (AttributeError, KeyError, ValueError) as err:
+            log.exception("RG %s, %s error: %s; skipping", site_name, name, err)
 
     def add_facility(self, name, id):
         self.facilities[name] = Facility(name, id)

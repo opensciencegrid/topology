@@ -4,6 +4,7 @@ GroupID: 113
 Production: true
 Resources:
   UCSDCMST2-2-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -31,6 +32,7 @@ Resources:
     VOOwnership:
       CMS: 100
   UCSDCMST2-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -54,6 +56,7 @@ Resources:
     VOOwnership:
       CMS: 100
   UCSDT2-A:
+    Active: true
     ContactLists:
       Miscellaneous Contact:
         Tertiary:
@@ -87,6 +90,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   UCSDT2-B:
+    Active: true
     ContactLists:
       Miscellaneous Contact:
         Tertiary:
@@ -121,6 +125,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   UCSDT2-C:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -158,6 +163,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   UCSDT2-D:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -195,57 +201,8 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-  UCSDT2-SE:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Secondary:
-          ID: db58c4989eaca84489f300aebd0a806a673bd151
-          Name: Haifeng Pi
-      Miscellaneous Contact:
-        Tertiary:
-          ID: 903732da995c5cfc467541693f9c8f4afaf7e2ae
-          Name: Abhishek Rana
-      Submitter Contact:
-        Primary:
-          ID: 903732da995c5cfc467541693f9c8f4afaf7e2ae
-          Name: Abhishek Rana
-    Description: |-
-      Primary function: SRM Hadoop Testbed to package, produce, and release official OSG/VDT Hadoop HDFS releases (http://vdt.cs.wisc.edu/components/hadoop.html).
-
-      Disk capacity is nearly 20-30 TB with O(15) datanodes and O(10) GridFTP servers.
-
-      Secondary functions:
-
-      1. Hadoop HDFS Benchmarking and scalability evaluation.
-      2. BeStMan scalability profiling.
-      3. Benchmarking and I/O profiling of HDFS (without GridFTP).
-      4. I/O profiling of HDFS with GridFTP.
-      5. GridFTP optimizations.
-      6. GlideinWMS scalability tool.
-    Disable: true
-    FQDN: tbsrm-1.t2.ucsd.edu
-    ID: 112
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 50
-      OSG: 50
-    WLCGInformation:
-      APELNormalFactor: 0
-      AccountingName: T2_US_UCSD
-      HEPSPEC: 0
-      InteropAccounting: true
-      InteropBDII: false
-      InteropMonitoring: false
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 1000
-      StorageCapacityMin: 1000
   UCSDT2-SE1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -286,41 +243,8 @@ Resources:
       StorageCapacityMax: 4700
       StorageCapacityMin: 1000
       TapeCapacity: 0
-  UCSDT2-SE2:
-    ContactLists:
-      Miscellaneous Contact:
-        Tertiary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-    Description: UCSDT2-SE2 is a Bestman/Hadoop(HDFS) storage system
-    Disable: false
-    FQDN: bsrm-1.t2.ucsd.edu
-    ID: 232
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-          uri_override: bsrm-1.t2.ucsd.edu:8443
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      AccountingName: T2_US_UCSD
-      HEPSPEC: 0
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 4700
-      StorageCapacityMin: 1000
-      TapeCapacity: 0
   UCSDT2-SE3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -357,141 +281,8 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-  UCSD_GlideinWMS_Submit_1:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
-          Name: James Letts
-      Security Contact:
-        Primary:
-          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
-          Name: James Letts
-      Submitter Contact:
-        Primary:
-          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
-          Name: James Letts
-    Description: GlideinWMS submit node for CMS.
-    Disable: false
-    FQDN: glidein-2.t2.ucsd.edu
-    ID: 396
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-  UCSD_GlideinWMS_Submit_2:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
-          Name: James Letts
-      Security Contact:
-        Primary:
-          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
-          Name: James Letts
-      Submitter Contact:
-        Primary:
-          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
-          Name: James Letts
-    Description: GlideinWMS submit host for CMS.
-    Disable: false
-    FQDN: submit-2.t2.ucsd.edu
-    ID: 397
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-  UCSD_GlideinWMS_Submit_3:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
-          Name: James Letts
-      Security Contact:
-        Primary:
-          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
-          Name: James Letts
-      Submitter Contact:
-        Primary:
-          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
-          Name: James Letts
-    Description: GlideinWMS submit host for CMS.
-    Disable: false
-    FQDN: submit-1.t2.ucsd.edu
-    ID: 403
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-  UCSanDiego-OSG-Validation-SE-SRM_v2:
-    Active: false
-    ContactLists:
-      Miscellaneous Contact:
-        Tertiary:
-          ID: 903732da995c5cfc467541693f9c8f4afaf7e2ae
-          Name: Abhishek Rana
-      Submitter Contact:
-        Primary:
-          ID: 903732da995c5cfc467541693f9c8f4afaf7e2ae
-          Name: Abhishek Rana
-    Description: Validation SE
-    Disable: true
-    FQDN: tbsrm-1.t2.ucsd.edu
-    ID: 111
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 50
-      OSG: 50
-  UCSandiegoOSG-Prod-SE:
-    Active: false
-    ContactLists:
-      Miscellaneous Contact:
-        Tertiary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-    Description: Deprecated
-    Disable: true
-    FQDN: srm-3.t2.ucsd.edu
-    ID: 255
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      AccountingName: T2_US_UCSD
-      HEPSPEC: 0
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 0
-      StorageCapacityMin: 0
   US-UCSD BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -517,6 +308,7 @@ Resources:
     VOOwnership:
       CMS: 100
   US-UCSD LT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

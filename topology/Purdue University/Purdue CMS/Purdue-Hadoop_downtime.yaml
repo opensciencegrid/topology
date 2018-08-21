@@ -453,3 +453,33 @@
   - CE
   Severity: Outage
   StartTime: Apr 10, 2018 16:00 +0000
+- Class: SCHEDULED
+  ID: 1005700
+  Description: Cooling and network maintenance
+  Severity: Outage
+  StartTime: Aug 2, 2018 06:00 -0400
+  EndTime: Aug 2, 2018 23:59 -0400
+  CreatedTime: Jul 25, 2018 12:00 -0500
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+    - CE
+- Class: SCHEDULED
+  ID: 1005701
+  Description: Cooling and network maintenance
+  Severity: Outage
+  StartTime: Aug 2, 2018 06:00 -0400
+  EndTime: Aug 2, 2018 23:59 -0400
+  CreatedTime: Jul 25, 2018 12:00 -0500
+  ResourceName: Purdue-Hadoop-SE
+  Services:
+    - SRMv2
+- Class: SCHEDULED
+  ID: 1005705
+  Description: Cooling and network maintenance
+  Severity: Outage
+  StartTime: Aug 2, 2018 06:00 -0400
+  EndTime: Aug 2, 2018 23:59 -0400
+  CreatedTime: Aug 1, 2018 10:00 -0500
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+    - GridFtp

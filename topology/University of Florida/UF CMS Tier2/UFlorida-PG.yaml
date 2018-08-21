@@ -3,45 +3,6 @@ GroupDescription: (No resource group description)
 GroupID: 122
 Production: true
 Resources:
-  UFlorida-PG:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
-          Name: University of Florida CMS Tier 2 Admins
-        Secondary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Miscellaneous Contact:
-        Primary:
-          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
-          Name: University of Florida CMS Tier 2 Admins
-      Resource Report Contact:
-        Primary:
-          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
-          Name: University of Florida CMS Tier 2 Admins
-      Security Contact:
-        Primary:
-          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
-          Name: University of Florida CMS Tier 2 Admins
-        Secondary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Submitter Contact:
-        Primary:
-          ID: dcc5225ec8889c92053920bbd934bedadc799908
-          Name: Craig Prescott
-    Description: US CMS Tier-2 site at Florida
-    Disable: true
-    FQDN: pg.ihepa.ufl.edu
-    ID: 122
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
   UFlorida-SE:
     Active: false
     ContactLists:
@@ -75,7 +36,7 @@ Resources:
           hidden: false
     VOOwnership:
       CMS: 100
-  UFlorida-SEb:
+  perfSONAR_UF LAT:
     Active: false
     ContactLists:
       Administrative Contact:
@@ -85,26 +46,6 @@ Resources:
         Secondary:
           ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
           Name: University of Florida CMS Tier 2 Admins
-      Miscellaneous Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-        Secondary:
-          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
-          Name: University of Florida CMS Tier 2 Admins
-        Tertiary:
-          ID: 3846a3bb6148109f781a1ad8634b880011bcd6f5
-          Name: Paul Avery
-      Resource Report Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-        Secondary:
-          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
-          Name: University of Florida CMS Tier 2 Admins
-        Tertiary:
-          ID: 3846a3bb6148109f781a1ad8634b880011bcd6f5
-          Name: Paul Avery
       Security Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
@@ -116,48 +57,76 @@ Resources:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
-    Description: |-
-      This is the secondary SE at UF CMS Tier2 to be used as the
-      backup SE
-    Disable: true
-    FQDN: srm1.ihepa.ufl.edu
-    ID: 458
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-          uri_override: srm1.ihepa.ufl.edu:8443
-    VOOwnership:
-      CMS: 100
-  perfSONAR_UF:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Security Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Submitter Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-    Description: Perf SONAR latency
-    Disable: true
+    Description: perfSONAR latency
     FQDN: perfsonar1.ihepa.ufl.edu
     ID: 574
     Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: perfsonar2.ihepa.ufl.edu
       net.perfSONAR.Latency:
-        Description: PerfSonar Latency monitoring node
+        Description: perfSONAR Latency monitoring node
         Details:
           endpoint: perfsonar1.ihepa.ufl.edu
+    VOOwnership:
+      CMS: 100
+  perfSONAR_UF BW:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+      Security Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+      Submitter Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: perfSONAR bandwidth
+    FQDN: perfsonar2.ihepa.ufl.edu
+    ID: 946
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: perfSONAR Bandwidth monitoring node
+        Details:
+          endpoint: perfsonar2.ihepa.ufl.edu
+    VOOwnership:
+      CMS: 100
+  perfSONAR_UF IPv6 BW:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+      Security Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+      Submitter Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: perfSONAR IPv6 bandwidth
+    FQDN: cmsps1.rc.ufl.edu
+    ID: 947
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: perfSONAR IPv6 Bandwidth monitoring node
+        Details:
+          endpoint: cmsps1.rc.ufl.edu
     VOOwnership:
       CMS: 100
 SupportCenter: USCMS_Tier2

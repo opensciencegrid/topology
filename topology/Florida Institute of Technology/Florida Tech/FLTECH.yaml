@@ -4,6 +4,7 @@ GroupID: 163
 Production: true
 Resources:
   FLTECH:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -48,6 +49,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   FLTECH-ITB:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -81,6 +83,7 @@ Resources:
     VOOwnership:
       CMS: 100
   FLTECH-MGMT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -113,6 +116,7 @@ Resources:
     VOOwnership:
       CMS: 100
   FLTECH-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -156,34 +160,4 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 5
       StorageCapacityMin: 5
-  T3_US_FIT:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: d074c6dc45a1e2146f0b00cd04f8404beedf9c2c
-          Name: Johanna-Laina Fischer
-      Security Contact:
-        Primary:
-          ID: d074c6dc45a1e2146f0b00cd04f8404beedf9c2c
-          Name: Johanna-Laina Fischer
-      Submitter Contact:
-        Primary:
-          ID: d074c6dc45a1e2146f0b00cd04f8404beedf9c2c
-          Name: Johanna-Laina Fischer
-    Description: Tier 3 Grid Computing Cluster, a member of the OSG
-    Disable: true
-    FQDN: uscms1.fltech-grid3.fit.edu-disabled
-    ID: 443
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: USCMS_Tier3
