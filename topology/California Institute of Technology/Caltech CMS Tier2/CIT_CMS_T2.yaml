@@ -4,6 +4,7 @@ GroupID: 10
 Production: true
 Resources:
   CIT_CMS_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -47,6 +48,7 @@ Resources:
       StorageCapacityMax: 100
       StorageCapacityMin: 1000
   CIT_CMS_T2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -86,6 +88,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   CIT_CMS_T2B:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -129,6 +132,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   CIT_CMS_T2_Squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -182,37 +186,8 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       CMS: 100
-  CIT_CMS_perfSONAR:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 78c0cedf2bc566b31787f7d831a76ea25b095654
-          Name: Samir Cury Siqueira
-      Security Contact:
-        Primary:
-          ID: 78c0cedf2bc566b31787f7d831a76ea25b095654
-          Name: Samir Cury Siqueira
-      Submitter Contact:
-        Primary:
-          ID: 78c0cedf2bc566b31787f7d831a76ea25b095654
-          Name: Samir Cury Siqueira
-    Description: Latency host for PerfSonar.
-    Disable: true
-    FQDN: perfsonar2.ultralight.org
-    ID: 525
-    Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: perfsonar.ultralight.org
-      net.perfSONAR.Latency:
-        Description: PerfSonar Latency monitoring node
-        Details:
-          endpoint: perfsonar2.ultralight.org
-    VOOwnership:
-      CMS: 100
   CIT_HEP_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -257,6 +232,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   Caltech PerfSonar Bandwidth:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -286,6 +262,7 @@ Resources:
     VOOwnership:
       CMS: 100
   Caltech PerfSonar Latency:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

@@ -4,6 +4,7 @@ GroupID: 337
 Production: true
 Resources:
   Physics Computing Facility UCSD Submit Host:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -36,36 +37,8 @@ Resources:
           hidden: false
     VOOwnership:
       OSG: 100
-  UCSDGrid-CTBP-Frontend:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-      Resource Report Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-      Security Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-      Submitter Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-    Description: This is the glidein submit node used by the Engage UCSDGrid group.
-    Disable: false
-    FQDN: osg.ctbp.ucsd.edu
-    ID: 456
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      Engage: 100
   uclhctest:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

@@ -4,6 +4,7 @@ GroupID: 24
 Production: true
 Resources:
   GLOW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -54,6 +55,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   GLOW-CMS:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -104,6 +106,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   GLOW-CMS-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -160,6 +163,7 @@ Resources:
       StorageCapacityMax: 1000
       StorageCapacityMin: 1000
   GLOW-CONDOR-CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -213,6 +217,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   GLOW-OSG:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -251,6 +256,7 @@ Resources:
     VOOwnership:
       CMS: 100
   GLOW_SQUID:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -274,6 +280,7 @@ Resources:
     VOOwnership:
       CMS: 100
   GLOW_SUBMIT1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -299,10 +306,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
-          Name: Will Maier
     Description: GLOw submit machine.
     Disable: false
     FQDN: login01.hep.wisc.edu
@@ -326,6 +329,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   GLOW_SUBMIT2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -351,10 +355,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
-          Name: Will Maier
     Description: GLOW submit machine.
     Disable: false
     FQDN: login02.hep.wisc.edu
@@ -378,6 +378,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   GLOW_SUBMIT3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -403,10 +404,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
-          Name: Will Maier
     Description: GLOW submit machine.
     Disable: false
     FQDN: login03.hep.wisc.edu
@@ -430,6 +427,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   GLOW_SUBMIT4:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -465,10 +463,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
-          Name: Will Maier
     Description: GLOW submit machine.
     Disable: false
     FQDN: login04.hep.wisc.edu
@@ -493,6 +487,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   GLOW_SUBMIT5:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -543,6 +538,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   GLOW_SUBMIT6:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -596,6 +592,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   GLOW_SUBMIT_CERN:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -648,44 +645,8 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-  Lehigh_piranha:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
-          Name: Julio C. Goez
-        Secondary:
-          ID: 1f89c87b137579a6cbc2eaa6bc39f30502878edc
-          Name: Ashutosh Mahajan
-      Resource Report Contact:
-        Primary:
-          ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
-          Name: Julio C. Goez
-        Secondary:
-          ID: 1f89c87b137579a6cbc2eaa6bc39f30502878edc
-          Name: Ashutosh Mahajan
-      Security Contact:
-        Primary:
-          ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
-          Name: Julio C. Goez
-        Secondary:
-          ID: 1f89c87b137579a6cbc2eaa6bc39f30502878edc
-          Name: Ashutosh Mahajan
-      Submitter Contact:
-        Primary:
-          ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
-          Name: Julio C. Goez
-    Description: This is a gatekeeper visible to the grid
-    Disable: true
-    FQDN: piranha.ie.lehigh.edu
-    ID: 330
-    Services:
-      CE:
-        Description: Compute Element
-    VOOwnership:
-      GLOW: 100
   US-Wisconsin BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -727,6 +688,7 @@ Resources:
     VOOwnership:
       CMS: 100
   US-Wisconsin LT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
