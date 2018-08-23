@@ -1,3 +1,25 @@
+{% macro render_bsfield(field, helptext='', show_label=true) -%}
+<div class="form-group {{ kwargs.pop('class_', '') }}">
+  {% if show_label %}{{ field.label }}{% endif %}
+  {% if helptext -%}
+    {% with helpid = field.id+"Help" -%}
+    {{ field(class_="form-control", aria_describedby=helpid, **kwargs)|safe }}
+    <small id="{{ helpid }}" class="form-text text-muted">{{ helptext }}</small>
+    {%- endwith %}
+  {%- else -%}
+    {{ field(class_="form-control", **kwargs)|safe }}
+  {%- endif %}
+  {% if field.errors -%}
+  <span class="help-block">
+    {% for error in field.errors -%}
+    {{ error }}<br/>
+    {%- endfor %}
+  </span>
+  {%- endif %}
+</div>
+{%- endmacro %}
+
+{#}
 {% macro render_field(field) %}
 <tr>
     <td>{{ field.label }}:</td>
@@ -43,11 +65,13 @@
         {% endif %}
     </td>
 </tr>{% endmacro %}
-
+#}
 {% macro render_hidden_field(field) %}
 {{ field(**kwargs)|safe }}
 {% endmacro %}
 
+{#
 {% macro render_fieldinfo(info) %}
 <tr><td colspan="3"><span class="fieldinfo">{{ info|safe }}</span></td></tr>
 {% endmacro %}
+#}

@@ -2,36 +2,43 @@ import datetime
 
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, SelectField, SelectMultipleField, StringField, \
-    TimeField, HiddenField
+    TimeField, HiddenField, TextAreaField
 from wtforms.widgets.html5 import TimeInput
 from wtforms.ext.dateutil.fields import DateField
 from wtforms.validators import InputRequired
 
-from . import models
+from . import models, widgets
 
 
 class GenerateDowntimeForm(FlaskForm):
-    scheduled = SelectField("Scheduled", [InputRequired()], choices=[
+    scheduled = SelectField("Scheduled (registered at least 48 hours in advance)",
+                            [InputRequired()], choices=[
+        ("", "-- Select one --"),
         ("SCHEDULED", "Yes"),
         ("UNSCHEDULED", "No"),
     ])
-    severity = SelectField("Severity", [InputRequired()], choices=[
+    severity = SelectField("Severity (how much of the resource is affected)", [InputRequired()], choices=[
         ("Outage", "Outage (completely inaccessible)"),
         ("Severe", "Severe (most services down)"),
         ("Intermittent Outage", "Intermittent Outage (may be up for some of the time)"),
         ("No Significant Outage Expected", "No Significant Outage Expected (you shouldn't notice)")
     ])
-    description = StringField("Description", [InputRequired()])
-    start_date = DateField("Start Date", [InputRequired()])
-    start_time = TimeField("Start Time", [InputRequired()]
+    description = StringField("Description (the reason and/or impact of the outage)", [InputRequired()])
+
+    start_date = DateField("Start Date/Time (UTC)", [InputRequired()])
+    start_time = TimeField("&nbsp;", [InputRequired()]
                            #, widget=TimeInput()
                            )
-    end_date = DateField("End Date", [InputRequired()])
-    end_time = TimeField("End Time", [InputRequired()]
+    end_date = DateField("End Date/Time (UTC)", [InputRequired()])
+    end_time = TimeField("&nbsp;", [InputRequired()]
                          #, widget=TimeInput()
                          )
-    services = SelectMultipleField("Services", [InputRequired()], choices=[])
+    services = SelectMultipleField("Services (select one or more)", [InputRequired()], choices=[])
     resource = HiddenField("Resource")
+
+    yamloutput = TextAreaField(None, render_kw={"readonly": True,
+                                                "style": "font-family:monospace; font-size:small;",
+                                                "rows": "15"})
 
     class Meta:
         csrf = False  # CSRF not needed because no data gets modified
