@@ -184,6 +184,7 @@ or <a href="/{path}">select another facility.</a>
                                                  urllib.parse.quote(filepath))
 
     yaml = form.get_yaml()
+    form.yamloutput.data = yaml
 
     return render_template(
         template, form=form, yaml=yaml, resource=resource, filepath=filepath,

@@ -1,128 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Downtime YAML generator</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/jquery-ui.min.css') }}">
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/jquery.ui.timepicker.css') }}">
-    <script src="{{ url_for('static', filename='js/jquery-1.8.1.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.ui.timepicker.js') }}"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script>
-	$(function() {
-		$( ".datepick" ).datepicker({dateFormat: "yy-mm-dd"});
-		$( ".timepick" ).timepicker();
-	});
+{% extends "base.html.j2" %}
+{% block title %}Downtime YAML generator{% endblock %}
 
-    </script>
-    <style>
-    @supports (display: grid) {
-        @media only screen and (min-width: 70em) {
-            .wrapper {
-                display: grid;
-            }
-
-            .left {
-                grid-column: 1/2;
-                grid-row: 1;
-            }
-
-            .right {
-                grid-column: 2/2;
-                grid-row: 1;
-            }
-        }
-    }
-    input, textarea, select, button {
-        width : 25em;
-        margin: 2px;
-
-        -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
-        -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
-        box-sizing: border-box;
-    }
-    .errors {
-        color: red;
-    }
-    .fieldinfo {
-        font-size: small;
-        padding-left: 2em;
-        color: #555;
-    }
-    </style>
-</head>
-<body>
-{% from "_formhelpers.html" import render_field, render_datefield,
-      render_timefield, render_hidden_field, render_fieldinfo %}
+{% block content %}
 <center><h3>Downtime YAML generator</h3></center>
-<div class="wrapper">
-<div class="left">
-<b>Resource:</b> {{resource}} (<a href="{{ url_for('downtime_resource_select', facility=facility) }}">change resource</a>)<br/>
-<b>Facility:</b> {{facility}} (<a href="{{ url_for('downtime_resource_select') }}">change facility</a>)<br/>
-<form method=post>
-    <!-- NOTE: we are not using CSRF because none of the POST data is actually
-    used to change anything.  If that ever changes, see
-    https://flask-wtf.readthedocs.io/en/stable/csrf.html
-    -->
-    {{ render_hidden_field(form.resource) }}
-    <table>
-        {{ render_field(form.scheduled) }}
-        {{ render_fieldinfo("Outages registered at least 48 hours in advance.") }}
-        {{ render_field(form.severity) }}
-        {{ render_fieldinfo("How much of the resource is affected.") }}
-        {{ render_field(form.description ) }}
-        {{ render_fieldinfo("The reason and/or impact of the outage.") }}
-        {{ render_datefield(form.start_date) }}
-        {{ render_fieldinfo("UTC; YYYY-MM-DD.") }}
-        {{ render_field(form.start_time) }}
-        {{ render_fieldinfo("UTC; HH:MM.") }}
-        {{ render_datefield(form.end_date) }}
-        {{ render_fieldinfo("UTC; YYYY-MM-DD.") }}
-        {{ render_field(form.end_time) }}
-        {{ render_fieldinfo("UTC; HH:MM.") }}
-        {{ render_field(form.services) }}
-        {{ render_fieldinfo("Select one or more.") }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Generate"/>
-            </td>
-        </tr>
-    </table>
-</form>
-</div>
-    <div class="right">
-        {% if yaml %}
-            <ol>
-            {% if site_dir_url %}
-                {% if edit_url %}
-                <li><a href="{{ edit_url }}" target="_blank">Click here to edit the downtime file on GitHub.</a></li>
-                {% else %}
-                <li><a href="{{ site_dir_url }}" target="_blank">Click here to open the site directory on GitHub.</a></li>
-                <li>
-                    Click the "Create new file" button and name the file:
-                    <pre>"{{ filename }}"</pre>
-                </li>
-                {% endif %}
-            {% else %}
-                <li>
-                    In your topology repo checkout, open the file named:
-                    <pre>"{{ filepath }}"</pre>
-                </li>
-            {% endif %}
-                <li>
-                    Copy-and-paste the following YAML as-is to the end:
-                    <hr/>
-                    <pre>{{ yaml }}</pre>
-                    <hr/>
-                </li>
-            </ol>
-        {% endif %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <b>Resource:</b> {{resource}} (<a href="{{ url_for('downtime_resource_select', facility=facility) }}">change resource</a>)<br/>
+      <b>Facility:</b> {{facility}} (<a href="{{ url_for('downtime_resource_select') }}">change facility</a>)<br/>
+      <form method=post>
+        <!-- NOTE: we are not using CSRF because none of the POST data is actually
+        used to change anything.  If that ever changes, see
+        https://flask-wtf.readthedocs.io/en/stable/csrf.html
+        -->
+        {{ macros.render_hidden_field(form.resource) }}
+        {{ macros.render_bsfield(form.scheduled) }}
+        {{ macros.render_bsfield(form.description) }}
+        {{ macros.render_bsfield(form.severity) }}
+        
+        <div class="form-row">
+          {{ macros.render_bsfield(form.start_date, type="date", show_label=true) }}
+          {{ macros.render_bsfield(form.start_time, type="time", show_label=true) }}
+        </div>
+        <div class="form-row">
+          {{ macros.render_bsfield(form.end_date, type="date", show_label=true) }}
+          {{ macros.render_bsfield(form.end_time, type="time", show_label=true) }}
+        </div>
+        {{ macros.render_bsfield(form.services) }}
+        <button type="submit" class="btn btn-primary">Generate</button>
+      </form>
     </div>
-</div>
-</body>
-</html>
+    <div class="col-sm">
+      {% if yaml -%}
+        <ol>
+          {% if site_dir_url -%}
+            {% if edit_url -%}
+              <li><a href="{{ edit_url }}" target="_blank">Click here to edit the downtime file on GitHub.</a></li>
+            {% else -%}
+              <li><a href="{{ site_dir_url }}" target="_blank">Click here to open the site directory on GitHub.</a></li>
+              <li>
+                Click the "Create new file" button and name the file:
+                <pre>"{{ filename }}"</pre>
+              </li>
+            {% endif -%}
+          {% else -%}
+            <li>
+              In your topology repo checkout, open the file named:
+              <pre>"{{ filepath }}"</pre>
+            </li>
+          {% endif -%}
+          <li>
+            Copy-and-paste the following YAML as-is to the end:<br/>
+            {{ macros.render_bsfield(form.yamloutput, show_label=false) }}
+          </li>
+        </ol>
+      {% else %}{# yaml #}
+        YAML code will be displayed here:<br/>
+        {{ macros.render_bsfield(form.yamloutput, show_label=false) }}
+      {% endif %}
+    </div><!-- col-sm -->
+  </div><!-- row -->
+</div><!-- container -->
+{% endblock %}
