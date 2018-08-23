@@ -23,9 +23,13 @@ class GenerateDowntimeForm(FlaskForm):
     ])
     description = StringField("Description", [InputRequired()])
     start_date = DateField("Start Date", [InputRequired()])
-    start_time = TimeField("Start Time", [InputRequired()], widget=TimeInput())
+    start_time = TimeField("Start Time", [InputRequired()]
+                           #, widget=TimeInput()
+                           )
     end_date = DateField("End Date", [InputRequired()])
-    end_time = TimeField("End Time", [InputRequired()], widget=TimeInput())
+    end_time = TimeField("End Time", [InputRequired()]
+                         #, widget=TimeInput()
+                         )
     services = SelectMultipleField("Services", [InputRequired()], choices=[])
     resource = HiddenField("Resource")
 

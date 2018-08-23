@@ -77,13 +77,13 @@
         {{ render_field(form.description ) }}
         {{ render_fieldinfo("The reason and/or impact of the outage.") }}
         {{ render_datefield(form.start_date) }}
-        {{ render_fieldinfo("YYYY-MM-DD format.") }}
-        {{ render_timefield(form.start_time) }}
-        {{ render_fieldinfo("HH:MM format; UTC.") }}
+        {{ render_fieldinfo("UTC; YYYY-MM-DD.") }}
+        {{ render_field(form.start_time) }}
+        {{ render_fieldinfo("UTC; HH:MM.") }}
         {{ render_datefield(form.end_date) }}
-        {{ render_fieldinfo("YYYY-MM-DD format.") }}
-        {{ render_timefield(form.end_time) }}
-        {{ render_fieldinfo("HH:MM format; UTC.") }}
+        {{ render_fieldinfo("UTC; YYYY-MM-DD.") }}
+        {{ render_field(form.end_time) }}
+        {{ render_fieldinfo("UTC; HH:MM.") }}
         {{ render_field(form.services) }}
         {{ render_fieldinfo("Select one or more.") }}
         <tr>
@@ -104,7 +104,7 @@
                 {% else %}
                 <li><a href="{{ site_dir_url }}" target="_blank">Click here to open the site directory on GitHub.</a></li>
                 <li>
-                    Use the "Create new file" button and name the file:
+                    Click the "Create new file" button and name the file:
                     <pre>"{{ filename }}"</pre>
                 </li>
                 {% endif %}
