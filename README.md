@@ -4,7 +4,7 @@ Topology [![Build Status](https://travis-ci.org/opensciencegrid/topology.svg?bra
 This repository contains the registry of OSG projects, site resources, and Virtual Organizations, as well as
 scripts for managing and displaying this information.
 
-For registration instructions, please see [this document](https://opensciencegrid.org/docs/common/registration).
+**For registration instructions, please see [this document](https://opensciencegrid.org/docs/common/registration).**
 
 The information was sourced from the former OIM site that was hosted at `oim.grid.iu.edu`.
 This README contains the following sections:
@@ -58,5 +58,12 @@ These XML pages are compatible with the XML format once provided by `myosg.grid.
 Getting Help
 ------------
 
-If you have any questions or encounter any issues with the registry, please contact open a ticket at
-https://support.opensciencegrid.org or email us at help@opensciencegrid.org.
+If you have any questions or encounter any issues with the registry, please open a ticket through the system appropriate
+for the VO(s) that you support:
+
+| If you primarily support... | Submit new tickets to...                         |
+|-----------------------------|--------------------------------------------------|
+| LHC VOs                     | [GGUS](https://ggus.eu)                          |
+| Anyone else                 | [Freshdesk](https://support.opensciencegrid.org) |
+
+Or email us at help@opensciencegrid.org.
