@@ -41,6 +41,8 @@ class GenerateDowntimeForm(FlaskForm):
     resource = SelectField("Resource", choices=[])
     change_resource = SubmitField()
 
+    generate = SubmitField()
+
     yamloutput = TextAreaField(None, render_kw={"readonly": True,
                                                 "style": "font-family:monospace; font-size:small;",
                                                 "rows": "15"})

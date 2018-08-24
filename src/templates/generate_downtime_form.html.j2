@@ -1,16 +1,30 @@
 {% extends "base.html.j2" %}
-{% if form.resource.data %}
-{% set opts_disabled = false %}
+{% import "formmacros.html.j2" as M %}
+
+{% if form.facility.data %}
+{% set resource_disabled = false %}
 {% else %}
-{% set opts_disabled = true %}
+{% set resource_disabled = true %}
 {% endif %}
+
+{% if form.resource.data %}
+{% set dtopts_disabled = false %}
+{% else %}
+{% set dtopts_disabled = true %}
+{% endif %}
+
 {% macro render_dtfield(field) %}
-{{ macros.render_field(field, disabled=opts_disabled, **kwargs) }}
+{{ M.render_field(field, disabled=dtopts_disabled, **kwargs) }}
+{% endmacro %}
+
+{% macro render_dtbutton(button) %}
+{{ M.render_button(button, disabled=dtopts_disabled, **kwargs) }}
 {% endmacro %}
 
 {% set downtime_fieldnames = [
   "scheduled", "description", "severity", "start_date", "start_time",
   "end_date", "end_time", "services", "generate"] %}
+
 {% block title %}Downtime YAML generator{% endblock %}
 
 {% block content %}
@@ -23,10 +37,11 @@
         used to change anything.  If that ever changes, see
         https://flask-wtf.readthedocs.io/en/stable/csrf.html
         -->
-        {{ macros.render_field(form.facility) }}
-        {{ macros.render_field(form.change_facility, show_label=false) }}
-        {{ macros.render_field(form.resource) }}
-        {{ macros.render_field(form.change_resource, show_label=false) }}
+        {{ M.render_field(form.facility) }}
+        {{ M.render_button(form.change_facility) }}
+
+        {{ M.render_field(form.resource, disabled=resource_disabled) }}
+        {{ M.render_button(form.change_resource, disabled=resource_disabled) }}
 
         {{ render_dtfield(form.scheduled) }}
         {{ render_dtfield(form.description) }}
@@ -41,17 +56,25 @@
           {{ render_dtfield(form.end_time, type="time", show_label=true) }}
         </div>
         {{ render_dtfield(form.services) }}
-        <button type="submit" class="btn btn-primary">Generate</button>
+        {{ render_dtbutton(form.generate) }}
       </form>
-    </div>
+    </div><!-- col-sm -->
     <div class="col-sm">
-      {% if yaml -%}
+      {% if form.yamloutput.data -%}
         <ol>
           {% if site_dir_url -%}
             {% if edit_url -%}
-              <li><a href="{{ edit_url }}" target="_blank">Click here to edit the downtime file on GitHub.</a></li>
+              <li>
+                <a href="{{ edit_url }}" target="_blank">
+                  Click here to edit the downtime file on GitHub.
+                </a>
+              </li>
             {% else -%}
-              <li><a href="{{ site_dir_url }}" target="_blank">Click here to open the site directory on GitHub.</a></li>
+              <li>
+                <a href="{{ site_dir_url }}" target="_blank">
+                  Click here to open the site directory on GitHub.
+                </a>
+              </li>
               <li>
                 Click the "Create new file" button and name the file:
                 <pre>"{{ filename }}"</pre>
@@ -65,12 +88,12 @@
           {% endif -%}
           <li>
             Copy-and-paste the following YAML as-is to the end:<br/>
-            {{ macros.render_field(form.yamloutput, show_label=false) }}
+            {{ M.render_field(form.yamloutput, show_label=false) }}
           </li>
         </ol>
       {% else %}{# yaml #}
         YAML code will be displayed here:<br/>
-        {{ macros.render_field(form.yamloutput, show_label=false) }}
+        {{ M.render_field(form.yamloutput, show_label=false) }}
       {% endif %}
     </div><!-- col-sm -->
   </div><!-- row -->

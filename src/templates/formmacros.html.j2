@@ -10,7 +10,7 @@
     {{ field(class_="form-control", disabled=disabled, **kwargs)|safe }}
   {%- endif %}
   {% if field.errors and not disabled -%}
-  <span class="help-block">
+  <span class="text-danger">
     {% for error in field.errors -%}
     {{ error }}<br/>
     {%- endfor %}
@@ -19,9 +19,11 @@
 </div>
 {%- endmacro %}
 
-{% macro render_disfield(field) %}
-{{ render_field(field, disabled=true, required=false, **kwargs) }}
-{% endmacro %}
+{% macro render_button(button, disabled=false) -%}
+<div class="form-group {{ kwargs.pop('class_', '') }}">
+  {{ button(class_="form-control", disabled=disabled, **kwargs)|safe }}
+</div>
+{%- endmacro %}
 
 {% macro render_hidden_field(field) %}
 {{ field(**kwargs)|safe }}
