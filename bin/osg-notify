@@ -16,6 +16,7 @@ import email.mime.multipart
 import gnupg
 
 import topology_utils
+import net_name_addr_utils
 
 # Parts of this implementation are from the following StackOverflow answer:
 # https://stackoverflow.com/questions/10496902/pgp-signing-multipart-e-mails-with-python
@@ -115,6 +116,21 @@ def parseargs():
 
     return args
 
+def network_ok():
+    fqdn, addr, public, fqdn_reverse = net_name_addr_utils.get_fqdn_ip_public_reverse()
+    net_ok = public and fqdn == fqdn_reverse
+    if net_ok:
+        return True
+    else:
+        print("FQDN: %s" % fqdn)
+        print("IPv4: %s" % addr)
+        print("IPv4 is public? %s" % public)
+        matchstr = "match" if fqdn == fqdn_reverse else "mismatch"
+        print("Reverse FQDN: %s (%s)" % (fqdn_reverse, matchstr))
+        print("Refusing to send email without hostname/public DNS match.")
+        print("For more info, see:")
+        print("  https://opensciencegrid.org//operations/services/sending-announcements/")
+        return False
 
 def main():
     args = parseargs()
@@ -159,7 +175,7 @@ def main():
 
     if args.dryrun:
         print(msg)
-    else:
+    elif network_ok():
         for _ in range(1, 4):
             try:
                 verify_send = raw_input("Really send mail to {0} recipients? (y/N)".format(len(recipients)))
