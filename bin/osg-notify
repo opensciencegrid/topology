@@ -117,16 +117,15 @@ def parseargs():
     return args
 
 def network_ok():
-    fqdn, addr, public, fqdn_reverse = net_name_addr_utils.get_fqdn_ip_public_reverse()
-    net_ok = public and fqdn == fqdn_reverse
+    info = net_name_addr_utils.get_host_network_info()
+    net_ok = net_name_addr_utils.hostnetinfo_good(info)
+
     if net_ok:
         return True
     else:
-        print("FQDN: %s" % fqdn)
-        print("IPv4: %s" % addr)
-        print("IPv4 is public? %s" % public)
-        matchstr = "match" if fqdn == fqdn_reverse else "mismatch"
-        print("Reverse FQDN: %s (%s)" % (fqdn_reverse, matchstr))
+        print("***")
+        net_name_addr_utils.print_net_info(info)
+        print("***")
         print("Refusing to send email without hostname/public DNS match.")
         print("For more info, see:")
         print("  https://opensciencegrid.org//operations/services/sending-announcements/")
