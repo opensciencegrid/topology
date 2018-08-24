@@ -145,25 +145,28 @@ def generate_downtime():
         return make_response((f"""
 Missing or invalid facility. <a href="/{path}">Select a facility.</a>
 """, 400))
+    form.facility.data = facility
     resource = request.args.get("resource")
     resource_names = topo.resource_names_by_facility[facility]
-    if not resource or not resource_names or resource not in resource_names:
+    if resource and (not resource_names or resource not in resource_names):
         return make_response((f"""
 Missing or invalid resource in facility {flask.escape(facility)}.
 <a href="/{path}?facility={urllib.parse.quote(facility)}">Select a resource</a>
 or <a href="/{path}">select another facility.</a>
 """, 400))
-
-    form.resource.data = resource
+    form.resource.choices = _make_choices(resource_names)
+    if resource:
+        form.resource.data = resource
 
     try:
         form.services.choices = _make_choices(topo.service_names_by_resource[resource])
     except (KeyError, IndexError):  # shouldn't happen but deal with anyway
-        return make_response((f"""
-Missing or invalid services in resource {flask.escape(resource)}.
-<a href="/{path}?facility={urllib.parse.quote(facility)}">Select another resource</a>
-or <a href="/{path}">select another facility.</a>
-""", 400))
+        form.services.render_kw['disable'] = True
+#         return make_response((f"""
+# Missing or invalid services in resource {flask.escape(resource)}.
+# <a href="/{path}?facility={urllib.parse.quote(facility)}">Select another resource</a>
+# or <a href="/{path}">select another facility.</a>
+# """, 400))
 
     if not form.validate_on_submit():
         return render_template(template, form=form, resource=resource, facility=facility)

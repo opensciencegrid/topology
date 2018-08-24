@@ -2,7 +2,7 @@ import datetime
 
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, SelectField, SelectMultipleField, StringField, \
-    TimeField, HiddenField, TextAreaField
+    TimeField, HiddenField, TextAreaField, SubmitField
 from wtforms.widgets.html5 import TimeInput
 from wtforms.ext.dateutil.fields import DateField
 from wtforms.validators import InputRequired
@@ -18,6 +18,7 @@ class GenerateDowntimeForm(FlaskForm):
         ("UNSCHEDULED", "No"),
     ])
     severity = SelectField("Severity (how much of the resource is affected)", [InputRequired()], choices=[
+        ("", "-- Select one --"),
         ("Outage", "Outage (completely inaccessible)"),
         ("Severe", "Severe (most services down)"),
         ("Intermittent Outage", "Intermittent Outage (may be up for some of the time)"),
@@ -34,7 +35,10 @@ class GenerateDowntimeForm(FlaskForm):
                          #, widget=TimeInput()
                          )
     services = SelectMultipleField("Services (select one or more)", [InputRequired()], choices=[])
-    resource = HiddenField("Resource")
+
+    facility = HiddenField()
+    resource = SelectField("Resource", choices=[])
+    change_resource = SubmitField("&nbsp;", render_kw={"value": "Change Resource"})
 
     yamloutput = TextAreaField(None, render_kw={"readonly": True,
                                                 "style": "font-family:monospace; font-size:small;",
