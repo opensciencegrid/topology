@@ -15,7 +15,7 @@ import urllib.parse
 
 from webapp import default_config
 from webapp.common import gen_id, to_xml_bytes, Filters
-from webapp.forms import DowntimeResourceSelectForm, GenerateDowntimeForm
+from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 
@@ -108,27 +108,6 @@ def rgsummary_xml():
 @app.route('/rgdowntime/xml')
 def rgdowntime_xml():
     return _get_xml_or_fail(global_data.get_topology().get_downtimes, request.args)
-
-
-@app.route('/downtime_resource_select')
-def downtime_resource_select():
-    path = "downtime_resource_select"
-    template = f"{path}_form.html"
-
-    form = DowntimeResourceSelectForm(request.form)
-    topo = global_data.get_topology()
-
-    facility = request.args.get("facility", "")
-    if facility:
-        resource_names = topo.resource_names_by_facility.get(facility)
-        if not resource_names:
-            return make_response((f"""
-Missing or invalid facility. <a href="/{path}">Select a facility.</a>
-""", 400))
-        form.facility.data = facility
-        form.resource.choices = _make_choices(resource_names)
-        return render_template(template, form=form, facility=facility)
-    return render_template(template, form=form)
 
 
 @app.route("/generate_downtime", methods=["GET", "POST"])
