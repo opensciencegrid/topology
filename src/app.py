@@ -59,20 +59,21 @@ if not app.config.get("SECRET_KEY"):
 global_data = GlobalData(app.config)
 
 
+def _fix_unicode(text):
+    """Convert a partial unicode string to full unicode"""
+    return text.encode('utf-8', 'surrogateescape').decode('utf-8')
+
+
 @app.route('/')
 def homepage():
-
-    return render_template('homepage.tmpl')
+    return render_template('homepage.html.j2')
 
 @app.route('/map/iframe')
 def map():
-    @app.template_filter()
-    def encode(text):
-        """Convert a partial unicode string to full unicode"""
-        return text.encode('utf-8', 'surrogateescape').decode('utf-8')
+    app.add_template_filter(_fix_unicode)
     rgsummary = global_data.get_topology().get_resource_summary()
 
-    return render_template('iframe.tmpl', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"])
+    return render_template('iframe.html.j2', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"])
 
 
 @app.route('/schema/<xsdfile>')
@@ -112,12 +113,10 @@ def rgdowntime_xml():
 
 @app.route("/generate_downtime", methods=["GET", "POST"])
 def generate_downtime():
-    path = "generate_downtime"
-    template = f"{path}_form.html"
     form = GenerateDowntimeForm(request.form)
 
     def render_form(**kwargs):
-        return render_template(template, form=form, **kwargs)
+        return render_template("generate_downtime_form.html.j2", form=form, **kwargs)
 
     topo = global_data.get_topology()
 
@@ -125,29 +124,25 @@ def generate_downtime():
     facility = form.facility.data
     if facility not in topo.resource_names_by_facility:
         form.facility.data = ""
+        form.resource.choices = [("", "-- Select a facility first --")]
         form.resource.data = ""
         return render_form()
-    if form.change_facility.data:
-        form.resource.data = ""
 
-    resource_names = topo.resource_names_by_facility[facility]
-    form.resource.choices = _make_choices(resource_names, select_one=True)
+    form.resource.choices = _make_choices(topo.resource_names_by_facility[facility], select_one=True)
+
+    if form.change_facility.data:  # "Change Facility" clicked
+        form.resource.data = ""
+        return render_form()
+
     resource = form.resource.data
-    if resource and (not resource_names or resource not in resource_names):
+    if resource not in topo.service_names_by_resource:
         return render_form()
 
-    try:
-        form.services.choices = _make_choices(topo.service_names_by_resource[resource])
-    except (KeyError, IndexError):  # shouldn't happen but deal with anyway
-        return render_form()
-#         return make_response((f"""
-# Missing or invalid services in resource {flask.escape(resource)}.
-# <a href="/{path}?facility={urllib.parse.quote(facility)}">Select another resource</a>
-# or <a href="/{path}">select another facility.</a>
-# """, 400))
+    form.services.choices = _make_choices(topo.service_names_by_resource[resource])
 
-    if form.change_resource.data:
+    if form.change_resource.data:  # "Change Resource" clicked
         return render_form()
+
     if not form.validate_on_submit():
         return render_form()
 
@@ -166,16 +161,14 @@ def generate_downtime():
                                                  urllib.parse.quote(global_data.topology_data_branch),
                                                  urllib.parse.quote(filepath))
 
-    yaml = form.get_yaml()
-    form.yamloutput.data = yaml
+    form.yamloutput.data = form.get_yaml()
 
-    return render_form(yaml=yaml, filepath=filepath, filename=filename,
+    return render_form(filepath=filepath, filename=filename,
                        edit_url=edit_url, site_dir_url=site_dir_url)
 
 
 def _make_choices(iterable, select_one=False):
-    c = [(x.encode("utf-8", "surrogateescape").decode(), x.encode("utf-8", "surrogateescape").decode())
-            for x in sorted(iterable)]
+    c = [(_fix_unicode(x), _fix_unicode(x)) for x in sorted(iterable)]
     if select_one:
         c.insert(0, ("", "-- Select one --"))
     return c
