@@ -78,8 +78,3 @@ class GenerateDowntimeForm(FlaskForm):
             resource_name=self.resource.data,
             services=self.services.data,
         )
-
-
-class DowntimeResourceSelectForm(FlaskForm):
-    facility = SelectField("Facility", [InputRequired()])
-    resource = SelectField("Resource", [InputRequired()])
