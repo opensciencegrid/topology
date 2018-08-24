@@ -1,4 +1,16 @@
 {% extends "base.html.j2" %}
+{% if form.resource.data %}
+{% set opts_disabled = false %}
+{% else %}
+{% set opts_disabled = true %}
+{% endif %}
+{% macro render_dtfield(field) %}
+{{ macros.render_field(field, disabled=opts_disabled, **kwargs) }}
+{% endmacro %}
+
+{% set downtime_fieldnames = [
+  "scheduled", "description", "severity", "start_date", "start_time",
+  "end_date", "end_time", "services", "generate"] %}
 {% block title %}Downtime YAML generator{% endblock %}
 
 {% block content %}
@@ -6,32 +18,29 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <form method=get>
-        {{ macros.render_hidden_field(form.facility) }}
-        <div class="form-row">
-          {{ macros.render_bsfield(form.resource) }}
-          {{ macros.render_bsfield(form.change_resource) }}       
-        </div>
-      </form>
-      <b>Facility:</b> {{facility}} (<a href="{{ url_for('downtime_resource_select') }}">change facility</a>)<br/>
       <form method=post>
         <!-- NOTE: we are not using CSRF because none of the POST data is actually
         used to change anything.  If that ever changes, see
         https://flask-wtf.readthedocs.io/en/stable/csrf.html
         -->
-        {{ macros.render_bsfield(form.scheduled) }}
-        {{ macros.render_bsfield(form.description) }}
-        {{ macros.render_bsfield(form.severity) }}
-        
+        {{ macros.render_field(form.facility) }}
+        {{ macros.render_field(form.change_facility, show_label=false) }}
+        {{ macros.render_field(form.resource) }}
+        {{ macros.render_field(form.change_resource, show_label=false) }}
+
+        {{ render_dtfield(form.scheduled) }}
+        {{ render_dtfield(form.description) }}
+        {{ render_dtfield(form.severity) }}
+
         <div class="form-row">
-          {{ macros.render_bsfield(form.start_date, type="date", show_label=true) }}
-          {{ macros.render_bsfield(form.start_time, type="time", show_label=true) }}
+          {{ render_dtfield(form.start_date, type="date", show_label=true) }}
+          {{ render_dtfield(form.start_time, type="time", show_label=true) }}
         </div>
         <div class="form-row">
-          {{ macros.render_bsfield(form.end_date, type="date", show_label=true) }}
-          {{ macros.render_bsfield(form.end_time, type="time", show_label=true) }}
+          {{ render_dtfield(form.end_date, type="date", show_label=true) }}
+          {{ render_dtfield(form.end_time, type="time", show_label=true) }}
         </div>
-        {{ macros.render_bsfield(form.services) }}
+        {{ render_dtfield(form.services) }}
         <button type="submit" class="btn btn-primary">Generate</button>
       </form>
     </div>
@@ -56,14 +65,30 @@
           {% endif -%}
           <li>
             Copy-and-paste the following YAML as-is to the end:<br/>
-            {{ macros.render_bsfield(form.yamloutput, show_label=false) }}
+            {{ macros.render_field(form.yamloutput, show_label=false) }}
           </li>
         </ol>
       {% else %}{# yaml #}
         YAML code will be displayed here:<br/>
-        {{ macros.render_bsfield(form.yamloutput, show_label=false) }}
+        {{ macros.render_field(form.yamloutput, show_label=false) }}
       {% endif %}
     </div><!-- col-sm -->
   </div><!-- row -->
 </div><!-- container -->
+{% endblock %}
+{% block last %}
+<script type="text/javascript">
+  $( "#facility" ).change( function () {
+    {% for fieldname in [ "resource", "change_resource" ] + downtime_fieldnames %}
+    $( "#{{ fieldname }}" ).prop("disabled", true);
+    {% endfor %}
+    $( "#change_facility" ).click();
+  } );
+  $( "#resource" ).change( function() {
+    {% for fieldname in downtime_fieldnames %}
+    $( "#{{ fieldname }}" ).prop("disabled", true);
+    {% endfor %}
+    $( "#change_resource" ).click();
+  } );
+</script>
 {% endblock %}

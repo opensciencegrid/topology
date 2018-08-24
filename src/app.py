@@ -117,7 +117,6 @@ def downtime_resource_select():
 
     form = DowntimeResourceSelectForm(request.form)
     topo = global_data.get_topology()
-    form.facility.choices = _make_choices(topo.resource_names_by_facility.keys())
 
     facility = request.args.get("facility", "")
     if facility:
@@ -136,40 +135,42 @@ Missing or invalid facility. <a href="/{path}">Select a facility.</a>
 def generate_downtime():
     path = "generate_downtime"
     template = f"{path}_form.html"
-
     form = GenerateDowntimeForm(request.form)
+
+    def render_form(**kwargs):
+        return render_template(template, form=form, **kwargs)
+
     topo = global_data.get_topology()
 
-    facility = request.args.get("facility")
-    if not facility or facility not in topo.resource_names_by_facility:
-        return make_response((f"""
-Missing or invalid facility. <a href="/{path}">Select a facility.</a>
-""", 400))
-    form.facility.data = facility
-    resource = request.args.get("resource")
+    form.facility.choices = _make_choices(topo.resource_names_by_facility.keys(), select_one=True)
+    facility = form.facility.data
+    if facility not in topo.resource_names_by_facility:
+        form.facility.data = ""
+        form.resource.data = ""
+        return render_form()
+    if form.change_facility.data:
+        form.resource.data = ""
+
     resource_names = topo.resource_names_by_facility[facility]
+    form.resource.choices = _make_choices(resource_names, select_one=True)
+    resource = form.resource.data
     if resource and (not resource_names or resource not in resource_names):
-        return make_response((f"""
-Missing or invalid resource in facility {flask.escape(facility)}.
-<a href="/{path}?facility={urllib.parse.quote(facility)}">Select a resource</a>
-or <a href="/{path}">select another facility.</a>
-""", 400))
-    form.resource.choices = _make_choices(resource_names)
-    if resource:
-        form.resource.data = resource
+        return render_form()
 
     try:
         form.services.choices = _make_choices(topo.service_names_by_resource[resource])
     except (KeyError, IndexError):  # shouldn't happen but deal with anyway
-        form.services.render_kw['disable'] = True
+        return render_form()
 #         return make_response((f"""
 # Missing or invalid services in resource {flask.escape(resource)}.
 # <a href="/{path}?facility={urllib.parse.quote(facility)}">Select another resource</a>
 # or <a href="/{path}">select another facility.</a>
 # """, 400))
 
+    if form.change_resource.data:
+        return render_form()
     if not form.validate_on_submit():
-        return render_template(template, form=form, resource=resource, facility=facility)
+        return render_form()
 
     filepath = "topology/" + topo.downtime_path_by_resource[resource]
     # ^ filepath relative to the root of the topology repo checkout
@@ -189,15 +190,16 @@ or <a href="/{path}">select another facility.</a>
     yaml = form.get_yaml()
     form.yamloutput.data = yaml
 
-    return render_template(
-        template, form=form, yaml=yaml, resource=resource, filepath=filepath,
-        filename=filename, facility=facility, edit_url=edit_url,
-        site_dir_url=site_dir_url)
+    return render_form(yaml=yaml, filepath=filepath, filename=filename,
+                       edit_url=edit_url, site_dir_url=site_dir_url)
 
 
-def _make_choices(iterable):
-    return [(x.encode("utf-8", "surrogateescape").decode(), x.encode("utf-8", "surrogateescape").decode())
+def _make_choices(iterable, select_one=False):
+    c = [(x.encode("utf-8", "surrogateescape").decode(), x.encode("utf-8", "surrogateescape").decode())
             for x in sorted(iterable)]
+    if select_one:
+        c.insert(0, ("", "-- Select one --"))
+    return c
 
 
 def get_filters_from_args(args) -> Filters:

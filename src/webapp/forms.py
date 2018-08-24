@@ -36,9 +36,10 @@ class GenerateDowntimeForm(FlaskForm):
                          )
     services = SelectMultipleField("Services (select one or more)", [InputRequired()], choices=[])
 
-    facility = HiddenField()
+    facility = SelectField("Facility", choices=[])
+    change_facility = SubmitField()
     resource = SelectField("Resource", choices=[])
-    change_resource = SubmitField("&nbsp;", render_kw={"value": "Change Resource"})
+    change_resource = SubmitField()
 
     yamloutput = TextAreaField(None, render_kw={"readonly": True,
                                                 "style": "font-family:monospace; font-size:small;",
