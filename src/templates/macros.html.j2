@@ -1,4 +1,4 @@
-{% macro render_bsfield(field, helptext='', show_label=true) -%}
+{% macro render_field(field, helptext='', show_label=true, disabled=false) -%}
 <div class="form-group {{ kwargs.pop('class_', '') }}">
   {% if show_label %}{{ field.label }}{% endif %}
   {% if helptext -%}
@@ -7,9 +7,9 @@
     <small id="{{ helpid }}" class="form-text text-muted">{{ helptext }}</small>
     {%- endwith %}
   {%- else -%}
-    {{ field(class_="form-control", **kwargs)|safe }}
+    {{ field(class_="form-control", disabled=disabled, **kwargs)|safe }}
   {%- endif %}
-  {% if field.errors -%}
+  {% if field.errors and not disabled -%}
   <span class="help-block">
     {% for error in field.errors -%}
     {{ error }}<br/>
@@ -19,59 +19,10 @@
 </div>
 {%- endmacro %}
 
-{#}
-{% macro render_field(field) %}
-<tr>
-    <td>{{ field.label }}:</td>
-    <td>{{ field(**kwargs)|safe }}</td>
-    <td>
-        {% if field.errors %}
-        <span class=errors>
-            {% for error in field.errors %}
-            {{ error }}<br/>
-            {% endfor %}
-        </span>
-        {% endif %}
-    </td>
-</tr>
+{% macro render_disfield(field) %}
+{{ render_field(field, disabled=true, required=false, **kwargs) }}
 {% endmacro %}
 
-{% macro render_datefield(field) %}
-<tr>
-    <td>{{ field.label }}:</td>
-    <td>{{ field(class="datepick", **kwargs)|safe }}</td>
-    <td>
-        {% if field.errors %}
-        <span class=errors>
-            {% for error in field.errors %}
-            {{ error }}<br/>
-            {% endfor %}
-        </span>
-        {% endif %}
-    </td>
-</tr>{% endmacro %}
-
-{% macro render_timefield(field) %}
-<tr>
-    <td>{{ field.label }}:</td>
-    <td>{{ field(class="timepick", **kwargs)|safe }}</td>
-    <td>
-        {% if field.errors %}
-        <span class=errors>
-            {% for error in field.errors %}
-            {{ error }}<br/>
-            {% endfor %}
-        </span>
-        {% endif %}
-    </td>
-</tr>{% endmacro %}
-#}
 {% macro render_hidden_field(field) %}
 {{ field(**kwargs)|safe }}
 {% endmacro %}
-
-{#
-{% macro render_fieldinfo(info) %}
-<tr><td colspan="3"><span class="fieldinfo">{{ info|safe }}</span></td></tr>
-{% endmacro %}
-#}
