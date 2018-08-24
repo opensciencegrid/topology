@@ -126,12 +126,14 @@ def generate_downtime():
         form.facility.data = ""
         form.resource.choices = [("", "-- Select a facility first --")]
         form.resource.data = ""
+        form.services.choices = [("", "-- Select a facility and a resource first --")]
         return render_form()
 
     form.resource.choices = _make_choices(topo.resource_names_by_facility[facility], select_one=True)
 
     if form.change_facility.data:  # "Change Facility" clicked
         form.resource.data = ""
+        form.services.choices = [("", "-- Select a resource first --")]
         return render_form()
 
     resource = form.resource.data
