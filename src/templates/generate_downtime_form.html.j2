@@ -48,12 +48,12 @@
         {{ render_dtfield(form.severity) }}
 
         <div class="form-row">
-          {{ render_dtfield(form.start_date, type="date", show_label=true) }}
-          {{ render_dtfield(form.start_time, type="time", show_label=true) }}
+          {{ render_dtfield(form.start_date, type="date", placeholder="YYYY-MM-DD") }}
+          {{ render_dtfield(form.start_time, type="time", placeholder="HH:MM") }}
         </div>
         <div class="form-row">
-          {{ render_dtfield(form.end_date, type="date", show_label=true) }}
-          {{ render_dtfield(form.end_time, type="time", show_label=true) }}
+          {{ render_dtfield(form.end_date, type="date", placeholder="YYYY-MM-DD") }}
+          {{ render_dtfield(form.end_time, type="time", placeholder="HH:MM") }}
         </div>
         {{ render_dtfield(form.services) }}
         {{ render_dtbutton(form.generate) }}
