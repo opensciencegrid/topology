@@ -6,14 +6,19 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <b>Resource:</b> {{resource}} (<a href="{{ url_for('downtime_resource_select', facility=facility) }}">change resource</a>)<br/>
+      <form method=get>
+        {{ macros.render_hidden_field(form.facility) }}
+        <div class="form-row">
+          {{ macros.render_bsfield(form.resource) }}
+          {{ macros.render_bsfield(form.change_resource) }}       
+        </div>
+      </form>
       <b>Facility:</b> {{facility}} (<a href="{{ url_for('downtime_resource_select') }}">change facility</a>)<br/>
       <form method=post>
         <!-- NOTE: we are not using CSRF because none of the POST data is actually
         used to change anything.  If that ever changes, see
         https://flask-wtf.readthedocs.io/en/stable/csrf.html
         -->
-        {{ macros.render_hidden_field(form.resource) }}
         {{ macros.render_bsfield(form.scheduled) }}
         {{ macros.render_bsfield(form.description) }}
         {{ macros.render_bsfield(form.severity) }}
