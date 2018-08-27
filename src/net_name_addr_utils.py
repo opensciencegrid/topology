@@ -36,7 +36,7 @@ def addr_in_netrange(addr, netrange):
     return (addr_num & netmask_num) == subnet_num
 
 def addr_is_public(addr):
-    NONPUB = "192.168/16 172.16/12 10/8 127/8".split()
+    NONPUB = ["192.168/16", "172.16/12", "10/8", "127/8"]
     return not any( addr_in_netrange(addr, netrange) for netrange in NONPUB )
 
 HostNetInfo = collections.namedtuple('HostNetInfo',
