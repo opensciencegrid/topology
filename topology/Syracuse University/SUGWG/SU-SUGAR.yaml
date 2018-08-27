@@ -33,7 +33,7 @@ Resources:
           Name: Peter Couvares
     Description: Sugar cluster submit node for LIGO.
     Disable: false
-    FQDN: sugar-dev2.phy.syr.edu
+    FQDN: sugwg-scitokens.phy.syr.edu
     ID: 771
     Services:
       Submit Node:
@@ -73,7 +73,7 @@ Resources:
         Primary:
           ID: c6023fb07e902f43edffdbaab50d7a13e32ae55e
           Name: Larne Pekowsky
-    Description: SL7-Based Sugar cluster submit node for LIGO.
+    Description: SL7-Based SUGWG cluster submit node for LIGO.
     Disable: false
     FQDN: sugwg-osg.phy.syr.edu
     ID: 822
@@ -115,7 +115,7 @@ Resources:
         Primary:
           ID: c6023fb07e902f43edffdbaab50d7a13e32ae55e
           Name: Larne Pekowsky
-    Description: Second SL7-Based Sugar cluster submit node for LIGO.
+    Description: Second SL7-Based SUGWG cluster submit node for LIGO.
     Disable: false
     FQDN: sugwg-condor.phy.syr.edu
     ID: 898
