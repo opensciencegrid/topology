@@ -153,8 +153,10 @@ def generate_downtime():
     filename = os.path.basename(filepath)
 
     # Add github edit URLs or directory URLs for the repo, if we can.
-    edit_url = site_dir_url = ""
+    new_url = edit_url = site_dir_url = ""
+    github = False
     if re.match("http(s?)://github.com", global_data.topology_data_repo):
+        github = True
         site_dir_url = "{0}/tree/{1}/{2}".format(global_data.topology_data_repo,
                                                  urllib.parse.quote(global_data.topology_data_branch),
                                                  urllib.parse.quote(os.path.dirname(filepath)))
@@ -162,11 +164,16 @@ def generate_downtime():
             edit_url = "{0}/edit/{1}/{2}".format(global_data.topology_data_repo,
                                                  urllib.parse.quote(global_data.topology_data_branch),
                                                  urllib.parse.quote(filepath))
+        else:
+            new_url = "{0}/new/{1}?filename={2}".format(global_data.topology_data_repo,
+                                                        urllib.parse.quote(global_data.topology_data_branch),
+                                                        urllib.parse.quote(filepath))
 
     form.yamloutput.data = form.get_yaml()
 
     return render_form(filepath=filepath, filename=filename,
-                       edit_url=edit_url, site_dir_url=site_dir_url)
+                       edit_url=edit_url, site_dir_url=site_dir_url,
+                       new_url=new_url, github=github)
 
 
 def _make_choices(iterable, select_one=False):
