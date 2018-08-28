@@ -4,8 +4,6 @@ import os
 import time
 from typing import Dict, Set, List
 
-import yaml
-
 from webapp import common, contacts_reader, project_reader, rg_reader, vo_reader
 from webapp.common import gen_id
 from webapp.contacts_reader import ContactsData
@@ -153,15 +151,17 @@ def get_downtime_yaml(start_datetime: datetime.datetime,
     end_time_str = Downtime.fmttime_preferred(end_datetime)
     created_time_str = Downtime.fmttime_preferred(created_datetime)
     dtid = gen_id(f"{created_time_str}{resource_name}", digits=11)
+    tmp = "\n  - "
+    services_str = tmp + tmp.join(services)
 
-    return yaml.dump([{
-        "ID": dtid,
-        "Description": description,
-        "Class": class_,
-        "Severity": severity,
-        "StartTime": start_time_str,
-        "EndTime": end_time_str,
-        "CreatedTime": created_time_str,
-        "ResourceName": resource_name,
-        "Services": services,
-    }], default_flow_style=False)
+    return f"""\
+- Class: {class_}
+  ID: {dtid}
+  Description: {description}
+  Severity: {severity}
+  StartTime: {start_time_str}
+  EndTime: {end_time_str}
+  CreatedTime: {created_time_str}
+  ResourceName: {resource_name}
+  Services: {services_str}
+"""
