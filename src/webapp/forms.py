@@ -50,8 +50,14 @@ class GenerateDowntimeForm(FlaskForm):
     class Meta:
         csrf = False  # CSRF not needed because no data gets modified
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.warnings = ""
+
     # https://stackoverflow.com/a/21815180
     def validate(self):
+        self.warnings = ""
+
         if not super().validate():
             return False
         if self.start_date.data > self.end_date.data:
@@ -61,6 +67,15 @@ class GenerateDowntimeForm(FlaskForm):
             if self.start_time.data >= self.end_time.data:
                 self.end_time.errors.append("End date/time must be after start date/time")
                 return False
+
+        days_in_future = (self.get_start_datetime() - datetime.datetime.utcnow()).days
+        if days_in_future < 2 and self.scheduled.data == "SCHEDULED":
+            self.warnings += "Warning: Downtime registered less than 2 days in advance " \
+                             "is considered unscheduled by WLCG policy."
+        elif days_in_future >= 2 and self.scheduled.data == "UNSCHEDULED":
+            self.warnings += "Warning: Downtime registered 2 or more days in advance " \
+                             "is considered scheduled by WLCG policy."
+
         return True
 
     def get_start_datetime(self):
