@@ -1,6 +1,6 @@
-{% macro render_field(field, helptext='', show_label=true, disabled=false) -%}
+{% macro render_field(field, helptext='', show_label=true, disabled=false, asterisk=true) -%}
 <div class="form-group {{ kwargs.pop('class_', '') }}">
-  {% if show_label %}{{ field.label }}{% endif %}
+  {% if show_label %}{{ field.label }}{% if asterisk %}<span style="color:red;">*</span>{% endif %}{% endif %}
   {% if helptext -%}
     {% with helpid = field.id+"Help" -%}
     {{ field(class_="form-control", aria_describedby=helpid, **kwargs)|safe }}
