@@ -73,11 +73,17 @@
     <div class="col-sm">
       {% if form.yamloutput.data -%}
         <ol>
-          {% if site_dir_url -%}
+          {% if github -%}
             {% if edit_url -%}
               <li>
                 <a href="{{ edit_url }}" target="_blank">
                   Click here to edit the downtime file on GitHub.
+                </a>
+              </li>
+            {% elif new_url %}
+              <li>
+                <a href="{{ new_url }}" target="_blank">
+                  Click here to create the downtime file on GitHub.
                 </a>
               </li>
             {% else -%}
@@ -91,19 +97,26 @@
                 <pre>"{{ filename }}"</pre>
               </li>
             {% endif -%}
-          {% else -%}
+          {% else -%}{# github #}
             <li>
               In your topology repo checkout, open the file named:
               <pre>"{{ filepath }}"</pre>
             </li>
           {% endif -%}
           <li>
-            Copy-and-paste the following YAML as-is to the end:<br/>
-            {{ M.render_field(form.yamloutput, show_label=false) }}
+            Copy-and-paste the generated YAML as-is to the end.
           </li>
+          {% if github -%}
+            <li>
+              Submit your changes as a pull request
+              (<a href="https://help.github.com/articles/editing-files-in-your-repository/" target="_blank">see instructions</a>).
+            </li>
+          {%- endif %}
         </ol>
+        Generated YAML:<br/>
+        {{ M.render_field(form.yamloutput, show_label=false) }}
       {% else %}{# form.yamloutput.data #}
-        YAML code will be displayed here:<br/>
+        Generated YAML will be displayed here:<br/>
         {{ M.render_field(form.yamloutput, show_label=false) }}
       {% endif %}
     </div><!-- col-sm -->
