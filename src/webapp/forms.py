@@ -1,13 +1,12 @@
 import datetime
 
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, SelectField, SelectMultipleField, StringField, \
-    TimeField, HiddenField, TextAreaField, SubmitField
-from wtforms.widgets.html5 import TimeInput
+from wtforms import SelectField, SelectMultipleField, StringField, \
+    TimeField, TextAreaField, SubmitField
 from wtforms.ext.dateutil.fields import DateField
 from wtforms.validators import InputRequired
 
-from . import models, widgets
+from . import models
 
 
 class GenerateDowntimeForm(FlaskForm):
@@ -27,13 +26,9 @@ class GenerateDowntimeForm(FlaskForm):
     description = StringField("Description (the reason and/or impact of the outage)", [InputRequired()])
 
     start_date = DateField("Start Date/Time (UTC)", [InputRequired()])
-    start_time = TimeField("&nbsp;", [InputRequired()]
-                           #, widget=TimeInput()
-                           )
+    start_time = TimeField("&nbsp;", [InputRequired()])
     end_date = DateField("End Date/Time (UTC)", [InputRequired()])
-    end_time = TimeField("&nbsp;", [InputRequired()]
-                         #, widget=TimeInput()
-                         )
+    end_time = TimeField("&nbsp;", [InputRequired()])
     services = SelectMultipleField("Services (select one or more)", [InputRequired()], choices=[])
 
     facility = SelectField("Facility", choices=[])
