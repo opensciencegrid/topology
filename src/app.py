@@ -1,12 +1,9 @@
 """
 Application File
 """
-import datetime
-from typing import List
-
 import flask
 import flask.logging
-from flask import Flask, Response, request, render_template, make_response
+from flask import Flask, Response, request, render_template
 import logging
 import os
 import re
@@ -14,7 +11,7 @@ import sys
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import gen_id, to_xml_bytes, Filters
+from webapp.common import to_xml_bytes, Filters
 from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2

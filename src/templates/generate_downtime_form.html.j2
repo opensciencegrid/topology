@@ -113,10 +113,10 @@
             </li>
           {%- endif %}
         </ol>
-        Generated YAML:<br/>
+        Generated YAML:<br>
         {{ M.render_field(form.yamloutput, show_label=false) }}
       {% else %}{# form.yamloutput.data #}
-        Generated YAML will be displayed here:<br/>
+        Generated YAML will be displayed here:<br>
         {{ M.render_field(form.yamloutput, show_label=false) }}
       {% endif %}
     </div><!-- col-sm -->
