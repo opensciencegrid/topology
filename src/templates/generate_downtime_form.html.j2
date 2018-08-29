@@ -28,7 +28,7 @@
 {% block title %}Downtime YAML generator{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}{% endblock %}
 
 {% block content %}
-<noscript><div class="alert alert-warning" role="alert">Please enable JavaScript for full functionality.</div></noscript>
+<noscript><div class="alert alert-danger" role="alert">Please enable JavaScript.</div></noscript>
 
 <h3 style="text-align:center;">Downtime YAML generator{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</h3>
 
@@ -45,10 +45,10 @@
         https://flask-wtf.readthedocs.io/en/stable/csrf.html
         -->
         {{ M.render_field(form.facility) }}
-        {{ M.render_button(form.change_facility) }}
+        {{ M.render_button(form.change_facility, hidden=true) }}
 
         {{ M.render_field(form.resource, disabled=resource_disabled) }}
-        {{ M.render_button(form.change_resource, disabled=resource_disabled) }}
+        {{ M.render_button(form.change_resource, disabled=resource_disabled, hidden=true) }}
 
         {{ render_dtfield(form.services) }}
 
