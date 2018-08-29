@@ -28,7 +28,9 @@
 {% block title %}Downtime YAML generator{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}{% endblock %}
 
 {% block content %}
-<noscript><div class="alert alert-danger" role="alert">Please enable JavaScript.</div></noscript>
+<div class="nojs"><!-- there's some JS below to remove this if jquery successfully loads -->
+  <div class="alert alert-danger" role="alert">Please enable JavaScript.</div>
+</div>
 
 <h3 style="text-align:center;">Downtime YAML generator{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</h3>
 
@@ -146,5 +148,6 @@
   $( "#resource" ).change( function() {
     $( "#change_resource" ).click();
   } );
+  $( ".nojs").remove();
 </script>
 {% endblock %}
