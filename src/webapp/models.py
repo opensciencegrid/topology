@@ -1,11 +1,13 @@
+import datetime
 import logging
 import os
 import time
-from typing import Dict, Set
+from typing import Dict, Set, List
 
 from webapp import common, contacts_reader, project_reader, rg_reader, vo_reader
+from webapp.common import gen_id
 from webapp.contacts_reader import ContactsData
-from webapp.topology import Topology
+from webapp.topology import Topology, Downtime
 from webapp.vos_data import VOsData
 
 
@@ -135,3 +137,31 @@ class GlobalData:
                 self.projects.try_again()
 
         return self.projects.data
+
+
+def get_downtime_yaml(start_datetime: datetime.datetime,
+                      end_datetime: datetime.datetime,
+                      created_datetime: datetime.datetime,
+                      description: str,
+                      severity: str,
+                      class_: str,
+                      resource_name: str,
+                      services: List[str]) -> str:
+    start_time_str = Downtime.fmttime_preferred(start_datetime)
+    end_time_str = Downtime.fmttime_preferred(end_datetime)
+    created_time_str = Downtime.fmttime_preferred(created_datetime)
+    dtid = gen_id(f"{created_time_str}{resource_name}", digits=11)
+    tmp = "\n  - "
+    services_str = tmp + tmp.join(services)
+
+    return f"""\
+- Class: {class_}
+  ID: {dtid}
+  Description: {description}
+  Severity: {severity}
+  StartTime: {start_time_str}
+  EndTime: {end_time_str}
+  CreatedTime: {created_time_str}
+  ResourceName: {resource_name}
+  Services: {services_str}
+"""

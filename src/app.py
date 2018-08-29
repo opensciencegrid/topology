@@ -1,12 +1,9 @@
 """
 Application File
 """
-import datetime
-from typing import List
-
 import flask
 import flask.logging
-from flask import Flask, Response, request, render_template, make_response
+from flask import Flask, Response, request, render_template
 import logging
 import os
 import re
@@ -14,8 +11,8 @@ import sys
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import gen_id, to_xml_bytes, Filters
-from webapp.forms import DowntimeResourceSelectForm, GenerateDowntimeForm
+from webapp.common import to_xml_bytes, Filters
+from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 
@@ -59,20 +56,21 @@ if not app.config.get("SECRET_KEY"):
 global_data = GlobalData(app.config)
 
 
+def _fix_unicode(text):
+    """Convert a partial unicode string to full unicode"""
+    return text.encode('utf-8', 'surrogateescape').decode('utf-8')
+
+
 @app.route('/')
 def homepage():
-
-    return render_template('homepage.tmpl')
+    return render_template('homepage.html.j2')
 
 @app.route('/map/iframe')
 def map():
-    @app.template_filter()
-    def encode(text):
-        """Convert a partial unicode string to full unicode"""
-        return text.encode('utf-8', 'surrogateescape').decode('utf-8')
+    app.add_template_filter(_fix_unicode)
     rgsummary = global_data.get_topology().get_resource_summary()
 
-    return render_template('iframe.tmpl', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"])
+    return render_template('iframe.html.j2', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"])
 
 
 @app.route('/schema/<xsdfile>')
@@ -110,71 +108,52 @@ def rgdowntime_xml():
     return _get_xml_or_fail(global_data.get_topology().get_downtimes, request.args)
 
 
-@app.route('/downtime_resource_select')
-def downtime_resource_select():
-    path = "downtime_resource_select"
-    template = f"{path}_form.html"
-
-    form = DowntimeResourceSelectForm(request.form)
-    topo = global_data.get_topology()
-    form.facility.choices = _make_choices(topo.resource_names_by_facility.keys())
-
-    facility = request.args.get("facility", "")
-    if facility:
-        resource_names = topo.resource_names_by_facility.get(facility)
-        if not resource_names:
-            return make_response((f"""
-Missing or invalid facility. <a href="/{path}">Select a facility.</a>
-""", 400))
-        form.facility.data = facility
-        form.resource.choices = _make_choices(resource_names)
-        return render_template(template, form=form, facility=facility)
-    return render_template(template, form=form)
-
-
 @app.route("/generate_downtime", methods=["GET", "POST"])
 def generate_downtime():
-    path = "generate_downtime"
-    template = f"{path}_form.html"
-
     form = GenerateDowntimeForm(request.form)
+
+    def render_form(**kwargs):
+        return render_template("generate_downtime_form.html.j2", form=form, warnings=form.warnings, **kwargs)
+
     topo = global_data.get_topology()
 
-    facility = request.args.get("facility")
-    if not facility or facility not in topo.resource_names_by_facility:
-        return make_response((f"""
-Missing or invalid facility. <a href="/{path}">Select a facility.</a>
-""", 400))
-    resource = request.args.get("resource")
-    resource_names = topo.resource_names_by_facility[facility]
-    if not resource or not resource_names or resource not in resource_names:
-        return make_response((f"""
-Missing or invalid resource in facility {flask.escape(facility)}.
-<a href="/{path}?facility={urllib.parse.quote(facility)}">Select a resource</a>
-or <a href="/{path}">select another facility.</a>
-""", 400))
+    form.facility.choices = _make_choices(topo.resource_names_by_facility.keys(), select_one=True)
+    facility = form.facility.data
+    if facility not in topo.resource_names_by_facility:
+        form.facility.data = ""
+        form.resource.choices = [("", "-- Select a facility first --")]
+        form.resource.data = ""
+        form.services.choices = [("", "-- Select a facility and a resource first --")]
+        return render_form()
 
-    form.resource.data = resource
+    form.resource.choices = _make_choices(topo.resource_names_by_facility[facility], select_one=True)
 
-    try:
-        form.services.choices = _make_choices(topo.service_names_by_resource[resource])
-    except (KeyError, IndexError):  # shouldn't happen but deal with anyway
-        return make_response((f"""
-Missing or invalid services in resource {flask.escape(resource)}.
-<a href="/{path}?facility={urllib.parse.quote(facility)}">Select another resource</a>
-or <a href="/{path}">select another facility.</a>
-""", 400))
+    if form.change_facility.data:  # "Change Facility" clicked
+        form.resource.data = ""
+        form.services.choices = [("", "-- Select a resource first --")]
+        return render_form()
+
+    resource = form.resource.data
+    if resource not in topo.service_names_by_resource:
+        return render_form()
+
+    form.services.choices = _make_choices(topo.service_names_by_resource[resource])
+
+    if form.change_resource.data:  # "Change Resource" clicked
+        return render_form()
 
     if not form.validate_on_submit():
-        return render_template(template, form=form, resource=resource, facility=facility)
+        return render_form()
 
     filepath = "topology/" + topo.downtime_path_by_resource[resource]
     # ^ filepath relative to the root of the topology repo checkout
     filename = os.path.basename(filepath)
 
     # Add github edit URLs or directory URLs for the repo, if we can.
-    edit_url = site_dir_url = ""
+    new_url = edit_url = site_dir_url = ""
+    github = False
     if re.match("http(s?)://github.com", global_data.topology_data_repo):
+        github = True
         site_dir_url = "{0}/tree/{1}/{2}".format(global_data.topology_data_repo,
                                                  urllib.parse.quote(global_data.topology_data_branch),
                                                  urllib.parse.quote(os.path.dirname(filepath)))
@@ -182,18 +161,23 @@ or <a href="/{path}">select another facility.</a>
             edit_url = "{0}/edit/{1}/{2}".format(global_data.topology_data_repo,
                                                  urllib.parse.quote(global_data.topology_data_branch),
                                                  urllib.parse.quote(filepath))
+        else:
+            new_url = "{0}/new/{1}?filename={2}".format(global_data.topology_data_repo,
+                                                        urllib.parse.quote(global_data.topology_data_branch),
+                                                        urllib.parse.quote(filepath))
 
-    yaml = form.get_yaml()
+    form.yamloutput.data = form.get_yaml()
 
-    return render_template(
-        template, form=form, yaml=yaml, resource=resource, filepath=filepath,
-        filename=filename, facility=facility, edit_url=edit_url,
-        site_dir_url=site_dir_url)
+    return render_form(filepath=filepath, filename=filename,
+                       edit_url=edit_url, site_dir_url=site_dir_url,
+                       new_url=new_url, github=github)
 
 
-def _make_choices(iterable):
-    return [(x.encode("utf-8", "surrogateescape").decode(), x.encode("utf-8", "surrogateescape").decode())
-            for x in sorted(iterable)]
+def _make_choices(iterable, select_one=False):
+    c = [(_fix_unicode(x), _fix_unicode(x)) for x in sorted(iterable)]
+    if select_one:
+        c.insert(0, ("", "-- Select one --"))
+    return c
 
 
 def get_filters_from_args(args) -> Filters:
