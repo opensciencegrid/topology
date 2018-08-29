@@ -25,12 +25,12 @@
   "scheduled", "description", "severity", "start_date", "start_time",
   "end_date", "end_time", "services", "generate"] %}
 
-{% block title %}Downtime YAML generator{% endblock %}
+{% block title %}Downtime YAML generator{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}{% endblock %}
 
 {% block content %}
 <noscript><div class="alert alert-warning" role="alert">Please enable JavaScript for full functionality.</div></noscript>
 
-<center><h3>Downtime YAML generator</h3></center>
+<h3 style="text-align:center;">Downtime YAML generator{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</h3>
 
 {% if warnings %}
 <div class="alert alert-warning" role="alert">{{ warnings }}</div>
