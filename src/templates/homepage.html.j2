@@ -1,13 +1,13 @@
 <html>
   <head>
-    <title>OSG Topology Interface</title>
+    <title>OSG Topology Interface{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</title>
   </head>
   <body>
 
-    <h1>OSG Topology Interface</h1>
+    <h1>OSG Topology Interface{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</h1>
 
     <p>
-      Welcome to the landing page for the legacy XML format of the Open Science Grid <a href="https://github.com/opensciencegrid/topology">topology data</a>!</br></br>
+      Welcome to the landing page for the legacy XML format of the Open Science Grid <a href="https://github.com/opensciencegrid/topology">topology data</a>!<br><br>
 
       To learn about the data served here and how to register new data, please consult <a href="https://opensciencegrid.org/docs/common/registration/">our documentation</a>.
     </p>
