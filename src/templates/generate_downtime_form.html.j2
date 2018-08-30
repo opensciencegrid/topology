@@ -47,10 +47,10 @@
         https://flask-wtf.readthedocs.io/en/stable/csrf.html
         -->
         {{ M.render_field(form.facility) }}
-        {{ M.render_button(form.change_facility, hidden=true) }}
+        {{ M.render_button(form.change_facility) }}
 
         {{ M.render_field(form.resource, disabled=resource_disabled) }}
-        {{ M.render_button(form.change_resource, disabled=resource_disabled, hidden=true) }}
+        {{ M.render_button(form.change_resource, disabled=resource_disabled) }}
 
         {{ render_dtfield(form.services) }}
 
@@ -128,6 +128,7 @@
 
 {% block last %}
 <script type="text/javascript">
+  $( "#change_facility" ).hide();
   $( "#change_facility" ).click( function () {
     {% for fieldname in downtime_fieldnames %}
     /* undisable/require everything so existing data gets saved */
@@ -138,6 +139,7 @@
   $( "#facility" ).change( function () {
     $( "#change_facility" ).click();
   } );
+  $( "#change_resource" ).hide();
   $( "#change_resource" ).click( function () {
     {% for fieldname in downtime_fieldnames %}
     /* undisable/require everything so existing data gets saved */
