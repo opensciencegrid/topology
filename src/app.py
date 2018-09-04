@@ -297,10 +297,8 @@ def _get_authorized():
 
 
 if __name__ == '__main__':
-    try:
-        if sys.argv[1] == "--auth":
-            default_authorized = True
-    except IndexError: pass
+    if "--auth" in sys.argv[1:]:
+        default_authorized = True
     logging.basicConfig(level=logging.DEBUG)
     app.run(debug=True, use_reloader=True)
 else:
