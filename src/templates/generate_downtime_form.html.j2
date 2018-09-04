@@ -34,8 +34,8 @@
 
 <h3 style="text-align:center;">Downtime YAML generator{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</h3>
 
-{% if warnings %}
-<div class="alert alert-warning" role="alert">{{ warnings }}</div>
+{% if infos %}
+<div class="alert alert-info" role="alert">{{ infos }}</div>
 {% endif %}
 
 <div class="container">
@@ -60,11 +60,11 @@
 
         <div class="form-row">
           {{ render_dtfield(form.start_date, type="date", class_="col-sm-6", placeholder="YYYY-MM-DD") }}
-          {{ render_dtfield(form.start_time, type="time", class_="col-sm-6", placeholder="HH:MM", asterisk=false) }}
+          {{ render_dtfield(form.start_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour)", asterisk=false) }}
         </div>
         <div class="form-row">
           {{ render_dtfield(form.end_date, type="date", class_="col-sm-6", placeholder="YYYY-MM-DD") }}
-          {{ render_dtfield(form.end_time, type="time", class_="col-sm-6", placeholder="HH:MM", asterisk=false) }}
+          {{ render_dtfield(form.end_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour)", asterisk=false) }}
         </div>
 
         {{ render_dtbutton(form.generate) }}
