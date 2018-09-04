@@ -72,7 +72,8 @@ def setunion(sets):
 
 def get_iface_ipv4_addrs():
     net_ifaces = get_network_interfaces('*')
-    return dict( (x.name, x.addresses[AF_INET]) for x in net_ifaces )
+    return dict( (x.name, x.addresses[AF_INET]) for x in net_ifaces
+                                                 if AF_INET in x.addresses )
 
 def print_net_info(info):
     print("FQDN: %s" % info.fqdn)
