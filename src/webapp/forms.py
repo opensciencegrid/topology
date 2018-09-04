@@ -29,7 +29,7 @@ class GenerateDowntimeForm(FlaskForm):
     start_time = TimeField("&nbsp;", [InputRequired()])
     end_date = DateField("End Date/Time (UTC)", [InputRequired()])
     end_time = TimeField("&nbsp;", [InputRequired()])
-    services = SelectMultipleField("Services (select one or more)", [InputRequired()], choices=[])
+    services = SelectMultipleField("Known OSG Services (select one or more)", [InputRequired()], choices=[])
 
     facility = SelectField("Facility", choices=[])
     change_facility = SubmitField()
@@ -47,11 +47,11 @@ class GenerateDowntimeForm(FlaskForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.warnings = ""
+        self.infos = ""
 
     # https://stackoverflow.com/a/21815180
     def validate(self):
-        self.warnings = ""
+        self.infos = ""
 
         if not super().validate():
             return False
@@ -65,10 +65,10 @@ class GenerateDowntimeForm(FlaskForm):
 
         days_in_future = (self.get_start_datetime() - datetime.datetime.utcnow()).days
         if days_in_future < 2 and self.scheduled.data == "SCHEDULED":
-            self.warnings += "Warning: Downtime registered less than 2 days in advance " \
+            self.infos += "Note: Downtime registered less than 2 days in advance " \
                              "is considered unscheduled by WLCG policy."
         elif days_in_future >= 2 and self.scheduled.data == "UNSCHEDULED":
-            self.warnings += "Warning: Downtime registered 2 or more days in advance " \
+            self.infos += "Note: Downtime registered 2 or more days in advance " \
                              "is considered scheduled by WLCG policy."
 
         return True

@@ -113,7 +113,7 @@ def generate_downtime():
     form = GenerateDowntimeForm(request.form)
 
     def render_form(**kwargs):
-        return render_template("generate_downtime_form.html.j2", form=form, warnings=form.warnings, **kwargs)
+        return render_template("generate_downtime_form.html.j2", form=form, infos=form.infos, **kwargs)
 
     topo = global_data.get_topology()
 
