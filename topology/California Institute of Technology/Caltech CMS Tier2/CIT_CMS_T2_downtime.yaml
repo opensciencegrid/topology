@@ -3,37 +3,37 @@
 # - SCHEDULED: downtime that has been scheduled at least 48 hours beforehand
 # - UNSCHEDULED: downtime that has occurred due to an event such as a sudden
 #   hardware failure, or any unforseen circumstances
-- Class: <TEXT>
+- Class: UNSCHEDULED
   # Unique ID, given by `bin/next_downtime_id`
-  ID: <ID>
+  ID: 1005710
   # Summary of the reason for the downtime
-  Description: <TEXT>
+  Description: Power failure in one of the racks.
   # Downtime severity in descending order:
   # - Outage
   # - Severe
   # - Intermittent Outage
   # - No Significant Outage Expected
-  Severity: <TEXT>
+  Severity: Intermittent Outage
   # Start date and time of the downtime in the following format:
   # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
   # e.g. Mar 28, 2017 22:00 -0500
-  StartTime: <DATE AND TIME>
+  StartTime: Sep 04, 2018 17:00 -0800
   # End date and time of the downtime in the following format:
   # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
   # e.g. Mar 30, 2017 22:00 -0500
-  EndTime: <DATE AND TIME>
+  EndTime: Sep 05, 2018 17:00 -0800
   # The date and time this entry was created in the following format:
   # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
   # e.g. Mar 25, 2017 22:00 -0500
-  CreatedTime: <DATE AND TIME>
+  CreatedTime: Sep 05, 2018 08:00 -0800
 
   # The resource affected by the downtime
-  ResourceName: <RESOURCE NAME>
+  ResourceName: CIT_CMS_SE
   # The serivce(s) affected by the downtime as a list
   Services:
-    - <SERVICE NAME>
+    - GridFtp
     # Additional services if there are any...
-    # - GridFtp
+    # - GridFTP
     # - SRMv2
 # Additional downtimes can be added
 # - Class: UNSCHEDULED
