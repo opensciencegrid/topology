@@ -117,16 +117,20 @@ def generate_downtime():
 
     topo = global_data.get_topology()
 
-    form.facility.choices = _make_choices(topo.resource_names_by_facility.keys(), select_one=True)
+    form.facility.choices = _make_choices(topo.resources_by_facility.keys(), select_one=True)
     facility = form.facility.data
-    if facility not in topo.resource_names_by_facility:
+    if facility not in topo.resources_by_facility:
         form.facility.data = ""
         form.resource.choices = [("", "-- Select a facility first --")]
         form.resource.data = ""
         form.services.choices = [("", "-- Select a facility and a resource first --")]
         return render_form()
 
-    form.resource.choices = _make_choices(topo.resource_names_by_facility[facility], select_one=True)
+    resource_choices = [("", "-- Select one --")]
+    for r in topo.resources_by_facility[facility]:
+        resource_choices.append((_fix_unicode(r.name),
+                                 f"{_fix_unicode(r.name)} ({_fix_unicode(r.fqdn)})"))
+    form.resource.choices = resource_choices
 
     if form.change_facility.data:  # "Change Facility" clicked
         form.resource.data = ""
