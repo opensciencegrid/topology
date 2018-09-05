@@ -102,6 +102,10 @@
                 <pre>"{{ filename }}"</pre>
               </li>
             {% endif -%}
+            <li>
+              If you don't have a fork of the topology repo,
+              click the "Fork" button to create one.
+            </li>
           {% else -%}{# github #}
             <li>
               In your topology repo checkout, open the file named:
@@ -109,7 +113,21 @@
             </li>
           {% endif -%}
           <li>
-            Copy-and-paste the generated YAML as-is to the end.
+            {% if github -%}
+              Copy-and-paste the generated YAML as-is to the end of the file
+              shown in the main text box.
+            {%- else -%}
+              Copy-and-paste the generated YAML as-is to the end of the file.
+            {%- endif %}
+          </li>
+          <li>
+            {% if github -%}
+              Specify a commit message in the "Commit changes" section.
+            {%- else -%}
+              Commit your changes to the repository.
+            {%- endif %}
+            The commit message should look something like<br>
+            <code>Add downtime for &lt;RESOURCE(S)&gt; due to &lt;REASON&gt;</code>
           </li>
           {% if github -%}
             <li>
