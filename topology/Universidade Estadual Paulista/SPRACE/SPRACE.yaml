@@ -4,6 +4,7 @@ GroupID: 99
 Production: true
 Resources:
   BR-Sprace BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -11,11 +12,11 @@ Resources:
           Name: Marcio Antonio Costa
         Secondary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Silva
+          Name: Jadir Marra da Silva
       Resource Report Contact:
         Primary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Silva
+          Name: Jadir Marra da Silva
         Secondary:
           ID: a2b9cf948598b460caec58e51be63ddc38049e2c
           Name: Rogerio Iope
@@ -39,6 +40,7 @@ Resources:
     VOOwnership:
       CMS: 100
   BR-Sprace LT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -74,6 +76,7 @@ Resources:
     VOOwnership:
       CMS: 100
   SPRACE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -138,6 +141,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   SPRACE-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -200,6 +204,7 @@ Resources:
       StorageCapacityMin: 1000
       TapeCapacity: 0
   T2_BR_SPRACE-squid1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -211,7 +216,7 @@ Resources:
       Miscellaneous Contact:
         Primary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Silva
+          Name: Jadir Marra da Silva
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
@@ -249,6 +254,7 @@ Resources:
     VOOwnership:
       CMS: 100
   T2_BR_SPRACE-squid2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -260,7 +266,7 @@ Resources:
       Miscellaneous Contact:
         Primary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Silva
+          Name: Jadir Marra da Silva
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa

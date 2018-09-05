@@ -429,7 +429,10 @@ class Topology(object):
         self.rgs = {}
 
     def add_rg(self, facility_name, site_name, name, parsed_data):
-        self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
+        try:
+            self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
+        except (AttributeError, KeyError, ValueError) as err:
+            log.exception("RG %s, %s error: %s; skipping", site_name, name, err)
 
     def add_facility(self, name, id):
         self.facilities[name] = Facility(name, id)

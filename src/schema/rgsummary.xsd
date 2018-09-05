@@ -39,6 +39,7 @@
                     <xsd:element name="Name" type="xsd:string" />
                     <xsd:element name="AddressLine1" type="xsd:string" minOccurs="0" />
                     <xsd:element name="AddressLine2" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="City" type="xsd:string" minOccurs="0" />
                     <xsd:element name="Country" type="xsd:string" minOccurs="0" />
                     <xsd:element name="Description" type="xsd:string" minOccurs="0" /> 
                     <xsd:element name="Latitude" type="xsd:string" minOccurs="0" />

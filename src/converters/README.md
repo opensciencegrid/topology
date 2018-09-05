@@ -1,8 +1,5 @@
-Sources
-=======
-
-Conversion scripts
-------------------
+Conversion Scripts
+==================
 
 Scripts inside the `converters` directory are used for the initial conversion
 of XML data (obtained from myosg.grid.iu.edu) into directory trees of YAML

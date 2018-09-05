@@ -4,6 +4,7 @@ GroupID: 8
 Production: true
 Resources:
   NET2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -73,6 +74,7 @@ Resources:
       StorageCapacityMin: 2300
       TapeCapacity: 0
   net2.bu.edu-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -113,6 +115,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   perfSONAR-NET2-bw:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -158,6 +161,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   perfSONAR-NET2-lat:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -203,6 +207,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   perfSONAR_BU:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
