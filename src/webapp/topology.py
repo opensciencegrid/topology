@@ -68,6 +68,12 @@ class Resource(object):
             self.services = []
         self.service_names = [n["Name"] for n in self.services if "Name" in n]
         self.data = yaml_data
+        if is_null(yaml_data, "FQDN"):
+            raise ValueError(f"Resource {name} does not have an FQDN")
+
+    @property
+    def fqdn(self):
+        return self.data["FQDN"]
 
     def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
         if filters is None:
@@ -436,7 +442,7 @@ class Topology(object):
         self.sites = {}
         # rgs are keyed by (site_name, rg_name) tuple
         self.rgs = {}  # type: Dict[Tuple[str, str], ResourceGroup]
-        self.resource_names_by_facility = defaultdict(list)
+        self.resources_by_facility = defaultdict(list)
         self.service_names_by_resource = {}  # type: Dict[str, List[str]]
         self.downtime_path_by_resource = {}
 
@@ -445,7 +451,7 @@ class Topology(object):
             rg = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
             self.rgs[(site_name, name)] = rg
             for r in rg.resources:
-                self.resource_names_by_facility[facility_name].append(r.name)
+                self.resources_by_facility[facility_name].append(r)
                 self.service_names_by_resource[r.name] = r.service_names
                 self.downtime_path_by_resource[r.name] = f"{facility_name}/{site_name}/{name}_downtime.yaml"
         except (AttributeError, KeyError, ValueError) as err:
