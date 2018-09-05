@@ -205,3 +205,39 @@
   - Squid
   Severity: Outage
   StartTime: Apr 26, 2018 13:00 +0000
+- Class: UNSCHEDULED
+  Description: Network issue due to a switch that went bad.
+  EndTime: Sep 3, 2018 11:15 +0000 EDT
+  ID: 123456
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Sep 3, 2018 09:00 +0000 EDT
+- Class: UNSCHEDULED
+  Description: Network issue due to a switch that went bad.
+  EndTime: Sep 3, 2018 11:15 +0000 EDT
+  ID: 123456
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Sep 3, 2018 09:00 +0000 EDT
+- Class: UNSCHEDULED
+  Description: Network issue due to a switch that went bad.
+  EndTime: Sep 3, 2018 11:15 +0000 EDT
+  ID: 123456
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Sep 3, 2018 09:00 +0000 EDT
+- Class: UNSCHEDULED
+  Description: Network issue due to a switch that went bad.
+  EndTime: Sep 3, 2018 11:15 +0000 EDT
+  ID: 123456
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - SE
+  Severity: Outage
+  StartTime: Sep 3, 2018 09:00 +0000 EDT
