@@ -74,6 +74,9 @@
 
     <div class="col-sm">
       {% if form.yamloutput.data -%}
+        Generated YAML:<br>
+        {{ M.render_field(form.yamloutput, show_label=false) }}
+        <h4>Instructions</h4>
         <ol>
           {% if github -%}
             {% if edit_url -%}
@@ -115,8 +118,6 @@
             </li>
           {%- endif %}
         </ol>
-        Generated YAML:<br>
-        {{ M.render_field(form.yamloutput, show_label=false) }}
       {% else %}{# form.yamloutput.data #}
         Generated YAML will be displayed here:<br>
         {{ M.render_field(form.yamloutput, show_label=false) }}
