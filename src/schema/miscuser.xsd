@@ -11,6 +11,7 @@
               <xsd:element name="PhotoURL" type="xsd:string" />
               <xsd:element name="GravatarURL" type="xsd:string" />
               <xsd:element name="Profile" type="xsd:string" />
+              <xsd:element name="GitHub" type="xsd:string" minOccurs="0"/>
               <xsd:element name="ContactInformation" minOccurs="0">
                 <xsd:complexType>
                   <xsd:sequence>

@@ -4,6 +4,7 @@ GroupID: 91
 Production: true
 Resources:
   SLAC:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -33,6 +34,7 @@ Resources:
     VOOwnership:
       SLAC: 100
   SLAC-ATLAS-T3_GRIDFTP:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -69,6 +71,7 @@ Resources:
       StorageCapacityMin: 5
       TapeCapacity: 0
   WT2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -113,6 +116,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   WT2_CE_2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -146,6 +150,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   WT2_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -190,6 +195,7 @@ Resources:
       StorageCapacityMax: 3890
       StorageCapacityMin: 3890
   WT2_SE_2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -226,6 +232,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   perfSONAR_bw_SLAC:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -254,6 +261,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   perfSONAR_lat_SLAC:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

@@ -31,6 +31,7 @@ class User(object):
         tree["GravatarURL"] = self._get_gravatar_url(
             self.yaml_data["ContactInformation"]["PrimaryEmail"])
         tree["Profile"] = self.yaml_data.get("Profile", None)
+        tree["GitHub"] = self.yaml_data.get("GitHub", None)
         if authorized:
             tree["ContactInformation"] = self._expand_contact_info()
         return tree
@@ -81,7 +82,7 @@ class ContactsData(object):
         self.users_by_id = {}
         for user_id, user_data in self.yaml_data.items():
             self.users_by_id[user_id] = User(user_id, user_data)
-    
+
     def get_dns(self):
         """
         Get the DNs for all of the users (useful for auth)
