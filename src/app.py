@@ -67,10 +67,9 @@ def homepage():
 
 @app.route('/map/iframe')
 def map():
-    app.add_template_filter(_fix_unicode)
     rgsummary = global_data.get_topology().get_resource_summary()
 
-    return render_template('iframe.html.j2', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"])
+    return _fix_unicode(render_template('iframe.html.j2', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"]))
 
 
 @app.route('/schema/<xsdfile>')
