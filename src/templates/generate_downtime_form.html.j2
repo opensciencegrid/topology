@@ -29,7 +29,7 @@
 
 {% block content %}
 <div class="nojs"><!-- there's some JS below to remove this if jquery successfully loads -->
-  <div class="alert alert-danger" role="alert">Please enable JavaScript.</div>
+  <div class="alert alert-danger" role="alert">Please enable JavaScript and allow our JavaScript libraries to load.</div>
 </div>
 
 <h3 style="text-align:center;">Downtime YAML generator{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</h3>
@@ -39,7 +39,17 @@
 {% endif %}
 
 <div class="container">
+  <p>
+    {%- if github -%}
+    This form generates YAML code that you can add into
+    <a href="{{ github_topology_root }}" target="_blank">OSG's topology repository</a>
+    to report your downtime.
+    <br>You will require a GitHub account to submit your new downtime.
+    {%- endif %}
+  </p>
+  
   <div class="row">
+    <!-- LEFT COLUMN --------------------------------------------------------->
     <div class="col-sm">
       <form method=post>
         <!-- NOTE: we are not using CSRF because none of the POST data is actually
@@ -72,6 +82,7 @@
       <p><span style="color:red;">*</span> denotes a required field</p>
     </div><!-- col-sm -->
 
+    <!-- RIGHT COLUMN -------------------------------------------------------->
     <div class="col-sm">
       {% if form.yamloutput.data -%}
         Generated YAML:<br>
@@ -122,7 +133,7 @@
           </li>
           <li>
             {% if github -%}
-              Specify a commit message in the "Commit changes" section.
+              Specify a commit message in the first box in the "Commit changes" section.
             {%- else -%}
               Commit your changes to the repository.
             {%- endif %}

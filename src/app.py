@@ -112,8 +112,23 @@ def rgdowntime_xml():
 def generate_downtime():
     form = GenerateDowntimeForm(request.form)
 
+    def github_url(action, path):
+        assert action in ("tree", "edit", "new"), "invalid action"
+        base = global_data.topology_data_repo
+        branch_q = urllib.parse.quote(global_data.topology_data_branch)
+        path_q = urllib.parse.quote(path)
+        param = f"?filename={path_q}" if action == "new" else f"/{path_q}"
+        return f"{base}/{action}/{branch_q}{param}"
+
+    github = False
+    github_topology_root = ""
+    if re.match("http(s?)://github.com", global_data.topology_data_repo):
+        github = True
+        github_topology_root = github_url("tree", "topology")
+
     def render_form(**kwargs):
-        return render_template("generate_downtime_form.html.j2", form=form, infos=form.infos, **kwargs)
+        return render_template("generate_downtime_form.html.j2", form=form, infos=form.infos, github=github,
+                               github_topology_root=github_topology_root, **kwargs)
 
     topo = global_data.get_topology()
 
@@ -155,26 +170,18 @@ def generate_downtime():
 
     # Add github edit URLs or directory URLs for the repo, if we can.
     new_url = edit_url = site_dir_url = ""
-    github = False
-    if re.match("http(s?)://github.com", global_data.topology_data_repo):
-        github = True
-        site_dir_url = "{0}/tree/{1}/{2}".format(global_data.topology_data_repo,
-                                                 urllib.parse.quote(global_data.topology_data_branch),
-                                                 urllib.parse.quote(os.path.dirname(filepath)))
+    if github:
+        site_dir_url = github_url("tree", os.path.dirname(filepath))
         if os.path.exists(os.path.join(global_data.topology_dir, topo.downtime_path_by_resource[resource])):
-            edit_url = "{0}/edit/{1}/{2}".format(global_data.topology_data_repo,
-                                                 urllib.parse.quote(global_data.topology_data_branch),
-                                                 urllib.parse.quote(filepath))
+            edit_url = github_url("edit", filepath)
         else:
-            new_url = "{0}/new/{1}?filename={2}".format(global_data.topology_data_repo,
-                                                        urllib.parse.quote(global_data.topology_data_branch),
-                                                        urllib.parse.quote(filepath))
+            new_url = github_url("new", filepath)
 
     form.yamloutput.data = form.get_yaml()
 
     return render_form(filepath=filepath, filename=filename,
                        edit_url=edit_url, site_dir_url=site_dir_url,
-                       new_url=new_url, github=github)
+                       new_url=new_url)
 
 
 def _make_choices(iterable, select_one=False):
