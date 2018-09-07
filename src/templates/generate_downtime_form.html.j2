@@ -70,11 +70,11 @@
 
         <div class="form-row">
           {{ render_dtfield(form.start_date, type="date", class_="col-sm-6", placeholder="YYYY-MM-DD") }}
-          {{ render_dtfield(form.start_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour)", asterisk=false) }}
+          {{ render_dtfield(form.start_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour UTC)", asterisk=false) }}
         </div>
         <div class="form-row">
           {{ render_dtfield(form.end_date, type="date", class_="col-sm-6", placeholder="YYYY-MM-DD") }}
-          {{ render_dtfield(form.end_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour)", asterisk=false) }}
+          {{ render_dtfield(form.end_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour UTC)", asterisk=false) }}
         </div>
 
         {{ render_dtbutton(form.generate) }}
@@ -133,7 +133,13 @@
           </li>
           <li>
             {% if github -%}
-              Specify a commit message in the first box in the "Commit changes" section.
+              Specify a commit message in the first box in the
+              {% if new_url -%}
+                "Propose new file"
+              {%- else -%}
+                "Commit changes"
+              {%- endif %}
+              section.
             {%- else -%}
               Commit your changes to the repository.
             {%- endif %}
@@ -144,6 +150,9 @@
             <li>
               Submit your changes as a pull request
               (<a href="https://help.github.com/articles/editing-files-in-your-repository/" target="_blank">see instructions</a>).
+            </li>
+            <li>
+              Wait for OSG staff to review and approve your pull request.
             </li>
           {%- endif %}
         </ol>
