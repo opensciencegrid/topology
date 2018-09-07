@@ -12,7 +12,8 @@ itsdangerous==0.24
 Jinja2==2.10
 json5>=0.6.1,<0.7
 MarkupSafe==1.0
-mod-wsgi>=4.6.4,<4.7
+#mod-wsgi>=4.6.4,<4.7
+# ^ requires apache
 python-dateutil>=2.7.3,<2.8
 PyYAML==3.13
 requests>=2.19.1,<2.20
