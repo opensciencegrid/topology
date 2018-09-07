@@ -44,7 +44,7 @@
     This form generates YAML code that you can add into
     <a href="{{ github_topology_root }}" target="_blank">OSG's topology repository</a>
     to report your downtime.
-    <br>You will require a GitHub account to submit your new downtime.
+    <br>This requires a GitHub account.
     {%- endif %}
   </p>
   
@@ -85,7 +85,7 @@
     <!-- RIGHT COLUMN -------------------------------------------------------->
     <div class="col-sm">
       {% if form.yamloutput.data -%}
-        Generated YAML (see instructions below for what to do with this):<br>
+        Generated YAML (instructions below):<br>
         {{ M.render_field(form.yamloutput, show_label=false) }}
         <h4>Instructions</h4>
         <ol>
@@ -133,7 +133,7 @@
           </li>
           <li>
             {% if github -%}
-              Specify a commit message in the first box in the
+              Specify a commit message in the first text box in the
               {% if new_url -%}
                 "Propose new file"
               {%- else -%}
