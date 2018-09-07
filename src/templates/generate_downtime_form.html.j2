@@ -29,7 +29,7 @@
 
 {% block content %}
 <div class="nojs"><!-- there's some JS below to remove this if jquery successfully loads -->
-  <div class="alert alert-danger" role="alert">Please enable JavaScript.</div>
+  <div class="alert alert-danger" role="alert">Please enable JavaScript and allow our JavaScript libraries to load.</div>
 </div>
 
 <h3 style="text-align:center;">Downtime YAML generator{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</h3>
@@ -39,7 +39,17 @@
 {% endif %}
 
 <div class="container">
+  <p>
+    {%- if github -%}
+    This form generates YAML code that you can add into
+    <a href="{{ github_topology_root }}" target="_blank">OSG's topology repository</a>
+    to report your downtime.
+    <br>This requires a GitHub account.
+    {%- endif %}
+  </p>
+  
   <div class="row">
+    <!-- LEFT COLUMN --------------------------------------------------------->
     <div class="col-sm">
       <form method=post>
         <!-- NOTE: we are not using CSRF because none of the POST data is actually
@@ -60,11 +70,11 @@
 
         <div class="form-row">
           {{ render_dtfield(form.start_date, type="date", class_="col-sm-6", placeholder="YYYY-MM-DD") }}
-          {{ render_dtfield(form.start_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour)", asterisk=false) }}
+          {{ render_dtfield(form.start_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour UTC)", asterisk=false) }}
         </div>
         <div class="form-row">
           {{ render_dtfield(form.end_date, type="date", class_="col-sm-6", placeholder="YYYY-MM-DD") }}
-          {{ render_dtfield(form.end_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour)", asterisk=false) }}
+          {{ render_dtfield(form.end_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour UTC)", asterisk=false) }}
         </div>
 
         {{ render_dtbutton(form.generate) }}
@@ -72,9 +82,10 @@
       <p><span style="color:red;">*</span> denotes a required field</p>
     </div><!-- col-sm -->
 
+    <!-- RIGHT COLUMN -------------------------------------------------------->
     <div class="col-sm">
       {% if form.yamloutput.data -%}
-        Generated YAML:<br>
+        Generated YAML (instructions below):<br>
         {{ M.render_field(form.yamloutput, show_label=false) }}
         <h4>Instructions</h4>
         <ol>
@@ -122,7 +133,13 @@
           </li>
           <li>
             {% if github -%}
-              Specify a commit message in the "Commit changes" section.
+              Specify a commit message in the first text box in the
+              {% if new_url -%}
+                "Propose new file"
+              {%- else -%}
+                "Commit changes"
+              {%- endif %}
+              section.
             {%- else -%}
               Commit your changes to the repository.
             {%- endif %}
@@ -133,6 +150,9 @@
             <li>
               Submit your changes as a pull request
               (<a href="https://help.github.com/articles/editing-files-in-your-repository/" target="_blank">see instructions</a>).
+            </li>
+            <li>
+              Wait for OSG staff to review and approve your pull request.
             </li>
           {%- endif %}
         </ol>
