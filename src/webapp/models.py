@@ -5,7 +5,6 @@ import time
 from typing import Dict, Set, List
 
 from webapp import common, contacts_reader, project_reader, rg_reader, vo_reader
-from webapp.common import gen_id
 from webapp.contacts_reader import ContactsData
 from webapp.topology import Topology, Downtime
 from webapp.vos_data import VOsData
@@ -139,6 +138,14 @@ class GlobalData:
         return self.projects.data
 
 
+def _dtid(created_datetime: datetime.datetime):
+    dtid_offset = 1_535_000_000.000  # use a more recent epoch -- gives us a few years of smaller IDs
+    multiplier = 10.0  # use .1s resolution
+
+    timestamp = created_datetime.timestamp()  # seconds from the epoch as float
+    return int((timestamp - dtid_offset) * multiplier)
+
+
 def get_downtime_yaml(start_datetime: datetime.datetime,
                       end_datetime: datetime.datetime,
                       created_datetime: datetime.datetime,
@@ -147,10 +154,11 @@ def get_downtime_yaml(start_datetime: datetime.datetime,
                       class_: str,
                       resource_name: str,
                       services: List[str]) -> str:
+
     start_time_str = Downtime.fmttime_preferred(start_datetime)
     end_time_str = Downtime.fmttime_preferred(end_datetime)
     created_time_str = Downtime.fmttime_preferred(created_datetime)
-    dtid = gen_id(f"{created_time_str}{resource_name}", digits=11)
+    dtid = _dtid(created_datetime)
     tmp = "\n  - "
     services_str = tmp + tmp.join(services)
 
