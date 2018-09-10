@@ -35,6 +35,70 @@
     # Additional services if there are any...
     # - GridFTP
     # - SRMv2
-# Additional downtimes can be added
-# - Class: UNSCHEDULED
-#   ...
+
+# Scheduled downtime for switch replacement. 2018-09-12 10am PDT
+- Class: SCHEDULED
+  ID: 1005714
+  Description: Main uplink switch replacement
+  Severity: Outage
+  StartTime: Sep 12, 2018 10:00 -0800
+  EndTime: Sep 12, 2018 17:00 -0800
+  CreatedTime: Sep 09, 2018 15:00 -0800
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 1005715
+  Description: Main uplink switch replacement
+  Severity: Outage
+  StartTime: Sep 12, 2018 10:00 -0800
+  EndTime: Sep 12, 2018 17:00 -0800
+  CreatedTime: Sep 09, 2018 15:00 -0800
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 1005716
+  Description: Main uplink switch replacement
+  Severity: Outage
+  StartTime: Sep 12, 2018 10:00 -0800
+  EndTime: Sep 12, 2018 17:00 -0800
+  CreatedTime: Sep 09, 2018 15:00 -0800
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 1005717
+  Description: Main uplink switch replacement
+  Severity: Outage
+  StartTime: Sep 12, 2018 10:00 -0800
+  EndTime: Sep 12, 2018 17:00 -0800
+  CreatedTime: Sep 09, 2018 15:00 -0800
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 1005718
+  Description: Main uplink switch replacement
+  Severity: Outage
+  StartTime: Sep 12, 2018 10:00 -0800
+  EndTime: Sep 12, 2018 17:00 -0800
+  CreatedTime: Sep 09, 2018 15:00 -0800
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 1005719
+  Description: Main uplink switch replacement
+  Severity: Outage
+  StartTime: Sep 12, 2018 10:00 -0800
+  EndTime: Sep 12, 2018 17:00 -0800
+  CreatedTime: Sep 09, 2018 15:00 -0800
+  ResourceName: CIT_HEP_CE
+  Services:
+    - CE
