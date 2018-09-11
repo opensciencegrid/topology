@@ -87,6 +87,17 @@ def miscuser_xml():
                     mimetype='text/xml')
 
 
+@app.route('/users')
+def users():
+    try:
+        authorized = _get_authorized()
+        users_list = global_data.get_contacts_data().get_tree(_get_authorized())["Users"]["User"]
+        return _fix_unicode(render_template('users.html.j2', users=users_list, authorized=authorized))
+    except (KeyError, AttributeError):
+        app.log_exception(sys.exc_info())
+        return Response("Error getting users", status=503)  # well, it's better than crashing
+
+
 @app.route('/miscproject/xml')
 def miscproject_xml():
     return Response(to_xml_bytes(global_data.get_projects()), mimetype='text/xml')
