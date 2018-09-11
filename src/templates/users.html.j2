@@ -29,13 +29,13 @@ Users
     </div>
     <div class=row>
       {% if user.GitHub -%}
-      <div class="col-sm-2"><span class=font-weight-bold>GitHub:</span></div>
+      <div class="col-sm-3"><span class=font-weight-bold>GitHub:</span></div>
       <div class="col-sm"><span class><a href="https://github.com/{{user.GitHub}}">{{ user.GitHub }}</a></span></div>
       {%- endif %}
     </div>
     {% if authorized -%}
     <div class=row>
-      <div class="col-sm-2"><span class=font-weight-bold>Primary Email:</span></div>
+      <div class="col-sm-3"><span class=font-weight-bold>Primary Email:</span></div>
       <div class="col-sm"><a href="mailto:{{user.ContactInformation.PrimaryEmail}}">{{ user.ContactInformation.PrimaryEmail }}</a></div>
     </div>
       {% for lbl, attr in [
@@ -45,7 +45,7 @@ Users
         ("IM", "IM")] %}
       {% if user.ContactInformation[attr] %}
       <div class=row>
-        <div class="col-sm-2"><span class=font-weight-bold>{{ lbl }}:</span></div>
+        <div class="col-sm-3"><span class=font-weight-bold>{{ lbl }}:</span></div>
         <div class="col-sm">{{ user.ContactInformation[attr] }}</div>
       </div>
       {% endif %}
