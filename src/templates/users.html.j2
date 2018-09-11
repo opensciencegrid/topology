@@ -38,8 +38,13 @@ Users
       <div class="col-sm-3"><span class=font-weight-bold>Primary Email:</span></div>
       <div class="col-sm"><a href="mailto:{{user.ContactInformation.PrimaryEmail}}">{{ user.ContactInformation.PrimaryEmail }}</a></div>
     </div>
+      {% if user.ContactInformation.SecondaryEmail %}
+      <div class=row>
+        <div class="col-sm-3"><span class=font-weight-bold>Secondary Email:</span></div>
+        <div class="col-sm"><a href="mailto:{{user.ContactInformation.SecondaryEmail}}">{{ user.ContactInformation.SecondaryEmail }}</a></div>
+      </div>
+      {% endif %}
       {% for lbl, attr in [
-        ("Secondary Email", "SecondaryEmail"),
         ("Primary Phone", "PrimaryPhone"),
         ("Secondary Phone", "SecondaryPhone"),
         ("IM", "IM")] %}
