@@ -1,3 +1,4 @@
+{% set want_js = true %}
 {% extends "base.html.j2" %}
 {% import "formmacros.html.j2" as M %}
 
@@ -25,15 +26,11 @@
   "scheduled", "description", "severity", "start_date", "start_time",
   "end_date", "end_time", "services", "generate"] %}
 
-{% block title %}Downtime YAML generator{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}{% endblock %}
+{% block title -%}
+Downtime YAML generator
+{%- endblock %}
 
 {% block content %}
-<div class="nojs"><!-- there's some JS below to remove this if jquery successfully loads -->
-  <div class="alert alert-danger" role="alert">Please enable JavaScript and allow our JavaScript libraries to load.</div>
-</div>
-
-<h3 style="text-align:center;">Downtime YAML generator{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</h3>
-
 {% if infos %}
 <div class="alert alert-info" role="alert">{{ infos }}</div>
 {% endif %}
@@ -189,6 +186,5 @@
   $( "#resource" ).change( function() {
     $( "#change_resource" ).click();
   } );
-  $( ".nojs").remove();
 </script>
 {% endblock %}
