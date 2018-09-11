@@ -1,3 +1,8 @@
+- Class: UNSCHEDULED
+  Description: Unplanned maintenance on Lustre Storage file system, hence bringing
+    down the cluster.
+  EndTime: Oct 31, 2016 22:00 +0000
+  ID: 1005087
   ResourceName: SMU_ManeFrame_SE
   Services:
   - SRMv2
@@ -22,7 +27,7 @@
     our CE and SE to internet. Services and job on the cluster will continue to run
     as long as they do not need to connect to the internet.
   EndTime: Jan 6, 2017 19:00 +0000
-  ID: 1005159
+  ID: 1005161
   ResourceName: SMU_ManeFrame_SE
   Services:
   - SRMv2
@@ -39,7 +44,3 @@
   - GridFtp
   Severity: Outage
   StartTime: Feb 19, 2018 06:00 +0000
-- Class: SCHEDULED
-  Description: We are upgrading our CE
-  EndTime: Mar 23, 2018 05:00 +0000
-  ID: 1005605
