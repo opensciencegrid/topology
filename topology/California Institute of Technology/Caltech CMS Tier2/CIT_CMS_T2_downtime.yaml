@@ -17,15 +17,15 @@
   # Start date and time of the downtime in the following format:
   # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
   # e.g. Mar 28, 2017 22:00 -0500
-  StartTime: Sep 04, 2018 17:00 -0800
+  StartTime: Sep 04, 2018 17:00 -0700
   # End date and time of the downtime in the following format:
   # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
   # e.g. Mar 30, 2017 22:00 -0500
-  EndTime: Sep 05, 2018 17:00 -0800
+  EndTime: Sep 05, 2018 17:00 -0700
   # The date and time this entry was created in the following format:
   # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
   # e.g. Mar 25, 2017 22:00 -0500
-  CreatedTime: Sep 05, 2018 08:00 -0800
+  CreatedTime: Sep 05, 2018 08:00 -0700
 
   # The resource affected by the downtime
   ResourceName: CIT_CMS_SE
@@ -41,9 +41,9 @@
   ID: 1005714
   Description: Main uplink switch replacement
   Severity: Outage
-  StartTime: Sep 12, 2018 10:00 -0800
-  EndTime: Sep 12, 2018 17:00 -0800
-  CreatedTime: Sep 09, 2018 15:00 -0800
+  StartTime: Sep 12, 2018 10:00 -0700
+  EndTime: Sep 12, 2018 17:00 -0700
+  CreatedTime: Sep 09, 2018 15:00 -0700
   ResourceName: CIT_CMS_SE
   Services:
     - GridFtp
@@ -52,9 +52,9 @@
   ID: 1005715
   Description: Main uplink switch replacement
   Severity: Outage
-  StartTime: Sep 12, 2018 10:00 -0800
-  EndTime: Sep 12, 2018 17:00 -0800
-  CreatedTime: Sep 09, 2018 15:00 -0800
+  StartTime: Sep 12, 2018 10:00 -0700
+  EndTime: Sep 12, 2018 17:00 -0700
+  CreatedTime: Sep 09, 2018 15:00 -0700
   ResourceName: CIT_CMS_T2
   Services:
     - CE
@@ -63,9 +63,9 @@
   ID: 1005716
   Description: Main uplink switch replacement
   Severity: Outage
-  StartTime: Sep 12, 2018 10:00 -0800
-  EndTime: Sep 12, 2018 17:00 -0800
-  CreatedTime: Sep 09, 2018 15:00 -0800
+  StartTime: Sep 12, 2018 10:00 -0700
+  EndTime: Sep 12, 2018 17:00 -0700
+  CreatedTime: Sep 09, 2018 15:00 -0700
   ResourceName: CIT_CMS_T2B
   Services:
     - CE
@@ -74,9 +74,9 @@
   ID: 1005717
   Description: Main uplink switch replacement
   Severity: Outage
-  StartTime: Sep 12, 2018 10:00 -0800
-  EndTime: Sep 12, 2018 17:00 -0800
-  CreatedTime: Sep 09, 2018 15:00 -0800
+  StartTime: Sep 12, 2018 10:00 -0700
+  EndTime: Sep 12, 2018 17:00 -0700
+  CreatedTime: Sep 09, 2018 15:00 -0700
   ResourceName: CIT_CMS_T2_Squid
   Services:
     - Squid
@@ -85,9 +85,9 @@
   ID: 1005718
   Description: Main uplink switch replacement
   Severity: Outage
-  StartTime: Sep 12, 2018 10:00 -0800
-  EndTime: Sep 12, 2018 17:00 -0800
-  CreatedTime: Sep 09, 2018 15:00 -0800
+  StartTime: Sep 12, 2018 10:00 -0700
+  EndTime: Sep 12, 2018 17:00 -0700
+  CreatedTime: Sep 09, 2018 15:00 -0700
   ResourceName: CIT_CMS_T2_2_Squid
   Services:
     - Squid
@@ -96,9 +96,9 @@
   ID: 1005719
   Description: Main uplink switch replacement
   Severity: Outage
-  StartTime: Sep 12, 2018 10:00 -0800
-  EndTime: Sep 12, 2018 17:00 -0800
-  CreatedTime: Sep 09, 2018 15:00 -0800
+  StartTime: Sep 12, 2018 10:00 -0700
+  EndTime: Sep 12, 2018 17:00 -0700
+  CreatedTime: Sep 09, 2018 15:00 -0700
   ResourceName: CIT_HEP_CE
   Services:
     - CE
