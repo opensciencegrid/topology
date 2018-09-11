@@ -7,6 +7,7 @@
   - CE
   Severity: Outage
   StartTime: Jun 10, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Unscheduled campus power outage.
   EndTime: Jun 10, 2016 15:00 +0000
@@ -16,6 +17,7 @@
   - CE
   Severity: Outage
   StartTime: Jun 10, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Unscheduled campus power outage.
   EndTime: Jun 10, 2016 15:00 +0000
@@ -25,6 +27,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jun 10, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Various hardware and software upgrades.
   EndTime: Aug 10, 2016 17:00 +0000
@@ -34,6 +37,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 10, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Various hardware and software upgrades.
   EndTime: Aug 10, 2016 17:00 +0000
@@ -43,6 +47,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 10, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Various hardware and software upgrades.
   EndTime: Aug 10, 2016 17:00 +0000
@@ -52,6 +57,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Aug 10, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Various hardware and software upgrades.
   EndTime: Aug 10, 2016 17:00 +0000
@@ -61,6 +67,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 10, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Various hardware and software upgrades.
   EndTime: Aug 10, 2016 17:00 +0000
@@ -70,6 +77,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 10, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: install critical security updates in the cluster.
   EndTime: Nov 1, 2016 18:00 +0000
@@ -79,6 +87,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 1, 2016 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: install critical security updates in the cluster.
   EndTime: Nov 1, 2016 18:00 +0000
@@ -88,6 +97,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 1, 2016 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: install critical security updates in the cluster.
   EndTime: Nov 1, 2016 18:00 +0000
@@ -97,6 +107,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Nov 1, 2016 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: install critical security updates in the cluster.
   EndTime: Nov 1, 2016 18:00 +0000
@@ -106,6 +117,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 1, 2016 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: install critical security updates in the cluster.
   EndTime: Nov 1, 2016 18:00 +0000
@@ -115,6 +127,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 1, 2016 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Upgrading CE to CentOS 7
   EndTime: Feb 20, 2017 23:00 +0000
@@ -124,6 +137,7 @@
   - CE
   Severity: Outage
   StartTime: Feb 20, 2017 20:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: 'Updated schedule : This CE (only) is currently being drained to upgrade
     the OS to SL7 on Mar 2. The OS upgrade will take ~2 hours or so.'
@@ -134,6 +148,7 @@
   - CE
   Severity: Outage
   StartTime: Mar 2, 2017 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Cluster maintenance including necessary software upgrades.
   EndTime: Aug 1, 2017 18:00 +0000
@@ -143,6 +158,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 1, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Cluster maintenance including necessary software upgrades.
   EndTime: Aug 1, 2017 18:00 +0000
@@ -152,6 +168,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 1, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Cluster maintenance including necessary software upgrades.
   EndTime: Aug 1, 2017 18:00 +0000
@@ -161,6 +178,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Aug 1, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Cluster maintenance including necessary software upgrades.
   EndTime: Aug 1, 2017 18:00 +0000
@@ -170,6 +188,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 1, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Major networking problems
   Severity: Severe
@@ -180,3 +199,4 @@
   Services:
     - SRMv2
     - CE
+# ----------------------------------------------------------

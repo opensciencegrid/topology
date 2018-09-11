@@ -11,6 +11,7 @@
   - CE
   Severity: Outage
   StartTime: Jun 7, 2016 09:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     During this downtime, critical high-availability fixes will be made to file system and OSG packages upgrade on worker and data nodes.
@@ -24,6 +25,7 @@
   - CE
   Severity: Outage
   StartTime: Jun 7, 2016 09:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     During this downtime, critical high-availability fixes will be made to file system and OSG packages upgrade on worker and data nodes.
@@ -37,6 +39,7 @@
   - CE
   Severity: Outage
   StartTime: Jun 7, 2016 09:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     During this downtime, critical high-availability fixes will be made to file system and OSG packages upgrade on worker and data nodes.
@@ -50,6 +53,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jun 7, 2016 09:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     During this downtime, critical high-availability fixes will be made to file system and OSG packages upgrade on worker and data nodes.
@@ -63,6 +67,7 @@
   - CE
   Severity: Outage
   StartTime: Jun 7, 2016 09:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi All,
@@ -78,6 +83,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 10, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi All,
@@ -93,6 +99,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Sep 10, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi All,
@@ -108,6 +115,7 @@
   - net.perfSONAR.Bandwidth
   Severity: Outage
   StartTime: Sep 10, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi All,
@@ -123,6 +131,7 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Sep 10, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi All,
@@ -138,6 +147,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 10, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi,
@@ -153,6 +163,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Sep 27, 2016 04:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi,
@@ -168,6 +179,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 27, 2016 11:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi,
@@ -183,6 +195,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 27, 2016 11:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi,
@@ -198,6 +211,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 27, 2016 11:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi All,
@@ -215,6 +229,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 5, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi All,
@@ -232,6 +247,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 5, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi All,
@@ -249,6 +265,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 5, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi All,
@@ -266,6 +283,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Nov 5, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     The Purdue Tier-2 site will have a scheduled downtime on Saturday,
@@ -284,6 +302,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 14, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     The Purdue Tier-2 site will have a scheduled downtime on Saturday,
@@ -302,6 +321,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 14, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     The Purdue Tier-2 site will have a scheduled downtime on Saturday,
@@ -320,6 +340,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 14, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     The Purdue Tier-2 site will have a scheduled downtime on Saturday,
@@ -338,6 +359,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jan 14, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     The Purdue Tier-2 site will have a scheduled downtime on Saturday,
@@ -356,6 +378,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jan 14, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: T2_US_Purdue is down due to a loss of power in the campus datacenter.
   EndTime: Jul 20, 2017 23:00 +0000
@@ -365,6 +388,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jul 20, 2017 16:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: T2_US_Purdue is down due to a loss of power in the campus datacenter.
   EndTime: Jul 20, 2017 23:00 +0000
@@ -374,6 +398,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 20, 2017 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     We will be upgrading the kernel on the Storage Element (hadoop namenodes).  During this upgrade, Purdue CMS T-2 resources will be unavailable.
@@ -388,6 +413,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 6, 2017 08:00 -0500
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     We will be upgrading the kernel on the Storage Element (hadoop namenodes).  During this upgrade, Purdue CMS T-2 resources will be unavailable.
@@ -402,6 +428,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Nov 6, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     We will be upgrading the kernel on the Storage Element (hadoop namenodes).  During this upgrade, Purdue CMS T-2 resources will be unavailable.
@@ -416,6 +443,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 6, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     We need to fix the problem of hadoop-osg.rcac.purdue.edu
@@ -430,6 +458,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 29, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: There was a site-wide power outage on Saturday night at Purdue, which
     disrupted all central services. We do not currently have an estimate of when services
@@ -441,6 +470,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Mar 26, 2018 01:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     this is a test cluster. testing if I can make the resource downtime.
@@ -453,6 +483,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 10, 2018 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005700
   Description: Cooling and network maintenance
@@ -463,6 +494,7 @@
   ResourceName: Purdue-Hadoop-CE
   Services:
     - CE
+# ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005701
   Description: Cooling and network maintenance
@@ -473,6 +505,7 @@
   ResourceName: Purdue-Hadoop-SE
   Services:
     - SRMv2
+# ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005705
   Description: Cooling and network maintenance
@@ -483,3 +516,4 @@
   ResourceName: Purdue-Hadoop-SE-Gridftp
   Services:
     - GridFtp
+# ----------------------------------------------------------

@@ -9,6 +9,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Oct 31, 2016 20:15 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Rebooting networking interface to accommodate another virtual host
     in the network. No configuration or hardware change is happening here and hence
@@ -21,6 +22,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Dec 21, 2016 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our CE and SE will be disconnected from the internet from 9AM - 1PM
     today as our networking team is working on moving some equipment that connects
@@ -34,6 +36,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jan 6, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We are upgrading out SE
   EndTime: Apr 6, 2018 05:00 +0000
@@ -44,3 +47,4 @@
   - GridFtp
   Severity: Outage
   StartTime: Feb 19, 2018 06:00 +0000
+# ----------------------------------------------------------

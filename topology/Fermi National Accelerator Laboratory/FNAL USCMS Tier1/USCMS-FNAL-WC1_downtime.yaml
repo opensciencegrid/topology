@@ -8,6 +8,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Sep 13, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Power outage of FCC Computing center -- all FNAL resources will be
     offline during this time.
@@ -18,6 +19,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Sep 16, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Power outage of FCC Computing center -- all FNAL resources will be
     offline during this time.
@@ -29,6 +31,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Sep 16, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Power outage of FCC Computing center -- all FNAL resources will be
     offline during this time.
@@ -39,6 +42,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 16, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Power outage of FCC Computing center -- all FNAL resources will be
     offline during this time.
@@ -50,6 +54,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Sep 16, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Power outage of FCC Computing center -- all FNAL resources will be
     offline during this time.
@@ -61,6 +66,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Sep 16, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Downtime to upgrade CMS PhEDEx and FTS instances.
   EndTime: Dec 16, 2016 00:00 +0000
@@ -70,6 +76,7 @@
   - FTS
   Severity: Outage
   StartTime: Dec 14, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Network switch reboots
   EndTime: Jan 3, 2017 15:00 +0000
@@ -80,6 +87,7 @@
   - GridFtp
   Severity: Intermittent Outage
   StartTime: Jan 3, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Network switch reboots
   EndTime: Jan 3, 2017 15:00 +0000
@@ -90,6 +98,7 @@
   - GridFtp
   Severity: Intermittent Outage
   StartTime: Jan 3, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Network switch reboots
   EndTime: Jan 3, 2017 15:00 +0000
@@ -99,6 +108,7 @@
   - CE
   Severity: Intermittent Outage
   StartTime: Jan 3, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Network switch reboots
   EndTime: Jan 3, 2017 15:00 +0000
@@ -109,6 +119,7 @@
   - GridFtp
   Severity: Intermittent Outage
   StartTime: Jan 3, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Network switch reboots
   EndTime: Jan 3, 2017 15:00 +0000
@@ -119,6 +130,7 @@
   - FTS
   Severity: Intermittent Outage
   StartTime: Jan 3, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Downtime for dCache and FTS servers -- dCache actual down expected
     to be for a couple hours in the 9-11 AM CST timeframe.
@@ -130,6 +142,7 @@
   - FTS
   Severity: Outage
   StartTime: Feb 21, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Downtime for LPC EOS
   EndTime: May 4, 2017 15:00 +0000
@@ -140,6 +153,7 @@
   - FTS
   Severity: Outage
   StartTime: May 4, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: The CE needs to be moved to a new puppet infrastructure. It will also
     be rebooted to pick up the newest available kernel and HTCondor will be upgraded
@@ -152,6 +166,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jun 23, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: The CE needs to be moved to a new puppet infrastructure. It will also
     be rebooted to pick up the newest available kernel and HTCondor will be upgraded
@@ -164,6 +179,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jun 27, 2017 04:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: The CE needs to be moved to a new puppet infrastructure. It will also
     be rebooted to pick up the newest available kernel and HTCondor will be upgraded
@@ -176,6 +192,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jul 3, 2017 17:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: The disk on the node is faulty and needs to replaced.
   EndTime: Jul 18, 2017 20:00 +0000
@@ -185,6 +202,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 15, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: To replace breaker in computing room -- will be degraded
   EndTime: Jul 20, 2017 20:00 +0000
@@ -194,6 +212,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 20, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: To replace breaker in computing room -- will be degraded
   EndTime: Jul 20, 2017 20:00 +0000
@@ -203,6 +222,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 20, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: To replace breaker in computing room -- will be degraded
   EndTime: Jul 20, 2017 20:00 +0000
@@ -212,6 +232,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 20, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: To replace breaker in computing room -- will be degraded
   EndTime: Jul 20, 2017 20:00 +0000
@@ -221,6 +242,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 20, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Short downtime to switch FTS server hosts -- will result in ongoing
     transfers timing out, then being retried.  Only FTS will be affected.
@@ -231,6 +253,7 @@
   - FTS
   Severity: Intermittent Outage
   StartTime: Aug 15, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Switching to upgraded 3.7.7 FTS server
   EndTime: Jan 10, 2018 18:00 +0000
@@ -240,6 +263,7 @@
   - FTS
   Severity: Outage
   StartTime: Jan 10, 2018 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Draining the CE to reinstall it as SL7 and enable singularity.
   EndTime: Jan 23, 2018 19:00 +0000
@@ -250,6 +274,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jan 12, 2018 21:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Switching FTS between servers.  Some brief transfer failures during
     the switch may happen.
@@ -260,6 +285,7 @@
   - FTS
   Severity: Outage
   StartTime: Mar 22, 2018 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Kernel and system updates
   EndTime: Apr 3, 2018 22:00 +0000
@@ -270,6 +296,7 @@
   - FTS
   Severity: Outage
   StartTime: Apr 3, 2018 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Power infrastructure work in FCC compute center
   EndTime: Jul 21, 2018 21:00 +0000
@@ -280,6 +307,7 @@
   Severity: Outage
   StartTime: Jul 20, 2018 21:00 +0000
   CreatedTime: Jul 16, 2018 15:09 -0500
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Power infrastructure work in FCC compute center
   EndTime: Jul 21, 2018 21:00 +0000
@@ -291,6 +319,7 @@
   Severity: Outage
   StartTime: Jul 20, 2018 21:00 +0000
   CreatedTime: Jul 16, 2018 15:09 -0500
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Power infrastructure work in FCC compute center
   EndTime: Jul 21, 2018 21:00 +0000
@@ -302,6 +331,7 @@
   Severity: Outage
   StartTime: Jul 20, 2018 21:00 +0000
   CreatedTime: Jul 16, 2018 15:09 -0500
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Power infrastructure work in FCC compute center
   EndTime: Jul 21, 2018 21:00 +0000
@@ -313,6 +343,7 @@
   Severity: Outage
   StartTime: Jul 20, 2018 21:00 +0000
   CreatedTime: Jul 16, 2018 15:09 -0500
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Power infrastructure work in FCC compute center
   EndTime: Jul 21, 2018 21:00 +0000
@@ -324,3 +355,4 @@
   Severity: Outage
   StartTime: Jul 20, 2018 21:00 +0000
   CreatedTime: Jul 16, 2018 15:09 -0500
+# ----------------------------------------------------------
