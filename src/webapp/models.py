@@ -172,4 +172,5 @@ def get_downtime_yaml(start_datetime: datetime.datetime,
   CreatedTime: {created_time_str}
   ResourceName: {resource_name}
   Services: {services_str}
+# ---------------------------------------------------------
 """
