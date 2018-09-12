@@ -4,6 +4,8 @@ import os
 import time
 from typing import Dict, Set, List
 
+import anymarkup
+
 from webapp import common, contacts_reader, project_reader, rg_reader, vo_reader
 from webapp.contacts_reader import ContactsData
 from webapp.topology import Topology, Downtime
@@ -154,23 +156,36 @@ def get_downtime_yaml(start_datetime: datetime.datetime,
                       class_: str,
                       resource_name: str,
                       services: List[str]) -> str:
+    """Return the generated YAML from the data provided.
+
+    Renders each individual field with a YAML serializer but then writes them
+    out by hand so the ordering matches what's in the downtime template.
+
+    """
+
+    def render(key, value):
+        return anymarkup.serialize({key: value}, "yaml").decode("utf-8", errors="replace").strip()
+
+    def indent(in_str, amount):
+        spaces = ' ' * amount
+        return spaces + ("\n"+spaces).join(in_str.split("\n"))
 
     start_time_str = Downtime.fmttime_preferred(start_datetime)
     end_time_str = Downtime.fmttime_preferred(end_datetime)
     created_time_str = Downtime.fmttime_preferred(created_datetime)
-    dtid = _dtid(created_datetime)
-    tmp = "\n  - "
-    services_str = tmp + tmp.join(services)
 
-    return f"""\
-- Class: {class_}
-  ID: {dtid}
-  Description: {description}
-  Severity: {severity}
-  StartTime: {start_time_str}
-  EndTime: {end_time_str}
-  CreatedTime: {created_time_str}
-  ResourceName: {resource_name}
-  Services: {services_str}
-# ---------------------------------------------------------
-"""
+    result = "- " + render("Class", class_)
+    for key, value in [
+        ("ID", (_dtid(created_datetime))),
+        ("Description", description),
+        ("Severity", severity),
+        ("StartTime", start_time_str),
+        ("EndTime", end_time_str),
+        ("CreatedTime", created_time_str),
+        ("ResourceName", resource_name),
+        ("Services", services)
+    ]:
+        result += "\n" + indent(render(key, value), 2)
+    result += "\n# ---------------------------------------------------------\n"
+
+    return result
