@@ -9,6 +9,7 @@
   - GridFtp
   Severity: Severe
   StartTime: Jan 12, 2017 00:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Test for Severity = Intermittent Outage
   EndTime: Jan 12, 2017 02:00 +0000
@@ -20,6 +21,7 @@
   - GridFtp
   Severity: Intermittent Outage
   StartTime: Jan 12, 2017 01:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Test for Severity = No Significant Outage Expected
   EndTime: Jan 12, 2017 03:00 +0000
@@ -31,6 +33,7 @@
   - GridFtp
   Severity: No Significant Outage Expected
   StartTime: Jan 12, 2017 02:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Upgrade OS from SL6 to SL7.
   EndTime: Aug 17, 2017 19:00 +0000
@@ -43,6 +46,7 @@
   - XRootD component
   Severity: Outage
   StartTime: Aug 16, 2017 07:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: UPS / electricity failure
   EndTime: Dec 31, 2017 23:00 +0000
@@ -53,6 +57,7 @@
   - XRootD component
   Severity: Outage
   StartTime: Dec 29, 2017 23:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: UPS / electricity failure.
   EndTime: Dec 31, 2017 23:00 +0000
@@ -64,6 +69,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Dec 30, 2017 23:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: UPS / electricity failure.
   EndTime: Dec 31, 2017 23:00 +0000
@@ -73,3 +79,4 @@
   - CE
   Severity: Outage
   StartTime: Dec 30, 2017 23:00 +0000
+# ----------------------------------------------------------

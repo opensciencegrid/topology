@@ -37,6 +37,7 @@
     # - SRMv2
 
 # Scheduled downtime for switch replacement. 2018-09-12 10am PDT
+# ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005714
   Description: Main uplink switch replacement
@@ -48,6 +49,7 @@
   Services:
     - GridFtp
 
+# ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005715
   Description: Main uplink switch replacement
@@ -59,6 +61,7 @@
   Services:
     - CE
 
+# ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005716
   Description: Main uplink switch replacement
@@ -70,6 +73,7 @@
   Services:
     - CE
 
+# ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005717
   Description: Main uplink switch replacement
@@ -81,6 +85,7 @@
   Services:
     - Squid
 
+# ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005718
   Description: Main uplink switch replacement
@@ -92,6 +97,7 @@
   Services:
     - Squid
 
+# ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005719
   Description: Main uplink switch replacement
@@ -102,3 +108,4 @@
   ResourceName: CIT_HEP_CE
   Services:
     - CE
+# ----------------------------------------------------------

@@ -7,6 +7,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jan 16, 2017 11:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
@@ -19,6 +20,7 @@
   - CE
   Severity: Outage
   StartTime: Feb 25, 2017 03:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
@@ -31,6 +33,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Feb 25, 2017 03:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
@@ -43,6 +46,7 @@
   - Squid
   Severity: Outage
   StartTime: Feb 25, 2017 03:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
@@ -55,6 +59,7 @@
   - Squid
   Severity: Outage
   StartTime: Feb 25, 2017 03:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
@@ -67,6 +72,7 @@
   - net.perfSONAR.Bandwidth
   Severity: Outage
   StartTime: Feb 25, 2017 03:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
@@ -79,6 +85,7 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Feb 25, 2017 03:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our Academic Internet Service Provider is going to perform a 6-hour
     maintenance in order to move some racks and switches. During maintenance T2_BR_SPRACE
@@ -90,6 +97,7 @@
   - net.perfSONAR.Bandwidth
   Severity: Outage
   StartTime: May 7, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our Academic Internet Service Provider is going to perform a 6-hour
     maintenance in order to move some racks and switches. During maintenance T2_BR_SPRACE
@@ -101,6 +109,7 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: May 7, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our Academic Internet Service Provider is going to perform a 6-hour
     maintenance in order to move some racks and switches. During maintenance T2_BR_SPRACE
@@ -112,6 +121,7 @@
   - CE
   Severity: Outage
   StartTime: May 7, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our Academic Internet Service Provider is going to perform a 6-hour
     maintenance in order to move some racks and switches. During maintenance T2_BR_SPRACE
@@ -123,6 +133,7 @@
   - SRMv2
   Severity: Outage
   StartTime: May 7, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our Academic Internet Service Provider is going to perform a 6-hour
     maintenance in order to move some racks and switches. During maintenance T2_BR_SPRACE
@@ -134,6 +145,7 @@
   - Squid
   Severity: Outage
   StartTime: May 7, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our Academic Internet Service Provider is going to perform a 6-hour
     maintenance in order to move some racks and switches. During maintenance T2_BR_SPRACE
@@ -145,6 +157,7 @@
   - Squid
   Severity: Outage
   StartTime: May 7, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: This is to allow us to update our dCache server and pools
   EndTime: Sep 4, 2017 21:00 +0000
@@ -154,6 +167,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Sep 4, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: This is to allow us to update our dCache server and pools
   EndTime: Sep 4, 2017 21:00 +0000
@@ -163,6 +177,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 4, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: SPRACE lose all network connectivity primary and secondary link, due
     the holiday in Brazil we expect to have this fixed only on monday.
@@ -173,6 +188,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Nov 3, 2017 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: SPRACE lose all network connectivity primary and secondary link, due
     the holiday in Brazil we expect to have this fixed only on monday.
@@ -183,6 +199,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 3, 2017 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: SPRACE lose all network connectivity primary and secondary link, due
     the holiday in Brazil we expect to have this fixed only on monday.
@@ -193,6 +210,7 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Nov 3, 2017 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: SPRACE lose all network connectivity primary and secondary link, due
     the holiday in Brazil we expect to have this fixed only on monday.
@@ -203,6 +221,7 @@
   - Squid
   Severity: Outage
   StartTime: Nov 3, 2017 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: SPRACE lose all network connectivity primary and secondary link, due
     the holiday in Brazil we expect to have this fixed only on monday.
@@ -213,6 +232,7 @@
   - Squid
   Severity: Outage
   StartTime: Nov 3, 2017 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: For maintenance and expansion in the main electrical panel and dCache
     upgrade.
@@ -223,6 +243,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 17, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: For maintenance and expansion in the main electrical panel and dCache
     upgrade.
@@ -233,6 +254,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jan 17, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: For maintenance and expansion in the main electrical panel and dCache
     upgrade.
@@ -243,6 +265,7 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Jan 17, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: For maintenance and expansion in the main electrical panel and dCache
     upgrade.
@@ -253,6 +276,7 @@
   - Squid
   Severity: Outage
   StartTime: Jan 17, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: For maintenance and expansion in the main electrical panel and dCache
     upgrade.
@@ -263,6 +287,7 @@
   - Squid
   Severity: Outage
   StartTime: Jan 17, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: This downtime will be to deploy a new NFS server machine, this will
     lead to unavailability of CE and WNs since they mount a FS exported by this server.
@@ -273,3 +298,4 @@
   - CE
   Severity: Outage
   StartTime: Mar 6, 2018 12:00 +0000
+# ----------------------------------------------------------

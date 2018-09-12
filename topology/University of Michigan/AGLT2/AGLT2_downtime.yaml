@@ -10,6 +10,7 @@
   - CE
   Severity: Intermittent Outage
   StartTime: Jun 5, 2016 09:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: UMnet will be performing a software upgrade on r-bin-cath to bring
     it up to par with the other MXs deployed at the University of Michigan.    Any
@@ -22,6 +23,7 @@
   - SRMv2
   Severity: Intermittent Outage
   StartTime: Jun 5, 2016 09:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: openssl rpm update
   EndTime: Jun 13, 2016 16:00 +0000
@@ -31,6 +33,7 @@
   - CE
   Severity: No Significant Outage Expected
   StartTime: Jun 13, 2016 14:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: openssl rpm update
   EndTime: Jun 13, 2016 16:00 +0000
@@ -40,6 +43,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Jun 13, 2016 14:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Move pool servers at MSU to new locations, and reconfigure a UM pool
     server to use new NIC cards.  Work nearly completed as of 13:45 EDT
@@ -50,6 +54,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jun 30, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Move pool server to new rack location, with new network interfaces.
   EndTime: Jul 8, 2016 20:00 +0000
@@ -59,6 +64,7 @@
   - SRMv2
   Severity: Intermittent Outage
   StartTime: Jul 8, 2016 12:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Power test at MSU site
   EndTime: Aug 19, 2016 15:20 +0000
@@ -68,6 +74,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Aug 19, 2016 13:55 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Fix NIC on a pool server.
   EndTime: Aug 19, 2016 18:45 +0000
@@ -77,6 +84,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Aug 19, 2016 17:45 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Upgrade dCache from 2.13.23 to 2.13.42 to assist in https file deletion.
@@ -88,6 +96,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Sep 9, 2016 14:40 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Hardware "adjustment" on one of the dCache pool servers.
   EndTime: Oct 4, 2016 16:00 +0000
@@ -97,6 +106,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Oct 4, 2016 14:45 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Upgrade Juniper EX9200 firmware at MSU site to handle a new line card.
   EndTime: Oct 7, 2016 15:30 +0000
@@ -106,6 +116,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Oct 7, 2016 13:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Kernel bug fix reboots.
   EndTime: Oct 27, 2016 16:00 +0000
@@ -115,6 +126,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Oct 27, 2016 12:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Software update
   EndTime: Dec 12, 2016 18:00 +0000
@@ -124,6 +136,7 @@
   - CE
   Severity: Outage
   StartTime: Dec 12, 2016 17:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache version update.
   EndTime: Dec 13, 2016 17:15 +0000
@@ -133,6 +146,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Dec 13, 2016 15:15 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Cabling check for loss of redundant path.
   EndTime: Jan 16, 2017 21:15 +0000
@@ -142,6 +156,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Jan 16, 2017 20:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Update RAID card firmware, update dCache software version across all
     storage.
@@ -152,6 +167,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Feb 7, 2017 18:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     There is a fiber cut in Indiana that happened between 8am-9:30am Eastern time today.
@@ -165,6 +181,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Feb 8, 2017 14:25 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: The University of Michigan's 100G fiber path to Chicago will be down
     for maintenance from Midnight till 6 AM on the 23rd of February Eastern time.  Traffic
@@ -176,6 +193,7 @@
   - CE
   Severity: No Significant Outage Expected
   StartTime: Feb 23, 2017 05:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: The University of Michigan's 100G fiber path to Chicago will be down
     for maintenance from Midnight till 6 AM on the 23rd of February Eastern time.  Traffic
@@ -187,6 +205,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Feb 23, 2017 05:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Various updates
   EndTime: Feb 28, 2017 21:15 +0000
@@ -196,6 +215,7 @@
   - CE
   Severity: Outage
   StartTime: Feb 28, 2017 17:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Various updates
   EndTime: Feb 28, 2017 21:15 +0000
@@ -205,6 +225,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Feb 28, 2017 17:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Replacing storage battery
   EndTime: Mar 13, 2017 15:00 +0000
@@ -214,6 +235,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Mar 13, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Replace storage controller.
   EndTime: Mar 17, 2017 16:00 +0000
@@ -223,6 +245,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Mar 17, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Replace storage controller.
   EndTime: Mar 17, 2017 19:00 +0000
@@ -232,6 +255,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Mar 17, 2017 18:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Replace storage controller.
   EndTime: Mar 17, 2017 21:00 +0000
@@ -241,6 +265,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Mar 17, 2017 20:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Update dCache software.
   EndTime: Mar 20, 2017 18:30 +0000
@@ -250,6 +275,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Mar 20, 2017 17:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: UPS Battery replacements.
   EndTime: Apr 12, 2017 17:00 +0000
@@ -259,6 +285,7 @@
   - CE
   Severity: No Significant Outage Expected
   StartTime: Apr 12, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: UPS Battery replacements.
   EndTime: Apr 12, 2017 17:00 +0000
@@ -268,6 +295,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Apr 12, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Gatekeeper is broken.
   EndTime: Apr 25, 2017 21:00 +0000
@@ -277,6 +305,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 19, 2017 19:55 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Adva optical transport device maintenance at the Northwestern location
     in Chicago.  Minimal traffic during this window has been requested.
@@ -287,6 +316,7 @@
   - SRMv2
   Severity: Outage
   StartTime: May 12, 2017 08:45 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Move grid.umich.edu subnet out from behind IPS filters.  Actualy outage
     is expected to be at most 1 minute....
@@ -297,6 +327,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Jun 1, 2017 09:45 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled server room power outage.
   EndTime: Jun 26, 2017 21:00 +0000
@@ -306,6 +337,7 @@
   - CE
   Severity: Outage
   StartTime: Jun 23, 2017 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled server room power outage.
   EndTime: Jun 26, 2017 21:00 +0000
@@ -315,6 +347,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jun 23, 2017 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: The primary 100G MiLR path from the AGLT2 UM site will be taken down
     for testing during this period.  AGLT2 traffic should re-route via the MSU 10G
@@ -326,6 +359,7 @@
   - CE
   Severity: No Significant Outage Expected
   StartTime: Aug 3, 2017 04:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Testing of the 100G path from AGLT2 UM to Chicago will be down for
     this period.  Traffic from AGLT2 UM will re-route via MSU's 10G to Chicago during
@@ -337,6 +371,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Aug 3, 2017 04:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache and OS software updates.
   EndTime: Aug 4, 2017 17:00 +0000
@@ -346,6 +381,7 @@
   - SRMv2
   Severity: Intermittent Outage
   StartTime: Aug 4, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Upgrade of software.
   EndTime: Sep 5, 2017 20:00 +0000
@@ -355,6 +391,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Sep 5, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache pool server software updates.
   EndTime: Sep 8, 2017 20:00 +0000
@@ -364,6 +401,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Sep 8, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache pool server upgrades to SL7
   EndTime: Sep 20, 2017 18:00 +0000
@@ -373,6 +411,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Sep 20, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache pool server software updates
   EndTime: Sep 21, 2017 18:00 +0000
@@ -382,6 +421,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Sep 21, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache software minor version upgrade.
   EndTime: Sep 25, 2017 20:00 +0000
@@ -391,6 +431,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Sep 25, 2017 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache pool server updates.
   EndTime: Sep 26, 2017 19:00 +0000
@@ -400,6 +441,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Sep 26, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Further dCache SL7 upgrades.  Completed early.
   EndTime: Sep 27, 2017 16:00 +0000
@@ -409,6 +451,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Sep 27, 2017 12:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Swap out storage server NIC.
   EndTime: Sep 29, 2017 18:00 +0000
@@ -418,6 +461,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Sep 29, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Swap a NIC.  Fix a battery.
   EndTime: Oct 6, 2017 16:00 +0000
@@ -427,6 +471,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Oct 6, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Firmware update to a storage server controller.
   EndTime: Dec 15, 2017 18:00 +0000
@@ -436,6 +481,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Dec 15, 2017 17:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: A/C power work in UM Center, interruptions possible, but we're told
     that they are unlikely.
@@ -446,6 +492,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Dec 29, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: A/C power work in the UM Center.  Interruptions are possible, but we
     are told that they are unlikely.
@@ -456,6 +503,7 @@
   - CE
   Severity: No Significant Outage Expected
   StartTime: Dec 29, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: A/C power work in the MSU Center.  Interruptions are possible, but
     we are told that they are unlikely due to the battery- and generator-backed power.
@@ -466,6 +514,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Jan 3, 2018 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Upgrade dCache version from 3.0 to either 4.0 or 3.2 version.
   EndTime: Feb 20, 2018 21:00 +0000
@@ -475,6 +524,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Feb 20, 2018 17:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Primary circuit outage.  Not sure how failovers will work, but, they
     will certainly be low bandwidth.  Better to have an outage than not.
@@ -485,6 +535,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Mar 9, 2018 03:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Upgrade gatekeeper to SL7.
   EndTime: Apr 6, 2018 20:00 +0000
@@ -494,6 +545,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 6, 2018 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Cooling work may require storage shutdown at the UM site.  We hope
     to continue without that extreme occurrence.
@@ -504,6 +556,7 @@
   - SRMv2
   Severity: No Significant Outage Expected
   StartTime: Apr 12, 2018 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005688
   Description: Turning down/off our SL6 queues, hopefully permanently
@@ -513,6 +566,7 @@
   ResourceName: AGLT2_SL6
   Services:
   - CE
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Upgrade dCache version from 4.0 to 4.2 .
   EndTime: Jul 25, 2018 18:00 +0000
@@ -523,3 +577,4 @@
   Severity: Outage
   StartTime: Jul 25, 2018 14:00 +0000
   CreatedTime: Jul 24, 2018 14:47 -0400
+# ----------------------------------------------------------
