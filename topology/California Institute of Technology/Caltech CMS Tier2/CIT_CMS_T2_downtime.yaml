@@ -109,3 +109,65 @@
   Services:
     - CE
 # ----------------------------------------------------------
+
+# Unscheduled downtime after switch replacement. 2018-09-12 09pm PDT
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1005720
+  Description: Networking issues after switch replacement
+  Severity: Severe
+  StartTime: Sep 12, 2018 21:00 -0700
+  EndTime: Sep 13, 2018 21:00 -0700
+  CreatedTime: Sep 12, 2018 21:00 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1005721
+  Description: Networking issues after switch replacement
+  Severity: Severe
+  StartTime: Sep 12, 2018 21:00 -0700
+  EndTime: Sep 13, 2018 21:00 -0700
+  CreatedTime: Sep 12, 2018 21:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1005722
+  Description: Networking issues after switch replacement
+  Severity: Severe
+  StartTime: Sep 12, 2018 21:00 -0700
+  EndTime: Sep 13, 2018 21:00 -0700
+  CreatedTime: Sep 12, 2018 21:00 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1005723
+  Description: Networking issues after switch replacement
+  Severity: Severe
+  StartTime: Sep 12, 2018 21:00 -0700
+  EndTime: Sep 13, 2018 21:00 -0700
+  CreatedTime: Sep 12, 2018 21:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1005724
+  Description: Networking issues after switch replacement
+  Severity: Severe
+  StartTime: Sep 12, 2018 21:00 -0700
+  EndTime: Sep 13, 2018 21:00 -0700
+  CreatedTime: Sep 12, 2018 21:00 -0700
+  ResourceName: CIT_HEP_CE
+  Services:
+    - CE
+# ----------------------------------------------------------
