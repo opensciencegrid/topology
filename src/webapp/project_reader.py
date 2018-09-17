@@ -24,6 +24,8 @@ def get_projects(indir="../projects", strict=False):
     for file in os.listdir(indir):
         if not file.endswith(".yaml"):
             continue
+        elif file.endswith("_CAMPUS_GRIDS.yaml"):
+            continue
         project = OrderedDict.fromkeys(["ID", "Name", "Description", "PIName", "Organization", "Department",
                                         "FieldOfScience", "Sponsor"])
         try:
