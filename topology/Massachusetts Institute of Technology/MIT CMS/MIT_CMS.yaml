@@ -311,4 +311,64 @@ Resources:
           hidden: false
     VOOwnership:
       OSG: 100
+  MIT_CMS_Frontier_Squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
+      Security Contact:
+        Primary:
+          Name: Max Goncharov
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+    Description: One of our Squid nodes.
+    Disable: false
+    FQDN: squid.cmsaf.mit.edu
+    ID: 953
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  MIT_CMS_Frontier_Squid_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
+      Security Contact:
+        Primary:
+          Name: Max Goncharov
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+    Description: One of our Squid nodes.
+    Disable: false
+    FQDN: squid1.cmsaf.mit.edu
+    ID: 954
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  MIT_CMS_Frontier_Squid_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
+      Security Contact:
+        Primary:
+          Name: Max Goncharov
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+    Description: One of our Squid nodes.
+    Disable: false
+    FQDN: squid2.cmsaf.mit.edu
+    ID: 955
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
 SupportCenter: USCMS_Tier2
