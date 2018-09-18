@@ -16,7 +16,7 @@
   <div class="alert alert-danger" role="alert">Please enable JavaScript and allow our JavaScript libraries to load.</div>
 </div>
 {%- endif %}
-<h1 class=text-center>{{ self.title() }}{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</h1>
+<h1 class="text-center">{{ self.title() }}{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</h1>
 {% block content %}{% endblock %}
 {% if want_js -%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" 
