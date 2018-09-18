@@ -46,7 +46,7 @@ Resources:
           Name: Peter Couvares
     Description: This is a Condor CE in front of the PACE cluster, for use by LIGO.
     Disable: false
-    FQDN: ligo-ce1.pace.gatech.edu
+    FQDN: osg-sched.pace.gatech.edu
     ID: 734
     Services:
       CE:
@@ -93,7 +93,7 @@ Resources:
     Description: GridFTP server, initially for incoming LIGO frame data pushed from
       CIT.
     Disable: false
-    FQDN: ligo-gftp.pace.gatech.edu
+    FQDN: osg-gftp.pace.gatech.edu
     ID: 737
     Services:
       GridFtp:
@@ -132,7 +132,7 @@ Resources:
           Name: Peter Couvares
     Description: Squid server for PACE.
     Disable: false
-    FQDN: ligo-prx.pace.gatech.edu
+    FQDN: osg-sched.pace.gatech.edu
     ID: 735
     Services:
       Squid:
