@@ -8,7 +8,7 @@ function verify_xml {
     xml="$1"
     type="$2"
     echo "Validating $type XML schema..."
-    xmllint --noout --schema "$TRAVIS_BUILD_DIR/src/schema/$type.xsd" $xml && echo "A-OK"
+    xmllint --noout --schema "$TRAVIS_BUILD_DIR/src/schema/$type.xsd" $xml
 }
 
 if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
