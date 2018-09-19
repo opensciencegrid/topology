@@ -7,7 +7,8 @@ function verify_xml {
     # Verifies XML data against the schema
     xml="$1"
     type="$2"
-    xmllint --noout --schema "$TRAVIS_BUILD_DIR/src/schema/$type.xsd" $xml
+    echo "Validating $type XML schema..."
+    xmllint --noout --schema "$TRAVIS_BUILD_DIR/src/schema/$type.xsd" $xml && echo "A-OK"
 }
 
 if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
@@ -43,10 +44,6 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
             READER_ARGS="$YAML_DIR $CONVERTED_XML"
             ;;
     esac
-
-    echo -e "=========================\n"\
-         "$DATA_TYPE YAML READER\n"\
-         "========================="
 
     # Resource group and VO readers should use the contact info if we have
     # access to the SSH keys for the contacts repo
