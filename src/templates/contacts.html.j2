@@ -13,7 +13,8 @@ OSG Contacts
 </div>
 <div class="container">
   {%- for user in users %}
-    <div class="row text-white bg-dark">
+  <div class="container">
+    <div class="row text-white bg-dark" style="margin-top:1em;">
       <div class="col-sm"><span class="font-weight-bold">{{ user.FullName }}</span></div>
       <div class="col-sm-auto text-right">
         <span class="font-weight-bold">ID:</span>
@@ -30,12 +31,12 @@ OSG Contacts
         {%- endif %}
       </p>
     </div>
+    {% if user.GitHub -%}
     <div class="row">
-      {% if user.GitHub -%}
       <div class="col-sm-3"><span class="font-weight-bold">GitHub:</span></div>
       <div class="col-sm"><a href="https://github.com/{{user.GitHub}}">{{ user.GitHub }}</a></div>
-      {%- endif %}
     </div>
+    {%- endif %}
     {% if authorized -%}
     <div class="row">
       <div class="col-sm-3"><span class="font-weight-bold">Primary Email:</span></div>
@@ -59,7 +60,8 @@ OSG Contacts
       {% endif %}
       {% endfor %}
     {%- endif %}
-  {% endfor -%}
+  </div>
+  {% endfor -%}{# user in users #}
 </div>
 {% endblock %}
 
