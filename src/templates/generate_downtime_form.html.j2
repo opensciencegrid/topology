@@ -36,18 +36,20 @@ Downtime YAML generator
 {% endif %}
 
 <div class="container">
-  <p>
-    {%- if github -%}
-    This form generates YAML code that you can add into
-    <a href="{{ github_topology_root }}" target="_blank">OSG's topology repository</a>
-    to report your downtime.
-    <br>This requires a GitHub account.
-    {%- endif %}
-  </p>
-  
   <div class="row">
     <!-- LEFT COLUMN --------------------------------------------------------->
     <div class="col-sm">
+      {% if github -%}
+      <p>
+        This form generates YAML code that you can add into
+        <a href="{{ github_topology_root }}" target="_blank">OSG's topology repository</a>
+        to report your downtime. This requires a
+        <a href="https://opensciencegrid.org/docs/common/registration/#registering-contacts" target="_blank">
+          GitHub account registered with the OSG.
+        </a>
+      </p>
+      {%- endif %}
+
       <form method=post>
         <!-- NOTE: we are not using CSRF because none of the POST data is actually
         used to change anything.  If that ever changes, see
