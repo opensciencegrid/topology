@@ -3,13 +3,15 @@
 OSG Contacts
 {%- endblock %}
 {% block content %}
-{% if not authorized %}
-<div class="alert alert-info" role="alert">
-  To see contact information, load your grid certificate into your browser.
-</div>
-{% endif %}
-<div class="alert alert-info" role="alert">
-  Profile information is provided by the user and may be out of date.
+<div class="container">
+  {% if not authorized %}
+  <div class="alert alert-info" role="alert">
+    To see contact information, load your grid certificate into your browser.
+  </div>
+  {% endif %}
+  <div class="alert alert-info" role="alert">
+    Profile information is provided by the user and may be out of date.
+  </div>
 </div>
 <div class="container">
 {%- for user in users %}
