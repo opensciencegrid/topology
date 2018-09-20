@@ -1,0 +1,31 @@
+Disable: false
+Production: true
+SupportCenter: Self Supported
+GroupID: 486
+GroupDescription: Arizona State University Research Computing.
+Resources:
+  OSG_DELL_M420_ASU_HOSTED_CE:
+    ID: 951
+    Disable: false
+    Description: This is a hosted ce instance submitting to the ASU DELL M420 cluster to support ASU as well as the community.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Suchandra Thapa
+          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
+      Security Contact:
+        Primary:
+          Name: Suchandra Thapa
+          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
+      Resource Report Contact:
+        Primary:
+          Name: Suchandra Thapa
+          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
+    FQDN: hosted-ce20.grid.uchicago.edu
+    Services:
+      CE:
+        Description: ASU CE
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100  # 100% opportunistic

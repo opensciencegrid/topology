@@ -3,53 +3,6 @@ GroupDescription: Southern Methodist University HPC
 GroupID: 242
 Production: true
 Resources:
-  SMU_ManeFrame_CE:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: d8be00fb90a6a6da5bc80cf9ccb19e7f971c626b
-          Name: Amit Kumar
-      Security Contact:
-        Primary:
-          ID: d8be00fb90a6a6da5bc80cf9ccb19e7f971c626b
-          Name: Amit Kumar
-      Submitter Contact:
-        Primary:
-          ID: d8be00fb90a6a6da5bc80cf9ccb19e7f971c626b
-          Name: Amit Kumar
-    Description: This is a new CE for our new cluster name ManeFrame
-    Disable: false
-    FQDN: mfosgce.hpc.smu.edu
-    ID: 651
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-          uri_override: mfosgce.hpc.smu.edu:2119
-      Gratia Collector:
-        Description: Gratia Collector
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
-          uri_override: mfosgce.hpc.smu.edu:2811
-      RSV Collector:
-        Description: RSV Collector
-    VOOwnership:
-      Nova: 10
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 85
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 500
-      KSI2KMin: 100
-      StorageCapacityMax: 5.5
-      StorageCapacityMin: 1
-      TapeCapacity: 5.5
   SMU_ManeFrame_SE:
     Active: true
     ContactLists:
@@ -65,7 +18,7 @@ Resources:
         Primary:
           ID: d8be00fb90a6a6da5bc80cf9ccb19e7f971c626b
           Name: Amit Kumar
-    Description: This is our new Storage Element for our new cluster ManeFrame.
+    Description: This is our new Storage Element for our new cluster ManeFrame II (M2).
     Disable: false
     FQDN: mfosgse.ehpc.smu.edu
     ID: 699
@@ -75,11 +28,6 @@ Resources:
         Details:
           hidden: false
           uri_override: mfosgse.ehpc.smu.edu:2811
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-          uri_override: mfosgse.ehpc.smu.edu:8443
     VOOwnership:
       ATLAS: 100
 SupportCenter: USATLAS

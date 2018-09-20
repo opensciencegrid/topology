@@ -1,0 +1,31 @@
+Disable: false
+Production: true
+SupportCenter: Self Supported
+GroupID: 488
+GroupDescription: New Mexico State University High Performance Computing group
+Resources:
+  OSG_US_NMSU_DISCOVERY:
+    ID: 952
+    Disable: false
+    Description: This is a small cluster to test OSG / NMSU integration.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Suchandra Thapa
+          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
+      Security Contact:
+        Primary:
+          Name: Suchandra Thapa
+          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
+      Resource Report Contact:
+        Primary:
+          Name: Suchandra Thapa
+          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
+    FQDN: hosted-ce19.grid.uchicago.edu
+    Services:
+      CE:
+        Description: NMSU Hosted CE
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100  # 100% opportunistic

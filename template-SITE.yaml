@@ -3,8 +3,9 @@ LongName: University of XYZ Cluster
 # Description is a brief description of your site
 Description: Computer Science building of the University of XYZ
 
-# ID is a unique ID acquired by running "bin/next_site_id" from the topology repo
-ID: 12345
+# If you have an up-to-date local git clone, fill ID with the output from `bin/next_site_id`
+# Otherwise, leave it blank and we will fill in the appropriate value for you.
+ID: <ID>
 
 # AddressLine1 is the street address of the site
 AddressLine1: 1234 Fifth St

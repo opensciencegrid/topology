@@ -7,6 +7,7 @@
   - CE
   Severity: Outage
   StartTime: Oct 21, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Kernel Update
   EndTime: Nov 4, 2016 16:00 +0000
@@ -16,6 +17,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 4, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Kernel Update
   EndTime: Nov 4, 2016 16:00 +0000
@@ -25,6 +27,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 4, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: One of lustre cmsoss is down due to a dead RAID controller.
   EndTime: Feb 7, 2017 22:00 +0000
@@ -34,6 +37,7 @@
   - CE
   Severity: Outage
   StartTime: Feb 7, 2017 17:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: One of lustre cmsoss is down due to a dead RAID controller.
   EndTime: Feb 7, 2017 22:00 +0000
@@ -43,6 +47,7 @@
   - CE
   Severity: Outage
   StartTime: Feb 7, 2017 17:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Kernel on all worker nodes is required to be upgraded.
   EndTime: Mar 16, 2017 18:00 +0000
@@ -52,6 +57,7 @@
   - CE
   Severity: Outage
   StartTime: Mar 16, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Kernel on all worker nodes is required to be upgraded.
   EndTime: Mar 16, 2017 18:00 +0000
@@ -61,6 +67,7 @@
   - CE
   Severity: Outage
   StartTime: Mar 16, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     At Florida CMS T2, we  need to move two
@@ -77,6 +84,7 @@
   - CE
   Severity: Outage
   StartTime: Jun 12, 2017 17:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     At Florida CMS T2, we  need to move two
@@ -93,6 +101,7 @@
   - CE
   Severity: Outage
   StartTime: Jun 12, 2017 17:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: The downtime is required to upgrade one of the CEs to the RHEL7.
   EndTime: Nov 16, 2017 14:30 +0000
@@ -102,6 +111,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 2, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: One of the Lustre OSSes requires a maintenance.
   EndTime: Jan 4, 2018 17:00 +0000
@@ -111,6 +121,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jan 4, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: One of lustre oss (cmsoss3) is not responsive. This causes a stall
     in the entire site.
@@ -121,6 +132,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Mar 9, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: One of lustre oss (cmsoss3) is not responsive. This causes a stall
     in the entire site.
@@ -131,6 +143,7 @@
   - CE
   Severity: Outage
   StartTime: Mar 9, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: One of lustre oss (cmsoss3) is not responsive. This causes a stall
     in the entire site.
@@ -141,6 +154,7 @@
   - CE
   Severity: Outage
   StartTime: Mar 9, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: One of lustre oss (cmsoss3) is not responsive. This causes a stall
     in the entire site.
@@ -151,6 +165,7 @@
   - CE
   Severity: Outage
   StartTime: Mar 9, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: apply FW and kernel updates to cms for Spectre/Meltdown mitigation.
   EndTime: Apr 16, 2018 21:00 +0000
@@ -160,6 +175,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 16, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: apply FW and kernel updates to  cslrm for Spectre/Meltdown mitigation.
   EndTime: Apr 17, 2018 21:00 +0000
@@ -169,6 +185,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 17, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Update Lustre client, Spectre/Meltdown patches
   EndTime: Apr 23, 2018 21:00 +0000
@@ -178,6 +195,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 23, 2018 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: IB HCA FW on this resource needs updating.
   EndTime: Apr 23, 2018 16:00 +0000
@@ -187,6 +205,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 23, 2018 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Spectre/Meltdown patches and EL7 upgrade
   EndTime: Apr 25, 2018 21:00 +0000
@@ -196,6 +215,7 @@
   - Squid
   Severity: Outage
   StartTime: Apr 25, 2018 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Spectre/Meltdown patches and EL7 upgrade
   EndTime: Apr 26, 2018 21:00 +0000
@@ -205,3 +225,44 @@
   - Squid
   Severity: Outage
   StartTime: Apr 26, 2018 13:00 +0000
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  Description: Network issue due to a switch that went bad.
+  EndTime: Sep 3, 2018 07:15 +0000
+  ID: 1005706
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Sep 3, 2018 05:00 +0000
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  Description: Network issue due to a switch that went bad.
+  EndTime: Sep 3, 2018 07:15 +0000
+  ID: 1005707
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Sep 3, 2018 05:00 +0000
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  Description: Network issue due to a switch that went bad.
+  EndTime: Sep 3, 2018 07:15 +0000
+  ID: 1005708
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Sep 3, 2018 05:00 +0000
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  Description: Network issue due to a switch that went bad.
+  EndTime: Sep 3, 2018 07:15 +0000
+  ID: 1005709
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+  Severity: Outage
+  StartTime: Sep 3, 2018 05:00 +0000
+# ----------------------------------------------------------

@@ -7,6 +7,7 @@
   - CE
   Severity: Outage
   StartTime: May 22, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Annual MGHPCC power maintenance
   EndTime: May 24, 2017 16:00 +0000
@@ -16,6 +17,7 @@
   - CE
   Severity: Outage
   StartTime: May 22, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Annual MGHPCC power maintenance
   EndTime: May 24, 2017 16:00 +0000
@@ -25,6 +27,7 @@
   - CE
   Severity: Outage
   StartTime: May 22, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Down for puppet migration
   EndTime: Jul 19, 2017 16:00 +0000
@@ -34,6 +37,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 18, 2017 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Down for puppet migration
   EndTime: Jul 19, 2017 16:00 +0000
@@ -43,6 +47,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 18, 2017 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Down for puppet migration
   EndTime: Jul 19, 2017 16:00 +0000
@@ -52,6 +57,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 18, 2017 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: NET2 Network reconfiguration.
   EndTime: Oct 19, 2017 17:00 +0000
@@ -61,6 +67,7 @@
   - CE
   Severity: Outage
   StartTime: Oct 19, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: NET2 Network reconfiguration
   EndTime: Oct 19, 2017 17:00 +0000
@@ -70,6 +77,7 @@
   - CE
   Severity: Outage
   StartTime: Oct 19, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: NET2 Network reconfiguration
   EndTime: Oct 19, 2017 17:00 +0000
@@ -79,6 +87,7 @@
   - CE
   Severity: Outage
   StartTime: Oct 19, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: GPFS maintenance and SRM rebuild
   EndTime: Jan 25, 2018 20:00 +0000
@@ -88,6 +97,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 24, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: GPFS maintenance and SRM rebuild
   EndTime: Jan 25, 2018 20:00 +0000
@@ -97,6 +107,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 24, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Re-IP ing the Harvard gatekeeper has caused a problem, most likely
     a firewall issue between BNL (pilots) and Harvard
@@ -107,6 +118,7 @@
   - CE
   Severity: Outage
   StartTime: Mar 5, 2018 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Unexpected downtime due to problem cause by re-IPing the Harvard gatekeeper.
   EndTime: Mar 8, 2018 22:00 +0000
@@ -116,6 +128,7 @@
   - CE
   Severity: Outage
   StartTime: Mar 5, 2018 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Problem caused by re-IPing the Harvard gatekeeper.
   EndTime: Mar 6, 2018 22:00 +0000
@@ -125,6 +138,7 @@
   - CE
   Severity: Outage
   StartTime: Mar 5, 2018 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Annual MGHPCC-wide power maintenance day
   EndTime: May 22, 2018 18:00 +0000
@@ -134,6 +148,7 @@
   - CE
   Severity: Outage
   StartTime: May 21, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Annual MGHPCC-wide power maintenance day
   EndTime: May 22, 2018 18:00 +0000
@@ -143,3 +158,4 @@
   - CE
   Severity: Outage
   StartTime: May 21, 2018 14:00 +0000
+# ----------------------------------------------------------

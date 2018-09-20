@@ -7,6 +7,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 23, 2016 04:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled Power Outage
   EndTime: Jul 26, 2016 16:00 +0000
@@ -16,6 +17,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jul 23, 2016 04:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Air Condition problem. Repair is delayed by strike at campus. Undefined
     date for getting back. Cluster has been turned off for protection.
@@ -26,6 +28,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 7, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Air Condition problem. Repair is delayed by strike at campus. Undefined
     date for getting back. Cluster has been turned off for protection.
@@ -36,6 +39,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Apr 7, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are under hurricane warning. Cat5 hurricane Irma is approaching Puerto Rico.
@@ -47,6 +51,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Sep 5, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are under hurricane warning. Cat5 hurricane Irma is approaching Puerto Rico.
@@ -58,6 +63,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 5, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are under hurricane warning. Cat5 hurricane Irma is approaching Puerto Rico.
@@ -69,6 +75,7 @@
   - GUMS Server
   Severity: Outage
   StartTime: Sep 5, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Another hurricane is approaching Puerto Rico (Maria). With high probability
     to pass across the Island. For protection, cluster will the shut off.
@@ -79,6 +86,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 19, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Another hurricane is approaching Puerto Rico (Maria). With high probability
     to pass across the Island. For protection, cluster will the shut off.
@@ -89,6 +97,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Sep 19, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Another hurricane is approaching Puerto Rico (Maria). With high probability
     to pass across the Island. For protection, cluster will the shut off.
@@ -99,6 +108,7 @@
   - GUMS Server
   Severity: Outage
   StartTime: Sep 19, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Last night power black out. took out the JBOD in which is stored the CE image and raid live.
@@ -111,6 +121,7 @@
   - CE
   Severity: Outage
   StartTime: Dec 11, 2017 23:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Last night power black out. took out the JBOD in which is stored the
     CE image and raid live. Working on recovering raid and CE image.
@@ -121,6 +132,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Dec 11, 2017 23:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: A/C is broken. Shutting down the cluster until AC is back.
   EndTime: Aug 17, 2018 04:00 +0000
@@ -130,6 +142,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Apr 17, 2018 04:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Air Conditioner is broken. Shutting down cluster until AC is repaired.
   EndTime: Aug 17, 2018 04:00 +0000
@@ -139,3 +152,4 @@
   - CE
   Severity: Outage
   StartTime: Apr 17, 2018 04:00 +0000
+# ----------------------------------------------------------
