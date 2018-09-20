@@ -11,6 +11,7 @@ OSG Contacts
   {% endif %}
   <div class="alert alert-info" role="alert">
     Profile information is provided by the user and may be out of date.
+    To update your information, please contact <a href="mailto:help@opensciencegrid.org">help@opensciencegrid.org</a>.
   </div>
 </div>
 <div class="container">
@@ -36,12 +37,16 @@ OSG Contacts
           {%- endif %}
         </p>
       </div>
-      {% if user.GitHub -%}
       <div class="row">
         <div class="col-sm-3"><span class="font-weight-bold">GitHub:</span></div>
-        <div class="col-sm"><a href="https://github.com/{{user.GitHub}}">{{ user.GitHub }}</a></div>
+        <div class="col-sm">
+          {% if user.GitHub -%}
+          <a href="https://github.com/{{user.GitHub}}">{{ user.GitHub }}</a>
+          {%- else -%}
+          <span class="text-danger">(none)</span>
+          {%- endif %}
+        </div>
       </div>
-      {%- endif %}
       {% if authorized -%}
         <div class="row">
           <div class="col-sm-3"><span class="font-weight-bold">Primary Email:</span></div>
