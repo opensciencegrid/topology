@@ -73,14 +73,13 @@ class VOsData(object):
         if not is_null(vo, "ReportingGroups"):
             new_vo["ReportingGroups"] = self._expand_reporting_groups(vo["ReportingGroups"], authorized)
 
-        if not is_null(vo, "OASIS"):
-            oasis = OrderedDict.fromkeys(["UseOASIS", "Managers", "OASISRepoURLs"])
-            oasis["UseOASIS"] = vo["OASIS"].get("UseOASIS", False)
-            if not is_null(vo["OASIS"], "Managers"):
-                oasis["Managers"] = self._expand_oasis_managers(vo["OASIS"]["Managers"])
-            if not is_null(vo["OASIS"], "OASISRepoURLs"):
-                oasis["OASISRepoURLs"] = {"URL": vo["OASIS"]["OASISRepoURLs"]}
-            new_vo["OASIS"] = oasis
+        oasis = OrderedDict.fromkeys(["UseOASIS", "Managers", "OASISRepoURLs"])
+        oasis["UseOASIS"] = vo.get("OASIS", {}).get("UseOASIS", False)
+        if not is_null(vo, "OASIS", "Managers"):
+            oasis["Managers"] = self._expand_oasis_managers(vo["OASIS"]["Managers"])
+        if not is_null(vo, "OASIS", "OASISRepoURLs"):
+            oasis["OASISRepoURLs"] = {"URL": vo["OASIS"]["OASISRepoURLs"]}
+        new_vo["OASIS"] = oasis
 
         if not is_null(vo, "FieldsOfScience"):
             new_vo["FieldsOfScience"] = self._expand_fields_of_science(vo["FieldsOfScience"])
