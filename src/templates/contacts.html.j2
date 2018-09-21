@@ -34,7 +34,7 @@ OSG Contacts
           {{ user.Profile|replace("\n", "<br>") }}
           <br>
           {%- else -%}
-          <span class="text-danger">(no profile)</span>
+          <span class="text-danger" data-toggle="tooltip" title="Mail help@opensciencegrid.org to update">(no profile)</span>
           {%- endif %}
         </p>
       </div>
