@@ -171,3 +171,15 @@
   Services:
     - CE
 # ----------------------------------------------------------
+
+- Class: UNSCHEDULED
+  ID: 25806450
+  Description: unscheduled storage downtime
+  Severity: Outage
+  StartTime: Sep 21, 2018 20:43 +0000
+  EndTime: Sep 22, 2018 21:00 +0000
+  CreatedTime: Sep 21, 2018 20:44 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
