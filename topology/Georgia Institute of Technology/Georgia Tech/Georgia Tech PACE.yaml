@@ -46,13 +46,15 @@ Resources:
           Name: Peter Couvares
     Description: This is a Condor CE in front of the PACE cluster, for use by LIGO.
     Disable: false
-    FQDN: ligo-ce1.pace.gatech.edu
+    FQDN: osg-sched.pace.gatech.edu
     ID: 734
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
+      Squid:
+        Description: Generic squid service
     VOOwnership:
       LIGO: 100
   Georgia_Tech_PACE_GridFTP:
@@ -93,50 +95,13 @@ Resources:
     Description: GridFTP server, initially for incoming LIGO frame data pushed from
       CIT.
     Disable: false
-    FQDN: ligo-gftp.pace.gatech.edu
+    FQDN: osg-gftp.pace.gatech.edu
     ID: 737
     Services:
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-    VOOwnership:
-      LIGO: 100
-  Georgia_Tech_PACE_Squid_1:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: bce6aa9f33442110ab7554a8bf716ab80ed7bef5
-          Name: Paul Manno
-        Secondary:
-          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
-          Name: Mehmet Belgin
-      Miscellaneous Contact:
-        Primary:
-          ID: bce6aa9f33442110ab7554a8bf716ab80ed7bef5
-          Name: Paul Manno
-        Secondary:
-          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
-          Name: Mehmet Belgin
-      Security Contact:
-        Primary:
-          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
-          Name: Peter Couvares
-        Secondary:
-          ID: bce6aa9f33442110ab7554a8bf716ab80ed7bef5
-          Name: Paul Manno
-      Submitter Contact:
-        Primary:
-          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
-          Name: Peter Couvares
-    Description: Squid server for PACE.
-    Disable: false
-    FQDN: ligo-prx.pace.gatech.edu
-    ID: 735
-    Services:
-      Squid:
-        Description: Generic squid service
     VOOwnership:
       LIGO: 100
 SupportCenter: Advanced LIGO
