@@ -6,7 +6,7 @@ import re
 import shlex
 import subprocess
 import sys
-from typing import Dict, List, Union
+from typing import Dict, List, Union, AnyStr
 
 import xmltodict
 
@@ -193,3 +193,9 @@ def git_clone_or_pull(repo, dir, branch, ssh_key=None) -> bool:
         ok = run_git_cmd(["clone", repo, dir], ssh_key=ssh_key)
         ok = ok and run_git_cmd(["checkout", branch], dir=dir)
     return ok
+
+
+def gen_id(instr: AnyStr, digits, minimum=1, hashfn=hashlib.md5) -> int:
+    instr_b = instr if isinstance(instr, bytes) else instr.encode("utf-8", "surrogateescape")
+    mod = (10 ** digits) - minimum
+    return minimum + (int(hashfn(instr_b).hexdigest(), 16) % mod)

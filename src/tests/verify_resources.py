@@ -66,15 +66,11 @@ def main():
     errors += test_4_res_svcs(rgs, rgfns)
     errors += test_5_sc(rgs, rgfns)
     errors += test_6_site()
-    warnings = test_7_fqdn_unique(rgs, rgfns)
 
     print("%d Resource Group files processed." % len(rgs))
     if errors:
         print("%d error(s) encountered." % errors)
         return 1
-    elif warnings:
-        print("%d warning(s) encountered." % warnings)
-        return 0
     else:
         print("A-OK.")
         return 0
