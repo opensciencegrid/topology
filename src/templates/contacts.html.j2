@@ -1,3 +1,4 @@
+{% set want_js = true %}
 {% extends "base.html.j2" %}
 {% block title -%}
 OSG Contacts
@@ -43,7 +44,7 @@ OSG Contacts
           {% if user.GitHub -%}
           <a href="https://github.com/{{user.GitHub}}">{{ user.GitHub }}</a>
           {%- else -%}
-          <span class="text-danger">(none)</span>
+          <span class="text-danger" data-toggle="tooltip" title="Mail help@opensciencegrid.org to register">(none)</span>
           {%- endif %}
         </div>
       </div>
@@ -75,4 +76,10 @@ OSG Contacts
 {% endfor -%}{# user in users #}
 </div>
 {% endblock %}
-
+{% block last %}
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+{% endblock %}
