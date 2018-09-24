@@ -195,3 +195,40 @@
   Services:
   - CE
 # ---------------------------------------------------------
+
+- Class: UNSCHEDULED
+  ID: 28234365
+  Description: DNS outage
+  Severity: Severe
+  StartTime: Sep 24, 2018 16:00 +0000
+  EndTime: Sep 25, 2018 16:00 +0000
+  CreatedTime: Sep 24, 2018 16:10 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: UNSCHEDULED
+  ID: 28235545
+  Description: DNS outage
+  Severity: Severe
+  StartTime: Sep 24, 2018 16:00 +0000
+  EndTime: Sep 25, 2018 16:00 +0000
+  CreatedTime: Sep 24, 2018 16:12 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: UNSCHEDULED
+  ID: 28235687
+  Description: DNS outage
+  Severity: Severe
+  StartTime: Sep 24, 2018 16:00 +0000
+  EndTime: Sep 25, 2018 16:00 +0000
+  CreatedTime: Sep 24, 2018 16:12 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+
