@@ -159,3 +159,64 @@
   Severity: Outage
   StartTime: Mar 5, 2018 20:00 +0000
 # ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31879210
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:25 +0000
+  ResourceName: UTA_SWT2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31880549
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:27 +0000
+  ResourceName: UTA_SWT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31880735
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:27 +0000
+  ResourceName: UTA_SWT2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+ Class: UNSCHEDULED
+  ID: 31880912
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:28 +0000
+  ResourceName: UTA_SWT2_perfSONAR_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31881102
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:28 +0000
+  ResourceName: UTA_SWT2_perfSONAR_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
