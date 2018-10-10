@@ -151,7 +151,7 @@ function init(scrollwheel) {
     if (!(curSite in sites)) {
         sites[curSite] = [ {{ resourcegroup["Site"]["Latitude"] }},
                            {{ resourcegroup["Site"]["Longitude"] }},
-                           "{{ resourcegroup["Facility"]["Name"] | encode }}",
+                           "{{ resourcegroup["Facility"]["Name"] }}",
                             Array() ]
     }
     

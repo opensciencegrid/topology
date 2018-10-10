@@ -7,6 +7,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 13, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Cleaning of server after data center fire.
   EndTime: Jul 18, 2016 17:00 +0000
@@ -16,6 +17,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 13, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Cleaning of SE and all GridFTP servers after data center fire.
   EndTime: Jul 18, 2016 17:00 +0000
@@ -25,6 +27,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jul 13, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Cleaning of servers after data center fire.
   EndTime: Jul 18, 2016 17:00 +0000
@@ -34,6 +37,7 @@
   - Squid
   Severity: Outage
   StartTime: Jul 13, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Downtime for fire-cleaning of core network switches for our site.
   EndTime: Aug 5, 2016 17:00 +0000
@@ -43,6 +47,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 1, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Downtime for fire-cleaning of core network switches for our site.
   EndTime: Aug 5, 2016 17:00 +0000
@@ -52,6 +57,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 1, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Downtime for fire-cleaning of core network switches for our site.
   EndTime: Aug 5, 2016 17:00 +0000
@@ -61,6 +67,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Aug 1, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Downtime for fire-cleaning of core network switches for our site.
   EndTime: Aug 5, 2016 17:00 +0000
@@ -70,6 +77,7 @@
   - Squid
   Severity: Outage
   StartTime: Aug 1, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: LStore upgrade -- missed this CE previously.
   EndTime: Apr 26, 2017 04:00 +0000
@@ -79,6 +87,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 24, 2017 05:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: LStore upgrade -- missed this CE previously.
   EndTime: Apr 26, 2017 04:00 +0000
@@ -88,6 +97,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 24, 2017 05:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: LStore upgrade
   EndTime: Apr 26, 2017 04:00 +0000
@@ -97,6 +107,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Apr 24, 2017 05:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: L-Store upgrade
   EndTime: Apr 25, 2017 23:00 +0000
@@ -106,6 +117,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 24, 2017 11:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: L-Store upgrade
   EndTime: Apr 25, 2017 23:00 +0000
@@ -115,6 +127,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 24, 2017 11:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: L-Store upgrade
   EndTime: Apr 25, 2017 23:00 +0000
@@ -124,6 +137,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Apr 24, 2017 11:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Storage hardware upgrade
   EndTime: Jun 2, 2017 05:00 +0000
@@ -133,6 +147,7 @@
   - CE
   Severity: Outage
   StartTime: May 30, 2017 05:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Storage hardware upgrade
   EndTime: Jun 2, 2017 05:00 +0000
@@ -142,6 +157,7 @@
   - CE
   Severity: Outage
   StartTime: May 30, 2017 05:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Storage hardware upgrade
   EndTime: Jun 2, 2017 05:00 +0000
@@ -151,6 +167,7 @@
   - CE
   Severity: Outage
   StartTime: May 30, 2017 05:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Storage hardware upgrade
   EndTime: Jun 2, 2017 05:00 +0000
@@ -160,6 +177,7 @@
   - CE
   Severity: Outage
   StartTime: May 30, 2017 05:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Storage hardware upgrade
   EndTime: Jun 2, 2017 05:00 +0000
@@ -169,6 +187,7 @@
   - GridFtp
   Severity: Outage
   StartTime: May 30, 2017 05:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Unexpected cluster filesystem outage.
   EndTime: Aug 28, 2017 13:00 +0000
@@ -178,6 +197,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 26, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Unexpected cluster filesystem outage.
   EndTime: Aug 28, 2017 13:00 +0000
@@ -187,6 +207,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 26, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Unexpected cluster filesystem outage.
   EndTime: Aug 28, 2017 13:00 +0000
@@ -196,6 +217,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Aug 26, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Unexpected cluster filesystem outage.
   EndTime: Aug 28, 2017 13:00 +0000
@@ -205,6 +227,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Aug 26, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Powering down this machine to transition it to our new C7 cluster
   EndTime: Apr 5, 2018 05:00 +0000
@@ -214,6 +237,7 @@
   - CE
   Severity: Outage
   StartTime: Mar 22, 2018 05:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Required downtime to update GPFS
   EndTime: Apr 23, 2018 13:00 +0000
@@ -223,6 +247,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 20, 2018 23:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Required downtime to update GPFS
   EndTime: Apr 23, 2018 13:00 +0000
@@ -232,6 +257,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 20, 2018 23:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Required downtime to update GPFS
   EndTime: Apr 23, 2018 13:00 +0000
@@ -241,6 +267,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 20, 2018 23:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Required downtime to update GPFS
   EndTime: Apr 23, 2018 13:00 +0000
@@ -250,3 +277,4 @@
   - CE
   Severity: Outage
   StartTime: Apr 20, 2018 23:00 +0000
+# ----------------------------------------------------------

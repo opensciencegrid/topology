@@ -9,6 +9,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Aug 24, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
@@ -20,6 +21,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Aug 24, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
@@ -30,6 +32,7 @@
   - net.perfSONAR.Bandwidth
   Severity: Outage
   StartTime: Aug 24, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
@@ -40,6 +43,7 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Aug 24, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
@@ -50,6 +54,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Aug 24, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Cooling restored. Ending downtime a little early
   EndTime: Oct 14, 2016 21:30 +0000
@@ -59,6 +64,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Oct 14, 2016 05:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Loss of cooling in the machine room is forcing us to shutdown
   EndTime: Oct 14, 2016 23:00 +0000
@@ -69,6 +75,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Oct 14, 2016 05:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are having problems with our storage and SRM services.  We are shutting down the SRM as we investigate.
@@ -81,6 +88,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Oct 26, 2016 21:45 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
@@ -93,6 +101,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Nov 8, 2016 06:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
@@ -104,6 +113,7 @@
   - net.perfSONAR.Bandwidth
   Severity: Outage
   StartTime: Nov 8, 2016 06:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
@@ -115,6 +125,7 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Nov 8, 2016 06:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We need to perform maintenance on a pair of data servers that will
     disruptive.  Rather than deal with errors, we will take a downtime to get everything
@@ -126,6 +137,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Nov 10, 2016 00:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are having issues in our NFS server and will need a downtime to correct the issue.
@@ -139,6 +151,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Mar 19, 2017 02:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     A rebuild of our SRM has led to problems with the SRM service.  We are looking into the issues.
@@ -151,6 +164,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Aug 16, 2017 06:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     A rebuild of our SRM has led to problems with the SRM service. We are looking into the issues.
@@ -164,6 +178,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Aug 16, 2017 06:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Loss of power in the machine room due to building generator testing.
   EndTime: Jan 13, 2018 23:30 +0000
@@ -174,6 +189,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jan 13, 2018 15:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Loss of power in the machine room due to building generator testing.
   EndTime: Jan 13, 2018 23:30 +0000
@@ -183,6 +199,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jan 13, 2018 15:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: We need to do some work on a problematic storage server.  While working
     on it, the SRM service will have major problems, so we are calling for the down
@@ -194,6 +211,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jan 18, 2018 21:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Complete loss of utility power in the data center.
   EndTime: Mar 8, 2018 08:00 +0000
@@ -204,6 +222,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Mar 5, 2018 20:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Complete loss of utility power in the data center.
   EndTime: Mar 8, 2018 08:00 +0000
@@ -213,6 +232,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Mar 5, 2018 20:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Complete loss of utility power in the data center.
   EndTime: Mar 8, 2018 06:00 +0000
@@ -222,3 +242,65 @@
   - Squid
   Severity: Outage
   StartTime: Mar 5, 2018 20:00 +0000
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31882641
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:31 +0000
+  ResourceName: SWT2_CPB_DEV
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31882820
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:31 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31883014
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:31 +0000
+  ResourceName: SWT2_CPB_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31883184
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:31 +0000
+  ResourceName: SWT2_CPB_perfSONAR_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31883402
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:32 +0000
+  ResourceName: SWT2_CPB_perfSONAR_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------

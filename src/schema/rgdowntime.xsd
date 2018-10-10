@@ -5,7 +5,7 @@
       <xsd:element minOccurs="0" maxOccurs="unbounded" name="Downtime">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="ID" type="xsd:int" />
+            <xsd:element name="ID" type="xsd:long" />
             <xsd:element name="ResourceID" type="xsd:int" />
             <xsd:element name="ResourceGroup">
               <xsd:complexType>

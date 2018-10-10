@@ -8,6 +8,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jun 23, 2016 05:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled maintenance.
   EndTime: Jun 28, 2016 05:00 +0000
@@ -17,6 +18,7 @@
   - CE
   Severity: Outage
   StartTime: Jun 23, 2016 05:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled downtime for maintenance and upgrades.
   EndTime: Dec 23, 2016 18:00 +0000
@@ -26,6 +28,7 @@
   - CE
   Severity: Outage
   StartTime: Dec 9, 2016 18:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Downtime to fix chronic network hardware failures.
   EndTime: Feb 5, 2017 06:00 +0000
@@ -35,6 +38,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 5, 2017 06:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Certificate problems, being resolved...
   EndTime: May 10, 2017 05:00 +0000
@@ -44,3 +48,4 @@
   - CE
   Severity: Outage
   StartTime: May 4, 2017 05:00 +0000
+# ----------------------------------------------------------

@@ -12,6 +12,7 @@ import urllib.parse
 
 from webapp import default_config
 from webapp.common import to_xml_bytes, Filters
+from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 
@@ -44,24 +45,31 @@ if "AUTH" in app.config:
         default_authorized = app.config["AUTH"]
     else:
         print("ignoring AUTH option when FLASK_ENV != development", file=sys.stderr)
+if not app.config.get("SECRET_KEY"):
+    app.config["SECRET_KEY"] = "this is not very secret"
+### Replace previous with this when we want to add CSRF protection
+#     if app.debug:
+#         app.config["SECRET_KEY"] = "this is not very secret"
+#     else:
+#         raise Exception("SECRET_KEY required when FLASK_ENV != development")
 
 global_data = GlobalData(app.config)
 
 
+def _fix_unicode(text):
+    """Convert a partial unicode string to full unicode"""
+    return text.encode('utf-8', 'surrogateescape').decode('utf-8')
+
+
 @app.route('/')
 def homepage():
-
-    return render_template('homepage.tmpl')
+    return render_template('homepage.html.j2')
 
 @app.route('/map/iframe')
 def map():
-    @app.template_filter()
-    def encode(text):
-        """Convert a partial unicode string to full unicode"""
-        return text.encode('utf-8', 'surrogateescape').decode('utf-8')
     rgsummary = global_data.get_topology().get_resource_summary()
 
-    return render_template('iframe.tmpl', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"])
+    return _fix_unicode(render_template('iframe.html.j2', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"]))
 
 
 @app.route('/schema/<xsdfile>')
@@ -77,6 +85,17 @@ def schema(xsdfile):
 def miscuser_xml():
     return Response(to_xml_bytes(global_data.get_contacts_data().get_tree(_get_authorized())),
                     mimetype='text/xml')
+
+
+@app.route('/contacts')
+def contacts():
+    try:
+        authorized = _get_authorized()
+        users_list = global_data.get_contacts_data().get_tree(_get_authorized())["Users"]["User"]
+        return _fix_unicode(render_template('contacts.html.j2', users=users_list, authorized=authorized))
+    except (KeyError, AttributeError):
+        app.log_exception(sys.exc_info())
+        return Response("Error getting users", status=503)  # well, it's better than crashing
 
 
 @app.route('/miscproject/xml')
@@ -97,6 +116,89 @@ def rgsummary_xml():
 @app.route('/rgdowntime/xml')
 def rgdowntime_xml():
     return _get_xml_or_fail(global_data.get_topology().get_downtimes, request.args)
+
+
+@app.route("/generate_downtime", methods=["GET", "POST"])
+def generate_downtime():
+    form = GenerateDowntimeForm(request.form)
+
+    def github_url(action, path):
+        assert action in ("tree", "edit", "new"), "invalid action"
+        base = global_data.topology_data_repo
+        branch_q = urllib.parse.quote(global_data.topology_data_branch)
+        path_q = urllib.parse.quote(path)
+        param = f"?filename={path_q}" if action == "new" else f"/{path_q}"
+        return f"{base}/{action}/{branch_q}{param}"
+
+    github = False
+    github_topology_root = ""
+    if re.match("http(s?)://github.com", global_data.topology_data_repo):
+        github = True
+        github_topology_root = github_url("tree", "topology")
+
+    def render_form(**kwargs):
+        return render_template("generate_downtime_form.html.j2", form=form, infos=form.infos, github=github,
+                               github_topology_root=github_topology_root, **kwargs)
+
+    topo = global_data.get_topology()
+
+    form.facility.choices = _make_choices(topo.resources_by_facility.keys(), select_one=True)
+    facility = form.facility.data
+    if facility not in topo.resources_by_facility:
+        form.facility.data = ""
+        form.resource.choices = [("", "-- Select a facility first --")]
+        form.resource.data = ""
+        form.services.choices = [("", "-- Select a facility and a resource first --")]
+        return render_form()
+
+    resource_choices = [("", "-- Select one --")]
+    for r in topo.resources_by_facility[facility]:
+        resource_choices.append((_fix_unicode(r.name),
+                                 f"{_fix_unicode(r.name)} ({_fix_unicode(r.fqdn)})"))
+    form.resource.choices = resource_choices
+
+    if form.change_facility.data:  # "Change Facility" clicked
+        form.resource.data = ""
+        form.services.choices = [("", "-- Select a resource first --")]
+        return render_form()
+
+    resource = form.resource.data
+    if resource not in topo.service_names_by_resource:
+        return render_form()
+
+    form.services.choices = _make_choices(topo.service_names_by_resource[resource])
+
+    if form.change_resource.data:  # "Change Resource" clicked
+        return render_form()
+
+    if not form.validate_on_submit():
+        return render_form()
+
+    filepath = "topology/" + topo.downtime_path_by_resource[resource]
+    # ^ filepath relative to the root of the topology repo checkout
+    filename = os.path.basename(filepath)
+
+    # Add github edit URLs or directory URLs for the repo, if we can.
+    new_url = edit_url = site_dir_url = ""
+    if github:
+        site_dir_url = github_url("tree", os.path.dirname(filepath))
+        if os.path.exists(os.path.join(global_data.topology_dir, topo.downtime_path_by_resource[resource])):
+            edit_url = github_url("edit", filepath)
+        else:
+            new_url = github_url("new", filepath)
+
+    form.yamloutput.data = form.get_yaml()
+
+    return render_form(filepath=filepath, filename=filename,
+                       edit_url=edit_url, site_dir_url=site_dir_url,
+                       new_url=new_url)
+
+
+def _make_choices(iterable, select_one=False):
+    c = [(_fix_unicode(x), _fix_unicode(x)) for x in sorted(iterable)]
+    if select_one:
+        c.insert(0, ("", "-- Select one --"))
+    return c
 
 
 def get_filters_from_args(args) -> Filters:
@@ -216,10 +318,8 @@ def _get_authorized():
 
 
 if __name__ == '__main__':
-    try:
-        if sys.argv[1] == "--auth":
-            default_authorized = True
-    except IndexError: pass
+    if "--auth" in sys.argv[1:]:
+        default_authorized = True
     logging.basicConfig(level=logging.DEBUG)
     app.run(debug=True, use_reloader=True)
 else:

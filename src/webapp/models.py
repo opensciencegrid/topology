@@ -1,11 +1,14 @@
+import datetime
 import logging
 import os
 import time
-from typing import Dict, Set
+from typing import Dict, Set, List
+
+import anymarkup
 
 from webapp import common, contacts_reader, project_reader, rg_reader, vo_reader
 from webapp.contacts_reader import ContactsData
-from webapp.topology import Topology
+from webapp.topology import Topology, Downtime
 from webapp.vos_data import VOsData
 
 
@@ -42,18 +45,21 @@ class GlobalData:
         self.projects = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
         self.topology = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
         self.vos_data = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
+        self.topology_data_dir = config["TOPOLOGY_DATA_DIR"]
+        self.topology_data_repo = config.get("TOPOLOGY_DATA_REPO", "")
+        self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
         self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
-        self.projects_dir = os.path.join(config["TOPOLOGY_DATA_DIR"], "projects")
-        self.topology_dir = os.path.join(config["TOPOLOGY_DATA_DIR"], "topology")
-        self.vos_dir = os.path.join(config["TOPOLOGY_DATA_DIR"], "virtual-organizations")
+        self.projects_dir = os.path.join(self.topology_data_dir, "projects")
+        self.topology_dir = os.path.join(self.topology_data_dir, "topology")
+        self.vos_dir = os.path.join(self.topology_data_dir, "virtual-organizations")
         self.config = config
 
     def _update_topology_repo(self):
         if not self.config["NO_GIT"]:
-            parent = os.path.dirname(self.config["TOPOLOGY_DATA_DIR"])
+            parent = os.path.dirname(self.topology_data_dir)
             os.makedirs(parent, mode=0o755, exist_ok=True)
-            ok = common.git_clone_or_pull(self.config["TOPOLOGY_DATA_REPO"], self.config["TOPOLOGY_DATA_DIR"],
-                                   self.config["TOPOLOGY_DATA_BRANCH"])
+            ok = common.git_clone_or_pull(self.topology_data_repo, self.topology_data_dir,
+                                          self.topology_data_branch)
             if ok:
                 log.debug("topology repo update ok")
             else:
@@ -132,3 +138,54 @@ class GlobalData:
                 self.projects.try_again()
 
         return self.projects.data
+
+
+def _dtid(created_datetime: datetime.datetime):
+    dtid_offset = 1_535_000_000.000  # use a more recent epoch -- gives us a few years of smaller IDs
+    multiplier = 10.0  # use .1s resolution
+
+    timestamp = created_datetime.timestamp()  # seconds from the epoch as float
+    return int((timestamp - dtid_offset) * multiplier)
+
+
+def get_downtime_yaml(start_datetime: datetime.datetime,
+                      end_datetime: datetime.datetime,
+                      created_datetime: datetime.datetime,
+                      description: str,
+                      severity: str,
+                      class_: str,
+                      resource_name: str,
+                      services: List[str]) -> str:
+    """Return the generated YAML from the data provided.
+
+    Renders each individual field with a YAML serializer but then writes them
+    out by hand so the ordering matches what's in the downtime template.
+
+    """
+
+    def render(key, value):
+        return anymarkup.serialize({key: value}, "yaml").decode("utf-8", errors="replace").strip()
+
+    def indent(in_str, amount):
+        spaces = ' ' * amount
+        return spaces + ("\n"+spaces).join(in_str.split("\n"))
+
+    start_time_str = Downtime.fmttime_preferred(start_datetime)
+    end_time_str = Downtime.fmttime_preferred(end_datetime)
+    created_time_str = Downtime.fmttime_preferred(created_datetime)
+
+    result = "- " + render("Class", class_)
+    for key, value in [
+        ("ID", (_dtid(created_datetime))),
+        ("Description", description),
+        ("Severity", severity),
+        ("StartTime", start_time_str),
+        ("EndTime", end_time_str),
+        ("CreatedTime", created_time_str),
+        ("ResourceName", resource_name),
+        ("Services", services)
+    ]:
+        result += "\n" + indent(render(key, value), 2)
+    result += "\n# ---------------------------------------------------------\n"
+
+    return result

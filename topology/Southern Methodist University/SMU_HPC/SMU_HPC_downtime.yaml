@@ -1,40 +1,3 @@
-- Class: SCHEDULED
-  Description: Apply patches and updates.
-  EndTime: Jul 28, 2016 13:00 +0000
-  ID: 1004979
-  ResourceName: SMU_ManeFrame_CE
-  Services:
-  - CE
-  - GridFtp
-  - Gratia Collector
-  - RSV Collector
-  Severity: Outage
-  StartTime: Jul 28, 2016 11:00 +0000
-- Class: SCHEDULED
-  Description: Quick reboot for hung up processes.
-  EndTime: Aug 3, 2016 19:45 +0000
-  ID: 1004993
-  ResourceName: SMU_ManeFrame_CE
-  Services:
-  - CE
-  - GridFtp
-  - Gratia Collector
-  - RSV Collector
-  Severity: Outage
-  StartTime: Aug 3, 2016 18:15 +0000
-- Class: UNSCHEDULED
-  Description: Unplanned maintenance on Lustre Storage file system, hence bringing
-    down the cluster.
-  EndTime: Oct 31, 2016 22:00 +0000
-  ID: 1005086
-  ResourceName: SMU_ManeFrame_CE
-  Services:
-  - CE
-  - GridFtp
-  - Gratia Collector
-  - RSV Collector
-  Severity: Outage
-  StartTime: Oct 31, 2016 20:15 +0000
 - Class: UNSCHEDULED
   Description: Unplanned maintenance on Lustre Storage file system, hence bringing
     down the cluster.
@@ -46,6 +9,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Oct 31, 2016 20:15 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Rebooting networking interface to accommodate another virtual host
     in the network. No configuration or hardware change is happening here and hence
@@ -58,21 +22,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Dec 21, 2016 16:00 +0000
-- Class: SCHEDULED
-  Description: Our CE and SE will be disconnected from the internet from 9AM - 1PM
-    today as our networking team is working on moving some equipment that connects
-    our CE and SE to internet. Services and job on the cluster will continue to run
-    as long as they do not need to connect to the internet.
-  EndTime: Jan 6, 2017 19:00 +0000
-  ID: 1005159
-  ResourceName: SMU_ManeFrame_CE
-  Services:
-  - CE
-  - GridFtp
-  - Gratia Collector
-  - RSV Collector
-  Severity: Outage
-  StartTime: Jan 6, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our CE and SE will be disconnected from the internet from 9AM - 1PM
     today as our networking team is working on moving some equipment that connects
@@ -86,6 +36,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jan 6, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We are upgrading out SE
   EndTime: Apr 6, 2018 05:00 +0000
@@ -96,27 +47,4 @@
   - GridFtp
   Severity: Outage
   StartTime: Feb 19, 2018 06:00 +0000
-- Class: SCHEDULED
-  Description: We are upgrading our CE
-  EndTime: Mar 23, 2018 05:00 +0000
-  ID: 1005605
-  ResourceName: SMU_ManeFrame_CE
-  Services:
-  - CE
-  - GridFtp
-  - Gratia Collector
-  - RSV Collector
-  Severity: Outage
-  StartTime: Feb 19, 2018 06:00 +0000
-- Class: SCHEDULED
-  Description: Still working on the upgrade
-  EndTime: Apr 6, 2018 05:00 +0000
-  ID: 1005634
-  ResourceName: SMU_ManeFrame_CE
-  Services:
-  - CE
-  - GridFtp
-  - Gratia Collector
-  - RSV Collector
-  Severity: Outage
-  StartTime: Mar 23, 2018 05:00 +0000
+# ----------------------------------------------------------

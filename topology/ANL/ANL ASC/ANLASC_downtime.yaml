@@ -7,6 +7,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Mar 3, 2017 00:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: power outage
   EndTime: Mar 7, 2017 03:00 +0000
@@ -17,6 +18,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Mar 5, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: power cut
   EndTime: Mar 7, 2017 03:00 +0000
@@ -26,6 +28,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Mar 5, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: power cut
   EndTime: Mar 7, 2017 03:00 +0000
@@ -36,6 +39,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Mar 5, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: outage to repair power supplies on storage servers
   EndTime: May 15, 2017 21:00 +0000
@@ -45,6 +49,7 @@
   - GridFtp
   Severity: Outage
   StartTime: May 15, 2017 17:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: storage outage on backend storage device
   EndTime: May 15, 2017 21:00 +0000
@@ -55,6 +60,7 @@
   - GridFtp
   Severity: Outage
   StartTime: May 15, 2017 17:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: down time to decommission various space tokens and arraign the space
     differently
@@ -66,6 +72,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jun 5, 2017 00:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: down time to reduce space tokens and remove SRM
   EndTime: Jul 14, 2017 00:00 +0000
@@ -76,3 +83,4 @@
   - GridFtp
   Severity: Outage
   StartTime: Jul 10, 2017 00:00 +0000
+# ----------------------------------------------------------
