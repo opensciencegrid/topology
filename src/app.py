@@ -7,6 +7,8 @@ from flask import Flask, Response, request, render_template
 import logging
 import os
 import re
+import subprocess
+from subprocess import PIPE
 import sys
 import traceback
 import urllib.parse
@@ -66,6 +68,7 @@ if "LOGLEVEL" in app.config:
 
 global_data = GlobalData(app.config, strict=app.config.get("STRICT", app.debug))
 
+src_dir = os.path.abspath(os.path.dirname(__file__))
 
 def _fix_unicode(text):
     """Convert a partial unicode string to full unicode"""
@@ -232,6 +235,87 @@ def generate_downtime():
                        edit_url=edit_url, site_dir_url=site_dir_url,
                        new_url=new_url)
 
+
+@app.route("/pull_request_hook", methods=["POST"])
+def pull_request_hook():
+    event = request.headers.get('X-GitHub-Event')
+    if event == "ping":
+        return Response('Pong')
+    elif event != "pull_request":
+        return Response("Wrong event type", status=400)
+
+    payload = request.get_json()
+    action = payload['action']
+    if action not in ("opened", "edited", "reopened", "synchronize"):
+        return Response("Not Interested")
+    # status=204 : No Content
+
+    sender     = payload['sender']['login']
+
+    head_sha   = payload['pull_request']['head']['sha']
+    head_label = payload['pull_request']['head']['label']
+    head_ref   = payload['pull_request']['head']['ref']
+
+    base_sha   = payload['pull_request']['base']['sha']
+    base_label = payload['pull_request']['base']['label']
+    base_ref   = payload['pull_request']['base']['ref']
+
+    pull_num   = payload['pull_request']['number']
+    pull_url   = payload['pull_request']['html_url']
+
+    pull_ref   = "pull/{pull_num}/head".format(**locals())
+
+    # make sure data repo contains relevant commits
+    stdout, stderr, ret = fetch_data_ref(base_ref, pull_ref)
+
+    if ret == 0:
+        script = src_dir + "/tests/automerge_downtime_ok.py"
+        cmd = [script, base_sha, head_sha, sender]
+        stdout, stderr, ret = runcmd(cmd, cwd=global_data.topology_data_dir)
+
+    OK = "Yes" if ret == 0 else "No"
+
+    subject = "Pull Request {pull_url} {action}".format(**locals())
+
+    out = """\
+In Pull Request: {pull_url}
+GitHub User '{sender}' wants to merge branch {head_label}
+        (at commit {head_sha})
+into {base_label}
+        (at commit {base_sha})
+
+Eligible for downtime automerge? {OK}
+
+automerge_downtime script output:
+---
+{stdout}
+---
+{stderr}
+---
+""".format(**locals())
+
+    recipients = ["edquist@cs.wisc.edu"]
+    _,_,_ = send_mailx_email(subject, out, recipients)
+
+    return Response(out)
+
+
+def runcmd(cmd, input=None, **kw):
+    if input is None:
+        stdin = None
+    else:
+        stdin = PIPE
+    p = subprocess.Popen(cmd, stdout=PIPE, stderr=PIPE, stdin=stdin,
+                         encoding='utf-8', **kw)
+    stdout, stderr = p.communicate(input)
+    return stdout, stderr, p.returncode
+
+def fetch_data_ref(*refs):
+    return runcmd(['git', 'fetch', 'origin'] + list(refs),
+                  cwd=global_data.topology_data_dir)
+
+def send_mailx_email(subject, body, recipients):
+    return runcmd(["mailx", "-s", subject] + recipients, input=body)
 
 def _make_choices(iterable, select_one=False):
     c = [(_fix_unicode(x), _fix_unicode(x)) for x in sorted(iterable)]
