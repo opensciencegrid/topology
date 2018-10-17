@@ -242,4 +242,65 @@
   - Squid
   Severity: Outage
   StartTime: Mar 5, 2018 20:00 +0000
-# ----------------------------------------------------------
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31882641
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:31 +0000
+  ResourceName: SWT2_CPB_DEV
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31882820
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:31 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31883014
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:31 +0000
+  ResourceName: SWT2_CPB_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31883184
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:31 +0000
+  ResourceName: SWT2_CPB_perfSONAR_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31883402
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:32 +0000
+  ResourceName: SWT2_CPB_perfSONAR_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------

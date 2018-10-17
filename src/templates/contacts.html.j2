@@ -1,3 +1,4 @@
+{% set want_js = true %}
 {% extends "base.html.j2" %}
 {% block title -%}
 OSG Contacts
@@ -11,6 +12,7 @@ OSG Contacts
   {% endif %}
   <div class="alert alert-info" role="alert">
     Profile information is provided by the user and may be out of date.
+    To update your information, please contact <a href="mailto:help@opensciencegrid.org">help@opensciencegrid.org</a>.
   </div>
 </div>
 <div class="container">
@@ -32,16 +34,20 @@ OSG Contacts
           {{ user.Profile|replace("\n", "<br>") }}
           <br>
           {%- else -%}
-          <span class="text-danger">(no profile)</span>
+          <span class="text-danger" data-toggle="tooltip" title="Mail help@opensciencegrid.org to update">(no profile)</span>
           {%- endif %}
         </p>
       </div>
-      {% if user.GitHub -%}
       <div class="row">
         <div class="col-sm-3"><span class="font-weight-bold">GitHub:</span></div>
-        <div class="col-sm"><a href="https://github.com/{{user.GitHub}}">{{ user.GitHub }}</a></div>
+        <div class="col-sm">
+          {% if user.GitHub -%}
+          <a href="https://github.com/{{user.GitHub}}">{{ user.GitHub }}</a>
+          {%- else -%}
+          <span class="text-danger" data-toggle="tooltip" title="Mail help@opensciencegrid.org to register">(none)</span>
+          {%- endif %}
+        </div>
       </div>
-      {%- endif %}
       {% if authorized -%}
         <div class="row">
           <div class="col-sm-3"><span class="font-weight-bold">Primary Email:</span></div>
@@ -70,4 +76,10 @@ OSG Contacts
 {% endfor -%}{# user in users #}
 </div>
 {% endblock %}
-
+{% block last %}
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+{% endblock %}
