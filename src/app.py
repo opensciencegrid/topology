@@ -294,7 +294,7 @@ automerge_downtime script output:
 ---
 """.format(**locals())
 
-    recipients = ["edquist@cs.wisc.edu"]
+    recipients = [ x + "@cs.wisc.edu" for x in ("edquist", "matyas", "blin") ]
     _,_,_ = send_mailx_email(subject, out, recipients)
 
     return Response(out)
