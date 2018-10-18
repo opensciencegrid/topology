@@ -310,3 +310,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 49059101
+  Description: Network instabilities due to external issues
+  Severity: Intermittent Outage
+  StartTime: Oct 18, 2018 10:00 +0000
+  EndTime: Oct 19, 2018 10:00 +0000
+  CreatedTime: Oct 18, 2018 18:38 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
