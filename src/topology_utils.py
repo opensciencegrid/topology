@@ -36,6 +36,7 @@ def get_auth_session(args):
         key = args.key
 
     session = requests.Session()
+    session.headers.update({'Cache-Control': 'no-cache, no-store, must-revalidate'})
 
     if os.path.exists(cert):
         session.cert = cert
