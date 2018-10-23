@@ -299,6 +299,8 @@ def _get_authorized():
 
     returns: True if authorized, False otherwise
     """
+    global app
+
     # Loop through looking for all of the creds
     for key, value in request.environ.items():
         if key.startswith('GRST_CRED_AURI_') and value.startswith("dn:"):
@@ -311,6 +313,8 @@ def _get_authorized():
 
             # Authorized dns should be a set, or dict, that supports the "in"
             if client_dn[3:] in authorized_dns: # "dn:" is at the beginning of the DN
+                if app and app.logger:
+                    app.logger.info("Authorized %s", client_dn)
                 return True     
 
     # If it gets here, then it is not authorized
