@@ -266,3 +266,14 @@
   Severity: Outage
   StartTime: Sep 3, 2018 05:00 +0000
 # ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 53539069
+  Description: lustre hardware issue
+  Severity: Severe
+  StartTime: Oct 23, 2018 13:00 +0000
+  EndTime: Oct 23, 2018 21:00 +0000
+  CreatedTime: Oct 23, 2018 23:05 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
