@@ -299,3 +299,36 @@
   Severity: Outage
   StartTime: Mar 6, 2018 12:00 +0000
 # ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 47854584
+  Description: Network is down
+  Severity: Outage
+  StartTime: Oct 17, 2018 09:10 +0000
+  EndTime: Oct 17, 2018 16:10 +0000
+  CreatedTime: Oct 17, 2018 09:10 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 49054289
+  Description: Network instabilities due to external issues
+  Severity: Intermittent Outage
+  StartTime: Oct 18, 2018 10:00 +0000
+  EndTime: Oct 19, 2018 10:00 +0000
+  CreatedTime: Oct 18, 2018 18:30 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 49059101
+  Description: Network instabilities due to external issues
+  Severity: Intermittent Outage
+  StartTime: Oct 18, 2018 10:00 +0000
+  EndTime: Oct 19, 2018 10:00 +0000
+  CreatedTime: Oct 18, 2018 18:38 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------

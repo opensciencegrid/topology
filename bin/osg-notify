@@ -6,6 +6,8 @@ A simple tool for generating notification emails to the OSG
 """
 from __future__ import print_function
 
+import os
+import sys
 import getpass
 import smtplib
 import argparse
@@ -14,6 +16,10 @@ import email.mime.text
 import email.mime.multipart
 
 import gnupg
+
+if __name__ == "__main__" and __package__ is None:
+    _parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    sys.path.append(_parent + "/src")
 
 import topology_utils
 import net_name_addr_utils

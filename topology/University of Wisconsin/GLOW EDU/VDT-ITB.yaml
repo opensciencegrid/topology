@@ -1,10 +1,9 @@
-Disable: true
 GroupDescription: Resource group for Wisconsin's persistent ITB site.
 GroupID: 260
 Production: false
 Resources:
   VDT-ITB-MADISON:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -28,7 +27,6 @@ Resources:
           ID: 19511ac08de9fbb51709a05a707decfe36de286f
           Name: Tim Cartwright
     Description: This is an ITB site run by the OSG Software Team at UW-Madison.
-    Disable: true
     FQDN: itb-ce1.chtc.wisc.edu
     ID: 467
     Services:
