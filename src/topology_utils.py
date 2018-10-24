@@ -80,6 +80,9 @@ def get_vo_map(args, session=None):
     Generate a dictionary mapping from the VO name (key) to the
     VO ID (value).
     """
+    old_no_proxy = os.environ.pop('no_proxy', None)
+    os.environ['no_proxy'] = '.opensciencegrid.org'
+
     url = update_url_hostname("https://my.opensciencegrid.org/vosummary"
                               "/xml?all_vos=on&active_value=1", args)
     if session is None:
@@ -87,6 +90,11 @@ def get_vo_map(args, session=None):
             response = session.get(url)
     else:
         response = session.get(url)
+
+    if old_no_proxy is not None:
+        os.environ['no_proxy'] = old_no_proxy
+    else:
+        del os.environ['no_proxy']
 
     if response.status_code != requests.codes.ok:
         raise Exception("MyOSG request failed (status %d): %s" % \
@@ -162,12 +170,20 @@ def get_contacts(args, urltype, roottype):
     """
     Get one type of contacts for OSG.
     """
+    old_no_proxy = os.environ.pop('no_proxy', None)
+    os.environ['no_proxy'] = '.opensciencegrid.org'
+
     base_url = "https://my.opensciencegrid.org/" + urltype + "summary/xml?" \
                "&active=on&active_value=1&disable=on&disable_value=0"
     with get_auth_session(args) as session:
         url = mangle_url(base_url, args, session)
         #print(url)
         response = session.get(url)
+
+    if old_no_proxy is not None:
+        os.environ['no_proxy'] = old_no_proxy
+    else:
+        del os.environ['no_proxy']
 
     if response.status_code != requests.codes.ok:
         print("MyOSG request failed (status %d): %s" % \
