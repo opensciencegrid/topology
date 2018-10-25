@@ -66,6 +66,7 @@ def main():
     errors += test_4_res_svcs(rgs, rgfns)
     errors += test_5_sc(rgs, rgfns)
     errors += test_6_site()
+    errors += test_8_res_ids()
 
     print("%d Resource Group files processed." % len(rgs))
     if errors:
@@ -83,6 +84,8 @@ _vos_url      = _gh_baseurl + 'virtual-organizations'
 _emsgs = {
     'RGUnique'      : "Resource Group names must be unique across all Sites",
     'ResUnique'     : "Resource names must be unique across the OSG topology",
+    'ResID'         : "Resources must contain a numeric ID",
+    'ResGrpID'      : "Resource Groups must contain a numeric ID",
     'SiteUnique'    : "Site names must be unique across Facilities",
     'FQDNUnique'    : "FQDNs must be unique across the OSG topology",
     'VOOwnership100': "Total VOOwnership must not exceed 100%",
@@ -250,6 +253,23 @@ def test_7_fqdn_unique(rgs, rgfns):
             for rgfile,rname in rgflist:
                 print(" - %s (%s)" % (rname,rgfile))
             errors += 1
+
+    return errors
+
+def test_8_res_ids(rgs, rgfns):
+    # Check that resources/resource groups have a numeric ID/GroupID
+
+    errors = 0
+
+    for rg,rgfn in zip(rgs,rgfns):
+        if not isinstance(rg.get('GroupID'), int):
+            print_emsg_once('ResGrpID')
+            print("Resource Group missing numeric GroupID: '%s'" % rgfn)
+
+        for resname,res in sorted(rg['Resources'].items()):
+            if not isinstance(res.get('ID'), int):
+                print_emsg_once('ResID')
+                print("Resource '%s' missing numeric ID in '%s'" % (res,rgfn))
 
     return errors
 
