@@ -114,6 +114,8 @@ _emsgs = {
     'UnknownVO'     : "Valid VOs are listed here: %s" % _vos_url,
 
     'NoResourceContactLists' : "Resources must contain a ContactLists section",
+    'NoAdminContact'         : "Resources must have an Administrative Contact",
+    'NoSecContact'           : "Resources must have a Security Contact",
     'MalformedContactID'     : "Contact IDs must be exactly 40 hex digits",
     'UnknownContactID'       : "Contact IDs must exist in contact repo",
     'ContactNameMismatch'    : "Contact names must match in contact repo",
@@ -318,6 +320,14 @@ def test_9_res_contacts(rgs, rgfns, contacts):
                       % (rgfn, rname))
                 errors += 1
             else:
+                for ctype, etype in (('Administrative', 'NoAdminContact'),
+                                     ('Security',       'NoSecContact')):
+                    if not rcls.get('%s Contact' % ctype):
+                        print_emsg_once(etype)
+                        print("In '%s', Resource '%s' has no %s Contact"
+                              % (rgfn, rname, ctype))
+                        errors += 1
+
                 for ctype, clevel, ID, name in flatten_res_contacts(rcls):
                     if not re.search(r'^[0-9a-f]{40}$', ID):
                         print_emsg_once('MalformedContactID')
