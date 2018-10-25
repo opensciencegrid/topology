@@ -6,6 +6,14 @@ Resources:
   ESnet LHCONE perfSONAR Washington:
     Active: true
     ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
     Description: The ESnet LHCONE instance in Washington
     Disable: false
     FQDN: lhcone-wash-opt1.es.net
@@ -25,7 +33,11 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary:
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: Internet2 LHCONE perfSONAR instance at the Washington Exchange
