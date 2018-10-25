@@ -4,6 +4,23 @@ GroupID: 381
 Production: true
 Resources:
   FIFEBATCH2:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: cb3df172259e3b8a8764e52c034db2b065a32129
+          Name: FermiGrid Helpdesk
+      Administrative Contact:
+        Primary:
+          ID: cb3df172259e3b8a8764e52c034db2b065a32129
+          Name: FermiGrid Helpdesk
+      Miscellaneous Contact:
+        Primary:
+          ID: cb3df172259e3b8a8764e52c034db2b065a32129
+          Name: FermiGrid Helpdesk
+      Resource Report Contact:
+        Primary:
+          ID: cb3df172259e3b8a8764e52c034db2b065a32129
+          Name: FermiGrid Helpdesk
     Active: false
     Description: 'Job submission node behind fifebatch.fnal.gov
 

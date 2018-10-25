@@ -4,6 +4,23 @@ GroupID: 387
 Production: true
 Resources:
   FZU_NOVA:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Administrative Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Miscellaneous Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Resource Report Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
     Active: false
     Description: This is CE for NOvA production at FZU
     Disable: true
@@ -24,6 +41,23 @@ Resources:
       DZero: 10
       Nova: 60
   FZU_NOVA_CE:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Administrative Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Miscellaneous Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Resource Report Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
     Active: true
     Description: This is CE for NOvA production at FZU (new local HTCondor batch)
     Disable: false
@@ -48,6 +82,23 @@ Resources:
       DZero: 10
       Nova: 60
   FZU_OSG_CE1:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Administrative Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Miscellaneous Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Resource Report Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
     Active: true
     Description: This is CE for OSG (NOvA, DUNE) production at FZU (new cluster with
       HTCondor local batch system)
@@ -65,6 +116,23 @@ Resources:
       DZero: 10
       Nova: 45
   FZU_OSG_CE2:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Administrative Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Miscellaneous Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Resource Report Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
     Active: true
     Description: This is CE for OSG (NOvA, DUNE) production at FZU (new cluster with
       HTCondor local batch system)
@@ -82,6 +150,15 @@ Resources:
       DZero: 10
       Nova: 45
   perfSONAR_FZU_bandwidth:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Administrative Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
     Active: true
     Description: This is the perfSONAR-PS bandwidth instance at the FZU cluster farm.particle.cz
     Disable: false
@@ -95,6 +172,15 @@ Resources:
     VOOwnership:
       ATLAS: 50
   perfSONAR_FZU_latency:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Administrative Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
     Active: true
     Description: This is the perfSONAR-PS latency instance at the FZU cluster farm.particle.cz
     Disable: false
