@@ -6,6 +6,14 @@ Resources:
   BNL/ESnet perfSONAR:
     Active: true
     ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
     Description: The BNL / ESnet LHCONE perfSONAR instance
     Disable: false
     FQDN: quark.es.net
@@ -25,7 +33,11 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary:
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: The Internet2 perfSONAR instance for LHCONE at MANLAN
