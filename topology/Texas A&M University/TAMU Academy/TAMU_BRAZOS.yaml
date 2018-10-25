@@ -29,10 +29,6 @@ Resources:
         Primary:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
-      Submitter Contact:
-        Primary:
-          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
-          Name: John Dockendorf
     Description: This is the gatekeeper host supporting the Texas A&M CMS T3 site.
     Disable: false
     FQDN: ce01.brazos.tamu.edu
@@ -78,10 +74,6 @@ Resources:
         Primary:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
-      Submitter Contact:
-        Primary:
-          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
-          Name: John Dockendorf
     Description: GridFTP service for TAMU_BRAZOS
     Disable: false
     FQDN: gw01.brazos.tamu.edu
@@ -113,10 +105,6 @@ Resources:
         Primary:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
-      Submitter Contact:
-        Primary:
-          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
-          Name: John Dockendorf
     Description: GridFTP service for TAMU_BRAZOS
     Disable: false
     FQDN: gw02.brazos.tamu.edu
@@ -155,10 +143,6 @@ Resources:
           ID: 36286151aba761fb0b42068c2320c47b932a21bc
           Name: Guy T Almes
       Security Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-      Submitter Contact:
         Primary:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
@@ -210,10 +194,6 @@ Resources:
         Secondary:
           ID: 36286151aba761fb0b42068c2320c47b932a21bc
           Name: Guy T Almes
-      Submitter Contact:
-        Primary:
-          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
-          Name: John Dockendorf
     Description: This PerfSONAR node has a 10Gbps interface.
     Disable: false
     FQDN: psonar-bwctl.brazos.tamu.edu
@@ -250,10 +230,6 @@ Resources:
         Secondary:
           ID: 36286151aba761fb0b42068c2320c47b932a21bc
           Name: Guy T Almes
-      Submitter Contact:
-        Primary:
-          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
-          Name: John Dockendorf
     Description: PerfSONAR latency node
     Disable: false
     FQDN: psonar-owamp.brazos.tamu.edu

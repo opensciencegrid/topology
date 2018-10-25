@@ -21,10 +21,6 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
     Description: moved under the resource group BNL_LCG2. This will set the stage
       for unified site availability with WLCG.
     Disable: false
@@ -67,10 +63,6 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
     Description: change resource groupname to BNL-LCG2
     Disable: false
     FQDN: gridgk02.racf.bnl.gov
@@ -112,10 +104,6 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
     Disable: false
@@ -161,10 +149,6 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
     Description: This is just another gatekeeper, sharing the same backend resources
       with the other BNL_ATLAS_X gatekeepers.
     Disable: false
@@ -207,10 +191,6 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
     Disable: false
@@ -256,10 +236,6 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
     Disable: false
@@ -303,10 +279,6 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
     Description: This CE will serve grid jobs submitted to the *local* USATLAS resources,
       e.g. for panda queue ANALY_BNL_LOCAL, at BNL.
     Disable: false
@@ -342,10 +314,6 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
-          Name: John S. De Stefano Jr.
     Description: Round robin DNS alias for our two Frontier Squid nodes.
     Disable: false
     FQDN: frontier-cache.racf.bnl.gov
@@ -377,10 +345,6 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
     Description: moved under the resource group BNL_LCG2. This will set the stage
       for unified site availability with WLCG.
     Disable: false
@@ -424,10 +388,6 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
     Description: SE at Amazon east region
     Disable: false
     FQDN: bestse01.usatlas.bnl.gov
@@ -469,10 +429,6 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
     Description: SE at Amazon wes -1 region
     Disable: false
     FQDN: bestse02.usatlas.bnl.gov
@@ -523,10 +479,6 @@ Resources:
         Secondary:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
     Description: SE at Amazon West-2 region.
     Disable: false
     FQDN: bestse03.usatlas.bnl.gov
@@ -560,10 +512,6 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
-      Submitter Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
     Description: perfSonar box
     Disable: false
     FQDN: lhcmon.bnl.gov
@@ -586,10 +534,6 @@ Resources:
         Primary:
           ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
           Name: Hironori Ito
-      Submitter Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
     Description: perfSonar box
     Disable: false
     FQDN: lhcperfmon.bnl.gov
@@ -609,10 +553,6 @@ Resources:
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
           Name: BNL Atlas Tier 1 support
       Security Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Submitter Contact:
         Primary:
           ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
           Name: Hironori Ito
