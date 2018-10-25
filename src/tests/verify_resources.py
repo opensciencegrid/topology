@@ -66,7 +66,7 @@ def main():
     errors += test_4_res_svcs(rgs, rgfns)
     errors += test_5_sc(rgs, rgfns)
     errors += test_6_site()
-    errors += test_8_res_ids()
+    errors += test_8_res_ids(rgs, rgfns)
 
     print("%d Resource Group files processed." % len(rgs))
     if errors:
