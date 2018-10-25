@@ -1,0 +1,28 @@
+Disable: false
+GroupDescription: NWICG_Eddie
+GroupID: 
+Production: true
+Resources:
+  NWICG_Eddie:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1a6defbcb27777eae626bbb0ae9f4d0a281dd641
+          Name: Irena Johnson
+      Security Contact:
+        Primary:
+          ID: 1a6defbcb27777eae626bbb0ae9f4d0a281dd641
+          Name: Irena Johnson
+    Description: The FQDN is "eddie.crc.nd.edu"
+    Disable: false
+    FQDN: eddie.crc.nd.edu
+    ID: 
+    Services:
+      SQUID:
+        Description: Squid Server
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 
+SupportCenter: NWICG
