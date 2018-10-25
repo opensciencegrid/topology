@@ -1,9 +1,9 @@
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 from datetime import datetime, timedelta, timezone
 from enum import Enum
 from logging import getLogger
 import urllib.parse
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 from .common import MaybeOrderedDict, RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
     is_null, expand_attr_list_single, expand_attr_list, ensure_list
@@ -66,7 +66,14 @@ class Resource(object):
             self.services = self._expand_services(yaml_data["Services"])
         else:
             self.services = []
+        self.service_names = [n["Name"] for n in self.services if "Name" in n]
         self.data = yaml_data
+        if is_null(yaml_data, "FQDN"):
+            raise ValueError(f"Resource {name} does not have an FQDN")
+
+    @property
+    def fqdn(self):
+        return self.data["FQDN"]
 
     def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
         if filters is None:
@@ -213,10 +220,11 @@ class ResourceGroup(object):
         self.resources = []
         for name, res in yaml_data["Resources"].items():
             try:
-                assert isinstance(res, dict)
+                if not isinstance(res, dict):
+                    raise TypeError("expecting a dict")
                 res = Resource(name, res, self.common_data)
                 self.resources.append(res)
-            except (AttributeError, KeyError, ValueError) as err:
+            except (AttributeError, KeyError, TypeError, ValueError) as err:
                 log.exception("Error with resource %s: %s", name, err)
                 continue
         self.resources.sort(key=lambda x: x.name)
@@ -284,6 +292,7 @@ class ResourceGroup(object):
 
 class Downtime(object):
     TIME_OUTPUT_FMT = "%b %d, %Y %H:%M %p %Z"
+    PREFERRED_TIME_FMT = "%b %d, %Y %H:%M %z"  # preferred format, e.g. "Mar 7, 2017 03:00 -0500"
 
     def __init__(self, rg: ResourceGroup, yaml_data: Dict):
         self.rg = rg
@@ -388,15 +397,21 @@ class Downtime(object):
     def fmttime(cls, a_time: datetime) -> str:
         return a_time.strftime(cls.TIME_OUTPUT_FMT)
 
-    @staticmethod
-    def parsetime(time_str: str) -> datetime:
+    @classmethod
+    def fmttime_preferred(cls, a_time: datetime) -> str:
+        if not a_time.tzinfo:
+            a_time = a_time.replace(tzinfo=timezone.utc)
+        return a_time.strftime(cls.PREFERRED_TIME_FMT)
+
+    @classmethod
+    def parsetime(cls, time_str: str) -> datetime:
         """Parse the downtime found in the YAML file; tries multiple formats,
         returns the first one that matches.
 
         Raises ValueError if time_str cannot be parsed with any of the formats.
         """
 
-        fmts = ["%b %d, %Y %H:%M %z",  # preferred format, e.g. "Mar 7, 2017 03:00 -0500"
+        fmts = [cls.PREFERRED_TIME_FMT,
                 "%b %d, %Y %H:%M UTC",  # explicit UTC timezone
                 "%b %d, %Y %H:%M",  # without timezone (assumes UTC)
                 "%b %d, %Y %H:%M %p UTC"]  # format existing data is in, e.g. "Mar 7, 2017 03:00 AM UTC"
@@ -426,11 +441,19 @@ class Topology(object):
         self.facilities = {}
         self.sites = {}
         # rgs are keyed by (site_name, rg_name) tuple
-        self.rgs = {}
+        self.rgs = {}  # type: Dict[Tuple[str, str], ResourceGroup]
+        self.resources_by_facility = defaultdict(list)
+        self.service_names_by_resource = {}  # type: Dict[str, List[str]]
+        self.downtime_path_by_resource = {}
 
     def add_rg(self, facility_name, site_name, name, parsed_data):
         try:
-            self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
+            rg = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
+            self.rgs[(site_name, name)] = rg
+            for r in rg.resources:
+                self.resources_by_facility[facility_name].append(r)
+                self.service_names_by_resource[r.name] = r.service_names
+                self.downtime_path_by_resource[r.name] = f"{facility_name}/{site_name}/{name}_downtime.yaml"
         except (AttributeError, KeyError, ValueError) as err:
             log.exception("RG %s, %s error: %s; skipping", site_name, name, err)
 

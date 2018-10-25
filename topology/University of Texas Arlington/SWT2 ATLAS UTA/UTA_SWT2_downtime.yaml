@@ -9,6 +9,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Aug 24, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
@@ -19,6 +20,7 @@
   - net.perfSONAR.Bandwidth
   Severity: Outage
   StartTime: Aug 24, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
@@ -29,6 +31,7 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Aug 24, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
@@ -39,6 +42,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Aug 24, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
@@ -52,6 +56,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Nov 8, 2016 06:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
@@ -63,6 +68,7 @@
   - net.perfSONAR.Bandwidth
   Severity: Outage
   StartTime: Nov 8, 2016 06:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
@@ -75,6 +81,7 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Nov 8, 2016 06:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
@@ -87,6 +94,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Nov 8, 2016 06:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We will be replacing the switch fabric of the cluster and moving various
     machines
@@ -98,6 +106,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Aug 31, 2017 17:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We will be replacing the switch fabric of the cluster and moving machines
     around.
@@ -108,6 +117,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Aug 31, 2017 17:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Need to reboot a storage host.
   EndTime: Dec 5, 2017 03:00 +0000
@@ -117,6 +127,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Dec 4, 2017 23:45 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Loss of network connectivity to the cluster.
   EndTime: Mar 7, 2018 06:00 +0000
@@ -127,6 +138,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Mar 5, 2018 20:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Loss of network connectivity to the cluster.
   EndTime: Mar 7, 2018 06:00 +0000
@@ -136,6 +148,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Mar 5, 2018 20:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Loss of network connectivity to the cluster.
   EndTime: Mar 7, 2018 06:00 +0000
@@ -145,3 +158,16 @@
   - Squid
   Severity: Outage
   StartTime: Mar 5, 2018 20:00 +0000
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31881102
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:28 +0000
+  ResourceName: UTA_SWT2_perfSONAR_latency
+  Services:
+  - net.perfSONAR.Latency
+# ----------------------------------------------------------

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>{% block title %}{% endblock %}{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</title>
+<link rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" 
+      integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE="
+      crossorigin="anonymous" />
+{% block morehead %}{% endblock %}
+</head>
+<body>
+{% if want_js -%}
+<div class="nojs"><!-- there's some JS below to remove this if jquery successfully loads -->
+  <div class="alert alert-danger" role="alert">Please enable JavaScript and allow our JavaScript libraries to load.</div>
+</div>
+{%- endif %}
+<h1 class="text-center">{{ self.title() }}{% if config.INSTANCE_NAME %} ({{ config.INSTANCE_NAME }}){% endif %}</h1>
+{% block content %}{% endblock %}
+{% if want_js -%}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" 
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" 
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" 
+        integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" 
+        crossorigin="anonymous"></script>
+<script>$(".nojs").remove();</script>
+{%- endif %}
+{% block last %}{% endblock %}
+</body>
+</html>

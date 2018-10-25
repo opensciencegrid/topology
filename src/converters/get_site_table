@@ -12,6 +12,7 @@ USE oim;
 SELECT
     site.id AS ID,
     site.name AS Name,
+    facility.name AS Facility,
     site.long_name AS LongName,
     site.description AS Description,
     site.address_line_1 AS AddressLine1,
@@ -20,8 +21,9 @@ SELECT
     site.zipcode AS Zipcode,
     site.country AS Country,
     site.longitude AS Longitude,
-    site.latitude AS Latitude
-    FROM oim.site
+    site.latitude AS Latitude,
+    site.city AS City
+    FROM oim.site INNER JOIN oim.facility ON site.facility_id = facility.id
 ;
 __EOF__
 sed -i -e "s/\r//g" "$outfile"

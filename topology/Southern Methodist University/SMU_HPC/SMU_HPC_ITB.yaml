@@ -4,7 +4,7 @@ GroupID: 416
 Production: false
 Resources:
   SMU_HPC:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -23,14 +23,14 @@ Resources:
           ID: d8be00fb90a6a6da5bc80cf9ccb19e7f971c626b
           Name: Amit Kumar
     Description: Southern Methodist University HPC
-    Disable: false
+    Disable: true
     FQDN: smuosg1.hpc.smu.edu
     ID: 259
     Services:
       CE:
         Description: Compute Element
         Details:
-          hidden: false
+          hidden: true
     VOOwnership:
       Nova: 10
     WLCGInformation:
@@ -44,7 +44,7 @@ Resources:
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
   SMU_HPC_SE:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -63,14 +63,14 @@ Resources:
           ID: d8be00fb90a6a6da5bc80cf9ccb19e7f971c626b
           Name: Amit Kumar
     Description: SMU Storage Element
-    Disable: false
+    Disable: true
     FQDN: smuosgse.hpc.smu.edu
     ID: 303
     Services:
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
-          hidden: false
+          hidden: true
     WLCGInformation:
       APELNormalFactor: 0
       HEPSPEC: 12000

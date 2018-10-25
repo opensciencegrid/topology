@@ -7,6 +7,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 19, 2016 09:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Regularly scheduled maintenance.
   EndTime: Jul 22, 2016 14:00 +0000
@@ -16,15 +17,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Jul 19, 2016 09:00 +0000
-- Class: SCHEDULED
-  Description: Regularly scheduled maintenance.
-  EndTime: Jul 22, 2016 14:00 +0000
-  ID: 1004965
-  ResourceName: Georgia_Tech_PACE_Squid_1
-  Services:
-  - Squid
-  Severity: Outage
-  StartTime: Jul 19, 2016 09:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled quarterly maintenance.
   EndTime: Aug 12, 2017 04:00 +0000
@@ -34,6 +27,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 10, 2017 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled quarterly maintenance.
   EndTime: Aug 12, 2017 04:00 +0000
@@ -43,15 +37,7 @@
   - GridFtp
   Severity: Outage
   StartTime: Aug 10, 2017 10:00 +0000
-- Class: SCHEDULED
-  Description: Scheduled quarterly maintenance.
-  EndTime: Aug 12, 2017 04:00 +0000
-  ID: 1005399
-  ResourceName: Georgia_Tech_PACE_Squid_1
-  Services:
-  - Squid
-  Severity: Outage
-  StartTime: Aug 10, 2017 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled quarterly maintenance
   EndTime: May 13, 2018 03:55 +0000
@@ -61,6 +47,7 @@
   - CE
   Severity: Outage
   StartTime: May 10, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled quarterly maintenance
   EndTime: May 13, 2018 03:55 +0000
@@ -70,12 +57,4 @@
   - GridFtp
   Severity: Outage
   StartTime: May 10, 2018 10:00 +0000
-- Class: SCHEDULED
-  Description: Scheduled quarterly maintenance
-  EndTime: May 13, 2018 03:55 +0000
-  ID: 1005671
-  ResourceName: Georgia_Tech_PACE_Squid_1
-  Services:
-  - Squid
-  Severity: Outage
-  StartTime: May 10, 2018 10:00 +0000
+# ----------------------------------------------------------

@@ -13,6 +13,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 27, 2016 11:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi All,
@@ -30,6 +31,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 5, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     The Purdue Tier-2 site will have a scheduled downtime on Saturday,
@@ -48,6 +50,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 14, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: T2_US_Purdue is down due to a loss of power in the campus datacenter.
   EndTime: Jul 20, 2017 23:00 +0000
@@ -57,6 +60,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 20, 2017 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Purdue-Rice gatekeeper will be unavailable beginning at Wednesday, September 20th, 2017 at 8:00am, for scheduled maintenance. It will return to full production by Wednesday, September 20th, 2017 at 5:00pm.
@@ -70,6 +74,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 20, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     We will be upgrading the kernel on the Storage Element (hadoop namenodes).  During this upgrade, Purdue CMS T-2 resources will be unavailable.
@@ -84,6 +89,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 6, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005703
   Description: Cooling and network maintenance
@@ -94,3 +100,17 @@
   ResourceName: Purdue-Rice
   Services:
     - CE
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1005713
+  Description: Need to be moved
+  Severity: Outage
+  StartTime: Sep 6, 2018 08:00 -0400
+  EndTime: Sep 6, 2018 17:59 -0400
+  CreatedTime: Sep 4, 2018 15:40 -0400
+  CreatedTime: Sep 4, 2018 15:25 -0400
+  ResourceName: Purdue-Rice
+  Services:
+    - CE
+
+# ----------------------------------------------------------

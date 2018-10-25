@@ -4,6 +4,15 @@ GroupID: 287
 Production: true
 Resources:
   UCI_ATLAS_GRIDFTP:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: bb69da4f25103364b78eec103a2b084e289af8ee
+          Name: Anyes Taffard
+      Administrative Contact:
+        Primary:
+          ID: bb69da4f25103364b78eec103a2b084e289af8ee
+          Name: Anyes Taffard
     Active: true
     Description: UCI gridftp
     Disable: false
@@ -47,10 +56,6 @@ Resources:
         Secondary:
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
           Name: Jeffrey Michael Dost
-      Submitter Contact:
-        Primary:
-          ID: a89087e73b4e9d1732c5a7112332688940f06440
-          Name: Edgar Mauricio Fajardo Hernandez
     Description: LHC @ UC glidein scheduler submit host. This host is hosted at UCI
       and managed via puppet at UCSD.
     Disable: false

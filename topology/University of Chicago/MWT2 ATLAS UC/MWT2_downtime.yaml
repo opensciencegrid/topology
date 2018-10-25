@@ -7,6 +7,7 @@
   - CE
   Severity: Outage
   StartTime: May 25, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Monthly PM
   EndTime: Jun 16, 2016 13:00 +0000
@@ -16,6 +17,7 @@
   - CE
   Severity: Outage
   StartTime: Jun 15, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     MWT2 is having serious problems with its internal network
@@ -27,6 +29,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jun 16, 2016 17:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Networking at the UChicago site is currently down due to an unknown problem.
@@ -43,6 +46,7 @@
   - SRMv2
   Severity: Severe
   StartTime: Jun 25, 2016 16:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     The dCache name server is having a hardware problem
@@ -55,6 +59,7 @@
   - SRMv2
   Severity: Severe
   StartTime: Jul 18, 2016 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: ICC Monthly PM
   EndTime: Jul 20, 2016 19:00 +0000
@@ -64,6 +69,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 20, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Fiber cut knocked out the the UIUC connection to LHC1 and UChicago, etc
@@ -78,6 +84,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 4, 2016 17:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Network connectivity between UIUC and UChicago broke around 12:45 CDT
@@ -90,6 +97,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 6, 2016 17:45 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Unexpected network issues. Workers are seeing something as high as
     90% packet loss internally
@@ -100,6 +108,7 @@
   - CE
   Severity: Intermittent Outage
   StartTime: Aug 17, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Unexpected network issues. We're seeing as high as 90% packet loss
     internally.
@@ -110,6 +119,7 @@
   - SRMv2
   Severity: Intermittent Outage
   StartTime: Aug 17, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Firmware upgrade for switches
   EndTime: Aug 23, 2016 19:00 +0000
@@ -119,6 +129,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 23, 2016 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Networking at UChicago will be down for a firmware update on the central Juniper EX9208 switch
@@ -135,6 +146,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 21, 2016 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Networking at UChicago will be down for a firmware update on the central Juniper EX9208 switch
@@ -148,6 +160,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Sep 21, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Networking at UChicago will be down for a firmware update on the central Juniper EX9208 switch
@@ -161,6 +174,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 21, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Networking at UChicago will be down for a firmware update on the central Juniper EX9208 switch
@@ -174,6 +188,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 21, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Networking at UChicago will be down for a firmware update on the central Juniper EX9208 switch
@@ -187,6 +202,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 21, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Networking at UChicago will be down for a firmware update on the central
     Juniper EX9208. This is a continuation of the downtime scheduled on September
@@ -198,6 +214,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 29, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Networking at UChicago will be down for a firmware update on the central
     Juniper EX9208. This is a continuation of the downtime scheduled on September
@@ -209,6 +226,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 29, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Networking at UChicago will be down for a firmware update on the central
     Juniper EX9208. This is a continuation of the downtime scheduled on September
@@ -220,6 +238,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Sep 29, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Networking at UChicago will be down for a firmware update on the central
     Juniper EX9208. This is a continuation of the downtime scheduled on September
@@ -231,6 +250,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 29, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Networking at UChicago will be down for a firmware update on the central
     Juniper EX9208. This is a continuation of the downtime scheduled on September
@@ -242,6 +262,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 29, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Monthly ICC PM
   EndTime: Nov 9, 2016 23:00 +0000
@@ -251,6 +272,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 9, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: GPFS file system failure on campus cluster
   EndTime: Nov 20, 2016 03:00 +0000
@@ -260,6 +282,7 @@
   - CE
   Severity: Severe
   StartTime: Nov 20, 2016 01:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Monthy ICC PM
   EndTime: Dec 8, 2016 04:00 +0000
@@ -269,6 +292,7 @@
   - CE
   Severity: Outage
   StartTime: Dec 7, 2016 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Major cooling loss at UChicago site has taken all of MWT2 down
   EndTime: Jan 11, 2017 04:00 +0000
@@ -278,6 +302,7 @@
   - SRMv2
   Severity: Severe
   StartTime: Jan 10, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Major cooling loss at UChicago site has taken all of MWT2 down
   EndTime: Jan 11, 2017 04:00 +0000
@@ -287,6 +312,7 @@
   - CE
   Severity: Severe
   StartTime: Jan 10, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Major cooling loss at UChicago site has taken all of MWT2 down
   EndTime: Jan 11, 2017 04:00 +0000
@@ -296,6 +322,7 @@
   - CE
   Severity: Severe
   StartTime: Jan 10, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Major cooling loss at UChicago site has taken all of MWT2 down
   EndTime: Jan 11, 2017 04:00 +0000
@@ -305,6 +332,7 @@
   - CE
   Severity: Severe
   StartTime: Jan 10, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Major cooling loss at UChicago site has taken all of MWT2 down
   EndTime: Jan 11, 2017 04:00 +0000
@@ -314,6 +342,7 @@
   - CE
   Severity: Severe
   StartTime: Jan 10, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Data corruption on the data01 (home/projects) disk has taken all Illinois
     nodes offline
@@ -324,6 +353,7 @@
   - CE
   Severity: Severe
   StartTime: Jan 12, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: GPFS problems
   EndTime: Jan 16, 2017 18:00 +0000
@@ -333,6 +363,7 @@
   - CE
   Severity: Severe
   StartTime: Jan 14, 2017 17:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Monthly ICC PM
   EndTime: Feb 17, 2017 00:00 +0000
@@ -342,6 +373,7 @@
   - CE
   Severity: Outage
   StartTime: Feb 15, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Switch upgrade
   EndTime: Mar 2, 2017 23:00 +0000
@@ -351,6 +383,7 @@
   - CE
   Severity: Outage
   StartTime: Mar 2, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Switch upgrade
   EndTime: Mar 2, 2017 23:00 +0000
@@ -360,6 +393,7 @@
   - CE
   Severity: Outage
   StartTime: Mar 2, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: move dCache SRM and Nameserver to new hardware
   EndTime: May 18, 2017 16:45 +0000
@@ -369,6 +403,7 @@
   - SRMv2
   Severity: Outage
   StartTime: May 16, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Schedule total power outage for the Advanced Compution Build where the Illinois Campus Cluster resides.
@@ -382,6 +417,7 @@
   - CE
   Severity: Outage
   StartTime: May 20, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Emergency downtime due to IUT2 hypervisor failure
   EndTime: Aug 9, 2017 17:00 +0000
@@ -391,6 +427,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 9, 2017 00:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache upgrade to 3.1
   EndTime: Aug 18, 2017 22:00 +0000
@@ -400,6 +437,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 14, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache upgrade to 3.1
   EndTime: Aug 18, 2017 22:00 +0000
@@ -409,6 +447,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 14, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache upgrade to 3.1
   EndTime: Aug 18, 2017 22:00 +0000
@@ -418,6 +457,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 14, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache upgrade to 3.1
   EndTime: Aug 18, 2017 22:00 +0000
@@ -427,6 +467,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Aug 14, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: dCache maintenance
   EndTime: Aug 22, 2017 18:20 +0000
@@ -436,6 +477,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 22, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: dCache maintenance
   EndTime: Aug 22, 2017 18:20 +0000
@@ -445,6 +487,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 22, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: dCache maintenance
   EndTime: Aug 22, 2017 18:20 +0000
@@ -454,6 +497,7 @@
   - CE
   Severity: Outage
   StartTime: Aug 22, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: dCache maintenance
   EndTime: Aug 22, 2017 18:20 +0000
@@ -463,6 +507,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Aug 22, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: ICC PM
   EndTime: Sep 20, 2017 20:00 +0000
@@ -472,6 +517,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 20, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled maintenance for UC hypervisors
   EndTime: Oct 23, 2017 18:00 +0000
@@ -481,6 +527,7 @@
   - CE
   Severity: Outage
   StartTime: Oct 23, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled maintenance for UC hypervisors
   EndTime: Oct 23, 2017 18:00 +0000
@@ -490,6 +537,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Oct 23, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled maintenance for UC hypervisors
   EndTime: Oct 23, 2017 18:00 +0000
@@ -499,6 +547,7 @@
   - CE
   Severity: Outage
   StartTime: Oct 23, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled maintenance for UC hypervisors
   EndTime: Oct 23, 2017 22:00 +0000
@@ -508,6 +557,7 @@
   - CE
   Severity: Outage
   StartTime: Oct 23, 2017 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache maintenance
   EndTime: Nov 20, 2017 19:00 +0000
@@ -517,6 +567,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Nov 20, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache maintenance
   EndTime: Nov 20, 2017 19:00 +0000
@@ -526,6 +577,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 20, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache maintenance
   EndTime: Nov 20, 2017 19:00 +0000
@@ -535,6 +587,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 20, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache maintenance
   EndTime: Nov 20, 2017 19:00 +0000
@@ -544,6 +597,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 20, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: ICC PM
   EndTime: Jan 20, 2018 05:00 +0000
@@ -553,6 +607,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 17, 2018 06:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Replace grid9 home disks
   EndTime: Jan 18, 2018 15:00 +0000
@@ -562,6 +617,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jan 17, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Replace grid9 home disk
   EndTime: Jan 18, 2018 15:00 +0000
@@ -571,6 +627,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 17, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Replace grid9 home disk
   EndTime: Jan 18, 2018 15:00 +0000
@@ -580,6 +637,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 17, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Replace grid9 home disk
   EndTime: Jan 18, 2018 15:00 +0000
@@ -589,6 +647,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 17, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Hypervisor failure with VMs critical for dCache operations
   EndTime: Jan 27, 2018 00:00 +0000
@@ -598,6 +657,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Jan 26, 2018 21:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Network Switch failure
   EndTime: Feb 6, 2018 05:00 +0000
@@ -607,6 +667,7 @@
   - CE
   Severity: Outage
   StartTime: Feb 5, 2018 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Move GRIDFTP door to new hypervisor
   EndTime: Feb 21, 2018 15:45 +0000
@@ -616,6 +677,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Feb 21, 2018 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache maintenance
   EndTime: Apr 11, 2018 15:40 +0000
@@ -625,6 +687,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 11, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache maintenance
   EndTime: Apr 11, 2018 15:40 +0000
@@ -634,6 +697,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 11, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache maintenance
   EndTime: Apr 11, 2018 15:40 +0000
@@ -643,6 +707,7 @@
   - CE
   Severity: Outage
   StartTime: Apr 11, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: dCache maintenance
   EndTime: Apr 11, 2018 15:40 +0000
@@ -652,6 +717,7 @@
   - SRMv2
   Severity: Outage
   StartTime: Apr 11, 2018 14:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: ICC PM
   EndTime: May 16, 2018 22:00 +0000
@@ -661,6 +727,7 @@
   - CE
   Severity: Outage
   StartTime: May 16, 2018 13:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Emergency dCache maintenance
   EndTime: May 18, 2018 18:00 +0000
@@ -670,3 +737,27 @@
   - SRMv2
   Severity: Outage
   StartTime: May 18, 2018 16:00 +0000
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  Description: ICC PM
+  EndTime: Sep 20, 2018 01:00 +0000
+  ID: 1005725
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+  Severity: Outage
+  StartTime: Sep 19, 2018 13:00 +0000
+  CreatedTime: Sep 18, 2018 18:17 +0000
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 42866791
+  Description: ICC PM
+  Severity: Outage
+  StartTime: Oct 17, 2018 13:00 +0000
+  EndTime: Oct 18, 2018 01:00 +0000
+  CreatedTime: Oct 11, 2018 14:37 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
+

@@ -83,16 +83,13 @@ def main():
     errors += test_4_res_svcs(rgs, rgfns)
     errors += test_5_sc(rgs, rgfns)
     errors += test_6_site()
-    warnings += test_7_fqdn_unique(rgs, rgfns)
-    errors += test_8_res_contacts(rgs, rgfns, contacts)
+    errors += test_8_res_ids(rgs, rgfns)
+    errors += test_9_res_contacts(rgs, rgfns, contacts)
 
     print("%d Resource Group files processed." % len(rgs))
     if errors:
         print("%d error(s) encountered." % errors)
         return 1
-    elif warnings:
-        print("%d warning(s) encountered." % warnings)
-        return 0
     else:
         print("A-OK.")
         return 0
@@ -107,6 +104,8 @@ _vos_url      = _gh_baseurl + 'virtual-organizations'
 _emsgs = {
     'RGUnique'      : "Resource Group names must be unique across all Sites",
     'ResUnique'     : "Resource names must be unique across the OSG topology",
+    'ResID'         : "Resources must contain a numeric ID",
+    'ResGrpID'      : "Resource Groups must contain a numeric ID",
     'SiteUnique'    : "Site names must be unique across Facilities",
     'FQDNUnique'    : "FQDNs must be unique across the OSG topology",
     'VOOwnership100': "Total VOOwnership must not exceed 100%",
@@ -282,12 +281,30 @@ def test_7_fqdn_unique(rgs, rgfns):
 
     return errors
 
+def test_8_res_ids(rgs, rgfns):
+    # Check that resources/resource groups have a numeric ID/GroupID
+
+    errors = 0
+
+    for rg,rgfn in zip(rgs,rgfns):
+        if not isinstance(rg.get('GroupID'), int):
+            print_emsg_once('ResGrpID')
+            print("Resource Group missing numeric GroupID: '%s'" % rgfn)
+
+        for resname,res in sorted(rg['Resources'].items()):
+            if not isinstance(res.get('ID'), int):
+                print_emsg_once('ResID')
+                print("Resource '%s' missing numeric ID in '%s'" % (res,rgfn))
+
+    return errors
+
 def flatten_res_contacts(rcls):
     for ctype,ctype_d in sorted(rcls.items()):
         for clevel,clevel_d in sorted(ctype_d.items()):
             yield ctype, clevel, clevel_d.get("ID"), clevel_d.get("Name")
 
-def test_8_res_contacts(rgs, rgfns, contacts):
+
+def test_9_res_contacts(rgs, rgfns, contacts):
     # verify resource contacts against contact repo
 
     errors = 0

@@ -8,6 +8,7 @@
   - net.perfSONAR.Bandwidth
   Severity: Outage
   StartTime: Aug 24, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We will be transitioning our networking to new paths/routers during
     this period.
@@ -18,6 +19,7 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Aug 24, 2016 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Loss of cooling in the machine room is forcing us to shutdown
   EndTime: Oct 14, 2016 23:00 +0000
@@ -27,6 +29,7 @@
   - net.perfSONAR.Bandwidth
   Severity: Outage
   StartTime: Oct 14, 2016 05:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Loss of cooling in the machine room is forcing us to shutdown
   EndTime: Oct 14, 2016 23:00 +0000
@@ -36,6 +39,7 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Oct 14, 2016 05:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: We are experiencing an extended network outage.  Waiting to hear when
     it will be resolved
@@ -46,6 +50,7 @@
   - net.perfSONAR.Bandwidth
   Severity: Outage
   StartTime: Nov 8, 2016 06:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     We are experiencing an extended network outage.  Waiting to hear when it will be resolved
@@ -58,6 +63,7 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Nov 8, 2016 06:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   ID: 1005686
   Description: Testing the downtime mechanism post OIM
@@ -68,3 +74,28 @@
   Services:
   - net.perfSONAR.Latency
 
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31883589
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:32 +0000
+  ResourceName: perfSONAR_SWT2_CPB_testbed_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 31883749
+  Description: Upstream network path is physically migrating and will cause services
+    to be unavailable
+  Severity: Outage
+  StartTime: Sep 30, 2018 07:00 +0000
+  EndTime: Sep 30, 2018 12:00 +0000
+  CreatedTime: Sep 28, 2018 21:32 +0000
+  ResourceName: perfSONAR_SWT2_CPB_testbed_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------

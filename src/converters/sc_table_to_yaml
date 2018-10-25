@@ -11,7 +11,8 @@ import anymarkup
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import trim_space, email_to_id
+from webapp.common import trim_space
+from webapp.email_to_id import email_to_id
 
 
 def main():

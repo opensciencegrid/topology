@@ -4,6 +4,35 @@ GroupID: 376
 Production: true
 Resources:
   NU_CMS_TIER3_CE:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 7f81bd8445354d9d8929ebdddb39fae976e2b338
+          Name: Pascal Paschos
+        Secondary:
+          ID: ad3fddd45dd09c648bb4096905344ef3d2ce297b
+          Name: David A King
+      Administrative Contact:
+        Primary:
+          ID: 7f81bd8445354d9d8929ebdddb39fae976e2b338
+          Name: Pascal Paschos
+        Secondary:
+          ID: ad3fddd45dd09c648bb4096905344ef3d2ce297b
+          Name: David A King
+      Miscellaneous Contact:
+        Primary:
+          ID: 7f81bd8445354d9d8929ebdddb39fae976e2b338
+          Name: Pascal Paschos
+        Secondary:
+          ID: ad3fddd45dd09c648bb4096905344ef3d2ce297b
+          Name: David A King
+      Resource Report Contact:
+        Primary:
+          ID: 7f81bd8445354d9d8929ebdddb39fae976e2b338
+          Name: Pascal Paschos
+        Secondary:
+          ID: ad3fddd45dd09c648bb4096905344ef3d2ce297b
+          Name: David A King
     Active: true
     Description: Host for Compute Element for Tier3 at NU
     Disable: false

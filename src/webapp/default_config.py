@@ -11,3 +11,9 @@ CONTACT_DATA_BRANCH = "master"
 CACHE_LIFETIME = 60 * 15
 
 NO_GIT = False
+
+INSTANCE_NAME = ""  # leave blank for production
+
+# import logging
+# LOGLEVEL = logging.DEBUG  # flask's default is WARNING
+

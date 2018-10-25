@@ -13,6 +13,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 26, 2016 07:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi All,
@@ -30,6 +31,7 @@
   - CE
   Severity: Outage
   StartTime: Nov 5, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     The Purdue Tier-2 site will have a scheduled downtime on Saturday,
@@ -48,6 +50,7 @@
   - CE
   Severity: Outage
   StartTime: Jan 14, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Purdue-Conte is being under maintenance and is not available from 8AM
     to 9PM today.
@@ -58,6 +61,7 @@
   - CE
   Severity: Outage
   StartTime: Feb 21, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: T2_US_Purdue is down due to a loss of power in the campus datacenter.
   EndTime: Jul 20, 2017 23:00 +0000
@@ -67,6 +71,7 @@
   - CE
   Severity: Outage
   StartTime: Jul 20, 2017 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Purdue-Conte gatekeeper will be unavailable beginning at Wednesday, September 20th, 2017 at 8:00am, for scheduled maintenance. It will return to full production by Wednesday, September 20th, 2017 at 5:00pm.
@@ -80,6 +85,7 @@
   - CE
   Severity: Outage
   StartTime: Sep 20, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     We will be upgrading the kernel on the Storage Element (hadoop namenodes).  During this upgrade, Purdue CMS T-2 resources will be unavailable.
@@ -94,3 +100,4 @@
   - CE
   Severity: Outage
   StartTime: Nov 6, 2017 13:00 +0000
+# ----------------------------------------------------------
