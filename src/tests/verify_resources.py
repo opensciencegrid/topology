@@ -83,10 +83,12 @@ def main():
     errors += test_4_res_svcs(rgs, rgfns)
     errors += test_5_sc(rgs, rgfns)
     errors += test_6_site()
+    # re-enable fqdn errors after SOFTWARE-3330
+    # warnings += test_7_fqdn_unique(rgs, rgfns)
     errors += test_8_res_ids(rgs, rgfns)
     errors += test_9_res_contact_lists(rgs, rgfns)
-    errors += test_10_res_admin_contact(rgs, rgfns)
-    errors += test_11_res_sec_contact(rgs, rgfns)
+    warnings += test_10_res_admin_contact(rgs, rgfns)
+    warnings += test_11_res_sec_contact(rgs, rgfns)
     errors += test_12_res_contact_id_fmt(rgs, rgfns)
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
@@ -96,6 +98,9 @@ def main():
     if errors:
         print("%d error(s) encountered." % errors)
         return 1
+    elif warnings:
+        print("%d warning(s) encountered." % warnings)
+        return 0
     else:
         print("A-OK.")
         return 0
