@@ -323,15 +323,18 @@ def test_9_res_contacts(rgs, rgfns, contacts):
                         print_emsg_once('MalformedContactID')
                         print("In '%s', Resource '%s' has malformed %s %s '%s'"
                               " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
+                        errors += 1
                     elif ID not in contacts:
                         print_emsg_once('UnknownContactID')
                         print("In '%s', Resource '%s' has unknown %s %s '%s'"
                               " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
+                        errors += 1
                     elif name != contacts[ID]:
                         print_emsg_once('ContactNameMismatch')
                         print("In '%s', Resource '%s' %s %s '%s' (%s) does not"
                               " match name in contact repo (%s)" % (rgfn,
                               rname, clevel, ctype, ID, name, contacts[ID]))
+                        errors += 1
 
     return errors
 
