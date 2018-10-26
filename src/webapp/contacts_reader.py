@@ -6,11 +6,13 @@ import os
 import sys
 from typing import Dict
 
+import anymarkup
+
 # thanks stackoverflow
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import MaybeOrderedDict, to_xml, MISCUSER_SCHEMA_URL, load_yaml_file
+from webapp.common import MaybeOrderedDict, to_xml, MISCUSER_SCHEMA_URL
 
 
 log = getLogger(__name__)
@@ -113,7 +115,7 @@ class ContactsData(object):
 
 
 def get_contacts_data(infile) -> ContactsData:
-    return ContactsData(load_yaml_file(infile))
+    return ContactsData(anymarkup.parse_file(infile))
 
 
 def main(argv):

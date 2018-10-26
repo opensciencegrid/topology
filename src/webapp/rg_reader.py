@@ -16,8 +16,10 @@ Usage as a module
 where the return value `xml` is a string.
 
 """
+import argparse
 from argparse import ArgumentParser
 
+import anymarkup
 import os
 import pprint
 import sys
@@ -27,7 +29,7 @@ from pathlib import Path
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import ensure_list, to_xml, Filters, load_yaml_file
+from webapp.common import ensure_list, to_xml, Filters
 from webapp.contacts_reader import get_contacts_data
 from webapp.topology import CommonData, Topology
 
@@ -59,18 +61,18 @@ def get_rgsummary_rgdowntime(indir, contacts_file=None, authorized=False):
 
 def get_topology(indir="../topology", contacts_data=None):
     root = Path(indir)
-    support_centers = load_yaml_file(root / "support-centers.yaml")
-    service_types = load_yaml_file(root / "services.yaml")
+    support_centers = anymarkup.parse_file(root / "support-centers.yaml")
+    service_types = anymarkup.parse_file(root / "services.yaml")
     tables = CommonData(contacts=contacts_data, service_types=service_types, support_centers=support_centers)
     topology = Topology(tables)
 
     for facility_path in root.glob("*/FACILITY.yaml"):
         name = facility_path.parts[-2]
-        id_ = load_yaml_file(facility_path)["ID"]
+        id_ = anymarkup.parse_file(facility_path)["ID"]
         topology.add_facility(name, id_)
     for site_path in root.glob("*/*/SITE.yaml"):
         facility, name = site_path.parts[-3:-1]
-        site_info = load_yaml_file(site_path)
+        site_info = anymarkup.parse_file(site_path)
         id_ = site_info["ID"]
         topology.add_site(facility, name, id_, site_info)
     for yaml_path in root.glob("*/*/*.yaml"):
@@ -79,11 +81,11 @@ def get_topology(indir="../topology", contacts_data=None):
         if name.endswith("_downtime.yaml"): continue
 
         name = name.replace(".yaml", "")
-        rg = load_yaml_file(yaml_path)
+        rg = anymarkup.parse_file(yaml_path)
         downtime_yaml_path = yaml_path.with_name(name + "_downtime.yaml")
         downtimes = None
         if downtime_yaml_path.exists():
-            downtimes = ensure_list(load_yaml_file(downtime_yaml_path))
+            downtimes = ensure_list(anymarkup.parse_file(downtime_yaml_path))
 
         topology.add_rg(facility, site, name, rg)
         if downtimes:
