@@ -84,7 +84,13 @@ def main():
     errors += test_5_sc(rgs, rgfns)
     errors += test_6_site()
     errors += test_8_res_ids(rgs, rgfns)
-    errors += test_9_res_contacts(rgs, rgfns, contacts)
+    errors += test_9_res_contact_lists(rgs, rgfns)
+    errors += test_10_res_admin_contact(rgs, rgfns)
+    errors += test_11_res_sec_contact(rgs, rgfns)
+    errors += test_12_res_contact_id_fmt(rgs, rgfns)
+    errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
+    errors += test_14_res_contacts_match(rgs, rgfns, contacts)
+
 
     print("%d Resource Group files processed." % len(rgs))
     if errors:
@@ -306,8 +312,8 @@ def flatten_res_contacts(rcls):
             yield ctype, clevel, clevel_d.get("ID"), clevel_d.get("Name")
 
 
-def test_9_res_contacts(rgs, rgfns, contacts):
-    # verify resource contacts against contact repo
+def test_9_res_contact_lists(rgs, rgfns):
+    # verify resources have contact lists
 
     errors = 0
 
@@ -319,27 +325,96 @@ def test_9_res_contacts(rgs, rgfns, contacts):
                 print("In '%s', Resource '%s' has no ContactLists"
                       % (rgfn, rname))
                 errors += 1
-            else:
-                for ctype, etype in (('Administrative', 'NoAdminContact'),
-                                     ('Security',       'NoSecContact')):
-                    if not rcls.get('%s Contact' % ctype):
-                        print_emsg_once(etype)
-                        print("In '%s', Resource '%s' has no %s Contact"
-                              % (rgfn, rname, ctype))
-                        errors += 1
 
+    return errors
+
+
+def test_10_res_admin_contact(rgs, rgfns):
+    # verify resources have admin contact
+
+    errors = 0
+
+    for rg,rgfn in zip(rgs,rgfns):
+        for rname,rdict in sorted(rg['Resources'].items()):
+            rcls = rdict.get('ContactLists')
+            if rcls:
+                ctype, etype = 'Administrative', 'NoAdminContact'
+                if not rcls.get('%s Contact' % ctype):
+                    print_emsg_once(etype)
+                    print("In '%s', Resource '%s' has no %s Contact"
+                          % (rgfn, rname, ctype))
+                    errors += 1
+
+    return errors
+
+
+def test_11_res_sec_contact(rgs, rgfns):
+    # verify resources have security contact
+
+    errors = 0
+
+    for rg,rgfn in zip(rgs,rgfns):
+        for rname,rdict in sorted(rg['Resources'].items()):
+            rcls = rdict.get('ContactLists')
+            if rcls:
+                ctype, etype = 'Security', 'NoSecContact'
+                if not rcls.get('%s Contact' % ctype):
+                    print_emsg_once(etype)
+                    print("In '%s', Resource '%s' has no %s Contact"
+                          % (rgfn, rname, ctype))
+                    errors += 1
+
+    return errors
+
+
+def test_12_res_contact_id_fmt(rgs, rgfns):
+    # verify resource contact IDs are well-formed
+
+    errors = 0
+
+    for rg,rgfn in zip(rgs,rgfns):
+        for rname,rdict in sorted(rg['Resources'].items()):
+            rcls = rdict.get('ContactLists')
+            if rcls:
                 for ctype, clevel, ID, name in flatten_res_contacts(rcls):
                     if not re.search(r'^[0-9a-f]{40}$', ID):
                         print_emsg_once('MalformedContactID')
                         print("In '%s', Resource '%s' has malformed %s %s '%s'"
                               " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
                         errors += 1
-                    elif ID not in contacts:
+    return errors
+
+
+def test_13_res_contacts_exist(rgs, rgfns, contacts):
+    # verify resource contacts exist in contact repo
+
+    errors = 0
+
+    for rg,rgfn in zip(rgs,rgfns):
+        for rname,rdict in sorted(rg['Resources'].items()):
+            rcls = rdict.get('ContactLists')
+            if rcls:
+                for ctype, clevel, ID, name in flatten_res_contacts(rcls):
+                    if re.search(r'^[0-9a-f]{40}$', ID) and ID not in contacts:
                         print_emsg_once('UnknownContactID')
                         print("In '%s', Resource '%s' has unknown %s %s '%s'"
                               " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
                         errors += 1
-                    elif name != contacts[ID]:
+
+    return errors
+
+def test_14_res_contacts_match(rgs, rgfns, contacts):
+    # verify resource contacts match contact repo
+
+    errors = 0
+
+    for rg,rgfn in zip(rgs,rgfns):
+        for rname,rdict in sorted(rg['Resources'].items()):
+            rcls = rdict.get('ContactLists')
+            if rcls:
+                for ctype, clevel, ID, name in flatten_res_contacts(rcls):
+                    if (re.search(r'^[0-9a-f]{40}$', ID)
+                        and ID in contacts and name != contacts[ID]):
                         print_emsg_once('ContactNameMismatch')
                         print("In '%s', Resource '%s' %s %s '%s' (%s) does not"
                               " match name in contact repo (%s)" % (rgfn,
