@@ -9,7 +9,6 @@ import sys
 from typing import Dict, List, Union, AnyStr
 
 import xmltodict
-import yaml
 
 MaybeOrderedDict = Union[None, OrderedDict]
 
@@ -200,16 +199,3 @@ def gen_id(instr: AnyStr, digits, minimum=1, hashfn=hashlib.md5) -> int:
     instr_b = instr if isinstance(instr, bytes) else instr.encode("utf-8", "surrogateescape")
     mod = (10 ** digits) - minimum
     return minimum + (int(hashfn(instr_b).hexdigest(), 16) % mod)
-
-
-def load_yaml_file(filename) -> Dict:
-    """Load a yaml file (wrapper around yaml.safe_load() because it does not
-    report the filename in which an error occurred.
-
-    """
-    try:
-        with open(filename) as stream:
-            return yaml.safe_load(stream)
-    except yaml.YAMLError as e:
-        log.error("YAML error in %s: %s", filename, e)
-        raise
