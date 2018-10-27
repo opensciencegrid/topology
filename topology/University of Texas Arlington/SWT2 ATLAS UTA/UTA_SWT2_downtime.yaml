@@ -171,3 +171,60 @@
   Services:
   - net.perfSONAR.Latency
 # ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 56961149
+  Description: Changeover of internal and external network path, again
+  Severity: Intermittent Outage
+  StartTime: Oct 30, 2018 06:30 +0000
+  EndTime: Oct 30, 2018 10:30 +0000
+  CreatedTime: Oct 27, 2018 22:08 +0000
+  ResourceName: UTA_SWT2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 56962123
+  Description: Changeover of internal and external network path, again
+  Severity: Intermittent Outage
+  StartTime: Oct 30, 2018 06:30 +0000
+  EndTime: Oct 30, 2018 10:30 +0000
+  CreatedTime: Oct 27, 2018 22:10 +0000
+  ResourceName: UTA_SWT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 56962589
+  Description: Changeover of internal and external network path, again
+  Severity: Intermittent Outage
+  StartTime: Oct 30, 2018 06:30 +0000
+  EndTime: Oct 30, 2018 10:30 +0000
+  CreatedTime: Oct 27, 2018 22:10 +0000
+  ResourceName: UTA_SWT2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 56963199
+  Description: Changeover of internal and external network path, again
+  Severity: Intermittent Outage
+  StartTime: Oct 30, 2018 06:30 +0000
+  EndTime: Oct 30, 2018 10:30 +0000
+  CreatedTime: Oct 27, 2018 22:11 +0000
+  ResourceName: UTA_SWT2_perfSONAR_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 56963811
+  Description: Changeover of internal and external network path, again
+  Severity: Intermittent Outage
+  StartTime: Oct 30, 2018 06:30 +0000
+  EndTime: Oct 30, 2018 10:30 +0000
+  CreatedTime: Oct 27, 2018 22:13 +0000
+  ResourceName: UTA_SWT2_perfSONAR_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+
