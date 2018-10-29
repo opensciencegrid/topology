@@ -14,10 +14,6 @@ Resources:
         Primary:
           ID: bd63318d24aabd1e9ebf59d6060c73703cd8a9e2
           Name: David Earl Cowley
-      Submitter Contact:
-        Primary:
-          ID: bd63318d24aabd1e9ebf59d6060c73703cd8a9e2
-          Name: David Earl Cowley
     Description: This is a VOMS server filling multiple roles.  For the Belle VO,
       it provides a replica of the primary VOMS server at KEK (https://voms.cc.kek.jp:8443/voms/belle/).
     Disable: false
@@ -36,10 +32,6 @@ Resources:
           ID: c4df94d16cbe5aefb61bac44706452f823118d1c
           Name: Malachi Schram
       Security Contact:
-        Primary:
-          ID: c4df94d16cbe5aefb61bac44706452f823118d1c
-          Name: Malachi Schram
-      Submitter Contact:
         Primary:
           ID: c4df94d16cbe5aefb61bac44706452f823118d1c
           Name: Malachi Schram
@@ -93,10 +85,6 @@ Resources:
         Secondary:
           ID: 4ee02f98a9c6249988a2800dfb65a686fbec7c94
           Name: Gary Robert Smith
-      Submitter Contact:
-        Primary:
-          ID: c4df94d16cbe5aefb61bac44706452f823118d1c
-          Name: Malachi Schram
     Description: perfSONAR bandwidth node for Belle II mesh
     Disable: false
     FQDN: ps-bandwidth.hep.pnnl.gov
@@ -136,10 +124,6 @@ Resources:
         Secondary:
           ID: 4ee02f98a9c6249988a2800dfb65a686fbec7c94
           Name: Gary Robert Smith
-      Submitter Contact:
-        Primary:
-          ID: c4df94d16cbe5aefb61bac44706452f823118d1c
-          Name: Malachi Schram
     Description: perSONAR latency node for Belle II mesh
     Disable: false
     FQDN: ps-latency.hep.pnnl.gov

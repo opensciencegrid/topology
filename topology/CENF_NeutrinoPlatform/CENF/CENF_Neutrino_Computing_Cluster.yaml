@@ -4,6 +4,15 @@ GroupID: 450
 Production: true
 Resources:
   CENF_NeutrinoCluster:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 4f621153182d7fb6a6739d9db76dbcc196a093a4
+          Name: Kenneth Herner
+      Administrative Contact:
+        Primary:
+          ID: 4f621153182d7fb6a6739d9db76dbcc196a093a4
+          Name: Kenneth Herner
     Active: true
     Description: Head node for the CENF Neutrino Computing Cluster.
     Disable: false

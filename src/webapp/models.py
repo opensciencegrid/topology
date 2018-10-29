@@ -40,11 +40,13 @@ class CachedData:
 
 class GlobalData:
     def __init__(self, config):
-        self.contacts_data = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
-        self.dn_set = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
-        self.projects = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
-        self.topology = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
-        self.vos_data = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
+        contact_cache_lifetime = config.get("CONTACT_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
+        topology_cache_lifetime = config.get("TOPOLOGY_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
+        self.contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
+        self.dn_set = CachedData(cache_lifetime=topology_cache_lifetime)
+        self.projects = CachedData(cache_lifetime=topology_cache_lifetime)
+        self.topology = CachedData(cache_lifetime=topology_cache_lifetime)
+        self.vos_data = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology_data_dir = config["TOPOLOGY_DATA_DIR"]
         self.topology_data_repo = config.get("TOPOLOGY_DATA_REPO", "")
         self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")

@@ -6,17 +6,20 @@ Resources:
   AMS_GEANT LHCONE:
     Active: true
     ContactLists:
-      Miscellaneous Contact:
+      Administrative Contact:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
         Secondary:
           ID: 760e6e3d4cbf5c00a06a590134e92100f92ed017
           Name: Marian Babik
-      Submitter Contact:
+      Security Contact:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
+        Secondary:
+          ID: 760e6e3d4cbf5c00a06a590134e92100f92ed017
+          Name: Marian Babik
     Description: GEANT LHCONE perfSONAR instance in Amsterdam
     Disable: false
     FQDN: ps01-nl.geant.nl

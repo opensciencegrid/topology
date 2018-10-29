@@ -14,10 +14,6 @@ Resources:
         Primary:
           ID: 0a9828ed72cb7d3bdf773a1043f43fa20bb420b6
           Name: Adam Tygart
-      Submitter Contact:
-        Primary:
-          ID: 0a9828ed72cb7d3bdf773a1043f43fa20bb420b6
-          Name: Adam Tygart
     Description: This is the CE associated with the Beocat compute cluster at Kansas
       State University
     Disable: false
@@ -37,6 +33,15 @@ Resources:
     VOOwnership:
       Beocat: 100
   Beocat_KSU_CE:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 0a077233ccf64c5f4a0888b0de224093f5129e9a
+          Name: Kyle Hutson
+      Administrative Contact:
+        Primary:
+          ID: 0a077233ccf64c5f4a0888b0de224093f5129e9a
+          Name: Kyle Hutson
     Active: true
     Description: HTCondor specifically setup for OSG. Worker nodes dynamically change
       based on cluster usage.
