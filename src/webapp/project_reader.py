@@ -16,6 +16,8 @@ def get_projects(indir="../projects"):
     projects = []
 
     for file in os.listdir(indir):
+        if not file.endswith(".yaml"):
+            continue
         project = OrderedDict.fromkeys(["ID", "Name", "Description", "PIName", "Organization", "Department",
                                         "FieldOfScience", "Sponsor"])
         project.update(load_yaml_file(os.path.join(indir, file)))
