@@ -99,3 +99,26 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 56977924
+  Description: Changeover of internal and external network path, again
+  Severity: Intermittent Outage
+  StartTime: Oct 30, 2018 05:30 +0000
+  EndTime: Oct 30, 2018 09:30 +0000
+  CreatedTime: Oct 27, 2018 22:36 +0000
+  ResourceName: perfSONAR_SWT2_CPB_testbed_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 56979209
+  Description: Changeover of internal and external network path, again
+  Severity: Intermittent Outage
+  StartTime: Oct 30, 2018 05:30 +0000
+  EndTime: Oct 30, 2018 09:30 +0000
+  CreatedTime: Oct 27, 2018 22:38 +0000
+  ResourceName: perfSONAR_SWT2_CPB_testbed_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+
