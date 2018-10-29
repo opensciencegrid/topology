@@ -338,16 +338,16 @@
   Services:
   - Squid
 # ---------------------------------------------------------
- Class: SCHEDULED
-  ID: 56977384
-  Description: Changeover of internal and external network path, again
-  Severity: Intermittent Outage
-  StartTime: Oct 30, 2018 05:30 +0000
-  EndTime: Oct 30, 2018 09:30 +0000
-  CreatedTime: Oct 27, 2018 22:35 +0000
-  ResourceName: SWT2_CPB_DEV
-  Services:
-  - CE
-  - GridFtp
+ - Class: SCHEDULED
+   ID: 56977384
+   Description: Changeover of internal and external network path, again
+   Severity: Intermittent Outage
+   StartTime: Oct 30, 2018 05:30 +0000
+   EndTime: Oct 30, 2018 09:30 +0000
+   CreatedTime: Oct 27, 2018 22:35 +0000
+   ResourceName: SWT2_CPB_DEV
+   Services:
+   - CE
+   - GridFtp
 # ---------------------------------------------------------
 
