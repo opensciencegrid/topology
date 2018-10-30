@@ -64,7 +64,7 @@ if not app.config.get("SECRET_KEY"):
 if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
-global_data = GlobalData(app.config)
+global_data = GlobalData(app.config, strict=app.config.get("STRICT", app.debug))
 
 
 def _fix_unicode(text):
