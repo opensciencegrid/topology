@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from argparse import ArgumentParser, FileType
 from collections import OrderedDict
 import hashlib
