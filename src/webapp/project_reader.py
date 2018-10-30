@@ -1,10 +1,14 @@
+#!/usr/bin/env python3
 from argparse import ArgumentParser
 from collections import OrderedDict
 
 import os
+import sys
 
-import anymarkup
+if __name__ == "__main__" and __package__ is None:
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from webapp.common import load_yaml_file, to_xml
 
 
 def get_projects(indir="../projects"):
@@ -12,9 +16,11 @@ def get_projects(indir="../projects"):
     projects = []
 
     for file in os.listdir(indir):
+        if not file.endswith(".yaml"):
+            continue
         project = OrderedDict.fromkeys(["ID", "Name", "Description", "PIName", "Organization", "Department",
                                         "FieldOfScience", "Sponsor"])
-        project.update(anymarkup.parse_file(os.path.join(indir, file)))
+        project.update(load_yaml_file(os.path.join(indir, file)))
         projects.append(project)
 
     to_output["Projects"]["Project"] = projects
@@ -24,7 +30,7 @@ def get_projects(indir="../projects"):
 
 def get_projects_xml(indir="../projects"):
     """Returns the serialized XML as a string"""
-    return anymarkup.serialize(get_projects(indir), 'xml').decode()
+    return to_xml(get_projects(indir))
 
 
 if __name__ == "__main__":

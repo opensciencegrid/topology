@@ -4,7 +4,7 @@ import os
 import time
 from typing import Dict, Set, List
 
-import anymarkup
+import yaml
 
 from webapp import common, contacts_reader, project_reader, rg_reader, vo_reader
 from webapp.contacts_reader import ContactsData
@@ -166,7 +166,7 @@ def get_downtime_yaml(start_datetime: datetime.datetime,
     """
 
     def render(key, value):
-        return anymarkup.serialize({key: value}, "yaml").decode("utf-8", errors="replace").strip()
+        return yaml.dump({key: value}, default_flow_style=False).strip()
 
     def indent(in_str, amount):
         spaces = ' ' * amount
