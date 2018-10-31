@@ -92,7 +92,8 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
             if strict:
                 raise
             else:
-                log.error("skipping")
+                # load_yaml_file() already logs the specific error
+                log.error("skipping (non-strict mode)")
                 continue
         downtime_yaml_path = yaml_path.with_name(name + "_downtime.yaml")
         downtimes = None
@@ -102,7 +103,8 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
             except yaml.YAMLError:
                 if strict:
                     raise
-                log.error("skipping")
+                # load_yaml_file() already logs the specific error
+                log.error("skipping (non-strict mode)")
                 # keep going with downtimes=None
 
         topology.add_rg(facility, site, name, rg)

@@ -34,14 +34,15 @@ def get_vos_data(indir, contacts_data, strict=False) -> VOsData:
             if strict:
                 raise
             else:
-                log.error("skipping")
+                # load_yaml_file() already logs the specific error
+                log.error("skipping (non-strict mode)")
                 continue
         except Exception as e:
             log.error("%s adding VO %s", e, name)
             log.error("Data:\n%s", pprint.pformat(data))
             if strict:
                 raise
-            log.exception("Skipping; exception info follows")
+            log.exception("Skipping (non-strict mode); exception info follows")
             continue
 
     return vos_data

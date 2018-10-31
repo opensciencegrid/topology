@@ -32,7 +32,8 @@ def get_projects(indir="../projects", strict=False):
             if strict:
                 raise
             else:
-                log.error("skipping")
+                # load_yaml_file() already logs the specific error
+                log.error("skipping (non-strict mode)")
                 continue
         project.update(data)
         projects.append(project)
