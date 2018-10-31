@@ -126,6 +126,7 @@ class GlobalData:
                 if self.strict:
                     raise
                 log.exception("Failed to update DNs")
+                self.contacts_data.try_again()
         return self.dn_set.data
 
     def get_topology(self) -> Topology:
