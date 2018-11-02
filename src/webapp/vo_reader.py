@@ -1,27 +1,26 @@
-from argparse import ArgumentParser, FileType
+#!/usr/bin/env python3
+from argparse import ArgumentParser
 import os
 import pprint
 import sys
-
-import anymarkup
 
 # thanks stackoverflow
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import to_xml
+from webapp.common import load_yaml_file, to_xml
 from webapp.contacts_reader import get_contacts_data
 from webapp.vos_data import VOsData
 
 
 def get_vos_data(indir, contacts_data) -> VOsData:
-    reporting_groups_data = anymarkup.parse_file(os.path.join(indir, "REPORTING_GROUPS.yaml"))
+    reporting_groups_data = load_yaml_file(os.path.join(indir, "REPORTING_GROUPS.yaml"))
     vos_data = VOsData(contacts_data=contacts_data, reporting_groups_data=reporting_groups_data)
     for file in os.listdir(indir):
         if file == "REPORTING_GROUPS.yaml": continue
         if not file.endswith(".yaml"): continue
         name = file[:-5]
-        data = anymarkup.parse_file(os.path.join(indir, file))
+        data = load_yaml_file(os.path.join(indir, file))
         try:
             vos_data.add_vo(name, data)
         except Exception:
