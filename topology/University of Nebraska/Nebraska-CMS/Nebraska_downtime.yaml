@@ -148,3 +148,47 @@
   Severity: Outage
   StartTime: Jan 26, 2018 15:00 +0000
 # ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 61927950
+  Description: Upstream network outage, LHCONE and Internet2 connectivity will be broken
+  Severity: Outage
+  StartTime: Nov 09, 2018 04:00 +0000
+  EndTime: Nov 09, 2018 06:00 +0000
+  CreatedTime: Nov 02, 2018 16:06 +0000
+  ResourceName: red-gateway2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 61929005
+  Description: Upstream network outage, LHCONE and Internet2 connectivity will be broken
+  Severity: Outage
+  StartTime: Nov 09, 2018 04:00 +0000
+  EndTime: Nov 09, 2018 06:00 +0000
+  CreatedTime: Nov 02, 2018 16:08 +0000
+  ResourceName: red-gateway1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 61929169
+  Description: Upstream network outage, LHCONE and Internet2 connectivity will be broken
+  Severity: Outage
+  StartTime: Nov 09, 2018 04:00 +0000
+  EndTime: Nov 09, 2018 06:00 +0000
+  CreatedTime: Nov 02, 2018 16:08 +0000
+  ResourceName: T2_Nebraska_SE_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 61929241
+  Description: Upstream network outage, LHCONE and Internet2 connectivity will be broken
+  Severity: Outage
+  StartTime: Nov 09, 2018 04:00 +0000
+  EndTime: Nov 09, 2018 06:00 +0000
+  CreatedTime: Nov 02, 2018 16:08 +0000
+  ResourceName: Nebraska
+  Services:
+  - CE
+# ---------------------------------------------------------
