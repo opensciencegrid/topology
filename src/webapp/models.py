@@ -39,7 +39,10 @@ class CachedData:
 
 
 class GlobalData:
-    def __init__(self, config):
+    def __init__(self, config={}):
+        config.setdefault("TOPOLOGY_DATA_DIR", ".")
+        config.setdefault("CONTACT_DATA_DIR", "contacts")
+        config.setdefault("NO_GIT", True)
         contact_cache_lifetime = config.get("CONTACT_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
         topology_cache_lifetime = config.get("TOPOLOGY_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
         self.contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
