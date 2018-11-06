@@ -1,0 +1,38 @@
+#!/usr/bin/python3.6
+# -*- coding: utf-8 -*-
+
+"""
+A script to print out information about the OSG downtimes
+"""
+
+from webapp.models import GlobalData
+import icalendar
+import datetime
+import pytz
+import sys
+import time
+
+global_data = GlobalData()
+
+
+downtimes = global_data.get_topology().get_downtimes()
+
+cal = icalendar.Calendar()
+cal.add('prodid', '-//Open Science Grid//Topology//EN')
+cal.add('version', '2.0')
+
+for downtime in downtimes.get('Downtimes').get("CurrentDowntimes", {}).get("Downtime", {}):
+    event = icalendar.Event()
+    event['uid'] = str(downtime['ID'])
+    event.add('dtstart', datetime.datetime(*time.strptime(downtime['StartTime'], "%b %d, %Y %H:%M %p %Z")[:7], tzinfo=pytz.utc))
+    event.add('dtend', datetime.datetime(*time.strptime(downtime['EndTime'], "%b %d, %Y %H:%M %p %Z")[:7], tzinfo=pytz.utc))
+    event['summary'] = "{} / {}".format(downtime['ResourceGroup']['GroupName'], downtime['ResourceName'])
+    affected_services = [str(service['Name']) for service in downtime['Services']['Service']]
+    event['description'] = "Class: {}\nSeverity: {}\nAffected Services: {}\nDescription: {}".format(
+        downtime['Class'],
+        downtime['Severity'],
+        ", ".join(affected_services),
+        downtime['Description'])
+    cal.add_component(event)
+
+sys.stdout.write(cal.to_ical().decode('utf-8'))
