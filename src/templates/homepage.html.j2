@@ -9,22 +9,22 @@ OSG Topology Interface
 
     To learn about the data served here and how to register new data, please consult <a href="https://opensciencegrid.org/docs/common/registration/">our documentation</a>.
   </p>
-  <p><a href="generate_downtime">Generate a downtime entry for a resource</a></p>
-
-  <h2>XML Data</h2>
+  <h2>Human-accessible pages</h2>
   <ul>
-    <li><a href="rgsummary/xml?">Resource topology data</a></li>
-    <li><a href="rgdowntime/xml?">Resource downtime data</a>
-      (<a href="rgdowntime/xml?downtime_attrs_showpast=all">with past downtimes</a>)</li>
-    <li><a href="miscuser/xml?">User data</a></li>
-    <li><a href="vosummary/xml?">Virtual Organization data</a></li>
-    <li><a href="miscproject/xml?">Projects data</a></li>
+    <li><a href="generate_downtime">Generate a downtime entry for a resource</a></li>
+    <li><a href="contacts">List of OSG contacts</a></li>
+    <li><a href="map/iframe">Map of OSG sites</a></li>
   </ul>
 
-  <h2>Other</h2>
+  <hr>
+  <h2 class="text-muted">XML Data</h2>
   <ul>
-    <li><a href="map/iframe">Map of OSG sites</a></li>
-    <li><a href="contacts">List of OSG contacts</a></li>
+    <li><a href="rgsummary/xml?" class="text-muted">Resource topology data</a></li>
+    <li><a href="rgdowntime/xml?" class="text-muted">Resource downtime data</a>
+      <a href="rgdowntime/xml?downtime_attrs_showpast=all" class="text-muted">(with all past downtimes)</a></li>
+    <li><a href="miscuser/xml?" class="text-muted">User data</a></li>
+    <li><a href="vosummary/xml?" class="text-muted">Virtual Organization data</a></li>
+    <li><a href="miscproject/xml?" class="text-muted">Projects data</a></li>
   </ul>
 </div>
 {% endblock %}
