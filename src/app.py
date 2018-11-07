@@ -276,7 +276,11 @@ def get_filters_from_args(args) -> Filters:
                     m = pat.match(k)
                     filter_list.append(int(m.group(1)))
             if not filter_list:
-                raise InvalidArgumentsError("at least one {0} must be specified".format(description))
+                raise InvalidArgumentsError("at least one {0} must be specified"
+                                            " via the syntax <code>{1}_<b>ID</b>=on</code>"
+                                            " or <code>{1}_sel[]=<b>ID</b></code>."
+                                            " (These may be specified multiple times for multiple IDs.)"\
+                                            .format(description, filter_key))
 
     if filters.voown_id:
         filters.populate_voown_name(global_data.get_vos_data().get_vo_id_to_name())
