@@ -5,7 +5,7 @@ from logging import getLogger
 from typing import Dict, List
 
 
-from .common import Filters, MaybeOrderedDict, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list
+from .common import Filters, MaybeOrderedDict, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, gen_id
 from .contacts_reader import ContactsData
 
 
@@ -18,10 +18,16 @@ class VOsData(object):
         self.vos = {}
         self.reporting_groups_data = reporting_groups_data
 
+    @staticmethod
+    def gen_id(name):
+        return gen_id(name, digits=7, minimum=200)
+
     def get_vo_id_to_name(self) -> Dict:
         return {self.vos[name]["ID"]: name for name in self.vos}
 
     def add_vo(self, vo_name, vo_data):
+        if not vo_data.get("ID"):
+            vo_data["ID"] = self.gen_id(vo_name)
         self.vos[vo_name] = vo_data
 
     def get_tree(self, authorized=False, filters: Filters = None) -> Dict:
