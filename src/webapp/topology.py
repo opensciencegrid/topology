@@ -81,7 +81,8 @@ class Resource(object):
         if is_null(yaml_data, "FQDN"):
             raise ValueError(f"Resource {name} does not have an FQDN")
         self.fqdn = self.data["FQDN"]
-        self.id = yaml_data.get("ID") or self.gen_id(self.data["FQDN"])
+        self.id = yaml_data["ID"]  # can't use gen_id until FQDNs are unique SOFTWARE-3373
+        #self.id = yaml_data.get("ID") or self.gen_id(yaml_data["FQDN"])
 
     @staticmethod
     def gen_id(name):
