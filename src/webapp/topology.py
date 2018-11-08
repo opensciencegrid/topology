@@ -8,7 +8,7 @@ from typing import Dict, List, Optional, Tuple
 import icalendar
 
 from .common import MaybeOrderedDict, RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
-    is_null, expand_attr_list_single, expand_attr_list, ensure_list
+    is_null, expand_attr_list_single, expand_attr_list, ensure_list, gen_id
 from .contacts_reader import ContactsData
 
 GRIDTYPE_1 = "OSG Production Resource"
@@ -35,9 +35,13 @@ class CommonData(object):
 
 
 class Facility(object):
-    def __init__(self, name: str, id: int):
+    def __init__(self, name: str, id: Optional[int]):
         self.name = name
-        self.id = id
+        self.id = id or self.gen_id(name)
+
+    @staticmethod
+    def gen_id(name):
+        return gen_id(name, digits=8, minimum=11000)
 
     def get_tree(self) -> OrderedDict:
         return OrderedDict([("ID", self.id), ("Name", self.name)])
@@ -45,13 +49,17 @@ class Facility(object):
 
 class Site(object):
     # probably will have some other attributes like address, latitude, longitude, etc.
-    def __init__(self, name: str, id: int, facility: Facility, site_info):
+    def __init__(self, name: str, id: Optional[int], facility: Facility, site_info):
         self.name = name
-        self.id = id
+        self.id = id or self.gen_id(name)
         self.facility = facility
         self.other_data = site_info
         if "ID" in self.other_data:
             del self.other_data["ID"]
+
+    @staticmethod
+    def gen_id(name):
+        return gen_id(name, digits=8, minimum=11000)
 
     def get_tree(self) -> OrderedDict:
         # Sort the other_data
@@ -73,7 +81,15 @@ class Resource(object):
         if is_null(yaml_data, "FQDN"):
             raise ValueError(f"Resource {name} does not have an FQDN")
         self.fqdn = self.data["FQDN"]
-        self.id = self.data["ID"]
+        self.id = yaml_data.get("ID") or self.gen_id(name)
+
+    @staticmethod
+    def gen_id(name):
+        return gen_id(name, digits=9, minimum=1000)
+
+    @property
+    def fqdn(self):
+        return self.data["FQDN"]
 
     def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
         if filters is None:
@@ -92,6 +108,7 @@ class Resource(object):
                                         "WLCGInformation", "ContactLists"])
         new_res.update(defaults)
         new_res.update(self.data)
+        new_res["ID"] = self.id
 
         if filters.active is not None and new_res["Active"] != filters.active:
             return
@@ -237,6 +254,11 @@ class ResourceGroup(object):
                 continue
 
         self.data = yaml_data
+        self.data["GroupID"] = self.data.get("GroupID") or self.gen_id(self.name)
+
+    @staticmethod
+    def gen_id(name):
+        return gen_id(name, digits=9, minimum=1000)
 
     @property
     def resources(self):

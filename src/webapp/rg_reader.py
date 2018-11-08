@@ -72,7 +72,12 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
 
     for facility_path in root.glob("*/FACILITY.yaml"):
         name = facility_path.parts[-2]
-        id_ = load_yaml_file(facility_path)["ID"]
+        id_ = None
+        if os.path.exists(facility_path):
+            try:
+                id_ = load_yaml_file(facility_path).get("ID")
+            except AttributeError:
+                pass
         topology.add_facility(name, id_)
     for site_path in root.glob("*/*/SITE.yaml"):
         facility, name = site_path.parts[-3:-1]
@@ -85,7 +90,7 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
                 log.error(skip_msg)
                 continue
         site_info = load_yaml_file(site_path)
-        id_ = site_info["ID"]
+        id_ = site_info.get("ID", None)
         topology.add_site(facility, name, id_, site_info)
     for yaml_path in root.glob("*/*/*.yaml"):
         facility, site, name = yaml_path.parts[-3:]
