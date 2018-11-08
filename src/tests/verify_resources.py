@@ -121,7 +121,6 @@ _emsgs = {
     'RGUnique'      : "Resource Group names must be unique across all Sites",
     'ResUnique'     : "Resource names must be unique across the OSG topology",
     'ResID'         : "Resources must contain a numeric ID",
-    'ResGrpID'      : "Resource Groups must contain a numeric ID",
     'SiteUnique'    : "Site names must be unique across Facilities",
     'FQDNUnique'    : "FQDNs must be unique across the OSG topology",
     'VOOwnership100': "Total VOOwnership must not exceed 100%",
@@ -300,21 +299,15 @@ def test_7_fqdn_unique(rgs, rgfns):
     return errors
 
 def test_8_res_ids(rgs, rgfns):
-    # Check that resources/resource groups have a numeric ID/GroupID
+    # Check that resources have a numeric ID
 
     errors = 0
 
     for rg,rgfn in zip(rgs,rgfns):
-        if not isinstance(rg.get('GroupID'), int):
-            print_emsg_once('ResGrpID')
-            print("Resource Group missing numeric GroupID: '%s'" % rgfn)
-            errors += 1
-
         for resname,res in sorted(rg['Resources'].items()):
             if not isinstance(res.get('ID'), int):
                 print_emsg_once('ResID')
-                print("Resource '%s' missing numeric ID in '%s'"
-                      % (resname, rgfn))
+                print("Resource '%s' missing numeric ID in '%s'" % (resname,rgfn))
                 errors += 1
 
     return errors
