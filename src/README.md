@@ -13,6 +13,8 @@ XML consumers
 -------------
 
 - AGIS (ATLAS)
+- CERN
+  - Queries for [Squid FQDNs](http://svnweb.cern.ch/world/wsvn/wlcgsquidmon/trunk/scripts/grid-services/get_squids.py)
 - GGUS (WLCG)
 - GRACC (OSG)
   - [Projects](https://github.com/opensciencegrid/gracc-request/blob/83f3fab52b108b872009430773ce8f1a9fcbe659/config/gracc-request.toml#L42)
