@@ -299,4 +299,82 @@ Resources:
     VOOwnership:
       GLOW: 100
 
+  CHTC_SQUID_WID:
+    Active: true
+    Description: Squid service located at WID
+    ID: 971
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+      Security Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+    FQDN: squid-wid.chtc.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      GLOW: 100
+
+  CHTC_SQUID_CS_B240:
+    Active: true
+    Description: Squid service located in CS B240
+    ID: 972
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+      Security Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+    FQDN: squid-cs-b240.chtc.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      GLOW: 100
+
+  CHTC_SQUID_CS_2360:
+    Active: true
+    Description: Squid service located at CS 2360
+    ID: 973
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+      Security Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+    FQDN: squid-cs-2360.chtc.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      GLOW: 100
+
 SupportCenter: GLOW-TECH
