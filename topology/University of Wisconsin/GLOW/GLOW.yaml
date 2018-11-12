@@ -255,6 +255,86 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       CMS: 100
+ GLOW_SQUID1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Server for cvmfs
+    Disable: false
+    FQDN: cvmfscache01.hep.wisc.edu
+    ID: 974
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+       GLOW_SQUID2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Server for cvmfs
+    Disable: false
+    FQDN: cvmfscache02.hep.wisc.edu
+    ID: 975
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+       GLOW_SQUID3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Server for cvmfs
+    Disable: false
+    FQDN: cvmfscache03.hep.wisc.edu
+    ID: 976
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+       GLOW_SQUID4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Server for cvmfs
+    Disable: false
+    FQDN: cvmfscache04.hep.wisc.edu
+    ID: 974
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
   GLOW_SUBMIT1:
     Active: true
     ContactLists:
