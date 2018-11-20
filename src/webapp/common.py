@@ -195,6 +195,13 @@ def git_clone_or_pull(repo, dir, branch, ssh_key=None) -> bool:
         ok = ok and run_git_cmd(["checkout", branch], dir=dir)
     return ok
 
+def git_clone_bare_or_fetch(repo, dir, ssh_key=None) -> bool:
+    if os.path.exists(dir):
+        ok = run_git_cmd(["fetch", "origin"], dir=dir, ssh_key=ssh_key)
+    else:
+        ok = run_git_cmd(["clone", "--bare", repo, dir], ssh_key=ssh_key)
+    return ok
+
 
 def gen_id(instr: AnyStr, digits, minimum=1, hashfn=hashlib.md5) -> int:
     instr_b = instr if isinstance(instr, bytes) else instr.encode("utf-8", "surrogateescape")
