@@ -55,6 +55,8 @@ class GlobalData:
         self.topology_data_dir = config["TOPOLOGY_DATA_DIR"]
         self.topology_data_repo = config.get("TOPOLOGY_DATA_REPO", "")
         self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
+        self.webhook_data_dir = config["WEBHOOK_DATA_DIR"]
+        self.webhook_data_repo = config.get("WEBHOOK_DATA_REPO", "")
         self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         self.projects_dir = os.path.join(self.topology_data_dir, "projects")
         self.topology_dir = os.path.join(self.topology_data_dir, "topology")
