@@ -64,6 +64,19 @@ class GlobalData:
         self.config = config
         self.strict = strict
 
+    def _update_webhook_repo(self):
+        if not self.config["NO_GIT"]:
+            parent = os.path.dirname(self.webhook_data_dir)
+            os.makedirs(parent, mode=0o755, exist_ok=True)
+            ok = common.git_clone_bare_or_fetch(self.webhook_data_repo,
+                                                self.webhook_data_dir)
+            if ok:
+                log.debug("webhook repo update ok")
+            else:
+                log.error("webhook repo update failed")
+                return False
+        return True
+
     def _update_topology_repo(self):
         if not self.config["NO_GIT"]:
             parent = os.path.dirname(self.topology_data_dir)
