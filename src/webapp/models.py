@@ -68,8 +68,8 @@ class GlobalData:
         if not self.config["NO_GIT"]:
             parent = os.path.dirname(self.webhook_data_dir)
             os.makedirs(parent, mode=0o755, exist_ok=True)
-            ok = common.git_clone_bare_or_fetch(self.webhook_data_repo,
-                                                self.webhook_data_dir)
+            ok = common.git_clone_or_fetch_mirror(self.webhook_data_repo,
+                                                  self.webhook_data_dir)
             if ok:
                 log.debug("webhook repo update ok")
             else:
