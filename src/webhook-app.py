@@ -22,17 +22,7 @@ from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 class InvalidArgumentsError(Exception): pass
 
 def _verify_config(cfg):
-    if not cfg["NO_GIT"]:
-        ssh_key = cfg["GIT_SSH_KEY"]
-        if not ssh_key:
-            raise ValueError("GIT_SSH_KEY must be specified if using Git")
-        elif not os.path.exists(ssh_key):
-            raise FileNotFoundError(ssh_key)
-        else:
-            st = os.stat(ssh_key)
-            if st.st_uid != os.getuid() or (st.st_mode & 0o7777) not in (0o700, 0o600, 0o400):
-                raise PermissionError(ssh_key)
-
+    pass
 
 default_authorized = False
 
