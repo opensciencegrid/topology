@@ -104,8 +104,6 @@
                             </xsd:complexType>
                           </xsd:element>
 
-                          <xsd:element name="DN" minOccurs="0" type="xsd:string" />
-
                           <xsd:element minOccurs="0" name="SupportedVOs">
                             <xsd:complexType>
                               <xsd:sequence>
@@ -178,6 +176,7 @@
                               </xsd:sequence>
                             </xsd:complexType>
                           </xsd:element>
+                          <xsd:element name="DN" minOccurs="0" type="xsd:string" />
                           <xsd:element minOccurs="0" name="OpenGOCTickets">
                             <xsd:complexType>
                               <xsd:sequence>
