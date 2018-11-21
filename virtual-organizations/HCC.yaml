@@ -36,6 +36,15 @@ Contacts:
     Name: David Swanson
   - ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
     Name: Carl Lundstedt
+DataFederations:
+  StashCache:
+    AllowedCaches:
+    - HCC-Stash
+    Namespaces:
+      /hcc/focusday:
+      - FQAN:/hcc/*
+      - DN:/CN=bbockelm
+      - DN:/CN=dweitzel
 Disable: false
 FieldsOfScience:
   PrimaryFields:
