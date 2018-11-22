@@ -120,6 +120,12 @@ def rgdowntime_xml():
     return _get_xml_or_fail(global_data.get_topology().get_downtimes, request.args)
 
 
+@app.route("/authfile")
+def authfile():
+    return get_authfile(global_data.get_topology().get_resources(),
+                        global_data.get_vos_data())
+
+
 @app.route("/generate_downtime", methods=["GET", "POST"])
 def generate_downtime():
     form = GenerateDowntimeForm(request.form)
