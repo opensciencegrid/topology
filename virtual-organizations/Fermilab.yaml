@@ -85,3 +85,8 @@ ReportingGroups:
 - patriot
 - theory
 SupportURL: http://fermigrid.fnal.gov/
+DataFederations:
+  StashCache:
+    Authorizations:
+      /pnfs/fnal.gov:
+        - PUBLIC
