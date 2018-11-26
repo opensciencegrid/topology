@@ -15,7 +15,7 @@ from webapp.common import to_xml_bytes, Filters
 from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
-
+import stashcache as stashcache
 
 class InvalidArgumentsError(Exception): pass
 
@@ -122,8 +122,8 @@ def rgdowntime_xml():
 
 @app.route("/authfile")
 def authfile():
-    return get_authfile(global_data.get_topology().get_resources(),
-                        global_data.get_vos_data())
+    return stashcache.get_authfile(global_data.get_topology().get_resources(),
+                                   global_data.get_vos_data())
 
 
 @app.route("/generate_downtime", methods=["GET", "POST"])
