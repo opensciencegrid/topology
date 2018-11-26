@@ -81,7 +81,7 @@ def _generate_dn_hash(dn: str):
     return "%08lx.0" % int_summary
 
 
-def generate_authfile(resources, vo_data):
+def generate_authfile(vo_data):
     """
     Generate the Xrootd authfile needed by a StashCache cache server.
     """
@@ -112,7 +112,7 @@ def generate_authfile(resources, vo_data):
     return authfile
 
 
-def generate_public_authfile(resources, vo_data):
+def generate_public_authfile(vo_data):
     """
     Generate the Xrootd authfile needed for public caches
     """
