@@ -122,7 +122,10 @@ def rgdowntime_xml():
 
 @app.route("/authfile")
 def authfile():
-    return stashcache.generate_authfile(global_data.get_vos_data())
+    return Response(
+        stashcache.generate_authfile(global_data.get_vos_data()),
+        mimetype="text/plain"
+    )
 
 
 @app.route("/generate_downtime", methods=["GET", "POST"])
