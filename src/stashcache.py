@@ -96,7 +96,7 @@ def generate_authfile(resources, vo_data):
             for authz in authz_list:
                 if authz.startswith("FQAN:"):
                     id_to_dir["g {}".format(authz[5:])].append(dirname)
-                if authz.startswith("DN:"):
+                elif authz.startswith("DN:"):
                     hash = _generate_dn_hash(authz[3:])
                     id_to_dir["u {}".format(hash)].append(dirname)
 
