@@ -39,7 +39,9 @@ class CachedData:
 
 
 class GlobalData:
-    def __init__(self, config={}):
+    def __init__(self, config=None, strict=False):
+        if not config:
+            config = {}
         config.setdefault("TOPOLOGY_DATA_DIR", ".")
         config.setdefault("CONTACT_DATA_DIR", "contacts")
         config.setdefault("NO_GIT", True)
@@ -58,6 +60,7 @@ class GlobalData:
         self.topology_dir = os.path.join(self.topology_data_dir, "topology")
         self.vos_dir = os.path.join(self.topology_data_dir, "virtual-organizations")
         self.config = config
+        self.strict = strict
 
     def _update_topology_repo(self):
         if not self.config["NO_GIT"]:
@@ -99,7 +102,13 @@ class GlobalData:
         if self.contacts_data.should_update():
             ok = self._update_contacts_repo()
             if ok:
-                self.contacts_data.update(contacts_reader.get_contacts_data(self.contacts_file))
+                try:
+                    self.contacts_data.update(contacts_reader.get_contacts_data(self.contacts_file))
+                except Exception:
+                    if self.strict:
+                        raise
+                    log.exception("Failed to update contacts data")
+                    self.contacts_data.try_again()
             else:
                 self.contacts_data.try_again()
 
@@ -111,14 +120,26 @@ class GlobalData:
         """
         if self.dn_set.should_update():
             contacts_data = self.get_contacts_data()
-            self.dn_set.update(set(contacts_data.get_dns()))
+            try:
+                self.dn_set.update(set(contacts_data.get_dns()))
+            except Exception:
+                if self.strict:
+                    raise
+                log.exception("Failed to update DNs")
+                self.contacts_data.try_again()
         return self.dn_set.data
 
     def get_topology(self) -> Topology:
         if self.topology.should_update():
             ok = self._update_topology_repo()
             if ok:
-                self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data()))
+                try:
+                    self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data(), strict=self.strict))
+                except Exception:
+                    if self.strict:
+                        raise
+                    log.exception("Failed to update topology")
+                    self.topology.try_again()
             else:
                 self.topology.try_again()
 
@@ -128,7 +149,13 @@ class GlobalData:
         if self.vos_data.should_update():
             ok = self._update_topology_repo()
             if ok:
-                self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data()))
+                try:
+                    self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data(), strict=self.strict))
+                except Exception:
+                    if self.strict:
+                        raise
+                    log.exception("Failed to update VOs")
+                    self.vos_data.try_again()
             else:
                 self.vos_data.try_again()
 
@@ -138,7 +165,13 @@ class GlobalData:
         if self.projects.should_update():
             ok = self._update_topology_repo()
             if ok:
-                self.projects.update(project_reader.get_projects(self.projects_dir))
+                try:
+                    self.projects.update(project_reader.get_projects(self.projects_dir, strict=self.strict))
+                except Exception:
+                    if self.strict:
+                        raise
+                    log.exception("Failed to update projects")
+                    self.projects.try_again()
             else:
                 self.projects.try_again()
 
