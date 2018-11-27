@@ -132,10 +132,13 @@ def rgdowntime_xml():
 @app.route("/stashcache/authfile")
 def authfile():
     if stashcache:
-        return Response(
-            stashcache.generate_authfile(global_data.get_vos_data(), legacy=app.config["STASHCACHE_LEGACY_AUTH"]),
-            mimetype="text/plain"
-        )
+        try:
+            auth = stashcache.generate_authfile(global_data.get_vos_data(),
+                                                legacy=app.config["STASHCACHE_LEGACY_AUTH"])
+        except Exception:
+            app.log_exception(sys.exc_info())
+            return Response("Server error getting authfile", status=503)
+        return Response(auth, mimetype="text/plain")
     else:
         return Response("Can't get authfile: stashcache module unavailable", status=503)
 
@@ -143,10 +146,13 @@ def authfile():
 @app.route("/stashcache/authfile-public")
 def authfile_public():
     if stashcache:
-        return Response(
-            stashcache.generate_public_authfile(global_data.get_vos_data(), legacy=app.config["STASHCACHE_LEGACY_AUTH"]),
-            mimetype="text/plain"
-        )
+        try:
+            auth = stashcache.generate_public_authfile(global_data.get_vos_data(),
+                                                       legacy=app.config["STASHCACHE_LEGACY_AUTH"])
+        except Exception:
+            app.log_exception(sys.exc_info())
+            return Response("Server error getting authfile", status=503)
+        return Response(auth, mimetype="text/plain")
     else:
         return Response("Can't get authfile: stashcache module unavailable", status=503)
 
