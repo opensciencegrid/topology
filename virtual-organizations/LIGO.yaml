@@ -73,7 +73,7 @@ ReportingGroups:
 - ligo
 DataFederations:
   StashCache:
-    Authorizations:
+    Namespaces:
       /user/ligo:
         - FQAN:/osg/ligo
       /gwdata:

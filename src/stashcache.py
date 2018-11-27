@@ -92,7 +92,7 @@ def generate_authfile(vo_data, legacy=True):
         if not stashcache_data:
             continue
 
-        for dirname, authz_list in stashcache_data.get("Authorizations", {}).items():
+        for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
             for authz in authz_list:
                 if authz.startswith("FQAN:"):
                     id_to_dir["g {}".format(authz[5:])].append(dirname)
@@ -129,7 +129,7 @@ def generate_public_authfile(vo_data, legacy=True):
         if not stashcache_data:
             continue
 
-        for dirname, authz_list in stashcache_data.get("Authorizations", {}).items():
+        for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
             for authz in authz_list:
                 if authz == "PUBLIC":
                     public_dirs.append(dirname)
