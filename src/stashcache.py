@@ -2,6 +2,8 @@
 from collections import defaultdict
 import re
 import ldap
+ldap.set_option(ldap.OPT_TIMEOUT, 10)
+ldap.set_option(ldap.OPT_NETWORK_TIMEOUT, 10)
 import asn1
 import hashlib
 
