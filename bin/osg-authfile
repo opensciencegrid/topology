@@ -12,6 +12,6 @@ global_data = webapp.models.GlobalData()
 
 VOData = global_data.get_vos_data()
 
-authfile = stashcache.generate_authfile(None, VOData)
+authfile = stashcache.generate_authfile(VOData)
 
 print(authfile)
