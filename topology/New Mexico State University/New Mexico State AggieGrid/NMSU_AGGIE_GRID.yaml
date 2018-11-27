@@ -1,13 +1,13 @@
 Disable: false
 Production: true
 SupportCenter: Self Supported
-GroupID: 486
-GroupDescription: A test HTCondor cluster for Arizona State University Research Computing.
+GroupID: 492
+GroupDescription: This is a small cluster to test OSG / AggieGrid integration
 Resources:
-  OSG_US_ASU_DELL_M420:
-    ID: 949
+  OSG_US_NMSU_AGGIE_GRID:
+    ID: 977
     Disable: false
-    Description: The hosted CE instance for the ASU test cluster
+    Description: The Hosted CE serving AggieGrid
     ContactLists:
       Administrative Contact:
         Primary:
@@ -23,10 +23,10 @@ Resources:
         Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-    FQDN: hosted-ce20.grid.uchicago.edu
+    FQDN: hosted-ce21.grid.uchicago.edu
     Services:
       CE:
-        Description: Arizona State hosted CE
+        Description: NMSU-AggieGrid Hosted CE
         Details:
           hidden: false
     VOOwnership:

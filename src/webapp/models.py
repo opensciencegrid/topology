@@ -4,7 +4,7 @@ import os
 import time
 from typing import Dict, Set, List
 
-import anymarkup
+import yaml
 
 from webapp import common, contacts_reader, project_reader, rg_reader, vo_reader
 from webapp.contacts_reader import ContactsData
@@ -40,11 +40,13 @@ class CachedData:
 
 class GlobalData:
     def __init__(self, config):
-        self.contacts_data = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
-        self.dn_set = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
-        self.projects = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
-        self.topology = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
-        self.vos_data = CachedData(cache_lifetime=config["CACHE_LIFETIME"])
+        contact_cache_lifetime = config.get("CONTACT_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
+        topology_cache_lifetime = config.get("TOPOLOGY_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
+        self.contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
+        self.dn_set = CachedData(cache_lifetime=topology_cache_lifetime)
+        self.projects = CachedData(cache_lifetime=topology_cache_lifetime)
+        self.topology = CachedData(cache_lifetime=topology_cache_lifetime)
+        self.vos_data = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology_data_dir = config["TOPOLOGY_DATA_DIR"]
         self.topology_data_repo = config.get("TOPOLOGY_DATA_REPO", "")
         self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
@@ -164,7 +166,7 @@ def get_downtime_yaml(start_datetime: datetime.datetime,
     """
 
     def render(key, value):
-        return anymarkup.serialize({key: value}, "yaml").decode("utf-8", errors="replace").strip()
+        return yaml.dump({key: value}, default_flow_style=False).strip()
 
     def indent(in_str, amount):
         spaces = ' ' * amount
