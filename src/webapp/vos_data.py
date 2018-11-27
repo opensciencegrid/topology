@@ -32,6 +32,8 @@ class VOsData(object):
             try:
                 expanded_vo_data = self._expand_vo(vo_name, authorized=authorized, filters=filters)
                 if expanded_vo_data:
+                    if 'DataFederations' in expanded_vo_data:
+                        del expanded_vo_data['DataFederations']
                     expanded_vo_list.append(expanded_vo_data)
             except (KeyError, ValueError, AttributeError) as err:
                 log.exception("Problem with VO data for %s: %s", vo_name, err)

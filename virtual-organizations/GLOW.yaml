@@ -48,3 +48,8 @@ PurposeURL: http://www.cs.wisc.edu/condor/glow/index.html
 ReportingGroups:
 - glow
 SupportURL: http://www.cs.wisc.edu/condor/glow/
+DataFederations:
+  StashCache:
+    Namespaces:
+      /chtc/PUBLIC:
+        - PUBLIC
