@@ -120,10 +120,18 @@ def rgdowntime_xml():
     return _get_xml_or_fail(global_data.get_topology().get_downtimes, request.args)
 
 
-@app.route("/authfile")
+@app.route("/stashcache/authfile")
 def authfile():
     return Response(
-        stashcache.generate_authfile(global_data.get_vos_data()),
+        stashcache.generate_authfile(global_data.get_vos_data(), legacy=app.config["STASHCACHE_LEGACY_AUTH"]),
+        mimetype="text/plain"
+    )
+
+
+@app.route("/stashcache/authfile-public")
+def authfile_public():
+    return Response(
+        stashcache.generate_public_authfile(global_data.get_vos_data(), legacy=app.config["STASHCACHE_LEGACY_AUTH"]),
         mimetype="text/plain"
     )
 

@@ -81,7 +81,7 @@ def _generate_dn_hash(dn: str):
     return "%08lx.0" % int_summary
 
 
-def generate_authfile(vo_data):
+def generate_authfile(vo_data, legacy=True):
     """
     Generate the Xrootd authfile needed by a StashCache cache server.
     """
@@ -100,9 +100,10 @@ def generate_authfile(vo_data):
                     hash = _generate_dn_hash(authz[3:])
                     id_to_dir["u {}".format(hash)].append(dirname)
 
-    for dn in _generate_ligo_dns():
-        hash = _generate_dn_hash(dn)
-        id_to_dir["u {}".format(hash)].append("/user/ligo")
+    if legacy:
+        for dn in _generate_ligo_dns():
+            hash = _generate_dn_hash(dn)
+            id_to_dir["u {}".format(hash)].append("/user/ligo")
 
     for id, dir_list in id_to_dir.items():
         if dir_list:
@@ -112,11 +113,14 @@ def generate_authfile(vo_data):
     return authfile
 
 
-def generate_public_authfile(vo_data):
+def generate_public_authfile(vo_data, legacy=True):
     """
     Generate the Xrootd authfile needed for public caches
     """
-    authfile = "u * /user/ligo -rl \\\n"
+    if legacy:
+        authfile = "u * /user/ligo -rl \\\n"
+    else:
+        authfile = "u * \\\n"
     id_to_dir = defaultdict(list)
 
     public_dirs = [] 
