@@ -8,6 +8,7 @@ import logging
 import os
 import re
 import sys
+import traceback
 import urllib.parse
 
 from webapp import default_config
@@ -15,7 +16,15 @@ from webapp.common import to_xml_bytes, Filters
 from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
-import stashcache
+
+try:
+    import stashcache
+except ImportError as e:
+    stashcache = None
+    print("*** Couldn't import stashcache", file=sys.stderr)
+    traceback.print_exc(file=sys.stderr)
+    print("*** Continuing without authfile support", file=sys.stderr)
+
 
 class InvalidArgumentsError(Exception): pass
 
@@ -122,18 +131,24 @@ def rgdowntime_xml():
 
 @app.route("/stashcache/authfile")
 def authfile():
-    return Response(
-        stashcache.generate_authfile(global_data.get_vos_data(), legacy=app.config["STASHCACHE_LEGACY_AUTH"]),
-        mimetype="text/plain"
-    )
+    if stashcache:
+        return Response(
+            stashcache.generate_authfile(global_data.get_vos_data(), legacy=app.config["STASHCACHE_LEGACY_AUTH"]),
+            mimetype="text/plain"
+        )
+    else:
+        return Response("Can't get authfile: stashcache module unavailable", status=503)
 
 
 @app.route("/stashcache/authfile-public")
 def authfile_public():
-    return Response(
-        stashcache.generate_public_authfile(global_data.get_vos_data(), legacy=app.config["STASHCACHE_LEGACY_AUTH"]),
-        mimetype="text/plain"
-    )
+    if stashcache:
+        return Response(
+            stashcache.generate_public_authfile(global_data.get_vos_data(), legacy=app.config["STASHCACHE_LEGACY_AUTH"]),
+            mimetype="text/plain"
+        )
+    else:
+        return Response("Can't get authfile: stashcache module unavailable", status=503)
 
 
 @app.route("/generate_downtime", methods=["GET", "POST"])
