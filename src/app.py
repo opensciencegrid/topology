@@ -8,6 +8,7 @@ import logging
 import os
 import re
 import sys
+import traceback
 import urllib.parse
 
 from webapp import default_config
@@ -15,6 +16,14 @@ from webapp.common import to_xml_bytes, Filters
 from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
+
+try:
+    import stashcache
+except ImportError as e:
+    stashcache = None
+    print("*** Couldn't import stashcache", file=sys.stderr)
+    traceback.print_exc(file=sys.stderr)
+    print("*** Continuing without authfile support", file=sys.stderr)
 
 
 class InvalidArgumentsError(Exception): pass
@@ -118,6 +127,34 @@ def rgsummary_xml():
 @app.route('/rgdowntime/xml')
 def rgdowntime_xml():
     return _get_xml_or_fail(global_data.get_topology().get_downtimes, request.args)
+
+
+@app.route("/stashcache/authfile")
+def authfile():
+    if stashcache:
+        try:
+            auth = stashcache.generate_authfile(global_data.get_vos_data(),
+                                                legacy=app.config["STASHCACHE_LEGACY_AUTH"])
+        except Exception:
+            app.log_exception(sys.exc_info())
+            return Response("Server error getting authfile", status=503)
+        return Response(auth, mimetype="text/plain")
+    else:
+        return Response("Can't get authfile: stashcache module unavailable", status=503)
+
+
+@app.route("/stashcache/authfile-public")
+def authfile_public():
+    if stashcache:
+        try:
+            auth = stashcache.generate_public_authfile(global_data.get_vos_data(),
+                                                       legacy=app.config["STASHCACHE_LEGACY_AUTH"])
+        except Exception:
+            app.log_exception(sys.exc_info())
+            return Response("Server error getting authfile", status=503)
+        return Response(auth, mimetype="text/plain")
+    else:
+        return Response("Can't get authfile: stashcache module unavailable", status=503)
 
 
 @app.route("/generate_downtime", methods=["GET", "POST"])

@@ -71,3 +71,10 @@ PrimaryURL: http://www.ligo.org
 PurposeURL: http://www.ligo.org
 ReportingGroups:
 - ligo
+DataFederations:
+  StashCache:
+    Namespaces:
+      /user/ligo:
+        - FQAN:/osg/ligo
+      /gwdata:
+        - PUBLIC
