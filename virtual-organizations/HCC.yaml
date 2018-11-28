@@ -36,14 +36,6 @@ Contacts:
     Name: David Swanson
   - ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
     Name: Carl Lundstedt
-DataFederations:
-  StashCache:
-    AllowedCaches:
-    - HCC-Stash
-    Namespaces:
-      /hcc/focusday:
-      - FQAN:/hcc/*
-      - DN:/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian Paul Bockelman
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -76,6 +68,9 @@ ReportingGroups:
 SupportURL: http://hcc.unl.edu/contact
 DataFederations:
   StashCache:
+    AllowedCaches:
+    - HCC-Stash
     Namespaces:
       /hcc/focusday:
-          - FQAN:/hcc
+      - FQAN:/hcc
+      - DN:/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian Paul Bockelman
