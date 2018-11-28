@@ -68,6 +68,9 @@ ReportingGroups:
 SupportURL: http://hcc.unl.edu/contact
 DataFederations:
   StashCache:
+    AllowedCaches:
+    - HCC-Stash
     Namespaces:
       /hcc/focusday:
-          - FQAN:/hcc
+      - FQAN:/hcc
+      - DN:/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian Paul Bockelman
