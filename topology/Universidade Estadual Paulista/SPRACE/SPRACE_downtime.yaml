@@ -332,3 +332,15 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 87839794
+  Description: 'NFS/PXE Boot server needs to be redeployed from scratch due to several system
+    files removed by accident. '
+  Severity: Severe
+  StartTime: Dec 02, 2018 12:00 +0000
+  EndTime: Dec 03, 2018 18:00 +0000
+  CreatedTime: Dec 02, 2018 14:52 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
