@@ -243,3 +243,77 @@
   Services:
   - CE
 # ---------------------------------------------------------
+# Scheduled downtime for HDFS Upgrade, All datanodes config change,
+# HTCondor Collector under CentOS7 and Also all compute nodes htcondor config
+# upgraded configuration (enable condor_ssh_to_job, cgroups, kernel update)
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 87839795
+  Description: hdfs upgrades, htcondor upgrades, kernel update. full cluster reboot.
+  Severity: Outage
+  StartTime: Dec 10, 2018 16:00 +0000
+  EndTime: Dec 11, 2018 16:00 +0000
+  CreatedTime: Dec 05, 2018 11:30 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 87839796
+  Description: hdfs upgrades, htcondor upgrades, kernel update. full cluster reboot.
+  Severity: Outage
+  StartTime: Dec 10, 2018 16:00 +0000
+  EndTime: Dec 11, 2018 16:00 +0000
+  CreatedTime: Dec 05, 2018 11:30 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 87839797
+  Description: hdfs upgrades, htcondor upgrades, kernel update. full cluster reboot.
+  Severity: Outage
+  StartTime: Dec 10, 2018 16:00 +0000
+  EndTime: Dec 11, 2018 16:00 +0000
+  CreatedTime: Dec 05, 2018 11:30 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 87839798
+  Description: hdfs upgrades, htcondor upgrades, kernel update. full cluster reboot.
+  Severity: Outage
+  StartTime: Dec 10, 2018 16:00 +0000
+  EndTime: Dec 11, 2018 16:00 +0000
+  CreatedTime: Dec 05, 2018 11:30 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 87839799
+  Description: hdfs upgrades, htcondor upgrades, kernel update. full cluster reboot.
+  Severity: Outage
+  StartTime: Dec 10, 2018 16:00 +0000
+  EndTime: Dec 11, 2018 16:00 +0000
+  CreatedTime: Dec 05, 2018 11:30 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 87839800
+  Description: hdfs upgrades, htcondor upgrades, kernel update. full cluster reboot.
+  Severity: Outage
+  StartTime: Dec 10, 2018 16:00 +0000
+  EndTime: Dec 11, 2018 16:00 +0000
+  CreatedTime: Dec 05, 2018 11:30 +0000
+  ResourceName: CIT_HEP_CE
+  Services:
+    - CE
