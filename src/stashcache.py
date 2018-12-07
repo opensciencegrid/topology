@@ -29,7 +29,7 @@ def _generate_ligo_dns():
 
     Returns a list of DNs.
     """
-    ldap_obj = ldap.initialize("ldap://ldap.ligo.org")
+    ldap_obj = ldap.initialize("ldaps://ldap.ligo.org")
     query = "(&(isMemberOf=Communities:LSCVirgoLIGOGroupMembers)(gridX509subject=*))"
     results = ldap_obj.search_s("ou=people,dc=ligo,dc=org", ldap.SCOPE_ONELEVEL,
                                 query, ["gridX509subject"])
