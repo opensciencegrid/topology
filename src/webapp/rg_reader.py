@@ -19,9 +19,12 @@ where the return value `xml` is a string.
 from argparse import ArgumentParser
 
 import os
+import logging
 import pprint
 import sys
 from pathlib import Path
+import yaml
+
 
 # thanks stackoverflow
 if __name__ == "__main__" and __package__ is None:
@@ -30,6 +33,10 @@ if __name__ == "__main__" and __package__ is None:
 from webapp.common import ensure_list, to_xml, Filters, load_yaml_file
 from webapp.contacts_reader import get_contacts_data
 from webapp.topology import CommonData, Topology
+
+
+log = logging.getLogger(__name__)
+
 
 class RGError(Exception):
     """An error with converting a specific RG"""
@@ -46,18 +53,18 @@ class DowntimeError(Exception):
         self.rg = rg
 
 
-def get_rgsummary_rgdowntime(indir, contacts_file=None, authorized=False):
+def get_rgsummary_rgdowntime(indir, contacts_file=None, authorized=False, strict=False):
     contacts_data = None
     if contacts_file:
         contacts_data = get_contacts_data(contacts_file)
-    topology = get_topology(indir, contacts_data)
+    topology = get_topology(indir, contacts_data, strict=strict)
     filters = Filters()
     filters.past_days = -1
     return topology.get_resource_summary(authorized=authorized, filters=filters), \
            topology.get_downtimes(authorized=authorized, filters=filters)
 
 
-def get_topology(indir="../topology", contacts_data=None):
+def get_topology(indir="../topology", contacts_data=None, strict=False):
     root = Path(indir)
     support_centers = load_yaml_file(root / "support-centers.yaml")
     service_types = load_yaml_file(root / "services.yaml")
@@ -79,11 +86,26 @@ def get_topology(indir="../topology", contacts_data=None):
         if name.endswith("_downtime.yaml"): continue
 
         name = name.replace(".yaml", "")
-        rg = load_yaml_file(yaml_path)
+        try:
+            rg = load_yaml_file(yaml_path)
+        except yaml.YAMLError:
+            if strict:
+                raise
+            else:
+                # load_yaml_file() already logs the specific error
+                log.error("skipping (non-strict mode)")
+                continue
         downtime_yaml_path = yaml_path.with_name(name + "_downtime.yaml")
         downtimes = None
         if downtime_yaml_path.exists():
-            downtimes = ensure_list(load_yaml_file(downtime_yaml_path))
+            try:
+                downtimes = ensure_list(load_yaml_file(downtime_yaml_path))
+            except yaml.YAMLError:
+                if strict:
+                    raise
+                # load_yaml_file() already logs the specific error
+                log.error("skipping (non-strict mode)")
+                # keep going with downtimes=None
 
         topology.add_rg(facility, site, name, rg)
         if downtimes:
@@ -99,34 +121,25 @@ def main(argv):
     parser.add_argument("outfile", nargs='?', default=None, help="output file for rgsummary")
     parser.add_argument("downtimefile", nargs='?', default=None, help="output file for rgdowntime")
     parser.add_argument("--contacts", help="contacts yaml file")
+    parser.add_argument("--nostrict", action='store_false', dest='strict', help="Skip files with parse errors (instead of exiting)")
     args = parser.parse_args(argv[1:])
 
-    try:
-        rgsummary, rgdowntime = get_rgsummary_rgdowntime(args.indir, args.contacts,
-                                                         authorized=True)
-        if args.outfile:
-            with open(args.outfile, "w") as fh:
-                fh.write(to_xml(rgsummary))
-        else:
-            print(to_xml(rgsummary))
-        if args.downtimefile:
-            with open(args.downtimefile, "w") as fh:
-                fh.write(to_xml(rgdowntime))
-        else:
-            print(to_xml(rgdowntime))
-    except RGError as e:
-        print("Error happened while processing RG:", file=sys.stderr)
-        pprint.pprint(e.rg, stream=sys.stderr)
-        raise
-    except DowntimeError as e:
-        print("Error happened while processing downtime:", file=sys.stderr)
-        pprint.pprint(e.downtime, stream=sys.stderr)
-        print("RG:", file=sys.stderr)
-        pprint.pprint(e.rg, stream=sys.stderr)
-        raise
+    rgsummary, rgdowntime = get_rgsummary_rgdowntime(args.indir, args.contacts,
+                                                     authorized=True, strict=args.strict)
+    if args.outfile:
+        with open(args.outfile, "w") as fh:
+            fh.write(to_xml(rgsummary))
+    else:
+        print(to_xml(rgsummary))
+    if args.downtimefile:
+        with open(args.downtimefile, "w") as fh:
+            fh.write(to_xml(rgdowntime))
+    else:
+        print(to_xml(rgdowntime))
 
     return 0
 
 
 if __name__ == '__main__':
+    logging.basicConfig()
     sys.exit(main(sys.argv))
