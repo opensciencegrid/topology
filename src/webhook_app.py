@@ -54,7 +54,7 @@ def _fix_unicode(text):
     return text.encode('utf-8', 'surrogateescape').decode('utf-8')
 
 
-@app.route("/webhook/pull_request", methods=["GET", "POST"])
+@app.route("/pull_request", methods=["GET", "POST"])
 def pull_request_hook():
     event = request.headers.get('X-GitHub-Event')
     if event == "ping":
