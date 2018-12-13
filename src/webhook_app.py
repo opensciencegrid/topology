@@ -135,36 +135,6 @@ def fetch_data_ref(*refs):
 def send_mailx_email(subject, body, recipients):
     return runcmd(["mailx", "-s", subject] + recipients, input=body)
 
-def _make_choices(iterable, select_one=False):
-    c = [(_fix_unicode(x), _fix_unicode(x)) for x in sorted(iterable)]
-    if select_one:
-        c.insert(0, ("", "-- Select one --"))
-    return c
-
-
-def _get_authorized():
-    """
-    Determine if the client is authorized
-
-    returns: True if authorized, False otherwise
-    """
-    # Loop through looking for all of the creds
-    for key, value in request.environ.items():
-        if key.startswith('GRST_CRED_AURI_') and value.startswith("dn:"):
-
-            # HTTP unquote the DN:
-            client_dn = urllib.parse.unquote_plus(value)
-
-            # Get list of authorized DNs
-            authorized_dns = global_data.get_dns()
-
-            # Authorized dns should be a set, or dict, that supports the "in"
-            if client_dn[3:] in authorized_dns: # "dn:" is at the beginning of the DN
-                return True     
-
-    # If it gets here, then it is not authorized
-    return default_authorized
-
 
 if __name__ == '__main__':
     if "--auth" in sys.argv[1:]:
