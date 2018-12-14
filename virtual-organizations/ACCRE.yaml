@@ -1,0 +1,51 @@
+# Name is the short name of the VO
+Name: ACCRE
+# LongName is the full name of the VO
+LongName: Advanced Computing Center for Research and Education
+# AppDescription is a brief description of the VO
+AppDescription: Vanderbilt University's research computing center
+# Community is the description of the community the VO belongs to
+Community: Vanderbilt University
+
+CertificateOnly: false
+
+ID: 133
+
+Contacts:
+  # Administrative Contact is a list of people to contact regarding administrative issues
+  Administrative Contact:
+  - ID: 11107327543306be8c340cfa2281444a2d428318
+    Name: Andrew Malone Melo
+  - ID: d27d5eae54cfd787985180edc62e566168915ca4
+    Name: Will French
+
+  # Security Contact is a list of people to contact regarding security issues
+  Security Contact:
+  - ID: 11107327543306be8c340cfa2281444a2d428318
+    Name: Andrew Malone Melo
+  - ID: d27d5eae54cfd787985180edc62e566168915ca4
+    Name: Will French
+
+FieldsOfScience:
+  PrimaryFields:
+  - High Energy Physics
+  - Astronomy
+  - Computational Biology
+
+# PrimaryURL is for general information about the VO
+PrimaryURL: https://www.vanderbilt.edu/accre/
+# PurposeURL explains the VO's purpose
+PurposeURL: https://www.vanderbilt.edu/accre/overview/
+# SupportURL is for support issues
+SupportURL: https://www.vanderbilt.edu/accre/support/helpdesk/
+### OASIS (optional) is information about OASIS usage by the VO
+OASIS:
+    UseOASIS: true
+####### Managers (optional) are one or more people with manager access to this VO's OASIS space
+    Managers:
+      Andrew Malone Melo:
+        DNs:  /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=meloam/CN=692113/CN=Andrew Malone Melo
+        ID:  11107327543306be8c340cfa2281444a2d428318
+      Kevin Buterbaugh:
+        DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=klb/CN=670967/CN=Kevin Buterbaugh
+        ID: f8b4ca01236536e55faee256011d9c70d8eaff67

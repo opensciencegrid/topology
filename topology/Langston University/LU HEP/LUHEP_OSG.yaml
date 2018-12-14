@@ -4,6 +4,7 @@ GroupID: 249
 Production: true
 Resources:
   LUHEP_OSG:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -18,10 +19,6 @@ Resources:
           ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
           Name: Joel Snow
       Security Contact:
-        Primary:
-          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
-          Name: Joel Snow
-      Submitter Contact:
         Primary:
           ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
           Name: Joel Snow
@@ -43,6 +40,7 @@ Resources:
     VOOwnership:
       DOSAR: 100
   LUHEP_OSG2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -60,10 +58,6 @@ Resources:
         Primary:
           ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
           Name: Joel Snow
-      Submitter Contact:
-        Primary:
-          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
-          Name: Joel Snow
     Description: Computing Element on a Virtual Machine
     Disable: false
     FQDN: elixir.lunet.edu
@@ -76,6 +70,7 @@ Resources:
       DOSAR: 34
       DZero: 33
   LUHEP_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -86,10 +81,6 @@ Resources:
           ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
           Name: Joel Snow
       Security Contact:
-        Primary:
-          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
-          Name: Joel Snow
-      Submitter Contact:
         Primary:
           ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
           Name: Joel Snow

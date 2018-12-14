@@ -5,6 +5,7 @@ GroupID: 301
 Production: true
 Resources:
   UGA_Sgrid_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -23,16 +24,13 @@ Resources:
     VOOwnership:
       SURAgrid: 100
   UGA_Sgrid_Test_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 2d57698fb41355073f4378e002a7cfb46aa66cd6
           Name: David Matthews-Morgan
       Security Contact:
-        Primary:
-          ID: 2d57698fb41355073f4378e002a7cfb46aa66cd6
-          Name: David Matthews-Morgan
-      Submitter Contact:
         Primary:
           ID: 2d57698fb41355073f4378e002a7cfb46aa66cd6
           Name: David Matthews-Morgan

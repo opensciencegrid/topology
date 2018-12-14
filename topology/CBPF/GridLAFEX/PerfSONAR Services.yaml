@@ -4,16 +4,13 @@ GroupID: 415
 Production: true
 Resources:
   PerfSONAR_CBPF_bw:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
           Name: Pedro Henrique Diniz da Silva
       Security Contact:
-        Primary:
-          ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
-          Name: Pedro Henrique Diniz da Silva
-      Submitter Contact:
         Primary:
           ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
           Name: Pedro Henrique Diniz da Silva
@@ -29,6 +26,7 @@ Resources:
     VOOwnership:
       LHCb: 100
   PerfSONAR_CBPF_lt:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -39,10 +37,6 @@ Resources:
           ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
           Name: Pedro Henrique Diniz da Silva
       Security Contact:
-        Primary:
-          ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
-          Name: Pedro Henrique Diniz da Silva
-      Submitter Contact:
         Primary:
           ID: a7a5f70ed2589ba4e261ee5a7e81a190d0c242bb
           Name: Pedro Henrique Diniz da Silva

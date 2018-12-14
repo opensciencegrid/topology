@@ -4,6 +4,7 @@ GroupID: 66
 Production: true
 Resources:
   MIT_CMS:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -17,10 +18,6 @@ Resources:
         Primary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
-      Submitter Contact:
-        Primary:
-          ID: cf3ef3676a37821f5d42f529b9a6da39d1c4a067
-          Name: Ilya Kravchenko
     Description: US CMS Tier-2 at MIT.
     Disable: false
     FQDN: ce01.cmsaf.mit.edu
@@ -52,6 +49,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   MIT_CMS-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -65,10 +63,6 @@ Resources:
         Primary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
-      Submitter Contact:
-        Primary:
-          ID: cf3ef3676a37821f5d42f529b9a6da39d1c4a067
-          Name: Ilya Kravchenko
     Description: US CMS Tier-2 site at MIT
     Disable: false
     FQDN: se01.cmsaf.mit.edu
@@ -92,6 +86,7 @@ Resources:
       StorageCapacityMax: 1000
       StorageCapacityMin: 1000
   MIT_CMS_2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -109,10 +104,6 @@ Resources:
         Primary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
-      Submitter Contact:
-        Primary:
-          ID: 076e104e9aad0d82b70697e8c9a93a9d42557f62
-          Name: Wei Li
     Description: US CMS Tier-2 at MIT.
     Disable: false
     FQDN: ce02.cmsaf.mit.edu
@@ -142,16 +133,13 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   MIT_CMS_3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
       Security Contact:
-        Primary:
-          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
-          Name: Max Goncharov
-      Submitter Contact:
         Primary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
@@ -183,16 +171,13 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   MIT_CMS_Perfsonar_BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
       Security Contact:
-        Primary:
-          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
-          Name: Max Goncharov
-      Submitter Contact:
         Primary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
@@ -206,16 +191,13 @@ Resources:
     VOOwnership:
       CMS: 100
   MIT_CMS_Perfsonar_Latency:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
       Security Contact:
-        Primary:
-          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
-          Name: Max Goncharov
-      Submitter Contact:
         Primary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
@@ -229,6 +211,7 @@ Resources:
     VOOwnership:
       CMS: 100
   MIT_CampusFactory:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -258,10 +241,6 @@ Resources:
         Secondary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
-      Submitter Contact:
-        Primary:
-          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
-          Name: Yutaro Iiyama
     Description: This is a BOSCO CampusFactory frontend connecting multiple MIT computing
       clusters.
     Disable: false
@@ -275,6 +254,7 @@ Resources:
     VOOwnership:
       CMS: 100
   MIT_OSG_1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -292,10 +272,6 @@ Resources:
         Primary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
-      Submitter Contact:
-        Primary:
-          ID: 5d00a9a86506e3be1f745ccb8a1b0958a6a77eb0
-          Name: Bodhitha Jayatilaka
     Description: Submit node from MIT LNS (Bates) cluster to OSG
     Disable: false
     FQDN: ce04.cmsaf.mit.edu
@@ -307,4 +283,64 @@ Resources:
           hidden: false
     VOOwnership:
       OSG: 100
+  MIT_CMS_Frontier_Squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
+      Security Contact:
+        Primary:
+          Name: Max Goncharov
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+    Description: One of our Squid nodes.
+    Disable: false
+    FQDN: squid.cmsaf.mit.edu
+    ID: 953
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  MIT_CMS_Frontier_Squid_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
+      Security Contact:
+        Primary:
+          Name: Max Goncharov
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+    Description: One of our Squid nodes.
+    Disable: false
+    FQDN: squid1.cmsaf.mit.edu
+    ID: 954
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  MIT_CMS_Frontier_Squid_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
+      Security Contact:
+        Primary:
+          Name: Max Goncharov
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+    Description: One of our Squid nodes.
+    Disable: false
+    FQDN: squid2.cmsaf.mit.edu
+    ID: 955
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
 SupportCenter: USCMS_Tier2

@@ -4,6 +4,7 @@ GroupID: 393
 Production: true
 Resources:
   Purdue-Hadoop-CE:
+    Active: true
     ContactLists:
       Miscellaneous Contact:
         Secondary:
@@ -15,10 +16,6 @@ Resources:
           Name: Majid Arabgol
       Security Contact:
         Secondary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Submitter Contact:
-        Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
     Description: Computing element for CMS Hadoop cluster at Purdue University.
@@ -47,6 +44,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   Purdue-Hadoop-HT-PBS-CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -67,10 +65,6 @@ Resources:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
       Security Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Submitter Contact:
         Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
@@ -106,10 +100,6 @@ Resources:
         Secondary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
-      Submitter Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
     Description: HTCondor CE at Purdue Tier-2
     Disable: true
     FQDN: cms-ce1-osg.rcac.purdue.edu
@@ -134,6 +124,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   Purdue-Hadoop-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -157,10 +148,6 @@ Resources:
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
-      Submitter Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
     Description: Storage element for CMS Hadoop cluster at Purdue University.
     Disable: true
     FQDN: srm.rcac.purdue.edu
@@ -174,6 +161,7 @@ Resources:
     VOOwnership:
       CMS: 100
   Purdue-Hadoop-SE-Gridftp:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -194,10 +182,6 @@ Resources:
         Secondary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
           Name: Stefan Piperov
-      Submitter Contact:
-        Primary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
     Description: IPVS frontend to gridftp servers at Purdue University
     Disable: false
     FQDN: cms-gridftp.rcac.purdue.edu
@@ -221,44 +205,8 @@ Resources:
       StorageCapacityMax: 3800
       StorageCapacityMin: 3800
       TapeCapacity: 0
-  Purdue-Hadoop-SE2:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-        Tertiary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Security Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Submitter Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-    Description: Storage element, IPV6 enabled  for CMS Hadoop cluster at Purdue University.
-    Disable: true
-    FQDN: srm6.rcac.purdue.edu
-    ID: 732
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: true
-          uri_override: srm6.rcac.purdue.edu:8443
-    VOOwnership:
-      CMS: 100
   Purdue-Hadoop-TestCE:
+    Active: true
     ContactLists:
       Miscellaneous Contact:
         Secondary:
@@ -269,10 +217,6 @@ Resources:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
       Security Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Submitter Contact:
         Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
@@ -300,6 +244,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   T2_US_Purdue_Squid1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -317,10 +262,6 @@ Resources:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
       Security Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Submitter Contact:
         Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
@@ -335,6 +276,7 @@ Resources:
     VOOwnership:
       CMS: 100
   T2_US_Purdue_Squid2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -349,10 +291,6 @@ Resources:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
       Security Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Submitter Contact:
         Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
@@ -367,6 +305,7 @@ Resources:
     VOOwnership:
       CMS: 100
   T2_US_Purdue_Squid3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -390,10 +329,6 @@ Resources:
         Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
-      Submitter Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
     Description: This is squid server at Purdue Tier-2.  There are two instances of
       squid services running on this host.
     Disable: false
@@ -405,16 +340,13 @@ Resources:
     VOOwnership:
       CMS: 100
   US-Purdue BW:
+    Active: true
     ContactLists:
       Resource Report Contact:
         Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
       Security Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Submitter Contact:
         Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
@@ -442,6 +374,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   US-Purdue LT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -465,10 +398,6 @@ Resources:
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
-      Submitter Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
     Description: Perfsonar latency node for CMS clusters at Purdue University.
     Disable: false
     FQDN: perfsonar-cms1.itns.purdue.edu

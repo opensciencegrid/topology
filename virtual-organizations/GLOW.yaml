@@ -10,8 +10,8 @@ Contacts:
   - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
     Name: Aaron Moate
   Miscellaneous Contact:
-  - ID: 9a39cacc57e09cb90be41c93c204231ac1b15aee
-    Name: Neil Van Lysel
+  - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+    Name: Aaron Moate
   Registration Authority:
   - ID: 210d07bf782db9938049eaf11820ec908fdda3b5
     Name: Daniel Bradley
@@ -20,9 +20,6 @@ Contacts:
   Security Contact:
   - ID: 210d07bf782db9938049eaf11820ec908fdda3b5
     Name: Daniel Bradley
-  - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-    Name: Aaron Moate
-  Submitter Contact:
   - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
     Name: Aaron Moate
   VO Manager:
@@ -41,13 +38,14 @@ OASIS:
     Aaron Moate:
       DNs: /DC=org/DC=doegrids/OU=People/CN=Aaron Moate 717557
       ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-    Neil Van Lysel:
-      DNs: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Neil Van Lysel
-        1600
-      ID: 9a39cacc57e09cb90be41c93c204231ac1b15aee
   UseOASIS: true
 PrimaryURL: http://www.chtc.cs.wisc.edu
 PurposeURL: http://www.cs.wisc.edu/condor/glow/index.html
 ReportingGroups:
 - glow
 SupportURL: http://www.cs.wisc.edu/condor/glow/
+DataFederations:
+  StashCache:
+    Namespaces:
+      /chtc/PUBLIC:
+        - PUBLIC

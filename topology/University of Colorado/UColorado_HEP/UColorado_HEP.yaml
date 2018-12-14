@@ -5,6 +5,7 @@ GroupID: 177
 Production: true
 Resources:
   UColorado_HEP:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -19,10 +20,6 @@ Resources:
           ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
           Name: Douglas Johnson
       Security Contact:
-        Primary:
-          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
-          Name: Douglas Johnson
-      Submitter Contact:
         Primary:
           ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
           Name: Douglas Johnson
@@ -53,6 +50,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   UColorado_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -73,10 +71,6 @@ Resources:
         Secondary:
           ID: 4d3d056cf65ebc778382313412964003ce8f5358
           Name: Brian R Drell
-      Submitter Contact:
-        Primary:
-          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
-          Name: Douglas Johnson
     Description: Bestman 2.2.1.x SRM V2.2 Storage Element
     Disable: false
     FQDN: hepse01.colorado.edu

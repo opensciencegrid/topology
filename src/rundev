@@ -1,0 +1,31 @@
+#!/bin/bash
+ask_yn () {
+    local yn
+    echo "$@"
+    while true; do
+        read yn
+        case $yn in
+            [Yy]*) return 0;;
+            [Nn]*) return 1;;
+            *) echo "Enter yes or no";;
+        esac
+    done
+}
+
+export FLASK_ENV=development
+cd "$(dirname "$0")"
+while true; do
+    python app.py; ret=$?
+    if [[ $ret -eq 0 ]]; then
+        exit
+    elif [[ $ret -eq 130 ]]; then  # control-C
+        exit 130
+    elif [[ $ret -eq 136 ]]; then  # kill -9
+        exit 136
+    else
+        if ! ask_yn "Exited with $ret. Retry (y/n)? "; then
+            exit $ret
+        fi
+    fi
+done
+

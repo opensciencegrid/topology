@@ -97,3 +97,8 @@ PurposeURL: http://www.opensciencegrid.org
 ReportingGroups:
 - osg
 SupportURL: http://www.opensciencegrid.org
+DataFederations:
+  StashCache:
+    Namespaces:
+      /user:
+        - PUBLIC

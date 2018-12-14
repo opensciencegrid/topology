@@ -4,6 +4,7 @@ GroupID: 87
 Production: true
 Resources:
   OUHEP_OSG:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -29,10 +30,6 @@ Resources:
         Secondary:
           ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
           Name: Christopher Arnold Walker
-      Submitter Contact:
-        Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
-          Name: Horst Severini
     Description: OUHEP Tier 3 desktop cluster
     Disable: false
     FQDN: ouhep0.nhn.ou.edu

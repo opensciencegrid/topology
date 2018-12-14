@@ -1,9 +1,10 @@
 Disable: false
-GroupDescription: CE for the HPC cluster at CCHDV
+GroupDescription: CE for the HPC cluster(s) in Ottawa
 GroupID: 448
 Production: true
 Resources:
   CancerComputer_Hotel_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -17,11 +18,7 @@ Resources:
         Primary:
           ID: 0182f725a01a98ce2359736e09f181f07ad646d5
           Name: Ian Stakenvicius
-      Submitter Contact:
-        Primary:
-          ID: 0182f725a01a98ce2359736e09f181f07ad646d5
-          Name: Ian Stakenvicius
-    Description: This is the gatekeeper for CancerComputer's OSG compute resources
+    Description: This is the gatekeeper for CancerComputer's OSG Ottawa compute resources
     Disable: false
     FQDN: osg.cancercomputer.com
     ID: 829

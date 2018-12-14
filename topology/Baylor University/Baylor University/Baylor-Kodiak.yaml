@@ -4,6 +4,7 @@ GroupID: 468
 Production: true
 Resources:
   Baylor-Kodiak-CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -27,10 +28,6 @@ Resources:
         Secondary:
           ID: 3986e50c462605269d20a863a0ca3cf99ece1b62
           Name: James Hutcheson
-      Submitter Contact:
-        Primary:
-          ID: e39b1c7cb2d4dbe20c021b0cfc4502b7c74b4cdb
-          Name: Kenichi Hatakeyama
     Description: Baylor Kodiak CE
     Disable: false
     FQDN: kodiak-ce.baylor.edu
@@ -55,6 +52,7 @@ Resources:
       StorageCapacityMin: 100
       TapeCapacity: 200
   Baylor-Kodiak-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -78,10 +76,6 @@ Resources:
         Secondary:
           ID: 3986e50c462605269d20a863a0ca3cf99ece1b62
           Name: James Hutcheson
-      Submitter Contact:
-        Primary:
-          ID: e39b1c7cb2d4dbe20c021b0cfc4502b7c74b4cdb
-          Name: Kenichi Hatakeyama
     Description: SE for Baylor Kodiak
     Disable: false
     FQDN: kodiak-se.baylor.edu

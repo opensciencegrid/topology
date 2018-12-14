@@ -4,6 +4,7 @@ GroupID: 337
 Production: true
 Resources:
   Physics Computing Facility UCSD Submit Host:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -20,10 +21,6 @@ Resources:
         Secondary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
-      Submitter Contact:
-        Primary:
-          ID: a89087e73b4e9d1732c5a7112332688940f06440
-          Name: Edgar Mauricio Fajardo Hernandez
     Description: This is a submitter host for running the physics computing facilities
       at the UCSD physics department to access Comet and OSG.
     Disable: false
@@ -36,36 +33,8 @@ Resources:
           hidden: false
     VOOwnership:
       OSG: 100
-  UCSDGrid-CTBP-Frontend:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-      Resource Report Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-      Security Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-      Submitter Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-    Description: This is the glidein submit node used by the Engage UCSDGrid group.
-    Disable: false
-    FQDN: osg.ctbp.ucsd.edu
-    ID: 456
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      Engage: 100
   uclhctest:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -91,10 +60,6 @@ Resources:
         Secondary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
-      Submitter Contact:
-        Primary:
-          ID: a89087e73b4e9d1732c5a7112332688940f06440
-          Name: Edgar Mauricio Fajardo Hernandez
     Description: Test configuration submit host for the LHC @ UC project
     Disable: false
     FQDN: uclhctest.t2.ucsd.edu

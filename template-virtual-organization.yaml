@@ -9,39 +9,37 @@ Community: The ATLAS physics community.
 
 CertificateOnly: false
 
+# If you have an up-to-date local git clone, fill ID with the output from `bin/next_virtual_organization_id`
+# Otherwise, leave it blank and we will fill in the appropriate value for you.
+ID: <ID>
+
+# Contacts contain information about people to contact regarding this VO.
+# The "ID" is a hash of their email address available at https://my.opensciencegrid.org/miscuser/xml
+# If you cannot find the contact in the above XML, please register the contact:
+# https://opensciencegrid.org/docs/common/registration/#registering-contacts
 Contacts:
   # Administrative Contact is a list of people to contact regarding administrative issues
   Administrative Contact:
-  - <NAME>
-  - ...
+  - ID: <EMAIL HASH>
+    Name: <FULL NAME>
+  # - ...
 
   # Security Contact is a list of people to contact regarding security issues
   Security Contact:
-  - <NAME>
-  - ...
+  - ID: <EMAIL HASH>
+    Name: <FULL NAME>
+  # - ...
 
   ### Registration Authority (optional) is a list of people to contact regarding registration issues
   # Registration Authority:
-  # - <NAME>
-  # - ...
-
-  ### Submitter Contact (optional) is the person who submitted this VO
-  # Submitter Contact:
-  # - <NAME>
-
-  ### Miscellaneous Contact (optional) is a list of people to contact regarding miscellaneous issues
-  # Miscellaneous Contact:
-  # - <NAME>
+  # - ID: <EMAIL HASH>
+  #   Name: <FULL NAME>
   # - ...
 
   ### VO Manager (optional) is the list of people who manage this VO
   # VO Manager:
-  # - <NAME>
-  # - ...
-
-  ### Sponsors (optional) is the list of sponsors of this VO
-  # Sponsors:
-  # - <NAME>
+  # - ID: <EMAIL HASH>
+  #   Name: <FULL NAME>
   # - ...
 
 FieldsOfScience:
@@ -81,7 +79,8 @@ SupportURL: http://www.usatlas.bnl.gov/index.shtml
 #   #     - ...
 #   #   ...
 #
-####### OASISRepoURLs (optional) are one or more URLs for OASIS content owned by this VO
+####### OASISRepoURLs (optional) are one or more URLs for OASIS repositories
+####### owned by this VO (https://opensciencegrid.org/docs/data/external-oasis-repos/)
 #   # OASISRepoURLs:
 #   # - <URL>
 #   # - ...

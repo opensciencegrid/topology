@@ -4,6 +4,7 @@ GroupID: 117
 Production: false
 Resources:
   UC_ITB_CONDOR:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -30,10 +31,6 @@ Resources:
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
-      Submitter Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
     Description: ITB condor resource @ UC
     Disable: false
     FQDN: itbv-ce-condor.mwt2.org
@@ -46,6 +43,7 @@ Resources:
     VOOwnership:
       OSG: 100
   UC_ITB_PBS:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -60,10 +58,6 @@ Resources:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
       Security Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-      Submitter Contact:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
@@ -79,16 +73,13 @@ Resources:
     VOOwnership:
       OSG: 100
   UC_ITB_SE_HADOOP:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
       Security Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-      Submitter Contact:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
@@ -108,6 +99,7 @@ Resources:
     VOOwnership:
       OSG: 100
   UC_VTB:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -122,10 +114,6 @@ Resources:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
       Security Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-      Submitter Contact:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa

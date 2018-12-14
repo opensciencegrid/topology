@@ -4,6 +4,7 @@ GroupID: 42
 Production: true
 Resources:
   UERJ_CE:
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -39,10 +40,6 @@ Resources:
         Secondary:
           ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
           Name: Douglas Milanez Marques
-      Submitter Contact:
-        Primary:
-          ID: 0eb77df1dee0abb02d8b1bc8fe4eed8a0a126d76
-          Name: Patricia Bittencourt
     Description: CE Gatekeeper of T2_BR_UERJ
     Disable: true
     FQDN: osgce.hepgrid.uerj.br
@@ -66,6 +63,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   UERJ_CE_2:
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -101,10 +99,6 @@ Resources:
         Secondary:
           ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
           Name: Douglas Milanez Marques
-      Submitter Contact:
-        Primary:
-          ID: 406d0b79a5fdab59cccdc75a640caa80a32ff255
-          Name: Felipe Silva Araujo
     Description: Second CE Gatekeeper of T2_BR_UERJ.
     Disable: false
     FQDN: osgce2.hepgrid.uerj.br
@@ -129,6 +123,7 @@ Resources:
       StorageCapacityMin: 400
       TapeCapacity: 0
   UERJ_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -164,10 +159,6 @@ Resources:
         Secondary:
           ID: 513f0d558337c2b38f846ca2fcede9326883fb19
           Name: Caio Amadei Marques da Costa
-      Submitter Contact:
-        Primary:
-          ID: e841eee054eaa3cf8ade9ddf1a259755c95a160c
-          Name: Thiago Comicio
     Description: SE resource of T2_BR_UERJ.
     Disable: false
     FQDN: se.hepgrid.uerj.br

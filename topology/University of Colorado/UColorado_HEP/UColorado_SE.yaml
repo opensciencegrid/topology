@@ -4,6 +4,7 @@ GroupID: 204
 Production: true
 Resources:
   UColorado_SE_Hadoop:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -33,10 +34,6 @@ Resources:
         Secondary:
           ID: 4d3d056cf65ebc778382313412964003ce8f5358
           Name: Brian R Drell
-      Submitter Contact:
-        Primary:
-          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
-          Name: Douglas Johnson
     Description: This SE is Hadoop specific
     Disable: false
     FQDN: hepse02.colorado.edu

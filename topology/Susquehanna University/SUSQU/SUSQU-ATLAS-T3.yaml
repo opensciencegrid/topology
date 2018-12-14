@@ -4,6 +4,7 @@ GroupID: 302
 Production: true
 Resources:
   SUSQU-ATLAS-T3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -33,10 +34,6 @@ Resources:
         Secondary:
           ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
           Name: Horst Severini
-      Submitter Contact:
-        Primary:
-          ID: 3fcacf873b707dc83208e42e34cd1564469b7c8d
-          Name: Samya Zain
     Description: Susquehanna U. ATLAS Tier3
     Disable: false
     FQDN: hep-atlas.susqu.edu

@@ -1,20 +1,41 @@
+#!/usr/bin/env python3
 from argparse import ArgumentParser
 from collections import OrderedDict
 
+import logging
 import os
+import sys
 
-import anymarkup
+import yaml
+
+if __name__ == "__main__" and __package__ is None:
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from webapp.common import load_yaml_file, to_xml
 
 
+log = logging.getLogger(__name__)
 
-def get_projects(indir="../projects"):
+
+def get_projects(indir="../projects", strict=False):
     to_output = {"Projects":{"Project": []}}
     projects = []
 
     for file in os.listdir(indir):
+        if not file.endswith(".yaml"):
+            continue
         project = OrderedDict.fromkeys(["ID", "Name", "Description", "PIName", "Organization", "Department",
                                         "FieldOfScience", "Sponsor"])
-        project.update(anymarkup.parse_file(os.path.join(indir, file)))
+        try:
+            data = load_yaml_file(os.path.join(indir, file))
+        except yaml.YAMLError:
+            if strict:
+                raise
+            else:
+                # load_yaml_file() already logs the specific error
+                log.error("skipping (non-strict mode)")
+                continue
+        project.update(data)
         projects.append(project)
 
     to_output["Projects"]["Project"] = projects
@@ -22,19 +43,20 @@ def get_projects(indir="../projects"):
     return to_output
 
 
-def get_projects_xml(indir="../projects"):
+def get_projects_xml(indir="../projects", strict=False):
     """Returns the serialized XML as a string"""
-    return anymarkup.serialize(get_projects(indir), 'xml').decode()
+    return to_xml(get_projects(indir, strict=strict))
 
 
 if __name__ == "__main__":
-    # We are running as the main script
+    logging.basicConfig()
     parser = ArgumentParser()
     parser.add_argument("indir", help="input dir for projects data")
-    parser.add_argument("outfile", nargs='?', default=None, help="output file for vosummary")
+    parser.add_argument("outfile", nargs='?', default=None, help="output file for miscproject")
+    parser.add_argument("--nostrict", action='store_false', dest='strict', help="Skip files with parse errors (instead of exiting)")
     args = parser.parse_args()
 
-    xml = get_projects_xml(args.indir)
+    xml = get_projects_xml(args.indir, strict=args.strict)
     if args.outfile:
         with open(args.outfile, "w") as fh:
             fh.write(xml)

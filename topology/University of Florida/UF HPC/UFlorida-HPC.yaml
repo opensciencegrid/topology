@@ -4,6 +4,7 @@ GroupID: 120
 Production: true
 Resources:
   T2_Florida_BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -26,10 +27,6 @@ Resources:
         Secondary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
-      Submitter Contact:
-        Primary:
-          ID: db835291658341e71188973d9ea7c713114a9264
-          Name: Yu Fu
     Description: This is the perfSONAR-ps bandwidth instance at the University of
       Florida CMS T2 site.
     Disable: false
@@ -43,6 +40,7 @@ Resources:
     VOOwnership:
       CMS: 100
   T2_Florida_LT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -72,10 +70,6 @@ Resources:
         Secondary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
-      Submitter Contact:
-        Primary:
-          ID: db835291658341e71188973d9ea7c713114a9264
-          Name: Yu Fu
     Description: This is the perfSONAR-ps latency instance at the University of Florida
       CMS T2 site.
     Disable: false
@@ -89,12 +83,9 @@ Resources:
     VOOwnership:
       CMS: 100
   UFlorida-CMS:
+    Active: true
     ContactLists:
       Miscellaneous Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Submitter Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
@@ -123,15 +114,12 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   UFlorida-HPC:
+    Active: true
     ContactLists:
       Miscellaneous Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
-      Submitter Contact:
-        Primary:
-          ID: dcc5225ec8889c92053920bbd934bedadc799908
-          Name: Craig Prescott
     Description: US CMS Tier-2 site at Florida
     Disable: false
     FQDN: osg.rc.ufl.edu
@@ -157,12 +145,9 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   UFlorida-HPG2:
+    Active: true
     ContactLists:
       Miscellaneous Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Submitter Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
@@ -191,6 +176,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   UFlorida-SLB-GridFTP:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -205,10 +191,6 @@ Resources:
           ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
           Name: University of Florida CMS Tier 2 Admins
       Security Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Submitter Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
@@ -237,16 +219,13 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   UFlorida_squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
       Security Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Submitter Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
@@ -260,16 +239,13 @@ Resources:
     VOOwnership:
       CMS: 100
   UFlorida_squid2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
       Security Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Submitter Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim

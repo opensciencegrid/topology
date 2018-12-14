@@ -1,0 +1,34 @@
+- Class: SCHEDULED
+  ID: 1005699
+  Description: Cooling and network maintenance
+  Severity: Outage
+  StartTime: Aug 2, 2018 06:00 -0400
+  EndTime: Aug 2, 2018 23:59 -0400
+  CreatedTime: Jul 25, 2018 12:00 -0500
+  ResourceName: Purdue-Brown
+  Services:
+    - CE
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1005711
+  Description: Need to be moved 
+  Severity: Outage
+  StartTime: Sep 6, 2018 08:00 -0400
+  EndTime: Sep 6, 2018 17:59 -0400
+  CreatedTime: Sep 5, 2018 15:25 -0400
+  ResourceName: Purdue-Brown
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 67266277
+  Description: We are upgrading hadoop to OSG 3.4
+  Severity: Outage
+  StartTime: Nov 14, 2018 13:00 +0000
+  EndTime: Nov 15, 2018 03:00 +0000
+  CreatedTime: Nov 08, 2018 19:23 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------

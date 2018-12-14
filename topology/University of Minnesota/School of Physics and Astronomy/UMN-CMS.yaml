@@ -4,6 +4,7 @@ GroupID: 357
 Production: true
 Resources:
   UMN-CMS-CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -23,10 +24,6 @@ Resources:
         Secondary:
           ID: b005baa38f0923b8acc8284f870cf289791f79ad
           Name: Graham Allan
-      Submitter Contact:
-        Primary:
-          ID: b2c6bf09ccf53e3c7c7a7d738193032db77631ea
-          Name: Nick Bertrand
     Description: University of Minnesota CMS CE
     Disable: false
     FQDN: gc1-ce.spa.umn.edu
@@ -53,6 +50,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   UMN-CMS-CE2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -67,10 +65,6 @@ Resources:
           ID: a43bd7829e74491d726a4f45c6b5d8e544b154a3
           Name: Jesse Clair Bren
       Security Contact:
-        Primary:
-          ID: a43bd7829e74491d726a4f45c6b5d8e544b154a3
-          Name: Jesse Clair Bren
-      Submitter Contact:
         Primary:
           ID: a43bd7829e74491d726a4f45c6b5d8e544b154a3
           Name: Jesse Clair Bren
@@ -90,16 +84,13 @@ Resources:
     VOOwnership:
       CMS: 100
   UMN-CMS-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: b2c6bf09ccf53e3c7c7a7d738193032db77631ea
           Name: Nick Bertrand
       Security Contact:
-        Primary:
-          ID: b2c6bf09ccf53e3c7c7a7d738193032db77631ea
-          Name: Nick Bertrand
-      Submitter Contact:
         Primary:
           ID: b2c6bf09ccf53e3c7c7a7d738193032db77631ea
           Name: Nick Bertrand

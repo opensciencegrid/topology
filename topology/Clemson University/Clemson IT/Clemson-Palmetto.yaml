@@ -4,6 +4,7 @@ GroupID: 212
 Production: true
 Resources:
   Clemson-Connect:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -33,10 +34,6 @@ Resources:
         Secondary:
           ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
           Name: Randall Martin
-      Submitter Contact:
-        Primary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
     Description: This is the Connect factory for Clemson-Palmetto, primarily used
       by OSG Connect.
     Disable: false
@@ -51,6 +48,7 @@ Resources:
     VOOwnership:
       OSG: 100
   Clemson-Palmetto:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -80,10 +78,6 @@ Resources:
         Secondary:
           ID: 3bcc3ad9d34109e097abe24fa0bfe528359b61b8
           Name: Xizhou Feng
-      Submitter Contact:
-        Primary:
-          ID: ddaeec46e941e8db261b0927b07e65a42dfa726b
-          Name: Sam Hoover
     Description: This machine is directly connected to our Palmetto cluster (with
       approximately 20,000 cores) and has a shared file systems for /home, $OSG_APP
       and $OSG_DATA.

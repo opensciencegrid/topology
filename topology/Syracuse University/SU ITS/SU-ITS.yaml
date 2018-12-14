@@ -4,6 +4,7 @@ GroupID: 404
 Production: true
 Resources:
   SU-ITS-CE2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -18,10 +19,6 @@ Resources:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
       Security Contact:
-        Primary:
-          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
-          Name: Richard Ameele
-      Submitter Contact:
         Primary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
@@ -37,6 +34,7 @@ Resources:
     VOOwnership:
       OSG: 100
   SU-ITS-CE3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -51,10 +49,6 @@ Resources:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
       Security Contact:
-        Primary:
-          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
-          Name: Richard Ameele
-      Submitter Contact:
         Primary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
@@ -70,6 +64,7 @@ Resources:
     VOOwnership:
       OSG: 100
   SU-OG-CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -84,10 +79,6 @@ Resources:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
       Security Contact:
-        Primary:
-          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
-          Name: Richard Ameele
-      Submitter Contact:
         Primary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
@@ -103,6 +94,7 @@ Resources:
     VOOwnership:
       OSG: 100
   SU-OG-CE1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -117,10 +109,6 @@ Resources:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
       Security Contact:
-        Primary:
-          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
-          Name: Richard Ameele
-      Submitter Contact:
         Primary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
@@ -136,6 +124,7 @@ Resources:
     VOOwnership:
       OSG: 100
   SU-OG-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -150,10 +139,6 @@ Resources:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
       Security Contact:
-        Primary:
-          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
-          Name: Richard Ameele
-      Submitter Contact:
         Primary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
@@ -167,6 +152,7 @@ Resources:
     VOOwnership:
       OSG: 100
   SU-OSG-CONNECT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -196,10 +182,6 @@ Resources:
         Secondary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
-      Submitter Contact:
-        Primary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
     Description: This is a Connect factory for Syracuse's campus cluster.
     Disable: false
     FQDN: rccf-osg.ci-connect.net

@@ -4,16 +4,13 @@ GroupID: 359
 Production: true
 Resources:
   UAF 1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
       Security Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
@@ -29,16 +26,13 @@ Resources:
     VOOwnership:
       CMS: 100
   UAF 10:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
       Security Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
@@ -54,16 +48,13 @@ Resources:
     VOOwnership:
       CMS: 100
   UAF 2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
       Security Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
@@ -79,16 +70,13 @@ Resources:
     VOOwnership:
       CMS: 100
   UAF 3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
       Security Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
@@ -104,16 +92,13 @@ Resources:
     VOOwnership:
       CMS: 100
   UAF 4:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
       Security Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
@@ -129,16 +114,13 @@ Resources:
     VOOwnership:
       CMS: 100
   UAF 5:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
       Security Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
@@ -154,16 +136,13 @@ Resources:
     VOOwnership:
       CMS: 100
   UAF 6:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
       Security Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
@@ -179,6 +158,7 @@ Resources:
     VOOwnership:
       CMS: 100
   UAF 7:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -211,10 +191,6 @@ Resources:
         Primary:
           ID: a89087e73b4e9d1732c5a7112332688940f06440
           Name: Edgar Mauricio Fajardo Hernandez
-      Submitter Contact:
-        Primary:
-          ID: a89087e73b4e9d1732c5a7112332688940f06440
-          Name: Edgar Mauricio Fajardo Hernandez
     Description: UCSD CMS submit node.
     Disable: false
     FQDN: uaf-7.t2.ucsd.edu
@@ -227,16 +203,13 @@ Resources:
     VOOwnership:
       CMS: 100
   UAF 8:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
       Security Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
@@ -252,16 +225,13 @@ Resources:
     VOOwnership:
       CMS: 100
   UAF 9:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
       Security Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-      Submitter Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
@@ -276,40 +246,22 @@ Resources:
           hidden: false
     VOOwnership:
       CMS: 100
-  UCSD_glidein_cmssubmit_r1:
-    ContactLists:
-      Security Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-        Secondary:
-          ID: 471e9a706f0e516a1ffd47a86ea1226025f1b918
-          Name: Stefano Belforte
-      Submitter Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-    Description: CMS glidein submit node
-    Disable: false
-    FQDN: cmssubmit-r1.t2.ucsd.edu
-    ID: 498
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
   UCSD_glidein_glidein_2:
     ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
+          Name: James Letts
+        Secondary:
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
       Security Contact:
         Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-      Submitter Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
+          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
+          Name: James Letts
+        Secondary:
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
     Description: CMS AnaOps glidein submit node
     Disable: false
     FQDN: glidein-2.t2.ucsd.edu
@@ -321,67 +273,16 @@ Resources:
           hidden: false
     VOOwnership:
       CMS: 100
-  UCSD_glidein_submit_2:
-    ContactLists:
-      Security Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-        Secondary:
-          ID: 471e9a706f0e516a1ffd47a86ea1226025f1b918
-          Name: Stefano Belforte
-      Submitter Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-    Description: CMS Anaops glidein Submit node.
-    Disable: false
-    FQDN: submit-2.t2.ucsd.edu
-    ID: 493
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-  UCSD_glidein_submit_3:
-    ContactLists:
-      Security Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-        Secondary:
-          ID: 471e9a706f0e516a1ffd47a86ea1226025f1b918
-          Name: Stefano Belforte
-      Submitter Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
-    Description: CMS AnaOps glidein submit node.
-    Disable: false
-    FQDN: submit-3.t2.ucsd.edu
-    ID: 495
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
   UCSD_glidein_submit_4:
+    Active: true
     ContactLists:
       Security Contact:
         Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
+          ID: aa0279d7b272710f4c1bf7daeebc14575d4c204c
+          Name: James Letts
         Secondary:
           ID: 471e9a706f0e516a1ffd47a86ea1226025f1b918
           Name: Stefano Belforte
-      Submitter Contact:
-        Primary:
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-          Name: Igor Sfiligoi
     Description: CMS Anaops glidein submit node
     Disable: false
     FQDN: submit-4.t2.ucsd.edu

@@ -4,6 +4,7 @@ GroupID: 134
 Production: true
 Resources:
   UTA_SWT2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -23,10 +24,6 @@ Resources:
         Secondary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
-      Submitter Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
     Description: ATLAS Tier2 Production Only Facility
     Disable: false
     FQDN: gk04.swt2.uta.edu
@@ -55,6 +52,7 @@ Resources:
       StorageCapacityMin: 425
       TapeCapacity: 0
   UTA_SWT2_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -84,10 +82,6 @@ Resources:
         Secondary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
-      Submitter Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
     Disable: false
     FQDN: gk05.swt2.uta.edu
     ID: 209
@@ -107,6 +101,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   UTA_SWT2_Squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -129,10 +124,6 @@ Resources:
         Secondary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
-      Submitter Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
     Description: Frontier/CVMFS squid for UTA
     Disable: false
     FQDN: fsquid.swt2.uta.edu
@@ -142,45 +133,8 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       ATLAS: 100
-  UTA_SWT2_TEST1:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
-      Security Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
-      Submitter Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
-    Description: This is an ATLAS only resource used for testing with the ATLAS production
-      system
-    Disable: false
-    FQDN: gk06.swt2.uta.edu
-    ID: 447
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-    VOOwnership:
-      ATLAS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 92
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 92
-      KSI2KMin: 92
-      StorageCapacityMax: 39
-      StorageCapacityMin: 39
-      TapeCapacity: 39
   UTA_SWT2_perfSONAR_bandwidth:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -200,10 +154,6 @@ Resources:
         Secondary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
-      Submitter Contact:
-        Primary:
-          ID: 85358c47f16fad2a915da157353581016788a30a
-          Name: Mark Sosebee
     Description: This is the perfSONAR-PS bandwidth instance at UTA_SWT2
     Disable: false
     FQDN: psuta02.atlas-swt2.org
@@ -216,6 +166,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   UTA_SWT2_perfSONAR_latency:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -235,10 +186,6 @@ Resources:
         Secondary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
-      Submitter Contact:
-        Primary:
-          ID: 85358c47f16fad2a915da157353581016788a30a
-          Name: Mark Sosebee
     Description: This is the perfSONAR-PS latency instance at UTA_SWT2
     Disable: false
     FQDN: psuta01.atlas-swt2.org

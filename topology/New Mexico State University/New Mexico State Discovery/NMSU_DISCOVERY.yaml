@@ -1,0 +1,33 @@
+Disable: false
+Production: true
+SupportCenter: Self Supported
+GroupID: 488
+GroupDescription: New Mexico State University High Performance Computing group
+Resources:
+  OSG_US_NMSU_DISCOVERY:
+    ID: 952
+    Disable: false
+    Description: This is a small cluster to test OSG / NMSU integration.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: hosted-ce19.grid.uchicago.edu
+    Services:
+      CE:
+        Description: NMSU Hosted CE
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100  # 100% opportunistic

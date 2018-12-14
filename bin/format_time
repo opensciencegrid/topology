@@ -1,0 +1,14 @@
+#!/bin/bash
+
+time="$*"
+if [[ -z $time || $time = -h* ]]; then
+    echo "Usage: ${0##*/} <time>"
+    echo "where <time> is anything date(1) can understand or 'forever'/'permanent'."
+    exit 2
+fi
+
+if [[ $time == forever || $time = perm* ]]; then
+    time=@$(( 0x7fffffff ))
+fi
+
+date +"%b %e, %Y %H:%M %z" -d "$time"

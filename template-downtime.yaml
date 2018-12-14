@@ -1,7 +1,7 @@
 # Class describes whether or not the downtime was planned. Choose one of the
 # following classes:
-# - SCHEDULED: donwtime that has been scheduled long before the actual downtime
-# - UNSCHEDULED: donwtime that has occurred due to an event such as a sudden
+# - SCHEDULED: downtime that has been scheduled at least 48 hours beforehand
+# - UNSCHEDULED: downtime that has occurred due to an event such as a sudden
 #   hardware failure, or any unforseen circumstances
 - Class: <TEXT>
   # Unique ID, given by `bin/next_downtime_id`
@@ -14,22 +14,29 @@
   # - Intermittent Outage
   # - No Significant Outage Expected
   Severity: <TEXT>
-  # Start date and time of the donwtime in the following format:
+  # Start date and time of the downtime in the following format:
   # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
   # e.g. Mar 28, 2017 22:00 -0500
   StartTime: <DATE AND TIME>
-  # End date and time of the donwtime in the following format:
+  # End date and time of the downtime in the following format:
   # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
   # e.g. Mar 30, 2017 22:00 -0500
   EndTime: <DATE AND TIME>
+  # The date and time this entry was created in the following format:
+  # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
+  # e.g. Mar 25, 2017 22:00 -0500
+  CreatedTime: <DATE AND TIME>
+
   # The resource affected by the downtime
   ResourceName: <RESOURCE NAME>
   # The serivce(s) affected by the downtime as a list
   Services:
     - <SERVICE NAME>
     # Additional services if there are any...
-    # - GridFTP
+    # - GridFtp
     # - SRMv2
+# ----------------------------------------------------------
+
 # Additional downtimes can be added
 # - Class: UNSCHEDULED
 #   ...

@@ -4,6 +4,7 @@ GroupID: 389
 Production: true
 Resources:
   Purdue-Conte:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -23,13 +24,10 @@ Resources:
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
-      Submitter Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
     Description: |-
       Computing element for Purdue Conte cluster.
       http://www.rcac.purdue.edu/userinfo/resources/conte/
+    Active: false
     Disable: false
     FQDN: conte-osg.rcac.purdue.edu
     ID: 603

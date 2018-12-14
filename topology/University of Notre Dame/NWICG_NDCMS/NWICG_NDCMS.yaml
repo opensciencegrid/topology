@@ -3,49 +3,8 @@ GroupDescription: NWICG_NDCMS
 GroupID: 78
 Production: true
 Resources:
-  NWICG_NDCCL:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
-          Name: In-Saeng Suh
-      Resource Report Contact:
-        Primary:
-          ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
-          Name: In-Saeng Suh
-      Security Contact:
-        Primary:
-          ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
-          Name: In-Saeng Suh
-      Submitter Contact:
-        Primary:
-          ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
-          Name: In-Saeng Suh
-    Description: |-
-      The FQDN was changed from "condor.hpcc.nd.edu" to
-      "condor.crc.nd.edu"
-    Disable: true
-    FQDN: condor.crc.nd.edu
-    ID: 78
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: true
-    VOOwnership:
-      NWICG: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 85
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: false
-      KSI2KMax: 500
-      KSI2KMin: 100
-      StorageCapacityMax: 4
-      StorageCapacityMin: 1
   NWICG_NDCMS:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -63,10 +22,6 @@ Resources:
         Primary:
           ID: 1a6defbcb27777eae626bbb0ae9f4d0a281dd641
           Name: Irena Johnson
-      Submitter Contact:
-        Primary:
-          ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
-          Name: In-Saeng Suh
     Description: For the CMS Tier 3 site at Notre Dame.
     Disable: false
     FQDN: deepthought.crc.nd.edu

@@ -4,6 +4,7 @@ GroupID: 296
 Production: true
 Resources:
   Nevis:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -14,10 +15,6 @@ Resources:
           ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
           Name: Gustaaf Brooijmans
       Security Contact:
-        Primary:
-          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
-          Name: Gustaaf Brooijmans
-      Submitter Contact:
         Primary:
           ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
           Name: Gustaaf Brooijmans
@@ -38,6 +35,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   Nevis cvmfs squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -67,10 +65,6 @@ Resources:
         Secondary:
           ID: ebd3922bbcb45ecfa48d4d4196cfc2b7e6682b6b
           Name: Timothy Robert Andeen
-      Submitter Contact:
-        Primary:
-          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
-          Name: Gustaaf Brooijmans
     Description: Nevis squid for cvmfs
     Disable: false
     FQDN: xenia.nevis.columbia.edu
@@ -92,6 +86,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   Nevis_gridftp:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -114,10 +109,6 @@ Resources:
         Secondary:
           ID: ebd3922bbcb45ecfa48d4d4196cfc2b7e6682b6b
           Name: Timothy Robert Andeen
-      Submitter Contact:
-        Primary:
-          ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
-          Name: Gustaaf Brooijmans
     Description: This is the nevis gridftp server used to download datasets directly
       into xrootd.
     Disable: false

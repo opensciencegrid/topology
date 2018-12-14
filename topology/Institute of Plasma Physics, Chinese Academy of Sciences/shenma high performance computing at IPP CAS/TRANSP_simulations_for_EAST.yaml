@@ -4,6 +4,16 @@ GroupID: 459
 Production: true
 Resources:
   shenma_duhongfei:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: d8a0b9864c10521c1137b516b0b784236ab56171
+          Name: Hongfei Du
+      Administrative Contact:
+        Primary:
+          ID: d8a0b9864c10521c1137b516b0b784236ab56171
+          Name: Hongfei Du
+    Active: true
     Description: shenma high performance computing at IPP CAS
     Disable: false
     FQDN: shenma.ipp.ac.cn

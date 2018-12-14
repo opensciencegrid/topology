@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from argparse import ArgumentParser, FileType
 from collections import OrderedDict
 import hashlib
@@ -6,13 +7,11 @@ import os
 import sys
 from typing import Dict
 
-import anymarkup
-
 # thanks stackoverflow
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import MaybeOrderedDict, to_xml, MISCUSER_SCHEMA_URL
+from webapp.common import MaybeOrderedDict, to_xml, MISCUSER_SCHEMA_URL, load_yaml_file
 
 
 log = getLogger(__name__)
@@ -31,6 +30,7 @@ class User(object):
         tree["GravatarURL"] = self._get_gravatar_url(
             self.yaml_data["ContactInformation"]["PrimaryEmail"])
         tree["Profile"] = self.yaml_data.get("Profile", None)
+        tree["GitHub"] = self.yaml_data.get("GitHub", None)
         if authorized:
             tree["ContactInformation"] = self._expand_contact_info()
         return tree
@@ -81,7 +81,7 @@ class ContactsData(object):
         self.users_by_id = {}
         for user_id, user_data in self.yaml_data.items():
             self.users_by_id[user_id] = User(user_id, user_data)
-    
+
     def get_dns(self):
         """
         Get the DNs for all of the users (useful for auth)
@@ -114,7 +114,7 @@ class ContactsData(object):
 
 
 def get_contacts_data(infile) -> ContactsData:
-    return ContactsData(anymarkup.parse_file(infile))
+    return ContactsData(load_yaml_file(infile))
 
 
 def main(argv):

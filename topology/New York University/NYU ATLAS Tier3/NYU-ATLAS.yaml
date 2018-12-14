@@ -4,6 +4,7 @@ GroupID: 304
 Production: true
 Resources:
   NYU_ATLAS_NFS:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -19,10 +20,6 @@ Resources:
         Secondary:
           ID: 79c022a3c909ee8d06223450441187d8df62695c
           Name: George Lewis
-      Submitter Contact:
-        Primary:
-          ID: ca5367ecc8d03f76882830024aa8c7e16d98f93c
-          Name: Attila Krasznahorkay
     Description: GridFTP server for the NYU ATLAS Tier3 site.
     Disable: false
     FQDN: t3nfs.physics.nyu.edu

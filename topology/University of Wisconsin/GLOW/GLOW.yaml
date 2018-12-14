@@ -4,6 +4,7 @@ GroupID: 24
 Production: true
 Resources:
   GLOW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -26,10 +27,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-          Name: Daniel Bradley
     Description: US CMS Tier-2 site at Wisconsin
     Disable: false
     FQDN: cmsgrid01.hep.wisc.edu
@@ -54,6 +51,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   GLOW-CMS:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -76,10 +74,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-          Name: Daniel Bradley
     Description: US CMS Tier-2 sites at Wisconsin. Another CONDOR CE.
     Disable: false
     FQDN: cmsgrid02.hep.wisc.edu
@@ -104,6 +98,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   GLOW-CMS-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -133,10 +128,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-          Name: Daniel Bradley
     Description: US CMS Tier-2 site at Wisconsin
     Disable: false
     FQDN: cmssrm.hep.wisc.edu
@@ -160,6 +151,7 @@ Resources:
       StorageCapacityMax: 1000
       StorageCapacityMin: 1000
   GLOW-CONDOR-CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -185,10 +177,6 @@ Resources:
         Secondary:
           ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
           Name: AJIT MOHAPATRA
-      Submitter Contact:
-        Primary:
-          ID: 81f1ed1fc89dbcb985364a7da00107eb90b05098
-          Name: Tapas Sarangi
     Description: This is a CONDOR-CE for site T2_US_Wisconsin serving CMS.
     Disable: false
     FQDN: cmsgrid03.hep.wisc.edu
@@ -213,6 +201,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   GLOW-OSG:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -235,10 +224,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
-          Name: AJIT MOHAPATRA
     Description: CE for all OSG VOs.
     Disable: false
     FQDN: osggrid01.hep.wisc.edu
@@ -251,6 +236,7 @@ Resources:
     VOOwnership:
       CMS: 100
   GLOW_SQUID:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -260,10 +246,6 @@ Resources:
         Primary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 81f1ed1fc89dbcb985364a7da00107eb90b05098
-          Name: Tapas Sarangi
     Description: Squid Servers RR alias
     Disable: false
     FQDN: frontier.hep.wisc.edu
@@ -273,7 +255,88 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       CMS: 100
+  GLOW_SQUID1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Server for cvmfs
+    Disable: false
+    FQDN: cvmfscache01.hep.wisc.edu
+    ID: 974
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  GLOW_SQUID2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Server for cvmfs
+    Disable: false
+    FQDN: cvmfscache02.hep.wisc.edu
+    ID: 975
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  GLOW_SQUID3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Server for cvmfs
+    Disable: false
+    FQDN: cvmfscache03.hep.wisc.edu
+    ID: 976
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  GLOW_SQUID4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Server for cvmfs
+    Disable: false
+    FQDN: cvmfscache04.hep.wisc.edu
+    ID: 974
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
   GLOW_SUBMIT1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -299,10 +362,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
-          Name: Will Maier
     Description: GLOw submit machine.
     Disable: false
     FQDN: login01.hep.wisc.edu
@@ -326,6 +385,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   GLOW_SUBMIT2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -351,10 +411,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
-          Name: Will Maier
     Description: GLOW submit machine.
     Disable: false
     FQDN: login02.hep.wisc.edu
@@ -378,6 +434,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   GLOW_SUBMIT3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -403,10 +460,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
-          Name: Will Maier
     Description: GLOW submit machine.
     Disable: false
     FQDN: login03.hep.wisc.edu
@@ -430,6 +483,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   GLOW_SUBMIT4:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -465,10 +519,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 8a381392f3737e873c2f97caaeea97dd35739ddb
-          Name: Will Maier
     Description: GLOW submit machine.
     Disable: false
     FQDN: login04.hep.wisc.edu
@@ -493,6 +543,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   GLOW_SUBMIT5:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -515,10 +566,6 @@ Resources:
         Secondary:
           ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
           Name: AJIT MOHAPATRA
-      Submitter Contact:
-        Primary:
-          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-          Name: Daniel Bradley
     Description: HTCondor submit node, mostly used by CMS.
     Disable: false
     FQDN: login05.hep.wisc.edu
@@ -543,6 +590,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   GLOW_SUBMIT6:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -568,10 +616,6 @@ Resources:
         Secondary:
           ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
           Name: AJIT MOHAPATRA
-      Submitter Contact:
-        Primary:
-          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-          Name: Daniel Bradley
     Description: HTCondor submit node, mostly used by CMS.
     Disable: false
     FQDN: login06.hep.wisc.edu
@@ -596,6 +640,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   GLOW_SUBMIT_CERN:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -621,10 +666,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-          Name: Daniel Bradley
     Description: This is a condor submit node used by the Wisconsin CMS group at CERN.
     Disable: false
     FQDN: uwlogin.cern.ch
@@ -648,44 +689,8 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-  Lehigh_piranha:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
-          Name: Julio C. Goez
-        Secondary:
-          ID: 1f89c87b137579a6cbc2eaa6bc39f30502878edc
-          Name: Ashutosh Mahajan
-      Resource Report Contact:
-        Primary:
-          ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
-          Name: Julio C. Goez
-        Secondary:
-          ID: 1f89c87b137579a6cbc2eaa6bc39f30502878edc
-          Name: Ashutosh Mahajan
-      Security Contact:
-        Primary:
-          ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
-          Name: Julio C. Goez
-        Secondary:
-          ID: 1f89c87b137579a6cbc2eaa6bc39f30502878edc
-          Name: Ashutosh Mahajan
-      Submitter Contact:
-        Primary:
-          ID: ca183afcaac5272aa67a935f55ae8d9c397bc4d0
-          Name: Julio C. Goez
-    Description: This is a gatekeeper visible to the grid
-    Disable: true
-    FQDN: piranha.ie.lehigh.edu
-    ID: 330
-    Services:
-      CE:
-        Description: Compute Element
-    VOOwnership:
-      GLOW: 100
   US-Wisconsin BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -711,10 +716,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
-          Name: AJIT MOHAPATRA
     Description: T2_US_Wisconsin perfSonar bandwidth node
     Disable: false
     FQDN: perfsonar02.hep.wisc.edu
@@ -727,6 +728,7 @@ Resources:
     VOOwnership:
       CMS: 100
   US-Wisconsin LT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -752,10 +754,6 @@ Resources:
         Secondary:
           ID: 9c02556106ce823874deef0c51d069711191f98e
           Name: Carl Vuosalo
-      Submitter Contact:
-        Primary:
-          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
-          Name: AJIT MOHAPATRA
     Description: T2_US_Wisconsin perfSonar latency node
     Disable: false
     FQDN: perfsonar01.hep.wisc.edu

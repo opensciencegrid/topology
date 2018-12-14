@@ -4,6 +4,7 @@ GroupID: 277
 Production: true
 Resources:
   BELLARMINE_TIER2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -39,10 +40,6 @@ Resources:
         Secondary:
           ID: 0da261a83862f36e325fe1cd9201410d26421f0d
           Name: Earle George Foskett
-      Submitter Contact:
-        Primary:
-          ID: 777dc430c1655783abe24bcfd1cbbe38e2f796f2
-          Name: Akhtar
     Description: LSST Tier2 site at Bellarmine University
     Disable: false
     FQDN: tier2-osg1.bellarmine.edu
