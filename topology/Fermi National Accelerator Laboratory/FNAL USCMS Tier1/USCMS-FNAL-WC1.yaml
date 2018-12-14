@@ -355,7 +355,7 @@ Resources:
         Secondary:
           ID: ae2bc50d651cb793a15bfce35c6717988715f519
           Name: Chih-Hao Huang
-    Description: This is the dCache SE at the USCMS Tier 1
+    Description: This is the tape dCache SE at the USCMS Tier 1
     Disable: false
     FQDN: cmsdcatape01.fnal.gov
     ID: 236
@@ -377,7 +377,46 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      StorageCapacityMax: 10000
-      StorageCapacityMin: 10000
-      TapeCapacity: 22000
+      StorageCapacityMax: 1800
+      StorageCapacityMin: 1800
+      TapeCapacity: 75000
+  USCMS-FNAL-WC1-SE2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
+      Miscellaneous Contact:
+        Primary:
+          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
+          Name: David Alexander Mason
+        Secondary:
+          ID: ae2bc50d651cb793a15bfce35c6717988715f519
+          Name: Chih-Hao Huang
+    Description: This is the disk dCache SE at the USCMS Tier 1
+    Disable: false
+    FQDN: cmsdcadisk01.fnal.gov
+    ID:
+    Services:
+      FTS:
+        Description: File Transfer Service
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: USCMS-FNAL-WC1-CE
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 24000
+      StorageCapacityMin: 24000
+      TapeCapacity: 0
 SupportCenter: USCMS
