@@ -367,3 +367,14 @@
   StartTime: Dec 19, 2018 15:00 +0000
   CreatedTime: Dec 14, 2018 17:12 -0000
 # ----------------------------------------------------------
+- Class: SCHEDULED
+  Description: Kernel reboots on storage nodes
+  EndTime: Dec 19, 2018 23:00 +0000
+  ID:
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - SRMv2
+  Severity: Outage
+  StartTime: Dec 19, 2018 15:00 +0000
+  CreatedTime: Dec 14, 2018 17:12 -0000
+# ----------------------------------------------------------
