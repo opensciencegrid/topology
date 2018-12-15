@@ -129,6 +129,18 @@ def rgdowntime_xml():
     return _get_xml_or_fail(global_data.get_topology().get_downtimes, request.args)
 
 
+@app.route('/rgdowntime/ical')
+def rgdowntime_ical():
+    try:
+        filters = get_filters_from_args(request.args)
+    except InvalidArgumentsError as e:
+        return Response("Invalid arguments: " + str(e), status=400)
+    return Response(
+        global_data.get_topology().get_downtimes_ical(False, filters).to_ical(),
+        mimetype="text/calendar"
+    )
+
+
 @app.route("/stashcache/authfile")
 def authfile():
     if stashcache:
