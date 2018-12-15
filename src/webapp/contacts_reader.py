@@ -114,7 +114,10 @@ class ContactsData(object):
 
 
 def get_contacts_data(infile) -> ContactsData:
-    return ContactsData(load_yaml_file(infile))
+    if infile:
+        return ContactsData(load_yaml_file(infile))
+    else:
+        return ContactsData({})
 
 
 def main(argv):
