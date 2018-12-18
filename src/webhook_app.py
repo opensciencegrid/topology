@@ -68,6 +68,8 @@ def pull_request_hook():
         return Response("Not Interested")
     # status=204 : No Content
 
+    global_data._update_webhook_repo()
+
     sender     = payload['sender']['login']
 
     head_sha   = payload['pull_request']['head']['sha']
