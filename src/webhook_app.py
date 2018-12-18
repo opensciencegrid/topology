@@ -130,7 +130,7 @@ def runcmd(cmd, input=None, **kw):
 
 def fetch_data_ref(*refs):
     return runcmd(['git', 'fetch', 'origin'] + list(refs),
-                  cwd=global_data.topology_data_dir)
+                  cwd=global_data.webhook_data_dir)
 
 def send_mailx_email(subject, body, recipients):
     return runcmd(["mailx", "-s", subject] + recipients, input=body)
