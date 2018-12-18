@@ -64,7 +64,7 @@ def pull_request_hook():
 
     payload = request.get_json()
     action = payload['action']
-    if action not in ("opened", "edited", "reopened", "synchronize"):
+    if action not in ("opened",):
         return Response("Not Interested")
     # status=204 : No Content
 
