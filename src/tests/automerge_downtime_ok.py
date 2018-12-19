@@ -74,8 +74,9 @@ def main(args):
 
     print_errors(errors)
     return ( 0 if len(errors) == 0   # all checks pass (only DT files modified)
-             else 1 if len(DTs) > 0  # DT file(s) modified, not all checks pass
-             else 2 )                # no DT files modified
+        else 1 if len(DTs) > 0       # DT file(s) modified, not all checks pass
+        else 2 if contact is None    # no DT files modified, contact error
+        else 3 )                     # no DT files modified, other errors
 
 def insist(cond):
     if not cond:
