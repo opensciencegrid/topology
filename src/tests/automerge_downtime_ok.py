@@ -38,6 +38,9 @@ def main(args):
         else:
             errors += ["File '%s' is not a downtime file." % fname.decode()]
 
+    if len(modified) == 0:
+        errors += ["Will not automerge PR without any file changes."]
+
     if len(args) == 3:
         contact = get_gh_contact(args[2])
         if contact is None:
