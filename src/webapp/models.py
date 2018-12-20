@@ -57,6 +57,7 @@ class GlobalData:
         self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
         self.webhook_data_dir = config.get("WEBHOOK_DATA_DIR", "")
         self.webhook_data_repo = config.get("WEBHOOK_DATA_REPO", "")
+        self.webhook_state_dir = config.get("WEBHOOK_STATE_DIR", "")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:
@@ -197,6 +198,22 @@ class GlobalData:
                 self.projects.try_again()
 
         return self.projects.data
+
+    def set_webhook_pr_state(self, num, sha, state):
+        prdir = "%s/%s" % (self.webhook_state_dir, num)
+        statefile = "%s/%s" % (prdir, sha)
+        os.makedirs(prdir, mode=0o755, exist_ok=True)
+        with open(statefile, "w") as f:
+            print(state, file=f)
+
+    def get_webhook_pr_state(self, num, sha):
+        prdir = "%s/%s" % (self.webhook_state_dir, num)
+        statefile = "%s/%s" % (prdir, sha)
+        if os.path.exists(statefile):
+            with open(statefile) as f:
+                return f.read().split()
+        else:
+            return None
 
 
 def _dtid(created_datetime: datetime.datetime):
