@@ -7,6 +7,7 @@ TOPOLOGY_CACHE_LIFETIME = 60 * 15
 
 WEBHOOK_DATA_DIR = "/tmp/topology-webhook/topology.git"
 WEBHOOK_DATA_REPO = "https://github.com/opensciencegrid/topology"
+WEBHOOK_STATE_DIR = "/tmp/topology-webhook/state"
 
 CONTACT_DATA_DIR = "/tmp/topology/contact"
 CONTACT_DATA_REPO = "git@bitbucket.org:opensciencegrid/contact.git"
