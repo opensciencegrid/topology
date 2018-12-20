@@ -109,15 +109,24 @@ def commit_is_merged(sha_a, sha_b):
     ret, out = runcmd(args, stderr=_devnull)
     return ret == 0
 
-def get_downtime_dict_at_version(sha, fname):
+def parse_yaml_at_version(sha, fname):
     txt = get_file_at_version(sha, fname)
-    dtlist = yaml.safe_load(txt) if txt else []
+    if not txt:
+        return None
+    try:
+        return yaml.safe_load(txt)
+    except yaml.error.YAMLError:
+        print("YAMLError encountered while parsing '%s' at '%s'"
+              % (fname.decode(), sha), file=sys.stderr)
+        return None
+
+def get_downtime_dict_at_version(sha, fname):
+    dtlist = parse_yaml_at_version(sha, fname) or []
     return dict( (dt["ID"], dt) for dt in dtlist )
 
 def get_rg_resources_at_version(sha, fname):
-    txt = get_file_at_version(sha, fname)
-    rg = yaml.safe_load(txt)
-    return rg["Resources"]
+    rg = parse_yaml_at_version(sha, fname)
+    return rg.get("Resources", {}) if rg else {}
 
 def resource_contact_ids(res):
     clists = res["ContactLists"]
