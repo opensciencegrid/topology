@@ -527,4 +527,15 @@
   ResourceName: Purdue-Hadoop-CE
   Services:
   - CE
-#
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 103596818
+  Description: 'WAN router maintenance '
+  Severity: Outage
+  StartTime: Dec 21, 2018 04:00 +0000
+  EndTime: Dec 21, 2018 07:00 +0000
+  CreatedTime: Dec 20, 2018 20:34 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------

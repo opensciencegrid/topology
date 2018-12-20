@@ -70,9 +70,8 @@
   Services:
     - CE
 # ----------------------------------------------------------
-
 - Class: SCHEDULED
-  ID: 67270319
+  ID: 67270320
   Description: We are upgrading hadoop to OSG 3.4
   Severity: Outage
   StartTime: Nov 14, 2018 13:00 +0000
@@ -82,3 +81,15 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 67270321
+  Description: We are upgrading hadoop to OSG 3.4
+  Severity: Outage
+  StartTime: Nov 14, 2018 13:00 +0000
+  EndTime: Nov 15, 2018 03:00 +0000
+  CreatedTime: Nov 08, 2018 19:30 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+
