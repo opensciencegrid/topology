@@ -49,9 +49,37 @@ global_data = GlobalData(app.config)
 
 src_dir = os.path.abspath(os.path.dirname(__file__))
 
+repo_owner, repo_name = global_data.webhook_data_repo.split('/')[-2:]
+
 def _fix_unicode(text):
     """Convert a partial unicode string to full unicode"""
     return text.encode('utf-8', 'surrogateescape').decode('utf-8')
+
+
+@app.route("/status", methods=["GET", "POST"])
+def status_hook():
+    event = request.headers.get('X-GitHub-Event')
+    if event == "ping":
+        return Response('Pong')
+    elif event != "status":
+        return Response("Wrong event type", status=400)
+
+    payload = request.get_json()
+    sha = payload['sha']            # '02d565300874d691bfebada6929cbb7c9c1d8018'
+    repo = payload['repository']    # { ... }
+    owner = repo['owner']['login']  # 'opensciencegrid'
+    reponame = repo['name']         # 'topology'
+    context = payload['context']    # 'continuous-integration/travis-ci/push'
+    target_url = payload.get('target_url')  # travis build url
+
+    if (context != 'continuous-integration/travis-ci/push' or
+            owner != repo_owner or reponame != repo_name):
+        return Response("Not Interested")
+
+    pr_dt_automerge_ret = global_data.get_webhook_pr_state(pull_num, head_sha)
+
+    return Response('Thank You')
+
 
 
 @app.route("/pull_request", methods=["GET", "POST"])
@@ -86,6 +114,10 @@ def pull_request_hook():
 
     global_data._update_webhook_repo()
 
+    mergeable  = payload['pull_request']['mergeable']
+    if mergeable:
+        merge_sha = payload['pull_request']['merge_commit_sha']
+
     pull_ref   = "pull/{pull_num}/head".format(**locals())
 
     # make sure data repo contains relevant commits
@@ -95,6 +127,8 @@ def pull_request_hook():
         script = src_dir + "/tests/automerge_downtime_ok.py"
         cmd = [script, base_sha, head_sha, sender]
         stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
+
+    global_data.set_webhook_pr_state(pull_num, head_sha, ret)
 
     OK = "Yes" if ret == 0 else "No"
 
