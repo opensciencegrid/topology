@@ -48,6 +48,11 @@ def main(args):
     for fname in DTs:
         dtdict_base = get_downtime_dict_at_version(BASE_SHA, fname)
         dtdict_new  = get_downtime_dict_at_version(MERGE_COMMIT_SHA, fname)
+
+        if dtdict_base is None or dtdict_new is None:
+            errors += ["File '%s' failed to parse as YAML" % fname.decode()]
+            continue
+
         dtminus, dtplus = diff_dtdict(dtdict_base, dtdict_new)
         for dt in dtminus:
             print("Old Downtime %d modified for resource '%s'" %
@@ -109,24 +114,24 @@ def commit_is_merged(sha_a, sha_b):
     ret, out = runcmd(args, stderr=_devnull)
     return ret == 0
 
-def parse_yaml_at_version(sha, fname):
+def parse_yaml_at_version(sha, fname, default):
     txt = get_file_at_version(sha, fname)
     if not txt:
-        return None
+        return default
     try:
         return yaml.safe_load(txt)
     except yaml.error.YAMLError:
-        print("YAMLError encountered while parsing '%s' at '%s'"
-              % (fname.decode(), sha), file=sys.stderr)
         return None
 
 def get_downtime_dict_at_version(sha, fname):
-    dtlist = parse_yaml_at_version(sha, fname) or []
-    return dict( (dt["ID"], dt) for dt in dtlist )
+    dtlist = parse_yaml_at_version(sha, fname, [])
+    if dtlist is not None:
+        return dict( (dt["ID"], dt) for dt in dtlist )
 
 def get_rg_resources_at_version(sha, fname):
-    rg = parse_yaml_at_version(sha, fname)
-    return rg.get("Resources", {}) if rg else {}
+    rg = parse_yaml_at_version(sha, fname, {})
+    if rg is not None:
+        return rg.get("Resources", {}) if rg else {}
 
 def resource_contact_ids(res):
     clists = res["ContactLists"]
@@ -146,6 +151,8 @@ def diff_dtdict(dtdict_a, dtdict_b):
 
 def check_resource_contacts(sha, rg_fname, resources_affected, contact):
     resources = get_rg_resources_at_version(sha, rg_fname)
+    if resources is None:
+        return ["File '%s' failed to parse as YAML" % rg_fname.decode()]
     return [ "%s not associated with resource '%s'" % (contact, res)
              for res in resources_affected if res in resources
              if contact.ID not in resource_contact_ids(resources[res]) ]
