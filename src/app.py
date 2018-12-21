@@ -3,7 +3,7 @@ Application File
 """
 import flask
 import flask.logging
-from flask import Flask, Response, request, render_template
+from flask import Flask, Response, make_response, request, render_template
 import logging
 import os
 import re
@@ -135,10 +135,10 @@ def rgdowntime_ical():
         filters = get_filters_from_args(request.args)
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
-    return Response(
-        global_data.get_topology().get_downtimes_ical(False, filters).to_ical(),
-        mimetype="text/calendar"
-    )
+    response = make_response(global_data.get_topology().get_downtimes_ical(False, filters).to_ical())
+    response.headers.set("Content-Type", "text/calendar")
+    response.headers.set("Content-Disposition", "attachment", filename="downtime.ics")
+    return response
 
 
 @app.route("/stashcache/authfile")
