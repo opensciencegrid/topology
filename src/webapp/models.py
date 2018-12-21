@@ -55,12 +55,27 @@ class GlobalData:
         self.topology_data_dir = config["TOPOLOGY_DATA_DIR"]
         self.topology_data_repo = config.get("TOPOLOGY_DATA_REPO", "")
         self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
+        self.webhook_data_dir = config.get("WEBHOOK_DATA_DIR", "")
+        self.webhook_data_repo = config.get("WEBHOOK_DATA_REPO", "")
         self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         self.projects_dir = os.path.join(self.topology_data_dir, "projects")
         self.topology_dir = os.path.join(self.topology_data_dir, "topology")
         self.vos_dir = os.path.join(self.topology_data_dir, "virtual-organizations")
         self.config = config
         self.strict = strict
+
+    def _update_webhook_repo(self):
+        if not self.config["NO_GIT"]:
+            parent = os.path.dirname(self.webhook_data_dir)
+            os.makedirs(parent, mode=0o755, exist_ok=True)
+            ok = common.git_clone_or_fetch_mirror(self.webhook_data_repo,
+                                                  self.webhook_data_dir)
+            if ok:
+                log.debug("webhook repo update ok")
+            else:
+                log.error("webhook repo update failed")
+                return False
+        return True
 
     def _update_topology_repo(self):
         if not self.config["NO_GIT"]:

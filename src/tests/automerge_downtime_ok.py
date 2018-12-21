@@ -38,6 +38,9 @@ def main(args):
         else:
             errors += ["File '%s' is not a downtime file." % fname.decode()]
 
+    if len(modified) == 0:
+        errors += ["Will not automerge PR without any file changes."]
+
     if len(args) == 3:
         contact = get_gh_contact(args[2])
         if contact is None:
@@ -70,7 +73,10 @@ def main(args):
                                               resources_affected, contact)
 
     print_errors(errors)
-    sys.exit(len(errors) > 0)
+    return ( 0 if len(errors) == 0   # all checks pass (only DT files modified)
+        else 1 if len(DTs) > 0       # DT file(s) modified, not all checks pass
+        else 2 if contact is None    # no DT files modified, contact error
+        else 3 )                     # no DT files modified, other errors
 
 def insist(cond):
     if not cond:
@@ -176,5 +182,5 @@ def get_gh_contact(ghuser):
     return gh_contacts[0] if len(gh_contacts) == 1 else None
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    sys.exit(main(sys.argv[1:]))
 
