@@ -169,6 +169,28 @@ def authfile_public():
         return Response("Can't get authfile: stashcache module unavailable", status=503)
 
 
+@app.route("/stashcache/origin-authfile-public")
+def origin_authfile_public():
+    return origin_authfile(public_only=True)
+
+
+@app.route("/stashcache/origin-authfile")
+def origin_authfile(public_only=False):
+    if not stashcache:
+        return Response("Can't get authfile: stashcache module unavailable", status=503)
+    if 'fqdn' not in request.args:
+        return Response("'fqdn' argument required for origin authfile request", status=400)
+    try:
+        auth = stashcache.generate_origin_authfile(request.args['fqdn'],
+                                                   global_data.get_vos_data(),
+                                                   global_data.get_topology().get_resource_group_list(),
+                                                   public_only=public_only)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting authfile", status=503)
+    return Response(auth, mimetype="text/plain")
+
+
 @app.route("/generate_downtime", methods=["GET", "POST"])
 def generate_downtime():
     form = GenerateDowntimeForm(request.form)

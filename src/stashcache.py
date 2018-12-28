@@ -228,7 +228,7 @@ def _get_allowed_caches(stashcache_data, resource_groups, suppress_errors=True):
     return resources
 
 
-def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress_errors=True):
+def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress_errors=True, public_only=False):
 
     public_namespaces = []
     id_to_namespaces = defaultdict(list)
@@ -248,6 +248,9 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
                     break
             if all_public:
                 public_namespaces.append(namespace)
+                continue
+
+            if public_only:
                 continue
 
             allowed_caches = stashcache_data.get("AllowedCaches")
