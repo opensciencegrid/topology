@@ -126,6 +126,11 @@ class Resource(object):
         elif filters.has_wlcg is True:
             return
 
+        if 'DN' in new_res:
+            del new_res['DN']
+        if 'AllowedVOs' in new_res:
+            del new_res['AllowedVOs']
+
         return new_res
 
     def _expand_services(self, services: Dict) -> List[OrderedDict]:
