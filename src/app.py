@@ -144,8 +144,11 @@ def rgdowntime_ical():
 @app.route("/stashcache/authfile")
 def authfile():
     if stashcache:
+        cache_fqdn = request.args.get("cache_fqdn")
         try:
             auth = stashcache.generate_authfile(global_data.get_vos_data(),
+                                                global_data.get_topology().get_resource_group_list(),
+                                                fqdn=cache_fqdn,
                                                 legacy=app.config["STASHCACHE_LEGACY_AUTH"])
         except Exception:
             app.log_exception(sys.exc_info())
@@ -158,8 +161,11 @@ def authfile():
 @app.route("/stashcache/authfile-public")
 def authfile_public():
     if stashcache:
+        cache_fqdn = request.args.get("cache_fqdn")
         try:
             auth = stashcache.generate_public_authfile(global_data.get_vos_data(),
+                                                       global_data.get_topology().get_resource_group_list(),
+                                                       fqdn=cache_fqdn,
                                                        legacy=app.config["STASHCACHE_LEGACY_AUTH"])
         except Exception:
             app.log_exception(sys.exc_info())

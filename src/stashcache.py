@@ -88,15 +88,89 @@ def _generate_dn_hash(dn: str):
     return "%08lx.0" % int_summary
 
 
-def generate_authfile(vo_data, legacy=True):
+def _get_resource_by_fqdn(fqdn, resource_groups):
+    for group in resource_groups:
+        for resource in group.resources:
+            if fqdn.lower() == resource.fqdn.lower():
+                return resource
+
+
+def _get_cache_resource(fqdn, resource_groups, suppress_errors):
+    resource = None
+    if fqdn:
+        resource = _get_resource_by_fqdn(fqdn, resource_groups)
+        if not resource:
+            if suppress_errors:
+                return None
+            else:
+                raise ValueError("No resource registered for FQDN {}".format(fqdn))
+        if "XRootD cache server" not in resource.service_names:
+            if suppress_errors:
+                return None
+            else:
+                raise ValueError("Resource {} (FQDN {}) is not a cache service.".format(resource.name, fqdn))
+    return resource
+
+
+def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_errors):
+    allowed_vos = resource.data.get("AllowedVOs")
+    if allowed_vos is None:
+        if suppress_errors:
+            return False
+        else:
+            raise ValueError("Cache server {} (FQDN {}) does not provide an AllowedVOs list.".format(resource.name, resource.fqdn))
+
+    matches_cache = False
+    for vo in allowed_vos:
+        if vo == 'ANY' or vo == vo_name or (public and vo == 'PUBLIC'):
+            matches_cache = True
+            break
+    if not matches_cache:
+        return False
+
+    # For public data, caching is one-way: we OK things as long as the
+    # cache is interested in the data.
+    if public:
+      return True
+
+    allowed_caches = stashcache_data.get("AllowedCaches")
+    if allowed_caches is None:
+        if suppress_errors:
+            return False
+        else:
+            raise ValueError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
+    for cache_name in allowed_caches:
+        if cache_name == 'ANY' or cache_name == resource.name:
+            return True
+    return False
+
+
+def generate_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress_errors=True):
     """
     Generate the Xrootd authfile needed by a StashCache cache server.
     """
     authfile = ""
     id_to_dir = defaultdict(list)
+
+    resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
+    if fqdn and not resource:
+        return ""
+
     for vo_name, vo_data in vo_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
+            continue
+
+        has_non_public = False
+        for authz_list in stashcache_data.get("Namespaces", {}).values():
+            for authz in authz_list:
+                if authz != "PUBLIC":
+                    has_non_public = True
+                    break
+        if not has_non_public:
+            continue
+
+        if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, False, suppress_errors):
             continue
 
         for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
@@ -120,7 +194,7 @@ def generate_authfile(vo_data, legacy=True):
     return authfile
 
 
-def generate_public_authfile(vo_data, legacy=True):
+def generate_public_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress_errors=True):
     """
     Generate the Xrootd authfile needed for public caches
     """
@@ -130,10 +204,16 @@ def generate_public_authfile(vo_data, legacy=True):
         authfile = "u * \\\n"
     id_to_dir = defaultdict(list)
 
+    resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
+    if fqdn and not resource:
+        return ""
+
     public_dirs = [] 
     for vo_name, vo_data in vo_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
+            continue
+        if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, True, suppress_errors):
             continue
 
         for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
@@ -149,13 +229,9 @@ def generate_public_authfile(vo_data, legacy=True):
 
     return authfile
 
+
 def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_groups, suppress_errors=True):
-    origin_resource = None
-    for group in resource_groups:
-        for resource in group.resources:
-            if origin_hostname.lower() == resource.fqdn.lower():
-                origin_resource = resource
-                break
+    origin_resource = _get_resource_by_fqdn(origin_hostname, resource_groups)
     if not origin_resource:
         if suppress_errors:
             return False

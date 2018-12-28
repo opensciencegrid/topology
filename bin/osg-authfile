@@ -4,14 +4,24 @@
 """
 A script to generate Authfiles for XCaches in the OSG
 """
+import argparse
 
 import webapp.models
 import stashcache
+
+parser = argparse.ArgumentParser(description="Generate an Xrootd Authfile.")
+parser.add_argument("fqdn", metavar="Cache_FQDN", nargs="*", help="FQDN of the cache for Authfile generation.")
+
+args = parser.parse_args()
 
 global_data = webapp.models.GlobalData()
 
 VOData = global_data.get_vos_data()
 
-authfile = stashcache.generate_authfile(VOData)
+if args.fqdn:
+    ResourceGroups = global_data.get_topology().get_resource_group_list()
+    authfile = stashcache.generate_authfile(VOData, ResourceGroups, fqdn=args.fqdn[0], suppress_errors=False)
+else:
+    authfile = stashcache.generate_authfile(VOData, [], suppress_errors=False)
 
 print(authfile)
