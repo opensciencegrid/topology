@@ -771,4 +771,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 113385150
+  Description: dCache upgrades
+  Severity: Outage
+  StartTime: Jan 02, 2019 09:00 +0000
+  EndTime: Jan 03, 2019 17:00 +0000
+  CreatedTime: Jan 01, 2019 04:28 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
