@@ -199,7 +199,7 @@ def _get_allowed_caches(stashcache_data, resource_groups, suppress_errors=True):
             if 'XRootD cache server' not in resource.service_names:
                 continue
 
-            # Next, does it allow this VO?  Unlike the StashCache case above,
+            # Next, does it allow this VO?  Unlike the StashCache origin case requiring the origin to list AllowedVOs,
             # we do not consider the lack of AllowedVOs an error as the cache doesn't
             # explicitly record *which* data federation it is participating in (might not be SC!).
             matches_vo = False

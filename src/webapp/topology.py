@@ -126,6 +126,9 @@ class Resource(object):
         elif filters.has_wlcg is True:
             return
 
+        # The topology XML schema cannot handle this additional data.  Given how inflexible
+        # the XML has been (and mostly seen as there for backward compatibility), this simply
+        # removes the data from the XML format.
         if 'DN' in new_res:
             del new_res['DN']
         if 'AllowedVOs' in new_res:
