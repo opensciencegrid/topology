@@ -43,7 +43,7 @@ class GlobalData:
         if not config:
             config = {}
         config.setdefault("TOPOLOGY_DATA_DIR", ".")
-        config.setdefault("CONTACT_DATA_DIR", "contacts")
+        config.setdefault("CONTACT_DATA_DIR", None)
         config.setdefault("NO_GIT", True)
         contact_cache_lifetime = config.get("CONTACT_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
         topology_cache_lifetime = config.get("TOPOLOGY_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
@@ -55,12 +55,30 @@ class GlobalData:
         self.topology_data_dir = config["TOPOLOGY_DATA_DIR"]
         self.topology_data_repo = config.get("TOPOLOGY_DATA_REPO", "")
         self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
-        self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
+        self.webhook_data_dir = config.get("WEBHOOK_DATA_DIR", "")
+        self.webhook_data_repo = config.get("WEBHOOK_DATA_REPO", "")
+        if config["CONTACT_DATA_DIR"]:
+            self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
+        else:
+            self.contacts_file = None
         self.projects_dir = os.path.join(self.topology_data_dir, "projects")
         self.topology_dir = os.path.join(self.topology_data_dir, "topology")
         self.vos_dir = os.path.join(self.topology_data_dir, "virtual-organizations")
         self.config = config
         self.strict = strict
+
+    def _update_webhook_repo(self):
+        if not self.config["NO_GIT"]:
+            parent = os.path.dirname(self.webhook_data_dir)
+            os.makedirs(parent, mode=0o755, exist_ok=True)
+            ok = common.git_clone_or_fetch_mirror(self.webhook_data_repo,
+                                                  self.webhook_data_dir)
+            if ok:
+                log.debug("webhook repo update ok")
+            else:
+                log.error("webhook repo update failed")
+                return False
+        return True
 
     def _update_topology_repo(self):
         if not self.config["NO_GIT"]:
@@ -99,7 +117,10 @@ class GlobalData:
         """
         Get the contact information from a private git repo
         """
-        if self.contacts_data.should_update():
+        if not self.config.get("CONTACT_DATA_DIR", None):
+            log.debug("CONTACT_DATA_DIR not specified; getting empty contacts")
+            return contacts_reader.get_contacts_data(None)
+        elif self.contacts_data.should_update():
             ok = self._update_contacts_repo()
             if ok:
                 try:

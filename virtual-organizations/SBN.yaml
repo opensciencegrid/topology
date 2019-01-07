@@ -1,0 +1,39 @@
+AppDescription: SBN Group (joint files/applications with SBND, ICARUS, Microboone)
+CertificateOnly: false
+Community: Short-Baseline Neutrino Program
+Contacts:
+  Miscellaneous Contact:
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
+  - ID: 888a771df50d76d5e229d97e37949dcca5af5b61
+    Name: Shreyas Bhat
+  VO Manager:
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - High Energy Physics
+ID: 136
+LongName: Short-Baseline Neutrino Program
+MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
+OASIS:
+  Managers:
+    Joe Boyd:
+      DNs:
+      - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
+      ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+  OASISRepoURLs:
+  - http://oasiscfs.fnal.gov:8000/cvmfs/sbn.opensciencegrid.org/
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/sbn.osgstorage.org/
+  UseOASIS: true
+ParentVO:
+  ID: 9
+  Name: Fermilab
+PrimaryURL: http://sbn.fnal.gov/
+PurposeURL: http://sbn.fnal.gov/
+ReportingGroups:
+- sbn
+SupportURL: http://fermigrid.fnal.gov/
