@@ -223,7 +223,7 @@ def get_downtime_yaml(start_datetime: datetime.datetime,
     """
 
     def render(key, value):
-        return yaml.dump({key: value}, default_flow_style=False).strip()
+        return yaml.safe_dump({key: value}, default_flow_style=False).strip()
 
     def indent(in_str, amount):
         spaces = ' ' * amount
