@@ -126,6 +126,14 @@ class Resource(object):
         elif filters.has_wlcg is True:
             return
 
+        # The topology XML schema cannot handle this additional data.  Given how inflexible
+        # the XML has been (and mostly seen as there for backward compatibility), this simply
+        # removes the data from the XML format.
+        if 'DN' in new_res:
+            del new_res['DN']
+        if 'AllowedVOs' in new_res:
+            del new_res['AllowedVOs']
+
         return new_res
 
     def _expand_services(self, services: Dict) -> List[OrderedDict]:
@@ -495,6 +503,12 @@ class Topology(object):
 
     def add_site(self, facility_name, name, id, site_info):
         self.sites[name] = Site(name, id, self.facilities[facility_name], site_info)
+
+    def get_resource_group_list(self):
+        """
+        Simple getter for an iterator of resource group objects associated with this topology.
+        """
+        return self.rgs.values()
 
     def get_resource_summary(self, authorized=False, filters: Filters = None) -> Dict:
         if filters is None:

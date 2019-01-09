@@ -23,6 +23,11 @@ __oid_map = {
 
 __dn_split_re = re.compile("/([A-Za-z]+)=")
 
+
+class DataError(Exception):
+    """Raised when there is a problem in the topology or VO data"""
+
+
 def _generate_ligo_dns():
     """
     Query the LIGO LDAP server for all grid DNs in the LVC collab.
@@ -140,3 +145,139 @@ def generate_public_authfile(vo_data, legacy=True):
         authfile += "    {} rl \\\n".format(dirname)
 
     return authfile[:-2]
+
+def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_groups, suppress_errors=True):
+    origin_resource = None
+    for group in resource_groups:
+        for resource in group.resources:
+            if origin_hostname.lower() == resource.fqdn.lower():
+                origin_resource = resource
+                break
+    if not origin_resource:
+        if suppress_errors:
+            return False
+        else:
+            raise DataError("FQDN {} is not a registered service.".format(origin_hostname))
+    if 'XRootD origin server' not in origin_resource.service_names:
+        if suppress_errors:
+            return False
+        else:
+            raise DataError("FQDN {} (resource name {}) does not provide an origin service.".format(origin_hostname, origin_resource.name))
+    allowed_vos = origin_resource.data.get("AllowedVOs")
+    if allowed_vos is None:
+        if suppress_errors:
+            return False
+        else:
+            raise DataError("Origin server at {} (resource name {}) does not provide an AllowedVOs list.".format(origin_hostname, origin_resource.name))
+
+    matches_origin = False
+    for vo in allowed_vos:
+        if vo == 'ANY' or vo == vo_name:
+            matches_origin = True
+            break
+    if not matches_origin:
+        return False
+
+    allowed_origins = stashcache_data.get("AllowedOrigins")
+    if allowed_origins is None:
+        if suppress_errors:
+            return False
+        else:
+            raise DataError("VO {} in StashCache does not provide an AllowedOrigins list.".format(vo_name))
+    for origin_name in allowed_origins:
+        if origin_name == origin_resource.name:
+            return True
+    return False
+
+def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True):
+    allowed_caches = stashcache_data.get("AllowedCaches")
+    if allowed_caches is None:
+        if suppress_errors:
+            return []
+        else:
+            raise DataError("VO {} enables StashCache but does not specify the allowed caches.".format(vo_name))
+
+    resources = []
+    for group in resource_groups:
+        for resource in group.resources:
+            # First, does this provide a cache service?
+            if 'XRootD cache server' not in resource.service_names:
+                continue
+
+            # Next, does it allow this VO?  Unlike the StashCache origin case requiring the origin to list AllowedVOs,
+            # we do not consider the lack of AllowedVOs an error as the cache doesn't
+            # explicitly record *which* data federation it is participating in (might not be SC!).
+            matches_vo = False
+            for vo in resource.data.get("AllowedVOs", []):
+                if vo == 'ANY':
+                    matches_vo = True
+                    break
+                elif vo == 'PUBLIC':
+                    continue
+                elif vo == vo_name:
+                    matches_vo = True
+                    break
+            if not matches_vo:
+                continue
+            matches_resource = False
+            for cache in allowed_caches:
+                if cache == 'ANY':
+                    matches_resource = True
+                    break
+                elif cache == resource.name:
+                    matches_resource = True
+                    break
+            if not matches_resource:
+                continue
+            resources.append(resource)
+    return resources
+
+
+def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress_errors=True, public_only=False):
+
+    public_namespaces = []
+    id_to_namespaces = defaultdict(list)
+    for vo_name, vo_data in vo_data.vos.items():
+        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+        if not stashcache_data:
+            continue
+
+        if not _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
+            continue
+
+        for namespace, authz_list in stashcache_data.get("Namespaces", {}).items():
+            all_public = True
+            for entry in authz_list:
+                if entry != "PUBLIC":
+                    all_public = False
+                    break
+            if all_public:
+                public_namespaces.append(namespace)
+                continue
+
+            if public_only:
+                continue
+
+            allowed_caches = stashcache_data.get("AllowedCaches")
+            if allowed_caches is None:
+                if suppress_errors:
+                    continue
+                else:
+                    raise DataError("VO {} enables StashCache but does not specify the allowed caches.".format(vo_name))
+
+            for resource in _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
+                dn = resource.data.get("DN")
+                if not dn:
+                    if suppress_errors:
+                        continue
+                    else:
+                        raise DataError("Resource {} is an allowed cache for VO {} but does not provide a DN.".format(resource.name, vo_name))
+                dn_hash = _generate_dn_hash(dn)
+                id_to_namespaces[dn_hash].append(namespace)
+
+    results = ""
+    for id, namespaces in id_to_namespaces.items():
+        results += "u {} {}\n".format(id, " ".join("{} lr".format(i) for i in namespaces))
+    if public_namespaces:
+        results += "\nu * {}\n".format(" ".join("{} lr".format(i) for i in public_namespaces))
+    return results
