@@ -171,15 +171,19 @@ def authfile_public():
 
 @app.route("/stashcache/origin-authfile-public")
 def origin_authfile_public():
-    return origin_authfile(public_only=True)
+    return _get_origin_authfile(public_only=True)
 
 
 @app.route("/stashcache/origin-authfile")
-def origin_authfile(public_only=False):
+def origin_authfile():
+    return _get_origin_authfile(public_only=False)
+
+
+def _get_origin_authfile(public_only):
     if not stashcache:
         return Response("Can't get authfile: stashcache module unavailable", status=503)
     if 'fqdn' not in request.args:
-        return Response("'fqdn' argument required for origin authfile request", status=400)
+        return Response("FQDN of origin server required in the 'fqdn' argument", status=400)
     try:
         auth = stashcache.generate_origin_authfile(request.args['fqdn'],
                                                    global_data.get_vos_data(),
