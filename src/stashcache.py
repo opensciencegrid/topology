@@ -23,6 +23,11 @@ __oid_map = {
 
 __dn_split_re = re.compile("/([A-Za-z]+)=")
 
+
+class DataError(Exception):
+    """Raised when there is a problem in the topology or VO data"""
+
+
 def _generate_ligo_dns():
     """
     Query the LIGO LDAP server for all grid DNs in the LVC collab.
@@ -152,18 +157,18 @@ def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_group
         if suppress_errors:
             return False
         else:
-            raise ValueError("FQDN {} is not a registered service.".format(origin_hostname))
+            raise DataError("FQDN {} is not a registered service.".format(origin_hostname))
     if 'XRootD origin server' not in origin_resource.service_names:
         if suppress_errors:
             return False
         else:
-            raise ValueError("FQDN {} (resource name {}) does not provide an origin service.".format(origin_hostname, origin_resource.name))
+            raise DataError("FQDN {} (resource name {}) does not provide an origin service.".format(origin_hostname, origin_resource.name))
     allowed_vos = origin_resource.data.get("AllowedVOs")
     if allowed_vos is None:
         if suppress_errors:
             return False
         else:
-            raise ValueError("Origin server at {} (resource name {}) does not provide an AllowedVOs list.".format(origin_hostname, origin_resource.name))
+            raise DataError("Origin server at {} (resource name {}) does not provide an AllowedVOs list.".format(origin_hostname, origin_resource.name))
 
     matches_origin = False
     for vo in allowed_vos:
@@ -178,7 +183,7 @@ def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_group
         if suppress_errors:
             return False
         else:
-            raise ValueError("VO {} in StashCache does not provide an AllowedOrigins list.".format(vo_name))
+            raise DataError("VO {} in StashCache does not provide an AllowedOrigins list.".format(vo_name))
     for origin_name in allowed_origins:
         if origin_name == origin_resource.name:
             return True
@@ -190,7 +195,7 @@ def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_erro
         if suppress_errors:
             return []
         else:
-            raise ValueError("VO {} enables StashCache but does not specify the allowed caches.".format(vo_name))
+            raise DataError("VO {} enables StashCache but does not specify the allowed caches.".format(vo_name))
 
     resources = []
     for group in resource_groups:
@@ -258,7 +263,7 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
                 if suppress_errors:
                     continue
                 else:
-                    raise ValueError("VO {} enables StashCache but does not specify the allowed caches.".format(vo_name))
+                    raise DataError("VO {} enables StashCache but does not specify the allowed caches.".format(vo_name))
 
             for resource in _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
                 dn = resource.data.get("DN")
@@ -266,7 +271,7 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
                     if suppress_errors:
                         continue
                     else:
-                        raise ValueError("Resource {} is an allowed cache for VO {} but does not provide a DN.".format(resource.name, vo_name))
+                        raise DataError("Resource {} is an allowed cache for VO {} but does not provide a DN.".format(resource.name, vo_name))
                 dn_hash = _generate_dn_hash(dn)
                 id_to_namespaces[dn_hash].append(namespace)
 

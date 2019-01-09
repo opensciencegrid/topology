@@ -188,10 +188,18 @@ def _get_origin_authfile(public_only):
         auth = stashcache.generate_origin_authfile(request.args['fqdn'],
                                                    global_data.get_vos_data(),
                                                    global_data.get_topology().get_resource_group_list(),
+                                                   suppress_errors=False,
                                                    public_only=public_only)
+    except stashcache.DataError as e:
+        app.log_exception(sys.exc_info())
+        return Response("Error generating authfile for this FQDN: {}".format(str(e)), status=403)
     except Exception:
         app.log_exception(sys.exc_info())
         return Response("Server error getting authfile", status=503)
+    if not auth.strip():
+        auth = """\
+# No authorizations generated for this origin; please check configuration in OSG topology or contact support@opensciencegrid.org
+"""
     return Response(auth, mimetype="text/plain")
 
 
