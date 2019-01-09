@@ -191,7 +191,7 @@ def _get_origin_authfile(public_only):
                                                    suppress_errors=False,
                                                    public_only=public_only)
     except stashcache.DataError as e:
-        app.log_exception(sys.exc_info())
+        app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
                         "# Please check configuration in OSG topology or contact support@opensciencegrid.org\n",
                         mimetype="text/plain", status=400)
