@@ -169,6 +169,42 @@ def authfile_public():
         return Response("Can't get authfile: stashcache module unavailable", status=503)
 
 
+@app.route("/stashcache/origin-authfile-public")
+def origin_authfile_public():
+    return _get_origin_authfile(public_only=True)
+
+
+@app.route("/stashcache/origin-authfile")
+def origin_authfile():
+    return _get_origin_authfile(public_only=False)
+
+
+def _get_origin_authfile(public_only):
+    if not stashcache:
+        return Response("Can't get authfile: stashcache module unavailable", status=503)
+    if 'fqdn' not in request.args:
+        return Response("FQDN of origin server required in the 'fqdn' argument", status=400)
+    try:
+        auth = stashcache.generate_origin_authfile(request.args['fqdn'],
+                                                   global_data.get_vos_data(),
+                                                   global_data.get_topology().get_resource_group_list(),
+                                                   suppress_errors=False,
+                                                   public_only=public_only)
+    except stashcache.DataError as e:
+        app.logger.error("{}: {}".format(request.full_path, str(e)))
+        return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
+                        "# Please check configuration in OSG topology or contact support@opensciencegrid.org\n",
+                        mimetype="text/plain", status=400)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting authfile", status=503)
+    if not auth.strip():
+        auth = """\
+# No authorizations generated for this origin; please check configuration in OSG topology or contact support@opensciencegrid.org
+"""
+    return Response(auth, mimetype="text/plain")
+
+
 @app.route("/generate_downtime", methods=["GET", "POST"])
 def generate_downtime():
     form = GenerateDowntimeForm(request.form)

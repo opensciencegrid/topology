@@ -70,6 +70,8 @@ DataFederations:
   StashCache:
     AllowedCaches:
     - HCC-Stash
+    AllowedOrigins:
+    - HCC-Origin
     Namespaces:
       /hcc/focusday:
       - FQAN:/hcc
