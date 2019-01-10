@@ -117,8 +117,13 @@ def status_hook():
 
     pr_dt_automerge_ret = global_data.get_webhook_pr_state(pull_num, head_sha)
 
-    return Response('Thank You')
 
+    if pr_dt_automerge_ret == 0:
+        message = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
+                  "\n\n{pr_title}".format(**locals())
+        do_automerge(base_sha, head_sha, message, base_ref)
+
+    return Response('Thank You')
 
 
 @app.route("/pull_request", methods=["GET", "POST"])
@@ -174,11 +179,6 @@ def pull_request_hook():
         stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
 
     global_data.set_webhook_pr_state(pull_num, head_sha, ret)
-
-    if ret == 0 and mergeable:
-        message = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
-                  "\n\n{title}".format(**locals())
-        do_automerge(base_sha, head_sha, message, base_ref)
 
     OK = "Yes" if ret == 0 else "No"
 
