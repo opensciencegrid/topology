@@ -81,16 +81,26 @@ def commit_is_merged(ancestor_sha, head_sha):
     return ret == 0
 
 def gen_merge_commit(base_sha, head_sha, message):
-    # NB: we have already asserted: commit_is_merged(base_sha, head_sha)
+    # NOTE: we've already checked this in automerge test script
+    if not commit_is_merged(base_sha, head_sha):
+        return '', 'commit %s is not merged into %s' % (base_sha, head_sha), 1
     tree_rev = head_sha + "^{tree}"
     cmd = ['git', 'commit-tree', '-p', base_sha, '-p', head_sha,
                                  '-m', message, tree_rev]
+    return runcmd(cmd, cwd=global_data.webhook_data_dir)
 
-    stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
-    return stdout.strip(), stderr, ret
+def push_ref(sha, remote_ref):
+    refspec = "%s:refs/heads/%s" % (sha, remote_ref)
+    cmd = ['git', 'push', 'origin', refspec]
+    return runcmd(cmd, cwd=global_data.webhook_data_dir)
 
-
-
+def do_automerge(base_sha, head_sha, message, base_ref):
+    out, err, ret = gen_merge_commit(base_sha, head_sha, message)
+    if ret != 0:
+        # TODO: error message
+        return None
+    new_merge_commit = out.strip()
+    out, err, ret = push_ref(new_merge_commit, base_ref)
 
 @app.route("/status", methods=["GET", "POST"])
 def status_hook():
@@ -176,8 +186,7 @@ def pull_request_hook():
     if ret == 0 and mergeable:
         message = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
                   "\n\n{title}".format(**locals())
-        new_merge_commit = gen_merge_commit(base_sha, head_sha, message)
-        push_ref(new_merge_commit, base_ref)
+        do_automerge(base_sha, head_sha, message, base_ref)
 
     OK = "Yes" if ret == 0 else "No"
 
