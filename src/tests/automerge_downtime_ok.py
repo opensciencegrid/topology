@@ -38,6 +38,9 @@ def main(args):
         else:
             errors += ["File '%s' is not a downtime file." % fname.decode()]
 
+    if len(modified) == 0:
+        errors += ["Will not automerge PR without any file changes."]
+
     if len(args) == 3:
         contact = get_gh_contact(args[2])
         if contact is None:
@@ -48,6 +51,11 @@ def main(args):
     for fname in DTs:
         dtdict_base = get_downtime_dict_at_version(BASE_SHA, fname)
         dtdict_new  = get_downtime_dict_at_version(MERGE_COMMIT_SHA, fname)
+
+        if dtdict_base is None or dtdict_new is None:
+            errors += ["File '%s' failed to parse as YAML" % fname.decode()]
+            continue
+
         dtminus, dtplus = diff_dtdict(dtdict_base, dtdict_new)
         for dt in dtminus:
             print("Old Downtime %d modified for resource '%s'" %
@@ -65,7 +73,10 @@ def main(args):
                                               resources_affected, contact)
 
     print_errors(errors)
-    sys.exit(len(errors) > 0)
+    return ( 0 if len(errors) == 0   # all checks pass (only DT files modified)
+        else 1 if len(DTs) > 0       # DT file(s) modified, not all checks pass
+        else 2 if contact is None    # no DT files modified, contact error
+        else 3 )                     # no DT files modified, other errors
 
 def insist(cond):
     if not cond:
@@ -109,15 +120,24 @@ def commit_is_merged(sha_a, sha_b):
     ret, out = runcmd(args, stderr=_devnull)
     return ret == 0
 
-def get_downtime_dict_at_version(sha, fname):
+def parse_yaml_at_version(sha, fname, default):
     txt = get_file_at_version(sha, fname)
-    dtlist = yaml.safe_load(txt) if txt else []
-    return dict( (dt["ID"], dt) for dt in dtlist )
+    if not txt:
+        return default
+    try:
+        return yaml.safe_load(txt)
+    except yaml.error.YAMLError:
+        return None
+
+def get_downtime_dict_at_version(sha, fname):
+    dtlist = parse_yaml_at_version(sha, fname, [])
+    if dtlist is not None:
+        return dict( (dt["ID"], dt) for dt in dtlist )
 
 def get_rg_resources_at_version(sha, fname):
-    txt = get_file_at_version(sha, fname)
-    rg = yaml.safe_load(txt)
-    return rg["Resources"]
+    rg = parse_yaml_at_version(sha, fname, {})
+    if rg is not None:
+        return rg.get("Resources", {}) if rg else {}
 
 def resource_contact_ids(res):
     clists = res["ContactLists"]
@@ -137,6 +157,8 @@ def diff_dtdict(dtdict_a, dtdict_b):
 
 def check_resource_contacts(sha, rg_fname, resources_affected, contact):
     resources = get_rg_resources_at_version(sha, rg_fname)
+    if resources is None:
+        return ["File '%s' failed to parse as YAML" % rg_fname.decode()]
     return [ "%s not associated with resource '%s'" % (contact, res)
              for res in resources_affected if res in resources
              if contact.ID not in resource_contact_ids(resources[res]) ]
@@ -160,5 +182,5 @@ def get_gh_contact(ghuser):
     return gh_contacts[0] if len(gh_contacts) == 1 else None
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    sys.exit(main(sys.argv[1:]))
 

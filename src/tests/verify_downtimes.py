@@ -71,7 +71,7 @@ def main():
 
     downtime_filenames = sorted(glob.glob("*/*/*_downtime.yaml"))
 
-    services = yaml.load(open("services.yaml"))
+    services = yaml.safe_load(open("services.yaml"))
 
     errors = []
     for dt_fname in downtime_filenames:
