@@ -137,8 +137,8 @@ def pull_request_hook():
         sender     = payload['sender']['login']
 
         head_sha   = payload['pull_request']['head']['sha']
-        head_label = payload['pull_request']['head']['label']
-        head_ref   = payload['pull_request']['head']['ref']
+        head_label = payload['pull_request']['head']['label']  # user:branch
+        head_ref   = payload['pull_request']['head']['ref']    # branch
 
         base_sha   = payload['pull_request']['base']['sha']
         base_label = payload['pull_request']['base']['label']
