@@ -104,7 +104,7 @@ def status_hook():
         return Response("Wrong event type", status=400)
 
     payload = request.get_json()
-    sha = payload['sha']            # '02d565300874d691bfebada6929cbb7c9c1d8018'
+    head_sha = payload['sha']       # '02d565300874d691bfebada6929cbb7c9c1d8018'
     repo = payload['repository']    # { ... }
     owner = repo['owner']['login']  # 'opensciencegrid'
     reponame = repo['name']         # 'topology'
@@ -119,9 +119,9 @@ def status_hook():
     if ci_state != 'success':
         return Response("Not interested; CI state was '%s'" % ci_state)
 
-    pr_webhook_state, pull_num = global_data.get_webhook_pr_state(sha)
+    pr_webhook_state, pull_num = global_data.get_webhook_pr_state(head_sha)
     if pr_webhook_state is None or len(pr_webhook_state) != 3:
-        return Response("No PR automerge info available for %s" % sha)
+        return Response("No PR automerge info available for %s" % head_sha)
 
     pr_dt_automerge_ret, head_label, pr_title = pr_webhook_state
 
