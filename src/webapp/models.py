@@ -2,6 +2,7 @@ import datetime
 import glob
 import logging
 import os
+import re
 import time
 from typing import Dict, Set, List
 
@@ -207,20 +208,23 @@ class GlobalData:
         with open(statefile, "w") as f:
             print(state, file=f)
 
-    def get_webhook_pr_state(self, sha, num='[1-9]*'):
+    def get_webhook_pr_state(self, sha, num='*'):
         prdir = "%s/%s" % (self.webhook_state_dir, num)
         statefile = "%s/%s" % (prdir, sha)
-        if '*' in num:
+        def path_check(fn): return re.search(r'/\d+/[a-f\d]{40}$', fn)
+        def pr_num(fn): return int(fn.rsplit('/', 2)[-2])
+        if num == '*':
             filelist = glob.glob(statefile)
+            filelist = list(filter(path_check, filelist))
             if len(filelist) == 0:
-                return None
+                return None, None
             # if there are multiple PRs with this sha, take the newest
-            statefile = max(filelist, key=lambda fn: int(fn.split('/')[0]))
+            statefile = max(filelist, key=pr_num)
         if os.path.exists(statefile):
             with open(statefile) as f:
-                return f.read().split()
+                return f.read().strip().split('\n'), pr_num(statefile)
         else:
-            return None
+            return None, None
 
 
 def _dtid(created_datetime: datetime.datetime):
