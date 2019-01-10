@@ -109,12 +109,15 @@ def status_hook():
     owner = repo['owner']['login']  # 'opensciencegrid'
     reponame = repo['name']         # 'topology'
     context = payload['context']    # 'continuous-integration/travis-ci/push'
+    ci_state = payload['state']     # 'success' ...
     target_url = payload.get('target_url')  # travis build url
 
     if (context != 'continuous-integration/travis-ci/push' or
             owner != _required_repo_owner or reponame != _required_repo_name):
         return Response("Not Interested")
 
+    if ci_state != 'success':
+        return Response("Not interested; CI state was '%s'" % ci_state)
 
     pr_webhook_state, pull_num = global_data.get_webhook_pr_state(sha)
     if pr_webhook_state is None or len(pr_webhook_state) != 3:
