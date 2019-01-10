@@ -60,23 +60,6 @@ def _fix_unicode(text):
     return text.encode('utf-8', 'surrogateescape').decode('utf-8')
 
 
-'''
-# some bash for ya
-
-base_commit=24603d8a
-head_commit=5021baa7
-
-base_branch=master
-
-new_sha=$(
-  git commit-tree -p $base_commit -p $head_commit \
-                  -m "auto-merge downtime x into $base_branch" \
-                  refs/pull/98/merge^{tree}
-) 
-
-git push origin $new_sha:refs/heads/$base_branch
-'''
-
 # already checked in automerge test script
 # might want to move the check here though, and pass in merge_sha
 def commit_is_merged(ancestor_sha, head_sha):
