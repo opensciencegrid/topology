@@ -68,20 +68,23 @@ def pull_request_hook():
         return Response("Not Interested")
     # status=204 : No Content
 
+    try:
+        sender     = payload['sender']['login']
+
+        head_sha   = payload['pull_request']['head']['sha']
+        head_label = payload['pull_request']['head']['label']
+        head_ref   = payload['pull_request']['head']['ref']
+
+        base_sha   = payload['pull_request']['base']['sha']
+        base_label = payload['pull_request']['base']['label']
+        base_ref   = payload['pull_request']['base']['ref']
+
+        pull_num   = payload['pull_request']['number']
+        pull_url   = payload['pull_request']['html_url']
+    except (TypeError, KeyError) as e:
+        return Response("Malformed payload: {0}".format(e), status=400)
+
     global_data._update_webhook_repo()
-
-    sender     = payload['sender']['login']
-
-    head_sha   = payload['pull_request']['head']['sha']
-    head_label = payload['pull_request']['head']['label']
-    head_ref   = payload['pull_request']['head']['ref']
-
-    base_sha   = payload['pull_request']['base']['sha']
-    base_label = payload['pull_request']['base']['label']
-    base_ref   = payload['pull_request']['base']['ref']
-
-    pull_num   = payload['pull_request']['number']
-    pull_url   = payload['pull_request']['html_url']
 
     pull_ref   = "pull/{pull_num}/head".format(**locals())
 
