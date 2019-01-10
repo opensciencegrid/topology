@@ -146,6 +146,7 @@ def pull_request_hook():
 
         pull_num   = payload['pull_request']['number']
         pull_url   = payload['pull_request']['html_url']
+        title      = payload['pull_request']['title']
     except (TypeError, KeyError) as e:
         return Response("Malformed payload: {0}".format(e), status=400)
 
@@ -173,6 +174,8 @@ def pull_request_hook():
     global_data.set_webhook_pr_state(pull_num, head_sha, ret)
 
     if ret == 0 and mergeable:
+        message = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
+                  "\n\n{title}".format(**locals())
         new_merge_commit = gen_merge_commit(base_sha, head_sha, message)
         push_ref(new_merge_commit, base_ref)
 
