@@ -124,6 +124,7 @@ def status_hook():
         return Response("No PR automerge info available for %s" % head_sha)
 
     pr_dt_automerge_ret, head_label, pr_title = pr_webhook_state
+    base_ref = _required_base_ref
 
     if pr_dt_automerge_ret == 0:
         message = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
