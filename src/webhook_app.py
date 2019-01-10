@@ -13,7 +13,7 @@ import sys
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import to_xml_bytes, Filters
+from webapp.common import to_xml_bytes, Filters, run_git_cmd
 from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
@@ -22,6 +22,7 @@ from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 class InvalidArgumentsError(Exception): pass
 
 def _verify_config(cfg):
+    global ssh_key
     if not cfg["NO_GIT"]:
         ssh_key = cfg["GIT_SSH_KEY"]
         if not ssh_key:
@@ -87,8 +88,9 @@ def gen_merge_commit(base_sha, head_sha, message):
 
 def push_ref(sha, remote_ref):
     refspec = "%s:refs/heads/%s" % (sha, remote_ref)
-    cmd = ['git', 'push', 'origin', refspec]
-    return runcmd(cmd, cwd=global_data.webhook_data_dir)
+    gitcmd = ['push', 'origin', refspec]
+    return run_git_cmd(gitcmd, git_dir=global_data.webhook_data_dir,
+                       ssh_key=ssh_key)
 
 def _status_msg(msg, out, err, ret):
     return "%s:\n%s\n---\n%s\n---\n" % (msg, out, err), ret
@@ -135,7 +137,7 @@ def status_hook():
     pr_dt_automerge_ret, base_sha, head_label, pr_title = pr_webhook_state
     base_ref = _required_base_ref
 
-    if pr_dt_automerge_ret == 0:
+    if pr_dt_automerge_ret == 0 and not app.config['NO_GIT']:
         message = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
                   "\n\n{pr_title}".format(**locals())
         do_automerge(base_sha, head_sha, message, base_ref)
