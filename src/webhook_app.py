@@ -120,10 +120,10 @@ def status_hook():
         return Response("Not interested; CI state was '%s'" % ci_state)
 
     pr_webhook_state, pull_num = global_data.get_webhook_pr_state(head_sha)
-    if pr_webhook_state is None or len(pr_webhook_state) != 3:
+    if pr_webhook_state is None or len(pr_webhook_state) != 4:
         return Response("No PR automerge info available for %s" % head_sha)
 
-    pr_dt_automerge_ret, head_label, pr_title = pr_webhook_state
+    pr_dt_automerge_ret, base_sha, head_label, pr_title = pr_webhook_state
     base_ref = _required_base_ref
 
     if pr_dt_automerge_ret == 0:
@@ -186,7 +186,7 @@ def pull_request_hook():
         cmd = [script, base_sha, head_sha, sender]
         stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
 
-    webhook_state = "{ret}\n{head_label}\n{title}".format(**locals())
+    webhook_state = (ret, base_sha, head_label, title)
     global_data.set_webhook_pr_state(pull_num, head_sha, webhook_state)
 
     OK = "Yes" if ret == 0 else "No"
