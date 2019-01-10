@@ -205,6 +205,8 @@ class GlobalData:
         prdir = "%s/%s" % (self.webhook_state_dir, num)
         statefile = "%s/%s" % (prdir, sha)
         os.makedirs(prdir, mode=0o755, exist_ok=True)
+        if isinstance(state, (tuple,list)):
+            state = "\n".join( x.replace("\n"," ") for x in map(str,state) )
         with open(statefile, "w") as f:
             print(state, file=f)
 
