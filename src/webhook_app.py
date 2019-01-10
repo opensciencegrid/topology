@@ -49,7 +49,11 @@ global_data = GlobalData(app.config)
 
 src_dir = os.path.abspath(os.path.dirname(__file__))
 
-repo_owner, repo_name = global_data.webhook_data_repo.split('/')[-2:]
+( _required_repo_owner, _required_repo_name
+) = global_data.webhook_data_repo.split('/')[-2:]
+
+_required_base_ref = 'master'
+_required_base_label = "%s:%s" % (_required_repo_owner, _required_base_ref)
 
 def _fix_unicode(text):
     """Convert a partial unicode string to full unicode"""
@@ -119,7 +123,7 @@ def status_hook():
     target_url = payload.get('target_url')  # travis build url
 
     if (context != 'continuous-integration/travis-ci/push' or
-            owner != repo_owner or reponame != repo_name):
+            owner != _required_repo_owner or reponame != _required_repo_name):
         return Response("Not Interested")
 
     pr_dt_automerge_ret = global_data.get_webhook_pr_state(pull_num, head_sha)
@@ -127,7 +131,6 @@ def status_hook():
     return Response('Thank You')
 
 
-_required_base_label = 'opensciencegrid:master'
 
 @app.route("/pull_request", methods=["GET", "POST"])
 def pull_request_hook():
