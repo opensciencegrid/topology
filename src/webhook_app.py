@@ -115,8 +115,12 @@ def status_hook():
             owner != _required_repo_owner or reponame != _required_repo_name):
         return Response("Not Interested")
 
-    pr_dt_automerge_ret = global_data.get_webhook_pr_state(pull_num, head_sha)
 
+    pr_webhook_state, pull_num = global_data.get_webhook_pr_state(sha)
+    if pr_webhook_state is None or len(pr_webhook_state) != 3:
+        return Response("No PR automerge info available for %s" % sha)
+
+    pr_dt_automerge_ret, head_label, pr_title = pr_webhook_state
 
     if pr_dt_automerge_ret == 0:
         message = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
@@ -178,7 +182,8 @@ def pull_request_hook():
         cmd = [script, base_sha, head_sha, sender]
         stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
 
-    global_data.set_webhook_pr_state(pull_num, head_sha, ret)
+    webhook_state = "{ret}\n{head_label}\n{title}".format(**locals())
+    global_data.set_webhook_pr_state(pull_num, head_sha, webhook_state)
 
     OK = "Yes" if ret == 0 else "No"
 
