@@ -1,4 +1,5 @@
 import datetime
+import glob
 import logging
 import os
 import time
@@ -206,9 +207,15 @@ class GlobalData:
         with open(statefile, "w") as f:
             print(state, file=f)
 
-    def get_webhook_pr_state(self, num, sha):
+    def get_webhook_pr_state(self, sha, num='[1-9]*'):
         prdir = "%s/%s" % (self.webhook_state_dir, num)
         statefile = "%s/%s" % (prdir, sha)
+        if '*' in num:
+            filelist = glob.glob(statefile)
+            if len(filelist) == 0:
+                return None
+            # if there are multiple PRs with this sha, take the newest
+            statefile = max(filelist, key=lambda fn: int(fn.split('/')[0]))
         if os.path.exists(statefile):
             with open(statefile) as f:
                 return f.read().split()
