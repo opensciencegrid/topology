@@ -147,14 +147,14 @@ def pull_request_hook():
         pull_num   = payload['pull_request']['number']
         pull_url   = payload['pull_request']['html_url']
         title      = payload['pull_request']['title']
+
+        mergeable  = payload['pull_request']['mergeable']
+        if mergeable:
+            merge_sha = payload['pull_request']['merge_commit_sha']
     except (TypeError, KeyError) as e:
         return Response("Malformed payload: {0}".format(e), status=400)
 
     global_data._update_webhook_repo()
-
-    mergeable  = payload['pull_request']['mergeable']
-    if mergeable:
-        merge_sha = payload['pull_request']['merge_commit_sha']
 
     pull_ref   = "pull/{pull_num}/head".format(**locals())
 
