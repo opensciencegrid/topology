@@ -98,13 +98,19 @@ def push_ref(sha, remote_ref):
     cmd = ['git', 'push', 'origin', refspec]
     return runcmd(cmd, cwd=global_data.webhook_data_dir)
 
+def _status_msg(msg, out, err, ret):
+    return "%s:\n%s\n---\n%s\n---\n" % (msg, out, err), ret
+
 def do_automerge(base_sha, head_sha, message, base_ref):
     out, err, ret = gen_merge_commit(base_sha, head_sha, message)
     if ret != 0:
-        # TODO: error message
-        return None
+        return _status_msg("Failed to generate merge commit", out, err, ret)
     new_merge_commit = out.strip()
     out, err, ret = push_ref(new_merge_commit, base_ref)
+    if ret != 0:
+        return _status_msg("Failed to push merge commit", out, err, ret)
+    else:
+        return _status_msg("Successfully pushed merge commit", out, err, ret)
 
 @app.route("/status", methods=["GET", "POST"])
 def status_hook():
