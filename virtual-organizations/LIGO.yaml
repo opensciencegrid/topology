@@ -78,3 +78,7 @@ DataFederations:
         - FQAN:/osg/ligo
       /gwdata:
         - PUBLIC
+    AllowedOrigins:
+      - CIT_LIGO_ORIGIN
+    AllowedCaches:
+      - HCC-Stash

@@ -134,3 +134,15 @@
   Severity: Outage
   StartTime: Mar 28, 2017 11:30 +0000
 # ----------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 108897620
+  Description: 'ATLAS dCache will be down for upgrade. No data transfer to/from BNL SE. ATLAS jobs using BNL SE as input/output will stop working as well. '
+  Severity: Outage
+  StartTime: Jan 22, 2019 11:00 +0000
+  EndTime: Jan 22, 2019 23:00 +0000
+  CreatedTime: Dec 26, 2018 23:49 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------

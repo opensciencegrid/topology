@@ -61,6 +61,8 @@ Resources:
     #   - <HOSTNAME1>
     #   - <HOSTNAME2>
 
+    DN: /DC=org/DC=incommon/C=US/postalCode=68588/ST=NE/L=Lincoln/street=14th And R St./O=University of Nebraska-Lincoln/OU=Holland Computing Center/CN=hcc-stash.unl.edu
+
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
@@ -89,6 +91,9 @@ Resources:
     #   <VO1>: <PERCENT>
     #   <VO2>: <PERCENT>
 
+    AllowedVOs:
+      - ANY
+
     ### WLCGInformation (optional) is only for resources that are part of the WLCG
     # WLCGInformation:
     #   APELNormalFactor: 0.0
@@ -106,3 +111,32 @@ Resources:
   # Other resources if you have any...
   # <RESOURCE NAME>:
   # ...
+  HCC-Origin:
+    Active: true
+    Description: HCC StashCache XRootD origin
+    ID: 980
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: John Thiltges
+          ID: f7fbc93bc8a7d276e8b5a94fb4ff905841a7763f
+        Secondary:
+          Name: Garhan Attebury
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+        Tertiary:
+          Name: Derek Weitzel
+          ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
+
+      Security Contact:
+        Primary:
+          Name: Garhan Attebury
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+
+    FQDN: hcc-anvil-175-55.unl.edu
+
+    Services:
+      XRootD origin server:
+        Description: HCC Origin Server, primarily for XCache testing.
+
+    AllowedVOs:
+      - HCC
