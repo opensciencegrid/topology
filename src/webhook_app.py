@@ -56,6 +56,42 @@ def _fix_unicode(text):
     return text.encode('utf-8', 'surrogateescape').decode('utf-8')
 
 
+'''
+# some bash for ya
+
+base_commit=24603d8a
+head_commit=5021baa7
+
+base_branch=master
+
+new_sha=$(
+  git commit-tree -p $base_commit -p $head_commit \
+                  -m "auto-merge downtime x into $base_branch" \
+                  refs/pull/98/merge^{tree}
+) 
+
+git push origin $new_sha:refs/heads/$base_branch
+'''
+
+# already checked in automerge test script
+# might want to move the check here though, and pass in merge_sha
+def commit_is_merged(ancestor_sha, head_sha):
+    cmd = ['git', 'merge-base', '--is-ancestor', ancestor_sha, head_sha]
+    stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
+    return ret == 0
+
+def gen_merge_commit(base_sha, head_sha, message):
+    # NB: we have already asserted: commit_is_merged(base_sha, head_sha)
+    tree_rev = head_sha + "^{tree}"
+    cmd = ['git', 'commit-tree', '-p', base_sha, '-p', head_sha,
+                                 '-m', message, tree_rev]
+
+    stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
+    return stdout.strip(), stderr, ret
+
+
+
+
 @app.route("/status", methods=["GET", "POST"])
 def status_hook():
     event = request.headers.get('X-GitHub-Event')
@@ -81,6 +117,7 @@ def status_hook():
     return Response('Thank You')
 
 
+_required_base_label = 'opensciencegrid:master'
 
 @app.route("/pull_request", methods=["GET", "POST"])
 def pull_request_hook():
@@ -120,6 +157,11 @@ def pull_request_hook():
 
     pull_ref   = "pull/{pull_num}/head".format(**locals())
 
+    if base_label != _required_base_label:
+        return Response("Not Interested")
+
+    global_data._update_webhook_repo()
+
     # make sure data repo contains relevant commits
     stdout, stderr, ret = fetch_data_ref(base_ref, pull_ref)
 
@@ -129,6 +171,10 @@ def pull_request_hook():
         stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
 
     global_data.set_webhook_pr_state(pull_num, head_sha, ret)
+
+    if ret == 0 and mergeable:
+        new_merge_commit = gen_merge_commit(base_sha, head_sha, message)
+        push_ref(new_merge_commit, base_ref)
 
     OK = "Yes" if ret == 0 else "No"
 
