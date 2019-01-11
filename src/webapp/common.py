@@ -18,6 +18,7 @@ RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
 VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
 
+SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
 log = getLogger(__name__)
 
@@ -170,7 +171,7 @@ def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
     if ssh_key:
         env = dict(os.environ)
         env['GIT_SSH_KEY_FILE'] = ssh_key
-        env['GIT_SSH_COMMAND'] = 'ssh -i "$GIT_SSH_KEY_FILE"'
+        env['GIT_SSH'] = SSH_WITH_KEY
 
     git_result = subprocess.run(full_cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                 encoding="utf-8")
