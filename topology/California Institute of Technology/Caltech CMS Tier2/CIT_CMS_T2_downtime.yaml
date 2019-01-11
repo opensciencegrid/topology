@@ -317,3 +317,15 @@
   ResourceName: CIT_HEP_CE
   Services:
     - CE
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 120032292
+  Description: power issues in one rack and in others several datanodes down.
+  Severity: Severe
+  StartTime: Jan 11, 2019 10:00 +0000
+  EndTime: Jan 12, 2019 10:00 +0000
+  CreatedTime: Jan 11, 2019 10:00 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
