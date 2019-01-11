@@ -164,14 +164,15 @@ def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
         base_cmd = ["git", "--git-dir", os.path.join(dir, ".git"), "--work-tree", dir]
     else:
         base_cmd = ["git"]
+    full_cmd = base_cmd + cmd
 
+    env = None
     if ssh_key:
-        # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
-        full_cmd = ['ssh-agent', 'bash', '-c', 'ssh-add "$1"; shift; "$@"', '-', ssh_key] + base_cmd + cmd;
-    else:
-        full_cmd = base_cmd + cmd
+        env = dict(os.environ)
+        env['GIT_SSH_KEY_FILE'] = ssh_key
+        env['GIT_SSH_COMMAND'] = 'ssh -i "$GIT_SSH_KEY_FILE"'
 
-    git_result = subprocess.run(full_cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+    git_result = subprocess.run(full_cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                 encoding="utf-8")
     if git_result.returncode != 0:
         out = git_result.stdout
