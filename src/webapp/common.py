@@ -18,6 +18,7 @@ RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
 VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
 
+SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
 log = getLogger(__name__)
 
@@ -164,18 +165,15 @@ def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
         base_cmd = ["git", "--git-dir", os.path.join(dir, ".git"), "--work-tree", dir]
     else:
         base_cmd = ["git"]
+    full_cmd = base_cmd + cmd
 
+    env = None
     if ssh_key:
-        shell = True
-        # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
-        full_cmd = "ssh-agent bash -c " + \
-                   shlex.quote("ssh-add {0}; {1}".format(shlex.quote(ssh_key),
-                               " ".join([shlex.quote(s) for s in (base_cmd + cmd)])))
-    else:
-        shell = False
-        full_cmd = base_cmd + cmd
+        env = dict(os.environ)
+        env['GIT_SSH_KEY_FILE'] = ssh_key
+        env['GIT_SSH'] = SSH_WITH_KEY
 
-    git_result = subprocess.run(full_cmd, shell=shell, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+    git_result = subprocess.run(full_cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                 encoding="utf-8")
     if git_result.returncode != 0:
         out = git_result.stdout
