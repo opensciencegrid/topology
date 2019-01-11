@@ -144,7 +144,10 @@ def generate_public_authfile(vo_data, legacy=True):
     for dirname in public_dirs:
         authfile += "    {} rl \\\n".format(dirname)
 
-    return authfile[:-2]
+    if authfile.endswith("\\\n"):
+        authfile = authfile[:-2] + "\n"
+
+    return authfile
 
 def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_groups, suppress_errors=True):
     origin_resource = None
