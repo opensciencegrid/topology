@@ -157,6 +157,17 @@ def trim_space(s: str) -> str:
 
 
 def run_git_cmd(cmd: List, dir=None, git_dir=None, ssh_key=None) -> bool:
+    """
+    Run git command, optionally specifying ssh key and/or git dirs
+
+    Options:
+
+        dir       path to git work-tree, if not current directory
+        git_dir   path to git-dir, if not .git subdir of work-tree
+        ssh_key   path to ssh public key identity file, if any
+
+    For a bare git repo, specify `git_dir` but not `dir`.
+    """
     if ssh_key and not os.path.exists(ssh_key):
         log.critical("ssh key not found at %s: unable to update secure repo",
                      ssh_key)
