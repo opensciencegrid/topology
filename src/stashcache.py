@@ -175,6 +175,8 @@ def generate_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress
 
         for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
             for authz in authz_list:
+                if not isinstance(authz, str):
+                    continue
                 if authz.startswith("FQAN:"):
                     id_to_dir["g {}".format(authz[5:])].append(dirname)
                 elif authz.startswith("DN:"):
@@ -228,6 +230,54 @@ def generate_public_authfile(vo_data, resource_groups, fqdn=None, legacy=True, s
         authfile = authfile[:-2] + "\n"
 
     return authfile
+
+
+def generate_cache_scitokens(fqdn, vo_data, resource_groups, suppress_errors=True):
+    """
+    Generate the SciTokens needed by a StashCache cache server.
+    """
+    scitokens_cfg = "[Global]\n"
+    id_to_dir = defaultdict(list)
+
+    resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
+    if fqdn and not resource:
+        return ""
+
+    scitokens_cfg += "audience = {}, https://{}\n\n".format(resource.name, fqdn)
+
+    for vo_name, vo_data in vo_data.vos.items():
+        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+        if not stashcache_data:
+            continue
+
+        has_non_public = False
+        for authz_list in stashcache_data.get("Namespaces", {}).values():
+            for authz in authz_list:
+                if authz != "PUBLIC":
+                    has_non_public = True
+                    break
+        if not has_non_public:
+            continue
+
+        if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, False, suppress_errors):
+            continue
+
+        for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
+            for authz in authz_list:
+                if not isinstance(authz, dict) or not 'SciTokens' in authz or not isinstance(authz['SciTokens'], dict):
+                    continue
+                if 'Base Path' not in authz['SciTokens']:
+                    raise DataError("'Base Path' missing from the SciTokens config for {}.".format(vo_name))
+                if 'Issuer' not in authz['SciTokens']:
+                    raise DataError("'Issuer' missing from the SciTokens config for {}.".format(vo_name))
+                scitokens_cfg += "[Issuer {}]\n".format(dirname)
+                scitokens_cfg += "issuer = {}\n".format(authz['SciTokens']['Issuer'])
+                scitokens_cfg += "base_path = {}\n".format(authz['SciTokens']['Base Path'])
+                if 'Restricted Path' in authz['SciTokens']:
+                     scitokens_cfg += "restricted_path = {}\n".format(authz['SciTokens']['Restricted Path'])
+                scitokens_cfg += "\n"
+
+    return scitokens_cfg
 
 
 def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_groups, suppress_errors=True):
