@@ -103,12 +103,12 @@ def _get_cache_resource(fqdn, resource_groups, suppress_errors):
             if suppress_errors:
                 return None
             else:
-                raise ValueError("No resource registered for FQDN {}".format(fqdn))
+                raise DataError("No resource registered for FQDN {}".format(fqdn))
         if "XRootD cache server" not in resource.service_names:
             if suppress_errors:
                 return None
             else:
-                raise ValueError("Resource {} (FQDN {}) is not a cache service.".format(resource.name, fqdn))
+                raise DataError("Resource {} (FQDN {}) is not a cache service.".format(resource.name, fqdn))
     return resource
 
 
@@ -118,7 +118,7 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
         if suppress_errors:
             return False
         else:
-            raise ValueError("Cache server {} (FQDN {}) does not provide an AllowedVOs list.".format(resource.name, resource.fqdn))
+            raise DataError("Cache server {} (FQDN {}) does not provide an AllowedVOs list.".format(resource.name, resource.fqdn))
 
     matches_cache = False
     for vo in allowed_vos:
@@ -138,7 +138,7 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
         if suppress_errors:
             return False
         else:
-            raise ValueError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
+            raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
     for cache_name in allowed_caches:
         if cache_name == 'ANY' or cache_name == resource.name:
             return True
