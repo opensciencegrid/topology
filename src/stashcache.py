@@ -120,18 +120,15 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
         else:
             raise DataError("Cache server {} (FQDN {}) does not provide an AllowedVOs list.".format(resource.name, resource.fqdn))
 
-    matches_cache = False
-    for vo in allowed_vos:
-        if vo == 'ANY' or vo == vo_name or (public and vo == 'PUBLIC'):
-            matches_cache = True
-            break
-    if not matches_cache:
+    if ('ANY' not in allowed_vos and
+            vo_name not in allowed_vos and
+            (not public or 'PUBLIC' not in allowed_vos)):
         return False
 
     # For public data, caching is one-way: we OK things as long as the
     # cache is interested in the data.
     if public:
-      return True
+        return True
 
     allowed_caches = stashcache_data.get("AllowedCaches")
     if allowed_caches is None:
@@ -139,10 +136,8 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
             return False
         else:
             raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
-    for cache_name in allowed_caches:
-        if cache_name == 'ANY' or cache_name == resource.name:
-            return True
-    return False
+
+    return 'ANY' in allowed_caches or resource.name in allowed_caches
 
 
 def generate_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress_errors=True):
@@ -216,9 +211,8 @@ def generate_public_authfile(vo_data, resource_groups, fqdn=None, legacy=True, s
             continue
 
         for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
-            for authz in authz_list:
-                if authz == "PUBLIC":
-                    public_dirs.add(dirname)
+            if "PUBLIC" in authz_list:
+                public_dirs.add(dirname)
 
     for dirname in sorted(public_dirs):
         authfile += "    {} rl \\\n".format(dirname)
@@ -248,12 +242,7 @@ def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_group
         else:
             raise DataError("Origin server at {} (resource name {}) does not provide an AllowedVOs list.".format(origin_hostname, origin_resource.name))
 
-    matches_origin = False
-    for vo in allowed_vos:
-        if vo == 'ANY' or vo == vo_name:
-            matches_origin = True
-            break
-    if not matches_origin:
+    if 'ANY' not in allowed_vos and vo_name not in allowed_vos:
         return False
 
     allowed_origins = stashcache_data.get("AllowedOrigins")
@@ -262,10 +251,9 @@ def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_group
             return False
         else:
             raise DataError("VO {} in StashCache does not provide an AllowedOrigins list.".format(vo_name))
-    for origin_name in allowed_origins:
-        if origin_name == origin_resource.name:
-            return True
-    return False
+
+    return origin_resource.name in allowed_origins
+
 
 def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True):
     allowed_caches = stashcache_data.get("AllowedCaches")
@@ -285,27 +273,10 @@ def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_erro
             # Next, does it allow this VO?  Unlike the StashCache origin case requiring the origin to list AllowedVOs,
             # we do not consider the lack of AllowedVOs an error as the cache doesn't
             # explicitly record *which* data federation it is participating in (might not be SC!).
-            matches_vo = False
-            for vo in resource.data.get("AllowedVOs", []):
-                if vo == 'ANY':
-                    matches_vo = True
-                    break
-                elif vo == 'PUBLIC':
-                    continue
-                elif vo == vo_name:
-                    matches_vo = True
-                    break
-            if not matches_vo:
+            allowed_vos = resource.data.get("AllowedVOs", [])
+            if 'ANY' not in allowed_vos and (vo_name != "PUBLIC" and vo_name not in allowed_vos):
                 continue
-            matches_resource = False
-            for cache in allowed_caches:
-                if cache == 'ANY':
-                    matches_resource = True
-                    break
-                elif cache == resource.name:
-                    matches_resource = True
-                    break
-            if not matches_resource:
+            if 'ANY' not in allowed_caches and resource.name not in allowed_caches:
                 continue
             resources.append(resource)
     return resources
