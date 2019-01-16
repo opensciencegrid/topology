@@ -150,7 +150,7 @@ def generate_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress
     Generate the Xrootd authfile needed by a StashCache cache server.
     """
     authfile = ""
-    id_to_dir = defaultdict(list)
+    id_to_dir = defaultdict(set)
 
     resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
     if fqdn and not resource:
@@ -176,20 +176,20 @@ def generate_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress
         for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
             for authz in authz_list:
                 if authz.startswith("FQAN:"):
-                    id_to_dir["g {}".format(authz[5:])].append(dirname)
+                    id_to_dir["g {}".format(authz[5:])].add(dirname)
                 elif authz.startswith("DN:"):
                     hash = _generate_dn_hash(authz[3:])
-                    id_to_dir["u {}".format(hash)].append(dirname)
+                    id_to_dir["u {}".format(hash)].add(dirname)
 
     if legacy:
         for dn in _generate_ligo_dns():
             hash = _generate_dn_hash(dn)
-            id_to_dir["u {}".format(hash)].append("/user/ligo")
+            id_to_dir["u {}".format(hash)].add("/user/ligo")
 
     for id, dir_list in id_to_dir.items():
         if dir_list:
             authfile += "{} {}\n".format(id,
-                " ".join([i + " rl" for i in dir_list]))
+                " ".join([i + " rl" for i in sorted(dir_list)]))
 
     return authfile
 
@@ -202,13 +202,12 @@ def generate_public_authfile(vo_data, resource_groups, fqdn=None, legacy=True, s
         authfile = "u * /user/ligo -rl \\\n"
     else:
         authfile = "u * \\\n"
-    id_to_dir = defaultdict(list)
 
     resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
     if fqdn and not resource:
         return ""
 
-    public_dirs = [] 
+    public_dirs = set()
     for vo_name, vo_data in vo_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
@@ -219,9 +218,9 @@ def generate_public_authfile(vo_data, resource_groups, fqdn=None, legacy=True, s
         for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
             for authz in authz_list:
                 if authz == "PUBLIC":
-                    public_dirs.append(dirname)
+                    public_dirs.add(dirname)
 
-    for dirname in public_dirs:
+    for dirname in sorted(public_dirs):
         authfile += "    {} rl \\\n".format(dirname)
 
     if authfile.endswith("\\\n"):
@@ -314,8 +313,8 @@ def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_erro
 
 def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress_errors=True, public_only=False):
 
-    public_namespaces = []
-    id_to_namespaces = defaultdict(list)
+    public_namespaces = set()
+    id_to_namespaces = defaultdict(set)
     for vo_name, vo_data in vo_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
@@ -331,7 +330,7 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
                     all_public = False
                     break
             if all_public:
-                public_namespaces.append(namespace)
+                public_namespaces.add(namespace)
                 continue
 
             if public_only:
@@ -352,11 +351,11 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
                     else:
                         raise DataError("Resource {} is an allowed cache for VO {} but does not provide a DN.".format(resource.name, vo_name))
                 dn_hash = _generate_dn_hash(dn)
-                id_to_namespaces[dn_hash].append(namespace)
+                id_to_namespaces[dn_hash].add(namespace)
 
     results = ""
     for id, namespaces in id_to_namespaces.items():
-        results += "u {} {}\n".format(id, " ".join("{} lr".format(i) for i in namespaces))
+        results += "u {} {}\n".format(id, " ".join("{} lr".format(i) for i in sorted(namespaces)))
     if public_namespaces:
-        results += "\nu * {}\n".format(" ".join("{} lr".format(i) for i in public_namespaces))
+        results += "\nu * {}\n".format(" ".join("{} lr".format(i) for i in sorted(public_namespaces)))
     return results
