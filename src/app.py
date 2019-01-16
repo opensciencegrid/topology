@@ -149,7 +149,8 @@ def authfile():
             auth = stashcache.generate_authfile(global_data.get_vos_data(),
                                                 global_data.get_topology().get_resource_group_list(),
                                                 fqdn=cache_fqdn,
-                                                legacy=app.config["STASHCACHE_LEGACY_AUTH"])
+                                                legacy=app.config["STASHCACHE_LEGACY_AUTH"],
+                                                suppress_errors=False)
         except stashcache.DataError as e:
             app.logger.error("{}: {}".format(request.full_path, str(e)))
             return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
@@ -171,7 +172,8 @@ def authfile_public():
             auth = stashcache.generate_public_authfile(global_data.get_vos_data(),
                                                        global_data.get_topology().get_resource_group_list(),
                                                        fqdn=cache_fqdn,
-                                                       legacy=app.config["STASHCACHE_LEGACY_AUTH"])
+                                                       legacy=app.config["STASHCACHE_LEGACY_AUTH"],
+                                                       suppress_errors=False)
         except stashcache.DataError as e:
             app.logger.error("{}: {}".format(request.full_path, str(e)))
             return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
