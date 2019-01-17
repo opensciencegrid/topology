@@ -95,7 +95,8 @@ def push_ref(sha, remote_ref):
 def do_automerge(base_sha, head_sha, message, base_ref):
     out, err, ret = gen_merge_commit(base_sha, head_sha, message)
     if ret != 0:
-        # XXX: log message: Failed to generate merge commit...
+        app.logger.error("Failed to generate merge commit of %s onto %s"
+                         % (head_sha, base_sha))
         return False
     new_merge_commit = out.strip()
     return push_ref(new_merge_commit, base_ref)
