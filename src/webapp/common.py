@@ -15,7 +15,7 @@ import yaml
 try:
     from yaml import CSafeLoader as SafeLoader
 except ImportError:
-    log.debug("CSafeLoader not available - install libyaml")
+    log.warning("CSafeLoader not available - install libyaml-devel and reinstall PyYAML")
     from yaml import SafeLoader
 
 MaybeOrderedDict = Union[None, OrderedDict]
