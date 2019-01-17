@@ -92,19 +92,13 @@ def push_ref(sha, remote_ref):
     return run_git_cmd(gitcmd, git_dir=global_data.webhook_data_dir,
                        ssh_key=ssh_key)
 
-def _status_msg(msg, out, err, ret):
-    return "%s:\n%s\n---\n%s\n---\n" % (msg, out, err), ret
-
 def do_automerge(base_sha, head_sha, message, base_ref):
     out, err, ret = gen_merge_commit(base_sha, head_sha, message)
     if ret != 0:
-        return _status_msg("Failed to generate merge commit", out, err, ret)
+        # XXX: log message: Failed to generate merge commit...
+        return False
     new_merge_commit = out.strip()
-    out, err, ret = push_ref(new_merge_commit, base_ref)
-    if ret != 0:
-        return _status_msg("Failed to push merge commit", out, err, ret)
-    else:
-        return _status_msg("Successfully pushed merge commit", out, err, ret)
+    return push_ref(new_merge_commit, base_ref)
 
 @app.route("/status", methods=["GET", "POST"])
 def status_hook():
@@ -140,7 +134,13 @@ def status_hook():
     if pr_dt_automerge_ret == 0 and not app.config['NO_GIT']:
         message = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
                   "\n\n{pr_title}".format(**locals())
-        do_automerge(base_sha, head_sha, message, base_ref)
+        ok = do_automerge(base_sha, head_sha, message, base_ref)
+    elif pr_dt_automerge_ret != 0:
+        # XXX: log message: not eligible for dt automerge
+        pass
+    else:
+        # XXX: log message: eligible for dt automerge but NO_GIT configured
+        pass
 
     return Response('Thank You')
 
