@@ -8,6 +8,11 @@ import sys
 import os
 import re
 
+try:
+    from yaml import CSafeLoader as SafeLoader
+except ImportError:
+    from yaml import SafeLoader
+
 _topdir = os.path.abspath(os.path.dirname(__file__) + "/../..")
 sys.path.append(_topdir + "/src")
 
@@ -15,7 +20,7 @@ from webapp import topology
 
 def load_yaml_file(fname, errors):
     try:
-        yml = yaml.load(open(fname), Loader=yaml.CSafeLoader)
+        yml = yaml.load(open(fname), Loader=SafeLoader)
         if yml is None:
             errors.append("YAML file is empty or invalid: %s", fname)
         return yml
@@ -71,7 +76,7 @@ def main():
 
     downtime_filenames = sorted(glob.glob("*/*/*_downtime.yaml"))
 
-    services = yaml.load(open("services.yaml"), Loader=yaml.CSafeLoader)
+    services = yaml.load(open("services.yaml"), Loader=SafeLoader)
 
     errors = []
     for dt_fname in downtime_filenames:

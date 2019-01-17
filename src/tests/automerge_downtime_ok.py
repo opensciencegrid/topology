@@ -12,6 +12,11 @@ try:
 except ImportError:
     from urllib2 import urlopen
 
+try:
+    from yaml import CSafeLoader as SafeLoader
+except ImportError:
+    from yaml import SafeLoader
+
 import xml.etree.ElementTree as et
 
 
@@ -125,7 +130,7 @@ def parse_yaml_at_version(sha, fname, default):
     if not txt:
         return default
     try:
-        return yaml.load(txt, Loader=yaml.CSafeLoader)
+        return yaml.load(txt, Loader=SafeLoader)
     except yaml.error.YAMLError:
         return None
 
