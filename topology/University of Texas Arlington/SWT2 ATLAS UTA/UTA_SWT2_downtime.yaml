@@ -227,4 +227,16 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 127805364
+  Description: Rebuild of CE node
+  Severity: Outage
+  StartTime: Jan 22, 2019 12:00 +0000
+  EndTime: Jan 24, 2019 18:00 +0000
+  CreatedTime: Jan 17, 2019 21:02 +0000
+  ResourceName: UTA_SWT2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
 
