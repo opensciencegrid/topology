@@ -8,8 +8,15 @@ import subprocess
 import sys
 from typing import Dict, List, Union, AnyStr
 
+log = getLogger(__name__)
+
 import xmltodict
 import yaml
+try:
+    from yaml import CSafeLoader as SafeLoader
+except ImportError:
+    log.warning("CSafeLoader not available - install libyaml-devel and reinstall PyYAML")
+    from yaml import SafeLoader
 
 MaybeOrderedDict = Union[None, OrderedDict]
 
@@ -20,7 +27,6 @@ VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
 
 SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
-log = getLogger(__name__)
 
 
 class Filters(object):
@@ -229,7 +235,7 @@ def load_yaml_file(filename) -> Dict:
     """
     try:
         with open(filename, encoding='utf-8', errors='surrogateescape') as stream:
-            return yaml.safe_load(stream)
+            return yaml.load(stream, Loader=SafeLoader)
     except yaml.YAMLError as e:
         log.error("YAML error in %s: %s", filename, e)
         raise
