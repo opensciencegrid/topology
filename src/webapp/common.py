@@ -18,6 +18,7 @@ RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
 VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
 
+SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
 log = getLogger(__name__)
 
@@ -155,27 +156,39 @@ def trim_space(s: str) -> str:
     return ret
 
 
-def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
+def run_git_cmd(cmd: List, dir=None, git_dir=None, ssh_key=None) -> bool:
+    """
+    Run git command, optionally specifying ssh key and/or git dirs
+
+    Options:
+
+        dir       path to git work-tree, if not current directory
+        git_dir   path to git-dir, if not .git subdir of work-tree
+        ssh_key   path to ssh public key identity file, if any
+
+    For a bare git repo, specify `git_dir` but not `dir`.
+    """
     if ssh_key and not os.path.exists(ssh_key):
         log.critical("ssh key not found at %s: unable to update secure repo",
                      ssh_key)
         return False
+    base_cmd = ["git"]
     if dir:
-        base_cmd = ["git", "--git-dir", os.path.join(dir, ".git"), "--work-tree", dir]
-    else:
-        base_cmd = ["git"]
+        base_cmd += ["--work-tree", dir]
+        if git_dir is None:
+            git_dir = os.path.join(dir, ".git")
+    if git_dir:
+        base_cmd += ["--git-dir", git_dir]
 
+    full_cmd = base_cmd + cmd
+
+    env = None
     if ssh_key:
-        shell = True
-        # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
-        full_cmd = "ssh-agent bash -c " + \
-                   shlex.quote("ssh-add {0}; {1}".format(shlex.quote(ssh_key),
-                               " ".join([shlex.quote(s) for s in (base_cmd + cmd)])))
-    else:
-        shell = False
-        full_cmd = base_cmd + cmd
+        env = dict(os.environ)
+        env['GIT_SSH_KEY_FILE'] = ssh_key
+        env['GIT_SSH'] = SSH_WITH_KEY
 
-    git_result = subprocess.run(full_cmd, shell=shell, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+    git_result = subprocess.run(full_cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                 encoding="utf-8")
     if git_result.returncode != 0:
         out = git_result.stdout
