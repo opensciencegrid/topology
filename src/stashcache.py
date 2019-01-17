@@ -156,8 +156,15 @@ def generate_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress
         if not stashcache_data:
             continue
 
+        namespaces = stashcache_data.get("Namespaces")
+        if not namespaces:
+            if suppress_errors:
+                continue
+            else:
+                raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
+
         has_non_public = False
-        for namespace, authz_list in stashcache_data.get("Namespaces", {}).items():
+        for namespace, authz_list in namespaces.items():
             if not authz_list:
                 if suppress_errors:
                     continue
@@ -172,7 +179,7 @@ def generate_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress
         if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, False, suppress_errors):
             continue
 
-        for namespace, authz_list in stashcache_data.get("Namespaces", {}).items():
+        for namespace, authz_list in namespaces.items():
             for authz in authz_list:
                 if authz.startswith("FQAN:"):
                     id_to_dir["g {}".format(authz[5:])].add(namespace)
@@ -297,7 +304,14 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
         if not _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
             continue
 
-        for namespace, authz_list in stashcache_data.get("Namespaces", {}).items():
+        namespaces = stashcache_data.get("Namespaces")
+        if not namespaces:
+            if suppress_errors:
+                continue
+            else:
+                raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
+
+        for namespace, authz_list in namespaces.items():
             if not authz_list:
                 if suppress_errors:
                     continue
