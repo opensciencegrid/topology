@@ -99,7 +99,15 @@ def do_automerge(base_sha, head_sha, message, base_ref):
                          % (head_sha, base_sha))
         return False
     new_merge_commit = out.strip()
-    return push_ref(new_merge_commit, base_ref)
+
+    # for now, send all-clear email rather than actually pushing upstream
+    subject = "Downtime Automerge Approved"
+    body = ("Downtime PR eligible for automerge and Status check passed:"
+            "\n\n%s" % message)
+    send_mailx_email(subject, body)
+    return True
+
+#   return push_ref(new_merge_commit, base_ref)
 
 @app.route("/status", methods=["GET", "POST"])
 def status_hook():
@@ -239,14 +247,8 @@ automerge_downtime script output:
 ---
 """.format(**locals())
 
-    recipients = [
-        "edquist@cs.wisc.edu",
-        "matyas@cs.wisc.edu",
-        "blin@cs.wisc.edu",
-    ]
-
     if ret <= 2:
-        _,_,_ = send_mailx_email(subject, out, recipients)
+        _,_,_ = send_mailx_email(subject, out)
 
     return Response(out)
 
@@ -265,7 +267,12 @@ def fetch_data_ref(*refs):
     return runcmd(['git', 'fetch', 'origin'] + list(refs),
                   cwd=global_data.webhook_data_dir)
 
-def send_mailx_email(subject, body, recipients):
+def send_mailx_email(subject, body):
+    recipients = [
+        "edquist@cs.wisc.edu",
+        "matyas@cs.wisc.edu",
+        "blin@cs.wisc.edu",
+    ]
     app.logger.info("Sending email to %s, Re: %s" % (recipients, subject))
     return runcmd(["mailx", "-s", subject] + recipients, input=body)
 
