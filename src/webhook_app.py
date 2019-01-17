@@ -110,13 +110,18 @@ def status_hook():
         return Response("Wrong event type", status=400)
 
     payload = request.get_json()
-    head_sha = payload['sha']       # '02d565300874d691bfebada6929cbb7c9c1d8018'
-    repo = payload['repository']    # { ... }
-    owner = repo['owner']['login']  # 'opensciencegrid'
-    reponame = repo['name']         # 'topology'
-    context = payload['context']    # 'continuous-integration/travis-ci/push'
-    ci_state = payload['state']     # 'success' ...
-    target_url = payload.get('target_url')  # travis build url
+    try:
+        head_sha = payload['sha']
+        repo = payload['repository']
+        owner = repo['owner']['login'] # 'opensciencegrid'
+        reponame = repo['name']        # 'topology'
+        context = payload['context']   # 'continuous-integration/travis-ci/push'
+        ci_state = payload['state']    # 'success' ...
+        target_url = payload.get('target_url')  # travis build url
+    except (TypeError, KeyError) as e:
+        emsg = "Malformed payload for status hook: %s" % e
+        app.logger.error(emsg)
+        return Response(emsg, status=400)
 
     if (context != 'continuous-integration/travis-ci/push' or
             owner != _required_repo_owner or reponame != _required_repo_name):
