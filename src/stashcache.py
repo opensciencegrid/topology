@@ -157,24 +157,28 @@ def generate_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress
             continue
 
         has_non_public = False
-        for authz_list in stashcache_data.get("Namespaces", {}).values():
-            for authz in authz_list:
-                if authz != "PUBLIC":
-                    has_non_public = True
-                    break
+        for namespace, authz_list in stashcache_data.get("Namespaces", {}).items():
+            if not authz_list:
+                if suppress_errors:
+                    continue
+                else:
+                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(namespace, vo_name))
+            if authz_list != ["PUBLIC"]:
+                has_non_public = True
+                break
         if not has_non_public:
             continue
 
         if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, False, suppress_errors):
             continue
 
-        for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
+        for namespace, authz_list in stashcache_data.get("Namespaces", {}).items():
             for authz in authz_list:
                 if authz.startswith("FQAN:"):
-                    id_to_dir["g {}".format(authz[5:])].add(dirname)
+                    id_to_dir["g {}".format(authz[5:])].add(namespace)
                 elif authz.startswith("DN:"):
                     hash = _generate_dn_hash(authz[3:])
-                    id_to_dir["u {}".format(hash)].add(dirname)
+                    id_to_dir["u {}".format(hash)].add(namespace)
 
     if legacy:
         for dn in _generate_ligo_dns():
@@ -283,7 +287,6 @@ def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_erro
 
 
 def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress_errors=True, public_only=False):
-
     public_namespaces = set()
     id_to_namespaces = defaultdict(set)
     for vo_name, vo_data in vo_data.vos.items():
@@ -295,12 +298,13 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
             continue
 
         for namespace, authz_list in stashcache_data.get("Namespaces", {}).items():
-            all_public = True
-            for entry in authz_list:
-                if entry != "PUBLIC":
-                    all_public = False
-                    break
-            if all_public:
+            if not authz_list:
+                if suppress_errors:
+                    continue
+                else:
+                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(namespace, vo_name))
+
+            if authz_list == ["PUBLIC"]:
                 public_namespaces.add(namespace)
                 continue
 
