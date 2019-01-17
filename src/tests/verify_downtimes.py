@@ -15,7 +15,7 @@ from webapp import topology
 
 def load_yaml_file(fname, errors):
     try:
-        yml = yaml.safe_load(open(fname))
+        yml = yaml.load(open(fname), Loader=yaml.CSafeLoader)
         if yml is None:
             errors.append("YAML file is empty or invalid: %s", fname)
         return yml
@@ -71,7 +71,7 @@ def main():
 
     downtime_filenames = sorted(glob.glob("*/*/*_downtime.yaml"))
 
-    services = yaml.safe_load(open("services.yaml"))
+    services = yaml.load(open("services.yaml"), Loader=yaml.CSafeLoader)
 
     errors = []
     for dt_fname in downtime_filenames:

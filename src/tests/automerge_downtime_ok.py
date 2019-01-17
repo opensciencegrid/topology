@@ -125,7 +125,7 @@ def parse_yaml_at_version(sha, fname, default):
     if not txt:
         return default
     try:
-        return yaml.safe_load(txt)
+        return yaml.load(txt, Loader=yaml.CSafeLoader)
     except yaml.error.YAMLError:
         return None
 

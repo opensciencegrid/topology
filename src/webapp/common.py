@@ -229,7 +229,7 @@ def load_yaml_file(filename) -> Dict:
     """
     try:
         with open(filename, encoding='utf-8', errors='surrogateescape') as stream:
-            return yaml.safe_load(stream)
+            return yaml.load(stream, Loader=yaml.CSafeLoader)
     except yaml.YAMLError as e:
         log.error("YAML error in %s: %s", filename, e)
         raise

@@ -44,7 +44,7 @@ def get_vo_names():
 def load_yamlfile(fn):
     with open(fn) as f:
         try:
-            yml = yaml.safe_load(f)
+            yml = yaml.load(f, Loader=yaml.CSafeLoader)
             if yml is None:
                 print("YAML file is empty or invalid: %s", fn)
             return yml
