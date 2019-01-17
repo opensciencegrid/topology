@@ -103,12 +103,12 @@ def _get_cache_resource(fqdn, resource_groups, suppress_errors):
             if suppress_errors:
                 return None
             else:
-                raise DataError("No resource registered for FQDN {}".format(fqdn))
+                raise DataError("{} is not a registered resource.".format(fqdn))
         if "XRootD cache server" not in resource.service_names:
             if suppress_errors:
                 return None
             else:
-                raise DataError("Resource {} (FQDN {}) is not a cache service.".format(resource.name, fqdn))
+                raise DataError("{} (resource name {}) does not provide an XRootD cache server.".format(fqdn, resource.name))
     return resource
 
 
@@ -118,7 +118,7 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
         if suppress_errors:
             return False
         else:
-            raise DataError("Cache server {} (FQDN {}) does not provide an AllowedVOs list.".format(resource.name, resource.fqdn))
+            raise DataError("Cache server at {} (resource name {}) does not provide an AllowedVOs list.".format(resource.fqdn, resource.name))
 
     if ('ANY' not in allowed_vos and
             vo_name not in allowed_vos and
@@ -240,12 +240,12 @@ def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_group
         if suppress_errors:
             return False
         else:
-            raise DataError("FQDN {} is not a registered service.".format(origin_hostname))
+            raise DataError("{} is not a registered resource.".format(origin_hostname))
     if 'XRootD origin server' not in origin_resource.service_names:
         if suppress_errors:
             return False
         else:
-            raise DataError("FQDN {} (resource name {}) does not provide an origin service.".format(origin_hostname, origin_resource.name))
+            raise DataError("{} (resource name {}) does not provide an XRootD origin server.".format(origin_hostname, origin_resource.name))
     allowed_vos = origin_resource.data.get("AllowedVOs")
     if allowed_vos is None:
         if suppress_errors:
@@ -272,7 +272,7 @@ def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_erro
         if suppress_errors:
             return []
         else:
-            raise DataError("VO {} enables StashCache but does not specify the allowed caches.".format(vo_name))
+            raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
 
     resources = []
     for group in resource_groups:
@@ -330,7 +330,7 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
                 if suppress_errors:
                     continue
                 else:
-                    raise DataError("VO {} enables StashCache but does not specify the allowed caches.".format(vo_name))
+                    raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
 
             for resource in _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
                 dn = resource.data.get("DN")
