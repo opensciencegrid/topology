@@ -247,6 +247,7 @@ automerge_downtime script output:
 ---
 """.format(**locals())
 
+    # only send email if DT files modified or contact unknown
     if ret <= 2:
         _,_,_ = send_mailx_email(subject, out)
 
