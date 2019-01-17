@@ -214,11 +214,11 @@ def git_clone_or_pull(repo, dir, branch, ssh_key=None) -> bool:
         ok = ok and run_git_cmd(["checkout", branch], dir=dir)
     return ok
 
-def git_clone_or_fetch_mirror(repo, dir, ssh_key=None) -> bool:
+def git_clone_or_fetch_mirror(repo, git_dir, ssh_key=None) -> bool:
     if os.path.exists(dir):
-        ok = run_git_cmd(["fetch", "origin"], dir=dir, ssh_key=ssh_key)
+        ok = run_git_cmd(["fetch", "origin"], git_dir=git_dir, ssh_key=ssh_key)
     else:
-        ok = run_git_cmd(["clone", "--mirror", repo, dir], ssh_key=ssh_key)
+        ok = run_git_cmd(["clone", "--mirror", repo, git_dir], ssh_key=ssh_key)
     return ok
 
 
