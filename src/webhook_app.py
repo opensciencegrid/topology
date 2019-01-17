@@ -106,6 +106,7 @@ def status_hook():
     if event == "ping":
         return Response('Pong')
     elif event != "status":
+        app.logger.debug("Ignoring non-status hook of type '%s'" % event)
         return Response("Wrong event type", status=400)
 
     payload = request.get_json()
@@ -119,13 +120,17 @@ def status_hook():
 
     if (context != 'continuous-integration/travis-ci/push' or
             owner != _required_repo_owner or reponame != _required_repo_name):
+        app.logger.info("Ignoring non-travis status hook for '%s'" % context)
         return Response("Not Interested")
 
     if ci_state != 'success':
+        app.logger.info("Ignoring travis '%s' status hook" % ci_state)
         return Response("Not interested; CI state was '%s'" % ci_state)
 
     pr_webhook_state, pull_num = global_data.get_webhook_pr_state(head_sha)
     if pr_webhook_state is None or len(pr_webhook_state) != 4:
+        app.logger.info("Got travis success status hook for commit %s;\n"
+                "not merging as No PR automerge info available" % head_sha)
         return Response("No PR automerge info available for %s" % head_sha)
 
     pr_dt_automerge_ret, base_sha, head_label, pr_title = pr_webhook_state
@@ -136,11 +141,12 @@ def status_hook():
                   "\n\n{pr_title}".format(**locals())
         ok = do_automerge(base_sha, head_sha, message, base_ref)
     elif pr_dt_automerge_ret != 0:
-        # XXX: log message: not eligible for dt automerge
-        pass
+        app.logger.info("Got travis success status hook for commit %s;\n"
+                "not eligible for DT automerge" % head_sha)
     else:
-        # XXX: log message: eligible for dt automerge but NO_GIT configured
-        pass
+        app.logger.info("Got travis success status hook for commit %s;\n"
+                "eligible for DT automerge, but not merging since NO_GIT "
+                "is configured" % head_sha)
 
     return Response('Thank You')
 
@@ -151,11 +157,13 @@ def pull_request_hook():
     if event == "ping":
         return Response('Pong')
     elif event != "pull_request":
+        app.logger.debug("Ignoring non-pull_request hook of type '%s'" % event)
         return Response("Wrong event type", status=400)
 
     payload = request.get_json()
     action = payload['action']
     if action not in ("opened",):
+        app.logger.info("Ignoring pull_request hook action '%s'" % action)
         return Response("Not Interested")
     # status=204 : No Content
 
@@ -178,13 +186,17 @@ def pull_request_hook():
         if mergeable:
             merge_sha = payload['pull_request']['merge_commit_sha']
     except (TypeError, KeyError) as e:
-        return Response("Malformed payload: {0}".format(e), status=400)
+        emsg = "Malformed payload for pull_request hook: %s" % e
+        app.logger.error(emsg)
+        return Response(emsg, status=400)
 
     global_data._update_webhook_repo()
 
     pull_ref   = "pull/{pull_num}/head".format(**locals())
 
     if base_label != _required_base_label:
+        app.logger.info("Ignoring pull_request hook against '%s' "
+                "('%s' is required)" % (base_label, _required_base_label))
         return Response("Not Interested")
 
     global_data._update_webhook_repo()
@@ -248,6 +260,7 @@ def fetch_data_ref(*refs):
                   cwd=global_data.webhook_data_dir)
 
 def send_mailx_email(subject, body, recipients):
+    app.logger.info("Sending email to %s, Re: %s" % (recipients, subject))
     return runcmd(["mailx", "-s", subject] + recipients, input=body)
 
 
