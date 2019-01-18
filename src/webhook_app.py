@@ -131,6 +131,7 @@ def status_hook():
         emsg = "Malformed payload for status hook: %s" % e
         app.logger.error(emsg)
         return Response(emsg, status=400)
+    app.logger.debug("Got status hook '%s' for '%s'" % (ci_state, head_sha))
 
     if (context != 'continuous-integration/travis-ci/push' or
             owner != _required_repo_owner or reponame != _required_repo_name):
@@ -151,6 +152,8 @@ def status_hook():
     base_ref = _required_base_ref
 
     if pr_dt_automerge_ret == 0 and not app.config['NO_GIT']:
+        app.logger.info("Got travis success status hook for commit %s;\n"
+                "eligible for DT automerge" % head_sha)
         message = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
                   "\n\n{pr_title}".format(**locals())
         ok = do_automerge(base_sha, head_sha, message, base_ref)
@@ -203,6 +206,9 @@ def pull_request_hook():
         emsg = "Malformed payload for pull_request hook: %s" % e
         app.logger.error(emsg)
         return Response(emsg, status=400)
+    app.logger.debug("Got pull_request hook for PR #{pull_num}"
+                     " at {head_sha} on {head_label} onto {base_label}"
+                     .format(**locals()))
 
     global_data._update_webhook_repo()
 
