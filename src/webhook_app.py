@@ -31,7 +31,8 @@ def _verify_config(cfg):
             raise FileNotFoundError(ssh_key)
         else:
             st = os.stat(ssh_key)
-            if st.st_uid != os.getuid() or (st.st_mode & 0o7777) not in (0o700, 0o600, 0o400):
+            perm_ok = st.st_mode & 0o400 and not st.st_mode & 0o7077
+            if st.st_uid != os.getuid() or not perm_ok:
                 raise PermissionError(ssh_key)
 
 default_authorized = False
