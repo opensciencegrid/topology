@@ -219,6 +219,9 @@ def git_clone_or_fetch_mirror(repo, git_dir, ssh_key=None) -> bool:
         ok = run_git_cmd(["fetch", "origin"], git_dir=git_dir, ssh_key=ssh_key)
     else:
         ok = run_git_cmd(["clone", "--mirror", repo, git_dir], ssh_key=ssh_key)
+        # disable mirror push
+        ok = ok and run_git_cmd(["config", "--unset", "remote.origin.mirror"],
+                                                              git_dir=git_dir)
     return ok
 
 
