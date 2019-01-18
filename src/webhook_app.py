@@ -154,6 +154,8 @@ def status_hook():
 
     pr_dt_automerge_ret, base_sha, head_label, pr_title = pr_webhook_state
     base_ref = _required_base_ref
+    if re.search(r'^-?\d+$', pr_dt_automerge_ret):
+        pr_dt_automerge_ret = int(pr_dt_automerge_ret)
 
     if pr_dt_automerge_ret == 0 and not app.config['NO_GIT']:
         app.logger.info("Got travis success status hook for commit %s;\n"
