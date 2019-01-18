@@ -92,6 +92,8 @@ def gen_merge_commit(base_sha, head_sha, message):
 def push_ref(sha, remote_ref):
     refspec = "%s:refs/heads/%s" % (sha, remote_ref)
     gitcmd = ['push', 'origin', refspec]
+    app.logger.info("Pushing downtime automerge commit %s to branch '%s'"
+                    % (sha, remote_ref))
     return run_git_cmd(gitcmd, git_dir=global_data.webhook_data_dir,
                        ssh_key=ssh_key)
 
