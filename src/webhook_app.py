@@ -217,8 +217,6 @@ def pull_request_hook():
                      " at {head_sha} on {head_label} onto {base_label}"
                      .format(**locals()))
 
-    global_data._update_webhook_repo()
-
     pull_ref   = "pull/{pull_num}/head".format(**locals())
 
     if base_label != _required_base_label:
@@ -227,9 +225,6 @@ def pull_request_hook():
         return Response("Not Interested")
 
     global_data._update_webhook_repo()
-
-    # make sure data repo contains relevant commits
-    stdout, stderr, ret = fetch_data_ref(base_ref, pull_ref)
 
     if ret == 0:
         script = src_dir + "/tests/automerge_downtime_ok.py"
@@ -277,10 +272,6 @@ def runcmd(cmd, input=None, **kw):
                          encoding='utf-8', **kw)
     stdout, stderr = p.communicate(input)
     return stdout, stderr, p.returncode
-
-def fetch_data_ref(*refs):
-    return runcmd(['git', 'fetch', 'origin'] + list(refs),
-                  cwd=global_data.webhook_data_dir)
 
 def send_mailx_email(subject, body):
     recipients = [
