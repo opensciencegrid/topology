@@ -65,7 +65,7 @@ src_dir = os.path.abspath(os.path.dirname(__file__))
 ( _required_repo_owner, _required_repo_name
 ) = global_data.webhook_data_repo.split(':')[-1].split('/')[-2:]
 
-_required_base_ref = 'master'
+_required_base_ref = global_data.webhook_data_branch
 _required_base_label = "%s:%s" % (_required_repo_owner, _required_base_ref)
 
 def _fix_unicode(text):

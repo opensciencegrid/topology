@@ -59,6 +59,7 @@ class GlobalData:
         self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
         self.webhook_data_dir = config.get("WEBHOOK_DATA_DIR", "")
         self.webhook_data_repo = config.get("WEBHOOK_DATA_REPO", "")
+        self.webhook_data_branch = config.get("WEBHOOK_DATA_BRANCH", "")
         self.webhook_state_dir = config.get("WEBHOOK_STATE_DIR", "")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
