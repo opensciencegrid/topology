@@ -110,9 +110,7 @@ def do_automerge(base_sha, head_sha, message, base_ref):
     body = ("Downtime PR eligible for automerge and Status check passed:"
             "\n\n%s" % message)
     send_mailx_email(subject, body)
-    return True
-
-#   return push_ref(new_merge_commit, base_ref)
+    return push_ref(new_merge_commit, base_ref)
 
 @app.route("/status", methods=["GET", "POST"])
 def status_hook():
