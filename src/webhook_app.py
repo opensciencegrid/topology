@@ -103,7 +103,7 @@ def do_automerge(base_sha, head_sha, message, base_ref):
     new_merge_commit = out.strip()
 
     # for now, send all-clear email rather than actually pushing upstream
-    subject = "Downtime Automerge Approved"
+    subject = "[DT-AM] Downtime Automerge Approved"
     body = ("Downtime PR eligible for automerge and Status check passed:"
             "\n\n%s" % message)
     send_mailx_email(subject, body)
@@ -239,8 +239,9 @@ def pull_request_hook():
     global_data.set_webhook_pr_state(pull_num, head_sha, webhook_state)
 
     OK = "Yes" if ret == 0 else "No"
+    Eligible = "Eligible!" if ret == 0 else "Not Eligible."
 
-    subject = "Pull Request {pull_url} {action}".format(**locals())
+    subject = "[DT-AM] PR #{pull_num} {action}: {Eligible}".format(**locals())
 
     out = """\
 In Pull Request: {pull_url}
