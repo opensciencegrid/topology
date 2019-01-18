@@ -133,10 +133,12 @@ def status_hook():
         return Response(emsg, status=400)
     app.logger.debug("Got status hook '%s' for '%s'" % (ci_state, head_sha))
 
-    if (context != 'continuous-integration/travis-ci/push' or
+    valid_contexts = ( 'continuous-integration/travis-ci/pr',
+                       'continuous-integration/travis-ci/push' )
+    if (context not in valid_contexts or
             owner != _required_repo_owner or reponame != _required_repo_name):
         app.logger.info("Ignoring non-travis status hook for '%s'" % context)
-        return Response("Not Interested")
+        return Response("Not Interested; context was '%s'" % context)
 
     if ci_state != 'success':
         app.logger.info("Ignoring travis '%s' status hook" % ci_state)
