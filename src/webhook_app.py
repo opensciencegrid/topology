@@ -138,10 +138,14 @@ def status_hook():
 
     valid_contexts = ( 'continuous-integration/travis-ci/pr',
                        'continuous-integration/travis-ci/push' )
-    if (context not in valid_contexts or
-            owner != _required_repo_owner or reponame != _required_repo_name):
+    if context not in valid_contexts:
         app.logger.info("Ignoring non-travis status hook for '%s'" % context)
         return Response("Not Interested; context was '%s'" % context)
+
+    if owner != _required_repo_owner or reponame != _required_repo_name:
+        app.logger.info("Ignoring status hook repo '%s/%s'"
+                        % (owner, reponame))
+        return Response("Not Interested; repo was '%s/%s'" % (owner, reponame))
 
     if ci_state != 'success':
         app.logger.info("Ignoring travis '%s' status hook" % ci_state)
