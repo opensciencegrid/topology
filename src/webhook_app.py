@@ -63,7 +63,7 @@ global_data = GlobalData(app.config)
 src_dir = os.path.abspath(os.path.dirname(__file__))
 
 ( _required_repo_owner, _required_repo_name
-) = global_data.webhook_data_repo.split('/')[-2:]
+) = global_data.webhook_data_repo.split(':')[-1].split('/')[-2:]
 
 _required_base_ref = 'master'
 _required_base_label = "%s:%s" % (_required_repo_owner, _required_base_ref)
