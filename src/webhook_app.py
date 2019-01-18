@@ -80,12 +80,16 @@ def commit_is_merged(ancestor_sha, head_sha):
     stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
     return ret == 0
 
+_git_user_name = "Topology Automerge"
+_git_user_email = "help@opensciencegrid.org"
 def gen_merge_commit(base_sha, head_sha, message):
     # NOTE: we've already checked this in automerge test script
     if not commit_is_merged(base_sha, head_sha):
         return '', 'commit %s is not merged into %s' % (base_sha, head_sha), 1
     tree_rev = head_sha + "^{tree}"
-    cmd = ['git', 'commit-tree', '-p', base_sha, '-p', head_sha,
+    cmd = ['git', '-c', 'user.name=%s'  % _git_user_name,
+                  '-c', 'user.email=%s' % _git_user_email,
+                  'commit-tree', '-p', base_sha, '-p', head_sha,
                                  '-m', message, tree_rev]
     return runcmd(cmd, cwd=global_data.webhook_data_dir)
 
