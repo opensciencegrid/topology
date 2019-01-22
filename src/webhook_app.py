@@ -116,8 +116,26 @@ def do_automerge(base_sha, head_sha, message, base_ref):
     send_mailx_email(subject, body)
     return push_ref(new_merge_commit, base_ref)
 
+_max_payload_size = 1024 * 1024  # should be well under this
+def validate_request_signature(request):
+    if request.content_length > _max_payload_size:
+        app.logger.error("Refusing to read overly-large payload of size %s"
+                         % request.content_length)
+        return False
+    payload_body = request.get_data()
+    x_hub_signature = request.headers.get('X-Hub-Signature')
+    ret = global_data.validate_webhook_signature(payload_body, x_hub_signature)
+    if ret or ret is None:
+        return True  # OK, signature match or secret key not configured
+    else:
+        app.logger.error("Payload signature did not match for secret key")
+        return False
+
 @app.route("/status", methods=["GET", "POST"])
 def status_hook():
+    if not validate_request_signature(request):
+        return Response("Bad X-Hub-Signature", status=400)
+
     event = request.headers.get('X-GitHub-Event')
     if event == "ping":
         return Response('Pong')
@@ -185,6 +203,9 @@ def status_hook():
 
 @app.route("/pull_request", methods=["GET", "POST"])
 def pull_request_hook():
+    if not validate_request_signature(request):
+        return Response("Bad X-Hub-Signature", status=400)
+
     event = request.headers.get('X-GitHub-Event')
     if event == "ping":
         return Response('Pong')

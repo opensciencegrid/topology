@@ -1,6 +1,6 @@
 import datetime
 import glob
-import hashlib
+import hmac
 import logging
 import os
 import re
@@ -243,11 +243,12 @@ class GlobalData:
         else:
             return None, None
 
-    def validate_webhook_signature(self, payload_body, x_hub_signature):
+    def validate_webhook_signature(self, data, x_hub_signature):
         if self.webhook_secret_key:
-            sha1 = hashlib.sha1(self.webhook_secret_key + payload_body)
+            secret = self.webhook_secret_key
+            sha1 = hmac.new(secret, msg=data, digestmod='sha1').hexdigest()
             our_signature = "sha1=" + sha1
-            return our_signature == x_hub_signature
+            return hmac.compare_digest(our_signature, x_hub_signature)
 
 
 def _dtid(created_datetime: datetime.datetime):
