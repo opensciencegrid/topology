@@ -1,5 +1,6 @@
 import datetime
 import glob
+import hashlib
 import logging
 import os
 import re
@@ -39,6 +40,16 @@ class CachedData:
         self.next_update = self.timestamp + self.cache_lifetime
         self.force_update = False
 
+def _readfile(path):
+    """ return stripped file contents, or None on errors """
+    if path:
+        try:
+            with open(path, mode="rb") as f:
+                return f.read().strip()
+        except IOError as e:
+            log.error("Failed to read file '%s': %s" % (path, e))
+            return None
+
 
 class GlobalData:
     def __init__(self, config=None, strict=False):
@@ -61,6 +72,7 @@ class GlobalData:
         self.webhook_data_repo = config.get("WEBHOOK_DATA_REPO", "")
         self.webhook_data_branch = config.get("WEBHOOK_DATA_BRANCH", "")
         self.webhook_state_dir = config.get("WEBHOOK_STATE_DIR", "")
+        self.webhook_secret_key = _readfile(config.get("WEBHOOK_SECRET_KEY"))
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:
@@ -230,6 +242,12 @@ class GlobalData:
                 return f.read().strip().split('\n'), pr_num(statefile)
         else:
             return None, None
+
+    def validate_webhook_signature(self, payload_body, x_hub_signature):
+        if self.webhook_secret_key:
+            sha1 = hashlib.sha1(self.webhook_secret_key + payload_body)
+            our_signature = "sha1=" + sha1
+            return our_signature == x_hub_signature
 
 
 def _dtid(created_datetime: datetime.datetime):
