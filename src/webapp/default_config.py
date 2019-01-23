@@ -9,6 +9,7 @@ WEBHOOK_DATA_DIR = "/tmp/topology-webhook/topology.git"
 WEBHOOK_DATA_REPO = "https://github.com/opensciencegrid/topology"
 WEBHOOK_DATA_BRANCH = "master"
 WEBHOOK_STATE_DIR = "/tmp/topology-webhook/state"
+WEBHOOK_SECRET_KEY = None
 
 CONTACT_DATA_DIR = "/tmp/topology/contact"
 CONTACT_DATA_REPO = "git@bitbucket.org:opensciencegrid/contact.git"
