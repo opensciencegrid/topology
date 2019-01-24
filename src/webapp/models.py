@@ -1,6 +1,9 @@
 import datetime
+import glob
+import hmac
 import logging
 import os
+import re
 import time
 from typing import Dict, Set, List
 
@@ -37,6 +40,16 @@ class CachedData:
         self.next_update = self.timestamp + self.cache_lifetime
         self.force_update = False
 
+def _readfile(path):
+    """ return stripped file contents, or None on errors """
+    if path:
+        try:
+            with open(path, mode="rb") as f:
+                return f.read().strip()
+        except IOError as e:
+            log.error("Failed to read file '%s': %s" % (path, e))
+            return None
+
 
 class GlobalData:
     def __init__(self, config=None, strict=False):
@@ -57,6 +70,9 @@ class GlobalData:
         self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
         self.webhook_data_dir = config.get("WEBHOOK_DATA_DIR", "")
         self.webhook_data_repo = config.get("WEBHOOK_DATA_REPO", "")
+        self.webhook_data_branch = config.get("WEBHOOK_DATA_BRANCH", "")
+        self.webhook_state_dir = config.get("WEBHOOK_STATE_DIR", "")
+        self.webhook_secret_key = _readfile(config.get("WEBHOOK_SECRET_KEY"))
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:
@@ -71,8 +87,10 @@ class GlobalData:
         if not self.config["NO_GIT"]:
             parent = os.path.dirname(self.webhook_data_dir)
             os.makedirs(parent, mode=0o755, exist_ok=True)
-            ok = common.git_clone_or_fetch_mirror(self.webhook_data_repo,
-                                                  self.webhook_data_dir)
+            ssh_key = self.config["GIT_SSH_KEY"]
+            ok = common.git_clone_or_fetch_mirror(repo=self.webhook_data_repo,
+                                               git_dir=self.webhook_data_dir,
+                                               ssh_key=ssh_key)
             if ok:
                 log.debug("webhook repo update ok")
             else:
@@ -197,6 +215,40 @@ class GlobalData:
                 self.projects.try_again()
 
         return self.projects.data
+
+    def set_webhook_pr_state(self, num, sha, state):
+        prdir = "%s/%s" % (self.webhook_state_dir, num)
+        statefile = "%s/%s" % (prdir, sha)
+        os.makedirs(prdir, mode=0o755, exist_ok=True)
+        if isinstance(state, (tuple,list)):
+            state = "\n".join( x.replace("\n"," ") for x in map(str,state) )
+        with open(statefile, "w") as f:
+            print(state, file=f)
+
+    def get_webhook_pr_state(self, sha, num='*'):
+        prdir = "%s/%s" % (self.webhook_state_dir, num)
+        statefile = "%s/%s" % (prdir, sha)
+        def path_check(fn): return re.search(r'/\d+/[a-f\d]{40}$', fn)
+        def pr_num(fn): return int(fn.rsplit('/', 2)[-2])
+        if num == '*':
+            filelist = glob.glob(statefile)
+            filelist = list(filter(path_check, filelist))
+            if len(filelist) == 0:
+                return None, None
+            # if there are multiple PRs with this sha, take the newest
+            statefile = max(filelist, key=pr_num)
+        if os.path.exists(statefile):
+            with open(statefile) as f:
+                return f.read().strip().split('\n'), pr_num(statefile)
+        else:
+            return None, None
+
+    def validate_webhook_signature(self, data, x_hub_signature):
+        if self.webhook_secret_key:
+            secret = self.webhook_secret_key
+            sha1 = hmac.new(secret, msg=data, digestmod='sha1').hexdigest()
+            our_signature = "sha1=" + sha1
+            return hmac.compare_digest(our_signature, x_hub_signature)
 
 
 def _dtid(created_datetime: datetime.datetime):
