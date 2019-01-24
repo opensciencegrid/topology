@@ -35,19 +35,12 @@ def _verify_config(cfg):
             if st.st_uid != os.getuid() or not perm_ok:
                 raise PermissionError(ssh_key)
 
-default_authorized = False
-
 app = Flask(__name__)
 app.config.from_object(default_config)
 app.config.from_pyfile("config.py", silent=True)
 if "TOPOLOGY_CONFIG" in os.environ:
     app.config.from_envvar("TOPOLOGY_CONFIG", silent=False)
 _verify_config(app.config)
-if "AUTH" in app.config:
-    if app.debug:
-        default_authorized = app.config["AUTH"]
-    else:
-        print("ignoring AUTH option when FLASK_ENV != development", file=sys.stderr)
 if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
@@ -305,8 +298,6 @@ def send_mailx_email(subject, body):
 
 
 if __name__ == '__main__':
-    if "--auth" in sys.argv[1:]:
-        default_authorized = True
     logging.basicConfig(level=logging.DEBUG)
     app.run(debug=True, use_reloader=True)
 else:
