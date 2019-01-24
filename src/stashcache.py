@@ -122,7 +122,7 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
 
     if ('ANY' not in allowed_vos and
             vo_name not in allowed_vos and
-            (not public or 'PUBLIC' not in allowed_vos)):
+            (not public or 'ANY_PUBLIC' not in allowed_vos)):
         return False
 
     # For public data, caching is one-way: we OK things as long as the
@@ -285,7 +285,7 @@ def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_erro
             # we do not consider the lack of AllowedVOs an error as the cache doesn't
             # explicitly record *which* data federation it is participating in (might not be SC!).
             allowed_vos = resource.data.get("AllowedVOs", [])
-            if 'ANY' not in allowed_vos and (vo_name != "PUBLIC" and vo_name not in allowed_vos):
+            if 'ANY' not in allowed_vos and (vo_name != "ANY_PUBLIC" and vo_name not in allowed_vos):
                 continue
             if 'ANY' not in allowed_caches and resource.name not in allowed_caches:
                 continue
