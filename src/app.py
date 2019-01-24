@@ -178,11 +178,11 @@ def _get_cache_authfile(public_only):
     except stashcache.DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact support@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting authfile", status=503)
+        return Response("Server error getting authfile, please contact help@opensciencegrid.org", status=503)
     return Response(auth, mimetype="text/plain")
 
 
@@ -200,14 +200,14 @@ def _get_origin_authfile(public_only):
     except stashcache.DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact support@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting authfile", status=503)
+        return Response("Server error getting authfile, please contact help@opensciencegrid.org", status=503)
     if not auth.strip():
         auth = """\
-# No authorizations generated for this origin; please check configuration in OSG topology or contact support@opensciencegrid.org
+# No authorizations generated for this origin; please check configuration in OSG topology or contact help@opensciencegrid.org
 """
     return Response(auth, mimetype="text/plain")
 
