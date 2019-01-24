@@ -239,7 +239,7 @@ def pull_request_hook():
                 "('%s' is required)" % (base_label, _required_base_label))
         return Response("Not Interested")
 
-    global_data._update_webhook_repo()
+    global_data.update_webhook_repo()
 
     script = src_dir + "/tests/automerge_downtime_ok.py"
     cmd = [script, base_sha, head_sha, sender]

@@ -83,7 +83,7 @@ class GlobalData:
         self.config = config
         self.strict = strict
 
-    def _update_webhook_repo(self):
+    def update_webhook_repo(self):
         if not self.config["NO_GIT"]:
             parent = os.path.dirname(self.webhook_data_dir)
             os.makedirs(parent, mode=0o755, exist_ok=True)
