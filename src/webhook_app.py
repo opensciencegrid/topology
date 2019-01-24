@@ -48,13 +48,6 @@ if "AUTH" in app.config:
         default_authorized = app.config["AUTH"]
     else:
         print("ignoring AUTH option when FLASK_ENV != development", file=sys.stderr)
-if not app.config.get("SECRET_KEY"):
-    app.config["SECRET_KEY"] = "this is not very secret"
-### Replace previous with this when we want to add CSRF protection
-#     if app.debug:
-#         app.config["SECRET_KEY"] = "this is not very secret"
-#     else:
-#         raise Exception("SECRET_KEY required when FLASK_ENV != development")
 if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
