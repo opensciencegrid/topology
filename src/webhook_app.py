@@ -4,6 +4,7 @@ Application File
 import flask
 import flask.logging
 from flask import Flask, Response, request, render_template
+import hmac
 import logging
 import os
 import re
@@ -58,6 +59,27 @@ def _fix_unicode(text):
     """Convert a partial unicode string to full unicode"""
     return text.encode('utf-8', 'surrogateescape').decode('utf-8')
 
+def _readfile(path):
+    """ return stripped file contents, or None on errors """
+    if path:
+        try:
+            with open(path, mode="rb") as f:
+                return f.read().strip()
+        except IOError as e:
+            app.logger.error("Failed to read file '%s': %s" % (path, e))
+            return None
+
+webhook_secret = _readfile(global_data.webhook_secret_key)
+if not webhook_secret:
+    app.logger.warning("Note, no WEBHOOK_SECRET_KEY configured; "
+                       "GitHub payloads will not be validated.")
+
+def validate_webhook_signature(data, x_hub_signature):
+    if webhook_secret:
+        sha1 = hmac.new(webhook_secret, msg=data, digestmod='sha1').hexdigest()
+        our_signature = "sha1=" + sha1
+        return hmac.compare_digest(our_signature, x_hub_signature)
+
 
 # already checked in automerge test script
 # might want to move the check here though, and pass in merge_sha
@@ -110,7 +132,7 @@ def validate_request_signature(request):
         return False
     payload_body = request.get_data()
     x_hub_signature = request.headers.get('X-Hub-Signature')
-    ret = global_data.validate_webhook_signature(payload_body, x_hub_signature)
+    ret = validate_webhook_signature(payload_body, x_hub_signature)
     if ret or ret is None:
         return True  # OK, signature match or secret key not configured
     else:
