@@ -266,6 +266,8 @@ Resources:
         Description: StashCache cache server
     VOOwnership:
       GLOW: 100
+    AllowedVOs:
+      - ANY
 
   CHTC_STASHCACHE_ORIGIN:
     Active: false
