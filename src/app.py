@@ -167,9 +167,9 @@ def _get_cache_authfile(public_only):
     cache_fqdn = request.args.get("cache_fqdn")
     try:
         if public_only:
-            generate_function = stashcache.generate_public_authfile
+            generate_function = stashcache.generate_public_cache_authfile
         else:
-            generate_function = stashcache.generate_authfile
+            generate_function = stashcache.generate_cache_authfile
         auth = generate_function(global_data.get_vos_data(),
                                  global_data.get_topology().get_resource_group_list(),
                                  fqdn=cache_fqdn,

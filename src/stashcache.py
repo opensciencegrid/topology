@@ -140,7 +140,7 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
     return 'ANY' in allowed_caches or resource.name in allowed_caches
 
 
-def generate_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress_errors=True):
+def generate_cache_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress_errors=True):
     """
     Generate the Xrootd authfile needed by a StashCache cache server.
     """
@@ -200,7 +200,7 @@ def generate_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress
     return authfile
 
 
-def generate_public_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress_errors=True):
+def generate_public_cache_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress_errors=True):
     """
     Generate the Xrootd authfile needed for public caches
     """
