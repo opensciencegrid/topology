@@ -1,5 +1,4 @@
 import datetime
-import glob
 import logging
 import os
 import re
@@ -204,33 +203,6 @@ class GlobalData:
                 self.projects.try_again()
 
         return self.projects.data
-
-    def set_webhook_pr_state(self, num, sha, state):
-        prdir = "%s/%s" % (self.webhook_state_dir, num)
-        statefile = "%s/%s" % (prdir, sha)
-        os.makedirs(prdir, mode=0o755, exist_ok=True)
-        if isinstance(state, (tuple,list)):
-            state = "\n".join( x.replace("\n"," ") for x in map(str,state) )
-        with open(statefile, "w") as f:
-            print(state, file=f)
-
-    def get_webhook_pr_state(self, sha, num='*'):
-        prdir = "%s/%s" % (self.webhook_state_dir, num)
-        statefile = "%s/%s" % (prdir, sha)
-        def path_check(fn): return re.search(r'/\d+/[a-f\d]{40}$', fn)
-        def pr_num(fn): return int(fn.rsplit('/', 2)[-2])
-        if num == '*':
-            filelist = glob.glob(statefile)
-            filelist = list(filter(path_check, filelist))
-            if len(filelist) == 0:
-                return None, None
-            # if there are multiple PRs with this sha, take the newest
-            statefile = max(filelist, key=pr_num)
-        if os.path.exists(statefile):
-            with open(statefile) as f:
-                return f.read().strip().split('\n'), pr_num(statefile)
-        else:
-            return None, None
 
 
 def _dtid(created_datetime: datetime.datetime):
