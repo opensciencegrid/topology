@@ -31,11 +31,16 @@ def main(args):
     insist(looks_like_sha(args[1]))
 
     BASE_SHA, MERGE_COMMIT_SHA = args[:2]
-    modified = get_modified_files(BASE_SHA, MERGE_COMMIT_SHA)
     errors = []
     if not commit_is_merged(BASE_SHA, MERGE_COMMIT_SHA):
-        errors += ["Commit %s is not merged into %s" %
-                   (BASE_SHA, MERGE_COMMIT_SHA)]
+        emsg = "Commit %s is not merged into %s" % (BASE_SHA, MERGE_COMMIT_SHA)
+        merge_base = get_merge_base(BASE_SHA, MERGE_COMMIT_SHA)
+        if merge_base:
+            emsg += "; falling back to merge-base %s" % merge_base
+            BASE_SHA = merge_base
+        errors += [emsg]
+
+    modified = get_modified_files(BASE_SHA, MERGE_COMMIT_SHA)
     DTs = []
     for fname in modified:
         if looks_like_downtime(fname):
@@ -124,6 +129,11 @@ def commit_is_merged(sha_a, sha_b):
     args = ['git', 'merge-base', '--is-ancestor', sha_a, sha_b]
     ret, out = runcmd(args, stderr=_devnull)
     return ret == 0
+
+def get_merge_base(sha_a, sha_b):
+    args = ['git', 'merge-base', sha_a, sha_b]
+    ret, out = runcmd(args, stderr=_devnull)
+    return out.strip() if ret == 0 else None
 
 def parse_yaml_at_version(sha, fname, default):
     txt = get_file_at_version(sha, fname)
