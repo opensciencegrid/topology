@@ -117,4 +117,5 @@ DataFederations:
     Namespaces:
       /store:
         - FQAN:/cms
-    AllowedCaches: []
+    AllowedOrigins: []    # FIXME
+    AllowedCaches: []    # FIXME

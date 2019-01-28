@@ -90,3 +90,6 @@ DataFederations:
     Namespaces:
       /pnfs/fnal.gov:
         - PUBLIC
+    AllowedOrigins: []     # <- FIXME
+    AllowedCaches:
+      - ANY

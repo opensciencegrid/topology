@@ -102,3 +102,7 @@ DataFederations:
     Namespaces:
       /user:
         - PUBLIC
+    AllowedOrigins: []       # FIXME
+    AllowedCaches:
+      - ANY
+
