@@ -5,6 +5,14 @@
 A script to generate Authfiles for XCaches in the OSG
 """
 
+import os
+import sys
+
+if __name__ == "__main__" and __package__ is None:
+    _parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    sys.path.append(_parent + "/src")
+
+
 import webapp.models
 import stashcache
 

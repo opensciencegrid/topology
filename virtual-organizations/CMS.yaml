@@ -117,3 +117,5 @@ DataFederations:
     Namespaces:
       /store:
         - FQAN:/cms
+    AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /cms
+    AllowedCaches: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /cms
