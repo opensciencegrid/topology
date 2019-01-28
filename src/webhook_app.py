@@ -4,6 +4,8 @@ Application File
 import flask
 import flask.logging
 from flask import Flask, Response, request, render_template
+import glob
+import hmac
 import logging
 import os
 import re
@@ -35,26 +37,12 @@ def _verify_config(cfg):
             if st.st_uid != os.getuid() or not perm_ok:
                 raise PermissionError(ssh_key)
 
-default_authorized = False
-
 app = Flask(__name__)
 app.config.from_object(default_config)
 app.config.from_pyfile("config.py", silent=True)
 if "TOPOLOGY_CONFIG" in os.environ:
     app.config.from_envvar("TOPOLOGY_CONFIG", silent=False)
 _verify_config(app.config)
-if "AUTH" in app.config:
-    if app.debug:
-        default_authorized = app.config["AUTH"]
-    else:
-        print("ignoring AUTH option when FLASK_ENV != development", file=sys.stderr)
-if not app.config.get("SECRET_KEY"):
-    app.config["SECRET_KEY"] = "this is not very secret"
-### Replace previous with this when we want to add CSRF protection
-#     if app.debug:
-#         app.config["SECRET_KEY"] = "this is not very secret"
-#     else:
-#         raise Exception("SECRET_KEY required when FLASK_ENV != development")
 if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
@@ -72,6 +60,53 @@ def _fix_unicode(text):
     """Convert a partial unicode string to full unicode"""
     return text.encode('utf-8', 'surrogateescape').decode('utf-8')
 
+def _readfile(path):
+    """ return stripped file contents, or None on errors """
+    if path:
+        try:
+            with open(path, mode="rb") as f:
+                return f.read().strip()
+        except IOError as e:
+            app.logger.error("Failed to read file '%s': %s" % (path, e))
+            return None
+
+webhook_secret = _readfile(global_data.webhook_secret_key)
+if not webhook_secret:
+    app.logger.warning("Note, no WEBHOOK_SECRET_KEY configured; "
+                       "GitHub payloads will not be validated.")
+
+def validate_webhook_signature(data, x_hub_signature):
+    if webhook_secret:
+        sha1 = hmac.new(webhook_secret, msg=data, digestmod='sha1').hexdigest()
+        our_signature = "sha1=" + sha1
+        return hmac.compare_digest(our_signature, x_hub_signature)
+
+def set_webhook_pr_state(num, sha, state):
+    prdir = "%s/%s" % (global_data.webhook_state_dir, num)
+    statefile = "%s/%s" % (prdir, sha)
+    os.makedirs(prdir, mode=0o755, exist_ok=True)
+    if isinstance(state, (tuple,list)):
+        state = "\n".join( x.replace("\n"," ") for x in map(str,state) )
+    with open(statefile, "w") as f:
+        print(state, file=f)
+
+def get_webhook_pr_state(sha, num='*'):
+    prdir = "%s/%s" % (global_data.webhook_state_dir, num)
+    statefile = "%s/%s" % (prdir, sha)
+    def path_check(fn): return re.search(r'/\d+/[a-f\d]{40}$', fn)
+    def pr_num(fn): return int(fn.rsplit('/', 2)[-2])
+    if num == '*':
+        filelist = glob.glob(statefile)
+        filelist = list(filter(path_check, filelist))
+        if len(filelist) == 0:
+            return None, None
+        # if there are multiple PRs with this sha, take the newest
+        statefile = max(filelist, key=pr_num)
+    if os.path.exists(statefile):
+        with open(statefile) as f:
+            return f.read().strip().split('\n'), pr_num(statefile)
+    else:
+        return None, None
 
 # already checked in automerge test script
 # might want to move the check here though, and pass in merge_sha
@@ -124,7 +159,7 @@ def validate_request_signature(request):
         return False
     payload_body = request.get_data()
     x_hub_signature = request.headers.get('X-Hub-Signature')
-    ret = global_data.validate_webhook_signature(payload_body, x_hub_signature)
+    ret = validate_webhook_signature(payload_body, x_hub_signature)
     if ret or ret is None:
         return True  # OK, signature match or secret key not configured
     else:
@@ -173,7 +208,7 @@ def status_hook():
         app.logger.info("Ignoring travis '%s' status hook" % ci_state)
         return Response("Not interested; CI state was '%s'" % ci_state)
 
-    pr_webhook_state, pull_num = global_data.get_webhook_pr_state(head_sha)
+    pr_webhook_state, pull_num = get_webhook_pr_state(head_sha)
     if pr_webhook_state is None or len(pr_webhook_state) != 4:
         app.logger.info("Got travis success status hook for commit %s;\n"
                 "not merging as No PR automerge info available" % head_sha)
@@ -253,14 +288,14 @@ def pull_request_hook():
                 "('%s' is required)" % (base_label, _required_base_label))
         return Response("Not Interested")
 
-    global_data._update_webhook_repo()
+    global_data.update_webhook_repo()
 
     script = src_dir + "/tests/automerge_downtime_ok.py"
     cmd = [script, base_sha, head_sha, sender]
     stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
 
     webhook_state = (ret, base_sha, head_label, title)
-    global_data.set_webhook_pr_state(pull_num, head_sha, webhook_state)
+    set_webhook_pr_state(pull_num, head_sha, webhook_state)
 
     OK = "Yes" if ret == 0 else "No"
     Eligible = "Eligible!" if ret == 0 else "Not Eligible."
@@ -312,8 +347,6 @@ def send_mailx_email(subject, body):
 
 
 if __name__ == '__main__':
-    if "--auth" in sys.argv[1:]:
-        default_authorized = True
     logging.basicConfig(level=logging.DEBUG)
     app.run(debug=True, use_reloader=True)
 else:
