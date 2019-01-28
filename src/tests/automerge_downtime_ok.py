@@ -42,19 +42,32 @@ def parseargs(args):
 
     return BASE_SHA, HEAD_SHA, MERGE_COMMIT_SHA, GH_USER
 
+def get_base_head_shas(BASE_SHA, HEAD_SHA, MERGE_SHA, errors):
+    base = BASE_SHA
+    head = HEAD_SHA
+    if not commit_is_merged(base, head):
+        emsg = "Base commit %s is not merged into PR head %s" % (base, head)
+        if MERGE_SHA and commit_is_merged(base, MERGE_SHA) \
+                     and commit_is_merged(head, MERGE_SHA):
+            head = MERGE_SHA
+            emsg += "; using merge commit %s instead as head" % head
+        else:
+            merge_base = get_merge_base(base, head)
+            if merge_base:
+                base = merge_base
+                emsg += "; falling back to merge-base %s" % base
+            else:
+                emsg += "; commit histories are unrelated"
+        errors += [emsg]
+    return base, head
+
 def main(args):
-    BASE_SHA, HEAD_SHA, MERGE_COMMIT_SHA, GH_USER = parseargs(args)
+    BASE_SHA, HEAD_SHA, MERGE_SHA, GH_USER = parseargs(args)
 
     errors = []
-    if not commit_is_merged(BASE_SHA, MERGE_COMMIT_SHA):
-        emsg = "Commit %s is not merged into %s" % (BASE_SHA, MERGE_COMMIT_SHA)
-        merge_base = get_merge_base(BASE_SHA, MERGE_COMMIT_SHA)
-        if merge_base:
-            emsg += "; falling back to merge-base %s" % merge_base
-            BASE_SHA = merge_base
-        errors += [emsg]
 
-    modified = get_modified_files(BASE_SHA, MERGE_COMMIT_SHA)
+    base, head = get_base_head_shas(BASE_SHA, HEAD_SHA, MERGE_SHA, errors)
+    modified = get_modified_files(base, head)
     DTs = []
     for fname in modified:
         if looks_like_downtime(fname):
@@ -73,8 +86,8 @@ def main(args):
         contact = None
 
     for fname in DTs:
-        dtdict_base = get_downtime_dict_at_version(BASE_SHA, fname)
-        dtdict_new  = get_downtime_dict_at_version(MERGE_COMMIT_SHA, fname)
+        dtdict_base = get_downtime_dict_at_version(base, fname)
+        dtdict_new  = get_downtime_dict_at_version(head, fname)
 
         if dtdict_base is None or dtdict_new is None:
             errors += ["File '%s' failed to parse as YAML" % fname.decode()]
@@ -93,7 +106,7 @@ def main(args):
 
         if resources_affected and contact:
             rg_fname = re.sub(br'_downtime.yaml$', b'.yaml', fname)
-            errors += check_resource_contacts(BASE_SHA, rg_fname,
+            errors += check_resource_contacts(base, rg_fname,
                                               resources_affected, contact)
 
     print_errors(errors)
