@@ -46,19 +46,20 @@ def get_base_head_shas(BASE_SHA, HEAD_SHA, MERGE_SHA, errors):
     base = BASE_SHA
     head = HEAD_SHA
     if not commit_is_merged(base, head):
-        emsg = "Base commit %s is not merged into PR head %s" % (base, head)
+        errors += ["PR head %s is out-of-date: %s is not merged" % (head, base)]
         if MERGE_SHA and commit_is_merged(base, MERGE_SHA) \
                      and commit_is_merged(head, MERGE_SHA):
+            print("Using merge commit %s to list changes instead of "
+                  "out-of-date PR head %s" % (MERGE_SHA, HEAD_SHA))
             head = MERGE_SHA
-            emsg += "; using merge commit %s instead as head" % head
         else:
             merge_base = get_merge_base(base, head)
             if merge_base:
+                print("Falling back to merge-base %s to list changes instead "
+                      "of unmerged PR base %s" % (merge_base, BASE_SHA))
                 base = merge_base
-                emsg += "; falling back to merge-base %s" % base
             else:
-                emsg += "; commit histories are unrelated"
-        errors += [emsg]
+                print("PR base and head commit histories are unrelated")
     return base, head
 
 def main(args):
