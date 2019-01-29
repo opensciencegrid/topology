@@ -107,7 +107,7 @@ def main(args):
 
         if resources_affected and contact:
             rg_fname = re.sub(br'_downtime.yaml$', b'.yaml', fname)
-            errors += check_resource_contacts(base, rg_fname,
+            errors += check_resource_contacts(BASE_SHA, rg_fname,
                                               resources_affected, contact)
 
     print_errors(errors)
