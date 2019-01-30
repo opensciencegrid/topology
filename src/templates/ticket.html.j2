@@ -1,0 +1,136 @@
+{% set want_js = true %}
+{% extends "base.html.j2" %}
+{% block title -%}
+OSG Ticket
+{%- endblock %}
+morehead
+
+{% block morehead %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" 
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+
+<style>
+  		.selectize-control .option .name {
+			display: block;
+		}
+		.selectize-control .option .facility {
+			font-size: 12px;
+			display: block;
+			color: #a0a0a0;
+		}
+		.selectize-control .item a {
+			color: #006ef5;
+		}
+		.selectize-control .item.active a {
+			color: #303030;
+		}
+    .selectize-control .optgroup-header {
+      display: block;
+      font-size: 1.2em;
+      color: #303030;
+    }
+</style>
+
+
+<script>
+
+$(function(){
+
+  var $select = $('#select-tools').selectize({
+					maxItems: null,
+					valueField: 'id',
+					labelField: 'name',
+					searchField: ['name', 'facility'],
+					options: [],
+					create: false,
+          optgroupField: 'facility',
+          optgroupLabelField: 'facility',
+          optgroupValueField: 'facility',
+          render: {
+						option: function(data, escape) {
+							return '<div class="option">' +
+									'<span class="name">' + escape(data.name) + '</span>' +
+									'<span class="facility">' + escape(data.type) + '</span>' +
+								'</div>';
+						},
+						item: function(data, escape) {
+							return '<div class="item">' + escape(data.name) + '</a></div>';
+						},
+            optgroup_header: function(data, escape) {
+							return '<div class="optgroup-header">' + escape(data.facility) + '</div>';
+						}
+				}});
+
+  var control = $select[0].selectize;
+  // Everything goes here
+  // Parse the XML
+  function parseResources(data) {
+    // The returned data should be XML
+    $(data).find("ResourceGroup").each(function(index, rg) {
+      var facility = $(rg).find("Facility").find("Name").first();
+      console.log(facility[0].innerHTML);
+      var facility_name = facility[0].innerHTML;
+      control.addOptionGroup(facility_name, {
+        facility: facility_name
+      })
+      var resource_list = $(rg).find("Resource");
+      for (var i = 0; i < resource_list.length; i++) {
+        var resource_name = $(resource_list[i]).find("Name")[0].innerHTML;
+        var resource_id = $(resource_list[i]).find("ID")[0].innerHTML;
+        var services = $(resource_list[i]).find("Services")[0];
+        var service = $(services).find("Service")[0]
+        var type = $(service).find("Name")[0].innerHTML;
+        //console.log(resource_name)
+        control.addOption({
+						id: resource_id,
+						name: resource_name,
+            facility: facility_name,
+            type: type
+					});
+      }
+      console.log(rg);
+    });
+
+  }
+
+  // Load the resource
+  function loadResources() {
+    $.get("/rgsummary/xml", parseResources);
+  }
+
+  loadResources();
+
+});
+
+
+</script>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <form>
+    <div class="form-group">
+      <label for="select-tools">Resource</label>
+      <select id="select-tools" multiple placeholder="Pick a tool..."></select>
+    </div>
+    <div class="form-group">
+      <label for="ticket-message">
+        Ticket Content
+      </label>
+      <textarea class="form-control" rows="10" cols="50"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
+
+
+</div>
+{% endblock %}

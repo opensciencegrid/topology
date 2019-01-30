@@ -108,6 +108,9 @@ def contacts():
         app.log_exception(sys.exc_info())
         return Response("Error getting users", status=503)  # well, it's better than crashing
 
+@app.route('/ticket')
+def ticket():
+    return _fix_unicode(render_template('ticket.html.j2'))
 
 @app.route('/miscproject/xml')
 def miscproject_xml():
