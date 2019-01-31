@@ -8,8 +8,15 @@ import subprocess
 import sys
 from typing import Dict, List, Union, AnyStr
 
+log = getLogger(__name__)
+
 import xmltodict
 import yaml
+try:
+    from yaml import CSafeLoader as SafeLoader
+except ImportError:
+    log.warning("CSafeLoader not available - install libyaml-devel and reinstall PyYAML")
+    from yaml import SafeLoader
 
 MaybeOrderedDict = Union[None, OrderedDict]
 
@@ -20,7 +27,6 @@ VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
 
 SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
-log = getLogger(__name__)
 
 
 class Filters(object):
@@ -208,11 +214,14 @@ def git_clone_or_pull(repo, dir, branch, ssh_key=None) -> bool:
         ok = ok and run_git_cmd(["checkout", branch], dir=dir)
     return ok
 
-def git_clone_or_fetch_mirror(repo, dir, ssh_key=None) -> bool:
-    if os.path.exists(dir):
-        ok = run_git_cmd(["fetch", "origin"], dir=dir, ssh_key=ssh_key)
+def git_clone_or_fetch_mirror(repo, git_dir, ssh_key=None) -> bool:
+    if os.path.exists(git_dir):
+        ok = run_git_cmd(["fetch", "origin"], git_dir=git_dir, ssh_key=ssh_key)
     else:
-        ok = run_git_cmd(["clone", "--mirror", repo, dir], ssh_key=ssh_key)
+        ok = run_git_cmd(["clone", "--mirror", repo, git_dir], ssh_key=ssh_key)
+        # disable mirror push
+        ok = ok and run_git_cmd(["config", "--unset", "remote.origin.mirror"],
+                                                              git_dir=git_dir)
     return ok
 
 
@@ -229,7 +238,7 @@ def load_yaml_file(filename) -> Dict:
     """
     try:
         with open(filename, encoding='utf-8', errors='surrogateescape') as stream:
-            return yaml.safe_load(stream)
+            return yaml.load(stream, Loader=SafeLoader)
     except yaml.YAMLError as e:
         log.error("YAML error in %s: %s", filename, e)
         raise

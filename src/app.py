@@ -188,30 +188,12 @@ def rgdowntime_ical():
 
 @app.route("/stashcache/authfile")
 def authfile():
-    if stashcache:
-        try:
-            auth = stashcache.generate_authfile(global_data.get_vos_data(),
-                                                legacy=app.config["STASHCACHE_LEGACY_AUTH"])
-        except Exception:
-            app.log_exception(sys.exc_info())
-            return Response("Server error getting authfile", status=503)
-        return Response(auth, mimetype="text/plain")
-    else:
-        return Response("Can't get authfile: stashcache module unavailable", status=503)
+    return _get_cache_authfile(public_only=False)
 
 
 @app.route("/stashcache/authfile-public")
 def authfile_public():
-    if stashcache:
-        try:
-            auth = stashcache.generate_public_authfile(global_data.get_vos_data(),
-                                                       legacy=app.config["STASHCACHE_LEGACY_AUTH"])
-        except Exception:
-            app.log_exception(sys.exc_info())
-            return Response("Server error getting authfile", status=503)
-        return Response(auth, mimetype="text/plain")
-    else:
-        return Response("Can't get authfile: stashcache module unavailable", status=503)
+    return _get_cache_authfile(public_only=True)
 
 
 @app.route("/stashcache/origin-authfile-public")
@@ -222,6 +204,31 @@ def origin_authfile_public():
 @app.route("/stashcache/origin-authfile")
 def origin_authfile():
     return _get_origin_authfile(public_only=False)
+
+
+def _get_cache_authfile(public_only):
+    if not stashcache:
+        return Response("Can't get authfile: stashcache module unavailable", status=503)
+    cache_fqdn = request.args.get("cache_fqdn")
+    try:
+        if public_only:
+            generate_function = stashcache.generate_public_cache_authfile
+        else:
+            generate_function = stashcache.generate_cache_authfile
+        auth = generate_function(global_data.get_vos_data(),
+                                 global_data.get_topology().get_resource_group_list(),
+                                 fqdn=cache_fqdn,
+                                 legacy=app.config["STASHCACHE_LEGACY_AUTH"],
+                                 suppress_errors=False)
+    except stashcache.DataError as e:
+        app.logger.error("{}: {}".format(request.full_path, str(e)))
+        return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
+                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        mimetype="text/plain", status=400)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting authfile, please contact help@opensciencegrid.org", status=503)
+    return Response(auth, mimetype="text/plain")
 
 
 def _get_origin_authfile(public_only):
@@ -238,14 +245,14 @@ def _get_origin_authfile(public_only):
     except stashcache.DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact support@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting authfile", status=503)
+        return Response("Server error getting authfile, please contact help@opensciencegrid.org", status=503)
     if not auth.strip():
         auth = """\
-# No authorizations generated for this origin; please check configuration in OSG topology or contact support@opensciencegrid.org
+# No authorizations generated for this origin; please check configuration in OSG topology or contact help@opensciencegrid.org
 """
     return Response(auth, mimetype="text/plain")
 
