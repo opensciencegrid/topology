@@ -40,9 +40,9 @@ morehead
 
 $(function(){
 
-  var $select = $('#select-tools').selectize({
+  var $select = $('#resource-list').selectize({
 					maxItems: null,
-					valueField: 'id',
+					valueField: 'name',
 					labelField: 'name',
 					searchField: ['name', 'facility'],
 					options: [],
@@ -116,16 +116,24 @@ $(function(){
 {% block content %}
 <div class="container">
 
-  <form>
+  <form action="/submitTicket" method="POST">
     <div class="form-group">
-      <label for="select-tools">Resource</label>
-      <select id="select-tools" multiple placeholder="Pick a tool..."></select>
+      <label for="resource-list">Resource</label>
+      <select name="resource-list" id="resource-list" multiple placeholder="Pick resources..."></select>
+    </div>
+    <div class="form-group">
+        <label for="requester">Requester Email</label>
+        <input type="email" name="requester" class="form-control" id="requester" required placeholder="Requester Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></input>
+    </div>
+    <div class="form-group">
+        <label for="Subject">Subject</label>
+        <input type="text" name="subject" class="form-control" id="subject" required></input>
     </div>
     <div class="form-group">
       <label for="ticket-message">
         Ticket Content
       </label>
-      <textarea class="form-control" rows="10" cols="50"></textarea>
+      <textarea name="ticket-message" id="ticket-message" class="form-control" rows="10" cols="50" required></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
