@@ -14,20 +14,20 @@ morehead
 <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
 
 <style>
-  		.selectize-control .option .name {
-			display: block;
-		}
-		.selectize-control .option .facility {
-			font-size: 12px;
-			display: block;
-			color: #a0a0a0;
-		}
-		.selectize-control .item a {
-			color: #006ef5;
-		}
-		.selectize-control .item.active a {
-			color: #303030;
-		}
+      .selectize-control .option .name {
+      display: block;
+    }
+    .selectize-control .option .facility {
+      font-size: 12px;
+      display: block;
+      color: #a0a0a0;
+    }
+    .selectize-control .item a {
+      color: #006ef5;
+    }
+    .selectize-control .item.active a {
+      color: #303030;
+    }
     .selectize-control .optgroup-header {
       display: block;
       font-size: 1.2em;
@@ -41,29 +41,29 @@ morehead
 $(function(){
 
   var $select = $('#resource-list').selectize({
-					maxItems: null,
-					valueField: 'name',
-					labelField: 'name',
-					searchField: ['name', 'facility'],
-					options: [],
-					create: false,
+          maxItems: null,
+          valueField: 'name',
+          labelField: 'name',
+          searchField: ['name', 'facility'],
+          options: [],
+          create: false,
           optgroupField: 'facility',
           optgroupLabelField: 'facility',
           optgroupValueField: 'facility',
           render: {
-						option: function(data, escape) {
-							return '<div class="option">' +
-									'<span class="name">' + escape(data.name) + '</span>' +
-									'<span class="facility">' + escape(data.type) + '</span>' +
-								'</div>';
-						},
-						item: function(data, escape) {
-							return '<div class="item">' + escape(data.name) + '</a></div>';
-						},
+            option: function(data, escape) {
+              return '<div class="option">' +
+                  '<span class="name">' + escape(data.name) + '</span>' +
+                  '<span class="facility">' + escape(data.type) + '</span>' +
+                '</div>';
+            },
+            item: function(data, escape) {
+              return '<div class="item">' + escape(data.name) + '</a></div>';
+            },
             optgroup_header: function(data, escape) {
-							return '<div class="optgroup-header">' + escape(data.facility) + '</div>';
-						}
-				}});
+              return '<div class="optgroup-header">' + escape(data.facility) + '</div>';
+            }
+        }});
 
   var control = $select[0].selectize;
   // Everything goes here
@@ -86,11 +86,11 @@ $(function(){
         var type = $(service).find("Name")[0].innerHTML;
         //console.log(resource_name)
         control.addOption({
-						id: resource_id,
-						name: resource_name,
+            id: resource_id,
+            name: resource_name,
             facility: facility_name,
             type: type
-					});
+          });
       }
       console.log(rg);
     });
