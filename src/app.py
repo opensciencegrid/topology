@@ -117,6 +117,22 @@ def ticket():
 @app.route('/submitTicket', methods=['POST'])
 def submitTicket():
     information = request.form.to_dict(flat=False)
+    # First, check that the request passed captcha
+    if 'g-recaptcha-response' not in information:
+        return "Hello Bot"
+    captcha_url = "https://www.google.com/recaptcha/api/siteverify"
+    captcha_data = {
+        'secret': app.config['GOOGLE_CAPTCHA_KEY'],
+        'response': information['g-recaptcha-response'][0]
+    }
+    captcha_response = requests.post(captcha_url, data = captcha_data)
+    json_response = captcha_response.json()
+    if json_response['success'] is False:
+        return "Failed to request Captcha information"
+
+    if json_response['score'] < 0.5:
+        return "Your captcha score was too low, not submitting ticket"
+
     cc_emails = set()
     for facility in global_data.get_topology().resources_by_facility.values():
         for resource in facility:

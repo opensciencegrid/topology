@@ -12,6 +12,7 @@ morehead
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdJl44UAAAAAGaTKjXWjhPJ5MvyXCAYGxd2m4TS"></script>
 
 <style>
       .selectize-control .option .name {
@@ -39,6 +40,12 @@ morehead
 <script>
 
 $(function(){
+
+  grecaptcha.ready(function() {
+    grecaptcha.execute('6LdJl44UAAAAAGaTKjXWjhPJ5MvyXCAYGxd2m4TS', {action: 'ticket'}).then(function(token) {
+         $("#g-recaptcha-response").attr("value", token);
+      });
+  });
 
   var $select = $('#resource-list').selectize({
           maxItems: null,
@@ -135,6 +142,7 @@ $(function(){
       </label>
       <textarea name="ticket-message" id="ticket-message" class="form-control" rows="10" cols="50" required></textarea>
     </div>
+    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" class="g-recaptcha"></input>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
   
