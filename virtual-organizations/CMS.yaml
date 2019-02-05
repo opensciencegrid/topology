@@ -118,6 +118,4 @@ DataFederations:
       /store:
         - FQAN:/cms
     AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /store
-    # CMS does not have any registered caches yet and wants to deny by default.
-    # Update this entry when CMS contacts us with caches.
-    AllowedCaches: []
+    AllowedCaches: []    # Deny by default
