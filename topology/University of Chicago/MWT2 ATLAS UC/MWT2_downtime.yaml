@@ -782,3 +782,36 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 143988557
+  Description: University of Chicago - Midwest Tier 2 Center
+  Severity: Outage
+  StartTime: Feb 06, 2019 14:00 +0000
+  EndTime: Feb 06, 2019 23:00 +0000
+  CreatedTime: Feb 05, 2019 14:34 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 143988752
+  Description: University of Chicago - Midwest Tier 2 Center
+  Severity: Outage
+  StartTime: Feb 06, 2019 14:00 +0000
+  EndTime: Feb 06, 2019 23:00 +0000
+  CreatedTime: Feb 05, 2019 14:34 +0000
+  ResourceName: MWT2_CE_UC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 143988872
+  Description: University of Chicago - Midwest Tier 2 Center
+  Severity: Outage
+  StartTime: Feb 06, 2019 14:00 +0000
+  EndTime: Feb 06, 2019 23:00 +0000
+  CreatedTime: Feb 05, 2019 14:34 +0000
+  ResourceName: MWT2
+  Services:
+  - CE
+# ---------------------------------------------------------
