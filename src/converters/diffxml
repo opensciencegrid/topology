@@ -1,6 +1,0 @@
-#!/bin/bash
-convert () {
-	xmllint --c14n "$1" | xml2 | sort
-}
-
-diff -y -W $COLUMNS <(convert $1) <(convert $2)
