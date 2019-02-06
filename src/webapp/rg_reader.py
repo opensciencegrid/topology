@@ -8,13 +8,6 @@ Usage as a script:
 
 If output file not specified or downtime output file not specified, results are printed to stdout.
 
-Usage as a module
-
-    from converters.resourcegroup_yaml_to_xml import get_rgsummary_rgdowntime_xml
-    rgsummary_xml, rgdowntime_xml = get_rgsummary_rgdowntime_xml(input_dir[, output_file, downtime_output_file])
-
-where the return value `xml` is a string.
-
 """
 from argparse import ArgumentParser
 
