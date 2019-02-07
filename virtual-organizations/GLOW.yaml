@@ -49,3 +49,7 @@ DataFederations:
     Namespaces:
       /chtc/PUBLIC:
         - PUBLIC
+    AllowedOrigins:
+      - CHTC_STASHCACHE_ORIGIN
+    AllowedCaches:
+      - ANY

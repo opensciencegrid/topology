@@ -12,25 +12,63 @@ try:
 except ImportError:
     from urllib2 import urlopen
 
+try:
+    from yaml import CSafeLoader as SafeLoader
+except ImportError:
+    from yaml import SafeLoader
+
 import xml.etree.ElementTree as et
 
 
 def usage():
-    print("Usage: %s BASE_SHA MERGE_COMMIT_SHA [GitHubUser]"
+    print("Usage: %s BASE_SHA HEAD_SHA[:MERGE_COMMIT_SHA] [GitHubUser]"
                    % os.path.basename(__file__))
     sys.exit(1)
 
-def main(args):
+def parseargs(args):
     insist(len(args) in (2,3))
-    insist(looks_like_sha(args[0]))
-    insist(looks_like_sha(args[1]))
 
-    BASE_SHA, MERGE_COMMIT_SHA = args[:2]
-    modified = get_modified_files(BASE_SHA, MERGE_COMMIT_SHA)
+    GH_USER = None
+    MERGE_COMMIT_SHA = None
+    BASE_SHA, HEAD_SHA = args[:2]
+    if ':' in HEAD_SHA:
+        HEAD_SHA, MERGE_COMMIT_SHA = HEAD_SHA.split(':',2)
+        insist(looks_like_sha(MERGE_COMMIT_SHA))
+    insist(looks_like_sha(BASE_SHA))
+    insist(looks_like_sha(HEAD_SHA))
+
+    if len(args) == 3:
+        GH_USER = args[2]
+
+    return BASE_SHA, HEAD_SHA, MERGE_COMMIT_SHA, GH_USER
+
+def get_base_head_shas(BASE_SHA, HEAD_SHA, MERGE_SHA, errors):
+    base = BASE_SHA
+    head = HEAD_SHA
+    if not commit_is_merged(base, head):
+        errors += ["PR head %s is out-of-date: %s is not merged" % (head, base)]
+        if MERGE_SHA and commit_is_merged(base, MERGE_SHA) \
+                     and commit_is_merged(head, MERGE_SHA):
+            print("Using merge commit %s to list changes instead of "
+                  "out-of-date PR head %s" % (MERGE_SHA, HEAD_SHA))
+            head = MERGE_SHA
+        else:
+            merge_base = get_merge_base(base, head)
+            if merge_base:
+                print("Falling back to merge-base %s to list changes instead "
+                      "of unmerged PR base %s" % (merge_base, BASE_SHA))
+                base = merge_base
+            else:
+                print("PR base and head commit histories are unrelated")
+    return base, head
+
+def main(args):
+    BASE_SHA, HEAD_SHA, MERGE_SHA, GH_USER = parseargs(args)
+
     errors = []
-    if not commit_is_merged(BASE_SHA, MERGE_COMMIT_SHA):
-        errors += ["Commit %s is not merged into %s" %
-                   (BASE_SHA, MERGE_COMMIT_SHA)]
+
+    base, head = get_base_head_shas(BASE_SHA, HEAD_SHA, MERGE_SHA, errors)
+    modified = get_modified_files(base, head)
     DTs = []
     for fname in modified:
         if looks_like_downtime(fname):
@@ -38,16 +76,19 @@ def main(args):
         else:
             errors += ["File '%s' is not a downtime file." % fname.decode()]
 
-    if len(args) == 3:
-        contact = get_gh_contact(args[2])
+    if len(modified) == 0:
+        errors += ["Will not automerge PR without any file changes."]
+
+    if GH_USER is not None:
+        contact = get_gh_contact(GH_USER)
         if contact is None:
-            errors += ["No contact found for GitHub user '%s'" % args[2]]
+            errors += ["No contact found for GitHub user '%s'" % GH_USER]
     else:
         contact = None
 
     for fname in DTs:
-        dtdict_base = get_downtime_dict_at_version(BASE_SHA, fname)
-        dtdict_new  = get_downtime_dict_at_version(MERGE_COMMIT_SHA, fname)
+        dtdict_base = get_downtime_dict_at_version(base, fname)
+        dtdict_new  = get_downtime_dict_at_version(head, fname)
 
         if dtdict_base is None or dtdict_new is None:
             errors += ["File '%s' failed to parse as YAML" % fname.decode()]
@@ -70,7 +111,10 @@ def main(args):
                                               resources_affected, contact)
 
     print_errors(errors)
-    sys.exit(len(errors) > 0)
+    return ( 0 if len(errors) == 0   # all checks pass (only DT files modified)
+        else 1 if len(DTs) > 0       # DT file(s) modified, not all checks pass
+        else 2 if contact is None    # no DT files modified, contact error
+        else 3 )                     # no DT files modified, other errors
 
 def insist(cond):
     if not cond:
@@ -114,12 +158,17 @@ def commit_is_merged(sha_a, sha_b):
     ret, out = runcmd(args, stderr=_devnull)
     return ret == 0
 
+def get_merge_base(sha_a, sha_b):
+    args = ['git', 'merge-base', sha_a, sha_b]
+    ret, out = runcmd(args, stderr=_devnull)
+    return out.strip() if ret == 0 else None
+
 def parse_yaml_at_version(sha, fname, default):
     txt = get_file_at_version(sha, fname)
     if not txt:
         return default
     try:
-        return yaml.safe_load(txt)
+        return yaml.load(txt, Loader=SafeLoader)
     except yaml.error.YAMLError:
         return None
 
@@ -176,5 +225,5 @@ def get_gh_contact(ghuser):
     return gh_contacts[0] if len(gh_contacts) == 1 else None
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    sys.exit(main(sys.argv[1:]))
 

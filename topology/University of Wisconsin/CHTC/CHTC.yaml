@@ -266,6 +266,8 @@ Resources:
         Description: StashCache cache server
     VOOwnership:
       GLOW: 100
+    AllowedVOs:
+      - ANY
 
   CHTC_STASHCACHE_ORIGIN:
     Active: false
@@ -298,6 +300,8 @@ Resources:
         Description: StashCache origin server
     VOOwnership:
       GLOW: 100
+    AllowedVOs:
+      - GLOW
 
   CHTC_SQUID_WID:
     Active: true

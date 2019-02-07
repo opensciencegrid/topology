@@ -68,8 +68,8 @@ Contacts:
     Name: Irena Johnson
   - ID: e39b1c7cb2d4dbe20c021b0cfc4502b7c74b4cdb
     Name: Kenichi Hatakeyama
-  - ID: c4306ef7fea5642c19c527667da5d6371bf75f0d
-    Name: Manoj  Kumar Jha
+  - ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
+    Name: Majid Arabgol
   - ID: 81f1ed1fc89dbcb985364a7da00107eb90b05098
     Name: Tapas Sarangi
   - ID: 2e880b5a9ab9fc998b95af7424d517d7d1530f32
@@ -117,3 +117,5 @@ DataFederations:
     Namespaces:
       /store:
         - FQAN:/cms
+    AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /store
+    AllowedCaches: []    # Deny by default
