@@ -114,6 +114,14 @@ def publish_issue_comment(owner, repo, num, body):
     resp = github_api_call('POST', url, data)
     return resp
 
+def publish_pr_review(owner, repo, num, body, action, sha):
+    # action: APPROVE, REQUEST_CHANGES, or COMMENT
+    api_path = "/repos/:owner/:repo/pulls/:number/reviews"
+    url = github_api_path2url(api_path, owner=owner, repo=repo, number=num)
+    data = {'body': body, 'event': action, commit_id: sha}
+    resp = github_api_call('POST', url, data)
+    return resp
+
 def validate_webhook_signature(data, x_hub_signature):
     if webhook_secret:
         sha1 = hmac.new(webhook_secret, msg=data, digestmod='sha1').hexdigest()
