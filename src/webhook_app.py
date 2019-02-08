@@ -75,6 +75,11 @@ if not webhook_secret:
     app.logger.warning("Note, no WEBHOOK_SECRET_KEY configured; "
                        "GitHub payloads will not be validated.")
 
+api_token = _readfile(global_data.webhook_gh_api_token)
+if not api_token:
+    app.logger.warning("Note, no WEBHOOK_GH_API_TOKEN configured; "
+                       "GitHub comments will not be made.")
+
 def validate_webhook_signature(data, x_hub_signature):
     if webhook_secret:
         sha1 = hmac.new(webhook_secret, msg=data, digestmod='sha1').hexdigest()

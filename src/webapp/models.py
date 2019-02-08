@@ -61,6 +61,7 @@ class GlobalData:
         self.webhook_data_branch = config.get("WEBHOOK_DATA_BRANCH", "")
         self.webhook_state_dir = config.get("WEBHOOK_STATE_DIR", "")
         self.webhook_secret_key = config.get("WEBHOOK_SECRET_KEY")
+        self.webhook_gh_api_token = config.get("WEBHOOK_GH_API_TOKEN")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:
