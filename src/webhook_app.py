@@ -3,25 +3,20 @@ Application File
 """
 import flask
 import flask.logging
-from flask import Flask, Response, request, render_template
+from   flask import Flask, Response, request
 import glob
 import hmac
 import logging
 import os
 import re
 import subprocess
-from subprocess import PIPE
+from   subprocess import PIPE
 import sys
-import urllib.parse
 
 from webapp import default_config
-from webapp.common import to_xml_bytes, Filters, run_git_cmd
-from webapp.forms import GenerateDowntimeForm
+from webapp.common import run_git_cmd
 from webapp.models import GlobalData
-from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 
-
-class InvalidArgumentsError(Exception): pass
 
 def _verify_config(cfg):
     global ssh_key
