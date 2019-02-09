@@ -45,7 +45,7 @@ def publish_issue_comment(owner, repo, num, body):
     url = github_api_path2url(api_path, owner=owner, repo=repo, number=num)
     data = {'body': body}
     resp = github_api_call('POST', url, data)
-    return resp
+    return resp  # 201 Created
 
 def publish_pr_review(owner, repo, num, body, action, sha):
     # action: APPROVE, REQUEST_CHANGES, or COMMENT
@@ -53,7 +53,7 @@ def publish_pr_review(owner, repo, num, body, action, sha):
     url = github_api_path2url(api_path, owner=owner, repo=repo, number=num)
     data = {'body': body, 'event': action, 'commit_id': sha}
     resp = github_api_call('POST', url, data)
-    return resp
+    return resp  # 200 OK
 
 def hit_merge_button(owner, repo, num, sha, title=None, msg=None, method=None):
     api_path = "/repos/:owner/:repo/pulls/:number/merge"
@@ -64,5 +64,5 @@ def hit_merge_button(owner, repo, num, sha, title=None, msg=None, method=None):
     if msg:    data['commit_message'] = msg
     if method: data['merge_method']   = method
     resp = github_api_call('PUT', url, data)
-    return resp
+    return resp  # 200 OK / 405 (not mergeable) / 409 (sha mismatch)
 
