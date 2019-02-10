@@ -9,7 +9,8 @@ gh_api_token = None
 gh_api_authstr = None
 
 def mk_github_authstr(user, passwd):
-    return base64.encodestring('%s:%s' % (user,passwd)).replace('\n', '')
+    raw = '%s:%s' % (user, passwd)
+    return base64.encodebytes(raw.encode()).decode().replace('\n', '')
 
 def api_setup(api_user, api_token):
     global gh_api_user
