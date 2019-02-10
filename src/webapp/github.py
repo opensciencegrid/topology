@@ -38,7 +38,7 @@ def add_auth_header(req):
 def github_api_path2url(api_path, **kw):
     fmtstr = re.sub(r':([a-z]+)\b', r'{\1}', api_path)
     path = fmtstr.format(**kw)
-    url = "%s/%s" % (gh_api_baseurl, path)
+    url = gh_api_baseurl + path
     return url
 
 def publish_issue_comment(owner, repo, num, body):
