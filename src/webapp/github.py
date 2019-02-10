@@ -1,4 +1,5 @@
 import base64
+import json
 import re
 import urllib.request
 
@@ -21,6 +22,8 @@ def api_setup(api_user, api_token):
     gh_api_authstr = mk_github_authstr(gh_api_user, gh_api_token)
 
 def github_api_call(method, url, data):
+    if data is not None:
+        data = json.dumps(data).encode()
     req = urllib.request.Request(url, data)
     add_auth_header(req)
     #add_gh_preview_header(req)
