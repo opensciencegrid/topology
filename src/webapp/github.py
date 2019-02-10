@@ -69,3 +69,6 @@ def hit_merge_button(owner, repo, num, sha, title=None, msg=None):
     resp = github_api_call('PUT', url, data)
     return resp  # 200 OK / 405 (not mergeable) / 409 (sha mismatch)
 
+# status in resp.getcode()
+# body in resp.read()
+
