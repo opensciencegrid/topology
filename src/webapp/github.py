@@ -9,6 +9,12 @@ gh_api_user = None
 gh_api_token = None
 gh_api_authstr = None
 
+# review actions
+APPROVE         = 'APPROVE'
+REQUEST_CHANGES = 'REQUEST_CHANGES'
+COMMENT         = 'COMMENT'
+
+
 def mk_github_authstr(user, passwd):
     raw = '%s:%s' % (user, passwd)
     return base64.encodebytes(raw.encode()).decode().replace('\n', '')
