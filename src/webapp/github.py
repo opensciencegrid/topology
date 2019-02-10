@@ -23,7 +23,7 @@ def api_setup(api_user, api_token):
 def github_api_call(method, url, data):
     req = urllib.request.Request(url, data)
     add_auth_header(req)
-    add_gh_preview_header(req)
+    #add_gh_preview_header(req)
     req.get_method = lambda : method
     resp = urllib.request.urlopen(req)
     # resp headers in: resp.headers
