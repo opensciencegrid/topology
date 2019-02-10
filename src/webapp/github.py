@@ -51,7 +51,7 @@ def publish_pr_review(owner, repo, num, body, action, sha):
     # action: APPROVE, REQUEST_CHANGES, or COMMENT
     api_path = "/repos/:owner/:repo/pulls/:number/reviews"
     url = github_api_path2url(api_path, owner=owner, repo=repo, number=num)
-    data = {'body': body, 'event': action, commit_id: sha}
+    data = {'body': body, 'event': action, 'commit_id': sha}
     resp = github_api_call('POST', url, data)
     return resp
 
