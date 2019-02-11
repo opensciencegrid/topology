@@ -55,6 +55,12 @@ non_dt_contact_error = (
     "-- OSG-BOT  :dark_sunglasses:"
 )
 
+automerge_status_messages = [
+    dt_success,             # 0
+    dt_not_up_to_date,      # 1
+    dt_not_all_checks_pass, # 2
+    non_dt_contact_error    # 3
+]
 
 ci_success = (
     "Downtime update eligible for automerge and CI checks passed:\n"
