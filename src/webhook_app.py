@@ -227,6 +227,9 @@ def status_hook():
     if pr_dt_automerge_ret == 0 and not app.config['NO_GIT']:
         app.logger.info("Got travis success status hook for commit %s;\n"
                 "eligible for DT automerge" % head_sha)
+        body = webhook_status_messages.ci_success
+        github.publish_pr_review(_required_repo_owner, _required_repo_name,
+                                 pull_num, body, 'APPROVE', head_sha)
         message = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
                   "\n\n{pr_title}".format(**locals())
         ok = do_automerge(base_sha, head_sha, message, base_ref)
