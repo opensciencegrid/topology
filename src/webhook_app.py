@@ -209,21 +209,27 @@ def status_hook():
                         % (owner, reponame))
         return Response("Not Interested; repo was '%s/%s'" % (owner, reponame))
 
+    pr_webhook_state, pull_num = get_webhook_pr_state(head_sha)
+    if pr_webhook_state is None or len(pr_webhook_state) != 4:
+        app.logger.info("Got travis '%s' status hook for commit %s;\n"
+                "not merging as No PR automerge info available"
+                % (ci_state, head_sha))
+        return Response("No PR automerge info available for %s" % head_sha)
+
+    pr_dt_automerge_ret, base_sha, head_label, pr_title = pr_webhook_state
+    if re.search(r'^-?\d+$', pr_dt_automerge_ret):
+        pr_dt_automerge_ret = int(pr_dt_automerge_ret)
+
+    if pr_dt_automerge_ret == 0 and ci_state in ('error', 'failure'):
+        body = webhook_status_messages.ci_failure
+        github.publish_pr_review(_required_repo_owner, _required_repo_name,
+                                 pull_num, body, 'COMMENT', head_sha)
+
     if ci_state != 'success':
         app.logger.info("Ignoring travis '%s' status hook" % ci_state)
         return Response("Not interested; CI state was '%s'" % ci_state)
 
-    pr_webhook_state, pull_num = get_webhook_pr_state(head_sha)
-    if pr_webhook_state is None or len(pr_webhook_state) != 4:
-        app.logger.info("Got travis success status hook for commit %s;\n"
-                "not merging as No PR automerge info available" % head_sha)
-        return Response("No PR automerge info available for %s" % head_sha)
-
-    pr_dt_automerge_ret, base_sha, head_label, pr_title = pr_webhook_state
     base_ref = _required_base_ref
-    if re.search(r'^-?\d+$', pr_dt_automerge_ret):
-        pr_dt_automerge_ret = int(pr_dt_automerge_ret)
-
     if pr_dt_automerge_ret == 0 and not app.config['NO_GIT']:
         app.logger.info("Got travis success status hook for commit %s;\n"
                 "eligible for DT automerge" % head_sha)
