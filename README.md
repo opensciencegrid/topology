@@ -87,7 +87,7 @@ There are two equivalent formats for the arguments:
 - `<ATTRIB>_<ID1>=on&<ATTRIB>_<ID2>=on&<ATTRIB>_<ID3>=on`
 - `<ATTRIB>_sel[]=<ID1>&<ATTRIB>_sel[]=<ID2>&<ATTRIB>_sel[]=<ID3>`
 
-| The following attributes... | Will filter by...             |
+| The following attributes (`<ATTRIB>`)... | Will filter by (`<ID>`)...             |
 |-----------------------------|-------------------------------|
 | `facility`                  | Facility ID                   |
 | `site`                      | Site ID                       |
@@ -100,7 +100,7 @@ For example, either of the two following sets of arguments will show resources t
 - `facility_10089=on&facility_10009=on&facility_10011=on`
 - `facility_sel[]=10089&facility_sel[]=10009&facility_sel[]=10011`
 
-If multiple filters are specified, the resources must match all of them to be shown.
+If multiple filters are specified, only resources that match all filters will be shown.
 
 Finally, you may restrict how much _past_ downtime is shown in the Resource Downtime XML with:
 - `downtime_attrs_showpast=all`: show all past downtime
