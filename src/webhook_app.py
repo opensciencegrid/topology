@@ -15,6 +15,7 @@ import sys
 
 from webapp import default_config
 from webapp import github
+from webapp import webhook_status_messages
 from webapp.common import run_git_cmd
 from webapp.models import GlobalData
 
@@ -301,6 +302,13 @@ def pull_request_hook():
 
     webhook_state = (ret, base_sha, head_label, title)
     set_webhook_pr_state(pull_num, head_sha, webhook_state)
+
+    # only send email if DT files modified or contact unknown
+    if ret <= 3 and gh_api_user and gh_api_token:
+        osg_bot_msg = webhook_status_messages.automerge_status_messages[ret]
+        body = osg_bot_msg.format(**locals())
+        github.publish_pr_review(_required_repo_owner, _required_repo_name,
+                                 pull_num, body, 'COMMENT', head_sha)
 
     OK = "Yes" if ret == 0 else "No"
     Eligible = "Eligible!" if ret == 0 else "Not Eligible."
