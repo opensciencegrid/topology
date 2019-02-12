@@ -146,7 +146,7 @@ def submitTicket():
 
     print(cc_emails)
     ticket = {
-        'subject': "Test API ticket",
+        'subject': information['subject'][0],
         'description': information['ticket-message'][0],
         'email': information['requester'][0],
         'priority': 1,
