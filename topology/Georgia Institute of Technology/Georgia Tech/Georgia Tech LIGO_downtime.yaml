@@ -50,27 +50,3 @@
   Services:
   - Submit Node
 # ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 149486300
-  Description: Quarterly Maintenance
-  Severity: Outage
-  StartTime: Feb 15, 2019 01:00 +0000
-  EndTime: Feb 17, 2019 01:00 +0000
-  CreatedTime: Feb 11, 2019 23:17 +0000
-  ResourceName: Georgia_Tech_PACE_CE_1
-  Services:
-  - CE
-  - Squid
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 149486443
-  Description: Quarterly Maintenance
-  Severity: Outage
-  StartTime: Feb 15, 2019 01:00 +0000
-  EndTime: Feb 17, 2019 01:00 +0000
-  CreatedTime: Feb 11, 2019 23:17 +0000
-  ResourceName: Georgia_Tech_PACE_GridFTP
-  Services:
-  - GridFtp
-  - XRootD cache server
-# ---------------------------------------------------------
