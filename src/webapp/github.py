@@ -1,6 +1,7 @@
 import base64
 import json
 import re
+import urllib.error
 import urllib.request
 
 gh_api_baseurl = "https://api.github.com"
@@ -34,11 +35,14 @@ def github_api_call(method, url, data):
     add_auth_header(req)
     #add_gh_preview_header(req)
     req.get_method = lambda : method
-    resp = urllib.request.urlopen(req)
+    try:
+        resp = urllib.request.urlopen(req)
+        return True, resp
+    except urllib.error.HTTPError as e:
+        return False, e
     # resp headers in: resp.headers
     # resp body in resp.read()
     # for extended responses, follow resp.headers.getheader('link') -> next
-    return resp
 
 def add_auth_header(req):
     if gh_api_authstr:
@@ -54,16 +58,14 @@ def publish_issue_comment(owner, repo, num, body):
     api_path = "/repos/:owner/:repo/issues/:number/comments"
     url = github_api_path2url(api_path, owner=owner, repo=repo, number=num)
     data = {'body': body}
-    resp = github_api_call('POST', url, data)
-    return resp  # 201 Created
+    return github_api_call('POST', url, data)  # 201 Created
 
 def publish_pr_review(owner, repo, num, body, action, sha):
     # action: APPROVE, REQUEST_CHANGES, or COMMENT
     api_path = "/repos/:owner/:repo/pulls/:number/reviews"
     url = github_api_path2url(api_path, owner=owner, repo=repo, number=num)
     data = {'body': body, 'event': action, 'commit_id': sha}
-    resp = github_api_call('POST', url, data)
-    return resp  # 200 OK
+    return github_api_call('POST', url, data)  # 200 OK
 
 def approve_pr(owner, repo, num, body, sha):
     return publish_pr_review(owner, repo, num, body, APPROVE, sha)
@@ -75,8 +77,8 @@ def hit_merge_button(owner, repo, num, sha, title=None, msg=None):
     if sha:    data['sha']            = sha
     if title:  data['commit_title']   = title
     if msg:    data['commit_message'] = msg
-    resp = github_api_call('PUT', url, data)
-    return resp  # 200 OK / 405 (not mergeable) / 409 (sha mismatch)
+    return github_api_call('PUT', url, data)
+    # 200 OK / 405 (not mergeable) / 409 (sha mismatch)
 
 # status in resp.getcode()
 # body in resp.read()

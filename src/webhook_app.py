@@ -6,6 +6,7 @@ import flask.logging
 from   flask import Flask, Response, request
 import glob
 import hmac
+import json
 import logging
 import os
 import re
@@ -242,14 +243,12 @@ def status_hook():
         message = title + "\n\n{pr_title}".format(**locals())
         ok = do_automerge(base_sha, head_sha, message, base_ref)
 
-        resp = github.hit_merge_button(_required_repo_owner,
+        ok, resp = github.hit_merge_button(_required_repo_owner,
                 _required_repo_name, pull_num, head_sha, title)
-        merge_status = resp.getcode()
-        if merge_status == 200:
+        if ok:
             body = webhook_status_messages.merge_success
         else:
-            fail_message = "not mergeable" if merge_status == 405 else
-                           "sha mismatch"  if merge_status == 409 else "???"
+            fail_message = json.load(resp).get('message')
             body = webhook_status_messages.merge_failure.format(**locals())
         github.publish_issue_comment(_required_repo_owner, _required_repo_name,
                                      pull_num, body)
