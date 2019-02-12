@@ -81,6 +81,32 @@ else:
     app.logger.warning("Note, no WEBHOOK_GH_API_TOKEN configured; "
                        "GitHub comments will not be published.")
 
+def publish_pr_review(pull_num, body, action, head_sha):
+    ok, resp = github.publish_pr_review(_required_repo_owner,
+                                        _required_repo_name,
+                                        pull_num, body, action, head_sha)
+    if ok:
+        app.logger.debug("published review (%s) for #%s" % (action, pull_num))
+    else:
+        status = resp.getheader('status')
+        message = json.load(resp).get('message')
+        app.logger.error("tried to publish review (%s) for #%s;"
+                         " got %s: %s" % (action, pull_num, status, message))
+    return ok
+
+def publish_issue_comment(pull_num, body):
+    ok, resp = github.publish_issue_comment(_required_repo_owner,
+                                            _required_repo_name,
+                                            pull_num, body)
+    if ok:
+        app.logger.debug("published comment for #%s" % pull_num)
+    else:
+        status = resp.getheader('status')
+        message = json.load(resp).get('message')
+        app.logger.error("tried to publish comment for #%s;"
+                         " got %s: %s" % (pull_num, status, message))
+    return ok
+
 def validate_webhook_signature(data, x_hub_signature):
     if webhook_secret:
         sha1 = hmac.new(webhook_secret, msg=data, digestmod='sha1').hexdigest()
@@ -224,8 +250,7 @@ def status_hook():
 
     if pr_dt_automerge_ret == 0 and ci_state in ('error', 'failure'):
         body = webhook_status_messages.ci_failure
-        github.publish_pr_review(_required_repo_owner, _required_repo_name,
-                                 pull_num, body, 'COMMENT', head_sha)
+        publish_pr_review(pull_num, body, 'COMMENT', head_sha)
 
     if ci_state != 'success':
         app.logger.info("Ignoring travis '%s' status hook" % ci_state)
@@ -236,8 +261,7 @@ def status_hook():
         app.logger.info("Got travis success status hook for commit %s;\n"
                 "eligible for DT automerge" % head_sha)
         body = webhook_status_messages.ci_success
-        github.publish_pr_review(_required_repo_owner, _required_repo_name,
-                                 pull_num, body, 'APPROVE', head_sha)
+        publish_pr_review(pull_num, body, 'APPROVE', head_sha)
         title = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
                 .format(**locals())
         message = title + "\n\n{pr_title}".format(**locals())
@@ -250,8 +274,7 @@ def status_hook():
         else:
             fail_message = json.load(resp).get('message')
             body = webhook_status_messages.merge_failure.format(**locals())
-        github.publish_issue_comment(_required_repo_owner, _required_repo_name,
-                                     pull_num, body)
+        publish_issue_comment(pull_num, body)
 
     elif pr_dt_automerge_ret != 0:
         app.logger.info("Got travis success status hook for commit %s;\n"
@@ -326,12 +349,11 @@ def pull_request_hook():
     webhook_state = (ret, base_sha, head_label, title)
     set_webhook_pr_state(pull_num, head_sha, webhook_state)
 
-    # only send email if DT files modified or contact unknown
+    # only comment if DT files modified or contact unknown
     if ret <= 3 and gh_api_user and gh_api_token:
         osg_bot_msg = webhook_status_messages.automerge_status_messages[ret]
         body = osg_bot_msg.format(**locals())
-        github.publish_pr_review(_required_repo_owner, _required_repo_name,
-                                 pull_num, body, 'COMMENT', head_sha)
+        publish_pr_review(pull_num, body, 'COMMENT', head_sha)
 
     OK = "Yes" if ret == 0 else "No"
     Eligible = "Eligible!" if ret == 0 else "Not Eligible."
