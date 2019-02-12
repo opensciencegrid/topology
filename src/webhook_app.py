@@ -15,7 +15,6 @@ import sys
 
 from webapp import default_config
 from webapp import webhook_status_messages
-from webapp.common import run_git_cmd
 from webapp.github import GitHubAuth
 from webapp.models import GlobalData
 
@@ -119,34 +118,6 @@ def get_webhook_pr_state(sha, num='*'):
             return f.read().strip().split('\n'), pr_num(statefile)
     else:
         return None, None
-
-# already checked in automerge test script
-# might want to move the check here though, and pass in merge_sha
-def commit_is_merged(ancestor_sha, head_sha):
-    cmd = ['git', 'merge-base', '--is-ancestor', ancestor_sha, head_sha]
-    stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
-    return ret == 0
-
-_git_user_name = "Topology Automerge"
-_git_user_email = "help@opensciencegrid.org"
-def gen_merge_commit(base_sha, head_sha, message):
-    # NOTE: we've already checked this in automerge test script
-    if not commit_is_merged(base_sha, head_sha):
-        return '', 'commit %s is not merged into %s' % (base_sha, head_sha), 1
-    tree_rev = head_sha + "^{tree}"
-    cmd = ['git', '-c', 'user.name=%s'  % _git_user_name,
-                  '-c', 'user.email=%s' % _git_user_email,
-                  'commit-tree', '-p', base_sha, '-p', head_sha,
-                                 '-m', message, tree_rev]
-    return runcmd(cmd, cwd=global_data.webhook_data_dir)
-
-def push_ref(sha, remote_ref):
-    refspec = "%s:refs/heads/%s" % (sha, remote_ref)
-    gitcmd = ['push', 'origin', refspec]
-    app.logger.info("Pushing downtime automerge commit %s to branch '%s'"
-                    % (sha, remote_ref))
-    return run_git_cmd(gitcmd, git_dir=global_data.webhook_data_dir,
-                       ssh_key=ssh_key)
 
 _max_payload_size = 1024 * 1024  # should be well under this
 def validate_request_signature(request):
