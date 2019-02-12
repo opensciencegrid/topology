@@ -15,9 +15,9 @@ from   subprocess import PIPE
 import sys
 
 from webapp import default_config
-from webapp import github
 from webapp import webhook_status_messages
 from webapp.common import run_git_cmd
+from webapp.github import GitHubAuth
 from webapp.models import GlobalData
 
 
@@ -76,7 +76,11 @@ if not webhook_secret:
 gh_api_user = global_data.webhook_gh_api_user
 gh_api_token = _readfile(global_data.webhook_gh_api_token)
 if gh_api_user and gh_api_token:
-    github.api_setup(gh_api_user, gh_api_token)
+    ghauth = GitHubAuth(gh_api_user, gh_api_token)
+    ghrepo = ghauth.target_repo(_required_repo_owner, _required_repo_name)
+    publish_pr_review     = ghrepo.publish_pr_review
+    publish_issue_comment = ghrepo.publish_issue_comment
+    hit_merge_button      = ghrepo.hit_merge_button
 else:
     app.logger.warning("Note, no WEBHOOK_GH_API_TOKEN configured; "
                        "GitHub comments will not be published.")
@@ -267,8 +271,7 @@ def status_hook():
         message = title + "\n\n{pr_title}".format(**locals())
         ok = do_automerge(base_sha, head_sha, message, base_ref)
 
-        ok, resp = github.hit_merge_button(_required_repo_owner,
-                _required_repo_name, pull_num, head_sha, title)
+        ok, resp = hit_merge_button(pull_num, head_sha, title)
         if ok:
             body = webhook_status_messages.merge_success
         else:
