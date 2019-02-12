@@ -26,11 +26,21 @@ class GitHubAuth:
     api_user = None
     api_token = None
     api_authstr = None
+    logger = None
 
-    def __init__(self, api_user, api_token):
+    def __init__(self, api_user, api_token, logger=None):
         self.api_user = api_user
         self.api_token = api_token
         self.api_authstr = mk_github_authstr(api_user, api_token)
+        self.logger = logger
+
+    def elog(self, msg):
+        if self.logger:
+            self.logger.error(msg)
+
+    def dlog(self, msg):
+        if self.logger:
+            self.logger.debug(msg)
 
     def github_api_call(self, method, url, data):
         if data is not None:
@@ -41,9 +51,14 @@ class GitHubAuth:
         req.get_method = lambda : method
         try:
             resp = urllib.request.urlopen(req)
+            self.dlog("GitHub API call success for %s" % url)
             return True, resp
-        except urllib.error.HTTPError as e:
-            return False, e
+        except urllib.error.HTTPError as resp:
+            status = resp.getheader('status')
+            message = json.load(resp).get('message')
+            self.elog("GitHub API call failure for %s; got %s: %s"
+                      % (url, status, message))
+            return False, message
         # status in resp.getcode()
         # resp headers in: resp.headers
         # resp body in resp.read() or json.load(resp)
