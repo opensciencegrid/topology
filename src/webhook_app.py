@@ -148,22 +148,6 @@ def push_ref(sha, remote_ref):
     return run_git_cmd(gitcmd, git_dir=global_data.webhook_data_dir,
                        ssh_key=ssh_key)
 
-def do_automerge(base_sha, head_sha, message, base_ref):
-    out, err, ret = gen_merge_commit(base_sha, head_sha, message)
-    if ret != 0:
-        app.logger.error("Failed to generate merge commit of %s onto %s"
-                         % (head_sha, base_sha))
-        return False
-    new_merge_commit = out.strip()
-
-    # for now, send all-clear email rather than actually pushing upstream
-    subject = "[DT-AM] Downtime Automerge Approved"
-    body = ("Downtime PR eligible for automerge and Status check passed:"
-            "\n\n%s" % message)
-    send_mailx_email(subject, body)
-    #return push_ref(new_merge_commit, base_ref)
-    return True
-
 _max_payload_size = 1024 * 1024  # should be well under this
 def validate_request_signature(request):
     if request.content_length > _max_payload_size:
@@ -236,7 +220,6 @@ def status_hook():
         app.logger.info("Ignoring travis '%s' status hook" % ci_state)
         return Response("Not interested; CI state was '%s'" % ci_state)
 
-    base_ref = _required_base_ref
     if pr_dt_automerge_ret == 0 and not app.config['NO_GIT']:
         app.logger.info("Got travis success status hook for commit %s;\n"
                 "eligible for DT automerge" % head_sha)
@@ -244,9 +227,6 @@ def status_hook():
         publish_pr_review(pull_num, body, 'APPROVE', head_sha)
         title = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
                 .format(**locals())
-        message = title + "\n\n{pr_title}".format(**locals())
-        ok = do_automerge(base_sha, head_sha, message, base_ref)
-
         ok, fail_message = hit_merge_button(pull_num, head_sha, title)
         if ok:
             body = webhook_status_messages.merge_success
