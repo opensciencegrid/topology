@@ -104,7 +104,8 @@ If multiple filters are specified, only resources that match all filters will be
 
 Finally, you may restrict how much _past_ downtime is shown in the Resource Downtime XML with:
 - `downtime_attrs_showpast=all`: show all past downtime
-- `downtime_attrs_showpast=<NUMBER>`: show downtime that ended no earlier than `<NUMBER>` days (`<NUMBER>` \* 24 hours) ago
+- `downtime_attrs_showpast=<DAYS>`: show downtime that ended no earlier than `<DAYS>` days ago.
+  For example `downtime_attrs_showpast=7` shows downtime that ended within the past 168 hours (7 days \* 24 hours per day).
 - `downtime_attrs_showpast=0`: show no past downtime; this is the default if not specified
 
 #### For the Virtual Organization (vosummary) page
