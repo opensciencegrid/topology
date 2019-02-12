@@ -4,11 +4,7 @@ import re
 import urllib.error
 import urllib.request
 
-gh_api_baseurl = "https://api.github.com"
-
-gh_api_user = None
-gh_api_token = None
-gh_api_authstr = None
+api_baseurl = "https://api.github.com"
 
 # review actions
 APPROVE         = 'APPROVE'
@@ -20,66 +16,88 @@ def mk_github_authstr(user, passwd):
     raw = '%s:%s' % (user, passwd)
     return base64.encodebytes(raw.encode()).decode().replace('\n', '')
 
-def api_setup(api_user, api_token):
-    global gh_api_user
-    global gh_api_token
-    global gh_api_authstr
-    gh_api_user = api_user
-    gh_api_token = api_token
-    gh_api_authstr = mk_github_authstr(gh_api_user, gh_api_token)
-
-def github_api_call(method, url, data):
-    if data is not None:
-        data = json.dumps(data).encode()
-    req = urllib.request.Request(url, data)
-    add_auth_header(req)
-    #add_gh_preview_header(req)
-    req.get_method = lambda : method
-    try:
-        resp = urllib.request.urlopen(req)
-        return True, resp
-    except urllib.error.HTTPError as e:
-        return False, e
-    # resp headers in: resp.headers
-    # resp body in resp.read()
-    # for extended responses, follow resp.headers.getheader('link') -> next
-
-def add_auth_header(req):
-    if gh_api_authstr:
-        req.add_header("Authorization", "Basic %s" % gh_api_authstr)
-
-def github_api_path2url(api_path, **kw):
+def api_path2url(api_path, **kw):
     fmtstr = re.sub(r':([a-z]+)\b', r'{\1}', api_path)
     path = fmtstr.format(**kw)
-    url = gh_api_baseurl + path
+    url = api_baseurl + path
     return url
 
-def publish_issue_comment(owner, repo, num, body):
-    api_path = "/repos/:owner/:repo/issues/:number/comments"
-    url = github_api_path2url(api_path, owner=owner, repo=repo, number=num)
-    data = {'body': body}
-    return github_api_call('POST', url, data)  # 201 Created
+class GitHubAuth:
+    api_user = None
+    api_token = None
+    api_authstr = None
 
-def publish_pr_review(owner, repo, num, body, action, sha):
-    # action: APPROVE, REQUEST_CHANGES, or COMMENT
-    api_path = "/repos/:owner/:repo/pulls/:number/reviews"
-    url = github_api_path2url(api_path, owner=owner, repo=repo, number=num)
-    data = {'body': body, 'event': action, 'commit_id': sha}
-    return github_api_call('POST', url, data)  # 200 OK
+    def __init__(self, api_user, api_token):
+        self.api_user = api_user
+        self.api_token = api_token
+        self.api_authstr = mk_github_authstr(api_user, api_token)
 
-def approve_pr(owner, repo, num, body, sha):
-    return publish_pr_review(owner, repo, num, body, APPROVE, sha)
+    def github_api_call(self, method, url, data):
+        if data is not None:
+            data = json.dumps(data).encode()
+        req = urllib.request.Request(url, data)
+        self._add_auth_header(req)
+        #add_gh_preview_header(req)
+        req.get_method = lambda : method
+        try:
+            resp = urllib.request.urlopen(req)
+            return True, resp
+        except urllib.error.HTTPError as e:
+            return False, e
+        # status in resp.getcode()
+        # resp headers in: resp.headers
+        # resp body in resp.read() or json.load(resp)
+        # for extended responses, follow resp.headers.getheader('link') -> next
 
-def hit_merge_button(owner, repo, num, sha, title=None, msg=None):
-    api_path = "/repos/:owner/:repo/pulls/:number/merge"
-    url = github_api_path2url(api_path, owner=owner, repo=repo, number=num)
-    data = {}
-    if sha:    data['sha']            = sha
-    if title:  data['commit_title']   = title
-    if msg:    data['commit_message'] = msg
-    return github_api_call('PUT', url, data)
-    # 200 OK / 405 (not mergeable) / 409 (sha mismatch)
+    def _add_auth_header(self, req):
+        req.add_header("Authorization", "Basic %s" % self.api_authstr)
 
-# status in resp.getcode()
-# body in resp.read()
+    def publish_issue_comment(self, owner, repo, num, body):
+        api_path = "/repos/:owner/:repo/issues/:number/comments"
+        url = api_path2url(api_path, owner=owner, repo=repo, number=num)
+        data = {'body': body}
+        return self.github_api_call('POST', url, data)  # 201 Created
+
+    def publish_pr_review(self, owner, repo, num, body, action, sha):
+        # action: APPROVE, REQUEST_CHANGES, or COMMENT
+        api_path = "/repos/:owner/:repo/pulls/:number/reviews"
+        url = api_path2url(api_path, owner=owner, repo=repo, number=num)
+        data = {'body': body, 'event': action, 'commit_id': sha}
+        return self.github_api_call('POST', url, data)  # 200 OK
+
+    def approve_pr(self, owner, repo, num, body, sha):
+        return self.publish_pr_review(owner, repo, num, body, APPROVE, sha)
+
+    def hit_merge_button(self, owner, repo, num, sha, title=None, msg=None):
+        api_path = "/repos/:owner/:repo/pulls/:number/merge"
+        url = api_path2url(api_path, owner=owner, repo=repo, number=num)
+        data = {}
+        if sha:    data['sha']            = sha
+        if title:  data['commit_title']   = title
+        if msg:    data['commit_message'] = msg
+        return self.github_api_call('PUT', url, data)
+        # 200 OK / 405 (not mergeable) / 409 (sha mismatch)
+
+    def target_repo(self, owner, repo):
+        return GitHubRepoAPI(self, owner, repo)
+
+class GitHubRepoAPI:
+    # wrapper around GitHubAuth with (owner,repo) specified up front
+
+    def __init__(self, ghauth, owner, repo):
+        self.ghauth = ghauth
+        self.owner = owner
+        self.repo = repo
+
+    def publish_issue_comment(self, num, body):
+        return self.ghauth.publish_issue_comment(self.owner, self.repo,
+                                                 num, body)
+
+    def publish_pr_review(self, num, body, action, sha):
+        return self.ghauth.publish_pr_review(self.owner, self.repo,
+                                        num, body, action, sha)
+
+    def hit_merge_button(self, num, sha, title=None, msg=None):
+        return self.ghauth.hit_merge_button(self.owner, self.repo,
+                                       num, sha, title, msg)
 
