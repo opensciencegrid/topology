@@ -313,32 +313,6 @@ def pull_request_hook():
         body = osg_bot_msg.format(**locals())
         publish_pr_review(pull_num, body, 'COMMENT', head_sha)
 
-    OK = "Yes" if ret == 0 else "No"
-    Eligible = "Eligible!" if ret == 0 else "Not Eligible."
-
-    subject = "[DT-AM] PR #{pull_num} {action}: {Eligible}".format(**locals())
-
-    out = """\
-In Pull Request: {pull_url}
-GitHub User '{sender}' wants to merge branch {head_label}
-        (at commit {head_sha})
-into {base_label}
-        (at commit {base_sha})
-
-Eligible for downtime automerge? {OK}
-
-automerge_downtime script output:
----
-{stdout}
----
-{stderr}
----
-""".format(**locals())
-
-    # only send email if DT files modified or contact unknown
-    if ret <= 3:
-        _,_,_ = send_mailx_email(subject, out)
-
     return Response(out)
 
 
