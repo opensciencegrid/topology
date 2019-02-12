@@ -191,7 +191,7 @@ def status_hook():
         app.logger.info("Ignoring travis '%s' status hook" % ci_state)
         return Response("Not interested; CI state was '%s'" % ci_state)
 
-    if pr_dt_automerge_ret == 0 and not app.config['NO_GIT']:
+    if pr_dt_automerge_ret == 0:
         app.logger.info("Got travis success status hook for commit %s;\n"
                 "eligible for DT automerge" % head_sha)
         body = webhook_status_messages.ci_success
@@ -204,14 +204,9 @@ def status_hook():
         else:
             body = webhook_status_messages.merge_failure.format(**locals())
         publish_issue_comment(pull_num, body)
-
-    elif pr_dt_automerge_ret != 0:
-        app.logger.info("Got travis success status hook for commit %s;\n"
-                "not eligible for DT automerge" % head_sha)
     else:
         app.logger.info("Got travis success status hook for commit %s;\n"
-                "eligible for DT automerge, but not merging since NO_GIT "
-                "is configured" % head_sha)
+                "not eligible for DT automerge" % head_sha)
 
     return Response('Thank You')
 
