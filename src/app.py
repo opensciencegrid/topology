@@ -12,6 +12,8 @@ import traceback
 import urllib.parse
 import json
 import requests
+import bleach
+import markdown
 
 from webapp import default_config
 from webapp.common import to_xml_bytes, Filters
@@ -144,10 +146,14 @@ def submitTicket():
                         for inner_contact in contact['Contacts']['Contact']:
                             cc_emails.add(inner_contact['Email'])
 
-    print(cc_emails)
+    # Use Bleach (from mozilla) to sanitize the html input
+    cleaned_desc = bleach.clean(information['ticket-message'][0])
+    # Then convert mardown to HTML
+    html_desc = markdown.markdown(cleaned_desc)
+
     ticket = {
         'subject': information['subject'][0],
-        'description': information['ticket-message'][0],
+        'description': html_desc,
         'email': information['requester'][0],
         'priority': 1,
         'status': 2,
