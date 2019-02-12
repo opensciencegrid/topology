@@ -292,15 +292,6 @@ def runcmd(cmd, input=None, **kw):
     stdout, stderr = p.communicate(input)
     return stdout, stderr, p.returncode
 
-def send_mailx_email(subject, body):
-    recipients = [
-        "edquist@cs.wisc.edu",
-        "matyas@cs.wisc.edu",
-        "blin@cs.wisc.edu",
-    ]
-    app.logger.info("Sending email to %s, Re: %s" % (recipients, subject))
-    return runcmd(["mailx", "-s", subject] + recipients, input=body)
-
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
