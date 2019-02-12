@@ -85,7 +85,7 @@ else:
     publish_issue_comment = \
     hit_merge_button      = lambda *a,**kw: (False, "No API token configured")
     app.logger.warning("Note, no WEBHOOK_GH_API_TOKEN configured; "
-                       "GitHub comments will not be published.")
+                       "GitHub comments won't be published, nor PRs merged.")
 
 def validate_webhook_signature(data, x_hub_signature):
     if webhook_secret:
