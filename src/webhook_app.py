@@ -6,7 +6,6 @@ import flask.logging
 from   flask import Flask, Response, request
 import glob
 import hmac
-import json
 import logging
 import os
 import re
@@ -76,40 +75,17 @@ if not webhook_secret:
 gh_api_user = global_data.webhook_gh_api_user
 gh_api_token = _readfile(global_data.webhook_gh_api_token)
 if gh_api_user and gh_api_token:
-    ghauth = GitHubAuth(gh_api_user, gh_api_token)
+    ghauth = GitHubAuth(gh_api_user, gh_api_token, app.logger)
     ghrepo = ghauth.target_repo(_required_repo_owner, _required_repo_name)
     publish_pr_review     = ghrepo.publish_pr_review
     publish_issue_comment = ghrepo.publish_issue_comment
     hit_merge_button      = ghrepo.hit_merge_button
 else:
+    publish_pr_review     = \
+    publish_issue_comment = \
+    hit_merge_button      = lambda *a,**kw: (False, "No API token configured")
     app.logger.warning("Note, no WEBHOOK_GH_API_TOKEN configured; "
                        "GitHub comments will not be published.")
-
-def publish_pr_review(pull_num, body, action, head_sha):
-    ok, resp = github.publish_pr_review(_required_repo_owner,
-                                        _required_repo_name,
-                                        pull_num, body, action, head_sha)
-    if ok:
-        app.logger.debug("published review (%s) for #%s" % (action, pull_num))
-    else:
-        status = resp.getheader('status')
-        message = json.load(resp).get('message')
-        app.logger.error("tried to publish review (%s) for #%s;"
-                         " got %s: %s" % (action, pull_num, status, message))
-    return ok
-
-def publish_issue_comment(pull_num, body):
-    ok, resp = github.publish_issue_comment(_required_repo_owner,
-                                            _required_repo_name,
-                                            pull_num, body)
-    if ok:
-        app.logger.debug("published comment for #%s" % pull_num)
-    else:
-        status = resp.getheader('status')
-        message = json.load(resp).get('message')
-        app.logger.error("tried to publish comment for #%s;"
-                         " got %s: %s" % (pull_num, status, message))
-    return ok
 
 def validate_webhook_signature(data, x_hub_signature):
     if webhook_secret:
@@ -271,11 +247,10 @@ def status_hook():
         message = title + "\n\n{pr_title}".format(**locals())
         ok = do_automerge(base_sha, head_sha, message, base_ref)
 
-        ok, resp = hit_merge_button(pull_num, head_sha, title)
+        ok, fail_message = hit_merge_button(pull_num, head_sha, title)
         if ok:
             body = webhook_status_messages.merge_success
         else:
-            fail_message = json.load(resp).get('message')
             body = webhook_status_messages.merge_failure.format(**locals())
         publish_issue_comment(pull_num, body)
 
