@@ -16,6 +16,10 @@ XML consumers
 - CERN
   - Queries for [Squid FQDNs](http://svnweb.cern.ch/world/wsvn/wlcgsquidmon/trunk/scripts/grid-services/get_squids.py)
 - GGUS (WLCG)
+  - [ALICE](https://my.opensciencegrid.org/rgsummary/xml?gridtype=on&gridtype_1=on&voown=on&voown_sel%5B%5D=58&active=on&active_value=1)
+  - [ATLAS](https://my.opensciencegrid.org/rgsummary/xml?gridtype=on&gridtype_1=on&voown=on&voown_35=on&active=on&active_value=1)
+  - [BELLE](https://my.opensciencegrid.org/rgsummary/xml?gridtype=on&gridtype_1=on&voown=on&voown_sel%5B%5D=69&active=on&active_value=1)
+  - [CMS](https://my.opensciencegrid.org/rgsummary/xml?gridtype=on&gridtype_1=on&voown=on&voown_3=on&active=on&active_value=1&disable_value=1)
 - GRACC (OSG)
   - [Projects](https://github.com/opensciencegrid/gracc-request/blob/83f3fab52b108b872009430773ce8f1a9fcbe659/config/gracc-request.toml#L42)
   - [Topology](https://github.com/opensciencegrid/gracc-request/blob/83f3fab52b108b872009430773ce8f1a9fcbe659/config/gracc-request.toml#L41)

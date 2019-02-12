@@ -249,7 +249,7 @@ def pull_request_hook():
         return Response("Wrong event type", status=400)
 
     payload = request.get_json()
-    action = payload['action']
+    action = payload and payload.get('action')
     if action not in ("opened",):
         app.logger.info("Ignoring pull_request hook action '%s'" % action)
         return Response("Not Interested")
