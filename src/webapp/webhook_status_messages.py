@@ -1,14 +1,5 @@
 
-dt_success = (
-    "Greetings @{sender}!\n"
-    "\n"
-    "Your downtime update is eligible for downtime automerge!\n"
-    "\n"
-    "If there are no errors in the CI tests, I will approve and pull your"
-    " [request]({base_sha}...{head_sha}) from `{head_label}`.\n"
-    "\n"
-    "-- OSG-BOT  :hourglass_flowing_sand:"
-)
+dt_success = None
 
 dt_not_up_to_date = (
     "Greetings @{sender},\n"
@@ -63,8 +54,11 @@ automerge_status_messages = [
 ]
 
 ci_success = (
-    "Downtime update eligible for automerge and CI checks passed:\n"
-    "Automerge Approved :+1:\n"
+    "Greetings @{sender}!\n"
+    "\n"
+    "Your downtime update has been approved for automatic merge!\n"
+    "\n"
+    "Have a nice day!  :racehorse:\n"
     "\n"
     "-- OSG-BOT"
 )
@@ -73,14 +67,9 @@ ci_failure = (
     "Looks like the CI checks failed; OSG Staff can help investigate.\n"
     "\n"
     "-- OSG-BOT  :disappointed:"
-
 )
 
-merge_success = (
-    "Have a nice day!  :racehorse:\n"
-    "\n"
-    "-- OSG-BOT"
-)
+merge_success = None
 
 merge_failure = (
     "Unexpected merge failure!\n"
