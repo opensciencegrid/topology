@@ -253,7 +253,7 @@ def pull_request_hook():
     set_webhook_pr_state(pull_num, head_sha, webhook_state)
 
     # only comment on errors if DT files modified or contact unknown
-    if 0 < ret <= 3 and gh_api_user and gh_api_token:
+    if 0 < ret <= 3:
         osg_bot_msg = webhook_status_messages.automerge_status_messages[ret]
         body = osg_bot_msg.format(**locals())
         publish_pr_review(pull_num, body, 'COMMENT', head_sha)
