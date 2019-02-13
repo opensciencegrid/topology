@@ -19,26 +19,11 @@ from webapp.github import GitHubAuth
 from webapp.models import GlobalData
 
 
-def _verify_config(cfg):
-    global ssh_key
-    if not cfg["NO_GIT"]:
-        ssh_key = cfg["GIT_SSH_KEY"]
-        if not ssh_key:
-            raise ValueError("GIT_SSH_KEY must be specified if using Git")
-        elif not os.path.exists(ssh_key):
-            raise FileNotFoundError(ssh_key)
-        else:
-            st = os.stat(ssh_key)
-            perm_ok = st.st_mode & 0o400 and not st.st_mode & 0o7077
-            if st.st_uid != os.getuid() or not perm_ok:
-                raise PermissionError(ssh_key)
-
 app = Flask(__name__)
 app.config.from_object(default_config)
 app.config.from_pyfile("config.py", silent=True)
 if "TOPOLOGY_CONFIG" in os.environ:
     app.config.from_envvar("TOPOLOGY_CONFIG", silent=False)
-_verify_config(app.config)
 if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
