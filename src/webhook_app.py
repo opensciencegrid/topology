@@ -73,6 +73,21 @@ def validate_webhook_signature(data, x_hub_signature):
         our_signature = "sha1=" + sha1
         return hmac.compare_digest(our_signature, x_hub_signature)
 
+_max_payload_size = 1024 * 1024  # should be well under this
+def validate_request_signature(request):
+    if request.content_length > _max_payload_size:
+        app.logger.error("Refusing to read overly-large payload of size %s"
+                         % request.content_length)
+        return False
+    payload_body = request.get_data()
+    x_hub_signature = request.headers.get('X-Hub-Signature')
+    ret = validate_webhook_signature(payload_body, x_hub_signature)
+    if ret or ret is None:
+        return True  # OK, signature match or secret key not configured
+    else:
+        app.logger.error("Payload signature did not match for secret key")
+        return False
+
 def set_webhook_pr_state(num, sha, state):
     prdir = "%s/%s" % (global_data.webhook_state_dir, num)
     statefile = "%s/%s" % (prdir, sha)
@@ -99,21 +114,6 @@ def get_webhook_pr_state(sha, num='*'):
             return f.read().strip().split('\n'), pr_num(statefile)
     else:
         return None, None
-
-_max_payload_size = 1024 * 1024  # should be well under this
-def validate_request_signature(request):
-    if request.content_length > _max_payload_size:
-        app.logger.error("Refusing to read overly-large payload of size %s"
-                         % request.content_length)
-        return False
-    payload_body = request.get_data()
-    x_hub_signature = request.headers.get('X-Hub-Signature')
-    ret = validate_webhook_signature(payload_body, x_hub_signature)
-    if ret or ret is None:
-        return True  # OK, signature match or secret key not configured
-    else:
-        app.logger.error("Payload signature did not match for secret key")
-        return False
 
 @app.route("/status", methods=["GET", "POST"])
 def status_hook():
