@@ -262,7 +262,7 @@ def pull_request_hook():
         body = osg_bot_msg.format(**locals())
         publish_pr_review(pull_num, body, 'COMMENT', head_sha)
 
-    return Response(out)
+    return Response('Thank You')
 
 
 def runcmd(cmd, input=None, **kw):
