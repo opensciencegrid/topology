@@ -37,10 +37,6 @@ src_dir = os.path.abspath(os.path.dirname(__file__))
 _required_base_ref = global_data.webhook_data_branch
 _required_base_label = "%s:%s" % (_required_repo_owner, _required_base_ref)
 
-def _fix_unicode(text):
-    """Convert a partial unicode string to full unicode"""
-    return text.encode('utf-8', 'surrogateescape').decode('utf-8')
-
 def _readfile(path):
     """ return stripped file contents, or None on errors """
     if path:
