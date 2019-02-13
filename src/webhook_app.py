@@ -184,11 +184,9 @@ def status_hook():
         title = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
                 .format(**locals())
         ok, fail_message = hit_merge_button(pull_num, head_sha, title)
-        if ok:
-            body = webhook_status_messages.merge_success
-        else:
+        if not ok:
             body = webhook_status_messages.merge_failure.format(**locals())
-        publish_issue_comment(pull_num, body)
+            publish_issue_comment(pull_num, body)
     else:
         app.logger.info("Got travis success status hook for commit %s;\n"
                 "not eligible for DT automerge" % head_sha)
