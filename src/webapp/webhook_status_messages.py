@@ -64,7 +64,12 @@ ci_success = (
 )
     
 ci_failure = (
-    "Looks like the CI checks failed; OSG Staff can help investigate.\n"
+    "Greetings @{sender},\n"
+    "\n"
+    "Thank you for your pull request!\n"
+    "\n"
+    "Your downtime update looks clean, but our CI checks failed;"
+    " OSG Staff can help investigate.\n"
     "\n"
     "-- OSG-BOT  :disappointed:"
 )
