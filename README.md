@@ -6,7 +6,7 @@ scripts for managing and displaying this information.
 
 **For registration instructions, please see [this document](https://opensciencegrid.org/docs/common/registration).**
 
-The information was sourced from the former OIM site that was hosted at `oim.grid.iu.edu`.
+The information was sourced from the former OIM site that was hosted at `oim.grid.iu.edu`....
 This README contains the following sections:
 
 - [Structure of the Registry](#structure-of-the-registry)
