@@ -93,8 +93,14 @@ SupportURL: http://www.usatlas.bnl.gov/index.shtml
 #     Namespaces:
 #       /<VONAME>/PUBLIC:
 #         - ANY
-#     AllowedCaches:
-#       - ANY
 #     AllowedOrigins:
 #       - <ORIGIN_RESOURCE>
+#       - ...
+### For AllowedCaches, if you only have public data, use:
+#     AllowedCaches:
+#       - ANY
+### otherwise use:
+#     AllowedCaches:
+#       - <CACHE_RESOURCE>
+#       - ...
 
