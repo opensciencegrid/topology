@@ -129,6 +129,7 @@ def status_hook():
 
     payload = request.get_json()
     try:
+        sender = payload['sender']['login']
         head_sha = payload['sha']
         repo = payload['repository']
         owner = repo['owner']['login'] # 'opensciencegrid'
@@ -165,7 +166,7 @@ def status_hook():
         pr_dt_automerge_ret = int(pr_dt_automerge_ret)
 
     if pr_dt_automerge_ret == 0 and ci_state in ('error', 'failure'):
-        body = webhook_status_messages.ci_failure
+        body = webhook_status_messages.ci_failure.format(**locals())
         publish_pr_review(pull_num, body, 'COMMENT', head_sha)
 
     if ci_state != 'success':
@@ -175,7 +176,7 @@ def status_hook():
     if pr_dt_automerge_ret == 0:
         app.logger.info("Got travis success status hook for commit %s;\n"
                 "eligible for DT automerge" % head_sha)
-        body = webhook_status_messages.ci_success
+        body = webhook_status_messages.ci_success.format(**locals())
         publish_pr_review(pull_num, body, 'APPROVE', head_sha)
         title = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
                 .format(**locals())
