@@ -129,7 +129,6 @@ def status_hook():
 
     payload = request.get_json()
     try:
-        sender = payload['sender']['login']
         head_sha = payload['sha']
         repo = payload['repository']
         owner = repo['owner']['login'] # 'opensciencegrid'
@@ -161,7 +160,7 @@ def status_hook():
                 % (ci_state, head_sha))
         return Response("No PR automerge info available for %s" % head_sha)
 
-    pr_dt_automerge_ret, base_sha, head_label, pr_title = pr_webhook_state
+    pr_dt_automerge_ret, base_sha, head_label, sender = pr_webhook_state
     if re.search(r'^-?\d+$', pr_dt_automerge_ret):
         pr_dt_automerge_ret = int(pr_dt_automerge_ret)
 
@@ -250,7 +249,7 @@ def pull_request_hook():
     cmd = [script, base_sha, headmerge_sha, sender]
     stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
 
-    webhook_state = (ret, base_sha, head_label, title)
+    webhook_state = (ret, base_sha, head_label, sender)
     set_webhook_pr_state(pull_num, head_sha, webhook_state)
 
     # only comment on errors if DT files modified or contact unknown
