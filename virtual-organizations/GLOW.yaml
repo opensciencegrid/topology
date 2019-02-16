@@ -49,6 +49,9 @@ DataFederations:
     Namespaces:
       /chtc/PUBLIC:
         - PUBLIC
+      /chtc/PROTECTED:
+        - FQAN:/GLOW
+        - DN:/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Matyas Selmeci
     AllowedOrigins:
       - CHTC_STASHCACHE_ORIGIN
     AllowedCaches:
