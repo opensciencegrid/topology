@@ -119,7 +119,10 @@ $(function(){
 
 {% block content %}
 <div class="container">
-
+  <p class="lead">
+    Use this form to open tickets regarding issues on <a href="https://opensciencegrid.org/">Open Science Grid</a> Resources.  After submitting this form you will receive an email confirmation of the ticket creation.
+  </p>
+  <hr />
   <form action="/submitTicket" method="POST">
     <div class="form-group">
       <label for="resource-list">Resource(s)</label>
