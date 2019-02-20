@@ -77,7 +77,9 @@ class GitHubAuth:
         # action: APPROVE, REQUEST_CHANGES, or COMMENT
         api_path = "/repos/:owner/:repo/pulls/:number/reviews"
         url = api_path2url(api_path, owner=owner, repo=repo, number=num)
-        data = {'body': body, 'event': action, 'commit_id': sha}
+        data = {'event': action, 'commit_id': sha}
+        if body is not None:
+            data['body'] = body
         return self.github_api_call('POST', url, data)  # 200 OK
 
     def approve_pr(self, owner, repo, num, body, sha):
