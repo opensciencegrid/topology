@@ -53,16 +53,8 @@ automerge_status_messages = [
     non_dt_contact_error    # 3
 ]
 
-ci_success = (
-    "Greetings @{sender}!\n"
-    "\n"
-    "Your downtime update has been approved for automatic merge!\n"
-    "\n"
-    "Have a nice day!  :racehorse:\n"
-    "\n"
-    "-- OSG-BOT"
-)
-    
+ci_success = None
+
 ci_failure = (
     "Greetings @{sender},\n"
     "\n"
@@ -74,7 +66,15 @@ ci_failure = (
     "-- OSG-BOT  :disappointed:"
 )
 
-merge_success = None
+merge_success = (
+    "Greetings @{sender}!\n"
+    "\n"
+    "Your downtime update has been approved and merged!\n"
+    "\n"
+    "Have a nice day!  :racehorse:\n"
+    "\n"
+    "-- OSG-BOT"
+)
 
 merge_failure = (
     "Unexpected merge failure!\n"
