@@ -40,7 +40,7 @@ non_dt_contact_error = (
     "\n"
     "Thank you for your pull request.\n"
     "\n"
-    "Just a head's up - I did not find you in our contact database;"
+    "Just a heads up - I did not find you in our contact database;"
     " OSG Staff will need to manually review this PR.\n"
     "\n"
     "-- OSG-BOT  :dark_sunglasses:"
