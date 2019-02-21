@@ -1,0 +1,27 @@
+GroupID: 503
+Resources:
+  SU_STASHCACHE_CACHE:
+    Active: true
+    Description: Syracuse University StashCache XRootD cache server
+    ID: 991
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
+          Name: Richard Ameele
+        Secondary:
+          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
+          Name: Richard Ameele
+        Tertiary:
+          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
+          Name: Richard Ameele
+      Security Contact:
+        Primary:
+          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
+          Name: Richard Ameele
+    FQDN: its-condor-xrootd1.syr.edu 
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    AllowedVOs:
+      - ANY
