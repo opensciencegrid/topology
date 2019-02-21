@@ -3,6 +3,26 @@ GroupDescription: IceCube cluster
 GroupID: 437
 Production: true
 Resources:
+  IceCube_Squid:
+    Active: true
+    Description: Round robin DNS alias for our Frontier Squid nodes.
+    Disable: false
+    FQDN: squid.icecube.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: bc87af94d3512f536e417f1e45808b975fb2874f
+          Name: Vladimir Brik
+      Security Contact:
+        Primary:
+          ID: 67523ec91c983a4c0c1c576beeac1037aa863da3
+          Name: Steve Barnet
+        Secondary:
+          ID: bc87af94d3512f536e417f1e45808b975fb2874f
+          Name: Vladimir Brik
   IceCube-submit-1:
     Active: true
     ContactLists:
