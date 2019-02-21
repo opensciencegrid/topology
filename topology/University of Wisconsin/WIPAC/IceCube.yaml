@@ -8,6 +8,7 @@ Resources:
     Description: Round robin DNS alias for our Frontier Squid nodes.
     Disable: false
     FQDN: squid.icecube.wisc.edu
+    ID: 987
     Services:
       Squid:
         Description: Generic squid service
