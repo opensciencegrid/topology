@@ -52,23 +52,56 @@ def update_url_hostname(url, args):
     """
     if not args.host:
         return url
-    url_tuple = list(urlparse.urlsplit(url))
-    url_tuple[1] = args.host
-    return urlparse.urlunsplit(url_tuple)
+    url_list = list(urlparse.urlsplit(url))
+    url_list[1] = args.host
+    return urlparse.urlunsplit(url_list)
 
 
 def get_contact_list_info(contact_list):
     """
     Get contact list info out of contact list
+
+    In rgsummary, this looks like:
+        <ContactLists>
+            <ContactList>
+                <ContactType>Administrative Contact</ContactType>
+                <Contacts>
+                    <Contact>
+                        <Name>Matyas Selmeci</Name>
+                        ...
+                    </Contact>
+                </Contacts>
+            </ContactList>
+            ...
+        </ContactLists>
+
+    and the arg `contact_list` is the contents of a single <ContactList>
+
+    If vosummary, this looks like:
+        <ContactTypes>
+            <ContactType>
+                <Type>Miscellaneous Contact</Type>
+                <Contacts>
+                    <Contact>
+                        <Name>...</Name>
+                        ...
+                    </Contact>
+                    ...
+                </Contacts>
+            </ContactType>
+            ...
+        </ContactTypes>
+
+    and the arg `contact_list` is the contents of <ContactTypes>
     """
     contact_list_info = []
     for contact in contact_list:
         if contact.tag == 'ContactType' or contact.tag == 'Type':
             contact_list_type = contact.text.lower()
         if contact.tag == 'Contacts':
-            for contact in contact:
+            for con in contact:
                 contact_info = { 'ContactType' : contact_list_type }
-                for contact_contents in contact:
+                for contact_contents in con:
                     contact_info[contact_contents.tag] = contact_contents.text
                 contact_list_info.append(contact_info)
 
@@ -132,11 +165,11 @@ def mangle_url(url, args, session=None):
     """
     if not args.host:
         return url
-    url_tuple = list(urlparse.urlsplit(url))
-    url_tuple[1] = args.host
+    url_list = list(urlparse.urlsplit(url))
+    url_list[1] = args.host
 
-    qs_dict = urlparse.parse_qs(url_tuple[3])
-    qs_list = urlparse.parse_qsl(url_tuple[3])
+    qs_dict = urlparse.parse_qs(url_list[3])
+    qs_list = urlparse.parse_qsl(url_list[3])
 
     if getattr(args, 'provides_service', None):
         if 'service' not in qs_dict:
@@ -161,9 +194,9 @@ def mangle_url(url, args, session=None):
                     % (vo, ", ".join(vo_map)))
             qs_list.append(("voown_sel[]", str(vo_id)))
 
-    url_tuple[3] = urllib.urlencode(qs_list, doseq=True)
+    url_list[3] = urllib.urlencode(qs_list, doseq=True)
 
-    return urlparse.urlunsplit(url_tuple)
+    return urlparse.urlunsplit(url_list)
 
 
 def get_contacts(args, urltype, roottype):
@@ -249,19 +282,19 @@ def get_resource_contacts(args):
             if child_res.tag != "Resources":
                 continue
             for resource in child_res:
-                name = None
+                resource_name = None
                 contact_list_info = []
                 for resource_tag in resource:
                     if resource_tag.tag == 'Name':
-                        name = resource_tag.text
+                        resource_name = resource_tag.text
                     if resource_tag.tag == 'ContactLists':
                         for contact_list in resource_tag:
                             if contact_list.tag == 'ContactList':
                                 contact_list_info.extend( \
                                     get_contact_list_info(contact_list))
 
-                if name and contact_list_info:
-                    results[name] = contact_list_info
+                if resource_name and contact_list_info:
+                    results[resource_name] = contact_list_info
 
     return results
 
