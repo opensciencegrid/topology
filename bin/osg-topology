@@ -23,7 +23,10 @@ def list_resource_contacts(args):
     """
     List resource contacts for OSG.
     """
-    results = topology_utils.get_resource_contacts(args)
+    if args.fqdn:
+        results = topology_utils.get_resource_contacts_by_fqdn(args)
+    else:
+        results = topology_utils.get_resource_contacts(args)
     print_contacts(args, 'Resource', results)
 
 
@@ -117,8 +120,10 @@ def get_parser():
     list_resource_contacts_parser.add_argument("--vo",
         dest="owner_vo", help="Filter on resources that list VO(s) as a "
         "partial owner")
-    list_resource_contacts_parser.add_argument(dest="name_filter", action="store",
-        nargs="?", help="Shell expression filter on the resource name")
+    list_resource_contacts_parser.add_argument(dest="filter", action="store",
+        nargs="?", help="Shell expression filter on the resource name or FQDN")
+    list_resource_contacts_parser.add_argument("--fqdn", dest="fqdn", default=False, action="store_true",
+        help="Treat the filter as an FQDN instead of a resource name")
 
     list_vo_contacts_parser = subparsers.add_parser('list-vo-contacts',
         help='List OSG contacts by VO name.')
@@ -151,6 +156,11 @@ def main():
     oparser = get_parser()
 
     args = oparser.parse_args()
+    if getattr(args, "fqdn") is not None:
+        if args.fqdn:
+            args.fqdn_filter = args.filter
+        else:
+            args.name_filter = args.filter
 
     commands = {"list_resource_contacts": list_resource_contacts,
                 "list_vo_contacts": list_vo_contacts,
