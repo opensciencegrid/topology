@@ -27,7 +27,10 @@ def list_resource_contacts(args):
         results = topology_utils.get_resource_contacts_by_fqdn(args)
     else:
         results = topology_utils.get_resource_contacts(args)
-    print_contacts(args, 'Resource', results)
+    if args.fqdn:
+        print_contacts(args, 'FQDN', results)
+    else:
+        print_contacts(args, 'Resource', results)
 
 
 def list_vo_contacts(args):
@@ -158,9 +161,9 @@ def main():
     args = oparser.parse_args()
     if getattr(args, "fqdn") is not None:
         if args.fqdn:
-            args.fqdn_filter = args.filter
+            args.fqdn_filter = args.filter.strip()
         else:
-            args.name_filter = args.filter
+            args.name_filter = args.filter.strip()
 
     commands = {"list_resource_contacts": list_resource_contacts,
                 "list_vo_contacts": list_vo_contacts,
