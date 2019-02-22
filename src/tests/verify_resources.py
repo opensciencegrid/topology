@@ -308,11 +308,13 @@ def test_8_res_ids(rgs, rgfns):
         if not isinstance(rg.get('GroupID'), int):
             print_emsg_once('ResGrpID')
             print("Resource Group missing numeric GroupID: '%s'" % rgfn)
+            errors += 1
 
         for resname,res in sorted(rg['Resources'].items()):
             if not isinstance(res.get('ID'), int):
                 print_emsg_once('ResID')
                 print("Resource '%s' missing numeric ID in '%s'" % (res,rgfn))
+                errors += 1
 
     return errors
 
