@@ -589,3 +589,80 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 161449985
+  Description: Complete power outage AGLT2 UM site
+  Severity: Outage
+  StartTime: Mar 02, 2019 13:00 +0000
+  EndTime: Mar 03, 2019 20:00 +0000
+  CreatedTime: Feb 25, 2019 19:36 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 161449986
+  Description: Complete power outage AGLT2 UM site
+  Severity: Outage
+  StartTime: Mar 02, 2019 13:00 +0000
+  EndTime: Mar 03, 2019 20:00 +0000
+  CreatedTime: Feb 25, 2019 19:36 +0000
+  ResourceName: AGLT2_SL6
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 161449987
+  Description: Complete power outage AGLT2 UM site
+  Severity: Outage
+  StartTime: Mar 02, 2019 13:00 +0000
+  EndTime: Mar 03, 2019 20:00 +0000
+  CreatedTime: Feb 25, 2019 19:36 +0000
+  ResourceName: AGLT2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 161449988
+  Description: Complete power outage AGLT2 UM site
+  Severity: Outage
+  StartTime: Mar 02, 2019 13:00 +0000
+  EndTime: Mar 03, 2019 20:00 +0000
+  CreatedTime: Feb 25, 2019 19:36 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 161449989
+  Description: Complete power outage AGLT2 UM site
+  Severity: Outage
+  StartTime: Mar 02, 2019 13:00 +0000
+  EndTime: Mar 03, 2019 20:00 +0000
+  CreatedTime: Feb 25, 2019 19:36 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 161449990
+  Description: Complete power outage AGLT2 UM site
+  Severity: Outage
+  StartTime: Mar 02, 2019 13:00 +0000
+  EndTime: Mar 03, 2019 20:00 +0000
+  CreatedTime: Feb 25, 2019 19:36 +0000
+  ResourceName: US-AGLT2_UM BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 161449991
+  Description: Complete power outage AGLT2 UM site
+  Severity: Outage
+  StartTime: Mar 02, 2019 13:00 +0000
+  EndTime: Mar 03, 2019 20:00 +0000
+  CreatedTime: Feb 25, 2019 19:36 +0000
+  ResourceName: US-AGLT2_UM LAT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
