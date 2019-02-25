@@ -85,6 +85,8 @@ merge_failure = (
     "\n"
     "{fail_message}\n"
     "\n"
+    "OSG Staff will investigate shortly.\n"
+    "\n"
     "-- OSG-BOT :confused:"
 )
 
