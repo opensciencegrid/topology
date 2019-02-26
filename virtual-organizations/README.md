@@ -18,7 +18,6 @@ Active OSG Virtual Organizations
 | Compact Muon Solenoid ([CMS](http://www.uscms.org)) | Physics and astronomy, High Energy Physics | <http://helpdesk.fnal.gov> |
 | Computational Chemistry ([CompChem](https://www3.compchem.unipg.it/compchem/)) | Chemistry | <http://indico.cern.ch/getFile.py/access?contribId=10&sessionId=4&resId=1&materialId=slides&confId=11905> |
 | Computational Sciences at Indiana University ([CSIU](https://twiki.grid.iu.edu/bin/view/VirtualOrganizations/CSatIU)) | Astrophysics, Biochemistry, Bioinformatics, Biophysics, Cellular Biology, Chemistry, Computer and Information Science and Engineering, Economics, Education, Medical Sciences, Microbiology, Molecular and Structural Biosciences, Physics and astronomy, Technology, Multi-Science Community | <http://osggoc.blogspot.com/> |
-| CyberInfrastructure and Geospatial Information Laboratory ([CIGI](http://www.cigi.uiuc.edu)) | Community Grid, Computer and Information Science and Engineering, Ecological and Environmental Sciences, Geographic Information Science, Earth Sciences | <http://www.cigi.uiuc.edu> |
 | D0 Experiment at Fermilab ([DZero](http://www-d0.fnal.gov/)) | Physics and astronomy, High Energy Physics | <http://www-d0.fnal.gov/VO/DZero_VO_Instructions.html> |
 | Dark Energy Survey ([DES](https://www.darkenergysurvey.org/)) | High Energy Physics, Physics and astronomy, Astrophysics | <https://www.darkenergysurvey.org/contact_us/> |
 | Darkside ([Darkside](http://darkside.lngs.infn.it/)) | Astrophysics, High Energy Physics | <http://fermigrid.fnal.gov/> |
