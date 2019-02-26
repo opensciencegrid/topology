@@ -99,7 +99,11 @@ def parseargs():
                          help="Print out the email instead of sending it.")
 
     oparser.add_argument("--oim-name-filter", dest="name_filter", action="store", nargs="?",
-                         help="Shell expression filter on the VO or resource name")
+                         help="Shell expression filter on the VO or resource name."
+                         " Can't be specified along with --oim-fqdn-filter.")
+    oparser.add_argument("--oim-fqdn-filter", dest="fqdn_filter", action="store", nargs="?",
+                         help="Shell expression filter on the resource FQDN."
+                         " Can't be specified along with --oim-name-filter.")
     oparser.add_argument("--oim-service-filter", dest="provides_service",
                          help="Filter on resources that provide given service(s)")
     oparser.add_argument("--oim-owner-filter", dest="owner_vo",
@@ -113,7 +117,9 @@ def parseargs():
     args = oparser.parse_args()
 
     if args.oim_recipients == 'vos' and args.owner_vo:
-        raise Exception("--oim-owner-filter and --oim-recipients=vos options are conflicting.")
+        oparser.error("--oim-owner-filter and --oim-recipients=vos options are conflicting")
+    if args.name_filter and args.fqdn_filter:
+        oparser.error("Can't specify both --oim-name-filter and --oim-fqdn-filter")
 
     if args.from_name == 'security':
         args.from_name = 'OSG Security Team'
@@ -151,7 +157,10 @@ def main():
                     emails.add(contact['Email'])
         recipients.update(emails)
     if args.oim_recipients and 'resources' in args.oim_recipients:
-        results = topology_utils.get_resource_contacts(args)
+        if args.fqdn_filter:
+            results = topology_utils.get_resource_contacts_by_fqdn(args)
+        else:
+            results = topology_utils.get_resource_contacts(args)
         results = topology_utils.filter_contacts(args, results)
         emails = set()
         for name in results.keys():
