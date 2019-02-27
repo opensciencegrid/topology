@@ -52,23 +52,64 @@ def update_url_hostname(url, args):
     """
     if not args.host:
         return url
-    url_tuple = list(urlparse.urlsplit(url))
-    url_tuple[1] = args.host
-    return urlparse.urlunsplit(url_tuple)
+    url_list = list(urlparse.urlsplit(url))
+    url_list[1] = args.host
+    return urlparse.urlunsplit(url_list)
 
 
 def get_contact_list_info(contact_list):
     """
     Get contact list info out of contact list
+
+    In rgsummary, this looks like:
+        <ContactLists>
+            <ContactList>
+                <ContactType>Administrative Contact</ContactType>
+                <Contacts>
+                    <Contact>
+                        <Name>Matyas Selmeci</Name>
+                        ...
+                    </Contact>
+                </Contacts>
+            </ContactList>
+            ...
+        </ContactLists>
+
+    and the arg `contact_list` is the contents of a single <ContactList>
+
+    If vosummary, this looks like:
+        <ContactTypes>
+            <ContactType>
+                <Type>Miscellaneous Contact</Type>
+                <Contacts>
+                    <Contact>
+                        <Name>...</Name>
+                        ...
+                    </Contact>
+                    ...
+                </Contacts>
+            </ContactType>
+            ...
+        </ContactTypes>
+
+    and the arg `contact_list` is the contents of <ContactTypes>
+
+
+    Returns: a list of dicts that each look like:
+    { 'ContactType': 'Administrative Contact',
+      'Name': 'Matyas Selmeci',
+      'Email': '...',
+      ...
+    }
     """
     contact_list_info = []
     for contact in contact_list:
         if contact.tag == 'ContactType' or contact.tag == 'Type':
             contact_list_type = contact.text.lower()
         if contact.tag == 'Contacts':
-            for contact in contact:
+            for con in contact:
                 contact_info = { 'ContactType' : contact_list_type }
-                for contact_contents in contact:
+                for contact_contents in con:
                     contact_info[contact_contents.tag] = contact_contents.text
                 contact_list_info.append(contact_info)
 
@@ -132,11 +173,11 @@ def mangle_url(url, args, session=None):
     """
     if not args.host:
         return url
-    url_tuple = list(urlparse.urlsplit(url))
-    url_tuple[1] = args.host
+    url_list = list(urlparse.urlsplit(url))
+    url_list[1] = args.host
 
-    qs_dict = urlparse.parse_qs(url_tuple[3])
-    qs_list = urlparse.parse_qsl(url_tuple[3])
+    qs_dict = urlparse.parse_qs(url_list[3])
+    qs_list = urlparse.parse_qsl(url_list[3])
 
     if getattr(args, 'provides_service', None):
         if 'service' not in qs_dict:
@@ -161,9 +202,9 @@ def mangle_url(url, args, session=None):
                     % (vo, ", ".join(vo_map)))
             qs_list.append(("voown_sel[]", str(vo_id)))
 
-    url_tuple[3] = urllib.urlencode(qs_list, doseq=True)
+    url_list[3] = urllib.urlencode(qs_list, doseq=True)
 
-    return urlparse.urlunsplit(url_tuple)
+    return urlparse.urlunsplit(url_list)
 
 
 def get_contacts(args, urltype, roottype):
@@ -229,47 +270,64 @@ def get_vo_contacts(args):
     return results
 
 
-def get_resource_contacts(args):
+def get_resource_contacts_by_name_and_fqdn(args):
     """
     Get resource contacts for OSG.  Return results.
 
-    Returns a dictionary keyed on the contact name.
+    Returns two dictionaries, one keyed on the resource name and one keyed on
+    the resource FQDN.
     """
     root = get_contacts(args, 'rg', 'Resource')
     if root is None:
-        return 1
+        return {}, {}
 
-    results = {}
+    results_by_name = {}
+    results_by_fqdn = {}
     for child_rg in root:
         if child_rg.tag != "ResourceGroup":
             print("MyOSG returned a non-resource group (%s) inside summary." % \
                   root.tag, file=sys.stderr)
-            return 1
+            return {}, {}
         for child_res in child_rg:
             if child_res.tag != "Resources":
                 continue
             for resource in child_res:
-                name = None
+                resource_name = None
+                resource_fqdn = None
                 contact_list_info = []
                 for resource_tag in resource:
                     if resource_tag.tag == 'Name':
-                        name = resource_tag.text
+                        resource_name = resource_tag.text
+                    if resource_tag.tag == 'FQDN':
+                        resource_fqdn = resource_tag.text
                     if resource_tag.tag == 'ContactLists':
                         for contact_list in resource_tag:
                             if contact_list.tag == 'ContactList':
                                 contact_list_info.extend( \
                                     get_contact_list_info(contact_list))
 
-                if name and contact_list_info:
-                    results[name] = contact_list_info
+                if contact_list_info:
+                    if resource_name:
+                        results_by_name[resource_name] = contact_list_info
+                    if resource_fqdn:
+                        results_by_fqdn[resource_fqdn] = contact_list_info
 
-    return results
+    return results_by_name, results_by_fqdn
+
+
+def get_resource_contacts(args):
+    return get_resource_contacts_by_name_and_fqdn(args)[0]
+
+
+def get_resource_contacts_by_fqdn(args):
+    return get_resource_contacts_by_name_and_fqdn(args)[1]
 
 
 def filter_contacts(args, results):
     """ 
     Given a set of result contacts, filter them according to given arguments
     """
+    results = dict(results)  # make a copy so we don't modify the original
 
     if getattr(args, 'name_filter', None):
         # filter out undesired names
@@ -277,6 +335,12 @@ def filter_contacts(args, results):
             if not fnmatch.fnmatch(name, args.name_filter) and \
                     args.name_filter not in name:
                 del results[name]
+    elif getattr(args, 'fqdn_filter', None):
+        # filter out undesired FQDNs
+        for fqdn in results.keys():
+            if not fnmatch.fnmatch(fqdn, args.fqdn_filter) and \
+                    args.fqdn_filter not in fqdn:
+                del results[fqdn]
 
     if args.contact_type != 'all':
         # filter out undesired contact types
