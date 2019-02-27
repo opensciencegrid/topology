@@ -45,10 +45,9 @@ class GitHubAuth:
     def github_api_call(self, method, url, data):
         if data is not None:
             data = json.dumps(data).encode()
-        req = urllib.request.Request(url, data)
+        req = urllib.request.Request(url, data, method=method)
         self._add_auth_header(req)
         #add_gh_preview_header(req)
-        req.get_method = lambda : method
         try:
             resp = urllib.request.urlopen(req)
             self.dlog("GitHub API call success for %s" % url)
