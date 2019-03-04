@@ -1,0 +1,29 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Stashcaches located at UCSD or SDSC
+GroupID: 499
+Resources:
+  Stashcache-UCSD:
+    Active: true
+    Description: UCSD main stashcache
+    ID: 988
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Edgar Fajardo
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+        Secondary:
+          Name: Terrence Martin
+          ID: 81e44a5e03e6351f1e1a445dc2e283aa9aba2f6b
+      # Security Contact is one to three people to contact regarding security issues
+      Security Contact:
+        Primary:
+          Name: Terrence Martin
+          ID: 81e44a5e03e6351f1e1a445dc2e283aa9aba2f6b
+    FQDN: stashcache.t2.ucsd.edu
+    DN: /DC=org/DC=incommon/C=US/postalCode=92093/ST=CA/L=La Jolla/street=9500 Gilman Drive/O=University of California, San Diego/OU=UCSD/CN=stashcache.t2.ucsd.edu
+    Services:
+      XRootD cache server:
+        Description: UCSD Stashcache Caching Server
+    AllowedVOs:
+      - ANY
