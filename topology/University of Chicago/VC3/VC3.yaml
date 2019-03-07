@@ -1,0 +1,33 @@
+Disable: false
+Production: false
+SupportCenter: Self Supported
+GroupID:
+GroupDescription: This is a small cluster to test VC3 integration
+Resources:
+  VC3_TEST_CMS:
+    ID :
+    Disable: false
+    Description: The Hosted CE serving VC3
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: hosted-ce16.grid.uchicago.edu
+    Services:
+      CE:
+        Description: VC3 Hosted CE
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
