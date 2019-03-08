@@ -1,0 +1,152 @@
+{% extends "base.html.j2" %}
+{% block title -%}
+OSG Ticket
+{%- endblock %}
+morehead
+
+{% block morehead %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdJl44UAAAAAGaTKjXWjhPJ5MvyXCAYGxd2m4TS"></script>
+
+<style>
+      .selectize-control .option .name {
+      display: block;
+    }
+    .selectize-control .option .facility {
+      font-size: 12px;
+      display: block;
+      color: #a0a0a0;
+    }
+    .selectize-control .item a {
+      color: #006ef5;
+    }
+    .selectize-control .item.active a {
+      color: #303030;
+    }
+    .selectize-control .optgroup-header {
+      display: block;
+      font-size: 1.2em;
+      color: #303030;
+    }
+</style>
+
+
+<script>
+
+$(function(){
+
+  grecaptcha.ready(function() {
+    grecaptcha.execute('6LdJl44UAAAAAGaTKjXWjhPJ5MvyXCAYGxd2m4TS', {action: 'ticket'}).then(function(token) {
+         $("#g-recaptcha-response").attr("value", token);
+      });
+  });
+
+  var $select = $('#resource-list').selectize({
+          maxItems: null,
+          valueField: 'name',
+          labelField: 'name',
+          searchField: ['name', 'facility'],
+          options: [],
+          create: false,
+          optgroupField: 'facility',
+          optgroupLabelField: 'facility',
+          optgroupValueField: 'facility',
+          render: {
+            option: function(data, escape) {
+              return '<div class="option">' +
+                  '<span class="name">' + escape(data.name) + '</span>' +
+                  '<span class="facility">' + escape(data.type) + '</span>' +
+                '</div>';
+            },
+            item: function(data, escape) {
+              return '<div class="item">' + escape(data.name) + '</a></div>';
+            },
+            optgroup_header: function(data, escape) {
+              return '<div class="optgroup-header">' + escape(data.facility) + '</div>';
+            }
+        }});
+
+  var control = $select[0].selectize;
+  // Everything goes here
+  // Parse the XML
+  function parseResources(data) {
+    // The returned data should be XML
+    $(data).find("ResourceGroup").each(function(index, rg) {
+      var facility = $(rg).find("Facility").find("Name").first();
+      console.log(facility[0].innerHTML);
+      var facility_name = facility[0].innerHTML;
+      control.addOptionGroup(facility_name, {
+        facility: facility_name
+      })
+      var resource_list = $(rg).find("Resource");
+      for (var i = 0; i < resource_list.length; i++) {
+        var resource_name = $(resource_list[i]).find("Name")[0].innerHTML;
+        var resource_id = $(resource_list[i]).find("ID")[0].innerHTML;
+        var services = $(resource_list[i]).find("Services")[0];
+        var service = $(services).find("Service")[0]
+        var type = $(service).find("Name")[0].innerHTML;
+        //console.log(resource_name)
+        control.addOption({
+            id: resource_id,
+            name: resource_name,
+            facility: facility_name,
+            type: type
+          });
+      }
+      console.log(rg);
+    });
+
+  }
+
+  // Load the resource
+  function loadResources() {
+    $.get("/rgsummary/xml", parseResources);
+  }
+
+  loadResources();
+
+});
+
+
+</script>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <p class="lead">
+    Use this form to open tickets regarding issues on <a href="https://opensciencegrid.org/">Open Science Grid</a> Resources.  After submitting this form you will receive an email confirmation of the ticket creation.
+  </p>
+  <hr />
+  <form action="/submitTicket" method="POST">
+    <div class="form-group">
+      <label for="resource-list">Resource(s)</label>
+      <select name="resource-list" id="resource-list" multiple placeholder="Pick OSG Resource(s)..."></select>
+    </div>
+    <div class="form-group">
+        <label for="requester">Requester Email</label>
+        <input type="email" name="requester" class="form-control" id="requester" required placeholder="Requester Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></input>
+    </div>
+    <div class="form-group">
+        <label for="Subject">Summary</label>
+        <input type="text" name="subject" class="form-control" id="subject" required></input>
+    </div>
+    <div class="form-group">
+      <label for="ticket-message">
+        Description of the issue
+      </label>
+      <textarea name="ticket-message" id="ticket-message" class="form-control" rows="10" cols="50" required></textarea>
+      <small id="ticket-help" class="form-text text-muted">Supports Markdown <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">syntax</a></small>
+    </div>
+    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" class="g-recaptcha"></input>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
+
+
+</div>
+{% endblock %}

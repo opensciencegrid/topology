@@ -10,6 +10,10 @@ import re
 import sys
 import traceback
 import urllib.parse
+import json
+import requests
+import bleach
+import markdown
 
 from webapp import default_config
 from webapp.common import to_xml_bytes, Filters
@@ -108,6 +112,69 @@ def contacts():
         app.log_exception(sys.exc_info())
         return Response("Error getting users", status=503)  # well, it's better than crashing
 
+@app.route('/ticket')
+def ticket():
+    return _fix_unicode(render_template('ticket.html.j2'))
+
+@app.route('/submitTicket', methods=['POST'])
+def submitTicket():
+    information = request.form.to_dict(flat=False)
+    # First, check that the request passed captcha
+    if 'g-recaptcha-response' not in information:
+        return "Hello Bot"
+    captcha_url = "https://www.google.com/recaptcha/api/siteverify"
+    captcha_data = {
+        'secret': app.config['GOOGLE_CAPTCHA_KEY'],
+        'response': information['g-recaptcha-response'][0]
+    }
+    captcha_response = requests.post(captcha_url, data = captcha_data)
+    json_response = captcha_response.json()
+    if json_response['success'] is False:
+        return "Failed to request Captcha information"
+
+    if json_response['score'] < 0.5:
+        return "Your captcha score was too low, not submitting ticket"
+
+    cc_emails = set()
+    for facility in global_data.get_topology().resources_by_facility.values():
+        for resource in facility:
+            if resource.name in information['resource-list']:
+                resource_tree = resource.get_tree(authorized = True)
+                contact_list = resource_tree['ContactLists']['ContactList']
+                for contact in contact_list:
+                    if contact["ContactType"] == "Administrative Contact":
+                        for inner_contact in contact['Contacts']['Contact']:
+                            cc_emails.add(inner_contact['Email'])
+
+    # Use Bleach (from mozilla) to sanitize the html input
+    cleaned_desc = bleach.clean(information['ticket-message'][0])
+    # Then convert mardown to HTML
+    html_desc = markdown.markdown(cleaned_desc)
+
+    ticket = {
+        'subject': information['subject'][0],
+        'description': html_desc,
+        'email': information['requester'][0],
+        'priority': 1,
+        'status': 2,
+        'cc_emails': list(cc_emails),
+        'type': 'Other'
+    }
+    headers = { 'Content-Type' : 'application/json' }
+
+    api_key = app.config['FRESHDESK_API_KEY']
+    url_request = requests.post("https://opensciencegrid.freshdesk.com/api/v2/tickets", 
+                                data = json.dumps(ticket),
+                                auth = (api_key, 'x'),
+                                headers = headers)
+
+    if url_request.status_code in [ 200, 201 ]:
+        json_return = url_request.json()
+        return_str = "Created Ticket {}".format(json_return['id'])
+        return return_str
+    else:
+        message = url_request.json()['message']
+        return "Failed to submit ticket with error: {}".format(message)
 
 @app.route('/miscproject/xml')
 def miscproject_xml():
