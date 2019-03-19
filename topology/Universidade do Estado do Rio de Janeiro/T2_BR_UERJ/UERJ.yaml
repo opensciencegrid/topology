@@ -181,4 +181,10 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
+  SQUID:
+    FQDN: squid.hepgrid.uerj.br
+    Active: False
+    Services:
+      Squid:
+        Description: Hepgrid Squid service
 SupportCenter: USCMS_Tier2
