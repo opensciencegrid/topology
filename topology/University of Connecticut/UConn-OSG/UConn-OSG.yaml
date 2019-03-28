@@ -26,11 +26,15 @@ Resources:
     Disable: false
     FQDN: gryphn.phys.uconn.edu
     FQDNAliases:
-    - voms.phys.uconn.edu
+    - zeus.phys.uconn.edu
     ID: 289
     Services:
       VOMS Server:
         Description: VOMS Server
+      Apache Server:
+        Description: Apache web server
+      Squid:
+        Description: squid server for UConn Physics osg cluster
     VOOwnership:
       Gluex: 100
   UConn-OSG_CE:
@@ -67,7 +71,7 @@ Resources:
           uri_override: gluskap.phys.uconn.edu:2811
     VOOwnership:
       Gluex: 100
-  UConn-OSG_SE:
+  GlueX_submit_host:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -82,23 +86,13 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
-    Description: dcache/SRM data store for the UConn-OSG site.
+    Description: local UConn submit host to Gluex glideinWMS factory
     Disable: false
-    FQDN: grinch.phys.uconn.edu
-    FQDNAliases:
-    - grinch.phys.uconn.edu
-    ID: 287
+    FQDN: gluex.phys.uconn.edu
+    ID:
     Services:
-      SRMv1:
-        Description: SRM V1 Storage Element
-        Details:
-          hidden: false
-          uri_override: grinch.phys.uconn.edu:8443
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-          uri_override: grinch.phys.uconn.edu:8443
+      Submit Node:
+        Description: glideinWMS frontend scheduler for UConn GlueX users
     VOOwnership:
       Gluex: 100
     WLCGInformation:
@@ -112,4 +106,38 @@ Resources:
       StorageCapacityMax: 50
       StorageCapacityMin: 25
       TapeCapacity: 0
+      UConn-OSG_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Resource Report Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Security Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+    Description: HTcondor-CE server for the UConn-OSG compute resources
+    Disable: false
+    FQDN: gluskap.phys.uconn.edu
+    FQDNAliases:
+    - ce1.phys.uconn.edu
+    ID: 286
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          uri_override: gluskap.phys.uconn.edu:2119
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+          uri_override: gluskap.phys.uconn.edu:2811
+    VOOwnership:
+      Gluex: 100
 SupportCenter: GLUEX
