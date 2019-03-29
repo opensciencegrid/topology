@@ -14,6 +14,11 @@ try:
 except ImportError:
     from urllib2 import urlopen
 
+try:
+    from yaml import CSafeLoader as SafeLoader
+except ImportError:
+    from yaml import SafeLoader
+
 import xml.etree.ElementTree as et
 
 _topdir = os.path.abspath(os.path.dirname(__file__) + "/../..")
@@ -44,7 +49,7 @@ def get_vo_names():
 def load_yamlfile(fn):
     with open(fn) as f:
         try:
-            yml = yaml.safe_load(f)
+            yml = yaml.load(f, Loader=SafeLoader)
             if yml is None:
                 print("YAML file is empty or invalid: %s", fn)
             return yml
@@ -303,11 +308,14 @@ def test_8_res_ids(rgs, rgfns):
         if not isinstance(rg.get('GroupID'), int):
             print_emsg_once('ResGrpID')
             print("Resource Group missing numeric GroupID: '%s'" % rgfn)
+            errors += 1
 
         for resname,res in sorted(rg['Resources'].items()):
             if not isinstance(res.get('ID'), int):
                 print_emsg_once('ResID')
-                print("Resource '%s' missing numeric ID in '%s'" % (res,rgfn))
+                print("Resource '%s' missing numeric ID in '%s'"
+                      % (resname, rgfn))
+                errors += 1
 
     return errors
 

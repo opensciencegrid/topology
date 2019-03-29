@@ -1,0 +1,33 @@
+GroupID: 502
+GroupDescription: These are the StashCache servers at BNL
+SupportCenter: Self Supported
+Production: true
+Resources:
+  BNL_STASHCACHE_CACHE:
+    Active: true
+    Description: BNL StashCache XRootD cache server
+    ID: 990
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+        Secondary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+        Tertiary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+    FQDN: osgxroot.usatlas.bnl.gov 
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    AllowedVOs:
+      - ANY

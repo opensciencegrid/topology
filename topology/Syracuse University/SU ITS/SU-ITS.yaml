@@ -31,8 +31,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
   SU-ITS-CE3:
     Active: true
     ContactLists:
@@ -61,8 +59,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
   SU-OG-CE:
     Active: true
     ContactLists:
@@ -91,8 +87,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
   SU-OG-CE1:
     Active: true
     ContactLists:
@@ -121,8 +115,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
   SU-OG-squid:
     Active: true
     ContactLists:
@@ -149,8 +141,6 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-    VOOwnership:
-      OSG: 100
   SU-OSG-CONNECT:
     Active: true
     ContactLists:
@@ -192,6 +182,4 @@ Resources:
         Details:
           hidden: false
           uri_override: osgconnect@its-condor-submit.syr.edu/condor
-    VOOwnership:
-      OSG: 100
 SupportCenter: Community Support Center

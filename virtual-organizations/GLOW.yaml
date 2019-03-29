@@ -49,5 +49,10 @@ DataFederations:
     Namespaces:
       /chtc/PUBLIC:
         - PUBLIC
+      /chtc/PROTECTED:
+        - FQAN:/GLOW
+        - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
     AllowedOrigins:
       - CHTC_STASHCACHE_ORIGIN
+    AllowedCaches:
+      - ANY

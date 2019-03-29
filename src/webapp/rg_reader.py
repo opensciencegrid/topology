@@ -8,13 +8,6 @@ Usage as a script:
 
 If output file not specified or downtime output file not specified, results are printed to stdout.
 
-Usage as a module
-
-    from converters.resourcegroup_yaml_to_xml import get_rgsummary_rgdowntime_xml
-    rgsummary_xml, rgdowntime_xml = get_rgsummary_rgdowntime_xml(input_dir[, output_file, downtime_output_file])
-
-where the return value `xml` is a string.
-
 """
 from argparse import ArgumentParser
 
@@ -38,14 +31,18 @@ from webapp.topology import CommonData, Topology
 log = logging.getLogger(__name__)
 
 
-class RGError(Exception):
+class TopologyError(Exception):
+    """Generic error with loading topology"""
+
+
+class RGError(TopologyError):
     """An error with converting a specific RG"""
     def __init__(self, rg, *args, **kwargs):
         Exception.__init__(self, *args, **kwargs)
         self.rg = rg
 
 
-class DowntimeError(Exception):
+class DowntimeError(TopologyError):
     """An error with converting a specific piece of downtime info"""
     def __init__(self, downtime, rg, *args, **kwargs):
         Exception.__init__(self, *args, **kwargs)
@@ -71,12 +68,22 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
     tables = CommonData(contacts=contacts_data, service_types=service_types, support_centers=support_centers)
     topology = Topology(tables)
 
+    skip_msg = "skipping (non-strict mode)"
+
     for facility_path in root.glob("*/FACILITY.yaml"):
         name = facility_path.parts[-2]
         id_ = load_yaml_file(facility_path)["ID"]
         topology.add_facility(name, id_)
     for site_path in root.glob("*/*/SITE.yaml"):
         facility, name = site_path.parts[-3:-1]
+        if facility not in topology.facilities:
+            msg = f"Missing facility {facility} for site {name}.  Is there a FACILITY.yaml?"
+            if strict:
+                raise TopologyError(msg)
+            else:
+                log.error(msg)
+                log.error(skip_msg)
+                continue
         site_info = load_yaml_file(site_path)
         id_ = site_info["ID"]
         topology.add_site(facility, name, id_, site_info)
@@ -86,6 +93,14 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
         if name.endswith("_downtime.yaml"): continue
 
         name = name.replace(".yaml", "")
+        if site not in topology.sites:
+            msg = f"Missing site {site} for RG {name}.  Is there a SITE.yaml?"
+            if strict:
+                raise TopologyError(msg)
+            else:
+                log.error(msg)
+                log.error(skip_msg)
+                continue
         try:
             rg = load_yaml_file(yaml_path)
         except yaml.YAMLError:
@@ -93,7 +108,7 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
                 raise
             else:
                 # load_yaml_file() already logs the specific error
-                log.error("skipping (non-strict mode)")
+                log.error(skip_msg)
                 continue
         downtime_yaml_path = yaml_path.with_name(name + "_downtime.yaml")
         downtimes = None
@@ -104,7 +119,7 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
                 if strict:
                     raise
                 # load_yaml_file() already logs the specific error
-                log.error("skipping (non-strict mode)")
+                log.error(skip_msg)
                 # keep going with downtimes=None
 
         topology.add_rg(facility, site, name, rg)

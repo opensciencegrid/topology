@@ -1,6 +1,7 @@
 import datetime
 import logging
 import os
+import re
 import time
 from typing import Dict, Set, List
 
@@ -57,6 +58,11 @@ class GlobalData:
         self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
         self.webhook_data_dir = config.get("WEBHOOK_DATA_DIR", "")
         self.webhook_data_repo = config.get("WEBHOOK_DATA_REPO", "")
+        self.webhook_data_branch = config.get("WEBHOOK_DATA_BRANCH", "")
+        self.webhook_state_dir = config.get("WEBHOOK_STATE_DIR", "")
+        self.webhook_secret_key = config.get("WEBHOOK_SECRET_KEY")
+        self.webhook_gh_api_user = config.get("WEBHOOK_GH_API_USER")
+        self.webhook_gh_api_token = config.get("WEBHOOK_GH_API_TOKEN")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:
@@ -67,12 +73,14 @@ class GlobalData:
         self.config = config
         self.strict = strict
 
-    def _update_webhook_repo(self):
+    def update_webhook_repo(self):
         if not self.config["NO_GIT"]:
             parent = os.path.dirname(self.webhook_data_dir)
             os.makedirs(parent, mode=0o755, exist_ok=True)
-            ok = common.git_clone_or_fetch_mirror(self.webhook_data_repo,
-                                                  self.webhook_data_dir)
+            ssh_key = self.config["GIT_SSH_KEY"]
+            ok = common.git_clone_or_fetch_mirror(repo=self.webhook_data_repo,
+                                               git_dir=self.webhook_data_dir,
+                                               ssh_key=ssh_key)
             if ok:
                 log.debug("webhook repo update ok")
             else:

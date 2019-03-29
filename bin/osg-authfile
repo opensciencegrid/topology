@@ -5,11 +5,18 @@
 A script to generate Authfiles for XCaches in the OSG
 """
 import argparse
+import os
+import sys
+
+if __name__ == "__main__" and __package__ is None:
+    _parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    sys.path.append(_parent + "/src")
 
 import webapp.models
 import stashcache
 
-parser = argparse.ArgumentParser(description="Generate an Xrootd Authfile.")
+parser = argparse.ArgumentParser(description="Generate an Authfile for an XCache cache server.")
+parser.add_argument("--public", action="store_true", help="Generate a public cache Authfile")
 parser.add_argument("fqdn", metavar="Cache_FQDN", nargs="*", help="FQDN of the cache for Authfile generation.")
 
 args = parser.parse_args()
@@ -18,10 +25,14 @@ global_data = webapp.models.GlobalData()
 
 VOData = global_data.get_vos_data()
 
+if args.public:
+    generate = stashcache.generate_public_cache_authfile
+else:
+    generate = stashcache.generate_cache_authfile
 if args.fqdn:
     ResourceGroups = global_data.get_topology().get_resource_group_list()
-    authfile = stashcache.generate_authfile(VOData, ResourceGroups, fqdn=args.fqdn[0], suppress_errors=False)
+    authfile = generate(VOData, ResourceGroups, fqdn=args.fqdn[0], suppress_errors=False)
 else:
-    authfile = stashcache.generate_authfile(VOData, [], suppress_errors=False)
+    authfile = generate(VOData, [], suppress_errors=False)
 
 print(authfile)

@@ -10,7 +10,7 @@ from . import models
 
 
 class GenerateDowntimeForm(FlaskForm):
-    scheduled = SelectField("Scheduled (registered at least 48 hours in advance)",
+    scheduled = SelectField("Scheduled (registered at least 24 hours in advance)",
                             [InputRequired()], choices=[
         ("", "-- Select one --"),
         ("SCHEDULED", "Yes"),
@@ -64,11 +64,11 @@ class GenerateDowntimeForm(FlaskForm):
                 return False
 
         days_in_future = (self.get_start_datetime() - datetime.datetime.utcnow()).days
-        if days_in_future < 2 and self.scheduled.data == "SCHEDULED":
-            self.infos += "Note: Downtime registered less than 2 days in advance " \
+        if days_in_future < 1 and self.scheduled.data == "SCHEDULED":
+            self.infos += "Note: Downtime registered less than one day in advance " \
                              "is considered unscheduled by WLCG policy."
-        elif days_in_future >= 2 and self.scheduled.data == "UNSCHEDULED":
-            self.infos += "Note: Downtime registered 2 or more days in advance " \
+        elif days_in_future >= 1 and self.scheduled.data == "UNSCHEDULED":
+            self.infos += "Note: Downtime registered at least one day in advance " \
                              "is considered scheduled by WLCG policy."
 
         return True

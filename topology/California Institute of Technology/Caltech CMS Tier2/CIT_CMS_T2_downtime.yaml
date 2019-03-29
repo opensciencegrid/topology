@@ -329,3 +329,90 @@
   ResourceName: CIT_CMS_SE
   Services:
     - GridFtp
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 143988873
+  Description: Testing full node scheduling with CMS
+  Severity: Outage
+  StartTime: Feb 6, 2019 12:00 +0000
+  EndTime: Mar 6, 2019 12:00 +0000
+  CreatedTime: Feb 6, 2019 11:00 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+# Caltech Tier2 Power maitenance 23-02-2019
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 149486444
+  Description: Power maitenance at Caltech
+  Severity: Outage
+  StartTime: Feb 22, 2019 18:00 +0000
+  EndTime: Feb 25, 2019 23:00 +0000
+  CreatedTime: Feb 20, 2019 20:00 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 149486445
+  Description: Power maitenance at Caltech
+  Severity: Outage
+  StartTime: Feb 22, 2019 18:00 +0000
+  EndTime: Feb 25, 2019 23:00 +0000
+  CreatedTime: Feb 20, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 149486446
+  Description: Power maitenance at Caltech
+  Severity: Outage
+  StartTime: Feb 22, 2019 18:00 +0000
+  EndTime: Feb 25, 2019 23:00 +0000
+  CreatedTime: Feb 20, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 149486447
+  Description: Power maitenance at Caltech
+  Severity: Outage
+  StartTime: Feb 22, 2019 18:00 +0000
+  EndTime: Feb 25, 2019 23:00 +0000
+  CreatedTime: Feb 20, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 149486448
+  Description: Power maitenance at Caltech
+  Severity: Outage
+  StartTime: Feb 22, 2019 18:00 +0000
+  EndTime: Feb 25, 2019 23:00 +0000
+  CreatedTime: Feb 20, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 149486449
+  Description: Power maitenance at Caltech
+  Severity: Outage
+  StartTime: Feb 22, 2019 18:00 +0000
+  EndTime: Feb 25, 2019 23:00 +0000
+  CreatedTime: Feb 20, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+

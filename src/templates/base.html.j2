@@ -30,6 +30,13 @@
         crossorigin="anonymous"></script>
 <script>$(".nojs").remove();</script>
 {%- endif %}
+
+<!-- Freshdesk Support Widget -->
+<script type="text/javascript" src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"></script>
+<script type="text/javascript">
+    FreshWidget.init("", {"queryString": "&widgetType=popup&formTitle=OSG+Topology+Support&screenshot=no&captcha=yes&searchArea=no", "utf8": "✓", "widgetType": "popup", "buttonType": "text", "buttonText": "Support", "buttonColor": "white", "buttonBg": "#343a40", "alignment": "2", "offset": "235px", "formHeight": "500px", "screenshot": "no", "captcha": "yes", "url": "https://support.opensciencegrid.org"} );
+</script>
+
 {% block last %}{% endblock %}
 </body>
 </html>

@@ -85,3 +85,22 @@ SupportURL: http://www.usatlas.bnl.gov/index.shtml
 #   # - <URL>
 #   # - ...
 
+### DataFederations (optional) is information about data federations that the VO is part of
+### This template is for the StashCache data federation; for instructions,
+### see the documentation at https://opensciencegrid.org/docs/data/stashcache/vo-data/
+# DataFederations:
+#   StashCache:
+#     Namespaces:
+#       /<VONAME>/PUBLIC:
+#         - ANY
+#     AllowedOrigins:
+#       - <ORIGIN_RESOURCE>
+#       - ...
+### For AllowedCaches, if you only have public data, use:
+#     AllowedCaches:
+#       - ANY
+### otherwise use:
+#     AllowedCaches:
+#       - <CACHE_RESOURCE>
+#       - ...
+
