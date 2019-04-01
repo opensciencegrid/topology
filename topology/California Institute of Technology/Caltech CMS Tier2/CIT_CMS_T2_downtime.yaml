@@ -416,3 +416,77 @@
   Services:
     - Squid
 
+# ---------------------------------------------------------
+# Unscheduled downtime at CIT CMS T2
+# Half of the Tier2 cluster is down (no power, no ping, no reachability)
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 181068983
+  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
+  Severity: Outage
+  StartTime: Apr 01, 2019 11:30 +0000
+  EndTime: Apr 02, 2019 11:30 +0000
+  CreatedTime: Apr 01, 2019 11:20 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 181068984
+  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
+  Severity: Outage
+  StartTime: Apr 01, 2019 11:30 +0000
+  EndTime: Apr 02, 2019 11:30 +0000
+  CreatedTime: Apr 01, 2019 11:20 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 181068985
+  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
+  Severity: Outage
+  StartTime: Apr 01, 2019 11:30 +0000
+  EndTime: Apr 02, 2019 11:30 +0000
+  CreatedTime: Apr 01, 2019 11:20 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 181068986
+  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
+  Severity: Outage
+  StartTime: Apr 01, 2019 11:30 +0000
+  EndTime: Apr 02, 2019 11:30 +0000
+  CreatedTime: Apr 01, 2019 11:20 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 181068987
+  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
+  Severity: Outage
+  StartTime: Apr 01, 2019 11:30 +0000
+  EndTime: Apr 02, 2019 11:30 +0000
+  CreatedTime: Apr 01, 2019 11:20 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 181068988
+  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
+  Severity: Outage
+  StartTime: Apr 01, 2019 11:30 +0000
+  EndTime: Apr 02, 2019 11:30 +0000
+  CreatedTime: Apr 01, 2019 11:20 +0000
+  ResourceName: CIT_HEP_CE
+  Services:
+    - CE
