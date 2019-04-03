@@ -42,3 +42,12 @@ PurposeURL: http://gryphn.phys.uconn.edu/UConn-OSG/charter_stmt.html
 ReportingGroups:
 - GLUEX
 SupportURL: http://gryphn.phys.uconn.edu/UConn-OSG/support.html
+DataFederations:
+  StashCache:
+    Namespaces:
+      /Gluex:
+        - FQAN:/Gluex
+    AllowedOrigins:
+        - UConn-OSG_StashCache_origin
+    AllowedCaches:
+        - ANY
