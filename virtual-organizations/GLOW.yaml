@@ -1,27 +1,30 @@
-AppDescription: GLOW applications are diverse.  Minimal requirements are machines
-  with ~500MB RAM and working scratch space of ~500MB per job.  The GLOW VO is managed
+AppDescription: Applications from UW-Madison (GLOW) applications are diversem with minimal 
+  requirements of ~500MB RAM and working scratch space of ~500MB per job.  The GLOW VO is managed
   by the Center for High Throughput Computing.
 CertificateOnly: false
-Community: The Grid Laboratory of Wisconsin is a campus-wide distributed computing
-  environment designed to meet the scientific computing needs of the University of
-  Wisconsin, Madison.
+Community: The Grid Laboratory of Wisconsin (GLOW) is the legacy name for the 
+  University of Wisconsin-Madison's coordinated use of OSG. The Center for High Througput 
+  Computing continues to coordinate use of dHTC and OSG by the campus community, as the core 
+  provider of large-scale research computing resources. Numerous HTCondor pools on campus 
+  participate in a campus grid, and CHTC directly serves more than 300 research groups from 
+  more than 60 departments on campus.
 Contacts:
   Administrative Contact:
   - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
     Name: Aaron Moate
   Miscellaneous Contact:
-  - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-    Name: Aaron Moate
+  - ID: 29a39113245cb237d6377e22152a1cb2585445e3
+    Name: Lauren Michael
   Registration Authority:
-  - ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-    Name: Daniel Bradley
   - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
     Name: Aaron Moate
+   - ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+    Name: Daniel Bradley
   Security Contact:
-  - ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-    Name: Daniel Bradley
   - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
     Name: Aaron Moate
+   - ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+    Name: Daniel Bradley
   VO Manager:
   - ID: 48e1c2f26dc3479a6cf9b2de7c79d654ac27b1d1
     Name: Miron Livny
@@ -40,10 +43,10 @@ OASIS:
       ID: 46a55ac4815b2b8c00ff283549f413113b45d628
   UseOASIS: true
 PrimaryURL: http://www.chtc.cs.wisc.edu
-PurposeURL: http://www.cs.wisc.edu/condor/glow/index.html
+PurposeURL: http://www.chtc.cs.wisc.edu/Approach.html
 ReportingGroups:
 - glow
-SupportURL: http://www.cs.wisc.edu/condor/glow/
+SupportURL: http://www.chtc.cs.wisc.edu
 DataFederations:
   StashCache:
     Namespaces:
