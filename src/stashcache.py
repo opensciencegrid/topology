@@ -1,11 +1,16 @@
 
 from collections import defaultdict
+from typing import Dict, List, Optional
 import re
 import ldap
 ldap.set_option(ldap.OPT_TIMEOUT, 10)
 ldap.set_option(ldap.OPT_NETWORK_TIMEOUT, 10)
 import asn1
 import hashlib
+
+from webapp.topology import Resource, ResourceGroup
+from webapp.vos_data import VOsData
+
 
 __oid_map = {
    "DC": "0.9.2342.19200300.100.1.25",
@@ -28,7 +33,7 @@ class DataError(Exception):
     """Raised when there is a problem in the topology or VO data"""
 
 
-def _generate_ligo_dns():
+def _generate_ligo_dns() -> List[str]:
     """
     Query the LIGO LDAP server for all grid DNs in the LVC collab.
 
@@ -48,7 +53,7 @@ def _generate_ligo_dns():
     return all_dns
 
 
-def _generate_dn_hash(dn: str):
+def _generate_dn_hash(dn: str) -> str:
     """
     Given a DN one-liner as commonly encoded in the grid world
     (e.g., output of `openssl x509 -in $FILE -noout -subject`), run
@@ -88,14 +93,14 @@ def _generate_dn_hash(dn: str):
     return "%08lx.0" % int_summary
 
 
-def _get_resource_by_fqdn(fqdn, resource_groups):
+def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Resource:
     for group in resource_groups:
         for resource in group.resources:
             if fqdn.lower() == resource.fqdn.lower():
                 return resource
 
 
-def _get_cache_resource(fqdn, resource_groups, suppress_errors):
+def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup], suppress_errors: bool) -> Optional[Resource]:
     resource = None
     if fqdn:
         resource = _get_resource_by_fqdn(fqdn, resource_groups)
@@ -140,7 +145,7 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
     return 'ANY' in allowed_caches or resource.name in allowed_caches
 
 
-def generate_cache_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress_errors=True):
+def generate_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn=None, legacy=True, suppress_errors=True) -> str:
     """
     Generate the Xrootd authfile needed by a StashCache cache server.
     """
@@ -202,7 +207,7 @@ def generate_cache_authfile(vo_data, resource_groups, fqdn=None, legacy=True, su
     return authfile
 
 
-def generate_public_cache_authfile(vo_data, resource_groups, fqdn=None, legacy=True, suppress_errors=True):
+def generate_public_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn=None, legacy=True, suppress_errors=True) -> str:
     """
     Generate the Xrootd authfile needed for public caches
     """
@@ -236,26 +241,59 @@ def generate_public_cache_authfile(vo_data, resource_groups, fqdn=None, legacy=T
     return authfile
 
 
-def generate_cache_scitokens(fqdn, vo_data, resource_groups, suppress_errors=True):
+def generate_cache_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
     """
-    Generate the SciTokens needed by a StashCache cache server.
+    Generate the SciTokens needed by a StashCache cache server, given the fqdn
+    of the cache server.
+
+    The scitokens config for a StashCache namespace is in the VO YAML and looks like:
+
+        DataFederations:
+            StashCache:
+                Namespaces:
+                    /store:
+                        - SciTokens:
+                            Issuer: https://scitokens.org/cms
+                            Base Path: /
+                            Restricted Path: /store
+
+    "Restricted Path" is optional.
+    `fqdn` must belong to a registered cache resource.
+
+    If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
+    no resource matching fqdn, resource does not contain a cache server, etc.).  Otherwise, raises
+    ValueError or DataError.
+
     """
-    scitokens_cfg = "[Global]\n"
-    id_to_dir = defaultdict(list)
+    template = """\
+[Global]
+audience = {resource.name}, https://{fqdn}
+
+{issuer_blocks_str}
+"""
+
+    if not fqdn:
+        if suppress_errors:
+            return ""
+        else:
+            raise ValueError("fqdn: empty")
 
     resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
-    if fqdn and not resource:
+    if not resource:
         return ""
 
-    scitokens_cfg += "audience = {}, https://{}\n\n".format(resource.name, fqdn)
-
+    issuer_blocks = []
     for vo_name, vo_data in vo_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
             continue
 
+        namespaces = stashcache_data.get("Namespaces", {})
+        if not namespaces:
+            continue
+
         has_non_public = False
-        for authz_list in stashcache_data.get("Namespaces", {}).values():
+        for authz_list in namespaces.values():
             for authz in authz_list:
                 if authz != "PUBLIC":
                     has_non_public = True
@@ -263,25 +301,48 @@ def generate_cache_scitokens(fqdn, vo_data, resource_groups, suppress_errors=Tru
         if not has_non_public:
             continue
 
-        if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, False, suppress_errors):
+        if not _cache_is_allowed(resource, vo_name, stashcache_data,
+                                 public=False, suppress_errors=suppress_errors):
             continue
 
-        for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
+        for dirname, authz_list in namespaces.items():
             for authz in authz_list:
-                if not isinstance(authz, dict) or not 'SciTokens' in authz or not isinstance(authz['SciTokens'], dict):
+                if not isinstance(authz, dict) or not isinstance(authz.get("SciTokens"), dict):
                     continue
-                if 'Base Path' not in authz['SciTokens']:
-                    raise DataError("'Base Path' missing from the SciTokens config for {}.".format(vo_name))
-                if 'Issuer' not in authz['SciTokens']:
-                    raise DataError("'Issuer' missing from the SciTokens config for {}.".format(vo_name))
-                scitokens_cfg += "[Issuer {}]\n".format(dirname)
-                scitokens_cfg += "issuer = {}\n".format(authz['SciTokens']['Issuer'])
-                scitokens_cfg += "base_path = {}\n".format(authz['SciTokens']['Base Path'])
-                if 'Restricted Path' in authz['SciTokens']:
-                     scitokens_cfg += "restricted_path = {}\n".format(authz['SciTokens']['Restricted Path'])
-                scitokens_cfg += "\n"
+                issuer_blocks.append(_get_scitokens_issuer_block(vo_name, authz['SciTokens'],
+                                                                 dirname, suppress_errors))
 
-    return scitokens_cfg
+    issuer_blocks_str = "\n".join(issuer_blocks)
+
+    return template.format(**locals())
+
+
+def _get_scitokens_issuer_block(vo_name: str, scitokens: Dict, dirname: str, suppress_errors: bool) -> str:
+    template = """\
+[Issuer {dirname}]
+issuer = {issuer}
+base_path = {base_path}
+{restricted_path_line}
+
+"""
+    issuer_block = ""
+    if not scitokens.get("Issuer"):
+        if suppress_errors:
+            return ""
+        raise DataError("'Issuer' missing from the SciTokens config for {}.".format(vo_name))
+    issuer = scitokens["Issuer"]
+    if not scitokens.get("Base Path"):
+        if suppress_errors:
+            return ""
+        raise DataError("'Base Path' missing from the SciTokens config for {}.".format(vo_name))
+    base_path = scitokens["Base Path"]
+
+    if scitokens.get("Restricted Path"):
+        restricted_path_line = "restricted_path = {}\n".format(scitokens['Restricted Path'])
+    else:
+        restricted_path_line = ""
+
+    return template.format(**locals())
 
 
 def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_groups, suppress_errors=True):
