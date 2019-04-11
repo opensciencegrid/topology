@@ -314,7 +314,7 @@ audience = {resource.name}, https://{fqdn}
 
     issuer_blocks_str = "\n".join(issuer_blocks)
 
-    return template.format(**locals())
+    return template.format(**locals()).rstrip() + "\n"
 
 
 def _get_scitokens_issuer_block(vo_name: str, scitokens: Dict, dirname: str, suppress_errors: bool) -> str:
@@ -323,7 +323,6 @@ def _get_scitokens_issuer_block(vo_name: str, scitokens: Dict, dirname: str, sup
 issuer = {issuer}
 base_path = {base_path}
 {restricted_path_line}
-
 """
     issuer_block = ""
     if not scitokens.get("Issuer"):

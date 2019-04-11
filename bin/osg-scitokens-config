@@ -29,4 +29,4 @@ cache_scitokens = stashcache.generate_cache_scitokens(vodata,
                                                       resource_groups,
                                                       fqdn=args.fqdn,
                                                       suppress_errors=False)
-print(cache_scitokens)
+print(cache_scitokens, end="")  # config already has trailing newline
