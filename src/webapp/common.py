@@ -18,8 +18,6 @@ except ImportError:
     log.warning("CSafeLoader not available - install libyaml-devel and reinstall PyYAML")
     from yaml import SafeLoader
 
-MaybeOrderedDict = Union[None, OrderedDict]
-
 MISCUSER_SCHEMA_URL = "https://my.opensciencegrid.org/schema/miscuser.xsd"
 RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"

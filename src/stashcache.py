@@ -406,6 +406,7 @@ def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_erro
 def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress_errors=True, public_only=False):
     public_namespaces = set()
     id_to_namespaces = defaultdict(set)
+    warnings = []
     for vo_name, vo_data in vo_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
@@ -445,14 +446,21 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
             for resource in _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
                 dn = resource.data.get("DN")
                 if not dn:
-                    if suppress_errors:
-                        continue
-                    else:
-                        raise DataError("Resource {} is an allowed cache for VO {} but does not provide a DN.".format(resource.name, vo_name))
+                    warnings.append("# WARNING: Resource {} was skipped for VO {}"
+                                    " because the resource does not provide a DN.\n".format(resource.name, vo_name))
+                    continue
                 dn_hash = _generate_dn_hash(dn)
                 id_to_namespaces[dn_hash].add(namespace)
 
+    if not id_to_namespaces and not public_namespaces:
+        if suppress_errors:
+            return ""
+        else:
+            raise DataError("No working StashCache resource/VO combinations found")
+
     results = ""
+    if warnings:
+        results += "".join(warnings) + "\n"
     for id, namespaces in id_to_namespaces.items():
         results += "u {} {}\n".format(id, " ".join("{} lr".format(i) for i in sorted(namespaces)))
     if public_namespaces:

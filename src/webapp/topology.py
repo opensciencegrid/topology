@@ -7,7 +7,7 @@ from typing import Dict, List, Optional, Tuple
 
 import icalendar
 
-from .common import MaybeOrderedDict, RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
+from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
     is_null, expand_attr_list_single, expand_attr_list, ensure_list
 from .contacts_reader import ContactsData
 
@@ -75,7 +75,7 @@ class Resource(object):
         self.fqdn = self.data["FQDN"]
         self.id = self.data["ID"]
 
-    def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
+    def get_tree(self, authorized=False, filters: Filters = None) -> Optional[OrderedDict]:
         if filters is None:
             filters = Filters()
 
@@ -242,7 +242,7 @@ class ResourceGroup(object):
     def resources(self):
         return [self.resources_by_name[k] for k in sorted(self.resources_by_name)]
 
-    def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
+    def get_tree(self, authorized=False, filters: Filters = None) -> Optional[OrderedDict]:
         if filters is None:
             filters = Filters()
         for filter_list, attribute in [(filters.facility_id, self.site.facility.id),
@@ -367,7 +367,7 @@ class Downtime(object):
 
         return True
 
-    def get_tree(self, filters: Filters = None) -> MaybeOrderedDict:
+    def get_tree(self, filters: Filters = None) -> Optional[OrderedDict]:
         if self._is_shown(filters):
             return self._expand_downtime(filters.service_id)
 
@@ -392,7 +392,7 @@ class Downtime(object):
 
         return evt
 
-    def _expand_downtime(self, service_filter=None) -> MaybeOrderedDict:
+    def _expand_downtime(self, service_filter=None) -> Optional[OrderedDict]:
         new_downtime = OrderedDict.fromkeys(["ID", "ResourceID", "ResourceGroup", "ResourceName", "ResourceFQDN",
                                              "StartTime", "EndTime", "Class", "Severity", "CreatedTime", "UpdateTime",
                                              "Services", "Description"])

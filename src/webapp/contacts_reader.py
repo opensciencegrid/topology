@@ -5,13 +5,13 @@ import hashlib
 from logging import getLogger
 import os
 import sys
-from typing import Dict
+from typing import Dict, Optional
 
 # thanks stackoverflow
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import MaybeOrderedDict, to_xml, MISCUSER_SCHEMA_URL, load_yaml_file
+from webapp.common import to_xml, MISCUSER_SCHEMA_URL, load_yaml_file
 
 
 log = getLogger(__name__)
@@ -22,7 +22,7 @@ class User(object):
         self.id = id_
         self.yaml_data = yaml_data
 
-    def get_tree(self, authorized=False, filters=None) -> MaybeOrderedDict:
+    def get_tree(self, authorized=False, filters=None) -> Optional[OrderedDict]:
         tree = OrderedDict()
         tree["FullName"] = self.yaml_data["FullName"]
         tree["ID"] = self.id
