@@ -28,7 +28,7 @@ Resources:
         Description: StashCache cache server
     AllowedVOs:
       - ANY
-  UCHICAGO_TEST_STASHCACHE_CACHE
+  UCHICAGO_TEST_STASHCACHE_CACHE:
     FQDN: stashcache.uchicago.slateci.net
     Active: false
     ContactLists:
@@ -46,7 +46,7 @@ Resources:
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
-    Service: 
+    Services: 
       XRootD cache server:
         Description: StashCache cache server
     AllowedVOs:
