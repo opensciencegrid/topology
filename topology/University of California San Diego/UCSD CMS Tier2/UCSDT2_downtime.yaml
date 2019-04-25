@@ -608,3 +608,15 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 212440865
+  Description: Did not come up cleanly on last downtime
+  Severity: Outage
+  StartTime: Apr 25, 2019 21:00 +0000
+  EndTime: Apr 30, 2019 00:00 +0000
+  CreatedTime: Apr 25, 2019 21:01 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+
