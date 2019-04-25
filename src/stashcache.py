@@ -151,7 +151,6 @@ def generate_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGrou
     """
     authfile = ""
     id_to_dir = defaultdict(set)
-    id_to_dn = {}
 
     resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
     if fqdn and not resource:
@@ -194,18 +193,14 @@ def generate_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGrou
                 elif authz.startswith("DN:"):
                     hash = _generate_dn_hash(authz[3:])
                     id_to_dir["u {}".format(hash)].add(namespace)
-                    id_to_dn["u {}".format(hash)] = authz[3:]
 
     if legacy:
         for dn in _generate_ligo_dns():
             hash = _generate_dn_hash(dn)
             id_to_dir["u {}".format(hash)].add("/user/ligo")
-            id_to_dn["u {}".format(hash)] = dn
 
     for id, dir_list in id_to_dir.items():
         if dir_list:
-            if id.startswith("u "):
-                authfile += "# {}\n".format(id_to_dn[id])
             authfile += "{} {}\n".format(id,
                 " ".join([i + " rl" for i in sorted(dir_list)]))
 
