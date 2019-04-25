@@ -45,7 +45,8 @@ def parseargs(args):
 def get_base_head_shas(BASE_SHA, HEAD_SHA, MERGE_SHA, errors):
     base = BASE_SHA
     head = HEAD_SHA
-    if not commit_is_merged(base, head):
+    up_to_date = commit_is_merged(base, head)
+    if not up_to_date:
         errors += ["PR head %s is out-of-date: %s is not merged" % (head, base)]
         if MERGE_SHA and commit_is_merged(base, MERGE_SHA) \
                      and commit_is_merged(head, MERGE_SHA):
@@ -60,14 +61,15 @@ def get_base_head_shas(BASE_SHA, HEAD_SHA, MERGE_SHA, errors):
                 base = merge_base
             else:
                 print("PR base and head commit histories are unrelated")
-    return base, head
+    return base, head, up_to_date
 
 def main(args):
     BASE_SHA, HEAD_SHA, MERGE_SHA, GH_USER = parseargs(args)
 
     errors = []
 
-    base, head = get_base_head_shas(BASE_SHA, HEAD_SHA, MERGE_SHA, errors)
+    base, head, up_to_date = get_base_head_shas(BASE_SHA, HEAD_SHA,
+                                                MERGE_SHA, errors)
     modified = get_modified_files(base, head)
     DTs = []
     for fname in modified:
@@ -112,9 +114,11 @@ def main(args):
 
     print_errors(errors)
     return ( 0 if len(errors) == 0   # all checks pass (only DT files modified)
-        else 1 if len(DTs) > 0       # DT file(s) modified, not all checks pass
-        else 2 if contact is None    # no DT files modified, contact error
-        else 3 )                     # no DT files modified, other errors
+        else 1 if len(errors) == 1   # all checks pass except out of date
+                  and not up_to_date
+        else 2 if len(DTs) > 0       # DT file(s) modified, not all checks pass
+        else 3 if contact is None    # no DT files modified, contact error
+        else 4 )                     # no DT files modified, other errors
 
 def insist(cond):
     if not cond:

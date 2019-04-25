@@ -815,3 +815,25 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 170237784
+  Description: failed dcache server
+  Severity: Outage
+  StartTime: Mar 07, 2019 13:00 +0000
+  EndTime: Mar 11, 2019 21:00 +0000
+  CreatedTime: Mar 07, 2019 23:42 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 201178869
+  Description: ICC PM
+  Severity: Outage
+  StartTime: Apr 17, 2019 13:00 +0000
+  EndTime: Apr 18, 2019 01:00 +0000
+  CreatedTime: Apr 12, 2019 20:11 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------

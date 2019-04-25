@@ -1,9 +1,10 @@
 Disable: false
+GridType: OSG Production Resource
 GroupDescription: UConn Physics Cluster Computing Group
 GroupID: 254
 Production: true
 Resources:
-  Gluex_VOMS:
+  UConn-OSG_squid:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -22,13 +23,17 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
-    Description: VOMS server for the Gluex VO
+    Description: squid server for UConn-OSG, also web server
     Disable: false
     FQDN: gryphn.phys.uconn.edu
     FQDNAliases:
-    - voms.phys.uconn.edu
+    - zeus.phys.uconn.edu
     ID: 289
     Services:
+      Squid:
+        Description: squid server for UConn Physics osg cluster
+      Apache Server:
+        Description: Apache web server
       VOMS Server:
         Description: VOMS Server
     VOOwnership:
@@ -82,7 +87,7 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
-    Description: dcache/SRM data store for the UConn-OSG site.
+    Description: UConn-OSG grid storage resource
     Disable: false
     FQDN: grinch.phys.uconn.edu
     FQDNAliases:
@@ -99,6 +104,89 @@ Resources:
         Details:
           hidden: false
           uri_override: grinch.phys.uconn.edu:8443
+    VOOwnership:
+      Gluex: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UConn-OSG,o=grid
+      StorageCapacityMax: 50
+      StorageCapacityMin: 25
+      TapeCapacity: 0
+  UConn-OSG_StashCache_origin:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Resource Report Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Security Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+    Description: UConn-OSG StashCache origin server
+    Disable: false
+    FQDN: gandalf.phys.uconn.edu
+    FQDNAliases:
+    - gandalf.phys.uconn.edu
+    ID: 287
+    Services:
+      XRootD origin server:
+        Description: StashCache Origin server for UConn-OSG
+        Details:
+          hidden: false
+          uri_override: gandalf.phys.uconn.edu:1094
+    AllowedVOs:
+      - Gluex
+    VOOwnership:
+      Gluex: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UConn-OSG,o=grid
+      StorageCapacityMax: 50
+      StorageCapacityMin: 25
+      TapeCapacity: 0
+  UConn-OSG_submit_host:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Resource Report Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Security Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+    Description: local UConn submit host to Gluex glideinWMS factory
+    Disable: false
+    FQDN: gluex.phys.uconn.edu
+    FQDNAliases:
+    - gluex.phys.uconn.edu
+    ID: 998
+    Services:
+      Submit Node:
+        Description: glideinWMS frontend scheduler for UConn GlueX users
+      VOMS Server:
+        Description: Gluex VOMS Server, after switch to InCommon CA
     VOOwnership:
       Gluex: 100
     WLCGInformation:

@@ -14,10 +14,16 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
     Description: Squid service for Frontier at UCSD CMS T2
     Disable: false
     FQDN: cvmfs-2.t2.ucsd.edu
@@ -34,10 +40,16 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
     Description: Squid service for Frontier at UCSD CMS T2
     Disable: false
     FQDN: cvmfs-1.t2.ucsd.edu
@@ -50,10 +62,20 @@ Resources:
   UCSDT2-A:
     Active: true
     ContactLists:
-      Miscellaneous Contact:
-        Tertiary:
+      Administrative Contact:
+        Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
+          Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
     Description: US CMS Tier-2 site at UCSD
     Disable: false
     FQDN: osg-gw-2.t2.ucsd.edu
@@ -80,10 +102,20 @@ Resources:
   UCSDT2-B:
     Active: true
     ContactLists:
-      Miscellaneous Contact:
-        Tertiary:
+      Administrative Contact:
+        Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
+          Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
     Description: OSG HTCondor CE
     Disable: false
     FQDN: osg-gw-4.t2.ucsd.edu
@@ -115,10 +147,16 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
     Description: UCSD CMS T2 Gatekeeper
     Disable: false
     FQDN: osg-gw-6.t2.ucsd.edu
@@ -149,10 +187,16 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
     Description: Additional CE
     Disable: false
     FQDN: osg-gw-7.t2.ucsd.edu
@@ -184,14 +228,16 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
-      Resource Report Contact:
         Secondary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
     Description: This is a LVS frontend to our 10Gbps gridftp servers.
     Disable: false
     FQDN: gftp.t2.ucsd.edu
@@ -222,10 +268,16 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
     Description: UCSD CMS Tier2 Center Bestman SRM Server
     Disable: false
     FQDN: bsrm-3.t2.ucsd.edu
@@ -256,10 +308,16 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
     Description: UCSD CMS T2 Bandwidth Perfsonar Node
     Disable: false
     FQDN: perfsonar-1.t2.ucsd.edu
@@ -278,10 +336,16 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
     Description: This is the latency PerfSonar instance at the UCSD CMS T2 center
     Disable: false
     FQDN: perfsonar-2.t2.ucsd.edu
