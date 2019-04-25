@@ -161,6 +161,30 @@ def origin_authfile():
     return _get_origin_authfile(public_only=False)
 
 
+@app.route("/stashcache/scitokens")
+def scitokens():
+    if not stashcache:
+        return Response("Can't get scitokens config: stashcache module unavailable", status=503)
+    cache_fqdn = request.args.get("cache_fqdn")
+    if not cache_fqdn:
+        return Response("FQDN of cache server required in the 'cache_fqdn' argument", status=400)
+
+    try:
+        cache_scitokens = stashcache.generate_cache_scitokens(global_data.get_vos_data(),
+                                                              global_data.get_topology().get_resource_group_list(),
+                                                              fqdn=cache_fqdn,
+                                                              suppress_errors=False)
+        return Response(cache_scitokens, mimetype="text/plain")
+    except stashcache.DataError as e:
+        app.logger.error("{}: {}".format(request.full_path, str(e)))
+        return Response("# Error generating scitokens config for this FQDN: {}\n".format(str(e)) +
+                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        mimetype="text/plain", status=400)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+
+
 def _get_cache_authfile(public_only):
     if not stashcache:
         return Response("Can't get authfile: stashcache module unavailable", status=503)
