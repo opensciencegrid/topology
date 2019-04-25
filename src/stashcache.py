@@ -168,7 +168,7 @@ def generate_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGrou
             else:
                 raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
 
-        has_non_public = False
+        needs_authz = False
         for namespace, authz_list in namespaces.items():
             if not authz_list:
                 if suppress_errors:
@@ -176,9 +176,9 @@ def generate_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGrou
                 else:
                     raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(namespace, vo_name))
             if authz_list != ["PUBLIC"]:
-                has_non_public = True
+                needs_authz = True
                 break
-        if not has_non_public:
+        if not needs_authz:
             continue
 
         if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, False, suppress_errors):
@@ -292,13 +292,13 @@ audience = {resource.name}, https://{fqdn}
         if not namespaces:
             continue
 
-        has_non_public = False
+        needs_authz = False
         for authz_list in namespaces.values():
             for authz in authz_list:
                 if authz != "PUBLIC":
-                    has_non_public = True
+                    needs_authz = True
                     break
-        if not has_non_public:
+        if not needs_authz:
             continue
 
         if not _cache_is_allowed(resource, vo_name, stashcache_data,
