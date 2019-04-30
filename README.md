@@ -144,6 +144,6 @@ for the VO(s) that you support:
 | If you primarily support... | Submit new tickets to...                         |
 |-----------------------------|--------------------------------------------------|
 | LHC VOs                     | [GGUS](https://ggus.eu)                          |
-| Anyone else                 | [Freshdesk](https://support.opensciencegrid.org) |
+| Anyone else                 | [Helpdesk](https://support.opensciencegrid.org) |
 
 Or email us at help@opensciencegrid.org.
