@@ -112,11 +112,14 @@ def main(args):
             errors += check_resource_contacts(BASE_SHA, rg_fname,
                                               resources_affected, contact)
 
-    orgs_base  = get_organizations_at_version(base)
-    orgs_new   = get_organizations_at_version(head)
-    orgs_added = orgs_new - orgs_base
-    for org in sorted(orgs_added):
-        errors += ["New project Organization '%s' requires OSG approval" % org]
+    if any( re.match(br'^projects/.*\.yaml', fname) for fname in modified ):
+        orgs_base  = get_organizations_at_version(base)
+        orgs_new   = get_organizations_at_version(head)
+        orgs_added = orgs_new - orgs_base
+        for org in sorted(orgs_added):
+            errors += ["New Organization '%s' requires OSG approval" % org]
+    else:
+        orgs_added = None
 
     print_errors(errors)
     return ( 0 if len(errors) == 0   # all checks pass (only DT files modified)
