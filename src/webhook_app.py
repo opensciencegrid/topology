@@ -256,10 +256,11 @@ def pull_request_hook():
     set_webhook_pr_state(pull_num, head_sha, webhook_state)
 
     # only comment on errors if DT files modified or contact unknown
-    if 0 < ret <= 3:
+    if 0 < ret <= 4:
         osg_bot_msg = webhook_status_messages.automerge_status_messages[ret]
         body = osg_bot_msg.format(**locals())
-        publish_pr_review(pull_num, body, 'COMMENT', head_sha)
+        action = 'COMMENT' if ret < 4 else 'REQUEST_CHANGES'
+        publish_pr_review(pull_num, body, action, head_sha)
 
     return Response('Thank You')
 
