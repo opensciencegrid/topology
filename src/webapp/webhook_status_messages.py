@@ -50,11 +50,34 @@ non_dt_contact_error = (
     "-- OSG-BOT  :dark_sunglasses:"
 )
 
+new_org_rejected = (
+    "Greetings @{sender},\n"
+    "\n"
+    "Thank you for your pull request.\n"
+    "\n"
+    "Your [requested changes]({base_sha}...{head_sha}) add a new organization"
+    " to a project file; this requires manual review from OSG Staff.\n"
+    "\n"
+    "-- OSG-BOT  :oncoming_police_car:\n"
+    "\n"
+    "---\n"
+    "\n"
+    "Output from the automerge check script:\n"
+    "```\n"
+    "{stdout}\n"
+    "```\n"
+    "```\n"
+    "{stderr}\n"
+    "```\n"
+)
+
+
 automerge_status_messages = [
     dt_success,             # 0
     dt_not_up_to_date,      # 1
     dt_not_all_checks_pass, # 2
-    non_dt_contact_error    # 3
+    non_dt_contact_error,   # 3
+    new_org_rejected        # 4
 ]
 
 ci_success = None
