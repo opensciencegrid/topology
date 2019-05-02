@@ -247,7 +247,7 @@ def pull_request_hook():
 
     global_data.update_webhook_repo()
 
-    script = src_dir + "/tests/automerge_downtime_ok.py"
+    script = src_dir + "/webapp/automerge_check.py"
     headmerge_sha = "%s:%s" % (head_sha, merge_sha) if mergeable else head_sha
     cmd = [script, base_sha, headmerge_sha, sender]
     stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
