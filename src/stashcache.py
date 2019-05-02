@@ -406,6 +406,7 @@ def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_erro
 def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress_errors=True, public_only=False):
     public_namespaces = set()
     id_to_namespaces = defaultdict(set)
+    id_to_dn = {}
     warnings = []
     for vo_name, vo_data in vo_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
@@ -451,6 +452,7 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
                     continue
                 dn_hash = _generate_dn_hash(dn)
                 id_to_namespaces[dn_hash].add(namespace)
+                id_to_dn[dn_hash] = dn
 
     if not id_to_namespaces and not public_namespaces:
         if suppress_errors:
@@ -462,7 +464,8 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
     if warnings:
         results += "".join(warnings) + "\n"
     for id, namespaces in id_to_namespaces.items():
-        results += "u {} {}\n".format(id, " ".join("{} lr".format(i) for i in sorted(namespaces)))
+        dn = id_to_dn[id]
+        results += "# {}\nu {} {}\n".format(dn, id, " ".join("{} lr".format(i) for i in sorted(namespaces)))
     if public_namespaces:
         results += "\nu * {}\n".format(" ".join("{} lr".format(i) for i in sorted(public_namespaces)))
     return results
