@@ -122,13 +122,27 @@ def main(args):
         orgs_added = None
 
     print_errors(errors)
-    return ( 0 if len(errors) == 0   # all checks pass (only DT files modified)
-        else 1 if len(errors) == 1   # all checks pass except out of date
-                  and not up_to_date
-        else 4 if orgs_added         # explicitly reject new organizations
-        else 2 if len(DTs) > 0       # DT file(s) modified, not all checks pass
-        else 3 if contact is None    # no DT files modified, contact error
-        else 5 )                     # no DT files modified, other errors
+    return ( RC.ALL_CHECKS_PASS   if len(errors) == 0
+        else RC.OUT_OF_DATE_ONLY  if len(errors) == 1 and not up_to_date
+        else RC.ORGS_ADDED        if orgs_added
+        else RC.DT_MOD_ERRORS     if len(DTs) > 0
+        else RC.CONTACT_ERROR     if contact is None
+        else RC.NON_DT_ERRORS )
+
+class RC:
+    ALL_CHECKS_PASS  = 0  # all checks pass (only DT files modified)
+    OUT_OF_DATE_ONLY = 1  # all checks pass except out of date
+    DT_MOD_ERRORS    = 2  # DT file(s) modified, not all checks pass
+    CONTACT_ERROR    = 3  # no DT files modified, contact error
+    ORGS_ADDED       = 4  # explicitly reject new organizations
+    NON_DT_ERRORS    = 5  # no DT files modified, other errors; not reported
+
+# only comment on errors if DT files modified or contact unknown
+reportable_errors = set([RC.OUT_OF_DATE_ONLY, RC.DT_MOD_ERRORS,
+                         RC.CONTACT_ERROR, RC.ORGS_ADDED])
+
+rejectable_errors = set([RC.ORGS_ADDED])
+
 
 def insist(cond):
     if not cond:
