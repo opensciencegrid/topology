@@ -317,3 +317,176 @@
   ResourceName: CIT_HEP_CE
   Services:
     - CE
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 120032292
+  Description: power issues in one rack and in others several datanodes down.
+  Severity: Severe
+  StartTime: Jan 11, 2019 10:00 +0000
+  EndTime: Jan 12, 2019 10:00 +0000
+  CreatedTime: Jan 11, 2019 10:00 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 143988873
+  Description: Testing full node scheduling with CMS
+  Severity: Outage
+  StartTime: Feb 6, 2019 12:00 +0000
+  EndTime: Mar 6, 2019 12:00 +0000
+  CreatedTime: Feb 6, 2019 11:00 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+# Caltech Tier2 Power maitenance 23-02-2019
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 149486444
+  Description: Power maitenance at Caltech
+  Severity: Outage
+  StartTime: Feb 22, 2019 18:00 +0000
+  EndTime: Feb 25, 2019 23:00 +0000
+  CreatedTime: Feb 20, 2019 20:00 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 149486445
+  Description: Power maitenance at Caltech
+  Severity: Outage
+  StartTime: Feb 22, 2019 18:00 +0000
+  EndTime: Feb 25, 2019 23:00 +0000
+  CreatedTime: Feb 20, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 149486446
+  Description: Power maitenance at Caltech
+  Severity: Outage
+  StartTime: Feb 22, 2019 18:00 +0000
+  EndTime: Feb 25, 2019 23:00 +0000
+  CreatedTime: Feb 20, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 149486447
+  Description: Power maitenance at Caltech
+  Severity: Outage
+  StartTime: Feb 22, 2019 18:00 +0000
+  EndTime: Feb 25, 2019 23:00 +0000
+  CreatedTime: Feb 20, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 149486448
+  Description: Power maitenance at Caltech
+  Severity: Outage
+  StartTime: Feb 22, 2019 18:00 +0000
+  EndTime: Feb 25, 2019 23:00 +0000
+  CreatedTime: Feb 20, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 149486449
+  Description: Power maitenance at Caltech
+  Severity: Outage
+  StartTime: Feb 22, 2019 18:00 +0000
+  EndTime: Feb 25, 2019 23:00 +0000
+  CreatedTime: Feb 20, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# ---------------------------------------------------------
+# Unscheduled downtime at CIT CMS T2
+# Half of the Tier2 cluster is down (no power, no ping, no reachability)
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 181068983
+  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
+  Severity: Outage
+  StartTime: Apr 01, 2019 11:30 +0000
+  EndTime: Apr 02, 2019 11:30 +0000
+  CreatedTime: Apr 01, 2019 11:20 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 181068984
+  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
+  Severity: Outage
+  StartTime: Apr 01, 2019 11:30 +0000
+  EndTime: Apr 02, 2019 11:30 +0000
+  CreatedTime: Apr 01, 2019 11:20 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 181068985
+  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
+  Severity: Outage
+  StartTime: Apr 01, 2019 11:30 +0000
+  EndTime: Apr 02, 2019 11:30 +0000
+  CreatedTime: Apr 01, 2019 11:20 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 181068986
+  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
+  Severity: Outage
+  StartTime: Apr 01, 2019 11:30 +0000
+  EndTime: Apr 02, 2019 11:30 +0000
+  CreatedTime: Apr 01, 2019 11:20 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 181068987
+  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
+  Severity: Outage
+  StartTime: Apr 01, 2019 11:30 +0000
+  EndTime: Apr 02, 2019 11:30 +0000
+  CreatedTime: Apr 01, 2019 11:20 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 181068988
+  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
+  Severity: Outage
+  StartTime: Apr 01, 2019 11:30 +0000
+  EndTime: Apr 02, 2019 11:30 +0000
+  CreatedTime: Apr 01, 2019 11:20 +0000
+  ResourceName: CIT_HEP_CE
+  Services:
+    - CE

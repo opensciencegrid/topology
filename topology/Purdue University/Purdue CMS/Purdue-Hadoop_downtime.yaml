@@ -527,4 +527,39 @@
   ResourceName: Purdue-Hadoop-CE
   Services:
   - CE
-#
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 103596818
+  Description: 'WAN router maintenance '
+  Severity: Outage
+  StartTime: Dec 21, 2018 04:00 +0000
+  EndTime: Dec 21, 2018 07:00 +0000
+  CreatedTime: Dec 20, 2018 20:34 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 127780655
+  Description: 'The resource will be down for emergency maintenance ( kernel update
+    ) '
+  Severity: Outage
+  StartTime: Jan 22, 2019 13:00 +0000
+  EndTime: Jan 22, 2019 20:00 +0000
+  CreatedTime: Jan 17, 2019 20:21 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 127780184
+  Description: 'The resource will be down for emergency maintenance ( kernel update
+    ) '
+  Severity: Outage
+  StartTime: Jan 22, 2019 13:00 +0000
+  EndTime: Jan 22, 2019 20:00 +0000
+  CreatedTime: Jan 17, 2019 20:20 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------

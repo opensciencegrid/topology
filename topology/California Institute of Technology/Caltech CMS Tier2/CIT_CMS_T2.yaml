@@ -91,9 +91,9 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 10.29
+      APELNormalFactor: 11.04
       AccountingName: T2_US_Caltech
-      HEPSPEC: 0
+      HEPSPEC: 100408
       InteropAccounting: true
       InteropBDII: false
       InteropMonitoring: true
@@ -140,9 +140,58 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 11.04
       AccountingName: T2_US_Caltech
-      HEPSPEC: 0
+      HEPSPEC: 100408
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  CIT_CMS_T2C:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
+          Name: Joosep Pata
+      Resource Report Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
+          Name: Joosep Pata
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
+          Name: Joosep Pata
+    Description: CE for Caltech CMS Tier2 facility.
+    Disable: false
+    FQDN: cit-gatekeeper3.ultralight.org
+    FQDNAliases:
+    - cit-gatekeeper3.ultralight.org
+    ID: 982
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cit-gatekeeper3.ultralight.org
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 11.04
+      AccountingName: T2_US_Caltech
+      HEPSPEC: 100408
       InteropAccounting: true
       InteropBDII: false
       InteropMonitoring: true

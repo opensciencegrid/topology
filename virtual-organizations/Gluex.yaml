@@ -36,9 +36,20 @@ OASIS:
       - /DC=org/DC=doegrids/OU=People/CN=Richard T. Jones 975420
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Richard T. Jones
       ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+  OASISRepoURLs:
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/gluex.osgstorage.org 
   UseOASIS: true
 PrimaryURL: http://www.gluex.org
 PurposeURL: http://gryphn.phys.uconn.edu/UConn-OSG/charter_stmt.html
 ReportingGroups:
 - GLUEX
 SupportURL: http://gryphn.phys.uconn.edu/UConn-OSG/support.html
+DataFederations:
+  StashCache:
+    Namespaces:
+      /Gluex:
+        - PUBLIC
+    AllowedOrigins:
+        - UConn-OSG_StashCache_origin
+    AllowedCaches:
+        - ANY

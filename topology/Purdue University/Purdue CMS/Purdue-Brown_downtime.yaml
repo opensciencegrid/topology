@@ -19,7 +19,6 @@
   ResourceName: Purdue-Brown
   Services:
     - CE
-
 # ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 67266277
@@ -28,6 +27,28 @@
   StartTime: Nov 14, 2018 13:00 +0000
   EndTime: Nov 15, 2018 03:00 +0000
   CreatedTime: Nov 08, 2018 19:23 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 103598121
+  Description: 'WAN router maintenance '
+  Severity: Outage
+  StartTime: Dec 21, 2018 04:00 +0000
+  EndTime: Dec 21, 2018 07:00 +0000
+  CreatedTime: Dec 20, 2018 20:36 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 127781252
+  Description: 'The resource will be down for emergency maintenance ( kernel update
+    ) '
+  Severity: Outage
+  StartTime: Jan 22, 2019 13:00 +0000
+  EndTime: Jan 22, 2019 20:00 +0000
+  CreatedTime: Jan 17, 2019 20:22 +0000
   ResourceName: Purdue-Brown
   Services:
   - CE
