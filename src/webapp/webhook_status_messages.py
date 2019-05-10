@@ -1,4 +1,6 @@
 
+from .automerge_check import RC
+
 dt_success = None
 
 dt_not_up_to_date = (
@@ -72,13 +74,13 @@ new_org_rejected = (
 )
 
 
-automerge_status_messages = [
-    dt_success,             # 0
-    dt_not_up_to_date,      # 1
-    dt_not_all_checks_pass, # 2
-    non_dt_contact_error,   # 3
-    new_org_rejected        # 4
-]
+automerge_status_messages = {
+    RC.ALL_CHECKS_PASS:  dt_success,
+    RC.OUT_OF_DATE_ONLY: dt_not_up_to_date,
+    RC.DT_MOD_ERRORS:    dt_not_all_checks_pass,
+    RC.CONTACT_ERROR:    non_dt_contact_error,
+    RC.ORGS_ADDED:       new_org_rejected
+}
 
 ci_success = None
 
