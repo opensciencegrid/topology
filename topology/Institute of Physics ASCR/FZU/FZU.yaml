@@ -1,45 +1,7 @@
-Disable: false
 GroupDescription: NOvA production site
 GroupID: 387
 Production: true
 Resources:
-  FZU_NOVA:
-    ContactLists:
-      Security Contact:
-        Primary:
-          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
-          Name: Petr Vokac
-      Administrative Contact:
-        Primary:
-          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
-          Name: Petr Vokac
-      Miscellaneous Contact:
-        Primary:
-          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
-          Name: Petr Vokac
-      Resource Report Contact:
-        Primary:
-          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
-          Name: Petr Vokac
-    Active: false
-    Description: This is CE for NOvA production at FZU
-    Disable: true
-    FQDN: novastore.farm.particle.cz
-    ID: 600
-    Services:
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
-          uri_override: novastore.farm.particle.cz:2811
-      XRootD component:
-        Description: any part of xrootd
-        Details:
-          hidden: false
-    VOOwnership:
-      DUNE: 30
-      DZero: 10
-      Nova: 60
   FZU_NOVA_CE:
     ContactLists:
       Security Contact:
@@ -60,7 +22,6 @@ Resources:
           Name: Petr Vokac
     Active: true
     Description: This is CE for NOvA production at FZU (new local HTCondor batch)
-    Disable: false
     FQDN: novace.farm.particle.cz
     ID: 780
     Services:
@@ -102,7 +63,6 @@ Resources:
     Active: true
     Description: This is CE for OSG (NOvA, DUNE) production at FZU (new cluster with
       HTCondor local batch system)
-    Disable: false
     FQDN: osgce1.farm.particle.cz
     ID: 900
     Services:
@@ -136,7 +96,6 @@ Resources:
     Active: true
     Description: This is CE for OSG (NOvA, DUNE) production at FZU (new cluster with
       HTCondor local batch system)
-    Disable: false
     FQDN: osgce2.farm.particle.cz
     ID: 932
     Services:
@@ -161,7 +120,6 @@ Resources:
           Name: Petr Vokac
     Active: true
     Description: This is the perfSONAR-PS bandwidth instance at the FZU cluster farm.particle.cz
-    Disable: false
     FQDN: ps02-b.farm.particle.cz
     ID: 824
     Services:
@@ -183,7 +141,6 @@ Resources:
           Name: Petr Vokac
     Active: true
     Description: This is the perfSONAR-PS latency instance at the FZU cluster farm.particle.cz
-    Disable: false
     FQDN: ps01-l.farm.particle.cz
     ID: 823
     Services:

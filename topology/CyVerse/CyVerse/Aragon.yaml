@@ -1,5 +1,4 @@
 # Disable is true if the ResourceGroup is down for maintenance, false otherwise
-Disable: false
 # Production is true if the resource is for production and not testing use
 Production: true
 # SupportCenter is one of the support centers in topology/support-centers.yaml
@@ -23,7 +22,6 @@ Resources:
     Active: true
     # Disable is true if the resource is not accepting requests, and
     # false otherwise
-    Disable: false
     # Description is a long description of the resource; may be multiple lines
     Description: CyVerse submit node
     # ContactLists contain information about people to contact regarding this resource.

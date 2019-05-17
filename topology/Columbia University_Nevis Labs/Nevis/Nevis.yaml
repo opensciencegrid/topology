@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Nevis
 GroupID: 296
 Production: true
@@ -19,7 +18,6 @@ Resources:
           ID: 30fa1c19dffe1080e474c61c5e017dd830a202f7
           Name: Gustaaf Brooijmans
     Description: Nevis
-    Disable: false
     FQDN: nevis.columbia.edu
     ID: 376
     Services:
@@ -66,7 +64,6 @@ Resources:
           ID: ebd3922bbcb45ecfa48d4d4196cfc2b7e6682b6b
           Name: Timothy Robert Andeen
     Description: Nevis squid for cvmfs
-    Disable: false
     FQDN: xenia.nevis.columbia.edu
     ID: 474
     Services:
@@ -111,7 +108,6 @@ Resources:
           Name: Timothy Robert Andeen
     Description: This is the nevis gridftp server used to download datasets directly
       into xrootd.
-    Disable: false
     FQDN: xenia.nevis.columbia.edu
     ID: 473
     Services:

@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Testing Resource Group
 GroupID: 411
 Production: true
@@ -25,7 +24,6 @@ Resources:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
     Description: perfSONAR testbed bandwidth instance at SWT2_CPB
-    Disable: false
     FQDN: netmon2.atlas-swt2.org
     ID: 695
     Services:
@@ -57,7 +55,6 @@ Resources:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
     Description: perfSONAR testbed latency instance at SWT2_CPB
-    Disable: false
     FQDN: netmon1.atlas-swt2.org
     ID: 694
     Services:

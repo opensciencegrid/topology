@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: PerfSONAR Services of SAMPA Group
 GroupID: 414
 Production: true
@@ -15,7 +14,6 @@ Resources:
           ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
           Name: Douglas Vieira
     Description: This is the perfSONAR-PS Bandwidth instance at SAMPA
-    Disable: false
     FQDN: sampaps02.if.usp.br
     ID: 799
     Services:
@@ -37,7 +35,6 @@ Resources:
           ID: e98e37c28921dbca9721a903e2b553ccc4af1a96
           Name: Douglas Vieira
     Description: This is the perfSONAR-PS Latency instance at SAMPA
-    Disable: false
     FQDN: sampaps01.if.usp.br
     ID: 798
     Services:
