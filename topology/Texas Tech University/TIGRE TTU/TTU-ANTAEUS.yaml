@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Primary OSG compute element resource at TTU.  Consists of a mix
   of dual-core dual-cpu and quad-core dual-cpu Xeons, 240 cores total, operating at
   2.5 to 3.0 GHz and associated with a cluster-wide Lustre file system.  The file
@@ -28,7 +27,6 @@ Resources:
       dual-core dual-cpu and quad-core dual-cpu Xeons, 240 cores total, operating
       at 2.5 to 3.0 GHz and associated with a cluster-wide Lustre file system.  The
       file system is also accessible through the associated TTU-SIGMORGH storage element.
-    Disable: false
     FQDN: antaeus.hpcc.ttu.edu
     ID: 105
     Services:
@@ -70,7 +68,6 @@ Resources:
     Description: Primary SRMv2 storage interface for TTU OSG systems.  Implemented
       using BeStMan with GUMS mapping.  Ownership and permissions on files match those
       on the OSG compute resources at TTU.
-    Disable: false
     FQDN: sigmorgh.hpcc.ttu.edu
     ID: 106
     Services:

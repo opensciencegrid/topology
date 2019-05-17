@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: UChicago ITB
 GroupID: 117
 Production: false
@@ -32,7 +31,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: ITB condor resource @ UC
-    Disable: false
     FQDN: itbv-ce-condor.mwt2.org
     ID: 374
     Services:
@@ -62,7 +60,6 @@ Resources:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
     Description: ITB resource for PBS
-    Disable: false
     FQDN: itbv-ce-pbs.mwt2.org
     ID: 117
     Services:
@@ -84,7 +81,6 @@ Resources:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
     Description: HDFS/bestman2 based SE for ITB usage
-    Disable: false
     FQDN: itbv-bmh1.mwt2.org
     ID: 390
     Services:
@@ -118,7 +114,6 @@ Resources:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
     Description: VTB resource @ UC
-    Disable: false
     FQDN: vtbv-ce.mwt2.org
     ID: 373
     Services:

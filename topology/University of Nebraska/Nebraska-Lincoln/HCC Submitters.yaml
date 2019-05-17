@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: This is the group of HCC Submitters that submit jobs through the
   HCC GlideinWMS machine.
 GroupID: 332
@@ -33,7 +32,6 @@ Resources:
           ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
           Name: Garhan Attebury
     Description: This is the GlideinWMS frontend for the HCC VO.
-    Disable: false
     FQDN: glidein.unl.edu
     ID: 328
     Services:
@@ -75,7 +73,6 @@ Resources:
           ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
           Name: Carl Lundstedt
     Description: This is the glideinwms submitter for the CPASS web application.
-    Disable: false
     FQDN: cpass.unl.edu
     ID: 444
     Services:

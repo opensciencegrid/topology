@@ -23,7 +23,6 @@ Resources:
           Name: Teresa Knight
     Description: 320 cores each with access to 1.5GB of memory. 1Gbps interconnect
       and 2x10Gbps internet connection. See the Info URL for details.
-    Disable: false
     FQDN: cms.tier3.ucdavis.edu
     ID: 246
     Services:
@@ -65,7 +64,6 @@ Resources:
           Name: Teresa Knight
     Description: This serves as our primary squid server, our GUMS auth server. Regular
       users don't have access.
-    Disable: false
     FQDN: agent.tier3.ucdavis.edu
     ID: 311
     Services:
@@ -105,7 +103,6 @@ Resources:
           ID: 67012139a03cbea5ab5111e07b25fa667051e18e
           Name: Teresa Knight
     Description: Bestman/SRM, Phedex server for UCD CMS T3.
-    Disable: false
     FQDN: se.tier3.ucdavis.edu
     ID: 251
     Services:

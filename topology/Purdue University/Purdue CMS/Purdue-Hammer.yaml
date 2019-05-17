@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: A high throughput community clusters at Purdue
 GroupID: 412
 Production: true
@@ -33,7 +32,6 @@ Resources:
           Name: Erik Gough
     Description: This is the gatekeeper for accessing computing  resources of high
       throughput community cluster Hammer at Purdue University.
-    Disable: false
     FQDN: hammer-osg.rcac.purdue.edu
     ID: 698
     Services:

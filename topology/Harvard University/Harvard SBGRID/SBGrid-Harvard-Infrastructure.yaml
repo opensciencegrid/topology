@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Various infrastructure services for SBGrid.
 GroupID: 339
 Production: true
@@ -38,7 +37,6 @@ Resources:
           ID: 5a210445cd71d7f59fa5c46b288762c93c8333b3
           Name: Justin O'Connor
     Description: GUMS, VOMS and VOMSAdmin host for SBGrid and NEBioGrid
-    Disable: false
     FQDN: hpc.sbgrid.org
     ID: 298
     Services:

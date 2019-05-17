@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: CE for CINVESTAV OSG resources
 GroupID: 9
 Production: true
@@ -19,7 +18,6 @@ Resources:
           ID: a713ce32599e684ba84aa67990cd2ead99c891ae
           Name: Alberto Sanchez-Hernandez
     Description: CE at CINVESTAV Mexico City, accesible via grid
-    Disable: false
     FQDN: proton.fis.cinvestav.mx
     ID: 9
     Services:
@@ -58,7 +56,6 @@ Resources:
           ID: a713ce32599e684ba84aa67990cd2ead99c891ae
           Name: Alberto Sanchez-Hernandez
     Description: gridftp SE for CINVESTAV
-    Disable: false
     FQDN: meson.fis.cinvestav.mx
     ID: 281
     Services:
