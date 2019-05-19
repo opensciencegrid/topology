@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Hosted CE for NDSU CCAST's Cluster 2
 GroupID: 480
 Production: true
@@ -15,7 +14,6 @@ Resources:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
     Description: Hosted CE submitting to NDSU CCAST cluster 2
-    Disable: false
     FQDN: hosted-ce09.grid.uchicago.edu
     ID: 926
     Services:
@@ -35,7 +33,6 @@ Resources:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
     Description: Hosted CE for NDSU's CCAST Cluster3
-    Disable: false
     FQDN: hosted-ce11.grid.uchicago.edu
     ID: 931
     Services:

@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: https://ticket.grid.iu.edu/goc/12807
 GroupID: 79
 Production: true
@@ -26,7 +25,6 @@ Resources:
           Name: Irena Johnson
     Description: XrootD Proxy Cache server. Will use it as a proxy to cache CMS data
       through cmsxrootd.fnal.gov
-    Disable: false
     FQDN: primeradiant01.crc.nd.edu
     ID: 821
     Services:

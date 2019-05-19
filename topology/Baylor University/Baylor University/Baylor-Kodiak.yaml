@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: This resource group will be used as a Baylor University OSG site.
 GroupID: 468
 Production: true
@@ -29,7 +28,6 @@ Resources:
           ID: 3986e50c462605269d20a863a0ca3cf99ece1b62
           Name: James Hutcheson
     Description: Baylor Kodiak CE
-    Disable: false
     FQDN: kodiak-ce.baylor.edu
     ID: 885
     Services:
@@ -77,7 +75,6 @@ Resources:
           ID: 3986e50c462605269d20a863a0ca3cf99ece1b62
           Name: James Hutcheson
     Description: SE for Baylor Kodiak
-    Disable: false
     FQDN: kodiak-se.baylor.edu
     ID: 886
     Services:

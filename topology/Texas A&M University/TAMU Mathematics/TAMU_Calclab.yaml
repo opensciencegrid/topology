@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: This is the 200+ node cluster consisting of desktop lab computers
   running Linux.  Generally available after hours and on weekends.
 GroupID: 298
@@ -28,7 +27,6 @@ Resources:
           Name: Steve Johnson
     Description: This is the CE for the Calclab cluster.  The backend scheduler is
       SLURM.
-    Disable: false
     FQDN: calclab-ce.math.tamu.edu
     ID: 381
     Services:
@@ -62,7 +60,6 @@ Resources:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
     Description: Secondary CE for TAMU_Calclab. Backend scheduler is SLURM.
-    Disable: false
     FQDN: calclab-ce2.math.tamu.edu
     ID: 538
     Services:
@@ -99,7 +96,6 @@ Resources:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
     Description: This is the SE for the Calclab cluster.
-    Disable: false
     FQDN: calcfs2.math.tamu.edu
     ID: 382
     Services:

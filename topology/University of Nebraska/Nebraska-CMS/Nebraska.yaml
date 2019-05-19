@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Nebraska CMS T2 Resource.
 GroupID: 71
 Production: true
@@ -35,7 +34,6 @@ Resources:
           ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
           Name: Garhan Attebury
     Description: US CMS Tier-2 site at Nebraska.
-    Disable: false
     FQDN: red.unl.edu
     ID: 71
     Services:
@@ -90,7 +88,6 @@ Resources:
           ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
           Name: Garhan Attebury
     Description: LVS frontend to our gridftp servers.
-    Disable: false
     FQDN: red-gridftp.unl.edu
     ID: 830
     Services:
@@ -144,7 +141,6 @@ Resources:
           ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
           Name: Carl Lundstedt
     Description: Squid server for T2_US_Nebraska
-    Disable: false
     FQDN: red-squid2.unl.edu
     FQDNAliases:
     - red-squid2.unl.edu
@@ -186,7 +182,6 @@ Resources:
           ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
           Name: Carl Lundstedt
     Description: Squid server for T2_US_Nebraska
-    Disable: false
     FQDN: red-squid1.unl.edu
     FQDNAliases:
     - red-squid1.unl.edu
@@ -229,7 +224,6 @@ Resources:
           Name: Carl Lundstedt
     Description: perfSONAR-PS bandwidth instance at T2_US_Nebraska, University of
       Nebraska-Lincoln
-    Disable: false
     FQDN: hcc-ps02.unl.edu
     ID: 519
     Services:
@@ -259,7 +253,6 @@ Resources:
           ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
           Name: Garhan Attebury
     Description: perfSONAR bandwidth testbed host at the University of Nebraska-Lincoln
-    Disable: false
     FQDN: perfsonar.unl.edu
     ID: 693
     Services:
@@ -301,7 +294,6 @@ Resources:
           ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
           Name: Carl Lundstedt
     Description: perfSonar node at T2_US_Nebraska for latency
-    Disable: false
     FQDN: hcc-ps01.unl.edu
     ID: 505
     Services:
@@ -331,7 +323,6 @@ Resources:
           ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
           Name: Garhan Attebury
     Description: perfSONAR testbed latency host at the University of Nebraska-Lincoln.
-    Disable: false
     FQDN: perfsonar.unl.edu
     ID: 692
     Services:
@@ -373,7 +364,6 @@ Resources:
           ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
           Name: Garhan Attebury
     Description: red-gw1 is a gatekeeper for the red cluster.
-    Disable: false
     FQDN: red-gw1.unl.edu
     ID: 386
     Services:
@@ -428,7 +418,6 @@ Resources:
           ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
           Name: Garhan Attebury
     Description: Generic gateway to Nebraska's CMS Tier 2 compute nodes
-    Disable: false
     FQDN: red-gw2.unl.edu
     ID: 387
     Services:

@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: |-
   This is the FermiGrid site gateway and includes
   the site gatekeeper and all the hidden CE's that are
@@ -6,74 +5,6 @@ GroupDescription: |-
 GroupID: 19
 Production: true
 Resources:
-  FNAL_GPGRID_4:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
-          Name: Anthony Tiradani
-        Secondary:
-          ID: f1b1a12174cd4760e9553c82004d38609f77c8e1
-          Name: Krista Majewski
-      Miscellaneous Contact:
-        Tertiary:
-          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
-          Name: Farrukh Aftab Khan
-      Resource Report Contact:
-        Primary:
-          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
-          Name: Anthony Tiradani
-    Description: This is an HTCondor-CE the directs jobs into GPGrid.
-    Disable: true
-    FQDN: gpce01.fnal.gov
-    ID: 776
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      DUNE: 1
-      Fermilab: 99
-  FNAL_GPGRID_5:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
-          Name: Anthony Tiradani
-        Secondary:
-          ID: f1b1a12174cd4760e9553c82004d38609f77c8e1
-          Name: Krista Majewski
-      Miscellaneous Contact:
-        Tertiary:
-          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
-          Name: Farrukh Aftab Khan
-      Resource Report Contact:
-        Primary:
-          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
-          Name: Anthony Tiradani
-    Description: This is an HTCondor-CE the directs jobs into GPGrid.
-    Disable: true
-    FQDN: gpce02.fnal.gov
-    ID: 777
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      DUNE: 1
-      Fermilab: 99
   gpgrid_squid:
     Active: true
     ContactLists:
@@ -86,7 +17,6 @@ Resources:
           ID: e2799203e652f11e24de11fcf85b7e8d2b1783f7
           Name: HYUNWOO KIM
     Description: squid service for frontier and cvmfs
-    Disable: false
     FQDN: squids.fnal.gov
     ID: 883
     Services:

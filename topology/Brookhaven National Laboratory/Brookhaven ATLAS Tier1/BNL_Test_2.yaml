@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: This is an ATLAS production testbed. This site runs inside the OSG
   production environment, as far as BDII info publishing and other central services
   are concerned. But its main purpose is to test new ATLAS production workflow, before
@@ -28,7 +27,6 @@ Resources:
     Description: This is an ATLAS production testbed CE, running inside the OSG production
       environment, with main purpose of validating and testing the new ATLAS production
       workflow, before migrating them to the real ATLAS production sites.
-    Disable: false
     FQDN: gridtest02.racf.bnl.gov
     ID: 399
     Services:

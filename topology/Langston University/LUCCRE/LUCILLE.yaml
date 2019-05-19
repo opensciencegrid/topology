@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: CE & SE
 GroupID: 379
 Production: true
@@ -28,7 +27,6 @@ Resources:
           ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
           Name: Horst Severini
     Description: Generic squid service
-    Disable: false
     FQDN: lutse1.lunet.edu
     ID: 915
     Services:
@@ -55,7 +53,6 @@ Resources:
           ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
           Name: Joel Snow
     Description: OSG gatekeeper for Lucille cluster
-    Disable: false
     FQDN: lutgw1.lunet.edu
     ID: 559
     Services:
@@ -102,7 +99,6 @@ Resources:
           ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
           Name: Joel Snow
     Description: This is a storage element associated with lutgw1.lunet.edu CE.
-    Disable: false
     FQDN: lutse1.lunet.edu
     ID: 560
     Services:
@@ -156,7 +152,6 @@ Resources:
           ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
           Name: Horst Severini
     Description: perfSonar bandwidth node for LU
-    Disable: false
     FQDN: lutps.lunet.edu
     ID: 618
     Services:
@@ -191,7 +186,6 @@ Resources:
           ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
           Name: Horst Severini
     Description: perfSonar latency node for LU
-    Disable: false
     FQDN: lutps1.lunet.edu
     ID: 619
     Services:
