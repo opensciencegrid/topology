@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: Compute Cluster at the Florida Tech High Energy Physics lab
 GroupID: 163
 Production: true
 Resources:
   FLTECH:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -21,12 +21,7 @@ Resources:
         Primary:
           ID: dbdac6f745c5a7762318d51445220b2c4727d649
           Name: Ryan Wojtyla
-      Submitter Contact:
-        Primary:
-          ID: b621a99e78f58b25c90031007911fdfc97fad81a
-          Name: Patrick Ford
     Description: Compute Element at the Florida Tech High Energy Physics lab.
-    Disable: false
     FQDN: uscms1.fltech-grid3.fit.edu
     ID: 163
     Services:
@@ -48,6 +43,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   FLTECH-ITB:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -65,12 +61,7 @@ Resources:
         Secondary:
           ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
           Name: Ankit Durgasis Mohapatra
-      Submitter Contact:
-        Primary:
-          ID: 714e99777b9937f3459a17454c905c234421684f
-          Name: Xenia Janice Fave
     Description: Test server for the benefit of campus IT.
-    Disable: false
     FQDN: gridtest.fit.edu
     ID: 339
     Services:
@@ -81,6 +72,7 @@ Resources:
     VOOwnership:
       CMS: 100
   FLTECH-MGMT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -98,13 +90,8 @@ Resources:
         Secondary:
           ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
           Name: Ankit Durgasis Mohapatra
-      Submitter Contact:
-        Primary:
-          ID: c618db2bb0d32eb27afc2a8125df3ed925470dd4
-          Name: Jordan Robertson
     Description: Management node at the Florida Tech High Energy Physics lab (GUMS
       server).
-    Disable: false
     FQDN: uscms1-mgmt.fltech-grid3.fit.edu
     ID: 592
     Services:
@@ -113,6 +100,7 @@ Resources:
     VOOwnership:
       CMS: 100
   FLTECH-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -130,13 +118,8 @@ Resources:
         Primary:
           ID: dbdac6f745c5a7762318d51445220b2c4727d649
           Name: Ryan Wojtyla
-      Submitter Contact:
-        Primary:
-          ID: b621a99e78f58b25c90031007911fdfc97fad81a
-          Name: Patrick Ford
     Description: This is the Storage Element at Florida Institute of Technology that
       provides Squid cache, Bestman SE, and Phedex services.
-    Disable: false
     FQDN: uscms1-se.fltech-grid3.fit.edu
     ID: 269
     Services:
@@ -156,34 +139,4 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 5
       StorageCapacityMin: 5
-  T3_US_FIT:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: d074c6dc45a1e2146f0b00cd04f8404beedf9c2c
-          Name: Johanna-Laina Fischer
-      Security Contact:
-        Primary:
-          ID: d074c6dc45a1e2146f0b00cd04f8404beedf9c2c
-          Name: Johanna-Laina Fischer
-      Submitter Contact:
-        Primary:
-          ID: d074c6dc45a1e2146f0b00cd04f8404beedf9c2c
-          Name: Johanna-Laina Fischer
-    Description: Tier 3 Grid Computing Cluster, a member of the OSG
-    Disable: true
-    FQDN: uscms1.fltech-grid3.fit.edu-disabled
-    ID: 443
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: USCMS_Tier3

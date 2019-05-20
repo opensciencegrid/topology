@@ -1,0 +1,282 @@
+<style>
+* {
+margin: 0px;
+padding: 0px;
+}
+body {
+font-family: "Arial";
+color: #333;
+line-height:1.5em;
+font-size: 10pt;
+height: 100%;
+}
+h2, h3 {
+border-bottom:1px dotted #AAAAAA;
+padding-bottom:0.3em;
+margin-bottom: 3px;
+}
+h3, h4, h5 {
+font-size: 90%;
+margin-bottom: 2px;
+}
+a {
+color:white;
+cursor:pointer;
+text-decoration:underline;
+}
+p {
+margin-bottom: 1px;
+}
+
+div.resource_group_header, div.downtime_group, div.group_header
+{
+background-color: #555;
+background: -moz-linear-gradient(center top , #777, #444) repeat scroll 0 0 #555;
+color: white;
+margin-bottom: 0.3em;
+margin-top: 0.5em;
+padding: 4px 8px 4px 8px;
+}
+#content div.resource_group_header a {
+color: white;
+padding-left:0px;
+background: none;
+}
+
+div.resource
+{
+padding: 2px;
+padding-left:20px;
+background:#ccc url(/static/images/server.png) no-repeat 2px 3px;
+min-height: 16px;
+margin-bottom: 5px;
+border: 1px solid #bbb;
+}
+div.h4
+{
+background-color: #ddd;
+font-weight: bold;
+font-size: 12px;
+}
+
+div.resource_group
+{
+padding-left:5px;
+padding-right:5px;
+}
+
+.round, .vo_report h4, .vo_report_fqan, .contact_info, .service_info
+{
+-moz-border-radius-topleft: 4px;
+-moz-border-radius-topright: 4px;
+-moz-border-radius-bottomright: 4px;
+-moz-border-radius-bottomleft: 4px;
+-webkit-border-top-left-radius: 4px;
+-webkit-border-top-right-radius: 4px;
+-webkit-border-bottom-left-radius: 4px;
+-webkit-border-bottom-right-radius: 4px;
+}
+
+span.h3
+{
+margin-bottom: 3px;
+font-weight: bold;
+font-size: 13px;
+}
+span.h4
+{
+margin-bottom: 3px;
+font-weight: bold;
+font-size: 12px;
+}
+
+</style>
+
+<!-- <link href="<?=fullbase()?>/css/html.css" rel="stylesheet" type="text/css" /> -->
+<script type='text/javascript' src='/static/js/jquery-1.8.1.min.js'></script>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyBN3KAdtotBzRlw_CzohzisMgqNapTA7lE"></script>
+<script type="text/javascript">
+
+var map;
+var anchor;
+var marker_id = {};
+var infowindow = new google.maps.InfoWindow({maxWidth: 300});
+
+function update_anchor() {
+    var pos = map.getCenter();
+    var new_anchor ="#"+pos.toUrlValue()+"|"+map.getZoom()+"|"+map.getMapTypeId();
+    if(anchor != new_anchor) {
+        document.location.hash=pos.toUrlValue()+"|"+map.getZoom()+"|"+map.getMapTypeId();
+        anchor = new_anchor;
+    }
+    setTimeout("update_anchor()", 1000);
+}
+
+function init(scrollwheel) {
+    //default
+    //var location = new google.maps.LatLng(38.61687,-96.767578);
+    var location = new google.maps.LatLng(29.22889,-90.08789);//show south americas
+    var zoom = 4;
+    var maptype = google.maps.MapTypeId.TERRAIN;
+    
+    //overrride with hash params
+    anchor = document.location.hash.split("#")[1];
+
+    if(anchor) {
+        var params = anchor.split("|");
+        var coords = params[0].split(",");
+        location = new google.maps.LatLng(coords[0], coords[1]);
+        zoom = parseInt(params[1]);
+        maptype = params[2];
+    }
+
+    //create map
+    map = new google.maps.Map(document.getElementById('map_canvas'), {
+        scrollwheel: scrollwheel,
+        center: location,
+        zoom: zoom,
+        mapTypeControl: false,
+        mapTypeId: maptype
+    });
+
+    //setup listeners
+    setTimeout("update_anchor()", 1000);//don't hook centerre_changed event.. it fires too often now
+    
+    var sites = {};
+    {% for resourcegroup in resourcegroups %}
+    {% if "Latitude" in resourcegroup["Site"] and resourcegroup["Disable"] != True %}
+    
+    var curSite = "{{ resourcegroup['Site']['Name'] }}";
+    // Add each resource group to the site
+    if (!(curSite in sites)) {
+        sites[curSite] = [ {{ resourcegroup["Site"]["Latitude"] }},
+                           {{ resourcegroup["Site"]["Longitude"] }},
+                           "{{ resourcegroup["Facility"]["Name"] }}",
+                            Array() ]
+    }
+    
+    var resourceGroup = {};
+    resourceGroup["Name"] = "{{ resourcegroup['GroupName'] }}"
+    resourceGroup["Resources"] = Array()
+    
+    {% for resource in resourcegroup['Resources']['Resource'] %}
+    resourceGroup["Resources"].push("{{ resource['Name'] }}");
+    {% endfor %}
+    
+    sites[curSite][3].push(resourceGroup);
+    
+    {% endif %}
+    {% endfor %}
+    
+    {% set counter = 0 %}
+    //add sites
+    
+    var counter = 0;
+    for (site in sites) {
+        var resourceCounter = 0;
+        // Build the site
+        var html = '<h2>' + sites[site][2] + '</h2><div style=\"overflow: auto; max-height: 300px; width: 300px;\">';
+        for (var i = 0; i < sites[site][3].length; i++) {
+            resourcegroup = sites[site][3][i];
+            html += "<div class=\"resource_group_header round\"><span class=\"h3\">Resource Group: " + resourcegroup["Name"] + "</span></div>";
+            resourceCounter += resourcegroup["Resources"].length;
+            for (var a = 0; a < resourcegroup["Resources"].length; a++) {
+                resource = resourcegroup["Resources"][a];
+                html += "<div class=\"resource round\" style=\"margin-bottom: 0;\"><span class=\"h4\">" + resource + "</span></div>";
+                
+            }
+        }
+        
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(sites[site][0], sites[site][1]),
+            map: map,
+            zIndex: resourceCounter,
+            icon: '/static/images/status_green_map.png',
+            title: sites[site][2]
+        });
+        
+        setInfoWindow(counter, marker, html);
+        marker_id[counter] = marker;
+        $("#site").append("<option value='" + counter + "'>" + site + "</option>");
+        counter += 1;
+    }
+    
+
+    $("#site").change(function() {
+            var id = $(this).val();
+            var marker = marker_id[id];
+            if(marker) {
+                google.maps.event.trigger(marker, 'click');
+            } else {
+                infowindow.close();
+            }
+    });
+
+
+    google.maps.event.addListener(infowindow, 'closeclick', function() {
+        $("#site option[value=]").attr("selected", "selected");
+    });
+}
+
+function setInfoWindow(id,marker, content) {
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.close();
+        infowindow.setContent(content);
+        infowindow.open(map, marker);
+        if(id != null) {
+            $("#site option[value='"+id+"']").attr("selected", "selected");
+        }
+    });
+}
+
+
+$(document).ready(function() {
+    init(false);//scroll wheel -- off
+});
+</script>
+
+<style>
+#map_canvas {
+width: 100%;
+height: 600px;
+font-size: 10px;
+}
+/*shrink the font size slightly*/
+#map_canvas h2 {
+font-size: 12px;
+}
+#map_canvas span.h3, #map_canvas span.h4 {
+font-size: 10px;
+}
+#map_canvas .resource_group_header {
+padding: 2px 4px;
+}
+#map_canvas .resource {
+padding-top: 3px;
+padding-bottom: 0px;
+background-position: 2px 1px;
+}
+#map_control {
+float: right;
+right: 3px;
+top: 3px;
+position: absolute;
+z-index: 1;
+background-color: white;
+color: #666;
+box-shadow: 1px 1px 5px #333;
+}
+</style>
+<div style="position: relative; height: 100%;">
+<div id="map_control">&nbsp;Site&nbsp;&nbsp;<select id="site" style="border: none;">
+    <option value="">(None)</option>
+    </select>
+</div>
+<div id="map_canvas"></div>
+</div>
+
+<style>
+#map_canvas {
+height: 100%;
+}
+</style>

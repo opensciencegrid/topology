@@ -1,81 +1,171 @@
 - Class: SCHEDULED
   Description: Regularly scheduled maintenance.
-  EndTime: Jul 22, 2016 14:00 PM UTC
+  EndTime: Jul 22, 2016 14:00 +0000
+  ID: 1004962
+  ResourceName: Georgia_Tech_LIGO_Submit_1
+  Services:
+  - Submit Node
+  Severity: Outage
+  StartTime: Jul 19, 2016 09:00 +0000
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  Description: Regularly scheduled maintenance.
+  EndTime: Jul 22, 2016 14:00 +0000
   ID: 1004963
   ResourceName: Georgia_Tech_PACE_CE_1
   Services:
   - CE
   Severity: Outage
-  StartTime: Jul 19, 2016 09:00 AM UTC
+  StartTime: Jul 19, 2016 09:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Regularly scheduled maintenance.
-  EndTime: Jul 22, 2016 14:00 PM UTC
+  EndTime: Jul 22, 2016 14:00 +0000
   ID: 1004964
   ResourceName: Georgia_Tech_PACE_GridFTP
   Services:
   - GridFtp
   Severity: Outage
-  StartTime: Jul 19, 2016 09:00 AM UTC
-- Class: SCHEDULED
-  Description: Regularly scheduled maintenance.
-  EndTime: Jul 22, 2016 14:00 PM UTC
-  ID: 1004965
-  ResourceName: Georgia_Tech_PACE_Squid_1
-  Services:
-  - Squid
-  Severity: Outage
-  StartTime: Jul 19, 2016 09:00 AM UTC
+  StartTime: Jul 19, 2016 09:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled quarterly maintenance.
-  EndTime: Aug 12, 2017 04:00 AM UTC
+  EndTime: Aug 12, 2017 04:00 +0000
+  ID: 1005396
+  ResourceName: Georgia_Tech_LIGO_Submit_1
+  Services:
+  - Submit Node
+  Severity: Outage
+  StartTime: Aug 10, 2017 10:00 +0000
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  Description: Scheduled quarterly maintenance.
+  EndTime: Aug 12, 2017 04:00 +0000
   ID: 1005397
   ResourceName: Georgia_Tech_PACE_CE_1
   Services:
   - CE
   Severity: Outage
-  StartTime: Aug 10, 2017 10:00 AM UTC
+  StartTime: Aug 10, 2017 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled quarterly maintenance.
-  EndTime: Aug 12, 2017 04:00 AM UTC
+  EndTime: Aug 12, 2017 04:00 +0000
   ID: 1005398
   ResourceName: Georgia_Tech_PACE_GridFTP
   Services:
   - GridFtp
   Severity: Outage
-  StartTime: Aug 10, 2017 10:00 AM UTC
-- Class: SCHEDULED
-  Description: Scheduled quarterly maintenance.
-  EndTime: Aug 12, 2017 04:00 AM UTC
-  ID: 1005399
-  ResourceName: Georgia_Tech_PACE_Squid_1
-  Services:
-  - Squid
-  Severity: Outage
-  StartTime: Aug 10, 2017 10:00 AM UTC
+  StartTime: Aug 10, 2017 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled quarterly maintenance
-  EndTime: May 13, 2018 03:55 AM UTC
+  EndTime: May 13, 2018 03:55 +0000
+  ID: 1005668
+  ResourceName: Georgia_Tech_LIGO_Submit_1
+  Services:
+  - Submit Node
+  Severity: Outage
+  StartTime: May 10, 2018 10:00 +0000
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  Description: Scheduled quarterly maintenance
+  EndTime: May 13, 2018 03:55 +0000
   ID: 1005669
   ResourceName: Georgia_Tech_PACE_CE_1
   Services:
   - CE
   Severity: Outage
-  StartTime: May 10, 2018 10:00 AM UTC
+  StartTime: May 10, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Scheduled quarterly maintenance
-  EndTime: May 13, 2018 03:55 AM UTC
+  EndTime: May 13, 2018 03:55 +0000
   ID: 1005670
   ResourceName: Georgia_Tech_PACE_GridFTP
   Services:
   - GridFtp
   Severity: Outage
-  StartTime: May 10, 2018 10:00 AM UTC
+  StartTime: May 10, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
-  Description: Scheduled quarterly maintenance
-  EndTime: May 13, 2018 03:55 AM UTC
-  ID: 1005671
-  ResourceName: Georgia_Tech_PACE_Squid_1
-  Services:
-  - Squid
+  ID: 64833344
+  Description: Testing
   Severity: Outage
-  StartTime: May 10, 2018 10:00 AM UTC
+  StartTime: Nov 06, 2018 05:00 +0000
+  EndTime: Nov 06, 2018 05:01 +0000
+  CreatedTime: Nov 05, 2018 23:48 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 149485981
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Feb 15, 2019 01:00 +0000
+  EndTime: Feb 17, 2019 01:00 +0000
+  CreatedTime: Feb 11, 2019 23:16 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 149486300
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Feb 15, 2019 01:00 +0000
+  EndTime: Feb 17, 2019 01:00 +0000
+  CreatedTime: Feb 11, 2019 23:17 +0000
+  ResourceName: Georgia_Tech_PACE_CE_1
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 149486443
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Feb 15, 2019 01:00 +0000
+  EndTime: Feb 17, 2019 01:00 +0000
+  CreatedTime: Feb 11, 2019 23:17 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 221828765
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: May 16, 2019 10:00 +0000
+  EndTime: May 19, 2019 10:00 +0000
+  CreatedTime: May 06, 2019 17:47 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 221829343
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: May 16, 2019 10:00 +0000
+  EndTime: May 19, 2019 10:00 +0000
+  CreatedTime: May 06, 2019 17:48 +0000
+  ResourceName: Georgia_Tech_PACE_CE_1
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 221829467
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: May 16, 2019 10:00 +0000
+  EndTime: May 19, 2019 10:00 +0000
+  CreatedTime: May 06, 2019 17:49 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------

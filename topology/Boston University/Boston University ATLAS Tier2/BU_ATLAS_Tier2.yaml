@@ -1,54 +1,9 @@
-Disable: false
 GroupDescription: U.S. ATLAS Northeast Tier 2 Center
 GroupID: 8
 Production: true
 Resources:
-  BU_ATLAS_Tier2:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 4407ce51850137cf80f8e2f95829669b90fdba12
-          Name: Augustine Abaris
-      Resource Report Contact:
-        Primary:
-          ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
-          Name: Saul Youssef
-      Submitter Contact:
-        Primary:
-          ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
-          Name: Saul Youssef
-    Description: U.S. ATLAS Northeast Tier 2 Center
-    Disable: true
-    FQDN: net2.bu.edu
-    ID: 8
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      ATLAS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      AccountingName: US-NET2
-      HEPSPEC: 14500
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 100
-      KSI2KMin: 100
-      StorageCapacityMax: 1300
-      StorageCapacityMin: 1300
   NET2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -84,13 +39,8 @@ Resources:
         Secondary:
           ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
           Name: Saul Youssef
-      Submitter Contact:
-        Primary:
-          ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
-          Name: Saul Youssef
     Description: 'U.S. ATLAS Northeast Tier 2 Center: Boston University and Harvard
       University'
-    Disable: false
     FQDN: atlas-ce.bu.edu
     ID: 477
     Services:
@@ -118,6 +68,7 @@ Resources:
       StorageCapacityMin: 2300
       TapeCapacity: 0
   net2.bu.edu-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -144,12 +95,7 @@ Resources:
         Secondary:
           ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
           Name: Saul Youssef
-      Submitter Contact:
-        Primary:
-          ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
-          Name: Saul Youssef
     Description: squid service for frontier and cvmfs
-    Disable: false
     FQDN: atlas-net2.bu.edu
     ID: 923
     Services:
@@ -158,6 +104,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   perfSONAR-NET2-bw:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -187,12 +134,7 @@ Resources:
         Secondary:
           ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
           Name: Saul Youssef
-      Submitter Contact:
-        Primary:
-          ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
-          Name: Saul Youssef
     Description: perfSONAR bandwidth node
-    Disable: false
     FQDN: atlas-npt2.bu.edu
     ID: 578
     Services:
@@ -203,6 +145,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   perfSONAR-NET2-lat:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -232,12 +175,7 @@ Resources:
         Secondary:
           ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
           Name: Saul Youssef
-      Submitter Contact:
-        Primary:
-          ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
-          Name: Saul Youssef
     Description: perfSONAR latency site for NET2
-    Disable: false
     FQDN: atlas-npt1.bu.edu
     ID: 577
     Services:
@@ -248,6 +186,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   perfSONAR_BU:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -274,12 +213,7 @@ Resources:
         Secondary:
           ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
           Name: Saul Youssef
-      Submitter Contact:
-        Primary:
-          ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
-          Name: Saul Youssef
     Description: PerfSonar for ATLAS NET2
-    Disable: false
     FQDN: atlas-owamp.bu.edu
     ID: 529
     Services:

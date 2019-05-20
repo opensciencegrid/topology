@@ -1,14 +1,13 @@
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 from datetime import datetime, timedelta, timezone
 from enum import Enum
 from logging import getLogger
-import re
 import urllib.parse
-from typing import Dict, List
+from typing import Dict, List, Optional, Tuple
 
-import dateparser
+import icalendar
 
-from .common import MaybeOrderedDict, RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
+from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
     is_null, expand_attr_list_single, expand_attr_list, ensure_list
 from .contacts_reader import ContactsData
 
@@ -69,9 +68,14 @@ class Resource(object):
             self.services = self._expand_services(yaml_data["Services"])
         else:
             self.services = []
+        self.service_names = [n["Name"] for n in self.services if "Name" in n]
         self.data = yaml_data
+        if is_null(yaml_data, "FQDN"):
+            raise ValueError(f"Resource {name} does not have an FQDN")
+        self.fqdn = self.data["FQDN"]
+        self.id = self.data["ID"]
 
-    def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
+    def get_tree(self, authorized=False, filters: Filters = None) -> Optional[OrderedDict]:
         if filters is None:
             filters = Filters()
 
@@ -121,6 +125,14 @@ class Resource(object):
             new_res["WLCGInformation"] = self._expand_wlcginformation(self.data["WLCGInformation"])
         elif filters.has_wlcg is True:
             return
+
+        # The topology XML schema cannot handle this additional data.  Given how inflexible
+        # the XML has been (and mostly seen as there for backward compatibility), this simply
+        # removes the data from the XML format.
+        if 'DN' in new_res:
+            del new_res['DN']
+        if 'AllowedVOs' in new_res:
+            del new_res['AllowedVOs']
 
         return new_res
 
@@ -210,23 +222,27 @@ class ResourceGroup(object):
         self.common_data = common_data
 
         scname = yaml_data["SupportCenter"]
-        scid = int(common_data.support_centers[scname])
+        scid = int(common_data.support_centers[scname]["ID"])
         self.support_center = OrderedDict([("ID", scid), ("Name", scname)])
 
-        self.resources = []
+        self.resources_by_name = {}
         for name, res in yaml_data["Resources"].items():
             try:
-                assert isinstance(res, dict)
+                if not isinstance(res, dict):
+                    raise TypeError("expecting a dict")
                 res = Resource(name, res, self.common_data)
-                self.resources.append(res)
-            except (AttributeError, KeyError, ValueError) as err:
+                self.resources_by_name[name] = res
+            except (AttributeError, KeyError, TypeError, ValueError) as err:
                 log.exception("Error with resource %s: %s", name, err)
                 continue
-        self.resources.sort(key=lambda x: x.name)
 
         self.data = yaml_data
 
-    def get_tree(self, authorized=False, filters: Filters = None) -> MaybeOrderedDict:
+    @property
+    def resources(self):
+        return [self.resources_by_name[k] for k in sorted(self.resources_by_name)]
+
+    def get_tree(self, authorized=False, filters: Filters = None) -> Optional[OrderedDict]:
         if filters is None:
             filters = Filters()
         for filter_list, attribute in [(filters.facility_id, self.site.facility.id),
@@ -286,11 +302,24 @@ class ResourceGroup(object):
 
 
 class Downtime(object):
-    def __init__(self, rg: ResourceGroup, yaml_data: Dict):
+    TIME_OUTPUT_FMT = "%b %d, %Y %H:%M %p %Z"
+    PREFERRED_TIME_FMT = "%b %d, %Y %H:%M %z"  # preferred format, e.g. "Mar 7, 2017 03:00 -0500"
+
+    def __init__(self, rg: ResourceGroup, yaml_data: Dict, common_data: CommonData):
         self.rg = rg
         self.data = yaml_data
-        self.start_time = self._parsetime(yaml_data["StartTime"])
-        self.end_time = self._parsetime(yaml_data["EndTime"])
+        for k in ["StartTime", "EndTime", "ID", "Class", "Severity", "ResourceName", "Services"]:
+            if is_null(yaml_data, k):
+                raise ValueError(k)
+        self.start_time = self.parsetime(yaml_data["StartTime"])
+        self.end_time = self.parsetime(yaml_data["EndTime"])
+        self.created_time = None
+        if not is_null(yaml_data, "CreatedTime"):
+            self.created_time = self.parsetime(yaml_data["CreatedTime"])
+        self.res = rg.resources_by_name[yaml_data["ResourceName"]]
+        self.service_names = yaml_data["Services"]
+        self.service_ids = [common_data.service_types[x] for x in yaml_data["Services"]]
+        self.id = yaml_data["ID"]
 
     @property
     def timeframe(self) -> Timeframe:
@@ -306,10 +335,12 @@ class Downtime(object):
 
     @property
     def end_age(self) -> timedelta:
+        """Return timedelta elapsed since end_time.
+        The value returned is negative if end_time is in the future."""
         current_time = datetime.now(timezone.utc)
-        return self.end_time - current_time
+        return current_time - self.end_time
 
-    def get_tree(self, filters: Filters = None) -> MaybeOrderedDict:
+    def _is_shown(self, filters) -> bool:
         if filters is None:
             filters = Filters()
         for filter_list, attribute in [(filters.facility_id, self.rg.site.facility.id),
@@ -317,78 +348,128 @@ class Downtime(object):
                                        (filters.support_center_id, self.rg.support_center["ID"]),
                                        (filters.rg_id, self.rg.id)]:
             if filter_list and attribute not in filter_list:
-                return
+                return False
+
         rg_data_gridtype = GRIDTYPE_1 if self.rg.data.get("Production", None) else GRIDTYPE_2
         if filters.grid_type is not None and rg_data_gridtype != filters.grid_type:
-            return
+            return False
+
         # unlike the other filters, if past_days is not specified, _no_ past downtime is shown
         if filters.past_days >= 0:
-            if self.end_age.total_seconds() // 86400 < filters.past_days:
-                return
+            # Filter out downtimes older than 'past_days'
+            # (current & future downtimes are not filtered out)
+            if self.end_age.total_seconds() > filters.past_days * 86400:
+                return False
 
-        return self._expand_downtime(filters.service_id)
+        if filters.service_id:
+            if not set(filters.service_id).intersection(set(self.service_ids)):
+                return False
 
-    def _expand_downtime(self, service_filter=None) -> MaybeOrderedDict:
+        return True
+
+    def get_tree(self, filters: Filters = None) -> Optional[OrderedDict]:
+        if self._is_shown(filters):
+            return self._expand_downtime(filters.service_id)
+
+    def get_ical_event(self, filters: Filters = None) -> Optional[icalendar.Event]:
+        if not self._is_shown(filters):
+            return None
+
+        evt = icalendar.Event()
+        try:
+            evt["uid"] = str(self.data.get("ID", 0))
+            evt.add("dtstart", self.start_time)
+            evt.add("dtend", self.end_time)
+            evt["summary"] = f"{self.rg.name} / {self.res.name}"
+            affected_services = ", ".join(self.service_names)
+            evt["description"] = (f"Class: {self.data['Class']}\n"
+                                  f"Severity: {self.data['Severity']}\n"
+                                  f"Affected Services: {affected_services}\n"
+                                  f"Description: {self.data['Description']}")
+        except (KeyError, ValueError, AttributeError) as e:
+            log.warning("Malformed downtime: %s", e)
+            return None
+
+        return evt
+
+    def _expand_downtime(self, service_filter=None) -> Optional[OrderedDict]:
         new_downtime = OrderedDict.fromkeys(["ID", "ResourceID", "ResourceGroup", "ResourceName", "ResourceFQDN",
                                              "StartTime", "EndTime", "Class", "Severity", "CreatedTime", "UpdateTime",
                                              "Services", "Description"])
         new_downtime["ResourceGroup"] = OrderedDict([("GroupName", self.rg.name),
                                                      ("GroupID", self.rg.id)])
-        for r in self.rg.resources:
-            if r.name == self.data["ResourceName"]:
-                new_downtime["ResourceFQDN"] = r.data["FQDN"]
-                new_downtime["ResourceID"] = r.data["ID"]
-                new_downtime["ResourceName"] = r.name
-                services = ensure_list(r.services)
-                break
-        else:
-            log.warning("Resource %s does not exist -- ignoring downtime", new_downtime["ResourceName"])
-            return None
+        new_downtime["ResourceFQDN"] = self.res.fqdn
+        new_downtime["ResourceID"] = self.res.id
+        new_downtime["ResourceName"] = self.res.name
 
         new_services = []
-        for dts in self.data["Services"]:
-            for s in services:
-                if s["Name"] == dts:
-                    if not service_filter or s["ID"] in service_filter:
+        for dt_service_name in self.service_names:
+            for res_service in ensure_list(self.res.services):
+                if res_service["Name"] == dt_service_name:
+                    if not service_filter or res_service["ID"] in service_filter:
                         new_services.append(OrderedDict([
-                            ("ID", s["ID"]),
-                            ("Name", s["Name"]),
-                            ("Description", s["Description"])
+                            ("ID", res_service["ID"]),
+                            ("Name", res_service["Name"]),
+                            ("Description", res_service["Description"])
                         ]))
                     break
-            else:
-                pass
 
         if new_services:
             new_downtime["Services"] = {"Service": new_services}
         else:
             return None
 
-        new_downtime["CreatedTime"] = "Not Available"
+        if not is_null(self.created_time):
+            new_downtime["CreatedTime"] = self.fmttime(self.created_time)
+        else:
+            new_downtime["CreatedTime"] = "Not Available"
         new_downtime["UpdateTime"] = "Not Available"
 
-        fmt = "%b %d, %Y %H:%M %p %Z"
-        new_downtime["StartTime"] = self.start_time.strftime(fmt)
-        new_downtime["EndTime"] = self.end_time.strftime(fmt)
+        new_downtime["StartTime"] = self.fmttime(self.start_time)
+        new_downtime["EndTime"] = self.fmttime(self.end_time)
 
-        for k in ["ID", "Class", "Severity", "Description"]:
-            new_downtime[k] = self.data.get(k, None)
+        for k in ["ID", "Class", "Severity"]:
+            new_downtime[k] = self.data[k]
+        new_downtime["Description"] = self.data.get("Description")
 
         return new_downtime
 
-    @staticmethod
-    def _parsetime(time_str: str) -> datetime:
-        # get rid of stupid times like "00:00 AM" or "17:00 PM"
-        if re.search(r"\s+00:\d\d\s+AM", time_str):
-            time_str = time_str.replace(" AM", "")
-        elif re.search(r"\s+(1[3-9]|2[0-3]):\d\d\s+PM", time_str):
-            time_str = time_str.replace(" PM", "")
-        time = dateparser.parse(time_str)
-        if not time:
-            raise ValueError("Invalid time {0}".format(time_str))
-        if not time.tzinfo:
-            time = time.replace(tzinfo=timezone.utc)
-        return time
+    @classmethod
+    def fmttime(cls, a_time: datetime) -> str:
+        return a_time.strftime(cls.TIME_OUTPUT_FMT)
+
+    @classmethod
+    def fmttime_preferred(cls, a_time: datetime) -> str:
+        if not a_time.tzinfo:
+            a_time = a_time.replace(tzinfo=timezone.utc)
+        return a_time.strftime(cls.PREFERRED_TIME_FMT)
+
+    @classmethod
+    def parsetime(cls, time_str: str) -> datetime:
+        """Parse the downtime found in the YAML file; tries multiple formats,
+        returns the first one that matches.
+
+        Raises ValueError if time_str cannot be parsed with any of the formats.
+        """
+
+        fmts = [cls.PREFERRED_TIME_FMT,
+                "%b %d, %Y %H:%M UTC",  # explicit UTC timezone
+                "%b %d, %Y %H:%M",  # without timezone (assumes UTC)
+                "%b %d, %Y %H:%M %p UTC"]  # format existing data is in, e.g. "Mar 7, 2017 03:00 AM UTC"
+
+        time = None
+        for fmt in fmts:
+            try:
+                time = datetime.strptime(time_str, fmt)
+            except ValueError:
+                pass
+            if time:
+                if not time.tzinfo:
+                    time = time.replace(tzinfo=timezone.utc)
+                else:
+                    time = time.astimezone(timezone.utc)
+                return time
+        raise ValueError("Cannot parse time {}".format(time_str))
 
 
 class Topology(object):
@@ -401,16 +482,33 @@ class Topology(object):
         self.facilities = {}
         self.sites = {}
         # rgs are keyed by (site_name, rg_name) tuple
-        self.rgs = {}
+        self.rgs = {}  # type: Dict[Tuple[str, str], ResourceGroup]
+        self.resources_by_facility = defaultdict(list)
+        self.service_names_by_resource = {}  # type: Dict[str, List[str]]
+        self.downtime_path_by_resource = {}
 
     def add_rg(self, facility_name, site_name, name, parsed_data):
-        self.rgs[(site_name, name)] = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
+        try:
+            rg = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
+            self.rgs[(site_name, name)] = rg
+            for r in rg.resources:
+                self.resources_by_facility[facility_name].append(r)
+                self.service_names_by_resource[r.name] = r.service_names
+                self.downtime_path_by_resource[r.name] = f"{facility_name}/{site_name}/{name}_downtime.yaml"
+        except (AttributeError, KeyError, ValueError) as err:
+            log.exception("RG %s, %s error: %s; skipping", site_name, name, err)
 
     def add_facility(self, name, id):
         self.facilities[name] = Facility(name, id)
 
     def add_site(self, facility_name, name, id, site_info):
         self.sites[name] = Site(name, id, self.facilities[facility_name], site_info)
+
+    def get_resource_group_list(self):
+        """
+        Simple getter for an iterator of resource group objects associated with this topology.
+        """
+        return self.rgs.values()
 
     def get_resource_summary(self, authorized=False, filters: Filters = None) -> Dict:
         if filters is None:
@@ -452,6 +550,27 @@ class Topology(object):
 
         return tree
 
+    def get_downtimes_ical(self, authorized=False, filters: Filters = None) -> icalendar.Calendar:
+        _ = authorized
+        if filters is None:
+            filters = Filters()
+
+        cal = icalendar.Calendar()
+        cal.add("prodid", "-//Open Science Grid//Topology//EN")
+        cal.add("version", "2.0")
+
+        for tf in [Timeframe.PAST, Timeframe.PRESENT, Timeframe.FUTURE]:
+            for dt in self.downtimes_by_timeframe[tf]:
+                try:
+                    event = dt.get_ical_event(filters)
+                except (AttributeError, KeyError, ValueError) as err:
+                    log.exception("Error with downtime %s: %s", dt, err)
+                    continue
+                if event:
+                    cal.add_component(event)
+
+        return cal
+
     def add_downtime(self, sitename: str, rgname: str, downtime: Dict):
         try:
             rg = self.rgs[(sitename, rgname)]
@@ -459,8 +578,8 @@ class Topology(object):
             log.warning("RG %s/%s does not exist -- skipping downtime", sitename, rgname)
             return
         try:
-            dt = Downtime(rg, downtime)
-        except ValueError as err:
-            log.warning("Invalid data in downtime -- skipping: %s", err)
+            dt = Downtime(rg, downtime, self.common_data)
+        except (KeyError, ValueError) as err:
+            log.warning("Invalid or missing data in downtime -- skipping: %s", err)
             return
         self.downtimes_by_timeframe[dt.timeframe].append(dt)

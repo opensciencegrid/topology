@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: Syracuse University Information Technology Services Research Clusters
 GroupID: 404
 Production: true
 Resources:
   SU-ITS-CE2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -21,12 +21,7 @@ Resources:
         Primary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
-      Submitter Contact:
-        Primary:
-          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
-          Name: Richard Ameele
     Description: SU ITS compute element.
-    Disable: false
     FQDN: its-condor-ce2.syr.edu
     ID: 939
     Services:
@@ -34,9 +29,8 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
   SU-ITS-CE3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -54,12 +48,7 @@ Resources:
         Primary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
-      Submitter Contact:
-        Primary:
-          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
-          Name: Richard Ameele
     Description: SU ITS compute element.
-    Disable: false
     FQDN: its-condor-ce3.syr.edu
     ID: 907
     Services:
@@ -67,9 +56,8 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
   SU-OG-CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -87,12 +75,7 @@ Resources:
         Primary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
-      Submitter Contact:
-        Primary:
-          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
-          Name: Richard Ameele
     Description: SU OrangeGrid CE server
-    Disable: false
     FQDN: its-condor-ce.syr.edu
     ID: 650
     Services:
@@ -100,9 +83,8 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
   SU-OG-CE1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -120,12 +102,7 @@ Resources:
         Primary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
-      Submitter Contact:
-        Primary:
-          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
-          Name: Richard Ameele
     Description: SU OrangeGrid CE server
-    Disable: false
     FQDN: its-condor-ce1.syr.edu
     ID: 817
     Services:
@@ -133,9 +110,8 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
   SU-OG-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -153,20 +129,14 @@ Resources:
         Primary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
-      Submitter Contact:
-        Primary:
-          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
-          Name: Richard Ameele
     Description: SU OrangeGrid squid server
-    Disable: false
     FQDN: its-condor-squid1.syr.edu
     ID: 652
     Services:
       Squid:
         Description: Generic squid service
-    VOOwnership:
-      OSG: 100
   SU-OSG-CONNECT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -196,12 +166,7 @@ Resources:
         Secondary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
-      Submitter Contact:
-        Primary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
     Description: This is a Connect factory for Syracuse's campus cluster.
-    Disable: false
     FQDN: rccf-osg.ci-connect.net
     ID: 782
     Services:
@@ -210,6 +175,4 @@ Resources:
         Details:
           hidden: false
           uri_override: osgconnect@its-condor-submit.syr.edu/condor
-    VOOwnership:
-      OSG: 100
 SupportCenter: Community Support Center

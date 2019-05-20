@@ -1,19 +1,21 @@
 - Class: SCHEDULED
   Description: Cluster will be shut down due to HVAC repair.
-  EndTime: Jul 24, 2016 06:00 AM UTC
+  EndTime: Jul 24, 2016 06:00 +0000
   ID: 1004975
   ResourceName: UCR-HEP
   Services:
   - CE
   - GridFtp
   Severity: Outage
-  StartTime: Jul 23, 2016 06:00 AM UTC
+  StartTime: Jul 23, 2016 06:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: SE will be shut down due to HVAC repair
-  EndTime: Jul 24, 2016 06:00 AM UTC
+  EndTime: Jul 24, 2016 06:00 +0000
   ID: 1004976
   ResourceName: UCR-HEP-SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Jul 23, 2016 06:00 AM UTC
+  StartTime: Jul 23, 2016 06:00 +0000
+# ----------------------------------------------------------

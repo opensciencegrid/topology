@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: Jetstream resource Group
 GroupID: 466
 Production: true
 Resources:
   Jetstream-CE-1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -13,12 +13,7 @@ Resources:
         Primary:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
           Name: Mats Rynge
-      Submitter Contact:
-        Primary:
-          ID: 51e80537c5f71fa8bee57b6196025fd78c0fde0d
-          Name: Kyle Gross
     Description: Jetstream-CE-1
-    Disable: false
     FQDN: js-156-186.jetstream-cloud.org
     ID: 882
     Services:
@@ -26,6 +21,4 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: osg-glidein-factory

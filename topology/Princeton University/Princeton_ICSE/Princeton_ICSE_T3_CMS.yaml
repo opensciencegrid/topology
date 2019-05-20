@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: CMS Tier3 site at Princeton
 GroupID: 268
 Production: true
 Resources:
   Princeton_ICSE_T3_CMS_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -21,12 +21,7 @@ Resources:
         Primary:
           ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
           Name: Christopher Tully
-      Submitter Contact:
-        Primary:
-          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
-          Name: Christopher Tully
     Description: Tier3 SE
-    Disable: false
     FQDN: cmssw3.princeton.edu
     ID: 327
     Services:
@@ -48,6 +43,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   T3_US_Princeton_ICSE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -65,13 +61,8 @@ Resources:
         Primary:
           ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
           Name: Christopher Tully
-      Submitter Contact:
-        Primary:
-          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
-          Name: Christopher Tully
     Description: This is a CMS T3 site at Princeton University.  The site manager
       is Chris Tully.  The servers are managed at Fermilab by Rob Snihur.
-    Disable: false
     FQDN: cmssw3.princeton.edu
     ID: 596
     Services:

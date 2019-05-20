@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: Northwestern University Medium Energy Physics Group Computing Cluster
 GroupID: 390
 Production: true
 Resources:
   NUMEP_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -17,12 +17,7 @@ Resources:
         Primary:
           ID: 73ed2d273dace60d6e6ff5baabeb8755624001bd
           Name: Sean Dobbs
-      Submitter Contact:
-        Primary:
-          ID: 73ed2d273dace60d6e6ff5baabeb8755624001bd
-          Name: Sean Dobbs
     Description: Host for Compute Element for NUMEP cluster
-    Disable: false
     FQDN: numep-grid1.research.northwestern.edu
     ID: 605
     Services:
@@ -33,6 +28,7 @@ Resources:
     VOOwnership:
       Gluex: 100
   NUMEP_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -46,12 +42,7 @@ Resources:
         Primary:
           ID: 73ed2d273dace60d6e6ff5baabeb8755624001bd
           Name: Sean Dobbs
-      Submitter Contact:
-        Primary:
-          ID: 73ed2d273dace60d6e6ff5baabeb8755624001bd
-          Name: Sean Dobbs
     Description: Host for Storage Element for NUMEP cluster
-    Disable: false
     FQDN: numep-grid6.research.northwestern.edu
     ID: 613
     Services:

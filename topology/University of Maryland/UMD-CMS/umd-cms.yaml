@@ -1,10 +1,10 @@
-Disable: false
 GroupDescription: Tier-3 computing center.  Priority given to local users, but opportunistic
   use by CMS VO allowed.
 GroupID: 159
 Production: true
 Resources:
   UMD_GUMS:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -18,14 +18,9 @@ Resources:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
-      Submitter Contact:
-        Primary:
-          ID: e2f42b3cdb9f6ca9b3e39f717f840ea4bd5096b9
-          Name: Marguerite Tonjes
     Description: New GUMS server for umd-cms (didn't work with internal IP, and Network
       Operations cannot give me a new FQDN quickly, so will use development one in
       teh meantime)
-    Disable: false
     FQDN: hepcmsdev-6.umd.edu
     ID: 550
     Services:
@@ -34,6 +29,7 @@ Resources:
     VOOwnership:
       CMS: 100
   umd-ce:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -51,12 +47,7 @@ Resources:
         Secondary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
-      Submitter Contact:
-        Primary:
-          ID: e2f42b3cdb9f6ca9b3e39f717f840ea4bd5096b9
-          Name: Marguerite Tonjes
     Description: standalone CE separate from our SE, CMS jobs only.
-    Disable: false
     FQDN: hepcms-1.umd.edu
     ID: 796
     Services:
@@ -78,6 +69,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 5.5
   umd-cms:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -101,13 +93,8 @@ Resources:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
-      Submitter Contact:
-        Primary:
-          ID: 2666c4d91eaaabcff2474a5d4ddac0272e040df3
-          Name: Malina Kirn
     Description: Tier-3 computing center.  Priority given to local users, but opportunistic
       use by CMS VO allowed.
-    Disable: false
     FQDN: hepcms-0.umd.edu
     ID: 159
     Services:
@@ -128,6 +115,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   umd-gridftp:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -142,7 +130,6 @@ Resources:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
     Description: GridFTP for UMD T3 HEPCMS Cluster
-    Disable: false
     FQDN: hepcms-gridftp.umd.edu
     ID: 831
     Services:
@@ -151,6 +138,7 @@ Resources:
         Details:
           hidden: false
   umd-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -160,12 +148,7 @@ Resources:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
-      Submitter Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
     Description: squid service for frontier and cvmfs
-    Disable: false
     FQDN: hepcms-squid.umd.edu
     ID: 863
     Services:

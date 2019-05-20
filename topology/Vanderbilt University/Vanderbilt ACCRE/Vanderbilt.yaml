@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 137
 Production: true
 Resources:
   US-Vanderbilt BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -25,7 +25,6 @@ Resources:
           ID: f8b4ca01236536e55faee256011d9c70d8eaff67
           Name: Kevin Buterbaugh
     Description: This is the perfsonar bandwidth server at Vanderbilt University
-    Disable: false
     FQDN: perfsonar-bwctl.accre.vanderbilt.edu
     ID: 597
     Services:
@@ -36,6 +35,7 @@ Resources:
     VOOwnership:
       CMS: 100
   US-Vanderbilt LT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -57,7 +57,6 @@ Resources:
           ID: f8b4ca01236536e55faee256011d9c70d8eaff67
           Name: Kevin Buterbaugh
     Description: This is the perfsonar latency server at Vanderbilt University
-    Disable: false
     FQDN: perfsonar-owamp.accre.vanderbilt.edu
     ID: 598
     Services:
@@ -68,6 +67,7 @@ Resources:
     VOOwnership:
       CMS: 100
   Vanderbilt_CE1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -100,13 +100,8 @@ Resources:
         Secondary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
-      Submitter Contact:
-        Primary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
     Description: Vanderbilt University Advanced Computing Center for Research and
       Education
-    Disable: false
     FQDN: ce1.accre.vanderbilt.edu
     ID: 137
     Services:
@@ -129,6 +124,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   Vanderbilt_CE2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -166,7 +162,6 @@ Resources:
           Name: Paul Sheldon
     Description: Vanderbilt University Advanced Computing Center for Research and
       Education
-    Disable: false
     FQDN: ce2.accre.vanderbilt.edu
     ID: 344
     Services:
@@ -189,6 +184,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   Vanderbilt_CE3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -198,12 +194,7 @@ Resources:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
-      Submitter Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
     Description: Centos7-based CE
-    Disable: false
     FQDN: ce3.accre.vanderbilt.edu
     ID: 850
     Services:
@@ -226,6 +217,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   Vanderbilt_CE4:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -243,12 +235,7 @@ Resources:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
-      Submitter Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
     Description: HTCondor-CE based compute element, to replace ce4
-    Disable: false
     FQDN: ce4.accre.vanderbilt.edu
     ID: 855
     Services:
@@ -271,68 +258,8 @@ Resources:
       StorageCapacityMax: 6000
       StorageCapacityMin: 1
       TapeCapacity: 0
-  Vanderbilt_Dev_SE:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
-        Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-      Miscellaneous Contact:
-        Primary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-        Secondary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
-        Tertiary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-      Resource Report Contact:
-        Primary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
-        Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-        Tertiary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-      Security Contact:
-        Primary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
-        Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-    Description: This is the BeStMan gateway running on our testing / development
-      SE.
-    Disable: true
-    FQDN: se3.accre.vanderbilt.edu
-    ID: 351
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-          uri_override: se3.accre.vanderbilt.edu:6288
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 0
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 100
-      StorageCapacityMin: 10
-      TapeCapacity: 0
   Vanderbilt_Gridftp:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -358,12 +285,7 @@ Resources:
         Secondary:
           ID: f8b4ca01236536e55faee256011d9c70d8eaff67
           Name: Kevin Buterbaugh
-      Submitter Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
     Description: Vanderbilt Gridftp
-    Disable: false
     FQDN: gridftp.accre.vanderbilt.edu
     ID: 884
     Services:
@@ -384,43 +306,8 @@ Resources:
       StorageCapacityMax: 6000
       StorageCapacityMin: 1
       TapeCapacity: 0
-  Vanderbilt_Perfsonar_BW:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Secondary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
-    Description: PerfSONAR server for the Vanderbilt T2
-    Disable: true
-    FQDN: perfsonar-bwctl.accre.vanderbilt.edu
-    ID: 499
-    Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: perfsonar-bwctl.accre.vanderbilt.edu
-    VOOwnership:
-      CMS: 100
-  Vanderbilt_Perfsonar_Latency:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Secondary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
-    Description: Vanderbilt PerfSONAR service (Latency)
-    Disable: true
-    FQDN: perfsonar-owamp.accre.vanderbilt.edu
-    ID: 500
-    Services:
-      net.perfSONAR.Latency:
-        Description: PerfSonar Latency monitoring node
-        Details:
-          endpoint: perfsonar-owamp.accre.vanderbilt.edu
-    VOOwnership:
-      CMS: 100
   Vanderbilt_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -456,12 +343,7 @@ Resources:
         Secondary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
-      Submitter Contact:
-        Primary:
-          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
-          Name: Scott Teige
     Description: SE attached to Vanderbilt resource group
-    Disable: false
     FQDN: se1.accre.vanderbilt.edu
     ID: 241
     Services:
@@ -484,6 +366,7 @@ Resources:
       StorageCapacityMax: 8.2
       StorageCapacityMin: 1
   Vanderbilt_Squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -519,12 +402,7 @@ Resources:
         Secondary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
-      Submitter Contact:
-        Primary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
     Description: One of our two squid servers
-    Disable: false
     FQDN: fs1.accre.vanderbilt.edu
     ID: 680
     Services:
@@ -533,6 +411,7 @@ Resources:
     VOOwnership:
       CMS: 100
   Vanderbilt_Squid2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -542,12 +421,7 @@ Resources:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
-      Submitter Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
     Description: Frontier squid host
-    Disable: false
     FQDN: fs2.accre.vanderbilt.edu
     ID: 835
     Services:

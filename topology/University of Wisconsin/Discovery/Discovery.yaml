@@ -1,11 +1,19 @@
-Disable: false
 GroupDescription: stuff
 GroupID: 383
 Production: true
 Resources:
   Discovery_PerfSonar_Bandwidth:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 0902ddb57b4cc12c1be5d60e567f9244e1b5da26
+          Name: Michael Blodgett
+      Administrative Contact:
+        Primary:
+          ID: 0902ddb57b4cc12c1be5d60e567f9244e1b5da26
+          Name: Michael Blodgett
+    Active: true
     Description: bandwidth node
-    Disable: false
     FQDN: perfsonar02.discovery.wisc.edu
     ID: 570
     Services:
@@ -16,8 +24,17 @@ Resources:
     VOOwnership:
       GLOW: 100
   Discovery_PerfSonar_Latency:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 0902ddb57b4cc12c1be5d60e567f9244e1b5da26
+          Name: Michael Blodgett
+      Administrative Contact:
+        Primary:
+          ID: 0902ddb57b4cc12c1be5d60e567f9244e1b5da26
+          Name: Michael Blodgett
+    Active: true
     Description: latency node
-    Disable: false
     FQDN: perfsonar01.discovery.wisc.edu
     ID: 569
     Services:

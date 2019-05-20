@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: requested in https://ticket.grid.iu.edu/35669
 GroupID: 482
 Production: true
 Resources:
   Purdue-Brown:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -30,14 +30,9 @@ Resources:
         Primary:
           ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
           Name: Majid Arabgol
-      Submitter Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
     Description: |-
       Computing element for Purdue Rice cluster( opportunistic).
       https://www.rcac.purdue.edu/compute/brown
-    Disable: false
     FQDN: brown-osg.rcac.purdue.edu
     ID: 929
     Services:
@@ -49,7 +44,7 @@ Resources:
     VOOwnership:
       CMS: 0
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 22.5
       AccountingName: T2_US_Purdue
       HEPSPEC: 85
       InteropAccounting: true

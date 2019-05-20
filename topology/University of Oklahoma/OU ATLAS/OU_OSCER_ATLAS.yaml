@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 89
 Production: true
 Resources:
   OU_OSCER_ATLAS:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -29,12 +29,7 @@ Resources:
         Secondary:
           ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
           Name: Christopher Arnold Walker
-      Submitter Contact:
-        Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
-          Name: Horst Severini
     Description: OU OSCER MPI cluster, Schooner
-    Disable: false
     FQDN: grid1.oscer.ou.edu
     ID: 89
     Services:
@@ -50,9 +45,9 @@ Resources:
       ATLAS: 55
       DOSAR: 45
     WLCGInformation:
-      APELNormalFactor: 14.22
+      APELNormalFactor: 11.73
       AccountingName: US-SWT2
-      HEPSPEC: 98971
+      HEPSPEC: 26558
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
@@ -61,6 +56,7 @@ Resources:
       StorageCapacityMax: 10
       StorageCapacityMin: 10
   OU_OSCER_ATLAS_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -86,12 +82,7 @@ Resources:
         Secondary:
           ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
           Name: Christopher Arnold Walker
-      Submitter Contact:
-        Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
-          Name: Horst Severini
     Description: OU OSCER Xrootd Storage
-    Disable: false
     FQDN: se1.oscer.ou.edu
     ID: 905
     Services:
@@ -107,9 +98,9 @@ Resources:
       ATLAS: 55
       DOSAR: 45
     WLCGInformation:
-      APELNormalFactor: 14.22
+      APELNormalFactor: 0
       AccountingName: US-SWT2
-      HEPSPEC: 98971
+      HEPSPEC: 0
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true

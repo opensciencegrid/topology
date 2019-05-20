@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 110
 Production: true
 Resources:
   UCR-HEP:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -17,13 +17,8 @@ Resources:
         Primary:
           ID: a52c4a829f876729b91353fac1deb660cc4ff35a
           Name: Bill Strossman
-      Submitter Contact:
-        Primary:
-          ID: a52c4a829f876729b91353fac1deb660cc4ff35a
-          Name: Bill Strossman
     Description: This consists of a Compute Element (CE) and a 10 node cluster used
       for CMS research
-    Disable: false
     FQDN: top.ucr.edu
     ID: 110
     Services:
@@ -49,6 +44,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   UCR-HEP-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -66,12 +62,7 @@ Resources:
         Primary:
           ID: a52c4a829f876729b91353fac1deb660cc4ff35a
           Name: Bill Strossman
-      Submitter Contact:
-        Primary:
-          ID: a52c4a829f876729b91353fac1deb660cc4ff35a
-          Name: Bill Strossman
     Description: This is a Bestman-gateway SE
-    Disable: false
     FQDN: charm.ucr.edu
     ID: 257
     Services:

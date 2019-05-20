@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 91
 Production: true
 Resources:
   SLAC:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -16,12 +16,7 @@ Resources:
         Primary:
           ID: 2d51aa6faa109d97dec985456a69cb3dab518c8e
           Name: Steffen Luitz
-      Submitter Contact:
-        Primary:
-          ID: 2d51aa6faa109d97dec985456a69cb3dab518c8e
-          Name: Steffen Luitz
     Description: Resource for SLAC
-    Disable: false
     FQDN: osgserv03.slac.stanford.edu
     ID: 430
     Services:
@@ -33,6 +28,7 @@ Resources:
     VOOwnership:
       SLAC: 100
   SLAC-ATLAS-T3_GRIDFTP:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -42,12 +38,7 @@ Resources:
         Primary:
           ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
           Name: Wei Yang
-      Submitter Contact:
-        Primary:
-          ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
-          Name: Wei Yang
     Description: GridFTP server for SLAC ATLAS Tier 3 and others
-    Disable: false
     FQDN: osggridftp02.slac.stanford.edu
     ID: 491
     Services:
@@ -69,6 +60,7 @@ Resources:
       StorageCapacityMin: 5
       TapeCapacity: 0
   WT2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -90,7 +82,6 @@ Resources:
       CPU resource listed, which are virtually all owned by ATLAS, are actually maximum
       (average) resource one can expect over a period of time. Occasional usage can
       be much higher.
-    Disable: false
     FQDN: osgserv06.slac.stanford.edu
     ID: 91
     Services:
@@ -113,6 +104,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   WT2_CE_2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -130,12 +122,7 @@ Resources:
         Primary:
           ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
           Name: Wei Yang
-      Submitter Contact:
-        Primary:
-          ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
-          Name: Wei Yang
     Description: second CE at SLAC
-    Disable: false
     FQDN: osgserv02.slac.stanford.edu
     ID: 368
     Services:
@@ -146,6 +133,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   WT2_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -163,12 +151,7 @@ Resources:
         Primary:
           ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
           Name: Wei Yang
-      Submitter Contact:
-        Primary:
-          ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
-          Name: Wei Yang
     Description: SE at SLAC
-    Disable: false
     FQDN: osggridftp02.slac.stanford.edu
     ID: 166
     Services:
@@ -190,6 +173,7 @@ Resources:
       StorageCapacityMax: 3890
       StorageCapacityMin: 3890
   WT2_SE_2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -199,12 +183,7 @@ Resources:
         Primary:
           ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
           Name: Wei Yang
-      Submitter Contact:
-        Primary:
-          ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
-          Name: Wei Yang
     Description: srm for none-ATLAS
-    Disable: false
     FQDN: osgsrm01.slac.stanford.edu
     ID: 476
     Services:
@@ -226,6 +205,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   perfSONAR_bw_SLAC:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -238,12 +218,7 @@ Resources:
         Primary:
           ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
           Name: Wei Yang
-      Submitter Contact:
-        Primary:
-          ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
-          Name: Wei Yang
     Description: persSONAR SLAC bandwidth instance
-    Disable: false
     FQDN: psnr-farm04.slac.stanford.edu
     ID: 579
     Services:
@@ -254,6 +229,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   perfSONAR_lat_SLAC:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -267,12 +243,7 @@ Resources:
         Primary:
           ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
           Name: Wei Yang
-      Submitter Contact:
-        Primary:
-          ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
-          Name: Wei Yang
     Description: SLAC perfSONAR latency instance
-    Disable: false
     FQDN: psnr-farm10.slac.stanford.edu
     ID: 576
     Services:

@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: Machines associated with Fermilab public dCache
 GroupID: 369
 Production: true
 Resources:
   Fermilab Public dCache:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -27,12 +27,7 @@ Resources:
         Secondary:
           ID: aab4d60a1efd0b582acad180db315f58a5097933
           Name: Mine Altunay
-      Submitter Contact:
-        Primary:
-          ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
-          Name: Tanya Levshina
     Description: Fermilab Public dCache
-    Disable: false
     FQDN: fndca2a.fnal.gov
     FQDNAliases:
     - fndca1.fnal.gov

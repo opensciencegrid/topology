@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: A resource
 GroupID: 311
 Production: true
 Resources:
   Vanderbilt_EC2_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -16,12 +16,7 @@ Resources:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
-      Submitter Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
     Description: CE for grid interoperability
-    Disable: false
     FQDN: se2.accre.vanderbilt.edu
     ID: 410
     Services:
@@ -44,6 +39,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   Vanderbilt_EC2_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -56,12 +52,7 @@ Resources:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
-      Submitter Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
     Description: SE endpoint for the cloud
-    Disable: false
     FQDN: se2.accre.vanderbilt.edu
     FQDNAliases:
     - se2.accre.vanderbilt.edu

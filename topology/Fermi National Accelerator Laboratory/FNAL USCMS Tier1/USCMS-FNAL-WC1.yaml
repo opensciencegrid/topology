@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 210
 Production: true
 Resources:
   FNAL NRTB PerfSONAR Bandwidth:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -13,13 +13,8 @@ Resources:
         Primary:
           ID: 86d6367e268ad10200b21b1a85f114e758052fcb
           Name: Darryl K Wohlt
-      Submitter Contact:
-        Primary:
-          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
-          Name: Darryl K Wohlt
     Description: This is a PerfSONAR instance configured for BWCTL only, with a 10Gb
       Ethernet interface residing on the FNAL Network Research Testbed network.
-    Disable: false
     FQDN: psonartest1.fnal.gov
     ID: 769
     Services:
@@ -30,6 +25,7 @@ Resources:
     VOOwnership:
       Fermilab: 100
   FNAL NRTB PerfSONAR Latency:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -39,13 +35,8 @@ Resources:
         Primary:
           ID: 86d6367e268ad10200b21b1a85f114e758052fcb
           Name: Darryl K Wohlt
-      Submitter Contact:
-        Primary:
-          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
-          Name: Darryl K Wohlt
     Description: This is a PerfSONAR instance configured for OWAMP only, with a 1Gb
       Ethernet interface residing on the FNAL Network Research Testbed network.
-    Disable: false
     FQDN: psonartest2.fnal.gov
     ID: 770
     Services:
@@ -56,6 +47,7 @@ Resources:
     VOOwnership:
       Fermilab: 100
   US-FNAL BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -65,12 +57,7 @@ Resources:
         Primary:
           ID: 86d6367e268ad10200b21b1a85f114e758052fcb
           Name: Darryl K Wohlt
-      Submitter Contact:
-        Primary:
-          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
-          Name: Darryl K Wohlt
     Description: This PerfSONAR node has a 10Gbps interface.
-    Disable: false
     FQDN: psonar3.fnal.gov
     ID: 625
     Services:
@@ -81,6 +68,7 @@ Resources:
     VOOwnership:
       Fermilab: 100
   US-FNAL LT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -90,12 +78,7 @@ Resources:
         Primary:
           ID: 86d6367e268ad10200b21b1a85f114e758052fcb
           Name: Darryl K Wohlt
-      Submitter Contact:
-        Primary:
-          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
-          Name: Darryl K Wohlt
     Description: PerfSONAR latency node
-    Disable: false
     FQDN: psonar4.fnal.gov
     ID: 626
     Services:
@@ -106,6 +89,7 @@ Resources:
     VOOwnership:
       Fermilab: 100
   USCMS PerfSonar IPV6 Test:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -119,12 +103,7 @@ Resources:
         Primary:
           ID: 86d6367e268ad10200b21b1a85f114e758052fcb
           Name: Darryl K Wohlt
-      Submitter Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
     Description: This is a PerfSonar dual stack instance
-    Disable: false
     FQDN: psonartest1.fnal.gov
     ID: 744
     Services:
@@ -135,6 +114,7 @@ Resources:
     VOOwnership:
       Fermilab: 100
   USCMS-FNAL-WC1-CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -158,12 +138,7 @@ Resources:
         Secondary:
           ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
           Name: David Alexander Mason
-      Submitter Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
     Description: CMS Tier 1 Gatekeeper
-    Disable: false
     FQDN: cmsosgce.fnal.gov
     ID: 127
     Services:
@@ -191,6 +166,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   USCMS-FNAL-WC1-CE2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -210,12 +186,7 @@ Resources:
         Secondary:
           ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
           Name: David Alexander Mason
-      Submitter Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
     Description: CMS T1 Gatekeeper
-    Disable: false
     FQDN: cmsosgce2.fnal.gov
     ID: 128
     Services:
@@ -242,6 +213,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   USCMS-FNAL-WC1-CE3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -265,12 +237,7 @@ Resources:
         Secondary:
           ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
           Name: David Alexander Mason
-      Submitter Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
     Description: Gatekeeper for non-CMS VOs at the FNAL Tier 1
-    Disable: false
     FQDN: cmsosgce3.fnal.gov
     ID: 129
     Services:
@@ -292,6 +259,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   USCMS-FNAL-WC1-CE4:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -315,12 +283,7 @@ Resources:
         Secondary:
           ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
           Name: David Alexander Mason
-      Submitter Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
     Description: CMS T1 gatekeeper
-    Disable: false
     FQDN: cmsosgce4.fnal.gov
     ID: 130
     Services:
@@ -347,7 +310,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   USCMS-FNAL-WC1-OPP1:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -357,12 +320,7 @@ Resources:
         Tertiary:
           ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
           Name: Farrukh Aftab Khan
-      Submitter Contact:
-        Primary:
-          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
-          Name: Anthony Tiradani
     Description: Gatekeeper for Opportunistic usage at the FNAL CMS Tier-1
-    Disable: false
     FQDN: cmsosgce-opp1.fnal.gov
     ID: 934
     Services:
@@ -373,6 +331,7 @@ Resources:
     VOOwnership:
       CMS: 100
   USCMS-FNAL-WC1-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -383,17 +342,9 @@ Resources:
           ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
           Name: David Alexander Mason
         Secondary:
-          ID: eec48e00eea58d6a626fb4c0b6dd0734e5c113b9
-          Name: Lisa Giacchetti
-        Tertiary:
           ID: ae2bc50d651cb793a15bfce35c6717988715f519
           Name: Chih-Hao Huang
-      Submitter Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
-    Description: This is the dCache SE at the USCMS Tier 1
-    Disable: false
+    Description: This is the tape dCache SE at the USCMS Tier 1
     FQDN: cmsdcatape01.fnal.gov
     ID: 236
     Services:
@@ -414,39 +365,31 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      StorageCapacityMax: 10000
-      StorageCapacityMin: 10000
-      TapeCapacity: 22000
+      StorageCapacityMax: 1800
+      StorageCapacityMin: 1800
+      TapeCapacity: 75000
   USCMS-FNAL-WC1-SE2:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
+        Secondary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
+      Miscellaneous Contact:
         Primary:
           ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
           Name: David Alexander Mason
-      Security Contact:
-        Primary:
-          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-          Name: David Alexander Mason
-      Submitter Contact:
-        Primary:
-          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-          Name: David Alexander Mason
-    Description: This is the disk-only dCache SE at the USCMS Tier 1
-    Disable: false
+        Secondary:
+          ID: ae2bc50d651cb793a15bfce35c6717988715f519
+          Name: Chih-Hao Huang
+    Description: This is the disk dCache SE at the USCMS Tier 1
     FQDN: cmsdcadisk01.fnal.gov
-    ID: 865
+    ID: 979
     Services:
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
+      FTS:
+        Description: File Transfer Service
       SRMv2:
         Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-      XRootD component:
-        Description: any part of xrootd
         Details:
           hidden: false
     VOOwnership:
@@ -461,60 +404,6 @@ Resources:
       KSI2KMax: 0
       KSI2KMin: 0
       StorageCapacityMax: 24000
-      StorageCapacityMin: 22000
+      StorageCapacityMin: 24000
       TapeCapacity: 0
-  USCMS-FNAL-WC1-glideinWMS-submit-cmssrv98:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
-      Miscellaneous Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
-        Secondary:
-          ID: f142df3b4d56dac64950f25bac9e31a6d44fcdc6
-          Name: Catalin Dumitrescu
-        Tertiary:
-          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
-          Name: Anthony Tiradani
-      Submitter Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
-    Description: This is a submit host for a USCMS glidein factory based at FNAL
-    Disable: false
-    FQDN: cmssrv98
-    ID: 393
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-    VOOwnership:
-      CMS: 100
-  perfSONAR_fnal_latency:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 632c61dc27aa93233499a9ac3820c0995a5c4f08
-          Name: Jorge Alberto Diaz Cruz
-      Security Contact:
-        Primary:
-          ID: 632c61dc27aa93233499a9ac3820c0995a5c4f08
-          Name: Jorge Alberto Diaz Cruz
-      Submitter Contact:
-        Primary:
-          ID: 632c61dc27aa93233499a9ac3820c0995a5c4f08
-          Name: Jorge Alberto Diaz Cruz
-    Description: This is the PerfSONAR-PS latency instance at Fermilab
-    Disable: false
-    FQDN: psonar4.fnl.gov
-    ID: 700
-    Services:
-      net.perfSONAR.Latency:
-        Description: PerfSonar Latency monitoring node
-        Details:
-          endpoint: psonar4.fnl.gov
-    VOOwnership:
-      CMS: 100
 SupportCenter: USCMS

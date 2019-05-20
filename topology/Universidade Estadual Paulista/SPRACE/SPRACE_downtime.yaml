@@ -1,275 +1,379 @@
 - Class: SCHEDULED
   Description: This is for upgrade dCache server and pools to a newer version.
-  EndTime: Jan 16, 2017 20:00 PM UTC
+  EndTime: Jan 16, 2017 20:00 +0000
   ID: 1005168
   ResourceName: SPRACE-SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Jan 16, 2017 11:00 AM UTC
+  StartTime: Jan 16, 2017 11:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
 
     Due to the holiday in Brazil we expect to go back by next Wednesday.
-  EndTime: Mar 1, 2017 15:00 PM UTC
+  EndTime: Mar 1, 2017 15:00 +0000
   ID: 1005212
   ResourceName: SPRACE
   Services:
   - CE
   Severity: Outage
-  StartTime: Feb 25, 2017 03:30 AM UTC
+  StartTime: Feb 25, 2017 03:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
 
     Due to the holiday in Brazil we expect to go back by next Wednesday.
-  EndTime: Mar 1, 2017 15:00 PM UTC
+  EndTime: Mar 1, 2017 15:00 +0000
   ID: 1005213
   ResourceName: SPRACE-SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Feb 25, 2017 03:30 AM UTC
+  StartTime: Feb 25, 2017 03:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
 
     Due to the holiday in Brazil we expect to go back by next Wednesday.
-  EndTime: Mar 1, 2017 15:00 PM UTC
+  EndTime: Mar 1, 2017 15:00 +0000
   ID: 1005214
   ResourceName: T2_BR_SPRACE-squid1
   Services:
   - Squid
   Severity: Outage
-  StartTime: Feb 25, 2017 03:30 AM UTC
+  StartTime: Feb 25, 2017 03:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
 
     Due to the holiday in Brazil we expect to go back by next Wednesday.
-  EndTime: Mar 1, 2017 15:00 PM UTC
+  EndTime: Mar 1, 2017 15:00 +0000
   ID: 1005215
   ResourceName: T2_BR_SPRACE-squid2
   Services:
   - Squid
   Severity: Outage
-  StartTime: Feb 25, 2017 03:30 AM UTC
+  StartTime: Feb 25, 2017 03:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
 
     Due to the holiday in Brazil we expect to go back by next Wednesday.
-  EndTime: Mar 1, 2017 15:00 PM UTC
+  EndTime: Mar 1, 2017 15:00 +0000
   ID: 1005216
   ResourceName: BR-Sprace BW
   Services:
   - net.perfSONAR.Bandwidth
   Severity: Outage
-  StartTime: Feb 25, 2017 03:30 AM UTC
+  StartTime: Feb 25, 2017 03:30 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
 
     Due to the holiday in Brazil we expect to go back by next Wednesday.
-  EndTime: Mar 1, 2017 15:00 PM UTC
+  EndTime: Mar 1, 2017 15:00 +0000
   ID: 1005217
   ResourceName: BR-Sprace LT
   Services:
   - net.perfSONAR.Latency
   Severity: Outage
-  StartTime: Feb 25, 2017 03:30 AM UTC
+  StartTime: Feb 25, 2017 03:30 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our Academic Internet Service Provider is going to perform a 6-hour
     maintenance in order to move some racks and switches. During maintenance T2_BR_SPRACE
     will be unreachable.
-  EndTime: May 7, 2017 18:00 PM UTC
+  EndTime: May 7, 2017 18:00 +0000
   ID: 1005288
   ResourceName: BR-Sprace BW
   Services:
   - net.perfSONAR.Bandwidth
   Severity: Outage
-  StartTime: May 7, 2017 12:00 PM UTC
+  StartTime: May 7, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our Academic Internet Service Provider is going to perform a 6-hour
     maintenance in order to move some racks and switches. During maintenance T2_BR_SPRACE
     will be unreachable.
-  EndTime: May 7, 2017 18:00 PM UTC
+  EndTime: May 7, 2017 18:00 +0000
   ID: 1005289
   ResourceName: BR-Sprace LT
   Services:
   - net.perfSONAR.Latency
   Severity: Outage
-  StartTime: May 7, 2017 12:00 PM UTC
+  StartTime: May 7, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our Academic Internet Service Provider is going to perform a 6-hour
     maintenance in order to move some racks and switches. During maintenance T2_BR_SPRACE
     will be unreachable.
-  EndTime: May 7, 2017 18:00 PM UTC
+  EndTime: May 7, 2017 18:00 +0000
   ID: 1005290
   ResourceName: SPRACE
   Services:
   - CE
   Severity: Outage
-  StartTime: May 7, 2017 12:00 PM UTC
+  StartTime: May 7, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our Academic Internet Service Provider is going to perform a 6-hour
     maintenance in order to move some racks and switches. During maintenance T2_BR_SPRACE
     will be unreachable.
-  EndTime: May 7, 2017 18:00 PM UTC
+  EndTime: May 7, 2017 18:00 +0000
   ID: 1005291
   ResourceName: SPRACE-SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: May 7, 2017 12:00 PM UTC
+  StartTime: May 7, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our Academic Internet Service Provider is going to perform a 6-hour
     maintenance in order to move some racks and switches. During maintenance T2_BR_SPRACE
     will be unreachable.
-  EndTime: May 7, 2017 18:00 PM UTC
+  EndTime: May 7, 2017 18:00 +0000
   ID: 1005292
   ResourceName: T2_BR_SPRACE-squid1
   Services:
   - Squid
   Severity: Outage
-  StartTime: May 7, 2017 12:00 PM UTC
+  StartTime: May 7, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Our Academic Internet Service Provider is going to perform a 6-hour
     maintenance in order to move some racks and switches. During maintenance T2_BR_SPRACE
     will be unreachable.
-  EndTime: May 7, 2017 18:00 PM UTC
+  EndTime: May 7, 2017 18:00 +0000
   ID: 1005293
   ResourceName: T2_BR_SPRACE-squid2
   Services:
   - Squid
   Severity: Outage
-  StartTime: May 7, 2017 12:00 PM UTC
+  StartTime: May 7, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: This is to allow us to update our dCache server and pools
-  EndTime: Sep 4, 2017 21:00 PM UTC
+  EndTime: Sep 4, 2017 21:00 +0000
   ID: 1005419
   ResourceName: SPRACE-SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Sep 4, 2017 12:00 PM UTC
+  StartTime: Sep 4, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: This is to allow us to update our dCache server and pools
-  EndTime: Sep 4, 2017 21:00 PM UTC
+  EndTime: Sep 4, 2017 21:00 +0000
   ID: 1005420
   ResourceName: SPRACE
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 4, 2017 12:00 PM UTC
+  StartTime: Sep 4, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: SPRACE lose all network connectivity primary and secondary link, due
     the holiday in Brazil we expect to have this fixed only on monday.
-  EndTime: Nov 6, 2017 20:00 PM UTC
+  EndTime: Nov 6, 2017 20:00 +0000
   ID: 1005497
   ResourceName: SPRACE-SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Nov 3, 2017 22:00 PM UTC
+  StartTime: Nov 3, 2017 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: SPRACE lose all network connectivity primary and secondary link, due
     the holiday in Brazil we expect to have this fixed only on monday.
-  EndTime: Nov 6, 2017 20:00 PM UTC
+  EndTime: Nov 6, 2017 20:00 +0000
   ID: 1005498
   ResourceName: SPRACE
   Services:
   - CE
   Severity: Outage
-  StartTime: Nov 3, 2017 22:00 PM UTC
+  StartTime: Nov 3, 2017 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: SPRACE lose all network connectivity primary and secondary link, due
     the holiday in Brazil we expect to have this fixed only on monday.
-  EndTime: Nov 6, 2017 20:00 PM UTC
+  EndTime: Nov 6, 2017 20:00 +0000
   ID: 1005499
   ResourceName: BR-Sprace LT
   Services:
   - net.perfSONAR.Latency
   Severity: Outage
-  StartTime: Nov 3, 2017 22:00 PM UTC
+  StartTime: Nov 3, 2017 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: SPRACE lose all network connectivity primary and secondary link, due
     the holiday in Brazil we expect to have this fixed only on monday.
-  EndTime: Nov 6, 2017 20:00 PM UTC
+  EndTime: Nov 6, 2017 20:00 +0000
   ID: 1005500
   ResourceName: T2_BR_SPRACE-squid1
   Services:
   - Squid
   Severity: Outage
-  StartTime: Nov 3, 2017 22:00 PM UTC
+  StartTime: Nov 3, 2017 22:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: SPRACE lose all network connectivity primary and secondary link, due
     the holiday in Brazil we expect to have this fixed only on monday.
-  EndTime: Nov 6, 2017 20:00 PM UTC
+  EndTime: Nov 6, 2017 20:00 +0000
   ID: 1005501
   ResourceName: T2_BR_SPRACE-squid2
   Services:
   - Squid
   Severity: Outage
-  StartTime: Nov 3, 2017 22:00 PM UTC
+  StartTime: Nov 3, 2017 22:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: For maintenance and expansion in the main electrical panel and dCache
     upgrade.
-  EndTime: Jan 17, 2018 22:00 PM UTC
+  EndTime: Jan 17, 2018 22:00 +0000
   ID: 1005551
   ResourceName: SPRACE
   Services:
   - CE
   Severity: Outage
-  StartTime: Jan 17, 2018 10:00 AM UTC
+  StartTime: Jan 17, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: For maintenance and expansion in the main electrical panel and dCache
     upgrade.
-  EndTime: Jan 17, 2018 22:00 PM UTC
+  EndTime: Jan 17, 2018 22:00 +0000
   ID: 1005552
   ResourceName: SPRACE-SE
   Services:
   - SRMv2
   Severity: Outage
-  StartTime: Jan 17, 2018 10:00 AM UTC
+  StartTime: Jan 17, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: For maintenance and expansion in the main electrical panel and dCache
     upgrade.
-  EndTime: Jan 17, 2018 22:00 PM UTC
+  EndTime: Jan 17, 2018 22:00 +0000
   ID: 1005553
   ResourceName: BR-Sprace LT
   Services:
   - net.perfSONAR.Latency
   Severity: Outage
-  StartTime: Jan 17, 2018 10:00 AM UTC
+  StartTime: Jan 17, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: For maintenance and expansion in the main electrical panel and dCache
     upgrade.
-  EndTime: Jan 17, 2018 22:00 PM UTC
+  EndTime: Jan 17, 2018 22:00 +0000
   ID: 1005554
   ResourceName: T2_BR_SPRACE-squid1
   Services:
   - Squid
   Severity: Outage
-  StartTime: Jan 17, 2018 10:00 AM UTC
+  StartTime: Jan 17, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: For maintenance and expansion in the main electrical panel and dCache
     upgrade.
-  EndTime: Jan 17, 2018 22:00 PM UTC
+  EndTime: Jan 17, 2018 22:00 +0000
   ID: 1005555
   ResourceName: T2_BR_SPRACE-squid2
   Services:
   - Squid
   Severity: Outage
-  StartTime: Jan 17, 2018 10:00 AM UTC
+  StartTime: Jan 17, 2018 10:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: This downtime will be to deploy a new NFS server machine, this will
     lead to unavailability of CE and WNs since they mount a FS exported by this server.
-  EndTime: Mar 6, 2018 16:00 PM UTC
+  EndTime: Mar 6, 2018 16:00 +0000
   ID: 1005608
   ResourceName: SPRACE
   Services:
   - CE
   Severity: Outage
-  StartTime: Mar 6, 2018 12:00 PM UTC
+  StartTime: Mar 6, 2018 12:00 +0000
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 47854584
+  Description: Network is down
+  Severity: Outage
+  StartTime: Oct 17, 2018 09:10 +0000
+  EndTime: Oct 17, 2018 16:10 +0000
+  CreatedTime: Oct 17, 2018 09:10 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 49054289
+  Description: Network instabilities due to external issues
+  Severity: Intermittent Outage
+  StartTime: Oct 18, 2018 10:00 +0000
+  EndTime: Oct 19, 2018 10:00 +0000
+  CreatedTime: Oct 18, 2018 18:30 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 49059101
+  Description: Network instabilities due to external issues
+  Severity: Intermittent Outage
+  StartTime: Oct 18, 2018 10:00 +0000
+  EndTime: Oct 19, 2018 10:00 +0000
+  CreatedTime: Oct 18, 2018 18:38 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 87839794
+  Description: 'NFS/PXE Boot server needs to be redeployed from scratch due to several system
+    files removed by accident. '
+  Severity: Severe
+  StartTime: Dec 02, 2018 12:00 +0000
+  EndTime: Dec 03, 2018 18:00 +0000
+  CreatedTime: Dec 02, 2018 14:52 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 96535691
+  Description: Upgrade of Compute Element (osg-ce.sprace.org.br) from CentOS-6 to CentOS-7.
+  Severity: Outage
+  StartTime: Dec 17, 2018 07:00 +0000
+  EndTime: Dec 17, 2018 21:00 +0000
+  CreatedTime: Dec 12, 2018 16:26 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 158794906
+  Description: Campus wide Power outage
+  Severity: Outage
+  StartTime: Feb 22, 2019 01:00 +0000
+  EndTime: Feb 22, 2019 21:00 +0000
+  CreatedTime: Feb 22, 2019 17:51 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 158791347
+  Description: Campus wide Power outage
+  Severity: Outage
+  StartTime: Feb 22, 2019 01:00 +0000
+  EndTime: Feb 22, 2019 21:00 +0000
+  CreatedTime: Feb 22, 2019 17:45 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------

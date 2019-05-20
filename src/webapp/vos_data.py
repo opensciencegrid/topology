@@ -2,10 +2,10 @@ import copy
 
 from collections import OrderedDict
 from logging import getLogger
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 
-from .common import Filters, MaybeOrderedDict, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list
+from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list
 from .contacts_reader import ContactsData
 
 
@@ -32,6 +32,8 @@ class VOsData(object):
             try:
                 expanded_vo_data = self._expand_vo(vo_name, authorized=authorized, filters=filters)
                 if expanded_vo_data:
+                    if 'DataFederations' in expanded_vo_data:
+                        del expanded_vo_data['DataFederations']
                     expanded_vo_list.append(expanded_vo_data)
             except (KeyError, ValueError, AttributeError) as err:
                 log.exception("Problem with VO data for %s: %s", vo_name, err)
@@ -41,7 +43,7 @@ class VOsData(object):
             "@xsi:schemaLocation": VOSUMMARY_SCHEMA_URL,
             "VO": expanded_vo_list}}
 
-    def _expand_vo(self, name: str, authorized: bool, filters: Filters) -> MaybeOrderedDict:
+    def _expand_vo(self, name: str, authorized: bool, filters: Filters) -> Optional[OrderedDict]:
         # Restore ordering
         new_vo = OrderedDict.fromkeys(["ID", "Name", "LongName", "CertificateOnly", "PrimaryURL",
                                        "MembershipServicesURL", "PurposeURL", "SupportURL", "AppDescription",
@@ -73,14 +75,13 @@ class VOsData(object):
         if not is_null(vo, "ReportingGroups"):
             new_vo["ReportingGroups"] = self._expand_reporting_groups(vo["ReportingGroups"], authorized)
 
-        if not is_null(vo, "OASIS"):
-            oasis = OrderedDict.fromkeys(["UseOASIS", "Managers", "OASISRepoURLs"])
-            oasis["UseOASIS"] = vo["OASIS"].get("UseOASIS", False)
-            if not is_null(vo["OASIS"], "Managers"):
-                oasis["Managers"] = self._expand_oasis_managers(vo["OASIS"]["Managers"])
-            if not is_null(vo["OASIS"], "OASISRepoURLs"):
-                oasis["OASISRepoURLs"] = {"URL": vo["OASIS"]["OASISRepoURLs"]}
-            new_vo["OASIS"] = oasis
+        oasis = OrderedDict.fromkeys(["UseOASIS", "Managers", "OASISRepoURLs"])
+        oasis["UseOASIS"] = vo.get("OASIS", {}).get("UseOASIS", False)
+        if not is_null(vo, "OASIS", "Managers"):
+            oasis["Managers"] = self._expand_oasis_managers(vo["OASIS"]["Managers"])
+        if not is_null(vo, "OASIS", "OASISRepoURLs"):
+            oasis["OASISRepoURLs"] = {"URL": vo["OASIS"]["OASISRepoURLs"]}
+        new_vo["OASIS"] = oasis
 
         if not is_null(vo, "FieldsOfScience"):
             new_vo["FieldsOfScience"] = self._expand_fields_of_science(vo["FieldsOfScience"])

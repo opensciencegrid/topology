@@ -1,43 +1,33 @@
-Disable: false
 GroupDescription: Testing Resource Group
 GroupID: 351
 Production: true
 Resources:
   AGLT2_TEST_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
         Secondary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Miscellaneous Contact:
-        Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
-      Resource Report Contact:
-        Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
-        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
       Security Contact:
         Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
         Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-      Submitter Contact:
-        Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
     Description: This is a test CE.  It will initially be used to test the migration
       of the AGLT2 site from the pacman distribute osg_ce to the rpm based version
       of that software.
-    Disable: false
     FQDN: gate03.aglt2.org
     ID: 478
     Services:
@@ -59,35 +49,30 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   US-AGLT2_MSU BW(TB):
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
           ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
           Name: Philippe Laurens
-        Secondary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Resource Report Contact:
-        Primary:
-          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
-          Name: Philippe Laurens
-        Secondary:
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
       Security Contact:
         Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
           ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
           Name: Philippe Laurens
-        Secondary:
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-      Submitter Contact:
-        Primary:
-          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
-          Name: Philippe Laurens
     Description: This is the TEST perfSONAR-PS bandwidth instance at the Michigan
       State University AGLT2 site.
-    Disable: false
     FQDN: psmsu06.aglt2.org
     ID: 711
     Services:
@@ -98,35 +83,30 @@ Resources:
     VOOwnership:
       ATLAS: 90
   US-AGLT2_MSU LAT(TB):
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
           ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
           Name: Philippe Laurens
-        Secondary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Resource Report Contact:
-        Primary:
-          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
-          Name: Philippe Laurens
-        Secondary:
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
       Security Contact:
         Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
           ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
           Name: Philippe Laurens
-        Secondary:
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-      Submitter Contact:
-        Primary:
-          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
-          Name: Philippe Laurens
     Description: This is the TEST perfSONAR-PS latency instance at the Michigan State
       University AGLT2 site.
-    Disable: false
     FQDN: psmsu05.aglt2.org
     ID: 705
     Services:
@@ -137,25 +117,29 @@ Resources:
     VOOwnership:
       ATLAS: 90
   US-AGLT2_UM BW(TB):
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Resource Report Contact:
-        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
       Security Contact:
         Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Submitter Contact:
-        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: This is the perfSONAR testbed bandwidth instance at UM
-    Disable: false
     FQDN: psum06.aglt2.org
     ID: 668
     Services:
@@ -166,25 +150,29 @@ Resources:
     VOOwnership:
       ATLAS: 90
   US-AGLT2_UM LAT(TB):
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Resource Report Contact:
-        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
       Security Contact:
         Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Submitter Contact:
-        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: This is the perfSONAR testbed instance at the University of Michigan
-    Disable: false
     FQDN: psum05.aglt2.org
     ID: 667
     Services:

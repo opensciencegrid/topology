@@ -1,40 +1,9 @@
-Disable: true
 GroupDescription: Resource group for Wisconsin's persistent ITB site.
 GroupID: 260
 Production: false
 Resources:
-  VDT-ITB:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 19511ac08de9fbb51709a05a707decfe36de286f
-          Name: Tim Cartwright
-      Miscellaneous Contact:
-        Primary:
-          ID: 19511ac08de9fbb51709a05a707decfe36de286f
-          Name: Tim Cartwright
-      Resource Report Contact:
-        Secondary:
-          ID: 19511ac08de9fbb51709a05a707decfe36de286f
-          Name: Tim Cartwright
-      Security Contact:
-        Secondary:
-          ID: 19511ac08de9fbb51709a05a707decfe36de286f
-          Name: Tim Cartwright
-    Description: VDT's persistent ITB site
-    Disable: true
-    FQDN: vdt-itb.cs.wisc.edu
-    ID: 307
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-    VOOwnership:
-      OSG: 100
   VDT-ITB-MADISON:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -43,6 +12,9 @@ Resources:
         Secondary:
           ID: 19511ac08de9fbb51709a05a707decfe36de286f
           Name: Tim Cartwright
+        Tertiary:
+          ID: 606b797dcc03cad7135b7cc61b78fbc15eea7ec8
+          Name: Carl Edquist
       Resource Report Contact:
         Primary:
           ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
@@ -58,7 +30,6 @@ Resources:
           ID: 19511ac08de9fbb51709a05a707decfe36de286f
           Name: Tim Cartwright
     Description: This is an ITB site run by the OSG Software Team at UW-Madison.
-    Disable: true
     FQDN: itb-ce1.chtc.wisc.edu
     ID: 467
     Services:
@@ -66,6 +37,4 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: OSG Software

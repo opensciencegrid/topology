@@ -1,45 +1,28 @@
-Disable: false
 GroupDescription: Tier3gs installation which consists of a CE, SE and a cluster of
   worker nodes
 GroupID: 147
 Production: true
 Resources:
   IllinoisHEP:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
       Miscellaneous Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
       Resource Report Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
       Security Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
-      Submitter Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
     Description: Tier3gs Compute Element
-    Disable: false
     FQDN: osgx0.hep.uiuc.edu
     ID: 147
     Services:
@@ -54,41 +37,25 @@ Resources:
     VOOwnership:
       ATLAS: 100
   IllinoisHEP-GUMS:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
       Miscellaneous Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
       Resource Report Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
       Security Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
-      Submitter Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
     Description: IllinoisHEP GUMS server
-    Disable: false
     FQDN: osggums.hep.uiuc.edu
     ID: 256
     Services:
@@ -97,41 +64,25 @@ Resources:
     VOOwnership:
       ATLAS: 100
   IllinoisHEP-LFC:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
       Miscellaneous Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
       Resource Report Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
       Security Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
-      Submitter Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
     Description: This is the LFC node for the DDM in our Tier3gs
-    Disable: false
     FQDN: osgx3.hep.uiuc.edu
     ID: 265
     Services:
@@ -142,41 +93,25 @@ Resources:
     VOOwnership:
       ATLAS: 100
   IllinoisHEP-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
       Miscellaneous Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
       Resource Report Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
       Security Contact:
         Primary:
           ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
           Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
-      Submitter Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
     Description: Tier3gs Storage Element
-    Disable: false
     FQDN: osgx1.hep.uiuc.edu
     ID: 207
     Services:
@@ -184,52 +119,6 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-    VOOwnership:
-      ATLAS: 100
-  perfSONAR_IllinoisHEP:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
-      Miscellaneous Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
-      Security Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: f44803612de6a9640fd279e2217f2e3f3d537745
-          Name: P Larry Nelson
-      Submitter Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-    Description: IllinoisHEP perfSONAR-PS instances at University of Illinois at Urbana-Champaign
-    Disable: false
-    FQDN: osgpfsr.hep.uiuc.edu
-    ID: 568
-    Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: osgpfsr.hep.uiuc.edu
     VOOwnership:
       ATLAS: 100
 SupportCenter: USATLAS

@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 126
 Production: true
 Resources:
   UNM_HPC:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -17,12 +17,7 @@ Resources:
         Primary:
           ID: 44de0ffc27df9ee76c06604efc57c997be48e1cf
           Name: Daniel Felker
-      Submitter Contact:
-        Primary:
-          ID: 44de0ffc27df9ee76c06604efc57c997be48e1cf
-          Name: Daniel Felker
     Description: UNM_HPC
-    Disable: false
     FQDN: m3.alliance.unm.edu
     ID: 126
     Services:

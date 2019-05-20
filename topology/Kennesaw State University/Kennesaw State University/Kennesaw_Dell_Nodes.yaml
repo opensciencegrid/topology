@@ -1,11 +1,19 @@
-Disable: false
 GroupDescription: 10 Dual Quad-Core Dell R410 blades
 GroupID: 375
 Production: true
 Resources:
   Kennesaw_Dell_Nodes:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 7d0c02d169f15b39114ae421343ef429dfcb0653
+          Name: David Joffe
+      Administrative Contact:
+        Primary:
+          ID: 7d0c02d169f15b39114ae421343ef429dfcb0653
+          Name: David Joffe
+    Active: true
     Description: 10 Dell R410 dual-quad core blades
-    Disable: false
     FQDN: Prometheus.kennesaw.edu
     ID: 551
     Services:

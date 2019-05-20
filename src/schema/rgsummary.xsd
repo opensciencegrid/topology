@@ -39,6 +39,7 @@
                     <xsd:element name="Name" type="xsd:string" />
                     <xsd:element name="AddressLine1" type="xsd:string" minOccurs="0" />
                     <xsd:element name="AddressLine2" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="City" type="xsd:string" minOccurs="0" />
                     <xsd:element name="Country" type="xsd:string" minOccurs="0" />
                     <xsd:element name="Description" type="xsd:string" minOccurs="0" /> 
                     <xsd:element name="Latitude" type="xsd:string" minOccurs="0" />
@@ -146,7 +147,7 @@
                           <xsd:element minOccurs="0" name="ENV" type="xsd:string" />
                           <xsd:element name="ContactLists">
                             <xsd:complexType mixed="true">
-                              <xsd:sequence minOccurs="0">
+                              <xsd:sequence minOccurs="1">
                                 <xsd:element maxOccurs="unbounded" name="ContactList">
                                   <xsd:complexType>
                                     <xsd:sequence>

@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: Purdue Halstead
 GroupID: 461
 Production: true
 Resources:
   Purdue-Halstead:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -27,14 +27,9 @@ Resources:
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
-      Submitter Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
     Description: |-
       Computing element for Purdue Halstead cluster.
       https://www.rcac.purdue.edu/compute/halstead/
-    Disable: false
     FQDN: halstead-osg.rcac.purdue.edu
     ID: 857
     Services:
@@ -46,7 +41,7 @@ Resources:
     VOOwnership:
       CMS: 0
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 11.98
       AccountingName: T2_US_Purdue
       HEPSPEC: 85
       InteropAccounting: true

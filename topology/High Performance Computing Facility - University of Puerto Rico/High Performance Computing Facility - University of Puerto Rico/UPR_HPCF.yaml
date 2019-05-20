@@ -1,11 +1,19 @@
-Disable: false
 GroupDescription: HPCF Resource Group
 GroupID: 385
 Production: true
 Resources:
   Nanobio_CE:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: c370cd8999df813b8a8c37ca6e7a84c3a9b1d2c5
+          Name: Humberto Ortiz-Zuazaga
+      Administrative Contact:
+        Primary:
+          ID: c370cd8999df813b8a8c37ca6e7a84c3a9b1d2c5
+          Name: Humberto Ortiz-Zuazaga
+    Active: true
     Description: This is a test compute element.
-    Disable: false
     FQDN: nanobioman.hpcf.upr.edu
     ID: 572
     Services:
@@ -14,6 +22,4 @@ Resources:
         Details:
           hidden: false
           uri_override: nanobioman.hpcf.upr.edu:2119
-    VOOwnership:
-      OSG: 100
 SupportCenter: UPR_HPCF

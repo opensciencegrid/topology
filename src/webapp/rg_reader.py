@@ -8,39 +8,41 @@ Usage as a script:
 
 If output file not specified or downtime output file not specified, results are printed to stdout.
 
-Usage as a module
-
-    from converters.resourcegroup_yaml_to_xml import get_rgsummary_rgdowntime_xml
-    rgsummary_xml, rgdowntime_xml = get_rgsummary_rgdowntime_xml(input_dir[, output_file, downtime_output_file])
-
-where the return value `xml` is a string.
-
 """
-import argparse
 from argparse import ArgumentParser
 
-import anymarkup
 import os
+import logging
 import pprint
 import sys
 from pathlib import Path
+import yaml
+
 
 # thanks stackoverflow
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import ensure_list, to_xml, Filters
+from webapp.common import ensure_list, to_xml, Filters, load_yaml_file
 from webapp.contacts_reader import get_contacts_data
 from webapp.topology import CommonData, Topology
 
-class RGError(Exception):
+
+log = logging.getLogger(__name__)
+
+
+class TopologyError(Exception):
+    """Generic error with loading topology"""
+
+
+class RGError(TopologyError):
     """An error with converting a specific RG"""
     def __init__(self, rg, *args, **kwargs):
         Exception.__init__(self, *args, **kwargs)
         self.rg = rg
 
 
-class DowntimeError(Exception):
+class DowntimeError(TopologyError):
     """An error with converting a specific piece of downtime info"""
     def __init__(self, downtime, rg, *args, **kwargs):
         Exception.__init__(self, *args, **kwargs)
@@ -48,31 +50,41 @@ class DowntimeError(Exception):
         self.rg = rg
 
 
-def get_rgsummary_rgdowntime(indir, contacts_file=None, authorized=False):
+def get_rgsummary_rgdowntime(indir, contacts_file=None, authorized=False, strict=False):
     contacts_data = None
     if contacts_file:
         contacts_data = get_contacts_data(contacts_file)
-    topology = get_topology(indir, contacts_data)
+    topology = get_topology(indir, contacts_data, strict=strict)
     filters = Filters()
     filters.past_days = -1
     return topology.get_resource_summary(authorized=authorized, filters=filters), \
            topology.get_downtimes(authorized=authorized, filters=filters)
 
 
-def get_topology(indir="../topology", contacts_data=None):
+def get_topology(indir="../topology", contacts_data=None, strict=False):
     root = Path(indir)
-    support_centers = anymarkup.parse_file(root / "support-centers.yaml")
-    service_types = anymarkup.parse_file(root / "services.yaml")
+    support_centers = load_yaml_file(root / "support-centers.yaml")
+    service_types = load_yaml_file(root / "services.yaml")
     tables = CommonData(contacts=contacts_data, service_types=service_types, support_centers=support_centers)
     topology = Topology(tables)
 
+    skip_msg = "skipping (non-strict mode)"
+
     for facility_path in root.glob("*/FACILITY.yaml"):
         name = facility_path.parts[-2]
-        id_ = anymarkup.parse_file(facility_path)["ID"]
+        id_ = load_yaml_file(facility_path)["ID"]
         topology.add_facility(name, id_)
     for site_path in root.glob("*/*/SITE.yaml"):
         facility, name = site_path.parts[-3:-1]
-        site_info = anymarkup.parse_file(site_path)
+        if facility not in topology.facilities:
+            msg = f"Missing facility {facility} for site {name}.  Is there a FACILITY.yaml?"
+            if strict:
+                raise TopologyError(msg)
+            else:
+                log.error(msg)
+                log.error(skip_msg)
+                continue
+        site_info = load_yaml_file(site_path)
         id_ = site_info["ID"]
         topology.add_site(facility, name, id_, site_info)
     for yaml_path in root.glob("*/*/*.yaml"):
@@ -81,11 +93,34 @@ def get_topology(indir="../topology", contacts_data=None):
         if name.endswith("_downtime.yaml"): continue
 
         name = name.replace(".yaml", "")
-        rg = anymarkup.parse_file(yaml_path)
+        if site not in topology.sites:
+            msg = f"Missing site {site} for RG {name}.  Is there a SITE.yaml?"
+            if strict:
+                raise TopologyError(msg)
+            else:
+                log.error(msg)
+                log.error(skip_msg)
+                continue
+        try:
+            rg = load_yaml_file(yaml_path)
+        except yaml.YAMLError:
+            if strict:
+                raise
+            else:
+                # load_yaml_file() already logs the specific error
+                log.error(skip_msg)
+                continue
         downtime_yaml_path = yaml_path.with_name(name + "_downtime.yaml")
         downtimes = None
         if downtime_yaml_path.exists():
-            downtimes = ensure_list(anymarkup.parse_file(downtime_yaml_path))
+            try:
+                downtimes = ensure_list(load_yaml_file(downtime_yaml_path))
+            except yaml.YAMLError:
+                if strict:
+                    raise
+                # load_yaml_file() already logs the specific error
+                log.error(skip_msg)
+                # keep going with downtimes=None
 
         topology.add_rg(facility, site, name, rg)
         if downtimes:
@@ -101,34 +136,25 @@ def main(argv):
     parser.add_argument("outfile", nargs='?', default=None, help="output file for rgsummary")
     parser.add_argument("downtimefile", nargs='?', default=None, help="output file for rgdowntime")
     parser.add_argument("--contacts", help="contacts yaml file")
+    parser.add_argument("--nostrict", action='store_false', dest='strict', help="Skip files with parse errors (instead of exiting)")
     args = parser.parse_args(argv[1:])
 
-    try:
-        rgsummary, rgdowntime = get_rgsummary_rgdowntime(args.indir, args.contacts,
-                                                         authorized=True)
-        if args.outfile:
-            with open(args.outfile, "w") as fh:
-                fh.write(to_xml(rgsummary))
-        else:
-            print(to_xml(rgsummary))
-        if args.downtimefile:
-            with open(args.downtimefile, "w") as fh:
-                fh.write(to_xml(rgdowntime))
-        else:
-            print(to_xml(rgdowntime))
-    except RGError as e:
-        print("Error happened while processing RG:", file=sys.stderr)
-        pprint.pprint(e.rg, stream=sys.stderr)
-        raise
-    except DowntimeError as e:
-        print("Error happened while processing downtime:", file=sys.stderr)
-        pprint.pprint(e.downtime, stream=sys.stderr)
-        print("RG:", file=sys.stderr)
-        pprint.pprint(e.rg, stream=sys.stderr)
-        raise
+    rgsummary, rgdowntime = get_rgsummary_rgdowntime(args.indir, args.contacts,
+                                                     authorized=True, strict=args.strict)
+    if args.outfile:
+        with open(args.outfile, "w") as fh:
+            fh.write(to_xml(rgsummary))
+    else:
+        print(to_xml(rgsummary))
+    if args.downtimefile:
+        with open(args.downtimefile, "w") as fh:
+            fh.write(to_xml(rgdowntime))
+    else:
+        print(to_xml(rgdowntime))
 
     return 0
 
 
 if __name__ == '__main__':
+    logging.basicConfig()
     sys.exit(main(sys.argv))

@@ -31,9 +31,6 @@ Contacts:
     Name: Carl Lundstedt
   - ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
     Name: Garhan Attebury
-  Submitter Contact:
-  - ID: 64724e33523c051cbf52bcd224a965875735aafc
-    Name: David Swanson
   VO Manager:
   - ID: 64724e33523c051cbf52bcd224a965875735aafc
     Name: David Swanson
@@ -69,3 +66,13 @@ PurposeURL: http://hcc.unl.edu/GridNebraska
 ReportingGroups:
 - HCC
 SupportURL: http://hcc.unl.edu/contact
+DataFederations:
+  StashCache:
+    AllowedCaches:
+    - HCC-Stash
+    AllowedOrigins:
+    - HCC-Origin
+    Namespaces:
+      /hcc/focusday:
+      - FQAN:/hcc
+      - DN:/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian Paul Bockelman

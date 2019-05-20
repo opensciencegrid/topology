@@ -1,10 +1,10 @@
-Disable: false
 GroupDescription: This is the general OSG resource group at OSC.  It is designed to
   support multiple VOs.
 GroupID: 384
 Production: true
 Resources:
   OSC_OSG_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -30,12 +30,7 @@ Resources:
         Secondary:
           ID: 8d3cd644fc7261d8f1a55c323b5df5c7e7ef4658
           Name: Troy Baer
-      Submitter Contact:
-        Primary:
-          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
-          Name: John Dockendorf
     Description: The main CE for the Ohio Supercomputer Center.
-    Disable: false
     FQDN: osg-ce.hpc.osc.edu
     ID: 891
     Services:
@@ -50,6 +45,7 @@ Resources:
     VOOwnership:
       Nova: 100
   OSC_OSG_CE_old:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -77,7 +73,6 @@ Resources:
           Name: Troy Baer
     Description: The main CE for the Ohio Supercomputer Center.  It will support multiple
       VOs.
-    Disable: false
     FQDN: osg.osc.edu
     ID: 571
     Services:
@@ -92,6 +87,7 @@ Resources:
     VOOwnership:
       Nova: 100
   OSC_OSG_squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -117,12 +113,7 @@ Resources:
         Secondary:
           ID: 8d3cd644fc7261d8f1a55c323b5df5c7e7ef4658
           Name: Troy Baer
-      Submitter Contact:
-        Primary:
-          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
-          Name: John Dockendorf
     Description: OSC OSG squid server.
-    Disable: false
     FQDN: osg-ce.hpc.osc.edu
     ID: 892
     Services:

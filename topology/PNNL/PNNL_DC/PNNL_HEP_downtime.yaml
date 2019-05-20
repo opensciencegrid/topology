@@ -1,10 +1,11 @@
 - Class: SCHEDULED
   Description: Planned outage for the PNNL HEP site to add storage, rework internal
     networking, add WAN bandwidth.
-  EndTime: Oct 21, 2016 07:00 AM UTC
+  EndTime: Oct 21, 2016 07:00 +0000
   ID: 1005077
   ResourceName: PNNL_HEP_CE00
   Services:
   - CE
   Severity: Outage
-  StartTime: Oct 17, 2016 07:00 AM UTC
+  StartTime: Oct 17, 2016 07:00 +0000
+# ----------------------------------------------------------

@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: Stony Brook Atlas Tier3
 GroupID: 285
 Production: true
 Resources:
   SBU_ATLAS_GRIDFTP1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -13,13 +13,8 @@ Resources:
         Primary:
           ID: c52cbbe7a1346a8c613d5762826386305fdd41c3
           Name: R. Dean Schamberger
-      Submitter Contact:
-        Primary:
-          ID: c52cbbe7a1346a8c613d5762826386305fdd41c3
-          Name: R. Dean Schamberger
     Description: This is the distributed Xrootd disk on the worker nodes at Stony
       Brook with gridftp access
-    Disable: false
     FQDN: sbahead.physics.sunysb.edu
     ID: 462
     Services:
@@ -42,6 +37,7 @@ Resources:
       StorageCapacityMin: 0.5
       TapeCapacity: 0
   SBU_ATLAS_GRIDFTP2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -51,13 +47,8 @@ Resources:
         Primary:
           ID: c52cbbe7a1346a8c613d5762826386305fdd41c3
           Name: R. Dean Schamberger
-      Submitter Contact:
-        Primary:
-          ID: c52cbbe7a1346a8c613d5762826386305fdd41c3
-          Name: R. Dean Schamberger
     Description: This is the dedicated Xrootd disk on the nfs server at Stony Brook
       with gridftp access
-    Disable: false
     FQDN: sbanfs.physics.sunysb.edu
     ID: 480
     Services:
@@ -80,6 +71,7 @@ Resources:
       StorageCapacityMin: 0.5
       TapeCapacity: 0
   SBU_ATLAS_GRIDFTP3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -89,13 +81,8 @@ Resources:
         Primary:
           ID: c52cbbe7a1346a8c613d5762826386305fdd41c3
           Name: R. Dean Schamberger
-      Submitter Contact:
-        Primary:
-          ID: c52cbbe7a1346a8c613d5762826386305fdd41c3
-          Name: R. Dean Schamberger
     Description: This is a small stand-alone Xrootd disk at Stony Brook with gridftp
       access
-    Disable: false
     FQDN: sbaxrd1.physics.sunysb.edu
     ID: 483
     Services:
@@ -118,6 +105,7 @@ Resources:
       StorageCapacityMin: 0.5
       TapeCapacity: 0
   SBU_T3_Squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -131,12 +119,7 @@ Resources:
         Primary:
           ID: c52cbbe7a1346a8c613d5762826386305fdd41c3
           Name: R. Dean Schamberger
-      Submitter Contact:
-        Primary:
-          ID: c52cbbe7a1346a8c613d5762826386305fdd41c3
-          Name: R. Dean Schamberger
     Description: Squid server for Stony Brook Tier3 (frontier and cvmfs)
-    Disable: false
     FQDN: sbahead.physics.sunysb.edu
     ID: 464
     Services:

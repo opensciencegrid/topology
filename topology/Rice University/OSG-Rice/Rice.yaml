@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 216
 Production: true
 Resources:
   OSG-Rice:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -33,13 +33,8 @@ Resources:
         Secondary:
           ID: 83db8d8cc87ce27c4a1ca45ad928649747dfb26a
           Name: Jamal Tildon Rorie
-      Submitter Contact:
-        Primary:
-          ID: 018d13f74f253622c6edd3b68f692cca5890b38f
-          Name: Pablo Yepes
     Description: Tier-3 computing center. Priority given to local users, but opportunistic
       use by CMS VO allowed.
-    Disable: false
     FQDN: bonner06.rice.edu
     ID: 348
     Services:
@@ -66,53 +61,4 @@ Resources:
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
       TapeCapacity: 5.5
-  Rice:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 018d13f74f253622c6edd3b68f692cca5890b38f
-          Name: Pablo Yepes
-      Miscellaneous Contact:
-        Primary:
-          ID: 018d13f74f253622c6edd3b68f692cca5890b38f
-          Name: Pablo Yepes
-      Resource Report Contact:
-        Primary:
-          ID: 018d13f74f253622c6edd3b68f692cca5890b38f
-          Name: Pablo Yepes
-      Security Contact:
-        Primary:
-          ID: 018d13f74f253622c6edd3b68f692cca5890b38f
-          Name: Pablo Yepes
-      Submitter Contact:
-        Primary:
-          ID: 018d13f74f253622c6edd3b68f692cca5890b38f
-          Name: Pablo Yepes
-    Description: Tier-3 computing center. Priority given to local users, but opportunistic
-      use by CMS VO allowed.
-    Disable: true
-    FQDN: osg-gate.rice.edu
-    ID: 214
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 0
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: false
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 0
-      StorageCapacityMin: 0
 SupportCenter: USCMS_Tier3

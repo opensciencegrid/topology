@@ -1,12 +1,24 @@
-Disable: false
 GroupDescription: ATLAS Tier3 at University of Pittsburgh
 GroupID: 342
 Production: true
 Resources:
   UPittTier3_DTN:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 787306f80f313a14e036acb09a4711fa12dad235
+          Name: James Alfred Mueller
+      Administrative Contact:
+        Primary:
+          ID: 787306f80f313a14e036acb09a4711fa12dad235
+          Name: James Alfred Mueller
+      Resource Report Contact:
+        Primary:
+          ID: 787306f80f313a14e036acb09a4711fa12dad235
+          Name: James Alfred Mueller
+    Active: true
     Description: Data transfer node connected to ScienceDMZ for the ATLAS Tier3 at
       the University of Pittsburgh
-    Disable: false
     FQDN: atlas-dtn.phyast.pitt.edu
     ID: 740
     Services:
@@ -32,6 +44,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   UPittTier3_gridftp:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -46,7 +59,6 @@ Resources:
           ID: ae5990a526b871e110508e3ca7650dc1a94c73da
           Name: Paul Shepard
     Description: gridftp server for ATLAS Tier3 at U. of Pittsburgh
-    Disable: false
     FQDN: atlas-gridftp.phyast.pitt.edu
     ID: 463
     Services:

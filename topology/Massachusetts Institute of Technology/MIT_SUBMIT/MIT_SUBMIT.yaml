@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: Submission hub to on- and off-campus resources.
 GroupID: 449
 Production: true
 Resources:
   MIT_SUBMIT_SCHEDD:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -33,12 +33,7 @@ Resources:
         Secondary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
-      Submitter Contact:
-        Primary:
-          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
-          Name: Yutaro Iiyama
     Description: This is the submission node to MIT on-campus, OSG, and CMS resources.
-    Disable: false
     FQDN: submit.mit.edu
     ID: 832
     Services:

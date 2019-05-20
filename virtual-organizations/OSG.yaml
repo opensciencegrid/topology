@@ -18,22 +18,12 @@ Contacts:
   Registration Authority:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
-  - ID: 51e80537c5f71fa8bee57b6196025fd78c0fde0d
-    Name: Kyle Gross
-  - ID: 8350a764268bd8a041059caaccad8f029720f212
-    Name: Elizabeth Prout
-  - ID: 470d9c00330780912b844f68237482c7b85c1c79
-    Name: Marina Krenz
   Security Contact:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
-  - ID: aab4d60a1efd0b582acad180db315f58a5097933
-    Name: Mine Altunay
   Sponsors:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
-  - ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
-    Name: Scott Teige
   VO Manager:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
@@ -46,24 +36,6 @@ LongName: Open Science Grid
 MembershipServicesURL: https://voms.opensciencegrid.org:8443/voms/osg
 OASIS:
   Managers:
-    Anna Olson:
-      DNs: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Anna Olson 2691
-        OLD
-      ID: 50ea845b806fbbfc2d197c0529b284910992900b
-    Balamurugan Desinghu:
-      DNs:
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Balamurugan Desinghu
-        2740
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Balamurugan Desinghu
-        2740
-      ID: e969f836b0039bf711a3452d798aba816b5cf860
-    Benedikt Riedel:
-      DNs:
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=SPT Pole Production
-        Service Certificate
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Benedikt Riedel
-        2175
-      ID: 78ea3b6350f56c5004290f5df4ba427f6be79199
     Derek Weitzel:
       DNs:
       - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
@@ -77,16 +49,11 @@ OASIS:
       ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
     Mats Rynge:
       DNs:
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Mats Rynge 45
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Mats Rynge 45
+      - /DC=org/DC=cilogon/C=US/O=University of Southern California/CN=Mats Rynge A91316
       ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
-    Suchandra Thapa:
-      DNs:
-      - /DC=org/DC=doegrids/OU=People/CN=Suchandra Thapa 444221
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Suchandra Thapa
-      ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
   OASISRepoURLs:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/singularity.opensciencegrid.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/scitokens.osgstorage.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/veritas.opensciencegrid.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/nexo.opensciencegrid.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/bnl.opensciencegrid.org
@@ -97,3 +64,11 @@ PurposeURL: http://www.opensciencegrid.org
 ReportingGroups:
 - osg
 SupportURL: http://www.opensciencegrid.org
+DataFederations:
+  StashCache:
+    Namespaces:
+      /user:
+        - PUBLIC
+    AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /user
+    AllowedCaches:
+      - ANY

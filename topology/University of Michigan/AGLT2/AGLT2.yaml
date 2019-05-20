@@ -1,32 +1,31 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 1
 Production: true
 Resources:
   AGLT2-squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-      Miscellaneous Contact:
-        Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
-      Resource Report Contact:
-        Primary:
-          ID: ef1e31e182fce56d329c05c9a7cdeb11a572d9f4
-          Name: Benjeman J. Meekhof
       Security Contact:
         Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Submitter Contact:
-        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: This is the round-robin DNS alias for the SQUIDs at AGLT2
-    Disable: false
     FQDN: squid.aglt2.org
     ID: 677
     Services:
@@ -35,39 +34,30 @@ Resources:
     VOOwnership:
       ATLAS: 90
   AGLT2_CE_2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-        Secondary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
-      Miscellaneous Contact:
-        Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-        Secondary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
-      Resource Report Contact:
-        Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-        Secondary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
       Security Contact:
         Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
-      Submitter Contact:
-        Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
     Description: This is the gate keeper at AGLT2 for non-ATLAS VOs that wish to use
       our site.
-    Disable: false
     FQDN: gate02.grid.umich.edu
     ID: 250
     Services:
@@ -78,7 +68,7 @@ Resources:
     VOOwnership:
       ATLAS: 10
     WLCGInformation:
-      APELNormalFactor: 10.21
+      APELNormalFactor: 10.96
       AccountingName: US-AGLT2
       HEPSPEC: 400
       InteropAccounting: true
@@ -89,41 +79,29 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   AGLT2_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
         Secondary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
-      Miscellaneous Contact:
-        Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Resource Report Contact:
-        Primary:
-          ID: ef1e31e182fce56d329c05c9a7cdeb11a572d9f4
-          Name: Benjeman J. Meekhof
-        Secondary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
         Tertiary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
       Security Contact:
         Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
         Secondary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Submitter Contact:
-        Primary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: dCache/SRM headnode for AGLT2
-    Disable: false
     FQDN: head01.aglt2.org
     ID: 175
     Services:
@@ -142,38 +120,33 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      StorageCapacityMax: 6898
-      StorageCapacityMin: 6898
+      StorageCapacityMax: 6879
+      StorageCapacityMin: 6879
   AGLT2_SL6:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
-      Miscellaneous Contact:
-        Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
         Secondary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Resource Report Contact:
-        Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
-        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
       Security Contact:
         Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
-      Submitter Contact:
-        Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
     Description: New SL6 CE at AGLT2
-    Disable: false
+    Active: false
     FQDN: gate04.aglt2.org
     ID: 547
     Services:
@@ -184,7 +157,7 @@ Resources:
     VOOwnership:
       ATLAS: 90
     WLCGInformation:
-      APELNormalFactor: 10.69
+      APELNormalFactor: 0
       AccountingName: US-AGLT2
       HEPSPEC: 124200
       InteropAccounting: true
@@ -195,41 +168,29 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   AGLT2_SL7:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
         Secondary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Miscellaneous Contact:
-        Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
-        Secondary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Resource Report Contact:
-        Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
-        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
       Security Contact:
         Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
         Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-      Submitter Contact:
-        Primary:
-          ID: c605a5cc0041b50a01473a4195ff6cbbe1743886
-          Name: Bob Ball
     Description: New SL7 gatekeeper, December, 2017.
-    Disable: false
     FQDN: gate01.aglt2.org
     ID: 928
     Services:
@@ -240,7 +201,7 @@ Resources:
     VOOwnership:
       ATLAS: 90
     WLCGInformation:
-      APELNormalFactor: 10.69
+      APELNormalFactor: 10.96
       AccountingName: US-AGLT2
       HEPSPEC: 124200
       InteropAccounting: true
@@ -251,102 +212,31 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-  DEPRECATE MSU LAT:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
-          Name: Philippe Laurens
-      Resource Report Contact:
-        Primary:
-          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
-          Name: Philippe Laurens
-      Security Contact:
-        Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Submitter Contact:
-        Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-    Description: This resource is the perfSONAR-PS instances at the AGLT2 East Lansing
-      site
-    Disable: true
-    FQDN: not.used
-    ID: 512
-    Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: psmsu02.aglt2.org
-      net.perfSONAR.Latency:
-        Description: PerfSonar Latency monitoring node
-        Details:
-          endpoint: psmsu01.aglt2.org
-    VOOwnership:
-      ATLAS: 80
-  DEPRECATED UM LAT BW:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Security Contact:
-        Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Submitter Contact:
-        Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-    Description: This is the perfSONAR-PS instances at the AGLT2 University of Michigan
-      site
-    Disable: true
-    FQDN: not.used
-    ID: 511
-    Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: psum02.aglt2.org
-      net.perfSONAR.Latency:
-        Description: PerfSonar Latency monitoring node
-        Details:
-          endpoint: psum01.aglt2.org
-    VOOwnership:
-      ATLAS: 80
   US-AGLT2_MSU BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
           ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
           Name: Philippe Laurens
-        Secondary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Resource Report Contact:
-        Primary:
-          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
-          Name: Philippe Laurens
-        Secondary:
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
       Security Contact:
         Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
           ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
           Name: Philippe Laurens
-        Secondary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Submitter Contact:
-        Primary:
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: This is the perfSONAR-PS bandwidth instance at the Michigan State
       University AGLT2 site.
-    Disable: false
     FQDN: psmsu02.aglt2.org
     ID: 586
     Services:
@@ -357,35 +247,30 @@ Resources:
     VOOwnership:
       ATLAS: 90
   US-AGLT2_MSU LAT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
           ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
           Name: Philippe Laurens
-        Secondary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Resource Report Contact:
-        Primary:
-          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
-          Name: Philippe Laurens
-        Secondary:
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
       Security Contact:
         Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
           ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
           Name: Philippe Laurens
-        Secondary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Submitter Contact:
-        Primary:
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: This is the perfSONAR-PS latency instance at the Michigan State University
       AGLT2 site.
-    Disable: false
     FQDN: psmsu01.aglt2.org
     ID: 585
     Services:
@@ -396,22 +281,30 @@ Resources:
     VOOwnership:
       ATLAS: 90
   US-AGLT2_UM BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
       Security Contact:
         Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Submitter Contact:
-        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: This is the perfSONAR-PS bandwidth instance at the University of
       Michigan AGLT2 site.
-    Disable: false
     FQDN: psum02.aglt2.org
     ID: 584
     Services:
@@ -422,22 +315,30 @@ Resources:
     VOOwnership:
       ATLAS: 90
   US-AGLT2_UM LAT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
       Security Contact:
         Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Submitter Contact:
-        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: This is the perfSONAR-PS latenchy instance at the University of Michigan
       AGLT2 site.
-    Disable: false
     FQDN: psum01.aglt2.org
     ID: 583
     Services:

@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: This is the BNL ITB resource group, not production services.
 GroupID: 243
 Production: false
 Resources:
   BNL-ps-testbed:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -18,14 +18,9 @@ Resources:
           Name: Shawn McKee
       Security Contact:
         Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: BNLs perfSONAR testbed instance.
-    Disable: false
     FQDN: ps-development.bnl.gov
     ID: 691
     Services:
@@ -40,6 +35,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   BNL_ITB_Test1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -51,14 +47,9 @@ Resources:
           Name: Xin Zhao
       Security Contact:
         Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: Move this BNL ITB CE to under the group of BNL-LCG2.
-    Disable: false
     FQDN: gridtest01.racf.bnl.gov
     ID: 6
     Services:
@@ -80,6 +71,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_Test_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -91,14 +83,9 @@ Resources:
           Name: Xin Zhao
       Security Contact:
         Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: Move BNL ITB SE to under BNL-LCG2 group name.
-    Disable: false
     FQDN: grid16.racf.bnl.gov
     FQDNAliases:
     - localsub01.usatlas.bnl.gov

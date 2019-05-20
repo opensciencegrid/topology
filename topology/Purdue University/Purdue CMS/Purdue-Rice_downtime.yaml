@@ -6,13 +6,14 @@
 
     Regards,
     Majid
-  EndTime: Sep 28, 2016 03:55 AM UTC
+  EndTime: Sep 28, 2016 03:55 +0000
   ID: 1005053
   ResourceName: Purdue-Rice
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 27, 2016 11:00 AM UTC
+  StartTime: Sep 27, 2016 11:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Hi All,
@@ -23,13 +24,14 @@
 
     Regards,
     Majid
-  EndTime: Nov 7, 2016 04:55 AM UTC
+  EndTime: Nov 7, 2016 04:55 +0000
   ID: 1005106
   ResourceName: Purdue-Rice
   Services:
   - CE
   Severity: Outage
-  StartTime: Nov 5, 2016 12:00 PM UTC
+  StartTime: Nov 5, 2016 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     The Purdue Tier-2 site will have a scheduled downtime on Saturday,
@@ -41,35 +43,38 @@
 
 
     Majid
-  EndTime: Jan 14, 2017 17:00 PM UTC
+  EndTime: Jan 14, 2017 17:00 +0000
   ID: 1005183
   ResourceName: Purdue-Rice
   Services:
   - CE
   Severity: Outage
-  StartTime: Jan 14, 2017 13:00 PM UTC
+  StartTime: Jan 14, 2017 13:00 +0000
+# ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: T2_US_Purdue is down due to a loss of power in the campus datacenter.
-  EndTime: Jul 20, 2017 23:00 PM UTC
+  EndTime: Jul 20, 2017 23:00 +0000
   ID: 1005373
   ResourceName: Purdue-Rice
   Services:
   - CE
   Severity: Outage
-  StartTime: Jul 20, 2017 16:00 PM UTC
+  StartTime: Jul 20, 2017 16:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     Purdue-Rice gatekeeper will be unavailable beginning at Wednesday, September 20th, 2017 at 8:00am, for scheduled maintenance. It will return to full production by Wednesday, September 20th, 2017 at 5:00pm.
 
     Regards,
     Majid
-  EndTime: Sep 20, 2017 21:00 PM UTC
+  EndTime: Sep 20, 2017 21:00 +0000
   ID: 1005434
   ResourceName: Purdue-Rice
   Services:
   - CE
   Severity: Outage
-  StartTime: Sep 20, 2017 12:00 PM UTC
+  StartTime: Sep 20, 2017 12:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
     We will be upgrading the kernel on the Storage Element (hadoop namenodes).  During this upgrade, Purdue CMS T-2 resources will be unavailable.
@@ -77,10 +82,58 @@
     Once this work has been completed, we will notify you that all resources have been returned to service.
 
     Majid
-  EndTime: Nov 6, 2017 22:00 PM UTC
+  EndTime: Nov 6, 2017 22:00 +0000
   ID: 1005489
   ResourceName: Purdue-Rice
   Services:
   - CE
   Severity: Outage
-  StartTime: Nov 6, 2017 13:00 PM UTC
+  StartTime: Nov 6, 2017 13:00 +0000
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1005703
+  Description: Cooling and network maintenance
+  Severity: Outage
+  StartTime: Aug 2, 2018 06:00 -0400
+  EndTime: Aug 2, 2018 23:59 -0400
+  CreatedTime: Jul 25, 2018 12:00 -0500
+  ResourceName: Purdue-Rice
+  Services:
+    - CE
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1005713
+  Description: Need to be moved
+  Severity: Outage
+  StartTime: Sep 6, 2018 08:00 -0400
+  EndTime: Sep 6, 2018 17:59 -0400
+  CreatedTime: Sep 4, 2018 15:40 -0400
+  CreatedTime: Sep 4, 2018 15:25 -0400
+  ResourceName: Purdue-Rice
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 67271301
+  Description: We are upgrading hadoop to OSG 3.4
+  Severity: Outage
+  StartTime: Nov 14, 2018 13:00 +0000
+  EndTime: Nov 15, 2018 03:00 +0000
+  CreatedTime: Nov 08, 2018 19:32 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 103598545
+  Description: 'WAN router maintenance '
+  Severity: Outage
+  StartTime: Dec 21, 2018 04:00 +0000
+  EndTime: Dec 21, 2018 07:00 +0000
+  CreatedTime: Dec 20, 2018 20:37 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------

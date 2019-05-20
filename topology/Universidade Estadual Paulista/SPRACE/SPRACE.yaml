@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 99
 Production: true
 Resources:
   BR-Sprace BW:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -11,11 +11,11 @@ Resources:
           Name: Marcio Antonio Costa
         Secondary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Silva
+          Name: Jadir Marra da Silva
       Resource Report Contact:
         Primary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Silva
+          Name: Jadir Marra da Silva
         Secondary:
           ID: a2b9cf948598b460caec58e51be63ddc38049e2c
           Name: Rogerio Iope
@@ -23,12 +23,7 @@ Resources:
         Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
-      Submitter Contact:
-        Primary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
     Description: This is the perfSONAR bandwidth server at SPRACE
-    Disable: false
     FQDN: perfsonar-bw.sprace.org.br
     ID: 709
     Services:
@@ -39,6 +34,7 @@ Resources:
     VOOwnership:
       CMS: 100
   BR-Sprace LT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -58,12 +54,7 @@ Resources:
         Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
-      Submitter Contact:
-        Primary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
     Description: This is the perfSONAR latency server at SPRACE
-    Disable: false
     FQDN: perfsonar-lt.sprace.org.br
     ID: 523
     Services:
@@ -74,6 +65,7 @@ Resources:
     VOOwnership:
       CMS: 100
   SPRACE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -109,12 +101,7 @@ Resources:
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
-      Submitter Contact:
-        Primary:
-          ID: a2b9cf948598b460caec58e51be63ddc38049e2c
-          Name: Rogerio Iope
     Description: Gatekeeper and condor master for SPRACE resource
-    Disable: false
     FQDN: osg-ce.sprace.org.br
     ID: 99
     Services:
@@ -137,45 +124,8 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-  SPRACE-OSG-RSV:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: d1dd17343f4687284639649ef994e47426d481ac
-          Name: Sergio Lietti
-        Secondary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Silva
-      Miscellaneous Contact:
-        Primary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Silva
-        Secondary:
-          ID: d1dd17343f4687284639649ef994e47426d481ac
-          Name: Sergio Lietti
-      Resource Report Contact:
-        Primary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Silva
-        Secondary:
-          ID: d1dd17343f4687284639649ef994e47426d481ac
-          Name: Sergio Lietti
-      Security Contact:
-        Primary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Silva
-      Submitter Contact:
-        Primary:
-          ID: 40286076881f9672e9b5e4cc27655657af6cf8b6
-          Name: Marco Dias
-    Description: This is a OSG-RSV server and gums server used by our site.
-    Disable: true
-    FQDN: spserv01.sprace.org.br
-    ID: 306
-    VOOwnership:
-      CMS: 100
   SPRACE-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -211,12 +161,7 @@ Resources:
         Secondary:
           ID: a2b9cf948598b460caec58e51be63ddc38049e2c
           Name: Rogerio Iope
-      Submitter Contact:
-        Primary:
-          ID: 084c6602f2a21e310fc5acc2645cb6892f804a0b
-          Name: Eduardo Gregores
     Description: Storage element for SPRACE resource
-    Disable: false
     FQDN: osg-se.sprace.org.br
     ID: 100
     Services:
@@ -237,76 +182,8 @@ Resources:
       StorageCapacityMax: 1450
       StorageCapacityMin: 1000
       TapeCapacity: 0
-  SPRACE_Perfsonar_BW:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-        Secondary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-      Resource Report Contact:
-        Primary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-      Security Contact:
-        Primary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-      Submitter Contact:
-        Primary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-    Description: PerfSonar bandwidth instance
-    Disable: true
-    FQDN: perfsonar-bw.sprace.org.br
-    ID: 508
-    Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: http://this.is.something.fake
-    VOOwnership:
-      CMS: 100
-  SPRACE_Perfsonar_LT:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-        Secondary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-      Resource Report Contact:
-        Primary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-      Security Contact:
-        Primary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-        Secondary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-      Submitter Contact:
-        Primary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-    Description: PerfSonar latency instance
-    Disable: true
-    FQDN: perfsonar-lt.sprace.org.br
-    ID: 509
-    Services:
-      net.perfSONAR.Latency:
-        Description: PerfSonar Latency monitoring node
-        Details:
-          endpoint: http://this.is.fake
-    VOOwnership:
-      CMS: 100
   T2_BR_SPRACE-squid1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -318,7 +195,7 @@ Resources:
       Miscellaneous Contact:
         Primary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Silva
+          Name: Jadir Marra da Silva
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
@@ -342,12 +219,7 @@ Resources:
         Secondary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
-      Submitter Contact:
-        Primary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
     Description: 'Squid Frontier Server #1'
-    Disable: false
     FQDN: frontier.sprace.org.br
     ID: 696
     Services:
@@ -356,6 +228,7 @@ Resources:
     VOOwnership:
       CMS: 100
   T2_BR_SPRACE-squid2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -367,7 +240,7 @@ Resources:
       Miscellaneous Contact:
         Primary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Silva
+          Name: Jadir Marra da Silva
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
@@ -391,12 +264,7 @@ Resources:
         Secondary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
-      Submitter Contact:
-        Primary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
     Description: 'Squid Frontier Server #2'
-    Disable: false
     FQDN: frontier2.sprace.org.br
     ID: 697
     Services:

@@ -1,67 +1,14 @@
-Disable: false
 GroupDescription: This site is the ATLAS Tier 1 Facility at Brookhaven National Laboratory.
 GroupID: 235
 Production: true
 Resources:
-  BNL-LCG2:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-      Miscellaneous Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-        Secondary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-        Tertiary:
-          ID: 6bbb19174a6315cab4ba840bf273a7c1d2336e1c
-          Name: Dantong Yu
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-        Tertiary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Security Contact:
-        Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-    Description: This is a new BNL resource name, that is created in order to publish
-      BNL resource information, i.e. SE/FTS/LFC/MyProxy, to WLCG BDII, to fulfill
-      requirements of WLCG on site availability and reliability tests.
-    Disable: true
-    FQDN: gridgk03.racf.bnl.gov
-    ID: 240
-    Services:
-      CE:
-        Description: Compute Element
-    VOOwnership:
-      ATLAS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 0
-      InteropAccounting: false
-      InteropBDII: false
-      InteropMonitoring: false
-      KSI2KMax: 500
-      KSI2KMin: 100
-      StorageCapacityMax: 10
-      StorageCapacityMin: 1
   BNL_ATLAS_1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
         Secondary:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
@@ -71,15 +18,10 @@ Resources:
           Name: Xin Zhao
       Security Contact:
         Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: moved under the resource group BNL_LCG2. This will set the stage
       for unified site availability with WLCG.
-    Disable: false
     FQDN: gridgk01.racf.bnl.gov
     ID: 3
     Services:
@@ -102,11 +44,12 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_ATLAS_2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
         Secondary:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
@@ -116,14 +59,9 @@ Resources:
           Name: Xin Zhao
       Security Contact:
         Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: change resource groupname to BNL-LCG2
-    Disable: false
     FQDN: gridgk02.racf.bnl.gov
     ID: 4
     Services:
@@ -146,11 +84,12 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_ATLAS_3:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
         Secondary:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
@@ -160,15 +99,10 @@ Resources:
           Name: Xin Zhao
       Security Contact:
         Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
-    Disable: false
     FQDN: gridgk03.racf.bnl.gov
     ID: 325
     Services:
@@ -191,11 +125,12 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_ATLAS_4:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
         Secondary:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
@@ -208,15 +143,10 @@ Resources:
           Name: John Hover
       Security Contact:
         Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: This is just another gatekeeper, sharing the same backend resources
       with the other BNL_ATLAS_X gatekeepers.
-    Disable: false
     FQDN: gridgk04.racf.bnl.gov
     ID: 326
     Services:
@@ -239,11 +169,12 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_ATLAS_6:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
         Secondary:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
@@ -253,15 +184,10 @@ Resources:
           Name: Xin Zhao
       Security Contact:
         Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
-    Disable: false
     FQDN: gridgk06.racf.bnl.gov
     ID: 418
     Services:
@@ -284,11 +210,12 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_ATLAS_7:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
         Secondary:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
@@ -301,15 +228,10 @@ Resources:
           Name: John Hover
       Security Contact:
         Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
-    Disable: false
     FQDN: gridgk07.racf.bnl.gov
     ID: 438
     Services:
@@ -333,11 +255,12 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   BNL_ATLAS_8:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
         Secondary:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
@@ -347,15 +270,10 @@ Resources:
           Name: Xin Zhao
       Security Contact:
         Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: This CE will serve grid jobs submitted to the *local* USATLAS resources,
       e.g. for panda queue ANALY_BNL_LOCAL, at BNL.
-    Disable: false
     FQDN: gridgk08.racf.bnl.gov
     ID: 545
     Services:
@@ -378,6 +296,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   BNL_ATLAS_Frontier_Squid:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -385,27 +304,25 @@ Resources:
           Name: John S. De Stefano Jr.
       Security Contact:
         Primary:
-          ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
-          Name: John S. De Stefano Jr.
-      Submitter Contact:
-        Primary:
-          ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
-          Name: John S. De Stefano Jr.
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: Round robin DNS alias for our two Frontier Squid nodes.
-    Disable: false
-    FQDN: frontier-cache.racf.bnl.gov
+    FQDN: frontier-cache.sdcc.bnl.gov
     ID: 925
     Services:
       Squid:
         Description: Generic squid service
+        Details:
+          Monitored: true
     VOOwnership:
       BNL: 100
   BNL_ATLAS_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
         Secondary:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
@@ -419,15 +336,10 @@ Resources:
           Name: Xin Zhao
       Security Contact:
         Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: moved under the resource group BNL_LCG2. This will set the stage
       for unified site availability with WLCG.
-    Disable: false
     FQDN: dcsrm.usatlas.bnl.gov
     ID: 5
     Services:
@@ -450,11 +362,12 @@ Resources:
       StorageCapacityMin: 16800
       TapeCapacity: 27000
   BNL_ATLAS_SE_AWS_East:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
       Miscellaneous Contact:
         Primary:
           ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
@@ -465,14 +378,9 @@ Resources:
           Name: Hironori Ito
       Security Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: SE at Amazon east region
-    Disable: false
     FQDN: bestse01.usatlas.bnl.gov
     ID: 664
     Services:
@@ -494,11 +402,12 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   BNL_ATLAS_SE_AWS_West:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
       Miscellaneous Contact:
         Primary:
           ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
@@ -509,14 +418,9 @@ Resources:
           Name: Hironori Ito
       Security Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: SE at Amazon wes -1 region
-    Disable: false
     FQDN: bestse02.usatlas.bnl.gov
     ID: 728
     Services:
@@ -538,11 +442,12 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   BNL_ATLAS_SE_AWS_West2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
         Secondary:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
@@ -559,17 +464,12 @@ Resources:
           Name: John Hover
       Security Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
         Secondary:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
-      Submitter Contact:
-        Primary:
-          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-          Name: John Hover
     Description: SE at Amazon West-2 region.
-    Disable: false
     FQDN: bestse03.usatlas.bnl.gov
     ID: 826
     Services:
@@ -591,21 +491,17 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   lhcmon-bnl:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
       Security Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Submitter Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: perfSonar box
-    Disable: false
     FQDN: lhcmon.bnl.gov
     ID: 554
     Services:
@@ -616,21 +512,17 @@ Resources:
     VOOwnership:
       ATLAS: 100
   lhcperfmon-bnl:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
       Security Contact:
         Primary:
           ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
           Name: Hironori Ito
-      Submitter Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
     Description: perfSonar box
-    Disable: false
     FQDN: lhcperfmon.bnl.gov
     ID: 555
     Services:
@@ -641,23 +533,19 @@ Resources:
     VOOwnership:
       ATLAS: 100
   ps-development:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
       Security Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Submitter Contact:
         Primary:
           ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
           Name: Hironori Ito
     Description: |-
       perfsonar development host
       test mesh host
-    Disable: false
     FQDN: ps-development.bnl.gov
     ID: 689
     Services:

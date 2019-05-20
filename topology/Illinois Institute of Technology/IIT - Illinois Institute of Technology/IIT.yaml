@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: HPC & HTC computing resources at IIT
 GroupID: 445
 Production: true
 Resources:
   IIT_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -13,12 +13,7 @@ Resources:
         Primary:
           ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
           Name: Grigoriy Abramov
-      Submitter Contact:
-        Primary:
-          ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
-          Name: Grigoriy Abramov
     Description: HPC & HTC computing resources
-    Disable: false
     FQDN: iitgrid.iit.edu
     ID: 825
     Services:
@@ -26,9 +21,8 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 50
   IIT_CE1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -38,12 +32,7 @@ Resources:
         Primary:
           ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
           Name: Grigoriy Abramov
-      Submitter Contact:
-        Primary:
-          ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
-          Name: Grigoriy Abramov
     Description: IIT HPC/HTC computing resources. CE
-    Disable: false
     FQDN: iitce1.iit.edu
     ID: 844
     Services:
@@ -51,9 +40,8 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 50
   IIT_CE2:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -63,12 +51,7 @@ Resources:
         Primary:
           ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
           Name: Grigoriy Abramov
-      Submitter Contact:
-        Primary:
-          ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
-          Name: Grigoriy Abramov
     Description: IIT HPC/HTC computing resources. CE
-    Disable: false
     FQDN: iitce2.iit.edu
     ID: 847
     Services:
@@ -76,9 +59,8 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 50
   IIT_SUBMIT:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -88,12 +70,7 @@ Resources:
         Primary:
           ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
           Name: Grigoriy Abramov
-      Submitter Contact:
-        Primary:
-          ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
-          Name: Grigoriy Abramov
     Description: Illinois Institute of Technology
-    Disable: false
     FQDN: otsgrid.iit.edu
     ID: 840
     Services:
@@ -101,6 +78,4 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: Community Support Center

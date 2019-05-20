@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: Lab resources for testing
 GroupID: 331
 Production: true
 Resources:
   ATLab testing node:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -19,7 +19,6 @@ Resources:
           Name: William M Bradley
     Description: This is test gatekeeper for integrating the OSG stack with a ROCKS
       platfrom.
-    Disable: false
     FQDN: rocksvmfe.uabgrid.uab.edu
     ID: 446
     Services:

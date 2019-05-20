@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: This resource group is for ITB testing at University of Colorado
 GroupID: 253
 Production: false
 Resources:
   UColorado_ITB:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -33,16 +33,11 @@ Resources:
         Secondary:
           ID: 4d3d056cf65ebc778382313412964003ce8f5358
           Name: Brian R Drell
-      Submitter Contact:
-        Primary:
-          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
-          Name: Douglas Johnson
     Description: I would like to add a host to be used for ITB testing. At present,
       I plan to install CE OSG 1.2.1 in order to help with some recently proposed
       testing to the CMS workflow, lcg utils. I imagine that use of this machine will
       change depending on its participation in ITB. Currently, hepitb01.colorado.edu
       is not in the DNS tables. It should be propagated by tomorrow.
-    Disable: false
     FQDN: hepitb01.colorado.edu
     ID: 268
     Services:

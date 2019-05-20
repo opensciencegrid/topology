@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: This is the General Purpose Grid cluster at Fermilab.
 GroupID: 476
 Production: true
 Resources:
   FNAL_GPGRID_CE_03:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -20,12 +20,7 @@ Resources:
         Primary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
-      Submitter Contact:
-        Primary:
-          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
-          Name: Anthony Tiradani
     Description: This is an HTCondor-CE that provides opportunistic access to GPGrid
-    Disable: false
     FQDN: gpce03.fnal.gov
     ID: 901
     Services:
@@ -37,6 +32,7 @@ Resources:
       DUNE: 1
       Fermilab: 99
   FNAL_GPGRID_CE_04:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -53,12 +49,7 @@ Resources:
         Primary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
-      Submitter Contact:
-        Primary:
-          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
-          Name: Anthony Tiradani
     Description: This is an HTCondor-CE the directs jobs into GPGrid.
-    Disable: false
     FQDN: gpce04.fnal.gov
     ID: 902
     Services:
@@ -70,6 +61,7 @@ Resources:
       DUNE: 1
       Fermilab: 99
   FNAL_JOBSUB_01:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -86,12 +78,7 @@ Resources:
         Primary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
-      Submitter Contact:
-        Primary:
-          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
-          Name: Anthony Tiradani
     Description: This is a Jobsub server that provides FIFE access to GPGrid
-    Disable: false
     FQDN: jobsub01.fnal.gov
     ID: 903
     Services:
@@ -102,6 +89,7 @@ Resources:
     VOOwnership:
       Fermilab: 100
   FNAL_JOBSUB_02:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -118,12 +106,7 @@ Resources:
         Primary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
-      Submitter Contact:
-        Primary:
-          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
-          Name: Anthony Tiradani
     Description: This is a Jobsub server that provides FIFE access to GPGrid
-    Disable: false
     FQDN: jobsub02.fnal.gov
     ID: 904
     Services:

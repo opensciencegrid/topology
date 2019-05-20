@@ -1,0 +1,85 @@
+{% set want_js = true %}
+{% extends "base.html.j2" %}
+{% block title -%}
+OSG Contacts
+{%- endblock %}
+{% block content %}
+<div class="container">
+  {% if not authorized %}
+  <div class="alert alert-info" role="alert">
+    To see contact information, load your grid certificate into your browser.
+  </div>
+  {% endif %}
+  <div class="alert alert-info" role="alert">
+    Profile information is provided by the user and may be out of date.
+    To update your information, please contact <a href="mailto:help@opensciencegrid.org">help@opensciencegrid.org</a>.
+  </div>
+</div>
+<div class="container">
+{%- for user in users %}
+  <div class="card mb-3">
+    <div class="card-header text-white bg-dark">
+      <div class="row">
+        <div class="col-sm"><span class="font-weight-bold">{{ user.FullName }}</span></div>
+        <div class="col-sm-auto text-right">
+          <span class="font-weight-bold">ID:</span>
+          <span class="text-monospace">{{ user.ID }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <p class="col-sm-8">
+          {% if user.Profile -%}
+          {{ user.Profile|replace("\n", "<br>") }}
+          <br>
+          {%- else -%}
+          <span class="text-danger" data-toggle="tooltip" title="Mail help@opensciencegrid.org to update">(no profile)</span>
+          {%- endif %}
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-sm-3"><span class="font-weight-bold">GitHub:</span></div>
+        <div class="col-sm">
+          {% if user.GitHub -%}
+          <a href="https://github.com/{{user.GitHub}}">{{ user.GitHub }}</a>
+          {%- else -%}
+          <span class="text-danger" data-toggle="tooltip" title="Mail help@opensciencegrid.org to register">(none)</span>
+          {%- endif %}
+        </div>
+      </div>
+      {% if authorized -%}
+        <div class="row">
+          <div class="col-sm-3"><span class="font-weight-bold">Primary Email:</span></div>
+          <div class="col-sm"><a href="mailto:{{user.ContactInformation.PrimaryEmail}}">{{ user.ContactInformation.PrimaryEmail }}</a></div>
+        </div>
+        {% if user.ContactInformation.SecondaryEmail %}
+        <div class="row">
+          <div class="col-sm-3"><span class="font-weight-bold">Secondary Email:</span></div>
+          <div class="col-sm"><a href="mailto:{{user.ContactInformation.SecondaryEmail}}">{{ user.ContactInformation.SecondaryEmail }}</a></div>
+        </div>
+        {% endif %}
+        {% for lbl, attr in [
+          ("Primary Phone", "PrimaryPhone"),
+          ("Secondary Phone", "SecondaryPhone"),
+          ("IM", "IM")] %}
+        {% if user.ContactInformation[attr] %}
+        <div class="row">
+          <div class="col-sm-3"><span class="font-weight-bold">{{ lbl }}:</span></div>
+          <div class="col-sm">{{ user.ContactInformation[attr] }}</div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      {%- endif %}{# authorized #}
+    </div>
+  </div>
+{% endfor -%}{# user in users #}
+</div>
+{% endblock %}
+{% block last %}
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+{% endblock %}

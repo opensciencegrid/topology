@@ -6,19 +6,25 @@ import re
 import shlex
 import subprocess
 import sys
-from typing import Dict, List, Union
+from typing import Dict, List, Union, AnyStr
+
+log = getLogger(__name__)
 
 import xmltodict
-
-MaybeOrderedDict = Union[None, OrderedDict]
+import yaml
+try:
+    from yaml import CSafeLoader as SafeLoader
+except ImportError:
+    log.warning("CSafeLoader not available - install libyaml-devel and reinstall PyYAML")
+    from yaml import SafeLoader
 
 MISCUSER_SCHEMA_URL = "https://my.opensciencegrid.org/schema/miscuser.xsd"
 RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
 RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
 VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
 
+SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
-log = getLogger(__name__)
 
 
 class Filters(object):
@@ -154,31 +160,39 @@ def trim_space(s: str) -> str:
     return ret
 
 
-def email_to_id(email: str) -> str:
-    return hashlib.sha1(email.strip().lower().encode()).hexdigest()
+def run_git_cmd(cmd: List, dir=None, git_dir=None, ssh_key=None) -> bool:
+    """
+    Run git command, optionally specifying ssh key and/or git dirs
 
+    Options:
 
-def run_git_cmd(cmd: List, dir=None, ssh_key=None) -> bool:
+        dir       path to git work-tree, if not current directory
+        git_dir   path to git-dir, if not .git subdir of work-tree
+        ssh_key   path to ssh public key identity file, if any
+
+    For a bare git repo, specify `git_dir` but not `dir`.
+    """
     if ssh_key and not os.path.exists(ssh_key):
         log.critical("ssh key not found at %s: unable to update secure repo",
                      ssh_key)
         return False
+    base_cmd = ["git"]
     if dir:
-        base_cmd = ["git", "--git-dir", os.path.join(dir, ".git"), "--work-tree", dir]
-    else:
-        base_cmd = ["git"]
+        base_cmd += ["--work-tree", dir]
+        if git_dir is None:
+            git_dir = os.path.join(dir, ".git")
+    if git_dir:
+        base_cmd += ["--git-dir", git_dir]
 
+    full_cmd = base_cmd + cmd
+
+    env = None
     if ssh_key:
-        shell = True
-        # From SO: https://stackoverflow.com/questions/4565700/specify-private-ssh-key-to-use-when-executing-shell-command
-        full_cmd = "ssh-agent bash -c " + \
-                   shlex.quote("ssh-add {0}; {1}".format(shlex.quote(ssh_key),
-                               " ".join([shlex.quote(s) for s in (base_cmd + cmd)])))
-    else:
-        shell = False
-        full_cmd = base_cmd + cmd
+        env = dict(os.environ)
+        env['GIT_SSH_KEY_FILE'] = ssh_key
+        env['GIT_SSH'] = SSH_WITH_KEY
 
-    git_result = subprocess.run(full_cmd, shell=shell, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+    git_result = subprocess.run(full_cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                 encoding="utf-8")
     if git_result.returncode != 0:
         out = git_result.stdout
@@ -197,3 +211,32 @@ def git_clone_or_pull(repo, dir, branch, ssh_key=None) -> bool:
         ok = run_git_cmd(["clone", repo, dir], ssh_key=ssh_key)
         ok = ok and run_git_cmd(["checkout", branch], dir=dir)
     return ok
+
+def git_clone_or_fetch_mirror(repo, git_dir, ssh_key=None) -> bool:
+    if os.path.exists(git_dir):
+        ok = run_git_cmd(["fetch", "origin"], git_dir=git_dir, ssh_key=ssh_key)
+    else:
+        ok = run_git_cmd(["clone", "--mirror", repo, git_dir], ssh_key=ssh_key)
+        # disable mirror push
+        ok = ok and run_git_cmd(["config", "--unset", "remote.origin.mirror"],
+                                                              git_dir=git_dir)
+    return ok
+
+
+def gen_id(instr: AnyStr, digits, minimum=1, hashfn=hashlib.md5) -> int:
+    instr_b = instr if isinstance(instr, bytes) else instr.encode("utf-8", "surrogateescape")
+    mod = (10 ** digits) - minimum
+    return minimum + (int(hashfn(instr_b).hexdigest(), 16) % mod)
+
+
+def load_yaml_file(filename) -> Dict:
+    """Load a yaml file (wrapper around yaml.safe_load() because it does not
+    report the filename in which an error occurred.
+
+    """
+    try:
+        with open(filename, encoding='utf-8', errors='surrogateescape') as stream:
+            return yaml.load(stream, Loader=SafeLoader)
+    except yaml.YAMLError as e:
+        log.error("YAML error in %s: %s", filename, e)
+        raise

@@ -6,6 +6,8 @@ A simple tool for generating notification emails to the OSG
 """
 from __future__ import print_function
 
+import os
+import sys
 import getpass
 import smtplib
 import argparse
@@ -15,11 +17,17 @@ import email.mime.multipart
 
 import gnupg
 
+if __name__ == "__main__" and __package__ is None:
+    _parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    sys.path.append(_parent + "/src")
+
 import topology_utils
+import net_name_addr_utils
 
 # Parts of this implementation are from the following StackOverflow answer:
 # https://stackoverflow.com/questions/10496902/pgp-signing-multipart-e-mails-with-python
 # Licensed under CC-BY-SA
+
 
 def messageFromSignature(signature):
     """
@@ -52,7 +60,8 @@ def generateFullMessage(subject, to, from_name, message, sign=True, keyid=None):
             raise RuntimeError("GnuPG signature of message failed")
 
         signmsg = messageFromSignature(signature)
-        msg = email.mime.multipart.MIMEMultipart(_subtype="signed", micalg="pgp-sha1", protocol="application/pgp-signature")
+        msg = email.mime.multipart.MIMEMultipart(_subtype="signed", micalg="pgp-sha1",
+                                                 protocol="application/pgp-signature")
         msg.attach(basemsg)
         msg.attach(signmsg)
         msg['Subject'] = subject
@@ -71,40 +80,46 @@ def generateFullMessage(subject, to, from_name, message, sign=True, keyid=None):
 def parseargs():
     oparser = argparse.ArgumentParser()
     oparser.add_argument("--host", dest="host", default="my.opensciencegrid.org",
-                help="Remote topology host (default my.opensciencegrid.org)")
+                         help="Remote topology host (default my.opensciencegrid.org)")
     oparser.add_argument("--cert", dest="cert", help="Client certificate")
     oparser.add_argument("--key", dest="key", help="Client certificate private key")
     oparser.add_argument("--sign", dest="sign", default=True, action="store_true", help="Whether to sign with GPG")
     oparser.add_argument("--no-sign", dest="sign", action="store_false", help="Whether to sign with GPG")
     oparser.add_argument("--sign-id", dest="keyid", help="PGP signing key ID")
-    oparser.add_argument("--type", dest="type", required=True, help="Whether notification is test or production", choices=["test", "production"])
+    oparser.add_argument("--type", dest="type", required=True, choices=["test", "production"],
+                         help="Whether notification is test or production")
     oparser.add_argument("--recipients", dest="recipients", required=True,
-        help="Recipients of notification email")
+                         help="Recipients of notification email")
     oparser.add_argument("--oim-recipients", dest="oim_recipients", action="append", choices=["resources", "vos"])
     oparser.add_argument("--message", dest="message", help="File containing message contents", required=True)
     oparser.add_argument("--subject", dest="subject", help="Contents of the subject line", required=True)
-    oparser.add_argument("--from", dest="from_name", help="Human-friendly name for 'From' address", choices=["default", "security"], default="default")
-    oparser.add_argument("--dry-run", dest="dryrun", default=False, action="store_true", help="Print out the email instead of sending it.")
+    oparser.add_argument("--from", dest="from_name", help="Human-friendly name for 'From' address",
+                         choices=["default", "security"], default="default")
+    oparser.add_argument("--dry-run", dest="dryrun", default=False, action="store_true",
+                         help="Print out the email instead of sending it.")
 
-    oparser.add_argument("--oim-name-filter", dest="name_filter", action="store",
-        nargs="?", help="Shell expression filter on the VO or resource name")
-    oparser.add_argument( \
-        "--oim-service-filter",
-             dest="provides_service", help="Filter on resources that provide given "
-            "service(s)")
-    oparser.add_argument("--oim-owner-filter",
-        dest="owner_vo", help="Filter on resources that list VO(s) as a "
-        "partial owner")
+    oparser.add_argument("--oim-name-filter", dest="name_filter", action="store", nargs="?",
+                         help="Shell expression filter on the VO or resource name."
+                         " Can't be specified along with --oim-fqdn-filter.")
+    oparser.add_argument("--oim-fqdn-filter", dest="fqdn_filter", action="store", nargs="?",
+                         help="Shell expression filter on the resource FQDN."
+                         " Can't be specified along with --oim-name-filter.")
+    oparser.add_argument("--oim-service-filter", dest="provides_service",
+                         help="Filter on resources that provide given service(s)")
+    oparser.add_argument("--oim-owner-filter", dest="owner_vo",
+                         help="Filter on resources that list VO(s) as a partial owner")
 
-    oparser.add_argument("--oim-contact-type", default="all",
-                         dest="contact_type", help="Filter on contact type "
-                         "(e.g. administrative, miscellaneous, security, or submitter; "
-                         "default all)", choices=["all", "administrative", "miscellaneous", "security", "submitter"])
+    oparser.add_argument("--oim-contact-type", default="all", dest="contact_type",
+                         choices=["all", "administrative", "miscellaneous", "security", "submitter"],
+                         help="Filter on contact type e.g. administrative, miscellaneous, security, or submitter "
+                         "(default: all)", )
 
     args = oparser.parse_args()
 
     if args.oim_recipients == 'vos' and args.owner_vo:
-        raise Exception("--oim-owner-filter and --oim-recipients=vos options are conflicting.")
+        oparser.error("--oim-owner-filter and --oim-recipients=vos options are conflicting")
+    if args.name_filter and args.fqdn_filter:
+        oparser.error("Can't specify both --oim-name-filter and --oim-fqdn-filter")
 
     if args.from_name == 'security':
         args.from_name = 'OSG Security Team'
@@ -113,6 +128,20 @@ def parseargs():
 
     return args
 
+def network_ok():
+    info = net_name_addr_utils.get_host_network_info()
+    net_ok = net_name_addr_utils.hostnetinfo_good(info)
+
+    if net_ok:
+        return True
+    else:
+        print("***")
+        net_name_addr_utils.print_net_info(info)
+        print("***")
+        print("Refusing to send email without hostname/public DNS match.")
+        print("For more info, see:")
+        print("  https://opensciencegrid.org//operations/services/sending-announcements/")
+        return False
 
 def main():
     args = parseargs()
@@ -128,7 +157,10 @@ def main():
                     emails.add(contact['Email'])
         recipients.update(emails)
     if args.oim_recipients and 'resources' in args.oim_recipients:
-        results = topology_utils.get_resource_contacts(args)
+        if args.fqdn_filter:
+            results = topology_utils.get_resource_contacts_by_fqdn(args)
+        else:
+            results = topology_utils.get_resource_contacts(args)
         results = topology_utils.filter_contacts(args, results)
         emails = set()
         for name in results.keys():
@@ -152,14 +184,29 @@ def main():
 ===================================================
 """ + contents
 
-    msg = generateFullMessage(subject=args.subject, to=recipients, from_name = args.from_name, message=contents, sign=args.sign, keyid=args.keyid)
+    msg = generateFullMessage(subject=args.subject, to=recipients, from_name=args.from_name, message=contents,
+                              sign=args.sign, keyid=args.keyid)
 
     if args.dryrun:
         print(msg)
-    else:
-        session = smtplib.SMTP('localhost')
-        session.sendmail("help@opensciencegrid.org", recipients, msg)
-        session.quit()
+    elif network_ok():
+        for _ in range(1, 4):
+            try:
+                verify_send = raw_input("Really send mail to {0} recipients? (y/N)".format(len(recipients)))
+            except EOFError:
+                verify_send = 'n'
+
+            if verify_send.lower() == 'y':
+                session = smtplib.SMTP('localhost')
+                session.sendmail("help@opensciencegrid.org", recipients, msg)
+                session.quit()
+                break
+            elif verify_send.lower() in ['n', '']:
+                print("Not sending email...")
+                print(msg)
+                break
+            else:
+                print("Unrecognized answer: '{0}'".format(verify_send))
 
 
 if __name__ == '__main__':

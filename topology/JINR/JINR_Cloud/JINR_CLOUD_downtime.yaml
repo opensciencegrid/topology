@@ -1,9 +1,10 @@
 - Class: SCHEDULED
   Description: We expect network connection outages during the specified period
-  EndTime: Dec 25, 2017 19:00 PM UTC
+  EndTime: Dec 25, 2017 19:00 +0000
   ID: 1005539
   ResourceName: JINR_CONDOR_CE
   Services:
   - CE
   Severity: Outage
-  StartTime: Dec 25, 2017 07:00 AM UTC
+  StartTime: Dec 25, 2017 07:00 +0000
+# ----------------------------------------------------------

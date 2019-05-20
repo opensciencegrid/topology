@@ -1,16 +1,19 @@
-Disable: false
 GroupDescription: WIX PerfSONAR
 GroupID: 405
 Production: true
 Resources:
   ESnet LHCONE perfSONAR Washington:
+    Active: true
     ContactLists:
-      Submitter Contact:
+      Administrative Contact:
+        Primary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: The ESnet LHCONE instance in Washington
-    Disable: false
     FQDN: lhcone-wash-opt1.es.net
     ID: 658
     Services:
@@ -25,17 +28,17 @@ Resources:
     VOOwnership:
       ATLAS: 0
   Internet2 WIX perfSONAR:
+    Active: true
     ContactLists:
       Administrative Contact:
-        Secondary:
+        Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-      Submitter Contact:
+      Security Contact:
         Primary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: Internet2 LHCONE perfSONAR instance at the Washington Exchange
-    Disable: false
     FQDN: lhcone.test.wix.internet2.edu
     ID: 657
     Services:

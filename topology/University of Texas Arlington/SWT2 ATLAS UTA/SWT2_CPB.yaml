@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 139
 Production: true
 Resources:
   SWT2_CPB:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -23,12 +23,7 @@ Resources:
         Secondary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
-      Submitter Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
     Description: ATLAS Tier2 Production/Analysis facility
-    Disable: false
     FQDN: gk01.atlas-swt2.org
     ID: 139
     Services:
@@ -43,18 +38,19 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 10.25
+      APELNormalFactor: 10.43
       AccountingName: US-SWT2
-      HEPSPEC: 80436
+      HEPSPEC: 102816
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
       KSI2KMax: 2086
       KSI2KMin: 2086
-      StorageCapacityMax: 4660
-      StorageCapacityMin: 4660
+      StorageCapacityMax: 5000
+      StorageCapacityMin: 5000
       TapeCapacity: 0
   SWT2_CPB_DEV:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -72,14 +68,9 @@ Resources:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
-      Submitter Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
     Description: This is a small testing resource for the ATLAS resource only.  It
       needs to report to WLCG BDII, but gratia reporting is not important.  It will
       be used to work on a new software distribution mechanism within ATLAS
-    Disable: false
     FQDN: test06.atlas-swt2.org
     ID: 398
     Services:
@@ -105,6 +96,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   SWT2_CPB_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -124,11 +116,6 @@ Resources:
         Secondary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
-      Submitter Contact:
-        Primary:
-          ID: 85358c47f16fad2a915da157353581016788a30a
-          Name: Mark Sosebee
-    Disable: false
     FQDN: gk03.atlas-swt2.org
     ID: 191
     Services:
@@ -147,6 +134,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   SWT2_CPB_SQUID:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -169,12 +157,7 @@ Resources:
         Secondary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
-      Submitter Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
     Description: Frontier/CVMFS round robin squid system
-    Disable: false
     FQDN: fsquid.atlas-swt2.org
     ID: 920
     Services:
@@ -183,6 +166,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   SWT2_CPB_perfSONAR_bandwidth:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -205,12 +189,7 @@ Resources:
         Secondary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
-      Submitter Contact:
-        Primary:
-          ID: 85358c47f16fad2a915da157353581016788a30a
-          Name: Mark Sosebee
     Description: This is the perfSONAR-PS bandwidth instance at SWT2_CPB
-    Disable: false
     FQDN: psuta02.atlas-swt2.org
     ID: 587
     Services:
@@ -221,6 +200,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   SWT2_CPB_perfSONAR_latency:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -250,12 +230,7 @@ Resources:
         Secondary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
-      Submitter Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
     Description: This is the perfSONAR-PS latency instance at SWT2_CPB
-    Disable: false
     FQDN: psuta01.atlas-swt2.org
     ID: 520
     Services:

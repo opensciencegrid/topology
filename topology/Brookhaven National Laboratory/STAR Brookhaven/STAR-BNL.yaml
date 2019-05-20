@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 102
 Production: true
 Resources:
   STAR-BNL:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -26,12 +26,7 @@ Resources:
         Secondary:
           ID: d7cf9cf9bc00275cab0a73717cc68528f9971761
           Name: Wayne Betts
-      Submitter Contact:
-        Primary:
-          ID: d7cf9cf9bc00275cab0a73717cc68528f9971761
-          Name: Wayne Betts
     Description: STAR's Tier 0 facility, with limited support for VOs other than STAR.
-    Disable: false
     FQDN: stargrid02.rcf.bnl.gov
     ID: 102
     Services:

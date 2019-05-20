@@ -1,0 +1,34 @@
+{% extends "base.html.j2" %}
+{% block title -%}
+OSG Topology Interface
+{%- endblock %}
+{% block content %}
+<div class="container">
+  <p>
+    Welcome to the landing page for the legacy XML format of the Open Science Grid <a href="https://github.com/opensciencegrid/topology">topology data</a>!<br><br>
+
+    To learn about the data served here and how to register new data, please consult <a href="https://opensciencegrid.org/docs/common/registration/">our documentation</a>.
+  </p>
+  <h2>Human-readable pages</h2>
+  <ul>
+    <li><a href="generate_downtime">Generate a downtime entry for a resource</a></li>
+    <li><a href="contacts">List of OSG contacts</a></li>
+    <li><a href="map/iframe">Map of OSG sites</a></li>
+  </ul>
+
+  <hr>
+  <h2>XML and other machine-readable data</h2>
+  <ul>
+    <li><a href="rgsummary/xml">Resource topology data</a></li>
+    <li><a href="rgdowntime/xml">Resource downtime data</a>
+      <a href="rgdowntime/xml?downtime_attrs_showpast=all">(with all past downtimes)</a></li>
+    <li><a href="rgdowntime/ical">iCal Resource downtime data</a>
+      <a href="rgdowntime/ical?downtime_attrs_showpast=45">(with downtimes for the past 45 days)</a></li>
+    <li><a href="miscuser/xml">User data</a></li>
+    <li><a href="vosummary/xml">Virtual Organization data</a></li>
+    <li><a href="miscproject/xml">Projects data</a></li>
+    <li><a href="stashcache/authfile">StashCache Authfile</a></li>
+    <li><a href="stashcache/authfile-public">StashCache public Authfile</a></li>
+  </ul>
+</div>
+{% endblock %}

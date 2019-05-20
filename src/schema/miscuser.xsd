@@ -7,9 +7,18 @@
           <xsd:complexType>
             <xsd:sequence>
               <xsd:element name="FullName" type="xsd:string" />
+              <xsd:element name="ID" type="xsd:string" />
               <xsd:element name="PhotoURL" type="xsd:string" />
               <xsd:element name="GravatarURL" type="xsd:string" />
               <xsd:element name="Profile" type="xsd:string" />
+              <xsd:element name="GitHub" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="Flags" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="Flag" type="xsd:string" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
               <xsd:element name="ContactInformation" minOccurs="0">
                 <xsd:complexType>
                   <xsd:sequence>

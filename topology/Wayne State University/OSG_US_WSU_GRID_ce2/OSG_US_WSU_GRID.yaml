@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: Wayne State Grid cluster being access through a hosted ce @ UChicago
 GroupID: 472
 Production: true
 Resources:
   OSG_US_WSU_GRID:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -13,12 +13,7 @@ Resources:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
           Name: Suchandra Thapa
-      Submitter Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
     Description: Wayne State Grid cluster being access through a hosted ce @ UChicago.
-    Disable: false
     FQDN: pearc-ce-2.grid.uchicago.edu
     ID: 895
     Services:
@@ -26,6 +21,4 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: UChicago

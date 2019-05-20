@@ -1,28 +1,32 @@
-Disable: false
 GroupDescription: Wilson Facility is a General Purpose HPC cluster at Fermilab
 GroupID: 455
 Production: true
 Resources:
   FNAL_WILSON:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
-          Name: Gerard Bernabeu Altayo
-      Resource Report Contact:
+          ID: 2a33182ee97eebb572baae06c4775b79cf36581f
+          Name: Amitoj Singh
         Secondary:
-          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
-          Name: Gerard Bernabeu Altayo
+          ID: 67559e9f240aa9a7e3ef24113c6a5cdc386e332b
+          Name: Stuart Fuess
+      Resource Report Contact:
+        Primary:
+          ID: 2a33182ee97eebb572baae06c4775b79cf36581f
+          Name: Amitoj Singh
+        Secondary:
+          ID: 67559e9f240aa9a7e3ef24113c6a5cdc386e332b
+          Name: Stuart Fuess
       Security Contact:
         Primary:
-          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
-          Name: Gerard Bernabeu Altayo
-      Submitter Contact:
-        Primary:
-          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
-          Name: Gerard Bernabeu Altayo
+          ID: 2a33182ee97eebb572baae06c4775b79cf36581f
+          Name: Amitoj Singh
+        Secondary:
+          ID: 67559e9f240aa9a7e3ef24113c6a5cdc386e332b
+          Name: Stuart Fuess
     Description: This is the Wilson cluster headnode
-    Disable: false
     FQDN: tev.fnal.gov
     ID: 841
     Services:
@@ -30,40 +34,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-    VOOwnership:
-      Fermilab: 100
-  FNAL_WILSON_2:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
-          Name: Gerard Bernabeu Altayo
-      Miscellaneous Contact:
-        Primary:
-          ID: a25fbb4a1aa71648897c1a76ed6ab3ab7c707d5e
-          Name: Kevin Retzke
-      Resource Report Contact:
-        Secondary:
-          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
-          Name: Gerard Bernabeu Altayo
-      Security Contact:
-        Primary:
-          ID: c03c8946f6d29c0ed8b6466ef6049fe960d55886
-          Name: Gerard Bernabeu Altayo
-      Submitter Contact:
-        Primary:
-          ID: a25fbb4a1aa71648897c1a76ed6ab3ab7c707d5e
-          Name: Kevin Retzke
-    Description: This is the Wilson cluster secondary headnode
-    Disable: false
-    FQDN: mic.fnal.gov
-    ID: 867
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: true
     VOOwnership:
       Fermilab: 100
 SupportCenter: Fermilab

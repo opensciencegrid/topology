@@ -1,79 +1,17 @@
-Disable: false
 GroupDescription: UERJ Resource Group.
 GroupID: 42
 Production: true
 Resources:
-  UERJ_CE:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
-          Name: Eduardo Azevedo Revoredo
-        Secondary:
-          ID: 513f0d558337c2b38f846ca2fcede9326883fb19
-          Name: Caio Amadei Marques da Costa
-      Miscellaneous Contact:
-        Primary:
-          ID: 513f0d558337c2b38f846ca2fcede9326883fb19
-          Name: Caio Amadei Marques da Costa
-        Secondary:
-          ID: e75df2a03ec0732015786fc667058f59deb7daee
-          Name: Renan Bernardo
-        Tertiary:
-          ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
-          Name: Douglas Milanez Marques
-      Resource Report Contact:
-        Primary:
-          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
-          Name: Eduardo Azevedo Revoredo
-        Secondary:
-          ID: e75df2a03ec0732015786fc667058f59deb7daee
-          Name: Renan Bernardo
-        Tertiary:
-          ID: 513f0d558337c2b38f846ca2fcede9326883fb19
-          Name: Caio Amadei Marques da Costa
-      Security Contact:
-        Primary:
-          ID: 513f0d558337c2b38f846ca2fcede9326883fb19
-          Name: Caio Amadei Marques da Costa
-        Secondary:
-          ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
-          Name: Douglas Milanez Marques
-      Submitter Contact:
-        Primary:
-          ID: 0eb77df1dee0abb02d8b1bc8fe4eed8a0a126d76
-          Name: Patricia Bittencourt
-    Description: CE Gatekeeper of T2_BR_UERJ
-    Disable: true
-    FQDN: osgce.hepgrid.uerj.br
-    ID: 42
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 10.486
-      AccountingName: T2-LATINAMERICA
-      HEPSPEC: 0
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 0
-      StorageCapacityMin: 0
   UERJ_CE_2:
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
           Name: Douglas Milanez Marques
         Secondary:
-          ID: 513f0d558337c2b38f846ca2fcede9326883fb19
-          Name: Caio Amadei Marques da Costa
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+          Name: Renan Bernardo
       Miscellaneous Contact:
         Primary:
           ID: e75df2a03ec0732015786fc667058f59deb7daee
@@ -82,12 +20,12 @@ Resources:
           ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
           Name: Eduardo Azevedo Revoredo
         Tertiary:
-          ID: 513f0d558337c2b38f846ca2fcede9326883fb19
-          Name: Caio Amadei Marques da Costa
+          ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
+          Name: Douglas Milanez Marques
       Resource Report Contact:
         Primary:
-          ID: 513f0d558337c2b38f846ca2fcede9326883fb19
-          Name: Caio Amadei Marques da Costa
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+          Name: Renan Bernardo
         Secondary:
           ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
           Name: Eduardo Azevedo Revoredo
@@ -96,17 +34,12 @@ Resources:
           Name: Renan Bernardo
       Security Contact:
         Primary:
-          ID: 513f0d558337c2b38f846ca2fcede9326883fb19
-          Name: Caio Amadei Marques da Costa
+          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
+          Name: Eduardo Azevedo Revoredo
         Secondary:
           ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
           Name: Douglas Milanez Marques
-      Submitter Contact:
-        Primary:
-          ID: 406d0b79a5fdab59cccdc75a640caa80a32ff255
-          Name: Felipe Silva Araujo
     Description: Second CE Gatekeeper of T2_BR_UERJ.
-    Disable: false
     FQDN: osgce2.hepgrid.uerj.br
     ID: 210
     Services:
@@ -129,14 +62,15 @@ Resources:
       StorageCapacityMin: 400
       TapeCapacity: 0
   UERJ_SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
           Name: Eduardo Azevedo Revoredo
         Secondary:
-          ID: 513f0d558337c2b38f846ca2fcede9326883fb19
-          Name: Caio Amadei Marques da Costa
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+          Name: Renan Bernardo
       Miscellaneous Contact:
         Primary:
           ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
@@ -145,8 +79,8 @@ Resources:
           ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
           Name: Eduardo Azevedo Revoredo
         Tertiary:
-          ID: 513f0d558337c2b38f846ca2fcede9326883fb19
-          Name: Caio Amadei Marques da Costa
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+          Name: Renan Bernardo
       Resource Report Contact:
         Primary:
           ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
@@ -155,21 +89,16 @@ Resources:
           ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
           Name: Douglas Milanez Marques
         Tertiary:
-          ID: 513f0d558337c2b38f846ca2fcede9326883fb19
-          Name: Caio Amadei Marques da Costa
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+          Name: Renan Bernardo
       Security Contact:
         Primary:
           ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
           Name: Douglas Milanez Marques
         Secondary:
-          ID: 513f0d558337c2b38f846ca2fcede9326883fb19
-          Name: Caio Amadei Marques da Costa
-      Submitter Contact:
-        Primary:
-          ID: e841eee054eaa3cf8ade9ddf1a259755c95a160c
-          Name: Thiago Comicio
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+          Name: Renan Bernardo
     Description: SE resource of T2_BR_UERJ.
-    Disable: false
     FQDN: se.hepgrid.uerj.br
     ID: 164
     Services:
@@ -190,4 +119,20 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
+  UERJ_SQUID:
+    FQDN: squid.hepgrid.uerj.br
+    ID: 996
+    Active: True
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Renan Bernardo
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+      Security Contact:
+        Primary:
+          Name: Eduardo Azevedo Revoredo
+          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
+    Services:
+      Squid:
+        Description: Hepgrid Squid service
 SupportCenter: USCMS_Tier2

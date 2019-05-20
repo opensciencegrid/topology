@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 76
 Production: true
 Resources:
   NERSC-PDSFDTN:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -39,13 +39,8 @@ Resources:
         Secondary:
           ID: c3d417180e9c3738a32032eda0b9cf1252288870
           Name: Jeff Porter
-      Submitter Contact:
-        Primary:
-          ID: d7dd32d900c2fbbd7559da13371e83d012e7e1f3
-          Name: Iwona Sakrejda
     Description: This is a storage element designated primarily to data transfers
       between PDSF and BNL.
-    Disable: false
     FQDN: pdsfdtn1.nersc.gov
     FQDNAliases:
     - pd2015.nersc.gov
@@ -69,55 +64,8 @@ Resources:
       KSI2KMin: 100
       StorageCapacityMax: 5.5
       StorageCapacityMin: 2
-  NERSC-PDSFSRM:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: c9b700f14f63f4046e9d1d00442d7f1653ec165d
-          Name: James Botts
-        Secondary:
-          ID: c3d417180e9c3738a32032eda0b9cf1252288870
-          Name: Jeff Porter
-      Miscellaneous Contact:
-        Primary:
-          ID: c9b700f14f63f4046e9d1d00442d7f1653ec165d
-          Name: James Botts
-        Secondary:
-          ID: 9231bdd673f982e47b3be0005910b187f64842b6
-          Name: Lisa Gerhardt
-      Resource Report Contact:
-        Primary:
-          ID: c9b700f14f63f4046e9d1d00442d7f1653ec165d
-          Name: James Botts
-        Secondary:
-          ID: c3d417180e9c3738a32032eda0b9cf1252288870
-          Name: Jeff Porter
-      Security Contact:
-        Primary:
-          ID: c3d417180e9c3738a32032eda0b9cf1252288870
-          Name: Jeff Porter
-        Secondary:
-          ID: c9b700f14f63f4046e9d1d00442d7f1653ec165d
-          Name: James Botts
-      Submitter Contact:
-        Primary:
-          ID: d7dd32d900c2fbbd7559da13371e83d012e7e1f3
-          Name: Iwona Sakrejda
-    Description: This is a production SRM server (Bestman) for STAR
-    Disable: true
-    FQDN: pdsfsrm.nersc.gov
-    FQDNAliases:
-    - pdsfgrid3.nersc.gov
-    ID: 76
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      NERSC: 100
   NERSC-PGSIFTP1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -147,12 +95,7 @@ Resources:
         Secondary:
           ID: c3d417180e9c3738a32032eda0b9cf1252288870
           Name: Jeff Porter
-      Submitter Contact:
-        Primary:
-          ID: d7dd32d900c2fbbd7559da13371e83d012e7e1f3
-          Name: Iwona Sakrejda
     Description: This is a gsiftp server that serves locally managed atlas area.
-    Disable: false
     FQDN: pdsfgsiftp1.nersc.gov
     FQDNAliases:
     - pdsfgrid1.nersc.gov

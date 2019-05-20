@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: https://www.rcac.purdue.edu/compute/rice/
 GroupID: 446
 Production: true
 Resources:
   Purdue-Rice:
+    Active: true
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -23,14 +23,9 @@ Resources:
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
-      Submitter Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
     Description: |-
       Computing element for Purdue Rice cluster( opportunistic).
       http://www.rcac.purdue.edu/userinfo/resources/conte/
-    Disable: false
     FQDN: rice-osg.rcac.purdue.edu
     ID: 827
     Services:
@@ -42,7 +37,7 @@ Resources:
     VOOwnership:
       CMS: 0
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 17.95
       AccountingName: T2_US_Purdue
       HEPSPEC: 85
       InteropAccounting: true

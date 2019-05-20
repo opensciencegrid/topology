@@ -1,48 +1,8 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 122
 Production: true
 Resources:
-  UFlorida-PG:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: db835291658341e71188973d9ea7c713114a9264
-          Name: Yu Fu
-        Secondary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Miscellaneous Contact:
-        Tertiary:
-          ID: dcc5225ec8889c92053920bbd934bedadc799908
-          Name: Craig Prescott
-      Resource Report Contact:
-        Primary:
-          ID: db835291658341e71188973d9ea7c713114a9264
-          Name: Yu Fu
-      Security Contact:
-        Primary:
-          ID: db835291658341e71188973d9ea7c713114a9264
-          Name: Yu Fu
-        Secondary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Submitter Contact:
-        Primary:
-          ID: dcc5225ec8889c92053920bbd934bedadc799908
-          Name: Craig Prescott
-    Description: US CMS Tier-2 site at Florida
-    Disable: true
-    FQDN: pg.ihepa.ufl.edu
-    ID: 122
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-  UFlorida-SE:
+  perfSONAR_UF LAT:
     Active: false
     ContactLists:
       Administrative Contact:
@@ -50,114 +10,77 @@ Resources:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
         Secondary:
-          ID: db835291658341e71188973d9ea7c713114a9264
-          Name: Yu Fu
-      Resource Report Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Security Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Submitter Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-    Description: US CMS Tier-2 sites at Florida
-    Disable: true
-    FQDN: srm.ihepa.ufl.edu
-    ID: 123
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-  UFlorida-SEb:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-        Secondary:
-          ID: db835291658341e71188973d9ea7c713114a9264
-          Name: Yu Fu
-      Miscellaneous Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-        Secondary:
-          ID: db835291658341e71188973d9ea7c713114a9264
-          Name: Yu Fu
-        Tertiary:
-          ID: 3846a3bb6148109f781a1ad8634b880011bcd6f5
-          Name: Paul Avery
-      Resource Report Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-        Secondary:
-          ID: db835291658341e71188973d9ea7c713114a9264
-          Name: Yu Fu
-        Tertiary:
-          ID: 3846a3bb6148109f781a1ad8634b880011bcd6f5
-          Name: Paul Avery
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
       Security Contact:
         Primary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
         Secondary:
-          ID: db835291658341e71188973d9ea7c713114a9264
-          Name: Yu Fu
-      Submitter Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-    Description: |-
-      This is the secondary SE at UF CMS Tier2 to be used as the
-      backup SE
-    Disable: true
-    FQDN: srm1.ihepa.ufl.edu
-    ID: 458
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-          uri_override: srm1.ihepa.ufl.edu:8443
-    VOOwnership:
-      CMS: 100
-  perfSONAR_UF:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Security Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Submitter Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-    Description: Perf SONAR latency
-    Disable: true
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+    Description: perfSONAR latency
     FQDN: perfsonar1.ihepa.ufl.edu
     ID: 574
     Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: perfsonar2.ihepa.ufl.edu
       net.perfSONAR.Latency:
-        Description: PerfSonar Latency monitoring node
+        Description: perfSONAR Latency monitoring node
         Details:
           endpoint: perfsonar1.ihepa.ufl.edu
+    VOOwnership:
+      CMS: 100
+  perfSONAR_UF BW:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+      Security Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+    Description: perfSONAR bandwidth
+    FQDN: perfsonar2.ihepa.ufl.edu
+    ID: 946
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: perfSONAR Bandwidth monitoring node
+        Details:
+          endpoint: perfsonar2.ihepa.ufl.edu
+    VOOwnership:
+      CMS: 100
+  perfSONAR_UF IPv6 BW:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+      Security Contact:
+        Primary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+        Secondary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+    Description: perfSONAR IPv6 bandwidth
+    FQDN: cmsps1.rc.ufl.edu
+    ID: 947
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: perfSONAR IPv6 Bandwidth monitoring node
+        Details:
+          endpoint: cmsps1.rc.ufl.edu
     VOOwnership:
       CMS: 100
 SupportCenter: USCMS_Tier2

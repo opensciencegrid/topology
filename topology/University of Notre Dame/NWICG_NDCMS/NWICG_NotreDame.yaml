@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: https://ticket.grid.iu.edu/goc/12807
 GroupID: 79
 Production: true
 Resources:
   NDCMS_Primeradiant01:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -23,13 +23,8 @@ Resources:
         Primary:
           ID: 1a6defbcb27777eae626bbb0ae9f4d0a281dd641
           Name: Irena Johnson
-      Submitter Contact:
-        Primary:
-          ID: 82122a855bc0fe808efd91e402e7975a39511d7b
-          Name: Kenyi Hurtado Anampa
     Description: XrootD Proxy Cache server. Will use it as a proxy to cache CMS data
       through cmsxrootd.fnal.gov
-    Disable: false
     FQDN: primeradiant01.crc.nd.edu
     ID: 821
     Services:
@@ -39,52 +34,4 @@ Resources:
           hidden: false
     VOOwnership:
       CMS: 100
-  NWICG_NotreDame:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 1a6defbcb27777eae626bbb0ae9f4d0a281dd641
-          Name: Irena Johnson
-      Miscellaneous Contact:
-        Primary:
-          ID: 1a6defbcb27777eae626bbb0ae9f4d0a281dd641
-          Name: Irena Johnson
-      Resource Report Contact:
-        Primary:
-          ID: 1a6defbcb27777eae626bbb0ae9f4d0a281dd641
-          Name: Irena Johnson
-      Security Contact:
-        Primary:
-          ID: 1a6defbcb27777eae626bbb0ae9f4d0a281dd641
-          Name: Irena Johnson
-      Submitter Contact:
-        Primary:
-          ID: a1767c7e391f86b8ac1d2c1cc0703688ec710e44
-          Name: In-Saeng Suh
-    Description: The FQDN is "opteron03.crc.nd.edu"
-    Disable: true
-    FQDN: opteron03.crc.nd.edu
-    ID: 79
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      NWICG: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 0
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: false
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 0
-      StorageCapacityMin: 0
 SupportCenter: NWICG

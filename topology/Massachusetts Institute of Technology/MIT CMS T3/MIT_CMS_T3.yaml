@@ -1,9 +1,9 @@
-Disable: false
 GroupDescription: MIT CMS Tier3 cluster.
 GroupID: 367
 Production: true
 Resources:
   MIT_CMS_T3-CE1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -33,12 +33,7 @@ Resources:
         Secondary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
-      Submitter Contact:
-        Primary:
-          ID: c7cff50f825623fe061afb38510d3b7253d88f9b
-          Name: Leonardo Di Matteo
     Description: US CMS Tier-3 computing element.
-    Disable: false
     FQDN: t3serv007.mit.edu
     ID: 534
     Services:
@@ -64,6 +59,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   MIT_CMS_T3-SE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -93,12 +89,7 @@ Resources:
         Secondary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
-      Submitter Contact:
-        Primary:
-          ID: c7cff50f825623fe061afb38510d3b7253d88f9b
-          Name: Leonardo Di Matteo
     Description: US CMS Tier-3 storage element at MIT.
-    Disable: false
     FQDN: t3serv006.mit.edu
     ID: 535
     Services:
