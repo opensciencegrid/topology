@@ -2,10 +2,10 @@ import copy
 
 from collections import OrderedDict
 from logging import getLogger
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 
-from .common import Filters, MaybeOrderedDict, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list
+from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list
 from .contacts_reader import ContactsData
 
 
@@ -43,7 +43,7 @@ class VOsData(object):
             "@xsi:schemaLocation": VOSUMMARY_SCHEMA_URL,
             "VO": expanded_vo_list}}
 
-    def _expand_vo(self, name: str, authorized: bool, filters: Filters) -> MaybeOrderedDict:
+    def _expand_vo(self, name: str, authorized: bool, filters: Filters) -> Optional[OrderedDict]:
         # Restore ordering
         new_vo = OrderedDict.fromkeys(["ID", "Name", "LongName", "CertificateOnly", "PrimaryURL",
                                        "MembershipServicesURL", "PurposeURL", "SupportURL", "AppDescription",

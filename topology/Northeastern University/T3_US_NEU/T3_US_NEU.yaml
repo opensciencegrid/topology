@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: The resource corresponding to the Northeastern University CMS group
   Tier 3
 GroupID: 392
@@ -18,7 +17,6 @@ Resources:
     Description: |-
       This is the head node for the local Tier 3.
       The supplied Information URL is for the full NEU HPC cluster.
-    Disable: false
     FQDN: lhct3alv.neu.edu
     ID: 617
     Services:

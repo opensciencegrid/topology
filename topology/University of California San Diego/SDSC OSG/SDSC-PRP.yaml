@@ -32,7 +32,6 @@ Resources:
           Name: Igor Sfiligoi
           ID: 593daf4f680b3135849201036e1055f03f89cfac
 
-    Disable: false
     FQDN: xcache-11.t2.ucsd.edu
     Services:
       CE:
@@ -40,6 +39,4 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://xcache-11.t2.ucsd.edu
-    VOOwnership:
-      OSG: 100
 

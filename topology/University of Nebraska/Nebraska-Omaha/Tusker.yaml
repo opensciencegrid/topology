@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: The Tusker HPC Cluster.
 GroupID: 333
 Production: true
@@ -38,7 +37,6 @@ Resources:
       This is the primary CE for the HCC community cluster "Tusker".
 
       OSG VOs may use this opportunistically.
-    Disable: false
     FQDN: tusker-gw1.unl.edu
     ID: 454
     Services:

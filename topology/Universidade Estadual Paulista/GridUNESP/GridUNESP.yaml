@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: The central site of GridUNESP infrastructure.
 GroupID: 259
 Production: true
@@ -48,7 +47,6 @@ Resources:
           Name: Jadir Marra da Silva
     Description: This is the gatekeeper (condor-ce), RSV, GUMS and Gratia for the
       GridUNESP cluster.
-    Disable: false
     FQDN: osg-ce.grid.unesp.br
     ID: 308
     Services:
@@ -101,7 +99,6 @@ Resources:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
     Description: This is the Compute Element running SLURM for the GridUNESP cluster.
-    Disable: false
     FQDN: ce.grid.unesp.br
     ID: 944
     Services:

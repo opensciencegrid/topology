@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Resources in the Georgia Tech PACE cluster, to be used by LIGO.
 GroupID: 423
 Production: true
@@ -41,7 +40,6 @@ Resources:
           ID: bce6aa9f33442110ab7554a8bf716ab80ed7bef5
           Name: Paul Manno
     Description: This is a Condor CE in front of the PACE cluster, for use by LIGO.
-    Disable: false
     FQDN: osg-sched.pace.gatech.edu
     ID: 734
     Services:
@@ -86,7 +84,6 @@ Resources:
           Name: Paul Manno
     Description: GridFTP server, initially for incoming LIGO frame data pushed from
       CIT.
-    Disable: false
     FQDN: osg-gftp.pace.gatech.edu
     ID: 737
     Services:
@@ -154,7 +151,6 @@ Resources:
           ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
           Name: Ruben Lara
     Description: Georgia Tech submit node for LIGO.
-    Disable: false
     FQDN: ligo-6.pace.gatech.edu
     ID: 736
     Services:

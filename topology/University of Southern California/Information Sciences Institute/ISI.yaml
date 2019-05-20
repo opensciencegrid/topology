@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: ISI
 GroupID: 483
 Production: true
@@ -22,7 +21,6 @@ Resources:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
           Name: Mats Rynge
     Description: OSG accessible gateway
-    Disable: false
     FQDN: osg.isi.edu
     ID: 943
     Services:
@@ -31,6 +29,4 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osg.isi.edu
-    VOOwnership:
-      OSG: 100
 SupportCenter: ISI

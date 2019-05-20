@@ -1,5 +1,5 @@
 # *** NOTE ***
-# You MUST keep entries in this file in sync with those in requirements.txt
+# You MUST keep entries in this file in sync with those in requirements-apache.txt
 
 asn1>=2.2.0,<2.3.0
 certifi>=2019.3.9
@@ -12,7 +12,7 @@ gunicorn>=19.9.0,<19.10
 icalendar>=4.0.0,<4.1.0
 idna==2.7
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2>=2.10.1,<2.11
 MarkupSafe==1.0
 python-dateutil>=2.7.3,<2.8
 PyYAML>=4.2b1,<=4.2

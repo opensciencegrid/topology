@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: https://www.rcac.purdue.edu/compute/rice/
 GroupID: 446
 Production: true
@@ -27,7 +26,6 @@ Resources:
     Description: |-
       Computing element for Purdue Rice cluster( opportunistic).
       http://www.rcac.purdue.edu/userinfo/resources/conte/
-    Disable: false
     FQDN: rice-osg.rcac.purdue.edu
     ID: 827
     Services:
@@ -39,7 +37,7 @@ Resources:
     VOOwnership:
       CMS: 0
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 17.95
       AccountingName: T2_US_Purdue
       HEPSPEC: 85
       InteropAccounting: true

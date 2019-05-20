@@ -553,3 +553,70 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 205280881
+  Description: Down for PDU maintenance
+  Severity: Outage
+  StartTime: Apr 17, 2019 15:00 +0000
+  EndTime: Apr 18, 2019 15:00 +0000
+  CreatedTime: Apr 17, 2019 14:08 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 205280882
+  Description: Down for PDU maintenance
+  Severity: Outage
+  StartTime: Apr 17, 2019 15:00 +0000
+  EndTime: Apr 18, 2019 15:00 +0000
+  CreatedTime: Apr 17, 2019 14:08 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 205280883
+  Description: Down for PDU maintenance
+  Severity: Outage
+  StartTime: Apr 17, 2019 15:00 +0000
+  EndTime: Apr 18, 2019 15:00 +0000
+  CreatedTime: Apr 17, 2019 14:08 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 205280884
+  Description: Down for PDU maintenance
+  Severity: Outage
+  StartTime: Apr 17, 2019 15:00 +0000
+  EndTime: Apr 18, 2019 15:00 +0000
+  CreatedTime: Apr 17, 2019 14:08 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 205280885
+  Description: Down for PDU maintenance
+  Severity: Outage
+  StartTime: Apr 17, 2019 15:00 +0000
+  EndTime: Apr 18, 2019 15:00 +0000
+  CreatedTime: Apr 17, 2019 14:08 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 212440865
+  Description: Did not come up cleanly on last downtime
+  Severity: Outage
+  StartTime: Apr 25, 2019 21:00 +0000
+  EndTime: Apr 30, 2019 00:00 +0000
+  CreatedTime: Apr 25, 2019 21:01 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+

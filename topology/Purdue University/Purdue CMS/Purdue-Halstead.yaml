@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Purdue Halstead
 GroupID: 461
 Production: true
@@ -31,7 +30,6 @@ Resources:
     Description: |-
       Computing element for Purdue Halstead cluster.
       https://www.rcac.purdue.edu/compute/halstead/
-    Disable: false
     FQDN: halstead-osg.rcac.purdue.edu
     ID: 857
     Services:
@@ -43,7 +41,7 @@ Resources:
     VOOwnership:
       CMS: 0
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 11.98
       AccountingName: T2_US_Purdue
       HEPSPEC: 85
       InteropAccounting: true

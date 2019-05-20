@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: requested in https://ticket.grid.iu.edu/35669
 GroupID: 482
 Production: true
@@ -34,7 +33,6 @@ Resources:
     Description: |-
       Computing element for Purdue Rice cluster( opportunistic).
       https://www.rcac.purdue.edu/compute/brown
-    Disable: false
     FQDN: brown-osg.rcac.purdue.edu
     ID: 929
     Services:
@@ -46,7 +44,7 @@ Resources:
     VOOwnership:
       CMS: 0
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 22.5
       AccountingName: T2_US_Purdue
       HEPSPEC: 85
       InteropAccounting: true

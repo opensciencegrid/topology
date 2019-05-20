@@ -1,7 +1,6 @@
-Disable: false
 GroupDescription: OU ITB Resource
 GroupID: 86
-Production: true
+Production: false
 Resources:
   OUHEP_ITB:
     Active: true
@@ -31,7 +30,6 @@ Resources:
           ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
           Name: Christopher Arnold Walker
     Description: OUHEP ITB site
-    Disable: false
     FQDN: osgitb1.nhn.ou.edu
     FQDNAliases:
     - osgitb2.nhn.ou.edu

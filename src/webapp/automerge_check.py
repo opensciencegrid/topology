@@ -112,13 +112,37 @@ def main(args):
             errors += check_resource_contacts(BASE_SHA, rg_fname,
                                               resources_affected, contact)
 
+    if any( re.match(br'^projects/.*\.yaml', fname) for fname in modified ):
+        orgs_base  = get_organizations_at_version(base)
+        orgs_new   = get_organizations_at_version(head)
+        orgs_added = orgs_new - orgs_base
+        for org in sorted(orgs_added):
+            errors += ["New Organization '%s' requires OSG approval" % org]
+    else:
+        orgs_added = None
+
     print_errors(errors)
-    return ( 0 if len(errors) == 0   # all checks pass (only DT files modified)
-        else 1 if len(errors) == 1   # all checks pass except out of date
-                  and not up_to_date
-        else 2 if len(DTs) > 0       # DT file(s) modified, not all checks pass
-        else 3 if contact is None    # no DT files modified, contact error
-        else 4 )                     # no DT files modified, other errors
+    return ( RC.ALL_CHECKS_PASS   if len(errors) == 0
+        else RC.OUT_OF_DATE_ONLY  if len(errors) == 1 and not up_to_date
+        else RC.ORGS_ADDED        if orgs_added
+        else RC.DT_MOD_ERRORS     if len(DTs) > 0
+        else RC.CONTACT_ERROR     if contact is None
+        else RC.NON_DT_ERRORS )
+
+class RC:
+    ALL_CHECKS_PASS  = 0  # all checks pass (only DT files modified)
+    OUT_OF_DATE_ONLY = 1  # all checks pass except out of date
+    DT_MOD_ERRORS    = 2  # DT file(s) modified, not all checks pass
+    CONTACT_ERROR    = 3  # no DT files modified, contact error
+    ORGS_ADDED       = 4  # explicitly reject new organizations
+    NON_DT_ERRORS    = 5  # no DT files modified, other errors; not reported
+
+# only comment on errors if DT files modified or contact unknown
+reportable_errors = set([RC.OUT_OF_DATE_ONLY, RC.DT_MOD_ERRORS,
+                         RC.CONTACT_ERROR, RC.ORGS_ADDED])
+
+rejectable_errors = set([RC.ORGS_ADDED])
+
 
 def insist(cond):
     if not cond:
@@ -130,12 +154,18 @@ def looks_like_sha(arg):
 def looks_like_downtime(fname):
     return re.search(br'^topology/[^/]+/[^/]+/[^/]+_downtime.yaml$', fname)
 
+def zsplit(txt):
+    items = txt.split(b'\0')
+    if items[-1:] == [b'']:
+        items[-1:] = []
+    return items
+
 def get_modified_files(sha_a, sha_b):
     args = ['git', 'diff', '-z', '--name-only', sha_a, sha_b]
     ret, out = runcmd(args)
     if ret:
         sys.exit(1)
-    return out.rstrip(b'\0').split(b'\0')
+    return zsplit(out)
 
 def runcmd(cmdline, **popen_kw):
     from subprocess import Popen, PIPE
@@ -156,6 +186,18 @@ def get_file_at_version(sha, fname):
     args = ['git', 'show', b'%s:%s' % (sha.encode(), fname)]
     ret, out = runcmd(args, stderr=_devnull)
     return out
+
+def list_dir_at_version(sha, path):
+    treeish = b'%s:%s' % (sha.encode(), path)
+    args = ['git', 'ls-tree', '-z', '--name-only', treeish]
+    ret, out = runcmd(args, stderr=_devnull)
+    return zsplit(out)
+
+def get_organizations_at_version(sha):
+    projects = [ parse_yaml_at_version(sha, "projects/" + fname, {})
+                 for fname in list_dir_at_version(sha, "projects")
+                 if re.search(br'.\.yaml$', fname) ]
+    return set( p.get("Organization") for p in projects )
 
 def commit_is_merged(sha_a, sha_b):
     args = ['git', 'merge-base', '--is-ancestor', sha_a, sha_b]
