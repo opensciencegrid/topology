@@ -2,46 +2,6 @@ GroupDescription: NOvA production site
 GroupID: 387
 Production: true
 Resources:
-  FZU_NOVA_CE:
-    ContactLists:
-      Security Contact:
-        Primary:
-          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
-          Name: Petr Vokac
-      Administrative Contact:
-        Primary:
-          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
-          Name: Petr Vokac
-      Miscellaneous Contact:
-        Primary:
-          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
-          Name: Petr Vokac
-      Resource Report Contact:
-        Primary:
-          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
-          Name: Petr Vokac
-    Active: true
-    Description: This is CE for NOvA production at FZU (new local HTCondor batch)
-    FQDN: novace.farm.particle.cz
-    ID: 780
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-          sam_uri: htcondor://novace.farm.particle.gov
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      DUNE: 30
-      DZero: 10
-      Nova: 60
   FZU_OSG_CE1:
     ContactLists:
       Security Contact:
