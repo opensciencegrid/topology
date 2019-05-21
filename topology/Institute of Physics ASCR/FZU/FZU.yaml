@@ -68,6 +68,34 @@ Resources:
       DUNE: 45
       DZero: 10
       Nova: 45
+  FZU_STASH:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Administrative Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Miscellaneous Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Resource Report Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+    Active: true
+    Description: FZU StashCache XRootD caching proxy (Prague, Czech Republic)
+    FQDN: stash.farm.particle.cz
+    DN: /DC=org/DC=terena/DC=tcs/C=CZ/L=Prague/O=Institute of Physics AS CR/CN=stash.farm.particle.cz
+    ID: 1003
+    Services:
+      XRootD cache server:
+        Description: FZU StashCache
+    AllowedVOs:
+      - ANY
   perfSONAR_FZU_bandwidth:
     ContactLists:
       Security Contact:
