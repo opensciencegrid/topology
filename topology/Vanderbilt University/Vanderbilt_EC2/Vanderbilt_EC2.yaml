@@ -24,40 +24,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      AccountingName: T3_US_Vanderbilt_EC2
-      HEPSPEC: 0
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 0
-      StorageCapacityMin: 0
-      TapeCapacity: 0
-  Vanderbilt_EC2_SE:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-        Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-      Security Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-    Description: SE endpoint for the cloud
-    FQDN: se2.accre.vanderbilt.edu
-    FQDNAliases:
-    - se2.accre.vanderbilt.edu
-    ID: 409
-    Services:
       GridFtp:
         Description: GridFtp Storage Element
         Details:
@@ -72,7 +38,7 @@ Resources:
       APELNormalFactor: 0
       AccountingName: T3_US_Vanderbilt_EC2
       HEPSPEC: 0
-      InteropAccounting: true
+      InteropAccounting: false
       InteropBDII: true
       InteropMonitoring: true
       KSI2KMax: 0

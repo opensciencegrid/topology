@@ -29,7 +29,7 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-          uri_override: cmssw3.Princeton.EDU:8443
+          uri_override: cmssw3.princeton.edu:8443
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -42,35 +42,4 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-  T3_US_Princeton_ICSE:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
-          Name: Christopher Tully
-      Miscellaneous Contact:
-        Primary:
-          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
-          Name: Christopher Tully
-      Resource Report Contact:
-        Primary:
-          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
-          Name: Christopher Tully
-      Security Contact:
-        Primary:
-          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
-          Name: Christopher Tully
-    Description: This is a CMS T3 site at Princeton University.  The site manager
-      is Chris Tully.  The servers are managed at Fermilab by Rob Snihur.
-    FQDN: cmssw3.princeton.edu
-    ID: 596
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-          uri_override: cmssw3.princeton.edu:8443
-    VOOwnership:
-      CMS: 100
 SupportCenter: USCMS_Tier3
