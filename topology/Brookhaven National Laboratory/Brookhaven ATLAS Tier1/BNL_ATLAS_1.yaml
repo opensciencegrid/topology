@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Enable per request
 GroupID: 3
 Production: true
@@ -15,7 +14,6 @@ Resources:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: Testing publication of ALL US T3 SEs from single host
-    Disable: false
     FQDN: grid37.racf.bnl.gov
     ID: 345
     Services:

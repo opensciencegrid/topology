@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: This is the Tier1 for Belle-II at BNL
 GroupID: 478
 Production: true
@@ -33,7 +32,6 @@ Resources:
           Name: Hironori Ito
     Description: This is the HTCondor-CE for Belle II  at the Belle-II T1 center at
       BNL
-    Disable: false
     FQDN: bgk01.sdcc.bnl.gov
     ID: 930
     Services:
@@ -42,6 +40,51 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://bgk01.sdcc.bnl.gov
+    VOOwnership:
+      Belle: 100
+  BNL_BELLE_II_CE_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+        Secondary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+      Miscellaneous Contact:
+        Primary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+      Resource Report Contact:
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+        Secondary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+      Security Contact:
+        Primary:
+          ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
+          Name: John Hover
+        Secondary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+      Submitter Contact:
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+    Description: This is a HTCondor-CE for Belle II  at the Belle-II T1 center at
+      BNL
+    Disable: false
+    FQDN: bgk02.sdcc.bnl.gov
+    ID: 1002
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://bgk02.sdcc.bnl.gov
     VOOwnership:
       Belle: 100
   BNL_BELLE_II_SE:
@@ -56,7 +99,6 @@ Resources:
           ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
           Name: Hironori Ito
     Description: BNL Belle II dCache
-    Disable: false
     FQDN: dcblsrm.sdcc.bnl.gov
     ID: 908
     Services:

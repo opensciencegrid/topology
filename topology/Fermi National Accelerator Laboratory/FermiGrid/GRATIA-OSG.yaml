@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: The OSG Gratia services as provided by FermiGrid at FNAL.
 GroupID: 255
 Production: true
@@ -25,7 +24,6 @@ Resources:
       The Gratia collector for all accounting information from all OSG-ITB sites.
 
       Note that this is a *production* accounting service for the ITB, not an ITB service.
-    Disable: false
     FQDN: gratia-osg-itb.opensciencegrid.org
     ID: 293
     Services:
@@ -56,7 +54,6 @@ Resources:
           Name: Gratia Accounting Service
     Description: The Gratia collector for job accounting information from all production
       OSG sites.
-    Disable: false
     FQDN: gratia-osg-prod.opensciencegrid.org
     ID: 291
     Services:
@@ -84,7 +81,6 @@ Resources:
           Name: Gratia Accounting Service
     Description: The Gratia collector for storage and transfer accounting information
       from all production OSG sites.
-    Disable: false
     FQDN: gratia-osg-transfer.opensciencegrid.org
     ID: 292
     Services:
@@ -112,7 +108,6 @@ Resources:
           Name: Gratia Accounting Service
     Description: The Gratia collector for job accounting information from all production
       OSG sites.
-    Disable: false
     FQDN: gratia-main-osg.fnal.gov
     ID: 758
     Services:
@@ -141,7 +136,6 @@ Resources:
     Description: The Gratia collector for all accounting information from all OSG-ITB
       sites. Note that this is a *production* accounting service for the ITB, not
       an ITB service.
-    Disable: false
     FQDN: gratia-itb-osg.fnal.gov
     ID: 759
     Services:
@@ -169,7 +163,6 @@ Resources:
           Name: Gratia Accounting Service
     Description: The Gratia collector for storage and transfer accounting information
       from all production OSG sites.
-    Disable: false
     FQDN: gratia-transfer-osg.fnal.gov
     ID: 760
     Services:

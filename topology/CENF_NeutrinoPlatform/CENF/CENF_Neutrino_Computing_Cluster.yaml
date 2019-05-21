@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: 'Neutrino Computing Cluster at CERN: https://twiki.cern.ch/twiki/bin/view/CENF/NeutrinoClusterCERN'
 GroupID: 450
 Production: true
@@ -15,7 +14,6 @@ Resources:
           Name: Kenneth Herner
     Active: true
     Description: Head node for the CENF Neutrino Computing Cluster.
-    Disable: false
     FQDN: neut00.cern.ch
     ID: 834
     Services:

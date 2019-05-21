@@ -1,37 +1,7 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 122
 Production: true
 Resources:
-  UFlorida-SE:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-        Secondary:
-          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
-          Name: University of Florida CMS Tier 2 Admins
-      Resource Report Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Security Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-    Description: US CMS Tier-2 sites at Florida
-    Disable: true
-    FQDN: srm.ihepa.ufl.edu
-    ID: 123
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
   perfSONAR_UF LAT:
     Active: false
     ContactLists:

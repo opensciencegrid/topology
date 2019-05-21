@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: CE at UMSNH Morelia Michoacan
 GroupID: 372
 Production: true
@@ -17,7 +16,6 @@ Resources:
     Description: Project developed in order to continue CMS research.The projecto
       will be 5 machine cluster with 8 CPU cores per machine. 2 of the cores are reserved
       for running the CE.
-    Disable: false
     FQDN: higgs.cms.umich.mx
     ID: 557
     Services:
@@ -29,6 +27,4 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: USCMS_Tier3

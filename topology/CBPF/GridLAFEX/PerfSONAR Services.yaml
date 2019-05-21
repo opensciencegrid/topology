@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: PerfSONAR services for the CBPF site.
 GroupID: 415
 Production: true
@@ -15,7 +14,6 @@ Resources:
           ID: 9297dc3d016a75053b8fdd138235ee83ff00114f
           Name: CBPF GridLAFEX Support
     Description: This is the PerfSONAR latency service of CBPF site.
-    Disable: false
     FQDN: ps02.cat.cbpf.br
     ID: 704
     Services:
@@ -37,7 +35,6 @@ Resources:
           ID: 9297dc3d016a75053b8fdd138235ee83ff00114f
           Name: CBPF GridLAFEX Support
     Description: This is the perfSONAR resource for latency tests.
-    Disable: false
     FQDN: ps01.cat.cbpf.br
     ID: 703
     Services:

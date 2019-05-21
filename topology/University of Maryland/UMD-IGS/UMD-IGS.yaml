@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: diagcomputing.org
 GroupID: 382
 Production: true
@@ -15,7 +14,6 @@ Resources:
           Name: Jeff Shao
     Active: true
     Description: OSG Compute Element for UMD-IGS
-    Disable: false
     FQDN: osg-devel.igs.umaryland.edu
     ID: 566
     Services:
@@ -23,6 +21,4 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: UMDIGS

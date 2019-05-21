@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Opportunistic resources utilized by the Tier 1.
 GroupID: 453
 Production: true
@@ -35,7 +34,6 @@ Resources:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: Submit host for ATLAS backfill on our Institutional Openstack Cloud
-    Disable: false
     FQDN: gridtest06.racf.bnl.gov
     ID: 836
     Services:
