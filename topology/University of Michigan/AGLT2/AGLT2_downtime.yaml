@@ -666,3 +666,24 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 230416644
+  Description: Network maintenaince at AGT2 UM site
+  Severity: Intermittent Outage
+  StartTime: May 23, 2019 11:00 +0000
+  EndTime: May 23, 2019 13:00 +0000
+  CreatedTime: May 22, 2019 19:30 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 230416645
+  Description: Network maintenaince at AGT2 UM site
+  Severity: Intermittent Outage
+  StartTime: May 23, 2019 11:00 +0000
+  EndTime: May 23, 2019 13:00 +0000
+  CreatedTime: May 22, 2019 19:30 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
