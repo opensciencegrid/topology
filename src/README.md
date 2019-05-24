@@ -7,7 +7,7 @@ Useful Definitions
 | Field   | Definition                                                                                                                                           |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Active  | If set to `false`, the service is not up.  A resource should be marked as inactive instead of being deleted if it has recent (< 1 yr) GRACC records. |
-| Disable | A value of `true` is the same as deletion. Legacy field for resources and resource groups.                                                           |
+| Disable | This is a leftover from the import process and will be removed soon.  Delete Resources and ResourceGroups instead of marking them disabled.          |
 
 XML consumers
 -------------
