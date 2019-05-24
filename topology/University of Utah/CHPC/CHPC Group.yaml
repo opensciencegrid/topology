@@ -8,15 +8,15 @@ Resources:
       Administrative Contact:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          Name: Marco Mascheroni
       Resource Report Contact:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          Name: Marco Mascheroni
       Security Contact:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          Name: Marco Mascheroni
     Description: Hosted CE for the Ember cluster at CHPC
     FQDN: hosted-ce15.grid.uchicago.edu
     ID: 938
@@ -31,15 +31,15 @@ Resources:
       Administrative Contact:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          Name: Marco Mascheroni
       Resource Report Contact:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          Name: Marco Mascheroni
       Security Contact:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          Name: Marco Mascheroni
     Description: Hosted CE for the Kingspeak cluster at CHPC
     FQDN: hosted-ce14.grid.uchicago.edu
     ID: 937
@@ -54,9 +54,24 @@ Resources:
       Resource Report Contact:
         Primary:
           ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          Name: Marco Mascheroni
     Description: Hosted CE for the lonepeak cluster
     FQDN: hosted-ce12.grid.uchicago.edu
+    ID: 936
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+  OSG_US_UUTAH_NOTCHPEAK:
+    Active: true
+    ContactLists:
+      Resource Report Contact:
+        Primary:
+          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
+          Name: Marco Mascheroni
+    Description: Hosted CE for the notchpeak cluster
+    FQDN: hosted-ce24.grid.uchicago.edu
     ID: 936
     Services:
       CE:
