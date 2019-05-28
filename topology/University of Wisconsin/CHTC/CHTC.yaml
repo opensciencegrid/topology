@@ -188,7 +188,7 @@ Resources:
       GLOW: 100
 
   CHTC_STASHCACHE_CACHE:
-    Active: false
+    Active: true
     Description: This is a StashCache cache server at UW.
     ID: 958
     ContactLists:
@@ -223,7 +223,7 @@ Resources:
       - ANY
 
   CHTC_STASHCACHE_ORIGIN:
-    Active: false
+    Active: true
     Description: This is a StashCache origin server at UW.
     ID: 959
     ContactLists:
