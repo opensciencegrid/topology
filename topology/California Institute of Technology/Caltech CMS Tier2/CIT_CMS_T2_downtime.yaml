@@ -587,3 +587,15 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+
+- Class: UNSCHEDULED
+  ID: 230416643
+  Description: Unscheduled storage outage due to power
+  Severity: Severe
+  StartTime: May 16, 2019 16:20 +0000
+  EndTime: May 17, 2019 00:20 +0000
+  CreatedTime: May 16, 2019 16:21 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
