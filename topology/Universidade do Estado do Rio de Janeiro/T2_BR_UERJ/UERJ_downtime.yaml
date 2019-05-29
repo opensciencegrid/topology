@@ -182,3 +182,36 @@
   Severity: Outage
   StartTime: Nov 5, 2016 16:00 +0000
 # ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 241674839
+  Description: We had a problem with one of our circuit breakers
+  Severity: Outage
+  StartTime: May 29, 2019 17:00 +0000
+  EndTime: May 30, 2019 23:59 +0000
+  CreatedTime: May 29, 2019 17:04 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 241678619
+  Description: We had a problem with one of our circuit breakers
+  Severity: Outage
+  StartTime: May 29, 2019 17:00 +0000
+  EndTime: May 30, 2019 23:59 +0000
+  CreatedTime: May 29, 2019 17:11 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 241678909
+  Description: We had a problem with one of our circuit breakers
+  Severity: Outage
+  StartTime: May 29, 2019 17:00 +0000
+  EndTime: May 30, 2019 23:59 +0000
+  CreatedTime: May 29, 2019 17:11 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
