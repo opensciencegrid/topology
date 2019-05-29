@@ -97,6 +97,7 @@ def main():
     errors += test_12_res_contact_id_fmt(rgs, rgfns)
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
+    errors += test_16_Xrootd_DNs(rgs, rgfns)
 
 
     print("%d Resource Group files processed." % len(rgs))
@@ -135,6 +136,7 @@ _emsgs = {
     'MalformedContactID'     : "Contact IDs must be exactly 40 hex digits",
     'UnknownContactID'       : "Contact IDs must exist in contact repo",
     'ContactNameMismatch'    : "Contact names must match in contact repo",
+    'XrootdWithoutDN'        : "Xrootd cache server needs DN",
 }
 
 def print_emsg_once(msgtype):
@@ -435,6 +437,23 @@ def test_14_res_contacts_match(rgs, rgfns, contacts):
                         errors += 1
 
     return errors
+
+def test_16_Xrootd_DNs(rgs, rgfns):
+    # verify each Xrootd service has DN
+
+    errors = 0
+
+    for rg, rgfn in zip(rgs, rgfns):
+        if rgfn.endswith('FACILITY.yaml'):
+            continue
+        for resource in rg['Resources']:
+            if 'XRootD cache server' in rg['Resources'][resource]['Services'] and 'DN' not in rg['Resources'][resource]:
+                print_emsg_once('XrootdWithoutDN')
+                print("in '%s', Xrootd cache server Resource '%s' does not have required DN" % (rgfn, resource))
+                errors += 1
+
+    return errors
+
 
 if __name__ == '__main__':
     sys.exit(main())
