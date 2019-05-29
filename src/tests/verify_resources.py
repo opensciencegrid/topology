@@ -97,6 +97,7 @@ def main():
     errors += test_12_res_contact_id_fmt(rgs, rgfns)
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
+    errors += test_15_FACILITY_SITE_check()
 
 
     print("%d Resource Group files processed." % len(rgs))
@@ -135,6 +136,7 @@ _emsgs = {
     'MalformedContactID'     : "Contact IDs must be exactly 40 hex digits",
     'UnknownContactID'       : "Contact IDs must exist in contact repo",
     'ContactNameMismatch'    : "Contact names must match in contact repo",
+    'NoFACILITYorSITE'       : "The site and facility directories should have SITE.yaml and FACILITY.yaml respectively",
 }
 
 def print_emsg_once(msgtype):
@@ -416,6 +418,7 @@ def test_13_res_contacts_exist(rgs, rgfns, contacts):
 
     return errors
 
+
 def test_14_res_contacts_match(rgs, rgfns, contacts):
     # verify resource contacts match contact repo
 
@@ -433,6 +436,26 @@ def test_14_res_contacts_match(rgs, rgfns, contacts):
                               " match name in contact repo (%s)" % (rgfn,
                               rname, clevel, ctype, ID, name, contacts[ID]))
                         errors += 1
+
+    return errors
+
+def test_15_FACILITY_SITE_check():
+    # verify the required FACILITY.yaml and SITE.yaml files
+    errors = 0
+
+    groups = glob.glob(_topdir + '/topology/*')
+    for group in groups:
+        for root, dirs, files in os.walk(group):
+            if root == group:
+                if 'FACILITY.yaml' not in files:
+                    print_emsg_once('NoFACILITYorSITE')
+                    print(root + "does not have required FACILITY.yaml file")
+                    errors += 1
+            else:
+                if 'SITE.yaml' not in files:
+                    print_emsg_once('NoFACILITYorSITE')
+                    print(root + "does not have required SITE.yaml file")
+                    errors += 1
 
     return errors
 
