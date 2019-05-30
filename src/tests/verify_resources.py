@@ -136,7 +136,7 @@ _emsgs = {
     'MalformedContactID'     : "Contact IDs must be exactly 40 hex digits",
     'UnknownContactID'       : "Contact IDs must exist in contact repo",
     'ContactNameMismatch'    : "Contact names must match in contact repo",
-    'XrootdWithoutDN'        : "Xrootd cache server needs DN",
+    'XrootdWithoutDN'        : "Xrootd cache server must provide a DN",
 }
 
 def print_emsg_once(msgtype):
@@ -444,12 +444,10 @@ def test_16_Xrootd_DNs(rgs, rgfns):
     errors = 0
 
     for rg, rgfn in zip(rgs, rgfns):
-        if rgfn.endswith('FACILITY.yaml'):
-            continue
         for resource in rg['Resources']:
             if 'XRootD cache server' in rg['Resources'][resource]['Services'] and 'DN' not in rg['Resources'][resource]:
                 print_emsg_once('XrootdWithoutDN')
-                print("in '%s', Xrootd cache server Resource '%s' does not have required DN" % (rgfn, resource))
+                print("in '%s', Xrootd cache server Resource '%s' has no DN" % (rgfn, resource))
                 errors += 1
 
     return errors
