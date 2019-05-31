@@ -443,11 +443,12 @@ def test_16_Xrootd_DNs(rgs, rgfns):
 
     errors = 0
 
-    for rg, rgfn in zip(rgs, rgfns):
-        for resource in rg['Resources']:
-            if 'XRootD cache server' in rg['Resources'][resource]['Services'] and 'DN' not in rg['Resources'][resource]:
+    for rg,rgfn in zip(rgs,rgfns):
+        for rname,rdict in sorted(rg['Resources'].items()):
+            if 'XRootD cache server' in rdict['Services'] and 'DN' not in rdict:
                 print_emsg_once('XrootdWithoutDN')
-                print("in '%s', Xrootd cache server Resource '%s' has no DN" % (rgfn, resource))
+                print("In '%s', Xrootd cache server Resource '%s' has no DN" %
+                      (rgfn, resource))
                 errors += 1
 
     return errors
