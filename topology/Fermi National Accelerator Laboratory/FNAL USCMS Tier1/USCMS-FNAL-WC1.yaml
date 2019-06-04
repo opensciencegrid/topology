@@ -406,20 +406,20 @@ Resources:
       StorageCapacityMax: 24000
       StorageCapacityMin: 24000
       TapeCapacity: 0      
-  cmsfrontier_squid:
+  USCMS-FNAL-WC1-SQUID:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID:
+          ID: e2799203e652f11e24de11fcf85b7e8d2b1783f7
           Name: HYUNWOO KIM
       Security Contact:
         Primary:
-          ID:
+          ID: e2799203e652f11e24de11fcf85b7e8d2b1783f7
           Name: HYUNWOO KIM
     Description: squid service for cms frontier
     FQDN: cmsfrontiers.fnal.gov
-    ID:
+    ID: 1006
     Services:
       Squid:
         Description: Generic squid service
