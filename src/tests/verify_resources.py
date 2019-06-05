@@ -448,7 +448,7 @@ def test_16_Xrootd_DNs(rgs, rgfns):
             if 'XRootD cache server' in rdict['Services'] and 'DN' not in rdict:
                 print_emsg_once('XrootdWithoutDN')
                 print("In '%s', Xrootd cache server Resource '%s' has no DN" %
-                      (rgfn, resource))
+                      (rgfn, rname))
                 errors += 1
 
     return errors
