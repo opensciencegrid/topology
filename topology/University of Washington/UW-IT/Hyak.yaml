@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Hyak is the UW's campus wide shared HPC cluster.
 GroupID: 398
 Production: true
@@ -19,7 +18,6 @@ Resources:
           ID: 52f6e89bf022d01dbb2c30705320737af426f521
           Name: Adam Hough
     Description: CE for Hyak
-    Disable: false
     FQDN: globus1.hyak.washington.edu
     ID: 636
     Services:
@@ -31,6 +29,4 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: UW-IT

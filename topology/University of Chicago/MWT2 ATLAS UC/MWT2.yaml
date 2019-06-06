@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Placeholder for MWT2
 GroupID: 310
 Production: true
@@ -32,7 +31,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: This is unified gatekeeper for MWT2 resources.
-    Disable: false
     FQDN: osg-gk.mwt2.org
     ID: 375
     Services:
@@ -87,7 +85,6 @@ Resources:
           Name: Judith Stephen
     Description: MWT2-hosted resources for Connect-related submitters. Supporting
       OSG, XENON1T, OSG, ATLAS, CMS, etc via direct flocking.
-    Disable: false
     FQDN: condor.grid.uchicago.edu
     ID: 846
     Services:
@@ -126,7 +123,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: MWT2 Gatekeeper located at Indiana University @ Indianapolis, IN
-    Disable: false
     FQDN: iut2-gk.mwt2.org
     ID: 470
     Services:
@@ -177,7 +173,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: MWT2 Gatekeeper located at The University of Chicago @ Chicago, IL
-    Disable: false
     FQDN: uct2-gk.mwt2.org
     ID: 471
     Services:
@@ -229,7 +224,6 @@ Resources:
           Name: Lincoln Bryant
     Description: MWT2 Gatekeeper located at University of Illilnois @ Urbana-Champaign,
       IL
-    Disable: false
     FQDN: mwt2-gk.campuscluster.illinois.edu
     ID: 490
     Services:
@@ -280,7 +274,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: MWT2 CVMFS Squid located at Indiana University @ Indianapolis, IN
-    Disable: false
     FQDN: iut2-cvmfs.mwt2.org
     ID: 912
     Services:
@@ -318,7 +311,6 @@ Resources:
           Name: Lincoln Bryant
     Description: MWT2 CVMFS Squid located at the University of Chicago @ Chicago,
       IL
-    Disable: false
     FQDN: uct2-cvmfs.mwt2.org
     ID: 913
     Services:
@@ -359,7 +351,6 @@ Resources:
           Name: Lincoln Bryant
     Description: MWT2 CVMFS Squid located at University of Illilnois @ Urbana-Champaign,
       IL
-    Disable: false
     FQDN: mwt2-cvmfs.campuscluster.illinois.edu
     ID: 914
     Services:
@@ -397,7 +388,6 @@ Resources:
           Name: Lincoln Bryant
     Description: MWT2 Frontier Squid located at Indiana University @ Indianapolis,
       IN
-    Disable: false
     FQDN: iut2-squid.mwt2.org
     ID: 909
     Services:
@@ -435,7 +425,6 @@ Resources:
           Name: Lincoln Bryant
     Description: MWT2 Frontier Squid located at the University of Chicago @ Chicago,
       IL
-    Disable: false
     FQDN: uct2-squid.mwt2.org
     ID: 910
     Services:
@@ -473,7 +462,6 @@ Resources:
           Name: Lincoln Bryant
     Description: MWT2 Frontier Squid located at University of Illilnois @ Urbana-Champaign,
       IL
-    Disable: false
     FQDN: mwt2-squid.campuscluster.illinois.edu
     ID: 911
     Services:
@@ -510,7 +498,6 @@ Resources:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
     Description: Part of the MWT2 facility.
-    Disable: false
     FQDN: uct2-dc1.uchicago.edu
     FQDNAliases:
     - uct2-dc1.uchicago.edu
@@ -563,7 +550,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: MWT2 perfSONAR-PS Bandwidth instance at Indiana University
-    Disable: false
     FQDN: iut2-net2.iu.edu
     ID: 581
     Services:
@@ -602,7 +588,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: Testbed Perfsonar bandwidth node
-    Disable: false
     FQDN: iut2-net4.iu.edu
     ID: 672
     Services:
@@ -641,7 +626,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: Internal perfsonar bandwidth nodes
-    Disable: false
     FQDN: iut2-net6.iu.edu
     ID: 675
     Services:
@@ -680,7 +664,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: Internal perfsonar bandwidth nodes
-    Disable: false
     FQDN: iut2-net8.iu.edu
     ID: 676
     Services:
@@ -719,7 +702,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: MWT2 perfSONAR-PS Latency instance at Indiana University
-    Disable: false
     FQDN: iut2-net1.iu.edu
     ID: 517
     Services:
@@ -758,7 +740,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: Testbed Perfsonar latency node
-    Disable: false
     FQDN: iut2-net3.iu.edu
     ID: 671
     Services:
@@ -797,7 +778,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: Campus perfsonar latency node
-    Disable: false
     FQDN: iut2-net5.iu.edu
     ID: 673
     Services:
@@ -839,7 +819,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: Internal Perfsonar latency nodes
-    Disable: false
     FQDN: iut2-net7.iu.edu
     ID: 674
     Services:
@@ -881,7 +860,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: MWT2 perfSONAR-PS Bandwidth instance at the University of Chicago
-    Disable: false
     FQDN: uct2-net2.mwt2.org
     ID: 580
     Services:
@@ -923,7 +901,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: Testbed Perfsonar Bandwidth node
-    Disable: false
     FQDN: uct2-net4.mwt2.org
     ID: 670
     Services:
@@ -965,7 +942,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: MWT2 perfSONAR-PS Latency instance at the University of Chicago
-    Disable: false
     FQDN: uct2-net1.mwt2.org
     ID: 516
     Services:
@@ -1007,7 +983,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: Testbed PerfSonar Latency node
-    Disable: false
     FQDN: uct2-net3.mwt2.org
     ID: 669
     Services:
@@ -1050,7 +1025,6 @@ Resources:
           Name: Lincoln Bryant
     Description: MWT2 perfSONAR-PS Bandwidth instance at the University of Illinois
       at Urbana-Champaign
-    Disable: false
     FQDN: mwt2-ps02.campuscluster.illinois.edu
     ID: 582
     Services:
@@ -1092,7 +1066,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: Testbed Perfsonar Bandwidth node
-    Disable: false
     FQDN: mwt2-ps04.campuscluster.illinois.edu
     ID: 791
     Services:
@@ -1135,7 +1108,6 @@ Resources:
           Name: Lincoln Bryant
     Description: MWT2 perfSONAR-PS Latency instance at the University of Illinois
       at Urbana-Champaign
-    Disable: false
     FQDN: mwt2-ps01.campuscluster.illinois.edu
     ID: 518
     Services:
@@ -1177,7 +1149,6 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: Testbed PerfSonar Latency node
-    Disable: false
     FQDN: mwt2-ps03.campuscluster.illinois.edu
     ID: 790
     Services:

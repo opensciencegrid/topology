@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Small pool of hosts at the STAR experiment, for STAR jobs only.
 GroupID: 426
 Production: true
@@ -25,7 +24,6 @@ Resources:
     Description: This is a small site intended only for STAR jobs (testing grid submission
       and small batches of simulation, production and possibly STAR user analysis),
       primarily while RHIC is not running.
-    Disable: false
     FQDN: stargw3.starp.bnl.gov
     ID: 741
     Services:

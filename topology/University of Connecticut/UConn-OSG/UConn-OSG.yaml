@@ -1,4 +1,3 @@
-Disable: false
 GridType: OSG Production Resource
 GroupDescription: UConn Physics Cluster Computing Group
 GroupID: 254
@@ -24,7 +23,6 @@ Resources:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
     Description: squid server for UConn-OSG, also web server
-    Disable: false
     FQDN: gryphn.phys.uconn.edu
     FQDNAliases:
     - zeus.phys.uconn.edu
@@ -54,7 +52,6 @@ Resources:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
     Description: HTcondor-CE server for the UConn-OSG compute resources
-    Disable: false
     FQDN: gluskap.phys.uconn.edu
     FQDNAliases:
     - ce1.phys.uconn.edu
@@ -88,7 +85,6 @@ Resources:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
     Description: UConn-OSG grid storage resource
-    Disable: false
     FQDN: grinch.phys.uconn.edu
     FQDNAliases:
     - grinch.phys.uconn.edu
@@ -134,7 +130,6 @@ Resources:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
     Description: UConn-OSG StashCache origin server
-    Disable: false
     FQDN: gandalf.phys.uconn.edu
     FQDNAliases:
     - gandalf.phys.uconn.edu
@@ -177,7 +172,6 @@ Resources:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
     Description: local UConn submit host to Gluex glideinWMS factory
-    Disable: false
     FQDN: gluex.phys.uconn.edu
     FQDNAliases:
     - gluex.phys.uconn.edu

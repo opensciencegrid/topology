@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: U.S. ATLAS Northeast Tier 2 Center
 GroupID: 8
 Production: true
@@ -42,7 +41,6 @@ Resources:
           Name: Saul Youssef
     Description: 'U.S. ATLAS Northeast Tier 2 Center: Boston University and Harvard
       University'
-    Disable: false
     FQDN: atlas-ce.bu.edu
     ID: 477
     Services:
@@ -98,7 +96,6 @@ Resources:
           ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
           Name: Saul Youssef
     Description: squid service for frontier and cvmfs
-    Disable: false
     FQDN: atlas-net2.bu.edu
     ID: 923
     Services:
@@ -138,7 +135,6 @@ Resources:
           ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
           Name: Saul Youssef
     Description: perfSONAR bandwidth node
-    Disable: false
     FQDN: atlas-npt2.bu.edu
     ID: 578
     Services:
@@ -180,7 +176,6 @@ Resources:
           ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
           Name: Saul Youssef
     Description: perfSONAR latency site for NET2
-    Disable: false
     FQDN: atlas-npt1.bu.edu
     ID: 577
     Services:
@@ -219,7 +214,6 @@ Resources:
           ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
           Name: Saul Youssef
     Description: PerfSonar for ATLAS NET2
-    Disable: false
     FQDN: atlas-owamp.bu.edu
     ID: 529
     Services:

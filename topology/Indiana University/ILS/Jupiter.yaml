@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: ILS compute cluster
 GroupID: 362
 Production: true
@@ -23,7 +22,6 @@ Resources:
           Name: Michael Gallant
     Active: true
     Description: ILS compute cluster
-    Disable: false
     FQDN: jupiter.ils.indiana.edu
     ID: 510
     Services:

@@ -1,21 +1,19 @@
-Disable: false
 GroupDescription: Hosted CE for Danforth center cluster
 GroupID: 471
 Production: true
 Resources:
   OSG_US_DANFORTH_ce04:
-    Active: true
+    Active: false 
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
       Security Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
     Description: Hosted CE submitting to Danforth Center CE
-    Disable: false
     FQDN: hosted-ce05.grid.uchicago.edu
     ID: 894
     Services:
@@ -23,6 +21,4 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: UChicago

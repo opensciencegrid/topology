@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Added manually by Arvind from old RegDB - please update if need
   be.
 GroupID: 146
@@ -22,7 +21,6 @@ Resources:
     Description: This is the CE and HN for the UMissHEP computing farm. The SE is
       UMissHEP_SE but is a different server and has been added as a separate entry.
       (Added manually by Arvind from old RegDB.)
-    Disable: false
     FQDN: umiss001.hep.olemiss.edu
     ID: 146
     Services:
@@ -61,10 +59,13 @@ Resources:
           Name: David Sanders
     Description: This is a Bestman-gateway SE using SRM v2 for the UMissHEP computing
       farm.
-    Disable: false
     FQDN: umiss005.hep.olemiss.edu
     ID: 333
     Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: true
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
@@ -72,7 +73,7 @@ Resources:
     VOOwnership:
       Belle: 50
       CMS: 25
-      DZero: 25
+      DUNE: 25
     WLCGInformation:
       APELNormalFactor: 0
       HEPSPEC: 0

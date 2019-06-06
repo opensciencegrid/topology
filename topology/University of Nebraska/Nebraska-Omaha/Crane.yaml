@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Crane Cluster
 GroupID: 388
 Production: true
@@ -41,7 +40,6 @@ Resources:
           ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
           Name: Garhan Attebury
     Description: Gatekeeper for Crane
-    Disable: false
     FQDN: crane-gw1.unl.edu
     ID: 602
     Services:
@@ -63,4 +61,29 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
+  HCC-PKI-Proxy:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+      Security Contact:
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: Round robin DNS alias for HCC Squids in Omaha
+    FQDN: hcc-pki-proxy.unl.edu
+    ID: 1004
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      HCC: 100
 SupportCenter: Community Support Center

@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Resource group at California State University, Fresno
 GroupID: 340
 Production: true
@@ -23,7 +22,6 @@ Resources:
     Description: |-
       10TB storage accessible via SRM or GridFTP; for now
       only for local users of Fresno T3 cluster
-    Disable: false
     FQDN: t3nfs.atlas.csufresno.edu
     ID: 459
     Services:

@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: osg-ce.clemson.edu
 GroupID: 212
 Production: true
@@ -36,7 +35,6 @@ Resources:
           Name: Randall Martin
     Description: This is the Connect factory for Clemson-Palmetto, primarily used
       by OSG Connect.
-    Disable: false
     FQDN: rccf-osg.ci-connect.net
     ID: 781
     Services:
@@ -45,8 +43,6 @@ Resources:
         Details:
           hidden: false
           uri_override: osgconnect@user.palmetto.clemson.edu/pbs
-    VOOwnership:
-      OSG: 100
   Clemson-Palmetto:
     Active: true
     ContactLists:
@@ -81,7 +77,6 @@ Resources:
     Description: This machine is directly connected to our Palmetto cluster (with
       approximately 20,000 cores) and has a shared file systems for /home, $OSG_APP
       and $OSG_DATA.
-    Disable: false
     FQDN: osg-ce.clemson.edu
     ID: 211
     Services:
@@ -89,8 +84,6 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
     WLCGInformation:
       APELNormalFactor: 0
       HEPSPEC: 0

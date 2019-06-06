@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: This resource group is for ITB testing at University of Colorado
 GroupID: 253
 Production: false
@@ -39,7 +38,6 @@ Resources:
       testing to the CMS workflow, lcg utils. I imagine that use of this machine will
       change depending on its participation in ITB. Currently, hepitb01.colorado.edu
       is not in the DNS tables. It should be propagated by tomorrow.
-    Disable: false
     FQDN: hepitb01.colorado.edu
     ID: 268
     Services:
