@@ -9,16 +9,6 @@
   StartTime: Jul 13, 2016 12:00 +0000
 # ----------------------------------------------------------
 - Class: SCHEDULED
-  Description: Cleaning of server after data center fire.
-  EndTime: Jul 18, 2016 17:00 +0000
-  ID: 1004953
-  ResourceName: Vanderbilt_CE2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jul 13, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
   Description: Cleaning of SE and all GridFTP servers after data center fire.
   EndTime: Jul 18, 2016 17:00 +0000
   ID: 1004954
@@ -43,16 +33,6 @@
   EndTime: Aug 5, 2016 17:00 +0000
   ID: 1004966
   ResourceName: Vanderbilt_CE1
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Aug 1, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Downtime for fire-cleaning of core network switches for our site.
-  EndTime: Aug 5, 2016 17:00 +0000
-  ID: 1004967
-  ResourceName: Vanderbilt_CE2
   Services:
   - CE
   Severity: Outage
@@ -121,16 +101,6 @@
 - Class: SCHEDULED
   Description: L-Store upgrade
   EndTime: Apr 25, 2017 23:00 +0000
-  ID: 1005277
-  ResourceName: Vanderbilt_CE2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Apr 24, 2017 11:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: L-Store upgrade
-  EndTime: Apr 25, 2017 23:00 +0000
   ID: 1005278
   ResourceName: Vanderbilt_SE
   Services:
@@ -143,16 +113,6 @@
   EndTime: Jun 2, 2017 05:00 +0000
   ID: 1005325
   ResourceName: Vanderbilt_CE1
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: May 30, 2017 05:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Storage hardware upgrade
-  EndTime: Jun 2, 2017 05:00 +0000
-  ID: 1005326
-  ResourceName: Vanderbilt_CE2
   Services:
   - CE
   Severity: Outage
@@ -193,16 +153,6 @@
   EndTime: Aug 28, 2017 13:00 +0000
   ID: 1005413
   ResourceName: Vanderbilt_CE1
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Aug 26, 2017 14:00 +0000
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  Description: Unexpected cluster filesystem outage.
-  EndTime: Aug 28, 2017 13:00 +0000
-  ID: 1005414
-  ResourceName: Vanderbilt_CE2
   Services:
   - CE
   Severity: Outage
@@ -263,16 +213,6 @@
   EndTime: Apr 23, 2018 13:00 +0000
   ID: 1005640
   ResourceName: Vanderbilt_CE4
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Apr 20, 2018 23:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Required downtime to update GPFS
-  EndTime: Apr 23, 2018 13:00 +0000
-  ID: 1005641
-  ResourceName: Vanderbilt_CE2
   Services:
   - CE
   Severity: Outage
