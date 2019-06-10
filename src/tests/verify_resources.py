@@ -44,7 +44,7 @@ def sumvals(d):
 
 def get_vo_names():
     return set( re.search(r'/([^/]+)\.yaml$', path).group(1) for path in
-                glob.glob(_topdir + "/virtual-organizations/*.yaml") )
+                glob.glob(_topdir + "/virtual-organizations/*.yaml"))
 
 def load_yamlfile(fn):
     with open(fn) as f:
@@ -76,17 +76,23 @@ def main():
     rgfns = list(filter(rgfilter, yamls))
     rgs = list(map(load_yamlfile, rgfns))
     #facility_site_rg = [ fn[:-len(".yaml")].split('/') for fn in rgfns ]
+    vo_yamls = sorted(glob.glob(_topdir + "/virtual-organizations/*.yaml"))
+    vo_rgs = list(map(load_yamlfile, vo_yamls))
+    support_centers = load_yamlfile("support-centers.yaml")
+
     errors = 0
     warnings = 0
     if any( rg is None for rg in rgs ):
         errors += sum( rg is None for rg in rgs )
         rgs, rgfns = filter_out_None_rgs(rgs, rgfns)
+    if support_centers is None:
+        errors += 1
 
     errors += test_1_rg_unique(rgs, rgfns)
     errors += test_2_res_unique(rgs, rgfns)
     errors += test_3_voownership(rgs, rgfns)
     errors += test_4_res_svcs(rgs, rgfns)
-    errors += test_5_sc(rgs, rgfns)
+    if support_centers: errors += test_5_sc(rgs, rgfns, support_centers)
     errors += test_6_site()
     # re-enable fqdn errors after SOFTWARE-3330
     # warnings += test_7_fqdn_unique(rgs, rgfns)
@@ -97,6 +103,8 @@ def main():
     errors += test_12_res_contact_id_fmt(rgs, rgfns)
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
+    errors += test_15_res_VO_exist(vo_rgs, vo_yamls, contacts)
+    if support_centers: errors += test_16_sc_contact_verify(contacts, support_centers)
 
 
     print("%d Resource Group files processed." % len(rgs))
@@ -234,13 +242,10 @@ def test_4_res_svcs(rgs, rgfns):
     return errors
 
 
-def test_5_sc(rgs, rgfns):
+def test_5_sc(rgs, rgfns, support_centers):
     # 5. SupportCenter must refer to an existing SC
 
     errors = 0
-    support_centers = load_yamlfile("support-centers.yaml")
-    if support_centers is None:
-        return 1
 
     for rg,rgfn in zip(rgs,rgfns):
         sc = rg.get('SupportCenter')
@@ -435,6 +440,70 @@ def test_14_res_contacts_match(rgs, rgfns, contacts):
                         errors += 1
 
     return errors
+
+
+def test_15_res_VO_exist(vo_rgs, vo_yamls, contacts):
+    # verify VO contacts exist in contact repo
+
+    errors = 0
+
+    for rg, rgfn in zip(vo_rgs,vo_yamls):
+        if rgfn.endswith("REPORTING_GROUPS.yaml"): continue
+        try:
+            for con_type in rg["Contacts"]:
+                for contact in rg["Contacts"][con_type]:
+                    ID, name = contact["ID"], contact["Name"]
+                    if not re.search(r'^[0-9a-f]{40}$', ID):
+                        print_emsg_once('MalformedContactID')
+                        print("In '%s', the contact for '%s' has malformed ID: '%s'" % (rgfn, name, ID))
+                        errors += 1
+                    else:
+                        if ID not in contacts:
+                            print_emsg_once('UnknownContactID')
+                            print("In '%s', contact %s has unknown ID '%s'" % (rgfn, name, ID))
+                            errors += 1
+                        else:
+                            if name != contacts[ID]:
+                                print_emsg_once('ContactNameMismatch')
+                                print("In '%s', the name '%s' for '%s' does not match name in contact repo '%s'"
+                                      % (rgfn, name, ID, contacts[ID]))
+                                errors += 1
+
+        except KeyError:
+            pass
+
+    return errors
+
+def test_16_sc_contact_verify(contacts, support_centers):
+    # verify the contacts in support center
+
+    errors = 0
+
+    for group in support_centers:
+        try:
+            for contype in support_centers[group]["Contacts"]:
+                for contact in support_centers[group]["Contacts"][contype]:
+                    ID, name = contact["ID"], contact["Name"]
+                    if not re.search(r'^[0-9a-f]{40}$', ID):
+                        print_emsg_once('MalformedContactID')
+                        print("The '%s' for support center '%s' has malformed ID: '%s'" % (contype, group, ID))
+                        errors += 1
+                    else:
+                        if ID not in contacts:
+                            print_emsg_once('UnknownContactID')
+                            print("The '%s' for support center '%s' has unknown ID '%s'" % (contype, group, ID))
+                            errors += 1
+                        else:
+                            if name != contacts[ID]:
+                                print_emsg_once('ContactNameMismatch')
+                                print("In '%s' for support center '%s', the name '%s' with ID '%s' does not match "
+                                      "name in contact repo '%s'" % (contype, group, name, ID, contacts[ID]))
+                                errors += 1
+        except KeyError:
+            pass
+
+    return errors
+
 
 if __name__ == '__main__':
     sys.exit(main())
