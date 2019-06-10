@@ -34,6 +34,27 @@ Resources:
       GridFtp:
         Description: GridFtp Storage Element
         Details:
+          hidden: false   
+    FQDN: cmsprxy01.colorado.edu
+    ID: 
+    Services:
+      Squid:
+        Description: Squid Server cmsprxy01
+        Details:
+          hidden: false
+    FQDN: cmsprxy02.colorado.edu
+    ID: 
+    Services:
+      Squid:
+        Description: Squid Server cmsprxy02
+        Details:
+          hidden: false
+    FQDN: cmsprxy03.colorado.edu
+    ID: 
+    Services:
+      Squid:
+        Description: Squid Server cmsprxy03
+        Details:
           hidden: false
     VOOwnership:
       CMS: 100
