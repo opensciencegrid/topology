@@ -1,0 +1,31 @@
+Disable: false
+Production: true
+SupportCenter: Self Supported
+GroupID: 510
+GroupDescription: The UMD_SIAB cluster
+Resources:
+  OSG_US_UMD_SIAB:
+    ID: 1002
+    Disable: false
+    Description: The Hosted CE serving UMD_SIAB
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: hosted-ce26.grid.uchicago.edu
+    Services:
+      CE:
+        Description: UMD_SIAB Hosted CE
+        Details:
+          hidden: false

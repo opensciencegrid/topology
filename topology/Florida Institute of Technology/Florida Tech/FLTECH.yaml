@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Compute Cluster at the Florida Tech High Energy Physics lab
 GroupID: 163
 Production: true
@@ -23,7 +22,6 @@ Resources:
           ID: dbdac6f745c5a7762318d51445220b2c4727d649
           Name: Ryan Wojtyla
     Description: Compute Element at the Florida Tech High Energy Physics lab.
-    Disable: false
     FQDN: uscms1.fltech-grid3.fit.edu
     ID: 163
     Services:
@@ -64,7 +62,6 @@ Resources:
           ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
           Name: Ankit Durgasis Mohapatra
     Description: Test server for the benefit of campus IT.
-    Disable: false
     FQDN: gridtest.fit.edu
     ID: 339
     Services:
@@ -95,7 +92,6 @@ Resources:
           Name: Ankit Durgasis Mohapatra
     Description: Management node at the Florida Tech High Energy Physics lab (GUMS
       server).
-    Disable: false
     FQDN: uscms1-mgmt.fltech-grid3.fit.edu
     ID: 592
     Services:
@@ -124,7 +120,6 @@ Resources:
           Name: Ryan Wojtyla
     Description: This is the Storage Element at Florida Institute of Technology that
       provides Squid cache, Bestman SE, and Phedex services.
-    Disable: false
     FQDN: uscms1-se.fltech-grid3.fit.edu
     ID: 269
     Services:

@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: UCI ATLAS Tier-3
 GroupID: 287
 Production: true
@@ -15,7 +14,6 @@ Resources:
           Name: Anyes Taffard
     Active: true
     Description: UCI gridftp
-    Disable: false
     FQDN: gpatlas2.ps.uci.edu
     ID: 441
     Services:
@@ -58,7 +56,6 @@ Resources:
           Name: Jeffrey Michael Dost
     Description: LHC @ UC glidein scheduler submit host. This host is hosted at UCI
       and managed via puppet at UCSD.
-    Disable: false
     FQDN: uclhc-1.ps.uci.edu
     ID: 778
     Services:

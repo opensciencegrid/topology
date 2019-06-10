@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Tier-3 computing center.  Priority given to local users, but opportunistic
   use by CMS VO allowed.
 GroupID: 159
@@ -22,7 +21,6 @@ Resources:
     Description: New GUMS server for umd-cms (didn't work with internal IP, and Network
       Operations cannot give me a new FQDN quickly, so will use development one in
       teh meantime)
-    Disable: false
     FQDN: hepcmsdev-6.umd.edu
     ID: 550
     Services:
@@ -50,7 +48,6 @@ Resources:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
     Description: standalone CE separate from our SE, CMS jobs only.
-    Disable: false
     FQDN: hepcms-1.umd.edu
     ID: 796
     Services:
@@ -98,7 +95,6 @@ Resources:
           Name: Shabnam Jabeen
     Description: Tier-3 computing center.  Priority given to local users, but opportunistic
       use by CMS VO allowed.
-    Disable: false
     FQDN: hepcms-0.umd.edu
     ID: 159
     Services:
@@ -134,7 +130,6 @@ Resources:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
     Description: GridFTP for UMD T3 HEPCMS Cluster
-    Disable: false
     FQDN: hepcms-gridftp.umd.edu
     ID: 831
     Services:
@@ -154,7 +149,6 @@ Resources:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
     Description: squid service for frontier and cvmfs
-    Disable: false
     FQDN: hepcms-squid.umd.edu
     ID: 863
     Services:

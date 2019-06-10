@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: This is the General Purpose Grid cluster at Fermilab.
 GroupID: 476
 Production: true
@@ -22,7 +21,6 @@ Resources:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
     Description: This is an HTCondor-CE that provides opportunistic access to GPGrid
-    Disable: false
     FQDN: gpce03.fnal.gov
     ID: 901
     Services:
@@ -52,7 +50,6 @@ Resources:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
     Description: This is an HTCondor-CE the directs jobs into GPGrid.
-    Disable: false
     FQDN: gpce04.fnal.gov
     ID: 902
     Services:
@@ -82,7 +79,6 @@ Resources:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
     Description: This is a Jobsub server that provides FIFE access to GPGrid
-    Disable: false
     FQDN: jobsub01.fnal.gov
     ID: 903
     Services:
@@ -111,7 +107,6 @@ Resources:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
     Description: This is a Jobsub server that provides FIFE access to GPGrid
-    Disable: false
     FQDN: jobsub02.fnal.gov
     ID: 904
     Services:

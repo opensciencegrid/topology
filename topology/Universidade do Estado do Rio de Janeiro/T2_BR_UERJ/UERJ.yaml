@@ -1,124 +1,7 @@
-Disable: false
 GroupDescription: UERJ Resource Group.
 GroupID: 42
 Production: true
 Resources:
-  UERJ_CE:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
-          Name: Eduardo Azevedo Revoredo
-        Secondary:
-          ID: e75df2a03ec0732015786fc667058f59deb7daee
-          Name: Renan Bernardo
-      Miscellaneous Contact:
-        Primary:
-          ID: e75df2a03ec0732015786fc667058f59deb7daee
-          Name: Renan Bernardo
-        Secondary:
-          ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
-          Name: Douglas Milanez Marques
-      Resource Report Contact:
-        Primary:
-          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
-          Name: Eduardo Azevedo Revoredo
-        Secondary:
-          ID: e75df2a03ec0732015786fc667058f59deb7daee
-          Name: Renan Bernardo
-        Tertiary:
-          ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
-          Name: Douglas Milanez Marques
-      Security Contact:
-        Primary:
-          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
-          Name: Eduardo Azevedo Revoredo
-        Secondary:
-          ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
-          Name: Douglas Milanez Marques
-    Description: CE Gatekeeper of T2_BR_UERJ
-    Disable: true
-    FQDN: osgce.hepgrid.uerj.br
-    ID: 42
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 10.486
-      AccountingName: T2-LATINAMERICA
-      HEPSPEC: 0
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 0
-      StorageCapacityMin: 0
-  UERJ_CE_2:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
-          Name: Douglas Milanez Marques
-        Secondary:
-          ID: e75df2a03ec0732015786fc667058f59deb7daee
-          Name: Renan Bernardo
-      Miscellaneous Contact:
-        Primary:
-          ID: e75df2a03ec0732015786fc667058f59deb7daee
-          Name: Renan Bernardo
-        Secondary:
-          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
-          Name: Eduardo Azevedo Revoredo
-        Tertiary:
-          ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
-          Name: Douglas Milanez Marques
-      Resource Report Contact:
-        Primary:
-          ID: e75df2a03ec0732015786fc667058f59deb7daee
-          Name: Renan Bernardo
-        Secondary:
-          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
-          Name: Eduardo Azevedo Revoredo
-        Tertiary:
-          ID: e75df2a03ec0732015786fc667058f59deb7daee
-          Name: Renan Bernardo
-      Security Contact:
-        Primary:
-          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
-          Name: Eduardo Azevedo Revoredo
-        Secondary:
-          ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
-          Name: Douglas Milanez Marques
-    Description: Second CE Gatekeeper of T2_BR_UERJ.
-    Disable: false
-    FQDN: osgce2.hepgrid.uerj.br
-    ID: 210
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 10.486
-      AccountingName: T2-LATINAMERICA
-      HEPSPEC: 8000
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 700
-      StorageCapacityMin: 400
-      TapeCapacity: 0
   UERJ_SE:
     Active: true
     ContactLists:
@@ -157,7 +40,6 @@ Resources:
           ID: e75df2a03ec0732015786fc667058f59deb7daee
           Name: Renan Bernardo
     Description: SE resource of T2_BR_UERJ.
-    Disable: false
     FQDN: se.hepgrid.uerj.br
     ID: 164
     Services:

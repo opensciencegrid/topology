@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 66
 Production: true
@@ -19,7 +18,6 @@ Resources:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
     Description: US CMS Tier-2 at MIT.
-    Disable: false
     FQDN: ce01.cmsaf.mit.edu
     FQDNAliases:
     - a18-12-1-31.deploy.akamaitechnologies.com
@@ -64,7 +62,6 @@ Resources:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
     Description: US CMS Tier-2 site at MIT
-    Disable: false
     FQDN: se01.cmsaf.mit.edu
     ID: 67
     Services:
@@ -105,7 +102,6 @@ Resources:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
     Description: US CMS Tier-2 at MIT.
-    Disable: false
     FQDN: ce02.cmsaf.mit.edu
     ID: 349
     Services:
@@ -144,7 +140,6 @@ Resources:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
     Description: US CMS Tier-2 at MIT.
-    Disable: false
     FQDN: ce03.cmsaf.mit.edu
     ID: 785
     Services:
@@ -182,7 +177,6 @@ Resources:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
     Description: PerfSONAR Bandwidth monitoring node
-    Disable: false
     FQDN: perfsonar02.cmsaf.mit.edu
     ID: 501
     Services:
@@ -202,7 +196,6 @@ Resources:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
     Description: PerfSonar Latency monitoring node
-    Disable: false
     FQDN: perfsonar01.cmsaf.mit.edu
     ID: 502
     Services:
@@ -243,7 +236,6 @@ Resources:
           Name: Max Goncharov
     Description: This is a BOSCO CampusFactory frontend connecting multiple MIT computing
       clusters.
-    Disable: false
     FQDN: t3serv007.mit.edu
     ID: 881
     Services:
@@ -273,7 +265,6 @@ Resources:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
     Description: Submit node from MIT LNS (Bates) cluster to OSG
-    Disable: false
     FQDN: ce04.cmsaf.mit.edu
     ID: 794
     Services:
@@ -281,8 +272,6 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
   MIT_CMS_Frontier_Squid:
     Active: true
     ContactLists:
@@ -295,7 +284,6 @@ Resources:
           Name: Max Goncharov
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
     Description: One of our Squid nodes.
-    Disable: false
     FQDN: squid.cmsaf.mit.edu
     ID: 953
     Services:
@@ -315,7 +303,6 @@ Resources:
           Name: Max Goncharov
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
     Description: One of our Squid nodes.
-    Disable: false
     FQDN: squid1.cmsaf.mit.edu
     ID: 954
     Services:
@@ -335,7 +322,6 @@ Resources:
           Name: Max Goncharov
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
     Description: One of our Squid nodes.
-    Disable: false
     FQDN: squid2.cmsaf.mit.edu
     ID: 955
     Services:

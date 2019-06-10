@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: CE for the HPC cluster(s) in Ottawa
 GroupID: 448
 Production: true
@@ -19,7 +18,6 @@ Resources:
           ID: 0182f725a01a98ce2359736e09f181f07ad646d5
           Name: Ian Stakenvicius
     Description: This is the gatekeeper for CancerComputer's OSG Ottawa compute resources
-    Disable: false
     FQDN: osg.cancercomputer.com
     ID: 829
     Services:
@@ -32,6 +30,4 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: CCSUP

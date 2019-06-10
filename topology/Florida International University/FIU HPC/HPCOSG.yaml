@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Resources group for OSG VO
 GroupID: 425
 Production: true
@@ -35,7 +34,6 @@ Resources:
           ID: e50e773e27ac02dc4f5c1c11d06f739277109e9b
           Name: Jonathan Casco
     Description: This is a HTcondorCE for general OSG VO at FIU HPC.
-    Disable: false
     FQDN: hpcosgce.fiu.edu
     ID: 738
     Services:
@@ -43,6 +41,4 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: Community Support Center

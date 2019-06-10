@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: The University of Wisconsin's Center for High Throughput Computing.  Note
   that CHTC and GLOW are closely related, and in many contexts, they are synonyms.
 GroupID: 314
@@ -35,7 +34,6 @@ Resources:
           ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
           Name: Timothy Slauson
     Description: This is the GLOW/CHTC glidein frontend.
-    Disable: false
     FQDN: glidein2.chtc.wisc.edu
     ID: 638
     Services:
@@ -77,7 +75,6 @@ Resources:
           ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
           Name: Timothy Slauson
     Description: Test GLOW/CHTC glidein frontend.
-    Disable: false
     FQDN: glidein3.chtc.wisc.edu
     ID: 739
     Services:
@@ -112,7 +109,6 @@ Resources:
           ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
           Name: Timothy Slauson
     Description: CHTC Submit Node
-    Disable: false
     FQDN: submit-1.chtc.wisc.edu
     ID: 723
     Services:
@@ -122,17 +118,10 @@ Resources:
           hidden: false
     VOOwnership:
       GLOW: 100
-  CHTC_SUBMIT_3:
+  CHTC-submit2:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-        Secondary:
-          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
-          Name: Timothy Slauson
-      Miscellaneous Contact:
         Primary:
           ID: 46a55ac4815b2b8c00ff283549f413113b45d628
           Name: Aaron Moate
@@ -154,9 +143,8 @@ Resources:
           ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
           Name: Timothy Slauson
     Description: CHTC Submit Node
-    Disable: false
-    FQDN: submit-3.chtc.wisc.edu
-    ID: 719
+    FQDN: submit2.chtc.wisc.edu
+    ID: 1005
     Services:
       Submit Node:
         Description: OSG Submission Node
@@ -189,7 +177,6 @@ Resources:
           ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
           Name: Timothy Slauson
     Description: CHTC Submit Node for SOAR work flows written by bt@cs.wisc.edu
-    Disable: false
     FQDN: submit-4.chtc.wisc.edu
     ID: 721
     Services:
@@ -199,44 +186,9 @@ Resources:
           hidden: false
     VOOwnership:
       GLOW: 100
-  CHTC_SUBMIT_5:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-        Secondary:
-          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
-          Name: Timothy Slauson
-      Resource Report Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-        Secondary:
-          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
-          Name: Timothy Slauson
-      Security Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-        Secondary:
-          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
-          Name: Timothy Slauson
-    Description: CHTC Submit Node for users created after 2014
-    Disable: false
-    FQDN: submit-5.chtc.wisc.edu
-    ID: 722
-    Services:
-      Submit Node:
-        Description: OSG Submission Node
-        Details:
-          hidden: false
-    VOOwnership:
-      GLOW: 100
 
   CHTC_STASHCACHE_CACHE:
-    Active: false
+    Active: true
     Description: This is a StashCache cache server at UW.
     ID: 958
     ContactLists:
@@ -271,7 +223,7 @@ Resources:
       - ANY
 
   CHTC_STASHCACHE_ORIGIN:
-    Active: false
+    Active: true
     Description: This is a StashCache origin server at UW.
     ID: 959
     ContactLists:

@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Tier3 Computing Center CMS HEP group
 GroupID: 293
 Production: true
@@ -23,7 +22,6 @@ Resources:
           ID: b993330aaa06271e3f82307783e6b505c5dcc9e6
           Name: Juan Eduardo Ramirez Vargas
     Description: This is our ce for our T3 center
-    Disable: false
     FQDN: cms-grid0.hep.uprm.edu
     ID: 369
     Services:
@@ -44,7 +42,7 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-  uprm-cms-gums:
+  uprm-cms-squid:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -60,14 +58,15 @@ Resources:
           ID: b993330aaa06271e3f82307783e6b505c5dcc9e6
           Name: Juan Eduardo Ramirez Vargas
     Description: |-
-      This is our gums server accesible from UPRM HEP site only.
+      This is our squid server accesible from UPRM HEP site only.
       This server is a virtual machine
-    Disable: false
     FQDN: cms-squid0.hep.uprm.edu
     ID: 524
     Services:
-      GUMS Server:
-        Description: GUMS Server
+      Squid:
+        Description: Generic Squid Server (former gums server)
+        Details:
+           Monitored: true
     VOOwnership:
       CMS: 100
   uprm-cms-se:
@@ -90,7 +89,6 @@ Resources:
           ID: b993330aaa06271e3f82307783e6b505c5dcc9e6
           Name: Juan Eduardo Ramirez Vargas
     Description: This is the storage element
-    Disable: false
     FQDN: cms-se.hep.uprm.edu
     ID: 372
     Services:

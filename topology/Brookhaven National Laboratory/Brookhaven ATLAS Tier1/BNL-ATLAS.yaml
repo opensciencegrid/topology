@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: This site is the ATLAS Tier 1 Facility at Brookhaven National Laboratory.
 GroupID: 235
 Production: true
@@ -23,7 +22,6 @@ Resources:
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: moved under the resource group BNL_LCG2. This will set the stage
       for unified site availability with WLCG.
-    Disable: false
     FQDN: gridgk01.racf.bnl.gov
     ID: 3
     Services:
@@ -64,7 +62,6 @@ Resources:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: change resource groupname to BNL-LCG2
-    Disable: false
     FQDN: gridgk02.racf.bnl.gov
     ID: 4
     Services:
@@ -106,7 +103,6 @@ Resources:
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
-    Disable: false
     FQDN: gridgk03.racf.bnl.gov
     ID: 325
     Services:
@@ -151,7 +147,6 @@ Resources:
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: This is just another gatekeeper, sharing the same backend resources
       with the other BNL_ATLAS_X gatekeepers.
-    Disable: false
     FQDN: gridgk04.racf.bnl.gov
     ID: 326
     Services:
@@ -193,7 +188,6 @@ Resources:
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
-    Disable: false
     FQDN: gridgk06.racf.bnl.gov
     ID: 418
     Services:
@@ -238,7 +232,6 @@ Resources:
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
-    Disable: false
     FQDN: gridgk07.racf.bnl.gov
     ID: 438
     Services:
@@ -281,7 +274,6 @@ Resources:
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: This CE will serve grid jobs submitted to the *local* USATLAS resources,
       e.g. for panda queue ANALY_BNL_LOCAL, at BNL.
-    Disable: false
     FQDN: gridgk08.racf.bnl.gov
     ID: 545
     Services:
@@ -315,7 +307,6 @@ Resources:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: Round robin DNS alias for our two Frontier Squid nodes.
-    Disable: false
     FQDN: frontier-cache.sdcc.bnl.gov
     ID: 925
     Services:
@@ -349,7 +340,6 @@ Resources:
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: moved under the resource group BNL_LCG2. This will set the stage
       for unified site availability with WLCG.
-    Disable: false
     FQDN: dcsrm.usatlas.bnl.gov
     ID: 5
     Services:
@@ -391,7 +381,6 @@ Resources:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: SE at Amazon east region
-    Disable: false
     FQDN: bestse01.usatlas.bnl.gov
     ID: 664
     Services:
@@ -432,7 +421,6 @@ Resources:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: SE at Amazon wes -1 region
-    Disable: false
     FQDN: bestse02.usatlas.bnl.gov
     ID: 728
     Services:
@@ -482,7 +470,6 @@ Resources:
           ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
           Name: John Hover
     Description: SE at Amazon West-2 region.
-    Disable: false
     FQDN: bestse03.usatlas.bnl.gov
     ID: 826
     Services:
@@ -515,7 +502,6 @@ Resources:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: perfSonar box
-    Disable: false
     FQDN: lhcmon.bnl.gov
     ID: 554
     Services:
@@ -537,7 +523,6 @@ Resources:
           ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
           Name: Hironori Ito
     Description: perfSonar box
-    Disable: false
     FQDN: lhcperfmon.bnl.gov
     ID: 555
     Services:
@@ -561,7 +546,6 @@ Resources:
     Description: |-
       perfsonar development host
       test mesh host
-    Disable: false
     FQDN: ps-development.bnl.gov
     ID: 689
     Services:

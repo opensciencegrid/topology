@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: This is the BNL ITB resource group, not production services.
 GroupID: 243
 Production: false
@@ -22,7 +21,6 @@ Resources:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: BNLs perfSONAR testbed instance.
-    Disable: false
     FQDN: ps-development.bnl.gov
     ID: 691
     Services:
@@ -52,7 +50,6 @@ Resources:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: Move this BNL ITB CE to under the group of BNL-LCG2.
-    Disable: false
     FQDN: gridtest01.racf.bnl.gov
     ID: 6
     Services:
@@ -89,7 +86,6 @@ Resources:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
     Description: Move BNL ITB SE to under BNL-LCG2 group name.
-    Disable: false
     FQDN: grid16.racf.bnl.gov
     FQDNAliases:
     - localsub01.usatlas.bnl.gov

@@ -2,38 +2,12 @@
   Description: Required to apply security patches, run manufacturer's diagnostics
     tools to RMA faulty components, and other assorted maintenance tasks.
   EndTime: Jun 6, 2016 22:00 +0000
-  ID: 1004916
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jun 6, 2016 03:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Required to apply security patches, run manufacturer's diagnostics
-    tools to RMA faulty components, and other assorted maintenance tasks.
-  EndTime: Jun 6, 2016 22:00 +0000
   ID: 1004917
   ResourceName: UERJ_SE
   Services:
   - SRMv2
   Severity: Outage
   StartTime: Jun 6, 2016 03:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    During the past few days we are experiencing an increasing number of hard disk failures in our data nodes.
-
-    As the warranty period of these hard drives is coming to an end, we decided to perform a set of tests on all related nodes.
-
-    This procedure will affect all services.
-  EndTime: Jul 1, 2016 22:00 +0000
-  ID: 1004942
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jun 29, 2016 01:00 +0000
 # ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
@@ -59,66 +33,12 @@
     \nSo, for these reasons, we will no be able to reach the campus and therefore\
     \ we decided to shut down the cluster for safety until August 23rd."
   EndTime: Aug 23, 2016 21:00 +0000
-  ID: 1005003
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Aug 15, 2016 01:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: "The \u200B\u200Bmilitary\u200B, federal\u200B and state \u200Bpolice\
-    \ have established a \u200Bspecial security \u200Boperation for the surrounding\
-    \ area of Maracan\xE3 Stadium. (\u200BOlympics Games and closing ceremony\u200B\
-    )\nThe UERJ is very close to the Maracan\xE3\u200B \u200BStadium and therefore\
-    \ is included in the special area of security where access restrictions are set.\u200B\
-    \nSo, for these reasons, we will no be able to reach the campus and therefore\
-    \ we decided to shut down the cluster for safety until August 23rd."
-  EndTime: Aug 23, 2016 21:00 +0000
   ID: 1005004
   ResourceName: UERJ_SE
   Services:
   - SRMv2
   Severity: Outage
   StartTime: Aug 15, 2016 01:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: "The \u200B\u200Bmilitary\u200B, federal\u200B and state \u200Bpolice\
-    \ have established a \u200Bspecial security \u200Boperation for the surrounding\
-    \ area of Maracan\xE3 Stadium. (\u200BOlympics Games and closing ceremony\u200B\
-    )\nThe UERJ is very close to the Maracan\xE3\u200B \u200BStadium and therefore\
-    \ is included in the special area of security where access restrictions are set.\u200B\
-    \nSo, for these reasons, we will no be able to reach the campus and therefore\
-    \ we decided to shut down the cluster for safety until August 23rd."
-  EndTime: Aug 23, 2016 21:00 +0000
-  ID: 1005005
-  ResourceName: UERJ_CE_2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Aug 15, 2016 01:00 +0000
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  Description: Due to a major issue with the cluster's electrical infrastructure we
-    will have to shut it down as soon as possible, in order to preserve our hardware.
-  EndTime: Sep 30, 2016 18:45 +0000
-  ID: 1005059
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Sep 29, 2016 18:45 +0000
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  Description: Due to a major issue with the cluster's electrical infrastructure we
-    will have to shut it down as soon as possible, in order to preserve our hardware.
-  EndTime: Sep 30, 2016 18:45 +0000
-  ID: 1005060
-  ResourceName: UERJ_CE_2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Sep 29, 2016 18:45 +0000
 # ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: Due to a major issue with the cluster's electrical infrastructure we
@@ -139,64 +59,12 @@
     The company responsible for maintaining the system reported that a specific component needs to be replaced.
     The arrival time of this component is being estimated.
   EndTime: Oct 10, 2016 21:00 +0000
-  ID: 1005062
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Sep 30, 2016 18:45 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    Due to a major issue with the cluster's electrical infrastructure we will have to shut it down as soon as possible, in order to preserve our hardware. We expect the maintenance work to begin on 2016-09-30 and end by 2016-10-04, end-of-day.
-    Update:
-    The downtime will need to be extended.
-    The company responsible for maintaining the system reported that a specific component needs to be replaced.
-    The arrival time of this component is being estimated.
-  EndTime: Oct 10, 2016 21:00 +0000
-  ID: 1005063
-  ResourceName: UERJ_CE_2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Sep 30, 2016 18:45 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    Due to a major issue with the cluster's electrical infrastructure we will have to shut it down as soon as possible, in order to preserve our hardware. We expect the maintenance work to begin on 2016-09-30 and end by 2016-10-04, end-of-day.
-    Update:
-    The downtime will need to be extended.
-    The company responsible for maintaining the system reported that a specific component needs to be replaced.
-    The arrival time of this component is being estimated.
-  EndTime: Oct 10, 2016 21:00 +0000
   ID: 1005064
   ResourceName: UERJ_SE
   Services:
   - SRMv2
   Severity: Outage
   StartTime: Sep 30, 2016 18:45 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: We will stop the cluster in order to apply security updates, as well
-    as other assorted tasks as needed.
-  EndTime: Oct 31, 2016 20:00 +0000
-  ID: 1005083
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Oct 31, 2016 01:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: We will stop the cluster in order to apply security updates, as well
-    as other assorted tasks as needed.
-  EndTime: Oct 31, 2016 20:00 +0000
-  ID: 1005084
-  ResourceName: UERJ_CE_2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Oct 31, 2016 01:00 +0000
 # ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We will stop the cluster in order to apply security updates, as well
@@ -213,38 +81,12 @@
   Description: Due to a major issue with the cluster's electrical infrastructure we
     will have to shut it down as soon as possible, in order to preserve our hardware.
   EndTime: Nov 5, 2016 16:00 +0000
-  ID: 1005109
-  ResourceName: UERJ_CE_2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Nov 4, 2016 16:00 +0000
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  Description: Due to a major issue with the cluster's electrical infrastructure we
-    will have to shut it down as soon as possible, in order to preserve our hardware.
-  EndTime: Nov 5, 2016 16:00 +0000
   ID: 1005110
   ResourceName: UERJ_SE
   Services:
   - SRMv2
   Severity: Outage
   StartTime: Nov 4, 2016 16:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    Due to a major issue with the cluster's electrical infrastructure we will have to shut it down as soon as possible, in order to preserve our hardware.
-    Update 1 : The downtime will need to be extended. The cause of the outage is still being investigated.
-    Update 2(11/27): The power problem has not been fixed yet. Investigations are still ongoing. The downtime will need to be extended.
-    Update 3: Our UPS remains dead. The university is looking for alternatives to replace the equipment. According to the administration, the activities will be resumed in July 2017.(to be confirmed)
-    Update 4:  The lack of resources in our university is delaying the completion of the work. At the moment, we can not estimate a new date to resume operations.
-  EndTime: Sep 29, 2017 20:00 +0000
-  ID: 1005111
-  ResourceName: UERJ_CE_2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Nov 5, 2016 16:00 +0000
 # ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
@@ -261,3 +103,25 @@
   Severity: Outage
   StartTime: Nov 5, 2016 16:00 +0000
 # ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 241678619
+  Description: We had a problem with one of our circuit breakers
+  Severity: Outage
+  StartTime: May 29, 2019 17:00 +0000
+  EndTime: May 30, 2019 23:59 +0000
+  CreatedTime: May 29, 2019 17:11 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 241678909
+  Description: We had a problem with one of our circuit breakers
+  Severity: Outage
+  StartTime: May 29, 2019 17:00 +0000
+  EndTime: May 30, 2019 23:59 +0000
+  CreatedTime: May 29, 2019 17:11 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------

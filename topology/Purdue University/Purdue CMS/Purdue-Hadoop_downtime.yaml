@@ -32,34 +32,6 @@
 
     Regards,
     Majid
-  EndTime: Jun 8, 2016 07:55 +0000
-  ID: 1004921
-  ResourceName: Purdue-Hadoop-HTCE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jun 7, 2016 09:30 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    During this downtime, critical high-availability fixes will be made to file system and OSG packages upgrade on worker and data nodes.
-
-    Regards,
-    Majid
-  EndTime: Jun 8, 2016 07:55 +0000
-  ID: 1004922
-  ResourceName: Purdue-Hadoop-SE
-  Services:
-  - SRMv2
-  Severity: Outage
-  StartTime: Jun 7, 2016 09:30 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    During this downtime, critical high-availability fixes will be made to file system and OSG packages upgrade on worker and data nodes.
-
-    Regards,
-    Majid
   EndTime: Jun 8, 2016 07:00 +0000
   ID: 1004923
   ResourceName: Purdue-Hadoop-TestCE
@@ -81,22 +53,6 @@
   ResourceName: Purdue-Hadoop-CE
   Services:
   - CE
-  Severity: Outage
-  StartTime: Sep 10, 2016 13:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    Hi All,
-
-    Our network group at Purdue will update the main router on Saturday from 9AM to 4PM, consequently will have network outage. All services will be unavailable during the outage.
-
-    Regards,
-    Majid
-  EndTime: Sep 10, 2016 20:00 +0000
-  ID: 1005026
-  ResourceName: Purdue-Hadoop-SE
-  Services:
-  - SRMv2
   Severity: Outage
   StartTime: Sep 10, 2016 13:00 +0000
 # ----------------------------------------------------------
@@ -134,38 +90,6 @@
 # ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
-    Hi All,
-
-    Our network group at Purdue will update the main router on Saturday from 9AM to 4PM, consequently will have network outage. All services will be unavailable during the outage.
-
-    Regards,
-    Majid
-  EndTime: Sep 10, 2016 20:00 +0000
-  ID: 1005038
-  ResourceName: Purdue-Hadoop-HTCE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Sep 10, 2016 13:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    Hi,
-
-    T2_US_Purdue will have a scheduled downtime to upgrade home file system on all clusters. Also, cvmfs/osg will be upgraded. During downtime, all resource will be unavailable.
-
-    Regards,
-    Majid
-  EndTime: Sep 28, 2016 03:55 +0000
-  ID: 1005050
-  ResourceName: Purdue-Hadoop-SE
-  Services:
-  - SRMv2
-  Severity: Outage
-  StartTime: Sep 27, 2016 04:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
     Hi,
 
     T2_US_Purdue will have a scheduled downtime to upgrade home file system on all clusters. Also, cvmfs/osg will be upgraded. During downtime, all resource will be unavailable.
@@ -191,22 +115,6 @@
   EndTime: Sep 28, 2016 03:55 +0000
   ID: 1005048
   ResourceName: Purdue-Hadoop-HT-PBS-CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Sep 27, 2016 11:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    Hi,
-
-    T2_US_Purdue will have a scheduled downtime to upgrade home file system on all clusters. Also, cvmfs/osg will be upgraded. During downtime, all resource will be unavailable.
-
-    Regards,
-    Majid
-  EndTime: Sep 28, 2016 03:55 +0000
-  ID: 1005049
-  ResourceName: Purdue-Hadoop-HTCE
   Services:
   - CE
   Severity: Outage
@@ -250,42 +158,6 @@
 # ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
-    Hi All,
-
-    T2_US_Purdue will be taken down for cluster maintenance beginning at Saturday, November 5th, 2016 at 8:00am. All resources will return to normal operations by Sunday, November 6th, 2016 at 11:59pm.
-
-    During this time, Purdue all clusters and storage systems will have critical kernel security patches applied.
-
-    Regards,
-    Majid
-  EndTime: Nov 7, 2016 04:55 +0000
-  ID: 1005103
-  ResourceName: Purdue-Hadoop-HTCE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Nov 5, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    Hi All,
-
-    T2_US_Purdue will be taken down for cluster maintenance beginning at Saturday, November 5th, 2016 at 8:00am. All resources will return to normal operations by Sunday, November 6th, 2016 at 11:59pm.
-
-    During this time, Purdue all clusters and storage systems will have critical kernel security patches applied.
-
-    Regards,
-    Majid
-  EndTime: Nov 7, 2016 04:55 +0000
-  ID: 1005104
-  ResourceName: Purdue-Hadoop-SE
-  Services:
-  - SRMv2
-  Severity: Outage
-  StartTime: Nov 5, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
     The Purdue Tier-2 site will have a scheduled downtime on Saturday,
     January 14th, from 8:00 AM to 12:00 PM EST.  During the downtime, code
     will be upgraded on the router that serves the CMS cluster.
@@ -319,44 +191,6 @@
   ResourceName: Purdue-Hadoop-HT-PBS-CE
   Services:
   - CE
-  Severity: Outage
-  StartTime: Jan 14, 2017 13:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    The Purdue Tier-2 site will have a scheduled downtime on Saturday,
-    January 14th, from 8:00 AM to 12:00 PM EST.  During the downtime, code
-    will be upgraded on the router that serves the CMS cluster.
-
-    CMS resources will be unavailable for use during the downtime period.
-    We will update you once the maintenance is complete.
-
-
-    Majid
-  EndTime: Jan 14, 2017 17:00 +0000
-  ID: 1005179
-  ResourceName: Purdue-Hadoop-HTCE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jan 14, 2017 13:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    The Purdue Tier-2 site will have a scheduled downtime on Saturday,
-    January 14th, from 8:00 AM to 12:00 PM EST.  During the downtime, code
-    will be upgraded on the router that serves the CMS cluster.
-
-    CMS resources will be unavailable for use during the downtime period.
-    We will update you once the maintenance is complete.
-
-
-    Majid
-  EndTime: Jan 14, 2017 17:00 +0000
-  ID: 1005180
-  ResourceName: Purdue-Hadoop-SE
-  Services:
-  - SRMv2
   Severity: Outage
   StartTime: Jan 14, 2017 13:00 +0000
 # ----------------------------------------------------------
@@ -494,17 +328,6 @@
   ResourceName: Purdue-Hadoop-CE
   Services:
     - CE
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1005701
-  Description: Cooling and network maintenance
-  Severity: Outage
-  StartTime: Aug 2, 2018 06:00 -0400
-  EndTime: Aug 2, 2018 23:59 -0400
-  CreatedTime: Jul 25, 2018 12:00 -0500
-  ResourceName: Purdue-Hadoop-SE
-  Services:
-    - SRMv2
 # ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005705

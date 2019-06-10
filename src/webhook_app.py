@@ -17,6 +17,7 @@ from webapp import default_config
 from webapp import webhook_status_messages
 from webapp.github import GitHubAuth
 from webapp.models import GlobalData
+from webapp.automerge_check import reportable_errors, rejectable_errors
 
 
 app = Flask(__name__)
@@ -247,7 +248,7 @@ def pull_request_hook():
 
     global_data.update_webhook_repo()
 
-    script = src_dir + "/tests/automerge_downtime_ok.py"
+    script = src_dir + "/webapp/automerge_check.py"
     headmerge_sha = "%s:%s" % (head_sha, merge_sha) if mergeable else head_sha
     cmd = [script, base_sha, headmerge_sha, sender]
     stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
@@ -256,10 +257,10 @@ def pull_request_hook():
     set_webhook_pr_state(pull_num, head_sha, webhook_state)
 
     # only comment on errors if DT files modified or contact unknown
-    if 0 < ret <= 4:
+    if ret in reportable_errors:
         osg_bot_msg = webhook_status_messages.automerge_status_messages[ret]
         body = osg_bot_msg.format(**locals())
-        action = 'COMMENT' if ret < 4 else 'REQUEST_CHANGES'
+        action = 'REQUEST_CHANGES' if ret in rejectable_errors else 'COMMENT'
         publish_pr_review(pull_num, body, action, head_sha)
 
     return Response('Thank You')
