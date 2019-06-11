@@ -44,7 +44,7 @@ def sumvals(d):
 
 def get_vo_names():
     return set( re.search(r'/([^/]+)\.yaml$', path).group(1) for path in
-                glob.glob(_topdir + "/virtual-organizations/*.yaml"))
+                glob.glob(_topdir + "/virtual-organizations/*.yaml") )
 
 def load_yamlfile(fn):
     with open(fn) as f:
