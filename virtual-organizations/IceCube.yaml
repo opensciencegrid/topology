@@ -49,3 +49,14 @@ PrimaryURL: https://grid-voms.desy.de:8443/voms/icecube/
 PurposeURL: http://www.icecube.wisc.edu/
 ReportingGroups:
 - IceCube
+
+DataFederations:
+  StashCache:
+    Namespaces:
+      /icecube/PUBLIC:
+        - ANY
+    AllowedCaches:
+      - ANY
+    AllowedOrigins:
+      - CHTC_STASHCACHE_ORIGIN
+
