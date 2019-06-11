@@ -26,8 +26,8 @@ as follows:
 -   `virtual-organizations/` contains information about Virtual Organizations
     (VOs).
     Each VO has its own file, named `<VO>.yaml`.
-    Additionally, each VO has a file that contains information about WLCG metric reporting groups called
-    `REPORTING_GROUPS.yaml`.
+    Additionally, there is a `REPORTING_GROUPS.yaml` file that contains information about WLCG metric reporting groups
+    for each VO.
 
 -   `topology/` contains information about the topology of the resources that OSG sites provide.
     Resources such as HTCondor-CE, GridFTP, XRootD, or Squid are collected into "resource groups." 
