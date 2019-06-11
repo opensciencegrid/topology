@@ -97,7 +97,7 @@ def main():
     errors += test_12_res_contact_id_fmt(rgs, rgfns)
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
-    errors += test_15_FACILITY_SITE_check()
+    errors += test_15_facility_site()
 
 
     print("%d Resource Group files processed." % len(rgs))
@@ -136,7 +136,8 @@ _emsgs = {
     'MalformedContactID'     : "Contact IDs must be exactly 40 hex digits",
     'UnknownContactID'       : "Contact IDs must exist in contact repo",
     'ContactNameMismatch'    : "Contact names must match in contact repo",
-    'NoFACILITYorSITE'       : "The site and facility directories should have SITE.yaml and FACILITY.yaml respectively",
+    'NoFacility'             : "Facility directories must contain a FACILITY.yaml",
+    'NoSite'                 : "Site directories must contain a SITE.yaml"
 }
 
 def print_emsg_once(msgtype):
@@ -439,23 +440,21 @@ def test_14_res_contacts_match(rgs, rgfns, contacts):
 
     return errors
 
-def test_15_FACILITY_SITE_check():
+def test_15_facility_site_files():
     # verify the required FACILITY.yaml and SITE.yaml files
     errors = 0
 
-    groups = glob.glob(_topdir + '/topology/*')
-    for group in groups:
-        for root, dirs, files in os.walk(group):
-            if root == group:
-                if 'FACILITY.yaml' not in files:
-                    print_emsg_once('NoFACILITYorSITE')
-                    print(root + "does not have required FACILITY.yaml file")
-                    errors += 1
-            else:
-                if 'SITE.yaml' not in files:
-                    print_emsg_once('NoFACILITYorSITE')
-                    print(root + "does not have required SITE.yaml file")
-                    errors += 1
+    for facdir in glob.glob("*/"):
+        if not os.path.exists(facdir + "FACILITY.yaml"):
+            print_emsg_once('NoFacility')
+            print(facdir[:-1] + " does not have required FACILITY.yaml file")
+            errors += 1
+
+    for sitedir in glob.glob("*/*/"):
+        if not os.path.exists(sitedir + "SITE.yaml"):
+            print_emsg_once('NoSite')
+            print(sitedir[:-1] + " does not have required SITE.yaml file")
+            errors += 1
 
     return errors
 
