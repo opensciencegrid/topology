@@ -124,7 +124,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   Vanderbilt_CE3:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -156,8 +156,41 @@ Resources:
       StorageCapacityMax: 6000
       StorageCapacityMin: 1
       TapeCapacity: 0
-  Vanderbilt_CE4:
+  Vanderbilt_CE3_tmp:
     Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+      Security Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+    Description: Centos7-based CE
+    FQDN: ce1-vanderbilt.sites.opensciencegrid.org
+    ID: 1008
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://ce1-vanderbilt.sites.opensciencegrid.org
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 1
+      HEPSPEC: 1
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 1
+      KSI2KMin: 1
+      StorageCapacityMax: 6000
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  Vanderbilt_CE4:
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -198,8 +231,50 @@ Resources:
       StorageCapacityMax: 6000
       StorageCapacityMin: 1
       TapeCapacity: 0
-  Vanderbilt_Gridftp:
+  Vanderbilt_CE4_tmp:
     Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+      Miscellaneous Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+      Resource Report Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+      Security Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+    Description: HTCondor-CE based compute element, to replace ce4
+    FQDN: ce2-vanderbilt.sites.opensciencegrid.org
+    ID: 1009
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://ce2-vanderbilt.sites.opensciencegrid.org
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 1
+      AccountingName: Van
+      HEPSPEC: 1
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 1
+      KSI2KMin: 1
+      StorageCapacityMax: 6000
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  Vanderbilt_Gridftp:
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -246,6 +321,55 @@ Resources:
       StorageCapacityMax: 6000
       StorageCapacityMin: 1
       TapeCapacity: 0
+  Vanderbilt_Gridftp_tmp:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+      Resource Report Contact:
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Tertiary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+      Security Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+    Description: Vanderbilt Gridftp
+    FQDN: gridftp-vanderbilt.sites.opensciencegrid.org
+    ID: 1010
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 1
+      HEPSPEC: 1
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 1
+      KSI2KMin: 1
+      StorageCapacityMax: 6000
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+
   Vanderbilt_SE:
     Active: true
     ContactLists:
