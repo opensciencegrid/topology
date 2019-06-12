@@ -135,14 +135,14 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
     Description: Centos7-based CE
-    FQDN: ce3.accre.vanderbilt.edu
+    FQDN: ce1-vanderbilt.sites.opensciencegrid.org
     ID: 850
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://ce3.accre.vanderbilt.edu
+          sam_uri: htcondor://ce1-vanderbilt.sites.opensciencegrid.org
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -176,14 +176,14 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
     Description: HTCondor-CE based compute element, to replace ce4
-    FQDN: ce4.accre.vanderbilt.edu
+    FQDN: ce2-vanderbilt.sites.opensciencegrid.org
     ID: 855
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://ce4.accre.vanderbilt.edu
+          sam_uri: htcondor://ce2-vanderbilt.sites.opensciencegrid.org
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -226,7 +226,7 @@ Resources:
           ID: f8b4ca01236536e55faee256011d9c70d8eaff67
           Name: Kevin Buterbaugh
     Description: Vanderbilt Gridftp
-    FQDN: gridftp.accre.vanderbilt.edu
+    FQDN: gridftp-vanderbilt.sites.opensciencegrid.org
     ID: 884
     Services:
       GridFtp:
