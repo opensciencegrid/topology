@@ -291,7 +291,8 @@ Resources:
           Name: Joosep Pata
     FQDN: stashcache-origin-01.ultralight.org
     ID: 1009
-    Service: XRootD origin server
+    Service:
+      XRootD origin server:
         Description: StashCache origin server for user data
     AllowedVOs:
       - CMS
