@@ -256,4 +256,32 @@ Resources:
     VOOwnership:
       CMS: 70
       SURAgrid: 30
+  TAMU_BRAZOS_Squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
+      Security Contact:
+        Primary:
+          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
+          Name: Steve Johnson
+        Secondary:
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
+    Description: Squid node
+    FQDN: squid.brazos.tamu.edu
+    ID: 1008
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: true
+    VOOwnership:
+      CMS: 70
+      SURAgrid: 30
 SupportCenter: USCMS_Tier3
