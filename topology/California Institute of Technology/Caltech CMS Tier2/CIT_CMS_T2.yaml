@@ -257,6 +257,48 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       CMS: 100
+  CMS_CIT_T2_SC_ORIGIN_01:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
+          Name: Joosep Pata
+      Resource Report Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
+          Name: Joosep Pata
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
+          Name: Joosep Pata
+    DN: /DC=org/DC=incommon/C=US/ST=CA/L=Pasadena/O=California Institute of Technology/OU=High Energy Physics/CN=stashcache-origin-01.ultralight.org
+    FQDN: stashcache-origin-01.ultralight.org
+    ID: 1009
+    Services:
+      XRootD origin server:
+        Description: StashCache origin server for user data
+    AllowedVOs:
+      - CMS
+    VOOwnership:
+      CMS: 100
   CIT_HEP_CE:
     Active: true
     ContactLists:
