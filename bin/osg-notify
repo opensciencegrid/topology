@@ -113,7 +113,8 @@ def parseargs():
                          choices=["all", "administrative", "miscellaneous", "security", "submitter"],
                          help="Filter on contact type e.g. administrative, miscellaneous, security, or submitter "
                          "(default: all)", )
-
+    oparser.add_argument("--bypass-dns-check", default=False, dest="bypass_dns_check",
+                         help="Bypass the check of one of our IPs to match with the hostanme resolution")
     args = oparser.parse_args()
 
     if args.oim_recipients == 'vos' and args.owner_vo:
@@ -130,7 +131,7 @@ def parseargs():
 
 def network_ok():
     info = net_name_addr_utils.get_host_network_info()
-    net_ok = net_name_addr_utils.hostnetinfo_good(info)
+    net_ok = net_name_addr_utils.hostnetinfo_good(info, args.bypass_dns_check)
 
     if net_ok:
         return True
