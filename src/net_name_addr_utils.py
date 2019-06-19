@@ -45,11 +45,9 @@ HostNetInfo = collections.namedtuple('HostNetInfo',
 )
 
 def hostnetinfo_good(info, bypass_dns_check=False):
-    return info.addr_is_public \
-       # If the arg --bypass_dns_check is set to True we will not care about
-       # the outcome of info.addr_is_ours
-       and (info.addr_is_ours or bypass_dns_check) \
-       and info.fqdn == info.fqdn_reverse
+    # If the arg --bypass_dns_check is set to True we will not care about
+    # the outcome of info.addr_is_ours
+    return info.addr_is_public and (info.addr_is_ours or bypass_dns_check) and info.fqdn == info.fqdn_reverse
 
 def get_host_network_info():
     port = 25
@@ -84,9 +82,9 @@ def print_net_info(info):
     print("IPv4 is public? %s" % info.addr_is_public)
     print("IPv4 is ours? %s"   % info.addr_is_ours)
     if info.addr_is_ours == False:
-        print("The IP address to wich the hostname resolvs is not and assigned \
-                to any of the interfaces listed in this host. To skip this \
-                check pass the argument --bypass-dns-check to this script"
+        print("The IP address to wich the hostname resolves is not and assigned")
+        print("to any of the interfaces listed in this host. To skip this")
+        print("check pass the argument --bypass-dns-check to this script")
     matchstr = "match" if info.fqdn == info.fqdn_reverse else "mismatch"
     print("Reverse FQDN: %s (%s)" % (info.fqdn_reverse, matchstr))
 
