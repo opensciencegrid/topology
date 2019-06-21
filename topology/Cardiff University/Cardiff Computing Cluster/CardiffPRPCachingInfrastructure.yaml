@@ -1,0 +1,26 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Stashcaches located at Cardiff University and handled through k8s
+GroupID: 511
+Resources:
+  Stashcache-Cardiff:
+    Active: true
+    Description: Cardiff StashCache
+    ID: 1007
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Edgar Mauricio Fajardo Hernandez
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+      # Security Contact is one to three people to contact regarding security issues
+      Security Contact:
+        Primary:
+          Name: Edgar Mauricio Fajardo Hernandez
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+    FQDN: stashcache.gravity.cf.ac.uk
+    DN: /C=UK/O=eScience/OU=Cardiff/L=WeSC/CN=stashcache.gravity.cf.ac.uk
+    Services:
+      XRootD cache server:
+        Description: Cardiff PRP Caching Service
+    AllowedVOs:
+      - ANY

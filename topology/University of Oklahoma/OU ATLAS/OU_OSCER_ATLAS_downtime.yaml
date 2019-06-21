@@ -241,3 +241,51 @@
   Severity: Outage
   StartTime: May 5, 2018 19:00 +0000
 # ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 241512457
+  Description: OSG software updates
+  Severity: No Significant Outage Expected
+  StartTime: May 30, 2019 13:00 +0000
+  EndTime: May 31, 2019 17:00 +0000
+  CreatedTime: May 29, 2019 12:34 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 241990677
+  Description: OSG software updates
+  Severity: No Significant Outage Expected
+  StartTime: May 30, 2019 13:00 +0000
+  EndTime: May 31, 2019 17:00 +0000
+  CreatedTime: May 29, 2019 12:34 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 258931877
+  Description: campus backbone network maintenance
+  Severity: Intermittent Outage
+  StartTime: Jun 19, 2019 05:00 +0000
+  EndTime: Jun 19, 2019 11:00 +0000
+  CreatedTime: Jun 18, 2019 16:26 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 258934425
+  Description: campus backbone network maintenance
+  Severity: Intermittent Outage
+  StartTime: Jun 19, 2019 05:00 +0000
+  EndTime: Jun 19, 2019 11:00 +0000
+  CreatedTime: Jun 18, 2019 16:30 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD origin server
+# ---------------------------------------------------------

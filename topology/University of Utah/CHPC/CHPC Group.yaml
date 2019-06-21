@@ -7,16 +7,16 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
       Resource Report Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
       Security Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
     Description: Hosted CE for the Ember cluster at CHPC
     FQDN: hosted-ce15.grid.uchicago.edu
     ID: 938
@@ -30,16 +30,16 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
       Resource Report Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
       Security Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
     Description: Hosted CE for the Kingspeak cluster at CHPC
     FQDN: hosted-ce14.grid.uchicago.edu
     ID: 937
@@ -53,8 +53,8 @@ Resources:
     ContactLists:
       Resource Report Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
     Description: Hosted CE for the lonepeak cluster
     FQDN: hosted-ce12.grid.uchicago.edu
     ID: 936
@@ -63,20 +63,16 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-  U of U Compute Element:
+  OSG_US_UUTAH_NOTCHPEAK:
     Active: true
     ContactLists:
-      Administrative Contact:
+      Resource Report Contact:
         Primary:
-          ID: 443c32443113f2e2dbf7dc77c0e5697d4f27f90a
-          Name: Irvin Allen
-      Security Contact:
-        Primary:
-          ID: 443c32443113f2e2dbf7dc77c0e5697d4f27f90a
-          Name: Irvin Allen
-    Description: This is our main CE for the University of Utah
-    FQDN: osggate.chpc.utah.edu
-    ID: 800
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+    Description: Hosted CE for the notchpeak cluster
+    FQDN: hosted-ce24.grid.uchicago.edu
+    ID: 936
     Services:
       CE:
         Description: Compute Element
