@@ -97,7 +97,7 @@ def main():
     errors += test_12_res_contact_id_fmt(rgs, rgfns)
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
-    errors += test_15_facility_site()
+    errors += test_15_facility_site_files()
 
 
     print("%d Resource Group files processed." % len(rgs))
