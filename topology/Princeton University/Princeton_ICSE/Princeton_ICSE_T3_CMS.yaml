@@ -2,7 +2,7 @@ GroupDescription: CMS Tier3 site at Princeton
 GroupID: 268
 Production: true
 Resources:
-  Princeton_ICSE_T3_CMS_SE:
+  T3_US_Princeton_ICSE:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -11,8 +11,8 @@ Resources:
           Name: Christopher Tully
       Miscellaneous Contact:
         Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
+          ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
+          Name: Christopher Tully
       Resource Report Contact:
         Primary:
           ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
@@ -21,9 +21,10 @@ Resources:
         Primary:
           ID: 9bef2ad20f9434bcc5a288a686d36e810dbf814d
           Name: Christopher Tully
-    Description: Tier3 SE
+    Description: This is a CMS T3 site at Princeton University.  The site manager
+      is Chris Tully.  The servers are managed at Fermilab by Rob Snihur.
     FQDN: cmssw3.princeton.edu
-    ID: 327
+    ID: 596
     Services:
       SRMv2:
         Description: SRM V2 Storage Element
@@ -32,14 +33,4 @@ Resources:
           uri_override: cmssw3.princeton.edu:8443
     VOOwnership:
       CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 0
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: false
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 0
-      StorageCapacityMin: 0
 SupportCenter: USCMS_Tier3
