@@ -1,0 +1,31 @@
+Production: true
+SupportCenter: Self Supported
+GroupID: 512
+GroupDescription: TACC branch of the JetStream Cloud
+Resources:
+  OSG_US_TACC_JETSTREAM:
+    ID: 1013
+    Description: JetStream TACC CE
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+        Secondary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+      Security Contact:
+        Primary:
+          Name: Igor Sfiligoi        
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+        Secondary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+    FQDN: js-129-114-19-48.jetstream-cloud.org
+    Services:
+      CE:
+        Description: JetStream TACC CE 
+        Details:
+          hidden: false
+    VOOwnership:
+      OSG: 100
