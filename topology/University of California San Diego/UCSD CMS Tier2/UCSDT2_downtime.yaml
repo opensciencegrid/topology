@@ -674,3 +674,58 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 265750641
+  Description: Down for hadoop upgrade
+  Severity: Outage
+  StartTime: Jun 27, 2019 16:00 +0000
+  EndTime: Jun 28, 2019 04:00 +0000
+  CreatedTime: Jun 26, 2019 13:51 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 265750642
+  Description: Down for hadoop upgrade
+  Severity: Outage
+  StartTime: Jun 27, 2019 16:00 +0000
+  EndTime: Jun 28, 2019 04:00 +0000
+  CreatedTime: Jun 26, 2019 13:51 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 265750643
+  Description: Down for hadoop upgrade
+  Severity: Outage
+  StartTime: Jun 27, 2019 16:00 +0000
+  EndTime: Jun 28, 2019 04:00 +0000
+  CreatedTime: Jun 26, 2019 13:51 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 265750644
+  Description: Down for hadoop upgrade
+  Severity: Outage
+  StartTime: Jun 27, 2019 16:00 +0000
+  EndTime: Jun 28, 2019 04:00 +0000
+  CreatedTime: Jun 26, 2019 13:51 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 265750645
+  Description: Down for hadoop upgrade
+  Severity: Outage
+  StartTime: Jun 27, 2019 16:00 +0000
+  EndTime: Jun 28, 2019 04:00 +0000
+  CreatedTime: Jun 26, 2019 13:51 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
