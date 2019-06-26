@@ -35,13 +35,13 @@ Resources:
           Name: Carl Lundstedt
     Description: OSG accessible gateway to Nebraska\'s general use facility
     FQDN: rhino-gw1.unl.edu
-    ID: 228
+    ID: 1014
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://sandhills-ce1.unl.edu
+          sam_uri: htcondor://rhino-gw1.unl.edu
     VOOwnership:
       HCC: 100
     WLCGInformation:
