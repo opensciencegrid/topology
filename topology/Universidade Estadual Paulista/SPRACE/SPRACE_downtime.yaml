@@ -388,3 +388,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 269136776
+  Description: Emergency unscheduled downtime due to failures on the cooling system
+  Severity: Outage
+  StartTime: Jun 30, 2019 11:47 +0000
+  EndTime: Jul 01, 2019 20:00 +0000
+  CreatedTime: Jun 30, 2019 11:54 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
