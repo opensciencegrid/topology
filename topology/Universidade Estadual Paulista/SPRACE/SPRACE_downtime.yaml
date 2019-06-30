@@ -52,7 +52,17 @@
     Unschedule downtime for SPRACE due to a very long power outage over our generator capacity time.
 
     Due to the holiday in Brazil we expect to go back by next Wednesday.
-  EndTime: Mar 1, 2017 15:00 +0000
+  EndTime: Mar 1, 2017 15:00 +0000- Class: UNSCHEDULED
+  ID: 269136776
+  Description: Emergency unscheduled downtime due to failures on the cooling system
+  Severity: Outage
+  StartTime: Jun 30, 2019 11:47 +0000
+  EndTime: Jul 01, 2019 20:00 +0000
+  CreatedTime: Jun 30, 2019 11:54 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
   ID: 1005215
   ResourceName: T2_BR_SPRACE-squid2
   Services:
@@ -376,4 +386,15 @@
   ResourceName: SPRACE
   Services:
   - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 269136776
+  Description: Emergency unscheduled downtime due to failures on the cooling system
+  Severity: Outage
+  StartTime: Jun 30, 2019 11:47 +0000
+  EndTime: Jul 01, 2019 20:00 +0000
+  CreatedTime: Jun 30, 2019 11:54 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
 # ---------------------------------------------------------
