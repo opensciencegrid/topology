@@ -5,18 +5,34 @@ Resources:
   Purdue-Hadoop-CE:
     Active: true
     ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Miscellaneous Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Resource Report Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Security Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
     Description: Computing element for CMS Hadoop cluster at Purdue University.
     FQDN: hadoop-osg.rcac.purdue.edu
     ID: 620
@@ -45,27 +61,33 @@ Resources:
     Active: false
     ContactLists:
       Administrative Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
       Miscellaneous Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-        Tertiary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
       Resource Report Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-        Tertiary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
       Security Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
     Description: This is the HTCE for clusters managed by PBS batch system at Purdue
       Tier-2.
     FQDN: cmspbs-osg.rcac.purdue.edu
@@ -94,24 +116,33 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary:
+        Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
           Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Miscellaneous Contact:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
           Name: Stefan Piperov
-      Resource Report Contact:
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
-        Tertiary:
+      Resource Report Contact:
+        Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
           Name: Stefan Piperov
-      Security Contact:
         Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Security Contact:
+        Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
           Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
     Description: IPVS frontend to gridftp servers at Purdue University
     FQDN: cms-gridftp.rcac.purdue.edu
     ID: 852
@@ -134,65 +165,37 @@ Resources:
       StorageCapacityMax: 3800
       StorageCapacityMin: 3800
       TapeCapacity: 0
-  Purdue-Hadoop-TestCE:
-    Active: true
-    ContactLists:
-      Miscellaneous Contact:
-        Secondary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Resource Report Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Security Contact:
-        Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-    Description: This is a computing element used for testing  CMS VO at Purdue University.
-    FQDN: cmstest1.rcac.purdue.edu
-    ID: 624
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-          sam_uri: htcondor://cmstest1.rcac.purdue.edu:9619/cmstest1.rcac.purdue.edu
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 85
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 500
-      KSI2KMin: 100
-      StorageCapacityMax: 5.5
-      StorageCapacityMin: 1
-      TapeCapacity: 0
   T2_US_Purdue_Squid1:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Miscellaneous Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-        Tertiary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
       Resource Report Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
       Security Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
     Description: This is the squid services at Purdue Tier-2.  This host runs two  instances
       of squid services.
     FQDN: squid1.rcac.purdue.edu
@@ -207,20 +210,32 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Miscellaneous Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Resource Report Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Security Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
     Description: This is the squid server at Purdue Tier-2.  This host runs two instance
       of squid services.
     FQDN: squid2.rcac.purdue.edu
@@ -235,26 +250,32 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-      Miscellaneous Contact:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-        Tertiary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Miscellaneous Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
       Resource Report Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
-        Tertiary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
       Security Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
     Description: This is squid server at Purdue Tier-2.  There are two instances of
       squid services running on this host.
     FQDN: squid3.rcac.purdue.edu
@@ -267,14 +288,34 @@ Resources:
   US-Purdue BW:
     Active: true
     ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Miscellaneous Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Resource Report Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
       Security Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
     Description: Perfsonar bandwidth node for Purdue Tier-2 CMS center.
     FQDN: perfsonar-cms2.itns.purdue.edu
     ID: 622
@@ -301,24 +342,30 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
       Miscellaneous Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
       Resource Report Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
       Security Contact:
         Primary:
-          ID: 0a7745a628485f60a61a841b3f3b6ea2b40a5891
-          Name: Majid Arabgol
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
