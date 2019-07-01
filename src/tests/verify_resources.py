@@ -72,6 +72,8 @@ def main():
     os.chdir(_topdir + "/topology")
 
     contacts = get_contacts()
+    site_files = []
+    facility_files = []
     yamls = sorted(glob.glob("*/*/*.yaml"))
     rgfns = list(filter(rgfilter, yamls))
     rgs = list(map(load_yamlfile, rgfns))
@@ -97,8 +99,9 @@ def main():
     errors += test_12_res_contact_id_fmt(rgs, rgfns)
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
-    errors += test_15_facility_site_files()
-
+    errors += test_15_facility_site_files(site_files, facility_files)
+    errors += test_16_facility_site_IDs(site_files, facility_files)
+    errors += test_17_site_coordinate(site_files)
 
     print("%d Resource Group files processed." % len(rgs))
     if errors:
@@ -122,7 +125,9 @@ _emsgs = {
     'RGUnique'      : "Resource Group names must be unique across all Sites",
     'ResUnique'     : "Resource names must be unique across the OSG topology",
     'ResID'         : "Resources must contain a numeric ID",
+    'ResIDUnique'   : "Resource ID must be unique",
     'ResGrpID'      : "Resource Groups must contain a numeric ID",
+    'GrpIDUnique'   : "Resource GroupID must be unique",
     'SiteUnique'    : "Site names must be unique across Facilities",
     'FQDNUnique'    : "FQDNs must be unique across the OSG topology",
     'VOOwnership100': "Total VOOwnership must not exceed 100%",
@@ -137,7 +142,13 @@ _emsgs = {
     'UnknownContactID'       : "Contact IDs must exist in contact repo",
     'ContactNameMismatch'    : "Contact names must match in contact repo",
     'NoFacility'             : "Facility directories must contain a FACILITY.yaml",
-    'NoSite'                 : "Site directories must contain a SITE.yaml"
+    'NoSite'                 : "Site directories must contain a SITE.yaml",
+    'FacNoIntID'             : "FACILITY.yaml must have numeric ID",
+    'SiteNoIntID'            : "SITE.yaml must have numeric ID",
+    'SiteNoFloatCoordinate'  : "SITE.yaml must have float latitude and longitude",
+    'SiteOutRange'           : "Latitude and longitude in SITE.yaml must between 180 and -180",
+    'FacilityShareID'        : "FACILITY.yaml must have unique ID",
+    'SiteShareID'            : "SITE.yaml must have unique ID"
 }
 
 def print_emsg_once(msgtype):
@@ -304,14 +315,20 @@ def test_7_fqdn_unique(rgs, rgfns):
 
 def test_8_res_ids(rgs, rgfns):
     # Check that resources/resource groups have a numeric ID/GroupID
+    # The GroupID/ID should also be unique
 
     errors = 0
+    groupids = collections.defaultdict(list)
+    ids = autodict()
 
     for rg,rgfn in zip(rgs,rgfns):
         if not isinstance(rg.get('GroupID'), int):
             print_emsg_once('ResGrpID')
             print("Resource Group missing numeric GroupID: '%s'" % rgfn)
             errors += 1
+        else:
+            gi = rg['GroupID']
+            groupids[gi].append(rgfn)
 
         for resname,res in sorted(rg['Resources'].items()):
             if not isinstance(res.get('ID'), int):
@@ -319,6 +336,25 @@ def test_8_res_ids(rgs, rgfns):
                 print("Resource '%s' missing numeric ID in '%s'"
                       % (resname, rgfn))
                 errors += 1
+            else:
+                id = res['ID']
+                ids[id] += [(rgfn, resname)]
+
+    for gi, gilist in sorted(groupids.items()):
+        if len(gilist) > 1:
+            print_emsg_once('GrpIDUnique')
+            print("GroupID '%s' mentioned for multiple resource groups:" % gi)
+            for group in gilist:
+                print(" - %s" % group)
+            errors += 1
+
+    for id, reslist in ids:
+        if len(reslist) > 1:
+            print_emsg_once('ResIDUnique')
+            print("Resource ID: %s mentioned for multiple resources:" % id)
+            for rgfile, res in reslist:
+                print(" - %s (%s)" % (res, rgfile))
+            errors += 1
 
     return errors
 
@@ -440,8 +476,9 @@ def test_14_res_contacts_match(rgs, rgfns, contacts):
 
     return errors
 
-def test_15_facility_site_files():
+def test_15_facility_site_files(site_files, facility_files):
     # verify the required FACILITY.yaml and SITE.yaml files
+
     errors = 0
 
     for facdir in glob.glob("*/"):
@@ -449,12 +486,76 @@ def test_15_facility_site_files():
             print_emsg_once('NoFacility')
             print(facdir[:-1] + " does not have required FACILITY.yaml file")
             errors += 1
+        else:
+            facility_files.append(facdir + "FACILITY.yaml")
 
     for sitedir in glob.glob("*/*/"):
         if not os.path.exists(sitedir + "SITE.yaml"):
             print_emsg_once('NoSite')
             print(sitedir[:-1] + " does not have required SITE.yaml file")
             errors += 1
+        else:
+            site_files.append(sitedir + "SITE.yaml")
+
+    return errors
+
+def test_16_facility_site_IDs(site_files, facility_files):
+    # verify FACILITY.yaml has unique int ID and SITE.yaml has ID
+
+    errors = 0
+    fac_ID = collections.defaultdict(list)
+    site_ID = collections.defaultdict(list)
+
+    for fac_yaml in facility_files:
+        fac_file = yaml.safe_load(fac_yaml)
+        try:
+            fac_ID[int(fac_file['ID'])].append(fac_yaml)
+        except (KeyError, ValueError):
+            errors += 1
+            print_emsg_once('FacNoIntID')
+            print(fac_yaml + " does not have numeric ID")
+
+    for site_yaml in site_files:
+        site_file = yaml.safe_load(site_yaml)
+        try:
+            site_ID[int(site_file['ID'])].append(site_yaml)
+        except (KeyError, ValueError):
+            errors += 1
+            print_emsg_once('SiteNoIntID')
+            print(site_yaml + " does not have numeric ID")
+
+    for facs in fac_ID.values():
+        if len(facs) > 1:
+            errors += 1
+            print_emsg_once('FacilityShareID')
+            print("The following list of FACILITY files share the same ID")
+            print(facs)
+
+    for sites in site_ID.values():
+        if len(sites) > 1:
+            errors += 1
+            print_emsg_once('SiteShareID')
+            print("The following list of SITE files share the same ID")
+            print(sites)
+
+    return errors
+
+def test_17_site_coordinate(site_files):
+    # verify SITE.yaml files have valid longitude and latitude
+
+    errors = 0
+
+    for site_yaml in site_files:
+        site_file = yaml.safe_load(site_yaml)
+        try:
+            if float(site_file['Latitude']) > 180 or float(site_file['Latitude']) < -180:
+                errors += 1
+                print_emsg_once('SiteOutRange')
+                print(site_yaml + " has latitude or longitude out of range")
+        except (KeyError, ValueError):
+            errors += 1
+            print_emsg_once('SiteNoFloatCoordinate')
+            print(site_yaml + " does not have float latitude or longitude")
 
     return errors
 
