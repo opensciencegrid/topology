@@ -453,3 +453,72 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 263736927
+  Description: Storms have knocked out cooling to machine room
+  Severity: Outage
+  StartTime: Jun 24, 2019 04:00 +0000
+  EndTime: Jun 24, 2019 10:30 +0000
+  CreatedTime: Jun 24, 2019 05:54 +0000
+  ResourceName: SWT2_CPB
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 263737297
+  Description: Storms have knocked out cooling to machine room
+  Severity: Outage
+  StartTime: Jun 24, 2019 04:00 +0000
+  EndTime: Jun 24, 2019 10:30 +0000
+  CreatedTime: Jun 24, 2019 05:55 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 263737544
+  Description: Storms have knocked out cooling to machine room
+  Severity: Outage
+  StartTime: Jun 24, 2019 04:00 +0000
+  EndTime: Jun 24, 2019 10:30 +0000
+  CreatedTime: Jun 24, 2019 05:55 +0000
+  ResourceName: SWT2_CPB_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 268760533
+  Description: Loss of cooling in the lab
+  Severity: Outage
+  StartTime: Jun 30, 2019 00:30 +0000
+  EndTime: Jun 30, 2019 11:00 +0000
+  CreatedTime: Jun 30, 2019 01:27 +0000
+  ResourceName: SWT2_CPB
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 268760960
+  Description: Loss of cooling in the lab
+  Severity: Outage
+  StartTime: Jun 30, 2019 00:30 +0000
+  EndTime: Jun 30, 2019 11:00 +0000
+  CreatedTime: Jun 30, 2019 01:28 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 268761183
+  Description: Loss of cooling in the lab
+  Severity: Outage
+  StartTime: Jun 30, 2019 00:30 +0000
+  EndTime: Jun 30, 2019 11:00 +0000
+  CreatedTime: Jun 30, 2019 01:28 +0000
+  ResourceName: SWT2_CPB_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
