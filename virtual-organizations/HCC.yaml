@@ -71,7 +71,10 @@ DataFederations:
     - HCC-Stash
     AllowedOrigins:
     - HCC-Origin
+    - HCC-StashCache-Origin
     Namespaces:
       /hcc/focusday:
       - FQAN:/hcc
       - DN:/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian Paul Bockelman
+      /hcc/PUBLIC:
+      -PUBLIC
