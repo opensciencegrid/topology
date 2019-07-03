@@ -102,6 +102,7 @@ def main():
     errors += test_15_facility_site_files(site_files, facility_files)
     errors += test_16_facility_site_IDs(site_files, facility_files)
     errors += test_17_site_coordinate(site_files)
+    errors += test_18_cn_fqdn_match(rgs, rgfns)
 
     print("%d Resource Group files processed." % len(rgs))
     if errors:
@@ -148,7 +149,8 @@ _emsgs = {
     'SiteNoFloatCoordinate'  : "SITE.yaml must have float latitude and longitude",
     'SiteOutRange'           : "Latitude and longitude in SITE.yaml must between 180 and -180",
     'FacilityShareID'        : "FACILITY.yaml must have unique ID",
-    'SiteShareID'            : "SITE.yaml must have unique ID"
+    'SiteShareID'            : "SITE.yaml must have unique ID",
+    'CNFQDNMatch'            : "CN in resource must match FQDN"
 }
 
 def print_emsg_once(msgtype):
@@ -556,6 +558,23 @@ def test_17_site_coordinate(site_files):
             errors += 1
             print_emsg_once('SiteNoFloatCoordinate')
             print(site_yaml + " does not have float latitude or longitude")
+
+    return errors
+
+def test_18_cn_fqdn_match(rgs, rgfns):
+    # one of the CN in DN must match FQDN
+
+    errors = 0
+
+    for rg, rgfn in zip(rgs, rgfns):
+        for rname, rdict in sorted(rg['Resources'].items()):
+            dn = rdict.get('DN')
+            if dn:
+                fqdn = rdict['FQDN']
+                if not re.search(r"/CN=%s(/|$)" % re.quote(fqdn), dn):
+                    errors += 1
+                    print_emsg_once("CNFQDNMatch")
+                    print("In %s, none of the CNs in resource %s matches its FQDN" % (rgfn, rname))
 
     return errors
 
