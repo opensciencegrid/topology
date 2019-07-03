@@ -164,11 +164,8 @@ Resources:
 
     FQDN: hcc-stashcache-origin.unl.edu
     
-    DN: /DC=org/DC=incommon/C=US/ST=NE/L=Lincoln/O=University of Nebraska-Lincoln/OU=Holland Computing Center/CN=hcc-stashcache-origin.unl.edu
-
     Services:
       XRootD origin server:
-        Description: HCC Origin Server, primarily for XCache testing.
-
+        Description: HCC StashCache Origin Server
     AllowedVOs:
       - HCC
