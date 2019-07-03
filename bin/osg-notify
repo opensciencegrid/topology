@@ -11,6 +11,7 @@ import sys
 import getpass
 import smtplib
 import argparse
+import time
 import email.message
 import email.mime.text
 import email.mime.multipart
@@ -65,13 +66,13 @@ def generateFullMessage(subject, to, from_name, message, sign=True, keyid=None):
         msg.attach(basemsg)
         msg.attach(signmsg)
         msg['Subject'] = subject
-        msg['Bcc'] = ", ".join(to)
+        msg['Bcc'] = to
         msg['To'] = '"Open Science Grid Helpdesk" <help@opensciencegrid.org>'
         msg['From'] = '"%s" <help@opensciencegrid.org>' % from_name
         return msg.as_string(unixfrom=True)
     else:
         basemsg['Subject'] = subject
-        basemsg['Bcc'] = ", ".join(to)
+        basemsg['Bcc'] = to
         basemsg['To'] = '"Open Science Grid Helpdesk" <help@opensciencegrid.org>'
         basemsg['From'] = '"%s" <help@opensciencegrid.org>' % from_name
         return basemsg.as_string(unixfrom=True)
@@ -185,11 +186,13 @@ def main():
 ===================================================
 """ + contents
 
-    msg = generateFullMessage(subject=args.subject, to=recipients, from_name=args.from_name, message=contents,
-                              sign=args.sign, keyid=args.keyid)
+    msgs = []
+    for recipient in recipients:
+        msgs.append(generateFullMessage(subject=args.subject, to=recipient, from_name=args.from_name, message=contents,
+                              sign=args.sign, keyid=args.keyid))
 
     if args.dryrun:
-        print(msg)
+        print('\n'.join(msg for msg in msgs))
     elif network_ok(args.bypass_dns_check):
         for _ in range(1, 4):
             try:
@@ -199,12 +202,14 @@ def main():
 
             if verify_send.lower() == 'y':
                 session = smtplib.SMTP('localhost')
-                session.sendmail("help@opensciencegrid.org", recipients, msg)
+                for recipient, msg in zip(recipients, msgs):
+                    session.sendmail("help@opensciencegrid.org", recipient, msg)
+                    time.sleep(4)
                 session.quit()
                 break
             elif verify_send.lower() in ['n', '']:
                 print("Not sending email...")
-                print(msg)
+                print('\n'.join(msg for msg in msgs))
                 break
             else:
                 print("Unrecognized answer: '{0}'".format(verify_send))
