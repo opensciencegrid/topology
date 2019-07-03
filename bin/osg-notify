@@ -207,6 +207,7 @@ def main():
                 session = smtplib.SMTP('localhost')
                 for recipient, msg in zip(recipients, msgs):
                     session.sendmail("help@opensciencegrid.org", recipient, msg)
+                    print(".", end="")
                     time.sleep(4)
                 session.quit()
                 break
