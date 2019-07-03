@@ -66,14 +66,12 @@ def generateFullMessage(subject, to, from_name, message, sign=True, keyid=None):
         msg.attach(basemsg)
         msg.attach(signmsg)
         msg['Subject'] = subject
-        msg['Bcc'] = to
-        msg['To'] = '"Open Science Grid Helpdesk" <help@opensciencegrid.org>'
+        msg['To'] = to
         msg['From'] = '"%s" <help@opensciencegrid.org>' % from_name
         return msg.as_string(unixfrom=True)
     else:
         basemsg['Subject'] = subject
-        basemsg['Bcc'] = to
-        basemsg['To'] = '"Open Science Grid Helpdesk" <help@opensciencegrid.org>'
+        basemsg['To'] = to
         basemsg['From'] = '"%s" <help@opensciencegrid.org>' % from_name
         return basemsg.as_string(unixfrom=True)
 
@@ -192,7 +190,12 @@ def main():
                               sign=args.sign, keyid=args.keyid))
 
     if args.dryrun:
-        print('\n'.join(msg for msg in msgs))
+        if not recipients:
+            raise Exception("Message has no recipients!")
+        print("Recipients: " + ", ".join(recipients))
+        print("Example message:")
+        print(msgs[0])
+
     elif network_ok(args.bypass_dns_check):
         for _ in range(1, 4):
             try:
@@ -209,7 +212,9 @@ def main():
                 break
             elif verify_send.lower() in ['n', '']:
                 print("Not sending email...")
-                print('\n'.join(msg for msg in msgs))
+                print("Recipients: " + ", ".join(recipients))
+                print("Example message:")
+                print(msgs[0])
                 break
             else:
                 print("Unrecognized answer: '{0}'".format(verify_send))
