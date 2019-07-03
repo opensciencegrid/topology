@@ -209,6 +209,7 @@ def main():
                     session.sendmail("help@opensciencegrid.org", recipient, msg)
                     print(".", end="")
                     time.sleep(4)
+                print("", file=sys.stderr)
                 session.quit()
                 break
             elif verify_send.lower() in ['n', '']:
