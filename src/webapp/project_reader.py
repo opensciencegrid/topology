@@ -33,9 +33,10 @@ def get_projects(indir="../projects", strict=False):
         try:
             data = load_yaml_file(os.path.join(indir, file))
             if 'CampusGrid' in data['Sponsor']:
-                ID = mapping[data['Sponsor']['CampusGrid']['Name']]
-                data['Sponsor']['CampusGrid'].update( {'ID' : ID} )
-        except yaml.YAMLError:
+                name = data['Sponsor']['CampusGrid']['Name']
+                ID = mapping[name]
+                data['Sponsor']['CampusGrid'] = OrderedDict([("ID", ID), ("Name", name)])
+    except yaml.YAMLError:
             if strict:
                 raise
             else:
