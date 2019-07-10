@@ -46,9 +46,9 @@ def get_projects(indir="../projects", strict=False):
         project.update(data)
         projects.append(project)
 
-        to_output["Projects"]["Project"] = projects
+    to_output["Projects"]["Project"] = projects
 
-        return to_output
+    return to_output
 
 
 def get_projects_xml(indir="../projects", strict=False):
