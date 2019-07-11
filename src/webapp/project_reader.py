@@ -4,6 +4,7 @@ from collections import OrderedDict
 
 import logging
 import os
+import pprint
 import sys
 
 import yaml
@@ -30,6 +31,7 @@ def get_projects(indir="../projects", strict=False):
             continue
         project = OrderedDict.fromkeys(["ID", "Name", "Description", "PIName", "Organization", "Department",
                                         "FieldOfScience", "Sponsor"])
+        data = None
         try:
             data = load_yaml_file(os.path.join(indir, file))
             if 'CampusGrid' in data['Sponsor']:
@@ -43,6 +45,13 @@ def get_projects(indir="../projects", strict=False):
                 # load_yaml_file() already logs the specific error
                 log.error("skipping (non-strict mode)")
                 continue
+        except Exception as e:
+            log.error("%r adding project %s", e, file)
+            log.error("Data:\n%s", pprint.pformat(data))
+            if strict:
+                raise
+            log.exception("Skipping (non-strict mode); exception info follows")
+            continue
         project.update(data)
         projects.append(project)
 

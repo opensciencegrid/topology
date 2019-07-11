@@ -105,7 +105,7 @@ class ContactsData(object):
             try:
                 user_tree = user.get_tree(authorized, filters)
             except (AttributeError, KeyError, ValueError) as err:
-                log.exception("Error adding user with id %s: err", id_, err)
+                log.exception("Error adding user with id %s: %r", id_, err)
                 continue
             if user_tree:
                 user_list.append(user_tree)
