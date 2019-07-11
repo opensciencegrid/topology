@@ -46,7 +46,7 @@ def get_projects(indir="../projects", strict=False):
                 log.error("skipping (non-strict mode)")
                 continue
         except Exception as e:
-            log.error("%s adding project %s", e, file)
+            log.error("%r adding project %s", e, file)
             log.error("Data:\n%s", pprint.pformat(data))
             if strict:
                 raise
