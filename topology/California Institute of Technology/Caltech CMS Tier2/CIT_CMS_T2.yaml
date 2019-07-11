@@ -12,6 +12,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
       Resource Report Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -29,6 +32,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
     Description: LVS load balancer at US CMS Tier-2 site Caltech.
     FQDN: transfer.ultralight.org
     ID: 169
@@ -60,6 +66,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
       Resource Report Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -74,6 +83,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
     Description: US CMS Tier-2 site at Caltech
     FQDN: cit-gatekeeper.ultralight.org
     FQDNAliases:
@@ -108,6 +120,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
       Resource Report Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -122,6 +137,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
     Description: CE for Caltech CMS Tier2 facility.
     FQDN: cit-gatekeeper2.ultralight.org
     FQDNAliases:
@@ -156,6 +174,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
       Resource Report Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -170,6 +191,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
     Description: CE for Caltech CMS Tier2 facility.
     FQDN: cit-gatekeeper3.ultralight.org
     FQDNAliases:
@@ -204,6 +228,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
       Resource Report Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -218,6 +245,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
     Description: Squid service for frontier and cvmfs
     FQDN: proxy-1.ultralight.org
     ID: 688
@@ -235,6 +265,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
       Resource Report Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -249,12 +282,57 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
     Description: Second Squid service for frontier and cvmfs
     FQDN: proxy-2.ultralight.org
     ID: 225
     Services:
       Squid:
         Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  CMS_CIT_T2_SC_ORIGIN_01:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
+          Name: Joosep Pata
+      Resource Report Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
+          Name: Joosep Pata
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
+          Name: Joosep Pata
+    DN: /DC=org/DC=incommon/C=US/ST=CA/L=Pasadena/O=California Institute of Technology/OU=High Energy Physics/CN=stashcache-origin-01.ultralight.org
+    FQDN: stashcache-origin-01.ultralight.org
+    ID: 1009
+    Services:
+      XRootD origin server:
+        Description: StashCache origin server for user data
+    AllowedVOs:
+      - CMS
     VOOwnership:
       CMS: 100
   CIT_HEP_CE:
@@ -267,6 +345,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
       Resource Report Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -281,6 +362,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
     Description: Local department general purpose cluster providing opportunistic
       CPUs to CMS.
     FQDN: muon.hep.caltech.edu
@@ -316,6 +400,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
       Resource Report Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -330,6 +417,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
     Description: Bandwidth PerfSonar node
     FQDN: perfsonar.ultralight.org
     ID: 610
@@ -350,6 +440,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
       Resource Report Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -364,6 +457,9 @@ Resources:
         Secondary:
           ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
           Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
     Description: Latency host for PerfSonar.
     FQDN: perfsonar2.ultralight.org
     ID: 609

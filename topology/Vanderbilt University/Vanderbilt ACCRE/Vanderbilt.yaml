@@ -123,66 +123,6 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-  Vanderbilt_CE2:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
-        Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-      Miscellaneous Contact:
-        Primary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
-        Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-        Tertiary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-      Resource Report Contact:
-        Primary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
-        Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-        Tertiary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-      Security Contact:
-        Primary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
-        Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-    Description: Vanderbilt University Advanced Computing Center for Research and
-      Education
-    FQDN: ce2.accre.vanderbilt.edu
-    ID: 344
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-          sam_uri: htcondor://ce2.accre.vanderbilt.edu
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      AccountingName: T2_US_Vanderbilt
-      HEPSPEC: 0
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 0
-      StorageCapacityMin: 0
   Vanderbilt_CE3:
     Active: true
     ContactLists:
@@ -195,14 +135,14 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
     Description: Centos7-based CE
-    FQDN: ce3.accre.vanderbilt.edu
+    FQDN: ce1-vanderbilt.sites.opensciencegrid.org
     ID: 850
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://ce3.accre.vanderbilt.edu
+          sam_uri: htcondor://ce1-vanderbilt.sites.opensciencegrid.org
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -236,14 +176,14 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
     Description: HTCondor-CE based compute element, to replace ce4
-    FQDN: ce4.accre.vanderbilt.edu
+    FQDN: ce2-vanderbilt.sites.opensciencegrid.org
     ID: 855
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://ce4.accre.vanderbilt.edu
+          sam_uri: htcondor://ce2-vanderbilt.sites.opensciencegrid.org
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -286,7 +226,7 @@ Resources:
           ID: f8b4ca01236536e55faee256011d9c70d8eaff67
           Name: Kevin Buterbaugh
     Description: Vanderbilt Gridftp
-    FQDN: gridftp.accre.vanderbilt.edu
+    FQDN: gridftp-vanderbilt.sites.opensciencegrid.org
     ID: 884
     Services:
       GridFtp:
