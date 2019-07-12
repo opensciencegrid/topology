@@ -379,3 +379,25 @@
   Services:
   - XRootD component
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 279906262
+  Description: Rack Rearrangement
+  Severity: Outage
+  StartTime: Jul 17, 2019 13:00 +0000
+  EndTime: Jul 17, 2019 21:00 +0000
+  CreatedTime: Jul 12, 2019 23:03 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 279906848
+  Description: Rack Rearrangement
+  Severity: Outage
+  StartTime: Jul 17, 2019 13:00 +0000
+  EndTime: Jul 17, 2019 21:00 +0000
+  CreatedTime: Jul 12, 2019 23:04 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
