@@ -25,7 +25,7 @@ def get_projects(indir="../projects", strict=False):
     projects = []
 
     mapping = load_yaml_file(os.path.join(indir, "_CAMPUS_GRIDS.yaml"))
-    VOsData = get_vos_data("../virtual-organizations", None)
+    vos_data = get_vos_data(os.path.join(indir, "../virtual-organizations"), None)
 
     for file in os.listdir(indir):
         if not file.endswith(".yaml"):
@@ -43,7 +43,7 @@ def get_projects(indir="../projects", strict=False):
                 data['Sponsor']['CampusGrid'] = OrderedDict([("ID", ID), ("Name", name)])
             elif 'VirtualOrganization' in data['Sponsor']:
                 name = data['Sponsor']['VirtualOrganization']['Name']
-                ID = VOsData.vos[name]['ID']
+                ID = vos_data.vos[name]['ID']
                 data['Sponsor']['VirtualOrganization'] = OrderedDict([("ID", ID), ("Name", name)])
         except yaml.YAMLError:
             if strict:
