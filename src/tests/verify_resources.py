@@ -350,7 +350,7 @@ def test_8_res_ids(rgs, rgfns):
                 print(" - %s" % group)
             errors += 1
 
-    for id, reslist in ids:
+    for id, reslist in sorted(ids.items()):
         if len(reslist) > 1:
             print_emsg_once('ResIDUnique')
             print("Resource ID: %s mentioned for multiple resources:" % id)
