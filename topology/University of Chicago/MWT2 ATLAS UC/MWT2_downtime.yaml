@@ -848,3 +848,26 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 270299719
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Jul 09, 2019 12:00 +0000
+  EndTime: Jul 10, 2019 21:00 +0000
+  CreatedTime: Jul 01, 2019 20:12 +0000
+  ResourceName: MWT2_CE_IU
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 278066517
+  Description: ICC Quarterly PM
+  Severity: Outage
+  StartTime: Jul 17, 2019 13:00 +0000
+  EndTime: Jul 18, 2019 01:00 +0000
+  CreatedTime: Jul 10, 2019 19:57 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
+

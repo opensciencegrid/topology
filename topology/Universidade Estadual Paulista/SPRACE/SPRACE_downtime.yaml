@@ -377,3 +377,47 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 269133440
+  Description: Emergency unscheduled downtime due to failures on the cooling system
+  Severity: Outage
+  StartTime: Jun 30, 2019 11:47 +0000
+  EndTime: Jul 01, 2019 20:00 +0000
+  CreatedTime: Jun 30, 2019 11:49 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 269136776
+  Description: Emergency unscheduled downtime due to failures on the cooling system
+  Severity: Outage
+  StartTime: Jun 30, 2019 11:47 +0000
+  EndTime: Jul 01, 2019 20:00 +0000
+  CreatedTime: Jun 30, 2019 11:54 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 270404409
+  Description: extended unscheduled downtime due to failures on the cooling system
+  Severity: Intermittent Outage
+  StartTime: Jul 01, 2019 23:04 +0000
+  EndTime: Jul 02, 2019 21:00 +0000
+  CreatedTime: Jul 01, 2019 23:07 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 270405689
+  Description: extended unscheduled downtime due to failures on the cooling system
+  Severity: Intermittent Outage
+  StartTime: Jul 01, 2019 23:04 +0000
+  EndTime: Jul 02, 2019 21:00 +0000
+  CreatedTime: Jul 01, 2019 23:09 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------

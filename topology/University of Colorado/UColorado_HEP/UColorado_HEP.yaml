@@ -47,6 +47,69 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
+  UColorado_HEP_Squid01:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+      Security Contact:
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+    Description: Squid Server cmsprxy01
+    FQDN: cmsprxy01.colorado.edu
+    ID: 1010
+    Services:
+      Squid:
+        Description: Squid Server cmsprxy01
+        Details:
+          Monitored: true
+    VOOwnership:
+      CMS: 100
+  UColorado_HEP_Squid02:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+      Security Contact:
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+    Description: Squid Server cmsprxy02
+    FQDN: cmsprxy02.colorado.edu
+    ID: 1011
+    Services:
+      Squid:
+        Description: Squid Server cmsprxy02
+        Details:
+          Monitored: true
+    VOOwnership:
+      CMS: 100
+  UColorado_HEP_Squid03:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+      Security Contact:
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+    Description: Squid Server cmsprxy03
+    FQDN: cmsprxy03.colorado.edu
+    ID: 1012
+    Services:
+      Squid:
+        Description: Squid Server cmsprxy03
+        Details:
+          Monitored: true
+    VOOwnership:
+      CMS: 100
   UColorado_SE:
     Active: true
     ContactLists:
