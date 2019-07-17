@@ -509,7 +509,7 @@ def test_16_facility_site_IDs(site_files, facility_files):
     site_ID = collections.defaultdict(list)
 
     for fac_yaml in facility_files:
-        fac_file = yaml.safe_load(fac_yaml)
+        fac_file = load_yamlfile(fac_yaml)
         try:
             fac_ID[int(fac_file['ID'])].append(fac_yaml)
         except (KeyError, ValueError):
@@ -518,7 +518,7 @@ def test_16_facility_site_IDs(site_files, facility_files):
             print(fac_yaml + " does not have numeric ID")
 
     for site_yaml in site_files:
-        site_file = yaml.safe_load(site_yaml)
+        site_file = load_yamlfile(site_yaml)
         try:
             site_ID[int(site_file['ID'])].append(site_yaml)
         except (KeyError, ValueError):
@@ -548,7 +548,7 @@ def test_17_site_coordinate(site_files):
     errors = 0
 
     for site_yaml in site_files:
-        site_file = yaml.safe_load(site_yaml)
+        site_file = load_yamlfile(site_yaml)
         try:
             if float(site_file['Latitude']) > 180 or float(site_file['Latitude']) < -180:
                 errors += 1
@@ -571,7 +571,7 @@ def test_18_cn_fqdn_match(rgs, rgfns):
             dn = rdict.get('DN')
             if dn:
                 fqdn = rdict['FQDN']
-                if not re.search(r"/CN=%s(/|$)" % re.quote(fqdn), dn):
+                if not re.search(r"/CN=%s(/|$)" % fqdn, dn):
                     errors += 1
                     print_emsg_once("CNFQDNMatch")
                     print("In %s, none of the CNs in resource %s matches its FQDN" % (rgfn, rname))
