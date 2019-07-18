@@ -1,8 +1,26 @@
+GroupDescription: INFN T1 caching infrastructure
+GroupID: 515
+Production: True
+Resources:
   T1_STASHCACHE_CACHE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          # ID: TODO
+          # Name: TODO
+      Security Contact:
+        Primary:
+          # ID: TODO
+          # NAME: TODO
+    Description: StashCache cache server for INFN T1
     FQDN: xcache.cr.cnaf.infn.it
     ID: 1018
-    Service: XRootD cache server
-      Description: StashCache cache server 
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server 
     AllowedVOs:
       - ANY_PUBLIC
     DN: /DC=org/DC=terena/DC=tcs/C=IT/L=Frascati/O=Istituto Nazionale di Fisica Nucleare/CN=ds-102-11-18.cr.cnaf.infn.it
+SupportCenter: Self Supported
+
