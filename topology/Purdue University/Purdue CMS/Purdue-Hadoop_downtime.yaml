@@ -372,3 +372,25 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 284168132
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Jul 23, 2019 11:55 +0000
+  EndTime: Jul 23, 2019 23:55 +0000
+  CreatedTime: Jul 17, 2019 21:26 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 284158300
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Jul 23, 2019 11:55 +0000
+  EndTime: Jul 23, 2019 23:55 +0000
+  CreatedTime: Jul 17, 2019 21:10 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------

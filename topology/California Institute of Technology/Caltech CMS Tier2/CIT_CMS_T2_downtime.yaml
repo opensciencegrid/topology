@@ -721,3 +721,126 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+
+
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 283369696
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369697
+  Description: Building maintenance plus infrastructure upgrade
+  Severity: Outage
+  StartTime: Jun 28, 2019 15:00 +0000
+  EndTime: Jul 01, 2019 16:00 +0000
+  CreatedTime: Jun 25, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369698
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369699
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CIT_CMS_T2C
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369700
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369701
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369702
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CMS_CIT_T2_SC_ORIGIN_01
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369703
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CIT_HEP_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369704
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: Caltech PerfSonar Bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369705
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: Caltech PerfSonar Latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
