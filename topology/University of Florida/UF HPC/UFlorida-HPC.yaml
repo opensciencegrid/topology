@@ -79,6 +79,41 @@ Resources:
           endpoint: perfsonar1.ihepa.ufl.edu
     VOOwnership:
       CMS: 100
+  T2_Florida_BW_IPv6:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 
+          Name: Bockjoo Kim
+      Resource Report Contact:
+        Primary:
+          ID: 
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 
+          Name: Bockjoo Kim
+      Security Contact:
+        Primary:
+          ID: 
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 
+          Name: Bockjoo Kim
+    Description: This is the perfSONAR-ps bandwidth instance at the University of
+      Florida CMS T2 site for IPv6
+    FQDN: cmsps1.rc.ufl.edu
+    ID: 
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: cmsps1.rc.ufl.edu
+    VOOwnership:
+      CMS: 100
   UFlorida-CMS:
     Active: true
     ContactLists:
