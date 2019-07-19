@@ -2,26 +2,6 @@ GroupDescription: Belle2 Computing
 GroupID: 349
 Production: true
 Resources:
-  PNNL VOMS Server:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: bd63318d24aabd1e9ebf59d6060c73703cd8a9e2
-          Name: David Earl Cowley
-      Security Contact:
-        Primary:
-          ID: bd63318d24aabd1e9ebf59d6060c73703cd8a9e2
-          Name: David Earl Cowley
-    Description: This is a VOMS server filling multiple roles.  For the Belle VO,
-      it provides a replica of the primary VOMS server at KEK (https://voms.cc.kek.jp:8443/voms/belle/).
-    FQDN: voms.hep.pnnl.gov
-    ID: 879
-    Services:
-      VOMS Server:
-        Description: VOMS Server
-    VOOwnership:
-      Belle: 33
   PNNL_BelleII_SE:
     Active: true
     ContactLists:
