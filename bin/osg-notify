@@ -21,6 +21,7 @@ if __name__ == "__main__" and __package__ is None:
     _parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     sys.path.append(_parent + "/src")
 
+import webapp.models
 import topology_utils
 import net_name_addr_utils
 
@@ -110,7 +111,7 @@ def parseargs():
                          help="Filter on resources that list VO(s) as a partial owner")
 
     oparser.add_argument("--oim-contact-type", default="all", dest="contact_type",
-                         choices=["all", "administrative", "miscellaneous", "security", "submitter", "site"],
+                         choices=["all", "administrative", "miscellaneous", "security", "submitter", "site", "oasis"],
                          help="Filter on contact type e.g. administrative, miscellaneous, security, submitter or site"
                          "(default: all)", )
     oparser.add_argument("--bypass-dns-check", action="store_true", dest="bypass_dns_check",
@@ -148,6 +149,27 @@ def main():
     args = parseargs()
 
     recipients = set(args.recipients.split())
+
+    if 'oasis' in args.oim_contact_type:
+        global_data = webapp.models.GlobalData()
+
+        oasis_id = []
+        vosdata_yaml = global_data.get_vos_data().vos
+        for vo in vosdata_yaml:
+            if 'OASIS' in vosdata_yaml[vo]:
+                names = vosdata_yaml[vo]['OASIS'].get('Managers')
+                if names:
+                    for name in names:
+                        oasis_id.append(str(names[name]['ID']))
+        oasis_id = set(oasis_id)
+
+        emails = []
+        contacts_data = global_data.get_contacts_data().users_by_id
+        for id, user in contacts_data.items():
+            if id in oasis_id and user.email:
+                emails.append(user.email)
+        recipients.update(emails)
+
     if args.oim_recipients and 'vos' in args.oim_recipients:
         results = topology_utils.get_vo_contacts(args)
         results = topology_utils.filter_contacts(args, results)
