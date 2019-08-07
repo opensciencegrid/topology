@@ -2,41 +2,6 @@ GroupDescription: (No resource group description)
 GroupID: 120
 Production: true
 Resources:
-  T2_Florida_BW:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
-          Name: University of Florida CMS Tier 2 Admins
-        Secondary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Resource Report Contact:
-        Primary:
-          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
-          Name: University of Florida CMS Tier 2 Admins
-        Secondary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Security Contact:
-        Primary:
-          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
-          Name: University of Florida CMS Tier 2 Admins
-        Secondary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-    Description: This is the perfSONAR-ps bandwidth instance at the University of
-      Florida CMS T2 site.
-    FQDN: perfsonar2.ihepa.ufl.edu
-    ID: 607
-    Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: perfsonar2.ihepa.ufl.edu
-    VOOwnership:
-      CMS: 100
   T2_Florida_LT:
     Active: true
     ContactLists:
