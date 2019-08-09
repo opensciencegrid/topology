@@ -23,12 +23,12 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     FQDN: stashcache.grid.uchicago.edu
+    DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=stashcache.grid.uchicago.edu
     Services:
       XRootD cache server:
         Description: StashCache cache server
     AllowedVOs:
       - ANY
-    DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=stashcache.grid.uchicago.edu
   UCHICAGO_TEST_STASHCACHE_CACHE:
     FQDN: stashcache.uchicago.slateci.net
     Active: false
