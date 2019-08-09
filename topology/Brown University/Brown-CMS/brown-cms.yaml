@@ -5,7 +5,7 @@ Resources:
   brown-cms-gen3:
     Description: Third generation CMS T3 at Brown
     FQDN: brux11.hep.brown.edu
-    Active: false
+    Active: true
     # ^^^ CE not set up yet
     ContactLists:
       Administrative Contact:
@@ -38,10 +38,11 @@ Resources:
           Name: Samuel Fulcomer
     ID: 445
     Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
+     # CE:
+     #   Description: Compute Element
+     #   Details:
+     #     hidden: false
+     # ^^^ Squid is set up but CE isn't
       Squid:
         Description: Generic squid service
     VOOwnership:
