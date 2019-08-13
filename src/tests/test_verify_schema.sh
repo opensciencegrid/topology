@@ -1,4 +1,5 @@
 #!/bin/bash -e
+set -x
 
 PYTHONPATH="$PYTHONPATH:$TRAVIS_BUILD_DIR/src"
 export PYTHONPATH
