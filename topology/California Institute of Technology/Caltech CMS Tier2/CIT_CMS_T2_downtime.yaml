@@ -844,3 +844,129 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+
+
+
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 283369706
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369707
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369708
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369709
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_CMS_T2C
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369710
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369711
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369712
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CMS_CIT_T2_SC_ORIGIN_01
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369713
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_HEP_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369714
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: Caltech PerfSonar Bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369715
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: Caltech PerfSonar Latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+
+
