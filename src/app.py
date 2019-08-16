@@ -175,6 +175,11 @@ def scitokens():
                                                               fqdn=cache_fqdn,
                                                               suppress_errors=False)
         return Response(cache_scitokens, mimetype="text/plain")
+    except stashcache.NotRegistered as e:
+        return Response("# No resource registered for {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(str(e)),
+                        mimetype="text/plain", status=404)
     except stashcache.DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating scitokens config for this FQDN: {}\n".format(str(e)) +
@@ -199,6 +204,11 @@ def _get_cache_authfile(public_only):
                                  fqdn=cache_fqdn,
                                  legacy=app.config["STASHCACHE_LEGACY_AUTH"],
                                  suppress_errors=False)
+    except stashcache.NotRegistered as e:
+        return Response("# No resource registered for {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(str(e)),
+                        mimetype="text/plain", status=404)
     except stashcache.DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
@@ -221,6 +231,11 @@ def _get_origin_authfile(public_only):
                                                    global_data.get_topology().get_resource_group_list(),
                                                    suppress_errors=False,
                                                    public_only=public_only)
+    except stashcache.NotRegistered as e:
+        return Response("# No resource registered for {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(str(e)),
+                        mimetype="text/plain", status=404)
     except stashcache.DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
@@ -437,7 +452,10 @@ def _get_authorized():
             if client_dn[3:] in authorized_dns: # "dn:" is at the beginning of the DN
                 if app and app.logger:
                     app.logger.info("Authorized %s", client_dn)
-                return True     
+                return True
+            else:
+                if app and app.logger:
+                    app.logger.debug("Rejected %s", client_dn)
 
     # If it gets here, then it is not authorized
     return default_authorized

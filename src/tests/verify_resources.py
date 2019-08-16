@@ -98,7 +98,7 @@ def main():
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
     errors += test_15_facility_site_files()
-
+    errors += test_16_Xrootd_DNs(rgs, rgfns)
 
     print("%d Resource Group files processed." % len(rgs))
     if errors:
@@ -137,7 +137,8 @@ _emsgs = {
     'UnknownContactID'       : "Contact IDs must exist in contact repo",
     'ContactNameMismatch'    : "Contact names must match in contact repo",
     'NoFacility'             : "Facility directories must contain a FACILITY.yaml",
-    'NoSite'                 : "Site directories must contain a SITE.yaml"
+    'NoSite'                 : "Site directories must contain a SITE.yaml",
+    'XrootdWithoutDN'        : "Xrootd cache server must provide a DN"
 }
 
 def print_emsg_once(msgtype):
@@ -440,6 +441,7 @@ def test_14_res_contacts_match(rgs, rgfns, contacts):
 
     return errors
 
+
 def test_15_facility_site_files():
     # verify the required FACILITY.yaml and SITE.yaml files
     errors = 0
@@ -457,6 +459,23 @@ def test_15_facility_site_files():
             errors += 1
 
     return errors
+
+
+def test_16_Xrootd_DNs(rgs, rgfns):
+    # verify each Xrootd service has DN
+
+    errors = 0
+
+    for rg, rgfn in zip(rgs, rgfns):
+        for rname, rdict in sorted(rg['Resources'].items()):
+            if 'XRootD cache server' in rdict['Services'] and rdict['Active'] and 'DN' not in rdict:
+                print_emsg_once('XrootdWithoutDN')
+                print("In '%s', Xrootd cache server Resource '%s' has no DN" %
+                      (rgfn, rname))
+                errors += 1
+
+    return errors
+
 
 if __name__ == '__main__':
     sys.exit(main())

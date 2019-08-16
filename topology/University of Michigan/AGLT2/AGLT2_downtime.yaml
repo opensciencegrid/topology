@@ -687,3 +687,25 @@
   ResourceName: AGLT2_SE
   Services:
   - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 308108052
+  Description: Network maintenaince at AGT2 UM site
+  Severity: Intermittent Outage
+  StartTime: Aug 18, 2019 06:00 +0000
+  EndTime: Aug 18, 2019 09:00 +0000
+  CreatedTime: Aug 16, 2019 16:00 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 308108053
+  Description: Network maintenaince at AGT2 UM site
+  Severity: Intermittent Outage
+  StartTime: Aug 18, 2019 06:00 +0000
+  EndTime: Aug 18, 2019 09:00 +0000
+  CreatedTime: Aug 16, 2019 16:00 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
