@@ -239,4 +239,37 @@
   - CE
   - GridFtp
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 287991856
+  Description: Rebuilding entire cluster
+  Severity: Outage
+  StartTime: Jul 23, 2019 18:00 +0000
+  EndTime: Jul 25, 2019 10:00 +0000
+  CreatedTime: Jul 22, 2019 07:39 +0000
+  ResourceName: UTA_SWT2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 287994587
+  Description: Rebuilding entire cluster
+  Severity: Outage
+  StartTime: Jul 23, 2019 18:00 +0000
+  EndTime: Jul 25, 2019 10:00 +0000
+  CreatedTime: Jul 22, 2019 07:44 +0000
+  ResourceName: UTA_SWT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 287994955
+  Description: Rebuilding entire cluster
+  Severity: Outage
+  StartTime: Jul 23, 2019 18:00 +0000
+  EndTime: Jul 24, 2019 23:00 +0000
+  CreatedTime: Jul 22, 2019 07:44 +0000
+  ResourceName: UTA_SWT2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------

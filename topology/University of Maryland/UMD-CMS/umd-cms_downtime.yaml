@@ -18,16 +18,6 @@
   Severity: Outage
   StartTime: Jul 11, 2016 22:00 +0000
 # ----------------------------------------------------------
-- Class: UNSCHEDULED
-  Description: 'unexpected power loss at cluster room: uptime not known'
-  EndTime: Jul 13, 2016 02:00 +0000
-  ID: 1004960
-  ResourceName: UMD_GUMS
-  Services:
-  - GUMS Server
-  Severity: Outage
-  StartTime: Jul 11, 2016 22:00 +0000
-# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: software update to OSG 3.3
   EndTime: Jul 29, 2016 02:00 +0000
@@ -55,16 +45,6 @@
   ResourceName: umd-cms
   Services:
   - SRMv2
-  Severity: Outage
-  StartTime: Aug 2, 2016 14:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Power and firmware updates.
-  EndTime: Aug 3, 2016 02:00 +0000
-  ID: 1004992
-  ResourceName: UMD_GUMS
-  Services:
-  - GUMS Server
   Severity: Outage
   StartTime: Aug 2, 2016 14:00 +0000
 # ----------------------------------------------------------
