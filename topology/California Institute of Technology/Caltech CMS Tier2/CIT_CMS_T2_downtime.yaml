@@ -969,4 +969,14 @@
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
 
+- Class: SCHEDULED
+  ID: 325391316
+  Description: Upgrade to 3.5 and HTCondor 8.8.4
+  Severity: Outage
+  StartTime: Sep 04, 2019 18:00 +0000
+  EndTime: Sep 11, 2019 18:00 +0000
+  CreatedTime: Sep 03, 2019 17:50 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+  - CE
 
