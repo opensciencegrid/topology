@@ -93,7 +93,7 @@ Active OSG Virtual Organizations
 | Solenoidal Tracker at RHIC ([STAR](http://www.star.bnl.gov)) | Physics and astronomy, Nuclear Physics | <http://www.star.bnl.gov> |
 | South Pole Telescope ([SPT](http://pole.uchicago.edu)) | Particle Physics, Physics, Astrophysics | |
 | Stash Cache ([Stash](http://www.opensciencegrid.org)) | | <http://www.opensciencegrid.org> |
-| Structural Biology Grid ([SBGrid](https://portal.sbgrid.org/)) | Biochemistry, Biophysics, Cellular Biology, Chemistry, Community Grid, Medical Sciences, Microbiology, Physiology, Molecular and Structural Biosciences | <http://portal.sbgrid.org/contact/about> |
+| Structural Biology Grid ([SBGrid](https://portal.sbgrid.org/)) | Biochemistry, Biophysics, Cellular Biology, Chemistry, Community Grid, Medical Sciences, Microbiology, Physiology, Molecular and Structural Biosciences | <https://portal.sbgrid.org/d/contact/	> |
 | SuperCDMS ([SuperCDMS](https://confluence.slac.stanford.edu/display/CDMSPUB/Home)) | Physics | |
 | SURAgrid ([SURAgrid](http://www.suragrid.org)) | Biochemistry, Bioinformatics, Biophysics, Chemistry, Computer and Information Science and Engineering, Earth Sciences, Mathematical Sciences, Molecular and Structural Biosciences, Physics and astronomy, Plant Biology, Statistics, Community Grid | <https://docs.uabgrid.uab.edu/suragrid/Welcome> |
 | São Paulo State University Grid ([GridUNESP](http://www.ncc.unesp.br)) | Biochemistry, Bioinformatics, Biophysics, Cellular Biology, Chemistry, Computer and Information Science and Engineering, Earth Sciences, Engineering, High Energy Physics, Materials Science, Medical Sciences, Molecular and Structural Biosciences, Nuclear Physics, Physics and astronomy, Multi-Science Community | <https://www.ncc.unesp.br/its/> |
