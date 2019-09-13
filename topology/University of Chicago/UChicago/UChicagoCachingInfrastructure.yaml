@@ -31,7 +31,9 @@ Resources:
       - ANY
   UCHICAGO_TEST_STASHCACHE_CACHE:
     FQDN: stashcache.uchicago.slateci.net
-    Active: false
+    DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=stashcache.uchicago.slateci.net
+    Services:
+    Active: true
     ID: 999
     ContactLists:
       Administrative Contact:
@@ -42,8 +44,8 @@ Resources:
           ID: 2d78d115b8b035ba841646faceb9ad0c3413f605
           Name: Christopher Weaver
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 7f81bd8445354d9d8929ebdddb39fae976e2b338
+          Name: Pascal Paschos
       Security Contact:
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
