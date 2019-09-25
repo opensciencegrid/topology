@@ -25,4 +25,21 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
+  OSG_US_WSU_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  f84214412f7b3dbf848808c4ba30d179c5743766
+          Name: Michael Thompson
+      Security Contact:
+        Primary:
+          ID:  f84214412f7b3dbf848808c4ba30d179c5743766
+          Name: Michael Thompson
+    Description: squid service for frontier and cvmfs
+    FQDN: vsquid1.nas.grid.wayne.edu
+    ID: 1026
+    Services:
+      Squid:
+        Description: Generic squid service
 SupportCenter: UChicago
