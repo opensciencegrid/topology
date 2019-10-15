@@ -10,7 +10,7 @@ Requires: python-gnupg
 Requires: python-requests
 
 %description
-A simple tool for generating notification emails to the OSG
+Client tools that interact with OSG Topology data
 
 %prep
 %setup -q -n topology-%{version}
