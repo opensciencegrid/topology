@@ -1,4 +1,4 @@
-Summary: osg-notify tool
+Summary: Client tools for OSG Topology
 Name: topology-client
 Version: 1.0.0
 Release: 1%{?dist}
