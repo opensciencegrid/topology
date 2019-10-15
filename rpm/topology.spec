@@ -1,5 +1,5 @@
 Summary: osg-notify tool
-Name: osg-notify
+Name: topology-client
 Version: 1.0.0
 Release: 1%{?dist}
 Source: topology-%{version}.tar.gz
