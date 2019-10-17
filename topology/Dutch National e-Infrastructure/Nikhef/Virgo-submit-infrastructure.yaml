@@ -1,0 +1,27 @@
+  
+Production: false
+SupportCenter: Self Supported
+
+GroupDescription: This is a cluster of submission hosts for the IGWN. 
+GroupID: 517
+
+Resources:
+  Virgo-submit-infrastructure:
+    Active: false
+    Description: stro.nikhef.nl is a glidein frontend node. 
+    ID: 1027
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Nikhef Grid Sysadmins
+          ID: 1b40990ec8bddd358618510addc31d715ee8f5e6
+
+      Security Contact:
+        Primary:
+          Name: Nikhef Security Team
+          ID: f29fae74f3bf383396b757c6a5bc0a491d3e6448
+
+    FQDN: stro.nikhef.nl
+    Services:
+      Submit Node: 
+        Description: This is a Virgo submit node.
