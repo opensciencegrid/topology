@@ -28,20 +28,6 @@
 # ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
-    During this downtime, critical high-availability fixes will be made to file system and OSG packages upgrade on worker and data nodes.
-
-    Regards,
-    Majid
-  EndTime: Jun 8, 2016 07:00 +0000
-  ID: 1004923
-  ResourceName: Purdue-Hadoop-TestCE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jun 7, 2016 09:30 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
     Hi All,
 
     Our network group at Purdue will update the main router on Saturday from 9AM to 4PM, consequently will have network outage. All services will be unavailable during the outage.
@@ -382,6 +368,28 @@
   StartTime: Jan 22, 2019 13:00 +0000
   EndTime: Jan 22, 2019 20:00 +0000
   CreatedTime: Jan 17, 2019 20:20 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 284168132
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Jul 23, 2019 11:55 +0000
+  EndTime: Jul 23, 2019 23:55 +0000
+  CreatedTime: Jul 17, 2019 21:26 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 284158300
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Jul 23, 2019 11:55 +0000
+  EndTime: Jul 23, 2019 23:55 +0000
+  CreatedTime: Jul 17, 2019 21:10 +0000
   ResourceName: Purdue-Hadoop-SE-Gridftp
   Services:
   - GridFtp

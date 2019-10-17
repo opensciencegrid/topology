@@ -233,7 +233,7 @@ class ResourceGroup(object):
                 res = Resource(name, res, self.common_data)
                 self.resources_by_name[name] = res
             except (AttributeError, KeyError, TypeError, ValueError) as err:
-                log.exception("Error with resource %s: %s", name, err)
+                log.exception("Error with resource %s: %r", name, err)
                 continue
 
         self.data = yaml_data
@@ -262,14 +262,14 @@ class ResourceGroup(object):
                 if tree:
                     filtered_resources.append(tree)
             except (AttributeError, KeyError, ValueError) as err:
-                log.exception("Error with resource %s: %s", res.name, err)
+                log.exception("Error with resource %s: %r", res.name, err)
                 continue
         if not filtered_resources:
             return  # all resources filtered out
         try:
             filtered_data = self._expand_rg()
         except (AttributeError, KeyError, ValueError) as err:
-            log.exception("Error with resource group %s/%s: %s", self.site, self.name, err)
+            log.exception("Error with resource group %s/%s: %r", self.site, self.name, err)
             return
         filtered_data["Resources"] = {"Resource": filtered_resources}
         return filtered_data
@@ -387,7 +387,7 @@ class Downtime(object):
                                   f"Affected Services: {affected_services}\n"
                                   f"Description: {self.data['Description']}")
         except (KeyError, ValueError, AttributeError) as e:
-            log.warning("Malformed downtime: %s", e)
+            log.warning("Malformed downtime: %r", e)
             return None
 
         return evt
@@ -496,7 +496,7 @@ class Topology(object):
                 self.service_names_by_resource[r.name] = r.service_names
                 self.downtime_path_by_resource[r.name] = f"{facility_name}/{site_name}/{name}_downtime.yaml"
         except (AttributeError, KeyError, ValueError) as err:
-            log.exception("RG %s, %s error: %s; skipping", site_name, name, err)
+            log.exception("RG %s, %s error: %r; skipping", site_name, name, err)
 
     def add_facility(self, name, id):
         self.facilities[name] = Facility(name, id)
@@ -541,7 +541,7 @@ class Topology(object):
                 try:
                     dttree = dt.get_tree(filters)
                 except (AttributeError, KeyError, ValueError) as err:
-                    log.exception("Error with downtime %s: %s", dt, err)
+                    log.exception("Error with downtime %s: %r", dt, err)
                     continue
                 if dttree:
                     dtlist.append(dttree)
@@ -564,7 +564,7 @@ class Topology(object):
                 try:
                     event = dt.get_ical_event(filters)
                 except (AttributeError, KeyError, ValueError) as err:
-                    log.exception("Error with downtime %s: %s", dt, err)
+                    log.exception("Error with downtime %s: %r", dt, err)
                     continue
                 if event:
                     cal.add_component(event)
@@ -580,6 +580,6 @@ class Topology(object):
         try:
             dt = Downtime(rg, downtime, self.common_data)
         except (KeyError, ValueError) as err:
-            log.warning("Invalid or missing data in downtime -- skipping: %s", err)
+            log.warning("Invalid or missing data in downtime -- skipping: %r", err)
             return
         self.downtimes_by_timeframe[dt.timeframe].append(dt)

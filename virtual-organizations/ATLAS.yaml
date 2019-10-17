@@ -3,16 +3,14 @@ CertificateOnly: false
 Community: The ATLAS physics community.
 Contacts:
   Administrative Contact:
-  - ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-    Name: John Hover
-  Miscellaneous Contact:
   - ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
     Name: Xin Zhao
+  Miscellaneous Contact:
   - ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
     Name: John S. De Stefano Jr.
   Security Contact:
-  - ID: fa0ca5484e97c3caa3a2fb59217caa70e8b3d66d
-    Name: John Hover
+  - ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+    Name: Xin Zhao
   Sponsors:
   - ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
     Name: Horst Severini
@@ -48,11 +46,6 @@ OASIS:
         Dykstra/CN=UID:dwd
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Dave Dykstra 508
       ID: 85fe79f7c8a447834460b6852f46d3eef32fb714
-    Jose Caballero:
-      DNs:
-      - /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jcaballe/CN=620333/CN=Jose Caballero
-        Bejar
-      ID: 1b078933a07113c75a73f7bc85e67ddbd64b764e
   UseOASIS: false
 PrimaryURL: http://www.usatlas.bnl.gov
 PurposeURL: http://www.usatlas.bnl.gov/index.shtml
