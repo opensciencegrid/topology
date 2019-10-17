@@ -1,3 +1,23 @@
+- Class: UNSCHEDULED
+  Description: Hardware problem with network switch. Can't recover.
+  EndTime: Mar 17, 2017 21:20 +0000
+  ID: 1005243
+  ResourceName: WT2_SE
+  Services:
+  - SRMv2
+  Severity: Outage
+  StartTime: Mar 17, 2017 01:40 +0000
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  Description: machine room work
+  EndTime: May 2, 2017 21:00 +0000
+  ID: 1005281
+  ResourceName: WT2_SE
+  Services:
+  - SRMv2
+  Severity: Outage
+  StartTime: May 2, 2017 15:00 +0000
+# ----------------------------------------------------------
 - Class: SCHEDULED
   Description: Power work
   EndTime: Jan 9, 2018 20:00 +0000
@@ -15,6 +35,16 @@
   ResourceName: WT2_CE_2
   Services:
   - CE
+  Severity: Outage
+  StartTime: Dec 22, 2017 08:00 +0000
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  Description: Power work
+  EndTime: Jan 9, 2018 20:00 +0000
+  ID: 1005529
+  ResourceName: WT2_SE
+  Services:
+  - SRMv2
   Severity: Outage
   StartTime: Dec 22, 2017 08:00 +0000
 # ----------------------------------------------------------
@@ -47,4 +77,24 @@
   - net.perfSONAR.Latency
   Severity: Outage
   StartTime: Dec 22, 2017 08:00 +0000
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  Description: Need to reduce service in order to recover from disk failure.
+  EndTime: Mar 16, 2018 07:00 +0000
+  ID: 1005627
+  ResourceName: WT2_SE
+  Services:
+  - SRMv2
+  Severity: Outage
+  StartTime: Mar 15, 2018 07:00 +0000
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  Description: recovering from failed disk
+  EndTime: Mar 17, 2018 07:00 +0000
+  ID: 1005628
+  ResourceName: WT2_SE
+  Services:
+  - SRMv2
+  Severity: Outage
+  StartTime: Mar 16, 2018 07:00 +0000
 # ----------------------------------------------------------
