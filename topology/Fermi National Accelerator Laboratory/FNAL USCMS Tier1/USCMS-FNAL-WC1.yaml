@@ -88,31 +88,6 @@ Resources:
           endpoint: psonar4.fnal.gov
     VOOwnership:
       Fermilab: 100
-  USCMS PerfSonar IPV6 Test:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
-          Name: Darryl K Wohlt
-      Miscellaneous Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
-      Resource Report Contact:
-        Primary:
-          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
-          Name: Darryl K Wohlt
-    Description: This is a PerfSonar dual stack instance
-    FQDN: psonartest1.fnal.gov
-    ID: 744
-    Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: psonartest1.fnal.gov
-    VOOwnership:
-      Fermilab: 100
   USCMS-FNAL-WC1-CE:
     Active: false
     ContactLists:
