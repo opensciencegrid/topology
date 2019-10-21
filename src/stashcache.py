@@ -32,6 +32,9 @@ __dn_split_re = re.compile("/([A-Za-z]+)=")
 class DataError(Exception):
     """Raised when there is a problem in the topology or VO data"""
 
+class NotRegistered(Exception):
+    """Raised when the FQDN is not registered at all"""
+
 
 def _generate_ligo_dns() -> List[str]:
     """
@@ -108,7 +111,7 @@ def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup
             if suppress_errors:
                 return None
             else:
-                raise DataError("{} is not a registered resource.".format(fqdn))
+                raise NotRegistered(fqdn)
         if "XRootD cache server" not in resource.service_names:
             if suppress_errors:
                 return None
@@ -350,7 +353,7 @@ def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_group
         if suppress_errors:
             return False
         else:
-            raise DataError("{} is not a registered resource.".format(origin_hostname))
+            raise NotRegistered(origin_hostname)
     if 'XRootD origin server' not in origin_resource.service_names:
         if suppress_errors:
             return False

@@ -110,10 +110,11 @@ def parseargs():
                          help="Filter on resources that list VO(s) as a partial owner")
 
     oparser.add_argument("--oim-contact-type", default="all", dest="contact_type",
-                         choices=["all", "administrative", "miscellaneous", "security", "submitter"],
-                         help="Filter on contact type e.g. administrative, miscellaneous, security, or submitter "
+                         choices=["all", "administrative", "miscellaneous", "security", "submitter", "site"],
+                         help="Filter on contact type e.g. administrative, miscellaneous, security, submitter or site"
                          "(default: all)", )
-
+    oparser.add_argument("--bypass-dns-check", action="store_true", dest="bypass_dns_check",
+                         help="Bypass checking that one of the host's IP addresses matches with the hostanme resolution")
     args = oparser.parse_args()
 
     if args.oim_recipients == 'vos' and args.owner_vo:
@@ -128,9 +129,9 @@ def parseargs():
 
     return args
 
-def network_ok():
+def network_ok(bypass_dns_check):
     info = net_name_addr_utils.get_host_network_info()
-    net_ok = net_name_addr_utils.hostnetinfo_good(info)
+    net_ok = net_name_addr_utils.hostnetinfo_good(info, bypass_dns_check)
 
     if net_ok:
         return True
@@ -189,7 +190,7 @@ def main():
 
     if args.dryrun:
         print(msg)
-    elif network_ok():
+    elif network_ok(args.bypass_dns_check):
         for _ in range(1, 4):
             try:
                 verify_send = raw_input("Really send mail to {0} recipients? (y/N)".format(len(recipients)))
