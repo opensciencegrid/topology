@@ -273,3 +273,37 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 373991346
+  Description: Electrical work in the facility over the next few days
+  Severity: Outage
+  StartTime: Oct 30, 2019 12:00 +0000
+  EndTime: Nov 01, 2019 12:00 +0000
+  CreatedTime: Oct 29, 2019 20:32 +0000
+  ResourceName: UTA_SWT2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 373993748
+  Description: Electrical work in the facility over the next few days
+  Severity: Outage
+  StartTime: Oct 30, 2019 12:00 +0000
+  EndTime: Nov 01, 2019 12:00 +0000
+  CreatedTime: Oct 29, 2019 20:36 +0000
+  ResourceName: UTA_SWT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 373994025
+  Description: Electrical work in the facility over the next few days
+  Severity: Outage
+  StartTime: Oct 30, 2019 12:00 +0000
+  EndTime: Nov 01, 2019 12:00 +0000
+  CreatedTime: Oct 29, 2019 20:36 +0000
+  ResourceName: UTA_SWT2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
