@@ -110,7 +110,10 @@ def nsfscience_csv():
     writer = csv.writer(buffer, delimiter=",")
     writer.writerow(["Topology Field of Science", "NSF Field of Science"])
     writer.writerows(nsfscience.items())
-    return Response(buffer.getvalue(), mimetype="text/csv")
+    response = make_response(buffer.getvalue())
+    response.headers.set("Content-Type", "text/csv")
+    response.headers.set("Content-Disposition", "attachment", filename="nsfscience.csv")
+    return response
 
 
 @app.route('/contacts')
