@@ -1,9 +1,11 @@
 """
 Application File
 """
+import csv
 import flask
 import flask.logging
 from flask import Flask, Response, make_response, request, render_template
+from io import StringIO
 import logging
 import os
 import re
@@ -96,6 +98,22 @@ def schema(xsdfile):
 def miscuser_xml():
     return Response(to_xml_bytes(global_data.get_contacts_data().get_tree(_get_authorized())),
                     mimetype='text/xml')
+
+
+@app.route('/nsfscience/csv')
+def nsfscience_csv():
+    nsfscience = global_data.get_mappings().nsfscience
+    if not nsfscience:
+        return Response("Error getting Field of Science mappings", status=503)
+
+    buffer = StringIO()
+    writer = csv.writer(buffer, delimiter=",")
+    writer.writerow(["Topology Field of Science", "NSF Field of Science"])
+    writer.writerows(nsfscience.items())
+    response = make_response(buffer.getvalue())
+    response.headers.set("Content-Type", "text/csv")
+    response.headers.set("Content-Disposition", "attachment", filename="nsfscience.csv")
+    return response
 
 
 @app.route('/contacts')
