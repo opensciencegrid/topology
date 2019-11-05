@@ -521,4 +521,60 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 379691813
+  Description: Electrical work in lab requires shutdown
+  Severity: Outage
+  StartTime: Nov 06, 2019 15:00 +0000
+  EndTime: Nov 06, 2019 23:00 +0000
+  CreatedTime: Nov 05, 2019 09:53 +0000
+  ResourceName: SWT2_CPB
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 379692484
+  Description: Electrical work in lab requires shutdown
+  Severity: Outage
+  StartTime: Nov 06, 2019 15:00 +0000
+  EndTime: Nov 06, 2019 23:00 +0000
+  CreatedTime: Nov 05, 2019 09:54 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 379692743
+  Description: Electrical work in lab requires shutdown
+  Severity: Outage
+  StartTime: Nov 06, 2019 15:00 +0000
+  EndTime: Nov 06, 2019 23:00 +0000
+  CreatedTime: Nov 05, 2019 09:54 +0000
+  ResourceName: SWT2_CPB_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 379693049
+  Description: Electrical work in lab requires shutdown
+  Severity: Outage
+  StartTime: Nov 06, 2019 15:00 +0000
+  EndTime: Nov 06, 2019 23:00 +0000
+  CreatedTime: Nov 05, 2019 09:55 +0000
+  ResourceName: SWT2_CPB_perfSONAR_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 379693348
+  Description: Electrical work in lab requires shutdown
+  Severity: Outage
+  StartTime: Nov 06, 2019 15:00 +0000
+  EndTime: Nov 06, 2019 23:00 +0000
+  CreatedTime: Nov 05, 2019 09:55 +0000
+  ResourceName: SWT2_CPB_perfSONAR_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
 
