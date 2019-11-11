@@ -75,6 +75,25 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
+  SLATE_US_UUTAH_LONEPEAK:
+    Active: true
+    ContactLists:
+      Resource Report Contact:
+        Primary:
+          ID:  40a181cc3b7a43593188c9607310d35cb079bda9
+          Name: Mitchell Steinman
+      Site Contact:
+        Primary:
+          ID:  443c32443113f2e2dbf7dc77c0e5697d4f27f90a
+          Name: Irvin Allen
+    Description: Hosted CE for the lonepeak cluster
+    FQDN: sl-uu-es1.slateci.io
+    ID: 936
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false  
   OSG_US_UUTAH_NOTCHPEAK:
     Active: true
     ContactLists:
