@@ -2,12 +2,12 @@ Disable: false
 Production: true
 SupportCenter: Self Supported
 GroupID: 
-GroupDescription: The NEWJERSEY_ELSA cluster
+GroupDescription: The TCNJ-ELSA cluster
 Resources:
-  OSG_US_NEWJERSEY_ELSA:
-    ID: 1031 
+  TCNJ-ELSA:
+    ID: 1032 
     Disable: false
-    Description: The Hosted CE serving NEWJERSEY_ELSA
+    Description: The Hosted CE serving TCNJ-ELSA
     ContactLists:
       Administrative Contact:
         Primary:
@@ -26,6 +26,6 @@ Resources:
     FQDN: hosted-ce30.grid.uchicago.edu
     Services:
       CE:
-        Description: NEWJERSEY_ELSA Hosted CE
+        Description: TCNJ-ELSA Hosted CE
         Details:
           hidden: false
