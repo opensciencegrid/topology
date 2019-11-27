@@ -245,46 +245,6 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       CMS: 100
-  T2_US_Purdue_Squid3:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Miscellaneous Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Security Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-    Description: This is squid server at Purdue Tier-2.  There are two instances of
-      squid services running on this host.
-    FQDN: squid3.rcac.purdue.edu
-    ID: 683
-    Services:
-      Squid:
-        Description: Generic squid service
-    VOOwnership:
-      CMS: 100
   US-Purdue BW:
     Active: true
     ContactLists:
