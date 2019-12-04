@@ -57,6 +57,228 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
+  Purdue-Hammer-CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Miscellaneous Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Resource Report Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Security Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+    Description: This is the gatekeeper for accessing computing  resources of high
+      throughput community cluster Hammer at Purdue University.
+    FQDN: hammer-osg.rcac.purdue.edu
+    ID: 698
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://hammer-osg.rcac.purdue.edu:9619/hammer-osg.rcac.purdue.edu
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 16.43
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 12
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 500
+      KSI2KMin: 100
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+  Purdue-Rice:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Miscellaneous Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Resource Report Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Security Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+    Description: |-
+      Computing element for Purdue Rice cluster (opportunistic).
+      http://www.rcac.purdue.edu/userinfo/resources/rice/
+    FQDN: rice-osg.rcac.purdue.edu
+    ID: 827
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://rice-osg.rcac.purdue.edu:9619/rice-osg.rcac.purdue.edu
+    VOOwnership:
+      CMS: 0
+    WLCGInformation:
+      APELNormalFactor: 17.95
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 85
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 5.5
+  Purdue-Halstead:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Miscellaneous Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Resource Report Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Security Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+    Description: |-
+      Computing element for Purdue Halstead cluster.
+      https://www.rcac.purdue.edu/compute/halstead/
+    FQDN: halstead-osg.rcac.purdue.edu
+    ID: 857
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://halstead-osg.rcac.purdue.edu:9619/halstead-osg.rcac.purdue.edu
+    VOOwnership:
+      CMS: 0
+    WLCGInformation:
+      APELNormalFactor: 17.95
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 85
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      StorageCapacityMax: 10
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  Purdue-Brown:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Miscellaneous Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Resource Report Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+      Security Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+    Description: |-
+      Compute Element for Purdue Brown cluster (opportunistic).
+      https://www.rcac.purdue.edu/compute/brown
+    FQDN: brown-osg.rcac.purdue.edu
+    ID: 929
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://brown-osg.rcac.purdue.edu:9619/brown-osg.rcac.purdue.edu
+    VOOwnership:
+      CMS: 0
+    WLCGInformation:
+      APELNormalFactor: 22.5
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 85
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 5.5
   Purdue-Hadoop-HT-PBS-CE:
     Active: false
     ContactLists:
