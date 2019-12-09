@@ -115,7 +115,7 @@ def parseargs():
                          "(default: all)", )
     oparser.add_argument("--bypass-dns-check", action="store_true", dest="bypass_dns_check",
                          help="Bypass checking that one of the host's IP addresses matches with the hostanme resolution")
-    oparser.add_argument("--force-non-ascii", action="store_true", dest="force_non_ascii",
+    oparser.add_argument("--allow-non-ascii", action="store_true", dest="allow_non_ascii",
                          help="Bypass the checking for non-ascii characters in the message")
 
     args = oparser.parse_args()
@@ -195,7 +195,7 @@ def main():
         contents = replace_smart_quotes_and_dashes(contents)
 
         # Check for non-ascii characters
-        if has_non_ascii_characters(contents) and args.force_non_ascii == False:
+        if has_non_ascii_characters(contents) and args.allow_non_ascii == False:
             print("ERROR: message contains non-ascii characters.")
             print("To force sending this message use the --force-non-ascii option")
             exit(1)
