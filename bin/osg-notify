@@ -157,7 +157,8 @@ def has_non_printable_ascii_characters(contents):
     # For each character in the message
     for c in contents:
         # Chek if the numeric value of the character is outside the printable ascii range (32-126)
-        if ord(c)< 32 or ord(c) > 126:
+	# or is a tab(9) or and end of line(10)
+        if ord(c) not in [9, 10] and (ord(c)< 32 or ord(c) > 126):
             ret = True
             break
     return ret
