@@ -196,8 +196,8 @@ def main():
 
         # Check for non-ascii or non printable ascii characters
         if has_non_printable_ascii_characters(contents) and args.allow_non_ascii == False:
-            print("ERROR: message contains non-ascii or non printable ascii characters.")
-            print("To force sending this message use the --allow-non-ascii option")
+            print("ERROR: message contains non-ascii or non printable ascii characters.", file=sys.stderr)
+            print("To force sending this message use the --allow-non-ascii option", file=sys.stderr)
             exit(1)
 
     if args.type != "production":
