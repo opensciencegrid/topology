@@ -152,12 +152,12 @@ def replace_smart_quotes_and_dashes(contents):
     replaced = contents.replace('“','"').replace('”','"').replace("–","-").replace("—","-")
     return replaced
 
-def has_non_ascii_characters(contents):
+def has_non_printable_ascii_characters(contents):
     ret = False
     # For each character in the message
     for c in contents:
-        # Chek if the numeric value of the character is outside the ascii range (0-127)
-        if ord(c)< 0 or ord(c) > 127:
+        # Chek if the numeric value of the character is outside the printable ascii range (32-126)
+        if ord(c)< 32 or ord(c) > 126:
             ret = True
             break
     return ret
@@ -194,10 +194,10 @@ def main():
         # Replace smart quotes and em/en dashes
         contents = replace_smart_quotes_and_dashes(contents)
 
-        # Check for non-ascii characters
-        if has_non_ascii_characters(contents) and args.allow_non_ascii == False:
-            print("ERROR: message contains non-ascii characters.")
-            print("To force sending this message use the --force-non-ascii option")
+        # Check for non-ascii or non printable ascii characters
+        if has_non_printable_ascii_characters(contents) and args.allow_non_ascii == False:
+            print("ERROR: message contains non-ascii or non printable ascii characters.")
+            print("To force sending this message use the --allow-non-ascii option")
             exit(1)
 
     if args.type != "production":
