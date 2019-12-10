@@ -115,6 +115,9 @@ def parseargs():
                          "(default: all)", )
     oparser.add_argument("--bypass-dns-check", action="store_true", dest="bypass_dns_check",
                          help="Bypass checking that one of the host's IP addresses matches with the hostanme resolution")
+    oparser.add_argument("--allow-non-ascii", action="store_true", dest="allow_non_ascii",
+                         help="Bypass the checking for non-ascii characters in the message")
+
     args = oparser.parse_args()
 
     if args.oim_recipients == 'vos' and args.owner_vo:
@@ -144,6 +147,22 @@ def network_ok(bypass_dns_check):
         print("  https://opensciencegrid.org//operations/services/sending-announcements/")
         return False
 
+def replace_smart_quotes_and_dashes(contents):
+    # Replace smart quotes and em/en dashes
+    replaced = contents.replace('“','"').replace('”','"').replace("–","-").replace("—","-")
+    return replaced
+
+def has_non_printable_ascii_characters(contents):
+    ret = False
+    # For each character in the message
+    for c in contents:
+        # Chek if the numeric value of the character is outside the printable ascii range (32-126)
+	# or is a tab(9) or and end of line(10)
+        if ord(c) not in [9, 10] and (ord(c)< 32 or ord(c) > 126):
+            ret = True
+            break
+    return ret
+
 def main():
     args = parseargs()
 
@@ -172,6 +191,15 @@ def main():
 
     with open(args.message, 'r') as fp:
         contents = fp.read()
+
+        # Replace smart quotes and em/en dashes
+        contents = replace_smart_quotes_and_dashes(contents)
+
+        # Check for non-ascii or non printable ascii characters
+        if has_non_printable_ascii_characters(contents) and args.allow_non_ascii == False:
+            print("ERROR: message contains non-ascii or non printable ascii characters.", file=sys.stderr)
+            print("To force sending this message use the --allow-non-ascii option", file=sys.stderr)
+            exit(1)
 
     if args.type != "production":
         if not args.dryrun and (len(recipients) > 5):
