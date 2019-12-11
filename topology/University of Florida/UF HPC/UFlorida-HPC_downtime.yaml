@@ -489,3 +489,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 409186425
+  Description: Hardware issue
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2019 13:00 +0000
+  EndTime: Dec 09, 2019 21:00 +0000
+  CreatedTime: Dec 10, 2019 04:00 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
