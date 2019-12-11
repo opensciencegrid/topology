@@ -28,7 +28,7 @@ install -D -m 0644 src/topology_utils.py %{buildroot}/%{python_sitelib}/topology
 
 %changelog
 * Tue Dec 10 2019 Diego Davila <didavila@ucsd.edu> 1.1.0-1
-- Replace smart quotes and dashes with their ASCII equivalent (software-3893)
+- Replace smart quotes and dashes with their ASCII equivalent (SOFTWARE-3893)
 
 * Tue Oct 15 2019 Diego Davila <didavila@ucsd.edu> 1.0.0-1
 - Initial
