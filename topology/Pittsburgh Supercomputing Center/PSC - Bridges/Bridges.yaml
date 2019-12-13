@@ -1,12 +1,11 @@
 Disable: false
 Production: true
 SupportCenter: Self Supported
-GroupID: 506 
+GroupID: 506
 GroupDescription: The PSC-Bridges cluster
 Resources:
   CMSHTPC_T3_US_Bridges:
     ID: 994 
-    Disable: false
     Description: The Hosted CE serving PSC-Bridges
     ContactLists:
       Administrative Contact:
