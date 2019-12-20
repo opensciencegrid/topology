@@ -1,28 +1,35 @@
-GroupDescription: Wayne State Grid cluster being access through a hosted ce @ UChicago
-GroupID: 472
+Disable: false
 Production: true
+SupportCenter: Self Supported
+GroupID: 472
+GroupDescription: The WSU-GRID_ce2 cluster
 Resources:
-  OSG_US_WSU_GRID:
-    Active: true
+  OSG_US_WSU_GRID_ce2:
+    ID: 895
+    Description: The Hosted CE serving WSU-GRID_ce2
     ContactLists:
       Administrative Contact:
         Primary:
-          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
           Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
-          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
           Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Site Contact:
         Primary:
           ID:  f84214412f7b3dbf848808c4ba30d179c5743766
           Name: Michael Thompson
-    Description: Wayne State Grid cluster being access through a hosted ce @ UChicago.
-    FQDN: pearc-ce-2.grid.uchicago.edu
-    ID: 895
+    FQDN: hosted-ce33.grid.uchicago.edu
     Services:
       CE:
-        Description: Compute Element
+        Description: WSU-GRID_ce2 Hosted CE
         Details:
           hidden: false
   OSG_US_WSU_SQUID:
@@ -42,4 +49,3 @@ Resources:
     Services:
       Squid:
         Description: Generic squid service
-SupportCenter: UChicago
