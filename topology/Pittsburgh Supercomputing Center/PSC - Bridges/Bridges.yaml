@@ -1,11 +1,12 @@
+Disable: false
 Production: true
 SupportCenter: Self Supported
 GroupID: 506
-GroupDescription: This is the cluster for the Bridges HostedCE
+GroupDescription: The PSC-Bridges cluster
 Resources:
-  OSG_US_PSC_BRIDGES:
-    ID: 994
-    Description: The Hosted CE serving Bridges
+  OSG_US_PSC_Bridges:
+    ID: 994 
+    Description: The Hosted CE serving PSC-Bridges
     ContactLists:
       Administrative Contact:
         Primary:
@@ -31,6 +32,6 @@ Resources:
     FQDN: hosted-ce13.grid.uchicago.edu
     Services:
       CE:
-        Description: Bridges Hosted CE
+        Description: PSC-Bridges Hosted CE
         Details:
           hidden: false
