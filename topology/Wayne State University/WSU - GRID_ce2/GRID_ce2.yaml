@@ -1,11 +1,11 @@
 Disable: false
 Production: true
 SupportCenter: Self Supported
-GroupID: 472
+GroupID: 521
 GroupDescription: The WSU-GRID_ce2 cluster
 Resources:
   OSG_US_WSU_GRID_ce2:
-    ID: 895
+    ID: 1036
     Description: The Hosted CE serving WSU-GRID_ce2
     ContactLists:
       Administrative Contact:
@@ -32,20 +32,3 @@ Resources:
         Description: WSU-GRID_ce2 Hosted CE
         Details:
           hidden: false
-  OSG_US_WSU_SQUID:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID:  f84214412f7b3dbf848808c4ba30d179c5743766
-          Name: Michael Thompson
-      Security Contact:
-        Primary:
-          ID:  f84214412f7b3dbf848808c4ba30d179c5743766
-          Name: Michael Thompson
-    Description: squid service for frontier and cvmfs
-    FQDN: vsquid1.nas.grid.wayne.edu
-    ID: 1026
-    Services:
-      Squid:
-        Description: Generic squid service
