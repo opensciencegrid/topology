@@ -67,6 +67,9 @@ DataFederations:
     Namespaces:
       /user:
         - PUBLIC
-    AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /user
+      /osgconnect/public:
+        - PUBLIC
+    AllowedOrigins:
+      - OSGCONNECT_ORIGIN
     AllowedCaches:
       - ANY
