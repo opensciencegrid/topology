@@ -509,3 +509,47 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 439663174
+  Description: Network Outage
+  Severity: Outage
+  StartTime: Jan 13, 2020 20:00 +0000
+  EndTime: Jan 14, 2020 15:00 +0000
+  CreatedTime: Jan 13, 2020 19:45 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 439663510
+  Description: Network Outage
+  Severity: Outage
+  StartTime: Jan 13, 2020 20:00 +0000
+  EndTime: Jan 14, 2020 15:00 +0000
+  CreatedTime: Jan 13, 2020 19:45 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 439663745
+  Description: Network Outage
+  Severity: Outage
+  StartTime: Jan 13, 2020 20:00 +0000
+  EndTime: Jan 14, 2020 15:00 +0000
+  CreatedTime: Jan 13, 2020 19:46 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 439663945
+  Description: Network Outage
+  Severity: Outage
+  StartTime: Jan 13, 2020 20:00 +0000
+  EndTime: Jan 14, 2020 15:00 +0000
+  CreatedTime: Jan 13, 2020 19:46 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
