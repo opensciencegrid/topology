@@ -5,7 +5,7 @@ from logging import getLogger
 from typing import Dict, List, Optional
 
 
-from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list
+from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict
 from .contacts_reader import ContactsData
 
 
@@ -134,18 +134,22 @@ class VOsData(object):
     @staticmethod
     def _expand_oasis_managers(managers):
         """Expand
-        {"a": {"DNs": [...]}}
+        [{"Name", "a", "DNs": [...]}, ...]
         into
-        {"Manager": [{"Name": "a", "DNs": {"DN": [...]}}]}
+        {"Manager": [{"Name": "a", "DNs": {"DN": [...]}}, ...]}
         """
         new_managers = copy.deepcopy(managers)
-        for name, data in managers.items():
+        for i, data in enumerate(managers):
+            name = data["Name"]
             if not is_null(data, "DNs"):
-                new_managers[name]["DNs"] = {"DN": data["DNs"]}
+                new_managers[i]["DNs"] = {"DN": data["DNs"]}
             else:
-                new_managers[name]["DNs"] = None
-        return {"Manager": expand_attr_list(new_managers, "Name", ordering=["ContactID", "Name", "DNs"],
-                                            ignore_missing=True)}
+                new_managers[i]["DNs"] = None
+
+        def order_manager_dict(m):
+            return order_dict(m, ordering=["ContactID", "Name", "DNs"], ignore_missing=True)
+
+        return {"Manager": list(map(order_manager_dict, new_managers))}
 
     def _expand_reporting_groups(self, reporting_groups_list: List, authorized: bool) -> Dict:
         new_reporting_groups = {}
