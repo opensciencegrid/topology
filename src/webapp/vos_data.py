@@ -140,7 +140,6 @@ class VOsData(object):
         """
         new_managers = copy.deepcopy(managers)
         for i, data in enumerate(managers):
-            name = data["Name"]
             if not is_null(data, "DNs"):
                 new_managers[i]["DNs"] = {"DN": data["DNs"]}
             else:
