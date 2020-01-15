@@ -78,7 +78,11 @@ class VOsData(object):
         oasis = OrderedDict.fromkeys(["UseOASIS", "Managers", "OASISRepoURLs"])
         oasis["UseOASIS"] = vo.get("OASIS", {}).get("UseOASIS", False)
         if not is_null(vo, "OASIS", "Managers"):
-            oasis["Managers"] = self._expand_oasis_managers(vo["OASIS"]["Managers"])
+            managers = vo["OASIS"]["Managers"]
+            if isinstance(managers, dict):
+                oasis["Managers"] = self._expand_oasis_legacy_managers(managers)
+            else:
+                oasis["Managers"] = self._expand_oasis_managers(managers)
         if not is_null(vo, "OASIS", "OASISRepoURLs"):
             oasis["OASISRepoURLs"] = {"URL": vo["OASIS"]["OASISRepoURLs"]}
         new_vo["OASIS"] = oasis
@@ -130,6 +134,22 @@ class VOsData(object):
         if not is_null(fields_of_science, "SecondaryFields"):
             new_fields["SecondaryFields"] = {"Field": fields_of_science["SecondaryFields"]}
         return new_fields
+
+    @staticmethod
+    def _expand_oasis_legacy_managers(managers):
+        """Expand
+        {"a": {"DNs": [...]}}
+        into
+        {"Manager": [{"Name": "a", "DNs": {"DN": [...]}}]}
+        """
+        new_managers = copy.deepcopy(managers)
+        for name, data in managers.items():
+            if not is_null(data, "DNs"):
+                new_managers[name]["DNs"] = {"DN": data["DNs"]}
+            else:
+                new_managers[name]["DNs"] = None
+        return {"Manager": expand_attr_list(new_managers, "Name", ordering=["ContactID", "Name", "DNs"],
+                                            ignore_missing=True)}
 
     @staticmethod
     def _expand_oasis_managers(managers):
