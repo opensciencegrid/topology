@@ -92,11 +92,11 @@ LongName: Compact Muon Solenoid
 MembershipServicesURL: https://lcg-voms.cern.ch:8443/voms/cms
 OASIS:
   Managers:
-    David Alexander Mason:
+    - Name: David Alexander Mason
       DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=dmason/CN=664436/CN=David Alexander
         Mason
       ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-    HYUNWOO KIM:
+    - Name: HYUNWOO KIM
       DNs:
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=HYUNWOO KIM 882
       - /DC=gov/DC=fnal/O=Fermilab/OU=People/CN=Hyun woo Kim/CN=UID:hyunwoo

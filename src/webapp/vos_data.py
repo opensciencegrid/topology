@@ -5,7 +5,7 @@ from logging import getLogger
 from typing import Dict, List, Optional
 
 
-from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list
+from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict
 from .contacts_reader import ContactsData
 
 
@@ -78,7 +78,11 @@ class VOsData(object):
         oasis = OrderedDict.fromkeys(["UseOASIS", "Managers", "OASISRepoURLs"])
         oasis["UseOASIS"] = vo.get("OASIS", {}).get("UseOASIS", False)
         if not is_null(vo, "OASIS", "Managers"):
-            oasis["Managers"] = self._expand_oasis_managers(vo["OASIS"]["Managers"])
+            managers = vo["OASIS"]["Managers"]
+            if isinstance(managers, dict):
+                oasis["Managers"] = self._expand_oasis_legacy_managers(managers)
+            else:
+                oasis["Managers"] = self._expand_oasis_managers(managers)
         if not is_null(vo, "OASIS", "OASISRepoURLs"):
             oasis["OASISRepoURLs"] = {"URL": vo["OASIS"]["OASISRepoURLs"]}
         new_vo["OASIS"] = oasis
@@ -132,7 +136,7 @@ class VOsData(object):
         return new_fields
 
     @staticmethod
-    def _expand_oasis_managers(managers):
+    def _expand_oasis_legacy_managers(managers):
         """Expand
         {"a": {"DNs": [...]}}
         into
@@ -146,6 +150,25 @@ class VOsData(object):
                 new_managers[name]["DNs"] = None
         return {"Manager": expand_attr_list(new_managers, "Name", ordering=["ContactID", "Name", "DNs"],
                                             ignore_missing=True)}
+
+    @staticmethod
+    def _expand_oasis_managers(managers):
+        """Expand
+        [{"Name", "a", "DNs": [...]}, ...]
+        into
+        {"Manager": [{"Name": "a", "DNs": {"DN": [...]}}, ...]}
+        """
+        new_managers = copy.deepcopy(managers)
+        for i, data in enumerate(managers):
+            if not is_null(data, "DNs"):
+                new_managers[i]["DNs"] = {"DN": data["DNs"]}
+            else:
+                new_managers[i]["DNs"] = None
+
+        def order_manager_dict(m):
+            return order_dict(m, ordering=["ContactID", "Name", "DNs"], ignore_missing=True)
+
+        return {"Manager": list(map(order_manager_dict, new_managers))}
 
     def _expand_reporting_groups(self, reporting_groups_list: List, authorized: bool) -> Dict:
         new_reporting_groups = {}
