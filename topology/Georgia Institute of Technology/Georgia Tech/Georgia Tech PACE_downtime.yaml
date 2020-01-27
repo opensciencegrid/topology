@@ -224,3 +224,39 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 379221244
+  Description: PACE Quarterly Maintenance
+  Severity: Outage
+  StartTime: Nov 07, 2019 10:00 +0000
+  EndTime: Nov 09, 2019 03:59 +0000
+  CreatedTime: Nov 04, 2019 20:48 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 379221762
+  Description: PACE Quarterly Maintenance
+  Severity: Outage
+  StartTime: Nov 07, 2019 10:00 +0000
+  EndTime: Nov 09, 2019 03:59 +0000
+  CreatedTime: Nov 04, 2019 20:49 +0000
+  ResourceName: Georgia_Tech_PACE_CE_1
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 379221859
+  Description: PACE Quarterly Maintenance
+  Severity: Outage
+  StartTime: Nov 07, 2019 10:00 +0000
+  EndTime: Nov 09, 2019 03:59 +0000
+  CreatedTime: Nov 04, 2019 20:49 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+

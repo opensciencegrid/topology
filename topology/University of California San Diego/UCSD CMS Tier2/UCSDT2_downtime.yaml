@@ -784,3 +784,58 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 437146484
+  Description: water cooling system maintenance
+  Severity: Outage
+  StartTime: Jan 15, 2020 20:00 +0000
+  EndTime: Jan 16, 2020 20:00 +0000
+  CreatedTime: Jan 10, 2020 21:50 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 437146485
+  Description: water cooling system maintenance
+  Severity: Outage
+  StartTime: Jan 15, 2020 20:00 +0000
+  EndTime: Jan 16, 2020 20:00 +0000
+  CreatedTime: Jan 10, 2020 21:50 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 437146486
+  Description: water cooling system maintenance
+  Severity: Outage
+  StartTime: Jan 15, 2020 20:00 +0000
+  EndTime: Jan 16, 2020 20:00 +0000
+  CreatedTime: Jan 10, 2020 21:50 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 437146487
+  Description: water cooling system maintenance
+  Severity: Outage
+  StartTime: Jan 15, 2020 20:00 +0000
+  EndTime: Jan 16, 2020 20:00 +0000
+  CreatedTime: Jan 10, 2020 21:50 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 437146488
+  Description: water cooling system maintenance
+  Severity: Outage
+  StartTime: Jan 15, 2020 20:00 +0000
+  EndTime: Jan 16, 2020 20:00 +0000
+  CreatedTime: Jan 10, 2020 21:50 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------

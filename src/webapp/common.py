@@ -144,6 +144,19 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
     return newdata
 
 
+def order_dict(value: Dict, ordering: List, ignore_missing=False) -> OrderedDict:
+    """
+    Convert a dict to an OrderedDict with key order provided by ``ordering``.
+    """
+    new_value = OrderedDict()
+    for elem in ordering:
+        if elem in value:
+            new_value[elem] = value[elem]
+        elif not ignore_missing:
+            new_value[elem] = None
+    return new_value
+
+
 def to_xml(data) -> str:
     return xmltodict.unparse(data, pretty=True, encoding="utf-8")
 

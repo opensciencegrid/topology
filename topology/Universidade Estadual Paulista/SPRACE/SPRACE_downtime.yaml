@@ -443,3 +443,157 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 426378882
+  Description: Power outage
+  Severity: Outage
+  StartTime: Dec 29, 2019 10:42 +0000
+  EndTime: Jan 07, 2020 21:00 +0000
+  CreatedTime: Dec 29, 2019 10:44 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 426384013
+  Description: Power outage
+  Severity: Outage
+  StartTime: Dec 29, 2019 10:42 +0000
+  EndTime: Jan 07, 2020 21:00 +0000
+  CreatedTime: Dec 29, 2019 10:53 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 439475262
+  Description: Network outage
+  Severity: Outage
+  StartTime: Jan 13, 2020 13:00 +0000
+  EndTime: Jan 13, 2020 20:00 +0000
+  CreatedTime: Jan 13, 2020 14:32 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 439475609
+  Description: Network outage
+  Severity: Outage
+  StartTime: Jan 13, 2020 13:00 +0000
+  EndTime: Jan 13, 2020 20:00 +0000
+  CreatedTime: Jan 13, 2020 14:32 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 439475918
+  Description: Network outage
+  Severity: Outage
+  StartTime: Jan 13, 2020 13:00 +0000
+  EndTime: Jan 13, 2020 20:00 +0000
+  CreatedTime: Jan 13, 2020 14:33 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 439476045
+  Description: Network outage
+  Severity: Outage
+  StartTime: Jan 13, 2020 13:00 +0000
+  EndTime: Jan 13, 2020 20:00 +0000
+  CreatedTime: Jan 13, 2020 14:33 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 439663174
+  Description: Network Outage
+  Severity: Outage
+  StartTime: Jan 13, 2020 20:00 +0000
+  EndTime: Jan 14, 2020 15:00 +0000
+  CreatedTime: Jan 13, 2020 19:45 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 439663510
+  Description: Network Outage
+  Severity: Outage
+  StartTime: Jan 13, 2020 20:00 +0000
+  EndTime: Jan 14, 2020 15:00 +0000
+  CreatedTime: Jan 13, 2020 19:45 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 439663745
+  Description: Network Outage
+  Severity: Outage
+  StartTime: Jan 13, 2020 20:00 +0000
+  EndTime: Jan 14, 2020 15:00 +0000
+  CreatedTime: Jan 13, 2020 19:46 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 439663945
+  Description: Network Outage
+  Severity: Outage
+  StartTime: Jan 13, 2020 20:00 +0000
+  EndTime: Jan 14, 2020 15:00 +0000
+  CreatedTime: Jan 13, 2020 19:46 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 445530260
+  Description: Network outage due to a fiber cut
+  Severity: Outage
+  StartTime: Jan 20, 2020 13:15 +0000
+  EndTime: Jan 20, 2020 21:00 +0000
+  CreatedTime: Jan 20, 2020 14:43 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 445530496
+  Description: Network outage due to a fiber cut
+  Severity: Outage
+  StartTime: Jan 20, 2020 13:15 +0000
+  EndTime: Jan 20, 2020 21:00 +0000
+  CreatedTime: Jan 20, 2020 14:44 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 445530635
+  Description: Network outage due to a fiber cut
+  Severity: Outage
+  StartTime: Jan 20, 2020 13:15 +0000
+  EndTime: Jan 20, 2020 21:00 +0000
+  CreatedTime: Jan 20, 2020 14:44 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 445530806
+  Description: Network outage due to a fiber cut
+  Severity: Outage
+  StartTime: Jan 20, 2020 13:15 +0000
+  EndTime: Jan 20, 2020 21:00 +0000
+  CreatedTime: Jan 20, 2020 14:44 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
