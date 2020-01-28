@@ -25,14 +25,22 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-  # FIXME: resource can be removed after 2020-08-01
+  # FIXME: resource can be removed after 2021-02-01
   OSG_US_UUTAH_NOTCHPEAK:
     Active: false
     ContactLists:
-      Resource Report Contact:
+      Administrative Contact:
         Primary:
           ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
           Name: Marco Mascheroni
+      Security Contact:
+        Primary:
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+      Site Contact:
+        Primary:
+          ID:  ddfa10c8a8500e5c31818e7c1a063b3ce5ab6a8b
+          Name: CHPC OSG Support
     Description: Hosted CE for the notchpeak cluster
     FQDN: hosted-ce24.grid.uchicago.edu
     ID: 936
