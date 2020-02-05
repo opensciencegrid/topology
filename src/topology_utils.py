@@ -9,7 +9,10 @@ import os
 import sys
 import urllib
 import fnmatch
-import urlparse
+try:
+    import urlparse
+except ImportError:
+    import urllib.parse as urlparse
 
 import xml.etree.ElementTree as ET
 
@@ -324,7 +327,7 @@ def get_resource_contacts_by_fqdn(args):
 
 
 def filter_contacts(args, results):
-    """ 
+    """
     Given a set of result contacts, filter them according to given arguments
     """
     results = dict(results)  # make a copy so we don't modify the original
