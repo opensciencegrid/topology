@@ -872,3 +872,25 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 460387871
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Feb 11, 2020 13:00 +0000
+  EndTime: Feb 12, 2020 05:00 +0000
+  CreatedTime: Feb 06, 2020 19:26 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 460388603
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Feb 11, 2020 13:00 +0000
+  EndTime: Feb 12, 2020 05:00 +0000
+  CreatedTime: Feb 06, 2020 19:27 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# -----------------------------------
