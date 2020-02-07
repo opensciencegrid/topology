@@ -215,3 +215,15 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 460169686
+  Description: 'We will set a downtime for our CE to update our Condor packages. '
+  Severity: Intermittent Outage
+  StartTime: Feb 11, 2020 12:00 +0000
+  EndTime: Feb 13, 2020 12:00 +0000
+  CreatedTime: Feb 06, 2020 13:22 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+
