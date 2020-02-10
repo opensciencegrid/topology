@@ -316,6 +316,65 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 8.2
       StorageCapacityMin: 1
+  Vanderbilt_SE:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+      Miscellaneous Contact:
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+        Tertiary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+      Resource Report Contact:
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+        Tertiary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+      Security Contact:
+        Primary:
+          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
+          Name: Kevin Buterbaugh
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+    Description: SE attached to Vanderbilt resource group
+    FQDN: se1.accre.vanderbilt.edu
+    ID: 241
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: se1.accre.vanderbilt.edu:6288
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Vanderbilt
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 8.2
+      StorageCapacityMin: 1
   Vanderbilt_Squid:
     Active: true
     ContactLists:
