@@ -14,11 +14,14 @@ Resources:
           Name: Paul Sheldon
       Miscellaneous Contact:
         Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Resource Report Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
@@ -31,8 +34,8 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
     Description: This is the perfsonar bandwidth server at Vanderbilt University
     FQDN: perfsonar-bwctl.accre.vanderbilt.edu
     ID: 597
@@ -47,7 +50,6 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Secondary:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
@@ -56,11 +58,14 @@ Resources:
           Name: Paul Sheldon
       Miscellaneous Contact:
         Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Resource Report Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
@@ -73,8 +78,8 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
     Description: This is the perfsonar latency server at Vanderbilt University
     FQDN: perfsonar-owamp.accre.vanderbilt.edu
     ID: 598
@@ -85,10 +90,27 @@ Resources:
           endpoint: perfsonar-owamp.accre.vanderbilt.edu
     VOOwnership:
       CMS: 100
-  Vanderbilt_CE3:
-    Active: true
+  Vanderbilt_CE1:
+    Active: false
     ContactLists:
       Administrative Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+      Miscellaneous Contact:
+        Primary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Secondary:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
+      Resource Report Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
@@ -100,8 +122,65 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+    Description: Vanderbilt University Advanced Computing Center for Research and
+      Education
+    FQDN: ce1.accre.vanderbilt.edu
+    ID: 137
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://ce1.accre.vanderbilt.edu
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Vanderbilt
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  Vanderbilt_CE3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
+      Miscellaneous Contact:
+        Primary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Secondary:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
+      Resource Report Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+      Security Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
     Description: Centos7-based CE
     FQDN: ce1-vanderbilt.sites.opensciencegrid.org
     ID: 850
@@ -131,18 +210,33 @@ Resources:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Miscellaneous Contact:
         Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Secondary:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Resource Report Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Security Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
     Description: HTCondor-CE based compute element, to replace ce4
     FQDN: ce2-vanderbilt.sites.opensciencegrid.org
     ID: 855
@@ -176,6 +270,16 @@ Resources:
         Secondary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
+      Miscellaneous Contact:
+        Primary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Secondary:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Resource Report Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
@@ -188,29 +292,30 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-    Description: Vanderbilt Gridftp
-    FQDN: gridftp-vanderbilt.sites.opensciencegrid.org
-    ID: 884
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+    Description: SE attached to Vanderbilt resource group
+    FQDN: se1.accre.vanderbilt.edu
+    ID: 241
     Services:
-      GridFtp:
-        Description: GridFtp Storage Element
+      SRMv2:
+        Description: SRM V2 Storage Element
         Details:
           hidden: false
+          uri_override: se1.accre.vanderbilt.edu:6288
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 1
-      HEPSPEC: 1
-      InteropAccounting: false
+      APELNormalFactor: 0
+      AccountingName: T2_US_Vanderbilt
+      HEPSPEC: 0
+      InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
-      KSI2KMax: 1
-      KSI2KMin: 1
-      StorageCapacityMax: 6000
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 8.2
       StorageCapacityMin: 1
-      TapeCapacity: 0
   Vanderbilt_Squid:
     Active: true
     ContactLists:
@@ -223,11 +328,14 @@ Resources:
           Name: Paul Sheldon
       Miscellaneous Contact:
         Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Resource Report Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
@@ -240,8 +348,8 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
     Description: One of our two squid servers
     FQDN: squid1.accre.vanderbilt.edu
     ID: 680
@@ -257,10 +365,33 @@ Resources:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+      Miscellaneous Contact:
+        Primary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Secondary:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
+      Resource Report Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
       Security Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
     Description: Frontier squid host
     FQDN: squid2.accre.vanderbilt.edu
     ID: 835
