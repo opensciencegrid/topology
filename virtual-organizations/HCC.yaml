@@ -76,3 +76,7 @@ DataFederations:
       - DN:/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian Paul Bockelman
       /hcc/PUBLIC:
         - PUBLIC
+      /hcc/PROTECTED:
+        - SciTokens:
+            Issuer: https://scitokens.org/hcc
+            Base Path: /hcc
