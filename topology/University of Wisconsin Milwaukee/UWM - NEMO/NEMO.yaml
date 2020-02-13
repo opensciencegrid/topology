@@ -29,3 +29,22 @@ Resources:
         Description: UWM-NEMO Hosted CE
         Details:
           hidden: false
+  NEMO-submit-dev:
+    ID: <ID>
+    Active: false
+    Description: UWM-NEMO testing and development submit node for NEMO cluster.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Shawn Kwang
+          ID: 115b5c0fb1a160df841dde4591b96c180ba6d778
+      Security Contact:
+        Primary:
+          Name: Shawn Kwang
+          ID: 115b5c0fb1a160df841dde4591b96c180ba6d778
+    FQDN: submit-osg-dev.ligo.uwm.edu
+    Services:
+      Submit Node:
+        Description: testing/development OSG Submit Node
+        Details:
+          hidden: false
