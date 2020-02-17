@@ -872,3 +872,80 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 460387871
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Feb 11, 2020 13:00 +0000
+  EndTime: Feb 12, 2020 05:00 +0000
+  CreatedTime: Feb 06, 2020 19:26 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 460388603
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Feb 11, 2020 13:00 +0000
+  EndTime: Feb 12, 2020 05:00 +0000
+  CreatedTime: Feb 06, 2020 19:27 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# -----------------------------------
+- Class: SCHEDULED
+  ID: 461226084
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Feb 11, 2020 13:00 +0000
+  EndTime: Feb 12, 2020 05:00 +0000
+  CreatedTime: Feb 07, 2020 18:43 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 461226572
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Feb 11, 2020 13:00 +0000
+  EndTime: Feb 12, 2020 05:00 +0000
+  CreatedTime: Feb 07, 2020 18:44 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 461226753
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Feb 11, 2020 13:00 +0000
+  EndTime: Feb 12, 2020 05:00 +0000
+  CreatedTime: Feb 07, 2020 18:44 +0000
+  ResourceName: Purdue-Hammer-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 461226958
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Feb 11, 2020 13:00 +0000
+  EndTime: Feb 12, 2020 05:00 +0000
+  CreatedTime: Feb 07, 2020 18:44 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 469700655
+  Description: cluster maintenance and transition from torque/moab to slurm
+  Severity: Outage
+  StartTime: Feb 18, 2020 13:00 +0000
+  EndTime: Feb 19, 2020 05:00 +0000
+  CreatedTime: Feb 17, 2020 14:07 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------
