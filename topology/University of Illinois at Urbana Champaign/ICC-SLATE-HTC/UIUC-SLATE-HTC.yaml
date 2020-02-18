@@ -1,0 +1,25 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: This is the UIUC High-Throughput Computing cluster used to support HTC users at UIUC and OSG opportunistically.
+GroupID: 
+Resources:
+  SLATE_US_UIUC_HTC:
+    Active: true
+    # Description is a long description of the resource; may be multiple lines
+    Description: This is the UIUC High-Throughput Computing cluster used to support HTC users at UIUC and OSG opportunistically
+    ID: 
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Lincoln Bryant
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+      Security Contact:
+        Primary:
+          Name: Lincoln Bryant
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+    FQDN: hosted-ce02.mwt2-uiuc.slateci.io
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
