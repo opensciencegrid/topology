@@ -503,6 +503,12 @@ audience = {allowed_vos_str}
                 raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
 
         for dirname, authz_list in namespaces.items():
+            if not authz_list:
+                if suppress_errors:
+                    continue
+                else:
+                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(dirname, vo_name))
+
             for authz in authz_list:
                 if not isinstance(authz, dict) or not isinstance(authz.get("SciTokens"), dict):
                     continue
