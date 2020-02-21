@@ -196,7 +196,7 @@ def scitokens():
                                                                 suppress_errors=False)
             return Response(cache_scitokens, mimetype="text/plain")
         elif origin_fqdn:
-            cache_scitokens = stashcache.generate_origin_scitokens(global_data.get_vos_data(),
+            origin_scitokens = stashcache.generate_origin_scitokens(global_data.get_vos_data(),
                                                                 global_data.get_topology().get_resource_group_list(),
                                                                 fqdn=origin_fqdn,
                                                                 suppress_errors=False)
