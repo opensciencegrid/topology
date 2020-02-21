@@ -320,7 +320,7 @@ audience = {allowed_vos_str}
     issuer_blocks_str = "\n".join(issuer_blocks)
     allowed_vos_str = ", ".join(allowed_vos)
 
-    return template.format(issuer_blocks_str=issuer_blocks_str, allowed_vos=allowed_vos_str).rstrip() + "\n"
+    return template.format(**locals()).rstrip() + "\n"
 
 
 def _get_scitokens_issuer_block(vo_name: str, scitokens: Dict, dirname: str, suppress_errors: bool) -> str:
