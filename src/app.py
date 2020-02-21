@@ -184,15 +184,23 @@ def scitokens():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
     cache_fqdn = request.args.get("cache_fqdn")
-    if not cache_fqdn:
-        return Response("FQDN of cache server required in the 'cache_fqdn' argument", status=400)
+    origin_fqdn = request.args.get("origin_fqdn")
+    if not cache_fqdn and not origin_fqdn:
+        return Response("FQDN of cache or origin server required in the 'cache_fqdn' or 'origin_fqdn' argument", status=400)
 
     try:
-        cache_scitokens = stashcache.generate_cache_scitokens(global_data.get_vos_data(),
-                                                              global_data.get_topology().get_resource_group_list(),
-                                                              fqdn=cache_fqdn,
-                                                              suppress_errors=False)
-        return Response(cache_scitokens, mimetype="text/plain")
+        if cache_fqdn:
+            cache_scitokens = stashcache.generate_cache_scitokens(global_data.get_vos_data(),
+                                                                global_data.get_topology().get_resource_group_list(),
+                                                                fqdn=cache_fqdn,
+                                                                suppress_errors=False)
+            return Response(cache_scitokens, mimetype="text/plain")
+        elif origin_fqdn:
+            origin_scitokens = stashcache.generate_origin_scitokens(global_data.get_vos_data(),
+                                                                global_data.get_topology().get_resource_group_list(),
+                                                                fqdn=origin_fqdn,
+                                                                suppress_errors=False)
+            return Response(origin_scitokens, mimetype="text/plain")
     except stashcache.NotRegistered as e:
         return Response("# No resource registered for {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
