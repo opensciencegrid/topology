@@ -200,7 +200,7 @@ def scitokens():
                                                                 global_data.get_topology().get_resource_group_list(),
                                                                 fqdn=origin_fqdn,
                                                                 suppress_errors=False)
-            return Response(cache_scitokens, mimetype="text/plain")
+            return Response(origin_scitokens, mimetype="text/plain")
     except stashcache.NotRegistered as e:
         return Response("# No resource registered for {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
