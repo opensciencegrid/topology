@@ -481,7 +481,7 @@ def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGr
 
     template = """\
 [Global]
-audience = {allowed_vos}
+audience = {allowed_vos_str}
 
 {issuer_blocks_str}
 """
