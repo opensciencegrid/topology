@@ -949,3 +949,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 475767786
+  Description: cluster maintenance and transition from torque/moab to slurm
+  Severity: Outage
+  StartTime: Feb 25, 2020 12:00 +0000
+  EndTime: Feb 26, 2020 06:00 +0000
+  CreatedTime: Feb 24, 2020 14:39 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
