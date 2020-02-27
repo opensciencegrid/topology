@@ -159,7 +159,7 @@ def main():
     oparser = get_parser()
 
     args = oparser.parse_args()
-    if getattr(args, "fqdn") is not None:
+    if getattr(args, "filter") is not None:
         if args.fqdn:
             args.fqdn_filter = args.filter.strip()
         else:
