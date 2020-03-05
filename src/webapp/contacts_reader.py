@@ -58,6 +58,10 @@ class User(object):
         dns = self.yaml_data["ContactInformation"].get("DNs", None)
         return dns
 
+    @property
+    def cilogon_id(self):
+        return self.yaml_data.get("CILogonID", None)
+
     @staticmethod
     def _get_gravatar_url(email):
         return "http://www.gravatar.com/avatar/{0}".format(
