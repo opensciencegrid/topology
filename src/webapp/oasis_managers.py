@@ -23,7 +23,7 @@ def get_oasis_manager_endpoint_info(global_data, vo, ldappass):
             ContactID = manager['ID']
             Name = manager['Name']
             DNs = manager['DNs']
-            CILogonID = contact_cilogon_ids[ContactID]['CILogonID']
+            CILogonID = contact_cilogon_ids[ContactID].cilogon_id
             ssh_keys = ssh_keys_map.get(CILogonID, [])
             info.append({
                 'ContactID': ContactID,
@@ -37,8 +37,8 @@ def get_oasis_manager_endpoint_info(global_data, vo, ldappass):
 
 def get_contact_cilogon_id_map(global_data):
     """ return contacts dict, limited to users with a CILogonID """
-    contacts = global_data.get_contacts_data()
-    return { k: v for k, v in contacts.items() if "CILogonID" in v }
+    contacts = global_data.get_contacts_data().users_by_id;
+    return { k: v for k, v in contacts.items() if v.cilogon_id is not None }
 
 
 def get_vo_oasis_managers(global_data, vo):
