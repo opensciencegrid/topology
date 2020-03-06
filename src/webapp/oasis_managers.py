@@ -14,15 +14,17 @@ def get_oasis_manager_endpoint_info(global_data, vo, ldappass):
         for that CILogonID contains a list of ssh public keys. """
         
     managers = get_vo_oasis_managers(global_data, vo)
+    if not isinstance(managers, list) or if not managers:
+        return []
     cilogon_id_map = get_cilogon_ldap_id_map(ldappass)
     ssh_keys_map = cilogon_id_map_to_ssh_keys(cilogon_id_map)
     contact_cilogon_ids = get_contact_cilogon_id_map(global_data)
     info = []
     for manager in managers:
-        if manager['ID'] in contact_cilogon_ids:
-            ContactID = manager['ID']
-            Name = manager['Name']
-            DNs = manager['DNs']
+        ContactID = safe_dict_get(manager, 'ID')
+        if ContactID in contact_cilogon_ids:
+            Name = manager.get('Name')
+            DNs = manager.get('DNs', [])
             CILogonID = contact_cilogon_ids[ContactID].cilogon_id
             ssh_keys = ssh_keys_map.get(CILogonID, [])
             info.append({
@@ -44,7 +46,7 @@ def get_contact_cilogon_id_map(global_data):
 def get_vo_oasis_managers(global_data, vo):
     """return OASIS Managers dict for given vo, if any, else an empty dict"""
     vos_data = global_data.get_vos_data()
-    return safe_dict_get(vos_data, vo, "OASIS", "Managers", default={})
+    return safe_dict_get(vos_data, vo, "OASIS", "Managers", default=[])
 
 
 def safe_dict_get(item, *keys, default=None):
