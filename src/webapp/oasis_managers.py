@@ -44,11 +44,20 @@ def get_contact_cilogon_id_map(global_data):
 def get_vo_oasis_managers(global_data, vo):
     """return OASIS Managers dict for given vo, if any, else an empty dict"""
     vos_data = global_data.get_vos_data()
-    if vo in vos_data:
-        if "OASIS" in vos_data[vo]:
-            if "Managers" in vos_data[vo]["OASIS"]:
-                return vos_data[vo]["OASIS"]["Managers"]
-    return {}
+    return safe_dict_get(vos_data, vo, "OASIS", "Managers", default={})
+
+
+def safe_dict_get(item, *keys, default=None):
+    """ traverse dict hierarchy without producing KeyErrors:
+        safe_dict_get(item, key1, key2, ..., default=default)
+        -> item[key1][key2][...] if defined and not None, else default
+    """
+    for key in keys:
+        if isinstance(item, dict):
+            item = item.get(key)
+        else:
+            return default
+    return default if item is None else item
 
 
 # cilogon ldap query constants
