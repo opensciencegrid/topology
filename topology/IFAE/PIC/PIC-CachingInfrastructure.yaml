@@ -1,6 +1,6 @@
 GroupDescription: PIC caching infrastructure
 GroupID: 532
-Production: False
+Production: True
 Resources:
   PIC_STASHCACHE_CACHE:
     Active: true
@@ -20,6 +20,6 @@ Resources:
       XRootD cache server:
         Description: StashCache cache server
     AllowedVOs:
-      - LIGO
+      - ANY
     DN: /DC=org/DC=terena/DC=tcs/C=ES/ST=Barcelona/L=Bellaterra/O=Institut de Fisica dAltes Energies IFAE/CN=xcachevirgo.pic.es
 SupportCenter: Self Supported 
