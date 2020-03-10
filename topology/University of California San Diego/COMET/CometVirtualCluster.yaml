@@ -80,3 +80,31 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
+  CMSHTPC_T3_US_SDSC_osg-comet:
+    ID: 1042
+    Description: The Hosted CE serving COMET-CometVirtualCluster
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
+    FQDN: hosted-ce34.grid.uchicago.edu
+    Services:
+      CE:
+        Description: COMET-CometVirtualCluster Hosted CE
+        Details:
+          hidden: false

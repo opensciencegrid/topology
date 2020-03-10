@@ -1,0 +1,53 @@
+AppDescription: Fermilab/EMPH
+CertificateOnly: false
+Community: 'Fermilab/EMPH
+  EMPHATIC: Emulsion-based Measurement of the Production
+  of Hadrons At a Test-beam In Chicagoland. Located at Fermilab.'
+Contacts:
+  Miscellaneous Contact:
+  - ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+    Name: Anthony Tiradani
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
+  VO Manager:
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
+  - ID: c2b26b70bda13a42cd1edd871a4549cec74512b6
+    Name: Jonathan Paley
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - High Energy Physics
+ID: 222
+LongName: Fermilab/EMPH
+MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
+OASIS:
+  Managers:
+    - Name: Jonathan Paley
+      DNs: /DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Jonathan Paley/CN=UID:jpaley
+      ID: c2b26b70bda13a42cd1edd871a4549cec74512b6
+    - Name: Brian Bockelman
+      DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
+        Paul Bockelman
+      ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+    - Name: Derek Weitzel
+      DNs: /DC=org/DC=cilogon/C=US/O=University of Nebraska-Lincoln/CN=Derek Weitzel A215526
+      ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
+    - Name: Robert Illingworth
+      DNs:
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Robert Illingworth
+        1724
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Robert Illingworth
+        1724
+      ID: 5e96f41b876c2b42c727d1ad476cd025e5584b5b
+  OASISRepoURLs:
+  - http://oasiscfs.fnal.gov:8000/cvmfs/emph.opensciencegrid.org
+  UseOASIS: true
+ParentVO:
+  ID: 9
+  Name: Fermilab
+PrimaryURL: https://cdcvs.fnal.gov/redmine/projects/emphatic
+PurposeURL: https://cdcvs.fnal.gov/redmine/projects/emphatic
+ReportingGroups:
+- emph
+SupportURL: http://fermigrid.fnal.gov/

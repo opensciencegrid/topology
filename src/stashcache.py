@@ -270,7 +270,7 @@ def generate_cache_scitokens(vo_data: VOsData, resource_groups: List[ResourceGro
     """
     template = """\
 [Global]
-audience = {resource.name}, https://{fqdn}
+audience = {allowed_vos_str}
 
 {issuer_blocks_str}
 """
@@ -285,6 +285,7 @@ audience = {resource.name}, https://{fqdn}
     if not resource:
         return ""
 
+    allowed_vos = []
     issuer_blocks = []
     for vo_name, vo_data in vo_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
@@ -314,8 +315,10 @@ audience = {resource.name}, https://{fqdn}
                     continue
                 issuer_blocks.append(_get_scitokens_issuer_block(vo_name, authz['SciTokens'],
                                                                  dirname, suppress_errors))
+                allowed_vos.append(vo_name)
 
     issuer_blocks_str = "\n".join(issuer_blocks)
+    allowed_vos_str = ", ".join(allowed_vos)
 
     return template.format(**locals()).rstrip() + "\n"
 
@@ -472,3 +475,50 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
     if public_namespaces:
         results += "\nu * {}\n".format(" ".join("{} lr".format(i) for i in sorted(public_namespaces)))
     return results
+
+
+def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
+
+    template = """\
+[Global]
+audience = {allowed_vos_str}
+
+{issuer_blocks_str}
+"""
+    allowed_vos = []
+    issuer_blocks = []
+    for vo_name, vo_data in vo_data.vos.items():
+        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+        if not stashcache_data:
+            continue
+
+        if not _origin_is_allowed(fqdn, vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
+            continue
+
+        namespaces = stashcache_data.get("Namespaces")
+        if not namespaces:
+            if suppress_errors:
+                continue
+            else:
+                raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
+
+        for dirname, authz_list in namespaces.items():
+            if not authz_list:
+                if suppress_errors:
+                    continue
+                else:
+                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(dirname, vo_name))
+
+            for authz in authz_list:
+                if not isinstance(authz, dict) or not isinstance(authz.get("SciTokens"), dict):
+                    continue
+                issuer_blocks.append(_get_scitokens_issuer_block(vo_name, authz['SciTokens'],
+                                                                 dirname, suppress_errors))
+                allowed_vos.append(vo_name)
+
+
+
+    issuer_blocks_str = "\n".join(issuer_blocks)
+    allowed_vos_str = ", ".join(allowed_vos)
+
+    return template.format(**locals()).rstrip() + "\n"
