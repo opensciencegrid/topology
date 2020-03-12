@@ -15,6 +15,7 @@ import sys
 
 from webapp import default_config
 from webapp import webhook_status_messages
+from webapp.common import readfile
 from webapp.github import GitHubAuth
 from webapp.models import GlobalData
 from webapp.automerge_check import reportable_errors, rejectable_errors
@@ -38,23 +39,13 @@ src_dir = os.path.abspath(os.path.dirname(__file__))
 _required_base_ref = global_data.webhook_data_branch
 _required_base_label = "%s:%s" % (_required_repo_owner, _required_base_ref)
 
-def _readfile(path):
-    """ return stripped file contents, or None on errors """
-    if path:
-        try:
-            with open(path, mode="rb") as f:
-                return f.read().strip()
-        except IOError as e:
-            app.logger.error("Failed to read file '%s': %s" % (path, e))
-            return None
-
-webhook_secret = _readfile(global_data.webhook_secret_key)
+webhook_secret = readfile(global_data.webhook_secret_key, app.logger)
 if not webhook_secret:
     app.logger.warning("Note, no WEBHOOK_SECRET_KEY configured; "
                        "GitHub payloads will not be validated.")
 
 gh_api_user = global_data.webhook_gh_api_user
-gh_api_token = _readfile(global_data.webhook_gh_api_token).decode()
+gh_api_token = readfile(global_data.webhook_gh_api_token, app.logger).decode()
 if gh_api_user and gh_api_token:
     ghauth = GitHubAuth(gh_api_user, gh_api_token, app.logger)
     ghrepo = ghauth.target_repo(_required_repo_owner, _required_repo_name)
