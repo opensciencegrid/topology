@@ -262,6 +262,7 @@ def readfile(path, logger):
             with open(path, mode="rb") as f:
                 return f.read().strip()
         except IOError as e:
-            logger.error("Failed to read file '%s': %s" % (path, e))
+            if logger:
+                logger.error("Failed to read file '%s': %s", path, e)
             return None
 
