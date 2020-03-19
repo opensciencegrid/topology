@@ -696,3 +696,14 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 496402565
+  Description: network outage due to a fiber cut
+  Severity: Outage
+  StartTime: Mar 19, 2020 12:48 +0000
+  EndTime: Mar 19, 2020 21:00 +0000
+  CreatedTime: Mar 19, 2020 12:50 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
