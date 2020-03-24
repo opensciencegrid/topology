@@ -980,3 +980,16 @@
   Services:
   - CE
 
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 499559472
+  Description: Move CEs to container
+  Severity: Outage
+  StartTime: Mar 25, 2020 12:00 +0000
+  EndTime: Apr 25, 2020 12:00 +0000
+  CreatedTime: Mar 24, 2020 23:20 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+  - CE
+
