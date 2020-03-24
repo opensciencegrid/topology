@@ -253,3 +253,16 @@ def load_yaml_file(filename) -> Dict:
     except yaml.YAMLError as e:
         log.error("YAML error in %s: %s", filename, e)
         raise
+
+
+def readfile(path, logger):
+    """ return stripped file contents, or None on errors """
+    if path:
+        try:
+            with open(path, mode="rb") as f:
+                return f.read().strip()
+        except IOError as e:
+            if logger:
+                logger.error("Failed to read file '%s': %s", path, e)
+            return None
+
