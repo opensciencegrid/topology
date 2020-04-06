@@ -2,7 +2,7 @@ GroupDescription: ND_CSMS_GPU
 GroupID: 81
 Production: true
 Resources:
-  ND_CMS_GPU:
+  ND - CMS_GPU:
     Active: false
     ContactLists:
       Administrative Contact:
@@ -22,7 +22,9 @@ Resources:
           ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
           Name: Marco Mascheroni
     Description: GPU Cluster at Notre Dame.
-    FQDN: hosted-ce35.grid.uchicago.edu
+    # Dummy FQDN so it doesn't match Batch records, but the resource
+    # will match Payload records in GRACC
+    FQDN: hosted-ce35.grid.uchicago.edu-notusing
     ID: 268
     Services:
       CE:
