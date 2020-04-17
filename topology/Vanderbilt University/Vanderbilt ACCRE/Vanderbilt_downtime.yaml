@@ -278,3 +278,33 @@
   ResourceName: Vanderbilt_CE4
   Services:
   - CE
+- Class: SCHEDULED
+  ID: 518264781
+  Description: Network maintenance
+  Severity: Outage
+  StartTime: Apr 28, 2020 00:01 +0000
+  EndTime: May 2, 2020 00:01 +0000
+  CreatedTime: Apr 15, 2020 00:01 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 518264782
+  Description: Network maintenance
+  Severity: Outage
+  StartTime: Apr 28, 2020 00:01 +0000
+  EndTime: May 2, 2020 00:01 +0000
+  CreatedTime: Apr 15, 2020 00:01 +0000
+  ResourceName: Vanderbilt_CE3
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 518264783
+  Description: Network maintenance
+  Severity: Outage
+  StartTime: Apr 28, 2020 00:01 +0000
+  EndTime: May 2, 2020 00:01 +0000
+  CreatedTime: Apr 15, 2020 00:01 +0000
+  ResourceName: Vanderbilt_CE4
+  Services:
+  - CE
