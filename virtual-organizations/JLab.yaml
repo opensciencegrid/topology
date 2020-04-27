@@ -1,5 +1,4 @@
-AppDescription: The GlueX collaboration in JLab's experimental Hall D will use OSG
-  for its data simulations and analysis.
+AppDescription: Various collaborations at Jefferson Lab will use the OSG primarily for Monte Carlo production.
 CertificateOnly: false
 Community: JLab explores the nature of matter with our Continuous Electron Beam Accelerator
   Facility and 4 experimental nuclear physics halls.
@@ -7,12 +6,20 @@ Contacts:
   Administrative Contact:
   - ID: 18c37e41b9a7336ff3a7a1793a72eca1b24467df
     Name: Thomas Britton
+  - ID: 4f7ca518bcb0d22ace2497dbebaad8c1539056c3
+    Name: Bryan Hess
   Security Contact:
   - ID: 18c37e41b9a7336ff3a7a1793a72eca1b24467df
     Name: Thomas Britton
+  - ID: 4f7ca518bcb0d22ace2497dbebaad8c1539056c3
+    Name: Bryan Hess
   VO Manager:
   - ID: 18c37e41b9a7336ff3a7a1793a72eca1b24467df
     Name: Thomas Britton
+  - ID: 4f7ca518bcb0d22ace2497dbebaad8c1539056c3
+    Name: Bryan Hess
+  - ID: 818acb7ebcd1865a17551799f0cfeb5256e0db20
+    Name: Kurt Strosahl
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -23,7 +30,7 @@ FieldsOfScience:
 ID: 99
 LongName: Jefferson Lab
 OASIS:
-  UseOASIS: false
+  UseOASIS: true
 PrimaryURL: http://www.jlab.org/div_dept/cio/index.html
 ReportingGroups:
 - JLab
