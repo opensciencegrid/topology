@@ -980,3 +980,88 @@
   Services:
   - CE
 
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 499559472
+  Description: Move CEs to container
+  Severity: Outage
+  StartTime: Mar 25, 2020 12:00 +0000
+  EndTime: Mar 30, 2020 22:00 +0000
+  CreatedTime: Mar 24, 2020 23:20 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+  - CE
+
+# --------------------------------------------------------
+
+- Class: UNSCHEDULED
+  ID: 508000381
+  Description: Tier2 cluster is down (main uplink down)
+  Severity: Outage
+  StartTime: Apr 13, 2020 06:30 +0000
+  EndTime: Apr 15, 2020 06:30 +0000
+  CreatedTime: Apr 13, 2020 06:30 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 508000382
+  Description: Tier2 cluster is down (main uplink down)
+  Severity: Outage
+  StartTime: Apr 13, 2020 06:30 +0000
+  EndTime: Apr 15, 2020 06:30 +0000
+  CreatedTime: Apr 13, 2020 06:30 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 508000383
+  Description: Tier2 cluster is down (main uplink down)
+  Severity: Outage
+  StartTime: Apr 13, 2020 06:30 +0000
+  EndTime: Apr 15, 2020 06:30 +0000
+  CreatedTime: Apr 13, 2020 06:30 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 508000384
+  Description: Tier2 cluster is down (main uplink down)
+  Severity: Outage
+  StartTime: Apr 13, 2020 06:30 +0000
+  EndTime: Apr 15, 2020 06:30 +0000
+  CreatedTime: Apr 13, 2020 06:30 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 508000385
+  Description: Tier2 cluster is down (main uplink down)
+  Severity: Outage
+  StartTime: Apr 13, 2020 06:30 +0000
+  EndTime: Apr 15, 2020 06:30 +0000
+  CreatedTime: Apr 13, 2020 06:30 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 508000386
+  Description: Tier2 cluster is down (main uplink down)
+  Severity: Outage
+  StartTime: Apr 13, 2020 06:30 +0000
+  EndTime: Apr 15, 2020 06:30 +0000
+  CreatedTime: Apr 13, 2020 06:30 +0000
+  ResourceName: CIT_HEP_CE
+  Services:
+    - CE

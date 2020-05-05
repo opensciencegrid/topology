@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import ldap
+import ldap3
 
 
 def get_oasis_manager_endpoint_info(global_data, vo, ldappass):
@@ -67,16 +67,18 @@ _ldap_url = "ldaps://ldap.cilogon.org"
 _username = "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org"
 _basedn   = "o=OSG,o=CO,dc=cilogon,dc=org"
 
+
 def get_cilogon_ldap_id_map(ldappass):
     """ return dict of cilogon ldap data for each CILogonID, with the
         structure: {CILogonID: { "dn": dn, "data": data }, ...} """
-    l = ldap.initialize(_ldap_url)
-    l.protocol_version = ldap.VERSION3
-    l.simple_bind_s(_username, ldappass)
-    searchScope = ldap.SCOPE_SUBTREE
-    ldap_result_id = l.search(_basedn, searchScope)
-    result_type, result_data = l.result(ldap_result_id)
-    l.unbind_s()
+    server = ldap3.Server(_ldap_url)
+    conn = ldap3.Connection(server, _username, ldappass)
+    if not conn.bind():
+        return None  # connection failure
+    conn.search(_basedn, '(voPersonID=*)', attributes=['*'])
+    result_data = [ (e.entry_dn, e.entry_attributes_as_dict)
+                    for e in conn.entries ]
+    conn.unbind()
     return {
         voPersonID: { "dn": dn, "data": data }
         for dn, data in result_data
