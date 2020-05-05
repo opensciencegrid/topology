@@ -14,7 +14,7 @@ import traceback
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import to_xml_bytes, Filters
+from webapp.common import readfile, to_xml_bytes, Filters
 from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
@@ -67,6 +67,12 @@ if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
 global_data = GlobalData(app.config, strict=app.config.get("STRICT", app.debug))
+
+
+cilogon_pass = readfile(global_data.cilogon_ldap_passfile, app.logger)
+if not cilogon_pass:
+    app.logger.warning("Note, no CILOGON_LDAP_PASSFILE configured; "
+                       "OASIS Manager ssh key lookups will be unavailable.")
 
 
 def _fix_unicode(text):

@@ -19,7 +19,7 @@ Resources:
   OSG_US_AMNH_ARES:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: false
+    Active: true
     # Description is a long description of the resource; may be multiple lines
     Description: This is a Hosted CE for the AMNH Slurm cluster
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
@@ -102,3 +102,34 @@ Resources:
   # Other resources if you have any...
   # <RESOURCE NAME>:
   # ...
+  OSG_US_AMNH_HEL:
+    Active: true
+    Description: Second Hosted CE for the AMNH
+    # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
+    # Otherwise, leave it blank and we will fill in the appropriate value for you.
+    ID: 1052
+    ContactLists:
+      # Administrative Contact is one to three people to contact regarding administrative issues
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+
+    FQDN: hosted-ce36.grid.uchicago.edu
+    Services:
+      CE:
+        Description: American Museum of Natural History Hosted CE for HEL cluster
