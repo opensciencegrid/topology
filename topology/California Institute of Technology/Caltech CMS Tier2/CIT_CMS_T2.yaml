@@ -218,6 +218,60 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
+  CIT_CMS_T2L:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
+          Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+      Resource Report Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
+          Name: Joosep Pata
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
+          Name: Joosep Pata
+        Tertiary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+    Description: Scheduler for Local users of Caltech CMS Group
+    FQDN: login-1.tier2
+    FQDNAliases:
+    - login-1.tier2
+    ID: 1055
+    Services:
+      CE:
+        Description: Schedd for Local Users of Caltech CMS Group
+        Details:
+          hidden: false
+          sam_uri: htcondor://login-1.tier2
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.64
+      AccountingName: T2_US_Caltech
+      HEPSPEC: 100408
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
   CIT_CMS_T2_Squid:
     Active: true
     ContactLists:
