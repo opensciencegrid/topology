@@ -61,7 +61,7 @@ These are compatible with the arguments once used by `myosg.grid.iu.edu`.
 
 #### For the Resource Topology (rgsummary) and Resource Downtime (rgdowntime) pages
 
-Boolean filters:
+**Boolean filters:**
 
 | The following argument(s)... | Will have the effect of...                         |
 |------------------------------|----------------------------------------------------|
@@ -79,7 +79,7 @@ Boolean filters:
 \*\* There is no way to show only resources without WLCG information; `has_wlcg=off` doesn't work
 
 
-ID-based filters:
+**ID-based filters:**
 
 These select by a numeric ID on facilities, sites, support centers, resource groups, and services, and VOs.
 Multiple IDs may be specified for an attribute, in which case resources that match any of the IDs listed will be shown.
@@ -110,7 +110,7 @@ Finally, you may restrict how much _past_ downtime is shown in the Resource Down
 
 #### For the Virtual Organization (vosummary) page
 
-Boolean filters:
+**Boolean filters:**
 
 | The following argument(s)... | Will have the effect of...             |
 |------------------------------|----------------------------------------|
@@ -121,7 +121,7 @@ Boolean filters:
 | `oasis=on&oasis_value=0`     | showing only VOs that do not use OASIS |
 | `oasis=on&oasis_value=1`     | showing only VOs that use OASIS        |
 
-ID-based filter:
+**ID-based filter:**
 
 This selects based on a numeric ID on VOs.
 Multiple IDs may be specified, in which case VOs that match any of the IDs listed will be shown.
