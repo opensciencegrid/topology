@@ -102,18 +102,21 @@ class VOsData(object):
         for type_, list_ in vo_contacts.items():
             contact_items = []
             for contact in list_:
+                contact_id = contact["ID"]
                 new_contact = OrderedDict([("Name", contact["Name"])])
-                if authorized and self.contacts_data:
-                    if contact["ID"] in self.contacts_data.users_by_id:
-                        extra_data = self.contacts_data.users_by_id[contact["ID"]]
-                        new_contact["Email"] = extra_data.email
-                        new_contact["Phone"] = extra_data.phone
-                        new_contact["SMSAddress"] = extra_data.sms_address
-                        dns = extra_data.dns
-                        if dns:
-                            new_contact["DN"] = dns[0]
+                if self.contacts_data:
+                    user = self.contacts_data.users_by_id.get(contact_id)
+                    if user:
+                        new_contact["CILogonID"] = user.cilogon_id
+                        if authorized:
+                            new_contact["Email"] = user.email
+                            new_contact["Phone"] = user.phone
+                            new_contact["SMSAddress"] = user.sms_address
+                            dns = user.dns
+                            if dns:
+                                new_contact["DN"] = dns[0]
                     else:
-                        log.warning("id %s not found for %s", contact["ID"], contact["Name"])
+                        log.warning("id %s not found for %s", contact_id, contact["Name"])
                 contact_items.append(new_contact)
             new_contacttypes.append({"Type": type_, "Contacts": {"Contact": contact_items}})
         return {"ContactType": new_contacttypes}
