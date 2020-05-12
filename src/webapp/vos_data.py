@@ -138,8 +138,7 @@ class VOsData(object):
             new_fields["SecondaryFields"] = {"Field": fields_of_science["SecondaryFields"]}
         return new_fields
 
-    @staticmethod
-    def _expand_oasis_legacy_managers(managers):
+    def _expand_oasis_legacy_managers(self, managers):
         """Expand
         {"a": {"DNs": [...]}}
         into
@@ -151,11 +150,16 @@ class VOsData(object):
                 new_managers[name]["DNs"] = {"DN": data["DNs"]}
             else:
                 new_managers[name]["DNs"] = None
-        return {"Manager": expand_attr_list(new_managers, "Name", ordering=["ContactID", "Name", "DNs"],
+
+            new_managers[name]["CILogonID"] = None
+            if self.contacts_data:
+                user = self.contacts_data.users_by_id.get(data["ID"])
+                if user:
+                    new_managers[name]["CILogonID"] = user.cilogon_id
+        return {"Manager": expand_attr_list(new_managers, "Name", ordering=["Name", "CILogonID", "DNs"],
                                             ignore_missing=True)}
 
-    @staticmethod
-    def _expand_oasis_managers(managers):
+    def _expand_oasis_managers(self, managers):
         """Expand
         [{"Name", "a", "DNs": [...]}, ...]
         into
@@ -167,9 +171,14 @@ class VOsData(object):
                 new_managers[i]["DNs"] = {"DN": data["DNs"]}
             else:
                 new_managers[i]["DNs"] = None
+            new_managers[i]["CILogonID"] = None
+            if self.contacts_data:
+                user = self.contacts_data.users_by_id.get(data["ID"])
+                if user:
+                    new_managers[i]["CILogonID"] = user.cilogon_id
 
         def order_manager_dict(m):
-            return order_dict(m, ordering=["ContactID", "Name", "DNs"], ignore_missing=True)
+            return order_dict(m, ordering=["Name", "CILogonID", "DNs"], ignore_missing=True)
 
         return {"Manager": list(map(order_manager_dict, new_managers))}
 
