@@ -21,3 +21,21 @@ Resources:
     Services:
       CE:
         Description: Shared Pool Compute Element
+  BNL-SUBMIT-01:
+    Active: true
+    Description: This is a submit host for SDCC.
+    ID: 1054
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+
+      Security Contact:
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+    FQDN: osgsub01.sdcc.bnl.gov
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
