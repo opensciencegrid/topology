@@ -150,7 +150,6 @@
                           <xsd:element minOccurs="0" maxOccurs="unbounded" name="Manager">
                             <xsd:complexType>
                               <xsd:sequence>
-                                <xsd:element minOccurs="0" name="ContactID" type="xsd:string"/>
                                 <xsd:element name="Name" type="xsd:string"/>
                                 <xsd:element minOccurs="0" name="CILogonID" type="xsd:string" />
                                 <xsd:element name="DNs">
