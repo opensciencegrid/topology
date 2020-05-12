@@ -1,0 +1,37 @@
+AppDescription: GENIE Collaboration
+CertificateOnly: false
+Community: GENIE Collaboration
+Contacts:
+  Miscellaneous Contact:
+  - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    Name: Steve Timm
+  - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+    Name: Joe Boyd
+  VO Manager:
+  - ID: 0d3a482b2e631352490ea9bf23b46aff1218b99c
+    Name: Gabriel Nathan Perdue
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - High Energy Physics
+ID: 48
+LongName: Fermilab/GENIE
+MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
+OASIS:
+  Managers:
+    - Name: Joe Boyd
+      DNs:
+      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
+      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
+      ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
+  OASISRepoURLs:
+  - http://oasiscfs.fnal.gov:8000/cvmfs/fermilab.opensciencegrid.org/genie
+  UseOASIS: true
+ParentVO:
+  ID: 9
+  Name: Fermilab
+PrimaryURL: http://www.genie-mc.org/
+PurposeURL: http://www.genie-mc.org/
+ReportingGroups:
+- genie
+SupportURL: http://fermigrid.fnal.gov/
