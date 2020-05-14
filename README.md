@@ -61,7 +61,7 @@ These are compatible with the arguments once used by `myosg.grid.iu.edu`.
 
 #### For the Resource Topology (rgsummary) and Resource Downtime (rgdowntime) pages
 
-Boolean filters:
+**Boolean filters:**
 
 | The following argument(s)... | Will have the effect of...                         |
 |------------------------------|----------------------------------------------------|
@@ -79,13 +79,13 @@ Boolean filters:
 \*\* There is no way to show only resources without WLCG information; `has_wlcg=off` doesn't work
 
 
-ID-based filters:
+**ID-based filters:**
 
 These select by a numeric ID on facilities, sites, support centers, resource groups, and services, and VOs.
 Multiple IDs may be specified for an attribute, in which case resources that match any of the IDs listed will be shown.
 There are two equivalent formats for the arguments:
-- `<ATTRIB>_<ID1>=on&<ATTRIB>_<ID2>=on&<ATTRIB>_<ID3>=on`
-- `<ATTRIB>_sel[]=<ID1>&<ATTRIB>_sel[]=<ID2>&<ATTRIB>_sel[]=<ID3>`
+- `<ATTRIB>=on&<ATTRIB>_<ID1>=on&<ATTRIB>_<ID2>=on&<ATTRIB>_<ID3>=on`
+- `<ATTRIB>=on&<ATTRIB>_sel[]=<ID1>&<ATTRIB>_sel[]=<ID2>&<ATTRIB>_sel[]=<ID3>`
 
 | The following attributes (`<ATTRIB>`)... | Will filter by (`<ID>`)...             |
 |-----------------------------|-------------------------------|
@@ -97,8 +97,8 @@ There are two equivalent formats for the arguments:
 | `voown`                     | VO Ownership (rgsummary only) |
 
 For example, either of the two following sets of arguments will show resources that are in ANL (10089), Fermilab (10009), or UW-Madison (10011):
-- `facility_10089=on&facility_10009=on&facility_10011=on`
-- `facility_sel[]=10089&facility_sel[]=10009&facility_sel[]=10011`
+- `facility=on&facility_10089=on&facility_10009=on&facility_10011=on`
+- `facility=on&facility_sel[]=10089&facility_sel[]=10009&facility_sel[]=10011`
 
 If multiple filters are specified, only resources that match all filters will be shown.
 
@@ -110,7 +110,7 @@ Finally, you may restrict how much _past_ downtime is shown in the Resource Down
 
 #### For the Virtual Organization (vosummary) page
 
-Boolean filters:
+**Boolean filters:**
 
 | The following argument(s)... | Will have the effect of...             |
 |------------------------------|----------------------------------------|
@@ -121,17 +121,17 @@ Boolean filters:
 | `oasis=on&oasis_value=0`     | showing only VOs that do not use OASIS |
 | `oasis=on&oasis_value=1`     | showing only VOs that use OASIS        |
 
-ID-based filter:
+**ID-based filter:**
 
 This selects based on a numeric ID on VOs.
 Multiple IDs may be specified, in which case VOs that match any of the IDs listed will be shown.
 There are two equivalent formats for the arguments:
-- `vo_<ID1>=on&vo_<ID2>=on&vo_<ID3>=on`
-- `vo_sel[]=<ID1>&vo_sel[]=<ID2>&vo_sel[]=<ID3>`
+- `vo=on&vo_<ID1>=on&vo_<ID2>=on&vo_<ID3>=on`
+- `vo=on&vo_sel[]=<ID1>&vo_sel[]=<ID2>&vo_sel[]=<ID3>`
 
 For example, either of the following will match GLOW (13), HCC (67), and IceCube (38):
-- `vo_13=on&vo_67=on&vo_38=on`
-- `vo_sel[]=13&vo_sel[]=67&vo_sel[]=38`
+- `vo=on&vo_13=on&vo_67=on&vo_38=on`
+- `vo=on&vo_sel[]=13&vo_sel[]=67&vo_sel[]=38`
 
 
 
