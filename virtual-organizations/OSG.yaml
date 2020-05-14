@@ -56,6 +56,10 @@ OASIS:
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/nexo.opensciencegrid.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/bnl.opensciencegrid.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/connect.opensciencegrid.org
+  # These are for common software from HSF, which is not a VO, so 
+  #  we include them here in the OSG VO.
+  - http://cvmfs-stratum-one.cern.ch:8000/cvmfs/sw.hsf.org
+  - http://cvmfs-stratum-one.cern.ch:8000/cvmfs/sw-nightlies.hsf.org
   UseOASIS: true
 PrimaryURL: http://www.opensciencegrid.org
 PurposeURL: http://www.opensciencegrid.org
