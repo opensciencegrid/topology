@@ -185,6 +185,88 @@ def status_hook():
     return Response('Thank You')
 
 
+@app.route("/check_suite", methods=["GET", "POST"])
+def check_suite_hook():
+    if not validate_request_signature(request):
+        return Response("Bad X-Hub-Signature", status=400)
+
+    event = request.headers.get('X-GitHub-Event')
+    if event == "ping":
+        return Response('Pong')
+    elif event != "check_suite":
+        app.logger.debug("Ignoring non-check_suite hook of type '%s'" % event)
+        return Response("Wrong event type", status=400)
+
+    payload = request.get_json()
+    action = payload and payload.get('action')
+    if action not in ("completed",):
+        app.logger.info("Ignoring check_suite hook action '%s'" % action)
+        return Response("Not Interested")
+    try:
+        check_suite = payload['check_suite']
+        head_sha = check_suite['head_sha']
+        repo = payload['repository']
+        owner = repo['owner']['login']          # 'opensciencegrid'
+        reponame = repo['name']                 # 'topology'
+        app_name = check_suite['app']['name']   # 'Travis CI'
+        conclusion = check_suite['conclusion']  # 'success' ...
+    except (TypeError, KeyError) as e:
+        emsg = "Malformed payload for check_suite hook: %s" % e
+        app.logger.error(emsg)
+        return Response(emsg, status=400)
+    app.logger.debug("Got check_suite hook '%s' for '%s'"
+                     % (conclusion, head_sha))
+
+    if app_name != 'Travis CI':
+        app.logger.info("Ignoring non-travis check_suite hook for '%s'"
+                        % app_name)
+        return Response("Not Interested; app_name was '%s'" % app_name)
+
+    if owner != _required_repo_owner or reponame != _required_repo_name:
+        app.logger.info("Ignoring check_suite hook repo '%s/%s'"
+                        % (owner, reponame))
+        return Response("Not Interested; repo was '%s/%s'" % (owner, reponame))
+
+    pr_webhook_state, pull_num = get_webhook_pr_state(head_sha)
+    if pr_webhook_state is None or len(pr_webhook_state) != 4:
+        app.logger.info("Got travis '%s' check_suite hook for commit %s;\n"
+                "not merging as No PR automerge info available"
+                % (conclusion, head_sha))
+        return Response("No PR automerge info available for %s" % head_sha)
+
+    pr_dt_automerge_ret, base_sha, head_label, sender = pr_webhook_state
+    if re.search(r'^-?\d+$', pr_dt_automerge_ret):
+        pr_dt_automerge_ret = int(pr_dt_automerge_ret)
+
+    if pr_dt_automerge_ret == 0 and conclusion != 'success':
+        body = webhook_status_messages.ci_failure.format(**locals())
+        publish_pr_review(pull_num, body, 'COMMENT', head_sha)
+
+#   if conclusion != 'success':
+#       app.logger.info("Ignoring travis '%s' check_suite hook" % conclusion)
+#       return Response("Not interested; CI conclusion was '%s'" % conclusion)
+
+    if pr_dt_automerge_ret == 0:
+        app.logger.info("Got travis success check_suite hook for commit %s;\n"
+                "eligible for DT automerge" % head_sha)
+        body = None
+        publish_pr_review(pull_num, body, 'APPROVE', head_sha)
+        title = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
+                .format(**locals())
+        ok, fail_message = hit_merge_button(pull_num, head_sha, title)
+        if ok:
+            osg_bot_msg = webhook_status_messages.merge_success
+        else:
+            osg_bot_msg = webhook_status_messages.merge_failure
+        body = osg_bot_msg.format(**locals())
+        publish_issue_comment(pull_num, body)
+    else:
+        app.logger.info("Got travis success check_suite hook for commit %s;\n"
+                "not eligible for DT automerge" % head_sha)
+
+    return Response('Thank You')
+
+
 @app.route("/pull_request", methods=["GET", "POST"])
 def pull_request_hook():
     if not validate_request_signature(request):
