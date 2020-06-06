@@ -164,9 +164,9 @@ def check_suite_hook():
         body = webhook_status_messages.ci_failure.format(**locals())
         publish_pr_review(pull_num, body, 'COMMENT', head_sha)
 
-#   if conclusion != 'success':
-#       app.logger.info("Ignoring travis '%s' check_suite hook" % conclusion)
-#       return Response("Not interested; CI conclusion was '%s'" % conclusion)
+    if conclusion != 'success':
+        app.logger.info("Ignoring travis '%s' check_suite hook" % conclusion)
+        return Response("Not interested; CI conclusion was '%s'" % conclusion)
 
     if pr_dt_automerge_ret == 0:
         app.logger.info("Got travis success check_suite hook for commit %s;\n"
