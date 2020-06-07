@@ -817,3 +817,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 565815520
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 07, 2020 20:00 +0000
+  EndTime: Jun 09, 2020 21:00 +0000
+  CreatedTime: Jun 07, 2020 20:59 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
