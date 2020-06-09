@@ -925,3 +925,36 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 567343462
+  Description: Site maintenance
+  Severity: Outage
+  StartTime: Jun 16, 2020 13:00 +0000
+  EndTime: Jun 16, 2020 23:00 +0000
+  CreatedTime: Jun 09, 2020 15:25 +0000
+  ResourceName: MWT2_CE_UC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 567343768
+  Description: Site maintenance
+  Severity: Outage
+  StartTime: Jun 16, 2020 13:00 +0000
+  EndTime: Jun 16, 2020 23:00 +0000
+  CreatedTime: Jun 09, 2020 15:26 +0000
+  ResourceName: MWT2_CE_IU
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 567344031
+  Description: Site maintenance
+  Severity: Outage
+  StartTime: Jun 16, 2020 13:00 +0000
+  EndTime: Jun 16, 2020 23:00 +0000
+  CreatedTime: Jun 09, 2020 15:26 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
