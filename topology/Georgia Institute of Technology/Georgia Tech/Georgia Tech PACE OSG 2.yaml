@@ -1,5 +1,5 @@
 GroupDescription: Resources in the Georgia Tech PACE cluster, to be used by LIGO, Icecube, CTA, OSG-Connect and others.
-GroupID: 
+GroupID: 538
 Production: true
 Resources:
   Georgia_Tech_PACE_CE_2:
@@ -15,7 +15,7 @@ Resources:
         Tertiary:
           ID: 14769be06478f6ac7e1785c371d412f6396b3409
           Name: Andre McNeill
-        Tertiary:
+        Tertiary 2:
           ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
           Name: Ruben Lara
       Miscellaneous Contact:
@@ -47,7 +47,7 @@ Resources:
           Name: Paul Manno
     Description: This is a Condor CE in front of the PACE cluster, for use by LIGO, Icecube, CTA, OSG-Connect and others.
     FQDN: osg-sched2.pace.gatech.edu
-    ID: 
+    ID: 1059
     Services:
       CE:
         Description: Compute Element
@@ -73,7 +73,7 @@ Resources:
         Tertiary:
           ID: 14769be06478f6ac7e1785c371d412f6396b3409
           Name: Andre McNeill
-        Tertiary:
+        Tertiary 2:
           ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
           Name: Ruben Lara
       Miscellaneous Contact:
@@ -100,7 +100,7 @@ Resources:
     Description: Second GridFTP server, initially for incoming LIGO, Icecube, CTA, OSG-Connect.
     FQDN: osg-gftp2.pace.gatech.edu
     DN:  /DC=org/DC=incommon/C=US/ST=Georgia/L=Atlanta/O=Georgia Institute of Technology/OU=Office of Information Technology/CN=osg-gftp2.pace.gatech.edu
-    ID: 1058
+    ID: 1060
     Services:
       GridFtp:
         Description: Second GridFtp Storage Element
@@ -126,7 +126,7 @@ Resources:
         Tertiary:
           ID: 14769be06478f6ac7e1785c371d412f6396b3409
           Name: Andre McNeill
-        Tertiary:
+        Tertiary 2:
           ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
           Name: Ruben Lara
       Miscellaneous Contact:
@@ -139,7 +139,7 @@ Resources:
         Tertiary:
           ID: 14769be06478f6ac7e1785c371d412f6396b3409
           Name: Andre McNeill
-        Tertiary:
+        Tertiary 2:
           ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
           Name: Ruben Lara
       Resource Report Contact:
@@ -152,7 +152,7 @@ Resources:
         Tertiary:
           ID: 14769be06478f6ac7e1785c371d412f6396b3409
           Name: Andre McNeill
-        Tertiary:
+        Tertiary 2:
           ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
           Name: Ruben Lara
       Security Contact:
@@ -165,12 +165,12 @@ Resources:
         Tertiary:
           ID: 14769be06478f6ac7e1785c371d412f6396b3409
           Name: Andre McNeill
-        Tertiary:
+        Tertiary 2:
           ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
           Name: Ruben Lara
     Description: Georgia Tech submit node for LIGO, Icecube, CTA, OSG-Connect.
     FQDN: osg-login2.pace.gatech.edu
-    ID: 
+    ID: 1061
     Services:
       Submit Node:
         Description: OSG Submission Node 2
