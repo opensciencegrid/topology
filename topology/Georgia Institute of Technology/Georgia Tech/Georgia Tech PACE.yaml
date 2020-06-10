@@ -108,57 +108,6 @@ Resources:
         Description: Georgia Tech Caching Server
     VOOwnership:
       LIGO: 100
-  Georgia_Tech_PACE_GridFTP2:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: bce6aa9f33442110ab7554a8bf716ab80ed7bef5
-          Name: Paul Manno
-        Secondary:
-          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
-          Name: Mehmet Belgin
-        Tertiary:
-          ID: 14769be06478f6ac7e1785c371d412f6396b3409
-          Name: Andre McNeill
-        Tertiary:
-          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
-          Name: Ruben Lara
-      Miscellaneous Contact:
-        Primary:
-          ID: bce6aa9f33442110ab7554a8bf716ab80ed7bef5
-          Name: Paul Manno
-        Secondary:
-          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
-          Name: Mehmet Belgin
-      Resource Report Contact:
-        Secondary:
-          ID: bce6aa9f33442110ab7554a8bf716ab80ed7bef5
-          Name: Paul Manno
-        Tertiary:
-          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
-          Name: Mehmet Belgin
-      Security Contact:
-        Primary:
-          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
-          Name: Peter Couvares
-        Secondary:
-          ID: bce6aa9f33442110ab7554a8bf716ab80ed7bef5
-          Name: Paul Manno
-    Description: Second GridFTP server, initially for incoming LIGO frame data pushed from
-      CIT.
-    FQDN: osg-gftp2.pace.gatech.edu
-    DN:  /DC=org/DC=incommon/C=US/ST=Georgia/L=Atlanta/O=Georgia Institute of Technology/OU=Office of Information Technology/CN=osg-gftp2.pace.gatech.edu
-    ID: 1058
-    Services:
-      GridFtp:
-        Description: Second GridFtp Storage Element
-        Details:
-          hidden: false
-      XRootD cache server:
-        Description: Second Georgia Tech Caching Server
-    VOOwnership:
-      LIGO: 100
   Georgia_Tech_LIGO_Submit_1:
     Active: true
     ContactLists:
