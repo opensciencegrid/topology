@@ -1,6 +1,7 @@
 from collections import OrderedDict
 from logging import getLogger
 import hashlib
+import json
 import os
 import re
 import shlex
@@ -163,6 +164,14 @@ def to_xml(data) -> str:
 
 def to_xml_bytes(data) -> bytes:
     return to_xml(data).encode("utf-8", errors="replace")
+
+
+def to_json(data) -> str:
+    return json.dumps(data)
+
+
+def to_json_bytes(data) -> bytes:
+    return to_json(data).encode("utf-8", errors="replace")
 
 
 def trim_space(s: str) -> str:
