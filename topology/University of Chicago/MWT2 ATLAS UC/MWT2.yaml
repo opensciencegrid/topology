@@ -469,6 +469,123 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       ATLAS: 100
+  MWT2_SLATE_UC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+    Description: MWT2 SLATE located at the University of Chicago @ Chicago, IL
+    FQDN: uct2-slate.mwt2.org
+    ID: 
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: uct2-slate.mwt2.org:32200
+          Monitored: false
+    VOOwnership:
+      ATLAS: 100
+  MWT2_SLATE_IU:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+    Description: MWT2 SLATE located at Indiana University @ Indianapolis, IN
+    FQDN: iut2-slate.mwt2.org
+    ID: 
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: iut2-slate.mwt2.org:32200
+          Monitored: false
+    VOOwnership:
+      ATLAS: 100
+  MWT2_SLATE_UIUC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+    Description: MWT2 SLATE located at University of Illilnois @ Urbana-Champaign, IL
+    FQDN: mwt2-slate.mwt2.org
+    ID: 
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: mwt2-slate.mwt2.org:32200
+          Monitored: false
+    VOOwnership:
+      ATLAS: 100
   MWT2_UC_SE:
     Active: true
     ContactLists:
