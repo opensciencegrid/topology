@@ -46,7 +46,7 @@ def get_contact_cilogon_id_map(global_data):
 def get_vo_oasis_managers(global_data, vo):
     """return OASIS Managers list for given vo, if any, else an empty list"""
     vos_data = global_data.get_vos_data()
-    return safe_dict_get(vos_data, vo, "OASIS", "Managers", default=[])
+    return safe_dict_get(vos_data.vos, vo, "OASIS", "Managers", default=[])
 
 
 def safe_dict_get(item, *keys, default=None):
