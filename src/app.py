@@ -226,7 +226,7 @@ def scitokens():
 @app.route("/oasis-managers/json")
 def oasis_managers():
     if not _get_authorized():
-        return Response("Not authorized", status=400)
+        return Response("Not authorized", status=403)
     vo = request.args.get("vo")
     if not vo:
         return Response("'vo' argument is required", status=400)
