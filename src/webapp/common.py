@@ -166,8 +166,20 @@ def to_xml_bytes(data) -> bytes:
     return to_xml(data).encode("utf-8", errors="replace")
 
 
+# bytes cannot be encoded to json in python3
+def bytes2str(o):
+    if isinstance(o, (list, tuple)):
+        return type(o)(map(bytes2str, o))
+    elif isinstance(o, dict):
+        return dict(map(bytes2str, o.items()))
+    elif isinstance(o, bytes):
+        return o.decode(errors='ignore')
+    else:
+        return o
+
+
 def to_json(data) -> str:
-    return json.dumps(data)
+    return json.dumps(bytes2str(data))
 
 
 def to_json_bytes(data) -> bytes:
