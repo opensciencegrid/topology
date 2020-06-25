@@ -1065,3 +1065,74 @@
   ResourceName: CIT_HEP_CE
   Services:
     - CE
+
+# --------------------------------------------------------
+# CENIC Circuit Migration in LA Downtown
+
+- Class: SCHEDULED
+  ID: 579465544
+  Description: CENIC Circuit Migration in LA Downtown
+  Severity: Outage
+  StartTime: Jul 07, 2020 23:30 +0700
+  EndTime: Jul 08, 2020 08:30 +0700
+  CreatedTime: Jun 25, 2020 12:30 +0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 579465545
+  Description: CENIC Circuit Migration in LA Downtown
+  Severity: Outage
+  StartTime: Jul 07, 2020 23:30 +0700
+  EndTime: Jul 08, 2020 08:30 +0700
+  CreatedTime: Jun 25, 2020 12:30 +0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 579465546
+  Description: CENIC Circuit Migration in LA Downtown
+  Severity: Outage
+  StartTime: Jul 07, 2020 23:30 +0700
+  EndTime: Jul 08, 2020 08:30 +0700
+  CreatedTime: Jun 25, 2020 12:30 +0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 579465547
+  Description: CENIC Circuit Migration in LA Downtown
+  Severity: Outage
+  StartTime: Jul 07, 2020 23:30 +0700
+  EndTime: Jul 08, 2020 08:30 +0700
+  CreatedTime: Jun 25, 2020 12:30 +0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 579465548
+  Description: CENIC Circuit Migration in LA Downtown
+  Severity: Outage
+  StartTime: Jul 07, 2020 23:30 +0700
+  EndTime: Jul 08, 2020 08:30 +0700
+  CreatedTime: Jun 25, 2020 12:30 +0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 579465549
+  Description: CENIC Circuit Migration in LA Downtown
+  Severity: Outage
+  StartTime: Jul 07, 2020 23:30 +0700
+  EndTime: Jul 08, 2020 08:30 +0700
+  CreatedTime: Jun 25, 2020 12:30 +0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# --------------------------------------------------------
