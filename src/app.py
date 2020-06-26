@@ -14,10 +14,11 @@ import traceback
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, Filters
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters
 from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
+from webapp.oasis_managers import get_oasis_manager_endpoint_info
 
 try:
     import stashcache
@@ -220,6 +221,20 @@ def scitokens():
     except Exception:
         app.log_exception(sys.exc_info())
         return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+
+
+@app.route("/oasis-managers/json")
+def oasis_managers():
+    if not _get_authorized():
+        return Response("Not authorized", status=403)
+    vo = request.args.get("vo")
+    if not vo:
+        return Response("'vo' argument is required", status=400)
+    if not cilogon_pass:
+        return Response("CILOGON_LDAP_PASSFILE not configured; "
+                        "OASIS Managers info unavailable", status=503)
+    mgrs = get_oasis_manager_endpoint_info(global_data, vo, cilogon_pass)
+    return Response(to_json_bytes(mgrs), mimetype='text/json')
 
 
 def _get_cache_authfile(public_only):
