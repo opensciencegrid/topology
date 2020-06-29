@@ -1,0 +1,50 @@
+GroupDescription: ALICE USA Tier-2 site at Oak Ridge
+GroupID: 536
+Production: true
+SupportCenter: USALICE
+Resources:
+  ORNL_ALICE:
+    Active: true
+    ContactLists:
+      Administrative Contacts:
+        Primary:
+          ID: c0b37d66f9d39c4a37a83d20dfaf97f80d0c197e
+          Name: Peter Eby
+        Secondary:
+          ID: c3d417180e9c3738a32032eda0b9cf1252288870
+          Name: Jeff Porter
+      Resource Report Contact:
+        Primary:
+          ID: c3d417180e9c3738a32032eda0b9cf1252288870
+          Name: Jeff Porter
+        Secondary:
+          ID: 72150ad13dbc76a0f01443081df8e9172a06aa50
+          Name: Maarten Litmaath
+      Security Contact:
+        Primary:
+          ID: c0b37d66f9d39c4a37a83d20dfaf97f80d0c197e
+          Name: Peter Eby
+        Secondary:
+          ID: c3d417180e9c3738a32032eda0b9cf1252288870
+          Name: Jeff Porter
+    Description: ALICE USA Tier-2 site at Oak Ridge
+    FQDN: osg.alice.ornl.gov
+    ID: 1053
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ALICE: 100
+    WLCGInformation:
+      APELNormalFactor: 11.75
+      AccountingName: US-LBNL-ALICE
+      HEPSPEC: 26000
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0

@@ -260,6 +260,10 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: perfsonar.unl.edu
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: perfsonar.unl.edu
     VOOwnership:
       HCC: 100
   US-Nebraska LT:
@@ -301,35 +305,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: hcc-ps01.unl.edu
-    VOOwnership:
-      HCC: 100
-  US-Nebraska LT (Test):
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
-          Name: Garhan Attebury
-      Miscellaneous Contact:
-        Primary:
-          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
-          Name: Garhan Attebury
-      Resource Report Contact:
-        Primary:
-          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
-          Name: Garhan Attebury
-      Security Contact:
-        Primary:
-          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
-          Name: Garhan Attebury
-    Description: perfSONAR testbed latency host at the University of Nebraska-Lincoln.
-    FQDN: perfsonar.unl.edu
-    ID: 692
-    Services:
-      net.perfSONAR.Latency:
-        Description: PerfSonar Latency monitoring node
-        Details:
-          endpoint: perfsonar.unl.edu
     VOOwnership:
       HCC: 100
   red-gateway1:

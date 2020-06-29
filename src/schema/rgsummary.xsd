@@ -159,6 +159,7 @@
                                               <xsd:complexType>
                                                 <xsd:sequence>
                                                   <xsd:element minOccurs="0" name="Name" type="xsd:string" />
+                                                  <xsd:element minOccurs="0" name="CILogonID" type="xsd:string" />
                                                   <xsd:element minOccurs="0" name="Email" type="xsd:string" />
                                                   <xsd:element minOccurs="0" name="Phone" type="xsd:string" />
                                                   <xsd:element minOccurs="0" name="SMSAddress" type="xsd:string" />

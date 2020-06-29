@@ -706,15 +706,11 @@ SBGrid:
       Name: SBGrid Helpdesk
     - ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
       Name: Piotr Sliz
-    - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-      Name: Michael (Mick) Timony
     - ID: 748143b943af988693da79cd03dc27def18c6cd6
       Name: Jason Key
     Notifications Contact:
     - ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
       Name: Piotr Sliz
-    - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-      Name: Michael (Mick) Timony
     - ID: 748143b943af988693da79cd03dc27def18c6cd6
       Name: Jason Key
     Operations Contact (Ticketing):
@@ -722,13 +718,9 @@ SBGrid:
       Name: SBGrid Operations
     - ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
       Name: Piotr Sliz
-    - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-      Name: Michael (Mick) Timony
     - ID: 748143b943af988693da79cd03dc27def18c6cd6
       Name: Jason Key
     Security Contact:
-    - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-      Name: Michael (Mick) Timony
     - ID: 748143b943af988693da79cd03dc27def18c6cd6
       Name: Jason Key
   Description: This support center will manage any users from the SBGrid or NEBioGrid
@@ -930,21 +922,6 @@ UChicago:
   Description: Support Center for the University of Chicago Campus Grid and ITB resources
   ID: 79
   LongName: University of Chicago Support Center
-UMDIGS:
-  Community: Institute for Genome Sciences
-  Contacts:
-    Notifications Contact:
-    - ID: a44b88b5305a97c8a96860f8d6cc3d119a2de80c
-      Name: Jeff Shao
-    Operations Contact (Ticketing):
-    - ID: a44b88b5305a97c8a96860f8d6cc3d119a2de80c
-      Name: Jeff Shao
-    Security Contact:
-    - ID: a44b88b5305a97c8a96860f8d6cc3d119a2de80c
-      Name: Jeff Shao
-  Description: Institute for Genome Sciences
-  ID: 80
-  LongName: University of Maryland IGS
 UPR_HPCF:
   Community: OSG,HCC
   Contacts:
@@ -960,6 +937,30 @@ UPR_HPCF:
   Description: High Performance Computing Facility - UPR Support Center
   ID: 81
   LongName: High Performance Computing Facility - UPR Support Center
+USALICE:
+  Community:  The support center of ALICE Tier 2 facilities in US
+  Contacts:
+    Notification Contact:
+    - ID: c3d417180e9c3738a32032eda0b9cf1252288870
+      Name: Jeff Porter
+    - ID: 72150ad13dbc76a0f01443081df8e9172a06aa50
+      Name: Maarten Litmaath
+    - ID: d0fce7e83a1ed27eee06ca5223361e757ebc17db
+      Name: Latchezar Betev
+    Operations Contact:
+    - ID: c3d417180e9c3738a32032eda0b9cf1252288870
+      Name: Jeff Porter
+    - ID: 72150ad13dbc76a0f01443081df8e9172a06aa50
+      Name: Maarten Litmaath
+    Security Contact:
+    - ID: 1ad2e4bf46bc2ab55a2d82db2c32161f710928ea
+      Name: Karen Fernsler
+    - ID: c0b37d66f9d39c4a37a83d20dfaf97f80d0c197e
+      Name: Pete Eby
+    - ID: c3d417180e9c3738a32032eda0b9cf1252288870
+      Name: Jeff Porter
+  Description: Support for ALICE USA T2
+  ID: 95
 USATLAS:
   Community: The support center, located at BNL, supports all users and resource providers
     affiliated with the US Atlas program.
@@ -1083,14 +1084,6 @@ UW-IT:
     Notifications Contact:
     - ID: 2b2b1ec928b263238527e1d0ca78dd2585a67162
       Name: Carlos Griffin
-    - ID: 52f6e89bf022d01dbb2c30705320737af426f521
-      Name: Adam Hough
-    Operations Contact (Ticketing):
-    - ID: 52f6e89bf022d01dbb2c30705320737af426f521
-      Name: Adam Hough
-    Security Contact:
-    - ID: 52f6e89bf022d01dbb2c30705320737af426f521
-      Name: Adam Hough
   Description: "UW Information Technology (UW-IT) is the central information technology\
     \ organization for the University of Washington, responsible for strategic planning,\
     \ oversight, and direction of the UW\u2019s IT infrastructure, resources, and\
