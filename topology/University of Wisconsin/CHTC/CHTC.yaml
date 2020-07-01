@@ -328,7 +328,7 @@ Resources:
     AllowedVOs:
       - ANY
 
-  CHTC_STASHCACHE_ORIGIN:
+  CHTC_STASHCACHE_ORIGIN_2000:
     Active: true
     Description: This is a StashCache origin server at UW.
     ID: 959
@@ -353,8 +353,10 @@ Resources:
         Tertiary:
           ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
           Name: Timothy Slauson
-    FQDN: sc-origin.chtc.wisc.edu
-    DN: /DC=org/DC=incommon/C=US/ST=Wisconsin/L=Madison/O=University of Wisconsin-Madison/OU=OCIS/CN=sc-origin.chtc.wisc.edu
+    FQDN: sc-origin2000.chtc.wisc.edu
+    FQDNAliases:
+      - sc-origin.chtc.wisc.edu
+    DN: /CN=sc-origin2000.chtc.wisc.edu
     Services:
       XRootD origin server:
         Description: StashCache origin server
