@@ -59,6 +59,7 @@ DataFederations:
             Issuer: https://scitokens.org/chtc
             Base Path: /chtc
     AllowedOrigins:
+      - CHTC_STASHCACHE_ORIGIN
       - CHTC_STASHCACHE_ORIGIN_2000
     AllowedCaches:
       - ANY
