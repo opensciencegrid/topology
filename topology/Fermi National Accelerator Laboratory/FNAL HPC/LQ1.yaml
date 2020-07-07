@@ -1,5 +1,5 @@
 GroupDescription: LQ1 is an HPC cluster part of the Fermilab Institutional Cluster allocated to the LQCD collaboration
-GroupID:
+GroupID: 540
 Production: true
 Resources:
   FNAL_LQ1:
@@ -25,7 +25,7 @@ Resources:
           Name: Fermilab Incident Response
     Description: This is the LQ1 cluster headnode
     FQDN: lq.fnal.gov
-    ID:
+    ID: 1070
     Services:
       CE:
         Description: Compute Element
