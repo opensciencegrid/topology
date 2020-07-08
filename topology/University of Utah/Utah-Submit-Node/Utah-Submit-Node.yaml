@@ -1,0 +1,28 @@
+GroupDescription: University of Utah Center for Research and High Performance Computing
+GroupID: 528
+Production: true
+Resources:
+  OSG_US_UUTAH_SUBMIT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  40a181cc3b7a43593188c9607310d35cb079bda9
+          Name: Mitchell Steinman
+      Security Contact:
+        Primary:
+          ID:  40a181cc3b7a43593188c9607310d35cb079bda9
+          Name: Mitchell Steinman
+      Site Contact:
+        Primary:
+          ID:  ddfa10c8a8500e5c31818e7c1a063b3ce5ab6a8b
+          Name: CHPC OSG Support
+    Description: Hosted CE for the notchpeak cluster
+    FQDN: osg-submit.chpc.utha.edu
+    ID: x
+    Services:
+      SubmitNode:
+        Description: Submit Node
+        Details:
+          hidden: false
+SupportCenter: Community Support Center
