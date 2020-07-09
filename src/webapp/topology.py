@@ -87,8 +87,8 @@ class Resource(object):
             "WLCGInformation": "(Information not available)",
         }
 
-        new_res = OrderedDict.fromkeys(["ID", "Name", "Active", "Disable", "Services", "Description",
-                                        "FQDN", "FQDNAliases", "VOOwnership",
+        new_res = OrderedDict.fromkeys(["ID", "Name", "Active", "Disable", "Services", "Tags",
+                                        "Description", "FQDN", "FQDNAliases", "VOOwnership",
                                         "WLCGInformation", "ContactLists"])
         new_res.update(defaults)
         new_res.update(self.data)
@@ -125,6 +125,8 @@ class Resource(object):
             new_res["WLCGInformation"] = self._expand_wlcginformation(self.data["WLCGInformation"])
         elif filters.has_wlcg is True:
             return
+        if "Tags" in self.data:
+            new_res["Tags"] = self._expand_tags(self.data["Tags"])
 
         # The topology XML schema cannot handle this additional data.  Given how inflexible
         # the XML has been (and mostly seen as there for backward compatibility), this simply
@@ -142,6 +144,9 @@ class Resource(object):
             svc["ID"] = self.service_types[svc["Name"]]
             svc.move_to_end("ID", last=False)
         return services_list
+
+    def _expand_tags(self, tags: List) -> List[Dict]:
+        return [ {"Tag": tag} for tag in tags ]
 
     @staticmethod
     def _expand_voownership(voownership: Dict) -> OrderedDict:

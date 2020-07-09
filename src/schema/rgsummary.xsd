@@ -85,6 +85,13 @@
                               </xsd:sequence>
                             </xsd:complexType>
                           </xsd:element>
+                          <xsd:element name="Tags">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element minOccurs="0" name="Tag" type="xsd:string" />
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
                           <xsd:element minOccurs="0" name="RSVStatus">
                             <xsd:complexType>
                               <xsd:sequence>
