@@ -78,6 +78,9 @@ Resources:
       # <SERVICE NAME>:
       # ...
 
+    Tags:
+      - CC*
+
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
     ### If part of the resource is not owned by the VO, do not list it.
     ### The total percentage cannot exceed 100.
@@ -133,3 +136,5 @@ Resources:
     Services:
       CE:
         Description: American Museum of Natural History Hosted CE for HEL cluster
+    Tags:
+      - CC*
