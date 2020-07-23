@@ -337,3 +337,27 @@
   - CE
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 603596679
+  Description: cluster maintenance
+  Severity: Severe
+  StartTime: Jul 22, 2020 13:00 +0000
+  EndTime: Jul 23, 2020 03:30 +0000
+  CreatedTime: Jul 21, 2020 12:27 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 603597104
+  Description: cluster maintenance
+  Severity: Severe
+  StartTime: Jul 22, 2020 13:00 +0000
+  EndTime: Jul 23, 2020 03:30 +0000
+  CreatedTime: Jul 21, 2020 12:28 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD origin server
+# ---------------------------------------------------------
