@@ -14,6 +14,10 @@ def get_oasis_manager_endpoint_info(global_data, vo, ldappass):
         for that CILogonID contains a list of ssh public keys. """
         
     managers = get_vo_oasis_managers(global_data, vo)
+    if vo == "*":
+        return { vo: get_oasis_manager_endpoint_info(global_data, vo, ldappass)
+                 for vo in vos_data.vos }
+
     if not isinstance(managers, list) or not managers:
         return []
     cilogon_id_map = get_cilogon_ldap_id_map(ldappass)
