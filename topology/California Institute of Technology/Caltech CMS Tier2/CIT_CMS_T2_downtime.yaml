@@ -1136,3 +1136,79 @@
     - Squid
 
 # --------------------------------------------------------
+
+# --------------------------------------------------------
+# LRT Building Power downtime
+
+- Class: SCHEDULED
+  ID: 603597105
+  Description: LRT Building Power downtime
+  Severity: Outage
+  StartTime: Aug 04, 2020 05:55 -0700
+  EndTime: Aug 05, 2020 10:55 -0700
+  CreatedTime: Jul 31, 2020 17:30 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 603597106
+  Description: LRT Building Power downtime
+  Severity: Outage
+  StartTime: Aug 04, 2020 05:55 -0700
+  EndTime: Aug 05, 2020 10:55 -0700
+  CreatedTime: Jul 31, 2020 17:30 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 603597107
+  Description: LRT Building Power downtime
+  Severity: Outage
+  StartTime: Aug 04, 2020 05:55 -0700
+  EndTime: Aug 05, 2020 10:55 -0700
+  CreatedTime: Jul 31, 2020 17:30 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 603597108
+  Description: LRT Building Power downtime
+  Severity: Outage
+  StartTime: Aug 04, 2020 05:55 -0700
+  EndTime: Aug 05, 2020 10:55 -0700
+  CreatedTime: Jul 31, 2020 17:30 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 603597109
+  Description: LRT Building Power downtime
+  Severity: Outage
+  StartTime: Aug 04, 2020 05:55 -0700
+  EndTime: Aug 05, 2020 10:55 -0700
+  CreatedTime: Jul 31, 2020 17:30 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 603597110
+  Description: LRT Building Power downtime
+  Severity: Outage
+  StartTime: Aug 04, 2020 05:55 -0700
+  EndTime: Aug 05, 2020 10:55 -0700
+  CreatedTime: Jul 31, 2020 17:30 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# --------------------------------------------------------
+
+
+
+
+
