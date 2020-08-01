@@ -980,3 +980,15 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 613128659
+  Description: Emergency storage downtime
+  Severity: Outage
+  StartTime: Aug 01, 2020 15:00 +0000
+  EndTime: Aug 03, 2020 22:00 +0000
+  CreatedTime: Aug 01, 2020 15:14 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+
