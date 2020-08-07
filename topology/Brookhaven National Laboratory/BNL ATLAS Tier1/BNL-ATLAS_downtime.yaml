@@ -146,4 +146,14 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 618450230
+  Description: Upgrade of dCache to v6.2, no access to the SE of the BNL ATLAS T1
+  Severity: Outage
+  StartTime: Aug 24, 2020 10:00 +0000
+  EndTime: Aug 25, 2020 22:00 +0000
+  CreatedTime: Aug 07, 2020 19:03 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
