@@ -1208,7 +1208,76 @@
 
 # --------------------------------------------------------
 
+# --------------------------------------------------------
+# Main Switch replacement
 
+- Class: SCHEDULED
+  ID: 621741704
+  Description: Main Switch replacement
+  Severity: Outage
+  StartTime: Aug 17, 2020 08:00 -0700
+  EndTime: Aug 17, 2020 17:00 -0700
+  CreatedTime: Aug 14, 2020 13:00 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 621741705
+  Description: Main Switch replacement
+  Severity: Outage
+  StartTime: Aug 17, 2020 08:00 -0700
+  EndTime: Aug 17, 2020 17:00 -0700
+  CreatedTime: Aug 14, 2020 13:00 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 621741706
+  Description: Main Switch replacement
+  Severity: Outage
+  StartTime: Aug 17, 2020 08:00 -0700
+  EndTime: Aug 17, 2020 17:00 -0700
+  CreatedTime: Aug 14, 2020 13:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 621741707
+  Description: Main Switch replacement
+  Severity: Outage
+  StartTime: Aug 17, 2020 08:00 -0700
+  EndTime: Aug 17, 2020 17:00 -0700
+  CreatedTime: Aug 14, 2020 13:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 621741708
+  Description: Main Switch replacement
+  Severity: Outage
+  StartTime: Aug 17, 2020 08:00 -0700
+  EndTime: Aug 17, 2020 17:00 -0700
+  CreatedTime: Aug 14, 2020 13:00 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 621741709
+  Description: Main Switch replacement
+  Severity: Outage
+  StartTime: Aug 17, 2020 08:00 -0700
+  EndTime: Aug 17, 2020 17:00 -0700
+  CreatedTime: Aug 14, 2020 13:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# --------------------------------------------------------
 
 
 
