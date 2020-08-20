@@ -26,4 +26,28 @@ Resources:
           hidden: false
     VOOwnership:
       JLab: 100
+  JLab-StashCache-Origin:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: ea9db644eb6f8632cf87fd2cbac8a6e393c21f71
+          Name: Wesley Moore
+      Security Contact:
+        Primary:
+          ID: ea9db644eb6f8632cf87fd2cbac8a6e393c21f71
+          Name: Wesley Moore
+    Description: JLab OSG StashCache origin server
+    FQDN: sci-xrootd.jlab.org
+    ID: 1087
+    Services:
+      XRootD origin server:
+        Description: StashCache Origin server for JLab OSG
+        Details:
+          hidden: false
+          uri_override: sci-xrootd.jlab.org:2094
+    AllowedVOs:
+      - ANY
+    VOOwnership:
+      JLab: 100
 SupportCenter: GLUEX
