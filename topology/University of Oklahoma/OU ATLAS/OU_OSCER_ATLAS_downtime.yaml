@@ -361,3 +361,27 @@
   - GridFtp
   - XRootD origin server
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 630521873
+  Description: O/S upgrade
+  Severity: Outage
+  StartTime: Aug 25, 2020 12:30 +0000
+  EndTime: Aug 25, 2020 23:00 +0000
+  CreatedTime: Aug 21, 2020 18:23 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 630523474
+  Description: O/S upgrade
+  Severity: Outage
+  StartTime: Aug 25, 2020 12:30 +0000
+  EndTime: Aug 25, 2020 23:00 +0000
+  CreatedTime: Aug 21, 2020 18:25 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD origin server
+# ---------------------------------------------------------
