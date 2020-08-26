@@ -361,7 +361,7 @@ def filter_contacts(args, results):
     if getattr(args, 'contact_emails', None):
         for name in results.keys():
             contact_list = [contact for contact in results[name] if contact['Email'] in args.contact_emails]
-            if contact_list == []:
+            if not contact_list:
                 del results[name]
             else:
                 results[name] = contact_list
