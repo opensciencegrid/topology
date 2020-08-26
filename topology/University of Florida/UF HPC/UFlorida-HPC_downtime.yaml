@@ -544,3 +544,47 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 621740636
+  Description: cvmfs intervention due to the OS upgrade.
+  Severity: Outage
+  StartTime: Aug 12, 2020 15:00 +0000
+  EndTime: Aug 12, 2020 23:00 +0000
+  CreatedTime: Aug 11, 2020 14:27 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 621741703
+  Description: cvmfs intervention due to the OS upgrade.
+  Severity: Outage
+  StartTime: Aug 12, 2020 15:00 +0000
+  EndTime: Aug 12, 2020 23:00 +0000
+  CreatedTime: Aug 11, 2020 14:29 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 621741011
+  Description: cvmfs intervention due to the OS upgrade.
+  Severity: Outage
+  StartTime: Aug 12, 2020 15:00 +0000
+  EndTime: Aug 13, 2020 23:00 +0000
+  CreatedTime: Aug 11, 2020 14:28 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 621741288
+  Description: cvmfs intervention due to the OS upgrade.
+  Severity: Outage
+  StartTime: Aug 12, 2020 15:00 +0000
+  EndTime: Aug 13, 2020 23:00 +0000
+  CreatedTime: Aug 11, 2020 14:28 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
