@@ -1,14 +1,14 @@
 # Production is true if the resource is for production and not testing use
 Production: true
 # SupportCenter is one of the support centers in topology/support-centers.yaml
-SupportCenter: Self Supported
+SupportCenter: Community Support Center
 
 # GroupDescription is a long description of the resource group; may be multiple lines.
-GroupDescription: American Museum of Natural History Slurm cluster for the CC* proposal (NSF 19-533)
+GroupDescription: SDSC-Triton_Stratus cluster
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: 497
+GroupID: 542
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -16,15 +16,15 @@ Resources:
   # Resource Name should be a short descriptor of the resource.
   # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
   # Resource Names need to be unique across all resources in the OSG.
-  OSG_US_AMNH_ARES:
+  SDSC-Triton_Stratus:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
     Active: true
     # Description is a long description of the resource; may be multiple lines
-    Description: This is a Hosted CE for the AMNH Slurm cluster
+    Description: Hosted CE serving SDSC-Triton_Stratus
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: 985
+    ID: 1078
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://my.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
@@ -47,22 +47,26 @@ Resources:
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Site Contact:
         Primary:
-          Name: Sajesh Singh
-          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
 
     # FQDN is the fully qualified domain name of the host running this resource
-    FQDN: hosted-ce22.grid.uchicago.edu
+    FQDN: hosted-ce38.opensciencegrid.org
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
     # FQDNAliases:
     #   - <HOSTNAME1>
     #   - <HOSTNAME2>
+
+    ### DN (optional except for XCache resources) is the DN of the host cert of the resource
+    # in OpenSSL 1.0 format (i.e. /DC=org/DC=incommon/C=US/...)
+    # DN: <DN>
 
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
       CE:
         # Description is a brief description of the service
-        Description: American Museum of Natural History Hosted CE
+        Description: SDSC-Triton_Stratus Hosted-CE
         ### Details (optional)
         # Details:
         #   # hidden
@@ -78,6 +82,8 @@ Resources:
       # <SERVICE NAME>:
       # ...
 
+    ### Tags (optional) is a list of tags associated with the resource.
+    ### Include the tag "CC*" if applicable for a CC* CE.
     Tags:
       - CC*
 
@@ -105,102 +111,3 @@ Resources:
   # Other resources if you have any...
   # <RESOURCE NAME>:
   # ...
-  AMNH-ARES:
-    Active: true
-    Description: This is a Hosted CE for the AMNH Slurm cluster
-    # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
-    # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: 1074
-    ContactLists:
-      # Administrative Contact is one to three people to contact regarding administrative issues
-      Administrative Contact:
-        Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Security Contact:
-        Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Site Contact:
-        Primary:
-          Name: Sajesh Singh
-          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
-
-    FQDN: hosted-ce22.opensciencegrid.org
-    Services:
-      CE:
-        Description: American Museum of Natural History Hosted CE
-    Tags:
-      - CC*
-  OSG_US_AMNH_HEL:
-    Active: true
-    Description: Second Hosted CE for the AMNH
-    # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
-    # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: 1052
-    ContactLists:
-      # Administrative Contact is one to three people to contact regarding administrative issues
-      Administrative Contact:
-        Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Security Contact:
-        Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Site Contact:
-        Primary:
-          Name: Sajesh Singh
-          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
-
-    FQDN: hosted-ce36.grid.uchicago.edu
-    Services:
-      CE:
-        Description: American Museum of Natural History Hosted CE for HEL cluster
-    Tags:
-      - CC*
-  AMNH-HEL:
-    Active: true
-    Description: Second Hosted CE for the AMNH
-    # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
-    # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: 1075
-    ContactLists:
-      # Administrative Contact is one to three people to contact regarding administrative issues
-      Administrative Contact:
-        Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Security Contact:
-        Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Site Contact:
-        Primary:
-          Name: Sajesh Singh
-          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
-
-    FQDN: hosted-ce36.opensciencegrid.org
-    Services:
-      CE:
-        Description: American Museum of Natural History Hosted CE for HEL cluster
-    Tags:
-      - CC*
