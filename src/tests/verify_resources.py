@@ -92,7 +92,8 @@ def main():
     errors += test_2_res_unique(rgs, rgfns)
     errors += test_3_voownership(rgs, rgfns)
     errors += test_4_res_svcs(rgs, rgfns)
-    if support_centers: errors += test_5_sc(rgs, rgfns, support_centers)
+    if support_centers:
+        errors += test_5_sc(rgs, rgfns, support_centers)
     errors += test_6_site()
     # re-enable fqdn errors after SOFTWARE-3330
     # warnings += test_7_fqdn_unique(rgs, rgfns)
@@ -104,7 +105,8 @@ def main():
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
     errors += test_15_res_VO_exist(vo_rgs, vo_yamls, contacts)
-    if support_centers: errors += test_16_sc_contact_verify(contacts, support_centers)
+    if support_centers:
+        errors += test_16_sc_contact_verify(contacts, support_centers)
 
 
     print("%d Resource Group files processed." % len(rgs))
@@ -448,7 +450,8 @@ def test_15_res_VO_exist(vo_rgs, vo_yamls, contacts):
     errors = 0
 
     for rg, rgfn in zip(vo_rgs,vo_yamls):
-        if rgfn.endswith("REPORTING_GROUPS.yaml"): continue
+        if rgfn.endswith("REPORTING_GROUPS.yaml"):
+            continue
         try:
             for con_type in rg["Contacts"]:
                 for contact in rg["Contacts"][con_type]:
