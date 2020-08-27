@@ -105,12 +105,13 @@ def main():
     warnings += test_11_res_sec_contact(rgs, rgfns)
     errors += test_12_res_contact_id_fmt(rgs, rgfns)
     errors += test_12_vo_contact_id_fmt(vos, vofns)
+    errors += test_12_sc_contact_id_fmt(support_centers)
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
     errors += test_13_vo_contacts_exist(vos, vofns, contacts)
+    errors += test_13_sc_contacts_exist(support_centers, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
     errors += test_14_vo_contacts_match(vos, vofns, contacts)
-    if support_centers:
-        errors += test_16_sc_contact_verify(contacts, support_centers)
+    errors += test_14_sc_contacts_match(support_centers, contacts)
 
 
     print("%d Resource Group files processed." % len(rgs))
@@ -343,6 +344,11 @@ def flatten_vo_contacts(vcs):
         for cd in ctype_l:
             yield ctype, cd.get("ID"), cd.get("Name")
 
+def flatten_sc_contacts(sccs):
+    for ctype,ctype_l in sorted(sccs.items()):
+        for cd in ctype_l:
+            yield ctype, cd.get("ID"), cd.get("Name")
+
 
 def test_9_res_contact_lists(rgs, rgfns):
     # verify resources have contact lists
@@ -434,6 +440,25 @@ def test_12_vo_contact_id_fmt(vos, vofns):
     return errors
 
 
+def test_12_sc_contact_id_fmt(support_centers):
+    # verify support center contact IDs are well-formed
+
+    errors = 0
+    if support_centers is None:
+        return 0
+
+    for scname,scdict in sorted(support_centers.items()):
+        sccs = scdict.get('Contacts')
+        if sccs:
+            for ctype, ID, name in flatten_sc_contacts(sccs):
+                if not re.search(r'^[0-9a-f]{40}$', ID):
+                    print_emsg_once('MalformedContactID')
+                    print("Support Center '%s' has malformed '%s'"
+                          " Contact ID '%s' (%s)" % (scname, ctype, ID, name))
+                    errors += 1
+    return errors
+
+
 def test_13_res_contacts_exist(rgs, rgfns, contacts):
     # verify resource contacts exist in contact repo
 
@@ -468,6 +493,25 @@ def test_13_vo_contacts_exist(vos, vofns, contacts):
                     errors += 1
 
     return errors
+
+def test_13_sc_contacts_exist(support_centers, contacts):
+    # verify support center contacts exist in contact repo
+
+    errors = 0
+    if support_centers is None:
+        return 0
+
+    for scname,scdict in sorted(support_centers.items()):
+        sccs = scdict.get('Contacts')
+        if sccs:
+            for ctype, ID, name in flatten_sc_contacts(sccs):
+                if re.search(r'^[0-9a-f]{40}$', ID) and ID not in contacts:
+                    print_emsg_once('UnknownContactID')
+                    print("Support Center '%s' has unknown '%s'"
+                          " Contact ID '%s' (%s)" % (scname, ctype, ID, name))
+                    errors += 1
+    return errors
+
 
 def test_14_res_contacts_match(rgs, rgfns, contacts):
     # verify resource contacts match contact repo
@@ -510,34 +554,24 @@ def test_14_vo_contacts_match(vos, vofns, contacts):
     return errors
 
 
-def test_16_sc_contact_verify(contacts, support_centers):
-    # verify the contacts in support center
+def test_14_sc_contacts_match(support_centers, contacts):
+    # verify support center contacts match contact repo
 
     errors = 0
+    if support_centers is None:
+        return 0
 
-    for group in support_centers:
-        try:
-            for contype in support_centers[group]["Contacts"]:
-                for contact in support_centers[group]["Contacts"][contype]:
-                    ID, name = contact["ID"], contact["Name"]
-                    if not re.search(r'^[0-9a-f]{40}$', ID):
-                        print_emsg_once('MalformedContactID')
-                        print("The '%s' for support center '%s' has malformed ID: '%s'" % (contype, group, ID))
-                        errors += 1
-                    else:
-                        if ID not in contacts:
-                            print_emsg_once('UnknownContactID')
-                            print("The '%s' for support center '%s' has unknown ID '%s'" % (contype, group, ID))
-                            errors += 1
-                        else:
-                            if name != contacts[ID]:
-                                print_emsg_once('ContactNameMismatch')
-                                print("In '%s' for support center '%s', the name '%s' with ID '%s' does not match "
-                                      "name in contact repo '%s'" % (contype, group, name, ID, contacts[ID]))
-                                errors += 1
-        except KeyError:
-            pass
-
+    for scname,scdict in sorted(support_centers.items()):
+        sccs = scdict.get('Contacts')
+        if sccs:
+            for ctype, ID, name in flatten_sc_contacts(sccs):
+                if (re.search(r'^[0-9a-f]{40}$', ID)
+                    and ID in contacts and name != contacts[ID]):
+                    print_emsg_once('ContactNameMismatch')
+                    print("Support Center '%s': '%s' Contact ID '%s' (%s)"
+                          " does not match name in contact repo (%s)" %
+                          (scname, ctype, ID, name, contacts[ID]))
+                    errors += 1
     return errors
 
 
