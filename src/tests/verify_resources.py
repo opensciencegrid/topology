@@ -36,6 +36,9 @@ class autodict(collections.defaultdict):
 def rgfilter(fn):
     return not (fn.endswith("_downtime.yaml") or fn.endswith("/SITE.yaml"))
 
+def vofilter(fn):
+    return not fn.endswith("/REPORTING_GROUPS.yaml")
+
 def rgname(fn):
     return re.search(r'/([^/]+)\.yaml$', fn).group(1)
 
@@ -69,15 +72,17 @@ def get_contacts():
     return dict(map(user_id_name, users))
 
 def main():
-    os.chdir(_topdir + "/topology")
+    os.chdir(_topdir)
+    vo_yamls = sorted(glob.glob("virtual-organizations/*.yaml")
+    vofns = list(filter(vofilter, vo_yamls))
+    vos = list(map(load_yamlfile, vofns))
 
+    os.chdir("topology")
     contacts = get_contacts()
     yamls = sorted(glob.glob("*/*/*.yaml"))
     rgfns = list(filter(rgfilter, yamls))
     rgs = list(map(load_yamlfile, rgfns))
     #facility_site_rg = [ fn[:-len(".yaml")].split('/') for fn in rgfns ]
-    vo_yamls = sorted(glob.glob(_topdir + "/virtual-organizations/*.yaml"))
-    vo_rgs = list(map(load_yamlfile, vo_yamls))
     support_centers = load_yamlfile("support-centers.yaml")
 
     errors = 0
@@ -99,9 +104,11 @@ def main():
     warnings += test_10_res_admin_contact(rgs, rgfns)
     warnings += test_11_res_sec_contact(rgs, rgfns)
     errors += test_12_res_contact_id_fmt(rgs, rgfns)
+    errors += test_12_vo_contact_id_fmt(vos, vofns)
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
+    errors += test_13_vo_contacts_exist(vos, vofns, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
-    errors += test_15_res_VO_exist(vo_rgs, vo_yamls, contacts)
+    errors += test_14_vo_contacts_match(vos, vofns, contacts)
     if support_centers:
         errors += test_16_sc_contact_verify(contacts, support_centers)
 
@@ -331,6 +338,11 @@ def flatten_res_contacts(rcls):
         for clevel,clevel_d in sorted(ctype_d.items()):
             yield ctype, clevel, clevel_d.get("ID"), clevel_d.get("Name")
 
+def flatten_vo_contacts(vcs):
+    for ctype,ctype_l in sorted(rcls.items()):
+        for cd in ctype_l:
+            yield ctype, cd.get("ID"), cd.get("Name")
+
 
 def test_9_res_contact_lists(rgs, rgfns):
     # verify resources have contact lists
@@ -405,6 +417,23 @@ def test_12_res_contact_id_fmt(rgs, rgfns):
     return errors
 
 
+def test_12_vo_contact_id_fmt(vos, vofns):
+    # verify vo contact IDs are well-formed
+
+    errors = 0
+
+    for vo,vofn in zip(vos,vofns):
+        vcs = vo.get('Contacts')
+        if vcs:
+            for ctype, ID, name in flatten_vo_contacts(vcs):
+                if not re.search(r'^[0-9a-f]{40}$', ID):
+                    print_emsg_once('MalformedContactID')
+                    print("In '%s', malformed '%s' Contact ID '%s'"
+                          " (%s)" % (vofn, ctype, ID, name))
+                    errors += 1
+    return errors
+
+
 def test_13_res_contacts_exist(rgs, rgfns, contacts):
     # verify resource contacts exist in contact repo
 
@@ -420,6 +449,23 @@ def test_13_res_contacts_exist(rgs, rgfns, contacts):
                         print("In '%s', Resource '%s' has unknown %s %s '%s'"
                               " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
                         errors += 1
+
+    return errors
+
+def test_13_vo_contacts_exist(vos, vofns, contacts):
+    # verify vo contacts exist in contact repo
+
+    errors = 0
+
+    for vo,vofn in zip(vos,vofns):
+        vcs = vo.get('Contacts')
+        if vcs:
+            for ctype, ID, name in flatten_vo_contacts(vcs):
+                if re.search(r'^[0-9a-f]{40}$', ID) and ID not in contacts:
+                    print_emsg_once('UnknownContactID')
+                    print("In '%s', unknown '%s' Contact ID '%s'"
+                          " (%s)" % (vofn, ctype, ID, name))
+                    errors += 1
 
     return errors
 
@@ -444,38 +490,25 @@ def test_14_res_contacts_match(rgs, rgfns, contacts):
     return errors
 
 
-def test_15_res_VO_exist(vo_rgs, vo_yamls, contacts):
-    # verify VO contacts exist in contact repo
+def test_14_vo_contacts_match(vos, vofns, contacts):
+    # verify vo contacts match contact repo
 
     errors = 0
 
-    for rg, rgfn in zip(vo_rgs,vo_yamls):
-        if rgfn.endswith("REPORTING_GROUPS.yaml"):
-            continue
-        try:
-            for con_type in rg["Contacts"]:
-                for contact in rg["Contacts"][con_type]:
-                    ID, name = contact["ID"], contact["Name"]
-                    if not re.search(r'^[0-9a-f]{40}$', ID):
-                        print_emsg_once('MalformedContactID')
-                        print("In '%s', the contact for '%s' has malformed ID: '%s'" % (rgfn, name, ID))
-                        errors += 1
-                    else:
-                        if ID not in contacts:
-                            print_emsg_once('UnknownContactID')
-                            print("In '%s', contact %s has unknown ID '%s'" % (rgfn, name, ID))
-                            errors += 1
-                        else:
-                            if name != contacts[ID]:
-                                print_emsg_once('ContactNameMismatch')
-                                print("In '%s', the name '%s' for '%s' does not match name in contact repo '%s'"
-                                      % (rgfn, name, ID, contacts[ID]))
-                                errors += 1
-
-        except KeyError:
-            pass
+    for vo,vofn in zip(vos,vofns):
+        vcs = vo.get('Contacts')
+        if vcs:
+            for ctype, ID, name in flatten_vo_contacts(vcs):
+                if (re.search(r'^[0-9a-f]{40}$', ID)
+                    and ID in contacts and name != contacts[ID]):
+                    print_emsg_once('ContactNameMismatch')
+                    print("In '%s', '%s' Contact ID '%s' (%s) does not"
+                          " match name in contact repo (%s)" % (vofn, ctype,
+                          ID, name, contacts[ID]))
+                    errors += 1
 
     return errors
+
 
 def test_16_sc_contact_verify(contacts, support_centers):
     # verify the contacts in support center
