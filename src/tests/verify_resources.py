@@ -85,15 +85,12 @@ def main():
     if any( rg is None for rg in rgs ):
         errors += sum( rg is None for rg in rgs )
         rgs, rgfns = filter_out_None_rgs(rgs, rgfns)
-    if support_centers is None:
-        errors += 1
 
     errors += test_1_rg_unique(rgs, rgfns)
     errors += test_2_res_unique(rgs, rgfns)
     errors += test_3_voownership(rgs, rgfns)
     errors += test_4_res_svcs(rgs, rgfns)
-    if support_centers:
-        errors += test_5_sc(rgs, rgfns, support_centers)
+    errors += test_5_sc(rgs, rgfns, support_centers)
     errors += test_6_site()
     # re-enable fqdn errors after SOFTWARE-3330
     # warnings += test_7_fqdn_unique(rgs, rgfns)
@@ -248,6 +245,9 @@ def test_5_sc(rgs, rgfns, support_centers):
     # 5. SupportCenter must refer to an existing SC
 
     errors = 0
+    if support_centers is None:
+        print("File missing: 'topology/support-centers.yaml'")
+        return 1
 
     for rg,rgfn in zip(rgs,rgfns):
         sc = rg.get('SupportCenter')
