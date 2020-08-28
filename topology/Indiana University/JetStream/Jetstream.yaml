@@ -21,4 +21,28 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
+  OSG_US_IU_JETSTREAM:
+    ID: 1015
+    Description: JetStream IU CE
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+        Secondary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+      Security Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+        Secondary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+    FQDN: js-157-32.jetstream-cloud.org
+    Services:
+      CE:
+        Description: JetStream IU CE
+        Details:
+          hidden: false
 SupportCenter: osg-glidein-factory

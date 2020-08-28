@@ -379,3 +379,212 @@
   Services:
   - XRootD component
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 279906262
+  Description: Rack Rearrangement
+  Severity: Outage
+  StartTime: Jul 19, 2019 13:00 +0000
+  EndTime: Jul 19, 2019 21:00 +0000
+  CreatedTime: Jul 12, 2019 23:03 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 279906848
+  Description: Rack Rearrangement
+  Severity: Outage
+  StartTime: Jul 19, 2019 13:00 +0000
+  EndTime: Jul 19, 2019 21:00 +0000
+  CreatedTime: Jul 12, 2019 23:04 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 285669653
+  Description: Rack rearrangement due to SE work
+  Severity: Outage
+  StartTime: Jul 19, 2019 13:00 +0000
+  EndTime: Jul 19, 2019 21:00 +0000
+  CreatedTime: Jul 19, 2019 15:09 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 285670310
+  Description: Rack rearrangement due to SE work
+  Severity: Outage
+  StartTime: Jul 19, 2019 13:00 +0000
+  EndTime: Jul 19, 2019 21:00 +0000
+  CreatedTime: Jul 19, 2019 15:10 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 285670562
+  Description: Rack rearrangement due to SE work
+  Severity: Outage
+  StartTime: Jul 19, 2019 13:00 +0000
+  EndTime: Jul 19, 2019 21:00 +0000
+  CreatedTime: Jul 19, 2019 15:10 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 325391315
+  Description: OSG upgrade to 3.5.0
+  Severity: Outage
+  StartTime: Sep 03, 2019 15:00 +0000
+  EndTime: Sep 03, 2019 23:00 +0000
+  CreatedTime: Sep 03, 2019 14:32 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 326407926
+  Description: Upgrade to RHEL7, firmware, and OSG 3.5.0
+  Severity: Outage
+  StartTime: Sep 04, 2019 19:00 +0000
+  EndTime: Sep 05, 2019 03:00 +0000
+  CreatedTime: Sep 04, 2019 18:46 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 355704989
+  Description: Upgrade to RHEL7, firmware, and OSG 3.5.0
+  Severity: Outage
+  StartTime: Oct 09, 2019 13:00 +0000
+  EndTime: Oct 09, 2019 21:00 +0000
+  CreatedTime: Oct 08, 2019 16:34 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 355705925
+  Description: Upgrade to RHEL7, firmware, and OSG 3.5.0
+  Severity: Outage
+  StartTime: Oct 09, 2019 13:00 +0000
+  EndTime: Oct 09, 2019 21:00 +0000
+  CreatedTime: Oct 08, 2019 16:36 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 355706250
+  Description: Upgrade to RHEL7, firmware, and OSG 3.5.0
+  Severity: Outage
+  StartTime: Oct 09, 2019 13:00 +0000
+  EndTime: Oct 09, 2019 21:00 +0000
+  CreatedTime: Oct 08, 2019 16:37 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 409186425
+  Description: Hardware issue
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2019 13:00 +0000
+  EndTime: Dec 09, 2019 21:00 +0000
+  CreatedTime: Dec 10, 2019 04:00 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 431706818
+  Description: lustre hardware issue (Controller)
+  Severity: Outage
+  StartTime: Jan 04, 2020 13:00 +0000
+  EndTime: Jan 13, 2020 19:00 +0000
+  CreatedTime: Jan 04, 2020 14:44 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 431707356
+  Description: lustre hardware issue (Controller)
+  Severity: Outage
+  StartTime: Jan 04, 2020 13:00 +0000
+  EndTime: Jan 13, 2020 19:00 +0000
+  CreatedTime: Jan 04, 2020 14:45 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 431707552
+  Description: lustre hardware issue (Controller)
+  Severity: Outage
+  StartTime: Jan 04, 2020 13:00 +0000
+  EndTime: Jan 13, 2020 19:00 +0000
+  CreatedTime: Jan 04, 2020 14:45 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 431707714
+  Description: lustre hardware issue (Controller)
+  Severity: Outage
+  StartTime: Jan 04, 2020 13:00 +0000
+  EndTime: Jan 13, 2020 19:00 +0000
+  CreatedTime: Jan 04, 2020 14:46 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 621740636
+  Description: cvmfs intervention due to the OS upgrade.
+  Severity: Outage
+  StartTime: Aug 12, 2020 15:00 +0000
+  EndTime: Aug 12, 2020 23:00 +0000
+  CreatedTime: Aug 11, 2020 14:27 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 621741703
+  Description: cvmfs intervention due to the OS upgrade.
+  Severity: Outage
+  StartTime: Aug 12, 2020 15:00 +0000
+  EndTime: Aug 12, 2020 23:00 +0000
+  CreatedTime: Aug 11, 2020 14:29 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 621741011
+  Description: cvmfs intervention due to the OS upgrade.
+  Severity: Outage
+  StartTime: Aug 12, 2020 15:00 +0000
+  EndTime: Aug 13, 2020 23:00 +0000
+  CreatedTime: Aug 11, 2020 14:28 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 621741288
+  Description: cvmfs intervention due to the OS upgrade.
+  Severity: Outage
+  StartTime: Aug 12, 2020 15:00 +0000
+  EndTime: Aug 13, 2020 23:00 +0000
+  CreatedTime: Aug 11, 2020 14:28 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------

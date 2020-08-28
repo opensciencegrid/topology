@@ -239,4 +239,139 @@
   - CE
   - GridFtp
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 287991856
+  Description: Rebuilding entire cluster
+  Severity: Outage
+  StartTime: Jul 23, 2019 18:00 +0000
+  EndTime: Jul 25, 2019 10:00 +0000
+  CreatedTime: Jul 22, 2019 07:39 +0000
+  ResourceName: UTA_SWT2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 287994587
+  Description: Rebuilding entire cluster
+  Severity: Outage
+  StartTime: Jul 23, 2019 18:00 +0000
+  EndTime: Jul 25, 2019 10:00 +0000
+  CreatedTime: Jul 22, 2019 07:44 +0000
+  ResourceName: UTA_SWT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 287994955
+  Description: Rebuilding entire cluster
+  Severity: Outage
+  StartTime: Jul 23, 2019 18:00 +0000
+  EndTime: Jul 24, 2019 23:00 +0000
+  CreatedTime: Jul 22, 2019 07:44 +0000
+  ResourceName: UTA_SWT2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 373991346
+  Description: Electrical work in the facility over the next few days
+  Severity: Outage
+  StartTime: Oct 30, 2019 12:00 +0000
+  EndTime: Nov 01, 2019 12:00 +0000
+  CreatedTime: Oct 29, 2019 20:32 +0000
+  ResourceName: UTA_SWT2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 373993748
+  Description: Electrical work in the facility over the next few days
+  Severity: Outage
+  StartTime: Oct 30, 2019 12:00 +0000
+  EndTime: Nov 01, 2019 12:00 +0000
+  CreatedTime: Oct 29, 2019 20:36 +0000
+  ResourceName: UTA_SWT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 373994025
+  Description: Electrical work in the facility over the next few days
+  Severity: Outage
+  StartTime: Oct 30, 2019 12:00 +0000
+  EndTime: Nov 01, 2019 12:00 +0000
+  CreatedTime: Oct 29, 2019 20:36 +0000
+  ResourceName: UTA_SWT2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 410404428
+  Description: Campus Network disrruption has isolated cluster
+  Severity: Outage
+  StartTime: Dec 10, 2019 23:00 +0000
+  EndTime: Dec 11, 2019 07:30 +0000
+  CreatedTime: Dec 10, 2019 23:00 +0000
+  ResourceName: UTA_SWT2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 410405640
+  Description: Campus Network disrruption has isolated cluster
+  Severity: Outage
+  StartTime: Dec 10, 2019 23:00 +0000
+  EndTime: Dec 11, 2019 07:30 +0000
+  CreatedTime: Dec 10, 2019 23:02 +0000
+  ResourceName: UTA_SWT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 410405871
+  Description: Campus Network disrruption has isolated cluster
+  Severity: Outage
+  StartTime: Dec 10, 2019 23:00 +0000
+  EndTime: Dec 11, 2019 07:30 +0000
+  CreatedTime: Dec 10, 2019 23:03 +0000
+  ResourceName: UTA_SWT2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 418997804
+  Description: Network equipment is being moved within the facility
+  Severity: Outage
+  StartTime: Dec 21, 2019 14:00 +0000
+  EndTime: Dec 22, 2019 02:00 +0000
+  CreatedTime: Dec 20, 2019 21:43 +0000
+  ResourceName: UTA_SWT2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 418998222
+  Description: Network equipment is being moved within the facility
+  Severity: Outage
+  StartTime: Dec 21, 2019 14:00 +0000
+  EndTime: Dec 22, 2019 02:00 +0000
+  CreatedTime: Dec 20, 2019 21:43 +0000
+  ResourceName: UTA_SWT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 418998471
+  Description: Network equipment is being moved within the facility
+  Severity: Outage
+  StartTime: Dec 21, 2019 14:00 +0000
+  EndTime: Dec 22, 2019 02:00 +0000
+  CreatedTime: Dec 20, 2019 21:44 +0000
+  ResourceName: UTA_SWT2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------

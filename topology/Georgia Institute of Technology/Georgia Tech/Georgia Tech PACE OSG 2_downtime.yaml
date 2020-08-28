@@ -1,0 +1,35 @@
+- Class: SCHEDULED
+  ID: 616857515
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Aug 06, 2020 10:00 +0000
+  EndTime: Aug 09, 2020 03:59 +0000
+  CreatedTime: Aug 05, 2020 22:49 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 616857641
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Aug 06, 2020 10:00 +0000
+  EndTime: Aug 09, 2020 03:59 +0000
+  CreatedTime: Aug 05, 2020 22:49 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 616857748
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Aug 06, 2020 10:00 +0000
+  EndTime: Aug 09, 2020 03:59 +0000
+  CreatedTime: Aug 05, 2020 22:49 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------

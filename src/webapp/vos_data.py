@@ -5,7 +5,7 @@ from logging import getLogger
 from typing import Dict, List, Optional
 
 
-from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list
+from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict
 from .contacts_reader import ContactsData
 
 
@@ -78,7 +78,11 @@ class VOsData(object):
         oasis = OrderedDict.fromkeys(["UseOASIS", "Managers", "OASISRepoURLs"])
         oasis["UseOASIS"] = vo.get("OASIS", {}).get("UseOASIS", False)
         if not is_null(vo, "OASIS", "Managers"):
-            oasis["Managers"] = self._expand_oasis_managers(vo["OASIS"]["Managers"])
+            managers = vo["OASIS"]["Managers"]
+            if isinstance(managers, dict):
+                oasis["Managers"] = self._expand_oasis_legacy_managers(managers)
+            else:
+                oasis["Managers"] = self._expand_oasis_managers(managers)
         if not is_null(vo, "OASIS", "OASISRepoURLs"):
             oasis["OASISRepoURLs"] = {"URL": vo["OASIS"]["OASISRepoURLs"]}
         new_vo["OASIS"] = oasis
@@ -98,18 +102,21 @@ class VOsData(object):
         for type_, list_ in vo_contacts.items():
             contact_items = []
             for contact in list_:
+                contact_id = contact["ID"]
                 new_contact = OrderedDict([("Name", contact["Name"])])
-                if authorized and self.contacts_data:
-                    if contact["ID"] in self.contacts_data.users_by_id:
-                        extra_data = self.contacts_data.users_by_id[contact["ID"]]
-                        new_contact["Email"] = extra_data.email
-                        new_contact["Phone"] = extra_data.phone
-                        new_contact["SMSAddress"] = extra_data.sms_address
-                        dns = extra_data.dns
-                        if dns:
-                            new_contact["DN"] = dns[0]
+                if self.contacts_data:
+                    user = self.contacts_data.users_by_id.get(contact_id)
+                    if user:
+                        new_contact["CILogonID"] = user.cilogon_id
+                        if authorized:
+                            new_contact["Email"] = user.email
+                            new_contact["Phone"] = user.phone
+                            new_contact["SMSAddress"] = user.sms_address
+                            dns = user.dns
+                            if dns:
+                                new_contact["DN"] = dns[0]
                     else:
-                        log.warning("id %s not found for %s", contact["ID"], contact["Name"])
+                        log.warning("id %s not found for %s", contact_id, contact["Name"])
                 contact_items.append(new_contact)
             new_contacttypes.append({"Type": type_, "Contacts": {"Contact": contact_items}})
         return {"ContactType": new_contacttypes}
@@ -131,8 +138,7 @@ class VOsData(object):
             new_fields["SecondaryFields"] = {"Field": fields_of_science["SecondaryFields"]}
         return new_fields
 
-    @staticmethod
-    def _expand_oasis_managers(managers):
+    def _expand_oasis_legacy_managers(self, managers):
         """Expand
         {"a": {"DNs": [...]}}
         into
@@ -144,8 +150,37 @@ class VOsData(object):
                 new_managers[name]["DNs"] = {"DN": data["DNs"]}
             else:
                 new_managers[name]["DNs"] = None
-        return {"Manager": expand_attr_list(new_managers, "Name", ordering=["ContactID", "Name", "DNs"],
+
+            new_managers[name]["CILogonID"] = None
+            if self.contacts_data:
+                user = self.contacts_data.users_by_id.get(data["ID"])
+                if user:
+                    new_managers[name]["CILogonID"] = user.cilogon_id
+        return {"Manager": expand_attr_list(new_managers, "Name", ordering=["Name", "CILogonID", "DNs"],
                                             ignore_missing=True)}
+
+    def _expand_oasis_managers(self, managers):
+        """Expand
+        [{"Name", "a", "DNs": [...]}, ...]
+        into
+        {"Manager": [{"Name": "a", "DNs": {"DN": [...]}}, ...]}
+        """
+        new_managers = copy.deepcopy(managers)
+        for i, data in enumerate(managers):
+            if not is_null(data, "DNs"):
+                new_managers[i]["DNs"] = {"DN": data["DNs"]}
+            else:
+                new_managers[i]["DNs"] = None
+            new_managers[i]["CILogonID"] = None
+            if self.contacts_data:
+                user = self.contacts_data.users_by_id.get(data["ID"])
+                if user:
+                    new_managers[i]["CILogonID"] = user.cilogon_id
+
+        def order_manager_dict(m):
+            return order_dict(m, ordering=["Name", "CILogonID", "DNs"], ignore_missing=True)
+
+        return {"Manager": list(map(order_manager_dict, new_managers))}
 
     def _expand_reporting_groups(self, reporting_groups_list: List, authorized: bool) -> Dict:
         new_reporting_groups = {}

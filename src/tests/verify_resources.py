@@ -112,6 +112,8 @@ def main():
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
     errors += test_14_vo_contacts_match(vos, vofns, contacts)
     errors += test_14_sc_contacts_match(support_centers, contacts)
+    errors += test_15_facility_site_files()
+    errors += test_16_Xrootd_DNs(rgs, rgfns)
 
 
     print("%d Resource Group files processed." % len(rgs))
@@ -150,6 +152,9 @@ _emsgs = {
     'MalformedContactID'     : "Contact IDs must be exactly 40 hex digits",
     'UnknownContactID'       : "Contact IDs must exist in contact repo",
     'ContactNameMismatch'    : "Contact names must match in contact repo",
+    'NoFacility'             : "Facility directories must contain a FACILITY.yaml",
+    'NoSite'                 : "Site directories must contain a SITE.yaml",
+    'XrootdWithoutDN'        : "Xrootd cache server must provide a DN"
 }
 
 def print_emsg_once(msgtype):
@@ -572,6 +577,42 @@ def test_14_sc_contacts_match(support_centers, contacts):
                           " does not match name in contact repo (%s)" %
                           (scname, ctype, ID, name, contacts[ID]))
                     errors += 1
+
+    return errors
+
+
+def test_15_facility_site_files():
+    # verify the required FACILITY.yaml and SITE.yaml files
+    errors = 0
+
+    for facdir in glob.glob("*/"):
+        if not os.path.exists(facdir + "FACILITY.yaml"):
+            print_emsg_once('NoFacility')
+            print(facdir[:-1] + " does not have required FACILITY.yaml file")
+            errors += 1
+
+    for sitedir in glob.glob("*/*/"):
+        if not os.path.exists(sitedir + "SITE.yaml"):
+            print_emsg_once('NoSite')
+            print(sitedir[:-1] + " does not have required SITE.yaml file")
+            errors += 1
+
+    return errors
+
+
+def test_16_Xrootd_DNs(rgs, rgfns):
+    # verify each Xrootd service has DN
+
+    errors = 0
+
+    for rg, rgfn in zip(rgs, rgfns):
+        for rname, rdict in sorted(rg['Resources'].items()):
+            if 'XRootD cache server' in rdict['Services'] and rdict['Active'] and 'DN' not in rdict:
+                print_emsg_once('XrootdWithoutDN')
+                print("In '%s', Xrootd cache server Resource '%s' has no DN" %
+                      (rgfn, rname))
+                errors += 1
+
     return errors
 
 

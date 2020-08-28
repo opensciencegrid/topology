@@ -1,0 +1,35 @@
+GroupDescription: Opportunistic resources utilized by the Tier 1.
+GroupID: 453
+Production: true
+Resources:
+  BNL_CLOUD:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+      Miscellaneous Contact:
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+      Resource Report Contact:
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: Submit host for ATLAS backfill on our Institutional Openstack Cloud
+    FQDN: gridtest06.racf.bnl.gov
+    ID: 836
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+          uri_override: gridtest06.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS
