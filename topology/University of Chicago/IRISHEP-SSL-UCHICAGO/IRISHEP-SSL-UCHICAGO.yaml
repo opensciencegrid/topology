@@ -1,0 +1,33 @@
+GroupDescription: IRIS-HEP SSL backfill container resources
+GroupID: 534
+Production: true
+SupportCenter: Self Supported
+Resources:
+  IRISHEP-SSL-UCHICAGO:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+      Security Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+    Description: MWT2-hosted resources for Connect-related submitters. Supporting
+      OSG via direct flocking to WN containers
+    # Dummy FQDN so it doesn't match Batch records, but the resource
+    # will match Payload records in GRACC
+    FQDN: ssl-flocking-wns.grid.uchicago.edu
+    ID: 1050 
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: true

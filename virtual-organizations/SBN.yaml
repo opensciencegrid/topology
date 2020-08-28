@@ -19,13 +19,14 @@ LongName: Short-Baseline Neutrino Program
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
 OASIS:
   Managers:
-    Joe Boyd:
+    - Name: Joe Boyd
       DNs:
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
       ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
   OASISRepoURLs:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/sbn.osgstorage.org/
+  - http://oasiscfs.fnal.gov:8000/cvmfs/sbn.opensciencegrid.org/
   UseOASIS: true
 ParentVO:
   ID: 9

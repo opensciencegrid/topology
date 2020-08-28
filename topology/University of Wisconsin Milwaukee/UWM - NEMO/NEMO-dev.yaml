@@ -1,0 +1,25 @@
+Disable: false
+Production: false
+SupportCenter: Self Supported
+GroupID: 529
+GroupDescription: The UWM-NEMO testing and development nodes
+Resources:
+  NEMO-submit-dev:
+    ID: 1046
+    Active: false
+    Description: UWM-NEMO testing and development submit node for NEMO cluster.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Shawn Kwang
+          ID: 115b5c0fb1a160df841dde4591b96c180ba6d778
+      Security Contact:
+        Primary:
+          Name: Shawn Kwang
+          ID: 115b5c0fb1a160df841dde4591b96c180ba6d778
+    FQDN: submit-osg-dev.ligo.uwm.edu
+    Services:
+      Submit Node:
+        Description: testing/development OSG Submit Node
+        Details:
+          hidden: false

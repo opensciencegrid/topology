@@ -9,7 +9,7 @@ import icalendar
 
 from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
     is_null, expand_attr_list_single, expand_attr_list, ensure_list
-from .contacts_reader import ContactsData
+from .contacts_reader import ContactsData, User
 
 GRIDTYPE_1 = "OSG Production Resource"
 GRIDTYPE_2 = "OSG Integration Test Bed Resource"
@@ -87,8 +87,8 @@ class Resource(object):
             "WLCGInformation": "(Information not available)",
         }
 
-        new_res = OrderedDict.fromkeys(["ID", "Name", "Active", "Disable", "Services", "Description",
-                                        "FQDN", "FQDNAliases", "VOOwnership",
+        new_res = OrderedDict.fromkeys(["ID", "Name", "Active", "Disable", "Services", "Tags",
+                                        "Description", "FQDN", "FQDNAliases", "VOOwnership",
                                         "WLCGInformation", "ContactLists"])
         new_res.update(defaults)
         new_res.update(self.data)
@@ -125,6 +125,8 @@ class Resource(object):
             new_res["WLCGInformation"] = self._expand_wlcginformation(self.data["WLCGInformation"])
         elif filters.has_wlcg is True:
             return
+        if "Tags" in self.data:
+            new_res["Tags"] = self._expand_tags(self.data["Tags"])
 
         # The topology XML schema cannot handle this additional data.  Given how inflexible
         # the XML has been (and mostly seen as there for backward compatibility), this simply
@@ -142,6 +144,9 @@ class Resource(object):
             svc["ID"] = self.service_types[svc["Name"]]
             svc.move_to_end("ID", last=False)
         return services_list
+
+    def _expand_tags(self, tags: List) -> List[Dict]:
+        return [ {"Tag": tag} for tag in tags ]
 
     @staticmethod
     def _expand_voownership(voownership: Dict) -> OrderedDict:
@@ -185,13 +190,14 @@ class Resource(object):
             contact_data = expand_attr_list(contact_data, "ContactRank", ["Name", "ID", "ContactRank"], ignore_missing=True)
             for contact in contact_data:
                 contact_id = contact.pop("ID", None)  # ID is for internal use - don't put it in the results
-                if authorized and self.common_data.contacts:
-                    if contact_id in self.common_data.contacts.users_by_id:
-                        extra_data = self.common_data.contacts.users_by_id[contact_id]
-                        contact["Email"] = extra_data.email
-                        contact["Phone"] = extra_data.phone
-                        contact["SMSAddress"] = extra_data.sms_address
-                        dns = extra_data.dns
+                if self.common_data.contacts and contact_id in self.common_data.contacts.users_by_id:
+                    user = self.common_data.contacts.users_by_id[contact_id]  # type: User
+                    contact["CILogonID"] = user.cilogon_id
+                    if authorized:
+                        contact["Email"] = user.email
+                        contact["Phone"] = user.phone
+                        contact["SMSAddress"] = user.sms_address
+                        dns = user.dns
                         if dns:
                             contact["DN"] = dns[0]
                         contact.move_to_end("ContactRank", last=True)

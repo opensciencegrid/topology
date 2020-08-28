@@ -84,3 +84,27 @@
   - CE
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 579465543
+  Description: Trying to set downtime again
+  Severity: Outage
+  StartTime: Jun 23, 2020 12:00 +0000
+  EndTime: Jun 23, 2020 18:00 +0000
+  CreatedTime: Jun 23, 2020 16:09 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 620849981
+  Description: Hardware error in central BU N7K module.  Network engineers are working
+    on it.  DDM and production are down.
+  Severity: Outage
+  StartTime: Aug 10, 2020 00:01 +0000
+  EndTime: Aug 10, 2020 17:00 +0000
+  CreatedTime: Aug 10, 2020 13:43 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+# ---------------------------------------------------------

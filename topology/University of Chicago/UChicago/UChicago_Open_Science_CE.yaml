@@ -1,0 +1,58 @@
+# TODO Change this to "true" once this is truly up and running.
+Production: false
+SupportCenter: Self Supported
+
+GroupDescription: These are the Open Science CE resources hosted at UChicago.
+
+GroupID: 533
+
+# Resources contains one or more resources in this
+# ResourceGroup. A resource provides one or more services
+Resources:
+  UChicago_Open_Science_CE1:
+    Active: false
+    Description: The first Open Science CE - a combination CE and flocking submit host
+    ID: 1049
+    ContactLists:
+      # Administrative Contact is one to three people to contact regarding administrative issues
+      Administrative Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+        Secondary:
+          Name: Brian Lin
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+        Tertiary:
+          Name: Brian Bockelman
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+
+      Security Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+        Secondary:
+          Name: Brian Lin
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+        Tertiary:
+          Name: Brian Bockelman
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+
+    FQDN: ce1.opensciencegrid.org
+    ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
+    # FQDNAliases:
+    #   - <HOSTNAME1>
+    #   - <HOSTNAME2>
+
+    # Services is one or more services provided by this resource;
+    # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
+    Services:
+      CE:
+        Description: The CE part of this Open Science CE
+        Details:
+          hidden: false
+
+      Submit Node:
+        Description: The submit part of this Open Science CE
+        Details:
+          hidden: false
+
