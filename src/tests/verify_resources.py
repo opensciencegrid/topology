@@ -162,6 +162,7 @@ def print_emsg_once(msgtype):
         print("*** %s" % _emsgs[msgtype])
         del _emsgs[msgtype]
 
+
 def test_1_rg_unique(rgs, rgfns):
     # 1. Name (file name) of RG must be unique across all sites
 
@@ -297,6 +298,7 @@ def test_6_site():
 
     return errors
 
+
 def test_7_fqdn_unique(rgs, rgfns):
     # fqdns should be unique across all resources in all sites
     # Just warning for now until we are able to enforce it (SOFTWARE-3374)
@@ -319,6 +321,7 @@ def test_7_fqdn_unique(rgs, rgfns):
 
     return errors
 
+
 def test_8_res_ids(rgs, rgfns):
     # Check that resources/resource groups have a numeric ID/GroupID
 
@@ -339,15 +342,18 @@ def test_8_res_ids(rgs, rgfns):
 
     return errors
 
+
 def flatten_res_contacts(rcls):
     for ctype,ctype_d in sorted(rcls.items()):
         for clevel,clevel_d in sorted(ctype_d.items()):
             yield ctype, clevel, clevel_d.get("ID"), clevel_d.get("Name")
 
+
 def flatten_vo_contacts(vcs):
     for ctype,ctype_l in sorted(rcls.items()):
         for cd in ctype_l:
             yield ctype, cd.get("ID"), cd.get("Name")
+
 
 def flatten_sc_contacts(sccs):
     for ctype,ctype_l in sorted(sccs.items()):
@@ -482,6 +488,7 @@ def test_13_res_contacts_exist(rgs, rgfns, contacts):
 
     return errors
 
+
 def test_13_vo_contacts_exist(vos, vofns, contacts):
     # verify vo contacts exist in contact repo
 
@@ -498,6 +505,7 @@ def test_13_vo_contacts_exist(vos, vofns, contacts):
                     errors += 1
 
     return errors
+
 
 def test_13_sc_contacts_exist(support_centers, contacts):
     # verify support center contacts exist in contact repo
