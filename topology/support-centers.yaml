@@ -52,20 +52,12 @@ CCSUP:
   LongName: CancerComputer Support
 CERN:
   Community: Community information missing!
-  Contacts:
-    Notifications Contact:
-    Operations Contact (Ticketing):
-    Security Contact:
   Description: Support from CERN
   ID: 33
   LongName: CERN Support Center
 Community Support Center:
   Community: Serves any OSG user whose support needs exceed the services of their
     local Support Center (if one exists).
-  Contacts:
-    Notifications Contact:
-    Operations Contact (Ticketing):
-    Security Contact:
   Description: Mailing list designed to provide community support.  Organizational
     Support Centers will make
   ID: 3
@@ -126,11 +118,6 @@ DZero:
   LongName: D0 Experiment at Fermilab
 Engagement:
   Community: Support center for Engagement activities and the Engagement VO.
-  Contacts:
-    Miscellaneous Contact:
-    Notifications Contact:
-    Operations Contact (Ticketing):
-    Security Contact:
   Description: 'OSG Engagement Support Center (Meta: changed shortname to Engagement
     to sync with FP - agopu 2008-11-07)'
   ID: 6
@@ -190,7 +177,6 @@ Fermilab_FIFE_Offsite:
       Name: Tanya Levshina
     - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
       Name: Joe Boyd
-    Security Contact:
   Description: This is for support of Fermilab VO  and their sub-VO's for computing
     on the Open Science Grid, plus LBNE VO use of same.
   ID: 84
@@ -228,11 +214,6 @@ GC:
   LongName: GridColombia
 GGUS:
   Community: GGUS SC for OSG EGEE ticket exchange
-  Contacts:
-    Miscellaneous Contact:
-    Notifications Contact:
-    Operations Contact (Ticketing):
-    Security Contact:
   Description: 'GGUS SC for OSG EGEE ticket exchange (Meta: added to sync with FP
     - agopu 2008-11-07)'
   ID: 38
@@ -284,8 +265,6 @@ GLUEX:
 GPN:
   Community: This support center will provide support for the GPN VO.
   Contacts:
-    Notifications Contact:
-    Operations Contact (Ticketing):
     Security Contact:
     - ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
       Name: Brian Bockelman
@@ -395,17 +374,10 @@ LBNL-DSD-support:
     Miscellaneous Contact:
     - ID: cda4e68f952557d23d63ff6994d4f43991df2ff0
       Name: Brian Tierney
-    Notifications Contact:
-    Operations Contact (Ticketing):
-    Security Contact:
   Description: support for LBNL DSD ITB nodes
   ID: 15
 LC hotline:
   Community: Livermore Computing
-  Contacts:
-    Notifications Contact:
-    Operations Contact (Ticketing):
-    Security Contact:
   Description: The LC hotline provides technical consulting for Livermore Computing
     resources.
   ID: 51
@@ -413,8 +385,6 @@ LC hotline:
 LHCONE_SC:
   Community: WLCG
   Contacts:
-    Miscellaneous Contact:
-    Notifications Contact:
     Operations Contact (Ticketing):
     - ID: a833f94ad3840fe779702409c6b778d79aaed76f
       Name: Shawn McKee
@@ -428,11 +398,6 @@ LHCONE_SC:
   LongName: LHCONE Support Center
 LIGO:
   Community: The LIGO Scientific Collaboration
-  Contacts:
-    Miscellaneous Contact:
-    Notifications Contact:
-    Operations Contact (Ticketing):
-    Security Contact:
   Description: LIGO's goal is the detection of gravitational wave and their use in
     exploring the nature of gravity and as a tool of observational astronomy.
   ID: 16
@@ -440,11 +405,6 @@ LIGO:
 LSST:
   Community: This support center serves the Large Synoptic Survey Telescope user community
     running computations on the OSG
-  Contacts:
-    Miscellaneous Contact:
-    Notifications Contact:
-    Operations Contact (Ticketing):
-    Security Contact:
   Description: A large aperture, wide field survey telescope and 3200 Megapixel camera
     to image faint astronomical objects, rapidly scan the sky, and observe probes
     for dark matter and dark energy.
@@ -467,21 +427,11 @@ NERSC:
   ID: 19
 NWICG:
   Community: NorthWest Indiana Computational Grid http://www.nwicgrid.org/
-  Contacts:
-    Miscellaneous Contact:
-    Notifications Contact:
-    Operations Contact (Ticketing):
-    Security Contact:
   Description: NorthWest Indiana Computational Grid
   ID: 20
   LongName: Northwest Indiana Computational Grid
 NYSGRID:
   Community: Promote and enable research across New York State
-  Contacts:
-    Miscellaneous Contact:
-    Notifications Contact:
-    Operations Contact (Ticketing):
-    Security Contact:
   Description: NYSGRID VO Support Center
   ID: 43
   LongName: New York State Grid
@@ -560,7 +510,6 @@ SBGrid:
     Operations Contact (Ticketing):
     - ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
       Name: Piotr Sliz
-    Security Contact:
   Description: This support center will manage any users from the SBGrid or NEBioGrid
     VOs.  This covers members of the SBGrid Consortium, and also any life science
     researchers in the New England area.  Support is predominantly through web-based
@@ -589,10 +538,6 @@ SDCC:
   LongName: BNL Scientific Data and Computing Center
 STAR:
   Community: The STAR collaboration, www.star.bnl.gov.
-  Contacts:
-    Notifications Contact:
-    Operations Contact (Ticketing):
-    Security Contact:
   Description: Help for STAR VO
   ID: 25
   LongName: Solenoidal Tracker at RHIC Grid
@@ -623,11 +568,9 @@ SURAgrid GOC:
     Miscellaneous Contact:
     - ID: 2d57698fb41355073f4378e002a7cfb46aa66cd6
       Name: David Matthews-Morgan
-    Notifications Contact:
     Operations Contact (Ticketing):
     - ID: 2d57698fb41355073f4378e002a7cfb46aa66cd6
       Name: David Matthews-Morgan
-    Security Contact:
   Description: The SURAgrid GOC is a group of individuals at member institutions who
     are responsible for supporting grid activities.
   ID: 53
@@ -665,9 +608,6 @@ UC CI:
     Miscellaneous Contact:
     - ID: b91e3cfae9edc5c8a636e41073e8a3b4752bff7f
       Name: Robert William Gardner Jr
-    Notifications Contact:
-    Operations Contact (Ticketing):
-    Security Contact:
   Description: Computing Insitute at the University of Chicago
   ID: 27
   LongName: University of Chicago Teraport Cluster
@@ -803,11 +743,9 @@ USCMS:
     Miscellaneous Contact:
     - ID: d15cab2ba1421aca11ec451ae36a771822db0778
       Name: Burt Holzman
-    Notifications Contact:
     Operations Contact (Ticketing):
     - ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
       Name: Anthony Tiradani
-    Security Contact:
   Description: The VO is dedicated to analysis of CMS data in the US
   ID: 30
   LongName: United States Compact Muon Solenoid
@@ -840,16 +778,12 @@ USCMS_Tier3:
       Name: James Letts
     - ID: a5c1d5ed134376235903738c14faae452fcfe866
       Name: Kevin Lannon
-    Security Contact:
   Description: The VO is dedicated to analysis of CMS data in the US
   ID: 46
   LongName: United States Compact Muon Solenoid Tier-3
 UW-IT:
   Community: UW-IT provides critical technology support to all three campuses, UW
     medical centers, and research operations around the world.
-  Contacts:
-    Miscellaneous Contact:
-    Notifications Contact:
   Description: "UW Information Technology (UW-IT) is the central information technology\
     \ organization for the University of Washington, responsible for strategic planning,\
     \ oversight, and direction of the UW\u2019s IT infrastructure, resources, and\
@@ -859,8 +793,6 @@ UW-IT:
 fGOC:
   Community: UFlorida-iHEPA, UFL-HPC, FSU, FIU
   Contacts:
-    Notifications Contact:
-    Operations Contact (Ticketing):
     Security Contact:
     - ID: 5f25696557fb1e80d9d44dca0e0d222d4ac3a965
       Name: Jorge Luis Rodriguez
@@ -874,11 +806,9 @@ osg-glidein-factory:
     NEBioGrid
     SBGrid
   Contacts:
-    Notifications Contact:
     Operations Contact (Ticketing):
     - ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Name: Jeffrey Michael Dost
-    Security Contact:
   Description: OSG Glidein factory at UCSD
   ID: 49
   LongName: OSG Glidein Factory at UCSD
