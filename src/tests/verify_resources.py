@@ -73,7 +73,7 @@ def get_contacts():
 
 def main():
     os.chdir(_topdir)
-    vo_yamls = sorted(glob.glob("virtual-organizations/*.yaml")
+    vo_yamls = sorted(glob.glob("virtual-organizations/*.yaml"))
     vofns = list(filter(vofilter, vo_yamls))
     vos = list(map(load_yamlfile, vofns))
 
@@ -350,7 +350,7 @@ def flatten_res_contacts(rcls):
 
 
 def flatten_vo_contacts(vcs):
-    for ctype,ctype_l in sorted(rcls.items()):
+    for ctype,ctype_l in sorted(vcs.items()):
         for cd in ctype_l:
             yield ctype, cd.get("ID"), cd.get("Name")
 
