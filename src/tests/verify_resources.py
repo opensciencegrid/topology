@@ -36,6 +36,9 @@ class autodict(collections.defaultdict):
 def rgfilter(fn):
     return not (fn.endswith("_downtime.yaml") or fn.endswith("/SITE.yaml"))
 
+def vofilter(fn):
+    return not fn.endswith("/REPORTING_GROUPS.yaml")
+
 def rgname(fn):
     return re.search(r'/([^/]+)\.yaml$', fn).group(1)
 
@@ -69,13 +72,19 @@ def get_contacts():
     return dict(map(user_id_name, users))
 
 def main():
-    os.chdir(_topdir + "/topology")
+    os.chdir(_topdir)
+    vo_yamls = sorted(glob.glob("virtual-organizations/*.yaml"))
+    vofns = list(filter(vofilter, vo_yamls))
+    vos = list(map(load_yamlfile, vofns))
 
+    os.chdir("topology")
     contacts = get_contacts()
     yamls = sorted(glob.glob("*/*/*.yaml"))
     rgfns = list(filter(rgfilter, yamls))
     rgs = list(map(load_yamlfile, rgfns))
     #facility_site_rg = [ fn[:-len(".yaml")].split('/') for fn in rgfns ]
+    support_centers = load_yamlfile("support-centers.yaml")
+
     errors = 0
     warnings = 0
     if any( rg is None for rg in rgs ):
@@ -86,7 +95,7 @@ def main():
     errors += test_2_res_unique(rgs, rgfns)
     errors += test_3_voownership(rgs, rgfns)
     errors += test_4_res_svcs(rgs, rgfns)
-    errors += test_5_sc(rgs, rgfns)
+    errors += test_5_sc(rgs, rgfns, support_centers)
     errors += test_6_site()
     # re-enable fqdn errors after SOFTWARE-3330
     # warnings += test_7_fqdn_unique(rgs, rgfns)
@@ -95,10 +104,20 @@ def main():
     warnings += test_10_res_admin_contact(rgs, rgfns)
     warnings += test_11_res_sec_contact(rgs, rgfns)
     errors += test_12_res_contact_id_fmt(rgs, rgfns)
+    errors += test_12_vo_contact_id_fmt(vos, vofns)
+    # per SOFTWARE-3329, we are not checking support center contacts
+#   errors += test_12_sc_contact_id_fmt(support_centers)
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
+    errors += test_13_vo_contacts_exist(vos, vofns, contacts)
+    # per SOFTWARE-3329, we are not checking support center contacts
+#   errors += test_13_sc_contacts_exist(support_centers, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
+    errors += test_14_vo_contacts_match(vos, vofns, contacts)
+    # per SOFTWARE-3329, we are not checking support center contacts
+#   errors += test_14_sc_contacts_match(support_centers, contacts)
     errors += test_15_facility_site_files()
     errors += test_16_Xrootd_DNs(rgs, rgfns)
+
 
     print("%d Resource Group files processed." % len(rgs))
     if errors:
@@ -145,6 +164,7 @@ def print_emsg_once(msgtype):
     if msgtype in _emsgs:
         print("*** %s" % _emsgs[msgtype])
         del _emsgs[msgtype]
+
 
 def test_1_rg_unique(rgs, rgfns):
     # 1. Name (file name) of RG must be unique across all sites
@@ -238,12 +258,12 @@ def test_4_res_svcs(rgs, rgfns):
     return errors
 
 
-def test_5_sc(rgs, rgfns):
+def test_5_sc(rgs, rgfns, support_centers):
     # 5. SupportCenter must refer to an existing SC
 
     errors = 0
-    support_centers = load_yamlfile("support-centers.yaml")
     if support_centers is None:
+        print("File missing: 'topology/support-centers.yaml'")
         return 1
 
     for rg,rgfn in zip(rgs,rgfns):
@@ -281,6 +301,7 @@ def test_6_site():
 
     return errors
 
+
 def test_7_fqdn_unique(rgs, rgfns):
     # fqdns should be unique across all resources in all sites
     # Just warning for now until we are able to enforce it (SOFTWARE-3374)
@@ -303,6 +324,7 @@ def test_7_fqdn_unique(rgs, rgfns):
 
     return errors
 
+
 def test_8_res_ids(rgs, rgfns):
     # Check that resources/resource groups have a numeric ID/GroupID
 
@@ -323,10 +345,23 @@ def test_8_res_ids(rgs, rgfns):
 
     return errors
 
+
 def flatten_res_contacts(rcls):
     for ctype,ctype_d in sorted(rcls.items()):
         for clevel,clevel_d in sorted(ctype_d.items()):
             yield ctype, clevel, clevel_d.get("ID"), clevel_d.get("Name")
+
+
+def flatten_vo_contacts(vcs):
+    for ctype,ctype_l in sorted(vcs.items()):
+        for cd in ctype_l:
+            yield ctype, cd.get("ID"), cd.get("Name")
+
+
+def flatten_sc_contacts(sccs):
+    for ctype,ctype_l in sorted(sccs.items()):
+        for cd in ctype_l:
+            yield ctype, cd.get("ID"), cd.get("Name")
 
 
 def test_9_res_contact_lists(rgs, rgfns):
@@ -402,6 +437,42 @@ def test_12_res_contact_id_fmt(rgs, rgfns):
     return errors
 
 
+def test_12_vo_contact_id_fmt(vos, vofns):
+    # verify vo contact IDs are well-formed
+
+    errors = 0
+
+    for vo,vofn in zip(vos,vofns):
+        vcs = vo.get('Contacts')
+        if vcs:
+            for ctype, ID, name in flatten_vo_contacts(vcs):
+                if not re.search(r'^[0-9a-f]{40}$', ID):
+                    print_emsg_once('MalformedContactID')
+                    print("In '%s', malformed '%s' Contact ID '%s'"
+                          " (%s)" % (vofn, ctype, ID, name))
+                    errors += 1
+    return errors
+
+
+def test_12_sc_contact_id_fmt(support_centers):
+    # verify support center contact IDs are well-formed
+
+    errors = 0
+    if support_centers is None:
+        return 0
+
+    for scname,scdict in sorted(support_centers.items()):
+        sccs = scdict.get('Contacts')
+        if sccs:
+            for ctype, ID, name in flatten_sc_contacts(sccs):
+                if not re.search(r'^[0-9a-f]{40}$', ID):
+                    print_emsg_once('MalformedContactID')
+                    print("Support Center '%s' has malformed '%s'"
+                          " Contact ID '%s' (%s)" % (scname, ctype, ID, name))
+                    errors += 1
+    return errors
+
+
 def test_13_res_contacts_exist(rgs, rgfns, contacts):
     # verify resource contacts exist in contact repo
 
@@ -418,6 +489,43 @@ def test_13_res_contacts_exist(rgs, rgfns, contacts):
                               " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
                         errors += 1
 
+    return errors
+
+
+def test_13_vo_contacts_exist(vos, vofns, contacts):
+    # verify vo contacts exist in contact repo
+
+    errors = 0
+
+    for vo,vofn in zip(vos,vofns):
+        vcs = vo.get('Contacts')
+        if vcs:
+            for ctype, ID, name in flatten_vo_contacts(vcs):
+                if re.search(r'^[0-9a-f]{40}$', ID) and ID not in contacts:
+                    print_emsg_once('UnknownContactID')
+                    print("In '%s', unknown '%s' Contact ID '%s'"
+                          " (%s)" % (vofn, ctype, ID, name))
+                    errors += 1
+
+    return errors
+
+
+def test_13_sc_contacts_exist(support_centers, contacts):
+    # verify support center contacts exist in contact repo
+
+    errors = 0
+    if support_centers is None:
+        return 0
+
+    for scname,scdict in sorted(support_centers.items()):
+        sccs = scdict.get('Contacts')
+        if sccs:
+            for ctype, ID, name in flatten_sc_contacts(sccs):
+                if re.search(r'^[0-9a-f]{40}$', ID) and ID not in contacts:
+                    print_emsg_once('UnknownContactID')
+                    print("Support Center '%s' has unknown '%s'"
+                          " Contact ID '%s' (%s)" % (scname, ctype, ID, name))
+                    errors += 1
     return errors
 
 
@@ -438,6 +546,48 @@ def test_14_res_contacts_match(rgs, rgfns, contacts):
                               " match name in contact repo (%s)" % (rgfn,
                               rname, clevel, ctype, ID, name, contacts[ID]))
                         errors += 1
+
+    return errors
+
+
+def test_14_vo_contacts_match(vos, vofns, contacts):
+    # verify vo contacts match contact repo
+
+    errors = 0
+
+    for vo,vofn in zip(vos,vofns):
+        vcs = vo.get('Contacts')
+        if vcs:
+            for ctype, ID, name in flatten_vo_contacts(vcs):
+                if (re.search(r'^[0-9a-f]{40}$', ID)
+                    and ID in contacts and name != contacts[ID]):
+                    print_emsg_once('ContactNameMismatch')
+                    print("In '%s', '%s' Contact ID '%s' (%s) does not"
+                          " match name in contact repo (%s)" % (vofn, ctype,
+                          ID, name, contacts[ID]))
+                    errors += 1
+
+    return errors
+
+
+def test_14_sc_contacts_match(support_centers, contacts):
+    # verify support center contacts match contact repo
+
+    errors = 0
+    if support_centers is None:
+        return 0
+
+    for scname,scdict in sorted(support_centers.items()):
+        sccs = scdict.get('Contacts')
+        if sccs:
+            for ctype, ID, name in flatten_sc_contacts(sccs):
+                if (re.search(r'^[0-9a-f]{40}$', ID)
+                    and ID in contacts and name != contacts[ID]):
+                    print_emsg_once('ContactNameMismatch')
+                    print("Support Center '%s': '%s' Contact ID '%s' (%s)"
+                          " does not match name in contact repo (%s)" %
+                          (scname, ctype, ID, name, contacts[ID]))
+                    errors += 1
 
     return errors
 
@@ -479,4 +629,3 @@ def test_16_Xrootd_DNs(rgs, rgfns):
 
 if __name__ == '__main__':
     sys.exit(main())
-
