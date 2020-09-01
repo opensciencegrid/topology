@@ -113,6 +113,7 @@ def main():
 #   errors += test_13_sc_contacts_exist(support_centers, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
     errors += test_14_vo_contacts_match(vos, vofns, contacts)
+    # per SOFTWARE-3329, we are not checking support center contacts
 #   errors += test_14_sc_contacts_match(support_centers, contacts)
     errors += test_15_facility_site_files()
     errors += test_16_Xrootd_DNs(rgs, rgfns)
