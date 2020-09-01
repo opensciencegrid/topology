@@ -109,6 +109,7 @@ def main():
 #   errors += test_12_sc_contact_id_fmt(support_centers)
     errors += test_13_res_contacts_exist(rgs, rgfns, contacts)
     errors += test_13_vo_contacts_exist(vos, vofns, contacts)
+    # per SOFTWARE-3329, we are not checking support center contacts
 #   errors += test_13_sc_contacts_exist(support_centers, contacts)
     errors += test_14_res_contacts_match(rgs, rgfns, contacts)
     errors += test_14_vo_contacts_match(vos, vofns, contacts)
@@ -627,4 +628,3 @@ def test_16_Xrootd_DNs(rgs, rgfns):
 
 if __name__ == '__main__':
     sys.exit(main())
-
