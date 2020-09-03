@@ -153,6 +153,10 @@ def get_parser():
         parser.add_argument("--output", default="full",
                             dest="output_mode", help="Select the output mode "
                             "(email or full; default full)")
+        parser.add_argument("--email-from-file",
+                            default=None,
+                            dest="email_file",
+                            help="Path to file containing list of emails for contact filtering")
 
     return oparser
 
@@ -169,6 +173,15 @@ def main():
             args.fqdn_filter = args.filter.strip()
         else:
             args.name_filter = args.filter.strip()
+
+    try:
+        with open(args.email_file, 'r') as f:
+            contents = f.read()
+            args.contact_emails = contents.split('\n')
+    except TypeError:
+        pass  # --email-from-file not specified
+    except IOError as exc:
+        sys.exit("Failed to read email file: %s" % exc)
 
     commands = {"list_resource_contacts": list_resource_contacts,
                 "list_vo_contacts": list_vo_contacts,
