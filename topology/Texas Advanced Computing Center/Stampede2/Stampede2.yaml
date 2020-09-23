@@ -34,6 +34,31 @@ Resources:
     VOOwnership:
       CMS: 50
       ATLAS: 50
+  TACC-Stampede2:
+    ID: 1082
+    Disable: false
+    Description: The Hosted CE serving TACC-Stampede2
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: hosted-ce10.opensciencegrid.org
+    Services:
+      CE:
+        Description: TACC-Stampede2 Hosted CE
+        Details:
+          hidden: false
   OSG_US_TACC_STAMPEDE2_Squid:
     ID: 1024
     Description: Squid serving Stampede2
