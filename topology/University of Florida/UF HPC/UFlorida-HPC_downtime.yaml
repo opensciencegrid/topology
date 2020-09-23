@@ -588,3 +588,58 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 653880877
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 17, 2020 15:00 +0000
+  EndTime: Sep 20, 2020 05:00 +0000
+  CreatedTime: Sep 17, 2020 19:14 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 653881258
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 17, 2020 15:00 +0000
+  EndTime: Sep 20, 2020 05:00 +0000
+  CreatedTime: Sep 17, 2020 19:15 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 653881399
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 17, 2020 15:00 +0000
+  EndTime: Sep 20, 2020 05:00 +0000
+  CreatedTime: Sep 17, 2020 19:15 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 653881553
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 17, 2020 15:00 +0000
+  EndTime: Sep 20, 2020 05:00 +0000
+  CreatedTime: Sep 17, 2020 19:15 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 653881703
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 17, 2020 15:00 +0000
+  EndTime: Sep 20, 2020 05:00 +0000
+  CreatedTime: Sep 17, 2020 19:16 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------

@@ -1278,6 +1278,70 @@
     - Squid
 
 # --------------------------------------------------------
+# Power Maitenance in Lauritsen building
 
+- Class: SCHEDULED
+  ID: 639944630
+  Description:  Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
 
+- Class: SCHEDULED
+  ID: 639944631
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
 
+- Class: SCHEDULED
+  ID: 639944632
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 639944633
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 639944634
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 639944635
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
