@@ -12,8 +12,24 @@ except ImportError:
 
 treeDump = False
 
+def getGfactoryData(gfactoryDB, xml):
+    response = urllib.request.urlopen(xml)
+    gfactoryPage = response.read()
+    root = ET.fromstring(gfactoryPage)
 
-def getTopologyData(topologyDB, page):
+    for entries in root.findall('entries'):
+        for entry in entries.findall('entry'):
+            for attrs in entry.findall('attrs'):
+                for attr in attrs.findall('attr'):
+                    if attr.get('name') == 'GLIDEIN_ResourceName':
+                        print(attr.get('value'))
+                        # try:
+                        #     gfactoryDB.add(attr.get('value'))
+                        # except KeyError:
+                        #     gfactoryDB = {attr.get('value')}
+                        gfactoryDB.add(attr.get('value'))
+
+def getTopologyData(topologyDB):
     # insert Names under a dictionary that stores 4 "groupname"-set pairs
     # Structure of the dictionary:
     # {'resourceGroups': {},
@@ -28,7 +44,9 @@ def getTopologyData(topologyDB, page):
     # | ----Site
     # | ----Resources
     # | --------Resource
-    topologyRoot = ET.fromstring(page)
+    response = urllib.request.urlopen("https://my.opensciencegrid.org/rgsummary/xml")
+    topologyPage = response.read()
+    topologyRoot = ET.fromstring(topologyPage)
 
     # -- file version of parsing. Currently this script read from string
     # topologyTree = ET.parse("resource_topology.xml")
@@ -72,18 +90,35 @@ def getTopologyData(topologyDB, page):
 
 
 def run(argv):
-    # fetch the content and store in local disk
-    response = urllib.request.urlopen("https://my.opensciencegrid.org/rgsummary/xml")
-    topologyPage = response.read()
+
+    # This is for downloading xml files and parse, the script uses string currently
     # with open("resource_topology.xml", "wb") as file:
     #     file.write(response.content)
-
-    # TODO: use normal way to parse topology, the gfactory to DB is not for topology
-    # topologyDB = getXML(argv)
+    
     topologyDB = {}
-    getTopologyData(topologyDB, topologyPage)
-
-    print(sorted(topologyDB['resourceGroups']))
+    getTopologyData(topologyDB)
+    gfactory = [
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-cms-cern_osg.xml',
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-cmsonly-cern_fnal.xml',
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-cmsopp-cern_osg.xml',
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-cmst1-all.xml',
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-cmst1-uscmst2-all.xml',
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-covid19-osg.xml',
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-cream.xml',
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-fermi-fnal_osg.xml',
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-noncms-osg.xml',
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-testonly-itb.xml',
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/20-local-itb.xml',
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/30-local-cern.xml',
+        'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/30-local-fnal.xml'
+    ]
+    gfactoryDB = set()
+    for xml in gfactory:
+        getGfactoryData(gfactoryDB, xml)
+    # print(sorted(topologyDB['resources']))
+    # print(sorted(gfactoryDB))
+    nonMatchNames = gfactoryDB.difference(topologyDB['resources'])
+    # print(sorted(nonMatchNames))
 
 
 if __name__ == "__main__":
