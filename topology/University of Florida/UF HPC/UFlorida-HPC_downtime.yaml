@@ -648,9 +648,42 @@
   Description: One Lustre OSS down
   Severity: Severe
   StartTime: Sep 27, 2020 19:00 +0000
-  EndTime: Sep 28, 2020 21:00 +0000
+  EndTime: Oct 09, 2020 21:00 +0000
   CreatedTime: Sep 27, 2020 19:23 +0000
   ResourceName: UFlorida-XRD
   Services:
   - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 662643615
+  Description: One Lustre OSS down
+  Severity: Severe
+  StartTime: Sep 27, 2020 19:00 +0000
+  EndTime: Oct 09, 2020 21:00 +0000
+  CreatedTime: Sep 27, 2020 22:39 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 662644186
+  Description: One Lustre OSS down
+  Severity: Severe
+  StartTime: Sep 27, 2020 19:00 +0000
+  EndTime: Oct 09, 2020 21:00 +0000
+  CreatedTime: Sep 27, 2020 22:40 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 662644599
+  Description: One Lustre OSS down
+  Severity: Severe
+  StartTime: Sep 27, 2020 19:00 +0000
+  EndTime: Oct 09, 2020 21:00 +0000
+  CreatedTime: Sep 27, 2020 22:40 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
 # ---------------------------------------------------------
