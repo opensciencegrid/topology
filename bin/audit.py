@@ -12,6 +12,7 @@ except ImportError:
 
 treeDump = False
 
+
 def getGfactoryData(gfactoryDB, xml):
     response = urllib.request.urlopen(xml)
     gfactoryPage = response.read()
@@ -22,12 +23,14 @@ def getGfactoryData(gfactoryDB, xml):
             for attrs in entry.findall('attrs'):
                 for attr in attrs.findall('attr'):
                     if attr.get('name') == 'GLIDEIN_ResourceName':
-                        print(attr.get('value'))
+                        if treeDump:
+                            print(attr.get('value'))
                         # try:
                         #     gfactoryDB.add(attr.get('value'))
                         # except KeyError:
                         #     gfactoryDB = {attr.get('value')}
                         gfactoryDB.add(attr.get('value'))
+
 
 def getTopologyData(topologyDB):
     # insert Names under a dictionary that stores 4 "groupname"-set pairs
@@ -44,7 +47,8 @@ def getTopologyData(topologyDB):
     # | ----Site
     # | ----Resources
     # | --------Resource
-    response = urllib.request.urlopen("https://my.opensciencegrid.org/rgsummary/xml")
+    response = urllib.request.urlopen(
+        "https://my.opensciencegrid.org/rgsummary/xml")
     topologyPage = response.read()
     topologyRoot = ET.fromstring(topologyPage)
 
@@ -89,12 +93,28 @@ def getTopologyData(topologyDB):
                     topologyDB['resources'] = {resourceName.text}
 
 
+def findMatches(nonMatchNames, topologyDB):
+    matches = {'resourceGroups': set(),
+               'sites': set(),
+               'facilities': set()
+               }
+    for entry in nonMatchNames:
+        if entry in topologyDB['resourceGroups']:
+            matches.get('resourceGroups').add(entry)
+        elif entry in topologyDB['sites']:
+            matches.get('sites').add(entry)
+        elif entry in topologyDB['facilities']:
+            matches.get('facilities').add(entry)
+
+    return matches
+
+
 def run(argv):
 
     # This is for downloading xml files and parse, the script uses string currently
     # with open("resource_topology.xml", "wb") as file:
     #     file.write(response.content)
-    
+
     topologyDB = {}
     getTopologyData(topologyDB)
     gfactory = [
@@ -118,7 +138,14 @@ def run(argv):
     # print(sorted(topologyDB['resources']))
     # print(sorted(gfactoryDB))
     nonMatchNames = gfactoryDB.difference(topologyDB['resources'])
-    # print(sorted(nonMatchNames))
+    print(f'\nGLIDEIN_ResourceNames that does not match Topology records: \n\n',
+          sorted(nonMatchNames), '\n\n')
+    matches = findMatches(nonMatchNames, topologyDB)
+    print(f'\nGLIDEIN_ResourceNames that match a Resource Group: \n',
+          matches.get('resourceGroups'))
+    print(f'\nGLIDEIN_ResourceNames that match a Site: \n', matches.get('sites'))
+    print(f'\nGLIDEIN_ResourceNames that match a Facility: \n',
+          matches.get('facilites'))
 
 
 if __name__ == "__main__":
