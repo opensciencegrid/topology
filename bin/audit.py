@@ -10,7 +10,7 @@ except ImportError:
     import xml.etree.ElementTree as ET
 
 
-treeDump = False
+treeDump = False  # toggle to view the tree structure of both inputs
 
 
 def getGfactoryData(gfactoryDB, xml):
@@ -18,6 +18,7 @@ def getGfactoryData(gfactoryDB, xml):
     gfactoryPage = response.read()
     root = ET.fromstring(gfactoryPage)
 
+    # insert Names in Topology database into
     for entries in root.findall('entries'):
         for entry in entries.findall('entry'):
             for attrs in entry.findall('attrs'):
@@ -25,15 +26,11 @@ def getGfactoryData(gfactoryDB, xml):
                     if attr.get('name') == 'GLIDEIN_ResourceName':
                         if treeDump:
                             print(attr.get('value'))
-                        # try:
-                        #     gfactoryDB.add(attr.get('value'))
-                        # except KeyError:
-                        #     gfactoryDB = {attr.get('value')}
                         gfactoryDB.add(attr.get('value'))
 
 
 def getTopologyData(topologyDB):
-    # insert Names under a dictionary that stores 4 "groupname"-set pairs
+    # insert Names under a dictionary that stores four "groupname"-{names} pairs
     # Structure of the dictionary:
     # {'resourceGroups': {},
     #  'facilities': {},
@@ -98,6 +95,7 @@ def findMatches(nonMatchNames, topologyDB):
                'sites': set(),
                'facilities': set()
                }
+    # If a name that doesn't
     for entry in nonMatchNames:
         if entry in topologyDB['resourceGroups']:
             matches.get('resourceGroups').add(entry)
