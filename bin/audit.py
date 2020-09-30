@@ -1,3 +1,5 @@
+#!/bin/env python3
+
 # from gfactoryXmlToDB import *
 from collections import defaultdict
 import yaml
