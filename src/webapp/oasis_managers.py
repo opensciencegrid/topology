@@ -23,10 +23,10 @@ def get_oasis_manager_endpoint_info(global_data, vo, ldappass):
     contact_cilogon_ids = get_contact_cilogon_id_map(global_data)
 
     if vo == "*":
+        vo_managers = get_all_oasis_managers(global_data)
         return {
             vo: get_managers_info(managers, contact_cilogon_ids, ssh_keys_map)
-            for vo in vos_data.vos
-            for managers in [ get_vo_oasis_managers(global_data, vo) ]
+            for vo,managers in vo_managers.items()
         }
     else:
         return get_managers_info(managers, contact_cilogon_ids, ssh_keys_map)
@@ -60,7 +60,18 @@ def get_contact_cilogon_id_map(global_data):
 def get_vo_oasis_managers(global_data, vo):
     """return OASIS Managers list for given vo, if any, else an empty list"""
     vos_data = global_data.get_vos_data()
-    managers = safe_dict_get(vos_data.vos, vo, "OASIS", "Managers", default=[])
+    return _extract_vo_oasis_managers(vos_data.vos, vo)
+
+
+def get_all_oasis_managers(global_data):
+    """return dict of OASIS Managers lists for all VOs"""
+    vos_data = global_data.get_vos_data()
+    return { vo: _extract_vo_oasis_managers(vos_data.vos, vo) for vo in vos }
+
+
+def _extract_vo_oasis_managers(vos, vo):
+    """ helper for get_vo_oasis_managers / get_all_oasis_managers """
+    managers = safe_dict_get(vos, vo, "OASIS", "Managers", default=[])
     if not isinstance(managers, list):
         return []
     return managers
