@@ -65,8 +65,8 @@ def get_vo_oasis_managers(global_data, vo):
 
 def get_all_oasis_managers(global_data):
     """return dict of OASIS Managers lists for all VOs"""
-    vos_data = global_data.get_vos_data()
-    return { vo: _extract_vo_oasis_managers(vos_data.vos, vo) for vo in vos }
+    vos = global_data.get_vos_data().vos
+    return { vo: _extract_vo_oasis_managers(vos, vo) for vo in vos }
 
 
 def _extract_vo_oasis_managers(vos, vo):
