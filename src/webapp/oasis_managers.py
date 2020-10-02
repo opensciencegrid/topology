@@ -11,8 +11,14 @@ def get_oasis_manager_endpoint_info(global_data, vo, ldappass):
 
         with one list entry per oasis manager for the given vo, whose
         contact db info specifies a CILogonID, and whose cilogon info
-        for that CILogonID contains a list of ssh public keys. """
-        
+        for that CILogonID contains a list of ssh public keys.
+
+        Alternatively, if vo="*", return a dict of the form
+
+            {vo: OASISManagers}
+
+        where OASISManagers is a list as described above for each vo. """
+
     if vo != "*":
         managers = get_vo_oasis_managers(global_data, vo)
         if not managers:
