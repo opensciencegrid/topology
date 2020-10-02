@@ -1,12 +1,13 @@
 - Class: SCHEDULED
-  ID: 586378645
-  Description: Network outages will occur as ORNL continues network modernization activities.
-    ALL networks across campus, including the Enterprise Data Center, will experience
-    outages as changes are made across zones.
-  Severity: Intermittent Outage
-  StartTime: Jul 18, 2020 11:00 +0000
-  EndTime: Jul 18, 2020 19:00 +0000
-  CreatedTime: Jul 01, 2020 16:11 +0000
+  ID: 635719840
+  Description: 'Network outage affecting ORNL::CE to accommodate installation of new
+    ALICE 100G core switch and making various connections between recently relocated
+    rack switches, new uplinks, etc. Vobox, CE nodes and related VMs will be unreachable
+    during this time. '
+  Severity: Outage
+  StartTime: Sep 03, 2020 13:00 +0000
+  EndTime: Sep 03, 2020 21:00 +0000
+  CreatedTime: Aug 27, 2020 18:46 +0000
   ResourceName: ORNL_ALICE
   Services:
   - CE

@@ -319,7 +319,7 @@ Resources:
           ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
           Name: Timothy Slauson
     FQDN: sc-cache.chtc.wisc.edu
-    DN: /DC=org/DC=incommon/C=US/ST=Wisconsin/L=Madison/O=University of Wisconsin-Madison/OU=OCIS/CN=sc-cache.chtc.wisc.edu
+    DN: /CN=sc-cache.chtc.wisc.edu
     Services:
       XRootD cache server:
         Description: StashCache cache server
@@ -354,7 +354,7 @@ Resources:
           ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
           Name: Timothy Slauson
     FQDN: sc-origin.chtc.wisc.edu
-    DN: /DC=org/DC=incommon/C=US/ST=Wisconsin/L=Madison/O=University of Wisconsin-Madison/OU=OCIS/CN=sc-origin.chtc.wisc.edu
+    DN: /CN=sc-origin.chtc.wisc.edu
     Services:
       XRootD origin server:
         Description: StashCache origin server
