@@ -61,55 +61,42 @@ def getTopologyData(topologyDB):
     for child in topologyRoot.findall('ResourceGroup'):
         # adding resourceGroup Name attribute to a set
         name = child.find('GroupName')
-        if treeDump:
-            print("| " + name.text)
-        try:
-            topologyDB['resourceGroups'].add(name.text)
-        except KeyError:
-            topologyDB['resourceGroups'] = {name.text}
+        if treeDump: print("| " + name.text)
+        topologyDB['resourceGroups'].add(name.text)
 
         for facility in child.findall('Facility'):
             facilityName = facility.find('Name')
-            if treeDump:
-                print("| ---- " + facilityName.text)
-            try:
-                topologyDB['facilities'].add(facilityName.text)
-            except KeyError:
-                topologyDB['facilities'] = {facilityName.text}
+            if treeDump: print("| ---- " + facilityName.text)
+            topologyDB['facilities'].add(facilityName.text)
         for site in child.findall('Site'):
             siteName = site.find('Name')
-            if treeDump:
-                print("| ---- " + siteName.text)
-            try:
-                topologyDB['sites'].add(siteName.text)
-            except KeyError:
-                topologyDB['sites'] = {siteName.text}
+            if treeDump: print("| ---- " + siteName.text)
+            topologyDB['sites'].add(siteName.text)
         for resources in child.findall('Resources'):
             for resource in resources.findall('Resource'):
                 resourceName = resource.find('Name')
-                if treeDump:
-                    print("| >>>> " + resourceName.text)
-                try:
-                    topologyDB['resources'].add(resourceName.text)
-                except KeyError:
-                    topologyDB['resources'] = {resourceName.text}
+                if treeDump: print("| >>>> " + resourceName.text)
+                topologyDB['resources'].add(resourceName.text)
 
-
-def findMatches(nonMatchNames, topologyDB):
+def findMatches(nonMatchNames, topologyDB, gfactoryDB):
+    # TODO: change the matches set to a name-name pairs set
     matches = {'resourceGroups': set(),
                'sites': set(),
                'facilities': set()
                }
+    # nonmatch names that are in the rest three groups of topologyDB should be added
+    matchedEntries = [gfactoryDB[x] for x in nonMatchNames.intersection
+                      (topologyDB['resourceGroups'].union(topologyDB['sites'], topologyDB['facilities']))]
     # If a name that doesn't
-    for entry in nonMatchNames:
-        if entry in topologyDB['resourceGroups']:
-            matches.get('resourceGroups').add(entry)
-        elif entry in topologyDB['sites']:
-            matches.get('sites').add(entry)
-        elif entry in topologyDB['facilities']:
-            matches.get('facilities').add(entry)
+    # for entry in nonMatchNames:
+    #     if entry in topologyDB['resourceGroups']:
+    #         matches.get('resourceGroups').add(entry)
+    #     elif entry in topologyDB['sites']:
+    #         matches.get('sites').add(entry)
+    #     elif entry in topologyDB['facilities']:
+    #         matches.get('facilities').add(entry)
 
-    return matches
+    return matchedEntries
 
 
 def run(argv):
@@ -118,7 +105,10 @@ def run(argv):
     # with open("resource_topology.xml", "wb") as file:
     #     file.write(response.content)
 
-    topologyDB = {}
+    topologyDB = {'resources': set(),
+                  'sites': set(),
+                  'facilities': set(),
+                  'resourceGroups': set()}
     getTopologyData(topologyDB)
     gfactory = [
         'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-cms-cern_osg.xml',
@@ -135,22 +125,26 @@ def run(argv):
         'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/30-local-cern.xml',
         'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/30-local-fnal.xml'
     ]
-    gfactoryDB = {}  # TODO: make this a dictionary
+    # dictionary that stores (GLIDEIN_ResourceNames: entry name) pairs
+    gfactoryDB = {}
     for xml in gfactory:
         getGfactoryData(gfactoryDB, xml)
     # print(sorted(topologyDB['resources']))
     # print(sorted(gfactoryDB))
-    nonMatchNames = [gfactoryDB[x] for x in set(
-        gfactoryDB.keys()).difference(topologyDB['resources'])]
-    print(f'\nEntries that does not match Topology records: \n\n',
-          sorted(nonMatchNames), '\n\n')
-    matches = findMatches(nonMatchNames, topologyDB)
-    print(f'\nGLIDEIN_ResourceNames that match a Resource Group: \n',
-          matches.get('resourceGroups'))
-    print(f'\nGLIDEIN_ResourceNames that match a Site: \n', matches.get('sites'))
-    print(f'\nGLIDEIN_ResourceNames that match a Facility: \n',
-          matches.get('facilites'))
 
+    # GLIDEIN_ResourceNames that does not match resources records in TopologyDB
+    nonMatchNames = set(gfactoryDB.keys()).difference(topologyDB['resources'])
+    # corresponding entry names of those nonmatches
+    nonMatchEntries = [gfactoryDB[x] for x in nonMatchNames]
+    print(f'\nEntries that does not have a record in Topology resources: \n\n',
+          sorted(nonMatchEntries), '\n\n')
+    matchedEntries = findMatches(nonMatchNames, topologyDB, gfactoryDB)
+    # print(f'\nGLIDEIN_ResourceNames that match a Resource Group: \n',
+    #       matchedEntries.get('resourceGroups'))
+    # print(f'\nGLIDEIN_ResourceNames that match a Site: \n', matchedEntries.get('sites'))
+    # print(f'\nGLIDEIN_ResourceNames that match a Facility: \n',
+    #       matchedEntries.get('facilites'))
+    print(f'\nEntries that does not have a record in Topology resources tag but have records in Topology database: \n', sorted(matchedEntries))
 
 if __name__ == "__main__":
     run(sys.argv)
