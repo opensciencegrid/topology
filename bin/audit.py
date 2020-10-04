@@ -28,7 +28,10 @@ def getGfactoryData(gfactoryDB, xml):
                     if attr.get('name') == 'GLIDEIN_ResourceName':
                         if treeDump:
                             print(attr.get('value'))
-                        gfactoryDB.add(attr.get('value'))
+                        # gfactoryDB.add(attr.get('value'))
+                        # elements in gfactoryDB is key-value pairs
+                        # key: GLIDEIN_ResourceName, value: entry name
+                        gfactoryDB[attr.get('value')] = entry.get('name')
 
 
 def getTopologyData(topologyDB):
@@ -132,13 +135,14 @@ def run(argv):
         'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/30-local-cern.xml',
         'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/30-local-fnal.xml'
     ]
-    gfactoryDB = set()
+    gfactoryDB = {}  # TODO: make this a dictionary
     for xml in gfactory:
         getGfactoryData(gfactoryDB, xml)
     # print(sorted(topologyDB['resources']))
     # print(sorted(gfactoryDB))
-    nonMatchNames = gfactoryDB.difference(topologyDB['resources'])
-    print(f'\nGLIDEIN_ResourceNames that does not match Topology records: \n\n',
+    nonMatchNames = [gfactoryDB[x] for x in set(
+        gfactoryDB.keys()).difference(topologyDB['resources'])]
+    print(f'\nEntries that does not match Topology records: \n\n',
           sorted(nonMatchNames), '\n\n')
     matches = findMatches(nonMatchNames, topologyDB)
     print(f'\nGLIDEIN_ResourceNames that match a Resource Group: \n',
