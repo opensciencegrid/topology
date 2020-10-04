@@ -3,7 +3,6 @@
 # from gfactoryXmlToDB import *
 from collections import defaultdict
 import yaml
-import requests
 import sys
 import urllib.request
 try:
@@ -21,36 +20,36 @@ def getGfactoryData(gfactoryDB, xml):
     root = ET.fromstring(gfactoryPage)
 
     # insert Names in Topology database into
-    for entries in root.findall('entries'):
-        for entry in entries.findall('entry'):
-            for attrs in entry.findall('attrs'):
-                for attr in attrs.findall('attr'):
-                    if attr.get('name') == 'GLIDEIN_ResourceName':
-                        if treeDump:
-                            print(attr.get('value'))
-                        # gfactoryDB.add(attr.get('value'))
-                        # elements in gfactoryDB is key-value pairs
-                        # key: GLIDEIN_ResourceName, value: entry name
-                        gfactoryDB[attr.get('value')] = entry.get('name')
+    for entry in root.findall('entries/entry'):
+        for attr in entry.findall('attrs/attr'):
+            if attr.get('name') == 'GLIDEIN_ResourceName':
+                if treeDump:
+                    print(attr.get('value'))
+                # gfactoryDB.add(attr.get('value'))
+                # elements in gfactoryDB is key-value pairs
+                # key: GLIDEIN_ResourceName, value: entry name
+                gfactoryDB[attr.get('value')] = entry.get('name')
 
 
 def getTopologyData(topologyDB):
-    # insert Names under a dictionary that stores four "groupname"-{names} pairs
-    # Structure of the dictionary:
-    # {'resourceGroups': {},
-    #  'facilities': {},
-    #  'sites': {},
-    #  'resources': {}}
-    #
-    # The XML has the following hierarchy: (only showing info we need)
-    # | root
-    # | --ResourceGroup
-    # | ----Facility
-    # | ----Site
-    # | ----Resources
-    # | --------Resource
+    """
+    insert Names under a dictionary that stores four "groupname"-{names} pairs
+    Structure of the dictionary:
+    {'resourceGroups': set,
+     'facilities': set,
+     'sites': set,
+     'resources': set}
+
+    The XML has the following hierarchy: (only showing info we need)
+    | root
+    | --ResourceGroup
+    | ----Facility
+    | ----Site
+    | ----Resources
+    | --------Resource
+    """
     response = urllib.request.urlopen(
-        "https://my.opensciencegrid.org/rgsummary/xml")
+        "https://topology.opensciencegrid.org/rgsummary/xml?gridtype=on&gridtype_1=on&active=on&active_value=1&service=on&service_1=on")
     topologyPage = response.read()
     topologyRoot = ET.fromstring(topologyPage)
 
@@ -61,22 +60,27 @@ def getTopologyData(topologyDB):
     for child in topologyRoot.findall('ResourceGroup'):
         # adding resourceGroup Name attribute to a set
         name = child.find('GroupName')
-        if treeDump: print("| " + name.text)
+        if treeDump:
+            print("| " + name.text)
         topologyDB['resourceGroups'].add(name.text)
 
         for facility in child.findall('Facility'):
             facilityName = facility.find('Name')
-            if treeDump: print("| ---- " + facilityName.text)
+            if treeDump:
+                print("| ---- " + facilityName.text)
             topologyDB['facilities'].add(facilityName.text)
         for site in child.findall('Site'):
             siteName = site.find('Name')
-            if treeDump: print("| ---- " + siteName.text)
+            if treeDump:
+                print("| ---- " + siteName.text)
             topologyDB['sites'].add(siteName.text)
         for resources in child.findall('Resources'):
             for resource in resources.findall('Resource'):
                 resourceName = resource.find('Name')
-                if treeDump: print("| >>>> " + resourceName.text)
+                if treeDump:
+                    print("| >>>> " + resourceName.text)
                 topologyDB['resources'].add(resourceName.text)
+
 
 def findMatches(nonMatchNames, topologyDB, gfactoryDB):
     # TODO: change the matches set to a name-name pairs set
@@ -145,6 +149,7 @@ def run(argv):
     # print(f'\nGLIDEIN_ResourceNames that match a Facility: \n',
     #       matchedEntries.get('facilites'))
     print(f'\nEntries that does not have a record in Topology resources tag but have records in Topology database: \n', sorted(matchedEntries))
+
 
 if __name__ == "__main__":
     run(sys.argv)
