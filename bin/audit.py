@@ -25,9 +25,7 @@ def getGfactoryData(gfactoryDB, xml):
             if attr.get('name') == 'GLIDEIN_ResourceName':
                 if treeDump:
                     print(attr.get('value'))
-                # gfactoryDB.add(attr.get('value'))
-                # elements in gfactoryDB is key-value pairs
-                # key: GLIDEIN_ResourceName, value: entry name
+                # gfactory structure: {GLIDEIN_ResourceName: entry name, ...}
                 gfactoryDB[attr.get('value')] = entry.get('name')
 
 
@@ -83,23 +81,9 @@ def getTopologyData(topologyDB):
 
 
 def findMatches(nonMatchNames, topologyDB, gfactoryDB):
-    # TODO: change the matches set to a name-name pairs set
-    matches = {'resourceGroups': set(),
-               'sites': set(),
-               'facilities': set()
-               }
     # nonmatch names that are in the rest three groups of topologyDB should be added
     matchedEntries = [gfactoryDB[x] for x in nonMatchNames.intersection
                       (topologyDB['resourceGroups'].union(topologyDB['sites'], topologyDB['facilities']))]
-    # If a name that doesn't
-    # for entry in nonMatchNames:
-    #     if entry in topologyDB['resourceGroups']:
-    #         matches.get('resourceGroups').add(entry)
-    #     elif entry in topologyDB['sites']:
-    #         matches.get('sites').add(entry)
-    #     elif entry in topologyDB['facilities']:
-    #         matches.get('facilities').add(entry)
-
     return matchedEntries
 
 
@@ -108,12 +92,12 @@ def run(argv):
     # This is for downloading xml files and parse, the script uses string currently
     # with open("resource_topology.xml", "wb") as file:
     #     file.write(response.content)
-
     topologyDB = {'resources': set(),
                   'sites': set(),
                   'facilities': set(),
                   'resourceGroups': set()}
     getTopologyData(topologyDB)
+    # TODO: get xmls from github instead of hardcoding
     gfactory = [
         'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-cms-cern_osg.xml',
         'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/10-cmsonly-cern_fnal.xml',
@@ -133,22 +117,18 @@ def run(argv):
     gfactoryDB = {}
     for xml in gfactory:
         getGfactoryData(gfactoryDB, xml)
-    # print(sorted(topologyDB['resources']))
-    # print(sorted(gfactoryDB))
 
     # GLIDEIN_ResourceNames that does not match resources records in TopologyDB
     nonMatchNames = set(gfactoryDB.keys()).difference(topologyDB['resources'])
+
     # corresponding entry names of those nonmatches
     nonMatchEntries = [gfactoryDB[x] for x in nonMatchNames]
     print(f'\nEntries that does not have a record in Topology resources: \n\n',
           sorted(nonMatchEntries), '\n\n')
+    # The nonmatching GLIDEIN_ResourceNames that has a record in TopologyDB
     matchedEntries = findMatches(nonMatchNames, topologyDB, gfactoryDB)
-    # print(f'\nGLIDEIN_ResourceNames that match a Resource Group: \n',
-    #       matchedEntries.get('resourceGroups'))
-    # print(f'\nGLIDEIN_ResourceNames that match a Site: \n', matchedEntries.get('sites'))
-    # print(f'\nGLIDEIN_ResourceNames that match a Facility: \n',
-    #       matchedEntries.get('facilites'))
-    print(f'\nEntries that does not have a record in Topology resources tag but have records in Topology database: \n', sorted(matchedEntries))
+    print(f'\nEntries that does not have a record in Topology resources tag but have records in Topology database: \n',
+          sorted(matchedEntries))
 
 
 if __name__ == "__main__":
