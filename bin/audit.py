@@ -7,6 +7,7 @@ import git
 import tempfile
 import sys
 import os
+import glob
 import stat
 import shutil
 import urllib.request
@@ -69,24 +70,37 @@ def getTopologyData(topologyDB):
                 topologyDB['resources'].add(resourceName.text)
 
 
-def getGfactoryData(gfactoryDB, xml):
+def getGfactoryData(gfactoryDB, file):
     """
     Code below is for parsing xml URLs.
     # response = urllib.request.urlopen(xml)
     # gfactoryPage = response.read()
     # root = ET.fromstring(gfactoryPage)
     """
+    if (file.endswith('xml')):
+        tree = ET.parse(file)
+        root = tree.getroot()
+        # insert Names in Topology database into
+        for entry in root.findall('entries/entry'):
+            for attr in entry.findall('attrs/attr'):
+                if attr.get('name') == 'GLIDEIN_ResourceName':
+                    if treeDump:
+                        print(attr.get('value'))
+                    # gfactory structure: {GLIDEIN_ResourceName: entry name, ...}
+                    gfactoryDB[attr.get('value')] = entry.get('name')
+    else:
+        with open(file, 'r') as stream:
+            print("opened yml file")
+            try:
+                data = yaml.safe_load(stream)
+                print("loaded yml file")
+                for tag in data.items():
+                    print(tag)
+                    for entry, value in tag:
+                        print(entry)
 
-    tree = ET.parse(xml)
-    root = tree.getroot()
-    # insert Names in Topology database into
-    for entry in root.findall('entries/entry'):
-        for attr in entry.findall('attrs/attr'):
-            if attr.get('name') == 'GLIDEIN_ResourceName':
-                if treeDump:
-                    print(attr.get('value'))
-                # gfactory structure: {GLIDEIN_ResourceName: entry name, ...}
-                gfactoryDB[attr.get('value')] = entry.get('name')
+            except yaml.YAMLError as error:
+                print(error)
 
 
 def findMatches(nonMatchNames, topologyDB, gfactoryDB):
@@ -118,12 +132,9 @@ def run(argv):
         'https://github.com/opensciencegrid/osg-gfactory',
         to_path=tempDir
     )
-    # TODO: replace gfactory with testFactory after getting correct info about yml files
     gfactory = []
-    for filename in os.listdir(os.path.abspath(tempDir)):
-        # TODO: also add yml files
-        if filename.endswith('.xml'):
-            gfactory.append(os.path.join(tempDir, filename))
+    gfactory.extend(glob.glob(os.path.abspath(tempDir) + '/*.xml')
+        + (glob.glob(os.path.abspath(tempDir) + '/OSG_autoconf/*.yml' )))
     """
     Hardcoded xml sources
     gfactory = [
@@ -142,24 +153,24 @@ def run(argv):
         'https://raw.githubusercontent.com/opensciencegrid/osg-gfactory/master/30-local-fnal.xml'
     ] """
     # dictionary that stores (GLIDEIN_ResourceNames: entry name) pairs
-    gfactoryDB = {}
+    gfactoryDB={}
     for xml in gfactory:
         getGfactoryData(gfactoryDB, xml)
 
     # comparing gfactory with Topology resources
     # GLIDEIN_ResourceNames that does not match resources records in TopologyDB
-    nonMatchNames = set(gfactoryDB.keys()).difference(
+    nonMatchNames=set(gfactoryDB.keys()).difference(
         topologyDB['resources'])
 
     # corresponding entry names of those nonmatches
-    nonMatchEntries = [gfactoryDB[x] for x in nonMatchNames]
-    print(f'\nEntries that does not have a record in Topology resources: \n\n',
-          sorted(nonMatchEntries), '\n')
+    nonMatchEntries=[gfactoryDB[x] for x in nonMatchNames]
+    # print(f'\nEntries that does not have a record in Topology resources: \n\n',
+    #       sorted(nonMatchEntries), '\n')
 
     # The nonmatching GLIDEIN_ResourceNames that has a record in TopologyDB
-    matchedEntries = findMatches(nonMatchNames, topologyDB, gfactoryDB)
-    print(f'\nEntries that does not have a record in Topology resources tag but have records in Topology database: \n\n',
-          sorted(matchedEntries), '\n')
+    matchedEntries=findMatches(nonMatchNames, topologyDB, gfactoryDB)
+    # print(f'\nEntries that does not have a record in Topology resources tag but have records in Topology database: \n\n',
+    #       sorted(matchedEntries), '\n')
 
     shutil.rmtree(tempDir, onerror=remove_readonly)  # file cleanup
 
