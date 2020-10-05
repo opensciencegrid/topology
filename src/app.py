@@ -234,7 +234,7 @@ def oasis_managers():
         return Response("CILOGON_LDAP_PASSFILE not configured; "
                         "OASIS Managers info unavailable", status=503)
     mgrs = get_oasis_manager_endpoint_info(global_data, vo, cilogon_pass)
-    return Response(to_json_bytes(mgrs), mimetype='text/json')
+    return Response(to_json_bytes(mgrs), mimetype='application/json')
 
 
 def _get_cache_authfile(public_only):
