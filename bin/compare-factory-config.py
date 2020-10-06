@@ -1,5 +1,4 @@
 #!/bin/env python3
-from collections import defaultdict
 import yaml
 import git
 import tempfile
@@ -18,7 +17,6 @@ treeDump = False  # toggle to view the tree structure of both inputs
 
 
 def get_topology_data(topologyDB):
-
     """
     insert Names under a dictionary that stores four "groupname"-{names} pairs
     Structure of the dictionary:
@@ -71,7 +69,6 @@ def get_topology_data(topologyDB):
 
 
 def get_gfactory_data(gfactoryDB, filename):
-
     """
     Code below is for parsing xml URLs.
     # response = urllib.request.urlopen(xml)
@@ -94,16 +91,16 @@ def get_gfactory_data(gfactoryDB, filename):
         with open(filename, 'r') as stream:
             try:
                 data = yaml.safe_load(stream)
-                for resource in data.values():
-                    for entry in resource.values():
-                        for entryName, attr in entry.items():
-                            for tag, tagValue in attr.items():
-                                if (tag == 'attrs' and 'GLIDEIN_ResourceName' in list(tagValue.keys())):
-                                    gfactoryDB[tagValue['GLIDEIN_ResourceName']
-                                               ['value']] = entryName
-
             except yaml.YAMLError as error:
                 print(error)
+        for resource in data.values():
+            for entry in resource.values():
+                try:
+                    for entry_name, config in entry.items():
+                        resource_name = config['attrs']['GLIDEIN_ResourceName']
+                        gfactoryDB[resource_name] = entry_name
+                except:  # skip malformed entrys
+                    continue
 
 
 def find_matches(nonMatchNames, topologyDB, gfactoryDB):
@@ -114,7 +111,6 @@ def find_matches(nonMatchNames, topologyDB, gfactoryDB):
 
 
 def remove_readonly(func, path, _):
-
     """
     This function is copied from https://docs.python.org/3/library/shutil.html?highlight=shutil#rmtree-example
     On Windows systems, the rmtree function will raise a Permissionerror: [WinError 5] access denied
@@ -158,11 +154,11 @@ def run(argv):
 
     print(f'\nEntries that does not have a record in Topology resources but have records in Topology database: \n')
     for x in matchedEntries:
-        print(f'-{x[0]}: {x[1]}')
+        print(f'- {x[0]}: {x[1]}')
     print(f'\nEntries that does not have a record in Topology resources: \n')
     for x in sorted(nonMatchEntries):
-        print(f'-{x}')
-    print() # creates an empty line gap between last record and new cmd line
+        print(f'- {x}')
+    print()  # creates an empty line gap between last record and new cmd line
 
     shutil.rmtree(tempDir, onerror=remove_readonly)  # file cleanup
 
