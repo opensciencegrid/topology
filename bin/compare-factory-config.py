@@ -98,6 +98,8 @@ def get_gfactory_data(gfactoryDB, filename):
                 try:
                     for entry_name, config in entry.items():
                         resource_name = config['attrs']['GLIDEIN_ResourceName']
+                        if treeDump:
+                            print(resource_name)
                         gfactoryDB[resource_name] = entry_name
                 except:  # skip malformed entrys
                     continue
