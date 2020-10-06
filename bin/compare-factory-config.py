@@ -18,6 +18,7 @@ treeDump = False  # toggle to view the tree structure of both inputs
 
 
 def get_topology_data(topologyDB):
+
     """
     insert Names under a dictionary that stores four "groupname"-{names} pairs
     Structure of the dictionary:
@@ -38,6 +39,7 @@ def get_topology_data(topologyDB):
     topologyTree = ET.parse("resource_topology.xml")
     topologyRoot = topologyTree.getroot()
     """
+
     response = urllib.request.urlopen(
         "https://topology.opensciencegrid.org/rgsummary/xml?gridtype=on&gridtype_1=on&active=on&active_value=1&service=on&service_1=on")
     topologyPage = response.read()
@@ -69,12 +71,14 @@ def get_topology_data(topologyDB):
 
 
 def get_gfactory_data(gfactoryDB, filename):
+
     """
     Code below is for parsing xml URLs.
     # response = urllib.request.urlopen(xml)
     # gfactoryPage = response.read()
     # root = ET.fromstring(gfactoryPage)
     """
+
     if (filename.endswith('xml')):
         tree = ET.parse(filename)
         root = tree.getroot()
@@ -104,15 +108,19 @@ def get_gfactory_data(gfactoryDB, filename):
 
 def find_matches(nonMatchNames, topologyDB, gfactoryDB):
     # nonmatch names that are in the rest three groups of topologyDB should be added
-    matchedEntries = [gfactoryDB[x] for x in nonMatchNames.intersection
+    matchedEntries = [(gfactoryDB[x], x) for x in nonMatchNames.intersection
                       (topologyDB['resourceGroups'].union(topologyDB['sites'], topologyDB['facilities']))]
     return matchedEntries
 
 
 def remove_readonly(func, path, _):
-    # This function is copied from https://docs.python.org/3/library/shutil.html?highlight=shutil#rmtree-example
-    # On Windows systems, the rmtree function will raise a Permissionerror: [WinError 5] access denied
-    # This helper function clears the readonly bit and reattemps the removal
+
+    """
+    This function is copied from https://docs.python.org/3/library/shutil.html?highlight=shutil#rmtree-example
+    On Windows systems, the rmtree function will raise a Permissionerror: [WinError 5] access denied
+    This helper function clears the readonly bit and reattemps the removal
+    """
+
     os.chmod(path, stat.S_IWRITE)
     func(path)
 
@@ -143,16 +151,18 @@ def run(argv):
     # GLIDEIN_ResourceNames that does not match resources records in TopologyDB
     nonMatchNames = set(gfactoryDB.keys()).difference(
         topologyDB['resources'])
-
     # corresponding entry names of those nonmatches
     nonMatchEntries = [gfactoryDB[x] for x in nonMatchNames]
-    print(f'\nEntries that does not have a record in Topology resources: \n\n',
-          sorted(nonMatchEntries), '\n')
-
     # The nonmatching GLIDEIN_ResourceNames that has a record in TopologyDB
     matchedEntries = find_matches(nonMatchNames, topologyDB, gfactoryDB)
-    print(f'\nEntries that does not have a record in Topology resources tag but have records in Topology database: \n\n',
-          sorted(matchedEntries), '\n')
+
+    print(f'\nEntries that does not have a record in Topology resources but have records in Topology database: \n')
+    for x in matchedEntries:
+        print(f'-{x[0]}: {x[1]}')
+    print(f'\nEntries that does not have a record in Topology resources: \n')
+    for x in sorted(nonMatchEntries):
+        print(f'-{x}')
+    print() # creates an empty line gap between last record and new cmd line
 
     shutil.rmtree(tempDir, onerror=remove_readonly)  # file cleanup
 
