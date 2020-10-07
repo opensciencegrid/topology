@@ -81,6 +81,9 @@ def get_gfactory_data(gfactoryDB, filename):
         root = tree.getroot()
         # insert Names in Topology database into
         for entry in root.findall('entries/entry'):
+            if entry.get('enabled') == 'False':
+                # only compairing active gfactory entries
+                continue
             for attr in entry.findall('attrs/attr'):
                 if attr.get('name') == 'GLIDEIN_ResourceName':
                     if treeDump:
@@ -88,6 +91,7 @@ def get_gfactory_data(gfactoryDB, filename):
                     # gfactory structure: {GLIDEIN_ResourceName: entry name, ...}
                     gfactoryDB[attr.get('value')] = entry.get('name')
     else:
+        # yml files are assumed to have only active entries
         with open(filename, 'r') as stream:
             try:
                 data = yaml.safe_load(stream)
