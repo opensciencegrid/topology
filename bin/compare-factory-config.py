@@ -154,10 +154,10 @@ def run(argv):
     # The nonmatching GLIDEIN_ResourceNames that has a record in TopologyDB
     matchedEntries = find_matches(nonMatchNames, topologyDB, gfactoryDB)
 
-    print(f'\nEntries that does not have a record in Topology resources but have records in Topology database: \n')
+    print(f'\nFactory entries that match a Topology entity other than a resource: \n')
     for x in matchedEntries:
         print(f'- {x[0]}: {x[1]}')
-    print(f'\nEntries that does not have a record in Topology resources: \n')
+    print(f'\nFactory entries that do not match any entity in Topology: \n')
     for x in sorted(nonMatchEntries):
         print(f'- {x}')
     print()  # creates an empty line gap between last record and new cmd line
