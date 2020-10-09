@@ -149,7 +149,7 @@ def run(argv):
     for xml in gfactory:
         get_gfactory_data(gfactoryDB, xml)
 
-    # comparing gfactory with Topology resources
+    # compairing gfactory with Topology resources
     # GLIDEIN_ResourceNames that does not match resources records in TopologyDB
     nonMatchNames = set(gfactoryDB.keys()).difference(
         topologyDB['resources'])
