@@ -73,6 +73,10 @@ def get_contacts():
     xmltree = et.fromstring(txt)
     users = xmltree.findall('User')
     d = dict(map(user_id_name, users))
+    return add_cilogon_ids(users, d)
+
+def add_cilogon_ids(users, d):
+    """ add CILogonIDs to dict so they can be treated like ContactIDs """
     for u in users:
         cilogonid = u.find('CILogonID')
         if cilogonid:
