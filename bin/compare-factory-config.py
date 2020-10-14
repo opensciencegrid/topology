@@ -81,13 +81,19 @@ def get_gfactory_data(gfactoryDB, filename):
         root = tree.getroot()
         # insert Names in Topology database into
         for entry in root.findall('entries/entry'):
-            for attr in entry.findall('attrs/attr'):
-                if attr.get('name') == 'GLIDEIN_ResourceName':
-                    if treeDump:
-                        print(attr.get('value'))
-                    # gfactory structure: {GLIDEIN_ResourceName: entry name, ...}
-                    gfactoryDB[attr.get('value')] = entry.get('name')
+            if entry.get('enabled') == 'True':
+                # only compairing active gfactory entries
+                # print('Not able --', entry.get('name'))
+                for attr in entry.findall('attrs/attr'):
+                    if attr.get('name') == 'GLIDEIN_ResourceName':
+                        if treeDump:
+                            print(attr.get('value'))
+                        # gfactory structure: {GLIDEIN_ResourceName: entry name, ...}
+                        # print(entry.get('name'), 'is',entry.get('enabled'))
+                        gfactoryDB[attr.get('value')] = entry.get('name')
+                        break
     else:
+        # yml files are assumed to have only active entries
         with open(filename, 'r') as stream:
             try:
                 data = yaml.safe_load(stream)
@@ -101,7 +107,7 @@ def get_gfactory_data(gfactoryDB, filename):
                         if treeDump:
                             print(resource_name)
                         gfactoryDB[resource_name] = entry_name
-                except:  # skip malformed entrys
+                except:  # skip malformed entries
                     continue
 
 
@@ -145,7 +151,7 @@ def run(argv):
     for xml in gfactory:
         get_gfactory_data(gfactoryDB, xml)
 
-    # comparing gfactory with Topology resources
+    # compairing gfactory with Topology resources
     # GLIDEIN_ResourceNames that does not match resources records in TopologyDB
     nonMatchNames = set(gfactoryDB.keys()).difference(
         topologyDB['resources'])
