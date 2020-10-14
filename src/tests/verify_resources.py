@@ -72,7 +72,12 @@ def get_contacts():
     txt = urlopen(_contacts_url).read()
     xmltree = et.fromstring(txt)
     users = xmltree.findall('User')
-    return dict(map(user_id_name, users))
+    d = dict(map(user_id_name, users))
+    for u in users:
+        cilogonid = u.find('CILogonID')
+        if cilogonid:
+            d[cilogonid] = u.find('FullName').text
+    return d
 
 def main():
     os.chdir(_topdir)
