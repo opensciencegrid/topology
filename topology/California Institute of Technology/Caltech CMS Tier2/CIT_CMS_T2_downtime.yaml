@@ -1345,3 +1345,18 @@
   ResourceName: CIT_CMS_T2_2_Squid
   Services:
     - Squid
+
+# --------------------------------------------------------
+# IP renumbering cit-gatekeeper host will change its public IP
+
+- Class: SCHEDULED
+  ID: 603597111
+  Description: IP renumbering cit-gatekeeper host will change its public IP
+  Severity: Outage
+  StartTime: Oct 20, 2020 08:00 -0700
+  EndTime: Oct 21, 2020 07:59 -0700
+  CreatedTime: Oct 19, 2020 20:38 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
