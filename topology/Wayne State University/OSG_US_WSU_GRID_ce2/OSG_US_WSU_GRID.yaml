@@ -17,6 +17,9 @@ Resources:
         Primary:
           ID:  f84214412f7b3dbf848808c4ba30d179c5743766
           Name: Michael Thompson
+        Secondary:
+          ID:  68dfdc5967e11a1e1698ac3a8add1538fe15f1e8
+          Name: Serguei Fedorov
     Description: Wayne State Grid cluster being access through a hosted ce @ UChicago.
     FQDN: pearc-ce-2.grid.uchicago.edu
     ID: 895
@@ -34,12 +37,18 @@ Resources:
         Primary:
           ID:  f84214412f7b3dbf848808c4ba30d179c5743766
           Name: Michael Thompson
+        Secondary:
+          ID:  68dfdc5967e11a1e1698ac3a8add1538fe15f1e8
+          Name: Serguei Fedorov
       Security Contact:
         Primary:
           ID:  f84214412f7b3dbf848808c4ba30d179c5743766
           Name: Michael Thompson
+        Secondary:
+          ID:  68dfdc5967e11a1e1698ac3a8add1538fe15f1e8
+          Name: Serguei Fedorov
     Description: squid service for frontier and cvmfs
-    FQDN: vsquid1.grid.wayne.edu
+    FQDN: vsgrid1.grid.wayne.edu
     ID: 1026
     Services:
       Squid:
