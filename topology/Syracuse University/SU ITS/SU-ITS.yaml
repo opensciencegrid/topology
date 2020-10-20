@@ -29,6 +29,8 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
+    Tags:
+      - CC*
   SU-ITS-CE3:
     Active: true
     ContactLists:
@@ -56,8 +58,10 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-  SU-OG-CE:
-    Active: false
+    Tags:
+      - CC*
+  SU-ITS-CE4:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -75,14 +79,16 @@ Resources:
         Primary:
           ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
           Name: Richard Ameele
-    Description: SU OrangeGrid CE server
-    FQDN: its-condor-ce.syr.edu
-    ID: 650
+    Description: SU ITS compute element.
+    FQDN: its-condor-ce4.syr.edu
+    ID: 1096
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
+    Tags:
+      - CC*
   SU-OG-squid1:
     Active: true
     ContactLists:

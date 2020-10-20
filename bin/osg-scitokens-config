@@ -15,10 +15,18 @@ if __name__ == "__main__" and __package__ is None:
 import webapp.models
 import stashcache
 
+import logging
+
 parser = argparse.ArgumentParser(description="Generate a SciTokens config for a StashCache cache server.")
 parser.add_argument("fqdn", metavar="Cache_FQDN", help="FQDN of the cache for config generation.")
+parser.add_argument("--debug", action="store_true", help="Display debugging info.")
 
 args = parser.parse_args()
+
+if args.debug:
+    logging.basicConfig(level=logging.DEBUG)
+else:
+    logging.basicConfig(level=logging.WARNING)
 
 global_data = webapp.models.GlobalData()
 

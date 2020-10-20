@@ -179,7 +179,7 @@ def bytes2str(o):
 
 
 def to_json(data) -> str:
-    return json.dumps(bytes2str(data))
+    return json.dumps(bytes2str(data), sort_keys=True)
 
 
 def to_json_bytes(data) -> bytes:

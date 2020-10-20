@@ -1,0 +1,104 @@
+Production: true
+SupportCenter: GLUEX
+GroupDescription: OSG partition of the Storrs HPC Cluster
+GroupID: 1092
+Resources:
+  UConn-HPC_squid:
+    Active: true
+    Description: squid server for UConn-HPC
+    ID: 1093
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Miscellaneous Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Resource Report Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Security Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+    FQDN: osgce.storrs.hpc.uconn.edu
+    FQDNAliases:
+      - cn410.storrs.hpc.uconn.edu
+    DN: /DC=org/DC=incommon/C=US/ST=Connecticut/L=Storrs/O=University of Connecticut/OU=Academic IT/CN=cn410.storrs.hpc.uconn.edu
+    Services:
+      Squid:
+        Description: squid server for Storrs HPC cluster
+    Tags:
+      - CC*
+    VOOwnership:
+      Gluex: 50
+      CLAS12: 50
+  UConn-HPC_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Resource Report Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Security Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+    Description: HTcondor-CE server for the UConn-HPC compute resources
+    FQDN: osgce.storrs.hpc.uconn.edu
+    FQDNAliases:
+    - cn410.storrs.hpc.uconn.edu
+    ID: 1094
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    Tags:
+      - CC*
+    VOOwnership:
+      Gluex: 50
+      CLAS12: 50
+  UConn-HPC_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Resource Report Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Security Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+    Description: UConn-HPC grid storage resource
+    FQDN: osgse.storrs.hpc.uconn.edu
+    FQDNAliases:
+    - cn411.storrs.hpc.uconn.edu
+    ID: 1095
+    Services:
+      SRMv1:
+        Description: SRM V1 Storage Element
+        Details:
+          hidden: false
+          uri_override: osgse.storrs.hpc.uconn.edu:8443
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+          uri_override: osgse.storrs.hpc.uconn.edu:8443
+    Tags:
+      - CC*
+    VOOwnership:
+      Gluex: 80
+      CLAS12: 20
