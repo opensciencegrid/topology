@@ -16,6 +16,7 @@ except ImportError:
 tree_dump = False  # toggle to view the tree structure of topology inputs
 factory_dump = False  # toggle to view parsed factory ResourceNames
 
+
 def get_topology_data(topology_DB):
     """
     insert Names under a dictionary that stores four "groupname"-{names} pairs
@@ -91,7 +92,7 @@ def get_gfactory_data(gfactory_DB, filename):
                         try:
                             gfactory_DB[attr.get('value')].append(
                                 entry.get('name'))
-                        except:
+                        except KeyError:
                             gfactory_DB[attr.get('value')] = []
                             gfactory_DB[attr.get('value')].append(
                                 entry.get('name'))
@@ -112,7 +113,7 @@ def get_gfactory_data(gfactory_DB, filename):
                             print(resource_name['value'])
                         try:
                             gfactory_DB[resource_name].append(entry_name)
-                        except:
+                        except KeyError:
                             gfactory_DB[resource_name] = []
                             gfactory_DB[resource_name].append(entry_name)
                 except:  # skip malformed entries
@@ -130,31 +131,31 @@ def remove_readonly(func, path, _):
     func(path)
 
 
-def find_non_matches(gfactory_DB, topology_DB, mode):
+def find_non_resource_matches(gfactory_DB, topology_DB):
     ret = []
     # ResourceNames that does not match any resource records in TopologyDB
     # they may have match in other tags, or not in TopologyDB
-    if (mode == 'resources'):
-        # GLIDEIN_ResourceNames that does not match resources records in TopologyDB
-        nonmatch_resource_names = set(gfactory_DB.keys()).difference(
-            topology_DB['resources'])
-        # Factory ResourceNames that match TopologyDB's entries other than a resource
-        match_non_resource_names = nonmatch_resource_names.intersection(
-            topology_DB['resourceGroups'].union(
-                topology_DB['sites'], topology_DB['facilities']))
+    # GLIDEIN_ResourceNames that does not match resources records in TopologyDB
+    nonmatch_resource_names = set(gfactory_DB.keys()).difference(
+        topology_DB['resources'])
+    # Factory ResourceNames that match TopologyDB's entries other than a resource
+    match_non_resource_names = nonmatch_resource_names.intersection(
+        topology_DB['resourceGroups'].union(
+            topology_DB['sites'], topology_DB['facilities']))
 
-        for name in gfactory_DB.keys():
-            if name in match_non_resource_names:
-                for entry in gfactory_DB[name]:
-                    ret.append((entry, name))
+    for name in match_non_resource_names:
+        for entry in gfactory_DB[name]:
+            ret.append((entry, name))
+    return ret
 
-    if (mode == 'all'):
-        # The GLIDEIN_ResourceNames that does not match any record in TopologyDB
-        nonmatch_all_names = set(gfactory_DB.keys()).difference(
-            topology_DB['resources'].union(topology_DB['sites'], topology_DB['facilities'], topology_DB['resourceGroups']))
-        for name in gfactory_DB.keys():
-            if name in nonmatch_all_names:
-                ret.extend(gfactory_DB[name])
+
+def find_non_topology_matches(gfactory_DB, topology_DB):
+    ret = []
+    # The GLIDEIN_ResourceNames that does not match any record in TopologyDB
+    nonmatch_all_names = set(gfactory_DB.keys()).difference(
+        topology_DB['resources'].union(topology_DB['sites'], topology_DB['facilities'], topology_DB['resourceGroups']))
+    for name in nonmatch_all_names:
+        ret.extend(gfactory_DB[name])
     return ret
 
 
@@ -184,10 +185,10 @@ def run(argv):
 
     # finding results
     # compairing gfactory with Topology resources
-    match_nonresource_entries = find_non_matches(
-        gfactory_DB, topology_DB, 'resources')
+    match_nonresource_entries = find_non_resource_matches(
+        gfactory_DB, topology_DB)
     # Entry names corresponding to GLIDEIN_ResourceNames above
-    nonmatch_all_entries = find_non_matches(gfactory_DB, topology_DB, 'all')
+    nonmatch_all_entries = find_non_topology_matches(gfactory_DB, topology_DB)
 
     # output formatted results
     print(f'\nFactory entries that match a Topology entity other than a resource: \n')
