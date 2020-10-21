@@ -13,8 +13,8 @@ try:
 except ImportError:
     import xml.etree.ElementTree as ET
 
-tree_dump = False  # toggle to view the tree structure of both inputs
-
+tree_dump = False  # toggle to view the tree structure of topology inputs
+factory_dump = False  # toggle to view parsed factory ResourceNames
 
 def get_topology_data(topology_DB):
     """
@@ -39,7 +39,7 @@ def get_topology_data(topology_DB):
     """
 
     response = urllib.request.urlopen(
-        "https://topology.opensciencegrid.org/rgsummary/xml?gridtype=on&gridtype_1=on&active=on&active_value=1&service=on&service_1=on")
+        "https://topology.opensciencegrid.org/rgsummary/xml?active=on&active_value=1&service=on&service_1=on")
     topology_page = response.read()
     topology_root = ET.fromstring(topology_page)
 
@@ -83,13 +83,11 @@ def get_gfactory_data(gfactory_DB, filename):
         for entry in root.findall('entries/entry'):
             if entry.get('enabled') == 'True':
                 # only compairing active gfactory entries
-                # print('Not able --', entry.get('name'))
                 for attr in entry.findall('attrs/attr'):
                     if attr.get('name') == 'GLIDEIN_ResourceName':
-                        if tree_dump:
+                        if factory_dump:
                             print(attr.get('value'))
                         # gfactory structure: {GLIDEIN_ResourceName: entry name, ...}
-                        # print(entry.get('name'), 'is',entry.get('enabled'))
                         try:
                             gfactory_DB[attr.get('value')].append(
                                 entry.get('name'))
@@ -110,8 +108,8 @@ def get_gfactory_data(gfactory_DB, filename):
                 try:
                     for entry_name, config in entry.items():
                         resource_name = config['attrs']['GLIDEIN_ResourceName']
-                        if tree_dump:
-                            print(resource_name)
+                        if factory_dump:
+                            print(resource_name['value'])
                         try:
                             gfactory_DB[resource_name].append(entry_name)
                         except:
@@ -179,6 +177,8 @@ def run(argv):
                     + (glob.glob(os.path.abspath(temp_dir) + '/OSG_autoconf/*.yml')))
     # dictionary that stores (GLIDEIN_ResourceNames: entry name) pairs
     gfactory_DB = {}
+    if factory_dump:
+        print(f'\nAll the GLIDEIN_ResourceNames in factory: \n')
     for xml in gfactory:
         get_gfactory_data(gfactory_DB, xml)
 
