@@ -6,6 +6,7 @@ import sys
 import os
 import glob
 import stat
+import re  # for parsing gatekeeper
 import shutil
 import urllib.request
 try:
@@ -48,25 +49,28 @@ def get_topology_data(topology_DB):
         # adding resourceGroup Name attribute to a set
         name = child.find('GroupName')
         if tree_dump:
-            print("| " + name.text)
+            print("| Group       | " + name.text)
         topology_DB['resourceGroups'].add(name.text)
 
         for facility in child.findall('Facility'):
             facility_name = facility.find('Name')
             if tree_dump:
-                print("| ---- " + facility_name.text)
+                print("|  |-Facility |   " + facility_name.text)
             topology_DB['facilities'].add(facility_name.text)
         for site in child.findall('Site'):
             site_name = site.find('Name')
             if tree_dump:
-                print("| ---- " + site_name.text)
+                print("|  |-Site     |   " + site_name.text)
             topology_DB['sites'].add(site_name.text)
         for resources in child.findall('Resources'):
             for resource in resources.findall('Resource'):
                 resource_name = resource.find('Name')
                 if tree_dump:
-                    print("| >>>> " + resource_name.text)
-                topology_DB['resources'].add(resource_name.text)
+                    print("|  |-Resource |   " + resource_name.text)
+                fqdn = resource.find('FQDN').text
+                if tree_dump:
+                    print("|    |-FQDN   |     " + fqdn)
+                topology_DB['resources'].add((resource_name.text, fqdn))
 
 
 def get_gfactory_data(gfactory_DB, filename):
@@ -91,11 +95,11 @@ def get_gfactory_data(gfactory_DB, filename):
                         # gfactory structure: {GLIDEIN_ResourceName: entry name, ...}
                         try:
                             gfactory_DB[attr.get('value')].append(
-                                entry.get('name'))
+                                (entry.get('name'), re.split(':|\s', entry.get('gatekeeper'))[0]))
                         except KeyError:
                             gfactory_DB[attr.get('value')] = []
                             gfactory_DB[attr.get('value')].append(
-                                entry.get('name'))
+                                (entry.get('name'), re.split(':|\s', entry.get('gatekeeper'))[0]))
                         break
     else:
         # yml files are assumed to have only active entries
@@ -112,11 +116,11 @@ def get_gfactory_data(gfactory_DB, filename):
                         if factory_dump:
                             print(resource_name['value'])
                         try:
-                            gfactory_DB[resource_name].append(entry_name)
+                            gfactory_DB[resource_name['value']].append((entry_name, 'None'))
                         except KeyError:
-                            gfactory_DB[resource_name] = []
-                            gfactory_DB[resource_name].append(entry_name)
-                except:  # skip malformed entries
+                            gfactory_DB[resource_name['value']] = []
+                            gfactory_DB[resource_name['value']].append((entry_name, 'None'))
+                except KeyError:  # skip malformed entries
                     continue
 
 
@@ -131,29 +135,36 @@ def remove_readonly(func, path, _):
     func(path)
 
 
-def find_non_resource_matches(gfactory_DB, topology_DB):
+def find_non_resource_matches(gfactory_DB, topology_DB, resources):
+    # TODO: Since gfactory format changed, review comparison process
+    # TODO: match gatekeeper with FQDN, and match corresponding factory resourceName with topology resource
     ret = []
     # ResourceNames that does not match any resource records in TopologyDB
     # they may have match in other tags, or not in TopologyDB
     # GLIDEIN_ResourceNames that does not match resources records in TopologyDB
-    nonmatch_resource_names = set(gfactory_DB.keys()).difference(
-        topology_DB['resources'])
+
+    nonmatch_resource_names = set().difference(
+        resources)
     # Factory ResourceNames that match TopologyDB's entries other than a resource
     match_non_resource_names = nonmatch_resource_names.intersection(
         topology_DB['resourceGroups'].union(
             topology_DB['sites'], topology_DB['facilities']))
 
+    suggestion = None
     for name in match_non_resource_names:
         for entry in gfactory_DB[name]:
             ret.append((entry, name))
+            # suggestion = None
     return ret
 
 
-def find_non_topology_matches(gfactory_DB, topology_DB):
+def find_non_topology_matches(gfactory_DB, topology_DB, resources):
+    # TODO: Since gfactory format changed, review comparison process
+    # TODO: match gatekeeper with FQDN, and match corresponding factory resourceName with topology resource
     ret = []
     # The GLIDEIN_ResourceNames that does not match any record in TopologyDB
     nonmatch_all_names = set(gfactory_DB.keys()).difference(
-        topology_DB['resources'].union(topology_DB['sites'], topology_DB['facilities'], topology_DB['resourceGroups']))
+        resources.union(topology_DB['sites'], topology_DB['facilities'], topology_DB['resourceGroups']))
     for name in nonmatch_all_names:
         ret.extend(gfactory_DB[name])
     return ret
@@ -162,7 +173,7 @@ def find_non_topology_matches(gfactory_DB, topology_DB):
 def run(argv):
 
     # dictionary that adds GLIDEIN_ResourceNames under corresponding tags
-    topology_DB = {'resources': set(),
+    topology_DB = {'resources': set(),  # set of (name, fqdn) tuples
                    'sites': set(),
                    'facilities': set(),
                    'resourceGroups': set()}
@@ -176,27 +187,32 @@ def run(argv):
     gfactory = []
     gfactory.extend(glob.glob(os.path.abspath(temp_dir) + '/*.xml')
                     + (glob.glob(os.path.abspath(temp_dir) + '/OSG_autoconf/*.yml')))
-    # dictionary that stores (GLIDEIN_ResourceNames: entry name) pairs
+    # dictionary that stores (GLIDEIN_ResourceNames: (entry name, suggestion)) pairs
     gfactory_DB = {}
     if factory_dump:
         print(f'\nAll the GLIDEIN_ResourceNames in factory: \n')
     for xml in gfactory:
         get_gfactory_data(gfactory_DB, xml)
 
+    # extract resources from tuples
+    resources = set([x[0] for x in topology_DB['resources']])
+    # [x[0] for x in topology_DB['resources']] gets all topology resource names
     # finding results
     # compairing gfactory with Topology resources
     match_nonresource_entries = find_non_resource_matches(
-        gfactory_DB, topology_DB)
+        gfactory_DB, topology_DB, resources)
     # Entry names corresponding to GLIDEIN_ResourceNames above
-    nonmatch_all_entries = find_non_topology_matches(gfactory_DB, topology_DB)
+    nonmatch_all_entries = find_non_topology_matches(
+        gfactory_DB, topology_DB, resources)
 
     # output formatted results
     print(f'\nFactory entries that match a Topology entity other than a resource: \n')
     for x in match_nonresource_entries:
-        print(f'- {x[0]}: {x[1]}')
-    print(f'\nFactory entries that do not match any entity in Topology: \n')
-    for x in sorted(set(nonmatch_all_entries)):
-        print(f'- {x}')
+        print(f'{x[0]}: {x[1]}')
+    # TODO: format new output so that we always have ResourceNames in middle
+    # print(f'\nFactory entries that do not match any entity in Topology: \n')
+    # for x in sorted(set(nonmatch_all_entries)):
+    #     print(f'{x[0]}')
     print()  # creates an empty line gap between last record and new cmd line
 
     shutil.rmtree(temp_dir, onerror=remove_readonly)  # file cleanup
