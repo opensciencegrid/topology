@@ -158,7 +158,7 @@ def find_non_resource_matches(gfactory_DB, topology_DB, resources):
     for name in match_non_resource_names:
         for entry, gatekeeper in gfactory_DB[name]:
             # each GLIDEIN_ResourceName has a list of (entry, gatekeeper) tuples
-            ret.append((name, entry, find_suggestion(gatekeeper, topology_DB['resources'])))
+            ret.append((entry, name, find_suggestion(gatekeeper, topology_DB['resources'])))
     return ret
 
 
@@ -171,7 +171,7 @@ def find_non_topology_matches(gfactory_DB, topology_DB, resources):
     for name in nonmatch_all_names:
         for entry, gatekeeper in gfactory_DB[name]:
             # each GLIDEIN_ResourceName has a list of (entry, gatekeeper) tuples
-            ret.append((name, entry, find_suggestion(gatekeeper, topology_DB['resources'])))
+            ret.append((entry, name, find_suggestion(gatekeeper, topology_DB['resources'])))
     return ret
 
 
@@ -212,13 +212,13 @@ def run(argv):
         gfactory_DB, topology_DB, resources)
 
     # output formatted results
-    print(f'\nOutput format: <GLIDEIN_ResourceName>: <corresponding factory entry name> - <suggestion for a resource match>\n')
+    print(f'\nOutput format: <GLIDEIN_ResourceName>:<corresponding factory entry name>:<suggestion for a resource match>\n')
     print(f'\nFactory entries that match a Topology entity other than a resource: \n')
     for x in match_nonresource_entries:
-        print(f'{x[0]}: {x[1]} - {x[2]}')
+        print(f'{x[0]}:{x[1]}:{x[2]}')
     print(f'\nFactory entries that do not match any entity in Topology: \n')
     for x in nonmatch_all_entries:
-        print(f'{x[0]}: {x[1]} - {x[2]}')
+        print(f'{x[0]}:{x[1]}:{x[2]}')
     print()  # creates an empty line gap between last record and new cmd line
 
     shutil.rmtree(temp_dir, onerror=remove_readonly)  # file cleanup
