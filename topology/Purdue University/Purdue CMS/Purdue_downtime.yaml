@@ -971,3 +971,25 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 461226753
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 03, 2020 05:00 +0000
+  CreatedTime: Oct 26, 2020 18:44 +0000
+  ResourceName: Purdue-Hammer-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 461226753
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 03, 2020 05:00 +0000
+  CreatedTime: Oct 26, 2020 18:44 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
