@@ -733,3 +733,36 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 689274391
+  Description: major switch updates
+  Severity: Intermittent Outage
+  StartTime: Nov 03, 2020 14:00 +0000
+  EndTime: Nov 03, 2020 18:00 +0000
+  CreatedTime: Oct 28, 2020 18:23 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 689277461
+  Description: major switch updates
+  Severity: Intermittent Outage
+  StartTime: Nov 03, 2020 14:00 +0000
+  EndTime: Nov 03, 2020 18:00 +0000
+  CreatedTime: Oct 28, 2020 18:29 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 689278114
+  Description: major switch updates
+  Severity: Intermittent Outage
+  StartTime: Nov 03, 2020 14:00 +0000
+  EndTime: Nov 03, 2020 18:00 +0000
+  CreatedTime: Oct 28, 2020 18:30 +0000
+  ResourceName: AGLT2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
