@@ -982,3 +982,15 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 689187166
+  Description: Planned cluster maintenance.
+  Severity: Severe
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 03, 2020 23:00 +0000
+  CreatedTime: Oct 28, 2020 15:58 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+
