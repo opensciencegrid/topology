@@ -212,13 +212,13 @@ def run(argv):
         gfactory_DB, topology_DB, resources)
 
     # output formatted results
-    print(f'\nOutput format: <GLIDEIN_ResourceName>:<corresponding factory entry name>:<suggestion for a resource match>\n')
+    print(f'\nOutput format: <corresponding factory entry name>,<GLIDEIN_ResourceName>,<suggestion for a resource match>\n')
     print(f'\nFactory entries that match a Topology entity other than a resource: \n')
     for x in match_nonresource_entries:
-        print(f'{x[0]}:{x[1]}:{x[2]}')
+        print(f'{x[0]},{x[1]},{x[2]}')
     print(f'\nFactory entries that do not match any entity in Topology: \n')
     for x in nonmatch_all_entries:
-        print(f'{x[0]}:{x[1]}:{x[2]}')
+        print(f'{x[0]},{x[1]},{x[2]}')
     print()  # creates an empty line gap between last record and new cmd line
 
     shutil.rmtree(temp_dir, onerror=remove_readonly)  # file cleanup
