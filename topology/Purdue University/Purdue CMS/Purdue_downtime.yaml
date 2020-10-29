@@ -971,3 +971,26 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 687607859
+  Description: Routine Cluster Maintenance
+  Severity: Outage
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 04, 2020 05:00 +0000
+  CreatedTime: Oct 26, 2020 20:06 +0000
+  ResourceName: Purdue-Hammer-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 689187166
+  Description: Planned cluster maintenance.
+  Severity: Severe
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 03, 2020 23:00 +0000
+  CreatedTime: Oct 28, 2020 15:58 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+
