@@ -993,4 +993,36 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 690158719
+  Description: Planned cluster maintenance.
+  Severity: Severe
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 03, 2020 23:00 +0000
+  CreatedTime: Oct 29, 2020 18:57 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 690159176
+  Description: Planned cluster maintenance.
+  Severity: Severe
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 03, 2020 23:00 +0000
+  CreatedTime: Oct 29, 2020 18:58 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 690159596
+  Description: Planned cluster maintenance.
+  Severity: Severe
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 03, 2020 23:00 +0000
+  CreatedTime: Oct 29, 2020 18:59 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------
