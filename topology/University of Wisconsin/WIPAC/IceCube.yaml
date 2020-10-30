@@ -2,6 +2,11 @@ GroupDescription: IceCube cluster
 GroupID: 437
 Production: true
 Resources:
+  IceCube_StashCache_origin:
+    Service: XRootD origin server
+      Description: StashCache origin server
+    AllowedVOs:
+      - IceCube
   IceCube_Squid:
     Active: true
     Description: Round robin DNS alias for our Frontier Squid nodes.
