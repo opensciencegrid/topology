@@ -3,8 +3,9 @@ GroupID: 437
 Production: true
 Resources:
   IceCube_StashCache_origin:
-    Service: XRootD origin server
-      Description: StashCache origin server
+    Services: 
+      XRootD origin server:
+        Description: StashCache origin server
     AllowedVOs:
       - IceCube
   IceCube_Squid:
