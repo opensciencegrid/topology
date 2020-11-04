@@ -132,7 +132,6 @@ def get_gfactory_data(gfactory_DB, filename):
                     # and problematic entry so reviews can be requested
                     print('Error: ', filename, 'is not validly structured:')
                     print(f"Entry name: {entry_name}, content: {config}\n")
-                    continue
                 except Exception as e:
                     print('Error:', e)
                     continue
