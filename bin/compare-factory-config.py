@@ -41,7 +41,7 @@ def get_topology_data(topology_DB):
     """
 
     response = urllib.request.urlopen(
-        "https://topology.opensciencegrid.org/rgsummary/xml?active=on&active_value=1&service=on&service_1=on")
+        "https://topology.opensciencegrid.org/rgsummary/xml?service=on&service_1=on")
     topology_page = response.read()
     topology_root = ET.fromstring(topology_page)
 
@@ -116,11 +116,25 @@ def get_gfactory_data(gfactory_DB, filename):
                         if factory_dump:
                             print(resource_name['value'])
                         try:
-                            gfactory_DB[resource_name['value']].append((entry_name, 'None'))
+                            gfactory_DB[resource_name['value']].append(
+                                (entry_name, 'None'))
                         except KeyError:
                             gfactory_DB[resource_name['value']] = []
-                            gfactory_DB[resource_name['value']].append((entry_name, 'None'))
-                except KeyError:  # skip malformed entries
+                            gfactory_DB[resource_name['value']].append(
+                                (entry_name, 'None'))
+                except KeyError:  
+                    # skip malformed entries
+                    # Since there exists some entries in gfactory/autoconf that 
+                    # work without the key or value we want, skip them
+                    continue
+                except TypeError as e:
+                    # as some yml files might be incomplete, print out the filename
+                    # and problematic entry so reviews can be requested
+                    print('Error: ', filename, 'is not validly structured:')
+                    print(f"Entry name: {entry_name}, content: {config}\n")
+                    continue
+                except Exception as e:
+                    print('Error:', e)
                     continue
 
 
@@ -142,6 +156,7 @@ def find_suggestion(gatekeeper, topology_DB_resources):
             return resource
     return None
 
+
 def find_non_resource_matches(gfactory_DB, topology_DB, resources):
     ret = []
     # ResourceNames that does not match any resource records in TopologyDB
@@ -154,11 +169,12 @@ def find_non_resource_matches(gfactory_DB, topology_DB, resources):
     match_non_resource_names = nonmatch_resource_names.intersection(
         topology_DB['resourceGroups'].union(
             topology_DB['sites'], topology_DB['facilities']))
-    
+
     for name in match_non_resource_names:
         for entry, gatekeeper in gfactory_DB[name]:
             # each GLIDEIN_ResourceName has a list of (entry, gatekeeper) tuples
-            ret.append((entry, name, find_suggestion(gatekeeper, topology_DB['resources'])))
+            ret.append((entry, name, find_suggestion(
+                gatekeeper, topology_DB['resources'])))
     return ret
 
 
@@ -171,7 +187,8 @@ def find_non_topology_matches(gfactory_DB, topology_DB, resources):
     for name in nonmatch_all_names:
         for entry, gatekeeper in gfactory_DB[name]:
             # each GLIDEIN_ResourceName has a list of (entry, gatekeeper) tuples
-            ret.append((entry, name, find_suggestion(gatekeeper, topology_DB['resources'])))
+            ret.append((entry, name, find_suggestion(
+                gatekeeper, topology_DB['resources'])))
     return ret
 
 
@@ -199,8 +216,6 @@ def run(argv):
     for xml in gfactory:
         get_gfactory_data(gfactory_DB, xml)
 
-    
-    
     # finding results
     # extract resources from tuples
     resources = set([x[0] for x in topology_DB['resources']])
