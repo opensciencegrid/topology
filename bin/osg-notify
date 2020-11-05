@@ -45,9 +45,15 @@ def messageFromSignature(signature):
     return message
 
 
-def generateFullMessage(subject, to, from_name, message, sign=True, keyid=None):
+def generateFullMessage(subject, to, from_name, from_addr, message, sign=True, keyid=None):
     basemsg = email.mime.text.MIMEText(message)
     basetext = basemsg.as_string().replace("\n", "\r\n")
+
+    if from_name == 'Open Science Grid':
+        to_name = from_name + ' Helpdesk'
+    else:
+        to_name = from_name
+
     if sign:
         gpg = gnupg.GPG()
         if not keyid:
@@ -71,14 +77,14 @@ def generateFullMessage(subject, to, from_name, message, sign=True, keyid=None):
         msg.attach(signmsg)
         msg['Subject'] = subject
         msg['Bcc'] = ", ".join(to)
-        msg['To'] = '"Open Science Grid Helpdesk" <help@opensciencegrid.org>'
-        msg['From'] = '"%s" <help@opensciencegrid.org>' % from_name
+        msg['To'] = '"%s" <%s>' % (to_name, from_addr)
+        msg['From'] = '"%s" <%s>' % (from_name, from_addr)
         return msg.as_string(unixfrom=True)
     else:
         basemsg['Subject'] = subject
         basemsg['Bcc'] = ", ".join(to)
-        basemsg['To'] = '"Open Science Grid Helpdesk" <help@opensciencegrid.org>'
-        basemsg['From'] = '"%s" <help@opensciencegrid.org>' % from_name
+        msg['To'] = '"%s" <%s>' % (to_name, from_addr)
+        msg['From'] = '"%s" <%s>' % (from_name, from_addr)
         return basemsg.as_string(unixfrom=True)
 
 
@@ -132,8 +138,10 @@ def parseargs():
 
     if args.from_name == 'security':
         args.from_name = 'OSG Security Team'
+        args.from_addr = 'security@opensciencegrid.org'
     else:
         args.from_name = 'Open Science Grid'
+        args.from_addr = 'help@opensciencegrid.org'
 
     return args
 
@@ -218,8 +226,8 @@ def main():
 ===================================================
 """ + contents
 
-    msg = generateFullMessage(subject=args.subject, to=recipients, from_name=args.from_name, message=contents,
-                              sign=args.sign, keyid=args.keyid)
+    msg = generateFullMessage(subject=args.subject, to=recipients, from_name=args.from_name, from_addr=args.from_addr,
+                              message=contents, sign=args.sign, keyid=args.keyid)
 
     if args.dryrun:
         print(msg)
@@ -232,7 +240,7 @@ def main():
 
             if verify_send.lower() == 'y':
                 session = smtplib.SMTP('localhost')
-                session.sendmail("help@opensciencegrid.org", recipients, msg)
+                session.sendmail(args.from_addr, recipients, msg)
                 session.quit()
                 break
             elif verify_send.lower() in ['n', '']:
