@@ -49,6 +49,7 @@ def generateFullMessage(subject, to, from_name, from_addr, message, sign=True, k
     basemsg = email.mime.text.MIMEText(message)
     basetext = basemsg.as_string().replace("\n", "\r\n")
 
+    to_addr = from_addr
     if from_name == 'Open Science Grid':
         to_name = from_name + ' Helpdesk'
     else:
@@ -77,13 +78,13 @@ def generateFullMessage(subject, to, from_name, from_addr, message, sign=True, k
         msg.attach(signmsg)
         msg['Subject'] = subject
         msg['Bcc'] = ", ".join(to)
-        msg['To'] = '"%s" <%s>' % (to_name, from_addr)
+        msg['To'] = '"%s" <%s>' % (to_name, to_addr)
         msg['From'] = '"%s" <%s>' % (from_name, from_addr)
         return msg.as_string(unixfrom=True)
     else:
         basemsg['Subject'] = subject
         basemsg['Bcc'] = ", ".join(to)
-        msg['To'] = '"%s" <%s>' % (to_name, from_addr)
+        msg['To'] = '"%s" <%s>' % (to_name, to_addr)
         msg['From'] = '"%s" <%s>' % (from_name, from_addr)
         return basemsg.as_string(unixfrom=True)
 
