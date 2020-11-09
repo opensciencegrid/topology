@@ -1,6 +1,10 @@
 #!/bin/bash -e
 
-PYTHONPATH="$PYTHONPATH:$TRAVIS_BUILD_DIR/src"
+# Use the Travis build dir if specified, otherwise assume that the
+# repo is unpacked in the current working dir
+REPO_ROOT_DIR=${TRAVIS_BUILD_DIR:-.}
+
+PYTHONPATH="$PYTHONPATH:$REPO_ROOT_DIR/src"
 export PYTHONPATH
 
 function verify_xml {
@@ -8,7 +12,7 @@ function verify_xml {
     xml="$1"
     type="$2"
     echo "Validating $type XML schema..."
-    xmllint --noout --schema "$TRAVIS_BUILD_DIR/src/schema/$type.xsd" $xml
+    xmllint --noout --schema "$REPO_ROOT_DIR/src/schema/$type.xsd" $xml
 }
 
 if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
@@ -29,17 +33,17 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
 
     case $DATA_TYPE in
         miscproject)
-            YAML_DIR="$TRAVIS_BUILD_DIR/projects"
+            YAML_DIR="$REPO_ROOT_DIR/projects"
             READER=src/webapp/project_reader.py
             READER_ARGS="$YAML_DIR $CONVERTED_XML"
             ;;
         rgsummary)
-            YAML_DIR="$TRAVIS_BUILD_DIR/topology"
+            YAML_DIR="$REPO_ROOT_DIR/topology"
             READER=src/webapp/rg_reader.py
             READER_ARGS="$YAML_DIR $CONVERTED_XML /tmp/rgdowntime.xml"
             ;;
         vosummary)
-            YAML_DIR="$TRAVIS_BUILD_DIR/virtual-organizations"
+            YAML_DIR="$REPO_ROOT_DIR/virtual-organizations"
             READER=src/webapp/vo_reader.py
             READER_ARGS="$YAML_DIR $CONVERTED_XML"
             ;;
