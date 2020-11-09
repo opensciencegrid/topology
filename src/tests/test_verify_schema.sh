@@ -20,6 +20,9 @@ if [[ $TRAVIS_PULL_REQUEST == "false" || $GH_EVENT == 'push' ]]; then
 bitbucket.org ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAubiN81eDcafrgMeLzaFPsw2kNvEcqTKl/VqLat/MaB33pZy0y3rJZtnqwR2qOOvbwKZYKiEO1O6VqNEBxKvJJelCq0dTXWT5pbO2gDXC6h6QDXCaHo6pOHGPUy+YBaGQRGuSusMEASYiWunYN0vCAI8QaXnWMXNMdFP3jHAJH0eDsoiGnLPBlBp4TNm6rYI74nMzgz3B9IikW4WVK+dc8KZJZWYjAuORU3jc1c/NPskD2ASinf8v3xnfXeukU0sJ5N6m5E8VLjObPEO+mN2t/FZTMZLiFqPWc/ALSqnMnnhwrNi2rbfg/rd/IpL8Le3pSBne8+seeFVBoGqzHM9yXw==
 EOF
 
+    touch contacts
+    chmod 600 contacts
+
     if [[ $GH_EVENT == 'push' ]]; then
         echo "$CONTACT_DB_KEY" > contacts
     else
@@ -31,7 +34,6 @@ EOF
                 -d
     fi
 
-    chmod 600 contacts
     eval `ssh-agent -s`
     ssh-add contacts
     git clone git@bitbucket.org:opensciencegrid/contact.git /tmp/contact
