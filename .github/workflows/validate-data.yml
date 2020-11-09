@@ -20,6 +20,7 @@ jobs:
       - name: Verify XML Schema
         env:
           GH_EVENT: ${{ github.event_name }}
+          CONTACT_DB_KEY: ${{ secrets.CONTACT_DB_KEY }}
         run: ./src/tests/test_verify_schema.sh
       - name: Validate downtimes
         run: |
