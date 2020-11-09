@@ -12,7 +12,7 @@ jobs:
         with:
           python-version: 3.6
       - name: Install packages
-        run: apt-get install libxml2-utils apache2-dev libldap2-dev
+        run: sudo apt-get install libxml2-utils apache2-dev libldap2-dev
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
