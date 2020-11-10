@@ -15,9 +15,8 @@ function verify_xml {
     xmllint --noout --schema "$REPO_ROOT_DIR/src/schema/$type.xsd" $xml
 }
 
-if [[ $TRAVIS_PULL_REQUEST == "false" ||
-      $GH_EVENT == 'push' &&
-      $GITHUB_REPOSITORY == 'opensciencegrid/topology' ]]; then
+if [[ $TRAVIS_PULL_REQUEST == "false" || $GH_EVENT == 'push' ]] &&
+   [[ $GITHUB_REPOSITORY == 'opensciencegrid/topology' ]]; then
     # Ensure that the .ssh dir exists
     mkdir ~/.ssh
     chmod 0700 ~/.ssh
@@ -69,9 +68,8 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
     # Resource group and VO readers should use the contact info if we have
     # access to the SSH keys for the contacts repo
     if [[ $DATA_TYPE == 'vosummary' ]] || [[ $DATA_TYPE == 'rgsummary' ]]; then
-        if [[ $TRAVIS_PULL_REQUEST == "false" ||
-              $GH_EVENT == 'push' &&
-              $GITHUB_REPOSITORY == 'opensciencegrid/topology' ]]; then
+        if [[ $TRAVIS_PULL_REQUEST == "false" || $GH_EVENT == 'push' ]] &&
+           [[ $GITHUB_REPOSITORY == 'opensciencegrid/topology' ]]; then
             READER_ARGS="--contacts $CONTACT_YAML $READER_ARGS"
         fi
     fi
