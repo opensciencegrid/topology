@@ -130,7 +130,7 @@ def check_suite_hook():
         repo = payload['repository']
         owner = repo['owner']['login']          # 'opensciencegrid'
         reponame = repo['name']                 # 'topology'
-        app_name = check_suite['app']['name']   # 'Validate Topology data'
+        app_name = check_suite['app']['name']   # 'GitHub Actions'
         conclusion = check_suite['conclusion']  # 'success' ...
     except (TypeError, KeyError) as e:
         emsg = "Malformed payload for check_suite hook: %s" % e
@@ -139,11 +139,10 @@ def check_suite_hook():
     app.logger.debug("Got check_suite hook '%s' for '%s'"
                      % (conclusion, head_sha))
 
-#   XXX: consider checking for app_name to match GHA successor
-#   if app_name != 'Travis CI':
-#       app.logger.info("Ignoring non-travis check_suite hook for '%s'"
-#                       % app_name)
-#       return Response("Not Interested; app_name was '%s'" % app_name)
+    if app_name != 'GitHub Actions':
+        app.logger.info("Ignoring non-GHA check_suite hook for '%s'"
+                        % app_name)
+        return Response("Not Interested; app_name was '%s'" % app_name)
 
     if owner != _required_repo_owner or reponame != _required_repo_name:
         app.logger.info("Ignoring check_suite hook repo '%s/%s'"
