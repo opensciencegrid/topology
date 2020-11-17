@@ -3,29 +3,20 @@ GroupID: 490
 Production: true
 Resources:
   CIT_CMS_T2_HPC_Squid:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
           Name: Justas Balcas
-        Secondary:
-          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
-          Name: Joosep Pata
       Resource Report Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
           Name: Justas Balcas
-        Secondary:
-          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
-          Name: Joosep Pata
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
           Name: Justas Balcas
-        Secondary:
-          ID: 2b89ad55977c20b374ea58f9a9de452aef3c7bc1
-          Name: Joosep Pata
     Description: Squid service for frontier and cvmfs
     FQDN: hpc-gw-1-proxy.ultralight.org
     ID: 957
