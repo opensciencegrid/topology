@@ -125,6 +125,12 @@ def parseargs():
 
     args = oparser.parse_args()
 
+    if not os.path.exists(args.cert):
+        oparser.error("Certificate file path is invalid")
+    
+    if not os.path.exists(args.key):
+        oparser.error("Certificate key file path is invalid")
+
     if args.oim_recipients == 'vos' and args.owner_vo:
         oparser.error("--oim-owner-filter and --oim-recipients=vos options are conflicting")
     if args.name_filter and args.fqdn_filter:
@@ -185,7 +191,11 @@ def main():
         if args.fqdn_filter:
             results = topology_utils.get_resource_contacts_by_fqdn(args)
         else:
-            results = topology_utils.get_resource_contacts(args)
+            try:
+                # throws IOError for incorrect password
+                results = topology_utils.get_resource_contacts(args)
+            except IOError:
+                print("ERROR: incorrect password.")
         results = topology_utils.filter_contacts(args, results)
         emails = set()
         for name in results.keys():
