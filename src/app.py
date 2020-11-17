@@ -41,7 +41,10 @@ def _verify_config(cfg):
         else:
             st = os.stat(ssh_key)
             if st.st_uid != os.getuid() or (st.st_mode & 0o7777) not in (0o700, 0o600, 0o400):
-                raise PermissionError(ssh_key)
+                if cfg["IGNORE_SECRET_PERMS"]:
+                    app.logger.info("Ignoring permissions/ownership issues on " + ssh_key)
+                else:
+                    raise PermissionError(ssh_key)
 
 
 default_authorized = False
