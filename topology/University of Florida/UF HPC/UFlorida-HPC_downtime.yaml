@@ -687,3 +687,58 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 706480676
+  Description: Power work for the HPC upgrade
+  Severity: Outage
+  StartTime: Nov 18, 2020 23:00 +0000
+  EndTime: Nov 23, 2020 14:00 +0000
+  CreatedTime: Nov 17, 2020 15:21 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 706481122
+  Description: Power work for the HPC upgrade
+  Severity: Outage
+  StartTime: Nov 18, 2020 23:00 +0000
+  EndTime: Nov 23, 2020 14:00 +0000
+  CreatedTime: Nov 17, 2020 15:21 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 706481332
+  Description: Power work for the HPC upgrade
+  Severity: Outage
+  StartTime: Nov 18, 2020 23:00 +0000
+  EndTime: Nov 23, 2020 14:00 +0000
+  CreatedTime: Nov 17, 2020 15:22 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 706481529
+  Description: Power work for the HPC upgrade
+  Severity: Outage
+  StartTime: Nov 18, 2020 23:00 +0000
+  EndTime: Nov 23, 2020 14:00 +0000
+  CreatedTime: Nov 17, 2020 15:22 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 706481685
+  Description: Power work for the HPC upgrade
+  Severity: Outage
+  StartTime: Nov 18, 2020 23:00 +0000
+  EndTime: Nov 23, 2020 14:00 +0000
+  CreatedTime: Nov 17, 2020 15:22 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
