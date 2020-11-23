@@ -15,6 +15,7 @@ services:
       - ./docker/config.py:/etc/opt/topology/config-production.py:ro
       - ./docker/secrets/bitbucket:/etc/opt/topology/bitbucket:ro
       - ./docker/secrets/cilogon-ldap:/etc/opt/topology/cilogon-ldap:ro
+      - ./docker/secrets/github:/etc/opt/topology/github:ro
       # topology webhook
       - ./docker/config-webhook.py:/etc/opt/topology/config-production-webhook.py:ro
       - ./docker/secrets/github_access_token:/etc/opt/topology/github_access_token:ro
