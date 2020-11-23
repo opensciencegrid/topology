@@ -2,6 +2,6 @@
 set -o errexit
 set -o pipefail
 cd "$(dirname "$0")"/..
-egrep -h '^ *ID: *[0-9]{1,9}\>' virtual-organizations/*.yaml |
+env -i egrep -h '^ *ID: *[0-9]{1,9}\>' virtual-organizations/*.yaml |
   awk '$2 > max {max = $2}; END {print max + 1}'
 
