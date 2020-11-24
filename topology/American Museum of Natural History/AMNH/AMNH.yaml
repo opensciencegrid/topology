@@ -19,7 +19,7 @@ Resources:
   OSG_US_AMNH_ARES:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: true
+    Active: false
     # Description is a long description of the resource; may be multiple lines
     Description: This is a Hosted CE for the AMNH Slurm cluster
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
@@ -145,7 +145,7 @@ Resources:
     Tags:
       - CC*
   OSG_US_AMNH_HEL:
-    Active: true
+    Active: false
     Description: Second Hosted CE for the AMNH
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
