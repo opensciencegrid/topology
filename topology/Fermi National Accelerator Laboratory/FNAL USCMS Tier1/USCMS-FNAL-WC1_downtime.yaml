@@ -567,6 +567,26 @@
   - FTS
   - SRMv2
 # ---------------------------------------------------------
-
-
+- Class: UNSCHEDULED
+  ID: 536272182
+  Description: Host went down
+  Severity: Outage
+  StartTime: May 04, 2020 15:00 +0000
+  EndTime: May 04, 2020 17:10 +0000
+  CreatedTime: May 04, 2020 16:20 +0000
+  ResourceName: USCMS-FNAL-WC1-CE4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 537285583
+  Description: Replacing hardware
+  Severity: Outage
+  StartTime: May 07, 2020 14:00 +0000
+  EndTime: May 14, 2020 16:00 +0000
+  CreatedTime: May 05, 2020 20:29 +0000
+  ResourceName: USCMS-FNAL-WC1-CE4
+  Services:
+  - CE
+# ---------------------------------------------------------
 

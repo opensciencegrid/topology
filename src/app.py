@@ -14,10 +14,11 @@ import traceback
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import to_xml_bytes, Filters
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters
 from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
+from webapp.oasis_managers import get_oasis_manager_endpoint_info
 
 try:
     import stashcache
@@ -67,6 +68,12 @@ if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
 global_data = GlobalData(app.config, strict=app.config.get("STRICT", app.debug))
+
+
+cilogon_pass = readfile(global_data.cilogon_ldap_passfile, app.logger)
+if not cilogon_pass:
+    app.logger.warning("Note, no CILOGON_LDAP_PASSFILE configured; "
+                       "OASIS Manager ssh key lookups will be unavailable.")
 
 
 def _fix_unicode(text):
@@ -184,15 +191,23 @@ def scitokens():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
     cache_fqdn = request.args.get("cache_fqdn")
-    if not cache_fqdn:
-        return Response("FQDN of cache server required in the 'cache_fqdn' argument", status=400)
+    origin_fqdn = request.args.get("origin_fqdn")
+    if not cache_fqdn and not origin_fqdn:
+        return Response("FQDN of cache or origin server required in the 'cache_fqdn' or 'origin_fqdn' argument", status=400)
 
     try:
-        cache_scitokens = stashcache.generate_cache_scitokens(global_data.get_vos_data(),
-                                                              global_data.get_topology().get_resource_group_list(),
-                                                              fqdn=cache_fqdn,
-                                                              suppress_errors=False)
-        return Response(cache_scitokens, mimetype="text/plain")
+        if cache_fqdn:
+            cache_scitokens = stashcache.generate_cache_scitokens(global_data.get_vos_data(),
+                                                                global_data.get_topology().get_resource_group_list(),
+                                                                fqdn=cache_fqdn,
+                                                                suppress_errors=False)
+            return Response(cache_scitokens, mimetype="text/plain")
+        elif origin_fqdn:
+            origin_scitokens = stashcache.generate_origin_scitokens(global_data.get_vos_data(),
+                                                                global_data.get_topology().get_resource_group_list(),
+                                                                fqdn=origin_fqdn,
+                                                                suppress_errors=False)
+            return Response(origin_scitokens, mimetype="text/plain")
     except stashcache.NotRegistered as e:
         return Response("# No resource registered for {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
@@ -206,6 +221,20 @@ def scitokens():
     except Exception:
         app.log_exception(sys.exc_info())
         return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+
+
+@app.route("/oasis-managers/json")
+def oasis_managers():
+    if not _get_authorized():
+        return Response("Not authorized", status=403)
+    vo = request.args.get("vo")
+    if not vo:
+        return Response("'vo' argument is required", status=400)
+    if not cilogon_pass:
+        return Response("CILOGON_LDAP_PASSFILE not configured; "
+                        "OASIS Managers info unavailable", status=503)
+    mgrs = get_oasis_manager_endpoint_info(global_data, vo, cilogon_pass)
+    return Response(to_json_bytes(mgrs), mimetype='application/json')
 
 
 def _get_cache_authfile(public_only):

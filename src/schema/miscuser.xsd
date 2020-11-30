@@ -12,6 +12,7 @@
               <xsd:element name="GravatarURL" type="xsd:string" />
               <xsd:element name="Profile" type="xsd:string" />
               <xsd:element name="GitHub" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="CILogonID" type="xsd:string" minOccurs="0"/>
               <xsd:element name="Flags" minOccurs="0">
                 <xsd:complexType>
                   <xsd:sequence>
