@@ -163,4 +163,15 @@
   ResourceName: uprm-cms-ce
   Services:
   - CE
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 717719159
+  Description: Campus Wide Electricity scheduled outage
+  Severity: Outage
+  StartTime: Dec 02, 2020 11:00 +0000
+  EndTime: Dec 02, 2020 19:00 +0000
+  CreatedTime: Nov 30, 2020 15:31 +0000
+  ResourceName: uprm-cms-ce
+  Services:
+  - CE
 # ---------------------------------------------------------
