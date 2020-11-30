@@ -41,14 +41,14 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 10.85
+      APELNormalFactor: 12.50
       AccountingName: US-MWT2
-      HEPSPEC: 266481
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 66620.25
-      KSI2KMin: 66620.25
+      HEPSPEC: 308968
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 77242
+      KSI2KMin: 77242
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
@@ -133,14 +133,14 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 10.85
+      APELNormalFactor: 12.50
       AccountingName: US-MWT2
-      HEPSPEC: 266481
+      HEPSPEC: 308968
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
-      KSI2KMax: 66620.25
-      KSI2KMin: 66620.25
+      KSI2KMax: 77242
+      KSI2KMin: 77242
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
@@ -183,14 +183,14 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 10.85
+      APELNormalFactor: 12.50
       AccountingName: US-MWT2
-      HEPSPEC: 266481
+      HEPSPEC: 308968
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
-      KSI2KMax: 66620.25
-      KSI2KMin: 66620.25
+      KSI2KMax: 77242
+      KSI2KMin: 77242
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
@@ -234,14 +234,14 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 10.85
+      APELNormalFactor: 12.50
       AccountingName: US-MWT2
-      HEPSPEC: 266481
+      HEPSPEC: 308968
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
-      KSI2KMax: 66620.25
-      KSI2KMin: 66620.25
+      KSI2KMax: 77242
+      KSI2KMin: 77242
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
@@ -469,6 +469,123 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       ATLAS: 100
+  MWT2_SLATE_UC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+    Description: MWT2 SLATE located at the University of Chicago @ Chicago, IL
+    FQDN: uct2-slate.mwt2.org
+    ID: 1065
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: uct2-slate.mwt2.org:32200
+          Monitored: false
+    VOOwnership:
+      ATLAS: 100
+  MWT2_SLATE_IU:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+    Description: MWT2 SLATE located at Indiana University @ Indianapolis, IN
+    FQDN: iut2-slate.mwt2.org
+    ID:  1066
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: iut2-slate.mwt2.org:32200
+          Monitored: false
+    VOOwnership:
+      ATLAS: 100
+  MWT2_SLATE_UIUC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+    Description: MWT2 SLATE located at University of Illilnois @ Urbana-Champaign, IL
+    FQDN: mwt2-slate.mwt2.org
+    ID: 1067
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: mwt2-slate.mwt2.org:32200
+          Monitored: false
+    VOOwnership:
+      ATLAS: 100
   MWT2_UC_SE:
     Active: true
     ContactLists:
@@ -518,8 +635,8 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      StorageCapacityMax: 9118
-      StorageCapacityMin: 9118
+      StorageCapacityMax: 11278
+      StorageCapacityMin: 11278
       TapeCapacity: 0
   US-MWT2_IU BW:
     Active: true

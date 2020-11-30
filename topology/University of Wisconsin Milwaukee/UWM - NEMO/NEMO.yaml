@@ -1,0 +1,56 @@
+Disable: false
+Production: true
+SupportCenter: Self Supported
+GroupID: 520
+GroupDescription: The UWM-NEMO cluster
+Resources:
+  OSG_US_UWM_NEMO:
+    ID: 1033 
+    Active: false
+    Description: The Hosted CE serving UWM-NEMO
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: hosted-ce32.grid.uchicago.edu
+    Services:
+      CE:
+        Description: UWM-NEMO Hosted CE
+        Details:
+          hidden: false
+  UWM-NEMO:
+    ID: 1079
+    Active: true
+    Description: The Hosted CE serving UWM-NEMO
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: uwm-nemo-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: UWM-NEMO Hosted CE
+        Details:
+          hidden: false

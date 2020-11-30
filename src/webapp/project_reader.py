@@ -4,6 +4,7 @@ from collections import OrderedDict
 
 import logging
 import os
+import pprint
 import sys
 
 import yaml
@@ -12,6 +13,8 @@ if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from webapp.common import load_yaml_file, to_xml
+from webapp.vo_reader import get_vos_data
+from webapp.vos_data import VOsData
 
 
 log = logging.getLogger(__name__)
@@ -21,13 +24,27 @@ def get_projects(indir="../projects", strict=False):
     to_output = {"Projects":{"Project": []}}
     projects = []
 
+    mapping = load_yaml_file(os.path.join(indir, "_CAMPUS_GRIDS.yaml"))
+    vos_data = get_vos_data(os.path.join(indir, "../virtual-organizations"), None)
+
     for file in os.listdir(indir):
         if not file.endswith(".yaml"):
             continue
+        elif file.endswith("_CAMPUS_GRIDS.yaml"):
+            continue
         project = OrderedDict.fromkeys(["ID", "Name", "Description", "PIName", "Organization", "Department",
                                         "FieldOfScience", "Sponsor"])
+        data = None
         try:
             data = load_yaml_file(os.path.join(indir, file))
+            if 'CampusGrid' in data['Sponsor']:
+                name = data['Sponsor']['CampusGrid']['Name']
+                ID = mapping[name]
+                data['Sponsor']['CampusGrid'] = OrderedDict([("ID", ID), ("Name", name)])
+            elif 'VirtualOrganization' in data['Sponsor']:
+                name = data['Sponsor']['VirtualOrganization']['Name']
+                ID = vos_data.vos[name]['ID']
+                data['Sponsor']['VirtualOrganization'] = OrderedDict([("ID", ID), ("Name", name)])
         except yaml.YAMLError:
             if strict:
                 raise
@@ -35,6 +52,13 @@ def get_projects(indir="../projects", strict=False):
                 # load_yaml_file() already logs the specific error
                 log.error("skipping (non-strict mode)")
                 continue
+        except Exception as e:
+            log.error("%r adding project %s", e, file)
+            log.error("Data:\n%s", pprint.pformat(data))
+            if strict:
+                raise
+            log.exception("Skipping (non-strict mode); exception info follows")
+            continue
         project.update(data)
         projects.append(project)
 

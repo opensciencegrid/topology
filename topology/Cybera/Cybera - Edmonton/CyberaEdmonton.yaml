@@ -1,0 +1,29 @@
+Production: true
+SupportCenter: Self Supported
+GroupID: 519
+GroupDescription: Edmonton branch of Cybera
+Resources:
+  CYBERA_EDMONTON:
+    ID: 1032
+    Description: Cybera Edmonton CE
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Diego Davila
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+        Secondary:
+          Name: Igor Sfiligoi        
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+      Security Contact:
+        Primary:
+          Name: Diego Davila        
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+        Secondary:
+          Name: Igor Sfiligoi        
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+    FQDN: 249cc.yeg.cybera.ca
+    Services:
+      CE:
+        Description: Cybera Edmonton CE 
+        Details:
+          hidden: false

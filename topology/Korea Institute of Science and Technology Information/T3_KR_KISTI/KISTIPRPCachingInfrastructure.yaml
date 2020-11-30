@@ -1,0 +1,26 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Stashcaches located at KISTI and handled through kubernetes PRP
+GroupID: 509
+Resources:
+  Stashcache-KISTI:
+    Active: true
+    Description: KISTI StashCache
+    ID: 1001
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Edgar Mauricio Fajardo Hernandez
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+      # Security Contact is one to three people to contact regarding security issues
+      Security Contact:
+        Primary:
+          Name: Edgar Mauricio Fajardo Hernandez
+          ID: a89087e73b4e9d1732c5a7112332688940f06440
+    FQDN: dtn2-daejeon.kreonet.net
+    DN: /DC=org/DC=terena/DC=tcs/C=NL/L=Amsterdam/O=Universiteit van Amsterdam/CN=fiona-r-uva.vlan7.uvalight.net
+    Services:
+      XRootD cache server:
+        Description: KISTI PRP Caching Service
+    AllowedVOs:
+      - ANY

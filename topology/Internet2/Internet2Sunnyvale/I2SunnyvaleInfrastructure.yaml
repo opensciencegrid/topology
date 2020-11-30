@@ -1,0 +1,26 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Services located at the Internet2 Sunnyvale Point of Presence
+GroupID: 522
+Resources:
+  Stashcache-Sunnyvale:
+    Active: true
+    Description: Internet2Sunnyvale Cache
+    ID: 1037
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: John Hicks
+          ID: 99557e0d152bb7011b175693dcafb760ae7aa679
+      # Security Contact is one to three people to contact regarding security issues
+      Security Contact:
+        Primary:
+          Name: John Hicks
+          ID: 99557e0d152bb7011b175693dcafb760ae7aa679
+    FQDN: osg-sunnyvale-stashcache.nrp.internet2.edu
+    DN: /DC=org/DC=incommon/C=US/ST=Michigan/L=Ann Arbor/O=University Corporation For Advanced Internet Development/CN=osg-sunnyvale-stashcache.nrp.internet2.edu
+    Services:
+      XRootD cache server:
+        Description: Internet2Sunnyvale Cache
+    AllowedVOs:
+      - ANY

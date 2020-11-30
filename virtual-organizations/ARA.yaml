@@ -1,0 +1,38 @@
+AppDescription: ARA Production and Analysis
+CertificateOnly: false
+Community: The ARA astrophysics community.
+Contacts:
+  Administrative Contact:
+  - ID: b512ff43d2e9239b62fb63bf3b30202fa30731e9
+    Name: David Schultz
+  - ID: 67523ec91c983a4c0c1c576beeac1037aa863da3
+    Name: Steve Barnet
+  - ID: bc87af94d3512f536e417f1e45808b975fb2874f
+    Name: Vladimir Brik
+  Security Contact:
+  - ID: 67523ec91c983a4c0c1c576beeac1037aa863da3
+    Name: Steve Barnet
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - Astrophysics
+  SecondaryFields:
+  - Physics and astronomy
+ID: 138
+LongName: Askaryan Radio Array
+Name: ARA
+OASIS:
+  Managers:
+    David Schultz:
+      DNs:
+      - /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=DAVID SCHULTZ A11726
+      ID: b512ff43d2e9239b62fb63bf3b30202fa30731e9
+  OASISRepoURLs:
+  - http://cvmfs-stratum0.wipac.wisc.edu/cvmfs/ara.opensciencegrid.org
+  UseOASIS: true
+ParentVO:
+  ID: 38
+  Name: IceCube
+PrimaryURL: https://ara.wipac.wisc.edu
+PurposeURL: https://ara.wipac.wisc.edu
+SupportURL: https://ara.wipac.wisc.edu

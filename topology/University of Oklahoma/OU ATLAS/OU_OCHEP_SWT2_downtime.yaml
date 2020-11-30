@@ -57,3 +57,29 @@
   Severity: Outage
   StartTime: Mar 14, 2018 20:00 +0000
 # ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 258935717
+  Description: campus backbone network maintenance
+  Severity: Intermittent Outage
+  StartTime: Jun 19, 2019 05:00 +0000
+  EndTime: Jun 19, 2019 11:00 +0000
+  CreatedTime: Jun 18, 2019 16:32 +0000
+  ResourceName: OU_OCHEP_SWT2
+  Services:
+  - CE
+  - GridFtp
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 546002298
+  Description: system updates
+  Severity: Outage
+  StartTime: May 15, 2020 21:00 +0000
+  EndTime: Jun 4, 2020 14:30 +0000
+  CreatedTime: May 15, 2020 22:37 +0000
+  ResourceName: OU_OCHEP_SWT2
+  Services:
+  - CE
+  - GridFtp
+  - SRMv2
+# ---------------------------------------------------------

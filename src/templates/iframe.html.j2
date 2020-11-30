@@ -144,7 +144,7 @@ function init(scrollwheel) {
     
     var sites = {};
     {% for resourcegroup in resourcegroups %}
-    {% if "Latitude" in resourcegroup["Site"] and resourcegroup["Disable"] != True %}
+    {% if "Latitude" in resourcegroup["Site"] and "Longitude" in resourcegroup["Site"] and resourcegroup["Disable"] != True %}
     
     var curSite = "{{ resourcegroup['Site']['Name'] }}";
     // Add each resource group to the site

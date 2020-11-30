@@ -45,14 +45,14 @@ LongName: Fermi National Accelerator Laboratory
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
 OASIS:
   Managers:
-    Dave Dykstra:
+    - Name: Dave Dykstra
       DNs:
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Dave Dykstra 508
       - /DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Dave
         Dykstra/CN=UID:dwd
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Dave Dykstra 508
       ID: 85fe79f7c8a447834460b6852f46d3eef32fb714
-    Lynn Garren:
+    - Name: Lynn Garren
       DNs:
       - /DC=gov/DC=fnal/O=Fermilab/OU=People/CN=Lynn A. Garren/CN=UID:garren
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Lynn Garren 217
@@ -61,6 +61,10 @@ OASIS:
   OASISRepoURLs:
   - http://oasiscfs.fnal.gov:8000/cvmfs/fermilab.opensciencegrid.org
   - http://oasiscfs.fnal.gov:8000/cvmfs/larsoft.opensciencegrid.org
+  - http://rcds01.fnal.gov:8000/cvmfs/fifeuser1.opensciencegrid.org
+  - http://rcds01.fnal.gov:8000/cvmfs/fifeuser2.opensciencegrid.org
+  - http://rcds02.fnal.gov:8000/cvmfs/fifeuser3.opensciencegrid.org
+  - http://rcds02.fnal.gov:8000/cvmfs/fifeuser4.opensciencegrid.org
   UseOASIS: true
 PrimaryURL: http://fermigrid.fnal.gov/
 PurposeURL: http://www.fnal.gov/

@@ -38,7 +38,7 @@ ID: 13
 LongName: Grid Laboratory of Wisconsin
 OASIS:
   Managers:
-    Aaron Moate:
+    - Name: Aaron Moate
       DNs: /DC=org/DC=doegrids/OU=People/CN=Aaron Moate 717557
       ID: 46a55ac4815b2b8c00ff283549f413113b45d628
   UseOASIS: true
@@ -60,5 +60,6 @@ DataFederations:
             Base Path: /chtc
     AllowedOrigins:
       - CHTC_STASHCACHE_ORIGIN
+      - CHTC_STASHCACHE_ORIGIN_2000
     AllowedCaches:
       - ANY
