@@ -81,11 +81,15 @@ DataFederations:
     Namespaces:
       /user/ligo:
         - FQAN:/osg/ligo
+        - SciTokens:
+            Issuer: https://scitokens.org/ligo
+            Base Path: /user/ligo
       /gwdata:
         - PUBLIC
     AllowedOrigins:
       - CIT_LIGO_ORIGIN
       - LIGO-StashCache-Origin
+      - UCL-Virgo-StashCache-Origin
     AllowedCaches:
       - HCC-Stash
       - Georgia_Tech_PACE_GridFTP2

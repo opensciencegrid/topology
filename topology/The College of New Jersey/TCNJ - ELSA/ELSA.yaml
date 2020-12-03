@@ -6,7 +6,7 @@ GroupDescription: The TCNJ-ELSA cluster
 Resources:
   OSG_US_TCNJ_ELSA:
     ID: 1031 
-    Disable: false
+    Active: false
     Description: The Hosted CE serving TCNJ-ELSA
     ContactLists:
       Administrative Contact:
@@ -33,7 +33,7 @@ Resources:
       - CC*
   TCNJ-ELSA:
     ID: 1076
-    Disable: false
+    Active: true
     Description: The Hosted CE serving TCNJ-ELSA
     ContactLists:
       Administrative Contact:
