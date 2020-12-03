@@ -81,6 +81,9 @@ DataFederations:
     Namespaces:
       /user/ligo:
         - FQAN:/osg/ligo
+        - SciTokens:
+            Issuer: https://scitokens.org/ligo
+            Base Path: /user/ligo
       /gwdata:
         - PUBLIC
     AllowedOrigins:
