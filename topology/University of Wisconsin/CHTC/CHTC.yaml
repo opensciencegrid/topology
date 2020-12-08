@@ -354,6 +354,8 @@ Resources:
           ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
           Name: Timothy Slauson
     FQDN: stash-cache.osg.chtc.io
+    FQDNAliases:
+      - tiger0002.chtc.wisc.edu
     DN: /CN=stash-cache.osg.chtc.io
     Services:
       XRootD cache server:
