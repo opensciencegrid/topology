@@ -166,6 +166,11 @@ function init(scrollwheel) {
     var storage_services = new Array("Squid", "SRMv2", "XRootD cache server", "GridFtp", "XRootD component", "XRootD origin server", "SRMv1", "LFC", "Apache Server", "FTS");
     var network_services = new Array("net.perfSONAR.Bandwidth", "net.perfSONAR.Latency");
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryView = urlParams.get('view');
+    if (queryView != null) {
+        $("#view option[value='"+queryView+"']").attr("selected", "selected");
+    }
     
     var sites = {};
     {% for resourcegroup in resourcegroups %}
@@ -178,18 +183,21 @@ function init(scrollwheel) {
                            {{ resourcegroup["Site"]["Longitude"] }},
                            "{{ resourcegroup["Facility"]["Name"] }}",
                             Array(),
-                            {isCompute: false, isStorage: false, isNetwork: false} ]
+                            {isCompute: false, isStorage: false, isNetwork: false, isEdu: false} ]
     }
     
     var resourceGroup = {};
     resourceGroup["Name"] = "{{ resourcegroup['GroupName'] }}"
     resourceGroup["Resources"] = Array()
     
-    var isCompute = false;
-    var isStorage = false;
-    var isNetwork = false;
     {% for resource in resourcegroup['Resources']['Resource'] %}
     resourceGroup["Resources"].push("{{ resource['Name'] }}");
+    // Check for edu in the FQDN
+    var resourceFQDN = "{{ resource['FQDN'] }}";
+    if (resourceFQDN.endsWith(".edu")) {
+        sites[curSite][4].isEdu = true;
+    }
+    
     {% for service in resource['Services']['Service'] %}
     // {{ service }}
     // {{ service["ID"] }}
@@ -230,15 +238,26 @@ function init(scrollwheel) {
                 
             }
         }
-        // Compute - Blue
-        // Storage - Purple
-        // Compute + Storage = Green
+
         var icon = '/static/images/star_blue.png';
-        if ((sites[site][4].isCompute == false) && (sites[site][4].isStorage == true)) {
-            icon = '/static/images/star_purple.png';
-        } else if ((sites[site][4].isCompute == true) && (sites[site][4].isStorage == true)){
-            icon = '/static/images/star_green.png';
+        if (queryView == "EduvsOther") {
+            // Edu = blue
+            // Other = green
+            if ((sites[site][4].isEdu == false)) {
+                icon = '/static/images/star_green.png';
+            }
+        } else {
+            // Default is storage vs compute
+            // Compute - Blue
+            // Storage - Purple
+            // Compute + Storage = Green
+            if ((sites[site][4].isCompute == false) && (sites[site][4].isStorage == true)) {
+                icon = '/static/images/star_purple.png';
+            } else if ((sites[site][4].isCompute == true) && (sites[site][4].isStorage == true)){
+                icon = '/static/images/star_green.png';
+            }
         }
+        
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(sites[site][0], sites[site][1]),
             map: map,
@@ -248,7 +267,7 @@ function init(scrollwheel) {
         });
         
         setInfoWindow(counter, marker, html);
-        marker_id[counter] = marker;
+        marker_id[counter] = {marker: marker, site: sites[site]};
         $("#site").append("<option value='" + counter + "'>" + site + "</option>");
         counter += 1;
     }
@@ -256,7 +275,7 @@ function init(scrollwheel) {
 
     $("#site").change(function() {
             var id = $(this).val();
-            var marker = marker_id[id];
+            var marker = marker_id[id].marker;
             if(marker) {
                 google.maps.event.trigger(marker, 'click');
             } else {
@@ -264,13 +283,58 @@ function init(scrollwheel) {
             }
     });
 
+    $("#view").change(function() {
+        var view = $(this).val();
+        for (const [key, value] of Object.entries(marker_id)) {
+                
+            if (view == "EduvsOther") {
+                // Edu = blue
+                // Other = green
+                if ((value.site[4].isEdu == false)) {
+                    value.marker.setIcon('/static/images/star_green.png');
+                } else {
+                    value.marker.setIcon('/static/images/star_blue.png');
+                }
+            } else {
+                // Default is storage vs compute
+                // Compute - Blue
+                // Storage - Purple
+                // Compute + Storage = Green
+                if ((value.site[4].isCompute == false) && (value.site[4].isStorage == true)) {
+                    value.marker.setIcon('/static/images/star_purple.png');
+                } else if ((value.site[4].isCompute == true) && (value.site[4].isStorage == true)){
+                    value.marker.setIcon('/static/images/star_green.png');
+                } else {
+                    value.marker.setIcon('/static/images/star_blue.png');
+                }
+            }
+        }
+        var legend = null;
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].pop();
+        if (view == "EduvsOther") {
+            legend = $("#legend_edu").clone();
+            window.history.replaceState('', '', UpdateQueryString("view", "EduvsOther"));
+        } else {
+            legend = $("#legend_compute").clone();
+            window.history.replaceState('', '', UpdateQueryString("view", ""));
+        }
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend[0]);
+    });
+
 
     google.maps.event.addListener(infowindow, 'closeclick', function() {
         $("#site option[value=]").attr("selected", "selected");
     });
 
-    var legend = document.getElementById('legend');
-    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+    var legend = null;
+    
+    
+    if (queryView == "EduvsOther") {
+        legend = $("#legend_edu").clone();
+    } else {
+        legend = $("#legend_compute").clone();
+    }
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend[0]);
 }
 
 function setInfoWindow(id,marker, content) {
@@ -284,6 +348,40 @@ function setInfoWindow(id,marker, content) {
     });
 }
 
+// https://stackoverflow.com/questions/5999118/how-can-i-add-or-update-a-query-string-parameter
+function UpdateQueryString(key, value, url) {
+    if (!url) url = window.location.href;
+    var re = new RegExp("([?&])" + key + "=.*?(&|#|$)(.*)", "gi"),
+        hash;
+
+    if (re.test(url)) {
+        if (typeof value !== 'undefined' && value !== null) {
+            return url.replace(re, '$1' + key + "=" + value + '$2$3');
+        } 
+        else {
+            hash = url.split('#');
+            url = hash[0].replace(re, '$1$3').replace(/(&|\?)$/, '');
+            if (typeof hash[1] !== 'undefined' && hash[1] !== null) {
+                url += '#' + hash[1];
+            }
+            return url;
+        }
+    }
+    else {
+        if (typeof value !== 'undefined' && value !== null) {
+            var separator = url.indexOf('?') !== -1 ? '&' : '?';
+            hash = url.split('#');
+            url = hash[0] + separator + key + '=' + value;
+            if (typeof hash[1] !== 'undefined' && hash[1] !== null) {
+                url += '#' + hash[1];
+            }
+            return url;
+        }
+        else {
+            return url;
+        }
+    }
+}
 
 $(document).ready(function() {
     init(false);//scroll wheel -- off
@@ -322,14 +420,25 @@ color: #666;
 box-shadow: 1px 1px 5px #333;
 }
 
-#legend {
+#view_control {
+float: left;
+left: 3px;
+top: 3px;
+position: absolute;
+z-index: 1;
+background-color: white;
+color: #666;
+box-shadow: 1px 1px 5px #333;
+}
+
+.legend {
     /* font-family: Arial, sans-serif; */
     background: #fff;
     padding: 10px;
     margin: 10px;
     border: 3px solid #000;
 }
-#legend>div {
+.legend>div {
     display: -webkit-flexbox;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -343,7 +452,7 @@ box-shadow: 1px 1px 5px #333;
     justify-content: center;
     */
   }
-  #legend>div>img {
+  .legend>div>img {
     margin-right: 0.5em;
   }
 
@@ -354,11 +463,21 @@ box-shadow: 1px 1px 5px #333;
     <option value="">(None)</option>
     </select>
 </div>
+
+<div id="view_control">&nbsp;View&nbsp;&nbsp;<select id="view" style="border: none;">
+    <option value="ComputevsStorage">Compute and Storage</option>
+    <option value="EduvsOther">EDU sites and others</option>
+    </select>
+</div>
 <div id="map_canvas"></div>
-<div id="legend"><h2>Legend</h2>
+<div id="legend_compute" class="legend"><h2>Legend</h2>
     <div><img src="/static/images/star_blue.png">Compute Only</div>
     <div><img src="/static/images/star_purple.png">Storage Only</div>
     <div><img src="/static/images/star_green.png">Compute and Storage</div>
+</div>
+<div id="legend_edu" class="legend"><h2>Legend</h2>
+    <div><img src="/static/images/star_blue.png">EDU Site</div>
+    <div><img src="/static/images/star_green.png">Others</div>
 </div>
 </div>
 
