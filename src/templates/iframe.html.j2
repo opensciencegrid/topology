@@ -141,6 +141,31 @@ function init(scrollwheel) {
 
     //setup listeners
     setTimeout("update_anchor()", 1000);//don't hook centerre_changed event.. it fires too often now
+
+    /* 
+    "CE" - C
+    "Squid" - D
+    "SRMv2" - D
+    "net.perfSONAR.Bandwidth" - N
+    "net.perfSONAR.Latency" - N
+    "Submit Node" - C
+    "XRootD cache server" - D
+    "GridFtp" - D
+    "XRootD component" - D
+    "XRootD origin server" - D
+    "Connect" - C
+    "SRMv1" - D
+    "LFC" - D
+    "GUMS Server" - C
+    "Glidein factory" - C
+    "VOMS Server" - C
+    "Apache Server" - D
+    "FTS" - D
+    */
+    var compute_services = new Array("CE", "Submit Node", "Connect", "GUMS Server", "Glidein factory", "VOMS Server");
+    var storage_services = new Array("Squid", "SRMv2", "XRootD cache server", "GridFtp", "XRootD component", "XRootD origin server", "SRMv1", "LFC", "Apache Server", "FTS");
+    var network_services = new Array("net.perfSONAR.Bandwidth", "net.perfSONAR.Latency");
+
     
     var sites = {};
     {% for resourcegroup in resourcegroups %}
@@ -152,25 +177,44 @@ function init(scrollwheel) {
         sites[curSite] = [ {{ resourcegroup["Site"]["Latitude"] }},
                            {{ resourcegroup["Site"]["Longitude"] }},
                            "{{ resourcegroup["Facility"]["Name"] }}",
-                            Array() ]
+                            Array(),
+                            {isCompute: false, isStorage: false, isNetwork: false} ]
     }
     
     var resourceGroup = {};
     resourceGroup["Name"] = "{{ resourcegroup['GroupName'] }}"
     resourceGroup["Resources"] = Array()
     
+    var isCompute = false;
+    var isStorage = false;
+    var isNetwork = false;
     {% for resource in resourcegroup['Resources']['Resource'] %}
     resourceGroup["Resources"].push("{{ resource['Name'] }}");
+    {% for service in resource['Services']['Service'] %}
+    // {{ service }}
+    // {{ service["ID"] }}
+    // {{ service["Description"] }}
+    serviceName = "{{ service['Name'] }}"
+    if (compute_services.includes(serviceName)) {
+        sites[curSite][4].isCompute = true;
+    } else if (storage_services.includes(serviceName)) {
+        sites[curSite][4].isStorage = true;
+    } else if (network_services.includes(serviceName)) {
+        sites[curSite][4].isNetwork = true;
+    }
     {% endfor %}
+    {% endfor %}
+    
     
     sites[curSite][3].push(resourceGroup);
     
     {% endif %}
     {% endfor %}
-    
     {% set counter = 0 %}
     //add sites
     
+
+
     var counter = 0;
     for (site in sites) {
         var resourceCounter = 0;
@@ -186,12 +230,20 @@ function init(scrollwheel) {
                 
             }
         }
-        
+        // Compute - Blue
+        // Storage - Red
+        // Compute + Storage = Green
+        var icon = '/static/images/star_blue.png';
+        if ((sites[site][4].isCompute == false) && (sites[site][4].isStorage == true)) {
+            icon = '/static/images/star_red.png';
+        } else if ((sites[site][4].isCompute == true) && (sites[site][4].isStorage == true)){
+            icon = '/static/images/star_green.png';
+        }
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(sites[site][0], sites[site][1]),
             map: map,
             zIndex: resourceCounter,
-            icon: '/static/images/status_green_map.png',
+            icon: icon,
             title: sites[site][2]
         });
         
@@ -216,6 +268,9 @@ function init(scrollwheel) {
     google.maps.event.addListener(infowindow, 'closeclick', function() {
         $("#site option[value=]").attr("selected", "selected");
     });
+
+    var legend = document.getElementById('legend');
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 }
 
 function setInfoWindow(id,marker, content) {
@@ -266,6 +321,33 @@ background-color: white;
 color: #666;
 box-shadow: 1px 1px 5px #333;
 }
+
+#legend {
+    /* font-family: Arial, sans-serif; */
+    background: #fff;
+    padding: 10px;
+    margin: 10px;
+    border: 3px solid #000;
+}
+#legend>div {
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    margin-bottom: 0.5em;
+    /*
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    justify-content: center;
+    */
+  }
+  #legend>div>img {
+    margin-right: 0.5em;
+  }
+
+
 </style>
 <div style="position: relative; height: 100%;">
 <div id="map_control">&nbsp;Site&nbsp;&nbsp;<select id="site" style="border: none;">
@@ -273,6 +355,11 @@ box-shadow: 1px 1px 5px #333;
     </select>
 </div>
 <div id="map_canvas"></div>
+<div id="legend"><h2>Legend</h2>
+    <div><img src="/static/images/star_blue.png">Compute Only</div>
+    <div><img src="/static/images/star_red.png">Storage Only</div>
+    <div><img src="/static/images/star_green.png">Compute and Storage</div>
+</div>
 </div>
 
 <style>
