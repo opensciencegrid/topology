@@ -231,11 +231,11 @@ function init(scrollwheel) {
             }
         }
         // Compute - Blue
-        // Storage - Red
+        // Storage - Purple
         // Compute + Storage = Green
         var icon = '/static/images/star_blue.png';
         if ((sites[site][4].isCompute == false) && (sites[site][4].isStorage == true)) {
-            icon = '/static/images/star_yellow.png';
+            icon = '/static/images/star_purple.png';
         } else if ((sites[site][4].isCompute == true) && (sites[site][4].isStorage == true)){
             icon = '/static/images/star_green.png';
         }
@@ -357,7 +357,7 @@ box-shadow: 1px 1px 5px #333;
 <div id="map_canvas"></div>
 <div id="legend"><h2>Legend</h2>
     <div><img src="/static/images/star_blue.png">Compute Only</div>
-    <div><img src="/static/images/star_yellow.png">Storage Only</div>
+    <div><img src="/static/images/star_purple.png">Storage Only</div>
     <div><img src="/static/images/star_green.png">Compute and Storage</div>
 </div>
 </div>
