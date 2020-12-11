@@ -38,4 +38,4 @@ RUN echo "45 */6 * * * root /usr/sbin/fetch-crl -q -r 21600 -p 10" >  /etc/cron.
 COPY docker/apache.conf /etc/httpd/conf.d/topology.conf
 COPY docker/supervisor-apache.conf /etc/supervisord.d/40-apache.conf
 
-EXPOSE 8443/tcp
+EXPOSE 8080/tcp 8443/tcp

@@ -21,6 +21,7 @@ services:
       - ./docker/secrets/github_access_token:/etc/opt/topology/github_access_token:ro
       - ./docker/secrets/github_webhook_secret:/etc/opt/topology/github_webhook_secret:ro
     ports:
+      - "8080:8080"
       - "8443:8443"
 
 volumes:
