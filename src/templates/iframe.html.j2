@@ -246,7 +246,7 @@ function init(scrollwheel) {
             if ((sites[site][4].isEdu == false)) {
                 icon = '/static/images/star_green.png';
             }
-        } else {
+        } else if (view =="ComputevsStorage"){
             // Default is storage vs compute
             // Compute - Blue
             // Storage - Purple
@@ -256,6 +256,8 @@ function init(scrollwheel) {
             } else if ((sites[site][4].isCompute == true) && (sites[site][4].isStorage == true)){
                 icon = '/static/images/star_green.png';
             }
+        } else {
+            icon = '/static/images/status_green_map.png';
         }
         
         var marker = new google.maps.Marker({
@@ -295,8 +297,8 @@ function init(scrollwheel) {
                 } else {
                     value.marker.setIcon('/static/images/star_blue.png');
                 }
-            } else {
-                // Default is storage vs compute
+            } else if (view =="ComputevsStorage") {
+                // storage vs compute
                 // Compute - Blue
                 // Storage - Purple
                 // Compute + Storage = Green
@@ -307,6 +309,9 @@ function init(scrollwheel) {
                 } else {
                     value.marker.setIcon('/static/images/star_blue.png');
                 }
+            } else {
+                // Default is green dots
+                value.marker.setIcon('/static/images/status_green_map.png');
             }
         }
         var legend = null;
@@ -314,8 +319,11 @@ function init(scrollwheel) {
         if (view == "EduvsOther") {
             legend = $("#legend_edu").clone();
             window.history.replaceState('', '', UpdateQueryString("view", "EduvsOther"));
-        } else {
+        } else if (view =="ComputevsStorage") {
             legend = $("#legend_compute").clone();
+            window.history.replaceState('', '', UpdateQueryString("view", "ComputevsStorage"));
+        } else {
+            legend = $("#legend_default").clone();
             window.history.replaceState('', '', UpdateQueryString("view", ""));
         }
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend[0]);
@@ -328,11 +336,12 @@ function init(scrollwheel) {
 
     var legend = null;
     
-    
     if (queryView == "EduvsOther") {
         legend = $("#legend_edu").clone();
-    } else {
+    } else if (view =="ComputevsStorage") {
         legend = $("#legend_compute").clone();
+    } else {
+        legend = $("#legend_default").clone();
     }
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend[0]);
 }
@@ -465,6 +474,7 @@ box-shadow: 1px 1px 5px #333;
 </div>
 
 <div id="view_control">&nbsp;View&nbsp;&nbsp;<select id="view" style="border: none;">
+    <option value="OSGSites">OSG Sites (default)</option>
     <option value="ComputevsStorage">Compute and Storage</option>
     <option value="EduvsOther">EDU sites and others</option>
     </select>
@@ -478,6 +488,9 @@ box-shadow: 1px 1px 5px #333;
 <div id="legend_edu" class="legend"><h2>Legend</h2>
     <div><img src="/static/images/star_blue.png">EDU Site</div>
     <div><img src="/static/images/star_green.png">Others</div>
+</div>
+<div id="legend_default" class="legend"><h2>Legend</h2>
+    <div><img src="/static/images/status_green_map.png">OSG Site</div>
 </div>
 </div>
 
