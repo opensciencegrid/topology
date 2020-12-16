@@ -1268,3 +1268,48 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 729863869
+  Description: HDFS failure during upgrade -- files not accessible
+  Severity: Intermittent Outage
+  StartTime: Dec 14, 2020 15:45 +0000
+  EndTime: Dec 14, 2020 21:00 +0000
+  CreatedTime: Dec 14, 2020 16:53 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 729872393
+  Description: HDFS failure during upgrade -- files not accessible
+  Severity: Intermittent Outage
+  StartTime: Dec 14, 2020 15:45 +0000
+  EndTime: Dec 14, 2020 21:00 +0000
+  CreatedTime: Dec 14, 2020 17:07 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 729872846
+  Description: HDFS failure during upgrade -- files not accessible
+  Severity: Intermittent Outage
+  StartTime: Dec 14, 2020 15:45 +0000
+  EndTime: Dec 14, 2020 21:00 +0000
+  CreatedTime: Dec 14, 2020 17:08 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 729878163
+  Description: HDFS failure during upgrade -- files not accessible
+  Severity: Intermittent Outage
+  StartTime: Dec 14, 2020 15:45 +0000
+  EndTime: Dec 14, 2020 21:00 +0000
+  CreatedTime: Dec 14, 2020 17:16 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+
