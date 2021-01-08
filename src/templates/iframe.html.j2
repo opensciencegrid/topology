@@ -183,7 +183,7 @@ function init(scrollwheel) {
                            {{ resourcegroup["Site"]["Longitude"] }},
                            "{{ resourcegroup["Facility"]["Name"] }}",
                             Array(),
-                            {isCompute: false, isStorage: false, isNetwork: false, isEdu: false} ]
+                            {isCompute: false, isStorage: false, isNetwork: false, isEdu: false, isCCStar: false} ]
     }
     
     var resourceGroup = {};
@@ -197,6 +197,15 @@ function init(scrollwheel) {
     if (resourceFQDN.endsWith(".edu")) {
         sites[curSite][4].isEdu = true;
     }
+
+    {% if 'Tags' in resource and resource['Tags'] != None %}
+    {% for tag in resource['Tags'] %}
+    tag = "{{ tag['Tag'] }}"
+    if (tag == "CC*") {
+        sites[curSite][4].isCCStar = true;
+    }
+    {% endfor %}
+    {% endif %}
     
     {% for service in resource['Services']['Service'] %}
     // {{ service }}
@@ -220,7 +229,7 @@ function init(scrollwheel) {
     {% endfor %}
     {% set counter = 0 %}
     //add sites
-    
+
 
 
     var counter = 0;
@@ -238,15 +247,22 @@ function init(scrollwheel) {
                 
             }
         }
-
         var icon = '/static/images/star_blue.png';
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(sites[site][0], sites[site][1]),
+            map: map,
+            zIndex: resourceCounter,
+            icon: icon,
+            title: sites[site][2]
+        });
+
         if (queryView == "EduvsOther") {
             // Edu = blue
             // Other = green
             if ((sites[site][4].isEdu == false)) {
                 icon = '/static/images/star_green.png';
             }
-        } else if (view =="ComputevsStorage"){
+        } else if (queryView =="ComputevsStorage"){
             // Default is storage vs compute
             // Compute - Blue
             // Storage - Purple
@@ -256,18 +272,20 @@ function init(scrollwheel) {
             } else if ((sites[site][4].isCompute == true) && (sites[site][4].isStorage == true)){
                 icon = '/static/images/star_green.png';
             }
+        } else if (queryView == "CCStar") {
+            if (sites[site][4].isCCStar == true) {
+                icon = '/static/images/star_blue.png';
+            } else {
+                // Remove marker from the map
+                marker.setMap(null);
+            }
+
         } else {
             icon = '/static/images/status_green_map.png';
         }
-        
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(sites[site][0], sites[site][1]),
-            map: map,
-            zIndex: resourceCounter,
-            icon: icon,
-            title: sites[site][2]
-        });
-        
+
+        marker.setIcon(icon)
+
         setInfoWindow(counter, marker, html);
         marker_id[counter] = {marker: marker, site: sites[site]};
         $("#site").append("<option value='" + counter + "'>" + site + "</option>");
@@ -288,7 +306,8 @@ function init(scrollwheel) {
     $("#view").change(function() {
         var view = $(this).val();
         for (const [key, value] of Object.entries(marker_id)) {
-                
+            // Initially add all markers to the map
+            value.marker.setMap(map);
             if (view == "EduvsOther") {
                 // Edu = blue
                 // Other = green
@@ -309,6 +328,14 @@ function init(scrollwheel) {
                 } else {
                     value.marker.setIcon('/static/images/star_blue.png');
                 }
+            } else if (view == "CCStar") {
+                if (value.site[4].isCCStar == true) {
+                    value.marker.setIcon('/static/images/star_blue.png');
+                } else {
+                    // Remove the marker from the map if it's not ccstar
+                    value.marker.setMap(null);
+                }
+
             } else {
                 // Default is green dots
                 value.marker.setIcon('/static/images/status_green_map.png');
@@ -322,6 +349,9 @@ function init(scrollwheel) {
         } else if (view =="ComputevsStorage") {
             legend = $("#legend_compute").clone();
             window.history.replaceState('', '', UpdateQueryString("view", "ComputevsStorage"));
+        } else if (view == "CCStar") {
+            legend = $("#legend_ccstar").clone();
+            window.history.replaceState('', '', UpdateQueryString("view", "CCStar"));
         } else {
             legend = $("#legend_default").clone();
             window.history.replaceState('', '', UpdateQueryString("view", ""));
@@ -338,8 +368,10 @@ function init(scrollwheel) {
     
     if (queryView == "EduvsOther") {
         legend = $("#legend_edu").clone();
-    } else if (view =="ComputevsStorage") {
+    } else if (queryView =="ComputevsStorage") {
         legend = $("#legend_compute").clone();
+    } else if (queryView =="CCStar") {
+        legend = $("#legend_ccstar").clone();
     } else {
         legend = $("#legend_default").clone();
     }
@@ -477,6 +509,7 @@ box-shadow: 1px 1px 5px #333;
     <option value="OSGSites">OSG Sites (default)</option>
     <option value="ComputevsStorage">Compute and Storage</option>
     <option value="EduvsOther">EDU sites and others</option>
+    <option value="CCStar">CC* Sites</option>
     </select>
 </div>
 <div id="map_canvas"></div>
@@ -491,6 +524,9 @@ box-shadow: 1px 1px 5px #333;
 </div>
 <div id="legend_default" class="legend"><h2>Legend</h2>
     <div><img src="/static/images/status_green_map.png">OSG Site</div>
+</div>
+<div id="legend_ccstar" class="legend"><h2>Legend</h2>
+    <div><img src="/static/images/star_blue.png">CC* Site</div>
 </div>
 </div>
 
