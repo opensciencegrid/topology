@@ -357,6 +357,7 @@ function init(scrollwheel) {
             window.history.replaceState('', '', UpdateQueryString("view", ""));
         }
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend[0]);
+        $(legend[0]).show();
     });
 
 
@@ -376,6 +377,7 @@ function init(scrollwheel) {
         legend = $("#legend_default").clone();
     }
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend[0]);
+    $(legend[0]).show();
 }
 
 function setInfoWindow(id,marker, content) {
@@ -513,19 +515,19 @@ box-shadow: 1px 1px 5px #333;
     </select>
 </div>
 <div id="map_canvas"></div>
-<div id="legend_compute" class="legend"><h2>Legend</h2>
+<div id="legend_compute" class="legend" style="display: none"><h2>Legend</h2>
     <div><img src="/static/images/star_blue.png">Compute Only</div>
     <div><img src="/static/images/star_purple.png">Storage Only</div>
     <div><img src="/static/images/star_green.png">Compute and Storage</div>
 </div>
-<div id="legend_edu" class="legend"><h2>Legend</h2>
+<div id="legend_edu" class="legend" style="display: none"><h2>Legend</h2>
     <div><img src="/static/images/star_blue.png">EDU Site</div>
     <div><img src="/static/images/star_green.png">Others</div>
 </div>
-<div id="legend_default" class="legend"><h2>Legend</h2>
+<div id="legend_default" class="legend" style="display: none"><h2>Legend</h2>
     <div><img src="/static/images/status_green_map.png">OSG Site</div>
 </div>
-<div id="legend_ccstar" class="legend"><h2>Legend</h2>
+<div id="legend_ccstar" class="legend" style="display: none"><h2>Legend</h2>
     <div><img src="/static/images/star_blue.png">CC* Site</div>
 </div>
 </div>
