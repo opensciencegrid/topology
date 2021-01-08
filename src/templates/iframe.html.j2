@@ -229,7 +229,7 @@ function init(scrollwheel) {
     {% endfor %}
     {% set counter = 0 %}
     //add sites
-    
+
 
 
     var counter = 0;
@@ -247,7 +247,7 @@ function init(scrollwheel) {
                 
             }
         }
-
+        var icon = '/static/images/star_blue.png';
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(sites[site][0], sites[site][1]),
             map: map,
@@ -256,7 +256,6 @@ function init(scrollwheel) {
             title: sites[site][2]
         });
 
-        var icon = '/static/images/star_blue.png';
         if (queryView == "EduvsOther") {
             // Edu = blue
             // Other = green
