@@ -55,6 +55,8 @@ Resources:
           hidden: false
       Squid:
         Description: Generic squid service
+    Tags:
+      - CC*
     VOOwnership:
       LIGO: 25
       IceCube: 25
