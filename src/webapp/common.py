@@ -19,10 +19,10 @@ except ImportError:
     log.warning("CSafeLoader not available - install libyaml-devel and reinstall PyYAML")
     from yaml import SafeLoader
 
-MISCUSER_SCHEMA_URL = "https://my.opensciencegrid.org/schema/miscuser.xsd"
-RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
-RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
-VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
+MISCUSER_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/miscuser.xsd"
+RGSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/rgsummary.xsd"
+RGDOWNTIME_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/rgdowntime.xsd"
+VOSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/vosummary.xsd"
 
 SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 

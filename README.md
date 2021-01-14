@@ -47,10 +47,10 @@ Alternatively, the registry data can be accessed in XML format at the following 
 
 | The following data... | Can be accessed in XML format via URL...         |
 |-----------------------|--------------------------------------------------|
-| Project               | <https://my.opensciencegrid.org/miscproject/xml> |
-| Resource Downtime     | <https://my.opensciencegrid.org/rgdowntime/xml>  |
-| Resource Topology     | <https://my.opensciencegrid.org/rgsummary/xml>   |
-| Virtual Organization  | <https://my.opensciencegrid.org/vosummary/xml>   |
+| Project               | <https://topology.opensciencegrid.org/miscproject/xml> |
+| Resource Downtime     | <https://topology.opensciencegrid.org/rgdowntime/xml>  |
+| Resource Topology     | <https://topology.opensciencegrid.org/rgsummary/xml>   |
+| Virtual Organization  | <https://topology.opensciencegrid.org/vosummary/xml>   |
 
 These XML pages are compatible with the XML format once provided by `myosg.grid.iu.edu`.
 
