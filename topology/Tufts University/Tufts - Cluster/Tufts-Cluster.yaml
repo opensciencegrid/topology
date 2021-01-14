@@ -8,7 +8,7 @@ GroupDescription: This is a cluster of CC* GPU used for Tufts University
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: <ID>
+GroupID: 1100
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -24,7 +24,7 @@ Resources:
     Description: This is a Hosted CE for Tufts University.
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: <ID>
+    ID: 1114
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://my.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
@@ -75,9 +75,9 @@ Resources:
         # Description is a brief description of the service
         Description: Hosted CE for Tufts-Cluster
         ### Details (optional)
-         Details:
+        # Details:
         #   # hidden
-           hidden: false
+        #   hidden: false
         #   ### uri_override (optional, use if your service is on some non-standard URL)
         #   # uri_override: <HOST>:<PORT>
         #   ### sam_uri (optional)
@@ -91,8 +91,8 @@ Resources:
 
     ### Tags (optional) is a list of tags associated with the resource.
     ### Include the tag "CC*" if applicable for a CC* CE.
-     Tags:
-       - CC*
+    Tags:
+      - CC*
     #   - <TAG2>
 
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
