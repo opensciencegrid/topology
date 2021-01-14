@@ -274,7 +274,7 @@ function init(scrollwheel) {
             }
         } else if (queryView == "CCStar") {
             if (sites[site][4].isCCStar == true) {
-                icon = '/static/images/star_blue.png';
+                icon = '/static/images/star_red_bigger.png';
             } else {
                 // Remove marker from the map
                 marker.setMap(null);
@@ -330,7 +330,7 @@ function init(scrollwheel) {
                 }
             } else if (view == "CCStar") {
                 if (value.site[4].isCCStar == true) {
-                    value.marker.setIcon('/static/images/star_blue.png');
+                    value.marker.setIcon('/static/images/star_red_bigger.png');
                 } else {
                     // Remove the marker from the map if it's not ccstar
                     value.marker.setMap(null);
