@@ -393,7 +393,7 @@ def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_group
     return origin_resource.name in allowed_origins
 
 
-def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True):
+def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True) -> List[Resource]:
     allowed_caches = stashcache_data.get("AllowedCaches")
     if allowed_caches is None:
         if suppress_errors:
@@ -461,7 +461,11 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
                 else:
                     raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
 
-            for resource in _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
+            allowed_resources = _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors)
+            origin_resource = _get_resource_by_fqdn(origin_hostname, resource_groups)
+            allowed_resources.append(origin_resource)
+
+            for resource in allowed_resources:
                 dn = resource.data.get("DN")
                 if not dn:
                     warnings.append("# WARNING: Resource {} was skipped for VO {}"
