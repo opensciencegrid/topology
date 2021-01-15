@@ -1312,4 +1312,47 @@
   Services:
   - CE
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 757624048
+  Description: HDFS update disables access to files on /store
+  Severity: Severe
+  StartTime: Jan 19, 2021 14:00 +0000
+  EndTime: Jan 19, 2021 21:00 +0000
+  CreatedTime: Jan 15, 2021 20:00 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 757624627
+  Description: HDFS update disables access to files on /store
+  Severity: Severe
+  StartTime: Jan 19, 2021 14:00 +0000
+  EndTime: Jan 19, 2021 21:00 +0000
+  CreatedTime: Jan 15, 2021 20:01 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 757625184
+  Description: HDFS update disables access to files on /store
+  Severity: Severe
+  StartTime: Jan 19, 2021 14:00 +0000
+  EndTime: Jan 19, 2021 21:00 +0000
+  CreatedTime: Jan 15, 2021 20:01 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 757625647
+  Description: HDFS update disables access to files on /store
+  Severity: Severe
+  StartTime: Jan 19, 2021 14:00 +0000
+  EndTime: Jan 19, 2021 21:00 +0000
+  CreatedTime: Jan 15, 2021 20:02 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
