@@ -139,6 +139,40 @@ function init(scrollwheel) {
         mapTypeId: maptype
     });
 
+    // Icons so we can set the anchor as the middle of the image, rather than
+    // the default of the bottom middle.
+    // You have to change these values if you change the size of the file!
+    const star_blue = {
+        url: '/static/images/star_blue.png',
+        size: new google.maps.Size(16, 16),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(8, 8)
+    };
+    const star_green = {
+        url: '/static/images/star_green.png',
+        size: new google.maps.Size(16, 16),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(8, 8)
+    };
+    const star_purple = {
+        url: '/static/images/star_purple.png',
+        size: new google.maps.Size(16, 16),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(8, 8)
+    };
+    const status_green_map = {
+        url: '/static/images/status_green_map.png',
+        size: new google.maps.Size(20, 20),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(10, 10)
+    };
+    const star_red_bigger = {
+        url: '/static/images/star_red_bigger.png',
+        size: new google.maps.Size(24, 24),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(12, 12)
+    };
+
     //setup listeners
     setTimeout("update_anchor()", 1000);//don't hook centerre_changed event.. it fires too often now
 
@@ -247,7 +281,7 @@ function init(scrollwheel) {
                 
             }
         }
-        var icon = '/static/images/star_blue.png';
+        var icon = star_blue;
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(sites[site][0], sites[site][1]),
             map: map,
@@ -260,7 +294,7 @@ function init(scrollwheel) {
             // Edu = blue
             // Other = green
             if ((sites[site][4].isEdu == false)) {
-                icon = '/static/images/star_green.png';
+                icon = star_green;
             }
         } else if (queryView =="ComputevsStorage"){
             // Default is storage vs compute
@@ -268,20 +302,20 @@ function init(scrollwheel) {
             // Storage - Purple
             // Compute + Storage = Green
             if ((sites[site][4].isCompute == false) && (sites[site][4].isStorage == true)) {
-                icon = '/static/images/star_purple.png';
+                icon = star_purple;
             } else if ((sites[site][4].isCompute == true) && (sites[site][4].isStorage == true)){
-                icon = '/static/images/star_green.png';
+                icon = star_green;
             }
         } else if (queryView == "CCStar") {
             if (sites[site][4].isCCStar == true) {
-                icon = '/static/images/star_red_bigger.png';
+                icon = star_red_bigger;
             } else {
                 // Remove marker from the map
                 marker.setMap(null);
             }
 
         } else {
-            icon = '/static/images/status_green_map.png';
+            icon = status_green_map;
         }
 
         marker.setIcon(icon)
@@ -312,9 +346,9 @@ function init(scrollwheel) {
                 // Edu = blue
                 // Other = green
                 if ((value.site[4].isEdu == false)) {
-                    value.marker.setIcon('/static/images/star_green.png');
+                    value.marker.setIcon(star_green);
                 } else {
-                    value.marker.setIcon('/static/images/star_blue.png');
+                    value.marker.setIcon(star_blue);
                 }
             } else if (view =="ComputevsStorage") {
                 // storage vs compute
@@ -322,15 +356,15 @@ function init(scrollwheel) {
                 // Storage - Purple
                 // Compute + Storage = Green
                 if ((value.site[4].isCompute == false) && (value.site[4].isStorage == true)) {
-                    value.marker.setIcon('/static/images/star_purple.png');
+                    value.marker.setIcon(star_purple);
                 } else if ((value.site[4].isCompute == true) && (value.site[4].isStorage == true)){
-                    value.marker.setIcon('/static/images/star_green.png');
+                    value.marker.setIcon(star_green);
                 } else {
-                    value.marker.setIcon('/static/images/star_blue.png');
+                    value.marker.setIcon(star_blue);
                 }
             } else if (view == "CCStar") {
                 if (value.site[4].isCCStar == true) {
-                    value.marker.setIcon('/static/images/star_red_bigger.png');
+                    value.marker.setIcon(star_red_bigger);
                 } else {
                     // Remove the marker from the map if it's not ccstar
                     value.marker.setMap(null);
@@ -338,7 +372,7 @@ function init(scrollwheel) {
 
             } else {
                 // Default is green dots
-                value.marker.setIcon('/static/images/status_green_map.png');
+                value.marker.setIcon(status_green_map);
             }
         }
         var legend = null;
