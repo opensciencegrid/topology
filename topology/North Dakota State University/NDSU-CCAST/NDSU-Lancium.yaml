@@ -1,0 +1,26 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: Compute resources at Lancium provided through North Dakota State
+GroupID: 1103
+Resources:
+  NDSU-Lancium-Backfill:
+    Active: true
+    Description: Backfill containers running at Lancium
+    ID: 1118
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+      Security Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+      Site Contact:
+        Primary:
+          ID: 918345f5776bc54182a17fc20dca5b164597d2f5
+          Name: Dane Skow
+    FQDN: lancium.ndsu.edu
+    Services:
+      CE:
+        Description: NDSU Lancium backfill containers
