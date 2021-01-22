@@ -409,3 +409,27 @@
   - GridFtp
   - XRootD origin server
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 729922747
+  Description: OSCER cluster maintenance
+  Severity: Outage
+  StartTime: Dec 16, 2020 14:00 +0000
+  EndTime: Dec 17, 2020 06:00 +0000
+  CreatedTime: Dec 14, 2020 18:31 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 729923082
+  Description: OSCER cluster maintenance
+  Severity: Outage
+  StartTime: Dec 16, 2020 14:00 +0000
+  EndTime: Dec 17, 2020 06:00 +0000
+  CreatedTime: Dec 14, 2020 18:31 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD origin server
+# ---------------------------------------------------------

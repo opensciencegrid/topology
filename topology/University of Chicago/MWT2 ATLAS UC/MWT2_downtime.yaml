@@ -1013,3 +1013,25 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 708405733
+  Description: dcache upgrade
+  Severity: Outage
+  StartTime: Nov 30, 2020 15:00 +0000
+  EndTime: Nov 30, 2020 23:00 +0000
+  CreatedTime: Nov 19, 2020 20:49 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 755926780
+  Description: ICC Quarterly PM
+  Severity: Outage
+  StartTime: Jan 20, 2021 14:00 +0000
+  EndTime: Jan 20, 2021 22:00 +0000
+  CreatedTime: Jan 13, 2021 20:51 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------

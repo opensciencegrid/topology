@@ -4,7 +4,7 @@ Production: false
 SupportCenter: Self Supported
 Resources:
   OSG-ITB-CE1:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -27,7 +27,7 @@ Resources:
           ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
           Name: Matyas Selmeci
     Description: This is an ITB site run by the OSG Software Team at UW-Madison.
-    FQDN: osg-itb-ce1.chtc.wisc.edu
+    FQDN: osg-itb-ce1.osg.chtc.io
     ID: 1091
     Services:
       CE:
@@ -35,3 +35,92 @@ Resources:
         Details:
           hidden: false
 
+  HOSTED-CE1-OSGDEV-CHTC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+          Name: Brian Bockelman
+        Tertiary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+      Security Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+          Name: Brian Bockelman
+        Tertiary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+    Description: This is an ITB Hosted CE run by the OSG Software Team at UW-Madison.
+    FQDN: hosted-ce1.osgdev.chtc.io
+    ID: 1104
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+
+  HOSTED-CE-CHTC-UBUNTU:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+        Secondary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Tertiary:
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+          Name: Brian Bockelman
+      Security Contact:
+        Primary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+        Secondary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Tertiary:
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+          Name: Brian Bockelman
+    Description: This is a Hosted CE connected to an Ubuntu submit pod run by CHTC.
+    FQDN: hosted-ce-chtc-ubuntu.osg.chtc.io
+    ID: 1105
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+
+  WENMR-CE1-OSGDEV-CHTC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+      Security Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+    Description: ITB Open Science CE for WeNMR
+    FQDN: wenmr-ce1.osgdev.chtc.io
+    ID: 1115
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false

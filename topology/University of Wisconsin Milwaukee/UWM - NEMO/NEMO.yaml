@@ -6,7 +6,7 @@ GroupDescription: The UWM-NEMO cluster
 Resources:
   OSG_US_UWM_NEMO:
     ID: 1033 
-    Disable: false
+    Active: false
     Description: The Hosted CE serving UWM-NEMO
     ContactLists:
       Administrative Contact:
@@ -48,7 +48,7 @@ Resources:
         Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-    FQDN: hosted-ce32.opensciencegrid.org
+    FQDN: uwm-nemo-ce1.svc.opensciencegrid.org
     Services:
       CE:
         Description: UWM-NEMO Hosted CE

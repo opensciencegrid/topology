@@ -5,8 +5,6 @@ Contacts:
   Administrative Contact:
   - ID: 67523ec91c983a4c0c1c576beeac1037aa863da3
     Name: Steve Barnet
-  - ID: 3fbb3d844448b2df9802a4aef8294f83785d090c
-    Name: Gonzalo Merino
   Miscellaneous Contact:
   - ID: c7200cc00194ee2bedfe79f0b3a6af20bc905aef
     Name: Juan Carlos Diaz Velez
@@ -15,21 +13,15 @@ Contacts:
     Name: Steve Barnet
   - ID: bc87af94d3512f536e417f1e45808b975fb2874f
     Name: Vladimir Brik
-  - ID: 3fbb3d844448b2df9802a4aef8294f83785d090c
-    Name: Gonzalo Merino
   Security Contact:
   - ID: 67523ec91c983a4c0c1c576beeac1037aa863da3
     Name: Steve Barnet
-  - ID: 3fbb3d844448b2df9802a4aef8294f83785d090c
-    Name: Gonzalo Merino
   Sponsors:
   - ID: c7200cc00194ee2bedfe79f0b3a6af20bc905aef
     Name: Juan Carlos Diaz Velez
   VO Manager:
   - ID: 67523ec91c983a4c0c1c576beeac1037aa863da3
     Name: Steve Barnet
-  - ID: 3fbb3d844448b2df9802a4aef8294f83785d090c
-    Name: Gonzalo Merino
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -54,10 +46,15 @@ ReportingGroups:
 DataFederations:
   StashCache:
     Namespaces:
-      /icecube/PUBLIC:
+      /icecube/users:
         - PUBLIC
+      # This path doesn't exist (nor does the issuer) but we need it to generate an acceptable scitokens.conf until SOFTWARE-4223 and/or SOFTWARE-4389 are done.
+      /icecube/PROTECTED:
+        - SciTokens:
+            Issuer: https://scitokens.org/icecube
+            Base Path: /icecube
     AllowedCaches:
       - ANY
     AllowedOrigins:
-      - CHTC_STASHCACHE_ORIGIN
+      - IceCube_StashCache_origin
 

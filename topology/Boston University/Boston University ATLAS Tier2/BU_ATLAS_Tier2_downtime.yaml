@@ -108,3 +108,26 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 681521473
+  Description: 'Annual downtime '
+  Severity: Outage
+  StartTime: Oct 19, 2020 09:00 +0000
+  EndTime: Oct 20, 2020 23:00 +0000
+  CreatedTime: Oct 19, 2020 19:02 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 762812933
+  Description: 'GPFS file system '
+  Severity: Outage
+  StartTime: Jan 21, 2021 19:00 +0000
+  EndTime: Jan 22, 2021 19:00 +0000
+  CreatedTime: Jan 21, 2021 20:08 +0000
+  ResourceName: NET2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------

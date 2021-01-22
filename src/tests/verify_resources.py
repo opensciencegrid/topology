@@ -49,6 +49,9 @@ def get_vo_names():
     return set( re.search(r'/([^/]+)\.yaml$', path).group(1) for path in
                 glob.glob(_topdir + "/virtual-organizations/*.yaml") )
 
+def contact_id_ok(ID):
+    return re.search(r'^[0-9a-f]{40}$', ID) or re.search(r'^OSG\d+$', ID)
+
 def load_yamlfile(fn):
     with open(fn) as f:
         try:
@@ -69,7 +72,16 @@ def get_contacts():
     txt = urlopen(_contacts_url).read()
     xmltree = et.fromstring(txt)
     users = xmltree.findall('User')
-    return dict(map(user_id_name, users))
+    d = dict(map(user_id_name, users))
+    return add_cilogon_ids(users, d)
+
+def add_cilogon_ids(users, d):
+    """ add CILogonIDs to dict so they can be treated like ContactIDs """
+    for u in users:
+        cilogonid = u.find('CILogonID')
+        if cilogonid:
+            d[cilogonid] = u.find('FullName').text
+    return d
 
 def main():
     os.chdir(_topdir)
@@ -152,7 +164,8 @@ _emsgs = {
     'NoResourceContactLists' : "Resources must contain a ContactLists section",
     'NoAdminContact'         : "Resources must have an Administrative Contact",
     'NoSecContact'           : "Resources must have a Security Contact",
-    'MalformedContactID'     : "Contact IDs must be exactly 40 hex digits",
+    'MalformedContactID'     : "Contact IDs must be exactly 40 hex digits,"
+                               " or a CILogonID",
     'UnknownContactID'       : "Contact IDs must exist in contact repo",
     'ContactNameMismatch'    : "Contact names must match in contact repo",
     'NoFacility'             : "Facility directories must contain a FACILITY.yaml",
@@ -429,7 +442,7 @@ def test_12_res_contact_id_fmt(rgs, rgfns):
             rcls = rdict.get('ContactLists')
             if rcls:
                 for ctype, clevel, ID, name in flatten_res_contacts(rcls):
-                    if not re.search(r'^[0-9a-f]{40}$', ID):
+                    if not contact_id_ok(ID):
                         print_emsg_once('MalformedContactID')
                         print("In '%s', Resource '%s' has malformed %s %s '%s'"
                               " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
@@ -446,7 +459,7 @@ def test_12_vo_contact_id_fmt(vos, vofns):
         vcs = vo.get('Contacts')
         if vcs:
             for ctype, ID, name in flatten_vo_contacts(vcs):
-                if not re.search(r'^[0-9a-f]{40}$', ID):
+                if not contact_id_ok(ID):
                     print_emsg_once('MalformedContactID')
                     print("In '%s', malformed '%s' Contact ID '%s'"
                           " (%s)" % (vofn, ctype, ID, name))
@@ -465,7 +478,7 @@ def test_12_sc_contact_id_fmt(support_centers):
         sccs = scdict.get('Contacts')
         if sccs:
             for ctype, ID, name in flatten_sc_contacts(sccs):
-                if not re.search(r'^[0-9a-f]{40}$', ID):
+                if not contact_id_ok(ID):
                     print_emsg_once('MalformedContactID')
                     print("Support Center '%s' has malformed '%s'"
                           " Contact ID '%s' (%s)" % (scname, ctype, ID, name))
@@ -483,7 +496,7 @@ def test_13_res_contacts_exist(rgs, rgfns, contacts):
             rcls = rdict.get('ContactLists')
             if rcls:
                 for ctype, clevel, ID, name in flatten_res_contacts(rcls):
-                    if re.search(r'^[0-9a-f]{40}$', ID) and ID not in contacts:
+                    if contact_id_ok(ID) and ID not in contacts:
                         print_emsg_once('UnknownContactID')
                         print("In '%s', Resource '%s' has unknown %s %s '%s'"
                               " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
@@ -501,7 +514,7 @@ def test_13_vo_contacts_exist(vos, vofns, contacts):
         vcs = vo.get('Contacts')
         if vcs:
             for ctype, ID, name in flatten_vo_contacts(vcs):
-                if re.search(r'^[0-9a-f]{40}$', ID) and ID not in contacts:
+                if contact_id_ok(ID) and ID not in contacts:
                     print_emsg_once('UnknownContactID')
                     print("In '%s', unknown '%s' Contact ID '%s'"
                           " (%s)" % (vofn, ctype, ID, name))
@@ -521,7 +534,7 @@ def test_13_sc_contacts_exist(support_centers, contacts):
         sccs = scdict.get('Contacts')
         if sccs:
             for ctype, ID, name in flatten_sc_contacts(sccs):
-                if re.search(r'^[0-9a-f]{40}$', ID) and ID not in contacts:
+                if contact_id_ok(ID) and ID not in contacts:
                     print_emsg_once('UnknownContactID')
                     print("Support Center '%s' has unknown '%s'"
                           " Contact ID '%s' (%s)" % (scname, ctype, ID, name))
@@ -539,7 +552,7 @@ def test_14_res_contacts_match(rgs, rgfns, contacts):
             rcls = rdict.get('ContactLists')
             if rcls:
                 for ctype, clevel, ID, name in flatten_res_contacts(rcls):
-                    if (re.search(r'^[0-9a-f]{40}$', ID)
+                    if (contact_id_ok(ID)
                         and ID in contacts and name != contacts[ID]):
                         print_emsg_once('ContactNameMismatch')
                         print("In '%s', Resource '%s' %s %s '%s' (%s) does not"
@@ -559,7 +572,7 @@ def test_14_vo_contacts_match(vos, vofns, contacts):
         vcs = vo.get('Contacts')
         if vcs:
             for ctype, ID, name in flatten_vo_contacts(vcs):
-                if (re.search(r'^[0-9a-f]{40}$', ID)
+                if (contact_id_ok(ID)
                     and ID in contacts and name != contacts[ID]):
                     print_emsg_once('ContactNameMismatch')
                     print("In '%s', '%s' Contact ID '%s' (%s) does not"
@@ -581,7 +594,7 @@ def test_14_sc_contacts_match(support_centers, contacts):
         sccs = scdict.get('Contacts')
         if sccs:
             for ctype, ID, name in flatten_sc_contacts(sccs):
-                if (re.search(r'^[0-9a-f]{40}$', ID)
+                if (contact_id_ok(ID)
                     and ID in contacts and name != contacts[ID]):
                     print_emsg_once('ContactNameMismatch')
                     print("Support Center '%s': '%s' Contact ID '%s' (%s)"

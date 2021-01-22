@@ -42,18 +42,17 @@ def get_managers_info(managers, contact_cilogon_ids, ssh_keys_map):
     info = []
     for manager in managers:
         ContactID = safe_dict_get(manager, 'ID')
+        Name = manager.get('Name')
+        DNs = manager.get('DNs', [])
         if ContactID in contact_cilogon_ids:
-            Name = manager.get('Name')
-            DNs = manager.get('DNs', [])
             CILogonID = contact_cilogon_ids[ContactID].cilogon_id
             ssh_keys = ssh_keys_map.get(CILogonID, [])
-            info.append({
-                'ContactID': ContactID,
-                'Name': Name,
-                'DNs': DNs,
-                'CILogonID': CILogonID,
-                'sshPublicKeys': ssh_keys
-            })
+            cilogon_info = {'CILogonID': CILogonID, 'sshPublicKeys': ssh_keys}
+        else:
+            cilogon_info = {}
+        info.append(
+            dict(ContactID=ContactID, Name=Name, DNs=DNs, **cilogon_info)
+        )
     return info
 
 

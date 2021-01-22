@@ -130,7 +130,7 @@ def check_suite_hook():
         repo = payload['repository']
         owner = repo['owner']['login']          # 'opensciencegrid'
         reponame = repo['name']                 # 'topology'
-        app_name = check_suite['app']['name']   # 'Travis CI'
+        app_name = check_suite['app']['name']   # 'GitHub Actions'
         conclusion = check_suite['conclusion']  # 'success' ...
     except (TypeError, KeyError) as e:
         emsg = "Malformed payload for check_suite hook: %s" % e
@@ -139,8 +139,8 @@ def check_suite_hook():
     app.logger.debug("Got check_suite hook '%s' for '%s'"
                      % (conclusion, head_sha))
 
-    if app_name != 'Travis CI':
-        app.logger.info("Ignoring non-travis check_suite hook for '%s'"
+    if app_name != 'GitHub Actions':
+        app.logger.info("Ignoring non-GHA check_suite hook for '%s'"
                         % app_name)
         return Response("Not Interested; app_name was '%s'" % app_name)
 
@@ -151,9 +151,9 @@ def check_suite_hook():
 
     pr_webhook_state, pull_num = get_webhook_pr_state(head_sha)
     if pr_webhook_state is None or len(pr_webhook_state) != 4:
-        app.logger.info("Got travis '%s' check_suite hook for commit %s;\n"
+        app.logger.info("Got %s '%s' check_suite hook for commit %s;\n"
                 "not merging as No PR automerge info available"
-                % (conclusion, head_sha))
+                % (app_name, conclusion, head_sha))
         return Response("No PR automerge info available for %s" % head_sha)
 
     pr_dt_automerge_ret, base_sha, head_label, sender = pr_webhook_state
@@ -165,12 +165,14 @@ def check_suite_hook():
         publish_pr_review(pull_num, body, 'COMMENT', head_sha)
 
     if conclusion != 'success':
-        app.logger.info("Ignoring travis '%s' check_suite hook" % conclusion)
-        return Response("Not interested; CI conclusion was '%s'" % conclusion)
+        app.logger.info("Ignoring %s '%s' check_suite hook" %
+                        (app_name, conclusion))
+        return Response("Not interested; check suite conclusion was '%s'"
+                        % conclusion)
 
     if pr_dt_automerge_ret == 0:
-        app.logger.info("Got travis success check_suite hook for commit %s;\n"
-                "eligible for DT automerge" % head_sha)
+        app.logger.info("Got %s success check_suite hook for commit %s;\n"
+                "eligible for DT automerge" % (app_name, head_sha))
         body = None
         publish_pr_review(pull_num, body, 'APPROVE', head_sha)
         title = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
@@ -183,8 +185,8 @@ def check_suite_hook():
         body = osg_bot_msg.format(**locals())
         publish_issue_comment(pull_num, body)
     else:
-        app.logger.info("Got travis success check_suite hook for commit %s;\n"
-                "not eligible for DT automerge" % head_sha)
+        app.logger.info("Got %s success check_suite hook for commit %s;\n"
+                "not eligible for DT automerge" % (app_name, head_sha))
 
     return Response('Thank You')
 

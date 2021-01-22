@@ -577,4 +577,60 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 756644333
+  Description: Machine room power loss
+  Severity: Outage
+  StartTime: Jan 14, 2021 16:00 +0000
+  EndTime: Jan 15, 2021 05:00 +0000
+  CreatedTime: Jan 14, 2021 16:47 +0000
+  ResourceName: SWT2_CPB
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 756645747
+  Description: Machine room power loss
+  Severity: Outage
+  StartTime: Jan 14, 2021 16:00 +0000
+  EndTime: Jan 14, 2021 23:00 +0000
+  CreatedTime: Jan 14, 2021 16:49 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 756645986
+  Description: Machine room power loss
+  Severity: Outage
+  StartTime: Jan 14, 2021 16:00 +0000
+  EndTime: Jan 14, 2021 23:00 +0000
+  CreatedTime: Jan 14, 2021 16:49 +0000
+  ResourceName: SWT2_CPB_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 756646297
+  Description: Machine room power loss
+  Severity: Outage
+  StartTime: Jan 14, 2021 16:00 +0000
+  EndTime: Jan 15, 2021 05:00 +0000
+  CreatedTime: Jan 14, 2021 16:50 +0000
+  ResourceName: SWT2_CPB_perfSONAR_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 756646529
+  Description: Machine room power loss
+  Severity: Outage
+  StartTime: Jan 14, 2021 16:00 +0000
+  EndTime: Jan 15, 2021 05:00 +0000
+  CreatedTime: Jan 14, 2021 16:50 +0000
+  ResourceName: SWT2_CPB_perfSONAR_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
 
