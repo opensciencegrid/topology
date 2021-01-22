@@ -55,7 +55,8 @@ Resources:
         #   ID: <EMAIL HASH>
 
     # FQDN is the fully qualified domain name of the host running this resource
-    FQDN: porter1s1.rc.int.colorado.edu
+    # Dummy FQDN for backfill containers
+    FQDN: backfill.rc.int.colorado.edu
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
     # FQDNAliases:
     #   - <HOSTNAME1>
