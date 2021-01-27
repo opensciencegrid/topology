@@ -136,3 +136,43 @@ Resources:
       Squid:
         Description: Hepgrid Squid service
 SupportCenter: USCMS_Tier2
+UERJ_perfSONAR_BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Renan Bernardo
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+      Security Contact:
+        Primary:
+          Name: Eduardo Azevedo Revoredo
+          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
+    Description: This is the UERJ CMS T2 perfSONAR bandwidth instance
+    FQDN: perfsonar-bw.hepgrid.uerj.br
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: perfSONAR Bandwidth monitoring node for UERJ
+        Details:
+          endpoint:perfsonar-bw.hepgrid.uerj.br
+    VOOwnership:
+      CMS: 100
+UERJ_perfSONAR_LT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Renan Bernardo
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+      Security Contact:
+        Primary:
+          Name: Eduardo Azevedo Revoredo
+          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
+    Description: This is the UERJ CMS T2 perfSONAR latency instance
+    FQDN: perfsonar-lt.hepgrid.uerj.br
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: perfSONAR Latency monitoring node for UERJ
+        Details:
+          endpoint:perfsonar-lt.hepgrid.uerj.br
+    VOOwnership:
+      CMS: 100
