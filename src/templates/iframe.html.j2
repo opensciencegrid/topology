@@ -95,6 +95,7 @@ font-size: 12px;
 <!-- <link href="<?=fullbase()?>/css/html.css" rel="stylesheet" type="text/css" /> -->
 <script type='text/javascript' src='/static/js/jquery-1.8.1.min.js'></script>
 <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyBN3KAdtotBzRlw_CzohzisMgqNapTA7lE"></script>
+<script type="text/javascript" src="/static/js/html2canvas.min.js"></script>
 <script type="text/javascript">
 
 var map;
@@ -270,7 +271,7 @@ function init(scrollwheel) {
     for (site in sites) {
         var resourceCounter = 0;
         // Build the site
-        var html = '<h2>' + sites[site][2] + '</h2><div style=\"overflow: auto; max-height: 300px; width: 300px;\">';
+        var html = '<h2>' + sites[site][2] + '</h2><div style=\"overflow: auto; max-height: 300px; width: 100%;\">';
         for (var i = 0; i < sites[site][3].length; i++) {
             resourcegroup = sites[site][3][i];
             html += "<div class=\"resource_group_header round\"><span class=\"h3\">Resource Group: " + resourcegroup["Name"] + "</span></div>";
@@ -414,6 +415,20 @@ function init(scrollwheel) {
     $(legend[0]).show();
 }
 
+function export_to_png() {
+    html2canvas(document.body, {useCORS:true, logging:true}).then(function(canvas) {
+        var img =canvas.toDataURL("image/png,1.0");
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = img;
+        // filename
+        a.download = 'OSG Map';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(img);
+        });
+}
+
 function setInfoWindow(id,marker, content) {
     google.maps.event.addListener(marker, 'click', function() {
         infowindow.close();
@@ -508,6 +523,18 @@ color: #666;
 box-shadow: 1px 1px 5px #333;
 }
 
+#print_screen {
+float: left;
+left: 3px;
+top: 2em;
+position: absolute;
+z-index: 1;
+}
+
+#print_screen>button {
+padding: 4px;
+}
+
 .legend {
     /* font-family: Arial, sans-serif; */
     background: #fff;
@@ -547,6 +574,9 @@ box-shadow: 1px 1px 5px #333;
     <option value="EduvsOther">EDU sites and others</option>
     <option value="CCStar">CC* Sites</option>
     </select>
+</div>
+<div id="print_screen">
+    <button type="button" onclick="export_to_png()">Save Screen as PNG</button>
 </div>
 <div id="map_canvas"></div>
 <div id="legend_compute" class="legend" style="display: none"><h2>Legend</h2>
