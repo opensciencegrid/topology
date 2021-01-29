@@ -1,0 +1,32 @@
+Production: true
+SupportCenter: Self Supported
+GroupID: 1105
+GroupDescription: This is the LSU - Deep Bayou cluster
+Resources:
+  LSU-Deep_Bayou:
+    Active: false
+    ID : 1122
+    Description: The Hosted CE serving LSU - Deep Bayou
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Site Contact:
+        Primary:
+          Name: Eric B Wiggins
+          ID: cada8414a48f8401782c89876f53a1b6c21c368f
+    FQDN: lsu-db-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: LSU_QB2 Hosted CE
+        Details:
+          hidden: false
+    Tags:
+      - CC*
+    VOOwnership:
+      LIGO: 100
