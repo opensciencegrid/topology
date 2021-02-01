@@ -11,6 +11,9 @@ import hashlib
 from webapp.topology import Resource, ResourceGroup
 from webapp.vos_data import VOsData
 
+import logging
+
+log = logging.getLogger(__name__)
 
 __oid_map = {
    "DC": "0.9.2342.19200300.100.1.25",
@@ -31,6 +34,9 @@ __dn_split_re = re.compile("/([A-Za-z]+)=")
 
 class DataError(Exception):
     """Raised when there is a problem in the topology or VO data"""
+
+class NotRegistered(Exception):
+    """Raised when the FQDN is not registered at all"""
 
 
 def _generate_ligo_dns() -> List[str]:
@@ -108,7 +114,7 @@ def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup
             if suppress_errors:
                 return None
             else:
-                raise DataError("{} is not a registered resource.".format(fqdn))
+                raise NotRegistered(fqdn)
         if "XRootD cache server" not in resource.service_names:
             if suppress_errors:
                 return None
@@ -128,6 +134,7 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
     if ('ANY' not in allowed_vos and
             vo_name not in allowed_vos and
             (not public or 'ANY_PUBLIC' not in allowed_vos)):
+        log.debug(f"\tCache {resource.fqdn} does not allow {vo_name} in its AllowedVOs list")
         return False
 
     # For public data, caching is one-way: we OK things as long as the
@@ -142,7 +149,10 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
         else:
             raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
 
-    return 'ANY' in allowed_caches or resource.name in allowed_caches
+    ret = 'ANY' in allowed_caches or resource.name in allowed_caches
+    if not ret:
+        log.debug(f"\tVO {vo_name} does not allow cache {resource.fqdn} in its AllowedCaches list")
+    return ret
 
 
 def generate_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn=None, legacy=True, suppress_errors=True) -> str:
@@ -267,7 +277,7 @@ def generate_cache_scitokens(vo_data: VOsData, resource_groups: List[ResourceGro
     """
     template = """\
 [Global]
-audience = {resource.name}, https://{fqdn}
+audience = {allowed_vos_str}
 
 {issuer_blocks_str}
 """
@@ -282,6 +292,8 @@ audience = {resource.name}, https://{fqdn}
     if not resource:
         return ""
 
+    log.debug(f"Generating stashcache cache config for {fqdn}")
+    allowed_vos = []
     issuer_blocks = []
     for vo_name, vo_data in vo_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
@@ -292,6 +304,7 @@ audience = {resource.name}, https://{fqdn}
         if not namespaces:
             continue
 
+        log.debug(f"Namespaces found for {vo_name}")
         needs_authz = False
         for authz_list in namespaces.values():
             for authz in authz_list:
@@ -299,6 +312,7 @@ audience = {resource.name}, https://{fqdn}
                     needs_authz = True
                     break
         if not needs_authz:
+            log.debug(f"\tAuth not needed for {vo_name}")
             continue
 
         if not _cache_is_allowed(resource, vo_name, stashcache_data,
@@ -308,11 +322,14 @@ audience = {resource.name}, https://{fqdn}
         for dirname, authz_list in namespaces.items():
             for authz in authz_list:
                 if not isinstance(authz, dict) or not isinstance(authz.get("SciTokens"), dict):
+                    log.debug(f"\tNo SciTokens info for {dirname} in {vo_name}")
                     continue
                 issuer_blocks.append(_get_scitokens_issuer_block(vo_name, authz['SciTokens'],
                                                                  dirname, suppress_errors))
+                allowed_vos.append(vo_name)
 
     issuer_blocks_str = "\n".join(issuer_blocks)
+    allowed_vos_str = ", ".join(allowed_vos)
 
     return template.format(**locals()).rstrip() + "\n"
 
@@ -350,7 +367,7 @@ def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_group
         if suppress_errors:
             return False
         else:
-            raise DataError("{} is not a registered resource.".format(origin_hostname))
+            raise NotRegistered(origin_hostname)
     if 'XRootD origin server' not in origin_resource.service_names:
         if suppress_errors:
             return False
@@ -376,7 +393,7 @@ def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_group
     return origin_resource.name in allowed_origins
 
 
-def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True):
+def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True) -> List[Resource]:
     allowed_caches = stashcache_data.get("AllowedCaches")
     if allowed_caches is None:
         if suppress_errors:
@@ -444,7 +461,11 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
                 else:
                     raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
 
-            for resource in _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
+            allowed_resources = _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors)
+            origin_resource = _get_resource_by_fqdn(origin_hostname, resource_groups)
+            allowed_resources.append(origin_resource)
+
+            for resource in allowed_resources:
                 dn = resource.data.get("DN")
                 if not dn:
                     warnings.append("# WARNING: Resource {} was skipped for VO {}"
@@ -469,3 +490,50 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
     if public_namespaces:
         results += "\nu * {}\n".format(" ".join("{} lr".format(i) for i in sorted(public_namespaces)))
     return results
+
+
+def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
+
+    template = """\
+[Global]
+audience = {allowed_vos_str}
+
+{issuer_blocks_str}
+"""
+    allowed_vos = []
+    issuer_blocks = []
+    for vo_name, vo_data in vo_data.vos.items():
+        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+        if not stashcache_data:
+            continue
+
+        if not _origin_is_allowed(fqdn, vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
+            continue
+
+        namespaces = stashcache_data.get("Namespaces")
+        if not namespaces:
+            if suppress_errors:
+                continue
+            else:
+                raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
+
+        for dirname, authz_list in namespaces.items():
+            if not authz_list:
+                if suppress_errors:
+                    continue
+                else:
+                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(dirname, vo_name))
+
+            for authz in authz_list:
+                if not isinstance(authz, dict) or not isinstance(authz.get("SciTokens"), dict):
+                    continue
+                issuer_blocks.append(_get_scitokens_issuer_block(vo_name, authz['SciTokens'],
+                                                                 dirname, suppress_errors))
+                allowed_vos.append(vo_name)
+
+
+
+    issuer_blocks_str = "\n".join(issuer_blocks)
+    allowed_vos_str = ", ".join(allowed_vos)
+
+    return template.format(**locals()).rstrip() + "\n"

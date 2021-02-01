@@ -23,6 +23,8 @@ Resources:
         Details:
           hidden: false
           uri_override: sbahead.physics.sunysb.edu:2811
+      Squid:
+        Description: Generic squid service
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -104,27 +106,4 @@ Resources:
       StorageCapacityMax: 22
       StorageCapacityMin: 0.5
       TapeCapacity: 0
-  SBU_T3_Squid:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: c52cbbe7a1346a8c613d5762826386305fdd41c3
-          Name: R. Dean Schamberger
-      Resource Report Contact:
-        Primary:
-          ID: c52cbbe7a1346a8c613d5762826386305fdd41c3
-          Name: R. Dean Schamberger
-      Security Contact:
-        Primary:
-          ID: c52cbbe7a1346a8c613d5762826386305fdd41c3
-          Name: R. Dean Schamberger
-    Description: Squid server for Stony Brook Tier3 (frontier and cvmfs)
-    FQDN: sbahead.physics.sunysb.edu
-    ID: 464
-    Services:
-      Squid:
-        Description: Generic squid service
-    VOOwnership:
-      ATLAS: 100
 SupportCenter: USATLAS_Tier3

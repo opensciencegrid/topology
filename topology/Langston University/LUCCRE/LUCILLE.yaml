@@ -2,38 +2,6 @@ GroupDescription: CE & SE
 GroupID: 379
 Production: true
 Resources:
-  Lucille-squid:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
-          Name: Joel Snow
-        Secondary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
-          Name: Horst Severini
-      Resource Report Contact:
-        Primary:
-          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
-          Name: Joel Snow
-        Secondary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
-          Name: Horst Severini
-      Security Contact:
-        Primary:
-          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
-          Name: Joel Snow
-        Secondary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
-          Name: Horst Severini
-    Description: Generic squid service
-    FQDN: lutse1.lunet.edu
-    ID: 915
-    Services:
-      Squid:
-        Description: Generic squid service
-    VOOwnership:
-      DOSAR: 100
   Lucille_CE:
     Active: true
     ContactLists:
@@ -112,6 +80,8 @@ Resources:
         Details:
           hidden: false
           uri_override: lutse1.lunet.edu:8443
+      Squid:
+        Description: Generic squid service
     VOOwnership:
       ATLAS: 20
       DOSAR: 80

@@ -88,33 +88,8 @@ Resources:
           endpoint: psonar4.fnal.gov
     VOOwnership:
       Fermilab: 100
-  USCMS PerfSonar IPV6 Test:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
-          Name: Darryl K Wohlt
-      Miscellaneous Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
-      Resource Report Contact:
-        Primary:
-          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
-          Name: Darryl K Wohlt
-    Description: This is a PerfSonar dual stack instance
-    FQDN: psonartest1.fnal.gov
-    ID: 744
-    Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: psonartest1.fnal.gov
-    VOOwnership:
-      Fermilab: 100
   USCMS-FNAL-WC1-CE:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -345,7 +320,7 @@ Resources:
           ID: ae2bc50d651cb793a15bfce35c6717988715f519
           Name: Chih-Hao Huang
     Description: This is the tape dCache SE at the USCMS Tier 1
-    FQDN: cmsdcatape01.fnal.gov
+    FQDN: cmsdcatape.fnal.gov
     ID: 236
     Services:
       FTS:
@@ -383,7 +358,7 @@ Resources:
           ID: ae2bc50d651cb793a15bfce35c6717988715f519
           Name: Chih-Hao Huang
     Description: This is the disk dCache SE at the USCMS Tier 1
-    FQDN: cmsdcadisk01.fnal.gov
+    FQDN: cmsdcadisk.fnal.gov
     ID: 979
     Services:
       FTS:

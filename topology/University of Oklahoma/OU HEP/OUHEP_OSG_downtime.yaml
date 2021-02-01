@@ -10,3 +10,16 @@
   Severity: Outage
   StartTime: Jun 9, 2016 13:00 +0000
 # ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 296205407
+  Description: Hardware upgrade
+  Severity: Outage
+  StartTime: Sep 15, 2019 13:00 +0000
+  EndTime: Jun 4, 2020 14:45 +0000
+  CreatedTime: Sep 14, 2019 19:49 +0000
+  ResourceName: OUHEP_OSG
+  Services:
+  - CE
+  - GridFtp
+  - SRMv2
+# ---------------------------------------------------------

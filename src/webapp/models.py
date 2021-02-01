@@ -7,7 +7,7 @@ from typing import Dict, Set, List
 
 import yaml
 
-from webapp import common, contacts_reader, project_reader, rg_reader, vo_reader
+from webapp import common, contacts_reader, mappings, project_reader, rg_reader, vo_reader
 from webapp.contacts_reader import ContactsData
 from webapp.topology import Topology, Downtime
 from webapp.vos_data import VOsData
@@ -53,6 +53,7 @@ class GlobalData:
         self.projects = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology = CachedData(cache_lifetime=topology_cache_lifetime)
         self.vos_data = CachedData(cache_lifetime=topology_cache_lifetime)
+        self.mappings = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology_data_dir = config["TOPOLOGY_DATA_DIR"]
         self.topology_data_repo = config.get("TOPOLOGY_DATA_REPO", "")
         self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
@@ -63,6 +64,7 @@ class GlobalData:
         self.webhook_secret_key = config.get("WEBHOOK_SECRET_KEY")
         self.webhook_gh_api_user = config.get("WEBHOOK_GH_API_USER")
         self.webhook_gh_api_token = config.get("WEBHOOK_GH_API_TOKEN")
+        self.cilogon_ldap_passfile = config.get("CILOGON_LDAP_PASSFILE")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:
@@ -70,6 +72,7 @@ class GlobalData:
         self.projects_dir = os.path.join(self.topology_data_dir, "projects")
         self.topology_dir = os.path.join(self.topology_data_dir, "topology")
         self.vos_dir = os.path.join(self.topology_data_dir, "virtual-organizations")
+        self.mappings_dir = os.path.join(self.topology_data_dir, "mappings")
         self.config = config
         self.strict = strict
 
@@ -205,6 +208,22 @@ class GlobalData:
                 self.projects.try_again()
 
         return self.projects.data
+
+    def get_mappings(self) -> mappings.Mappings:
+        if self.mappings.should_update():
+            ok = self._update_topology_repo()
+            if ok:
+                try:
+                    self.mappings.update(mappings.get_mappings(indir=self.mappings_dir, strict=self.strict))
+                except Exception:
+                    if self.strict:
+                        raise
+                    log.exception("Failed to update mappings")
+                    self.mappings.try_again()
+            else:
+                self.mappings.try_again()
+
+        return self.mappings.data
 
 
 def _dtid(created_datetime: datetime.datetime):

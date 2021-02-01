@@ -558,16 +558,6 @@
   StartTime: Apr 12, 2018 12:00 +0000
 # ----------------------------------------------------------
 - Class: SCHEDULED
-  ID: 1005688
-  Description: Turning down/off our SL6 queues, hopefully permanently
-  Severity: Outage
-  StartTime: Jul 11, 2018 13:00 +0000
-  EndTime: Jan 18, 2038 21:14 -0600
-  ResourceName: AGLT2_SL6
-  Services:
-  - CE
-# ----------------------------------------------------------
-- Class: SCHEDULED
   Description: Upgrade dCache version from 4.0 to 4.2 .
   EndTime: Jul 25, 2018 18:00 +0000
   ID: 1005698
@@ -597,17 +587,6 @@
   EndTime: Mar 03, 2019 20:00 +0000
   CreatedTime: Feb 25, 2019 19:36 +0000
   ResourceName: AGLT2_SL7
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 161449986
-  Description: Complete power outage AGLT2 UM site
-  Severity: Outage
-  StartTime: Mar 02, 2019 13:00 +0000
-  EndTime: Mar 03, 2019 20:00 +0000
-  CreatedTime: Feb 25, 2019 19:36 +0000
-  ResourceName: AGLT2_SL6
   Services:
   - CE
 # ---------------------------------------------------------
@@ -687,3 +666,103 @@
   ResourceName: AGLT2_SE
   Services:
   - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 308108052
+  Description: Network maintenaince at AGT2 UM site
+  Severity: Intermittent Outage
+  StartTime: Aug 18, 2019 06:00 +0000
+  EndTime: Aug 18, 2019 09:00 +0000
+  CreatedTime: Aug 16, 2019 16:00 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 308108053
+  Description: Network maintenaince at AGT2 UM site
+  Severity: Intermittent Outage
+  StartTime: Aug 18, 2019 06:00 +0000
+  EndTime: Aug 18, 2019 09:00 +0000
+  CreatedTime: Aug 16, 2019 16:00 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 469790100
+  Description: dCache hardware replacement at AGT2 UM site
+  Severity: Intermittent Outage
+  StartTime: Feb 21, 2020 15:00 +0000
+  EndTime: Feb 21, 2020 23:00 +0000
+  CreatedTime: Feb 20, 2020 16:00 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 469790102
+  Description: dCache hardware replacement at AGT2 UM site
+  Severity: Intermittent Outage
+  StartTime: Feb 24, 2020 14:00 +0000
+  EndTime: Feb 24, 2020 23:00 +0000
+  CreatedTime: Feb 21, 2020 16:00 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+ # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 499559471
+  Description: dCache headnode database corrupted...restoring from backup
+  Severity: Outage
+  StartTime: Mar 23, 2020 01:30 +0000
+  EndTime: Mar 23, 2020 11:00 +0000
+  CreatedTime: Mar 23, 2020 04:32 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 564175404
+  Description: Upgrade/downgrade caused SRM failure
+  Severity: Outage
+  StartTime: Jun 05, 2020 17:00 +0000
+  EndTime: Jun 09, 2020 23:00 +0000
+  CreatedTime: Jun 05, 2020 23:25 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 689274391
+  Description: major switch updates
+  Severity: Intermittent Outage
+  StartTime: Nov 03, 2020 14:00 +0000
+  EndTime: Nov 03, 2020 18:00 +0000
+  CreatedTime: Oct 28, 2020 18:23 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 689277461
+  Description: major switch updates
+  Severity: Intermittent Outage
+  StartTime: Nov 03, 2020 14:00 +0000
+  EndTime: Nov 03, 2020 18:00 +0000
+  CreatedTime: Oct 28, 2020 18:29 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 689278114
+  Description: major switch updates
+  Severity: Intermittent Outage
+  StartTime: Nov 03, 2020 14:00 +0000
+  EndTime: Nov 03, 2020 18:00 +0000
+  CreatedTime: Oct 28, 2020 18:30 +0000
+  ResourceName: AGLT2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------

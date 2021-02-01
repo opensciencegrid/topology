@@ -38,14 +38,14 @@ LongName: Open Science Grid
 MembershipServicesURL: https://voms.opensciencegrid.org:8443/voms/osg
 OASIS:
   Managers:
-    Derek Weitzel:
-      DNs: /DC=org/DC=cilogon/C=US/O=University of Nebraska-Lincoln/CN=Derek Weitzel A215526
+    - Name: Derek Weitzel
+      DNs: /DC=org/DC=cilogon/C=US/O=University of Nebraska-Lincoln/CN=Derek Weitzel A31419551
       ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
-    Lincoln Bryant:
+    - Name: Lincoln Bryant
       DNs:
       - /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=lbryant/CN=738076/CN=Lincoln Bryant
       ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-    Mats Rynge:
+    - Name: Mats Rynge
       DNs:
       - /DC=org/DC=cilogon/C=US/O=University of Southern California/CN=Mats Rynge A91316
       ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
@@ -54,8 +54,12 @@ OASIS:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/scitokens.osgstorage.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/veritas.opensciencegrid.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/nexo.opensciencegrid.org
-  - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/bnl.opensciencegrid.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/connect.opensciencegrid.org
+  # These are for common software from HSF, which is not a VO, so 
+  #  we include them here in the OSG VO.
+  - http://cvmfs-stratum-zero.cern.ch:8000/cvmfs/sw.hsf.org
+  - http://cvmfs-stratum-zero.cern.ch:8000/cvmfs/sw-nightlies.hsf.org
+  - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/snowmass21.opensciencegrid.org
   UseOASIS: true
 PrimaryURL: http://www.opensciencegrid.org
 PurposeURL: http://www.opensciencegrid.org
@@ -67,6 +71,11 @@ DataFederations:
     Namespaces:
       /user:
         - PUBLIC
-    AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /user
+      /osgconnect/public:
+        - PUBLIC
+      /osgconnect/collab:
+        - PUBLIC
+    AllowedOrigins:
+      - OSGCONNECT_ORIGIN
     AllowedCaches:
       - ANY

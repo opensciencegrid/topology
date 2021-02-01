@@ -1,0 +1,30 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: SIUE OpenStack Cluster
+GroupID: 537
+Resources:
+  OSG_US_SIUE_CE:
+    Active: true
+    Description: SIUE CE serving OpenStack Cluster
+    ID: 1056
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Mitchell Walls
+          ID: 2ae2fbabc8396da0f2df896f62b15182054d9fcb
+        Secondary:
+          Name: Daniel Chace
+          ID: 78a6b3768f39e5e35034d0981288e775e20eba5f
+      Security Contact:
+        Primary:
+          Name: Mitchell Walls
+          ID: 2ae2fbabc8396da0f2df896f62b15182054d9fcb
+        Secondary:
+          Name: Daniel Chace
+          ID: 78a6b3768f39e5e35034d0981288e775e20eba5f
+    FQDN: htcondor-ce.isg.siue.edu
+    Services:
+      CE:
+        Description: SIUE OpenStack Cluster CE
+        Details:
+          hidden: false

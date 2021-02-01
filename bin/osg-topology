@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -102,8 +102,8 @@ def get_parser():
     """
     oparser = argparse.ArgumentParser(prog=os.path.basename(sys.argv[0]),
                                       add_help=True)
-    oparser.add_argument("--host", dest="host", default="my.opensciencegrid.org",
-                         help="Remote topology host (default my.opensciencegrid.org)")
+    oparser.add_argument("--host", dest="host", default="topology.opensciencegrid.org",
+                         help="Remote topology host (default topology.opensciencegrid.org)")
     oparser.add_argument("--cert", dest="cert", help="Client certificate")
     oparser.add_argument("--key", dest="key", help="Client certificate private key")
 
@@ -132,13 +132,18 @@ def get_parser():
         help='List OSG contacts by VO name.')
     contactparsers.append(list_vo_contacts_parser)
     list_vo_contacts_parser.set_defaults(which="list_vo_contacts")
-    list_vo_contacts_parser.add_argument(dest="name_filter", action="store",
+    list_vo_contacts_parser.set_defaults(fqdn=False)
+    list_vo_contacts_parser.add_argument(dest="filter", action="store",
         nargs="?", help="Shell expression filter on the VO name")
 
     list_contacts_parser = subparsers.add_parser('list-contacts',
         help='List OSG resource and VO contacts.')
     contactparsers.append(list_contacts_parser)
     list_contacts_parser.set_defaults(which="list_contacts")
+    list_contacts_parser.add_argument(dest="filter", action="store",
+        nargs="?", help="Shell expression filter on the VO name, resource name or FQDN")
+    list_contacts_parser.add_argument("--fqdn", dest="fqdn", default=False, action="store_true",
+        help="Treat the filter as an FQDN instead of a resource name")
 
     for parser in contactparsers:
         parser.add_argument("--type", default="all",
@@ -148,6 +153,10 @@ def get_parser():
         parser.add_argument("--output", default="full",
                             dest="output_mode", help="Select the output mode "
                             "(email or full; default full)")
+        parser.add_argument("--email-from-file",
+                            default=None,
+                            dest="email_file",
+                            help="Path to file containing list of emails for contact filtering")
 
     return oparser
 
@@ -159,11 +168,20 @@ def main():
     oparser = get_parser()
 
     args = oparser.parse_args()
-    if getattr(args, "fqdn") is not None:
+    if getattr(args, "filter") is not None:
         if args.fqdn:
             args.fqdn_filter = args.filter.strip()
         else:
             args.name_filter = args.filter.strip()
+
+    try:
+        with open(args.email_file, 'r') as f:
+            contents = f.read()
+            args.contact_emails = contents.split('\n')
+    except TypeError:
+        pass  # --email-from-file not specified
+    except IOError as exc:
+        sys.exit("Failed to read email file: %s" % exc)
 
     commands = {"list_resource_contacts": list_resource_contacts,
                 "list_vo_contacts": list_vo_contacts,

@@ -1,9 +1,11 @@
 """
 Application File
 """
+import csv
 import flask
 import flask.logging
 from flask import Flask, Response, make_response, request, render_template
+from io import StringIO
 import logging
 import os
 import re
@@ -12,10 +14,11 @@ import traceback
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import to_xml_bytes, Filters
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters
 from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
+from webapp.oasis_managers import get_oasis_manager_endpoint_info
 
 try:
     import stashcache
@@ -38,7 +41,10 @@ def _verify_config(cfg):
         else:
             st = os.stat(ssh_key)
             if st.st_uid != os.getuid() or (st.st_mode & 0o7777) not in (0o700, 0o600, 0o400):
-                raise PermissionError(ssh_key)
+                if cfg["IGNORE_SECRET_PERMS"]:
+                    app.logger.info("Ignoring permissions/ownership issues on " + ssh_key)
+                else:
+                    raise PermissionError(ssh_key)
 
 
 default_authorized = False
@@ -65,6 +71,12 @@ if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
 global_data = GlobalData(app.config, strict=app.config.get("STRICT", app.debug))
+
+
+cilogon_pass = readfile(global_data.cilogon_ldap_passfile, app.logger)
+if not cilogon_pass:
+    app.logger.warning("Note, no CILOGON_LDAP_PASSFILE configured; "
+                       "OASIS Manager ssh key lookups will be unavailable.")
 
 
 def _fix_unicode(text):
@@ -96,6 +108,22 @@ def schema(xsdfile):
 def miscuser_xml():
     return Response(to_xml_bytes(global_data.get_contacts_data().get_tree(_get_authorized())),
                     mimetype='text/xml')
+
+
+@app.route('/nsfscience/csv')
+def nsfscience_csv():
+    nsfscience = global_data.get_mappings().nsfscience
+    if not nsfscience:
+        return Response("Error getting Field of Science mappings", status=503)
+
+    buffer = StringIO()
+    writer = csv.writer(buffer, delimiter=",")
+    writer.writerow(["Topology Field of Science", "NSF Field of Science"])
+    writer.writerows(nsfscience.items())
+    response = make_response(buffer.getvalue())
+    response.headers.set("Content-Type", "text/csv")
+    response.headers.set("Content-Disposition", "attachment", filename="nsfscience.csv")
+    return response
 
 
 @app.route('/contacts')
@@ -166,15 +194,28 @@ def scitokens():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
     cache_fqdn = request.args.get("cache_fqdn")
-    if not cache_fqdn:
-        return Response("FQDN of cache server required in the 'cache_fqdn' argument", status=400)
+    origin_fqdn = request.args.get("origin_fqdn")
+    if not cache_fqdn and not origin_fqdn:
+        return Response("FQDN of cache or origin server required in the 'cache_fqdn' or 'origin_fqdn' argument", status=400)
 
     try:
-        cache_scitokens = stashcache.generate_cache_scitokens(global_data.get_vos_data(),
-                                                              global_data.get_topology().get_resource_group_list(),
-                                                              fqdn=cache_fqdn,
-                                                              suppress_errors=False)
-        return Response(cache_scitokens, mimetype="text/plain")
+        if cache_fqdn:
+            cache_scitokens = stashcache.generate_cache_scitokens(global_data.get_vos_data(),
+                                                                global_data.get_topology().get_resource_group_list(),
+                                                                fqdn=cache_fqdn,
+                                                                suppress_errors=False)
+            return Response(cache_scitokens, mimetype="text/plain")
+        elif origin_fqdn:
+            origin_scitokens = stashcache.generate_origin_scitokens(global_data.get_vos_data(),
+                                                                global_data.get_topology().get_resource_group_list(),
+                                                                fqdn=origin_fqdn,
+                                                                suppress_errors=False)
+            return Response(origin_scitokens, mimetype="text/plain")
+    except stashcache.NotRegistered as e:
+        return Response("# No resource registered for {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(str(e)),
+                        mimetype="text/plain", status=404)
     except stashcache.DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating scitokens config for this FQDN: {}\n".format(str(e)) +
@@ -183,6 +224,20 @@ def scitokens():
     except Exception:
         app.log_exception(sys.exc_info())
         return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+
+
+@app.route("/oasis-managers/json")
+def oasis_managers():
+    if not _get_authorized():
+        return Response("Not authorized", status=403)
+    vo = request.args.get("vo")
+    if not vo:
+        return Response("'vo' argument is required", status=400)
+    if not cilogon_pass:
+        return Response("CILOGON_LDAP_PASSFILE not configured; "
+                        "OASIS Managers info unavailable", status=503)
+    mgrs = get_oasis_manager_endpoint_info(global_data, vo, cilogon_pass)
+    return Response(to_json_bytes(mgrs), mimetype='application/json')
 
 
 def _get_cache_authfile(public_only):
@@ -199,6 +254,11 @@ def _get_cache_authfile(public_only):
                                  fqdn=cache_fqdn,
                                  legacy=app.config["STASHCACHE_LEGACY_AUTH"],
                                  suppress_errors=False)
+    except stashcache.NotRegistered as e:
+        return Response("# No resource registered for {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(str(e)),
+                        mimetype="text/plain", status=404)
     except stashcache.DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
@@ -221,6 +281,11 @@ def _get_origin_authfile(public_only):
                                                    global_data.get_topology().get_resource_group_list(),
                                                    suppress_errors=False,
                                                    public_only=public_only)
+    except stashcache.NotRegistered as e:
+        return Response("# No resource registered for {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(str(e)),
+                        mimetype="text/plain", status=404)
     except stashcache.DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
@@ -437,7 +502,10 @@ def _get_authorized():
             if client_dn[3:] in authorized_dns: # "dn:" is at the beginning of the DN
                 if app and app.logger:
                     app.logger.info("Authorized %s", client_dn)
-                return True     
+                return True
+            else:
+                if app and app.logger:
+                    app.logger.debug("Rejected %s", client_dn)
 
     # If it gets here, then it is not authorized
     return default_authorized

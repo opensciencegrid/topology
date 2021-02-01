@@ -3,31 +3,6 @@ GroupDescription: Tier-3 computing center.  Priority given to local users, but o
 GroupID: 159
 Production: true
 Resources:
-  UMD_GUMS:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-      Resource Report Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-      Security Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-    Description: New GUMS server for umd-cms (didn't work with internal IP, and Network
-      Operations cannot give me a new FQDN quickly, so will use development one in
-      teh meantime)
-    FQDN: hepcmsdev-6.umd.edu
-    ID: 550
-    Services:
-      GUMS Server:
-        Description: GUMS Server
-    VOOwnership:
-      CMS: 100
   umd-ce:
     Active: true
     ContactLists:

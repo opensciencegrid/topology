@@ -1,0 +1,28 @@
+GroupDescription: University of California Irvine Green Planet Cluster
+GroupID: 543
+Production: true
+SupportCenter: Self Supported
+Resources:
+  UCI-GPATLAS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
+      Security Contact:
+        Primary:
+          ID:  a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Edgar Mauricio Fajardo Hernandez
+      Site Contact:
+        Primary:
+          ID:  dbcd20edf55fb43c78b2e547a393898b42643d29
+          Name: Nathan Crawford
+    Description: SLATE deployed Hosted CE for the GPAtlas Cluster
+    FQDN: hosted-ce40.opensciencegrid.org 
+    ID: 1088
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false

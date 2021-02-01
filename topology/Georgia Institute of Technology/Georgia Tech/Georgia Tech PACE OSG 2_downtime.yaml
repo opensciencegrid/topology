@@ -1,0 +1,81 @@
+- Class: SCHEDULED
+  ID: 616857515
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Aug 06, 2020 10:00 +0000
+  EndTime: Aug 09, 2020 03:59 +0000
+  CreatedTime: Aug 05, 2020 22:49 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 616857641
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Aug 06, 2020 10:00 +0000
+  EndTime: Aug 09, 2020 03:59 +0000
+  CreatedTime: Aug 05, 2020 22:49 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 616857748
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Aug 06, 2020 10:00 +0000
+  EndTime: Aug 09, 2020 03:59 +0000
+  CreatedTime: Aug 05, 2020 22:49 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 763753600
+  Description: Quarterly Scheduled Maintenance
+  Severity: Outage
+  StartTime: Feb 03, 2021 10:00 +0000
+  EndTime: Feb 05, 2021 04:00 +0000
+  CreatedTime: Jan 22, 2021 22:16 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 763753752
+  Description: Quarterly Scheduled Maintenance
+  Severity: Outage
+  StartTime: Feb 03, 2021 10:00 +0000
+  EndTime: Feb 05, 2021 04:00 +0000
+  CreatedTime: Jan 22, 2021 22:16 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 763753901
+  Description: Quarterly Scheduled Maintenance
+  Severity: Outage
+  StartTime: Feb 03, 2021 10:00 +0000
+  EndTime: Feb 05, 2021 04:00 +0000
+  CreatedTime: Jan 22, 2021 22:16 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 763754048
+  Description: Quarterly Scheduled Maintenance
+  Severity: Outage
+  StartTime: Feb 03, 2021 10:00 +0000
+  EndTime: Feb 05, 2021 04:00 +0000
+  CreatedTime: Jan 22, 2021 22:16 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------

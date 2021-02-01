@@ -1,5 +1,5 @@
 # Production is true if the resource is for production and not testing use
-Production: false
+Production: true
 # SupportCenter is one of the support centers in topology/support-centers.yaml
 SupportCenter: Community Support Center
 
@@ -16,7 +16,7 @@ Resources:
   # Resource Name should be a short descriptor of the resource.
   SDSC-PRP-CE:
     Active: true
-    Description: SDSC CE into PRP resources
+    Description: SDSC CE and gridFTP into PRP resources
     ID: 984
     ContactLists:
       Administrative Contact:
@@ -32,6 +32,7 @@ Resources:
           Name: Igor Sfiligoi
           ID: 593daf4f680b3135849201036e1055f03f89cfac
 
+    # called xcache-11 for historical reasons but it is actually a CE
     FQDN: xcache-11.t2.ucsd.edu
     Services:
       CE:
@@ -39,29 +40,8 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://xcache-11.t2.ucsd.edu
-  SDSC-PRP-GRIDFTP-IceCube:
-    Active: true
-    Description: GridFTP in PRP in support of IceCube
-    ID: 1015
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          Name: Igor Sfiligoi
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-        Secondary:
-          ID: a89087e73b4e9d1732c5a7112332688940f06440
-          Name: Edgar Mauricio Fajardo Hernandez
-
-      Security Contact:
-        Primary:
-          Name: Igor Sfiligoi
-          ID: 593daf4f680b3135849201036e1055f03f89cfac
-    FQDN: xcache-11.t2.ucsd.edu
-    Services:
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-    VOOwnership:
-      IceCube: 100
 

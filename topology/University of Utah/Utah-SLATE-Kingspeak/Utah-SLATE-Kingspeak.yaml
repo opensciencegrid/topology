@@ -1,0 +1,52 @@
+GroupDescription: University of Utah Center for Research and High Performance Computing Kingspeak Cluster
+GroupID: 526
+Production: true
+Resources:
+  SLATE_US_UUTAH_KINGSPEAK:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  40a181cc3b7a43593188c9607310d35cb079bda9
+          Name: Mitchell Steinman
+      Security Contact:
+        Primary:
+          ID:  40a181cc3b7a43593188c9607310d35cb079bda9
+          Name: Mitchell Steinman
+      Site Contact:
+        Primary:
+          ID:  ddfa10c8a8500e5c31818e7c1a063b3ce5ab6a8b
+          Name: CHPC OSG Support
+    Description: Hosted CE for the Kingspeak cluster at CHPC
+    FQDN: sl-uu-hce1.slateci.io
+    ID: 1043
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+  # FIXME: resource can be removed after 2021-02-01
+  OSG_US_UUTAH_KINGSPEAK:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+      Security Contact:
+        Primary:
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+      Site Contact:
+        Primary:
+          ID:  ddfa10c8a8500e5c31818e7c1a063b3ce5ab6a8b
+          Name: CHPC OSG Support
+    Description: Hosted CE for the Kingspeak cluster at CHPC
+    FQDN: hosted-ce14.grid.uchicago.edu
+    ID: 937
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+SupportCenter: Community Support Center

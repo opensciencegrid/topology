@@ -4,6 +4,7 @@ GroupID: 488
 GroupDescription: New Mexico State University High Performance Computing group
 Resources:
   OSG_US_NMSU_DISCOVERY:
+    Active: false
     ID: 952
     Description: This is a small cluster to test OSG / NMSU integration.
     ContactLists:
@@ -34,3 +35,36 @@ Resources:
         Description: NMSU Hosted CE
         Details:
           hidden: false
+  SLATE_US_NMSU_DISCOVERY:
+    Active: true
+    ID: 1072
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Nicholas Von Wolff
+          ID: 243c442622f34b7e283d95ef53c88928f4986110
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
+      Security Contact:
+        Primary:
+          Name: Nicholas Von Wolff
+          ID: 243c442622f34b7e283d95ef53c88928f4986110
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
+      Site Contact:
+        Primary:
+          Name: Nicholas Von Wolff
+          ID: 243c442622f34b7e283d95ef53c88928f4986110
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
+    FQDN: osg-ce.nmsu.edu
+    Services:
+      CE:
+        Description: NMSU SlateCI Self-Hosted CE
+        Details:
+          hidden: false
+    Tags:
+      - CC*

@@ -14,7 +14,7 @@ CertificateOnly: false
 ID: <ID>
 
 # Contacts contain information about people to contact regarding this VO.
-# The "ID" is a hash of their email address available at https://my.opensciencegrid.org/miscuser/xml
+# The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
 # If you cannot find the contact in the above XML, please register the contact:
 # https://opensciencegrid.org/docs/common/registration/#registering-contacts
 Contacts:
@@ -72,7 +72,7 @@ SupportURL: http://www.usatlas.bnl.gov/index.shtml
 #
 ####### Managers (optional) are one or more people with manager access to this VO's OASIS space
 #   # Managers:
-#   #   <MANAGER NAME>:
+#   #   - Name: <MANAGER NAME>
 #   #     # DNs are one or more DNs for this manager's cert(s)
 #   #     DNs:
 #   #     - <DN>

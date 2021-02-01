@@ -13,6 +13,8 @@ if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from webapp.common import load_yaml_file, to_xml
+from webapp.vo_reader import get_vos_data
+from webapp.vos_data import VOsData
 
 
 log = logging.getLogger(__name__)
@@ -23,6 +25,7 @@ def get_projects(indir="../projects", strict=False):
     projects = []
 
     mapping = load_yaml_file(os.path.join(indir, "_CAMPUS_GRIDS.yaml"))
+    vos_data = get_vos_data(os.path.join(indir, "../virtual-organizations"), None)
 
     for file in os.listdir(indir):
         if not file.endswith(".yaml"):
@@ -38,6 +41,10 @@ def get_projects(indir="../projects", strict=False):
                 name = data['Sponsor']['CampusGrid']['Name']
                 ID = mapping[name]
                 data['Sponsor']['CampusGrid'] = OrderedDict([("ID", ID), ("Name", name)])
+            elif 'VirtualOrganization' in data['Sponsor']:
+                name = data['Sponsor']['VirtualOrganization']['Name']
+                ID = vos_data.vos[name]['ID']
+                data['Sponsor']['VirtualOrganization'] = OrderedDict([("ID", ID), ("Name", name)])
         except yaml.YAMLError:
             if strict:
                 raise

@@ -7,14 +7,16 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 4385b697e55b95ed097380e05d7b5157d370e469
-          Name: Jeremiah Mans
-      Miscellaneous Contact:
-        Primary:
+          ID: 37503b19d64eded72049cacf66f49ce27d1ec714
+          Name: Chad Sullivan
+        Secondary:
           ID: 4385b697e55b95ed097380e05d7b5157d370e469
           Name: Jeremiah Mans
       Security Contact:
         Primary:
+          ID: 37503b19d64eded72049cacf66f49ce27d1ec714
+          Name: Chad Sullivan
+        Secondary:
           ID: 4385b697e55b95ed097380e05d7b5157d370e469
           Name: Jeremiah Mans
     Description: University of Minnesota CMS CE
@@ -46,14 +48,16 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 4385b697e55b95ed097380e05d7b5157d370e469
-          Name: Jeremiah Mans
-      Miscellaneous Contact:
-        Primary:
+          ID: 37503b19d64eded72049cacf66f49ce27d1ec714
+          Name: Chad Sullivan
+        Secondary:
           ID: 4385b697e55b95ed097380e05d7b5157d370e469
           Name: Jeremiah Mans
       Security Contact:
         Primary:
+          ID: 37503b19d64eded72049cacf66f49ce27d1ec714
+          Name: Chad Sullivan
+        Secondary:
           ID: 4385b697e55b95ed097380e05d7b5157d370e469
           Name: Jeremiah Mans
     Description: University of Minnesota CMS Compute Element
@@ -75,14 +79,16 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 4385b697e55b95ed097380e05d7b5157d370e469
-          Name: Jeremiah Mans
-      Miscellaneous Contact:
-        Primary:
+          ID: 37503b19d64eded72049cacf66f49ce27d1ec714
+          Name: Chad Sullivan
+        Secondary:
           ID: 4385b697e55b95ed097380e05d7b5157d370e469
           Name: Jeremiah Mans
       Security Contact:
         Primary:
+          ID: 37503b19d64eded72049cacf66f49ce27d1ec714
+          Name: Chad Sullivan
+        Secondary:
           ID: 4385b697e55b95ed097380e05d7b5157d370e469
           Name: Jeremiah Mans
     Description: University of Minnesota CMS SE Resource
@@ -109,4 +115,58 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
+  UMN-CMS-Squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 37503b19d64eded72049cacf66f49ce27d1ec714
+          Name: Chad Sullivan
+        Secondary:
+          ID: 4385b697e55b95ed097380e05d7b5157d370e469
+          Name: Jeremiah Mans
+      Security Contact:
+        Primary:
+          ID: 37503b19d64eded72049cacf66f49ce27d1ec714
+          Name: Chad Sullivan
+        Secondary:
+          ID: 4385b697e55b95ed097380e05d7b5157d370e469
+          Name: Jeremiah Mans
+    Description: University of Minnesota CMS Squid Server
+    FQDN: cache01.spa.umn.edu
+    ID: 1044
+    Services:
+      Squid:
+        Description: Squid Server
+        Details:
+          Monitored: true
+    VOOwnership:
+      CMS: 100
+  UMN-CMS-Squid2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 37503b19d64eded72049cacf66f49ce27d1ec714
+          Name: Chad Sullivan
+        Secondary:
+          ID: 4385b697e55b95ed097380e05d7b5157d370e469
+          Name: Jeremiah Mans
+      Security Contact:
+        Primary:
+          ID: 37503b19d64eded72049cacf66f49ce27d1ec714
+          Name: Chad Sullivan
+        Secondary:
+          ID: 4385b697e55b95ed097380e05d7b5157d370e469
+          Name: Jeremiah Mans
+    Description: University of Minnesota CMS Squid Server
+    FQDN: cache02.spa.umn.edu
+    ID: 1045
+    Services:
+      Squid:
+        Description: Squid Server
+        Details:
+          Monitored: true
+    VOOwnership:
+      CMS: 100
 SupportCenter: USCMS_Tier3

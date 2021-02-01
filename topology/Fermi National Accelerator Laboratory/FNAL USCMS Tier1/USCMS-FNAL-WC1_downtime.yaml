@@ -433,3 +433,182 @@
   StartTime: Jun 18, 2019 15:00 +0000
   CreatedTime: Jun 10, 2019 17:12 -0000
 # ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 294311344
+  Description: The host is out of warranty and needs to be replaced
+  Severity: Outage
+  StartTime: Jul 30, 2019 16:00 +0000
+  EndTime: Aug 07, 2019 15:00 +0000
+  CreatedTime: Jul 29, 2019 15:12 +0000
+  ResourceName: USCMS-FNAL-WC1-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 295339720
+  Description: Hardware is out of warranty and needs to be replaced
+  Severity: Outage
+  StartTime: Aug 01, 2019 22:00 +0000
+  EndTime: Aug 08, 2019 14:00 +0000
+  CreatedTime: Jul 30, 2019 19:46 +0000
+  ResourceName: USCMS-FNAL-WC1-CE2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 326243546
+  Description: The host is out of warranty and needs to be replaced
+  Severity: Outage
+  StartTime: Sep 05, 2019 22:00 +0000
+  EndTime: Sep 12, 2019 15:00 +0000
+  CreatedTime: Sep 04, 2019 14:12 +0000
+  ResourceName: USCMS-FNAL-WC1-CE3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 366950871
+  Description: Power cut
+  Severity: Severe
+  StartTime: Oct 23, 2019 11:00 +0000
+  EndTime: Oct 23, 2019 12:30 +0000
+  CreatedTime: Oct 21, 2019 16:58 +0000
+  ResourceName: USCMS-FNAL-WC1-CE2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 366951488
+  Description: Power cut
+  Severity: Severe
+  StartTime: Oct 23, 2019 11:00 +0000
+  EndTime: Oct 23, 2019 12:30 +0000
+  CreatedTime: Oct 21, 2019 16:59 +0000
+  ResourceName: USCMS-FNAL-WC1-CE3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 366952679
+  Description: Power cut
+  Severity: Severe
+  StartTime: Oct 23, 2019 11:00 +0000
+  EndTime: Oct 23, 2019 12:30 +0000
+  CreatedTime: Oct 21, 2019 17:01 +0000
+  ResourceName: USCMS-FNAL-WC1-CE4
+  Services:
+  - CE
+# ---------------------------------------------------------
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 366952680
+  Description: Power cut
+  Severity: Severe
+  StartTime: Oct 25, 2019 11:00 +0000
+  EndTime: Oct 25, 2019 12:30 +0000
+  CreatedTime: Oct 21, 2019 16:58 +0000
+  ResourceName: USCMS-FNAL-WC1-CE2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 366952681
+  Description: Power cut
+  Severity: Severe
+  StartTime: Oct 25, 2019 11:00 +0000
+  EndTime: Oct 25, 2019 12:30 +0000
+  CreatedTime: Oct 21, 2019 16:59 +0000
+  ResourceName: USCMS-FNAL-WC1-CE3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 366952682
+  Description: Power cut
+  Severity: Severe
+  StartTime: Oct 25, 2019 11:00 +0000
+  EndTime: Oct 25, 2019 12:30 +0000
+  CreatedTime: Oct 21, 2019 17:01 +0000
+  ResourceName: USCMS-FNAL-WC1-CE4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 372978346
+  Description: Tape room humidity control failure
+  Severity: Outage
+  StartTime: Oct 26, 2019 00:00 +0000
+  EndTime: Oct 29, 2019 19:00 +0000
+  CreatedTime: Oct 28, 2019 16:23 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 451454481
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 29, 2020 14:00 +0000
+  EndTime: Jan 29, 2020 23:00 +0000
+  CreatedTime: Jan 27, 2020 11:17 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 461306028
+  Description: Disk dCache version upgrade
+  Severity: Severe
+  StartTime: Feb 12, 2020 14:00 +0000
+  EndTime: Feb 12, 2020 23:00 +0000
+  CreatedTime: Feb 07, 2020 20:56 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 536272182
+  Description: Host went down
+  Severity: Outage
+  StartTime: May 04, 2020 15:00 +0000
+  EndTime: May 04, 2020 17:10 +0000
+  CreatedTime: May 04, 2020 16:20 +0000
+  ResourceName: USCMS-FNAL-WC1-CE4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 537285583
+  Description: Replacing hardware
+  Severity: Outage
+  StartTime: May 07, 2020 14:00 +0000
+  EndTime: May 14, 2020 16:00 +0000
+  CreatedTime: May 05, 2020 20:29 +0000
+  ResourceName: USCMS-FNAL-WC1-CE4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 717732148
+  Description: dCache patch update
+  Severity: Intermittent Outage
+  StartTime: Dec 03, 2020 15:00 +0000
+  EndTime: Dec 03, 2020 18:00 +0000
+  CreatedTime: Nov 30, 2020 15:53 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 717732987
+  Description: dCache patch update
+  Severity: Intermittent Outage
+  StartTime: Dec 03, 2020 15:00 +0000
+  EndTime: Dec 03, 2020 18:00 +0000
+  CreatedTime: Nov 30, 2020 15:54 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+

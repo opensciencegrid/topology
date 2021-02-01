@@ -48,15 +48,15 @@ LongName: The Belle Experiment at KEK
 MembershipServicesURL: https://voms.cc.kek.jp:8443/voms/belle
 OASIS:
   Managers:
-    Hideki Miyake:
+    - Name: Hideki Miyake
       DNs: /C=JP/O=KEK/OU=CRC/CN=Hideki Miyake
       ID: 6329edd750ea546a7b519d29a50902e3515bab0b
-    I Ueda:
+    - Name: I Ueda
       DNs:
       - /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ueda/CN=482702/CN=I Ueda
       - /C=JP/O=KEK/OU=CRC/CN=UEDA Ikuo
       ID: 912a123a80b973b4abdfe9a116387294cc6c1da2
-    Kiyoshi Hayasaka:
+    - Name: Kiyoshi Hayasaka
       DNs: /C=JP/O=KEK/OU=CRC/CN=HAYASAKA Kiyoshi
       ID: a576382ce7f50940632597dbf12b34eaa718bae2
   UseOASIS: true

@@ -1,6 +1,7 @@
 from collections import OrderedDict
 from logging import getLogger
 import hashlib
+import json
 import os
 import re
 import shlex
@@ -18,10 +19,10 @@ except ImportError:
     log.warning("CSafeLoader not available - install libyaml-devel and reinstall PyYAML")
     from yaml import SafeLoader
 
-MISCUSER_SCHEMA_URL = "https://my.opensciencegrid.org/schema/miscuser.xsd"
-RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
-RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
-VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
+MISCUSER_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/miscuser.xsd"
+RGSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/rgsummary.xsd"
+RGDOWNTIME_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/rgdowntime.xsd"
+VOSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/vosummary.xsd"
 
 SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
@@ -144,12 +145,45 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
     return newdata
 
 
+def order_dict(value: Dict, ordering: List, ignore_missing=False) -> OrderedDict:
+    """
+    Convert a dict to an OrderedDict with key order provided by ``ordering``.
+    """
+    new_value = OrderedDict()
+    for elem in ordering:
+        if elem in value:
+            new_value[elem] = value[elem]
+        elif not ignore_missing:
+            new_value[elem] = None
+    return new_value
+
+
 def to_xml(data) -> str:
     return xmltodict.unparse(data, pretty=True, encoding="utf-8")
 
 
 def to_xml_bytes(data) -> bytes:
     return to_xml(data).encode("utf-8", errors="replace")
+
+
+# bytes cannot be encoded to json in python3
+def bytes2str(o):
+    if isinstance(o, (list, tuple)):
+        return type(o)(map(bytes2str, o))
+    elif isinstance(o, dict):
+        return dict(map(bytes2str, o.items()))
+    elif isinstance(o, bytes):
+        return o.decode(errors='ignore')
+    else:
+        return o
+
+
+def to_json(data) -> str:
+    return json.dumps(bytes2str(data), sort_keys=True)
+
+
+def to_json_bytes(data) -> bytes:
+    return to_json(data).encode("utf-8", errors="replace")
 
 
 def trim_space(s: str) -> str:
@@ -240,3 +274,16 @@ def load_yaml_file(filename) -> Dict:
     except yaml.YAMLError as e:
         log.error("YAML error in %s: %s", filename, e)
         raise
+
+
+def readfile(path, logger):
+    """ return stripped file contents, or None on errors """
+    if path:
+        try:
+            with open(path, mode="rb") as f:
+                return f.read().strip()
+        except IOError as e:
+            if logger:
+                logger.error("Failed to read file '%s': %s", path, e)
+            return None
+
