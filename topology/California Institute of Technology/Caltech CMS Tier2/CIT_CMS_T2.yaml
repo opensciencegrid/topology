@@ -589,4 +589,36 @@ Resources:
           endpoint: perfsonar2.ultralight.org
     VOOwnership:
       CMS: 100
+  CIT-CMS-T2-XRD:
+    Active: true
+    ContactLists:
+      Primary:
+        ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+        Name: Justas Balcas
+      Secondary:
+        ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+        Name: Andres Moya Ignatov
+    Resource Report Contact:
+      Primary:
+        ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+        Name: Justas Balcas
+      Secondary:
+        ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+        Name: Andres Moya Ignatov
+    Security Contact:
+      Primary:
+        ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+        Name: Justas Balcas
+      Secondary:
+        ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+        Name: Andres Moya Ignatov
+    Description: Xrootd Redirector
+    FQDN: xrootd.ultralight.org
+    ID: 1122
+    Services:
+      XRootD component:
+        Description: Xrootd Redirector
+        Details:
+          hidden: false
+          uri_override: xrootd.ultralight.org:1094
 SupportCenter: USCMS_Tier2
