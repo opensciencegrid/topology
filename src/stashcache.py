@@ -531,8 +531,14 @@ audience = {allowed_vos_str}
                                                                  dirname, suppress_errors))
                 allowed_vos.append(vo_name)
 
-
-
+    # Older plugin versions require at least one issuer block (SOFTWARE-4389)
+    if not issuer_blocks:
+        issuer_blocks.append(
+            _get_scitokens_issuer_block(vo_name="nonexistent",
+                                        scitokens={"Issuer": "https://scitokens.org/nonexistent",
+                                                   "Base Path": "/no-issuers-found"},
+                                        dirname="/no-issuers-found",
+                                        suppress_errors=suppress_errors))
     issuer_blocks_str = "\n".join(issuer_blocks)
     allowed_vos_str = ", ".join(allowed_vos)
 
