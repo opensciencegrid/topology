@@ -31,6 +31,7 @@ class User(object):
             self.yaml_data["ContactInformation"]["PrimaryEmail"])
         tree["Profile"] = self.yaml_data.get("Profile", None)
         tree["GitHub"] = self.yaml_data.get("GitHub", None)
+        tree["CILogonID"] = self.yaml_data.get("CILogonID", None)
         if self.yaml_data.get("Flags"):
             tree["Flags"] = {"Flag": self.yaml_data["Flags"]}
         if authorized:

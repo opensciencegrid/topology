@@ -34,6 +34,6 @@ def get_nsfscience(indir: str, strict: bool) -> Dict:
     return nsfscience
 
 
-def get_mappings(self, indir="../mappings", strict=False):
+def get_mappings(indir="../mappings", strict=False):
     mappings = Mappings(nsfscience=get_nsfscience(indir, strict))
     return mappings

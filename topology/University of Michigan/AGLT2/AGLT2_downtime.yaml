@@ -710,3 +710,59 @@
   ResourceName: AGLT2_SE
   Services:
   - SRMv2
+ # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 499559471
+  Description: dCache headnode database corrupted...restoring from backup
+  Severity: Outage
+  StartTime: Mar 23, 2020 01:30 +0000
+  EndTime: Mar 23, 2020 11:00 +0000
+  CreatedTime: Mar 23, 2020 04:32 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 564175404
+  Description: Upgrade/downgrade caused SRM failure
+  Severity: Outage
+  StartTime: Jun 05, 2020 17:00 +0000
+  EndTime: Jun 09, 2020 23:00 +0000
+  CreatedTime: Jun 05, 2020 23:25 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 689274391
+  Description: major switch updates
+  Severity: Intermittent Outage
+  StartTime: Nov 03, 2020 14:00 +0000
+  EndTime: Nov 03, 2020 18:00 +0000
+  CreatedTime: Oct 28, 2020 18:23 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 689277461
+  Description: major switch updates
+  Severity: Intermittent Outage
+  StartTime: Nov 03, 2020 14:00 +0000
+  EndTime: Nov 03, 2020 18:00 +0000
+  CreatedTime: Oct 28, 2020 18:29 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 689278114
+  Description: major switch updates
+  Severity: Intermittent Outage
+  StartTime: Nov 03, 2020 14:00 +0000
+  EndTime: Nov 03, 2020 18:00 +0000
+  CreatedTime: Oct 28, 2020 18:30 +0000
+  ResourceName: AGLT2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------

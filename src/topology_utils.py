@@ -127,7 +127,7 @@ def get_vo_map(args, session=None):
     old_no_proxy = os.environ.pop('no_proxy', None)
     os.environ['no_proxy'] = '.opensciencegrid.org'
 
-    url = update_url_hostname("https://my.opensciencegrid.org/vosummary"
+    url = update_url_hostname("https://topology.opensciencegrid.org/vosummary"
                               "/xml?all_vos=on&active_value=1", args)
     if session is None:
         with get_auth_session(args) as session:
@@ -217,7 +217,7 @@ def get_contacts(args, urltype, roottype):
     old_no_proxy = os.environ.pop('no_proxy', None)
     os.environ['no_proxy'] = '.opensciencegrid.org'
 
-    base_url = "https://my.opensciencegrid.org/" + urltype + "summary/xml?" \
+    base_url = "https://topology.opensciencegrid.org/" + urltype + "summary/xml?" \
                "&active=on&active_value=1&disable=on&disable_value=0"
     with get_auth_session(args) as session:
         url = mangle_url(base_url, args, session)
@@ -354,6 +354,14 @@ def filter_contacts(args, results):
                 if contact_type.startswith(args.contact_type):
                     contact_list.append(contact)
             if contact_list == []:
+                del results[name]
+            else:
+                results[name] = contact_list
+
+    if getattr(args, 'contact_emails', None):
+        for name in results.keys():
+            contact_list = [contact for contact in results[name] if contact['Email'] in args.contact_emails]
+            if not contact_list:
                 del results[name]
             else:
                 results[name] = contact_list

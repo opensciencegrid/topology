@@ -52,9 +52,6 @@ OASIS:
       DNs: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Lazzaro Claudia
         4036
       ID: 267375b4ce27186eaa7648a2cfb6212f0a10ecf8
-    - Name: Matyas Selmeci
-      DNs: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Matyas Selmeci
-      ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
     - Name: Peter Couvares
       DNs: /DC=org/DC=cilogon/C=US/O=LIGO/CN=Peter Couvares peter.couvares@ligo.org
       ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
@@ -65,9 +62,14 @@ OASIS:
     - Name: Duncan MacLeod
       DNs: /DC=org/DC=cilogon/C=US/O=LIGO/CN=Duncan Macleod duncan.macleod@ligo.org
       ID: 1e153a63463094d82c7b2786bd2f57f996974984
+    - Name: Ian Harry
+      DNs: /DC=org/DC=cilogon/C=US/O=LIGO/CN=Ian Harry ian.harry@ligo.org
+      ID: bb0990ee72a93882c89747b1b6867758963a41a0
+    - Name: Gareth Davies
+      DNs: /DC=org/DC=cilogon/C=US/O=LIGO/CN=Gareth Davies gareth.davies@ligo.org
+      ID: c7d9a5cf10ecce28be62e62daf5a62d773f0185c
   OASISRepoURLs:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/ligo.osgstorage.org
-  - http://binaries.ligo.uwm.edu:8000/cvmfs/ligo-containers.opensciencegrid.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/gwosc.osgstorage.org
   UseOASIS: true
 PrimaryURL: http://www.ligo.org
@@ -78,11 +80,28 @@ DataFederations:
   StashCache:
     Namespaces:
       /user/ligo:
-        - FQAN:/osg/ligo
+        - FQAN: /osg/ligo
+        - SciTokens:
+            Issuer: https://scitokens.org/ligo
+            Base Path: /user/ligo
       /gwdata:
         - PUBLIC
     AllowedOrigins:
       - CIT_LIGO_ORIGIN
       - LIGO-StashCache-Origin
+      - UCL-Virgo-StashCache-Origin
     AllowedCaches:
       - HCC-Stash
+      - Georgia_Tech_PACE_GridFTP2
+      - Stashcache-UCSD
+      - Stashcache-UofA
+      - Stashcache-Cardiff
+      - Stashcache-KISTI
+      - Stashcache-Houston
+      - Stashcache-Manhattan
+      - Stashcache-Sunnyvale
+      - Stashcache-Chicago
+      - Stashcache-Kansas
+      - T1_STASHCACHE_CACHE
+      - PIC_STASHCACHE_CACHE
+      - SU_STASHCACHE_CACHE

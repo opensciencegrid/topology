@@ -1,0 +1,221 @@
+GroupDescription: Resources in the Georgia Tech PACE cluster, to be used by LIGO, Icecube, CTA, OSG-Connect and others.
+GroupID: 538
+Production: true
+Resources:
+  Georgia_Tech_PACE_CE_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+        Secondary:
+          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
+          Name: Mehmet Belgin
+        Tertiary:
+          ID: 14769be06478f6ac7e1785c371d412f6396b3409
+          Name: Andre McNeill
+        Tertiary 2:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+      Miscellaneous Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+        Tertiary:
+          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
+          Name: Mehmet Belgin
+      Resource Report Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+        Tertiary:
+          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
+          Name: Mehmet Belgin
+      Security Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+    Description: This is a Condor CE in front of the PACE cluster, for use by LIGO, Icecube, CTA, OSG-Connect and others.
+    FQDN: osg-sched2.pace.gatech.edu
+    ID: 1059
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+      Squid:
+        Description: Generic squid service
+    Tags:
+      - CC*
+    VOOwnership:
+      LIGO: 25
+      IceCube: 25
+      CTA: 25
+      OSG: 25
+  Georgia_Tech_PACE_GridFTP2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+        Secondary:
+          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
+          Name: Mehmet Belgin
+        Tertiary:
+          ID: 14769be06478f6ac7e1785c371d412f6396b3409
+          Name: Andre McNeill
+        Tertiary 2:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+      Miscellaneous Contact:
+        Primary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+        Secondary:
+          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
+          Name: Mehmet Belgin
+      Resource Report Contact:
+        Secondary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+        Tertiary:
+          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
+          Name: Mehmet Belgin
+      Security Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+    Description: Second GridFTP server, initially for incoming LIGO, Icecube, CTA, OSG-Connect.
+    FQDN: osg-gftp2.pace.gatech.edu
+    DN:  /DC=org/DC=incommon/C=US/ST=Georgia/L=Atlanta/O=Georgia Institute of Technology/OU=Office of Information Technology/CN=osg-gftp2.pace.gatech.edu
+    ID: 1058
+    Services:
+      GridFtp:
+        Description: Second GridFtp Storage Element
+        Details:
+          hidden: false
+      XRootD cache server:
+        Description: Second Georgia Tech Caching Server
+    VOOwnership:
+      LIGO: 25
+      IceCube: 25
+      CTA: 25
+      OSG: 25
+    AllowedVOs:
+      - ANY
+  Georgia_Tech_LIGO_Submit_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+        Tertiary:
+          ID: 14769be06478f6ac7e1785c371d412f6396b3409
+          Name: Andre McNeill
+        Tertiary 2:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+      Miscellaneous Contact:
+        Primary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+        Secondary:
+          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
+          Name: Mehmet Belgin
+        Tertiary:
+          ID: 14769be06478f6ac7e1785c371d412f6396b3409
+          Name: Andre McNeill
+        Tertiary 2:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+      Resource Report Contact:
+        Primary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+        Secondary:
+          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
+          Name: Mehmet Belgin
+        Tertiary:
+          ID: 14769be06478f6ac7e1785c371d412f6396b3409
+          Name: Andre McNeill
+        Tertiary 2:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+      Security Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+        Tertiary:
+          ID: 14769be06478f6ac7e1785c371d412f6396b3409
+          Name: Andre McNeill
+        Tertiary 2:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+    Description: Georgia Tech submit node for LIGO, Icecube, CTA, OSG-Connect.
+    FQDN: osg-login2.pace.gatech.edu
+    ID: 1061
+    Services:
+      Submit Node:
+        Description: OSG Submission Node 2
+        Details:
+          hidden: false
+    VOOwnership:
+      LIGO: 25
+      IceCube: 25
+      CTA: 25
+      OSG: 25
+  Georgia_Tech_PACE_perfSONAR_BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+        Secondary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+        Tertiary:
+          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
+          Name: Mehmet Belgin
+      Security Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
+          Name: Trever Nightingale
+    Description: This is the Georgia Tech bandwidth instance at the Georgia Institute of Technology
+    FQDN: perfsonar.pace.gatech.edu
+    ID: 1113
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: perfSONAR Bandwidth monitoring node for PACE / Georgia Tech
+        Details:
+          endpoint:perfsonar.pace.gatech.edu
+    VOOwnership:
+      LIGO: 25
+      IceCube: 25
+      CTA: 25
+      OSG: 25
+SupportCenter: Advanced LIGO

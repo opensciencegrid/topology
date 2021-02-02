@@ -64,6 +64,7 @@ class GlobalData:
         self.webhook_secret_key = config.get("WEBHOOK_SECRET_KEY")
         self.webhook_gh_api_user = config.get("WEBHOOK_GH_API_USER")
         self.webhook_gh_api_token = config.get("WEBHOOK_GH_API_TOKEN")
+        self.cilogon_ldap_passfile = config.get("CILOGON_LDAP_PASSFILE")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:
@@ -213,7 +214,7 @@ class GlobalData:
             ok = self._update_topology_repo()
             if ok:
                 try:
-                    self.mappings.update(mappings.get_mappings(self.mappings_dir, strict=self.strict))
+                    self.mappings.update(mappings.get_mappings(indir=self.mappings_dir, strict=self.strict))
                 except Exception:
                     if self.strict:
                         raise

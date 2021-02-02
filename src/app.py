@@ -14,10 +14,11 @@ import traceback
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import to_xml_bytes, Filters
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters
 from webapp.forms import GenerateDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
+from webapp.oasis_managers import get_oasis_manager_endpoint_info
 
 try:
     import stashcache
@@ -40,7 +41,10 @@ def _verify_config(cfg):
         else:
             st = os.stat(ssh_key)
             if st.st_uid != os.getuid() or (st.st_mode & 0o7777) not in (0o700, 0o600, 0o400):
-                raise PermissionError(ssh_key)
+                if cfg["IGNORE_SECRET_PERMS"]:
+                    app.logger.info("Ignoring permissions/ownership issues on " + ssh_key)
+                else:
+                    raise PermissionError(ssh_key)
 
 
 default_authorized = False
@@ -67,6 +71,12 @@ if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
 global_data = GlobalData(app.config, strict=app.config.get("STRICT", app.debug))
+
+
+cilogon_pass = readfile(global_data.cilogon_ldap_passfile, app.logger)
+if not cilogon_pass:
+    app.logger.warning("Note, no CILOGON_LDAP_PASSFILE configured; "
+                       "OASIS Manager ssh key lookups will be unavailable.")
 
 
 def _fix_unicode(text):
@@ -214,6 +224,20 @@ def scitokens():
     except Exception:
         app.log_exception(sys.exc_info())
         return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+
+
+@app.route("/oasis-managers/json")
+def oasis_managers():
+    if not _get_authorized():
+        return Response("Not authorized", status=403)
+    vo = request.args.get("vo")
+    if not vo:
+        return Response("'vo' argument is required", status=400)
+    if not cilogon_pass:
+        return Response("CILOGON_LDAP_PASSFILE not configured; "
+                        "OASIS Managers info unavailable", status=503)
+    mgrs = get_oasis_manager_endpoint_info(global_data, vo, cilogon_pass)
+    return Response(to_json_bytes(mgrs), mimetype='application/json')
 
 
 def _get_cache_authfile(public_only):

@@ -2,7 +2,7 @@ GroupDescription: Hosted CE for GlueX and OSG support
 GroupID: 475
 Production: true
 Resources:
-  OSG_US_FSU_HNPGRID:
+  GLUEX_US_FSU_HNPGRID:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -24,6 +24,35 @@ Resources:
     Description: Hosted CE for HNPGRID cluster
     FQDN: hosted-ce07.grid.uchicago.edu
     ID: 899
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      Gluex: 100
+  FSU-HNPGRID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+      Resource Report Contact:
+        Primary:
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+      Security Contact:
+        Primary:
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+      Site Contact:
+        Primary:
+          ID:  73ed2d273dace60d6e6ff5baabeb8755624001bd
+          Name: Sean Dobbs
+    Description: Hosted CE for HNPGRID cluster
+    FQDN: hosted-ce07.opensciencegrid.org
+    ID: 1080
     Services:
       CE:
         Description: Compute Element

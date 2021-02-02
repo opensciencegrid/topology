@@ -30,9 +30,9 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 12.57
+      APELNormalFactor: 12.69
       AccountingName: BNL_ATLAS_1
-      HEPSPEC: 280912
+      HEPSPEC: 287779
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
@@ -67,7 +67,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 12.57
+      APELNormalFactor: 12.69
       AccountingName: BNL_ATLAS_1
       HEPSPEC: 0
       InteropAccounting: true
@@ -105,7 +105,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 12.57
+      APELNormalFactor: 12.69
       AccountingName: BNL_ATLAS_1
       HEPSPEC: 0
       InteropAccounting: true
@@ -143,7 +143,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 12.57
+      APELNormalFactor: 12.69
       AccountingName: BNL_ATLAS_1
       HEPSPEC: 0
       InteropAccounting: true
@@ -181,7 +181,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 12.57
+      APELNormalFactor: 12.69
       AccountingName: BNL_ATLAS_1
       HEPSPEC: 0
       InteropAccounting: true
@@ -219,7 +219,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 12.57
+      APELNormalFactor: 12.69
       AccountingName: BNL_ATLAS_1
       HEPSPEC: 0
       InteropAccounting: true
@@ -258,7 +258,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 12.57
+      APELNormalFactor: 12.69
       AccountingName: BNL_ATLAS_1
       HEPSPEC: 0
       InteropAccounting: true
@@ -331,6 +331,47 @@ Resources:
       StorageCapacityMax: 16800
       StorageCapacityMin: 16800
       TapeCapacity: 27000
+  BNL_ATLAS_SE_GRIDFTP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+      Miscellaneous Contact:
+        Primary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+      Resource Report Contact:
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: A gridftp service 
+    FQDN: dcgftp.usatlas.bnl.gov
+    ID: 1089
+    Services:
+      GridFtp:
+        Description: GridFtp service endpoint
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 
+      StorageCapacityMin: 
+      TapeCapacity: 
   BNL_ATLAS_SE_AWS_East:
     Active: true
     ContactLists:

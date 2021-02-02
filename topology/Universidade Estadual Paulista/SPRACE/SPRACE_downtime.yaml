@@ -696,3 +696,190 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 496402565
+  Description: network outage due to a fiber cut
+  Severity: Outage
+  StartTime: Mar 19, 2020 12:48 +0000
+  EndTime: Mar 19, 2020 21:00 +0000
+  CreatedTime: Mar 19, 2020 12:50 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 496405611
+  Description: network outage due to a fiber cut
+  Severity: Outage
+  StartTime: Mar 19, 2020 12:48 +0000
+  EndTime: Mar 19, 2020 21:00 +0000
+  CreatedTime: Mar 19, 2020 12:56 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 496696918
+  Description: network outage due to a fiber cut - extended
+  Severity: Outage
+  StartTime: Mar 19, 2020 21:00 +0000
+  EndTime: Mar 20, 2020 21:00 +0000
+  CreatedTime: Mar 19, 2020 21:01 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 496701762
+  Description: network outage due to a fiber cut - extended
+  Severity: Outage
+  StartTime: Mar 19, 2020 21:00 +0000
+  EndTime: Mar 20, 2020 21:00 +0000
+  CreatedTime: Mar 19, 2020 21:09 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 497505713
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 20, 2020 21:00 +0000
+  EndTime: Mar 26, 2020 21:00 +0000
+  CreatedTime: Mar 20, 2020 19:29 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 497511331
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 20, 2020 21:00 +0000
+  EndTime: Mar 26, 2020 21:00 +0000
+  CreatedTime: Mar 20, 2020 19:38 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 530175606
+  Description: network outage due to a fibre cut
+  Severity: Outage
+  StartTime: Apr 27, 2020 11:45 +0000
+  EndTime: Apr 27, 2020 15:00 +0000
+  CreatedTime: Apr 27, 2020 14:59 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 530177653
+  Description: network outage due to a fibre cut
+  Severity: Outage
+  StartTime: Apr 27, 2020 11:45 +0000
+  EndTime: Apr 27, 2020 15:00 +0000
+  CreatedTime: Apr 27, 2020 15:02 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 530379550
+  Description: network outage due to a fiber cut - extended
+  Severity: Outage
+  StartTime: Apr 27, 2020 15:00 +0000
+  EndTime: Apr 28, 2020 15:00 +0000
+  CreatedTime: Apr 27, 2020 20:39 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 530381851
+  Description: network outage due to a fiber cut - extended
+  Severity: Outage
+  StartTime: Apr 27, 2020 15:00 +0000
+  EndTime: Apr 28, 2020 15:00 +0000
+  CreatedTime: Apr 27, 2020 20:43 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 565812104
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 07, 2020 20:00 +0000
+  EndTime: Jun 09, 2020 21:00 +0000
+  CreatedTime: Jun 07, 2020 20:53 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 565815520
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 07, 2020 20:00 +0000
+  EndTime: Jun 09, 2020 21:00 +0000
+  CreatedTime: Jun 07, 2020 20:59 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 645033261
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Sep 07, 2020 13:21 +0000
+  EndTime: Sep 08, 2020 21:00 +0000
+  CreatedTime: Sep 07, 2020 13:28 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 645037587
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Sep 07, 2020 13:21 +0000
+  EndTime: Sep 08, 2020 21:00 +0000
+  CreatedTime: Sep 07, 2020 13:35 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 696255542
+  Description: Network issues affecting SRM transfers
+  Severity: Intermittent Outage
+  StartTime: Nov 05, 2020 19:17 +0000
+  EndTime: Nov 06, 2020 21:00 +0000
+  CreatedTime: Nov 05, 2020 19:19 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 715249856
+  Description: Downtime for dCache upgrade to latest golden release
+  Severity: Outage
+  StartTime: Dec 07, 2020 05:00 +0000
+  EndTime: Dec 07, 2020 15:00 +0000
+  CreatedTime: Nov 27, 2020 18:56 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 715261583
+  Description: Downtime for dCache upgrade to latest golden release
+  Severity: Outage
+  StartTime: Dec 07, 2020 05:00 +0000
+  EndTime: Dec 07, 2020 15:00 +0000
+  CreatedTime: Nov 27, 2020 19:15 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------

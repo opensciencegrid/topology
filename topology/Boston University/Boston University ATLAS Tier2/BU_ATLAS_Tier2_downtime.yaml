@@ -84,3 +84,50 @@
   - CE
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 579465543
+  Description: Trying to set downtime again
+  Severity: Outage
+  StartTime: Jun 23, 2020 12:00 +0000
+  EndTime: Jun 23, 2020 18:00 +0000
+  CreatedTime: Jun 23, 2020 16:09 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 620849981
+  Description: Hardware error in central BU N7K module.  Network engineers are working
+    on it.  DDM and production are down.
+  Severity: Outage
+  StartTime: Aug 10, 2020 00:01 +0000
+  EndTime: Aug 10, 2020 17:00 +0000
+  CreatedTime: Aug 10, 2020 13:43 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 681521473
+  Description: 'Annual downtime '
+  Severity: Outage
+  StartTime: Oct 19, 2020 09:00 +0000
+  EndTime: Oct 20, 2020 23:00 +0000
+  CreatedTime: Oct 19, 2020 19:02 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 762812933
+  Description: 'GPFS file system '
+  Severity: Outage
+  StartTime: Jan 21, 2021 19:00 +0000
+  EndTime: Feb 02, 2021 04:00 +0000
+  CreatedTime: Jan 21, 2021 20:08 +0000
+  ResourceName: NET2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------

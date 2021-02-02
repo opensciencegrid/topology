@@ -1,5 +1,5 @@
 # Production is true if the resource is for production and not testing use
-Production: false
+Production: true
 # SupportCenter is one of the support centers in topology/support-centers.yaml
 SupportCenter: Community Support Center
 
@@ -106,5 +106,30 @@ Resources:
     Services:
       CE:
         Description: COMET-CometVirtualCluster Hosted CE
+        Details:
+          hidden: false
+  UCSD-Comet:
+    ID: 1083
+    Active: true
+    Description: The Hosted CE serving UCSD-Comet
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: hosted-ce34.opensciencegrid.org
+    Services:
+      CE:
+        Description: UCSD-Comet Hosted CE
         Details:
           hidden: false

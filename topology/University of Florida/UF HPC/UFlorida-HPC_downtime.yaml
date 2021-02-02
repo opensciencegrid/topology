@@ -544,3 +544,278 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 621740636
+  Description: cvmfs intervention due to the OS upgrade.
+  Severity: Outage
+  StartTime: Aug 12, 2020 15:00 +0000
+  EndTime: Aug 12, 2020 23:00 +0000
+  CreatedTime: Aug 11, 2020 14:27 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 621741703
+  Description: cvmfs intervention due to the OS upgrade.
+  Severity: Outage
+  StartTime: Aug 12, 2020 15:00 +0000
+  EndTime: Aug 12, 2020 23:00 +0000
+  CreatedTime: Aug 11, 2020 14:29 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 621741011
+  Description: cvmfs intervention due to the OS upgrade.
+  Severity: Outage
+  StartTime: Aug 12, 2020 15:00 +0000
+  EndTime: Aug 13, 2020 23:00 +0000
+  CreatedTime: Aug 11, 2020 14:28 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 621741288
+  Description: cvmfs intervention due to the OS upgrade.
+  Severity: Outage
+  StartTime: Aug 12, 2020 15:00 +0000
+  EndTime: Aug 13, 2020 23:00 +0000
+  CreatedTime: Aug 11, 2020 14:28 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 653880877
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 17, 2020 15:00 +0000
+  EndTime: Sep 20, 2020 05:00 +0000
+  CreatedTime: Sep 17, 2020 19:14 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 653881258
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 17, 2020 15:00 +0000
+  EndTime: Sep 20, 2020 05:00 +0000
+  CreatedTime: Sep 17, 2020 19:15 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 653881399
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 17, 2020 15:00 +0000
+  EndTime: Sep 20, 2020 05:00 +0000
+  CreatedTime: Sep 17, 2020 19:15 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 653881553
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 17, 2020 15:00 +0000
+  EndTime: Sep 20, 2020 05:00 +0000
+  CreatedTime: Sep 17, 2020 19:15 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 653881703
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 17, 2020 15:00 +0000
+  EndTime: Sep 20, 2020 05:00 +0000
+  CreatedTime: Sep 17, 2020 19:16 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 662526225
+  Description: One Lustre OSS down
+  Severity: Severe
+  StartTime: Sep 27, 2020 19:00 +0000
+  EndTime: Sep 28, 2020 17:00 +0000
+  CreatedTime: Sep 27, 2020 19:23 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 662643615
+  Description: One Lustre OSS down
+  Severity: Severe
+  StartTime: Sep 27, 2020 19:00 +0000
+  EndTime: Sep 28, 2020 17:00 +0000
+  CreatedTime: Sep 27, 2020 22:39 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 662644186
+  Description: One Lustre OSS down
+  Severity: Severe
+  StartTime: Sep 27, 2020 19:00 +0000
+  EndTime: Sep 28, 2020 17:00 +0000
+  CreatedTime: Sep 27, 2020 22:40 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 662644599
+  Description: One Lustre OSS down
+  Severity: Severe
+  StartTime: Sep 27, 2020 19:00 +0000
+  EndTime: Sep 28, 2020 17:00 +0000
+  CreatedTime: Sep 27, 2020 22:40 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 706480676
+  Description: Power work for the HPC upgrade
+  Severity: Outage
+  StartTime: Nov 18, 2020 23:00 +0000
+  EndTime: Nov 23, 2020 14:00 +0000
+  CreatedTime: Nov 17, 2020 15:21 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 706481122
+  Description: Power work for the HPC upgrade
+  Severity: Outage
+  StartTime: Nov 18, 2020 23:00 +0000
+  EndTime: Nov 23, 2020 14:00 +0000
+  CreatedTime: Nov 17, 2020 15:21 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 706481332
+  Description: Power work for the HPC upgrade
+  Severity: Outage
+  StartTime: Nov 18, 2020 23:00 +0000
+  EndTime: Nov 23, 2020 14:00 +0000
+  CreatedTime: Nov 17, 2020 15:22 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 706481529
+  Description: Power work for the HPC upgrade
+  Severity: Outage
+  StartTime: Nov 18, 2020 23:00 +0000
+  EndTime: Nov 23, 2020 14:00 +0000
+  CreatedTime: Nov 17, 2020 15:22 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 706481685
+  Description: Power work for the HPC upgrade
+  Severity: Outage
+  StartTime: Nov 18, 2020 23:00 +0000
+  EndTime: Nov 23, 2020 14:00 +0000
+  CreatedTime: Nov 17, 2020 15:22 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718704682
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:54 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718705165
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:55 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718705335
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:55 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718705534
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:55 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718705707
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:56 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718706265
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:57 +0000
+  ResourceName: UFlorida_squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718706430
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:57 +0000
+  ResourceName: UFlorida_squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------

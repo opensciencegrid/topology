@@ -1,0 +1,29 @@
+version: "3.3"
+
+services:
+
+  topology:
+    #image: opensciencegrid/topology
+    build: .
+    volumes:
+      # apache
+      - ./docker/secrets/certs/:/certs/:ro
+      - ./docker/apache.conf:/etc/httpd/conf.d/topology.conf:ro
+      # topology common
+      - topology-data:/data
+      # topology
+      - ./docker/config.py:/etc/opt/topology/config-production.py:ro
+      - ./docker/secrets/bitbucket:/etc/opt/topology/bitbucket:ro
+      - ./docker/secrets/cilogon-ldap:/etc/opt/topology/cilogon-ldap:ro
+      - ./docker/secrets/github:/etc/opt/topology/github:ro
+      # topology webhook
+      - ./docker/config-webhook.py:/etc/opt/topology/config-production-webhook.py:ro
+      - ./docker/secrets/github_access_token:/etc/opt/topology/github_access_token:ro
+      - ./docker/secrets/github_webhook_secret:/etc/opt/topology/github_webhook_secret:ro
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+
+volumes:
+  topology-data:
+

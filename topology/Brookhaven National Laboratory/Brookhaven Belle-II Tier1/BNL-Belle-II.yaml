@@ -39,6 +39,15 @@ Resources:
           sam_uri: htcondor://bgk01.sdcc.bnl.gov
     VOOwnership:
       Belle: 100
+    WLCGInformation:
+      APELNormalFactor: 10.43
+      AccountingName: BNL_BELLE_II_CE_1
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false 
+      KSI2KMax: 0
+      KSI2KMin: 0
   BNL_BELLE_II_CE_2:
     Active: true
     ContactLists:
@@ -81,6 +90,15 @@ Resources:
           sam_uri: htcondor://bgk02.sdcc.bnl.gov
     VOOwnership:
       Belle: 100
+    WLCGInformation:
+      APELNormalFactor: 10.43
+      AccountingName: BNL_BELLE_II_CE_2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
   BNL_BELLE_II_SE:
     Active: true
     ContactLists:

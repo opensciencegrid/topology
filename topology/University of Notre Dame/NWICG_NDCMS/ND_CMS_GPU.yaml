@@ -1,0 +1,46 @@
+GroupDescription: ND_CSMS_GPU
+GroupID: 81
+Production: true
+Resources:
+  ND - CMS_GPU:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+      Miscellaneous Contact:
+        Primary:
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+      Resource Report Contact:
+        Primary:
+          ID: 1a6defbcb27777eae626bbb0ae9f4d0a281dd641
+          Name: Irena Johnson
+      Security Contact:
+        Primary:
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+    Description: GPU Cluster at Notre Dame.
+    # Dummy FQDN so it doesn't match Batch records, but the resource
+    # will match Payload records in GRACC
+    FQDN: hosted-ce35.grid.uchicago.edu-notusing
+    ID: 268
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      StorageCapacityMax: 4
+      StorageCapacityMin: 1
+SupportCenter: NWICG
