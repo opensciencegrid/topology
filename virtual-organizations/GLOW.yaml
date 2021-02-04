@@ -30,9 +30,8 @@ Contacts:
     Name: Miron Livny
 Credentials:
   TokenIssuers:
-    - https://scitokens.org/chtc
-  VomsServers:
-    - voms1.chtc.wisc.edu
+    - URL: https://scitokens.org/chtc
+      UnixUser: glow
 Disable: false
 FieldsOfScience:
   PrimaryFields:
