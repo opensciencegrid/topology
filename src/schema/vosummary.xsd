@@ -176,6 +176,26 @@
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>
+              <xsd:element name="Credentials" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="TokenIssuers">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element minOccurs="0" maxOccurs="unbounded" name="TokenIssuer">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="URL" type="xsd:string"/>
+                                <xsd:element name="UnixUser" type="xsd:string"/>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>
