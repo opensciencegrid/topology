@@ -8,7 +8,7 @@ GroupDescription: This is a set of four frontier-squid proxies for Harvard FAS R
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: <ID>
+GroupID: 1106
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -24,7 +24,7 @@ Resources:
     Description: This is a frontier-squid proxy for Harvard University.
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: <ID>
+    ID: 1123
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
@@ -68,7 +68,7 @@ Resources:
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
-      <SERVICE NAME>: Squid
+      Squid:
         # Description is a brief description of the service
         Description: Frontier squid proxy used by CVMFS clients on our cluster
         ### Details (optional)
