@@ -31,3 +31,36 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 778104154
+  Description: Cooling system maintenance
+  Severity: Outage
+  StartTime: Feb 20, 2021 12:00 +0000
+  EndTime: Feb 24, 2021 17:00 +0000
+  CreatedTime: Feb 08, 2021 18:53 +0000
+  ResourceName: AMNH-ARES
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 778115364
+  Description: Cooling system maintenance
+  Severity: Outage
+  StartTime: Feb 20, 2021 12:00 +0000
+  EndTime: Feb 24, 2021 17:00 +0000
+  CreatedTime: Feb 08, 2021 19:12 +0000
+  ResourceName: AMNH-HEL
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 778115497
+  Description: Cooling system maintenance
+  Severity: Outage
+  StartTime: Feb 20, 2021 12:00 +0000
+  EndTime: Feb 24, 2021 17:00 +0000
+  CreatedTime: Feb 08, 2021 19:12 +0000
+  ResourceName: AMNH-Mendel
+  Services:
+  - CE
+# ---------------------------------------------------------
