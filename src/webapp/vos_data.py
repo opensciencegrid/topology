@@ -102,7 +102,7 @@ class VOsData(object):
                 new_token_issuers = [
                     OrderedDict([
                         ("URL", x.get("URL")),
-                        ("UnixUser", x.get("UnixUser"))
+                        ("DefaultUnixUser", x.get("DefaultUnixUser"))
                     ])
                     for x in token_issuers
                 ]
