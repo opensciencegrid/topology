@@ -416,7 +416,19 @@ function init(scrollwheel) {
 }
 
 function export_to_png() {
-    html2canvas(document.body, {useCORS:true, logging:true}).then(function(canvas) {
+    // Hide all the controls
+    $('.controls').each(function(i, obj) {
+        $(obj).hide();
+    });
+
+    // Hide the Map controls
+    var options = {'disableDefaultUI': true}
+    map.setOptions(options);
+
+    // Have to use setTimeout so that the map can process the update to the options.
+    // Notice, the setTimeout is set to 0, so this just calls the function as fast as possible
+    setTimeout(function() {
+        html2canvas(document.body, {useCORS:true, logging:true}).then(function(canvas) {
         var img =canvas.toDataURL("image/png,1.0");
         const a = document.createElement('a');
         a.style.display = 'none';
@@ -426,7 +438,16 @@ function export_to_png() {
         document.body.appendChild(a);
         a.click();
         window.URL.revokeObjectURL(img);
+
+        // Show the controls back
+        $('.controls').each(function(i, obj) {
+            $(obj).show();
         });
+        options = {'disableDefaultUI': false}
+        map.setOptions(options);
+    });
+
+    }, 0);
 }
 
 function setInfoWindow(id,marker, content) {
@@ -563,19 +584,19 @@ padding: 4px;
 
 </style>
 <div style="position: relative; height: 100%;">
-<div id="map_control">&nbsp;Site&nbsp;&nbsp;<select id="site" style="border: none;">
+<div id="map_control" class="controls">&nbsp;Site&nbsp;&nbsp;<select id="site" style="border: none;">
     <option value="">(None)</option>
     </select>
 </div>
 
-<div id="view_control">&nbsp;View&nbsp;&nbsp;<select id="view" style="border: none;">
+<div id="view_control" class="controls">&nbsp;View&nbsp;&nbsp;<select id="view" style="border: none;">
     <option value="OSGSites">OSG Sites (default)</option>
     <option value="ComputevsStorage">Compute and Storage</option>
     <option value="EduvsOther">EDU sites and others</option>
     <option value="CCStar">CC* Sites</option>
     </select>
 </div>
-<div id="print_screen">
+<div id="print_screen" class="controls">
     <button type="button" onclick="export_to_png()">Save Screen as PNG</button>
 </div>
 <div id="map_canvas"></div>
