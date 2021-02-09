@@ -182,7 +182,7 @@
                     <xsd:element name="TokenIssuers" minOccurs="0">
                       <xsd:complexType>
                         <xsd:sequence>
-                          <xsd:element minOccurs="0" maxOccurs="unbounded" name="TokenIssuer">
+                          <xsd:element minOccurs="1" maxOccurs="unbounded" name="TokenIssuer">
                             <xsd:complexType>
                               <xsd:sequence>
                                 <xsd:element name="URL" type="xsd:string"/>
