@@ -1,0 +1,9 @@
+#!/bin/bash
+progdir=$(dirname "$0")
+printf "%-15s: %6d\n" \
+"Project" "$("$progdir/next_project_id")" \
+"VO" "$("$progdir/next_virtual_organization_id")" \
+"Facility" "$("$progdir/next_facility_id")" \
+"Site" "$("$progdir/next_site_id")" \
+"Resource Group" "$("$progdir/next_resource_group_id")" \
+"Resource" "$("$progdir/next_resource_id")"
