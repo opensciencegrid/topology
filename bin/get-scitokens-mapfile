@@ -42,6 +42,8 @@ def main(argv):
         mapfile += f"# {vo_name}\n"
         for token_issuer in vo_data["Credentials"]["TokenIssuers"]:
             url = token_issuer.get("URL")
+            if url:
+                url = f'"{url}"'
             unix_user = token_issuer.get("DefaultUnixUser")
             if url and unix_user:
                 mapfile += f"SCITOKEN {url} {unix_user}\n"
