@@ -1,0 +1,28 @@
+SupportCenter: Self Supported
+GroupDescription: Kansas State University Beocat HPC Group
+GroupID: 1107
+Production: true
+Resources:
+  BEOCAT-SLATE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  0a077233ccf64c5f4a0888b0de224093f5129e9a
+          Name: Kyle Hutson
+      Security Contact:
+        Primary:
+          ID:  0a077233ccf64c5f4a0888b0de224093f5129e9a
+          Name: Kyle Hutson
+      Site Contact:
+        Primary:
+          ID:  0a077233ccf64c5f4a0888b0de224093f5129e9a
+          Name: Kyle Hutson
+    Description: Hosted CE for the Beocat cluster
+    FQDN: slate-osg.beocat.ksu.edu
+    ID: 1124
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
