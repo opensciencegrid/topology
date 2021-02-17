@@ -633,4 +633,16 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 785753064
+  Description: loss of cooling in the machine room
+  Severity: Outage
+  StartTime: Feb 17, 2021 14:00 +0000
+  EndTime: Feb 18, 2021 06:00 +0000
+  CreatedTime: Feb 17, 2021 15:21 +0000
+  ResourceName: SWT2_CPB
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
 
