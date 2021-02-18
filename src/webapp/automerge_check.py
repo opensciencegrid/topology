@@ -140,7 +140,7 @@ class RC:
 
 # only comment on errors if DT files modified or contact unknown
 reportable_errors = set([RC.OUT_OF_DATE_ONLY, RC.DT_MOD_ERRORS,
-                         RC.CONTACT_ERROR, RC.ORGS_ADDED])
+                         RC.CONTACT_ERROR, RC.ORGS_ADDED, RC.UNEXPECTED_ERROR])
 
 rejectable_errors = set([RC.ORGS_ADDED])
 
