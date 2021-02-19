@@ -1543,3 +1543,47 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 787657134
+  Description: Outage during hardware upgrade
+  Severity: Outage
+  StartTime: Feb 24, 2021 15:30 +0000
+  EndTime: Feb 24, 2021 19:00 +0000
+  CreatedTime: Feb 19, 2021 20:15 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 787657648
+  Description: Outage during hardware upgrade
+  Severity: Outage
+  StartTime: Feb 24, 2021 15:30 +0000
+  EndTime: Feb 24, 2021 19:00 +0000
+  CreatedTime: Feb 19, 2021 20:16 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 787658125
+  Description: Outage during hardware upgrade
+  Severity: Outage
+  StartTime: Feb 24, 2021 15:30 +0000
+  EndTime: Feb 24, 2021 19:00 +0000
+  CreatedTime: Feb 19, 2021 20:16 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 787658330
+  Description: Outage during hardware upgrade
+  Severity: Outage
+  StartTime: Feb 24, 2021 15:30 +0000
+  EndTime: Feb 24, 2021 19:00 +0000
+  CreatedTime: Feb 19, 2021 20:17 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
