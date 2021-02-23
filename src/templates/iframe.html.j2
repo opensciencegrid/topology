@@ -103,6 +103,47 @@ var anchor;
 var marker_id = {};
 var infowindow = new google.maps.InfoWindow({maxWidth: 300});
 
+MapStyle = [
+  {
+    "featureType": "administrative.locality",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.province",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.natural",
+    "stylers": [
+      {
+        "lightness": 50
+      },
+      {
+        "visibility": "on"
+      }
+    ]
+  }
+];
+
+
 function update_anchor() {
     var pos = map.getCenter();
     var new_anchor ="#"+pos.toUrlValue()+"|"+map.getZoom()+"|"+map.getMapTypeId();
@@ -140,6 +181,7 @@ function init(scrollwheel) {
         mapTypeId: maptype
     });
 
+    map.setOptions({ styles: MapStyle})
 
 
     //setup listeners
@@ -186,7 +228,7 @@ function init(scrollwheel) {
                            {{ resourcegroup["Site"]["Longitude"] }},
                            "{{ resourcegroup["Facility"]["Name"] }}",
                             Array(),
-                            {isCompute: false, isStorage: false, isNetwork: false, isEdu: false, isCCStar: false} ]
+                            {isCompute: false, isStorage: false, isNetwork: false, isEdu: false, isCCStar: false, isXrootdOrigin: false, isXrootdCache: false} ]
     }
     
     var resourceGroup = {};
@@ -221,6 +263,12 @@ function init(scrollwheel) {
         sites[curSite][4].isStorage = true;
     } else if (network_services.includes(serviceName)) {
         sites[curSite][4].isNetwork = true;
+    }
+
+    if (serviceName == "XRootD cache server") {
+        sites[curSite][4].isXrootdCache = true;
+    } else if (serviceName == "XRootD origin server") {
+        sites[curSite][4].isXrootdOrigin = true;
     }
     {% endfor %}
     {% endfor %}
@@ -285,19 +333,6 @@ function init(scrollwheel) {
         $("#site option[value=]").attr("selected", "selected");
     });
 
-    var legend = null;
-    
-    if (queryView == "EduvsOther") {
-        legend = $("#legend_edu").clone();
-    } else if (queryView =="ComputevsStorage") {
-        legend = $("#legend_compute").clone();
-    } else if (queryView =="CCStar") {
-        legend = $("#legend_ccstar").clone();
-    } else {
-        legend = $("#legend_default").clone();
-    }
-    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend[0]);
-    $(legend[0]).show();
 }
 
 function viewChange(view) {
@@ -335,6 +370,16 @@ function viewChange(view) {
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(12, 12)
     };
+    const xrootd_cache = {
+        url: '/static/images/XRootDCache.png',
+        scaledSize: new google.maps.Size(30, 34),
+        origin: new google.maps.Point(0, 0)
+    };
+    const xrootd_origin = {
+        url: '/static/images/XRootDOrigin.png',
+        scaledSize: new google.maps.Size(30, 34),
+        origin: new google.maps.Point(0, 0)
+    };
 
     for (const [key, value] of Object.entries(marker_id)) {
         // Initially add all markers to the map
@@ -366,7 +411,15 @@ function viewChange(view) {
                 // Remove the marker from the map if it's not ccstar
                 value.marker.setMap(null);
             }
-
+        } else if (view == "XRootD") {
+            if (value.site[4].isXrootdCache == true) {
+                value.marker.setIcon(xrootd_cache);
+            } else if (value.site[4].isXrootdOrigin == true) {
+                value.marker.setIcon(xrootd_origin);
+            } else {
+                // Remove the marker from the map if it's not a Cache/Origin
+                value.marker.setMap(null);
+            }
         } else {
             // Default is green dots
             value.marker.setIcon(status_green_map);
@@ -374,6 +427,9 @@ function viewChange(view) {
     }
     var legend = null;
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].pop();
+    // Hide all the legends
+    $(".legend").hide();
+
     if (view == "EduvsOther") {
         legend = $("#legend_edu").clone();
         window.history.replaceState('', '', UpdateQueryString("view", "EduvsOther"));
@@ -383,6 +439,9 @@ function viewChange(view) {
     } else if (view == "CCStar") {
         legend = $("#legend_ccstar").clone();
         window.history.replaceState('', '', UpdateQueryString("view", "CCStar"));
+    } else if (view == "XRootD") {
+        legend = $("#legend_xrootd").clone();
+        window.history.replaceState('', '', UpdateQueryString("view", "XRootD"));
     } else {
         legend = $("#legend_default").clone();
         window.history.replaceState('', '', UpdateQueryString("view", ""));
@@ -570,6 +629,7 @@ padding: 4px;
     <option value="ComputevsStorage">Compute and Storage</option>
     <option value="EduvsOther">EDU sites and others</option>
     <option value="CCStar">CC* Sites</option>
+    <option value="XRootD">Data Federation Sites</option>
     </select>
 </div>
 <div id="print_screen" class="controls">
@@ -590,6 +650,10 @@ padding: 4px;
 </div>
 <div id="legend_ccstar" class="legend" style="display: none"><h2>Legend</h2>
     <div><img src="/static/images/star_red_bigger.png">CC* Site</div>
+</div>
+<div id="legend_xrootd" class="legend" style="display: none"><h2>Legend</h2>
+    <div><img width="30" src="/static/images/XRootDOrigin.png">Origin</div>
+    <div><img width="30" src="/static/images/XRootDCache.png">Cache</div>
 </div>
 </div>
 
