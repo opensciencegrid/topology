@@ -103,6 +103,47 @@ var anchor;
 var marker_id = {};
 var infowindow = new google.maps.InfoWindow({maxWidth: 300});
 
+MapStyle = [
+  {
+    "featureType": "administrative.locality",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.province",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.natural",
+    "stylers": [
+      {
+        "lightness": 50
+      },
+      {
+        "visibility": "on"
+      }
+    ]
+  }
+];
+
+
 function update_anchor() {
     var pos = map.getCenter();
     var new_anchor ="#"+pos.toUrlValue()+"|"+map.getZoom()+"|"+map.getMapTypeId();
@@ -140,39 +181,8 @@ function init(scrollwheel) {
         mapTypeId: maptype
     });
 
-    // Icons so we can set the anchor as the middle of the image, rather than
-    // the default of the bottom middle.
-    // You have to change these values if you change the size of the file!
-    const star_blue = {
-        url: '/static/images/star_blue.png',
-        size: new google.maps.Size(16, 16),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(8, 8)
-    };
-    const star_green = {
-        url: '/static/images/star_green.png',
-        size: new google.maps.Size(16, 16),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(8, 8)
-    };
-    const star_purple = {
-        url: '/static/images/star_purple.png',
-        size: new google.maps.Size(16, 16),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(8, 8)
-    };
-    const status_green_map = {
-        url: '/static/images/status_green_map.png',
-        size: new google.maps.Size(20, 20),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(10, 10)
-    };
-    const star_red_bigger = {
-        url: '/static/images/star_red_bigger.png',
-        size: new google.maps.Size(24, 24),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(12, 12)
-    };
+    map.setOptions({ styles: MapStyle})
+
 
     //setup listeners
     setTimeout("update_anchor()", 1000);//don't hook centerre_changed event.. it fires too often now
@@ -218,7 +228,7 @@ function init(scrollwheel) {
                            {{ resourcegroup["Site"]["Longitude"] }},
                            "{{ resourcegroup["Facility"]["Name"] }}",
                             Array(),
-                            {isCompute: false, isStorage: false, isNetwork: false, isEdu: false, isCCStar: false} ]
+                            {isCompute: false, isStorage: false, isNetwork: false, isEdu: false, isCCStar: false, isXrootdOrigin: false, isXrootdCache: false} ]
     }
     
     var resourceGroup = {};
@@ -254,6 +264,12 @@ function init(scrollwheel) {
     } else if (network_services.includes(serviceName)) {
         sites[curSite][4].isNetwork = true;
     }
+
+    if (serviceName == "XRootD cache server") {
+        sites[curSite][4].isXrootdCache = true;
+    } else if (serviceName == "XRootD origin server") {
+        sites[curSite][4].isXrootdOrigin = true;
+    }
     {% endfor %}
     {% endfor %}
     
@@ -282,52 +298,22 @@ function init(scrollwheel) {
                 
             }
         }
-        var icon = star_blue;
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(sites[site][0], sites[site][1]),
             map: map,
             zIndex: resourceCounter,
-            icon: icon,
             title: sites[site][2]
         });
-
-        if (queryView == "EduvsOther") {
-            // Edu = blue
-            // Other = green
-            if ((sites[site][4].isEdu == false)) {
-                icon = star_green;
-            }
-        } else if (queryView =="ComputevsStorage"){
-            // Default is storage vs compute
-            // Compute - Blue
-            // Storage - Purple
-            // Compute + Storage = Green
-            if ((sites[site][4].isCompute == false) && (sites[site][4].isStorage == true)) {
-                icon = star_purple;
-            } else if ((sites[site][4].isCompute == true) && (sites[site][4].isStorage == true)){
-                icon = star_green;
-            }
-        } else if (queryView == "CCStar") {
-            if (sites[site][4].isCCStar == true) {
-                icon = star_red_bigger;
-            } else {
-                // Remove marker from the map
-                marker.setMap(null);
-            }
-
-        } else {
-            icon = status_green_map;
-        }
-
-        marker.setIcon(icon)
 
         setInfoWindow(counter, marker, html);
         marker_id[counter] = {marker: marker, site: sites[site]};
         $("#site").append("<option value='" + counter + "'>" + site + "</option>");
         counter += 1;
     }
-    
 
+    // Act like the view changed
+    viewChange(queryView);
+    
     $("#site").change(function() {
             var id = $(this).val();
             var marker = marker_id[id].marker;
@@ -340,76 +326,125 @@ function init(scrollwheel) {
 
     $("#view").change(function() {
         var view = $(this).val();
-        for (const [key, value] of Object.entries(marker_id)) {
-            // Initially add all markers to the map
-            value.marker.setMap(map);
-            if (view == "EduvsOther") {
-                // Edu = blue
-                // Other = green
-                if ((value.site[4].isEdu == false)) {
-                    value.marker.setIcon(star_green);
-                } else {
-                    value.marker.setIcon(star_blue);
-                }
-            } else if (view =="ComputevsStorage") {
-                // storage vs compute
-                // Compute - Blue
-                // Storage - Purple
-                // Compute + Storage = Green
-                if ((value.site[4].isCompute == false) && (value.site[4].isStorage == true)) {
-                    value.marker.setIcon(star_purple);
-                } else if ((value.site[4].isCompute == true) && (value.site[4].isStorage == true)){
-                    value.marker.setIcon(star_green);
-                } else {
-                    value.marker.setIcon(star_blue);
-                }
-            } else if (view == "CCStar") {
-                if (value.site[4].isCCStar == true) {
-                    value.marker.setIcon(star_red_bigger);
-                } else {
-                    // Remove the marker from the map if it's not ccstar
-                    value.marker.setMap(null);
-                }
-
-            } else {
-                // Default is green dots
-                value.marker.setIcon(status_green_map);
-            }
-        }
-        var legend = null;
-        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].pop();
-        if (view == "EduvsOther") {
-            legend = $("#legend_edu").clone();
-            window.history.replaceState('', '', UpdateQueryString("view", "EduvsOther"));
-        } else if (view =="ComputevsStorage") {
-            legend = $("#legend_compute").clone();
-            window.history.replaceState('', '', UpdateQueryString("view", "ComputevsStorage"));
-        } else if (view == "CCStar") {
-            legend = $("#legend_ccstar").clone();
-            window.history.replaceState('', '', UpdateQueryString("view", "CCStar"));
-        } else {
-            legend = $("#legend_default").clone();
-            window.history.replaceState('', '', UpdateQueryString("view", ""));
-        }
-        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend[0]);
-        $(legend[0]).show();
+        viewChange(view);
     });
-
-
+    
     google.maps.event.addListener(infowindow, 'closeclick', function() {
         $("#site option[value=]").attr("selected", "selected");
     });
 
-    var legend = null;
+}
+
+function viewChange(view) {
     
-    if (queryView == "EduvsOther") {
+    // Icons so we can set the anchor as the middle of the image, rather than
+    // the default of the bottom middle.
+    // You have to change these values if you change the size of the file!
+    const star_blue = {
+        url: '/static/images/star_blue.png',
+        size: new google.maps.Size(16, 16),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(8, 8)
+    };
+    const star_green = {
+        url: '/static/images/star_green.png',
+        size: new google.maps.Size(16, 16),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(8, 8)
+    };
+    const star_purple = {
+        url: '/static/images/star_purple.png',
+        size: new google.maps.Size(16, 16),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(8, 8)
+    };
+    const status_green_map = {
+        url: '/static/images/status_green_map.png',
+        size: new google.maps.Size(20, 20),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(10, 10)
+    };
+    const star_red_bigger = {
+        url: '/static/images/star_red_bigger.png',
+        size: new google.maps.Size(24, 24),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(12, 12)
+    };
+    const xrootd_cache = {
+        url: '/static/images/XRootDCache.png',
+        scaledSize: new google.maps.Size(30, 34),
+        origin: new google.maps.Point(0, 0)
+    };
+    const xrootd_origin = {
+        url: '/static/images/XRootDOrigin.png',
+        scaledSize: new google.maps.Size(30, 34),
+        origin: new google.maps.Point(0, 0)
+    };
+
+    for (const [key, value] of Object.entries(marker_id)) {
+        // Initially add all markers to the map
+        value.marker.setMap(map);
+        if (view == "EduvsOther") {
+            // Edu = blue
+            // Other = green
+            if ((value.site[4].isEdu == false)) {
+                value.marker.setIcon(star_green);
+            } else {
+                value.marker.setIcon(star_blue);
+            }
+        } else if (view =="ComputevsStorage") {
+            // storage vs compute
+            // Compute - Blue
+            // Storage - Purple
+            // Compute + Storage = Green
+            if ((value.site[4].isCompute == false) && (value.site[4].isStorage == true)) {
+                value.marker.setIcon(star_purple);
+            } else if ((value.site[4].isCompute == true) && (value.site[4].isStorage == true)){
+                value.marker.setIcon(star_green);
+            } else {
+                value.marker.setIcon(star_blue);
+            }
+        } else if (view == "CCStar") {
+            if (value.site[4].isCCStar == true) {
+                value.marker.setIcon(star_red_bigger);
+            } else {
+                // Remove the marker from the map if it's not ccstar
+                value.marker.setMap(null);
+            }
+        } else if (view == "XRootD") {
+            if (value.site[4].isXrootdCache == true) {
+                value.marker.setIcon(xrootd_cache);
+            } else if (value.site[4].isXrootdOrigin == true) {
+                value.marker.setIcon(xrootd_origin);
+            } else {
+                // Remove the marker from the map if it's not a Cache/Origin
+                value.marker.setMap(null);
+            }
+        } else {
+            // Default is green dots
+            value.marker.setIcon(status_green_map);
+        }
+    }
+    var legend = null;
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].pop();
+    // Hide all the legends
+    $(".legend").hide();
+
+    if (view == "EduvsOther") {
         legend = $("#legend_edu").clone();
-    } else if (queryView =="ComputevsStorage") {
+        window.history.replaceState('', '', UpdateQueryString("view", "EduvsOther"));
+    } else if (view =="ComputevsStorage") {
         legend = $("#legend_compute").clone();
-    } else if (queryView =="CCStar") {
+        window.history.replaceState('', '', UpdateQueryString("view", "ComputevsStorage"));
+    } else if (view == "CCStar") {
         legend = $("#legend_ccstar").clone();
+        window.history.replaceState('', '', UpdateQueryString("view", "CCStar"));
+    } else if (view == "XRootD") {
+        legend = $("#legend_xrootd").clone();
+        window.history.replaceState('', '', UpdateQueryString("view", "XRootD"));
     } else {
         legend = $("#legend_default").clone();
+        window.history.replaceState('', '', UpdateQueryString("view", ""));
     }
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend[0]);
     $(legend[0]).show();
@@ -594,6 +629,7 @@ padding: 4px;
     <option value="ComputevsStorage">Compute and Storage</option>
     <option value="EduvsOther">EDU sites and others</option>
     <option value="CCStar">CC* Sites</option>
+    <option value="XRootD">Data Federation Sites</option>
     </select>
 </div>
 <div id="print_screen" class="controls">
@@ -614,6 +650,10 @@ padding: 4px;
 </div>
 <div id="legend_ccstar" class="legend" style="display: none"><h2>Legend</h2>
     <div><img src="/static/images/star_red_bigger.png">CC* Site</div>
+</div>
+<div id="legend_xrootd" class="legend" style="display: none"><h2>Legend</h2>
+    <div><img width="30" height="34" src="/static/images/XRootDOrigin.png">Origin</div>
+    <div><img width="30" height="34" src="/static/images/XRootDCache.png">Cache</div>
 </div>
 </div>
 
