@@ -380,6 +380,12 @@ function viewChange(view) {
         scaledSize: new google.maps.Size(30, 34),
         origin: new google.maps.Point(0, 0)
     };
+    const xrootd_cache_origin = {
+        url: '/static/images/XRootDCacheAndOrigin.png',
+        scaledSize: new google.maps.Size(30, 34),
+        origin: new google.maps.Point(0, 0)
+    };
+
 
     for (const [key, value] of Object.entries(marker_id)) {
         // Initially add all markers to the map
@@ -412,7 +418,9 @@ function viewChange(view) {
                 value.marker.setMap(null);
             }
         } else if (view == "XRootD") {
-            if (value.site[4].isXrootdCache == true) {
+            if (value.site[4].isXrootdCache && value.site[4].isXrootdOrigin) {
+                value.marker.setIcon(xrootd_cache_origin);
+            } else if (value.site[4].isXrootdCache == true) {
                 value.marker.setIcon(xrootd_cache);
             } else if (value.site[4].isXrootdOrigin == true) {
                 value.marker.setIcon(xrootd_origin);
@@ -654,6 +662,7 @@ padding: 4px;
 <div id="legend_xrootd" class="legend" style="display: none"><h2>Legend</h2>
     <div><img width="30" height="34" src="/static/images/XRootDOrigin.png">Origin</div>
     <div><img width="30" height="34" src="/static/images/XRootDCache.png">Cache</div>
+    <div><img width="30" height="34" src="/static/images/XRootDCacheAndOrigin.png">Cache &#38; Origin</div>
 </div>
 </div>
 
