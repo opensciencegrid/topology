@@ -64,3 +64,36 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 797143756
+  Description: HVAC maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2021 01:00 +0000
+  EndTime: Mar 09, 2021 18:00 +0000
+  CreatedTime: Mar 02, 2021 19:46 +0000
+  ResourceName: AMNH-ARES
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 797145398
+  Description: HVAC maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2021 01:00 +0000
+  EndTime: Mar 09, 2021 18:00 +0000
+  CreatedTime: Mar 02, 2021 19:48 +0000
+  ResourceName: AMNH-HEL
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 797145558
+  Description: HVAC maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2021 01:00 +0000
+  EndTime: Mar 09, 2021 18:00 +0000
+  CreatedTime: Mar 02, 2021 19:49 +0000
+  ResourceName: AMNH-Mendel
+  Services:
+  - CE
+# ---------------------------------------------------------
