@@ -638,7 +638,7 @@
   Description: loss of cooling in the machine room
   Severity: Outage
   StartTime: Feb 17, 2021 14:00 +0000
-  EndTime: Feb 18, 2021 06:00 +0000
+  EndTime: Feb 23, 2021 06:00 +0000
   CreatedTime: Feb 17, 2021 15:21 +0000
   ResourceName: SWT2_CPB
   Services:
@@ -650,9 +650,21 @@
   Description: loss of cooling in the machine room
   Severity: Outage
   StartTime: Feb 17, 2021 14:00 +0000
-  EndTime: Feb 18, 2021 06:00 +0000
+  EndTime: Feb 23, 2021 06:00 +0000
   CreatedTime: Feb 17, 2021 15:37 +0000
   ResourceName: SWT2_CPB_SE
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 786343546
+  Description: loss of cooling in the machine room
+  Severity: Outage
+  StartTime: Feb 17, 2021 14:00 +0000
+  EndTime: Feb 23, 2021 06:00 +0000
+  CreatedTime: Feb 18, 2021 07:45 +0000
+  ResourceName: SWT2_CPB_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
