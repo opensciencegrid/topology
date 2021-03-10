@@ -19,7 +19,7 @@ Resources:
   CUmulus-Backfill:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: false
+    Active: true
     # Description is a long description of the resource; may be multiple lines
     Description: This is a Research Computing CUmulus cloud host for the University of Colorado - Boulder.
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
@@ -69,7 +69,7 @@ Resources:
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
-      CE:
+      Execution Endpoint:
         # Description is a brief description of the service
         Description: Backfill containers running on CUmulus nodes
         ### Details (optional)
