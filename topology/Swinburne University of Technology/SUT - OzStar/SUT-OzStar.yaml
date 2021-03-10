@@ -121,8 +121,9 @@ Resources:
   
   SUT-STASHCACHE:
     FQDN: ligo.hpc.swin.edu.au
-    Service: XRootD cache server
-      Description: StashCache cache server
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
     AllowedVOs:
       - LIGO
     DN: /DC=com/DC=quovadisglobal/DC=grid/DC=auscert/DC=hosts/C=AU/ST=Victoria/L=Hawthorn/O=Swinburne University of Technology/OU=Information Technology Services/CN=ligo.hpc.swin.edu.au
