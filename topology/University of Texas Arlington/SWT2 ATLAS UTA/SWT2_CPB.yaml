@@ -165,6 +165,41 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       ATLAS: 100
+  SWT2_CPB_SLATE_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
+          Name: Patrick McGuigan
+        Secondary:
+          ID: 85358c47f16fad2a915da157353581016788a30a
+          Name: Mark Sosebee
+      Resource Report Contact:
+        Primary:
+          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
+          Name: Patrick McGuigan
+        Secondary:
+          ID: 85358c47f16fad2a915da157353581016788a30a
+          Name: Mark Sosebee
+      Security Contact:
+        Primary:
+          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
+          Name: Patrick McGuigan
+        Secondary:
+          ID: 85358c47f16fad2a915da157353581016788a30a
+          Name: Mark Sosebee
+    Description: Frontier/CVMFS SLATE based squid service
+    FQDN: slate01.atlas-swt2.org
+    ID:
+    Services:
+      Squid:
+        Description: Generic squid service
+        uri_override: slate01.atlas-swt2.org:32200
+        Monitored: true
+    VOOwnership:
+      ATLAS: 100      
+      
   SWT2_CPB_perfSONAR_bandwidth:
     Active: true
     ContactLists:
