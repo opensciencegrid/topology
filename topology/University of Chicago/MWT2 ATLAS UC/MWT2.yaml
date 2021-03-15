@@ -505,7 +505,7 @@ Resources:
         Description: Generic squid service
         Details:
           uri_override: uct2-slate.mwt2.org:32200
-          Monitored: false
+          Monitored: true
     VOOwnership:
       ATLAS: 100
   MWT2_SLATE_IU:
@@ -544,7 +544,7 @@ Resources:
         Description: Generic squid service
         Details:
           uri_override: iut2-slate.mwt2.org:32200
-          Monitored: false
+          Monitored: true
     VOOwnership:
       ATLAS: 100
   MWT2_SLATE_UIUC:

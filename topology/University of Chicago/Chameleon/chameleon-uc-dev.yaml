@@ -1,14 +1,14 @@
 # Production is true if the resource is for production and not testing use
-Production: true
+Production: False
 # SupportCenter is one of the support centers in topology/support-centers.yaml
 SupportCenter: Self Supported
 
 # GroupDescription is a long description of the resource group; may be multiple lines.
-GroupDescription: This is a cluster of compute nodes used for the CUmulus hybrid cloud project
+GroupDescription: ITB grid services running on Chameleon Cloud
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: 1104
+GroupID: 1110
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -16,15 +16,15 @@ Resources:
   # Resource Name should be a short descriptor of the resource.
   # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
   # Resource Names need to be unique across all resources in the OSG.
-  CUmulus-Backfill:
+  chameleon-uc-dev-backfill:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: true
+    Active: false
     # Description is a long description of the resource; may be multiple lines
-    Description: This is a Research Computing CUmulus cloud host for the University of Colorado - Boulder.
+    Description: Open Science pool backfill containers running on Chameleon Cloud
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: 1119
+    ID: 1130
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
@@ -33,8 +33,8 @@ Resources:
       # Administrative Contact is one to three people to contact regarding administrative issues
       Administrative Contact:
         Primary:
-          Name: Brett Shouse
-          ID: 25da6f6a72dfe6fc8b25da208a7c69d81171f29e
+          Name: Zhuo Zhen
+          ID: e9509de5beb73775d2ee87813b78ce51471656c1
         # Secondary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
@@ -45,8 +45,8 @@ Resources:
       # Security Contact is one to three people to contact regarding security issues
       Security Contact:
         Primary:
-          Name: Brett Shouse
-          ID: 25da6f6a72dfe6fc8b25da208a7c69d81171f29e
+          Name: Zhuo Zhen
+          ID: e9509de5beb73775d2ee87813b78ce51471656c1
         # Secondary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
@@ -55,8 +55,8 @@ Resources:
         #   ID: <EMAIL HASH>
 
     # FQDN is the fully qualified domain name of the host running this resource
-    # Dummy FQDN for backfill containers
-    FQDN: backfill.rc.int.colorado.edu
+    # Just a dummy value for backfill containers
+    FQDN: chameleon-uc-dev-backfill.uchicago.edu
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
     # FQDNAliases:
     #   - <HOSTNAME1>
@@ -71,7 +71,7 @@ Resources:
     Services:
       Execution Endpoint:
         # Description is a brief description of the service
-        Description: Backfill containers running on CUmulus nodes
+        Description: Open Science pool backfill containers running on Chameleon Cloud
         ### Details (optional)
         # Details:
         #   # hidden
@@ -89,8 +89,8 @@ Resources:
 
     ### Tags (optional) is a list of tags associated with the resource.
     ### Include the tag "CC*" if applicable for a CC* CE.
-    Tags:
-      - CC*
+    # Tags:
+    #   - <TAG1>
     #   - <TAG2>
 
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
@@ -100,16 +100,6 @@ Resources:
     #   <VO1>: <PERCENT>
     #   <VO2>: <PERCENT>
 
-    ### WLCGInformation (optional) is only for resources that are part of the WLCG
-    # WLCGInformation:
-    #   APELNormalFactor: 0.0
-    #   AccountingName: <name>
-    #   HEPSPEC: 0
-    #   InteropAccounting: true
-    #   InteropBDII: true
-    #   InteropMonitoring: true
-    #   KSI2KMax: 0
-    #   KSI2KMin: 0
-    #   StorageCapacityMax: 0
-    #   StorageCapacityMin: 0
-    #   TapeCapacity: 0
+  # Other resources if you have any...
+  # <RESOURCE NAME>:
+  # ...
