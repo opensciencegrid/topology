@@ -33,6 +33,73 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       ATLAS: 90
+  AGLT2-squid-2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: This is the slate SQUID at AGLT2
+    FQDN: sl-um-es3.slateci.io
+    ID: 1129
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: sl-um-es3.slateci.io:30113
+          Monitored: true
+    VOOwnership:
+      ATLAS: 90
+  AGLT2-squid-3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: This is the slate SQUID at AGLT2
+    FQDN: sl-um-es5.slateci.io
+    ID: 1132
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: true
+    VOOwnership:
+      ATLAS: 90
   AGLT2_CE_2:
     Active: true
     ContactLists:
