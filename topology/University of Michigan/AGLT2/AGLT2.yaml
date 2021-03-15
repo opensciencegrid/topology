@@ -92,12 +92,11 @@ Resources:
           Name: Shawn McKee
     Description: This is the slate SQUID at AGLT2
     FQDN: sl-um-es5.slateci.io
-    ID: 
+    ID: 1132
     Services:
       Squid:
         Description: Generic squid service
         Details:
-          uri_override: sl-um-es5.slateci.io:30112
           Monitored: true
     VOOwnership:
       ATLAS: 90
