@@ -49,29 +49,29 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   LBL_HPCS_Squid:
-      Active: true
-      ContactLists:
-       Administrative Contact:
-        Primary:
-          ID: 1ad2e4bf46bc2ab55a2d82db2c32161f710928ea
-          Name: Karen Fernsler
-        Secondary:
-          ID: c3d417180e9c3738a32032eda0b9cf1252288870
-          Name: Jeff Porter
-      Resource Report Contact:
-        Primary:
-          ID: c3d417180e9c3738a32032eda0b9cf1252288870
-          Name: Jeff Porter
-        Secondary:
-          ID: 72150ad13dbc76a0f01443081df8e9172a06aa50
-          Name: Maarten Litmaath
-      Security Contact:
-        Primary:
-          ID: 1ad2e4bf46bc2ab55a2d82db2c32161f710928ea
-          Name: Karen Fernsler
-        Secondary:
-          ID: c3d417180e9c3738a32032eda0b9cf1252288870
-          Name: Jeff Porter
+    Active: true
+    ContactLists:
+     Administrative Contact:
+      Primary:
+        ID: 1ad2e4bf46bc2ab55a2d82db2c32161f710928ea
+        Name: Karen Fernsler
+      Secondary:
+        ID: c3d417180e9c3738a32032eda0b9cf1252288870
+        Name: Jeff Porter
+    Resource Report Contact:
+      Primary:
+        ID: c3d417180e9c3738a32032eda0b9cf1252288870
+        Name: Jeff Porter
+      Secondary:
+        ID: 72150ad13dbc76a0f01443081df8e9172a06aa50
+        Name: Maarten Litmaath
+    Security Contact:
+      Primary:
+        ID: 1ad2e4bf46bc2ab55a2d82db2c32161f710928ea
+        Name: Karen Fernsler
+      Secondary:
+        ID: c3d417180e9c3738a32032eda0b9cf1252288870
+        Name: Jeff Porter
     Description: Squid service for frontier and cvmfs
     FQDN: alice-squid0.lbl.gov
     ID: 1133
