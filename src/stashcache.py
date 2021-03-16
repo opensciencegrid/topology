@@ -11,6 +11,9 @@ import hashlib
 from webapp.topology import Resource, ResourceGroup
 from webapp.vos_data import VOsData
 
+import logging
+
+log = logging.getLogger(__name__)
 
 __oid_map = {
    "DC": "0.9.2342.19200300.100.1.25",
@@ -131,6 +134,7 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
     if ('ANY' not in allowed_vos and
             vo_name not in allowed_vos and
             (not public or 'ANY_PUBLIC' not in allowed_vos)):
+        log.debug(f"\tCache {resource.fqdn} does not allow {vo_name} in its AllowedVOs list")
         return False
 
     # For public data, caching is one-way: we OK things as long as the
@@ -145,7 +149,10 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
         else:
             raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
 
-    return 'ANY' in allowed_caches or resource.name in allowed_caches
+    ret = 'ANY' in allowed_caches or resource.name in allowed_caches
+    if not ret:
+        log.debug(f"\tVO {vo_name} does not allow cache {resource.fqdn} in its AllowedCaches list")
+    return ret
 
 
 def generate_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn=None, legacy=True, suppress_errors=True) -> str:
@@ -285,6 +292,7 @@ audience = {allowed_vos_str}
     if not resource:
         return ""
 
+    log.debug(f"Generating stashcache cache config for {fqdn}")
     allowed_vos = []
     issuer_blocks = []
     for vo_name, vo_data in vo_data.vos.items():
@@ -296,6 +304,7 @@ audience = {allowed_vos_str}
         if not namespaces:
             continue
 
+        log.debug(f"Namespaces found for {vo_name}")
         needs_authz = False
         for authz_list in namespaces.values():
             for authz in authz_list:
@@ -303,6 +312,7 @@ audience = {allowed_vos_str}
                     needs_authz = True
                     break
         if not needs_authz:
+            log.debug(f"\tAuth not needed for {vo_name}")
             continue
 
         if not _cache_is_allowed(resource, vo_name, stashcache_data,
@@ -312,6 +322,7 @@ audience = {allowed_vos_str}
         for dirname, authz_list in namespaces.items():
             for authz in authz_list:
                 if not isinstance(authz, dict) or not isinstance(authz.get("SciTokens"), dict):
+                    log.debug(f"\tNo SciTokens info for {dirname} in {vo_name}")
                     continue
                 issuer_blocks.append(_get_scitokens_issuer_block(vo_name, authz['SciTokens'],
                                                                  dirname, suppress_errors))
@@ -382,7 +393,7 @@ def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_group
     return origin_resource.name in allowed_origins
 
 
-def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True):
+def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True) -> List[Resource]:
     allowed_caches = stashcache_data.get("AllowedCaches")
     if allowed_caches is None:
         if suppress_errors:
@@ -450,7 +461,11 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
                 else:
                     raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
 
-            for resource in _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
+            allowed_resources = _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors)
+            origin_resource = _get_resource_by_fqdn(origin_hostname, resource_groups)
+            allowed_resources.append(origin_resource)
+
+            for resource in allowed_resources:
                 dn = resource.data.get("DN")
                 if not dn:
                     warnings.append("# WARNING: Resource {} was skipped for VO {}"
@@ -516,8 +531,14 @@ audience = {allowed_vos_str}
                                                                  dirname, suppress_errors))
                 allowed_vos.append(vo_name)
 
-
-
+    # Older plugin versions require at least one issuer block (SOFTWARE-4389)
+    if not issuer_blocks:
+        issuer_blocks.append(
+            _get_scitokens_issuer_block(vo_name="nonexistent",
+                                        scitokens={"Issuer": "https://scitokens.org/nonexistent",
+                                                   "Base Path": "/no-issuers-found"},
+                                        dirname="/no-issuers-found",
+                                        suppress_errors=suppress_errors))
     issuer_blocks_str = "\n".join(issuer_blocks)
     allowed_vos_str = ", ".join(allowed_vos)
 

@@ -34,6 +34,8 @@ OASIS:
       DNs:
       - /DC=org/DC=cilogon/C=US/O=Thomas Jefferson National Accelerator Facility/CN=Wesley Moore A21306551
       ID: ea9db644eb6f8632cf87fd2cbac8a6e393c21f71
+  OASISRepoURLs:
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/jlab.osgstorage.org
   UseOASIS: true
 Disable: false
 FieldsOfScience:
@@ -49,6 +51,8 @@ DataFederations:
   StashCache:
     Namespaces:
       /jlab:
+        - PUBLIC
+      /eic:
         - PUBLIC
     AllowedCaches:
       - ANY

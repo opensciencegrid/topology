@@ -1278,6 +1278,164 @@
     - Squid
 
 # --------------------------------------------------------
+# Power Maitenance in Lauritsen building
 
+- Class: SCHEDULED
+  ID: 639944630
+  Description:  Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
 
+- Class: SCHEDULED
+  ID: 639944631
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
 
+- Class: SCHEDULED
+  ID: 639944632
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 639944633
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 639944634
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 639944635
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# --------------------------------------------------------
+# IP renumbering cit-gatekeeper host will change its public IP
+
+- Class: SCHEDULED
+  ID: 603597111
+  Description: IP renumbering cit-gatekeeper host will change its public IP
+  Severity: Outage
+  StartTime: Oct 20, 2020 08:00 -0700
+  EndTime: Oct 21, 2020 07:59 -0700
+  CreatedTime: Oct 19, 2020 20:38 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+# --------------------------------------------------------
+# Power Maitenance in Lauritsen building
+
+- Class: SCHEDULED
+  ID: 766089753
+  Description:  Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 766089754
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 766089755
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 766089756
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 766089757
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 766089758
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 766089759
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component

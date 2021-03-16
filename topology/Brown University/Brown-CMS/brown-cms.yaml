@@ -15,6 +15,9 @@ Resources:
         Secondary:
           ID: b00d8f35a7a528ab7843300ab74e3a4c63ae9b2e
           Name: Samuel Fulcomer
+        Tertiary:
+          ID: 5a035ec0871ef7a1c539b7e72b48d4d4ccdab950
+          Name: Geoffrey Avila
       Miscellaneous Contact:
         Primary:
           ID: 87a12d0fb0bc3305dea8d81ea7905b324b9932f3
@@ -22,6 +25,9 @@ Resources:
         Secondary:
           ID: b00d8f35a7a528ab7843300ab74e3a4c63ae9b2e
           Name: Samuel Fulcomer
+        Tertiary:
+          ID: 5a035ec0871ef7a1c539b7e72b48d4d4ccdab950
+          Name: Geoffrey Avila
       Resource Report Contact:
         Primary:
           ID: 87a12d0fb0bc3305dea8d81ea7905b324b9932f3
@@ -29,6 +35,9 @@ Resources:
         Secondary:
           ID: b00d8f35a7a528ab7843300ab74e3a4c63ae9b2e
           Name: Samuel Fulcomer
+        Tertiary:
+          ID: 5a035ec0871ef7a1c539b7e72b48d4d4ccdab950
+          Name: Geoffrey Avila
       Security Contact:
         Primary:
           ID: 87a12d0fb0bc3305dea8d81ea7905b324b9932f3
@@ -36,6 +45,9 @@ Resources:
         Secondary:
           ID: b00d8f35a7a528ab7843300ab74e3a4c63ae9b2e
           Name: Samuel Fulcomer
+        Tertiary:
+          ID: 5a035ec0871ef7a1c539b7e72b48d4d4ccdab950
+          Name: Geoffrey Avila
     ID: 445
     Services:
      # CE:
@@ -45,6 +57,15 @@ Resources:
      # ^^^ Squid is set up but CE isn't
       Squid:
         Description: Generic squid service
+      XRootD component:
+        Description: XRootD Redirector/Server
+        Details:
+          hidden: false
+          uri_override: brux11.hep.brown.edu:1094
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
     VOOwnership:
       CMS: 100
     WLCGInformation:

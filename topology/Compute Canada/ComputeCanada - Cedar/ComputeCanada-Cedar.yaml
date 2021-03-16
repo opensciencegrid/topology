@@ -1,0 +1,34 @@
+Disable: false
+Production: true
+SupportCenter: Self Supported
+GroupID: 1095
+GroupDescription: The Compute Canada Cedar cluster
+Resources:
+  ComputeCanada-Cedar:
+    ID: 1103
+    Description: The Hosted CE serving ComputeCanada-Cedar
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Richard T. Jones
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+    FQDN: hosted-ce28.opensciencegrid.org
+    Services:
+      CE:
+        Description: ComputeCanada-Cedar Hosted CE
+        Details:
+          hidden: false

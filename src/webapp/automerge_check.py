@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import collections
 import subprocess
@@ -131,15 +131,16 @@ def main(args):
 
 class RC:
     ALL_CHECKS_PASS  = 0  # all checks pass (only DT files modified)
-    OUT_OF_DATE_ONLY = 1  # all checks pass except out of date
-    DT_MOD_ERRORS    = 2  # DT file(s) modified, not all checks pass
-    CONTACT_ERROR    = 3  # no DT files modified, contact error
-    ORGS_ADDED       = 4  # explicitly reject new organizations
-    NON_DT_ERRORS    = 5  # no DT files modified, other errors; not reported
+    UNEXPECTED_ERROR = 1  # reserved for unhandled exceptions
+    OUT_OF_DATE_ONLY = 2  # all checks pass except out of date
+    DT_MOD_ERRORS    = 3  # DT file(s) modified, not all checks pass
+    CONTACT_ERROR    = 4  # no DT files modified, contact error
+    ORGS_ADDED       = 5  # explicitly reject new organizations
+    NON_DT_ERRORS    = 6  # no DT files modified, other errors; not reported
 
 # only comment on errors if DT files modified or contact unknown
 reportable_errors = set([RC.OUT_OF_DATE_ONLY, RC.DT_MOD_ERRORS,
-                         RC.CONTACT_ERROR, RC.ORGS_ADDED])
+                         RC.CONTACT_ERROR, RC.ORGS_ADDED, RC.UNEXPECTED_ERROR])
 
 rejectable_errors = set([RC.ORGS_ADDED])
 

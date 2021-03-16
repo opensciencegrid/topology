@@ -348,3 +348,34 @@
   ResourceName: Vanderbilt_CE6
   Services:
   - CE
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 778115498
+  Description: Network infrastructure maintenance
+  Severity: Outage
+  StartTime: Feb 12, 2021 00:01 +0000
+  EndTime: Feb 15, 2021 00:01 +0000
+  CreatedTime: Feb 9, 2021 18:01 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 778115499
+  Description: Network infrastructure maintenance
+  Severity: Outage
+  StartTime: Feb 12, 2021 00:01 +0000
+  EndTime: Feb 15, 2021 00:01 +0000
+  CreatedTime: Feb 9, 2021 18:01 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 778115500
+  Description: Network infrastructure maintenance
+  Severity: Outage
+  StartTime: Feb 12, 2021 00:01 +0000
+  EndTime: Feb 15, 2021 00:01 +0000
+  CreatedTime: Feb 9, 2021 18:01 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE

@@ -214,7 +214,7 @@ class GlobalData:
             ok = self._update_topology_repo()
             if ok:
                 try:
-                    self.mappings.update(mappings.get_mappings(self.mappings_dir, strict=self.strict))
+                    self.mappings.update(mappings.get_mappings(indir=self.mappings_dir, strict=self.strict))
                 except Exception:
                     if self.strict:
                         raise

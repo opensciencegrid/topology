@@ -20,3 +20,14 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 648491063
+  Description: xrootd 4->5 upgrade
+  Severity: Intermittent Outage
+  StartTime: Sep 11, 2020 13:30 +0000
+  EndTime: Sep 11, 2020 14:00 +0000
+  CreatedTime: Sep 11, 2020 13:31 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------

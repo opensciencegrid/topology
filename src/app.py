@@ -41,7 +41,10 @@ def _verify_config(cfg):
         else:
             st = os.stat(ssh_key)
             if st.st_uid != os.getuid() or (st.st_mode & 0o7777) not in (0o700, 0o600, 0o400):
-                raise PermissionError(ssh_key)
+                if cfg["IGNORE_SECRET_PERMS"]:
+                    app.logger.info("Ignoring permissions/ownership issues on " + ssh_key)
+                else:
+                    raise PermissionError(ssh_key)
 
 
 default_authorized = False
@@ -234,7 +237,7 @@ def oasis_managers():
         return Response("CILOGON_LDAP_PASSFILE not configured; "
                         "OASIS Managers info unavailable", status=503)
     mgrs = get_oasis_manager_endpoint_info(global_data, vo, cilogon_pass)
-    return Response(to_json_bytes(mgrs), mimetype='text/json')
+    return Response(to_json_bytes(mgrs), mimetype='application/json')
 
 
 def _get_cache_authfile(public_only):

@@ -828,3 +828,124 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 645033261
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Sep 07, 2020 13:21 +0000
+  EndTime: Sep 08, 2020 21:00 +0000
+  CreatedTime: Sep 07, 2020 13:28 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 645037587
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Sep 07, 2020 13:21 +0000
+  EndTime: Sep 08, 2020 21:00 +0000
+  CreatedTime: Sep 07, 2020 13:35 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 696255542
+  Description: Network issues affecting SRM transfers
+  Severity: Intermittent Outage
+  StartTime: Nov 05, 2020 19:17 +0000
+  EndTime: Nov 06, 2020 21:00 +0000
+  CreatedTime: Nov 05, 2020 19:19 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 715249856
+  Description: Downtime for dCache upgrade to latest golden release
+  Severity: Outage
+  StartTime: Dec 07, 2020 05:00 +0000
+  EndTime: Dec 07, 2020 15:00 +0000
+  CreatedTime: Nov 27, 2020 18:56 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 715261583
+  Description: Downtime for dCache upgrade to latest golden release
+  Severity: Outage
+  StartTime: Dec 07, 2020 05:00 +0000
+  EndTime: Dec 07, 2020 15:00 +0000
+  CreatedTime: Nov 27, 2020 19:15 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 780393555
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Feb 11, 2021 10:25 +0000
+  EndTime: Feb 11, 2021 20:25 +0000
+  CreatedTime: Feb 11, 2021 10:29 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 780408281
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Feb 11, 2021 10:25 +0000
+  EndTime: Feb 11, 2021 20:25 +0000
+  CreatedTime: Feb 11, 2021 10:53 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 780762806
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Feb 11, 2021 20:25 +0000
+  EndTime: Feb 15, 2021 21:00 +0000
+  CreatedTime: Feb 11, 2021 20:44 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 780763516
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Feb 11, 2021 20:25 +0000
+  EndTime: Feb 15, 2021 21:00 +0000
+  CreatedTime: Feb 11, 2021 20:45 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 791194372
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Feb 23, 2021 22:28 +0000
+  EndTime: Feb 24, 2021 22:30 +0000
+  CreatedTime: Feb 23, 2021 22:30 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 791196111
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Feb 23, 2021 22:28 +0000
+  EndTime: Feb 24, 2021 22:30 +0000
+  CreatedTime: Feb 23, 2021 22:33 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------

@@ -589,4 +589,26 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 717732148
+  Description: dCache patch update
+  Severity: Intermittent Outage
+  StartTime: Dec 03, 2020 15:00 +0000
+  EndTime: Dec 03, 2020 18:00 +0000
+  CreatedTime: Nov 30, 2020 15:53 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 717732987
+  Description: dCache patch update
+  Severity: Intermittent Outage
+  StartTime: Dec 03, 2020 15:00 +0000
+  EndTime: Dec 03, 2020 18:00 +0000
+  CreatedTime: Nov 30, 2020 15:54 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
 
