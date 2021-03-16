@@ -433,6 +433,32 @@ Resources:
     AllowedVOs:
       - ANY
 
+  CHTC_SQUID_CS_3370:
+    Active: true
+    Description: Squid service located at Computer Sciences 3370a
+    ID: 1127
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+      Security Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+    FQDN: squid-cs-3370a.chtc.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      GLOW: 100
+
   CHTC_SQUID_WID:
     Active: true
     Description: Squid service located at WID
@@ -576,6 +602,41 @@ Resources:
     Services:
       Submit Node:
         Description: OSG Submission Node for PI Michael Nobel
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+ 
+  CHTC-XD-SUBMIT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+      Resource Report Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+      Security Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+    Description: CHTC Submit Node for XD project
+    FQDN: xd-submit.chtc.wisc.edu
+    ID: 1125
+    Services:
+      Submit Node:
+        Description: OSG Submission Node for XD project
         Details:
           hidden: false
     VOOwnership:

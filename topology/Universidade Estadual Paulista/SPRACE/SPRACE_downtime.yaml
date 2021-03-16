@@ -927,3 +927,25 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 791194372
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Feb 23, 2021 22:28 +0000
+  EndTime: Feb 24, 2021 22:30 +0000
+  CreatedTime: Feb 23, 2021 22:30 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 791196111
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Feb 23, 2021 22:28 +0000
+  EndTime: Feb 24, 2021 22:30 +0000
+  CreatedTime: Feb 23, 2021 22:33 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------

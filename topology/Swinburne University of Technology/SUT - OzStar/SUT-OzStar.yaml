@@ -118,3 +118,26 @@ Resources:
   # Other resources if you have any...
   # <RESOURCE NAME>:
   # ...
+
+  SUT-STASHCACHE:
+    Active: true
+    ID: 1129
+    ContactLists:
+      # Administrative Contact is one to three people to contact regarding administrative issues
+      Administrative Contact:
+        Primary:
+          Name: Conrad Chan
+          ID: c3dba6d9e3fe5a8e69d27b667aee582b05727c04
+
+      # Security Contact is one to three people to contact regarding security issues
+      Security Contact:
+        Primary:
+          Name: Conrad Chan
+          ID: c3dba6d9e3fe5a8e69d27b667aee582b05727c04
+    FQDN: ligo.hpc.swin.edu.au
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    AllowedVOs:
+      - LIGO
+    DN: /DC=com/DC=quovadisglobal/DC=grid/DC=auscert/DC=hosts/C=AU/ST=Victoria/L=Hawthorn/O=Swinburne University of Technology/OU=Information Technology Services/CN=ligo.hpc.swin.edu.au
