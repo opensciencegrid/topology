@@ -1,14 +1,14 @@
 # Production is true if the resource is for production and not testing use
-Production: true
+Production: False
 # SupportCenter is one of the support centers in topology/support-centers.yaml
 SupportCenter: Self Supported
 
 # GroupDescription is a long description of the resource group; may be multiple lines.
-GroupDescription: This is a LIGO cluster in Melburne Australia
+GroupDescription: ITB grid services running on Chameleon Cloud
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: 1101
+GroupID: 1110
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -16,28 +16,28 @@ Resources:
   # Resource Name should be a short descriptor of the resource.
   # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
   # Resource Names need to be unique across all resources in the OSG.
-  SUT-OzStar:
+  chameleon-uc-dev-backfill:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: true
+    Active: false
     # Description is a long description of the resource; may be multiple lines
-    Description: This is a Hosted CE for Swinburne University of Technology.
+    Description: Open Science pool backfill containers running on Chameleon Cloud
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: 1116
+    ID: 1130
     # ContactLists contain information about people to contact regarding this resource.
-    # The "ID" is a hash of their email address available at https://my.opensciencegrid.org/miscuser/xml
+    # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
     # https://opensciencegrid.org/docs/common/registration/#registering-contacts
     ContactLists:
       # Administrative Contact is one to three people to contact regarding administrative issues
       Administrative Contact:
         Primary:
-          Name: Jeffrey Peterson
-          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Zhuo Zhen
+          ID: e9509de5beb73775d2ee87813b78ce51471656c1
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
         # Tertiary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
@@ -45,11 +45,8 @@ Resources:
       # Security Contact is one to three people to contact regarding security issues
       Security Contact:
         Primary:
-          Name: Jeffrey Peterson
-          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Zhuo Zhen
+          ID: e9509de5beb73775d2ee87813b78ce51471656c1
         # Secondary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
@@ -58,7 +55,8 @@ Resources:
         #   ID: <EMAIL HASH>
 
     # FQDN is the fully qualified domain name of the host running this resource
-    FQDN: sut-ozstar-ce1.svc.opensciencegrid.org
+    # Just a dummy value for backfill containers
+    FQDN: chameleon-uc-dev-backfill.uchicago.edu
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
     # FQDNAliases:
     #   - <HOSTNAME1>
@@ -71,9 +69,9 @@ Resources:
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
-      CE:
+      Execution Endpoint:
         # Description is a brief description of the service
-        Description: Hosted CE for SUT-OzStar
+        Description: Open Science pool backfill containers running on Chameleon Cloud
         ### Details (optional)
         # Details:
         #   # hidden
@@ -92,6 +90,7 @@ Resources:
     ### Tags (optional) is a list of tags associated with the resource.
     ### Include the tag "CC*" if applicable for a CC* CE.
     # Tags:
+    #   - <TAG1>
     #   - <TAG2>
 
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
@@ -101,43 +100,6 @@ Resources:
     #   <VO1>: <PERCENT>
     #   <VO2>: <PERCENT>
 
-    ### WLCGInformation (optional) is only for resources that are part of the WLCG
-    # WLCGInformation:
-    #   APELNormalFactor: 0.0
-    #   AccountingName: <name>
-    #   HEPSPEC: 0
-    #   InteropAccounting: true
-    #   InteropBDII: true
-    #   InteropMonitoring: true
-    #   KSI2KMax: 0
-    #   KSI2KMin: 0
-    #   StorageCapacityMax: 0
-    #   StorageCapacityMin: 0
-    #   TapeCapacity: 0
-
   # Other resources if you have any...
   # <RESOURCE NAME>:
   # ...
-
-  SUT-STASHCACHE:
-    Active: true
-    ID: 1129
-    ContactLists:
-      # Administrative Contact is one to three people to contact regarding administrative issues
-      Administrative Contact:
-        Primary:
-          Name: Conrad Chan
-          ID: c3dba6d9e3fe5a8e69d27b667aee582b05727c04
-
-      # Security Contact is one to three people to contact regarding security issues
-      Security Contact:
-        Primary:
-          Name: Conrad Chan
-          ID: c3dba6d9e3fe5a8e69d27b667aee582b05727c04
-    FQDN: ligo.hpc.swin.edu.au
-    Services:
-      XRootD cache server:
-        Description: StashCache cache server
-    AllowedVOs:
-      - LIGO
-    DN: /DC=com/DC=quovadisglobal/DC=grid/DC=auscert/DC=hosts/C=AU/ST=Victoria/L=Hawthorn/O=Swinburne University of Technology/OU=Information Technology Services/CN=ligo.hpc.swin.edu.au
