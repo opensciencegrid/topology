@@ -217,7 +217,7 @@ Resources:
           endpoint: atlas-owamp.bu.edu
     VOOwnership:
       ATLAS: 100
-  SLATE_BU:
+  SQUID_SLATE_BU:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -247,12 +247,11 @@ Resources:
           Name: Saul Youssef
     Description: SLATE Services for NET2
     FQDN: atlas-slate01.bu.edu
-    ID: 
+    ID: 1131
     Services:
       Squid:
         Description: Generic squid service
         Details:
-          uri_override: atlas-slate01.bu.edu:32200
           Monitored: true
     VOOwnership:
       ATLAS: 100
