@@ -208,7 +208,7 @@ def commit_is_merged(sha_a, sha_b):
 def get_merge_base(sha_a, sha_b):
     args = ['git', 'merge-base', sha_a, sha_b]
     ret, out = runcmd(args, stderr=_devnull)
-    return out.strip() if ret == 0 else None
+    return out.strip().decode() if ret == 0 else None
 
 def parse_yaml_at_version(sha, fname, default):
     txt = get_file_at_version(sha, fname)
