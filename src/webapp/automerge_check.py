@@ -20,6 +20,15 @@ except ImportError:
 import xml.etree.ElementTree as et
 
 
+# NOTE: throughout this program, git shas are of type str, while paths and
+# filenames are of type bytes.  The motivation behind this is to handle
+# potentially arbitrary filenames in an arbitrary git tree submitted in
+# an arbitrary pull request.  This also means that git blob references
+# in the form "sha:path" must be of type bytes.
+#
+# So if the b'' strings look peculiar, that's why.
+
+
 def usage():
     print("Usage: %s BASE_SHA HEAD_SHA[:MERGE_COMMIT_SHA] [GitHubUser]"
                    % os.path.basename(__file__))
@@ -165,6 +174,7 @@ def get_modified_files(sha_a, sha_b):
         sys.exit(1)
     return zsplit(out)
 
+# NB: returns stdout for cmdline as bytes
 def runcmd(cmdline, **popen_kw):
     from subprocess import Popen, PIPE
     p = Popen(cmdline, stdout=PIPE, **popen_kw)
