@@ -195,8 +195,8 @@ def list_dir_at_version(sha, path):
     return zsplit(out)
 
 def get_organizations_at_version(sha):
-    projects = [ parse_yaml_at_version(sha, "projects/" + fname, {})
-                 for fname in list_dir_at_version(sha, "projects")
+    projects = [ parse_yaml_at_version(sha, b"projects/" + fname, {})
+                 for fname in list_dir_at_version(sha, b"projects")
                  if re.search(br'.\.yaml$', fname) ]
     return set( p.get("Organization") for p in projects )
 
