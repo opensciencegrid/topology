@@ -156,10 +156,7 @@ def looks_like_downtime(fname):
     return re.search(br'^topology/[^/]+/[^/]+/[^/]+_downtime.yaml$', fname)
 
 def zsplit(txt):
-    items = txt.split(b'\0')
-    if items[-1:] == [b'']:
-        items[-1:] = []
-    return items
+    return txt.rstrip(b'\0').split(b'\0')
 
 def get_modified_files(sha_a, sha_b):
     args = ['git', 'diff', '-z', '--name-only', sha_a, sha_b]
