@@ -20,6 +20,15 @@ except ImportError:
 import xml.etree.ElementTree as et
 
 
+# NOTE: throughout this program, git shas are of type str, while paths and
+# filenames are of type bytes.  The motivation behind this is to handle
+# potentially arbitrary filenames in an arbitrary git tree submitted in
+# an arbitrary pull request.  This also means that git blob references
+# in the form "sha:path" must be of type bytes.
+#
+# So if the b'' strings look peculiar, that's why.
+
+
 def usage():
     print("Usage: %s BASE_SHA HEAD_SHA[:MERGE_COMMIT_SHA] [GitHubUser]"
                    % os.path.basename(__file__))
@@ -131,15 +140,16 @@ def main(args):
 
 class RC:
     ALL_CHECKS_PASS  = 0  # all checks pass (only DT files modified)
-    OUT_OF_DATE_ONLY = 1  # all checks pass except out of date
-    DT_MOD_ERRORS    = 2  # DT file(s) modified, not all checks pass
-    CONTACT_ERROR    = 3  # no DT files modified, contact error
-    ORGS_ADDED       = 4  # explicitly reject new organizations
-    NON_DT_ERRORS    = 5  # no DT files modified, other errors; not reported
+    UNEXPECTED_ERROR = 1  # reserved for unhandled exceptions
+    OUT_OF_DATE_ONLY = 2  # all checks pass except out of date
+    DT_MOD_ERRORS    = 3  # DT file(s) modified, not all checks pass
+    CONTACT_ERROR    = 4  # no DT files modified, contact error
+    ORGS_ADDED       = 5  # explicitly reject new organizations
+    NON_DT_ERRORS    = 6  # no DT files modified, other errors; not reported
 
 # only comment on errors if DT files modified or contact unknown
 reportable_errors = set([RC.OUT_OF_DATE_ONLY, RC.DT_MOD_ERRORS,
-                         RC.CONTACT_ERROR, RC.ORGS_ADDED])
+                         RC.CONTACT_ERROR, RC.ORGS_ADDED, RC.UNEXPECTED_ERROR])
 
 rejectable_errors = set([RC.ORGS_ADDED])
 
@@ -155,10 +165,7 @@ def looks_like_downtime(fname):
     return re.search(br'^topology/[^/]+/[^/]+/[^/]+_downtime.yaml$', fname)
 
 def zsplit(txt):
-    items = txt.split(b'\0')
-    if items[-1:] == [b'']:
-        items[-1:] = []
-    return items
+    return txt.rstrip(b'\0').split(b'\0')
 
 def get_modified_files(sha_a, sha_b):
     args = ['git', 'diff', '-z', '--name-only', sha_a, sha_b]
@@ -167,6 +174,7 @@ def get_modified_files(sha_a, sha_b):
         sys.exit(1)
     return zsplit(out)
 
+# NB: returns stdout for cmdline as bytes
 def runcmd(cmdline, **popen_kw):
     from subprocess import Popen, PIPE
     p = Popen(cmdline, stdout=PIPE, **popen_kw)
@@ -194,8 +202,8 @@ def list_dir_at_version(sha, path):
     return zsplit(out)
 
 def get_organizations_at_version(sha):
-    projects = [ parse_yaml_at_version(sha, "projects/" + fname, {})
-                 for fname in list_dir_at_version(sha, "projects")
+    projects = [ parse_yaml_at_version(sha, b"projects/" + fname, {})
+                 for fname in list_dir_at_version(sha, b"projects")
                  if re.search(br'.\.yaml$', fname) ]
     return set( p.get("Organization") for p in projects )
 
@@ -207,7 +215,7 @@ def commit_is_merged(sha_a, sha_b):
 def get_merge_base(sha_a, sha_b):
     args = ['git', 'merge-base', sha_a, sha_b]
     ret, out = runcmd(args, stderr=_devnull)
-    return out.strip() if ret == 0 else None
+    return out.strip().decode() if ret == 0 else None
 
 def parse_yaml_at_version(sha, fname, default):
     txt = get_file_at_version(sha, fname)

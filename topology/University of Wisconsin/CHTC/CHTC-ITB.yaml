@@ -124,3 +124,27 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
+
+  TIGER-OSG-BACKFILL:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+      Security Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+    Description: OSG VO backfill containers on the Tiger cluster
+    FQDN: tiger-osg-backfill.osgdev.chtc.io
+    ID: 1128
+    Services:
+      Execution Endpoint:
+        Description: OSG VO backfill containers on the Tiger cluster

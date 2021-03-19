@@ -84,8 +84,8 @@ def generateFullMessage(subject, to, from_name, from_addr, message, sign=True, k
     else:
         basemsg['Subject'] = subject
         basemsg['Bcc'] = ", ".join(to)
-        msg['To'] = '"%s" <%s>' % (to_name, to_addr)
-        msg['From'] = '"%s" <%s>' % (from_name, from_addr)
+        basemsg['To'] = '"%s" <%s>' % (to_name, to_addr)
+        basemsg['From'] = '"%s" <%s>' % (from_name, from_addr)
         return basemsg.as_string(unixfrom=True)
 
 
