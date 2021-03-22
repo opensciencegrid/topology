@@ -4,6 +4,7 @@ from typing import Dict, List, Optional
 import re
 import sys
 try:
+    # TODO: Rewrite this module to use ldap3 which gets installed in rootless installs too.
     import ldap
 except ModuleNotFoundError:
     print("""\
