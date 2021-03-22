@@ -8,9 +8,10 @@ try:
     import ldap
 except ModuleNotFoundError:
     print("""\
-*** ldap module unavailable; this comes from "python-ldap" which is only in requirements-apache.txt
-    since it requires the openldap header files (openldap-devel on EL) to install.
-    If the openldap header files are available, pip install python-ldap to make this error go away.
+*** ldap module unavailable; this comes from "python-ldap" which is only in 
+    requirements-apache.txt since it requires the openldap header files 
+    (openldap-devel on EL) to install.  If the openldap header files are 
+    available, pip install python-ldap to make this error go away.
 """, file=sys.stderr)
     raise
 ldap.set_option(ldap.OPT_TIMEOUT, 10)
