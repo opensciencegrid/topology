@@ -2,7 +2,18 @@
 from collections import defaultdict
 from typing import Dict, List, Optional
 import re
-import ldap
+import sys
+try:
+    # TODO: Rewrite this module to use ldap3 which gets installed in rootless installs too.
+    import ldap
+except ModuleNotFoundError:
+    print("""\
+*** ldap module unavailable; this comes from "python-ldap" which is only in 
+    requirements-apache.txt since it requires the openldap header files 
+    (openldap-devel on EL) to install.  If the openldap header files are 
+    available, pip install python-ldap to make this error go away.
+""", file=sys.stderr)
+    raise
 ldap.set_option(ldap.OPT_TIMEOUT, 10)
 ldap.set_option(ldap.OPT_NETWORK_TIMEOUT, 10)
 import asn1
