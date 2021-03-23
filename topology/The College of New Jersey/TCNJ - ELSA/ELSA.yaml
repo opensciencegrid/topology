@@ -33,7 +33,7 @@ Resources:
       - CC*
   TCNJ-ELSA:
     ID: 1076
-    Active: true
+    Active: false
     Description: The Hosted CE serving TCNJ-ELSA
     ContactLists:
       Administrative Contact:
@@ -51,6 +51,33 @@ Resources:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
     FQDN: hosted-ce30.opensciencegrid.org
+    Services:
+      CE:
+        Description: TCNJ-ELSA Hosted CE
+        Details:
+          hidden: false
+    Tags:
+      - CC*
+  TCNJ-ELSA:
+    ID:
+    Active: true
+    Description: The Hosted CE serving TCNJ-ELSA
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: tcnj-elsa-ce1.svc.opensciencegrid.org
     Services:
       CE:
         Description: TCNJ-ELSA Hosted CE
