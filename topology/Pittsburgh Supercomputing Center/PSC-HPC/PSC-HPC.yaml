@@ -1,11 +1,11 @@
 Disable: false
 Production: true
 SupportCenter: Self Supported
-GroupID:
+GroupID: 1112
 GroupDescription: The PSC-Bridges cluster
 Resources:
   PSC-Bridges-CE1:
-    ID:
+    ID: 1138
     Active: true
     Description: The Hosted CE serving PSC-Bridges
     ContactLists:
@@ -37,7 +37,7 @@ Resources:
         Details:
           hidden: false
   PSC-Bridges2-CE1:
-    ID:
+    ID: 1139
     Active: true
     Description: The Hosted CE serving PSC-Bridges
     ContactLists:
@@ -69,7 +69,7 @@ Resources:
         Details:
           hidden: false
   Bridges2:
-    ID:
+    ID: 1140
     Active: false
     Description: The Hosted CE serving PSC-Bridges
     ContactLists:
@@ -101,7 +101,7 @@ Resources:
         Details:
           hidden: false
   PSC-Bridges2:
-    ID:
+    ID: 1141
     Active: false
     Description: The Hosted CE serving PSC-Bridges
     ContactLists:
