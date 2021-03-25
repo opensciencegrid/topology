@@ -63,40 +63,6 @@ Resources:
         Primary:
           Name: Todd Evans
           ID: 7e5c0c5967de0a65bc78cbbb441a05d70603cabe
-  TACC-Frontera-Squid:
-    ID: 1143
-    Description: Squid serving Frontera
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Security Contact:
-        Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Site Contact:
-        Primary:
-          Name: Dan Stanzione
-          ID: 32584110de1e948dc78fbce371ccee0bc3c3df79
-        Secondary:
-          Name: Todd Evans
-          ID: 7e5c0c5967de0a65bc78cbbb441a05d70603cabe
-    FQDN: login5.frontera.tacc.utexas.edu
-    Services:
-      Squid:
-        Description: Squid service for frontier and cvmfs
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 50
-      ATLAS: 50
 
     # FQDN is the fully qualified domain name of the host running this resource
     FQDN: tacc-frontera-ce1.services.opensciencegrid.org
@@ -146,6 +112,41 @@ Resources:
     #   StorageCapacityMax: 0
     #   StorageCapacityMin: 0
     #   TapeCapacity: 0
+
+  TACC-Frontera-Squid:
+    ID: 1143
+    Description: Squid serving Frontera
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Dan Stanzione
+          ID: 32584110de1e948dc78fbce371ccee0bc3c3df79
+        Secondary:
+          Name: Todd Evans
+          ID: 7e5c0c5967de0a65bc78cbbb441a05d70603cabe
+    FQDN: login5.frontera.tacc.utexas.edu
+    Services:
+      Squid:
+        Description: Squid service for frontier and cvmfs
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 50
+      ATLAS: 50
 
   # Other resources if you have any...
   # <RESOURCE NAME>:
