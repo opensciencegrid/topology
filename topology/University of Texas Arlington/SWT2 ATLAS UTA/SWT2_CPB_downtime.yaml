@@ -667,4 +667,70 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 817103847
+  Description: Water under machine room floor
+  Severity: Outage
+  StartTime: Mar 25, 2021 22:00 +0000
+  EndTime: Mar 26, 2021 22:00 +0000
+  CreatedTime: Mar 25, 2021 22:13 +0000
+  ResourceName: SWT2_CPB
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 817104284
+  Description: Water under machine room floor
+  Severity: Outage
+  StartTime: Mar 25, 2021 22:00 +0000
+  EndTime: Mar 26, 2021 22:00 +0000
+  CreatedTime: Mar 25, 2021 22:13 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 817104485
+  Description: Water under machine room floor
+  Severity: Outage
+  StartTime: Mar 25, 2021 22:00 +0000
+  EndTime: Mar 26, 2021 22:00 +0000
+  CreatedTime: Mar 25, 2021 22:14 +0000
+  ResourceName: SWT2_CPB_SLATE_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 817104679
+  Description: Water under machine room floor
+  Severity: Outage
+  StartTime: Mar 25, 2021 22:00 +0000
+  EndTime: Mar 26, 2021 22:00 +0000
+  CreatedTime: Mar 25, 2021 22:14 +0000
+  ResourceName: SWT2_CPB_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 817104878
+  Description: Water under machine room floor
+  Severity: Outage
+  StartTime: Mar 25, 2021 22:00 +0000
+  EndTime: Mar 26, 2021 22:00 +0000
+  CreatedTime: Mar 25, 2021 22:14 +0000
+  ResourceName: SWT2_CPB_perfSONAR_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 817105064
+  Description: Water under machine room floor
+  Severity: Outage
+  StartTime: Mar 25, 2021 22:00 +0000
+  EndTime: Mar 26, 2021 22:00 +0000
+  CreatedTime: Mar 25, 2021 22:15 +0000
+  ResourceName: SWT2_CPB_perfSONAR_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
 
