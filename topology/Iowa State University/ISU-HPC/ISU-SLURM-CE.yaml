@@ -1,14 +1,14 @@
 # Production is true if the resource is for production and not testing use
-Production: true
+Production: false
 # SupportCenter is one of the support centers in topology/support-centers.yaml
 SupportCenter: Self Supported
 
 # GroupDescription is a long description of the resource group; may be multiple lines.
-GroupDescription: TACC-Frontera cluster
+GroupDescription: Slurm CE for ISU HPC resources
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: 1099
+GroupID: 1111
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -16,15 +16,15 @@ Resources:
   # Resource Name should be a short descriptor of the resource.
   # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
   # Resource Names need to be unique across all resources in the OSG.
-  TACC-Frontera:
+  ISU-SLURM-CE:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: true
+    Active: false
     # Description is a long description of the resource; may be multiple lines
-    Description: Hosted CE serving TACC-Frontera
+    Description: This is a CE for ISU-HPC.
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: 1112
+    ID: 1137
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
@@ -33,11 +33,8 @@ Resources:
       # Administrative Contact is one to three people to contact regarding administrative issues
       Administrative Contact:
         Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Charles Zaruba
+          ID: b5515e117aca74bcc14dbfe9adb3f40cedd2d0ea
         # Secondary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
@@ -48,35 +45,32 @@ Resources:
       # Security Contact is one to three people to contact regarding security issues
       Security Contact:
         Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Charles Zaruba
+          ID: b5515e117aca74bcc14dbfe9adb3f40cedd2d0ea
         # Secondary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
         # Tertiary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
-      Site Contact:
-        Primary:
-          Name: Todd Evans
-          ID: 7e5c0c5967de0a65bc78cbbb441a05d70603cabe
 
     # FQDN is the fully qualified domain name of the host running this resource
-    FQDN: tacc-frontera-ce1.services.opensciencegrid.org
+    FQDN: hpc-osg-ce.its.iastate.edu
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
     # FQDNAliases:
     #   - <HOSTNAME1>
     #   - <HOSTNAME2>
+
+    ### DN (optional except for XCache resources) is the DN of the host cert of the resource
+    # in OpenSSL 1.0 format (i.e. /DC=org/DC=incommon/C=US/...)
+    # DN: <DN>
 
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
       CE:
         # Description is a brief description of the service
-        Description: TACC-Frontera.yaml Hosted-CE
+        Description: Compute Entry point for ISU HPX
         ### Details (optional)
         # Details:
         #   # hidden
@@ -91,6 +85,12 @@ Resources:
       # Other services if you have any
       # <SERVICE NAME>:
       # ...
+
+    ### Tags (optional) is a list of tags associated with the resource.
+    ### Include the tag "CC*" if applicable for a CC* CE.
+    # Tags:
+    #   - <TAG1>
+    #   - <TAG2>
 
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
     ### If part of the resource is not owned by the VO, do not list it.
@@ -113,41 +113,7 @@ Resources:
     #   StorageCapacityMin: 0
     #   TapeCapacity: 0
 
-  TACC-Frontera-Squid:
-    ID: 1143
-    Description: Squid serving Frontera
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Security Contact:
-        Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Site Contact:
-        Primary:
-          Name: Dan Stanzione
-          ID: 32584110de1e948dc78fbce371ccee0bc3c3df79
-        Secondary:
-          Name: Todd Evans
-          ID: 7e5c0c5967de0a65bc78cbbb441a05d70603cabe
-    FQDN: login5.frontera.tacc.utexas.edu
-    Services:
-      Squid:
-        Description: Squid service for frontier and cvmfs
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 50
-      ATLAS: 50
-
   # Other resources if you have any...
   # <RESOURCE NAME>:
   # ...
+
