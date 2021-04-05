@@ -12,12 +12,35 @@ import yaml
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import load_yaml_file, to_xml
+from webapp.common import load_yaml_file, to_xml, is_null
 from webapp.vo_reader import get_vos_data
 from webapp.vos_data import VOsData
 
 
 log = logging.getLogger(__name__)
+
+
+class DataError(Exception): pass
+
+
+def get_resource_allocation(data):
+    if "ResourceAllocation" not in data:
+        return
+    ra = OrderedDict()
+    if not is_null(data, "ResourceAllocation", "XRAC"):
+        xrac = data["ResourceAllocation"]["XRAC"]
+        if is_null(xrac, "AllowedSchedds"):
+            raise DataError("Missing ResourceAllocation/XRAC/AllowedSchedds")
+        if is_null(xrac, "ResourceGroups"):
+            raise DataError("Missinc ResourceAllocation/XRAC/ResourceGroups")
+        new_xrac = OrderedDict()
+        new_xrac["AllowedSchedds"] = {"AllowedSchedd": xrac["AllowedSchedds"]}
+        new_rgs = []
+        for rg in xrac["ResourceGroups"]:
+            new_rgs.append(OrderedDict([("Name", rg["Name"]), ("LocalAllocationID", rg["LocalAllocationID"])]))
+        new_xrac["ResourceGroups"] = {"ResourceGroup": new_rgs}
+        ra["XRAC"] = new_xrac
+    return ra
 
 
 def get_projects(indir="../projects", strict=False):
@@ -33,7 +56,7 @@ def get_projects(indir="../projects", strict=False):
         elif file.endswith("_CAMPUS_GRIDS.yaml"):
             continue
         project = OrderedDict.fromkeys(["ID", "Name", "Description", "PIName", "Organization", "Department",
-                                        "FieldOfScience", "Sponsor"])
+                                        "FieldOfScience", "Sponsor", "ResourceAllocation"])
         data = None
         try:
             data = load_yaml_file(os.path.join(indir, file))
@@ -45,6 +68,9 @@ def get_projects(indir="../projects", strict=False):
                 name = data['Sponsor']['VirtualOrganization']['Name']
                 ID = vos_data.vos[name]['ID']
                 data['Sponsor']['VirtualOrganization'] = OrderedDict([("ID", ID), ("Name", name)])
+
+            if 'ResourceAllocation' in data:
+                data['ResourceAllocation'] = get_resource_allocation(data)
         except yaml.YAMLError:
             if strict:
                 raise
