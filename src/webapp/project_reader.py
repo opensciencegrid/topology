@@ -37,7 +37,10 @@ def get_resource_allocation(data):
         new_xrac["AllowedSchedds"] = {"AllowedSchedd": xrac["AllowedSchedds"]}
         new_rgs = []
         for rg in xrac["ResourceGroups"]:
-            new_rgs.append(OrderedDict([("Name", rg["Name"]), ("LocalAllocationID", rg["LocalAllocationID"])]))
+            new_rg = OrderedDict()
+            new_rg["Name"] = rg["Name"]
+            new_rg["LocalAllocationID"] = rg["LocalAllocationID"]
+            new_rgs.append(new_rg)
         new_xrac["ResourceGroups"] = {"ResourceGroup": new_rgs}
         ra["XRAC"] = new_xrac
     return ra

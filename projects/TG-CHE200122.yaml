@@ -31,5 +31,5 @@ ResourceAllocation:
     AllowedSchedds:
       - CHTC-XD-SUBMIT
     ResourceGroups:
-      - SDSC-Expanse
-
+      - Name: SDSC-Expanse
+        LocalAllocationID: "cwr109"
