@@ -800,3 +800,14 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 828282344
+  Description: Testing switcher control
+  Severity: Outage
+  StartTime: Apr 08, 2021 21:00 +0000
+  EndTime: Apr 08, 2021 22:00 +0000
+  CreatedTime: Apr 07, 2021 20:43 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
