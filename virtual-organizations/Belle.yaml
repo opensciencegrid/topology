@@ -59,7 +59,9 @@ OASIS:
     - Name: Kiyoshi Hayasaka
       DNs: /C=JP/O=KEK/OU=CRC/CN=HAYASAKA Kiyoshi
       ID: a576382ce7f50940632597dbf12b34eaa718bae2
-  UseOASIS: true
+  UseOASIS: false
+  OASISRepoURLs:
+    - http://cvmfs-stratum-zero.cc.kek.jp/cvmfs/belle.kek.jp
 PrimaryURL: http://belle.kek.jp
 PurposeURL: http://belle.kek.jp
 ReportingGroups:
