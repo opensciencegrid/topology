@@ -3,7 +3,7 @@ SupportCenter: Self Supported
 GroupDescription: SIUE CC Cluster
 GroupID: 1115
 Resources:
-  OSG_US_SIUE_CE:
+  OSG_US_SIUE_CC:
     Active: false
     Description: SIUE CE serving CC Cluster
     ID: 1145
@@ -22,7 +22,7 @@ Resources:
         Secondary:
           Name: Daniel Chace
           ID: 78a6b3768f39e5e35034d0981288e775e20eba5f
-    FQDN: htcondor-ce.isg.siue.edu
+    FQDN: cc-condor-01.hpc.siue.edu
     Services:
       CE:
         Description: SIUE CC Cluster CE
