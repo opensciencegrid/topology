@@ -131,3 +131,15 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 820339344
+  Description: Unscheduled power outage at data center
+  Severity: Outage
+  StartTime: Mar 29, 2021 16:04 +0000
+  EndTime: Mar 29, 2021 17:04 +0000
+  CreatedTime: Mar 29, 2021 16:05 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+# ---------------------------------------------------------

@@ -16,8 +16,9 @@ dt_not_up_to_date = (
 )
 
 unexpected_error = (
-    "OSG Staff: there was an unexpected error verifying this PR."
-    " Please review."
+    "OSG Staff:\n"
+    "\n"
+    "There was an unexpected error verifying this PR - please review.\n"
     "\n"
     "-- OSG-BOT  :boom:\n"
     "\n"

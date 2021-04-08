@@ -1,4 +1,5 @@
-# Production is true if the resource is for production and not testing use
+# Production is true if the resources in this group will join the production OSG pool,
+# and not the Integration Test Bed (ITB) pool.
 Production: true
 # SupportCenter is one of the support centers in topology/support-centers.yaml
 SupportCenter: <NAME>
