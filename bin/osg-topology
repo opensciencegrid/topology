@@ -102,7 +102,7 @@ def get_parser():
     oparser.add_argument("--cert", dest="cert", help="Client certificate")
     oparser.add_argument("--key", dest="key", help="Client certificate private key")
 
-    subparsers = oparser.add_subparsers()
+    subparsers = oparser.add_subparsers(dest="which")
 
     contactparsers = []
 
@@ -110,7 +110,6 @@ def get_parser():
         subparsers.add_parser('list-resource-contacts',
                               help='List OSG contacts by resource name.')
     contactparsers.append(list_resource_contacts_parser)
-    list_resource_contacts_parser.set_defaults(which="list_resource_contacts")
     list_resource_contacts_parser.add_argument( \
         "--service",
              dest="provides_service", help="Filter on resources that provide given "
@@ -126,7 +125,6 @@ def get_parser():
     list_vo_contacts_parser = subparsers.add_parser('list-vo-contacts',
         help='List OSG contacts by VO name.')
     contactparsers.append(list_vo_contacts_parser)
-    list_vo_contacts_parser.set_defaults(which="list_vo_contacts")
     list_vo_contacts_parser.set_defaults(fqdn=False)
     list_vo_contacts_parser.add_argument(dest="filter", action="store",
         nargs="?", help="Shell expression filter on the VO name")
@@ -134,7 +132,6 @@ def get_parser():
     list_contacts_parser = subparsers.add_parser('list-contacts',
         help='List OSG resource and VO contacts.')
     contactparsers.append(list_contacts_parser)
-    list_contacts_parser.set_defaults(which="list_contacts")
     list_contacts_parser.add_argument(dest="filter", action="store",
         nargs="?", help="Shell expression filter on the VO name, resource name or FQDN")
     list_contacts_parser.add_argument("--fqdn", dest="fqdn", default=False, action="store_true",
@@ -163,7 +160,9 @@ def main():
     oparser = get_parser()
 
     args = oparser.parse_args()
-    if getattr(args, "filter") is not None:
+    if not args.which:
+        oparser.error(f"No command specified; see {sys.argv[0]} --help for usage")
+    if getattr(args, "filter", None) is not None:
         if args.fqdn:
             args.fqdn_filter = args.filter.strip()
         else:
@@ -173,14 +172,16 @@ def main():
         with open(args.email_file, 'r') as f:
             contents = f.read()
             args.contact_emails = contents.split('\n')
-    except TypeError:
+    except (AttributeError, TypeError):
         pass  # --email-from-file not specified
     except IOError as exc:
         sys.exit("Failed to read email file: %s" % exc)
+    except UnicodeDecodeError as exc:
+        sys.exit("Invalid unicode in email file: %s" % exc)
 
-    commands = {"list_resource_contacts": list_resource_contacts,
-                "list_vo_contacts": list_vo_contacts,
-                "list_contacts": list_contacts,
+    commands = {"list-resource-contacts": list_resource_contacts,
+                "list-vo-contacts": list_vo_contacts,
+                "list-contacts": list_contacts,
                }
 
     command = commands[args.which]
