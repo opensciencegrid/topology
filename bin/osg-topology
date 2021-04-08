@@ -1,11 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
 A script to print out information about the OSG topology
 """
-
-from __future__ import print_function
 
 import os
 import sys
@@ -77,8 +75,7 @@ def print_contacts(args, contacttype, results):
             sys.stdout.write(email)
         sys.stdout.write('\n')
     else:
-        names = results.keys()
-        names.sort()
+        names = sorted(results.keys())
         for name in names:
             print("- %s: %s" % (contacttype, name))
             keys = set()
@@ -90,9 +87,7 @@ def print_contacts(args, contacttype, results):
                     key = contact['Name']
                 if key:
                     keys.add(key)
-            keys = list(keys)
-            keys.sort()
-            for key in keys:
+            for key in sorted(keys):
                 print(u"  * %s" % key)
 
 
