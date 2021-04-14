@@ -1,11 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
 A simple tool for generating notification emails to the OSG
 """
-from __future__ import print_function
-
 import os
 import sys
 import getpass
@@ -16,10 +14,6 @@ import email.mime.text
 import email.mime.multipart
 
 import gnupg
-
-
-if not hasattr(__builtins__, "raw_input"):  # py3
-    raw_input = __builtins__.input
 
 
 if __name__ == "__main__" and __package__ is None:
@@ -203,8 +197,8 @@ def main():
                     emails.add(contact['Email'])
         recipients.update(emails)
 
-    with open(args.message, 'r') as fp:
-        contents = fp.read()
+    with open(args.message, 'rb') as fp:
+        contents = fp.read().decode('utf-8', errors='replace')
 
         # Replace smart quotes and em/en dashes
         contents = replace_smart_quotes_and_dashes(contents)
@@ -235,7 +229,7 @@ def main():
     elif network_ok(args.bypass_dns_check):
         for _ in range(1, 4):
             try:
-                verify_send = raw_input("Really send mail to {0} recipients? (y/N)".format(len(recipients)))
+                verify_send = input("Really send mail to {0} recipients? (y/N)".format(len(recipients)))
             except EOFError:
                 verify_send = 'n'
 
