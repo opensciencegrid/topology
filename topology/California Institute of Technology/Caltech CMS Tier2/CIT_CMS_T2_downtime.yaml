@@ -1453,4 +1453,37 @@
   Services:
     - CE
 
+# --------------------------------------------------------
+# Migration service containers to the new infrastructure
+- Class: SCHEDULED
+  ID: 828282345
+  Description: Migration service containers to the new infrastructure
+  Severity: Outage
+  StartTime: Apr 14, 2021 08:00 -0700
+  EndTime: Apr 14, 2021 17:00 -0700
+  CreatedTime: Apr 12, 2021 12:00 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
 
+- Class: SCHEDULED
+  ID: 828282346
+  Description: Migration service containers to the new infrastructure
+  Severity: Outage
+  StartTime: Apr 14, 2021 08:00 -0700
+  EndTime: Apr 14, 2021 17:00 -0700
+  CreatedTime: Apr 12, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 828282347
+  Description: Migration service containers to the new infrastructure
+  Severity: Outage
+  StartTime: Apr 14, 2021 08:00 -0700
+  EndTime: Apr 14, 2021 17:00 -0700
+  CreatedTime: Apr 12, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
