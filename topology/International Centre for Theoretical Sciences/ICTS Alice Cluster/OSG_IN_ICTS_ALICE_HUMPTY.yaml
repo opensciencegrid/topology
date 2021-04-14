@@ -2,14 +2,14 @@
 # and not the Integration Test Bed (ITB) pool.
 Production: true
 # SupportCenter is one of the support centers in topology/support-centers.yaml
-SupportCenter: <NAME>
+SupportCenter: Self Supported
 
 # GroupDescription is a long description of the resource group; may be multiple lines.
 GroupDescription: This is a cluster of ICTS-TIFR Alice Humpty Hosted CE used for the LIGO runs
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: <ID>
+GroupID: 1117
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -25,7 +25,7 @@ Resources:
     Description: This is a Hosted CE to submitting to ICTS Alice Humpty for ICTS-TIFR.
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: <ID>
+    ID: 1147
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
@@ -35,7 +35,7 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Hemanta Kumar G
-          ID: hemanta.kumar@icts.res.in
+          ID: 4623fbf1e560c24eacca4afd475c7156268a0589
         # Secondary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
@@ -69,51 +69,6 @@ Resources:
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
-      <SERVICE NAME>:
+      CE:
         # Description is a brief description of the service
-        Description: <TEXT>
-        ### Details (optional)
-        # Details:
-        #   # hidden
-        #   hidden: false
-        #   ### uri_override (optional, use if your service is on some non-standard URL)
-        #   # uri_override: <HOST>:<PORT>
-        #   ### sam_uri (optional)
-        #   # sam_uri: htcondor://...
-        #   ### endpoint (for perfSONAR services)
-        #   # endpoint: <HOSTNAME>
-
-      # Other services if you have any
-      # <SERVICE NAME>:
-      # ...
-
-    ### Tags (optional) is a list of tags associated with the resource.
-    ### Include the tag "CC*" if applicable for a CC* CE.
-    # Tags:
-    #   - <TAG1>
-    #   - <TAG2>
-
-    ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
-    ### If part of the resource is not owned by the VO, do not list it.
-    ### The total percentage cannot exceed 100.
-    # VOOwnership:
-    #   <VO1>: <PERCENT>
-    #   <VO2>: <PERCENT>
-
-    ### WLCGInformation (optional) is only for resources that are part of the WLCG
-    # WLCGInformation:
-    #   APELNormalFactor: 0.0
-    #   AccountingName: <name>
-    #   HEPSPEC: 0
-    #   InteropAccounting: true
-    #   InteropBDII: true
-    #   InteropMonitoring: true
-    #   KSI2KMax: 0
-    #   KSI2KMin: 0
-    #   StorageCapacityMax: 0
-    #   StorageCapacityMin: 0
-    #   TapeCapacity: 0
-
-  # Other resources if you have any...
-  # <RESOURCE NAME>:
-  # ...
+        Description: Compute Entrypoint
