@@ -16,7 +16,7 @@ Resources:
         Primary:
           ID: 818acb7ebcd1865a17551799f0cfeb5256e0db20
           Name: Kurt Strosahl
-    Description: Glidein submit nodes for GLUEX
+    Description: Submit node for JLab
     FQDN: scosg16.jlab.org
     ID: 878
     Services:
@@ -26,6 +26,32 @@ Resources:
           hidden: false
     VOOwnership:
       JLab: 100
+
+  scosg20:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 818acb7ebcd1865a17551799f0cfeb5256e0db20
+          Name: Kurt Strosahl
+        Secondary:
+          ID: ea9db644eb6f8632cf87fd2cbac8a6e393c21f71
+          Name: Wesley Moore
+      Security Contact:
+        Primary:
+          ID: 818acb7ebcd1865a17551799f0cfeb5256e0db20
+          Name: Kurt Strosahl
+    Description: Submit node for JLab
+    FQDN: scosg20.jlab.org
+    ID: NEEDS_ID
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      JLab: 100
+
   JLab-StashCache-Origin:
     Active: true
     ContactLists:
@@ -50,6 +76,7 @@ Resources:
       - ANY
     VOOwnership:
       JLab: 100
+
   JLab-FARM-Squid:
     Active: true
     ContactLists:
@@ -70,6 +97,7 @@ Resources:
         Description: Squid server for JLab-FARM cluster
     VOOwnership:
       JLab: 100
+
   JLab-FARM-CE:
     Active: true
     ContactLists:
@@ -93,4 +121,5 @@ Resources:
           hidden: false
     VOOwnership:
       JLab: 100
+
 SupportCenter: Self Supported
