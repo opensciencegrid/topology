@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-
-from __future__ import print_function
+#!/usr/bin/env python3
 
 import collections
 import glob
@@ -9,10 +7,7 @@ import sys
 import os
 import re
 
-try:
-    from urllib.request import urlopen
-except ImportError:
-    from urllib2 import urlopen
+from urllib.request import urlopen
 
 try:
     from yaml import CSafeLoader as SafeLoader
@@ -69,7 +64,7 @@ def user_id_name(u):
     return u.find('ID').text, u.find('FullName').text
 
 def get_contacts():
-    txt = urlopen(_contacts_url).read()
+    txt = urlopen(_contacts_url).read().decode("utf-8", errors="replace")
     xmltree = et.fromstring(txt)
     users = xmltree.findall('User')
     d = dict(map(user_id_name, users))

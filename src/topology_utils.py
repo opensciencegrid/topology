@@ -3,16 +3,11 @@ Various helper utilities necessary for clients of the topology
 service.
 """
 
-from __future__ import print_function
-
 import os
 import sys
 import urllib
 import fnmatch
-try:
-    import urlparse
-except ImportError:
-    import urllib.parse as urlparse
+import urllib.parse as urlparse
 
 import xml.etree.ElementTree as ET
 
@@ -205,7 +200,7 @@ def mangle_url(url, args, session=None):
                     % (vo, ", ".join(vo_map)))
             qs_list.append(("voown_sel[]", str(vo_id)))
 
-    url_list[3] = urllib.urlencode(qs_list, doseq=True)
+    url_list[3] = urlparse.urlencode(qs_list, doseq=True)
 
     return urlparse.urlunsplit(url_list)
 
