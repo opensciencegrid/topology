@@ -33,7 +33,7 @@ def get_resource_allocation(data):
         if is_null(xrac, "AllowedSchedds"):
             raise DataError("Missing ResourceAllocation/XRAC/AllowedSchedds")
         if is_null(xrac, "ResourceGroups"):
-            raise DataError("Missinc ResourceAllocation/XRAC/ResourceGroups")
+            raise DataError("Missing ResourceAllocation/XRAC/ResourceGroups")
         new_xrac = OrderedDict()
         new_xrac["AllowedSchedds"] = {"AllowedSchedd": xrac["AllowedSchedds"]}
         new_rgs = []
