@@ -65,6 +65,14 @@ def get_one_project(file: str, campus_grid_ids: Dict, vos_data: VOsData) -> Dict
             data['ResourceAllocations'] = {"ResourceAllocation": resource_allocations}
         if 'ID' not in data:
             del project['ID']
+
+        name_from_filename = os.path.basename(file)[:-5]  # strip '.yaml'
+        if not is_null(data, 'Name'):
+            if data['Name'] != name_from_filename:
+                log.warning("%s: 'Name' %r does not match filename" % (file, data['Name']))
+        else:
+            data['Name'] = name_from_filename
+
     except Exception as e:
         log.error("%r adding project %s", e, file)
         log.error("Data:\n%s", pprint.pformat(data))
