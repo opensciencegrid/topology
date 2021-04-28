@@ -1057,3 +1057,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 845811072
+  Description: Server room cooling failure
+  Severity: Outage
+  StartTime: Apr 27, 2021 21:30 +0000
+  EndTime: Apr 28, 2021 21:30 +0000
+  CreatedTime: Apr 28, 2021 03:38 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
