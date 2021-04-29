@@ -19,7 +19,7 @@ Resources:
   SDSC-Expanse:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: true
+    Active: false
     # Description is a long description of the resource; may be multiple lines
     Description: Hosted CE serving SDSC Expanse
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
@@ -106,3 +106,30 @@ Resources:
   # Other resources if you have any...
   # <RESOURCE NAME>:
   # ...
+  SDSC-Expanse-CE1:
+    Active: true
+    Description: Hosted CE serving SDSC Expanse
+    ID: 1151
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Site Contact:
+        Primary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+    FQDN: sdsc-expanse-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: SDSC Expanse Hosted-CE
