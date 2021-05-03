@@ -1,10 +1,10 @@
-Production: false
+Production: true
 SupportCenter: Self Supported
 GroupDescription: "NSF Award ID 2019035 Computing Cluster. Details at https://go.lehigh.edu/hawkcluster"
 GroupID: 1114
 Resources:
   LEHIGH-HAWK-CE:
-    Active: false
+    Active: true
     Description: This is a Compute Entrypoint for Lehigh - Hawk.
     ID: 1144
     ContactLists:
@@ -30,7 +30,7 @@ Resources:
       CE: 
         Description: Lehigh hosted CE
   LEHIGH-HAWK-FRONTIER-SQUID:
-    Active: false
+    Active: true
     Description: CNAME DNS alias for our one Frontier Squid nodes.
     ID: 1149
     ContactLists:
