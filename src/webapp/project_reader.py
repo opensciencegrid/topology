@@ -24,32 +24,29 @@ log = logging.getLogger(__name__)
 class DataError(Exception): pass
 
 
-def get_resource_allocation(data):
-    if "ResourceAllocation" not in data:
-        return
-    ra = OrderedDict()
-    if not is_null(data, "ResourceAllocation", "XRAC"):
-        xrac = data["ResourceAllocation"]["XRAC"]
-        if is_null(xrac, "AllowedSchedds"):
-            raise DataError("Missing ResourceAllocation/XRAC/AllowedSchedds")
-        if is_null(xrac, "ResourceGroups"):
-            raise DataError("Missing ResourceAllocation/XRAC/ResourceGroups")
-        new_xrac = OrderedDict()
-        new_xrac["AllowedSchedds"] = {"AllowedSchedd": xrac["AllowedSchedds"]}
-        new_rgs = []
-        for rg in xrac["ResourceGroups"]:
-            new_rg = OrderedDict()
-            new_rg["Name"] = rg["Name"]
-            new_rg["LocalAllocationID"] = rg["LocalAllocationID"]
-            new_rgs.append(new_rg)
-        new_xrac["ResourceGroups"] = {"ResourceGroup": new_rgs}
-        ra["XRAC"] = new_xrac
-    return ra
+def get_resource_allocation(ra, idx):
+    new_ra = OrderedDict()
+    for attrib in ["AllowedSchedds", "ResourceGroups", "Type"]:
+        if is_null(ra, attrib):
+            raise DataError(f"Missing ResourceAllocations[{idx}].{attrib}")
+    new_ra["AllowedSchedds"] = {"AllowedSchedd": ra["AllowedSchedds"]}
+
+    new_rgs = []
+    for rg in ra["ResourceGroups"]:
+        new_rg = OrderedDict()
+        new_rg["GroupName"] = rg["GroupName"]
+        new_rg["LocalAllocationID"] = rg["LocalAllocationID"]
+        new_rgs.append(new_rg)
+    new_ra["ResourceGroups"] = {"ResourceGroup": new_rgs}
+
+    new_ra["Type"] = ra["Type"]
+
+    return new_ra
 
 
 def get_one_project(file: str, campus_grid_ids: Dict, vos_data: VOsData) -> Dict:
     project = OrderedDict.fromkeys(["ID", "Name", "Description", "PIName", "Organization", "Department",
-                                    "FieldOfScience", "Sponsor", "ResourceAllocation"])
+                                    "FieldOfScience", "Sponsor", "ResourceAllocations"])
     data = None
     try:
         data = load_yaml_file(file)
@@ -62,8 +59,9 @@ def get_one_project(file: str, campus_grid_ids: Dict, vos_data: VOsData) -> Dict
             ID = vos_data.vos[name]['ID']
             data['Sponsor']['VirtualOrganization'] = OrderedDict([("ID", ID), ("Name", name)])
 
-        if 'ResourceAllocation' in data:
-            data['ResourceAllocation'] = get_resource_allocation(data)
+        if 'ResourceAllocations' in data:
+            resource_allocations = [get_resource_allocation(ra, idx) for ra, idx in enumerate(data['ResourceAllocations'])]
+            data['ResourceAllocations'] = {"ResourceAllocation": resource_allocations}
     except Exception as e:
         log.error("%r adding project %s", e, file)
         log.error("Data:\n%s", pprint.pformat(data))
