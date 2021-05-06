@@ -47,6 +47,7 @@
                     <xsd:element name="ResourceAllocation" minOccurs="0" maxOccurs="unbounded">
                       <xsd:complexType>
                         <xsd:sequence>
+                          <xsd:element name="Type" type="xsd:string"/>
                           <xsd:element name="AllowedSchedds">
                             <xsd:complexType>
                               <xsd:sequence>
@@ -68,7 +69,6 @@
                               </xsd:sequence>
                             </xsd:complexType>
                           </xsd:element>
-                          <xsd:element name="Type" type="xsd:string"/>
                         </xsd:sequence>
                       </xsd:complexType>
                     </xsd:element>

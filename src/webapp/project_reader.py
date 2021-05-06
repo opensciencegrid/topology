@@ -29,6 +29,9 @@ def get_resource_allocation(ra: Dict, idx: int) -> OrderedDict:
     for attrib in ["AllowedSchedds", "ResourceGroups", "Type"]:
         if is_null(ra, attrib):
             raise DataError(f"Missing ResourceAllocations[{idx}].{attrib}")
+
+    new_ra["Type"] = ra["Type"]
+
     new_ra["AllowedSchedds"] = {"AllowedSchedd": ra["AllowedSchedds"]}
 
     new_rgs = []
@@ -38,8 +41,6 @@ def get_resource_allocation(ra: Dict, idx: int) -> OrderedDict:
         new_rg["LocalAllocationID"] = rg["LocalAllocationID"]
         new_rgs.append(new_rg)
     new_ra["ResourceGroups"] = {"ResourceGroup": new_rgs}
-
-    new_ra["Type"] = ra["Type"]
 
     return new_ra
 

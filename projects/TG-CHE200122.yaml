@@ -27,7 +27,8 @@ Sponsor:
     Name: OSG-XSEDE
 
 ResourceAllocations:
-  - AllowedSchedds:
+  - Type: XRAC
+    AllowedSchedds:
       - CHTC-XD-SUBMIT
     ResourceGroups:
       - GroupName: SDSC-Expanse
@@ -35,4 +36,3 @@ ResourceAllocations:
       # Bridges2
       - GroupName: PSC-HPC
         LocalAllocationID: "che200052p"
-    Type: XRAC
