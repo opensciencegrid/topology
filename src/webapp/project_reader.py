@@ -24,7 +24,7 @@ log = logging.getLogger(__name__)
 class DataError(Exception): pass
 
 
-def get_resource_allocation(ra, idx):
+def get_resource_allocation(ra: Dict, idx: int) -> OrderedDict:
     new_ra = OrderedDict()
     for attrib in ["AllowedSchedds", "ResourceGroups", "Type"]:
         if is_null(ra, attrib):
@@ -60,7 +60,7 @@ def get_one_project(file: str, campus_grid_ids: Dict, vos_data: VOsData) -> Dict
             data['Sponsor']['VirtualOrganization'] = OrderedDict([("ID", ID), ("Name", name)])
 
         if 'ResourceAllocations' in data:
-            resource_allocations = [get_resource_allocation(ra, idx) for ra, idx in enumerate(data['ResourceAllocations'])]
+            resource_allocations = [get_resource_allocation(ra, idx) for idx, ra in enumerate(data['ResourceAllocations'])]
             data['ResourceAllocations'] = {"ResourceAllocation": resource_allocations}
     except Exception as e:
         log.error("%r adding project %s", e, file)
