@@ -40,9 +40,9 @@ class Validation:
     def validate_project_file(self, project_filename: str) -> List[str]:
         """Validate one project file, returning a list of error messages for problems found with that file.
 
-        Current validations are for XRAC:
-        1. Check XRAC ResourceGroups are in the topology tree
-        2. Check XRAC AllowedSchedds are Resources with "Submit Node" services
+        Current validations are for ResourceAllocations:
+        1. Check ResourceGroups are in the topology tree
+        2. Check AllowedSchedds are Resources with "Submit Node" services
 
         """
         project_filebn = os.path.basename(project_filename)
@@ -55,36 +55,36 @@ class Validation:
 
         errors = []
 
-        if not is_null(project, "ResourceAllocation", "XRAC"):
-            xrac = project["ResourceAllocation"]["XRAC"]
+        if not is_null(project, "ResourceAllocations", "ResourceAllocation"):
+            for resource_allocation in project["ResourceAllocations"]["ResourceAllocation"]:
 
-            # Check 1
-            if not is_null(xrac, "ResourceGroups", "ResourceGroup"):
-                project_rgs = xrac["ResourceGroups"]["ResourceGroup"]
-                project_rg_names = [x["Name"] for x in project_rgs]
+                # Check 1
+                if not is_null(resource_allocation, "ResourceGroups", "ResourceGroup"):
+                    project_rgs = resource_allocation["ResourceGroups"]["ResourceGroup"]
+                    project_rg_names = [x["GroupName"] for x in project_rgs]
 
-                for rg in project_rg_names:
-                    if rg not in self.resource_group_names:
-                        errors.append(
-                            "%s: ResourceGroup '%s' not found in topology"
-                            % (project_filebn, rg)
-                        )
+                    for rg in project_rg_names:
+                        if rg not in self.resource_group_names:
+                            errors.append(
+                                "%s: ResourceGroup '%s' not found in topology"
+                                % (project_filebn, rg)
+                            )
 
-            # Check 2
-            if not is_null(xrac, "AllowedSchedds", "AllowedSchedd"):
-                project_schedd_names = xrac["AllowedSchedds"]["AllowedSchedd"]
-                for sn in project_schedd_names:
-                    resource = self._get_resource_by_name(sn)
-                    if not resource:
-                        errors.append(
-                            "%s: AllowedSchedd '%s' not found in topology"
-                            % (project_filebn, sn)
-                        )
-                    elif "Submit Node" not in resource.service_names:
-                        errors.append(
-                            "%s: AllowedSchedd '%s' does not provide a Submit Node"
-                            % (project_filebn, sn)
-                        )
+                # Check 2
+                if not is_null(resource_allocation, "AllowedSchedds", "AllowedSchedd"):
+                    project_schedd_names = resource_allocation["AllowedSchedds"]["AllowedSchedd"]
+                    for sn in project_schedd_names:
+                        resource = self._get_resource_by_name(sn)
+                        if not resource:
+                            errors.append(
+                                "%s: AllowedSchedd '%s' not found in topology"
+                                % (project_filebn, sn)
+                            )
+                        elif "Submit Node" not in resource.service_names:
+                            errors.append(
+                                "%s: AllowedSchedd '%s' does not provide a Submit Node"
+                                % (project_filebn, sn)
+                            )
 
         return errors
 
