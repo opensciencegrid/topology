@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-A script to generate a SciTokens config for a StashCache cache in the OSG
+A script to generate a SciTokens config for a StashCache origin in the OSG
 """
 import argparse
 import os
@@ -15,8 +15,8 @@ if __name__ == "__main__" and __package__ is None:
 import webapp.models
 import stashcache
 
-parser = argparse.ArgumentParser(description="Generate a SciTokens config for a StashCache cache server.")
-parser.add_argument("fqdn", metavar="Cache_FQDN", help="FQDN of the cache for config generation.")
+parser = argparse.ArgumentParser(description="Generate a SciTokens config for a StashCache origin server.")
+parser.add_argument("fqdn", metavar="Cache_FQDN", help="FQDN of the origin for config generation.")
 
 args = parser.parse_args()
 
@@ -25,8 +25,8 @@ global_data = webapp.models.GlobalData()
 vodata = global_data.get_vos_data()
 resource_groups = global_data.get_topology().get_resource_group_list()
 
-cache_scitokens = stashcache.generate_origin_scitokens(vodata,
+origin_scitokens = stashcache.generate_origin_scitokens(vodata,
                                                       resource_groups,
                                                       fqdn=args.fqdn,
                                                       suppress_errors=False)
-print(cache_scitokens, end="")  # config already has trailing newline
+print(origin_scitokens, end="")  # config already has trailing newline

@@ -819,3 +819,58 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 839685848
+  Description: Host certficate is expired
+  Severity: Outage
+  StartTime: Apr 20, 2021 23:00 +0000
+  EndTime: Apr 21, 2021 16:00 +0000
+  CreatedTime: Apr 21, 2021 01:29 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 839686211
+  Description: Host certficate is expired
+  Severity: Outage
+  StartTime: Apr 20, 2021 23:00 +0000
+  EndTime: Apr 21, 2021 16:00 +0000
+  CreatedTime: Apr 21, 2021 01:30 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 839686531
+  Description: Host certficate is expired
+  Severity: Outage
+  StartTime: Apr 20, 2021 23:00 +0000
+  EndTime: Apr 21, 2021 16:00 +0000
+  CreatedTime: Apr 21, 2021 01:30 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 839686703
+  Description: Host certficate is expired
+  Severity: Outage
+  StartTime: Apr 20, 2021 23:00 +0000
+  EndTime: Apr 21, 2021 16:00 +0000
+  CreatedTime: Apr 21, 2021 01:31 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 839686858
+  Description: Host certficate is expired
+  Severity: Outage
+  StartTime: Apr 20, 2021 23:00 +0000
+  EndTime: Apr 21, 2021 16:00 +0000
+  CreatedTime: Apr 21, 2021 01:31 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
