@@ -3,7 +3,7 @@
 import glob
 import os
 import sys
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set
 
 _topdir = os.path.abspath(os.path.dirname(__file__) + "/../..")
 sys.path.append(_topdir + "/src")
@@ -18,7 +18,7 @@ from webapp import project_reader
 class Validation:
     global_data: GlobalData
     resource_groups: List[ResourceGroup]
-    resource_group_names: List[str]
+    resource_group_names: Set[str]
     vos_data: VOsData
     campus_grid_ids: Dict[str, int]
     project_filenames: List[str]
@@ -31,7 +31,7 @@ class Validation:
         """
         self.global_data = GlobalData(config={"TOPOLOGY_DATA_DIR": topdir}, strict=True)
         self.resource_groups = self.global_data.get_topology().get_resource_group_list()
-        self.resource_group_names = [x.name for x in self.resource_groups]
+        self.resource_group_names = {x.name for x in self.resource_groups}
         self.vos_data = self.global_data.get_vos_data()
         projects_dir = self.global_data.projects_dir
         self.campus_grid_ids = project_reader.get_campus_grid_ids(projects_dir)
@@ -61,14 +61,12 @@ class Validation:
                 # Check 1
                 if not is_null(resource_allocation, "ResourceGroups", "ResourceGroup"):
                     project_rgs = resource_allocation["ResourceGroups"]["ResourceGroup"]
-                    project_rg_names = [x["GroupName"] for x in project_rgs]
+                    project_rg_names = {x["GroupName"] for x in project_rgs}
 
-                    for rg in project_rg_names:
-                        if rg not in self.resource_group_names:
-                            errors.append(
-                                "%s: ResourceGroup '%s' not found in topology"
-                                % (project_filebn, rg)
-                            )
+                    errors.extend([
+                        f"{project_filebn}: ResourceGroup '{missing}' not found in topology"
+                        for missing in (project_rg_names - self.resource_group_names)
+                    ])
 
                 # Check 2
                 if not is_null(resource_allocation, "AllowedSchedds", "AllowedSchedd"):
