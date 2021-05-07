@@ -28,9 +28,9 @@ Sponsor:
 
 ResourceAllocations:
   - Type: XRAC
-    AllowedSchedds:
+    SubmitResources:
       - CHTC-XD-SUBMIT
-    ResourceGroups:
+    ExecuteResourceGroups:
       - GroupName: SDSC-Expanse
         LocalAllocationID: "cwr109"
       # Bridges2

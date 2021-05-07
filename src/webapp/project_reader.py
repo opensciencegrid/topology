@@ -26,21 +26,21 @@ class DataError(Exception): pass
 
 def get_resource_allocation(ra: Dict, idx: int) -> OrderedDict:
     new_ra = OrderedDict()
-    for attrib in ["AllowedSchedds", "ResourceGroups", "Type"]:
+    for attrib in ["SubmitResources", "ExecuteResourceGroups", "Type"]:
         if is_null(ra, attrib):
             raise DataError(f"Missing ResourceAllocations[{idx}].{attrib}")
 
     new_ra["Type"] = ra["Type"]
 
-    new_ra["AllowedSchedds"] = {"AllowedSchedd": ra["AllowedSchedds"]}
+    new_ra["SubmitResources"] = {"SubmitResource": ra["SubmitResources"]}
 
-    new_rgs = []
-    for rg in ra["ResourceGroups"]:
-        new_rg = OrderedDict()
-        new_rg["GroupName"] = rg["GroupName"]
-        new_rg["LocalAllocationID"] = rg["LocalAllocationID"]
-        new_rgs.append(new_rg)
-    new_ra["ResourceGroups"] = {"ResourceGroup": new_rgs}
+    new_ergs = []
+    for erg in ra["ExecuteResourceGroups"]:
+        new_erg = OrderedDict()
+        new_erg["GroupName"] = erg["GroupName"]
+        new_erg["LocalAllocationID"] = erg["LocalAllocationID"]
+        new_ergs.append(new_erg)
+    new_ra["ExecuteResourceGroups"] = {"ExecuteResourceGroup": new_ergs}
 
     return new_ra
 

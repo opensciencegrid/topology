@@ -59,28 +59,28 @@ class Validation:
             for resource_allocation in project["ResourceAllocations"]["ResourceAllocation"]:
 
                 # Check 1
-                if not is_null(resource_allocation, "ResourceGroups", "ResourceGroup"):
-                    project_rgs = resource_allocation["ResourceGroups"]["ResourceGroup"]
-                    project_rg_names = {x["GroupName"] for x in project_rgs}
+                if not is_null(resource_allocation, "ExecuteResourceGroups", "ExecuteResourceGroup"):
+                    project_ergs = resource_allocation["ExecuteResourceGroups"]["ExecuteResourceGroup"]
+                    project_erg_names = {x["GroupName"] for x in project_ergs}
 
                     errors.extend([
-                        f"{project_filebn}: ResourceGroup '{missing}' not found in topology"
-                        for missing in (project_rg_names - self.resource_group_names)
+                        f"{project_filebn}: ExecuteResourceGroup '{missing}' not found in topology"
+                        for missing in (project_erg_names - self.resource_group_names)
                     ])
 
                 # Check 2
-                if not is_null(resource_allocation, "AllowedSchedds", "AllowedSchedd"):
-                    project_schedd_names = resource_allocation["AllowedSchedds"]["AllowedSchedd"]
+                if not is_null(resource_allocation, "SubmitResources", "SubmitResource"):
+                    project_schedd_names = resource_allocation["SubmitResources"]["SubmitResource"]
                     for sn in project_schedd_names:
                         resource = self._get_resource_by_name(sn)
                         if not resource:
                             errors.append(
-                                "%s: AllowedSchedd '%s' not found in topology"
+                                "%s: SubmitResource '%s' not found in topology"
                                 % (project_filebn, sn)
                             )
                         elif "Submit Node" not in resource.service_names:
                             errors.append(
-                                "%s: AllowedSchedd '%s' does not provide a Submit Node"
+                                "%s: SubmitResource '%s' does not provide a Submit Node"
                                 % (project_filebn, sn)
                             )
 

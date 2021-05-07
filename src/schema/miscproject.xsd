@@ -48,17 +48,17 @@
                       <xsd:complexType>
                         <xsd:sequence>
                           <xsd:element name="Type" type="xsd:string"/>
-                          <xsd:element name="AllowedSchedds">
+                          <xsd:element name="SubmitResources">
                             <xsd:complexType>
                               <xsd:sequence>
-                                <xsd:element name="AllowedSchedd" type="xsd:string" maxOccurs="unbounded"/>
+                                <xsd:element name="SubmitResource" type="xsd:string" maxOccurs="unbounded"/>
                               </xsd:sequence>
                             </xsd:complexType>
                           </xsd:element>
-                          <xsd:element name="ResourceGroups">
+                          <xsd:element name="ExecuteResourceGroups">
                             <xsd:complexType>
                               <xsd:sequence>
-                                <xsd:element name="ResourceGroup" maxOccurs="unbounded">
+                                <xsd:element name="ExecuteResourceGroup" maxOccurs="unbounded">
                                   <xsd:complexType>
                                     <xsd:sequence>
                                       <xsd:element name="GroupName" type="xsd:string"/>
