@@ -17,8 +17,8 @@ Resources:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
           Name: Justas Balcas
         Secondary:
-          ID: 646d38b93b70c6322c555a70f3bc69c6cbc5a9eb
-          Name: Michael Thomas
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -622,4 +622,82 @@ Resources:
         Details:
           hidden: false
           uri_override: xrootd.ultralight.org:1094
+  CIT_CMS_SE_Ceph:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+      Resource Report Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+    Description: LVS load balancer at US CMS Tier-2 site Caltech.
+    FQDN: transfer-lb.ultralight.org
+    ID: 1154
+    Services:
+      GridFtp:
+        Description: GridFTP Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Caltech
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 100
+      StorageCapacityMin: 1000
+  CIT_CMS_T2_XRD_Ceph:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+      Resource Report Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+    Description: Xrootd Redirector
+    FQDN: xrootd-redir.ultralight.org
+    ID: 1155
+    Services:
+      XRootD component:
+        Description: Xrootd Redirector for Ceph
+        Details:
+          hidden: false
+          uri_override: xrootd-redir.ultralight.org:1094
 SupportCenter: USCMS_Tier2
