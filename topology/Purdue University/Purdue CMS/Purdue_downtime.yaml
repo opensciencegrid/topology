@@ -932,3 +932,25 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 856777412
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 10, 2021 20:15 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 856779944
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 10, 2021 20:19 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
