@@ -10,3 +10,11 @@ ID: '758'
 Sponsor:
   CampusGrid:
     Name: OSG Connect
+
+ResourceAllocations:
+  - Type: Other
+    SubmitResources:
+      - CHTC-ITB-submit0000
+    ExecuteResourceGroups:
+      - GroupName: CHTC-ITB
+        LocalAllocationID: "glow"
