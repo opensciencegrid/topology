@@ -26,13 +26,13 @@ Sponsor:
   CampusGrid:
     Name: OSG-XSEDE
 
-ResourceAllocation:
-  XRAC:
-    AllowedSchedds:
+ResourceAllocations:
+  - Type: XRAC
+    SubmitResources:
       - CHTC-XD-SUBMIT
-    ResourceGroups:
-      - Name: SDSC-Expanse
+    ExecuteResourceGroups:
+      - GroupName: SDSC-Expanse
         LocalAllocationID: "cwr109"
-      # Bridges2:
-      - Name: PSC-HPC
+      # Bridges2
+      - GroupName: PSC-HPC
         LocalAllocationID: "che200052p"
