@@ -36,3 +36,9 @@ ResourceAllocations:
       # Bridges2
       - GroupName: PSC-HPC
         LocalAllocationID: "che200052p"
+  - Type: Other
+    SubmitResources:
+      - CHTC-XD-SUBMIT
+    ExecuteResourceGroups:
+      - GroupName: TACC-Frontera
+        LocalAllocationID: "CHE20009"
