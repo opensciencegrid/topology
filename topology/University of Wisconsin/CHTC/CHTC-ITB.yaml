@@ -162,6 +162,9 @@ Resources:
         Secondary:
           ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
           Name: Brian Lin
+        Tertiary:
+          ID: 606b797dcc03cad7135b7cc61b78fbc15eea7ec8
+          Name: Carl Edquist
       Security Contact:
         Primary:
           ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
@@ -176,5 +179,33 @@ Resources:
     Services:
       CE:
         Description: Hosted Compute Entrypoint
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-ITB-submittest0000:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+      Security Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+    Description: CHTC Testing Submit Node
+    FQDN: submittest0000.chtc.wisc.edu
+    ID: 1156
+    Services:
+      Submit Node:
+        Description: GLOW VO Submission Node
+        Details:
+          hidden: false
     VOOwnership:
       GLOW: 100

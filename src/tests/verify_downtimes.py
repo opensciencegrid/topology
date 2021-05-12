@@ -54,8 +54,8 @@ def validate_downtime_file(dt_fname):
             dt_start = topology.Downtime.parsetime(downtime['StartTime'])
             dt_end   = topology.Downtime.parsetime(downtime['EndTime'])
 
-            if dt_start >= dt_end:
-                add_err("StartTime does not precede EndTime: '%s' -> '%s'" %
+            if dt_start > dt_end:
+                add_err("StartTime is after EndTime: '%s' -> '%s'" %
                         (downtime['StartTime'], downtime['EndTime']))
 
         except ValueError as e:
