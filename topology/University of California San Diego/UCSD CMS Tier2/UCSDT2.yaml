@@ -214,6 +214,45 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
+  UCSDT2-Cloud:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+        Secondary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+      Security Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+        Secondary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+    Description: US CMS Tier-2 Cloud resources
+    FQDN: cms-cloud-ce.t2.ucsd.edu
+    ID: 1153
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cms-cloud-ce.t2.ucsd.edu
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.64
+      AccountingName: T2_US_UCSD
+      HEPSPEC: 155247
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
   UCSDT2-SE1:
     Active: true
     ContactLists:

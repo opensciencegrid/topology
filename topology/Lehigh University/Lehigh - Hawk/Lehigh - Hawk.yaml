@@ -28,7 +28,9 @@ Resources:
     FQDN: osg-hawk-ce.cc.lehigh.edu
     Services:
       CE: 
-        Description: Lehigh hosted CE
+        Description: Lehigh CE
+    Tags:
+      - CC*
   LEHIGH-HAWK-FRONTIER-SQUID:
     Active: true
     Description: CNAME DNS alias for our one Frontier Squid nodes.
