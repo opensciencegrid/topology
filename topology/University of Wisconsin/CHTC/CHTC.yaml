@@ -642,7 +642,7 @@ Resources:
     VOOwnership:
       GLOW: 100
 
-  CHTC-SLURM-CE:
+  CHTC-canary2:
     Active: false
     ContactLists:
       Administrative Contact:
@@ -663,8 +663,8 @@ Resources:
           ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
           Name: Brian Lin
     Description: Hosted CE that submits to a CHTC SLURM submit node, used for testing hosted CE containers
-    DN: /CN=slurm-ce.osg.chtc.io
-    FQDN: slurm-ce.osg.chtc.io
+    DN: /CN=canary2.osg.chtc.io
+    FQDN: canary2.osg.chtc.io
     ID: 1166
     Services:
       CE:
