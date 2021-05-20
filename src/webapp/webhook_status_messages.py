@@ -114,6 +114,19 @@ ci_failure = (
     "-- OSG-BOT  :disappointed:"
 )
 
+ci_action_required = (
+    "Greetings @{sender},\n"
+    "\n"
+    "Thank you for your pull request!\n"
+    "\n"
+    "Your downtime update looks clean; but OSG Staff must authorize"
+    " our CI checks for first-time contributors.\n"
+    "\n"
+    "OSG Staff: Please review.\n"
+    "\n"
+    "-- OSG-BOT  :lock:"
+)
+
 merge_success = (
     "Greetings @{sender}!\n"
     "\n"
