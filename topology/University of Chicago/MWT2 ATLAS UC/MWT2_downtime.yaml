@@ -1079,3 +1079,14 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 865422148
+  Description: Cooling failure in data center
+  Severity: Outage
+  StartTime: May 20, 2021 20:15 +0000
+  EndTime: May 21, 2021 20:00 +0000
+  CreatedTime: May 20, 2021 20:23 +0000
+  ResourceName: MWT2_CE_UC
+  Services:
+  - CE
+# ---------------------------------------------------------
