@@ -954,3 +954,69 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 857656874
+  Description: Planned cluster maintenance.
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 11, 2021 20:41 +0000
+  ResourceName: Purdue-Hammer-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 857657743
+  Description: Planned cluster maintenance.
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 11, 2021 20:42 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 857657987
+  Description: Planned cluster maintenance.
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 11, 2021 20:43 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 857658223
+  Description: Planned cluster maintenance.
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 11, 2021 20:43 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 857658586
+  Description: Planned cluster maintenance.
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 11, 2021 20:44 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 857658785
+  Description: Planned cluster maintenance.
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 11, 2021 20:44 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------

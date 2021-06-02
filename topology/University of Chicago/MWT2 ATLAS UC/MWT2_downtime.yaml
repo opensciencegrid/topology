@@ -1068,3 +1068,25 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 865419928
+  Description: Server room cooling failure
+  Severity: Outage
+  StartTime: May 20, 2021 20:15 +0000
+  EndTime: May 21, 2021 15:45 +0000
+  CreatedTime: May 20, 2021 20:19 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 865422148
+  Description: Cooling failure in data center
+  Severity: Outage
+  StartTime: May 20, 2021 20:15 +0000
+  EndTime: May 21, 2021 15:45 +0000
+  CreatedTime: May 20, 2021 20:23 +0000
+  ResourceName: MWT2_CE_UC
+  Services:
+  - CE
+# ---------------------------------------------------------
