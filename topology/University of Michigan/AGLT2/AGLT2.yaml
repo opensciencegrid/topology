@@ -172,8 +172,12 @@ Resources:
     FQDN: head01.aglt2.org
     ID: 175
     Services:
-      GridFtp:
+      SRMv2:
         Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+      WebDAV:
+        Description: HTTP-TPC WebDAV service
         Details:
           hidden: false
     VOOwnership:
