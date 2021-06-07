@@ -865,3 +865,47 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 880780788
+  Description: server room recabling
+  Severity: Outage
+  StartTime: Jun 14, 2021 05:00 +0000
+  EndTime: Jun 18, 2021 23:00 +0000
+  CreatedTime: Jun 07, 2021 15:01 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 880781799
+  Description: server room recabling
+  Severity: Outage
+  StartTime: Jun 14, 2021 05:00 +0000
+  EndTime: Jun 18, 2021 23:00 +0000
+  CreatedTime: Jun 07, 2021 15:02 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 880782432
+  Description: server room recabling
+  Severity: Outage
+  StartTime: Jun 14, 2021 05:00 +0000
+  EndTime: Jun 18, 2021 23:00 +0000
+  CreatedTime: Jun 07, 2021 15:04 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 880782768
+  Description: server room recabling
+  Severity: Outage
+  StartTime: Jun 14, 2021 05:00 +0000
+  EndTime: Jun 18, 2021 23:00 +0000
+  CreatedTime: Jun 07, 2021 15:04 +0000
+  ResourceName: AGLT2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
