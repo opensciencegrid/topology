@@ -10,3 +10,14 @@ ID: '776'
 Sponsor:
   CampusGrid:
     Name: OSG Connect
+
+ResourceAllocations:
+  - Type: Other
+    SubmitResources:
+      - CHTC-XD-SUBMIT
+      # ^^ for testing
+      # TODO: get the osg-connect submit host(s) registered
+    ExecuteResourceGroups:
+      - GroupName: Stampede2
+        LocalAllocationID: "GravSearches"
+
