@@ -1,0 +1,75 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: Resources associated with the OSG Connect infrastructure
+
+GroupID: 1122
+
+Resources:
+  UChicago_OSGConnect_login04:
+    Active: true
+    Description: The login04.osgconnect.net login node for the OSG Open Pool
+    ID: 1173
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+        Secondary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      Security Contact:
+        Primary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+        Secondary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+    FQDN: login04.osgconnect.net
+
+    Services:
+      Submit Node:
+        Description: OSG Connect submit node
+
+
+  UChicago_OSGConnect_login05:
+    Active: true
+    Description: The login05.osgconnect.net login node for the OSG Open Pool
+    ID: 1174
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+        Secondary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      Security Contact:
+        Primary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+        Secondary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+    FQDN: login05.osgconnect.net
+
+    Services:
+      Submit Node:
+        Description: OSG Connect submit node
+
