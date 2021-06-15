@@ -1037,3 +1037,25 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 887554819
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Jun 15, 2021 11:11 +0000
+  EndTime: Jun 15, 2021 21:00 +0000
+  CreatedTime: Jun 15, 2021 11:11 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 887557066
+  Description: Network connectivity loss
+  Severity: Outage
+  StartTime: Jun 15, 2021 11:11 +0000
+  EndTime: Jun 15, 2021 21:00 +0000
+  CreatedTime: Jun 15, 2021 11:15 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
