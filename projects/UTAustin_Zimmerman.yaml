@@ -16,7 +16,8 @@ ResourceAllocations:
     SubmitResources:
       - CHTC-XD-SUBMIT
       # ^^ for testing
-      # TODO: get the osg-connect submit host(s) registered
+      - UChicago_OSGConnect_login04
+      - UChicago_OSGConnect_login05
     ExecuteResourceGroups:
       - GroupName: Stampede2
         LocalAllocationID: "GravSearches"
