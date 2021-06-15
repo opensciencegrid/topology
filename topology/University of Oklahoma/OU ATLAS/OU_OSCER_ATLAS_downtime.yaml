@@ -457,3 +457,27 @@
   - GridFtp
   - XRootD component
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 887941559
+  Description: xrootd storage upgrade
+  Severity: Outage
+  StartTime: Jun 15, 2021 20:30 +0000
+  EndTime: Jun 16, 2021 23:00 +0000
+  CreatedTime: Jun 15, 2021 21:55 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 887942805
+  Description: xrootd storage upgrade
+  Severity: Outage
+  StartTime: Jun 15, 2021 20:30 +0000
+  EndTime: Jun 16, 2021 23:00 +0000
+  CreatedTime: Jun 15, 2021 21:58 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD component
+# ---------------------------------------------------------
