@@ -671,5 +671,31 @@ Resources:
         Description: Hosted Compute Entrypoint
     VOOwnership:
       GLOW: 100
+      
+  CHTC_CVMFS_EXCLUSIVE_SQUID_B240:
+    Active: true
+    Description: CVMFS-exclusive squid cache located at B240
+    ID: 1175
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+      Security Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Secondary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+    FQDN: cvmfssquid1000.chtc.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      GLOW: 100
 
 SupportCenter: GLOW-TECH
