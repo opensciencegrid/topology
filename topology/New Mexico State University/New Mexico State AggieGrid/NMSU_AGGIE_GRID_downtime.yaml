@@ -1,0 +1,20 @@
+- Class: SCHEDULED
+  ID: 727476720
+  Description: Biannual downtime for hardware and software upgrades.
+  Severity: Outage
+  StartTime: Dec 14, 2020 07:00 +0000
+  EndTime: Dec 28, 2020 23:59 +0000
+  CreatedTime: Dec 11, 2020 22:34 +0000
+  ResourceName: SLATE_US_NMSU_AGGIE_GRID
+  Services:
+    - CE
+- Class: UNSCHEDULED
+  ID: 866360155
+  Description: Administration issue which requires software upgrades/reconfiguration
+  Severity: Outage
+  StartTime: May 18, 2021 00:00 +0000
+  EndTime: Jun 04, 2021 23:59 +0000
+  CreatedTime: May 21, 2021 22:26 +0000
+  ResourceName: SLATE_US_NMSU_AGGIE_GRID
+  Services:
+    - CE

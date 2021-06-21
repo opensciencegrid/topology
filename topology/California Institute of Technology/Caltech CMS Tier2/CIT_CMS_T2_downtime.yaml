@@ -1360,3 +1360,233 @@
   Services:
     - CE
 
+# --------------------------------------------------------
+# Power Maitenance in Lauritsen building
+
+- Class: SCHEDULED
+  ID: 766089753
+  Description:  Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 766089754
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 766089755
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 766089756
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 766089757
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 766089758
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 766089759
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+# --------------------------------------------------------
+# Moving from Private network namespace to Public (IPv4/IPv6)
+- Class: SCHEDULED
+  ID: 826272921
+  Description: Testing Collector/CE/StartDs under public net namespace
+  Severity: Outage
+  StartTime: Apr 08, 2021 00:00 -0700
+  EndTime: Apr 16, 2021 00:00 -0700
+  CreatedTime: Apr 06, 2021 09:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+# --------------------------------------------------------
+# Migration service containers to the new infrastructure
+- Class: SCHEDULED
+  ID: 828282345
+  Description: Migration service containers to the new infrastructure
+  Severity: Outage
+  StartTime: Apr 14, 2021 08:00 -0700
+  EndTime: Apr 14, 2021 17:00 -0700
+  CreatedTime: Apr 12, 2021 12:00 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 828282346
+  Description: Migration service containers to the new infrastructure
+  Severity: Outage
+  StartTime: Apr 14, 2021 08:00 -0700
+  EndTime: Apr 14, 2021 17:00 -0700
+  CreatedTime: Apr 12, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 828282347
+  Description: Migration service containers to the new infrastructure
+  Severity: Outage
+  StartTime: Apr 14, 2021 08:00 -0700
+  EndTime: Apr 14, 2021 17:00 -0700
+  CreatedTime: Apr 12, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+# --------------------------------------------------------
+# Fiber cut NOC-650123
+
+- Class: UNSCHEDULED
+  ID: 866360156
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: UNSCHEDULED
+  ID: 866360157
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 866360158
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 866360159
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 866360160
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 866360161
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 866360162
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: UNSCHEDULED
+  ID: 866360163
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: UNSCHEDULED
+  ID: 866360164
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component

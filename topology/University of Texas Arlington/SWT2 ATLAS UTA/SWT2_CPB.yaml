@@ -116,11 +116,11 @@ Resources:
         Secondary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
-    FQDN: gk03.atlas-swt2.org
+    FQDN: gridftp.atlas-swt2.org
     ID: 191
     Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
+      GridFtp:
+        Description: GrdFTP endpoint
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -165,6 +165,40 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       ATLAS: 100
+  SWT2_CPB_SLATE_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
+          Name: Patrick McGuigan
+        Secondary:
+          ID: 85358c47f16fad2a915da157353581016788a30a
+          Name: Mark Sosebee
+      Resource Report Contact:
+        Primary:
+          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
+          Name: Patrick McGuigan
+        Secondary:
+          ID: 85358c47f16fad2a915da157353581016788a30a
+          Name: Mark Sosebee
+      Security Contact:
+        Primary:
+          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
+          Name: Patrick McGuigan
+        Secondary:
+          ID: 85358c47f16fad2a915da157353581016788a30a
+          Name: Mark Sosebee
+    Description: Frontier/CVMFS SLATE based squid service
+    FQDN: slate01.atlas-swt2.org
+    ID: 1129
+    Services:
+      Squid:
+        Description: Generic squid service
+        Monitored: true
+    VOOwnership:
+      ATLAS: 100      
+      
   SWT2_CPB_perfSONAR_bandwidth:
     Active: true
     ContactLists:

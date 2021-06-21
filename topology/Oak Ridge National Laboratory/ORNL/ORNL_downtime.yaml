@@ -1,13 +1,11 @@
 - Class: SCHEDULED
-  ID: 635719840
-  Description: 'Network outage affecting ORNL::CE to accommodate installation of new
-    ALICE 100G core switch and making various connections between recently relocated
-    rack switches, new uplinks, etc. Vobox, CE nodes and related VMs will be unreachable
-    during this time. '
-  Severity: Outage
-  StartTime: Sep 03, 2020 13:00 +0000
-  EndTime: Sep 03, 2020 21:00 +0000
-  CreatedTime: Aug 27, 2020 18:46 +0000
+  ID: 850660705
+  Description: 'Facility installation of additional power to data center pod and PDU
+    which also services ALICE resources. '
+  Severity: Intermittent Outage
+  StartTime: May 04, 2021 14:00 +0000
+  EndTime: May 04, 2021 18:00 +0000
+  CreatedTime: May 03, 2021 18:21 +0000
   ResourceName: ORNL_ALICE
   Services:
   - CE

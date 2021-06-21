@@ -1,11 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
 A simple tool for generating notification emails to the OSG
 """
-from __future__ import print_function
-
 import os
 import sys
 import getpass
@@ -16,10 +14,6 @@ import email.mime.text
 import email.mime.multipart
 
 import gnupg
-
-
-if not hasattr(__builtins__, "raw_input"):  # py3
-    raw_input = __builtins__.input
 
 
 if __name__ == "__main__" and __package__ is None:
@@ -84,15 +78,15 @@ def generateFullMessage(subject, to, from_name, from_addr, message, sign=True, k
     else:
         basemsg['Subject'] = subject
         basemsg['Bcc'] = ", ".join(to)
-        msg['To'] = '"%s" <%s>' % (to_name, to_addr)
-        msg['From'] = '"%s" <%s>' % (from_name, from_addr)
+        basemsg['To'] = '"%s" <%s>' % (to_name, to_addr)
+        basemsg['From'] = '"%s" <%s>' % (from_name, from_addr)
         return basemsg.as_string(unixfrom=True)
 
 
 def parseargs():
     oparser = argparse.ArgumentParser()
-    oparser.add_argument("--host", dest="host", default="my.opensciencegrid.org",
-                         help="Remote topology host (default my.opensciencegrid.org)")
+    oparser.add_argument("--host", dest="host", default="topology.opensciencegrid.org",
+                         help="Remote topology host (default topology.opensciencegrid.org)")
     oparser.add_argument("--cert", dest="cert", help="Client certificate")
     oparser.add_argument("--key", dest="key", help="Client certificate private key")
     oparser.add_argument("--sign", dest="sign", default=True, action="store_true", help="Whether to sign with GPG")
@@ -203,8 +197,8 @@ def main():
                     emails.add(contact['Email'])
         recipients.update(emails)
 
-    with open(args.message, 'r') as fp:
-        contents = fp.read()
+    with open(args.message, 'rb') as fp:
+        contents = fp.read().decode('utf-8', errors='replace')
 
         # Replace smart quotes and em/en dashes
         contents = replace_smart_quotes_and_dashes(contents)
@@ -235,7 +229,7 @@ def main():
     elif network_ok(args.bypass_dns_check):
         for _ in range(1, 4):
             try:
-                verify_send = raw_input("Really send mail to {0} recipients? (y/N)".format(len(recipients)))
+                verify_send = input("Really send mail to {0} recipients? (y/N)".format(len(recipients)))
             except EOFError:
                 verify_send = 'n'
 

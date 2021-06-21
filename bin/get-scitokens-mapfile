@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Create a scitokens issuer -> unix user mapfile from topology data
+"""
+
+import os
+import re
+import sys
+
+if __name__ == "__main__" and __package__ is None:
+    _parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    sys.path.append(_parent + "/src")
+
+from webapp.common import is_null
+import webapp.models
+
+from argparse import ArgumentParser
+
+
+def main(argv):
+    parser = ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--outfile",
+        help="File to write; uses '-' (i.e. stdout) by default.",
+        default="-",
+    )
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Bail on invalid scitoken or on no scitokens info. "
+        "Otherwise just add a comment to the result.",
+    )
+    parser.add_argument(
+        "--regex",
+        action="store_true",
+        help="Use the regex format for issuer lines (HTCondor 9.0+)",
+    )
+
+    args = parser.parse_args(argv[1:])
+
+    mapfile = ""
+    all_vos_data = webapp.models.GlobalData().get_vos_data()
+    for vo_name, vo_data in all_vos_data.vos.items():
+        if is_null(vo_data, "Credentials", "TokenIssuers"):
+            continue
+        mapfile += f"# {vo_name}\n"
+        for token_issuer in vo_data["Credentials"]["TokenIssuers"]:
+            url = token_issuer.get("URL")
+            if url:
+                if args.regex:
+                    url = f'/^{re.escape(url)},/'
+                else:
+                    url = f'"{url}"'
+            unix_user = token_issuer.get("DefaultUnixUser")
+            if url and unix_user:
+                mapfile += f"SCITOKENS {url} {unix_user}\n"
+            else:
+                mapfile += f"# invalid SCITOKENS: {url or '<NO URL>'} {unix_user or '<NO UNIX USER>'}\n"
+                if args.strict:
+                    print(mapfile, file=sys.stderr)
+                    sys.exit("Invalid scitoken found in strict mode")
+    if not mapfile:
+        mapfile += "# No TokenIssuers found\n"
+        if args.strict:
+            sys.exit("No Credentials.TokenIssuers found in VO data in strict mode")
+
+    if args.outfile == "-":
+        outfh = sys.stdout
+    else:
+        try:
+            outfh = open(args.outfile, "w")
+        except OSError as err:
+            sys.exit("Couldn't write result: %s" % err)
+
+    print(mapfile, file=outfh)
+
+    if outfh != sys.stdout:
+        outfh.close()
+
+
+if __name__ == "__main__":
+    main(sys.argv)

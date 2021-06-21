@@ -15,6 +15,24 @@ dt_not_up_to_date = (
     "-- OSG-BOT  :broken_heart:"
 )
 
+unexpected_error = (
+    "OSG Staff:\n"
+    "\n"
+    "There was an unexpected error verifying this PR - please review.\n"
+    "\n"
+    "-- OSG-BOT  :boom:\n"
+    "\n"
+    "---\n"
+    "\n"
+    "Output from the automerge downtime check script:\n"
+    "```\n"
+    "{stdout}\n"
+    "```\n"
+    "```\n"
+    "{stderr}\n"
+    "```\n"
+)
+
 dt_not_all_checks_pass = (
     "Greetings @{sender},\n"
     "\n"
@@ -76,6 +94,7 @@ new_org_rejected = (
 
 automerge_status_messages = {
     RC.ALL_CHECKS_PASS:  dt_success,
+    RC.UNEXPECTED_ERROR: unexpected_error,
     RC.OUT_OF_DATE_ONLY: dt_not_up_to_date,
     RC.DT_MOD_ERRORS:    dt_not_all_checks_pass,
     RC.CONTACT_ERROR:    non_dt_contact_error,

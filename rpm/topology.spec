@@ -1,6 +1,6 @@
 Summary: Client tools for OSG Topology
 Name: topology-client
-Version: 1.1.0
+Version: 1.4.6
 Release: 1%{?dist}
 Source: topology-%{version}.tar.gz
 License: Apache 2.0
@@ -27,6 +27,12 @@ install -D -m 0644 src/topology_utils.py %{buildroot}/%{python_sitelib}/topology
 
 
 %changelog
+* Thu Mar 18 2021 Mátyás Selmeci <matyas@cs.wisc.edu> 1.4.6-1
+- Fix crash when writing unsigned messages (SOFTWARE-4538)
+
+* Wed Jan 27 2021 Brian Lin <blin@cs.wisc.edu> 1.2.0-1
+- Fix 'From' address for security announcements (SOFTWARE-4349)
+
 * Tue Dec 10 2019 Diego Davila <didavila@ucsd.edu> 1.1.0-1
 - Replace smart quotes and dashes with their ASCII equivalent (SOFTWARE-3893)
 

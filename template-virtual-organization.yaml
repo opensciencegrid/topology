@@ -14,7 +14,7 @@ CertificateOnly: false
 ID: <ID>
 
 # Contacts contain information about people to contact regarding this VO.
-# The "ID" is a hash of their email address available at https://my.opensciencegrid.org/miscuser/xml
+# The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
 # If you cannot find the contact in the above XML, please register the contact:
 # https://opensciencegrid.org/docs/common/registration/#registering-contacts
 Contacts:
@@ -41,6 +41,15 @@ Contacts:
   # - ID: <EMAIL HASH>
   #   Name: <FULL NAME>
   # - ...
+
+### Credentials (optional) define mappings of auth methods to Unix users for this VO
+# Credentials:
+##### TokenIssuers (optional) is a list of mappings for SciTokens issuers
+#   # TokenIssuers:
+#   ### URL is the https URL of your scitokens issuer, e.g. https://scitokens.org/<VO NAME>
+#   ### DefaultUnixUser is a username that jobs with tokens issued by this issuer should map to
+#   # - URL: <URL>
+#   #   DefaultUnixUser: <USER>
 
 FieldsOfScience:
 

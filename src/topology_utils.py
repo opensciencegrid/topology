@@ -3,16 +3,11 @@ Various helper utilities necessary for clients of the topology
 service.
 """
 
-from __future__ import print_function
-
 import os
 import sys
 import urllib
 import fnmatch
-try:
-    import urlparse
-except ImportError:
-    import urllib.parse as urlparse
+import urllib.parse as urlparse
 
 import xml.etree.ElementTree as ET
 
@@ -127,7 +122,7 @@ def get_vo_map(args, session=None):
     old_no_proxy = os.environ.pop('no_proxy', None)
     os.environ['no_proxy'] = '.opensciencegrid.org'
 
-    url = update_url_hostname("https://my.opensciencegrid.org/vosummary"
+    url = update_url_hostname("https://topology.opensciencegrid.org/vosummary"
                               "/xml?all_vos=on&active_value=1", args)
     if session is None:
         with get_auth_session(args) as session:
@@ -205,7 +200,7 @@ def mangle_url(url, args, session=None):
                     % (vo, ", ".join(vo_map)))
             qs_list.append(("voown_sel[]", str(vo_id)))
 
-    url_list[3] = urllib.urlencode(qs_list, doseq=True)
+    url_list[3] = urlparse.urlencode(qs_list, doseq=True)
 
     return urlparse.urlunsplit(url_list)
 
@@ -217,7 +212,7 @@ def get_contacts(args, urltype, roottype):
     old_no_proxy = os.environ.pop('no_proxy', None)
     os.environ['no_proxy'] = '.opensciencegrid.org'
 
-    base_url = "https://my.opensciencegrid.org/" + urltype + "summary/xml?" \
+    base_url = "https://topology.opensciencegrid.org/" + urltype + "summary/xml?" \
                "&active=on&active_value=1&disable=on&disable_value=0"
     with get_auth_session(args) as session:
         url = mangle_url(base_url, args, session)

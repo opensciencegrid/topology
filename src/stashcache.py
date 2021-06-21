@@ -2,7 +2,18 @@
 from collections import defaultdict
 from typing import Dict, List, Optional
 import re
-import ldap
+import sys
+try:
+    # TODO: Rewrite this module to use ldap3 which gets installed in rootless installs too.
+    import ldap
+except ModuleNotFoundError:
+    print("""\
+*** ldap module unavailable; this comes from "python-ldap" which is only in 
+    requirements-apache.txt since it requires the openldap header files 
+    (openldap-devel on EL) to install.  If the openldap header files are 
+    available, pip install python-ldap to make this error go away.
+""", file=sys.stderr)
+    raise
 ldap.set_option(ldap.OPT_TIMEOUT, 10)
 ldap.set_option(ldap.OPT_NETWORK_TIMEOUT, 10)
 import asn1
@@ -393,7 +404,7 @@ def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_group
     return origin_resource.name in allowed_origins
 
 
-def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True):
+def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True) -> List[Resource]:
     allowed_caches = stashcache_data.get("AllowedCaches")
     if allowed_caches is None:
         if suppress_errors:
@@ -461,7 +472,11 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
                 else:
                     raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
 
-            for resource in _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
+            allowed_resources = _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors)
+            origin_resource = _get_resource_by_fqdn(origin_hostname, resource_groups)
+            allowed_resources.append(origin_resource)
+
+            for resource in allowed_resources:
                 dn = resource.data.get("DN")
                 if not dn:
                     warnings.append("# WARNING: Resource {} was skipped for VO {}"
@@ -527,8 +542,14 @@ audience = {allowed_vos_str}
                                                                  dirname, suppress_errors))
                 allowed_vos.append(vo_name)
 
-
-
+    # Older plugin versions require at least one issuer block (SOFTWARE-4389)
+    if not issuer_blocks:
+        issuer_blocks.append(
+            _get_scitokens_issuer_block(vo_name="nonexistent",
+                                        scitokens={"Issuer": "https://scitokens.org/nonexistent",
+                                                   "Base Path": "/no-issuers-found"},
+                                        dirname="/no-issuers-found",
+                                        suppress_errors=suppress_errors))
     issuer_blocks_str = "\n".join(issuer_blocks)
     allowed_vos_str = ", ".join(allowed_vos)
 

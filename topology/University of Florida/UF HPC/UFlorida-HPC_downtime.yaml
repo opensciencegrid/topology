@@ -742,3 +742,135 @@
   Services:
   - XRootD component
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718704682
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:54 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718705165
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:55 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718705335
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:55 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718705534
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:55 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718705707
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:56 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718706265
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:57 +0000
+  ResourceName: UFlorida_squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 718706430
+  Description: The major power construction work in the Data Center
+  Severity: Outage
+  StartTime: Dec 23, 2020 14:00 +0000
+  EndTime: Jan 11, 2021 04:00 +0000
+  CreatedTime: Dec 01, 2020 18:57 +0000
+  ResourceName: UFlorida_squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 839685848
+  Description: Host certficate is expired
+  Severity: Outage
+  StartTime: Apr 20, 2021 23:00 +0000
+  EndTime: Apr 21, 2021 16:00 +0000
+  CreatedTime: Apr 21, 2021 01:29 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 839686211
+  Description: Host certficate is expired
+  Severity: Outage
+  StartTime: Apr 20, 2021 23:00 +0000
+  EndTime: Apr 21, 2021 16:00 +0000
+  CreatedTime: Apr 21, 2021 01:30 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 839686531
+  Description: Host certficate is expired
+  Severity: Outage
+  StartTime: Apr 20, 2021 23:00 +0000
+  EndTime: Apr 21, 2021 16:00 +0000
+  CreatedTime: Apr 21, 2021 01:30 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 839686703
+  Description: Host certficate is expired
+  Severity: Outage
+  StartTime: Apr 20, 2021 23:00 +0000
+  EndTime: Apr 21, 2021 16:00 +0000
+  CreatedTime: Apr 21, 2021 01:31 +0000
+  ResourceName: UFlorida-SLB-GridFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 839686858
+  Description: Host certficate is expired
+  Severity: Outage
+  StartTime: Apr 20, 2021 23:00 +0000
+  EndTime: Apr 21, 2021 16:00 +0000
+  CreatedTime: Apr 21, 2021 01:31 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------

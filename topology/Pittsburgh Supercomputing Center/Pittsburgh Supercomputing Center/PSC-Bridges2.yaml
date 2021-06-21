@@ -1,0 +1,166 @@
+Disable: false
+Production: true
+SupportCenter: Self Supported
+GroupID: 1112
+GroupDescription: The PSC-Bridges cluster
+Resources:
+  PSC-Bridges-CE1:
+    ID: 1138
+    Active: false
+    Description: The Hosted CE serving PSC-Bridges
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Derek Simmel
+          ID: b09adde15cb7818a3d1bdf27651327a9affde4b4
+        Secondary:
+          Name: Paola Buitrago
+          ID: 4f175bb6bc084ec118094c534627dba2ea316413
+    FQDN: hosted-ce13.opensciencegrid.org
+    Services:
+      CE:
+        Description: PSC-Bridges Hosted CE
+        Details:
+          hidden: false
+  PSC-Bridges2-CE1:
+    ID: 1139
+    Active: true
+    Description: The Hosted CE serving PSC-Bridges
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Derek Simmel
+          ID: b09adde15cb7818a3d1bdf27651327a9affde4b4
+        Secondary:
+          Name: Paola Buitrago
+          ID: 4f175bb6bc084ec118094c534627dba2ea316413
+    FQDN: psc-bridges2-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: PSC-Bridges Hosted CE
+        Details:
+          hidden: false
+  Bridges2:
+    ID: 1140
+    Active: false
+    Description: The Hosted CE serving PSC-Bridges
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Derek Simmel
+          ID: b09adde15cb7818a3d1bdf27651327a9affde4b4
+        Secondary:
+          Name: Paola Buitrago
+          ID: 4f175bb6bc084ec118094c534627dba2ea316413
+    FQDN: psc-bridges2-ce1-old.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: PSC-Bridges Hosted CE
+        Details:
+          hidden: false
+  PSC-Bridges2:
+    ID: 1141
+    Active: false
+    Description: The Hosted CE serving PSC-Bridges
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Derek Simmel
+          ID: b09adde15cb7818a3d1bdf27651327a9affde4b4
+        Secondary:
+          Name: Paola Buitrago
+          ID: 4f175bb6bc084ec118094c534627dba2ea316413
+    FQDN: psc-bridges2-ce2-old.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: PSC-Bridges Hosted CE
+        Details:
+          hidden: false
+  PSC-Bridges2-CE2:
+    ID: 1148
+    Active: true
+    Description: The Hosted CE serving PSC-Bridges OSG user
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Derek Simmel
+          ID: b09adde15cb7818a3d1bdf27651327a9affde4b4
+        Secondary:
+          Name: Paola Buitrago
+          ID: 4f175bb6bc084ec118094c534627dba2ea316413
+    FQDN: psc-bridges2-ce2.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: PSC-Bridges OSG Hosted CE
+        Details:
+          hidden: false

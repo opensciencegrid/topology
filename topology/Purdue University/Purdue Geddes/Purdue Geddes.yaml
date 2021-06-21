@@ -26,7 +26,7 @@ Resources:
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
     ID: 1107
     # ContactLists contain information about people to contact regarding this resource.
-    # The "ID" is a hash of their email address available at https://my.opensciencegrid.org/miscuser/xml
+    # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
     # https://opensciencegrid.org/docs/common/registration/#registering-contacts
     ContactLists:
@@ -56,9 +56,9 @@ Resources:
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
-      CE:
+      Execution Endpoint:
         # Description is a brief description of the service
-        Description: Purdue Geddes CE
+        Description: Purdue Geddes backfill containers
         ### Details (optional)
         # Details:
         #   # hidden

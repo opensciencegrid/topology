@@ -398,3 +398,73 @@
   - GridFtp
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 763735113
+  Description: Quarterly Scheduled Maintenance
+  Severity: Outage
+  StartTime: Feb 03, 2021 10:00 +0000
+  EndTime: Feb 05, 2021 04:00 +0000
+  CreatedTime: Jan 22, 2021 21:45 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 763753268
+  Description: Quarterly Scheduled Maintenance
+  Severity: Outage
+  StartTime: Feb 03, 2021 10:00 +0000
+  EndTime: Feb 05, 2021 04:00 +0000
+  CreatedTime: Jan 22, 2021 22:15 +0000
+  ResourceName: Georgia_Tech_PACE_CE_1
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 763753457
+  Description: Quarterly Scheduled Maintenance
+  Severity: Outage
+  StartTime: Feb 03, 2021 10:00 +0000
+  EndTime: Feb 05, 2021 04:00 +0000
+  CreatedTime: Jan 22, 2021 22:15 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 862677708
+  Description: Georgia Tech Quarterly Maintenance
+  Severity: Outage
+  StartTime: May 19, 2021 10:00 +0000
+  EndTime: May 20, 2021 19:00 +0000
+  CreatedTime: May 17, 2021 16:09 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 862678091
+  Description: Georgia Tech Quarterly Maintenance
+  Severity: Outage
+  StartTime: May 19, 2021 10:00 +0000
+  EndTime: May 20, 2021 19:00 +0000
+  CreatedTime: May 17, 2021 16:10 +0000
+  ResourceName: Georgia_Tech_PACE_CE_1
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 862678269
+  Description: Georgia Tech Quarterly Maintenance
+  Severity: Outage
+  StartTime: May 19, 2021 10:00 +0000
+  EndTime: May 20, 2021 19:00 +0000
+  CreatedTime: May 17, 2021 16:10 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------

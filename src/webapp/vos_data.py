@@ -48,7 +48,7 @@ class VOsData(object):
         new_vo = OrderedDict.fromkeys(["ID", "Name", "LongName", "CertificateOnly", "PrimaryURL",
                                        "MembershipServicesURL", "PurposeURL", "SupportURL", "AppDescription",
                                        "Community", "FieldsOfScience", "ParentVO", "ReportingGroups", "Active",
-                                       "Disable", "ContactTypes", "OASIS"])
+                                       "Disable", "ContactTypes", "OASIS", "Credentials"])
         new_vo.update({
             "Disable": False,
             "Active": True,
@@ -94,6 +94,20 @@ class VOsData(object):
             parentvo = OrderedDict.fromkeys(["ID", "Name"])
             parentvo.update(vo["ParentVO"])
             new_vo["ParentVO"] = parentvo
+
+        if not is_null(vo, "Credentials"):
+            credentials = OrderedDict.fromkeys(["TokenIssuers"])
+            if not is_null(vo, "Credentials", "TokenIssuers"):
+                token_issuers = vo["Credentials"]["TokenIssuers"]
+                new_token_issuers = [
+                    OrderedDict([
+                        ("URL", x.get("URL")),
+                        ("DefaultUnixUser", x.get("DefaultUnixUser"))
+                    ])
+                    for x in token_issuers
+                ]
+                credentials["TokenIssuers"] = {"TokenIssuer": new_token_issuers}
+            new_vo["Credentials"] = credentials
 
         return new_vo
 

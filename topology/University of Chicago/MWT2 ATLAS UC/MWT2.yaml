@@ -41,7 +41,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 12.50
+      APELNormalFactor: 12.53
       AccountingName: US-MWT2
       HEPSPEC: 308968
       InteropAccounting: false
@@ -133,7 +133,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 12.50
+      APELNormalFactor: 12.53
       AccountingName: US-MWT2
       HEPSPEC: 308968
       InteropAccounting: true
@@ -183,7 +183,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 12.50
+      APELNormalFactor: 12.53
       AccountingName: US-MWT2
       HEPSPEC: 308968
       InteropAccounting: true
@@ -234,7 +234,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 12.50
+      APELNormalFactor: 12.53
       AccountingName: US-MWT2
       HEPSPEC: 308968
       InteropAccounting: true
@@ -505,7 +505,7 @@ Resources:
         Description: Generic squid service
         Details:
           uri_override: uct2-slate.mwt2.org:32200
-          Monitored: false
+          Monitored: true
     VOOwnership:
       ATLAS: 100
   MWT2_SLATE_IU:
@@ -544,7 +544,7 @@ Resources:
         Description: Generic squid service
         Details:
           uri_override: iut2-slate.mwt2.org:32200
-          Monitored: false
+          Monitored: true
     VOOwnership:
       ATLAS: 100
   MWT2_SLATE_UIUC:
@@ -620,8 +620,8 @@ Resources:
     - uct2-dc1.uchicago.edu
     ID: 70
     Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
+      GridFtp:
+        Description: GridFTP endpoint
         Details:
           hidden: false
     VOOwnership:

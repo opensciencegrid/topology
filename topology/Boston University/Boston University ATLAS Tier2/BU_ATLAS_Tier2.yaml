@@ -42,8 +42,8 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-      SRMv2:
-        Description: SRM V2 Storage Element
+      GridFtp:
+        Description: Gridftp Storage Element
         Details:
           hidden: false
           uri_override: atlas.bu.edu:8443
@@ -215,6 +215,44 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: atlas-owamp.bu.edu
+    VOOwnership:
+      ATLAS: 100
+  SQUID_SLATE_BU:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 4407ce51850137cf80f8e2f95829669b90fdba12
+          Name: Augustine Abaris
+        Secondary:
+          ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
+          Name: Saul Youssef
+      Miscellaneous Contact:
+        Primary:
+          ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
+          Name: Saul Youssef
+      Resource Report Contact:
+        Primary:
+          ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
+          Name: Saul Youssef
+        Secondary:
+          ID: 4407ce51850137cf80f8e2f95829669b90fdba12
+          Name: Augustine Abaris
+      Security Contact:
+        Primary:
+          ID: 4407ce51850137cf80f8e2f95829669b90fdba12
+          Name: Augustine Abaris
+        Secondary:
+          ID: 82375e645bdcae71e863c8a7aa7eb7f8cf553768
+          Name: Saul Youssef
+    Description: SLATE Services for NET2
+    FQDN: atlas-slate01.bu.edu
+    ID: 1131
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: true
     VOOwnership:
       ATLAS: 100
 SupportCenter: USATLAS

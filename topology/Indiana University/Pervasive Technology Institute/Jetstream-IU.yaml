@@ -1,0 +1,24 @@
+GroupDescription: Jetstream-IU
+GroupID: 1108
+Production: true
+Resources:
+  IU-Jetstream-Backfill:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary:
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+          Name: Mats Rynge
+      Security Contact:
+        Primary:
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+          Name: Mats Rynge
+    Description: Jetstream-IU-Backfill
+    FQDN: js-129-114-104-199.jetstream-cloud.org
+    ID: 1125
+    Services:
+      Execution Endpoint:
+        Description: OSG VO backfill containers
+        Details:
+          hidden: false
+SupportCenter: Self Supported

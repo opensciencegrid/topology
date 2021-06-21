@@ -5,7 +5,8 @@ GroupID: 506
 GroupDescription: The PSC-Bridges cluster
 Resources:
   OSG_US_PSC_Bridges:
-    ID: 994 
+    ID: 994
+    Active: false
     Description: The Hosted CE serving PSC-Bridges
     ContactLists:
       Administrative Contact:
@@ -37,7 +38,7 @@ Resources:
           hidden: false
   PSC-Bridges:
     ID: 1081
-    Active: true
+    Active: false
     Description: The Hosted CE serving PSC-Bridges
     ContactLists:
       Administrative Contact:
@@ -54,7 +55,7 @@ Resources:
         Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-    FQDN: hosted-ce13.opensciencegrid.org
+    FQDN: psc-bridges-ce1-old.svc.opensciencegrid.org
     Services:
       CE:
         Description: PSC-Bridges Hosted CE

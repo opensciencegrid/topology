@@ -28,6 +28,10 @@ Contacts:
   VO Manager:
   - ID: 48e1c2f26dc3479a6cf9b2de7c79d654ac27b1d1
     Name: Miron Livny
+Credentials:
+  TokenIssuers:
+    - URL: https://chtc.cs.wisc.edu
+      DefaultUnixUser: glow
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -42,11 +46,11 @@ OASIS:
       DNs: /DC=org/DC=doegrids/OU=People/CN=Aaron Moate 717557
       ID: 46a55ac4815b2b8c00ff283549f413113b45d628
   UseOASIS: true
-PrimaryURL: http://www.chtc.cs.wisc.edu
-PurposeURL: http://www.chtc.cs.wisc.edu/approach.shtml
+PrimaryURL: https://chtc.cs.wisc.edu
+PurposeURL: https://chtc.cs.wisc.edu/approach.shtml
 ReportingGroups:
 - glow
-SupportURL: http://www.chtc.cs.wisc.edu
+SupportURL: https://chtc.cs.wisc.edu
 DataFederations:
   StashCache:
     Namespaces:
@@ -56,7 +60,7 @@ DataFederations:
         - FQAN:/GLOW
         - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
         - SciTokens:
-            Issuer: https://scitokens.org/chtc
+            Issuer: https://chtc.cs.wisc.edu
             Base Path: /chtc
     AllowedOrigins:
       - CHTC_STASHCACHE_ORIGIN

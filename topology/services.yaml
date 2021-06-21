@@ -4,7 +4,7 @@ GridFtp: 5
 LFC: 6
 FTS: 7
 Submit Node: 109
-# ^ this is for GlideIn Frontends
+# ^ This is used for both Schedds and Glidein Frontends.
 OSG_Display: 116
 Software Cache: 119
 OSG Homepage: 120
@@ -31,6 +31,8 @@ Virtual Machine Host: 150
 Certificate Provider: 151
 Message Bus: 154
 Topology Server: 155
+Execution Endpoint: 157
+WebDAV: 158
 # deprecated
 GUMS Server: 101
 VOMS Server: 102

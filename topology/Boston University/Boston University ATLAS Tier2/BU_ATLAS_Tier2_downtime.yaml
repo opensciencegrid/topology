@@ -120,3 +120,38 @@
   - CE
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 762812933
+  Description: 'GPFS file system '
+  Severity: Outage
+  StartTime: Jan 21, 2021 19:00 +0000
+  EndTime: Feb 02, 2021 04:00 +0000
+  CreatedTime: Jan 21, 2021 20:08 +0000
+  ResourceName: NET2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 820339344
+  Description: Unscheduled power outage at data center
+  Severity: Outage
+  StartTime: Mar 29, 2021 16:04 +0000
+  EndTime: Mar 29, 2021 17:04 +0000
+  CreatedTime: Mar 29, 2021 16:05 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 839671566
+  Description: NESE Core Network upgrade
+  Severity: Severe
+  StartTime: Apr 22, 2021 18:00 +0000
+  EndTime: Apr 23, 2021 03:00 +0000
+  CreatedTime: Apr 21, 2021 01:05 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
