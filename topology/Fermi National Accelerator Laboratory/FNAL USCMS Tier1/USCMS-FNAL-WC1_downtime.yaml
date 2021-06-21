@@ -611,4 +611,27 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 892885586
+  Description: Kernel patching, system reboots
+  Severity: Severe
+  StartTime: Jun 22, 2021 13:00 +0000
+  EndTime: Jun 22, 2021 22:00 +0000
+  CreatedTime: Jun 20, 2021 15:15 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 892885806
+  Description: Kernel patching, system reboots
+  Severity: Severe
+  StartTime: Jun 22, 2021 13:00 +0000
+  EndTime: Jun 22, 2021 22:00 +0000
+  CreatedTime: Jun 20, 2021 15:16 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+
 
