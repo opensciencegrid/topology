@@ -17,7 +17,7 @@ jobs:
       id: generate-tag-list
       run: |
         docker_repo=${GITHUB_REPOSITORY/opensciencegrid\/docker-/opensciencegrid/}
-        tag_list=latest,${{ GITHUB_REF##v }}
+        tag_list=$docker_repo:latest,$docker_repo:${GITHUB_REF#v }
         echo "::set-output name=taglist::$tag_list"
 
     - name: Set up Docker Buildx
