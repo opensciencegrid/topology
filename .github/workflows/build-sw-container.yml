@@ -33,5 +33,4 @@ jobs:
       uses: docker/build-push-action@v2.2.0
       with:
         push: true
-        build-args: BASE_YUM_REPO=${{ matrix.repo }}
         tags: "${{ steps.generate-tag-list.outputs.taglist }}"
