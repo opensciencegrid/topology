@@ -7,15 +7,6 @@ on:
       - /^v([0-9.]+)$/
 
 jobs:
-  make-date-tag:
-    runs-on: ubuntu-latest
-    if: startsWith(github.repository, 'opensciencegrid/')
-    outputs:
-      dtag: ${{ steps.mkdatetag.outputs.dtag }}
-    steps:
-    - name: make date tag
-      id: mkdatetag
-      run: echo "::set-output name=dtag::$(date +%Y%m%d-%H%M)"
 
   build:
     runs-on: ubuntu-latest
@@ -25,8 +16,6 @@ jobs:
 
     - name: Generate tag list
       id: generate-tag-list
-      env:
-        REPO: ${{ matrix.repo }}
       run: |
         docker_repo=${GITHUB_REPOSITORY/opensciencegrid\/docker-/opensciencegrid/}
         tag_list=latest,${{ GITHUB_REF##v }}
