@@ -1590,3 +1590,72 @@
   ResourceName: CIT_CMS_T2_XRD_Ceph
   Services:
     - XRootD component
+
+# --------------------------------------------------------
+# Migrating to our own IPv6 range
+
+- Class: SCHEDULED
+  ID: 893044365
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 02, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 893044366
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 02, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 893044367
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 02, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 893044368
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 02, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 893044369
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 02, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 893044365
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 02, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
