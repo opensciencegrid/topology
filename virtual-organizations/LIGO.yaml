@@ -83,6 +83,12 @@ DataFederations:
         - SciTokens:
             Issuer: https://scitokens.org/ligo
             Base Path: /user/ligo
+        - SciTokens:
+            Issuer: https://test.cilogon.org/ligo
+            Base Path: /user/ligo
+        - SciTokens:
+            Issuer: https://cilogon.org/ligo
+            Base Path: /user/ligo
       /gwdata:
         - PUBLIC
     AllowedOrigins:
