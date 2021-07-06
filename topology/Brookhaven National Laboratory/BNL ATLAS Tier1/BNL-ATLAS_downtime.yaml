@@ -388,3 +388,14 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 904894019
+  Description: HPSS Tape system upgrade
+  Severity: Outage
+  StartTime: Aug 02, 2021 12:00 +0000
+  EndTime: Aug 06, 2021 00:00 +0000
+  CreatedTime: Jul 05, 2021 12:50 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
