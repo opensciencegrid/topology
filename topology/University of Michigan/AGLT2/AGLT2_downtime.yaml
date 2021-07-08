@@ -942,3 +942,15 @@
   Services:
   - WebDAV
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 907564557
+  Description: firmware update for storage server
+  Severity: Intermittent Outage
+  StartTime: Jul 08, 2021 16:00 +0000
+  EndTime: Jul 08, 2021 18:00 +0000
+  CreatedTime: Jul 08, 2021 15:00 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  - WebDAV
+# ---------------------------------------------------------
