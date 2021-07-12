@@ -7,7 +7,7 @@ from typing import Dict, Set, List
 
 import yaml
 
-from webapp import common, contacts_reader, mappings, project_reader, rg_reader, vo_reader
+from webapp import cilogon_ldap, common, contacts_reader, mappings, project_reader, rg_reader, vo_reader
 from webapp.contacts_reader import ContactsData
 from webapp.topology import Topology, Downtime
 from webapp.vos_data import VOsData
@@ -49,6 +49,7 @@ class GlobalData:
         contact_cache_lifetime = config.get("CONTACT_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
         topology_cache_lifetime = config.get("TOPOLOGY_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
         self.contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
+        self.comanage_data = CachedData(cache_lifetime=contact_cache_lifetime)
         self.dn_set = CachedData(cache_lifetime=topology_cache_lifetime)
         self.projects = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology = CachedData(cache_lifetime=topology_cache_lifetime)
@@ -145,6 +146,22 @@ class GlobalData:
                 self.contacts_data.try_again()
 
         return self.contacts_data.data
+
+    def get_comanage_data(self) -> ContactsData:
+        """
+        Get the contact information from a private git repo
+        """
+        if self.comanage_data.should_update():
+            try:
+                idmap = cilogon_ldap.get_cilogon_ldap_id_map()
+                self.comanage_data.update(idmap)
+            except Exception:
+                if self.strict:
+                    raise
+                log.exception("Failed to update comanage data")
+                self.comanage_data.try_again()
+
+        return self.comanage_data.data
 
     def get_dns(self) -> Set:
         """
