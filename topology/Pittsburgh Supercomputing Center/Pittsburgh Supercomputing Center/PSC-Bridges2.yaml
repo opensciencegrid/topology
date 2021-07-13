@@ -36,12 +36,6 @@ Resources:
         Description: PSC-Bridges Hosted CE
         Details:
           hidden: false
-    WLCGInformation:
-      APELNormalFactor: 18
-      InteropAccounting: false
-      InteropMonitoring: false
-      KSI2KMax: 0
-      KSI2KMin: 0
   PSC-Bridges2-CE1:
     ID: 1139
     Active: true
@@ -74,6 +68,12 @@ Resources:
         Description: PSC-Bridges Hosted CE
         Details:
           hidden: false
+    WLCGInformation:
+      APELNormalFactor: 18
+      InteropAccounting: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
   Bridges2:
     ID: 1140
     Active: false
