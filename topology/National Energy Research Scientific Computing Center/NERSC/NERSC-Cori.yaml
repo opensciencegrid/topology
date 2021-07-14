@@ -1,0 +1,46 @@
+Production: true
+SupportCenter: Fermilab
+
+GroupDescription: NERSC Cori via HEPCloud
+
+GroupID: 1124
+
+Resources:
+  NERSC-Cori-Haswell:
+    Active: true
+    Description: Direct BOSCO entry point for NERSC Cori Haswell
+    ID: 1181
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Steven Timm
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+       Secondary:
+          Name: Dirk Hufnagel
+          ID: d1e6514c12517825db895e313beb9e9eff4968a3
+
+      Security Contact:
+        Primary:
+          Name: Steven Timm
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+
+    FQDN: cori.nersc.gov
+
+
+    Services:
+      CE:
+        Description: Bosco SSH direct submit only
+
+
+
+    VOOwnership:
+      CMS: 100
+
+    WLCGInformation:
+      APELNormalFactor: 11.0
+      AccountingName: T3_US_NERSC
+      HEPSPEC: 11
+      InteropAccounting: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
