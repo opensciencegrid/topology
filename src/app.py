@@ -450,8 +450,7 @@ def generate_resource_group_downtime():
     if not form.validate_on_submit():
         return render_form()
 
-    resources = topo.resources_by_resource_group[resource_group]
-    services = [topo.service_names_by_resource[resource] for resource in resources]
+    resources = sorted(topo.resources_by_resource_group[resource_group])
 
     filepath = "topology/" + topo.downtime_path_by_resource[resources[0]]
     # ^ filepath relative to the root of the topology repo checkout
@@ -466,7 +465,8 @@ def generate_resource_group_downtime():
         else:
             new_url = github_url("new", filepath)
 
-    form.yamloutput.data = form.get_yaml(resources, services)
+    form.yamloutput.data = form.get_yaml(resources=resources,
+                                         service_names_by_resource=topo.service_names_by_resource)
 
     return render_form(filepath=filepath, filename=filename,
                        edit_url=edit_url, site_dir_url=site_dir_url,
