@@ -15,7 +15,7 @@ import urllib.parse
 
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters
-from webapp.forms import GenerateDowntimeForm, GenerateSiteDowntimeForm
+from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
@@ -378,7 +378,7 @@ def generate_downtime():
 
 @app.route("/generate_resource_group_downtime", methods=["GET", "POST"])
 def generate_resource_group_downtime():
-    form = GenerateSiteDowntimeForm(request.form)
+    form = GenerateResourceGroupDowntimeForm(request.form)
 
     def github_url(action, path):
         assert action in ("tree", "edit", "new"), "invalid action"

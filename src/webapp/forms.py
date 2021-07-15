@@ -8,7 +8,7 @@ from wtforms.validators import InputRequired
 
 from . import models
 
-class GenerateSiteDowntimeForm(FlaskForm):
+class GenerateResourceGroupDowntimeForm(FlaskForm):
     scheduled = SelectField("Scheduled (registered at least 24 hours in advance)",
                             [InputRequired()], choices=[
         ("", "-- Select one --"),
