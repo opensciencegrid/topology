@@ -614,14 +614,164 @@ Resources:
         Secondary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-    Description: Part of the MWT2 facility.
-    FQDN: uct2-dc1.uchicago.edu
+    Description: MWT2 dCache/SRM frontend
+    FQDN: uct2-dcache-head.mwt2.org
     FQDNAliases:
     - uct2-dc1.uchicago.edu
-    ID: 70
+    ID: 1182
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 11278
+      StorageCapacityMin: 11278
+      TapeCapacity: 0
+  MWT2_UC_gridftp:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+      Security Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+    Description: GridFTP headnode for MWT2
+    FQDN: uct2-gridftp.mwt2.org
+    ID: 1183
     Services:
       GridFtp:
-        Description: GridFTP endpoint
+        Description: gridftp Storage Element
+        Details:
+          hidden: false  
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 11278
+      StorageCapacityMin: 11278
+      TapeCapacity: 0
+  MWT2_UC_XRootD_door:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+      Security Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+    Description: XRootD door/headnode for MWT2
+    FQDN: fax.mwt2.org
+    ID: 1184
+    Services:
+      XRootD component:
+        Description: XRootD door
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 11278
+      StorageCapacityMin: 11278
+      TapeCapacity: 0
+  MWT2_UC_WebDAV:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+      Security Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+    Description: HTTP-TPC WebDAV service for MWT2
+    FQDN: webdav.mwt2.org
+    ID: 1185
+    Services:
+      WebDAV:
+        Description: HTTP-TPC WebDAV service
         Details:
           hidden: false
     VOOwnership:

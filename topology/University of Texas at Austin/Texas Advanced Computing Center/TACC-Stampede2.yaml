@@ -35,12 +35,6 @@ Resources:
     VOOwnership:
       CMS: 50
       ATLAS: 50
-    WLCGInformation:
-      APELNormalFactor: 18
-      InteropAccounting: false
-      InteropMonitoring: false
-      KSI2KMax: 0
-      KSI2KMin: 0
   TACC-Stampede2:
     ID: 1082
     Active: false
@@ -66,6 +60,12 @@ Resources:
         Description: TACC-Stampede2 Hosted CE
         Details:
           hidden: false
+    WLCGInformation:
+      APELNormalFactor: 18
+      InteropAccounting: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
   TACC-Stampede2-CE1:
     ID: 1178
     Active: true

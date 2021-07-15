@@ -102,12 +102,6 @@ Resources:
     #   StorageCapacityMax: 0
     #   StorageCapacityMin: 0
     #   TapeCapacity: 0
-    WLCGInformation:
-      APELNormalFactor: 18
-      InteropAccounting: false
-      InteropMonitoring: false
-      KSI2KMax: 0
-      KSI2KMin: 0
 
   # Other resources if you have any...
   # <RESOURCE NAME>:
@@ -139,3 +133,9 @@ Resources:
     Services:
       CE:
         Description: SDSC Expanse Hosted-CE
+    WLCGInformation:
+      APELNormalFactor: 18
+      InteropAccounting: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
