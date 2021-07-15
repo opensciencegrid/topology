@@ -490,15 +490,22 @@ class Topology(object):
         # rgs are keyed by (site_name, rg_name) tuple
         self.rgs = {}  # type: Dict[Tuple[str, str], ResourceGroup]
         self.resources_by_facility = defaultdict(list)
+        self.resources_by_resource_group = defaultdict(list)
+        self.sites_by_facility = defaultdict(set)
+        self.resource_group_by_site = defaultdict(set)
         self.service_names_by_resource = {}  # type: Dict[str, List[str]]
+        self.downtime_path_by_resource_group = defaultdict(set)
         self.downtime_path_by_resource = {}
 
     def add_rg(self, facility_name, site_name, name, parsed_data):
         try:
             rg = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
             self.rgs[(site_name, name)] = rg
+            self.resource_group_by_site[site_name].add(rg.name)
             for r in rg.resources:
                 self.resources_by_facility[facility_name].append(r)
+                self.resources_by_resource_group[rg.name].append(r.name)
+                self.sites_by_facility[facility_name].add(site_name)
                 self.service_names_by_resource[r.name] = r.service_names
                 self.downtime_path_by_resource[r.name] = f"{facility_name}/{site_name}/{name}_downtime.yaml"
         except (AttributeError, KeyError, ValueError) as err:

@@ -234,7 +234,8 @@ def _dtid(created_datetime: datetime.datetime):
     return int((timestamp - dtid_offset) * multiplier)
 
 
-def get_downtime_yaml(start_datetime: datetime.datetime,
+def get_downtime_yaml(id: int,
+                      start_datetime: datetime.datetime,
                       end_datetime: datetime.datetime,
                       created_datetime: datetime.datetime,
                       description: str,
@@ -262,7 +263,7 @@ def get_downtime_yaml(start_datetime: datetime.datetime,
 
     result = "- " + render("Class", class_)
     for key, value in [
-        ("ID", (_dtid(created_datetime))),
+        ("ID", id),
         ("Description", description),
         ("Severity", severity),
         ("StartTime", start_time_str),
