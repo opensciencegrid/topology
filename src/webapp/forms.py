@@ -80,12 +80,17 @@ class GenerateSiteDowntimeForm(FlaskForm):
         return datetime.datetime.combine(self.end_date.data, self.end_time.data)
 
     def get_yaml(self, resources, service_names_by_resource) -> str:
+
+        created_datetime = datetime.datetime.utcnow()
+        dtid = models._dtid(created_datetime)
+
         yaml = ""
-        for resource in resources:
+        for index, resource in enumerate(resources):
             yaml += models.get_downtime_yaml(
+                id=dtid+index,
                 start_datetime=self.get_start_datetime(),
                 end_datetime=self.get_end_datetime(),
-                created_datetime=datetime.datetime.utcnow(),
+                created_datetime=created_datetime,
                 description=self.description.data,
                 severity=self.severity.data,
                 class_=self.scheduled.data,
@@ -168,10 +173,15 @@ class GenerateDowntimeForm(FlaskForm):
         return datetime.datetime.combine(self.end_date.data, self.end_time.data)
 
     def get_yaml(self) -> str:
+
+        created_datetime = datetime.datetime.utcnow()
+        dtid = models._dtid(created_datetime)
+
         return models.get_downtime_yaml(
+            id=dtid,
             start_datetime=self.get_start_datetime(),
             end_datetime=self.get_end_datetime(),
-            created_datetime=datetime.datetime.utcnow(),
+            created_datetime=created_datetime,
             description=self.description.data,
             severity=self.severity.data,
             class_=self.scheduled.data,
