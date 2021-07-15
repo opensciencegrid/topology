@@ -18,19 +18,10 @@ ID: 127
 LongName: Imaging Cosmic And Rare Underground Signals
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
 OASIS:
-  Managers:
-    - Name: HYUNWOO KIM
-      DNs:
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=HYUNWOO KIM 882
-      - /DC=gov/DC=fnal/O=Fermilab/OU=People/CN=Hyun woo Kim/CN=UID:hyunwoo
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=HYUNWOO KIM 882
-      - /DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Hyun
-        Kim/CN=UID:hyunwoo
-      ID: e2799203e652f11e24de11fcf85b7e8d2b1783f7
   OASISRepoURLs:
-  - http://oasiscfs.fnal.gov:8000/cvmfs/icarus.opensciencegrid.org
-  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/icarus.osgstorage.org
-  UseOASIS: true
+    - http://oasiscfs.fnal.gov:8000/cvmfs/icarus.opensciencegrid.org
+    - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/icarus.osgstorage.org
+  UseOASIS: false
 ParentVO:
   ID: 9
   Name: Fermilab

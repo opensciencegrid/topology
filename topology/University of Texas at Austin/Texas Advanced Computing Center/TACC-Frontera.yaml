@@ -77,7 +77,12 @@ Resources:
       CE:
         # Description is a brief description of the service
         Description: TACC-Frontera.yaml Hosted-CE
-
+    WLCGInformation:
+      APELNormalFactor: 21
+      InteropAccounting: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
 
   TACC-Frontera-CE2:
     Active: false

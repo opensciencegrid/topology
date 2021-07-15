@@ -25,13 +25,9 @@ ID: 132
 LongName: Liquid Argon Software Collaboration
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
 OASIS:
-  Managers:
-    - Name: Vito Di Benedetto
-      DNs: /DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Vito Di Benedetto/CN=UID:vito
-      ID: 5c9580f5962b49aa0ac84eef4022327566b946aa
   OASISRepoURLs:
-  - http://oasiscfs.fnal.gov:8000/cvmfs/larsoft-ib.opensciencegrid.org
-  UseOASIS: True
+    - http://oasiscfs.fnal.gov:8000/cvmfs/larsoft-ib.opensciencegrid.org
+  UseOASIS: false
 ParentVO:
   ID: 9
   Name: Fermilab
