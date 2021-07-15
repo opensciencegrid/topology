@@ -15,7 +15,7 @@ import urllib.parse
 
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters
-from webapp.forms import GenerateDowntimeForm
+from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
@@ -376,6 +376,101 @@ def generate_downtime():
                        edit_url=edit_url, site_dir_url=site_dir_url,
                        new_url=new_url)
 
+@app.route("/generate_resource_group_downtime", methods=["GET", "POST"])
+def generate_resource_group_downtime():
+    form = GenerateResourceGroupDowntimeForm(request.form)
+
+    def github_url(action, path):
+        assert action in ("tree", "edit", "new"), "invalid action"
+        base = global_data.topology_data_repo
+        branch_q = urllib.parse.quote(global_data.topology_data_branch)
+        path_q = urllib.parse.quote(path)
+        param = f"?filename={path_q}" if action == "new" else f"/{path_q}"
+        return f"{base}/{action}/{branch_q}{param}"
+
+    github = False
+    github_topology_root = ""
+    if re.match("http(s?)://github.com", global_data.topology_data_repo):
+        github = True
+        github_topology_root = github_url("tree", "topology")
+
+    def render_form(**kwargs):
+        return render_template("generate_resource_group_downtime_form.html.j2", form=form, infos=form.infos, github=github,
+                               github_topology_root=github_topology_root, **kwargs)
+
+    topo = global_data.get_topology()
+
+    form.facility.choices = _make_choices(topo.sites_by_facility.keys(), select_one=True)
+    facility = form.facility.data
+    if form.change_facility.data:
+
+        # If valid facility
+        if facility in topo.sites_by_facility:
+            form.site.choices = _make_choices(topo.sites_by_facility[facility], True)
+            form.site.data = ""
+            form.resource_group.choices = [("", "-- Select a site first --")]
+            form.resource_group.data = ""
+
+        else:
+            form.facility.data = ""
+            form.site.choices = [("", "-- Select a facility first --")]
+            form.site.data = ""
+            form.resource_group.choices = [("", "-- Select a facility and site first --")]
+            form.resource_group.data = ""
+
+        return render_form()
+
+    form.site.choices = _make_choices(topo.sites_by_facility[facility], True)
+    site = form.site.data
+    if form.change_site.data:
+
+        # If valid site
+        if site in topo.sites_by_facility[facility]:
+            form.resource_group.choices = _make_choices(topo.resource_group_by_site[site], True)
+            form.resource_group.data = ""
+
+        else:
+            form.site.choices = _make_choices(topo.sites_by_facility[facility], True)
+            form.site.data = ""
+            form.resource_group.choices = [("", "-- Select a site first --")]
+            form.resource_group.data = ""
+
+        return render_form()
+
+    form.resource_group.choices = _make_choices(topo.resource_group_by_site[site], True)
+    resource_group = form.resource_group.data
+    if form.change_resource_group.data:
+
+        if resource_group not in topo.resource_group_by_site[site]:
+            form.resource_group.choices = _make_choices(topo.resource_group_by_site[site], True)
+            form.resource_group.data = ""
+
+        return render_form()
+
+    if not form.validate_on_submit():
+        return render_form()
+
+    resources = sorted(topo.resources_by_resource_group[resource_group])
+
+    filepath = "topology/" + topo.downtime_path_by_resource[resources[0]]
+    # ^ filepath relative to the root of the topology repo checkout
+    filename = os.path.basename(filepath)
+
+    # Add github edit URLs or directory URLs for the repo, if we can.
+    new_url = edit_url = site_dir_url = ""
+    if github:
+        site_dir_url = github_url("tree", os.path.dirname(filepath))
+        if os.path.exists(os.path.join(global_data.topology_dir, topo.downtime_path_by_resource[resources[0]])):
+            edit_url = github_url("edit", filepath)
+        else:
+            new_url = github_url("new", filepath)
+
+    form.yamloutput.data = form.get_yaml(resources=resources,
+                                         service_names_by_resource=topo.service_names_by_resource)
+
+    return render_form(filepath=filepath, filename=filename,
+                       edit_url=edit_url, site_dir_url=site_dir_url,
+                       new_url=new_url)
 
 def _make_choices(iterable, select_one=False):
     c = [(_fix_unicode(x), _fix_unicode(x)) for x in sorted(iterable)]
