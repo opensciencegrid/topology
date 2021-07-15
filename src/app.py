@@ -376,8 +376,8 @@ def generate_downtime():
                        edit_url=edit_url, site_dir_url=site_dir_url,
                        new_url=new_url)
 
-@app.route("/generate_site_downtime", methods=["GET", "POST"])
-def generate_site_downtime():
+@app.route("/generate_resource_group_downtime", methods=["GET", "POST"])
+def generate_resource_group_downtime():
     form = GenerateSiteDowntimeForm(request.form)
 
     def github_url(action, path):
@@ -395,7 +395,7 @@ def generate_site_downtime():
         github_topology_root = github_url("tree", "topology")
 
     def render_form(**kwargs):
-        return render_template("generate_site_downtime_form.html.j2", form=form, infos=form.infos, github=github,
+        return render_template("generate_resource_group_downtime_form.html.j2", form=form, infos=form.infos, github=github,
                                github_topology_root=github_topology_root, **kwargs)
 
     topo = global_data.get_topology()
