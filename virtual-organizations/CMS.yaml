@@ -34,22 +34,9 @@ ID: 3
 LongName: Compact Muon Solenoid
 MembershipServicesURL: https://lcg-voms.cern.ch:8443/voms/cms
 OASIS:
-  Managers:
-    - Name: David Alexander Mason
-      DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=dmason/CN=664436/CN=David Alexander
-        Mason
-      ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-    - Name: HYUNWOO KIM
-      DNs:
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=HYUNWOO KIM 882
-      - /DC=gov/DC=fnal/O=Fermilab/OU=People/CN=Hyun woo Kim/CN=UID:hyunwoo
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=HYUNWOO KIM 882
-      - /DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Hyun
-        Kim/CN=UID:hyunwoo
-      ID: e2799203e652f11e24de11fcf85b7e8d2b1783f7
   OASISRepoURLs:
-  - http://oasiscfs.fnal.gov:8000/cvmfs/cms-lpc.opensciencegrid.org
-  UseOASIS: true
+    - http://oasiscfs.fnal.gov:8000/cvmfs/cms-lpc.opensciencegrid.org
+  UseOASIS: false
 PrimaryURL: http://www.uscms.org
 PurposeURL: http://www.uscms.org/SoftwareComputing/Grid/index.html
 ReportingGroups:

@@ -39,13 +39,9 @@ ID: 104
 LongName: XENON Collaboration
 MembershipServicesURL: https://voms.grid.sara.nl:8443/voms/xenon.biggrid.nl
 OASIS:
-  Managers:
-    - Name: Luca Scotto Lavina
-      DNs: /O=GRID-FR/C=FR/O=CNRS/OU=LPNHE/CN=Luca Scotto Lavina
-      ID: 34d0a2a03bbffad439ae7c732042d7ad6a609da8
   OASISRepoURLs:
-  - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/xenon.opensciencegrid.org
-  UseOASIS: true
+    - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/xenon.opensciencegrid.org
+  UseOASIS: false
 PrimaryURL: http://xenon.astro.columbia.edu
 PurposeURL: http://xenon.astro.columbia.edu
 ReportingGroups:
