@@ -154,7 +154,8 @@ class GlobalData:
         if self.comanage_data.should_update():
             try:
                 idmap = cilogon_ldap.get_cilogon_ldap_id_map()
-                self.comanage_data.update(idmap)
+                data = cilogon_ldap.cilogon_id_map_to_yaml_data(idmap)
+                self.comanage_data.update(ContactsData(data))
             except Exception:
                 if self.strict:
                     raise

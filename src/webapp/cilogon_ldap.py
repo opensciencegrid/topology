@@ -42,3 +42,25 @@ def cilogon_id_map_to_ssh_keys(m):
         if 'sshPublicKey' in v['data']
     }
 
+
+def _entry2cinfo(entry):
+    ci = {'DNs': [entry['dn']]}
+    emails = entry['data'].get('mail')
+    if emails:
+        ci['PrimaryEmail'] = emails[0].lower()
+        if len(emails) >= 2:
+            ci['SecondaryEmail'] = emails[1].lower()
+    else:
+        ci['PrimaryEmail'] = None
+    return ci
+
+
+def cilogon_id_map_to_yaml_data(m):
+    return {
+        id_: {'CILogonID'          : id_,
+              'FullName'           : entry['data']['cn'],
+              'ContactInformation' : _entry2cinfo(entry)}
+        for id_, entry in m.items()
+    }
+
+
