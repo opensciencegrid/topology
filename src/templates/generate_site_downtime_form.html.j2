@@ -1,0 +1,211 @@
+{% set want_js = true %}
+{% extends "base.html.j2" %}
+{% import "formmacros.html.j2" as M %}
+
+{% if form.facility.data %}
+{% set site_disabled = false %}
+{% else %}
+{% set site_disabled = true %}
+{% endif %}
+
+{% if form.site.data %}
+{% set resource_disabled = false %}
+{% else %}
+{% set resource_disabled = true %}
+{% endif %}
+
+{% if form.resource_group.data %}
+{% set dtopts_disabled = false %}
+{% else %}
+{% set dtopts_disabled = true %}
+{% endif %}
+
+{% macro render_dtfield(field) %}
+{{ M.render_field(field, disabled=dtopts_disabled, **kwargs) }}
+{% endmacro %}
+
+{% macro render_dtbutton(button) %}
+{{ M.render_button(button, disabled=dtopts_disabled, **kwargs) }}
+{% endmacro %}
+
+{% set downtime_fieldnames = [
+  "scheduled", "description", "severity", "start_date", "start_time",
+  "end_date", "end_time", "services", "generate"] %}
+
+{% block title -%}
+Downtime YAML generator
+{%- endblock %}
+
+{% block content %}
+{% if infos %}
+<div class="alert alert-info" role="alert">{{ infos }}</div>
+{% endif %}
+
+<div class="container">
+  <div class="row">
+    <!-- LEFT COLUMN --------------------------------------------------------->
+    <div class="col-sm">
+      {% if github -%}
+      <p>
+        This form generates YAML code that you can add into
+        <a href="{{ github_topology_root }}" target="_blank">OSG's topology repository</a>
+        to report your downtime. This requires a
+        <a href="https://opensciencegrid.org/docs/common/registration/#registering-contacts" target="_blank">
+          GitHub account registered with the OSG.
+        </a>
+      </p>
+      {%- endif %}
+
+      <form method=post>
+        <!-- NOTE: we are not using CSRF because none of the POST data is actually
+        used to change anything.  If that ever changes, see
+        https://flask-wtf.readthedocs.io/en/stable/csrf.html
+        -->
+        {{ M.render_field(form.facility) }}
+        {{ M.render_button(form.change_facility) }}
+
+        {{ M.render_field(form.site, disabled=site_disabled) }}
+        {{ M.render_button(form.change_site, disabled=site_disabled) }}
+
+        {{ M.render_field(form.resource_group, disabled=resource_disabled) }}
+        {{ M.render_button(form.change_resource_group, disabled=resource_disabled) }}
+
+        {{ render_dtfield(form.scheduled) }}
+        {{ render_dtfield(form.description) }}
+        {{ render_dtfield(form.severity) }}
+
+        <div class="form-row">
+          {{ render_dtfield(form.start_date, type="date", class_="col-sm-6", placeholder="YYYY-MM-DD") }}
+          {{ render_dtfield(form.start_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour UTC)", asterisk=false) }}
+        </div>
+        <div class="form-row">
+          {{ render_dtfield(form.end_date, type="date", class_="col-sm-6", placeholder="YYYY-MM-DD") }}
+          {{ render_dtfield(form.end_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour UTC)", asterisk=false) }}
+        </div>
+
+        {{ render_dtbutton(form.generate) }}
+      </form>
+      <p><span style="color:red;">*</span> denotes a required field</p>
+    </div><!-- col-sm -->
+
+    <!-- RIGHT COLUMN -------------------------------------------------------->
+    <div class="col-sm">
+      {% if form.yamloutput.data -%}
+        Generated YAML (instructions below):<br>
+        {{ M.render_field(form.yamloutput, show_label=false) }}
+        <h4>Instructions</h4>
+        <ol>
+          {% if github -%}
+            {% if edit_url -%}
+              <li>
+                <a href="{{ edit_url }}" target="_blank">
+                  Click here to edit the downtime file on GitHub.
+                </a>
+              </li>
+            {% elif new_url %}
+              <li>
+                <a href="{{ new_url }}" target="_blank">
+                  Click here to create the downtime file on GitHub.
+                </a>
+              </li>
+            {% else -%}
+              <li>
+                <a href="{{ site_dir_url }}" target="_blank">
+                  Click here to open the site directory on GitHub.
+                </a>
+              </li>
+              <li>
+                Click the "Create new file" button and name the file:
+                <pre>"{{ filename }}"</pre>
+              </li>
+            {% endif -%}
+            <li>
+              If you don't have a fork of the topology repo,
+              click the "Fork" button to create one.
+            </li>
+          {% else -%}{# github #}
+            <li>
+              In your topology repo checkout, open the file named:
+              <pre>"{{ filepath }}"</pre>
+            </li>
+          {% endif -%}
+          <li>
+            {% if github -%}
+              Copy-and-paste the generated YAML as-is to the end of the file
+              shown in the main text box.
+            {%- else -%}
+              Copy-and-paste the generated YAML as-is to the end of the file.
+            {%- endif %}
+          </li>
+          <li>
+            {% if github -%}
+              Specify a commit message in the first text box in the
+              {% if new_url -%}
+                "Propose new file"
+              {%- else -%}
+                "Commit changes"
+              {%- endif %}
+              section.
+            {%- else -%}
+              Commit your changes to the repository.
+            {%- endif %}
+            The commit message should look something like<br>
+            <code>Add downtime for &lt;RESOURCE&gt; due to &lt;REASON&gt;</code>
+          </li>
+          {% if github -%}
+            <li>
+              Submit your changes as a pull request
+              (<a href="https://help.github.com/articles/editing-files-in-your-repository/" target="_blank">see GitHub's instructions</a>).
+              Select "opensciencegrid/topology" as the "base repository".
+            </li>
+            <li>
+              Wait for OSG staff to review and approve your pull request.
+            </li>
+          {%- endif %}
+        </ol>
+      {% else %}{# form.yamloutput.data #}
+        Generated YAML will be displayed here:<br>
+        {{ M.render_field(form.yamloutput, show_label=false) }}
+      {% endif %}
+    </div><!-- col-sm -->
+  </div><!-- row -->
+</div><!-- container -->
+{% endblock %}
+
+{% block last %}
+<script type="text/javascript">
+  $( "#facility" ).change( function () {
+    $( "#change_facility" ).click();
+  } );
+  $( "#change_facility" ).hide();
+  $( "#change_facility" ).click( function () {
+    {% for fieldname in downtime_fieldnames %}
+    /* undisable/require everything so existing data gets saved */
+    $( "#{{ fieldname }}" ).prop("disabled", false);
+    $( "#{{ fieldname }}" ).prop("required", false);
+    {% endfor %}
+  } );
+  $( "#site" ).change( function () {
+    $( "#change_site" ).click();
+  } );
+  $( "#change_site" ).hide();
+  $( "#change_site" ).click( function () {
+    {% for fieldname in downtime_fieldnames %}
+    /* undisable/require everything so existing data gets saved */
+    $( "#{{ fieldname }}" ).prop("disabled", false);
+    $( "#{{ fieldname }}" ).prop("required", false);
+    {% endfor %}
+  } );
+  $( "#change_resource_group" ).hide();
+  $( "#change_resource_group" ).click( function () {
+    {% for fieldname in downtime_fieldnames %}
+    /* undisable/require everything so existing data gets saved */
+    $( "#{{ fieldname }}" ).prop("disabled", false);
+    $( "#{{ fieldname }}" ).prop("required", false);
+    {% endfor %}
+  });
+  $( "#resource_group" ).change( function() {
+    $( "#change_resource_group" ).click();
+  } );
+</script>
+{% endblock %}
