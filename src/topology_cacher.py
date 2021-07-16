@@ -43,9 +43,11 @@ class ResourceInfo(namedtuple("ResourceInfo", "group_name name fqdn service_ids"
 class TopologyData:
     def __init__(
         self,
-        topology_host=TOPOLOGY,
+        topology_base=TOPOLOGY,
     ):
-        self.topology_host = topology_host
+        if "://" not in topology_base:
+            topology_base = "https://" + topology_base
+        self.topology_base = topology_base
         self.resinfo_table = []
         self.grouped_resinfo = {}
         self.resinfo_by_name = {}
@@ -268,7 +270,7 @@ class TopologyData:
 
         """
         try:
-            with urlopen(self.topology_host + endpoint) as response:
+            with urlopen(self.topology_base + endpoint) as response:
                 xml_bytes = response.read()  # type: bytes
         except EnvironmentError as err:
             raise DataError("Topology query to %s failed" % endpoint) from err
@@ -319,6 +321,12 @@ def main(argv):
         metavar="DIR",
         default="/run/topology-cache",
         help="Directory to write topology files to. [%(default)s]",
+    )
+    parser.add_argument(
+        "--topology",
+        metavar="URL",
+        default=TOPOLOGY,
+        help="Base URL of the Topology service. [%(default)s]",
     )
 
     args = parser.parse_args(argv[1:])
