@@ -11,22 +11,22 @@ import json
 import logging
 import os
 import sys
-import time
 import xml.etree.ElementTree as ET
 
 
 from urllib.request import urlopen
 
-from typing import Tuple, Optional
+from typing import Optional
 
 
 TOPOLOGY = "https://topology.opensciencegrid.org"
-PROJECTS_CACHE_LIFETIME = 300.0
-RESOURCES_CACHE_LIFETIME = 300.0
-RETRY_DELAY = 60.0
 
 
 log = logging.getLogger(__name__)
+
+
+class DataError(Exception):
+    pass
 
 
 class ResourceInfo(namedtuple("ResourceInfo", "group_name name fqdn service_ids")):
@@ -40,105 +40,63 @@ class ResourceInfo(namedtuple("ResourceInfo", "group_name name fqdn service_ids"
         return self.SERVICE_ID_SCHEDD in self.service_ids
 
 
-# took this code from Topology
-class CachedData:
-    def __init__(
-        self,
-        data=None,
-        timestamp=0.0,
-        force_update=True,
-        cache_lifetime=60.0 * 15,
-        retry_delay=60.0,
-    ):
-        self.data = data
-        self.timestamp = timestamp
-        self.force_update = force_update
-        self.cache_lifetime = cache_lifetime
-        self.retry_delay = retry_delay
-        self.next_update = self.timestamp + self.cache_lifetime
-
-    def should_update(self):
-        return self.force_update or not self.data or time.time() > self.next_update
-
-    def try_again(self):
-        self.next_update = time.time() + self.retry_delay
-
-    def update(self, data):
-        self.data = data
-        self.timestamp = time.time()
-        self.next_update = self.timestamp + self.cache_lifetime
-        self.force_update = False
-
-
 class TopologyData:
     def __init__(
         self,
         topology_host=TOPOLOGY,
-        projects_cache_lifetime=PROJECTS_CACHE_LIFETIME,
-        resources_cache_lifetime=RESOURCES_CACHE_LIFETIME,
-        retry_delay=RETRY_DELAY,
     ):
         self.topology_host = topology_host
-        self.retry_delay = retry_delay
-        self.projects_cache = CachedData(
-            cache_lifetime=projects_cache_lifetime, retry_delay=retry_delay
-        )
-        self.resources_cache = CachedData(
-            cache_lifetime=resources_cache_lifetime, retry_delay=retry_delay
-        )
+        self.resinfo_table = []
+        self.grouped_resinfo = {}
+        self.resinfo_by_name = {}
+        self.resinfo_by_fqdn = {}
+        self.projects = self.get_projects()
+        self.resources = self.get_resources()
+
+    def get_projects(self) -> ET.Element:
+        return self._get_data("/miscproject/xml")
+
+    def get_resources(self) -> ET.Element:
+        data = self._get_data("/rgsummary/xml")
         self.resinfo_table = []
         self.grouped_resinfo = {}
         self.resinfo_by_name = {}
         self.resinfo_by_fqdn = {}
 
-    def get_projects(self) -> Optional[ET.Element]:
-        data, _ = self._get_data(self.projects_cache, "/miscproject/xml", "projects")
-        return data
+        #
+        # Build tables and indices for easier lookup
+        #
+        for eResourceGroup in data.findall("./ResourceGroup"):
+            group_name = safe_element_text(eResourceGroup.find("./GroupName"))
+            if not group_name:
+                log.warning(
+                    "Skipping malformed ResourceGroup: %s", elem2str(eResourceGroup)
+                )
+                continue
+            self.grouped_resinfo[group_name] = []
 
-    def get_resources(self) -> Optional[ET.Element]:
-        data, updated = self._get_data(
-            self.resources_cache, "/rgsummary/xml", "resources"
-        )
-        if updated and data:
-            self.resinfo_table = []
-            self.grouped_resinfo = {}
-            self.resinfo_by_name = {}
-            self.resinfo_by_fqdn = {}
-
-            #
-            # Build tables and indices for easier lookup
-            #
-            for eResourceGroup in data.findall("./ResourceGroup"):
-                group_name = safe_element_text(eResourceGroup.find("./GroupName"))
-                if not group_name:
+            for eResource in eResourceGroup.findall("./Resources/Resource"):
+                resource_name = safe_element_text(eResource.find("./Name"))
+                fqdn = safe_element_text(eResource.find("./FQDN"))
+                service_ids = list(
+                    filter(
+                        None,
+                        [
+                            safe_element_text(svc)
+                            for svc in eResource.findall("./Services/Service/ID")
+                        ],
+                    )
+                )
+                if not resource_name or not fqdn or not service_ids:
                     log.warning(
-                        "Skipping malformed ResourceGroup: %s", elem2str(eResourceGroup)
+                        "Skipping malformed Resource: %s", elem2str(eResource)
                     )
                     continue
-                self.grouped_resinfo[group_name] = []
-
-                for eResource in eResourceGroup.findall("./Resources/Resource"):
-                    resource_name = safe_element_text(eResource.find("./Name"))
-                    fqdn = safe_element_text(eResource.find("./FQDN"))
-                    service_ids = list(
-                        filter(
-                            None,
-                            [
-                                safe_element_text(svc)
-                                for svc in eResource.findall("./Services/Service/ID")
-                            ],
-                        )
-                    )
-                    if not resource_name or not fqdn or not service_ids:
-                        log.warning(
-                            "Skipping malformed Resource: %s", elem2str(eResource)
-                        )
-                        continue
-                    resinfo = ResourceInfo(group_name, resource_name, fqdn, service_ids)
-                    self.resinfo_table.append(resinfo)
-                    self.grouped_resinfo[group_name].append(resinfo)
-                    self.resinfo_by_name[resource_name] = resinfo
-                    self.resinfo_by_fqdn[fqdn] = resinfo
+                resinfo = ResourceInfo(group_name, resource_name, fqdn, service_ids)
+                self.resinfo_table.append(resinfo)
+                self.grouped_resinfo[group_name].append(resinfo)
+                self.resinfo_by_name[resource_name] = resinfo
+                self.resinfo_by_fqdn[fqdn] = resinfo
 
         return data
 
@@ -191,13 +149,11 @@ class TopologyData:
 
         looking up resource name, group name, ces, and fqdn info from the rg summary.
         """
-        eProjects = self.get_projects()
-        eResourceSummary = self.get_resources()
-        if not eProjects or not eResourceSummary:
+        if not self.projects or not self.resources:
             return {}
 
         ret = {}
-        for eProject in eProjects.findall("./Project"):
+        for eProject in self.projects.findall("./Project"):
             project_name = safe_element_text(eProject.find("./Name"))
             if not project_name:
                 log.warning("Skipping malformed Project: %s", elem2str(eProject))
@@ -306,80 +262,28 @@ class TopologyData:
     #
     #
 
-    def _get_data(
-        self, cache: CachedData, endpoint: str, label: str
-    ) -> Tuple[Optional[ET.Element], bool]:
-        """Get parsed topology XML data from `cache`.  If necessary download from `endpoint`
-        (a path under the topology host, e.g. "/miscproject/xml").
-        Log messages will be labeled with `label`.
+    def _get_data(self, endpoint: str) -> ET.Element:
+        """Download XML topology data from from `endpoint` and parse it as an ET.Element.
+        `endpoint` is a path under the topology host, e.g. "/miscproject/xml".
 
-        Returns the data if available and True if the data is new; return None, False if we can't download/parse
-        _and_ there is no cached data.
+        Returns the parsed data.
 
         """
-        if not cache.should_update():
-            log.debug(
-                "%s cache lifetime / retry delay not expired, returning cached data (if any)",
-                label,
-            )
-            return cache.data, False
-
         try:
             with urlopen(self.topology_host + endpoint) as response:
                 xml_bytes = response.read()  # type: bytes
         except EnvironmentError as err:
-            log.warning(
-                "Topology %s query failed, will retry in %f: %s",
-                label,
-                self.retry_delay,
-                err,
-            )
-            cache.try_again()
-            if cache.data:
-                log.debug("Returning cached data")
-                return cache.data, False
-            else:
-                log.error("Failed to update and no cached data")
-                return None, False
+            raise DataError("Topology query to %s failed" % endpoint) from err
 
         if not xml_bytes:
-            log.warning(
-                "Topology %s query returned no data, will retry in %f",
-                label,
-                self.retry_delay,
-            )
-            cache.try_again()
-            if cache.data:
-                log.debug("Returning cached data")
-                return cache.data, False
-            else:
-                log.error("Failed to update and no cached data")
-                return None, False
+            raise DataError("Topology query to %s returned no data" % endpoint)
 
         try:
             element = ET.fromstring(xml_bytes)
         except (ET.ParseError, UnicodeDecodeError) as err:
-            log.warning(
-                "Topology %s query couldn't be parsed, will retry in %f: %s",
-                label,
-                self.retry_delay,
-                err,
-            )
-            cache.try_again()
-            if cache.data:
-                log.debug("Returning cached data")
-                return cache.data, False
-            else:
-                log.error("Failed to update and no cached data")
-                return None, False
+            raise DataError("Topology query to %s couldn't be parsed" % endpoint) from err
 
-        log.debug(
-            "Caching and returning new %s data, will update again in %f",
-            label,
-            cache.cache_lifetime,
-        )
-        cache.update(element)
-        return cache.data, True
+        return element
 
 
 def safe_element_text(element: Optional[ET.Element]) -> str:
@@ -417,22 +321,16 @@ def main(argv):
     except OSError as e:
         pass  # ¯\_(ツ)_/¯
     data = TopologyData()
-    projects = data.get_projects()
-    if not projects:
-        return "Could not get project information"
-    resources = data.get_resources()
-    if not resources:
-        return "Could not get resource information"
 
     path = ""
     try:
         path = os.path.join(args.outdir, "miscproject.xml")
         with open(path, "w", encoding="utf-8") as projects_xml:
-            projects_xml.write(elem2str(projects))
+            projects_xml.write(elem2str(data.projects))
             log.info("Wrote %s", path)
         path = os.path.join(args.outdir, "rgsummary.xml")
         with open(path, "w", encoding="utf-8") as resources_xml:
-            resources_xml.write(elem2str(resources))
+            resources_xml.write(elem2str(data.resources))
             log.info("Wrote %s", path)
     except OSError as e:
         return f"Couldn't write {path}: {str(e)}"
