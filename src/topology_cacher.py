@@ -156,7 +156,9 @@ class TopologyData:
         for eProject in self.projects.findall("./Project"):
             project_name = safe_element_text(eProject.find("./Name"))
             if not project_name:
-                log.warning("Skipping malformed Project: %s", elem2str(eProject))
+                log.warning(
+                    "Project has a missing or empty Name: %s", elem2str(eProject)
+                )
                 continue
 
             ret[project_name] = allocations = []
@@ -296,6 +298,7 @@ def safe_element_text(element: Optional[ET.Element]) -> str:
 
 def elem2str(element: ET.Element) -> str:
     return ET.tostring(element, encoding="unicode")
+    # ^^ 'encoding="unicode"' tells ET.tostring() to return an str not a bytes
 
 
 def between(value, minimum, maximum):
@@ -340,8 +343,10 @@ def main(argv):
         os.makedirs(args.outdir, exist_ok=True)
     except OSError as e:
         pass  # ¯\_(ツ)_/¯
+
     data = TopologyData()
 
+    # Save the raw data
     path = ""
     try:
         path = os.path.join(args.outdir, "miscproject.xml")
@@ -355,6 +360,7 @@ def main(argv):
     except OSError as e:
         return f"Couldn't write {path}: {str(e)}"
 
+    # Compose and save the project_resource_allocations.json file
     project_resource_allocations = data.get_project_resource_allocations()
     path = os.path.join(args.outdir, "project_resource_allocations.json")
     try:
