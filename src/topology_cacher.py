@@ -88,9 +88,7 @@ class TopologyData:
                     )
                 )
                 if not resource_name or not fqdn or not service_ids:
-                    log.warning(
-                        "Skipping malformed Resource: %s", elem2str(eResource)
-                    )
+                    log.warning("Skipping malformed Resource: %s", elem2str(eResource))
                     continue
                 resinfo = ResourceInfo(group_name, resource_name, fqdn, service_ids)
                 self.resinfo_table.append(resinfo)
@@ -281,7 +279,9 @@ class TopologyData:
         try:
             element = ET.fromstring(xml_bytes)
         except (ET.ParseError, UnicodeDecodeError) as err:
-            raise DataError("Topology query to %s couldn't be parsed" % endpoint) from err
+            raise DataError(
+                "Topology query to %s couldn't be parsed" % endpoint
+            ) from err
 
         return element
 
@@ -308,7 +308,11 @@ def main(argv):
         help="Say more; can specify twice.",
     )
     parser.add_argument(
-        "--quiet", "-q", action="count", default=0, help="Say less; can specify twice."
+        "--quiet",
+        "-q",
+        action="count",
+        default=0,
+        help="Say less; can specify twice.",
     )
     parser.add_argument(
         "--outdir",
