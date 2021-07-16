@@ -51,7 +51,7 @@ def _entry2cinfo(entry):
         if len(emails) >= 2:
             ci['SecondaryEmail'] = emails[1].lower()
     else:
-        ci['PrimaryEmail'] = None
+        return None
     return ci
 
 
@@ -59,8 +59,9 @@ def cilogon_id_map_to_yaml_data(m):
     return {
         id_: {'CILogonID'          : id_,
               'FullName'           : entry['data']['cn'],
-              'ContactInformation' : _entry2cinfo(entry)}
+              'ContactInformation' : cinfo}
         for id_, entry in m.items()
+        for cinfo in [_entry2cinfo(entry)] if cinfo
     }
 
 
