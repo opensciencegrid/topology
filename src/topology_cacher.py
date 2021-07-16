@@ -175,16 +175,18 @@ class TopologyData:
                 eSubmitResource_list = eResourceAllocation.findall(
                     "./SubmitResources/SubmitResource"
                 )
-                if (
-                    not type_
-                    or not eExecuteResourceGroup_list
-                    or not eSubmitResource_list
-                ):
-                    log.warning(
-                        "Skipping malformed ResourceAllocation: %s",
-                        elem2str(eResourceAllocation),
-                    )
-                    continue
+                for var, name in [
+                    (type_, "Type"),
+                    (eExecuteResourceGroup_list, "ExecuteResourceGroups"),
+                    (eSubmitResource_list, "SubmitResources"),
+                ]:
+                    if not var:
+                        log.warning(
+                            "ResourceAllocation has a missing or empty %s: %s",
+                            name,
+                            elem2str(eResourceAllocation),
+                        )
+                        continue
 
                 allocation["type"] = type_
 
