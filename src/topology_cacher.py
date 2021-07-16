@@ -294,6 +294,10 @@ def elem2str(element: ET.Element) -> str:
     return ET.tostring(element, encoding="unicode")
 
 
+def between(value, minimum, maximum):
+    return max(minimum, min(maximum, value))
+
+
 def main(argv):
     parser = ArgumentParser(description=__doc__, prog=argv[0])
     parser.add_argument(
@@ -314,7 +318,9 @@ def main(argv):
     )
 
     args = parser.parse_args(argv[1:])
-    log.setLevel(max(logging.DEBUG, logging.WARNING + 10 * (args.quiet - args.verbose)))
+    log.setLevel(
+        between(10 * (args.quiet - args.verbose), logging.DEBUG, logging.CRITICAL)
+    )
 
     try:
         os.makedirs(args.outdir, exist_ok=True)
