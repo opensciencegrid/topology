@@ -344,7 +344,7 @@ def main(argv):
     except OSError as e:
         pass  # ¯\_(ツ)_/¯
 
-    data = TopologyData()
+    data = TopologyData(args.topology)
 
     # Save the raw data
     path = ""
