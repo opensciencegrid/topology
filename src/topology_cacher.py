@@ -2,8 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 Download resource and project XML data from Topology;
-use the data to create a JSON file for looking up resource allocations for projects,
-and save everything in a local directory.
+use the data to create a JSON file for looking up resource allocations for
+projects.
+
+In a separate JSON file, put dicts for easier lookups of common queries,
+such as "resource name by FQDN".  Everything (including the XML files)
+will be saved in a local directory.
 """
 from argparse import ArgumentParser
 from collections import namedtuple
@@ -38,6 +42,14 @@ class ResourceInfo(namedtuple("ResourceInfo", "group_name name fqdn service_ids"
 
     def is_schedd(self):
         return self.SERVICE_ID_SCHEDD in self.service_ids
+
+    def to_dict(self) -> dict:
+        return dict(
+            group_name=self.group_name,
+            name=self.name,
+            fqdn=self.fqdn,
+            service_ids=self.service_ids,
+        )
 
 
 class TopologyData:
@@ -99,6 +111,44 @@ class TopologyData:
                 self.resinfo_by_fqdn[fqdn] = resinfo
 
         return data
+
+    def get_resource_info_lookups(self):
+        """Return a dict with 3 items (intended to go into a single .json file):
+        "resource_lists_by_group":
+            {
+                "resource_group1": [ RESINFO1, ... ],
+                "resource_group2": [ RESINFO2, ... ],
+            },
+        "resources_by_name":
+            {
+                "resource1": RESINFO1,
+                "resource2": RESINFO2,
+                ...
+            },
+        "resources_by_fqdn":
+            {
+                "resfqdn1.example.net": RESINFO1,
+                "resfqdn2.example.net": RESINFO2,
+                ...
+            }
+
+        Where RESINFO is a dict containing:
+        { "name": "RESOURCE NAME", "fqdn": "RESOURCE FQDN", "group_name": "RESOURCE GROUP NAME", "service_ids": [SERVICE_ID, ...] }
+        (a SERVICE_ID is a number from services.yaml that corresponds to a service on that resource;
+        "1" is a CE)
+
+        """
+
+        resource_lists_by_group = {}
+        for group, resinfo_list in self.grouped_resinfo.items():
+            resource_lists_by_group[group] = [x.to_dict() for x in resinfo_list]
+        resources_by_name = {k: v.to_dict() for k, v in self.resinfo_by_name.items()}
+        resources_by_fqdn = {k: v.to_dict() for k, v in self.resinfo_by_fqdn.items()}
+        return {
+            "resource_lists_by_group": resource_lists_by_group,
+            "resources_by_name": resources_by_name,
+            "resources_by_fqdn": resources_by_fqdn,
+        }
 
     def get_project_resource_allocations(self):
         """Convert
@@ -360,21 +410,26 @@ def main(argv):
     except OSError as e:
         return f"Couldn't write {path}: {str(e)}"
 
-    # Compose and save the project_resource_allocations.json file
+    # Compose and save the json files
     project_resource_allocations = data.get_project_resource_allocations()
-    path = os.path.join(args.outdir, "project_resource_allocations.json")
-    try:
-        with open(path, "w", encoding="utf-8") as ra_file:
-            json.dump(
-                project_resource_allocations,
-                ra_file,
-                skipkeys=True,
-                indent=2,
-                sort_keys=True,
-            )
-            log.info("Wrote %s", path)
-    except OSError as e:
-        return f"Couldn't write {path}: {str(e)}"
+    resource_info_lookups = data.get_resource_info_lookups()
+    for filename, contents in [
+        ("project_resource_allocations.json", project_resource_allocations),
+        ("resource_info_lookups.json", resource_info_lookups),
+    ]:
+        path = os.path.join(args.outdir, filename)
+        try:
+            with open(path, "w", encoding="utf-8") as fh:
+                json.dump(
+                    contents,
+                    fh,
+                    skipkeys=True,
+                    indent=2,
+                    sort_keys=True,
+                )
+                log.info("Wrote %s", path)
+        except OSError as e:
+            return f"Couldn't write {path}: {str(e)}"
 
     return 0
 
