@@ -15,7 +15,7 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
         ("SCHEDULED", "Yes"),
         ("UNSCHEDULED", "No"),
     ])
-    severity = SelectField("Severity (how much of the resource is affected)", [InputRequired()], choices=[
+    severity = SelectField("Severity (how much of the resource group is affected)", [InputRequired()], choices=[
         ("", "-- Select one --"),
         ("Outage", "Outage (completely inaccessible)"),
         ("Severe", "Severe (most services down)"),
