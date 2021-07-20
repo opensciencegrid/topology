@@ -310,6 +310,27 @@ Resources:
           Monitored: true
     VOOwnership:
       BNL: 100
+  BNL_ATLAS_CVMFS_Squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
+          Name: John S. De Stefano Jr.
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: Round robin DNS alias for our two Frontier Squid nodes.
+    FQDN: cvmfs-cache.sdcc.bnl.gov
+    ID: 1186
+    Services:
+      Squid:
+        Description: CVMFS site squids
+        Details:
+          Monitored: true
+    VOOwnership:
+      BNL: 100
   BNL_ATLAS_SE:
     Active: true
     ContactLists:
