@@ -22,3 +22,12 @@ PIName: Luca Grandi
 Sponsor:
   CampusGrid:
     Name: OSG Connect
+
+ResourceAllocations:
+  - Type: XRAC
+    SubmitResources:
+      - CHTC-XD-SUBMIT
+    ExecuteResourceGroups:
+      - GroupName: SDSC-Expanse
+        LocalAllocationID: "chi135"
+
