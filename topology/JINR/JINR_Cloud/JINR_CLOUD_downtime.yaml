@@ -1,10 +1,11 @@
 - Class: SCHEDULED
-  Description: We expect network connection outages during the specified period
-  EndTime: Dec 25, 2017 19:00 +0000
-  ID: 1005539
+  ID: 919446444
+  Description: CE upgrade
+  Severity: Outage
+  StartTime: Jul 23, 2021 10:00 +0000
+  EndTime: Jul 23, 2021 16:00 +0000
+  CreatedTime: Jul 22, 2021 09:04 +0000
   ResourceName: JINR_CONDOR_CE
   Services:
   - CE
-  Severity: Outage
-  StartTime: Dec 25, 2017 07:00 +0000
-# ----------------------------------------------------------
+# ---------------------------------------------------------
