@@ -399,14 +399,14 @@ def main(argv):
     # Save the raw data
     path = ""
     try:
-        path = os.path.join(args.outdir, "miscproject.xml")
-        with open(path, "w", encoding="utf-8") as projects_xml:
-            projects_xml.write(elem2str(data.projects))
-            log.info("Wrote %s", path)
-        path = os.path.join(args.outdir, "rgsummary.xml")
-        with open(path, "w", encoding="utf-8") as resources_xml:
-            resources_xml.write(elem2str(data.resources))
-            log.info("Wrote %s", path)
+        for filename, contents in [
+            ("miscproject.xml", data.projects),
+            ("rgsummary.xml", data.resources),
+        ]:
+            path = os.path.join(args.outdir, filename)
+            with open(path, "w", encoding="utf-8") as fh:
+                fh.write(elem2str(contents))
+                log.info("Wrote %s", path)
     except OSError as e:
         return f"Couldn't write {path}: {str(e)}"
 
