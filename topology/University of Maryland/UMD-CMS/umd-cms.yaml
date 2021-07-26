@@ -112,6 +112,32 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
+  umd-gridftp2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
+          Name: Shabnam Jabeen
+        Secondary:
+          ID: 4cee0f130d367c26289f9f5e2ba2ca56b7b997dd
+          Name: Anwar Bhatti
+      Resource Report Contact:
+        Primary:
+          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
+          Name: Shabnam Jabeen
+      Security Contact:
+        Primary:
+          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
+          Name: Shabnam Jabeen
+    Description: GridFTP for UMD T3 HEPCMS Cluster
+    FQDN: hepcms-gridftp2.umd.edu
+    ID: 1187
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
   umd-squid:
     Active: true
     ContactLists:
@@ -126,6 +152,28 @@ Resources:
     Description: squid service for frontier and cvmfs
     FQDN: hepcms-squid.umd.edu
     ID: 863
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  umd-squid2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
+          Name: Shabnam Jabeen
+        Secondary:
+          ID: 4cee0f130d367c26289f9f5e2ba2ca56b7b997dd
+          Name: Anwar Bhatti
+      Security Contact:
+        Primary:
+          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
+          Name: Shabnam Jabeen
+    Description: squid service for frontier and cvmfs
+    FQDN: hepcms-squid2.umd.edu
+    ID: 1188
     Services:
       Squid:
         Description: Generic squid service

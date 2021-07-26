@@ -1659,3 +1659,107 @@
   ResourceName: CIT_CMS_T2_XRD_Ceph
   Services:
     - XRootD component
+
+
+# -----------------------------------------
+# Disk space does not grow on the trees and is not unlimited
+# CMS Filled too much disk space - lost disk - now we are out of space.
+
+- Class: UNSCHEDULED
+  ID: 893044371
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: UNSCHEDULED
+  ID: 893044372
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 893044373
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 893044374
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 893044375
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 893044376
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 893044377
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: UNSCHEDULED
+  ID: 893044378
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: UNSCHEDULED
+  ID: 893044379
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component

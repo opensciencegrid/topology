@@ -3,12 +3,18 @@
 {% import "formmacros.html.j2" as M %}
 
 {% if form.facility.data %}
+{% set site_disabled = false %}
+{% else %}
+{% set site_disabled = true %}
+{% endif %}
+
+{% if form.site.data %}
 {% set resource_disabled = false %}
 {% else %}
 {% set resource_disabled = true %}
 {% endif %}
 
-{% if form.resource.data %}
+{% if form.resource_group.data %}
 {% set dtopts_disabled = false %}
 {% else %}
 {% set dtopts_disabled = true %}
@@ -27,7 +33,7 @@
   "end_date", "end_time", "services", "generate"] %}
 
 {% block title -%}
-Resource Downtime YAML Generator
+Resource Group Downtime YAML Generator
 {%- endblock %}
 
 {% block content %}
@@ -58,10 +64,11 @@ Resource Downtime YAML Generator
         {{ M.render_field(form.facility) }}
         {{ M.render_button(form.change_facility) }}
 
-        {{ M.render_field(form.resource, disabled=resource_disabled) }}
-        {{ M.render_button(form.change_resource, disabled=resource_disabled) }}
+        {{ M.render_field(form.site, disabled=site_disabled) }}
+        {{ M.render_button(form.change_site, disabled=site_disabled) }}
 
-        {{ render_dtfield(form.services) }}
+        {{ M.render_field(form.resource_group, disabled=resource_disabled) }}
+        {{ M.render_button(form.change_resource_group, disabled=resource_disabled) }}
 
         {{ render_dtfield(form.scheduled) }}
         {{ render_dtfield(form.description) }}
@@ -143,7 +150,7 @@ Resource Downtime YAML Generator
               Commit your changes to the repository.
             {%- endif %}
             The commit message should look something like<br>
-            <code>Add downtime for &lt;RESOURCE&gt; due to &lt;REASON&gt;</code>
+            <code>Add downtime for &lt;RESOURCE GROUP&gt; due to &lt;REASON&gt;</code>
           </li>
           {% if github -%}
             <li>
@@ -167,6 +174,9 @@ Resource Downtime YAML Generator
 
 {% block last %}
 <script type="text/javascript">
+  $( "#facility" ).change( function () {
+    $( "#change_facility" ).click();
+  } );
   $( "#change_facility" ).hide();
   $( "#change_facility" ).click( function () {
     {% for fieldname in downtime_fieldnames %}
@@ -175,19 +185,27 @@ Resource Downtime YAML Generator
     $( "#{{ fieldname }}" ).prop("required", false);
     {% endfor %}
   } );
-  $( "#facility" ).change( function () {
-    $( "#change_facility" ).click();
+  $( "#site" ).change( function () {
+    $( "#change_site" ).click();
   } );
-  $( "#change_resource" ).hide();
-  $( "#change_resource" ).click( function () {
+  $( "#change_site" ).hide();
+  $( "#change_site" ).click( function () {
+    {% for fieldname in downtime_fieldnames %}
+    /* undisable/require everything so existing data gets saved */
+    $( "#{{ fieldname }}" ).prop("disabled", false);
+    $( "#{{ fieldname }}" ).prop("required", false);
+    {% endfor %}
+  } );
+  $( "#change_resource_group" ).hide();
+  $( "#change_resource_group" ).click( function () {
     {% for fieldname in downtime_fieldnames %}
     /* undisable/require everything so existing data gets saved */
     $( "#{{ fieldname }}" ).prop("disabled", false);
     $( "#{{ fieldname }}" ).prop("required", false);
     {% endfor %}
   });
-  $( "#resource" ).change( function() {
-    $( "#change_resource" ).click();
+  $( "#resource_group" ).change( function() {
+    $( "#change_resource_group" ).click();
   } );
 </script>
 {% endblock %}

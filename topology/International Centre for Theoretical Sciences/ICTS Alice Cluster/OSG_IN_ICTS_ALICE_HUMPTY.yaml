@@ -20,7 +20,7 @@ Resources:
   OSG_IN_ICTS_ALICE_HUMPTY:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: false
+    Active: true
     # Description is a long description of the resource; may be multiple lines
     Description: This is a Hosted CE to submitting to ICTS Alice Humpty for ICTS-TIFR.
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
