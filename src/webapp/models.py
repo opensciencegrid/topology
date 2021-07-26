@@ -126,7 +126,7 @@ class GlobalData:
             return False
         return True
 
-    def get_contacts_data(self) -> ContactsData:
+    def get_contact_db_data(self) -> ContactsData:
         """
         Get the contact information from a private git repo
         """
@@ -165,14 +165,14 @@ class GlobalData:
 
         return self.comanage_data.data
 
-    def get_merged_contacts_data(self) -> ContactsData:
+    def get_contacts_data(self) -> ContactsData:
         """
         Get the contact information from a private git repo
         """
         if self.merged_contacts_data.should_update():
             try:
                 yd1 = self.get_comanage_data().yaml_data
-                yd2 = self.get_contacts_data().yaml_data
+                yd2 = self.get_contact_db_data().yaml_data
                 yd_merged = cilogon_ldap.merge_yaml_data(yd1, yd2)
                 self.merged_contacts_data.update(ContactsData(yd_merged))
             except Exception:
