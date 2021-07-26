@@ -50,6 +50,7 @@ class GlobalData:
         topology_cache_lifetime = config.get("TOPOLOGY_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
         self.contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
         self.comanage_data = CachedData(cache_lifetime=contact_cache_lifetime)
+        self.merged_contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
         self.dn_set = CachedData(cache_lifetime=topology_cache_lifetime)
         self.projects = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology = CachedData(cache_lifetime=topology_cache_lifetime)
@@ -163,6 +164,24 @@ class GlobalData:
                 self.comanage_data.try_again()
 
         return self.comanage_data.data
+
+    def get_merged_contacts_data(self) -> ContactsData:
+        """
+        Get the contact information from a private git repo
+        """
+        if self.merged_contacts_data.should_update():
+            try:
+                yd1 = self.get_comanage_data().yaml_data
+                yd2 = self.get_contacts_data().yaml_data
+                yd_merged = cilogon_ldap.merge_yaml_data(yd1, yd2)
+                self.merged_contacts_data.update(ContactsData(yd_merged))
+            except Exception:
+                if self.strict:
+                    raise
+                log.exception("Failed to update merged contacts data")
+                self.merged_contacts_data.try_again()
+
+        return self.merged_contacts_data.data
 
     def get_dns(self) -> Set:
         """

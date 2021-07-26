@@ -65,3 +65,10 @@ def cilogon_id_map_to_yaml_data(m):
     }
 
 
+def merge_yaml_data(yaml_data_main, yaml_data_secondary):
+    yd = dict(yaml_data_main)
+    for id_, contact in yaml_data_secondary.items():
+        if id_ not in yd:
+            yd[id_] = contact
+    return yd
+
