@@ -2,12 +2,125 @@
 # -*- coding: utf-8 -*-
 """
 Download resource and project XML data from Topology;
-use the data to create a JSON file for looking up resource allocations for
-projects.
+use the data to create a JSON file (project_resource_allocation.json)
+for looking up resource allocations for projects.
 
-In a separate JSON file, put dicts for easier lookups of common queries,
-such as "resource name by FQDN".  Everything (including the XML files)
-will be saved in a local directory.
+In a separate JSON file (resource_info_lookups.json), put dicts for easier
+lookups of common queries, such as "resource name by FQDN".  Everything
+(including the XML files) will be saved in a local directory.
+
+project_resource_allocations.json looks like:
+```
+{
+  "ACE_LIAID": [],
+  ...
+  "CHTC-Staff": [
+    {
+      "execute_resource_groups": [
+        {
+          "ces": [
+            {
+              "fqdn": "itb-slurm-ce.osgdev.chtc.io",
+              "name": "CHTC-ITB-SLURM-CE"
+            },
+            ...
+          ],
+          "group_name": "CHTC-ITB",
+          "local_allocation_id": "glow"
+        }
+      ],
+      "submit_resources": [
+        {
+          "fqdn": "submittest0000.chtc.wisc.edu",
+          "group_name": "CHTC-ITB",
+          "name": "CHTC-ITB-submittest0000"
+        }
+      ],
+      "type": "Other"
+    }
+  ],
+  ...
+}
+```
+
+Projects data only lists execute resources by resource group but I need
+to know the possible CEs the job will run on so I add those ad well.
+
+
+resource_info_lookups.json looks like:
+
+```
+{
+  "resource_lists_by_group": {
+    "AGLT2": [
+      {
+        "fqdn": "squid.aglt2.org",
+        "group_name": "AGLT2",
+        "name": "AGLT2-squid",
+        "service_ids": [
+          "138"
+        ]
+      },
+      {
+        "fqdn": "sl-um-es3.slateci.io",
+        "group_name": "AGLT2",
+        "name": "AGLT2-squid-2",
+        "service_ids": [
+          "138"
+        ]
+      },
+      ...
+    ],
+    ...
+  },
+  "resources_by_fqdn": {
+    ...
+    "249cc.yeg.rac.sh": {
+      "fqdn": "249cc.yeg.rac.sh",
+      "group_name": "CyberaEdmonton",
+      "name": "CYBERA_EDMONTON",
+      "service_ids": [
+        "1"
+      ]
+    },
+    "40.119.41.40": {
+      "fqdn": "40.119.41.40",
+      "group_name": "UCSDT2",
+      "name": "UCSDT2-Cloud-3-squid",
+      "service_ids": [
+        "138"
+      ]
+    },
+    ...
+  },
+  "resources_by_name": {
+    "AGLT2-squid": {
+      "fqdn": "squid.aglt2.org",
+      "group_name": "AGLT2",
+      "name": "AGLT2-squid",
+      "service_ids": [
+        "138"
+      ]
+    },
+    "AGLT2-squid-2": {
+      "fqdn": "sl-um-es3.slateci.io",
+      "group_name": "AGLT2",
+      "name": "AGLT2-squid-2",
+      "service_ids": [
+        "138"
+      ]
+    },
+    ...
+  }
+}
+```
+There's some redundancy in the information (e.g. fqdn is included in the
+`resources_by_fqdn` entries) but having a consistent entry format makes
+things easier to read (and was easier to implement).
+
+service_ids are numeric but if we're committed to never changing service
+names then I could make them text instead.
+
 """
 from argparse import ArgumentParser
 from collections import namedtuple
