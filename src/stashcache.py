@@ -49,9 +49,9 @@ def _generate_ligo_dns() -> List[str]:
     query = "(&(isMemberOf=Communities:LSCVirgoLIGOGroupMembers)(gridX509subject=*))"
     try:
         server = ldap3.Server(_ligo_ldap_url, connect_timeout=10)
-        conn = ldap3.Connection(server, receive_timeout=10)
+        conn = ldap3.Connection(server, raise_exceptions=True, receive_timeout=10)
         conn.bind()
-    except ldap3.core.exceptions.LDAPExceptionError:
+    except ldap3.core.exceptions.LDAPException:
         log.exception("Failed to connect to the LIGO LDAP")
         return []
 
@@ -61,7 +61,7 @@ def _generate_ligo_dns() -> List[str]:
                     search_scope='LEVEL',
                     attributes=['gridX509subject'])
         results = [dn for e in conn.entries for dn in e.gridX509subject]
-    except ldap3.core.exceptions.LDAPExceptionError:
+    except ldap3.core.exceptions.LDAPException:
         log.exception("Failed to query the LIGO LDAP")
     finally:
         conn.unbind()
