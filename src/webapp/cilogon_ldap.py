@@ -56,13 +56,14 @@ def _entry2cinfo(entry):
 
 
 def cilogon_id_map_to_yaml_data(m):
-    return {
-        id_: {'CILogonID'          : id_,
-              'FullName'           : entry['data']['cn'],
-              'ContactInformation' : cinfo}
-        for id_, entry in m.items()
-        for cinfo in [_entry2cinfo(entry)] if cinfo
-    }
+    data = {}
+    for id_, entry in m.items()
+        cinfo = _entry2cinfo(entry)
+        if cinfo:
+            data[id_] = {'CILogonID'          : id_,
+                         'FullName'           : entry['data']['cn'],
+                         'ContactInformation' : cinfo}
+    return data
 
 
 def merge_yaml_data(yaml_data_main, yaml_data_secondary):
