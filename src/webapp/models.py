@@ -45,6 +45,9 @@ class GlobalData:
             config = {}
         config.setdefault("TOPOLOGY_DATA_DIR", ".")
         config.setdefault("CONTACT_DATA_DIR", None)
+        config.setdefault("CILOGON_LDAP_URL", "ldaps://ldap.cilogon.org")
+        config.setdefault("CILOGON_LDAP_USER",
+                "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org")
         config.setdefault("NO_GIT", True)
         contact_cache_lifetime = config.get("CONTACT_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
         topology_cache_lifetime = config.get("TOPOLOGY_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
@@ -67,6 +70,8 @@ class GlobalData:
         self.webhook_gh_api_user = config.get("WEBHOOK_GH_API_USER")
         self.webhook_gh_api_token = config.get("WEBHOOK_GH_API_TOKEN")
         self.cilogon_ldap_passfile = config.get("CILOGON_LDAP_PASSFILE")
+        self.cilogon_ldap_url = config.get("CILOGON_LDAP_URL")
+        self.cilogon_ldap_user = config.get("CILOGON_LDAP_USER")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:
@@ -152,7 +157,10 @@ class GlobalData:
         """
         Get the contact information from comanage / cilogon ldap
         """
-        if self.comanage_data.should_update():
+        if not self.config.get("CILOGON_LDAP_URL", None):
+            log.debug("CILOGON_LDAP_URL not specified; getting empty contacts")
+            return contacts_reader.get_contacts_data(None)
+        elif self.comanage_data.should_update():
             try:
                 idmap = cilogon_ldap.get_cilogon_ldap_id_map()
                 data = cilogon_ldap.cilogon_id_map_to_yaml_data(idmap)
