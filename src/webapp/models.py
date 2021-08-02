@@ -163,7 +163,7 @@ class GlobalData:
             return contacts_reader.get_contacts_data(None)
         elif self.comanage_data.should_update():
             try:
-                idmap = cilogon_ldap.get_cilogon_ldap_id_map(self)
+                idmap = self.get_cilogon_ldap_id_map()
                 data = cilogon_ldap.cilogon_id_map_to_yaml_data(idmap)
                 self.comanage_data.update(ContactsData(data))
             except Exception:
