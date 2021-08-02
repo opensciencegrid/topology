@@ -44,7 +44,7 @@ def cilogon_id_map_to_ssh_keys(m):
 
 
 def _entry2cinfo(entry):
-    ci = {'DNs': [entry['dn']]}
+    ci = {}
     emails = entry['data'].get('mail')
     if emails:
         ci['PrimaryEmail'] = emails[0].lower()
