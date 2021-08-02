@@ -150,7 +150,7 @@ class GlobalData:
 
     def get_comanage_data(self) -> ContactsData:
         """
-        Get the contact information from a private git repo
+        Get the contact information from comanage / cilogon ldap
         """
         if self.comanage_data.should_update():
             try:
