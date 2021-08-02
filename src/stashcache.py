@@ -3,19 +3,7 @@ from collections import defaultdict
 from typing import Dict, List, Optional
 import re
 import sys
-try:
-    # TODO: Rewrite this module to use ldap3 which gets installed in rootless installs too.
-    import ldap
-except ModuleNotFoundError:
-    print("""\
-*** ldap module unavailable; this comes from "python-ldap" which is only in 
-    requirements-apache.txt since it requires the openldap header files 
-    (openldap-devel on EL) to install.  If the openldap header files are 
-    available, pip install python-ldap to make this error go away.
-""", file=sys.stderr)
-    raise
-ldap.set_option(ldap.OPT_TIMEOUT, 10)
-ldap.set_option(ldap.OPT_NETWORK_TIMEOUT, 10)
+import ldap3
 import asn1
 import hashlib
 
@@ -42,6 +30,8 @@ __oid_map = {
 
 __dn_split_re = re.compile("/([A-Za-z]+)=")
 
+_ligo_ldap_url    = "ldaps://ldap.ligo.org"
+_ligo_ldap_branch = "ou=people,dc=ligo,dc=org"
 
 class DataError(Exception):
     """Raised when there is a problem in the topology or VO data"""
@@ -52,22 +42,31 @@ class NotRegistered(Exception):
 
 def _generate_ligo_dns() -> List[str]:
     """
-    Query the LIGO LDAP server for all grid DNs in the LVC collab.
+    Query the LIGO LDAP server for all grid DNs in the IGWN collab.
 
     Returns a list of DNs.
     """
-    ldap_obj = ldap.initialize("ldaps://ldap.ligo.org")
     query = "(&(isMemberOf=Communities:LSCVirgoLIGOGroupMembers)(gridX509subject=*))"
-    results = ldap_obj.search_s("ou=people,dc=ligo,dc=org", ldap.SCOPE_ONELEVEL,
-                                query, ["gridX509subject"])
-    all_dns = []
-    for result in results:
-        user_dns = result[1].get('gridX509subject', [])
-        for dn in user_dns:
-            if dn.startswith(b"/"):
-                all_dns.append(dn.replace(b"\n", b" ").decode("utf-8"))
+    try:
+        server = ldap3.Server(_ligo_ldap_url, connect_timeout=10)
+        conn = ldap3.Connection(server, raise_exceptions=True, receive_timeout=10)
+        conn.bind()
+    except ldap3.core.exceptions.LDAPException:
+        log.exception("Failed to connect to the LIGO LDAP")
+        return []
 
-    return all_dns
+    try:
+        conn.search(_ligo_ldap_branch,
+                    query,
+                    search_scope='LEVEL',
+                    attributes=['gridX509subject'])
+        results = [dn for e in conn.entries for dn in e.gridX509subject]
+    except ldap3.core.exceptions.LDAPException:
+        log.exception("Failed to query the LIGO LDAP")
+    finally:
+        conn.unbind()
+
+    return results
 
 
 def _generate_dn_hash(dn: str) -> str:
