@@ -57,7 +57,7 @@ def _entry2cinfo(entry):
 
 def cilogon_id_map_to_yaml_data(m):
     data = {}
-    for id_, entry in m.items()
+    for id_, entry in m.items():
         cinfo = _entry2cinfo(entry)
         if cinfo:
             data[id_] = {'CILogonID'          : id_,
