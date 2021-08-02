@@ -158,8 +158,10 @@ class GlobalData:
         """
         Get the contact information from comanage / cilogon ldap
         """
-        if not self.config.get("CILOGON_LDAP_URL", None):
-            log.debug("CILOGON_LDAP_URL not specified; getting empty contacts")
+        if not (self.cilogon_ldap_url and self.cilogon_ldap_user and
+                self.cilogon_ldap_passfile):
+            log.debug("CILOGON_LDAP_{URL|USER|PASSFILE} not specified; "
+                      "getting empty contacts")
             return contacts_reader.get_contacts_data(None)
         elif self.comanage_data.should_update():
             try:
