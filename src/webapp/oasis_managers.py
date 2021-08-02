@@ -28,8 +28,8 @@ def get_oasis_manager_endpoint_info(global_data, vo, ldappass):
         if not managers:
             return []
 
-    ldap_url = self.cilogon_ldap_url
-    ldap_user = self.cilogon_ldap_user
+    ldap_url = global_data.cilogon_ldap_url
+    ldap_user = global_data.cilogon_ldap_user
     cilogon_id_map = get_cilogon_ldap_id_map(ldap_url, ldap_user, ldappass)
     ssh_keys_map = cilogon_id_map_to_ssh_keys(cilogon_id_map)
     contact_cilogon_ids = get_contact_cilogon_id_map(global_data)
