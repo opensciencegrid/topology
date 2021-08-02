@@ -8,16 +8,16 @@ def get_contact_cilogon_id_map(global_data):
 
 
 # cilogon ldap query constants
-_ldap_url = "ldaps://ldap.cilogon.org"
-_username = "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org"
+#_ldap_url = "ldaps://ldap.cilogon.org"
+#_username = "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org"
 _basedn   = "o=OSG,o=CO,dc=cilogon,dc=org"
 
 
-def get_cilogon_ldap_id_map(ldappass):
+def get_cilogon_ldap_id_map(ldap_url, username, ldappass):
     """ return dict of cilogon ldap data for each CILogonID, with the
         structure: {CILogonID: { "dn": dn, "data": data }, ...} """
-    server = ldap3.Server(_ldap_url)
-    conn = ldap3.Connection(server, _username, ldappass)
+    server = ldap3.Server(ldap_url)
+    conn = ldap3.Connection(server, username, ldappass)
     if not conn.bind():
         return None  # connection failure
     conn.search(_basedn, '(voPersonID=*)', attributes=['*'])

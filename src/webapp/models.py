@@ -8,6 +8,7 @@ from typing import Dict, Set, List
 import yaml
 
 from webapp import cilogon_ldap, common, contacts_reader, mappings, project_reader, rg_reader, vo_reader
+from webapp.common import readfile
 from webapp.contacts_reader import ContactsData
 from webapp.topology import Topology, Downtime
 from webapp.vos_data import VOsData
@@ -162,7 +163,7 @@ class GlobalData:
             return contacts_reader.get_contacts_data(None)
         elif self.comanage_data.should_update():
             try:
-                idmap = cilogon_ldap.get_cilogon_ldap_id_map()
+                idmap = cilogon_ldap.get_cilogon_ldap_id_map(self)
                 data = cilogon_ldap.cilogon_id_map_to_yaml_data(idmap)
                 self.comanage_data.update(ContactsData(data))
             except Exception:
@@ -172,6 +173,12 @@ class GlobalData:
                 self.comanage_data.try_again()
 
         return self.comanage_data.data
+
+    def get_cilogon_ldap_id_map(self):
+        url = self.cilogon_ldap_url
+        user = self.cilogon_ldap_user
+        ldappass = readfile(self.cilogon_ldap_passfile, log)
+        return cilogon_ldap.get_cilogon_ldap_id_map(url, user, ldappass)
 
     def get_contacts_data(self) -> ContactsData:
         """
