@@ -61,7 +61,7 @@ def cilogon_id_map_to_yaml_data(m):
         cinfo = _entry2cinfo(entry)
         if cinfo:
             data[id_] = {'CILogonID'          : id_,
-                         'FullName'           : entry['data']['cn'],
+                         'FullName'           : entry['data']['cn'][0],
                          'ContactInformation' : cinfo}
     return data
 
