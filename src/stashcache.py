@@ -110,6 +110,10 @@ def _generate_dn_hash(dn: str) -> str:
 
 
 def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Resource:
+    """Returns the Resource that has the given FQDN; if multiple Resources
+    have the same FQDN, returns the first one.
+
+    """
     for group in resource_groups:
         for resource in group.resources:
             if fqdn.lower() == resource.fqdn.lower():
@@ -117,6 +121,15 @@ def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Re
 
 
 def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup], suppress_errors: bool) -> Optional[Resource]:
+    """If given an FQDN, returns the Resource _if it has an "XRootD cache server" service_.
+    If given None, returns None.
+    If multiple Resources have the same FQDN, checks the first one.
+    If suppress_errors is False, raises an expression on the following conditions:
+    - no Resource matching FQDN (NotRegistered)
+    - Resource does not provide an XRootD cache server (DataError)
+    If suppress_errors is True, returns None on the above conditions.
+
+    """
     resource = None
     if fqdn:
         resource = _get_resource_by_fqdn(fqdn, resource_groups)
@@ -279,6 +292,8 @@ def generate_cache_scitokens(vo_data: VOsData, resource_groups: List[ResourceGro
 
     "Restricted Path" is optional.
     `fqdn` must belong to a registered cache resource.
+
+    You may have multiple `- SciTokens:` blocks
 
     If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
     no resource matching fqdn, resource does not contain a cache server, etc.).  Otherwise, raises
@@ -503,6 +518,33 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
 
 
 def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
+    """
+    Generate the SciTokens needed by a StashCache origin server, given the fqdn
+    of the origin server.
+
+    The scitokens config for a StashCache namespace is in the VO YAML and looks like:
+
+        DataFederations:
+            StashCache:
+                Namespaces:
+                    /store:
+                        - SciTokens:
+                            Issuer: https://scitokens.org/cms
+                            Base Path: /
+                            Restricted Path: /store
+
+    "Restricted Path" is optional.
+    `fqdn` must belong to a registered cache resource.
+
+    You may have multiple `- SciTokens:` blocks
+
+    Returns a file with a dummy "issuer" block if there are no `- SciTokens:` blocks.
+
+    If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
+    no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
+    ValueError or DataError.
+
+    """
 
     template = """\
 [Global]
