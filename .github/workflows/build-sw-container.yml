@@ -16,14 +16,11 @@ jobs:
 
     - name: Generate tag list
       id: generate-tag-list
-      env:
-        REPO: ${{ matrix.repo }}
-        TIMESTAMP: ${{ needs.make-date-tag.outputs.dtag }}
       run: |
         docker_repo=${GITHUB_REPOSITORY/opensciencegrid\/docker-/opensciencegrid/}
         tag_list=()
         for registry in hub.opensciencegrid.org docker.io; do
-          for image_tag in "$REPO" "$REPO-$TIMESTAMP"; do
+          for image_tag in latest "${GITHUB_REF##*/v}"; do
             tag_list+=("$registry/$docker_repo":"$image_tag")
           done
         done
