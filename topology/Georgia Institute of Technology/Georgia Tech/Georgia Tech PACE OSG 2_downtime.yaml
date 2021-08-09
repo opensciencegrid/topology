@@ -125,4 +125,50 @@
   Services:
   - net.perfSONAR.Bandwidth
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 935302343
+  Description: 'Quarterly Maintenance '
+  Severity: Outage
+  StartTime: Aug 11, 2021 10:00 +0000
+  EndTime: Aug 14, 2021 03:59 +0000
+  CreatedTime: Aug 09, 2021 17:30 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 935303038
+  Description: 'Quarterly Maintenance '
+  Severity: Outage
+  StartTime: Aug 11, 2021 10:00 +0000
+  EndTime: Aug 14, 2021 03:59 +0000
+  CreatedTime: Aug 09, 2021 17:31 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 935303317
+  Description: 'Quarterly Maintenance '
+  Severity: Outage
+  StartTime: Aug 11, 2021 10:00 +0000
+  EndTime: Aug 14, 2021 03:59 +0000
+  CreatedTime: Aug 09, 2021 17:32 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 935303531
+  Description: 'Quarterly Maintenance '
+  Severity: Outage
+  StartTime: Aug 11, 2021 10:00 +0000
+  EndTime: Aug 14, 2021 03:59 +0000
+  CreatedTime: Aug 09, 2021 17:32 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
 
