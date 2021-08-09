@@ -468,3 +468,38 @@
   - GridFtp
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 935305910
+  Description: 'Quarterly Maintenance '
+  Severity: Outage
+  StartTime: Aug 11, 2021 10:00 +0000
+  EndTime: Aug 14, 2021 03:59 +0000
+  CreatedTime: Aug 09, 2021 17:36 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 935306429
+  Description: 'Quarterly Maintenance '
+  Severity: Outage
+  StartTime: Aug 11, 2021 10:00 +0000
+  EndTime: Aug 14, 2021 03:59 +0000
+  CreatedTime: Aug 09, 2021 17:37 +0000
+  ResourceName: Georgia_Tech_PACE_CE_1
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 935306751
+  Description: 'Quarterly Maintenance '
+  Severity: Outage
+  StartTime: Aug 11, 2021 10:00 +0000
+  EndTime: Aug 14, 2021 03:59 +0000
+  CreatedTime: Aug 09, 2021 17:37 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
