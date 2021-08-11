@@ -59,7 +59,8 @@ resource_info_lookups.json looks like:
         "name": "AGLT2-squid",
         "service_ids": [
           "138"
-        ]
+        ],
+        "tags": []
       },
       {
         "fqdn": "sl-um-es3.slateci.io",
@@ -67,6 +68,20 @@ resource_info_lookups.json looks like:
         "name": "AGLT2-squid-2",
         "service_ids": [
           "138"
+        ],
+        "tags": []
+      },
+      ...
+    "AMNH": [
+      {
+        "fqdn": "hosted-ce22.opensciencegrid.org",
+        "group_name": "AMNH",
+        "name": "AMNH-ARES",
+        "service_ids": [
+          "1"
+        ],
+        "tags": [
+          "CC*"
         ]
       },
       ...
@@ -81,7 +96,8 @@ resource_info_lookups.json looks like:
       "name": "CYBERA_EDMONTON",
       "service_ids": [
         "1"
-      ]
+      ],
+      "tags": []
     },
     "40.119.41.40": {
       "fqdn": "40.119.41.40",
@@ -89,7 +105,8 @@ resource_info_lookups.json looks like:
       "name": "UCSDT2-Cloud-3-squid",
       "service_ids": [
         "138"
-      ]
+      ],
+      "tags": []
     },
     ...
   },
@@ -100,7 +117,8 @@ resource_info_lookups.json looks like:
       "name": "AGLT2-squid",
       "service_ids": [
         "138"
-      ]
+      ],
+      "tags": []
     },
     "AGLT2-squid-2": {
       "fqdn": "sl-um-es3.slateci.io",
@@ -108,7 +126,8 @@ resource_info_lookups.json looks like:
       "name": "AGLT2-squid-2",
       "service_ids": [
         "138"
-      ]
+      ],
+      "tags": []
     },
     ...
   }
