@@ -146,7 +146,7 @@ class DataError(Exception):
     pass
 
 
-class ResourceInfo(namedtuple("ResourceInfo", "group_name name fqdn service_ids")):
+class ResourceInfo(namedtuple("ResourceInfo", "group_name name fqdn service_ids tags")):
     SERVICE_ID_CE = "1"
     SERVICE_ID_SCHEDD = "109"
 
@@ -162,6 +162,7 @@ class ResourceInfo(namedtuple("ResourceInfo", "group_name name fqdn service_ids"
             name=self.name,
             fqdn=self.fqdn,
             service_ids=self.service_ids,
+            tags=self.tags,
         )
 
 
@@ -217,7 +218,18 @@ class TopologyData:
                 if not resource_name or not fqdn or not service_ids:
                     log.warning("Skipping malformed Resource: %s", elem2str(eResource))
                     continue
-                resinfo = ResourceInfo(group_name, resource_name, fqdn, service_ids)
+                tags = list(
+                    filter(
+                        None,
+                        [
+                            safe_element_text(tag)
+                            for tag in eResource.findall("./Tags/Tag")
+                        ],
+                    )
+                )
+                resinfo = ResourceInfo(
+                    group_name, resource_name, fqdn, service_ids, tags
+                )
                 self.resinfo_table.append(resinfo)
                 self.grouped_resinfo[group_name].append(resinfo)
                 self.resinfo_by_name[resource_name] = resinfo
