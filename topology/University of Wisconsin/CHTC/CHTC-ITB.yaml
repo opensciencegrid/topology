@@ -209,3 +209,32 @@ Resources:
           hidden: false
     VOOwnership:
       GLOW: 100
+
+  CHTC-ITB-OPEN-SCIENCE-CE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: 606b797dcc03cad7135b7cc61b78fbc15eea7ec8
+          Name: Carl Edquist
+      Security Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+    Description: Development Open Science CE
+    FQDN: os-ce1.osgdev.chtc.io
+    ID: 1189
+    Services:
+      CE:
+        Description: HTCondor-CE
+      Submit Node:
+        Description: OS Pool Access Point
