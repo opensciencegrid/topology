@@ -470,6 +470,10 @@ def safe_element_text(element: Optional[ET.Element]) -> str:
     return getattr(element, "text", "").strip()
 
 
+def findall_nonempty(elt, path):
+    return list(filter(None, map(safe_element_text, elt.findall(path))))
+
+
 def elem2str(element: ET.Element) -> str:
     return ET.tostring(element, encoding="unicode")
     # ^^ 'encoding="unicode"' tells ET.tostring() to return an str not a bytes
