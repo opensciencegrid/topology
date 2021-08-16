@@ -145,6 +145,19 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
     return newdata
 
 
+def safe_dict_get(item, *keys, default=None):
+    """ traverse dict hierarchy without producing KeyErrors:
+        safe_dict_get(item, key1, key2, ..., default=default)
+        -> item[key1][key2][...] if defined and not None, else default
+    """
+    for key in keys:
+        if isinstance(item, dict):
+            item = item.get(key)
+        else:
+            return default
+    return default if item is None else item
+
+
 def order_dict(value: Dict, ordering: List, ignore_missing=False) -> OrderedDict:
     """
     Convert a dict to an OrderedDict with key order provided by ``ordering``.

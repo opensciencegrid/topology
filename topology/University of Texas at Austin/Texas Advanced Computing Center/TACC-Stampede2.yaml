@@ -5,6 +5,7 @@ GroupDescription: This is a small cluster to test Stampede2 integration
 Resources:
   OSG_US_TACC_STAMPEDE2:
     ID: 993
+    Active: false
     Description: The Hosted CE serving Stampede2
     ContactLists:
       Administrative Contact:
@@ -36,7 +37,7 @@ Resources:
       ATLAS: 50
   TACC-Stampede2:
     ID: 1082
-    Disable: false
+    Active: false
     Description: The Hosted CE serving TACC-Stampede2
     ContactLists:
       Administrative Contact:
@@ -54,6 +55,62 @@ Resources:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
     FQDN: hosted-ce10.opensciencegrid.org
+    Services:
+      CE:
+        Description: TACC-Stampede2 Hosted CE
+        Details:
+          hidden: false
+    WLCGInformation:
+      APELNormalFactor: 18
+      InteropAccounting: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+  TACC-Stampede2-CE1:
+    ID: 1178
+    Active: true
+    Description: The Hosted CE serving TACC-Stampede2
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+    FQDN: tacc-stampede2-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: TACC-Stampede2 Hosted CE
+        Details:
+          hidden: false
+  TACC-Stampede2-CE2:
+    ID: 1179
+    Active: true
+    Description: The Hosted CE serving TACC-Stampede2
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+    FQDN: tacc-stampede2-ce2.svc.opensciencegrid.org
     Services:
       CE:
         Description: TACC-Stampede2 Hosted CE

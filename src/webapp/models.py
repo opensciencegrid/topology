@@ -7,7 +7,8 @@ from typing import Dict, Set, List
 
 import yaml
 
-from webapp import common, contacts_reader, mappings, project_reader, rg_reader, vo_reader
+from webapp import cilogon_ldap, common, contacts_reader, mappings, project_reader, rg_reader, vo_reader
+from webapp.common import readfile
 from webapp.contacts_reader import ContactsData
 from webapp.topology import Topology, Downtime
 from webapp.vos_data import VOsData
@@ -45,10 +46,15 @@ class GlobalData:
             config = {}
         config.setdefault("TOPOLOGY_DATA_DIR", ".")
         config.setdefault("CONTACT_DATA_DIR", None)
+        config.setdefault("CILOGON_LDAP_URL", "ldaps://ldap.cilogon.org")
+        config.setdefault("CILOGON_LDAP_USER",
+                "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org")
         config.setdefault("NO_GIT", True)
         contact_cache_lifetime = config.get("CONTACT_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
         topology_cache_lifetime = config.get("TOPOLOGY_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
         self.contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
+        self.comanage_data = CachedData(cache_lifetime=contact_cache_lifetime)
+        self.merged_contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
         self.dn_set = CachedData(cache_lifetime=topology_cache_lifetime)
         self.projects = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology = CachedData(cache_lifetime=topology_cache_lifetime)
@@ -65,6 +71,8 @@ class GlobalData:
         self.webhook_gh_api_user = config.get("WEBHOOK_GH_API_USER")
         self.webhook_gh_api_token = config.get("WEBHOOK_GH_API_TOKEN")
         self.cilogon_ldap_passfile = config.get("CILOGON_LDAP_PASSFILE")
+        self.cilogon_ldap_url = config.get("CILOGON_LDAP_URL")
+        self.cilogon_ldap_user = config.get("CILOGON_LDAP_USER")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:
@@ -124,7 +132,7 @@ class GlobalData:
             return False
         return True
 
-    def get_contacts_data(self) -> ContactsData:
+    def get_contact_db_data(self) -> ContactsData:
         """
         Get the contact information from a private git repo
         """
@@ -145,6 +153,52 @@ class GlobalData:
                 self.contacts_data.try_again()
 
         return self.contacts_data.data
+
+    def get_comanage_data(self) -> ContactsData:
+        """
+        Get the contact information from comanage / cilogon ldap
+        """
+        if not (self.cilogon_ldap_url and self.cilogon_ldap_user and
+                self.cilogon_ldap_passfile):
+            log.debug("CILOGON_LDAP_{URL|USER|PASSFILE} not specified; "
+                      "getting empty contacts")
+            return contacts_reader.get_contacts_data(None)
+        elif self.comanage_data.should_update():
+            try:
+                idmap = self.get_cilogon_ldap_id_map()
+                data = cilogon_ldap.cilogon_id_map_to_yaml_data(idmap)
+                self.comanage_data.update(ContactsData(data))
+            except Exception:
+                if self.strict:
+                    raise
+                log.exception("Failed to update comanage data")
+                self.comanage_data.try_again()
+
+        return self.comanage_data.data
+
+    def get_cilogon_ldap_id_map(self):
+        url = self.cilogon_ldap_url
+        user = self.cilogon_ldap_user
+        ldappass = readfile(self.cilogon_ldap_passfile, log)
+        return cilogon_ldap.get_cilogon_ldap_id_map(url, user, ldappass)
+
+    def get_contacts_data(self) -> ContactsData:
+        """
+        Get the contact information from a private git repo
+        """
+        if self.merged_contacts_data.should_update():
+            try:
+                yd1 = self.get_comanage_data().yaml_data
+                yd2 = self.get_contact_db_data().yaml_data
+                yd_merged = cilogon_ldap.merge_yaml_data(yd1, yd2)
+                self.merged_contacts_data.update(ContactsData(yd_merged))
+            except Exception:
+                if self.strict:
+                    raise
+                log.exception("Failed to update merged contacts data")
+                self.merged_contacts_data.try_again()
+
+        return self.merged_contacts_data.data
 
     def get_dns(self) -> Set:
         """
@@ -234,7 +288,8 @@ def _dtid(created_datetime: datetime.datetime):
     return int((timestamp - dtid_offset) * multiplier)
 
 
-def get_downtime_yaml(start_datetime: datetime.datetime,
+def get_downtime_yaml(id: int,
+                      start_datetime: datetime.datetime,
                       end_datetime: datetime.datetime,
                       created_datetime: datetime.datetime,
                       description: str,
@@ -262,7 +317,7 @@ def get_downtime_yaml(start_datetime: datetime.datetime,
 
     result = "- " + render("Class", class_)
     for key, value in [
-        ("ID", (_dtid(created_datetime))),
+        ("ID", id),
         ("Description", description),
         ("Severity", severity),
         ("StartTime", start_time_str),

@@ -433,3 +433,51 @@
   - GridFtp
   - XRootD origin server
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 814268170
+  Description: OSCER cluster maintenance
+  Severity: Outage
+  StartTime: Mar 24, 2021 13:00 +0000
+  EndTime: Mar 25, 2021 19:30 +0000
+  CreatedTime: Mar 22, 2021 15:26 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 814268732
+  Description: OSCER cluster maintenance
+  Severity: Outage
+  StartTime: Mar 24, 2021 13:00 +0000
+  EndTime: Mar 25, 2021 19:30 +0000
+  CreatedTime: Mar 22, 2021 15:27 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 887941559
+  Description: xrootd storage upgrade
+  Severity: Outage
+  StartTime: Jun 15, 2021 20:30 +0000
+  EndTime: Jun 17, 2021 18:00 +0000
+  CreatedTime: Jun 14, 2021 19:55 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 887942805
+  Description: xrootd storage upgrade
+  Severity: Outage
+  StartTime: Jun 15, 2021 20:30 +0000
+  EndTime: Jun 17, 2021 18:00 +0000
+  CreatedTime: Jun 14, 2021 19:58 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD component
+# ---------------------------------------------------------

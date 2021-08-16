@@ -24,15 +24,9 @@ ID: 65
 LongName: Fermilab/Argoneut
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
 OASIS:
-  Managers:
-    - Name: Gabriele Garzoglio
-      DNs:
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Gabriele Garzoglio
-        203
-      ID: 81b1a18848c9e41c87ee7104aac70b5fcf0c2176
   OASISRepoURLs:
-  - http://oasiscfs.fnal.gov:8000/cvmfs/argoneut.opensciencegrid.org/
-  UseOASIS: true
+    - http://oasiscfs.fnal.gov:8000/cvmfs/argoneut.opensciencegrid.org/
+  UseOASIS: false
 ParentVO:
   ID: 9
   Name: Fermilab

@@ -82,6 +82,7 @@ Resources:
       TapeCapacity: 0
   CMSHTPC_T3_US_SDSC_osg-comet:
     ID: 1042
+    Active: false
     Description: The Hosted CE serving COMET-CometVirtualCluster
     ContactLists:
       Administrative Contact:
@@ -110,7 +111,7 @@ Resources:
           hidden: false
   UCSD-Comet:
     ID: 1083
-    Active: true
+    Active: false
     Description: The Hosted CE serving UCSD-Comet
     ContactLists:
       Administrative Contact:

@@ -62,6 +62,65 @@ Resources:
       StorageCapacityMax: 700
       StorageCapacityMin: 400
       TapeCapacity: 0
+  UERJ_CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
+          Name: Douglas Milanez Marques
+        Secondary:
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+          Name: Renan Bernardo
+      Miscellaneous Contact:
+        Primary:
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+          Name: Renan Bernardo
+        Secondary:
+          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
+          Name: Eduardo Azevedo Revoredo
+        Tertiary:
+          ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
+          Name: Douglas Milanez Marques
+      Resource Report Contact:
+        Primary:
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+          Name: Renan Bernardo
+        Secondary:
+          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
+          Name: Eduardo Azevedo Revoredo
+        Tertiary:
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+          Name: Renan Bernardo
+      Security Contact:
+        Primary:
+          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
+          Name: Eduardo Azevedo Revoredo
+        Secondary:
+          ID: 00e9fb2649c2b175af6d9845026d5a070c5c3448
+          Name: Douglas Milanez Marques
+    Description: CE Gatekeeper of T2_BR_UERJ.
+    FQDN: osgce.hepgrid.uerj.br
+    ID: 210
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.486
+      AccountingName: T2-LATINAMERICA
+      HEPSPEC: 8000
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 700
+      StorageCapacityMin: 400
+      TapeCapacity: 0    
   UERJ_SE:
     Active: true
     ContactLists:
@@ -136,6 +195,22 @@ Resources:
     Services:
       Squid:
         Description: Hepgrid Squid service
+  UERJ_SQUID_2:
+    FQDN: squid2.hepgrid.uerj.br
+    ID: 996
+    Active: True
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Renan Bernardo
+          ID: e75df2a03ec0732015786fc667058f59deb7daee
+      Security Contact:
+        Primary:
+          Name: Eduardo Azevedo Revoredo
+          ID: 1e4a3afee4bf953f7c7cde3711044a032cb55fa0
+    Services:
+      Squid:
+        Description: Hepgrid Secondary Squid service
   UERJ_perfSONAR_BW:
     Active: true
     ID: 1120

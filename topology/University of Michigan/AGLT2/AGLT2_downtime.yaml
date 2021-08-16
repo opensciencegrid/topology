@@ -766,3 +766,202 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 863551970
+  Description: 'major switch dead. '
+  Severity: Outage
+  StartTime: May 18, 2021 12:00 +0000
+  EndTime: May 19, 2021 14:00 +0000
+  CreatedTime: May 18, 2021 16:26 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - GridFtp
+  # ---------------------------------------------------------
+  - Class: UNSCHEDULED
+  ID: 863552799
+  Description: 'major switch dead. '
+  Severity: Outage
+  StartTime: May 18, 2021 14:00 +0000
+  EndTime: May 19, 2021 12:00 +0000
+  CreatedTime: May 18, 2021 16:27 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 863553159
+  Description: 'major switch dead. '
+  Severity: Outage
+  StartTime: May 18, 2021 14:00 +0000
+  EndTime: May 20, 2021 12:00 +0000
+  CreatedTime: May 18, 2021 16:28 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 864487210
+  Description: Continuing with site wide network problems
+  Severity: Outage
+  StartTime: May 19, 2021 18:00 +0000
+  EndTime: May 20, 2021 18:00 +0000
+  CreatedTime: May 19, 2021 18:25 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 864488012
+  Description: Continuing site wide network problems
+  Severity: Outage
+  StartTime: May 19, 2021 18:00 +0000
+  EndTime: May 20, 2021 18:00 +0000
+  CreatedTime: May 19, 2021 18:26 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 864522088
+  Description: Continuing site wide network problems
+  Severity: Outage
+  StartTime: May 19, 2021 18:00 +0000
+  EndTime: May 20, 2021 18:00 +0000
+  CreatedTime: May 19, 2021 19:23 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 865271101
+  Description: Continuing site wide network problems
+  Severity: Outage
+  StartTime: May 20, 2021 16:00 +0000
+  EndTime: May 22, 2021 20:30 +0000
+  CreatedTime: May 20, 2021 16:11 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 865271837
+  Description: Continuing site wide network problems
+  Severity: Outage
+  StartTime: May 20, 2021 16:00 +0000
+  EndTime: May 22, 2021 20:30 +0000
+  CreatedTime: May 20, 2021 16:13 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 865272222
+  Description: Continuing site wide network problems
+  Severity: Outage
+  StartTime: May 20, 2021 16:00 +0000
+  EndTime: May 22, 2021 20:30 +0000
+  CreatedTime: May 20, 2021 16:13 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 880780788
+  Description: server room recabling
+  Severity: Outage
+  StartTime: Jun 14, 2021 12:00 +0000
+  EndTime: Jun 22, 2021 14:00 +0000
+  CreatedTime: Jun 07, 2021 15:01 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 880781799
+  Description: server room recabling
+  Severity: Outage
+  StartTime: Jun 14, 2021 12:00 +0000
+  EndTime: Jun 22, 2021 14:00 +0000
+  CreatedTime: Jun 07, 2021 15:02 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 880782432
+  Description: server room recabling
+  Severity: Outage
+  StartTime: Jun 14, 2021 12:00 +0000
+  EndTime: Jun 22, 2021 14:00 +0000
+  CreatedTime: Jun 07, 2021 15:04 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 880782768
+  Description: server room recabling
+  Severity: Outage
+  StartTime: Jun 14, 2021 12:00 +0000
+  EndTime: Jun 22, 2021 14:00 +0000
+  CreatedTime: Jun 07, 2021 15:04 +0000
+  ResourceName: AGLT2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 881654640
+  Description: server room recabling
+  Severity: Outage
+  StartTime: Jun 14, 2021 12:00 +0000
+  EndTime: Jun 22, 2021 14:00 +0000
+  CreatedTime: Jun 08, 2021 15:17 +0000
+  ResourceName: AGLT2_CE_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 881655248
+  Description: server room recabling
+  Severity: Outage
+  StartTime: Jun 14, 2021 12:00 +0000
+  EndTime: Jun 22, 2021 14:00 +0000
+  CreatedTime: Jun 08, 2021 15:18 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 881655447
+  Description: server room recabling
+  Severity: Outage
+  StartTime: Jun 14, 2021 12:00 +0000
+  EndTime: Jun 18, 2021 23:00 +0000
+  CreatedTime: Jun 08, 2021 15:19 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 907564557
+  Description: firmware update for storage server
+  Severity: Intermittent Outage
+  StartTime: Jul 08, 2021 16:00 +0000
+  EndTime: Jul 08, 2021 18:00 +0000
+  CreatedTime: Jul 08, 2021 15:00 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 941338246
+  Description: condor-ce update
+  Severity: Outage
+  StartTime: Aug 17, 2021 12:00 +0000
+  EndTime: Aug 18, 2021 23:00 +0000
+  CreatedTime: Aug 16, 2021 17:10 +0000
+  ResourceName: AGLT2_CE_3
+  Services:
+  - CE
+# ---------------------------------------------------------

@@ -131,3 +131,39 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 820339344
+  Description: Unscheduled power outage at data center
+  Severity: Outage
+  StartTime: Mar 29, 2021 16:04 +0000
+  EndTime: Mar 29, 2021 17:04 +0000
+  CreatedTime: Mar 29, 2021 16:05 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 839671566
+  Description: NESE Core Network upgrade
+  Severity: Severe
+  StartTime: Apr 22, 2021 18:00 +0000
+  EndTime: Apr 23, 2021 03:00 +0000
+  CreatedTime: Apr 21, 2021 01:05 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 933952493
+  Description: Annual MGHPCC site-wide power maintenance
+  Severity: Outage
+  StartTime: Aug 09, 2021 16:00 +0000
+  EndTime: Aug 10, 2021 23:59 +0000
+  CreatedTime: Aug 08, 2021 04:00 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------

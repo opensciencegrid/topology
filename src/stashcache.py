@@ -2,9 +2,8 @@
 from collections import defaultdict
 from typing import Dict, List, Optional
 import re
-import ldap
-ldap.set_option(ldap.OPT_TIMEOUT, 10)
-ldap.set_option(ldap.OPT_NETWORK_TIMEOUT, 10)
+import sys
+import ldap3
 import asn1
 import hashlib
 
@@ -31,6 +30,8 @@ __oid_map = {
 
 __dn_split_re = re.compile("/([A-Za-z]+)=")
 
+_ligo_ldap_url    = "ldaps://ldap.ligo.org"
+_ligo_ldap_branch = "ou=people,dc=ligo,dc=org"
 
 class DataError(Exception):
     """Raised when there is a problem in the topology or VO data"""
@@ -41,22 +42,31 @@ class NotRegistered(Exception):
 
 def _generate_ligo_dns() -> List[str]:
     """
-    Query the LIGO LDAP server for all grid DNs in the LVC collab.
+    Query the LIGO LDAP server for all grid DNs in the IGWN collab.
 
     Returns a list of DNs.
     """
-    ldap_obj = ldap.initialize("ldaps://ldap.ligo.org")
     query = "(&(isMemberOf=Communities:LSCVirgoLIGOGroupMembers)(gridX509subject=*))"
-    results = ldap_obj.search_s("ou=people,dc=ligo,dc=org", ldap.SCOPE_ONELEVEL,
-                                query, ["gridX509subject"])
-    all_dns = []
-    for result in results:
-        user_dns = result[1].get('gridX509subject', [])
-        for dn in user_dns:
-            if dn.startswith(b"/"):
-                all_dns.append(dn.replace(b"\n", b" ").decode("utf-8"))
+    try:
+        server = ldap3.Server(_ligo_ldap_url, connect_timeout=10)
+        conn = ldap3.Connection(server, raise_exceptions=True, receive_timeout=10)
+        conn.bind()
+    except ldap3.core.exceptions.LDAPException:
+        log.exception("Failed to connect to the LIGO LDAP")
+        return []
 
-    return all_dns
+    try:
+        conn.search(_ligo_ldap_branch,
+                    query,
+                    search_scope='LEVEL',
+                    attributes=['gridX509subject'])
+        results = [dn for e in conn.entries for dn in e.gridX509subject]
+    except ldap3.core.exceptions.LDAPException:
+        log.exception("Failed to query the LIGO LDAP")
+    finally:
+        conn.unbind()
+
+    return results
 
 
 def _generate_dn_hash(dn: str) -> str:
@@ -100,6 +110,10 @@ def _generate_dn_hash(dn: str) -> str:
 
 
 def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Resource:
+    """Returns the Resource that has the given FQDN; if multiple Resources
+    have the same FQDN, returns the first one.
+
+    """
     for group in resource_groups:
         for resource in group.resources:
             if fqdn.lower() == resource.fqdn.lower():
@@ -107,6 +121,15 @@ def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Re
 
 
 def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup], suppress_errors: bool) -> Optional[Resource]:
+    """If given an FQDN, returns the Resource _if it has an "XRootD cache server" service_.
+    If given None, returns None.
+    If multiple Resources have the same FQDN, checks the first one.
+    If suppress_errors is False, raises an expression on the following conditions:
+    - no Resource matching FQDN (NotRegistered)
+    - Resource does not provide an XRootD cache server (DataError)
+    If suppress_errors is True, returns None on the above conditions.
+
+    """
     resource = None
     if fqdn:
         resource = _get_resource_by_fqdn(fqdn, resource_groups)
@@ -269,6 +292,8 @@ def generate_cache_scitokens(vo_data: VOsData, resource_groups: List[ResourceGro
 
     "Restricted Path" is optional.
     `fqdn` must belong to a registered cache resource.
+
+    You may have multiple `- SciTokens:` blocks
 
     If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
     no resource matching fqdn, resource does not contain a cache server, etc.).  Otherwise, raises
@@ -493,6 +518,33 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
 
 
 def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
+    """
+    Generate the SciTokens needed by a StashCache origin server, given the fqdn
+    of the origin server.
+
+    The scitokens config for a StashCache namespace is in the VO YAML and looks like:
+
+        DataFederations:
+            StashCache:
+                Namespaces:
+                    /store:
+                        - SciTokens:
+                            Issuer: https://scitokens.org/cms
+                            Base Path: /
+                            Restricted Path: /store
+
+    "Restricted Path" is optional.
+    `fqdn` must belong to a registered cache resource.
+
+    You may have multiple `- SciTokens:` blocks
+
+    Returns a file with a dummy "issuer" block if there are no `- SciTokens:` blocks.
+
+    If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
+    no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
+    ValueError or DataError.
+
+    """
 
     template = """\
 [Global]
