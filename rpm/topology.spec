@@ -1,12 +1,10 @@
 %define __python /usr/bin/python3
-%define main_version 1.7.0
-%define cacher_version 0.1
 
 Summary: Client tools for OSG Topology
 Name: topology-client
-Version: %{main_version}
-Release: 1%{?dist}
-Source: topology-%{main_version}.tar.gz
+Version: 1.8.0
+Release: 0.1%{?dist}
+Source: topology-%{version}.tar.gz
 License: Apache 2.0
 BuildArch: noarch
 Url: https://github.com/opensciencegrid/topology/
@@ -20,14 +18,13 @@ Client tools that interact with OSG Topology data
 
 %package -n topology-cacher
 Summary: A utility for periodically downloading OSG Topology data
-Version: %{cacher_version}
 
 %description -n topology-cacher
 A utility for periodically downloading OSG Topology data.
 
 
 %prep
-%setup -q -n topology-%{main_version}
+%setup -q -n topology-%{version}
 
 %install
 install -D -m 0755 bin/osg-notify %{buildroot}/%{_bindir}/osg-notify
@@ -50,7 +47,7 @@ install -D -m 0644 topology-cacher.cron %{buildroot}/etc/cron.d/topology-cacher.
 
 
 %changelog
-* Wed Aug 04 2021 Mátyás Selmeci <matyas@cs.wisc.edu> 1.7.0
+* Mon Aug 16 2021 Mátyás Selmeci <matyas@cs.wisc.edu> 1.8.0-0.1
 - Add topology-cacher (SOFTWARE-4704)
 
 * Thu Mar 18 2021 Mátyás Selmeci <matyas@cs.wisc.edu> 1.4.6-1
