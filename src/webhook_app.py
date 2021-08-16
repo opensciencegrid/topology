@@ -161,7 +161,11 @@ def check_suite_hook():
         pr_dt_automerge_ret = int(pr_dt_automerge_ret)
 
     if pr_dt_automerge_ret == 0 and conclusion != 'success':
-        body = webhook_status_messages.ci_failure.format(**locals())
+        if conclusion == 'action_required':
+            osg_bot_msg = webhook_status_messages.ci_action_required
+        else:
+            osg_bot_msg = webhook_status_messages.ci_failure
+        body = osg_bot_msg.format(**locals())
         publish_pr_review(pull_num, body, 'COMMENT', head_sha)
 
     if conclusion != 'success':
