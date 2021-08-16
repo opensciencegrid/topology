@@ -219,24 +219,13 @@ class TopologyData:
                 service_ids = list(
                     filter(
                         None,
-                        [
-                            safe_element_text(svc)
-                            for svc in eResource.findall("./Services/Service/ID")
-                        ],
+                        map(safe_element_text, eResource.findall("./Services/Service/ID"))
                     )
                 )
                 if not resource_name or not fqdn or not service_ids:
                     log.warning("Skipping malformed Resource: %s", elem2str(eResource))
                     continue
-                tags = list(
-                    filter(
-                        None,
-                        [
-                            safe_element_text(tag)
-                            for tag in eResource.findall("./Tags/Tag")
-                        ],
-                    )
-                )
+                tags = findall_nonempty(eResource, "./Tags/Tag")
                 resinfo = ResourceInfo(
                     group_name, resource_name, fqdn, service_ids, tags
                 )
