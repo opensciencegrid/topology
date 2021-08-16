@@ -6,13 +6,14 @@ import logging
 import os
 import pprint
 import sys
+from typing import Dict
 
 import yaml
 
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import load_yaml_file, to_xml
+from webapp.common import load_yaml_file, to_xml, is_null
 from webapp.vo_reader import get_vos_data
 from webapp.vos_data import VOsData
 
@@ -20,11 +21,67 @@ from webapp.vos_data import VOsData
 log = logging.getLogger(__name__)
 
 
+class DataError(Exception): pass
+
+
+def get_resource_allocation(ra: Dict, idx: int) -> OrderedDict:
+    new_ra = OrderedDict()
+    for attrib in ["SubmitResources", "ExecuteResourceGroups", "Type"]:
+        if is_null(ra, attrib):
+            raise DataError(f"Missing ResourceAllocations[{idx}].{attrib}")
+
+    new_ra["Type"] = ra["Type"]
+
+    new_ra["SubmitResources"] = {"SubmitResource": ra["SubmitResources"]}
+
+    new_ergs = []
+    for erg in ra["ExecuteResourceGroups"]:
+        new_erg = OrderedDict()
+        new_erg["GroupName"] = erg["GroupName"]
+        new_erg["LocalAllocationID"] = erg["LocalAllocationID"]
+        new_ergs.append(new_erg)
+    new_ra["ExecuteResourceGroups"] = {"ExecuteResourceGroup": new_ergs}
+
+    return new_ra
+
+
+def get_one_project(file: str, campus_grid_ids: Dict, vos_data: VOsData) -> Dict:
+    project = OrderedDict.fromkeys(["ID", "Name", "Description", "PIName", "Organization", "Department",
+                                    "FieldOfScience", "Sponsor", "ResourceAllocations"])
+    data = None
+    try:
+        data = load_yaml_file(file)
+        if 'CampusGrid' in data['Sponsor']:
+            name = data['Sponsor']['CampusGrid']['Name']
+            ID = campus_grid_ids[name]
+            data['Sponsor']['CampusGrid'] = OrderedDict([("ID", ID), ("Name", name)])
+        elif 'VirtualOrganization' in data['Sponsor']:
+            name = data['Sponsor']['VirtualOrganization']['Name']
+            ID = vos_data.vos[name]['ID']
+            data['Sponsor']['VirtualOrganization'] = OrderedDict([("ID", ID), ("Name", name)])
+
+        if 'ResourceAllocations' in data:
+            resource_allocations = [get_resource_allocation(ra, idx) for idx, ra in enumerate(data['ResourceAllocations'])]
+            data['ResourceAllocations'] = {"ResourceAllocation": resource_allocations}
+        if 'ID' not in data:
+            del project['ID']
+    except Exception as e:
+        log.error("%r adding project %s", e, file)
+        log.error("Data:\n%s", pprint.pformat(data))
+        raise
+    project.update(data)
+    return project
+
+
+def get_campus_grid_ids(indir="."):
+    return load_yaml_file(os.path.join(indir, "_CAMPUS_GRIDS.yaml"))
+
+
 def get_projects(indir="../projects", strict=False):
     to_output = {"Projects":{"Project": []}}
     projects = []
 
-    mapping = load_yaml_file(os.path.join(indir, "_CAMPUS_GRIDS.yaml"))
+    campus_grid_ids = get_campus_grid_ids(indir)
     vos_data = get_vos_data(os.path.join(indir, "../virtual-organizations"), None)
 
     for file in os.listdir(indir):
@@ -32,19 +89,9 @@ def get_projects(indir="../projects", strict=False):
             continue
         elif file.endswith("_CAMPUS_GRIDS.yaml"):
             continue
-        project = OrderedDict.fromkeys(["ID", "Name", "Description", "PIName", "Organization", "Department",
-                                        "FieldOfScience", "Sponsor"])
-        data = None
         try:
-            data = load_yaml_file(os.path.join(indir, file))
-            if 'CampusGrid' in data['Sponsor']:
-                name = data['Sponsor']['CampusGrid']['Name']
-                ID = mapping[name]
-                data['Sponsor']['CampusGrid'] = OrderedDict([("ID", ID), ("Name", name)])
-            elif 'VirtualOrganization' in data['Sponsor']:
-                name = data['Sponsor']['VirtualOrganization']['Name']
-                ID = vos_data.vos[name]['ID']
-                data['Sponsor']['VirtualOrganization'] = OrderedDict([("ID", ID), ("Name", name)])
+            project = get_one_project(os.path.join(indir, file), campus_grid_ids, vos_data)
+            projects.append(project)
         except yaml.YAMLError:
             if strict:
                 raise
@@ -53,14 +100,10 @@ def get_projects(indir="../projects", strict=False):
                 log.error("skipping (non-strict mode)")
                 continue
         except Exception as e:
-            log.error("%r adding project %s", e, file)
-            log.error("Data:\n%s", pprint.pformat(data))
             if strict:
                 raise
             log.exception("Skipping (non-strict mode); exception info follows")
             continue
-        project.update(data)
-        projects.append(project)
 
     to_output["Projects"]["Project"] = projects
 

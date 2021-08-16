@@ -8,16 +8,16 @@ GroupDescription: Compute infrastructure at SDSC
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: 496
+GroupID: 1116
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
 Resources:
   # Resource Name should be a short descriptor of the resource.
-  SDSC-PRP-CE:
+  SDSC-Cloud-IceCube-CE:
     Active: true
-    Description: SDSC CE and gridFTP into PRP resources
-    ID: 984
+    Description: Cloud CE for IceCube
+    ID: 1146
     ContactLists:
       Administrative Contact:
         Primary:
@@ -32,16 +32,8 @@ Resources:
           Name: Igor Sfiligoi
           ID: 593daf4f680b3135849201036e1055f03f89cfac
 
-    # called xcache-11 for historical reasons but it is actually a CE
-    FQDN: xcache-11.t2.ucsd.edu
+    FQDN: icecube-cloud-t4-ce.t2.ucsd.edu
     Services:
       CE:
         Description: Compute Element
-        Details:
-          hidden: false
-          sam_uri: htcondor://xcache-11.t2.ucsd.edu
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
 

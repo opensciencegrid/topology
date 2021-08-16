@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # check that hostname fqdn maps to a public IP and reverse dns matches
 

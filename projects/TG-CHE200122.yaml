@@ -1,0 +1,47 @@
+Name: TG-CHE200122
+# Description is a human-readable description of what the project is about
+Description: >-
+  Development of machine learning models for molecular simulations
+
+  The development of fast, accurate, and universal empirical potentials (EP) has been at the forefront of computational chemistry for many decades due to the high cost and bad scaling of accurate quantum mechanical (QM) methods and the low accuracy of more efficient classical force fields. The central goal of our project is bridging the speed and accuracy gap between these two approaches with machine-learning (ML) potentials. ML potentials have proven their ability to predict energies and other properties of molecules when trained on properly developed data sets. While these potentials are fast and accurate, the majority do not aim to become universal in their description of chemical interactions. This limits their use to only specific molecular systems or bulk materials. Our group developed probably the first universal ML atomistic potentials ANI-1x and ANI-2x for organic molecules containing CHNOSFCl atoms. Apart from other similar efforts in quantum chemistry and materials science, this neural network potential was shown to be transferable across different chemical environments, generalizing to the density-functional theory (DFT) level of accuracy on a large set of organic molecules while being six orders of magnitude faster. 
+
+  One of the main challenges with developing highly accurate and transferable ML potential is the construction of training and test datasets. We developed a fully automated approach for the generation of datasets with the intent of training universal ML potentials based on active learning (AL) techniques. AL reduces the training set size by up to 90% data required compared to naive random sampling techniques. Even with the AL technique employed, the dataset size required to train accurate and transferable ML potential is in the range of millions of conformers of small molecules (up to about 20 non-hydrogen atoms). We ended up with a dataset size of 5M molecular conformations for CHNO elements (ANI-1x), and an additional 5M data points to parametrize potential for SFCl elements (ANI-2x). 
+
+  Our goal in this project is to utilize a High-Throughput Computing (HTC) model to run a very large number of relatively small quantum-chemical calculations in order to build new datasets set for a subsequent training of neural network models. All  calculations  are  orchestrated  as  a  Manager-Worker  application  that  distributes  a  massive  number of tasks to workers using the Python RQ library. We plan to use a single Access Point provided by the HTCondor Software Suite (HTCSS) and operated by the Open Science Grid to host the Manager of the application and to deploy the workers across the XSEDE facilities and the OSPool. 
+
+# Department is the department of the project, e.g. "Physics"
+Department: Chemistry
+# FieldOfScience is a more specific description, e.g. "High Energy Physics"
+FieldOfScience: Chemical Sciences
+# Organization is the organization where the project is hosted, e.g. "UCSD"
+Organization: Carnegie-Mellon University
+# PIName is the prinicipal investigator for the project
+PIName: Olexandr Isayev
+
+# If you have an up-to-date local git clone, fill ID with the output from `bin/next_project_id`
+# Otherwise, leave it blank and we will fill in the appropriate value for you.
+ID: 781
+
+Sponsor:
+  CampusGrid:
+    Name: OSG-XSEDE
+
+ResourceAllocations:
+  - Type: XRAC
+    SubmitResources:
+      - CHTC-XD-SUBMIT
+    ExecuteResourceGroups:
+      - GroupName: SDSC-Expanse
+        LocalAllocationID: "cwr109"
+      # Bridges2
+      - GroupName: PSC-Bridges2
+        LocalAllocationID: "che200052p"
+      # Stampede2 (OSG allocation)
+      - GroupName: TACC-Stampede2
+        LocalAllocationID: "TG-DDM160003"
+  - Type: Other
+    SubmitResources:
+      - CHTC-XD-SUBMIT
+    ExecuteResourceGroups:
+      - GroupName: TACC-Frontera
+        LocalAllocationID: "CHE20009"

@@ -16,8 +16,9 @@ dt_not_up_to_date = (
 )
 
 unexpected_error = (
-    "OSG Staff: there was an unexpected error verifying this PR."
-    " Please review."
+    "OSG Staff:\n"
+    "\n"
+    "There was an unexpected error verifying this PR - please review.\n"
     "\n"
     "-- OSG-BOT  :boom:\n"
     "\n"
@@ -105,12 +106,25 @@ ci_success = None
 ci_failure = (
     "Greetings @{sender},\n"
     "\n"
-    "Thank you for your pull request!\n"
+    "Thank you for your pull request.\n"
     "\n"
-    "Your downtime update looks clean, but our CI checks failed;"
+    "Our CI checks failed for your downtime update;"
     " OSG Staff will help investigate shortly.\n"
     "\n"
     "-- OSG-BOT  :disappointed:"
+)
+
+ci_action_required = (
+    "Greetings @{sender},\n"
+    "\n"
+    "Thank you for your pull request!\n"
+    "\n"
+    "OSG Staff must authorize our CI checks for first-time contributors"
+    " before downtime updates can be automatically merged.\n"
+    "\n"
+    "OSG Staff: Please review.\n"
+    "\n"
+    "-- OSG-BOT  :lock:"
 )
 
 merge_success = (

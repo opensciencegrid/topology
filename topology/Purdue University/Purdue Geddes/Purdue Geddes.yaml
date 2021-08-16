@@ -35,13 +35,19 @@ Resources:
         Primary:
           Name: Erik Gough
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
+        Secondary:
+          ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
+          Name: Nick Smith
 
       # Security Contact is one to three people to contact regarding security issues
       Security Contact:
         Primary:
           Name: Erik Gough
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
-      
+        Secondary:
+          ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
+          Name: Nick Smith
+
     # FQDN is the fully qualified domain name of the host running this resource
     FQDN: geddes.rcac.purdue.edu
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed

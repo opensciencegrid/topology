@@ -1,4 +1,4 @@
-FROM opensciencegrid/software-base:fresh
+FROM opensciencegrid/software-base:release
 
 # Install dependencies (application, Apache)
 RUN \
