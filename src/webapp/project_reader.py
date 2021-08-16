@@ -63,6 +63,8 @@ def get_one_project(file: str, campus_grid_ids: Dict, vos_data: VOsData) -> Dict
         if 'ResourceAllocations' in data:
             resource_allocations = [get_resource_allocation(ra, idx) for idx, ra in enumerate(data['ResourceAllocations'])]
             data['ResourceAllocations'] = {"ResourceAllocation": resource_allocations}
+        if 'ID' not in data:
+            del project['ID']
     except Exception as e:
         log.error("%r adding project %s", e, file)
         log.error("Data:\n%s", pprint.pformat(data))
