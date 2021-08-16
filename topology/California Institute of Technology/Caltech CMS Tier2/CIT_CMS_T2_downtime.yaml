@@ -1487,3 +1487,295 @@
   ResourceName: CIT_CMS_T2B
   Services:
     - CE
+
+# --------------------------------------------------------
+# Fiber cut NOC-650123
+
+- Class: UNSCHEDULED
+  ID: 866360156
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: UNSCHEDULED
+  ID: 866360157
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 866360158
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 866360159
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 866360160
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 866360161
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 866360162
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: UNSCHEDULED
+  ID: 866360163
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: UNSCHEDULED
+  ID: 866360164
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
+# --------------------------------------------------------
+# Migrating to our own IPv6 range
+
+- Class: SCHEDULED
+  ID: 893044365
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 03, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 893044366
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 03, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 893044367
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 03, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 893044368
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 03, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 893044369
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 03, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 893044370
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 03, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
+
+# -----------------------------------------
+# Disk space does not grow on the trees and is not unlimited
+# CMS Filled too much disk space - lost disk - now we are out of space.
+
+- Class: UNSCHEDULED
+  ID: 893044371
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: UNSCHEDULED
+  ID: 893044372
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 893044373
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 893044374
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 893044375
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 893044376
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 893044377
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: UNSCHEDULED
+  ID: 893044378
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: UNSCHEDULED
+  ID: 893044379
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
+# ---------------------------------------
+# HTCondor CE keeps crashing with core dump
+
+- Class: UNSCHEDULED
+  ID: 935306752
+  Description:  HTCondor-CE Keeps crashing with core dump
+  Severity: Outage
+  StartTime: Aug 11, 2021 16:00 -0700
+  EndTime: Sep 11, 2021 16:00 -0700
+  CreatedTime: Aug 11, 2021 16:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+

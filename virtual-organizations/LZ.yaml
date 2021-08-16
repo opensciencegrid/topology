@@ -46,17 +46,9 @@ ID: 117
 LongName: LUX-ZEPLIN
 MembershipServicesURL: https://voms.hep.wisc.edu:8443/voms/lz
 OASIS:
-  Managers:
-    - Name: Daniel Bradley
-      DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=dbradley/CN=614788/CN=Daniel
-        Charles Bradley
-      ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-    - Name: Sridhara Dasu
-      DNs: /DC=org/DC=doegrids/OU=People/CN=Sridhara Rao Dasu 610586
-      ID: 529b7136c6572fde3a9b138ba80acc94136df454
   OASISRepoURLs:
-  - http://cvmfslz.hep.wisc.edu:8000/cvmfs/lz.opensciencegrid.org
-  UseOASIS: true
+    - http://cvmfslz.hep.wisc.edu:8000/cvmfs/lz.opensciencegrid.org
+  UseOASIS: false
 PrimaryURL: http://lz.lbl.gov/
 PurposeURL: http://www.hep.wisc.edu/lz
 ReportingGroups:

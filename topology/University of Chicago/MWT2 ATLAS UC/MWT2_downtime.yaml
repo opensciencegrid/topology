@@ -1090,3 +1090,81 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 918003481
+  Description: 'UIUC Campus (ICCP) planned maintenance'
+  Severity: Outage
+  StartTime: Jul 21, 2021 05:00 +0000
+  EndTime: Jul 22, 2021 05:00 +0000
+  CreatedTime: Jul 20, 2021 16:59 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 937936365
+  Description: UChicago network maintenance
+  Severity: Outage
+  StartTime: Aug 16, 2021 14:00 +0000
+  EndTime: Aug 16, 2021 16:00 +0000
+  CreatedTime: Aug 12, 2021 18:40 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 937936649
+  Description: UChicago network maintenance
+  Severity: Outage
+  StartTime: Aug 16, 2021 14:00 +0000
+  EndTime: Aug 16, 2021 16:00 +0000
+  CreatedTime: Aug 12, 2021 18:41 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 937936835
+  Description: UChicago network maintenance
+  Severity: Outage
+  StartTime: Aug 16, 2021 14:00 +0000
+  EndTime: Aug 16, 2021 16:00 +0000
+  CreatedTime: Aug 12, 2021 18:41 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 937937033
+  Description: UChicago network maintenance
+  Severity: Outage
+  StartTime: Aug 16, 2021 14:00 +0000
+  EndTime: Aug 16, 2021 16:00 +0000
+  CreatedTime: Aug 12, 2021 18:41 +0000
+  ResourceName: MWT2_UC_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 937937305
+  Description: UChicago network maintenance
+  Severity: Outage
+  StartTime: Aug 16, 2021 14:00 +0000
+  EndTime: Aug 16, 2021 16:00 +0000
+  CreatedTime: Aug 12, 2021 18:42 +0000
+  ResourceName: MWT2_SLATE_UC
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 937937495
+  Description: UChicago network maintenance
+  Severity: Outage
+  StartTime: Aug 16, 2021 14:00 +0000
+  EndTime: Aug 16, 2021 16:00 +0000
+  CreatedTime: Aug 12, 2021 18:42 +0000
+  ResourceName: MWT2_CE_UC
+  Services:
+  - CE
+# ---------------------------------------------------------
+
