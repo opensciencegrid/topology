@@ -175,15 +175,6 @@ class ResourceInfo(namedtuple("ResourceInfo", "group_name name fqdn service_ids 
     def is_schedd(self):
         return self.SERVICE_ID_SCHEDD in self.service_ids
 
-    def to_dict(self) -> dict:
-        return dict(
-            group_name=self.group_name,
-            name=self.name,
-            fqdn=self.fqdn,
-            service_ids=self.service_ids,
-            tags=self.tags,
-        )
-
 
 class TopologyData:
     def __init__(
@@ -285,9 +276,9 @@ class TopologyData:
 
         resource_lists_by_group = {}
         for group, resinfo_list in self.grouped_resinfo.items():
-            resource_lists_by_group[group] = [x.to_dict() for x in resinfo_list]
-        resources_by_name = {k: v.to_dict() for k, v in self.resinfo_by_name.items()}
-        resources_by_fqdn = {k: v.to_dict() for k, v in self.resinfo_by_fqdn.items()}
+            resource_lists_by_group[group] = [x._asdict() for x in resinfo_list]
+        resources_by_name = {k: v._asdict() for k, v in self.resinfo_by_name.items()}
+        resources_by_fqdn = {k: v._asdict() for k, v in self.resinfo_by_fqdn.items()}
         return {
             "resource_lists_by_group": resource_lists_by_group,
             "resources_by_name": resources_by_name,
