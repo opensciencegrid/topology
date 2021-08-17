@@ -188,14 +188,14 @@ class TopologyData:
         self.grouped_resinfo = {}
         self.resinfo_by_name = {}
         self.resinfo_by_fqdn = {}
-        self.projects = self.get_projects()
-        self.resources = self.get_resources()
+        self.update_projects()
+        self.update_resources()
 
-    def get_projects(self) -> ET.Element:
-        return self._get_data("/miscproject/xml")
+    def update_projects(self):
+        self.projects = self._get_data("/miscproject/xml")
 
-    def get_resources(self) -> ET.Element:
-        data = self._get_data("/rgsummary/xml")
+    def update_resources(self):
+        self.resources = self._get_data("/rgsummary/xml")
         self.resinfo_table = []
         self.grouped_resinfo = {}
         self.resinfo_by_name = {}
@@ -204,7 +204,7 @@ class TopologyData:
         #
         # Build tables and indices for easier lookup
         #
-        for eResourceGroup in data.findall("./ResourceGroup"):
+        for eResourceGroup in self.resources.findall("./ResourceGroup"):
             group_name = safe_element_text(eResourceGroup.find("./GroupName"))
             if not group_name:
                 log.warning(
@@ -228,8 +228,6 @@ class TopologyData:
                 self.grouped_resinfo[group_name].append(resinfo)
                 self.resinfo_by_name[resource_name] = resinfo
                 self.resinfo_by_fqdn[fqdn] = resinfo
-
-        return data
 
     def get_resource_info_lookups(self):
         """Return a dict with 3 items (intended to go into a single .json file):
