@@ -188,6 +188,8 @@ class TopologyData:
         self.grouped_resinfo = {}
         self.resinfo_by_name = {}
         self.resinfo_by_fqdn = {}
+        self.projects = None
+        self.resources = None
         self.update_projects()
         self.update_resources()
 
