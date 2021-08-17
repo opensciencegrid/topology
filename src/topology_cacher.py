@@ -509,7 +509,7 @@ def main(argv):
 
     args = parser.parse_args(argv[1:])
     log.setLevel(
-        between(10 * (args.quiet - args.verbose), logging.DEBUG, logging.CRITICAL)
+        between(logging.WARNING + (10 * (args.quiet - args.verbose)), logging.DEBUG, logging.CRITICAL)
     )
 
     try:
