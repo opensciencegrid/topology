@@ -334,6 +334,7 @@ class TopologyData:
             for eResourceAllocation in eProject.findall(
                 "./ResourceAllocations/ResourceAllocation"
             ):
+                bad_ra = False
                 allocation = {}
 
                 #
@@ -357,7 +358,10 @@ class TopologyData:
                             name,
                             elem2str(eResourceAllocation),
                         )
-                        continue
+                        bad_ra = True
+
+                if bad_ra:
+                    continue
 
                 allocation["type"] = type_
 
