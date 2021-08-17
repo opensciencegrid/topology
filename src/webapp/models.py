@@ -49,6 +49,8 @@ class GlobalData:
         config.setdefault("CILOGON_LDAP_URL", "ldaps://ldap.cilogon.org")
         config.setdefault("CILOGON_LDAP_USER",
                 "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org")
+        config.setdefault("LIGO_LDAP_URL", "ldaps://ldap.ligo.org")
+        config.setdefault("LIGO_LDAP_USER", "uid=osg-services-brian-lin,ou=system,dc=ligo,dc=org")
         config.setdefault("NO_GIT", True)
         contact_cache_lifetime = config.get("CONTACT_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
         topology_cache_lifetime = config.get("TOPOLOGY_CACHE_LIFETIME", config.get("CACHE_LIFETIME", 60*15))
@@ -73,6 +75,9 @@ class GlobalData:
         self.cilogon_ldap_passfile = config.get("CILOGON_LDAP_PASSFILE")
         self.cilogon_ldap_url = config.get("CILOGON_LDAP_URL")
         self.cilogon_ldap_user = config.get("CILOGON_LDAP_USER")
+        self.ligo_ldap_passfile = config.get("LIGO_LDAP_PASSFILE")
+        self.ligo_ldap_url = config.get("LIGO_LDAP_URL")
+        self.ligo_ldap_user = config.get("LIGO_LDAP_USER")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:

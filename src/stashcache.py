@@ -7,6 +7,8 @@ import ldap3
 import asn1
 import hashlib
 
+from webapp.common import readfile
+from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup
 from webapp.vos_data import VOsData
 
@@ -30,7 +32,6 @@ __oid_map = {
 
 __dn_split_re = re.compile("/([A-Za-z]+)=")
 
-_ligo_ldap_url    = "ldaps://ldap.ligo.org"
 _ligo_ldap_branch = "ou=people,dc=ligo,dc=org"
 
 class DataError(Exception):
@@ -40,7 +41,7 @@ class NotRegistered(Exception):
     """Raised when the FQDN is not registered at all"""
 
 
-def _generate_ligo_dns() -> List[str]:
+def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
     """
     Query the LIGO LDAP server for all grid DNs in the IGWN collab.
 
@@ -48,8 +49,8 @@ def _generate_ligo_dns() -> List[str]:
     """
     query = "(&(isMemberOf=Communities:LSCVirgoLIGOGroupMembers)(gridX509subject=*))"
     try:
-        server = ldap3.Server(_ligo_ldap_url, connect_timeout=10)
-        conn = ldap3.Connection(server, raise_exceptions=True, receive_timeout=10)
+        server = ldap3.Server(ldapurl, connect_timeout=10)
+        conn = ldap3.Connection(server, user=ldapuser, password=ldappass, raise_exceptions=True, receive_timeout=10)
         conn.bind()
     except ldap3.core.exceptions.LDAPException:
         log.exception("Failed to connect to the LIGO LDAP")
@@ -178,19 +179,24 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
     return ret
 
 
-def generate_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn=None, legacy=True, suppress_errors=True) -> str:
+def generate_cache_authfile(global_data: GlobalData,
+                            fqdn=None,
+                            legacy=True,
+                            suppress_errors=True) -> str:
     """
     Generate the Xrootd authfile needed by a StashCache cache server.
     """
     authfile = ""
     id_to_dir = defaultdict(set)
 
+    resource_groups = global_data.get_topology().get_resource_group_list()
     resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
     if fqdn and not resource:
         return ""
 
-    for vo_name, vo_data in vo_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+    vo_data = global_data.get_vos_data()
+    for vo_name, vo_details in vo_data.vos.items():
+        stashcache_data = vo_details.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
             continue
 
@@ -228,7 +234,8 @@ def generate_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGrou
                     id_to_dir["u {}".format(hash)].add(namespace)
 
     if legacy:
-        for dn in _generate_ligo_dns():
+        ldappass = readfile(global_data.ligo_ldap_passfile, log)
+        for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
             hash = _generate_dn_hash(dn)
             id_to_dir["u {}".format(hash)].add("/user/ligo")
 
@@ -254,8 +261,9 @@ def generate_public_cache_authfile(vo_data: VOsData, resource_groups: List[Resou
         return ""
 
     public_dirs = set()
-    for vo_name, vo_data in vo_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+    vo_data = global_data.get_vos_data()
+    for vo_name, vo_details in vo_data.vos.items():
+        stashcache_data = vo_details.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
             continue
         if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, True, suppress_errors):
