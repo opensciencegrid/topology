@@ -189,10 +189,12 @@ def generate_cache_authfile(global_data: GlobalData,
     authfile = ""
     id_to_dir = defaultdict(set)
 
-    resource_groups = global_data.get_topology().get_resource_group_list()
-    resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
-    if fqdn and not resource:
-        return ""
+    resource = None
+    if fqdn:
+        resource_groups = global_data.get_topology().get_resource_group_list()
+        resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
+        if not resource:
+            return ""
 
     vo_data = global_data.get_vos_data()
     for vo_name, vo_details in vo_data.vos.items():
@@ -247,7 +249,7 @@ def generate_cache_authfile(global_data: GlobalData,
     return authfile
 
 
-def generate_public_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn=None, legacy=True, suppress_errors=True) -> str:
+def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=True, suppress_errors=True) -> str:
     """
     Generate the Xrootd authfile needed for public caches
     """
@@ -256,9 +258,12 @@ def generate_public_cache_authfile(vo_data: VOsData, resource_groups: List[Resou
     else:
         authfile = "u * \\\n"
 
-    resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
-    if fqdn and not resource:
-        return ""
+    resource = None
+    if fqdn:
+        resource_groups = global_data.get_topology().get_resource_group_list()
+        resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
+        if not resource:
+            return ""
 
     public_dirs = set()
     vo_data = global_data.get_vos_data()
