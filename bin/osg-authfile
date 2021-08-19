@@ -23,16 +23,13 @@ args = parser.parse_args()
 
 global_data = webapp.models.GlobalData()
 
-VOData = global_data.get_vos_data()
-
 if args.public:
     generate = stashcache.generate_public_cache_authfile
 else:
     generate = stashcache.generate_cache_authfile
 if args.fqdn:
-    ResourceGroups = global_data.get_topology().get_resource_group_list()
-    authfile = generate(VOData, ResourceGroups, fqdn=args.fqdn[0], suppress_errors=False)
+    authfile = generate(global_data, fqdn=args.fqdn[0], suppress_errors=False)
 else:
-    authfile = generate(VOData, [], suppress_errors=False)
+    authfile = generate(global_data, suppress_errors=False)
 
 print(authfile)

@@ -78,6 +78,11 @@ if not cilogon_pass:
     app.logger.warning("Note, no CILOGON_LDAP_PASSFILE configured; "
                        "OASIS Manager ssh key lookups will be unavailable.")
 
+ligo_pass = readfile(global_data.ligo_ldap_passfile, app.logger)
+if not ligo_pass:
+    app.logger.warning("Note, no LIGO_LDAP_PASSFILE configured; "
+                       "LIGO DNs will be unavailable in authfiles.")
+
 
 def _fix_unicode(text):
     """Convert a partial unicode string to full unicode"""
@@ -249,8 +254,7 @@ def _get_cache_authfile(public_only):
             generate_function = stashcache.generate_public_cache_authfile
         else:
             generate_function = stashcache.generate_cache_authfile
-        auth = generate_function(global_data.get_vos_data(),
-                                 global_data.get_topology().get_resource_group_list(),
+        auth = generate_function(global_data,
                                  fqdn=cache_fqdn,
                                  legacy=app.config["STASHCACHE_LEGACY_AUTH"],
                                  suppress_errors=False)
