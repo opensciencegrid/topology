@@ -632,7 +632,9 @@ Resources:
           ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
           Name: Timothy Slauson
     Description: CHTC Submit Node for XD project
-    FQDN: xd-submit.chtc.wisc.edu
+    FQDN: xd-submit0000.chtc.wisc.edu
+    FQDNAliases:
+      - xd-submit.chtc.wisc.edu
     ID: 1125
     Services:
       Submit Node:
