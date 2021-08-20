@@ -9,136 +9,12 @@ In a separate JSON file (resource_info_lookups.json), put dicts for easier
 lookups of common queries, such as "resource name by FQDN".  Everything
 (including the XML files) will be saved in a local directory.
 
-project_resource_allocations.json looks like:
-```
-{
-  "ACE_LIAID": [],
-  ...
-  "CHTC-Staff": [
-    {
-      "execute_resource_groups": [
-        {
-          "ces": [
-            {
-              "fqdn": "itb-slurm-ce.osgdev.chtc.io",
-              "name": "CHTC-ITB-SLURM-CE"
-            },
-            ...
-          ],
-          "group_name": "CHTC-ITB",
-          "local_allocation_id": "glow"
-        }
-      ],
-      "submit_resources": [
-        {
-          "fqdn": "submittest0000.chtc.wisc.edu",
-          "group_name": "CHTC-ITB",
-          "name": "CHTC-ITB-submittest0000"
-        }
-      ],
-      "type": "Other"
-    }
-  ],
-  ...
-}
-```
+See the README.md file for examples.
 
-Projects data only lists execute resources by resource group but I need
-to know the possible CEs the job will run on so I add those ad well.
-
-
-resource_info_lookups.json looks like:
-
-```
-{
-  "resource_lists_by_group": {
-    "AGLT2": [
-      {
-        "fqdn": "squid.aglt2.org",
-        "group_name": "AGLT2",
-        "name": "AGLT2-squid",
-        "service_ids": [
-          "138"
-        ],
-        "tags": []
-      },
-      {
-        "fqdn": "sl-um-es3.slateci.io",
-        "group_name": "AGLT2",
-        "name": "AGLT2-squid-2",
-        "service_ids": [
-          "138"
-        ],
-        "tags": []
-      },
-      ...
-    "AMNH": [
-      {
-        "fqdn": "hosted-ce22.opensciencegrid.org",
-        "group_name": "AMNH",
-        "name": "AMNH-ARES",
-        "service_ids": [
-          "1"
-        ],
-        "tags": [
-          "CC*"
-        ]
-      },
-      ...
-    ],
-    ...
-  },
-  "resources_by_fqdn": {
-    ...
-    "249cc.yeg.rac.sh": {
-      "fqdn": "249cc.yeg.rac.sh",
-      "group_name": "CyberaEdmonton",
-      "name": "CYBERA_EDMONTON",
-      "service_ids": [
-        "1"
-      ],
-      "tags": []
-    },
-    "40.119.41.40": {
-      "fqdn": "40.119.41.40",
-      "group_name": "UCSDT2",
-      "name": "UCSDT2-Cloud-3-squid",
-      "service_ids": [
-        "138"
-      ],
-      "tags": []
-    },
-    ...
-  },
-  "resources_by_name": {
-    "AGLT2-squid": {
-      "fqdn": "squid.aglt2.org",
-      "group_name": "AGLT2",
-      "name": "AGLT2-squid",
-      "service_ids": [
-        "138"
-      ],
-      "tags": []
-    },
-    "AGLT2-squid-2": {
-      "fqdn": "sl-um-es3.slateci.io",
-      "group_name": "AGLT2",
-      "name": "AGLT2-squid-2",
-      "service_ids": [
-        "138"
-      ],
-      "tags": []
-    },
-    ...
-  }
-}
-```
 There's some redundancy in the information (e.g. fqdn is included in the
 `resources_by_fqdn` entries) but having a consistent entry format makes
 things easier to read (and was easier to implement).
 
-service_ids are numeric but if we're committed to never changing service
-names then I could make them text instead.
 
 """
 from argparse import ArgumentParser
@@ -235,26 +111,21 @@ class TopologyData:
         """Return a dict with 3 items (intended to go into a single .json file):
         "resource_lists_by_group":
             {
-                "resource_group1": [ RESINFO1, ... ],
-                "resource_group2": [ RESINFO2, ... ],
+                "resource_group1": [ ResourceInfo1, ... ],
+                "resource_group2": [ ResourceInfo2, ... ],
             },
         "resources_by_name":
             {
-                "resource1": RESINFO1,
-                "resource2": RESINFO2,
+                "resource1": ResourceInfo1,
+                "resource2": ResourceInfo2,
                 ...
             },
         "resources_by_fqdn":
             {
-                "resfqdn1.example.net": RESINFO1,
-                "resfqdn2.example.net": RESINFO2,
+                "resfqdn1.example.net": ResourceInfo1,
+                "resfqdn2.example.net": ResourceInfo2,
                 ...
             }
-
-        Where RESINFO is a dict containing:
-        { "name": "RESOURCE NAME", "fqdn": "RESOURCE FQDN", "group_name": "RESOURCE GROUP NAME", "service_ids": [SERVICE_ID, ...] }
-        (a SERVICE_ID is a number from services.yaml that corresponds to a service on that resource;
-        "1" is a CE)
 
         """
 
@@ -270,53 +141,9 @@ class TopologyData:
         }
 
     def get_project_resource_allocations(self):
-        """Convert
-        <Projects>
-            <Project>
-                <Name>MyProject</Name>
-                <ResourceAllocations>
-                    <ResourceAllocation>
-                    <Type>Other</Type>
-                    <SubmitResources>
-                        <SubmitResource>Submit1</SubmitResource>
-                        <SubmitResource>Submit2</SubmitResource>
-                    </SubmitResources>
-                    <ExecuteResourceGroups>
-                        <ExecuteResourceGroup>
-                            <GroupName>ExampleNetCEs</GroupName>
-                            <LocalAllocationID>ID1</LocalAllocationID>
-                        </ExecuteResourceGroup>
-                    </ExecuteResourceGroups>
-                    </ResourceAllocation>
-                </ResourceAllocations>
-            </Project>
-        </Projects>
+        """Combines projects data (from self.projects) and resource data (from self.resources)
+        into a dict keyed by Project Name; see README.md for the full format.
 
-        into
-
-        {
-            "MyProject": [
-                {
-                    "type": "Other",
-                    "submit_resources": [
-                        { "group_name": "ExampleNetSubmits", "name": "Submit1", "fqdn": "submit1.example.net" },
-                        { "group_name": "ExampleNetSubmits", "name": "Submit2", "fqdn": "submit2.example.net" }
-                    ],
-                    "execute_resource_groups": [
-                        {
-                            "group_name": "ExampleNetCEs",
-                            "local_allocation_id": "ID1",
-                            "ces": [
-                                { "name": "CE1", "fqdn": "ce1.example.net" }
-                                { "name": "CE2", "fqdn": "ce2.example.net" }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
-
-        looking up resource name, group name, ces, and fqdn info from the rg summary.
         """
         if not self.projects or not self.resources:
             return {}
