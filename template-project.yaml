@@ -30,12 +30,12 @@ Sponsor:
 ### Contact the Software Team for assistance in filling in these values.
 # ResourceAllocations:
 
-##### Type is how the allocation was obtained: "XRAC" for allocations though
+##### Type is how the allocation was obtained: "XRAC" for allocations through
 ##### XSEDE or "Other" for allocations directly through the site.
 #   - Type: Other
 
 ####### SubmitResources is a list of Submit Nodes (Access Points) that users of
-####### project can submit from.  There must be at least one; each line must
+####### the project can submit from.  There must be at least one; each line must
 ####### refer to a Topology Resource.
 #     SubmitResources:
 #       - UChicago_OSGConnect_login04
