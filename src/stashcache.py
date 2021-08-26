@@ -64,7 +64,7 @@ def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
         try:
             conn.search(base_branch.format(group=group),
                         queries[group],
-                        search_scope='LEVEL',
+                        search_scope='SUBTREE',
                         attributes=['gridX509subject'])
             results += [dn for e in conn.entries for dn in e.gridX509subject]
         except ldap3.core.exceptions.LDAPException:
