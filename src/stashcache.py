@@ -32,7 +32,6 @@ __oid_map = {
 
 __dn_split_re = re.compile("/([A-Za-z]+)=")
 
-_ligo_ldap_branch = "ou=people,dc=ligo,dc=org"
 
 class DataError(Exception):
     """Raised when there is a problem in the topology or VO data"""
@@ -47,25 +46,31 @@ def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
 
     Returns a list of DNs.
     """
-    query = "(&(isMemberOf=Communities:LSCVirgoLIGOGroupMembers)(gridX509subject=*))"
+    results = []
+    base_branch = "ou={group},dc=ligo,dc=org"
+    base_query = "(&(isMemberOf=Communities:{community})(gridX509subject=*))"
+    queries = {'people': base_query.format(community="LSCVirgoLIGOGroupMembers"),
+               'robot': base_query.format(community="robot:OSGRobotCert")}
+
     try:
         server = ldap3.Server(ldapurl, connect_timeout=10)
         conn = ldap3.Connection(server, user=ldapuser, password=ldappass, raise_exceptions=True, receive_timeout=10)
         conn.bind()
     except ldap3.core.exceptions.LDAPException:
         log.exception("Failed to connect to the LIGO LDAP")
-        return []
+        return results
 
-    try:
-        conn.search(_ligo_ldap_branch,
-                    query,
-                    search_scope='LEVEL',
-                    attributes=['gridX509subject'])
-        results = [dn for e in conn.entries for dn in e.gridX509subject]
-    except ldap3.core.exceptions.LDAPException:
-        log.exception("Failed to query the LIGO LDAP")
-    finally:
-        conn.unbind()
+    for group in ('people', 'robot'):
+        try:
+            conn.search(base_branch.format(group=group),
+                        queries[group],
+                        search_scope='LEVEL',
+                        attributes=['gridX509subject'])
+            results += [dn for e in conn.entries for dn in e.gridX509subject]
+        except ldap3.core.exceptions.LDAPException:
+            log.exception("Failed to query LIGO LDAP for %s DNs", group)
+
+    conn.unbind()
 
     return results
 
