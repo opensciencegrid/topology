@@ -1,7 +1,8 @@
-# Name is the short name of the project. It must match the file name
-Name: <NAME>
 # Description is a human-readable description of what the project is about
-Description: <TEXT>
+# it can be multiple lines as long as each line is indented.
+Description: >-
+  <TEXT>
+
 # Department is the department of the project, e.g. "Physics"
 Department: <DEPT>
 # FieldOfScience is a more specific description, e.g. "High Energy Physics"
@@ -21,3 +22,32 @@ Sponsor:
   # VirtualOrganization:
   ##### Name is the name of the VO that sponsored the project
   #   Name: <VO>
+
+
+### Uncomment the ResourceAllocations block if this project can make use of
+### one or more XRAC (XSEDE) or other HPC allocations.
+###
+### Contact the Software Team for assistance in filling in these values.
+# ResourceAllocations:
+
+##### Type is how the allocation was obtained: "XRAC" for allocations through
+##### XSEDE or "Other" for allocations directly through the site.
+#   - Type: Other
+
+####### SubmitResources is a list of Submit Nodes (Access Points) that users of
+####### the project can submit from.  There must be at least one; each line must
+####### refer to a Topology Resource.
+#     SubmitResources:
+#       - UChicago_OSGConnect_login04
+#       - UChicago_OSGConnect_login05
+
+####### ExecuteResourceGroups is a list of what sites this allocation
+####### corresponds to and what their local allocation is at that site.
+####### There must be at least one.
+#     ExecuteResourceGroups:
+########### GroupName is a Topology Resource Group that contains the CE of the site.
+#       - GroupName: TACC-Stampede2
+########### LocalAllocationID is the user's allocation on that site (e.g. for
+########### SLURM, what goes after the `-A`) for the job
+#         LocalAllocationID: MyAllocation
+

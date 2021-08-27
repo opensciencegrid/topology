@@ -131,6 +131,31 @@ def nsfscience_csv():
     return response
 
 
+@app.route('/organizations')
+def organizations():
+    project_institution = global_data.get_mappings().project_institution
+    if not project_institution:
+        return Response("Error getting Project/Institution mappings", status=503)
+
+    organizations = set()
+    for project in global_data.get_projects()["Projects"]["Project"]:
+        if "Organization" in project:
+            organizations.add(project["Organization"])
+
+    # Invert the Project/Institution mapping. Note that "institution" == "organization"
+    # and "project" is actually the prefix for the project in our standard naming
+    # convention.
+    prefix_by_org = {pi[1]: pi[0] for pi in project_institution.items()}
+
+    org_table = []
+    for org in sorted(organizations):
+        prefix = prefix_by_org.get(org, "")
+        org_table.append((org, prefix))
+
+    return _fix_unicode(render_template('organizations.html.j2', org_table=org_table))
+
+
+
 @app.route('/contacts')
 def contacts():
     try:
