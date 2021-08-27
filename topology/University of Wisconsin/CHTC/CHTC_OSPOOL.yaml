@@ -1,0 +1,42 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: Open Science Pool resources hosted at CHTC
+GroupID: 1125
+
+Resources:
+  CHTC_OSPOOL_ORIGIN:
+    Active: false
+    Description: Authenticated origin server for OSPool Users at UW-Madison
+    ID: 1194
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+        Secondary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Tertiary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+      Security Contact:
+        Primary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+        Secondary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+        Tertiary:
+          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
+          Name: Timothy Slauson
+    FQDN: origin-auth2001.chtc.wisc.edu
+    FQDNAliases:
+      - chtc-origin.osg-htc.org
+    DN: /CN=origin-auth2001.chtc.wisc.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache origin server, see OPS-198
+    VOOwnership:
+      OSG: 100
+    AllowedVOs:
+      - ANY
