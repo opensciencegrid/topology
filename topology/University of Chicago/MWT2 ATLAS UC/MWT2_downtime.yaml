@@ -1167,4 +1167,48 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 951876599
+  Description: Cooling failure in data center
+  Severity: Outage
+  StartTime: Aug 28, 2021 21:00 +0000
+  EndTime: Aug 29, 2021 21:00 +0000
+  CreatedTime: Aug 28, 2021 21:54 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 951876813
+  Description: Cooling failure in data center
+  Severity: Outage
+  StartTime: Aug 28, 2021 21:00 +0000
+  EndTime: Aug 29, 2021 21:00 +0000
+  CreatedTime: Aug 28, 2021 21:54 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 951876937
+  Description: Cooling failure in data center
+  Severity: Outage
+  StartTime: Aug 28, 2021 21:00 +0000
+  EndTime: Aug 29, 2021 21:00 +0000
+  CreatedTime: Aug 28, 2021 21:54 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 951877078
+  Description: Cooling failure in data center
+  Severity: Outage
+  StartTime: Aug 28, 2021 21:00 +0000
+  EndTime: Aug 29, 2021 21:00 +0000
+  CreatedTime: Aug 28, 2021 21:55 +0000
+  ResourceName: MWT2_UC_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
 
