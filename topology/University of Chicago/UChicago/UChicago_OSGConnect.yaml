@@ -209,3 +209,28 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+
+  UChicago_OSGConnect_Collab:
+    Active: true
+    Description: The Collab CI Connect access point
+    ID: 1202
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: login.collab.ci-connect.net
+    DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
