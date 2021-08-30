@@ -156,3 +156,31 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+
+  UChicago_OSGConnect_cms:
+    Active: true
+    Description: The CMS CI Connect access point
+    ID: 1200
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 82122a855bc0fe808efd91e402e7975a39511d7b
+          Name: Kenyi Hurtado Anampa
+        Secondary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Tertiary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: login.cms.ci-connect.net
+    DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=login.cms.ci-connect.net
+    Services:
+      Submit Node:
+        Description: OS Pool access point
