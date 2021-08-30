@@ -29,7 +29,7 @@ Resources:
     DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
     Services:
       Submit Node:
-        Description: OSG Connect submit node
+        Description: OS Pool access point
 
   UChicago_OSGConnect_login05:
     Active: true
@@ -55,7 +55,7 @@ Resources:
     DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
     Services:
       Submit Node:
-        Description: OSG Connect submit node
+        Description: OS Pool access point
 
   UChicago_OSGConnect_flock:
     Active: true
