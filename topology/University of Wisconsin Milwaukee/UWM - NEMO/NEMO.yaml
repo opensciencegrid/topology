@@ -54,3 +54,21 @@ Resources:
         Description: UWM-NEMO Hosted CE
         Details:
           hidden: false
+
+  NEMO-submit:
+    ID: 1212
+    Active: true
+    Description: UWM-NEMO OS Pool access point for NEMO cluster.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Shawn Kwang
+          ID: 115b5c0fb1a160df841dde4591b96c180ba6d778
+      Security Contact:
+        Primary:
+          Name: Shawn Kwang
+          ID: 115b5c0fb1a160df841dde4591b96c180ba6d778
+    FQDN: submit-dev.ligo.uwm.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
