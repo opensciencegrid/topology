@@ -57,6 +57,34 @@ Resources:
       Submit Node:
         Description: OSG Connect submit node
 
+  UChicago_OSGConnect_flock:
+    Active: true
+    Description: Flock access point for the OS Pool
+    ID: 1205
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Mats Rynge
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+        Secondary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Tertiary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: flock.opensciencegrid.org
+    DN: /DC=org/DC=incommon/C=US/ST=Wisconsin/L=Madison/O=University of Wisconsin-Madison/OU=OCIS/CN=flock.opensciencegrid.org
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+
   UChicago_OSGConnect_veritas:
     Active: true
     Description: The Veritas CI Connect access point
