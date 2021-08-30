@@ -40,3 +40,21 @@ Resources:
 
     AllowedVOs:
       - ANY
+
+  NCSA-DES-CMP3:
+    Active: true
+    Description: NCSA DES OS Pool access point
+    ID: 1208
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Greg Daues
+          ID: 24cb9f98f25c1d172e8217b47f5526faab8fdc39
+      Security Contact:
+        Primary:
+          Name: Greg Daues
+          ID: 24cb9f98f25c1d172e8217b47f5526faab8fdc39
+    FQDN: descmp3.cosmology.illinois.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
