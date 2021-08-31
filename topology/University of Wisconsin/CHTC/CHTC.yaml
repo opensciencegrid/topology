@@ -825,6 +825,8 @@ Resources:
           ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
           Name: Timothy Slauson
     FQDN: origin-auth2000.chtc.wisc.edu
+    FQDNAliases:
+      - origin-auth.chtc.wisc.edu
     DN: /CN=origin-auth2000.chtc.wisc.edu
     Services:
       XRootD origin server:

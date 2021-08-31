@@ -80,7 +80,12 @@ DataFederations:
         - PUBLIC
       /osgconnect/collab:
         - PUBLIC
+      /ospool/PROTECTED:
+        - SciTokens:
+            Issuer: https://osg-htc.org/ospool
+            Base Path: /ospool/PROTECTED
     AllowedOrigins:
       - OSGCONNECT_ORIGIN
+      - CHTC_OSPOOL_ORIGIN
     AllowedCaches:
       - ANY
