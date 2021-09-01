@@ -17,14 +17,9 @@ ID: 130
 LongName: Accelerator Neutrino Neutron Interaction Experiment
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
 OASIS:
-  Managers:
-    - Name: Arthur Kreymer
-      DNs:
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Arthur Kreymer 965
-      ID: fa14f7cbd84a8b048e6ebd192a72a14bf298c354
   OASISRepoURLs:
   - http://oasiscfs.fnal.gov:8000/cvmfs/annie.opensciencegrid.org
-  UseOASIS: true
+  UseOASIS: false
 ParentVO:
   ID: 9
   Name: Fermilab
