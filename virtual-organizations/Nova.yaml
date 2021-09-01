@@ -24,19 +24,11 @@ ID: 53
 LongName: Fermilab/Nova
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
 OASIS:
-  Managers:
-    - Name: Brian Bockelman
-      DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
-        Paul Bockelman
-      ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
-    - Name: Derek Weitzel
-      DNs: /DC=org/DC=cilogon/C=US/O=University of Nebraska-Lincoln/CN=Derek Weitzel A31419551
-      ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
   OASISRepoURLs:
   - http://oasiscfs.fnal.gov:8000/cvmfs/nova.opensciencegrid.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/nova.osgstorage.org
   - http://oasiscfs.fnal.gov:8000/cvmfs/nova-development.opensciencegrid.org
-  UseOASIS: true
+  UseOASIS: false
 ParentVO:
   ID: 9
   Name: Fermilab
