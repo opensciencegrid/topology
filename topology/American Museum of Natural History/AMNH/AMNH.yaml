@@ -324,3 +324,29 @@ Resources:
         Description: American Museum of Natural History Hosted CE for Mendel cluster
     Tags:
       - CC*
+
+  AMNH-Huxley-AP1:
+    Active: true
+    Description: OS Pool access point
+    ID: 1210
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+        Secondary:
+          Name: AMNH OSG Contact List
+          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
+      Security Contact:
+        Primary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+        Secondary:
+          Name: AMNH OSG Contact List
+          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
+    FQDN: huxley-osgsub-001.sdmz.amnh.org
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - CC*

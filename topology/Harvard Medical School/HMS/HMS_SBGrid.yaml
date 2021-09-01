@@ -1,0 +1,29 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: Resources associated with SBGrid at the Harvard Medical School
+GroupID: 1128
+Resources:
+  HMS_glidein:
+    Active: true
+    Description: The SBGrid access point for the OS Pool
+    ID: 1207
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: SBGrid HPC Mailing List
+          ID: 1777384243c590f66f0ef6b11c93477c80e3062d
+        Secondary:
+          Name: Peter Meyer
+          ID: d5ebc623588d1696614076faf0257d83806891a2
+      Security Contact:
+        Primary:
+          Name: SBGrid HPC Mailing List
+          ID: 1777384243c590f66f0ef6b11c93477c80e3062d
+        Secondary:
+          Name: Peter Meyer
+          ID: d5ebc623588d1696614076faf0257d83806891a2
+    FQDN: glidein-1.sbgrid.org
+    DN: /CN=glidein-1.sbgrid.org
+    Services:
+      Submit Node:
+        Description: OS Pool access point
