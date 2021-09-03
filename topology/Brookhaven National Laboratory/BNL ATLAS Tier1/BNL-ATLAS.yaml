@@ -358,10 +358,10 @@ Resources:
     FQDN: dcsrm.usatlas.bnl.gov
     ID: 5
     Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
+      SRMv2.disk:
+        Description: SRM V2 endpoint for the disk system
+      SRMv2.tape:
+        Description: SRM V2 endpoint for the tape system
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
