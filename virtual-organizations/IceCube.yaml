@@ -46,7 +46,7 @@ ReportingGroups:
 DataFederations:
   StashCache:
     Namespaces:
-      /icecube/users:
+      /icecube/PUBLIC:
         - PUBLIC
       # This path doesn't exist (nor does the issuer) but we need it to generate an acceptable scitokens.conf until SOFTWARE-4223 and/or SOFTWARE-4389 are done.
       /icecube/PROTECTED:
