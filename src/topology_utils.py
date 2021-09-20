@@ -342,7 +342,7 @@ def filter_contacts(args, results):
 
     if args.contact_type != 'all':
         # filter out undesired contact types
-        for name in results.keys():
+        for name in list(results.keys()):
             contact_list = []
             for contact in results[name]:
                 contact_type = contact['ContactType']
