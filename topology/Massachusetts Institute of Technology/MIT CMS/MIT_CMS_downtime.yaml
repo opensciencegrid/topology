@@ -225,3 +225,38 @@
   - CE
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 973191455
+  Description: Electrical grid upgrade
+  Severity: Outage
+  StartTime: Sep 25, 2021 21:00 +0000
+  EndTime: Sep 30, 2021 09:00 +0000
+  CreatedTime: Sep 22, 2021 13:59 +0000
+  ResourceName: MIT_CMS_2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 973191934
+  Description: Electrical grid upgrade
+  Severity: Outage
+  StartTime: Sep 25, 2021 21:00 +0000
+  EndTime: Sep 30, 2021 09:00 +0000
+  CreatedTime: Sep 22, 2021 13:59 +0000
+  ResourceName: MIT_CMS_3
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 973192216
+  Description: Electrical grid upgrade
+  Severity: Outage
+  StartTime: Sep 25, 2021 21:00 +0000
+  EndTime: Sep 30, 2021 09:00 +0000
+  CreatedTime: Sep 22, 2021 14:00 +0000
+  ResourceName: MIT_CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
