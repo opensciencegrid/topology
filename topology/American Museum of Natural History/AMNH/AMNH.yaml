@@ -288,12 +288,49 @@ Resources:
         Description: American Museum of Natural History Hosted CE for HEL cluster
     Tags:
       - CC*
+  AMNH-Mendel:
+    Active: false
+    Description: Third Hosted CE for the AMNH
+    # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
+    # Otherwise, leave it blank and we will fill in the appropriate value for you.
+    ID: 1111
+    ContactLists:
+      # Administrative Contact is one to three people to contact regarding administrative issues
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+        Secondary:
+          Name: AMNH OSG Contact List
+          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
+
+    FQDN: hosted-ce39.opensciencegrid.org
+    Services:
+      CE:
+        Description: American Museum of Natural History Hosted CE for Mendel cluster
+    Tags:
+      - CC*
+
   AMNH-Mendel-CE1:
     Active: true
     Description: Third Hosted CE for the AMNH
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: 1111
+    ID: 
     ContactLists:
       # Administrative Contact is one to three people to contact regarding administrative issues
       Administrative Contact:
