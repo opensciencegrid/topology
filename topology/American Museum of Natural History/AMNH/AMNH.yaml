@@ -288,7 +288,7 @@ Resources:
         Description: American Museum of Natural History Hosted CE for HEL cluster
     Tags:
       - CC*
-  AMNH-Mendel:
+  AMNH-Mendel-CE1:
     Active: true
     Description: Third Hosted CE for the AMNH
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
@@ -318,7 +318,7 @@ Resources:
           Name: AMNH OSG Contact List
           ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
 
-    FQDN: hosted-ce39.opensciencegrid.org
+    FQDN: amnh-mendel-ce1.svc.opensciencegrid.org
     Services:
       CE:
         Description: American Museum of Natural History Hosted CE for Mendel cluster
