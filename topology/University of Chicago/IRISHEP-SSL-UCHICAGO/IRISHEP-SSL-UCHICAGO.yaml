@@ -31,3 +31,33 @@ Resources:
         Description: Compute Element
         Details:
           hidden: true
+ 
+  IRISHEP-SSL-RIVER-DEV-BACKFILL:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 63c940faf153f892f782ff435548be0caece8e71
+          Name: Fengping Hu
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+      Security Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: 63c940faf153f892f782ff435548be0caece8e71
+          Name: Fengping Hu
+        Tertiary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+    Description: OSG VO backfill containers on the river-dev cluster.
+    FQDN: river-dev-osg-backfill.grid.uchicago.edu
+    ID: 
+    Services:
+      Execution Endpoint:
+        Description: OSG VO backfill containers on the river-dev cluster.
