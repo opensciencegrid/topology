@@ -55,6 +55,8 @@ Resources:
         Description: Submit host for the ISI Scitech group
         Details:
           hidden: false
+    Tags:
+      - OSPool
   ISI-OSG-VO:
     ContactLists:
       Administrative Contact:
@@ -81,4 +83,6 @@ Resources:
         Description: Testing host for OSG VO flocking
         Details:
           hidden: false
+    Tags:
+      - OSPool
 SupportCenter: ISI
