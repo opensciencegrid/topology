@@ -1,0 +1,24 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: This is the UIUC High-Throughput Computing cluster used to support HTC users at UIUC for MWT2
+GroupID:
+Resources:
+  MWT2-UIUC:
+    Active: false
+    Description: This is the UIUC Illinois Campus Cluster partition set aside for MWT2
+    ID: 
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: mwt2-uiuc-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
