@@ -399,3 +399,14 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 986462483
+  Description: HPSS Tape system core move to new data center
+  Severity: Outage
+  StartTime: Oct 19, 2021 04:00 +0000
+  EndTime: Oct 19, 2021 20:00 +0000
+  CreatedTime: Oct 07, 2021 22:37 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.tape
+# ---------------------------------------------------------
