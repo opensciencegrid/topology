@@ -2,8 +2,92 @@ GroupDescription: (No resource group description)
 GroupID: 120
 Production: true
 Resources:
-  T2_Florida_LT:
+  T2_US_Florida_LT:
     Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID:
+          Name: Bockjoo Kim
+      Miscellaneous Contact:
+        Primary:
+          ID:
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID:
+          Name: Bockjoo Kim
+      Resource Report Contact:
+        Primary:
+          ID:
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID:
+          Name: Bockjoo Kim
+      Security Contact:
+        Primary:
+          ID:
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID:
+          Name: Bockjoo Kim
+    Description: This is the perfSONAR-ps latency instance at the University of Florida
+      CMS T2 site for IPv4 and IPv6
+    FQDN: perfsonar1.rc.ufl.edu
+    ID:
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: perfsonar1.rc.ufl.edu
+    VOOwnership:
+      CMS: 100
+  T2_US_Florida_BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID:
+          Name: Bockjoo Kim
+      Miscellaneous Contact:
+        Primary:
+          ID:
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID:
+          Name: Bockjoo Kim
+      Resource Report Contact:
+        Primary:
+          ID:
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID:
+          Name: Bockjoo Kim
+      Security Contact:
+        Primary:
+          ID:
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID:
+          Name: Bockjoo Kim
+    Description: This is the perfSONAR-ps bandwidth instance at the University of Florida
+      CMS T2 site for IPv4 and IPv6
+    FQDN: perfsonar2.rc.ufl.edu
+    ID:
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: perfsonar2.rc.ufl.edu
+    VOOwnership:
+      CMS: 100
+  T2_Florida_LT:
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -45,7 +129,7 @@ Resources:
     VOOwnership:
       CMS: 100
   T2_Florida_BW_IPv6:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
