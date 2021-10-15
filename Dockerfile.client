@@ -1,0 +1,15 @@
+FROM centos:8
+
+LABEL maintainer="OSG Software <help@opensciencegrid.org>"
+LABEL name="OSG 3.5 OSG-Notify client"
+
+RUN yum -y install https://repo.opensciencegrid.org/osg/3.5/osg-3.5-el8-release-latest.rpm \
+                   epel-release \
+                   yum-utils
+
+RUN yum -y install python-gnupg \
+                   python-requests
+
+COPY ./bin/osg-notify               /usr/lib/python3
+COPY ./src/net_name_addr_utils.py   /usr/lib/python3
+COPY ./src/topology_utils.py        /usr/lib/python3
