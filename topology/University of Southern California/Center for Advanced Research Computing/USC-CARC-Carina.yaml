@@ -1,0 +1,27 @@
+---
+Production: true
+SupportCenter: Self Supported
+GroupDescription: >
+  Carina is the OpenNebula setup at the Center for Advanced Research Computing
+  at the University of Southern California
+GroupID: 1136
+Resources:
+  USC-CARC-Carina-Backfill:
+    Active: true
+    Description: This is an Execution Endpoint for CARC at USC.
+    ID: 1237
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Chris Taylor
+          ID: 4b84d68b2c8df00f231babe62d4545a92ac18982
+      Security Contact:
+        Primary:
+          Name: Chris Taylor
+          ID: 4b84d68b2c8df00f231babe62d4545a92ac18982
+    Services:
+      Execution Endpoint:
+        # Description is a brief description of the service
+        Description: OSPool backfill containers
+    Tags:
+      - CC*
