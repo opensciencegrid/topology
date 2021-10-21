@@ -535,6 +535,45 @@ Resources:
           Monitored: true
     VOOwnership:
       ATLAS: 100
+  MWT2_SLATE_UC_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+    Description: MWT2 SLATE located at the University of Chicago @ Chicago, IL
+    FQDN: sl-uc-xcache1.slateci.io
+    ID: <FIXME>
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: sl-uc-xcache1.slateci.io:32202
+          Monitored: true
+    VOOwnership:
+      ATLAS: 100
   MWT2_SLATE_IU:
     Active: true
     ContactLists:
