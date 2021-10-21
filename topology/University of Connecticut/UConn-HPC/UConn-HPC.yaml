@@ -1,6 +1,6 @@
-Production: true
-SupportCenter: GLUEX
+GridType: OSG Production Resource
 GroupDescription: OSG partition of the Storrs HPC Cluster
+Production: true
 GroupID: 1092
 Resources:
   UConn-HPC_squid:
@@ -87,6 +87,11 @@ Resources:
     - osgse.storrs.hpc.uconn.edu
     ID: 1095
     Services:
+      XRootD origin server:
+        Description: StashCache Origin server for UConn-HPC
+        Details:
+          hidden: false
+          uri_override: cn446.storrs.hpc.uconn.edu:1094
       SRMv1:
         Description: SRM V1 Storage Element
         Details:
