@@ -97,6 +97,11 @@ Resources:
         Details:
           hidden: false
           uri_override: osgse.storrs.hpc.uconn.edu:8443
+      XRootD origin server:
+        Description: StashCache Origin server for UConn-HPC
+        Details:
+          hidden: false
+        uri_override: osgse.storrs.hpc.uconn.edu:1094
     Tags:
       - CC*
   UConn-HPC_StashCache_origin:
