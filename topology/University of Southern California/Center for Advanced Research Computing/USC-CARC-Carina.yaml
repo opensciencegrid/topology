@@ -26,3 +26,23 @@ Resources:
         Description: OSPool backfill containers
     Tags:
       - CC*
+  USC-CARC-Carina-Squid-01:
+    Active: true
+    Description: The Frontier Squid serving the Carina setup
+    ID: 1240
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Chris Taylor
+          ID: 4b84d68b2c8df00f231babe62d4545a92ac18982
+      Security Contact:
+        Primary:
+          Name: Chris Taylor
+          ID: 4b84d68b2c8df00f231babe62d4545a92ac18982
+    FQDN: carina-68-181-208-3.usc.edu
+    Services:
+      Squid:
+        # Description is a brief description of the service
+        Description: Generic Frontier Squid service
+    Tags:
+      - CC*
