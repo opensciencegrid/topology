@@ -379,7 +379,7 @@ audience = {allowed_vos_str}
 
 def _get_scitokens_issuer_block(vo_name: str, scitokens: Dict, dirname: str, suppress_errors: bool) -> str:
     template = """\
-[Issuer {dirname}]
+[Issuer {issuer}]
 issuer = {issuer}
 base_path = {base_path}
 {restricted_path_line}

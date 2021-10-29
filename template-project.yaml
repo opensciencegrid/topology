@@ -7,20 +7,30 @@ Description: >-
 Department: <DEPT>
 # FieldOfScience is a more specific description, e.g. "High Energy Physics"
 FieldOfScience: <FOS>
-# Organization is the organization where the project is hosted, e.g. "UCSD"
+# Organization is the organization where the project is hosted, e.g. "University of California, San Diego"
 Organization: <ORG>
 # PIName is the prinicipal investigator for the project
 PIName: <FIRSTNAME> <LASTNAME>
 
 Sponsor:
-  ### Uncomment the CampusGrid block if the project was sponsored by a campus grid e.g. OSG Connect
+  ### If this is an OSG Connect project, uncomment this CampusGrid block
   # CampusGrid:
-  ##### Name is the specific campus grid that sponsored the project
+  #   Name: OSG Connect
+
+  ### Or if this is an XSEDE project, uncomment this CampusGrid block
+  # CampusGrid:
+  #   Name: OSG-XSEDE
+
+  ### Or if this project is sponsored by some other campus grid, uncomment this
+  ### CampusGrid block and replace <NAME> with the name of the campus grid;
+  ### look at the list in projects/_CAMPUS_GRIDS.yaml for the specific spelling
+  # CampusGrid:
   #   Name: <NAME>
 
-  ### Uncomment the VirtualOrganization block if the project was sponsored by a VO
+  ### Or if this project is sponsored by a VO, uncomment this VirtualOrganization block
+  ### and replace <VO> with the name of the virtual organization; this must match
+  ### one of the file names in the virtual-organizations/ directory (minus the .yaml extension)
   # VirtualOrganization:
-  ##### Name is the name of the VO that sponsored the project
   #   Name: <VO>
 
 
