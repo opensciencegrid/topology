@@ -31,7 +31,7 @@ jobs:
       env:
         TIMESTAMP: ${{ needs.make-date-tag.outputs.dtag }}
       run: |
-        docker_repo=opensciencegrid/osg-notify
+        docker_repo=ryantoh2110/osg-notify
         tag_list=()
         for registry in docker.io; do
           tag_list+=($registry/$docker_repo:release)
