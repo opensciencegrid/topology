@@ -2,6 +2,10 @@ name: Build and Push Client EL8 Docker image
 
 on:
   push:
+    branches: [ master ]
+    paths:
+      - 'src/net_name_addr_utils.py'
+      - 'src/topology_utils.py'
   repository_dispatch:
     types:
       - dispatch-build
@@ -10,6 +14,7 @@ on:
 jobs:
   make-date-tag:
     runs-on: ubuntu-latest
+    if: startsWith(github.repository, 'opensciencegrid/')
     outputs:
       dtag: ${{ steps.mkdatetag.outputs.dtag }}
     steps:
@@ -20,6 +25,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: [make-date-tag]
+    if: startsWith(github.repository, 'opensciencegrid/')
     strategy:
       fail-fast: False
 
@@ -31,9 +37,9 @@ jobs:
       env:
         TIMESTAMP: ${{ needs.make-date-tag.outputs.dtag }}
       run: |
-        docker_repo=ryantoh2110/osg-notify
+        docker_repo=opensciencegrid/osg-notify
         tag_list=()
-        for registry in docker.io; do
+        for registry in hub.opensciencegrid.org docker.io; do
           tag_list+=($registry/$docker_repo:release)
           tag_list+=($registry/$docker_repo:release-$TIMESTAMP)
         done
@@ -48,6 +54,13 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Log in to OSG Harbor
+      uses: docker/login-action@v1
+      with:
+        registry: hub.opensciencegrid.org
+        username: ${{ secrets.OSG_HARBOR_ROBOT_USER }}
+        password: ${{ secrets.OSG_HARBOR_ROBOT_PASSWORD }}
 
     - name: Build and push Client Docker images
       uses: docker/build-push-action@v2.2.0
