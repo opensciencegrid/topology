@@ -81,10 +81,12 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T. Jones
+    AllowedVOs:
+      - Gluex
     Description: UConn-HPC grid storage resource
-    FQDN: osgse.storrs.hpc.uconn.edu
+    FQDN: cn446.storrs.hpc.uconn.edu
     FQDNAliases:
-    - cn411.storrs.hpc.uconn.edu
+    - osgse.storrs.hpc.uconn.edu
     ID: 1095
     Services:
       SRMv1:
@@ -97,8 +99,11 @@ Resources:
         Details:
           hidden: false
           uri_override: osgse.storrs.hpc.uconn.edu:8443
+      XRootD origin server:
+        Description: StashCache Origin server for UConn-HPC
+        Details:
+          hidden: false
+        uri_override: osgse.storrs.hpc.uconn.edu:1094
     Tags:
       - CC*
-    VOOwnership:
-      Gluex: 80
-      CLAS12: 20
+SupportCenter: GLUEX
