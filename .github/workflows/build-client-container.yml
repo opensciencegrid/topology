@@ -38,7 +38,7 @@ jobs:
       env:
         TIMESTAMP: ${{ needs.make-date-tag.outputs.dtag }}
       run: |
-        docker_repo=opensciencegrid/osg-notify
+        docker_repo=opensciencegrid/topology-notify
         tag_list=()
         for registry in hub.opensciencegrid.org docker.io; do
           tag_list+=($registry/$docker_repo:release)
