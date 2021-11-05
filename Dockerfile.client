@@ -1,5 +1,4 @@
 FROM centos:centos8
-ENTRYPOINT [ "/usr/local/bin/osg-notify" ]
 
 LABEL maintainer="OSG Software <help@opensciencegrid.org>"
 LABEL name="OSG 3.5 OSG-Notify client"
@@ -15,3 +14,5 @@ RUN yum -y install python3 \
 COPY topology/bin/osg-notify               /usr/local/bin
 COPY topology/src/net_name_addr_utils.py   /usr/lib/python3.6/site-packages
 COPY topology/src/topology_utils.py        /usr/lib/python3.6/site-packages
+
+ENTRYPOINT [ "/usr/local/bin/osg-notify" ]
