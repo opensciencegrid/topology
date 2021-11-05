@@ -7,9 +7,6 @@ on:
       - 'bin/osg-notify'
       - 'src/net_name_addr_utils.py'
       - 'src/topology_utils.py'
-  repository_dispatch:
-    types:
-      - dispatch-build
   workflow_dispatch:
 
 jobs:
