@@ -50,7 +50,9 @@ DataFederations:
       /gluex:
         - PUBLIC
     AllowedOrigins:
+        # UConn-OSG_StashCache_origin serves /gluex/uconn0 (FD #68279)
         - UConn-OSG_StashCache_origin
+        # UConn-HPC_SE serves /gluex/uconn1 (FD #68279)
         - UConn-HPC_SE
     AllowedCaches:
         - ANY
