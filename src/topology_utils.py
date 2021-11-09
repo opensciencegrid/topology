@@ -37,8 +37,15 @@ def get_auth_session(args):
 
     if os.path.exists(cert):
         session.cert = cert
+    else:
+        print("Error: could not find certificate at " + cert)
+        quit()
+    
     if os.path.exists(key):
         session.cert = (cert, key)
+    else:
+        print("Error: could not find key at " + key)
+        quit()
 
     return session
 
