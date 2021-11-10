@@ -4,6 +4,7 @@ on:
   push:
     branches: [ master ]
     paths:
+      - 'Dockerfile.client'
       - 'bin/osg-notify'
       - 'src/net_name_addr_utils.py'
       - 'src/topology_utils.py'
