@@ -33,3 +33,22 @@ Resources:
         Description: This is the Villanova University Hosted CE for the University Cluster
     Tags:
       - CC*
+  VU-AUGIE-SQUID1:
+    Active: true
+    Description: This is the AUGIE node at Villanova University
+    ID: 1242
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Christopher Washburn
+          ID: 2dde5197c9f6d783c9a4d1e3ec664bfbef5bb17c
+      Security Contact:
+        Primary:
+          Name: Christopher Washburn
+          ID: 2dde5197c9f6d783c9a4d1e3ec664bfbef5bb17c
+    FQDN: augie.villanova.edu
+    Services:
+      Squid:
+        Description: This is the Villanova University AUGIE Squid
+    Tags:
+      - CC*
