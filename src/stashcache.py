@@ -1,6 +1,6 @@
 
 from collections import defaultdict
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Union
 import re
 import sys
 import ldap3
@@ -231,42 +231,10 @@ def generate_cache_authfile(global_data: GlobalData,
             continue
 
         for namespace, authz_list in namespaces.items():
-            # Handle FQANs and DNs in an auth list.  Note:
-            # This is a string:
-            # - FQAN:/foobar
-            # This is a dict:
-            # - FQAN: /foobar
-            # Accept both.
-            for authz in authz_list:
-                if isinstance(authz, str):
-                    if authz.startswith("FQAN:"):
-                        fqan = authz[5:].strip()
-                        id_to_dir["g {}".format(fqan)].add(namespace)
-                    elif authz.startswith("DN:"):
-                        dn = authz[3:].strip()
-                        hash = _generate_dn_hash(dn)
-                        id_to_dir["u {}".format(hash)].add(namespace)
-                    elif authz.strip() == "PUBLIC":
-                        continue
-                    else:
-                        if not suppress_errors:
-                            raise DataError("Unknown authz list entry {}".format(authz))
-                elif isinstance(authz, dict):
-                    if "SciTokens" in authz:
-                        continue  # SciTokens are not used in Authfiles
-                    elif "FQAN" in authz:
-                        fqan = authz["FQAN"].strip()
-                        id_to_dir["g {}".format(fqan)].add(namespace)
-                    elif "DN" in authz:
-                        dn = authz["DN"].strip()
-                        hash = _generate_dn_hash(dn)
-                        id_to_dir["u {}".format(hash)].add(namespace)
-                    else:
-                        if not suppress_errors:
-                            raise DataError("Unknown authz list entry {}".format(authz))
-                else:
-                    if not suppress_errors:
-                        raise DataError("Unknown authz list entry {}".format(authz))
+            id_to_dir_for_namespace = _get_authfile_mapping_for_namespace(authz_list, namespace, suppress_errors)
+            # Merge the dict of sets.  Plain id_to_dir.update(id_to_dir_for_namespace) would replace the sets instead of merging them.
+            for k in id_to_dir_for_namespace:
+                id_to_dir[k].update(id_to_dir_for_namespace[k])
 
     if legacy:
         ldappass = readfile(global_data.ligo_ldap_passfile, log)
@@ -280,6 +248,47 @@ def generate_cache_authfile(global_data: GlobalData,
                 " ".join([i + " rl" for i in sorted(dir_list)]))
 
     return authfile
+
+
+def _get_authfile_mapping_for_namespace(authz_list: List[Union[str, Dict]], namespace: str, suppress_errors=True) -> Dict:
+    # Handle FQANs and DNs in an auth list.  Note:
+    # This is a string:
+    # - FQAN:/foobar
+    # This is a dict:
+    # - FQAN: /foobar
+    # Accept both.
+    id_to_dir_for_namespace = defaultdict(set)
+    for authz in authz_list:
+        if isinstance(authz, str):
+            if authz.startswith("FQAN:"):
+                fqan = authz[5:].strip()
+                id_to_dir_for_namespace["g {}".format(fqan)].add(namespace)
+            elif authz.startswith("DN:"):
+                dn = authz[3:].strip()
+                hash = _generate_dn_hash(dn)
+                id_to_dir_for_namespace["u {}".format(hash)].add(namespace)
+            elif authz.strip() == "PUBLIC":
+                continue
+            else:
+                if not suppress_errors:
+                    raise DataError("Unknown authz list entry {}".format(authz))
+        elif isinstance(authz, dict):
+            if "SciTokens" in authz:
+                continue  # SciTokens are not used in Authfiles
+            elif "FQAN" in authz:
+                fqan = authz["FQAN"].strip()
+                id_to_dir_for_namespace["g {}".format(fqan)].add(namespace)
+            elif "DN" in authz:
+                dn = authz["DN"].strip()
+                hash = _generate_dn_hash(dn)
+                id_to_dir_for_namespace["u {}".format(hash)].add(namespace)
+            else:
+                if not suppress_errors:
+                    raise DataError("Unknown authz list entry {}".format(authz))
+        else:
+            if not suppress_errors:
+                raise DataError("Unknown authz list entry {}".format(authz))
+    return id_to_dir_for_namespace
 
 
 def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=True, suppress_errors=True) -> str:
