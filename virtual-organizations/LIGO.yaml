@@ -69,8 +69,8 @@ DataFederations:
   StashCache:
     Namespaces:
       /user/ligo:
-        - FQAN: /osg/ligo
-        - FQAN: /virgo
+        - "FQAN:/osg/ligo"
+        - "FQAN:/virgo"
         - SciTokens:
             Issuer: https://scitokens.org/ligo
             Base Path: /user/ligo
