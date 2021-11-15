@@ -31,7 +31,9 @@ Resources:
     # If you cannot find the contact above XML, please register the contact:
     # https://opensciencegrid.org/docs/common/registration/#registering-contacts
     ContactLists:
-      # Administrative Contact is one to three people to contact regarding administrative issues
+      # Administrative Contacts are persons or groups of people (i.e.,
+      # mailing lists) that are directly responsible for the
+      # maintenance of the resource
       Administrative Contact:
         Primary:
           Name: <FIRSTNAME> <LASTNAME>
@@ -43,11 +45,28 @@ Resources:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
 
-      # Security Contact is one to three people to contact regarding security issues
+      # Security Contact are persons or groups of people (i.e.,
+      # mailing lists) that are responsible for handling security
+      # issues related to the resource
       Security Contact:
         Primary:
           Name: <FIRSTNAME> <LASTNAME>
           ID: <EMAIL HASH>
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # Site contact (optional) are persons or groups of people (i.e.,
+      # mailing lists) that are generally responsible for a site's
+      # relationship with the OSG (e.g., principal investigators,
+      # local administrator contact for OSG Hosted CEs)
+      # Site Contact:
+        # Primary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
         # Secondary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>

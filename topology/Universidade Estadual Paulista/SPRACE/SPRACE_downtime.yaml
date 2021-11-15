@@ -1125,3 +1125,36 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 986044303
+  Description: update condor and htcondor-ce to allow token authentication
+  Severity: Outage
+  StartTime: Oct 11, 2021 05:00 +0000
+  EndTime: Oct 11, 2021 21:00 +0000
+  CreatedTime: Oct 07, 2021 11:00 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 986900425
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 08, 2021 02:00 +0000
+  EndTime: Oct 08, 2021 21:00 +0000
+  CreatedTime: Oct 08, 2021 10:47 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 986903666
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 08, 2021 02:00 +0000
+  EndTime: Oct 08, 2021 21:00 +0000
+  CreatedTime: Oct 08, 2021 10:52 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------

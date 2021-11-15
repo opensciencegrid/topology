@@ -28,8 +28,7 @@ OASIS:
   Managers:
     - Name: Mark Ito
       DNs:
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Mark Ito 1104
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Mark Ito 1104
+      - /DC=org/DC=cilogon/C=US/O=Thomas Jefferson National Accelerator Facility/CN=Mark Ito A292211
       ID: 192356e8dfe991026cc11fc5a7250a1504034bee
     - Name: Richard T. Jones
       DNs:
@@ -48,7 +47,12 @@ DataFederations:
     Namespaces:
       /Gluex:
         - PUBLIC
+      /gluex:
+        - PUBLIC
     AllowedOrigins:
+        # UConn-OSG_StashCache_origin serves /gluex/uconn0 (FD #68279)
         - UConn-OSG_StashCache_origin
+        # UConn-HPC_SE serves /gluex/uconn1 (FD #68279)
+        - UConn-HPC_SE
     AllowedCaches:
         - ANY
