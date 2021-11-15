@@ -223,8 +223,17 @@ def get_contacts(args, urltype, roottype):
                "&active=on&active_value=1&disable=on&disable_value=0"
     with get_auth_session(args) as session:
         url = mangle_url(base_url, args, session)
-        #print(url)
-        response = session.get(url)
+        attempts = 3
+        response = None
+        while attempts > 0:
+            try:
+                response = session.get(url)
+            except OSError as exc:
+                attempts -= 1
+                if attempts > 0: print("Incorrect password, please try again")
+        if response is None:
+            print("Too many incorrect password attempts, exiting")
+            exit()
 
     if old_no_proxy is not None:
         os.environ['no_proxy'] = old_no_proxy
