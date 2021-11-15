@@ -1,0 +1,27 @@
+---
+Production: true
+SupportCenter: Self Supported
+GroupDescription: Compute resources at Lancium
+GroupID: 1137
+Resources:
+  Lancium-Backfill:
+    Active: true
+    Description: Backfill containers running at Lancium computing sites
+    ID: 1243
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+      Security Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+      Site Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+    FQDN: ospool-backfill.lancium.com
+    Services:
+      Execution Endpoint:
+        Description: Lancium backfill containers
