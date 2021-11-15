@@ -1090,3 +1090,213 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 918003481
+  Description: 'UIUC Campus (ICCP) planned maintenance'
+  Severity: Outage
+  StartTime: Jul 21, 2021 05:00 +0000
+  EndTime: Jul 22, 2021 05:00 +0000
+  CreatedTime: Jul 20, 2021 16:59 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 937936365
+  Description: UChicago network maintenance
+  Severity: Outage
+  StartTime: Aug 16, 2021 14:00 +0000
+  EndTime: Aug 16, 2021 16:00 +0000
+  CreatedTime: Aug 12, 2021 18:40 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 937936649
+  Description: UChicago network maintenance
+  Severity: Outage
+  StartTime: Aug 16, 2021 14:00 +0000
+  EndTime: Aug 16, 2021 16:00 +0000
+  CreatedTime: Aug 12, 2021 18:41 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 937936835
+  Description: UChicago network maintenance
+  Severity: Outage
+  StartTime: Aug 16, 2021 14:00 +0000
+  EndTime: Aug 16, 2021 16:00 +0000
+  CreatedTime: Aug 12, 2021 18:41 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 937937033
+  Description: UChicago network maintenance
+  Severity: Outage
+  StartTime: Aug 16, 2021 14:00 +0000
+  EndTime: Aug 16, 2021 16:00 +0000
+  CreatedTime: Aug 12, 2021 18:41 +0000
+  ResourceName: MWT2_UC_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 937937305
+  Description: UChicago network maintenance
+  Severity: Outage
+  StartTime: Aug 16, 2021 14:00 +0000
+  EndTime: Aug 16, 2021 16:00 +0000
+  CreatedTime: Aug 12, 2021 18:42 +0000
+  ResourceName: MWT2_SLATE_UC
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 937937495
+  Description: UChicago network maintenance
+  Severity: Outage
+  StartTime: Aug 16, 2021 14:00 +0000
+  EndTime: Aug 16, 2021 16:00 +0000
+  CreatedTime: Aug 12, 2021 18:42 +0000
+  ResourceName: MWT2_CE_UC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 951876599
+  Description: Cooling failure in data center
+  Severity: Outage
+  StartTime: Aug 28, 2021 21:00 +0000
+  EndTime: Aug 29, 2021 15:25 +0000
+  CreatedTime: Aug 28, 2021 21:54 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 951876813
+  Description: Cooling failure in data center
+  Severity: Outage
+  StartTime: Aug 28, 2021 21:00 +0000
+  EndTime: Aug 29, 2021 15:25 +0000
+  CreatedTime: Aug 28, 2021 21:54 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 951876937
+  Description: Cooling failure in data center
+  Severity: Outage
+  StartTime: Aug 28, 2021 21:00 +0000
+  EndTime: Aug 29, 2021 15:25 +0000
+  CreatedTime: Aug 28, 2021 21:54 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 951877078
+  Description: Cooling failure in data center
+  Severity: Outage
+  StartTime: Aug 28, 2021 21:00 +0000
+  EndTime: Aug 29, 2021 15:25 +0000
+  CreatedTime: Aug 28, 2021 21:55 +0000
+  ResourceName: MWT2_UC_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 986272436
+  Description: CRAC maintenance
+  Severity: Outage
+  StartTime: Oct 12, 2021 12:00 +0000
+  EndTime: Oct 12, 2021 16:00 +0000
+  CreatedTime: Oct 07, 2021 17:20 +0000
+  ResourceName: MWT2_CE_UC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 986272974
+  Description: CRAC maintenance
+  Severity: Outage
+  StartTime: Oct 12, 2021 12:00 +0000
+  EndTime: Oct 12, 2021 16:00 +0000
+  CreatedTime: Oct 07, 2021 17:21 +0000
+  ResourceName: MWT2_CE_IU
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 986273133
+  Description: CRAC maintenance
+  Severity: Outage
+  StartTime: Oct 12, 2021 12:00 +0000
+  EndTime: Oct 12, 2021 16:00 +0000
+  CreatedTime: Oct 07, 2021 17:21 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 986273302
+  Description: CRAC maintenance
+  Severity: Outage
+  StartTime: Oct 12, 2021 12:00 +0000
+  EndTime: Oct 12, 2021 16:00 +0000
+  CreatedTime: Oct 07, 2021 17:22 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 986273442
+  Description: CRAC maintenance
+  Severity: Outage
+  StartTime: Oct 12, 2021 12:00 +0000
+  EndTime: Oct 12, 2021 16:00 +0000
+  CreatedTime: Oct 07, 2021 17:22 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 986273547
+  Description: CRAC maintenance
+  Severity: Outage
+  StartTime: Oct 12, 2021 12:00 +0000
+  EndTime: Oct 12, 2021 16:00 +0000
+  CreatedTime: Oct 07, 2021 17:22 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 986273642
+  Description: CRAC maintenance
+  Severity: Outage
+  StartTime: Oct 12, 2021 12:00 +0000
+  EndTime: Oct 12, 2021 16:00 +0000
+  CreatedTime: Oct 07, 2021 17:22 +0000
+  ResourceName: MWT2_UC_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 996659482
+  Description: ICC Quarterly PM
+  Severity: Outage
+  StartTime: Oct 20, 2021 13:00 +0000
+  EndTime: Oct 21, 2021 01:00 +0000
+  CreatedTime: Oct 19, 2021 17:52 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
+

@@ -3,22 +3,12 @@ from collections import defaultdict
 from typing import Dict, List, Optional
 import re
 import sys
-try:
-    # TODO: Rewrite this module to use ldap3 which gets installed in rootless installs too.
-    import ldap
-except ModuleNotFoundError:
-    print("""\
-*** ldap module unavailable; this comes from "python-ldap" which is only in 
-    requirements-apache.txt since it requires the openldap header files 
-    (openldap-devel on EL) to install.  If the openldap header files are 
-    available, pip install python-ldap to make this error go away.
-""", file=sys.stderr)
-    raise
-ldap.set_option(ldap.OPT_TIMEOUT, 10)
-ldap.set_option(ldap.OPT_NETWORK_TIMEOUT, 10)
+import ldap3
 import asn1
 import hashlib
 
+from webapp.common import readfile
+from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup
 from webapp.vos_data import VOsData
 
@@ -50,24 +40,39 @@ class NotRegistered(Exception):
     """Raised when the FQDN is not registered at all"""
 
 
-def _generate_ligo_dns() -> List[str]:
+def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
     """
-    Query the LIGO LDAP server for all grid DNs in the LVC collab.
+    Query the LIGO LDAP server for all grid DNs in the IGWN collab.
 
     Returns a list of DNs.
     """
-    ldap_obj = ldap.initialize("ldaps://ldap.ligo.org")
-    query = "(&(isMemberOf=Communities:LSCVirgoLIGOGroupMembers)(gridX509subject=*))"
-    results = ldap_obj.search_s("ou=people,dc=ligo,dc=org", ldap.SCOPE_ONELEVEL,
-                                query, ["gridX509subject"])
-    all_dns = []
-    for result in results:
-        user_dns = result[1].get('gridX509subject', [])
-        for dn in user_dns:
-            if dn.startswith(b"/"):
-                all_dns.append(dn.replace(b"\n", b" ").decode("utf-8"))
+    results = []
+    base_branch = "ou={group},dc=ligo,dc=org"
+    base_query = "(&(isMemberOf=Communities:{community})(gridX509subject=*))"
+    queries = {'people': base_query.format(community="LSCVirgoLIGOGroupMembers"),
+               'robot': base_query.format(community="robot:OSGRobotCert")}
 
-    return all_dns
+    try:
+        server = ldap3.Server(ldapurl, connect_timeout=10)
+        conn = ldap3.Connection(server, user=ldapuser, password=ldappass, raise_exceptions=True, receive_timeout=10)
+        conn.bind()
+    except ldap3.core.exceptions.LDAPException:
+        log.exception("Failed to connect to the LIGO LDAP")
+        return results
+
+    for group in ('people', 'robot'):
+        try:
+            conn.search(base_branch.format(group=group),
+                        queries[group],
+                        search_scope='SUBTREE',
+                        attributes=['gridX509subject'])
+            results += [dn for e in conn.entries for dn in e.gridX509subject]
+        except ldap3.core.exceptions.LDAPException:
+            log.exception("Failed to query LIGO LDAP for %s DNs", group)
+
+    conn.unbind()
+
+    return results
 
 
 def _generate_dn_hash(dn: str) -> str:
@@ -111,6 +116,10 @@ def _generate_dn_hash(dn: str) -> str:
 
 
 def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Resource:
+    """Returns the Resource that has the given FQDN; if multiple Resources
+    have the same FQDN, returns the first one.
+
+    """
     for group in resource_groups:
         for resource in group.resources:
             if fqdn.lower() == resource.fqdn.lower():
@@ -118,6 +127,15 @@ def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Re
 
 
 def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup], suppress_errors: bool) -> Optional[Resource]:
+    """If given an FQDN, returns the Resource _if it has an "XRootD cache server" service_.
+    If given None, returns None.
+    If multiple Resources have the same FQDN, checks the first one.
+    If suppress_errors is False, raises an expression on the following conditions:
+    - no Resource matching FQDN (NotRegistered)
+    - Resource does not provide an XRootD cache server (DataError)
+    If suppress_errors is True, returns None on the above conditions.
+
+    """
     resource = None
     if fqdn:
         resource = _get_resource_by_fqdn(fqdn, resource_groups)
@@ -166,19 +184,26 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
     return ret
 
 
-def generate_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn=None, legacy=True, suppress_errors=True) -> str:
+def generate_cache_authfile(global_data: GlobalData,
+                            fqdn=None,
+                            legacy=True,
+                            suppress_errors=True) -> str:
     """
     Generate the Xrootd authfile needed by a StashCache cache server.
     """
     authfile = ""
     id_to_dir = defaultdict(set)
 
-    resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
-    if fqdn and not resource:
-        return ""
+    resource = None
+    if fqdn:
+        resource_groups = global_data.get_topology().get_resource_group_list()
+        resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
+        if not resource:
+            return ""
 
-    for vo_name, vo_data in vo_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+    vo_data = global_data.get_vos_data()
+    for vo_name, vo_details in vo_data.vos.items():
+        stashcache_data = vo_details.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
             continue
 
@@ -216,7 +241,8 @@ def generate_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGrou
                     id_to_dir["u {}".format(hash)].add(namespace)
 
     if legacy:
-        for dn in _generate_ligo_dns():
+        ldappass = readfile(global_data.ligo_ldap_passfile, log)
+        for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
             hash = _generate_dn_hash(dn)
             id_to_dir["u {}".format(hash)].add("/user/ligo")
 
@@ -228,7 +254,7 @@ def generate_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGrou
     return authfile
 
 
-def generate_public_cache_authfile(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn=None, legacy=True, suppress_errors=True) -> str:
+def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=True, suppress_errors=True) -> str:
     """
     Generate the Xrootd authfile needed for public caches
     """
@@ -237,13 +263,17 @@ def generate_public_cache_authfile(vo_data: VOsData, resource_groups: List[Resou
     else:
         authfile = "u * \\\n"
 
-    resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
-    if fqdn and not resource:
-        return ""
+    resource = None
+    if fqdn:
+        resource_groups = global_data.get_topology().get_resource_group_list()
+        resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
+        if not resource:
+            return ""
 
     public_dirs = set()
-    for vo_name, vo_data in vo_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+    vo_data = global_data.get_vos_data()
+    for vo_name, vo_details in vo_data.vos.items():
+        stashcache_data = vo_details.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
             continue
         if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, True, suppress_errors):
@@ -280,6 +310,8 @@ def generate_cache_scitokens(vo_data: VOsData, resource_groups: List[ResourceGro
 
     "Restricted Path" is optional.
     `fqdn` must belong to a registered cache resource.
+
+    You may have multiple `- SciTokens:` blocks
 
     If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
     no resource matching fqdn, resource does not contain a cache server, etc.).  Otherwise, raises
@@ -347,7 +379,7 @@ audience = {allowed_vos_str}
 
 def _get_scitokens_issuer_block(vo_name: str, scitokens: Dict, dirname: str, suppress_errors: bool) -> str:
     template = """\
-[Issuer {dirname}]
+[Issuer {issuer}]
 issuer = {issuer}
 base_path = {base_path}
 {restricted_path_line}
@@ -504,6 +536,33 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
 
 
 def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
+    """
+    Generate the SciTokens needed by a StashCache origin server, given the fqdn
+    of the origin server.
+
+    The scitokens config for a StashCache namespace is in the VO YAML and looks like:
+
+        DataFederations:
+            StashCache:
+                Namespaces:
+                    /store:
+                        - SciTokens:
+                            Issuer: https://scitokens.org/cms
+                            Base Path: /
+                            Restricted Path: /store
+
+    "Restricted Path" is optional.
+    `fqdn` must belong to a registered cache resource.
+
+    You may have multiple `- SciTokens:` blocks
+
+    Returns a file with a dummy "issuer" block if there are no `- SciTokens:` blocks.
+
+    If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
+    no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
+    ValueError or DataError.
+
+    """
 
     template = """\
 [Global]

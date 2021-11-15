@@ -57,16 +57,6 @@ OASIS:
       DNs: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=James Alexander
         Clark 4038
       ID: 504894b714071a10a647aaaa4e1fe7ee3186430b
-    - Name: Peter Couvares
-      DNs: /DC=org/DC=cilogon/C=US/O=LIGO/CN=Peter Couvares peter.couvares@ligo.org
-      ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
-    - Name: Sharon Brunett
-      DNs: /DC=org/DC=cilogon/C=US/O=California Institute of Technology/CN=Sharon
-        Brunett A20751
-      ID: e817cc79849447cc8c98f376e2d0052dda7c675b
-    - Name: Duncan MacLeod
-      DNs: /DC=org/DC=cilogon/C=US/O=LIGO/CN=Duncan Macleod duncan.macleod@ligo.org
-      ID: 1e153a63463094d82c7b2786bd2f57f996974984
   OASISRepoURLs:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/ligo.osgstorage.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/gwosc.osgstorage.org
@@ -82,6 +72,12 @@ DataFederations:
         - FQAN: /osg/ligo
         - SciTokens:
             Issuer: https://scitokens.org/ligo
+            Base Path: /user/ligo
+        - SciTokens:
+            Issuer: https://test.cilogon.org/ligo
+            Base Path: /user/ligo
+        - SciTokens:
+            Issuer: https://cilogon.org/ligo
             Base Path: /user/ligo
       /gwdata:
         - PUBLIC

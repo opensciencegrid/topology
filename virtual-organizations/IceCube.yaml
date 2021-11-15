@@ -37,7 +37,7 @@ OASIS:
   OASISRepoURLs:
   - http://cvmfs-stratum0.wipac.wisc.edu/cvmfs/icecube.opensciencegrid.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/icecube.osgstorage.org
-  UseOASIS: true
+  UseOASIS: false
 PrimaryURL: https://grid-voms.desy.de:8443/voms/icecube/
 PurposeURL: http://www.icecube.wisc.edu/
 ReportingGroups:
@@ -46,7 +46,7 @@ ReportingGroups:
 DataFederations:
   StashCache:
     Namespaces:
-      /icecube/users:
+      /icecube/PUBLIC:
         - PUBLIC
       # This path doesn't exist (nor does the issuer) but we need it to generate an acceptable scitokens.conf until SOFTWARE-4223 and/or SOFTWARE-4389 are done.
       /icecube/PROTECTED:

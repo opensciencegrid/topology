@@ -1,4 +1,3 @@
-Name: TG-CHE200122
 # Description is a human-readable description of what the project is about
 Description: >-
   Development of machine learning models for molecular simulations
@@ -36,6 +35,9 @@ ResourceAllocations:
       # Bridges2
       - GroupName: PSC-Bridges2
         LocalAllocationID: "che200052p"
+      # Stampede2 (OSG allocation)
+      - GroupName: TACC-Stampede2
+        LocalAllocationID: "TG-DDM160003"
   - Type: Other
     SubmitResources:
       - CHTC-XD-SUBMIT

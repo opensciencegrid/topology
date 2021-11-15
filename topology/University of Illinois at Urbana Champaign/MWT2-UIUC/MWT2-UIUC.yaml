@@ -1,0 +1,34 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: This is the UIUC High-Throughput Computing cluster used to support HTC users at UIUC for MWT2
+GroupID: 1135
+Resources:
+  MWT2-UIUC:
+    Active: false
+    Description: This is the UIUC Illinois Campus Cluster partition set aside for MWT2
+    ID: 1227
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: mwt2-uiuc-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false

@@ -18,6 +18,7 @@ Resources:
           Name: Kurt Strosahl
     Description: Submit node for JLab
     FQDN: scosg16.jlab.org
+    DN: /CN=scosg16.jlab.org
     ID: 878
     Services:
       Submit Node:
@@ -43,7 +44,8 @@ Resources:
           Name: Kurt Strosahl
     Description: Submit node for JLab
     FQDN: scosg20.jlab.org
-    ID: 1134
+    DN: /DC=org/DC=incommon/C=US/ST=Virginia/L=Newport News/O=Thomas Jefferson National Accelerator Facility/OU=SciComp/CN=scosg20.jlab.org
+    ID: 1214
     Services:
       Submit Node:
         Description: OSG Submission Node

@@ -18,13 +18,9 @@ Contacts:
   Registration Authority:
   - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
     Name: Aaron Moate
-  - ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-    Name: Daniel Bradley
   Security Contact:
   - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
     Name: Aaron Moate
-  - ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-    Name: Daniel Bradley
   VO Manager:
   - ID: 48e1c2f26dc3479a6cf9b2de7c79d654ac27b1d1
     Name: Miron Livny
@@ -65,5 +61,6 @@ DataFederations:
     AllowedOrigins:
       - CHTC_STASHCACHE_ORIGIN
       - CHTC_STASHCACHE_ORIGIN_2000
+      - CHTC_STASHCACHE_ORIGIN_AUTH_2000
     AllowedCaches:
       - ANY

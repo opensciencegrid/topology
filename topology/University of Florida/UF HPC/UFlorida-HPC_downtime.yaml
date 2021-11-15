@@ -874,3 +874,47 @@
   Services:
   - XRootD component
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 919683856
+  Description: Local storage upgrade requires the SLURM scheduler to be turned off
+  Severity: Outage
+  StartTime: Aug 09, 2021 13:00 +0000
+  EndTime: Aug 16, 2021 23:00 +0000
+  CreatedTime: Jul 22, 2021 15:39 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 919684276
+  Description: Local storage upgrade requires the SLURM scheduler to be turned off
+  Severity: Outage
+  StartTime: Aug 09, 2021 13:00 +0000
+  EndTime: Aug 16, 2021 23:00 +0000
+  CreatedTime: Jul 22, 2021 15:40 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 919684607
+  Description: Local storage upgrade requires the SLURM scheduler to be turned off
+  Severity: Outage
+  StartTime: Aug 09, 2021 13:00 +0000
+  EndTime: Aug 16, 2021 23:00 +0000
+  CreatedTime: Jul 22, 2021 15:41 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 972656748
+  Description: HTCondor 5.1.2 RC1 the job router transfer syntax test
+  Severity: Intermittent Outage
+  StartTime: Sep 22, 2021 13:00 +0000
+  EndTime: Sep 22, 2021 21:00 +0000
+  CreatedTime: Sep 21, 2021 23:07 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------

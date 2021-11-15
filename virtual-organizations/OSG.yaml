@@ -54,6 +54,7 @@ OASIS:
       - /DC=org/DC=cilogon/C=US/O=University of Southern California/CN=Mats Rynge A91316
       ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
   OASISRepoURLs:
+  - http://cvmfs.xsede.org:8000/cvmfs/colorado.xsede.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/singularity.opensciencegrid.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/scitokens.osgstorage.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/veritas.opensciencegrid.org
@@ -79,7 +80,12 @@ DataFederations:
         - PUBLIC
       /osgconnect/collab:
         - PUBLIC
+      /ospool/PROTECTED:
+        - SciTokens:
+            Issuer: https://osg-htc.org/ospool
+            Base Path: /ospool/PROTECTED
     AllowedOrigins:
       - OSGCONNECT_ORIGIN
+      - CHTC_OSPOOL_ORIGIN
     AllowedCaches:
       - ANY

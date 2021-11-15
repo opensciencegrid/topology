@@ -13,32 +13,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-        Secondary:
           Name: Judith Stephen
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
       Security Contact:
         Primary:
-          Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-        Secondary:
           Name: Judith Stephen
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
     FQDN: login04.osgconnect.net
-
+    DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
     Services:
       Submit Node:
-        Description: OSG Connect submit node
-
+        Description: OS Pool access point
+    Tags:
+      - OSPool
 
   UChicago_OSGConnect_login05:
     Active: true
@@ -47,29 +40,327 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-        Secondary:
           Name: Judith Stephen
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
 
       Security Contact:
         Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
           Name: Lincoln Bryant
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: login05.osgconnect.net
+    DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+
+  UChicago_OSGConnect_flock:
+    Active: true
+    Description: Flock access point for the OS Pool
+    ID: 1205
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Mats Rynge
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
         Secondary:
           Name: Judith Stephen
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-
-    FQDN: login05.osgconnect.net
-
+        Tertiary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: flock.opensciencegrid.org
+    DN: /DC=org/DC=incommon/C=US/ST=Wisconsin/L=Madison/O=University of Wisconsin-Madison/OU=OCIS/CN=flock.opensciencegrid.org
     Services:
       Submit Node:
-        Description: OSG Connect submit node
+        Description: OS Pool access point
 
+  UChicago_OSGConnect_xd-login:
+    Active: true
+    Description: XD Login access point for the OS Pool
+    ID: 1206
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Mats Rynge
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+        Secondary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Tertiary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: xd-login.opensciencegrid.org
+    DN: /DC=org/DC=incommon/C=US/ST=Wisconsin/L=Madison/O=University of Wisconsin-Madison/OU=OCIS/CN=xd-login.opensciencegrid.org
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+
+  UChicago_OSGConnect_veritas:
+    Active: true
+    Description: The Veritas CI Connect access point
+    ID: 1195
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: login.veritas.ci-connect.net
+    DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+
+  UChicago_OSGConnect_duke:
+    Active: true
+    Description: The Duke OSG Connect access point
+    ID: 1196
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: duke-login.osgconnect.net
+    DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=duke-login.osgconnect.net
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+
+  UChicago_OSGConnect_ci-connect:
+    Active: true
+    Description: The CI Connect access point
+    ID: 1198
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: login.ci-connect.uchicago.edu
+    DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=login.ci-connect.uchicago.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+
+  UChicago_OSGConnect_xenon:
+    Active: true
+    Description: The Xenon CI Connect access point
+    ID: 1199
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: login-el7.xenon.ci-connect.net
+    DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+
+  UChicago_OSGConnect_cms:
+    Active: true
+    Description: The CMS CI Connect access point
+    ID: 1200
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 82122a855bc0fe808efd91e402e7975a39511d7b
+          Name: Kenyi Hurtado Anampa
+        Secondary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Tertiary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: login.cms.ci-connect.net
+    DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=login.cms.ci-connect.net
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+
+  UChicago_OSGConnect_snowmass:
+    Active: true
+    Description: The Snowmass CI Connect access point
+    ID: 1201
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: login.snowmass21.io
+    DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+
+  UChicago_OSGConnect_Collab:
+    Active: true
+    Description: The Collab CI Connect access point
+    ID: 1202
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: login.collab.ci-connect.net
+    DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+
+  UChicago_OSGConnect_amundsen:
+    Active: true
+    Description: The Amundsen access point
+    ID: 1203
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: amundsen.grid.uchicago.edu
+    DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=amundsen.grid.uchicago.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+
+  UChicago_OSGConnect_scott:
+    Active: true
+    Description: The Scott access point
+    ID: 1204
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: scott.grid.uchicago.edu
+    DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=scott.grid.uchicago.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
