@@ -231,14 +231,42 @@ def generate_cache_authfile(global_data: GlobalData,
             continue
 
         for namespace, authz_list in namespaces.items():
+            # Handle FQANs and DNs in an auth list.  Note:
+            # This is a string:
+            # - FQAN:/foobar
+            # This is a dict:
+            # - FQAN: /foobar
+            # Accept both.
             for authz in authz_list:
-                if not isinstance(authz, str):
-                    continue
-                if authz.startswith("FQAN:"):
-                    id_to_dir["g {}".format(authz[5:])].add(namespace)
-                elif authz.startswith("DN:"):
-                    hash = _generate_dn_hash(authz[3:])
-                    id_to_dir["u {}".format(hash)].add(namespace)
+                if isinstance(authz, str):
+                    if authz.startswith("FQAN:"):
+                        fqan = authz[5:].strip()
+                        id_to_dir["g {}".format(fqan)].add(namespace)
+                    elif authz.startswith("DN:"):
+                        dn = authz[3:].strip()
+                        hash = _generate_dn_hash(dn)
+                        id_to_dir["u {}".format(hash)].add(namespace)
+                    elif authz.strip() == "PUBLIC":
+                        continue
+                    else:
+                        if not suppress_errors:
+                            raise DataError("Unknown authz list entry {}".format(authz))
+                elif isinstance(authz, dict):
+                    if "SciTokens" in authz:
+                        continue  # SciTokens are not used in Authfiles
+                    elif "FQAN" in authz:
+                        fqan = authz["FQAN"].strip()
+                        id_to_dir["g {}".format(fqan)].add(namespace)
+                    elif "DN" in authz:
+                        dn = authz["DN"].strip()
+                        hash = _generate_dn_hash(dn)
+                        id_to_dir["u {}".format(hash)].add(namespace)
+                    else:
+                        if not suppress_errors:
+                            raise DataError("Unknown authz list entry {}".format(authz))
+                else:
+                    if not suppress_errors:
+                        raise DataError("Unknown authz list entry {}".format(authz))
 
     if legacy:
         ldappass = readfile(global_data.ligo_ldap_passfile, log)
