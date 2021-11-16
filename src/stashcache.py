@@ -1,6 +1,6 @@
 
 from collections import defaultdict
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional, Set, Tuple, Union
 import re
 import sys
 import ldap3
@@ -231,10 +231,11 @@ def generate_cache_authfile(global_data: GlobalData,
             continue
 
         for namespace, authz_list in namespaces.items():
-            id_to_dir_for_namespace = _get_authfile_mapping_for_namespace(authz_list, namespace, suppress_errors)
-            # Merge the dict of sets.  Plain id_to_dir.update(id_to_dir_for_namespace) would replace the sets instead of merging them.
-            for k in id_to_dir_for_namespace:
-                id_to_dir[k].update(id_to_dir_for_namespace[k])
+            user_hashes, groups = _get_user_hashes_and_groups_for_namespace(authz_list, suppress_errors)
+            for u in user_hashes:
+                id_to_dir["u {}".format(u)].add(namespace)
+            for g in groups:
+                id_to_dir["g {}".format(g)].add(namespace)
 
     if legacy:
         ldappass = readfile(global_data.ligo_ldap_passfile, log)
@@ -250,23 +251,26 @@ def generate_cache_authfile(global_data: GlobalData,
     return authfile
 
 
-def _get_authfile_mapping_for_namespace(authz_list: List[Union[str, Dict]], namespace: str, suppress_errors=True) -> Dict:
-    # Handle FQANs and DNs in an auth list.  Note:
+def _get_user_hashes_and_groups_for_namespace(authz_list: List[Union[str, Dict]], suppress_errors=True) -> Tuple[Set, Set]:
+    """Return the user (hashes) and groups from DNs and FQANs in an authz list for a namespace"""
+    # Note:
     # This is a string:
     # - FQAN:/foobar
     # This is a dict:
     # - FQAN: /foobar
     # Accept both.
-    id_to_dir_for_namespace = defaultdict(set)
+
+    users = set()
+    groups = set()
     for authz in authz_list:
         if isinstance(authz, str):
             if authz.startswith("FQAN:"):
                 fqan = authz[5:].strip()
-                id_to_dir_for_namespace["g {}".format(fqan)].add(namespace)
+                groups.add(fqan)
             elif authz.startswith("DN:"):
                 dn = authz[3:].strip()
-                hash = _generate_dn_hash(dn)
-                id_to_dir_for_namespace["u {}".format(hash)].add(namespace)
+                dn_hash = _generate_dn_hash(dn)
+                users.add(dn_hash)
             elif authz.strip() == "PUBLIC":
                 continue
             else:
@@ -277,18 +281,19 @@ def _get_authfile_mapping_for_namespace(authz_list: List[Union[str, Dict]], name
                 continue  # SciTokens are not used in Authfiles
             elif "FQAN" in authz:
                 fqan = authz["FQAN"].strip()
-                id_to_dir_for_namespace["g {}".format(fqan)].add(namespace)
+                groups.add(fqan)
             elif "DN" in authz:
                 dn = authz["DN"].strip()
-                hash = _generate_dn_hash(dn)
-                id_to_dir_for_namespace["u {}".format(hash)].add(namespace)
+                dn_hash = _generate_dn_hash(dn)
+                users.add(dn_hash)
             else:
                 if not suppress_errors:
                     raise DataError("Unknown authz list entry {}".format(authz))
         else:
             if not suppress_errors:
                 raise DataError("Unknown authz list entry {}".format(authz))
-    return id_to_dir_for_namespace
+
+    return users, groups
 
 
 def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=True, suppress_errors=True) -> str:
