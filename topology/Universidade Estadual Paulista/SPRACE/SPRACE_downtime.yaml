@@ -1180,3 +1180,14 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1022409442
+  Description: Network connectivity loss - Fibre cut
+  Severity: Outage
+  StartTime: Nov 18, 2021 11:00 +0000
+  EndTime: Nov 18, 2021 21:00 +0000
+  CreatedTime: Nov 18, 2021 13:09 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
