@@ -182,12 +182,12 @@ def main():
                 results = topology_utils.get_vo_contacts(args)
             except topology_utils.InvalidPathError as exc:
                 print(exc)
-                exit()
+                exit(1)
             except topology_utils.IncorrectPasswordError as exc:
                 attempts -= 1
                 if attempts == 0:
                     print("Too many incorrect password attempts, exiting")
-                    exit()
+                    exit(1)
                 else:
                     print(exc)
         results = topology_utils.filter_contacts(args, results)
@@ -207,12 +207,12 @@ def main():
                     results = topology_utils.get_resource_contacts(args)
             except topology_utils.InvalidPathError as exc:
                 print(exc)
-                exit()
+                exit(1)
             except topology_utils.IncorrectPasswordError as exc:
                 attempts -= 1
                 if attempts == 0:
                     print("Too many incorrect password attempts, exiting")
-                    exit()
+                    exit(1)
                 else:
                     print(exc)
         results = topology_utils.filter_contacts(args, results)
