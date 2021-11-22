@@ -1,0 +1,22 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: Resources associated with the nanoHub production infrastructure
+GroupID: 1138
+Resources:
+  Purdue-nanoHUB-production-scatter2:
+    Active: true
+    Description: The nanoHUB production access point for the OS Pool
+    ID: 1247
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Steven Clark
+          ID: e3cdbed422208e751519e8e03a85ab6a2d567f6b
+      Security Contact:
+        Primary:
+          Name: Steven Clark
+          ID: e3cdbed422208e751519e8e03a85ab6a2d567f6b
+    FQDN: scatter2.nanohub.org
+    Services:
+      Submit Node:
+        Description: OS Pool access point
