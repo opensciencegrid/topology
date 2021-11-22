@@ -1,0 +1,31 @@
+---
+Production: true
+SupportCenter: Self Supported
+GroupDescription: |
+  RAPID is a Kubernetes cluster at Rice University's Center for
+  Research Computing
+GroupID: 1104
+Resources:
+  Rice-RAPID-Backfill:
+    Active: true
+    Description: OSG VO pilot containers running on RAPID
+    ID: 1119
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 7d640a147511ffe67e8a470ffb7bd2efb444ae2e
+          Name: Kiran Thyagaraja
+      Security Contact:
+        Primary:
+          ID: 7d640a147511ffe67e8a470ffb7bd2efb444ae2e
+          Name: Kiran Thyagaraja
+      Site Contact:
+        Primary:
+          ID: 61e96d6c9cec7fc8ee4a6b6968b9aaf42b262c89
+          Name: Erik Engquist
+    FQDN: backfill.rapid.rice.edu
+    Services:
+      Execution Endpoint:
+        Description: Backfill containers running on Rice's RAPID cluster
+    Tags:
+      - CC*
