@@ -236,7 +236,13 @@ def get_contacts(args, urltype, roottype):
         try:
             response = session.get(url)
         except requests.exceptions.ConnectionError as exc:
-            raise IncorrectPasswordError("Incorrect password, please try again")
+            try:
+                if exc.args[0].args[1].errno == 22:
+                    raise IncorrectPasswordError("Incorrect password, please try again")
+                else:
+                    raise exc
+            except (TypeError, AttributeError, IndexError):
+                raise exc
 
     if old_no_proxy is not None:
         os.environ['no_proxy'] = old_no_proxy
