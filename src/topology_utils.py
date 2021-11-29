@@ -235,7 +235,7 @@ def get_contacts(args, urltype, roottype):
         url = mangle_url(base_url, args, session)
         try:
             response = session.get(url)
-        except OSError as exc:
+        except requests.exceptions.ConnectionError as exc:
             raise IncorrectPasswordError("Incorrect password, please try again")
 
     if old_no_proxy is not None:
