@@ -40,3 +40,31 @@ Resources:
       OSG: 100
     AllowedVOs:
       - ANY
+  CHTC-OSPOOL-OPEN-SCIENCE-CE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: 606b797dcc03cad7135b7cc61b78fbc15eea7ec8
+          Name: Carl Edquist
+      Security Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+    Description: An HTCondor-CE submitting pilots into the OSPool
+    FQDN: os-ce1.opensciencegrid.org
+    ID: 1249
+    Services:
+      CE:
+        Description: HTCondor-CE
+      Submit Node:
+        Description: OSPool Access Point
