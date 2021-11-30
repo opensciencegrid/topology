@@ -2379,3 +2379,212 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090507
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090508
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090509
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090510
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090511
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090512
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090513
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SQUID1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090514
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SQUID2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090515
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SQUID3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090516
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SQUID4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090517
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090518
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090519
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090520
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090521
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090522
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090523
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT_CERN
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090524
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: US-Wisconsin BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090525
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: US-Wisconsin LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
