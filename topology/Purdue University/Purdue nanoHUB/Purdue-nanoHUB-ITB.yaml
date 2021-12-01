@@ -20,6 +20,8 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
   Purdue-nanoHUB-stage-scatter2:
     Active: true
@@ -38,3 +40,5 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
