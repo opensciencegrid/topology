@@ -1,5 +1,19 @@
 AppDescription: ATLAS Production and Analysis
 CertificateOnly: false
+Credentials:
+  TokenIssuers:
+    - Description: production
+      Subject: 7dee38a3-6ab8-4fe2-9e4c-58039c21d817
+      URL: https://atlas-auth.web.cern.ch/
+      DefaultUnixUser: usatlas1
+    - Description: SAM/ETF
+      Subject: 5c5d2a4d-9177-3efa-912f-1b4e5c9fb660
+      URL: https://atlas-auth.web.cern.ch/
+      DefaultUnixUser: usatlas2
+    - Description: analysis
+      Subject: 750e9609-485a-4ed4-bf16-d5cc46c71024
+      URL: https://atlas-auth.web.cern.ch/
+      DefaultUnixUser: usatlas3
 Community: The ATLAS physics community.
 Contacts:
   Administrative Contact:
