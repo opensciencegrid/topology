@@ -49,7 +49,7 @@ def main(argv):
         for token_issuer in vo_data["Credentials"]["TokenIssuers"]:
             url = token_issuer.get("URL")
             subject = token_issuer.get("Subject", "")
-            description = token_issuer.get("Description")
+            description = token_issuer.get("Description", "")
             pattern = ""
             if url:
                 if subject:
