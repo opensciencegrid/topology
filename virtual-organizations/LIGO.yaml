@@ -82,6 +82,8 @@ DataFederations:
             Base Path: /user/ligo
       /gwdata:
         - PUBLIC
+      /zenodo:
+        - PUBLIC
     AllowedOrigins:
       - CIT_LIGO_ORIGIN
       - LIGO-StashCache-Origin
