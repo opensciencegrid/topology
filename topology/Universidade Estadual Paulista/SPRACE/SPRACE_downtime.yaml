@@ -1224,3 +1224,14 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1044310561
+  Description: network outage
+  Severity: Outage
+  StartTime: Dec 13, 2021 21:22 +0000
+  EndTime: Dec 14, 2021 16:00 +0000
+  CreatedTime: Dec 13, 2021 21:30 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
