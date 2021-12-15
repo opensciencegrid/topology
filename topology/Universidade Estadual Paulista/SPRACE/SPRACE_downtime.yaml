@@ -1246,3 +1246,14 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1045966400
+  Description: network outage
+  Severity: Outage
+  StartTime: Dec 15, 2021 18:00 +0000
+  EndTime: Dec 16, 2021 21:00 +0000
+  CreatedTime: Dec 15, 2021 19:30 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
