@@ -9,7 +9,7 @@ GroupDescription: LBNL Lux Zeplin
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: <ID>
+GroupID: 1140
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -17,15 +17,15 @@ Resources:
   # Resource Name should be a short descriptor of the resource.
   # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
   # Resource Names need to be unique across all resources in the OSG.
-  LBNL-LZ:
+  LBNL-LZ-Squid1:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: false
+    Active: true
     # Description is a long description of the resource; may be multiple lines
-    Description: LBNL for LZ.
+    Description: LBNL CI host directly accessing CVMFS
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: <ID>
+    ID: 1252
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
@@ -37,7 +37,7 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Keith Beattie
-          ID: <EMAIL HASH>
+          ID: f2550732861974f943af8e6dbc15cc9f4d10da1f
 
       # Security Contact are persons or groups of people (i.e.,
       # mailing lists) that are responsible for handling security
@@ -45,7 +45,7 @@ Resources:
       Security Contact:
         Primary:
           Name: Keith Beattie
-          ID: <EMAIL HASH>
+          ID: f2550732861974f943af8e6dbc15cc9f4d10da1f
 
     # FQDN is the fully qualified domain name of the host running this resource
     FQDN: lz4.lbl.gov
@@ -61,9 +61,13 @@ Resources:
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
-      <SERVICE NAME>:
+      Squid:
         # Description is a brief description of the service
-        Description: <TEXT>
+        Description: >
+          Not actually a Squid service (CVMFS access patterns make it unnecessary).
+          The purpose for registration is to disable central monitoring.
+        Details:
+          Monitored: false
         ### Details (optional)
         # Details:
         #   # hidden
