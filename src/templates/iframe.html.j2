@@ -243,9 +243,9 @@ function init(scrollwheel) {
         sites[curSite][4].isEdu = true;
     }
 
-    {% if 'Tags' in resource and resource['Tags'] != None %}
-    {% for tag in resource['Tags'] %}
-    tag = "{{ tag['Tag'] }}"
+    {% if 'Tags' in resource and resource['Tags'] %}
+    {% for tag in resource['Tags']['Tag'] %}
+    tag = "{{ tag }}"
     if (tag == "CC*") {
         sites[curSite][4].isCCStar = true;
     }
