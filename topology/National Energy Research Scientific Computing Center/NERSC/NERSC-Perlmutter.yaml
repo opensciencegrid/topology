@@ -1,0 +1,66 @@
+Production: true
+SupportCenter: Fermilab
+GroupDescription: NERSC Perlmutter via HEPCloud
+GroupID: 1142
+Resources:
+  NERSC-Perlmutter-CPU:
+    Active: true
+    Description: Direct BOSCO entry point for NERSC Perlmutter CPU
+    ID: 1254
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Steven Timm
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+        Secondary:
+          Name: Dirk Hufnagel
+          ID: d1e6514c12517825db895e313beb9e9eff4968a3
+      Security Contact:
+        Primary:
+          Name: Steven Timm
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+    FQDN: perlmutter-p1.nersc.gov
+    FQDNAliases:
+       - saul-p1.nersc.gov
+    Services:
+      CE:
+        Description: Bosco SSH direct submit only
+    VOOwnership:
+      CMS: 100
+
+    WLCGInformation:
+      APELNormalFactor: 19.0
+      AccountingName: T3_US_NERSC
+      HEPSPEC: 19.0
+
+  NERSC-Perlmutter-GPU:
+    Active: true
+    Description: Direct BOSCO entry point for NERSC Perlmutter GPU
+    ID: 1255
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Steven Timm
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+        Secondary:
+          Name: Dirk Hufnagel
+          ID: d1e6514c12517825db895e313beb9e9eff4968a3
+      Security Contact:
+        Primary:
+          Name: Steven Timm
+          ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
+
+    FQDN: perlmutter-p1.nersc.gov
+    FQDNAliases:
+       -  saul-p1.nersc.gov
+
+    Services:
+      CE:
+        Description: Bosco SSH direct submit only
+    VOOwnership:
+      CMS: 100
+
+    WLCGInformation:
+      APELNormalFactor: 19.0
+      AccountingName: T3_US_NERSC
+      HEPSPEC: 19.0
