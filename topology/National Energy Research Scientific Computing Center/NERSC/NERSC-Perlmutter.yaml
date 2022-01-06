@@ -19,8 +19,11 @@ Resources:
         Primary:
           Name: Steve Timm
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
-    FQDN: perlmutter-p1.nersc.gov
+    # perlmutter-cpu.hepcloud.fnal.gov is a fake FQDN used for accounting;
+    # the actual entry point is perlmutter-p1.nersc.gov
+    FQDN: perlmutter-cpu.hepcloud.fnal.gov
     FQDNAliases:
+       - perlmutter-p1.nersc.gov
        - saul-p1.nersc.gov
     Services:
       CE:
@@ -54,9 +57,12 @@ Resources:
           Name: Steve Timm
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
 
-    FQDN: perlmutter-p1.nersc.gov
+    # perlmutter-gpu.hepcloud.fnal.gov is a fake FQDN used for accounting;
+    # the actual entry point is perlmutter-p1.nersc.gov
+    FQDN: perlmutter-gpu.hepcloud.fnal.gov
     FQDNAliases:
-       -  saul-p1.nersc.gov
+       - perlmutter-p1.nersc.gov
+       - saul-p1.nersc.gov
 
     Services:
       CE:
