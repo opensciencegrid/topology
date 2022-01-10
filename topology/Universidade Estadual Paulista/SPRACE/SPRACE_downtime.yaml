@@ -1125,3 +1125,146 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 986044303
+  Description: update condor and htcondor-ce to allow token authentication
+  Severity: Outage
+  StartTime: Oct 11, 2021 05:00 +0000
+  EndTime: Oct 11, 2021 21:00 +0000
+  CreatedTime: Oct 07, 2021 11:00 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 986900425
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 08, 2021 02:00 +0000
+  EndTime: Oct 08, 2021 21:00 +0000
+  CreatedTime: Oct 08, 2021 10:47 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 986903666
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 08, 2021 02:00 +0000
+  EndTime: Oct 08, 2021 21:00 +0000
+  CreatedTime: Oct 08, 2021 10:52 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1022402222
+  Description: Network connectivity loss - Fibre cut
+  Severity: Outage
+  StartTime: Nov 18, 2021 11:00 +0000
+  EndTime: Nov 18, 2021 21:00 +0000
+  CreatedTime: Nov 18, 2021 12:57 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1022403682
+  Description: Network connectivity loss - Fibre cut
+  Severity: Outage
+  StartTime: Nov 18, 2021 11:00 +0000
+  EndTime: Nov 18, 2021 21:00 +0000
+  CreatedTime: Nov 18, 2021 12:59 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1022409442
+  Description: Network connectivity loss - Fibre cut
+  Severity: Outage
+  StartTime: Nov 18, 2021 11:00 +0000
+  EndTime: Nov 18, 2021 21:00 +0000
+  CreatedTime: Nov 18, 2021 13:09 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1022410549
+  Description: Network connectivity loss - Fibre cut
+  Severity: Outage
+  StartTime: Nov 18, 2021 11:00 +0000
+  EndTime: Nov 18, 2021 21:00 +0000
+  CreatedTime: Nov 18, 2021 13:10 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1044306403
+  Description: network outage
+  Severity: Outage
+  StartTime: Dec 13, 2021 21:22 +0000
+  EndTime: Dec 14, 2021 16:00 +0000
+  CreatedTime: Dec 13, 2021 21:24 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1044307519
+  Description: network outage
+  Severity: Outage
+  StartTime: Dec 13, 2021 21:22 +0000
+  EndTime: Dec 14, 2021 16:00 +0000
+  CreatedTime: Dec 13, 2021 21:25 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1044310561
+  Description: network outage
+  Severity: Outage
+  StartTime: Dec 13, 2021 21:22 +0000
+  EndTime: Dec 14, 2021 16:00 +0000
+  CreatedTime: Dec 13, 2021 21:30 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1044311944
+  Description: network outage
+  Severity: Outage
+  StartTime: Dec 13, 2021 21:22 +0000
+  EndTime: Dec 14, 2021 16:00 +0000
+  CreatedTime: Dec 13, 2021 21:33 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1045966400
+  Description: network outage
+  Severity: Outage
+  StartTime: Dec 15, 2021 18:00 +0000
+  EndTime: Dec 16, 2021 21:00 +0000
+  CreatedTime: Dec 15, 2021 19:30 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1045968073
+  Description: network outage
+  Severity: Outage
+  StartTime: Dec 15, 2021 18:00 +0000
+  EndTime: Dec 16, 2021 21:00 +0000
+  CreatedTime: Dec 15, 2021 19:33 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------

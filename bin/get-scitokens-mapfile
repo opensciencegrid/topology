@@ -45,19 +45,30 @@ def main(argv):
     for vo_name, vo_data in all_vos_data.vos.items():
         if is_null(vo_data, "Credentials", "TokenIssuers"):
             continue
-        mapfile += f"# {vo_name}\n"
+        mapfile += f"## {vo_name} ##\n"
         for token_issuer in vo_data["Credentials"]["TokenIssuers"]:
             url = token_issuer.get("URL")
+            subject = token_issuer.get("Subject", "")
+            description = token_issuer.get("Description", "")
+            pattern = ""
             if url:
-                if args.regex:
-                    url = f'/^{re.escape(url)},/'
+                if subject:
+                    if args.regex:
+                        pattern = f'/^{re.escape(url)},{re.escape(subject)}$/'
+                    else:
+                        pattern = f'"{url},{subject}"'
                 else:
-                    url = f'"{url}"'
+                    if args.regex:
+                        pattern = f'/^{re.escape(url)},/'
+                    else:
+                        pattern = f'"{url}"'
             unix_user = token_issuer.get("DefaultUnixUser")
-            if url and unix_user:
-                mapfile += f"SCITOKENS {url} {unix_user}\n"
+            if description:
+                mapfile += f"# {description}:\n"
+            if pattern and unix_user:
+                mapfile += f"SCITOKENS {pattern} {unix_user}\n"
             else:
-                mapfile += f"# invalid SCITOKENS: {url or '<NO URL>'} {unix_user or '<NO UNIX USER>'}\n"
+                mapfile += f"# invalid SCITOKENS: {pattern or '<NO URL>'} {unix_user or '<NO UNIX USER>'}\n"
                 if args.strict:
                     print(mapfile, file=sys.stderr)
                     sys.exit("Invalid scitoken found in strict mode")

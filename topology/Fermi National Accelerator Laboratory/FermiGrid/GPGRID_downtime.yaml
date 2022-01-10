@@ -76,3 +76,25 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 997651548
+  Description: Hardware failure
+  Severity: Outage
+  StartTime: Oct 20, 2021 17:00 +0000
+  EndTime: Oct 26, 2021 17:00 +0000
+  CreatedTime: Oct 20, 2021 21:25 +0000
+  ResourceName: FNAL_GPGRID_CE_04
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1002599674
+  Description: Hardware repalcement
+  Severity: Outage
+  StartTime: Oct 27, 2021 16:00 +0000
+  EndTime: Nov 01, 2021 19:00 +0000
+  CreatedTime: Oct 26, 2021 14:52 +0000
+  ResourceName: FNAL_GPGRID_CE_03
+  Services:
+  - CE
+# ---------------------------------------------------------
