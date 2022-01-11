@@ -30,6 +30,8 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
   UChicago_OSGConnect_login05:
     Active: true
@@ -56,6 +58,8 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
   UChicago_OSGConnect_flock:
     Active: true
@@ -112,6 +116,8 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
   UChicago_OSGConnect_veritas:
     Active: true
@@ -137,6 +143,8 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
   UChicago_OSGConnect_duke:
     Active: true
@@ -162,6 +170,8 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
   UChicago_OSGConnect_ci-connect:
     Active: true
@@ -182,11 +192,13 @@ Resources:
         Secondary:
           Name: Lincoln Bryant
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-    FQDN: login.ci-connect.net
+    FQDN: login.ci-connect.uchicago.edu
     DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=login.ci-connect.uchicago.edu
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
   UChicago_OSGConnect_xenon:
     Active: true
@@ -212,6 +224,8 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
   UChicago_OSGConnect_cms:
     Active: true
@@ -240,6 +254,8 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
   UChicago_OSGConnect_snowmass:
     Active: true
@@ -265,6 +281,8 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
   UChicago_OSGConnect_Collab:
     Active: true
@@ -290,6 +308,8 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
   UChicago_OSGConnect_amundsen:
     Active: true
@@ -315,6 +335,8 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
   UChicago_OSGConnect_scott:
     Active: true
@@ -340,3 +362,5 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool

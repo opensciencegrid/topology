@@ -48,8 +48,12 @@ Contacts:
 #   # TokenIssuers:
 #   ### URL is the https URL of your scitokens issuer, e.g. https://scitokens.org/<VO NAME>
 #   ### DefaultUnixUser is a username that jobs with tokens issued by this issuer should map to
+#   ### Description (optional) is human-readable text describing the mapping
+#   ### Subject (optional) is a token subject to restrict this mapping to
 #   # - URL: <URL>
 #   #   DefaultUnixUser: <USER>
+#   #   Description: <TEXT>
+#   #   Subject: <SUBJECT>
 
 FieldsOfScience:
 

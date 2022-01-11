@@ -3,7 +3,7 @@ GroupID: 358
 Production: true
 Resources:
   CSIU Submit:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Secondary:
@@ -21,6 +21,4 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-    VOOwnership:
-      CSIU: 100
 SupportCenter: OSG-GOC
