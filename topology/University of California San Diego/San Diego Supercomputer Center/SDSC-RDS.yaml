@@ -91,6 +91,8 @@ Resources:
       XRootD origin server:
         # Description is a brief description of the service
         Description: OSDF origin server
+        AllowedVOs:
+          - XENON
         ### Details (optional)
         # Details:
         #   # hidden
