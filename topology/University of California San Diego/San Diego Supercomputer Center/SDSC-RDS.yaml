@@ -9,7 +9,7 @@ GroupDescription: The SDSC Research Data Services (RDS) division is dedicated to
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: <ID>
+GroupID: 1143
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -25,7 +25,7 @@ Resources:
     Description: This is an OSDF Data Origin from RDS backed by RDS's Universial Scale Storage service.
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: <ID>
+    ID: 1256
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
@@ -37,7 +37,7 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Willy Markuske
-          ID: <EMAIL HASH>
+          ID: d38c6e0d79703648cb486c993badb8c7a389a8a4
         # Secondary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
@@ -51,7 +51,7 @@ Resources:
       Security Contact:
         Primary:
           Name: Willy Markuske
-          ID: <EMAIL HASH>
+          ID: d38c6e0d79703648cb486c993badb8c7a389a8a4
         # Secondary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
