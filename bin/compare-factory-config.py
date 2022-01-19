@@ -237,6 +237,9 @@ def run(argv):
 
     shutil.rmtree(temp_dir, onerror=remove_readonly)  # file cleanup
 
+    if match_nonresource_entries:  # exit non-zero on mismatch (match_nonresource_entries is not empty)
+        exit(1)
+
 
 if __name__ == "__main__":
     run(sys.argv)
