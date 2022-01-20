@@ -1,7 +1,5 @@
 #!/bin/env python3
 import yaml
-import git
-import tempfile
 import sys
 import os
 import glob
@@ -203,7 +201,7 @@ def run(argv):
         print('Error: Invalid number of arguments\nUsage: compare-factory-config.py <GIT_REPO>')
         exit(2)
     temp_dir = argv[1]
-        
+
     gfactory = []
     gfactory.extend(glob.glob(os.path.abspath(temp_dir) + '/*.xml')
                     + (glob.glob(os.path.abspath(temp_dir) + '/OSG_autoconf/*.yml')))
