@@ -192,19 +192,18 @@ def find_non_topology_matches(gfactory_DB, topology_DB, resources):
 
 
 def run(argv):
-
     # dictionary that adds GLIDEIN_ResourceNames under corresponding tags
     topology_DB = {'resources': set(),  # set of (name, fqdn) tuples
                    'sites': set(),
                    'facilities': set(),
                    'resourceGroups': set()}
     get_topology_data(topology_DB)
-    # cloning gfactory repository to a temporary directory
-    temp_dir = tempfile.mkdtemp()
-    git.Repo.clone_from(
-        'https://github.com/opensciencegrid/osg-gfactory',
-        to_path=temp_dir
-    )
+    # cloning user input osg-gfactory repository to a temporary directory
+    if len(argv) != 2:
+        print('Error: Invalid number of arguments\nUsage: compare-factory-config.py <GIT_REPO>')
+        exit(2)
+    temp_dir = argv[1]
+        
     gfactory = []
     gfactory.extend(glob.glob(os.path.abspath(temp_dir) + '/*.xml')
                     + (glob.glob(os.path.abspath(temp_dir) + '/OSG_autoconf/*.yml')))
