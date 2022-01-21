@@ -138,3 +138,24 @@ Resources:
   # Other resources if you have any...
   # <RESOURCE NAME>:
   # ...
+
+  RDS_AUTH_OSDF_CACHE:
+    Active: true
+    Description: OSDF Cache from RDS backed by RDS's Universal Scale Storage service.
+    ID: 1257
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Danny Saba
+          ID: aeeae01cc5adceb9eca080de703437f6e10f3a97
+      Security Contact:
+        Primary:
+          Name: Danny Saba
+          ID: aeeae01cc5adceb9eca080de703437f6e10f3a97
+    FQDN: rds-cache-01.sdsc.edu
+    DN: "/DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/OU=San Diego Supercomputer Center/CN=rds-origin-rds-cache-01.sdsc.edu"
+    Services:
+      XRootD cache server:
+        Description: OSDF cache server
+    AllowedVOs:
+      - XENON

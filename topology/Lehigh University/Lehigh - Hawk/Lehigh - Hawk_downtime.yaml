@@ -20,3 +20,25 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1076782858
+  Description: Fire in the data center
+  Severity: Outage
+  StartTime: Jan 20, 2022 10:30 +0000
+  EndTime: Jan 20, 2022 18:00 +0000
+  CreatedTime: Jan 20, 2022 11:31 +0000
+  ResourceName: LEHIGH-HAWK-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1076782859
+  Description: Fire in the data center
+  Severity: Outage
+  StartTime: Jan 20, 2022 10:30 +0000
+  EndTime: Jan 20, 2022 18:00 +0000
+  CreatedTime: Jan 20, 2022 11:31 +0000
+  ResourceName: LEHIGH-HAWK-FRONTIER-SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
