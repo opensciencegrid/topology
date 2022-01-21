@@ -38,9 +38,9 @@ Resources:
         Primary:
           Name: Willy Markuske
           ID: d38c6e0d79703648cb486c993badb8c7a389a8a4
-        # Secondary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
+        Secondary:
+          Name: Danny Saba
+          ID: aeeae01cc5adceb9eca080de703437f6e10f3a97
         # Tertiary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
@@ -52,9 +52,9 @@ Resources:
         Primary:
           Name: Willy Markuske
           ID: d38c6e0d79703648cb486c993badb8c7a389a8a4
-        # Secondary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
+        Secondary:
+          Name: Danny Saba
+          ID: aeeae01cc5adceb9eca080de703437f6e10f3a97
         # Tertiary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
@@ -91,6 +91,8 @@ Resources:
       XRootD origin server:
         # Description is a brief description of the service
         Description: OSDF origin server
+        AllowedVOs:
+          - XENON
         ### Details (optional)
         # Details:
         #   # hidden
