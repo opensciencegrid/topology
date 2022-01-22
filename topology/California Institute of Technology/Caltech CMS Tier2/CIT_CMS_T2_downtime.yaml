@@ -1789,3 +1789,109 @@
   Services:
     - CE
 
+# ----------------------------------------
+# Networking upgrades include replacement core router with a new one.
+# Caltech Facilities department will perform an Electricity upgrade:
+# Caltech Substation # 2 is under renovation. This time will allow for
+# transferring the building to a new substation transformer. In addition,
+# facilities staff will be on hand to normalize building systems.
+#
+- Class: SCHEDULED
+  ID: 997651556
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 07, 2022 07:00 -0800
+  EndTime: Feb 08, 2022 17:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 997651557
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 07, 2022 07:00 -0800
+  EndTime: Feb 08, 2022 17:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651558
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 07, 2022 07:00 -0800
+  EndTime: Feb 08, 2022 17:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651559
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 07, 2022 07:00 -0800
+  EndTime: Feb 08, 2022 17:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651560
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 07, 2022 07:00 -0800
+  EndTime: Feb 08, 2022 17:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 997651561
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 07, 2022 07:00 -0800
+  EndTime: Feb 08, 2022 17:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 997651562
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 07, 2022 07:00 -0800
+  EndTime: Feb 08, 2022 17:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 997651563
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 07, 2022 07:00 -0800
+  EndTime: Feb 08, 2022 17:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 997651564
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 07, 2022 07:00 -0800
+  EndTime: Feb 08, 2022 17:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
