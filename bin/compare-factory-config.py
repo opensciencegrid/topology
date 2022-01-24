@@ -200,11 +200,11 @@ def run(argv):
     if len(argv) != 2:
         print('Error: Invalid number of arguments\nUsage: compare-factory-config.py <FACTORY CONFIG GIT REPO DIR>')
         exit(2)
-    temp_dir = argv[1]
+    factory_config_dir = argv[1]
 
     gfactory = []
-    gfactory.extend(glob.glob(os.path.abspath(temp_dir) + '/*.xml')
-                    + (glob.glob(os.path.abspath(temp_dir) + '/OSG_autoconf/*.yml')))
+    gfactory.extend(glob.glob(os.path.abspath(factory_config_dir) + '/*.xml')
+                    + (glob.glob(os.path.abspath(factory_config_dir) + '/OSG_autoconf/*.yml')))
     # dictionary that stores (GLIDEIN_ResourceNames: (entry name, suggestion)) pairs
     gfactory_DB = {}
     if factory_dump:
@@ -232,7 +232,6 @@ def run(argv):
         print(f'{x[0]},{x[1]},{x[2]}')
     print()  # creates an empty line gap between last record and new cmd line
 
-    shutil.rmtree(temp_dir, onerror=remove_readonly)  # file cleanup
 
     if match_nonresource_entries:  # exit non-zero on mismatch (match_nonresource_entries is not empty)
         exit(1)
