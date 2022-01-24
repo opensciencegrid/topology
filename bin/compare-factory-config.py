@@ -198,7 +198,7 @@ def run(argv):
     get_topology_data(topology_DB)
     # cloning user input osg-gfactory repository to a temporary directory
     if len(argv) != 2:
-        print('Error: Invalid number of arguments\nUsage: compare-factory-config.py <GIT_REPO>')
+        print('Error: Invalid number of arguments\nUsage: compare-factory-config.py <FACTORY CONFIG GIT REPO DIR>')
         exit(2)
     temp_dir = argv[1]
 
