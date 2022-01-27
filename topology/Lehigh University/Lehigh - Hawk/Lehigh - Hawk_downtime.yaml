@@ -9,3 +9,36 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1038936038
+  Description: Storage maintenance and OS/scheduler updates
+  Severity: Severe
+  StartTime: Dec 20, 2021 15:00 +0000
+  EndTime: Dec 20, 2021 19:00 +0000
+  CreatedTime: Dec 07, 2021 16:13 +0000
+  ResourceName: LEHIGH-HAWK-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1076782858
+  Description: Fire in the data center
+  Severity: Outage
+  StartTime: Jan 20, 2022 10:30 +0000
+  EndTime: Jan 20, 2022 18:00 +0000
+  CreatedTime: Jan 20, 2022 11:31 +0000
+  ResourceName: LEHIGH-HAWK-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1076782859
+  Description: Fire in the data center
+  Severity: Outage
+  StartTime: Jan 20, 2022 10:30 +0000
+  EndTime: Jan 20, 2022 18:00 +0000
+  CreatedTime: Jan 20, 2022 11:31 +0000
+  ResourceName: LEHIGH-HAWK-FRONTIER-SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------

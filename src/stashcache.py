@@ -1,6 +1,6 @@
 
 from collections import defaultdict
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set, Tuple, Union
 import re
 import sys
 import ldap3
@@ -231,14 +231,11 @@ def generate_cache_authfile(global_data: GlobalData,
             continue
 
         for namespace, authz_list in namespaces.items():
-            for authz in authz_list:
-                if not isinstance(authz, str):
-                    continue
-                if authz.startswith("FQAN:"):
-                    id_to_dir["g {}".format(authz[5:])].add(namespace)
-                elif authz.startswith("DN:"):
-                    hash = _generate_dn_hash(authz[3:])
-                    id_to_dir["u {}".format(hash)].add(namespace)
+            user_hashes, groups = _get_user_hashes_and_groups_for_namespace(authz_list, suppress_errors)
+            for u in user_hashes:
+                id_to_dir["u {}".format(u)].add(namespace)
+            for g in groups:
+                id_to_dir["g {}".format(g)].add(namespace)
 
     if legacy:
         ldappass = readfile(global_data.ligo_ldap_passfile, log)
@@ -252,6 +249,51 @@ def generate_cache_authfile(global_data: GlobalData,
                 " ".join([i + " rl" for i in sorted(dir_list)]))
 
     return authfile
+
+
+def _get_user_hashes_and_groups_for_namespace(authz_list: List[Union[str, Dict]], suppress_errors=True) -> Tuple[Set, Set]:
+    """Return the user (hashes) and groups from DNs and FQANs in an authz list for a namespace"""
+    # Note:
+    # This is a string:
+    # - FQAN:/foobar
+    # This is a dict:
+    # - FQAN: /foobar
+    # Accept both.
+
+    users = set()
+    groups = set()
+    for authz in authz_list:
+        if isinstance(authz, str):
+            if authz.startswith("FQAN:"):
+                fqan = authz[5:].strip()
+                groups.add(fqan)
+            elif authz.startswith("DN:"):
+                dn = authz[3:].strip()
+                dn_hash = _generate_dn_hash(dn)
+                users.add(dn_hash)
+            elif authz.strip() == "PUBLIC":
+                continue
+            else:
+                if not suppress_errors:
+                    raise DataError("Unknown authz list entry {}".format(authz))
+        elif isinstance(authz, dict):
+            if "SciTokens" in authz:
+                continue  # SciTokens are not used in Authfiles
+            elif "FQAN" in authz:
+                fqan = authz["FQAN"].strip()
+                groups.add(fqan)
+            elif "DN" in authz:
+                dn = authz["DN"].strip()
+                dn_hash = _generate_dn_hash(dn)
+                users.add(dn_hash)
+            else:
+                if not suppress_errors:
+                    raise DataError("Unknown authz list entry {}".format(authz))
+        else:
+            if not suppress_errors:
+                raise DataError("Unknown authz list entry {}".format(authz))
+
+    return users, groups
 
 
 def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=True, suppress_errors=True) -> str:
@@ -379,7 +421,7 @@ audience = {allowed_vos_str}
 
 def _get_scitokens_issuer_block(vo_name: str, scitokens: Dict, dirname: str, suppress_errors: bool) -> str:
     template = """\
-[Issuer {dirname}]
+[Issuer {issuer}]
 issuer = {issuer}
 base_path = {base_path}
 {restricted_path_line}

@@ -46,3 +46,14 @@ PrimaryURL: http://xenon.astro.columbia.edu
 PurposeURL: http://xenon.astro.columbia.edu
 ReportingGroups:
 - XENON
+DataFederations:
+  StashCache:
+    Namespaces:
+      /xenon/PROTECTED:
+        - SciTokens:
+            Issuer: https://scitokens.org/osg-connect
+            Base Path: /osdf
+    AllowedCaches:
+      - RDS_AUTH_OSDF_CACHE
+    AllowedOrigins:
+      - RDS_OSDF_ORIGIN

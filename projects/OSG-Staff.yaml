@@ -7,3 +7,13 @@ PIName: Frank Wuerthwein
 Sponsor:
   VirtualOrganization:
     Name: OSG
+
+ResourceAllocations:
+  - Type: XRAC
+    SubmitResources:
+      - CHTC-XD-SUBMIT
+      - UChicago_OSGConnect_login04
+      - UChicago_OSGConnect_login05
+    ExecuteResourceGroups:
+      - GroupName: TACC-Stampede2
+        LocalAllocationID: "TG-DDM160003"

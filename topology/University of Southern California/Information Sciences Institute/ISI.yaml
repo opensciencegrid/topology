@@ -8,14 +8,6 @@ Resources:
         Primary:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
           Name: Mats Rynge
-      Miscellaneous Contact:
-        Primary:
-          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
-          Name: Mats Rynge
-      Resource Report Contact:
-        Primary:
-          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
-          Name: Mats Rynge
       Security Contact:
         Primary:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
@@ -35,14 +27,6 @@ Resources:
         Primary:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
           Name: Mats Rynge
-      Miscellaneous Contact:
-        Primary:
-          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
-          Name: Mats Rynge
-      Resource Report Contact:
-        Primary:
-          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
-          Name: Mats Rynge
       Security Contact:
         Primary:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
@@ -55,17 +39,11 @@ Resources:
         Description: Submit host for the ISI Scitech group
         Details:
           hidden: false
+    Tags:
+      - OSPool
   ISI-OSG-VO:
     ContactLists:
       Administrative Contact:
-        Primary:
-          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
-          Name: Mats Rynge
-      Miscellaneous Contact:
-        Primary:
-          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
-          Name: Mats Rynge
-      Resource Report Contact:
         Primary:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
           Name: Mats Rynge
@@ -81,4 +59,6 @@ Resources:
         Description: Testing host for OSG VO flocking
         Details:
           hidden: false
+    Tags:
+      - OSPool
 SupportCenter: ISI

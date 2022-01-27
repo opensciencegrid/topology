@@ -13,6 +13,18 @@ import xml.etree.ElementTree as ET
 
 import requests
 
+class Error(Exception):
+    pass
+
+class AuthError(Error):
+    pass
+
+class InvalidPathError(AuthError):
+    pass
+
+class IncorrectPasswordError(AuthError):
+    pass
+
 def get_auth_session(args):
     """
     Return a requests session ready for an XML query.
@@ -37,8 +49,13 @@ def get_auth_session(args):
 
     if os.path.exists(cert):
         session.cert = cert
+    else:
+        raise InvalidPathError("Error: could not find cert at %s" % cert)
+    
     if os.path.exists(key):
         session.cert = (cert, key)
+    else:
+        raise InvalidPathError("Error: could not find key at %s" % key)
 
     return session
 
@@ -216,8 +233,16 @@ def get_contacts(args, urltype, roottype):
                "&active=on&active_value=1&disable=on&disable_value=0"
     with get_auth_session(args) as session:
         url = mangle_url(base_url, args, session)
-        #print(url)
-        response = session.get(url)
+        try:
+            response = session.get(url)
+        except requests.exceptions.ConnectionError as exc:
+            try:
+                if exc.args[0].args[1].errno == 22:
+                    raise IncorrectPasswordError("Incorrect password, please try again")
+                else:
+                    raise exc
+            except (TypeError, AttributeError, IndexError):
+                raise exc
 
     if old_no_proxy is not None:
         os.environ['no_proxy'] = old_no_proxy
