@@ -1895,3 +1895,50 @@
   Services:
     - XRootD component
 
+# ----------------------------------------
+# Replacing faulty storage headnodes
+#
+- Class: SCHEDULED
+  ID: 997651565
+  Description:  Replacing faulty storage nodes
+  Severity: Outage
+  StartTime: Feb 7, 2022 09:00 -0800
+  EndTime: Feb 7, 2022 12:00 -0800
+  CreatedTime: Feb 04, 2022 15:00 -0800
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 997651566
+  Description:  Replacing faulty storage nodes
+  Severity: Outage
+  StartTime: Feb 7, 2022 09:00 -0800
+  EndTime: Feb 7, 2022 12:00 -0800
+  CreatedTime: Feb 04, 2022 15:00 -0800
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 997651567
+  Description:  Replacing faulty storage nodes
+  Severity: Outage
+  StartTime: Feb 7, 2022 09:00 -0800
+  EndTime: Feb 7, 2022 12:00 -0800
+  CreatedTime: Feb 04, 2022 15:00 -0800
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 997651568
+  Description:  Replacing faulty storage nodes
+  Severity: Outage
+  StartTime: Feb 7, 2022 09:00 -0800
+  EndTime: Feb 7, 2022 12:00 -0800
+  CreatedTime: Feb 04, 2022 15:00 -0800
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
