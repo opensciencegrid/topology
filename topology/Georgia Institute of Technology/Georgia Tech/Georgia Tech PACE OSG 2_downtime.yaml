@@ -217,3 +217,49 @@
   Services:
   - net.perfSONAR.Bandwidth
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 997651549
+  Description: 'Quarterly Maintenance '
+  Severity: Outage
+  StartTime: Feb 09, 2022 10:00 +0000
+  EndTime: Feb 12, 2022 04:00 +0000
+  CreatedTime: Feb 07, 2022 13:04 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 997651550
+  Description: 'Quarterly Maintenance '
+  Severity: Outage
+  StartTime: Feb 09, 2022 10:00 +0000
+  EndTime: Feb 12, 2022 04:00 +0000
+  CreatedTime: Feb 07, 2022 13:04 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 997651551
+  Description: 'Quarterly Maintenance '
+  Severity: Outage
+  StartTime: Feb 09, 2022 10:00 +0000
+  EndTime: Feb 12, 2022 04:00 +0000
+  CreatedTime: Feb 07, 2022 13:04 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 997651552
+  Description: 'Quarterly Maintenance '
+  Severity: Outage
+  StartTime: Feb 09, 2022 10:00 +0000
+  EndTime: Feb 12, 2022 04:00 +0000
+  CreatedTime: Feb 07, 2022 13:04 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
