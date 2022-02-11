@@ -1,0 +1,24 @@
+GroupDescription: Jetstream2-TACC
+GroupID: 1145
+Production: true
+Resources:
+  TACC-Jetstream2-Backfill:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+          Name: Mats Rynge
+      Security Contact:
+        Primary:
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+          Name: Mats Rynge
+    Description: Jetstream2-TACC-Backfill
+    FQDN: 149.165.159.251
+    ID: 1260
+    Services:
+      Execution Endpoint:
+        Description: OSG VO backfill containers
+        Details:
+          hidden: false
+SupportCenter: Self Supported
