@@ -4,7 +4,7 @@
 """
 A script to generate Authfiles for XCaches in the OSG
 """
-
+import argparse
 import os
 import sys
 
@@ -16,9 +16,8 @@ if __name__ == "__main__" and __package__ is None:
 import webapp.models
 import stashcache
 
-import argparse
-
 parser = argparse.ArgumentParser(description="Generate an Xrootd Authfile appropriate for a given origin.")
+parser.add_argument("--public", action="store_true", help="Generate a public origin Authfile")
 parser.add_argument("fqdn", metavar="Origin_FQDN", nargs=1, help="FQDN of the origin for Authfile generation.")
 
 args = parser.parse_args()
@@ -28,6 +27,6 @@ global_data = webapp.models.GlobalData()
 VOData = global_data.get_vos_data()
 ResourceGroups = global_data.get_topology().get_resource_group_list()
 
-authfile = stashcache.generate_origin_authfile(args.fqdn[0], VOData, ResourceGroups, suppress_errors=False)
+authfile = stashcache.generate_origin_authfile(args.fqdn[0], VOData, ResourceGroups, suppress_errors=False, public_only=args.public)
 
 print(authfile, end="")
