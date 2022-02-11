@@ -1268,3 +1268,25 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1088993648
+  Description: network outage
+  Severity: Outage
+  StartTime: Feb 03, 2022 02:42 +0000
+  EndTime: Feb 03, 2022 21:00 +0000
+  CreatedTime: Feb 03, 2022 14:42 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1088995022
+  Description: network outage
+  Severity: Outage
+  StartTime: Feb 03, 2022 02:42 +0000
+  EndTime: Feb 03, 2022 21:00 +0000
+  CreatedTime: Feb 03, 2022 14:45 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
