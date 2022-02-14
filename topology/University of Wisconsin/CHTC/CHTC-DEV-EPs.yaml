@@ -1,0 +1,106 @@
+Production: false
+SupportCenter: Self Supported
+
+GroupDescription: >-
+  Testing EPs for CHTC staff; these will generally be ephemeral, created and
+  destroyed ad-hoc as developers test OSG/CHTC software.  All FQDNs are fake.
+
+GroupID: 1145
+
+Resources:
+  CHTC-DEV-EP-bbockelm:
+    Active: true
+    Description: EP for dev testing for bbockelm
+    ID: 1260
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+          Name: Brian Bockelman
+
+      Security Contact:
+        Primary:
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+          Name: Brian Bockelman
+
+    FQDN: dev-ep.bbockelm.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint 
+  # ----------------------------------------------------------------------------
+
+  CHTC-DEV-EP-blin:
+    Active: true
+    Description: EP for dev testing for blin
+    ID: 1261
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+
+      Security Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+
+    FQDN: dev-ep.blin.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint 
+  # ----------------------------------------------------------------------------
+
+  CHTC-DEV-EP-gthain:
+    Active: true
+    Description: EP for dev testing for gthain
+    ID: 1262
+    ContactLists:
+      Administrative Contact:
+        # Tertiary:
+        #   ID: <pending>
+        #   Name: Greg Thain
+        Primary:
+          Name: Matyas Selmeci
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+        Secondary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+
+      Security Contact:
+        # Tertiary:
+        #   ID: <pending>
+        #   Name: Greg Thain
+        Primary:
+          Name: Matyas Selmeci
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+        Secondary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+
+    FQDN: dev-ep.gthain.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint 
+  # ----------------------------------------------------------------------------
+
+  CHTC-DEV-EP-matyas:
+    Active: true
+    Description: EP for dev testing for matyas
+    ID: 1263
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+
+      Security Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+
+    FQDN: dev-ep.matyas.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint 
+  # ----------------------------------------------------------------------------
+
