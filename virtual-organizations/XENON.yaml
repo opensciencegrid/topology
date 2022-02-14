@@ -49,6 +49,8 @@ ReportingGroups:
 DataFederations:
   StashCache:
     Namespaces:
+      /xenon/PUBLIC:
+        - PUBLIC
       /xenon/PROTECTED:
         - SciTokens:
             Issuer: https://scitokens.org/osg-connect
