@@ -1800,8 +1800,8 @@
   ID: 997651556
   Description:  Networking upgrades, Power station switch
   Severity: Outage
-  StartTime: Feb 07, 2022 07:00 -0800
-  EndTime: Feb 08, 2022 17:00 -0800
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 17:00 -0800
   CreatedTime: Jan 21, 2022 17:00 -0800
   ResourceName: CIT_CMS_SE
   Services:
@@ -1811,8 +1811,8 @@
   ID: 997651557
   Description:  Networking upgrades, Power station switch
   Severity: Outage
-  StartTime: Feb 07, 2022 07:00 -0800
-  EndTime: Feb 08, 2022 17:00 -0800
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 17:00 -0800
   CreatedTime: Jan 21, 2022 17:00 -0800
   ResourceName: CIT_CMS_T2
   Services:
@@ -1822,8 +1822,8 @@
   ID: 997651558
   Description:  Networking upgrades, Power station switch
   Severity: Outage
-  StartTime: Feb 07, 2022 07:00 -0800
-  EndTime: Feb 08, 2022 17:00 -0800
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 17:00 -0800
   CreatedTime: Jan 21, 2022 17:00 -0800
   ResourceName: CIT_CMS_T2B
   Services:
@@ -1833,8 +1833,8 @@
   ID: 997651559
   Description:  Networking upgrades, Power station switch
   Severity: Outage
-  StartTime: Feb 07, 2022 07:00 -0800
-  EndTime: Feb 08, 2022 17:00 -0800
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 17:00 -0800
   CreatedTime: Jan 21, 2022 17:00 -0800
   ResourceName: CIT_CMS_T2C
   Services:
@@ -1844,8 +1844,8 @@
   ID: 997651560
   Description:  Networking upgrades, Power station switch
   Severity: Outage
-  StartTime: Feb 07, 2022 07:00 -0800
-  EndTime: Feb 08, 2022 17:00 -0800
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 17:00 -0800
   CreatedTime: Jan 21, 2022 17:00 -0800
   ResourceName: CIT_CMS_T2_Squid
   Services:
@@ -1855,8 +1855,8 @@
   ID: 997651561
   Description:  Networking upgrades, Power station switch
   Severity: Outage
-  StartTime: Feb 07, 2022 07:00 -0800
-  EndTime: Feb 08, 2022 17:00 -0800
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 17:00 -0800
   CreatedTime: Jan 21, 2022 17:00 -0800
   ResourceName: CIT_CMS_T2_2_Squid
   Services:
@@ -1866,8 +1866,8 @@
   ID: 997651562
   Description:  Networking upgrades, Power station switch
   Severity: Outage
-  StartTime: Feb 07, 2022 07:00 -0800
-  EndTime: Feb 08, 2022 17:00 -0800
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 17:00 -0800
   CreatedTime: Jan 21, 2022 17:00 -0800
   ResourceName: CIT-CMS-T2-XRD
   Services:
@@ -1877,8 +1877,8 @@
   ID: 997651563
   Description:  Networking upgrades, Power station switch
   Severity: Outage
-  StartTime: Feb 07, 2022 07:00 -0800
-  EndTime: Feb 08, 2022 17:00 -0800
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 17:00 -0800
   CreatedTime: Jan 21, 2022 17:00 -0800
   ResourceName: CIT_CMS_SE_Ceph
   Services:
@@ -1888,9 +1888,56 @@
   ID: 997651564
   Description:  Networking upgrades, Power station switch
   Severity: Outage
-  StartTime: Feb 07, 2022 07:00 -0800
-  EndTime: Feb 08, 2022 17:00 -0800
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 17:00 -0800
   CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
+# ----------------------------------------
+# Replacing faulty storage headnodes
+#
+- Class: SCHEDULED
+  ID: 997651565
+  Description:  Replacing faulty storage nodes
+  Severity: Outage
+  StartTime: Feb 7, 2022 09:00 -0800
+  EndTime: Feb 7, 2022 12:00 -0800
+  CreatedTime: Feb 04, 2022 15:00 -0800
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 997651566
+  Description:  Replacing faulty storage nodes
+  Severity: Outage
+  StartTime: Feb 7, 2022 09:00 -0800
+  EndTime: Feb 7, 2022 12:00 -0800
+  CreatedTime: Feb 04, 2022 15:00 -0800
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 997651567
+  Description:  Replacing faulty storage nodes
+  Severity: Outage
+  StartTime: Feb 7, 2022 09:00 -0800
+  EndTime: Feb 7, 2022 12:00 -0800
+  CreatedTime: Feb 04, 2022 15:00 -0800
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 997651568
+  Description:  Replacing faulty storage nodes
+  Severity: Outage
+  StartTime: Feb 7, 2022 09:00 -0800
+  EndTime: Feb 7, 2022 12:00 -0800
+  CreatedTime: Feb 04, 2022 15:00 -0800
   ResourceName: CIT_CMS_T2_XRD_Ceph
   Services:
     - XRootD component
