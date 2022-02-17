@@ -30,4 +30,12 @@ Resources:
           sam_uri: htcondor://cloud-osg-ce.jinr.ru
     VOOwnership:
       Nova: 100
+  JINR_STASHCACHE:
+    Active: false
+    FQDN: stashcache.jinr.ru
+    Service: XRootD cache server
+      Description: JINR cache server
+    AllowedVOs:
+      - Fermilab
+      - Dune
 SupportCenter: JINR
