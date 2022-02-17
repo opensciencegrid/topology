@@ -32,11 +32,20 @@ Resources:
       Nova: 100
   JINR_STASHCACHE:
     Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6b9e9d9f99dcb757f2fa333d717c14bff167d457
+          Name: Nikita Balashov
+      Security Contact:
+        Primary:
+          ID: 6b9e9d9f99dcb757f2fa333d717c14bff167d457
+          Name: Nikita Balashov
     ID:
     FQDN: stashcache.jinr.ru
-    Services: XRootD cache server
-    Description: JINR cache server
+    Services: 
+      XRootD cache server:
+        Description: JINR cache server
     AllowedVOs:
-      - Fermilab
-      - Dune
+      - ANY
 SupportCenter: JINR
