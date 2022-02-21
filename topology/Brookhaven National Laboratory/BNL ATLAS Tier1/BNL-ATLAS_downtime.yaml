@@ -542,3 +542,190 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913009
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913010
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913011
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913012
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913013
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_6
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913014
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913015
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_8
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913016
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_CVMFS_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913017
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_Frontier_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913018
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913019
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_East
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913020
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_West
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913021
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_West2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913022
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_SE_GRIDFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913023
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: lhcmon-bnl
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913024
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: lhcperfmon-bnl
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913025
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: ps-development
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------

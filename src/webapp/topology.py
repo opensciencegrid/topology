@@ -145,8 +145,8 @@ class Resource(object):
             svc.move_to_end("ID", last=False)
         return services_list
 
-    def _expand_tags(self, tags: List) -> List[Dict]:
-        return [ {"Tag": tag} for tag in tags ]
+    def _expand_tags(self, tags: List) -> Dict[str, list]:
+        return {"Tag": tags}
 
     @staticmethod
     def _expand_voownership(voownership: Dict) -> OrderedDict:

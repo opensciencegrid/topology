@@ -167,3 +167,26 @@
   - CE
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1063514739
+  Description: Kernel upgrade of NFS servers and retirement of 3TB GPFS pool
+  Severity: Severe
+  StartTime: Jan 11, 2022 11:00 +0000
+  EndTime: Jan 11, 2022 14:00 +0000
+  CreatedTime: Jan 05, 2022 02:57 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1085853095
+  Description: 'GPFS issue retiring old pool.  Need a few hours without DDM to fix. '
+  Severity: Severe
+  StartTime: Jan 30, 2022 23:45 +0000
+  EndTime: Jan 31, 2022 12:00 +0000
+  CreatedTime: Jan 30, 2022 23:28 +0000
+  ResourceName: NET2
+  Services:
+  - GridFtp
+# ---------------------------------------------------------

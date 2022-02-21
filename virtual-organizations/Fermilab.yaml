@@ -6,6 +6,12 @@ Community: Fermilab Virtual Organization (VO) - The Fermilab VO is an "umbrella"
   have their own Virtual Organization. Broadly these include the intensity frontier
   program, theoretical simulations, fixed target analysis, and accelerator and beamline
   design as well as activities performed by the Fermilab Campus Grid administrators.
+Credentials:
+  TokenIssuers:
+    - Description: Fermilab pilots
+      Subject: fermilabpilot@fnal.gov
+      URL: https://cilogon.org/fermilab
+      DefaultUnixUser: fermilabpilot
 Contacts:
   Administrative Contact:
   - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47

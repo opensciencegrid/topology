@@ -3,9 +3,9 @@ SupportCenter: Self Supported
 GroupDescription: Resources associated with the nanoHub testing infrastructure
 GroupID: 1129
 Resources:
-  Purdue-nanoHUB-submit:
+  Purdue-nanoHUB-development-submit:
     Active: true
-    Description: The nanoHUB OS Pool access point
+    Description: The nanoHUB development access point for the OS Pool
     ID: 1211
     ContactLists:
       Administrative Contact:
@@ -17,15 +17,16 @@ Resources:
           Name: Steven Clark
           ID: e3cdbed422208e751519e8e03a85ab6a2d567f6b
     FQDN: submit.dev.nanohub.org
-    DN: /DC=org/DC=incommon/C=US/ST=IN/L=West Lafayette/O=Purdue University/OU=HUBzero/CN=devcondordaemon.nanohub.org
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
 
-  Purdue-nanoHUB-scatter2:
+  Purdue-nanoHUB-stage-scatter2:
     Active: true
-    Description: The scatter2 access point for the OS Pool
-    ID: 1211
+    Description: The nanoHUB stage access point for the OS Pool
+    ID: 1246
     ContactLists:
       Administrative Contact:
         Primary:
@@ -36,7 +37,8 @@ Resources:
           Name: Steven Clark
           ID: e3cdbed422208e751519e8e03a85ab6a2d567f6b
     FQDN: scatter2.dev.nanohub.org
-    DN: /DC=org/DC=incommon/C=US/ST=IN/L=West Lafayette/O=Purdue University/OU=HUBzero/CN=scattercondordaemon.nanohub.org    
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
