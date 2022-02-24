@@ -172,6 +172,11 @@ def miscproject_xml():
     return Response(to_xml_bytes(global_data.get_projects()), mimetype='text/xml')
 
 
+@app.route('/miscproject/json')
+def miscproject_json():
+    return Response(to_json_bytes(global_data.get_projects()), mimetype='application/json')
+
+
 @app.route('/vosummary/xml')
 def vosummary_xml():
     return _get_xml_or_fail(global_data.get_vos_data().get_tree, request.args)
