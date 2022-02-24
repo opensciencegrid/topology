@@ -668,5 +668,15 @@
   - FTS
   - SRMv2
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 1104533281
+  Description: Tape library only -- recalls delayed, dCache stays up.
+  Severity: Intermittent Outage
+  StartTime: Feb 24, 2022 14:00 +0000
+  EndTime: Feb 24, 2022 23:00 +0000
+  CreatedTime: Feb 21, 2022 14:22 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
 
