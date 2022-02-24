@@ -1,6 +1,10 @@
 AppDescription: EIC collaboration.
 CertificateOnly: false
-Community: The EIC collaboration. 
+Community: The EIC collaboration.
+Credentials:
+  TokenIssuers:
+    - URL: https://scicomp.jlab.org/scitokens/eic
+      DefaultUnixUser: eic
 Contacts:
   Administrative Contact:
   - ID: ff17e0dadbdfcc230d4e00f5e7d9c61c80ac43e0

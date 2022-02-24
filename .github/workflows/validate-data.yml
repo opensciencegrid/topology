@@ -30,6 +30,9 @@ jobs:
           ./src/tests/verify_unique_downtime_ids.sh
       - name: Validate Resources
         run: ./src/tests/verify_resources.py
+      - name: Validate Site Names
+        run: |
+          ./src/tests/verify_site_names.sh
       - name: Validate Projects
         run: |
           ./src/tests/verify_projects.py
