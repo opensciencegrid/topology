@@ -729,3 +729,25 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1109771161
+  Description: HPSS Tape system library emergency repair completed
+  Severity: Severe
+  StartTime: Feb 27, 2022 00:00 +0000
+  EndTime: Feb 27, 2022 20:40 +0000
+  CreatedTime: Feb 27, 2022 15:51 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1110017004
+  Description: HPSS Tape system library emergency repair
+  Severity: Outage
+  StartTime: Feb 27, 2022 21:00 +0000
+  EndTime: Feb 28, 2022 20:00 +0000
+  CreatedTime: Feb 27, 2022 22:41 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.tape
+# ---------------------------------------------------------
