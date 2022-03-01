@@ -1310,3 +1310,80 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111752961
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 19:00 +0000
+  CreatedTime: Mar 01, 2022 22:54 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111766057
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 19:00 +0000
+  CreatedTime: Mar 01, 2022 23:16 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111766184
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 19:00 +0000
+  CreatedTime: Mar 01, 2022 23:16 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111766295
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 19:00 +0000
+  CreatedTime: Mar 01, 2022 23:17 +0000
+  ResourceName: MWT2_UC_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111766464
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 19:00 +0000
+  CreatedTime: Mar 01, 2022 23:17 +0000
+  ResourceName: MWT2_CE_IU
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111766570
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 19:00 +0000
+  CreatedTime: Mar 01, 2022 23:17 +0000
+  ResourceName: MWT2_CE_UC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111766668
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 19:00 +0000
+  CreatedTime: Mar 01, 2022 23:17 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
