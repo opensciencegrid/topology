@@ -1312,3 +1312,47 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1112458359
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Mar 02, 2022 17:00 +0000
+  EndTime: Mar 02, 2022 21:00 +0000
+  CreatedTime: Mar 02, 2022 18:30 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1112467401
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Mar 02, 2022 17:00 +0000
+  EndTime: Mar 02, 2022 21:00 +0000
+  CreatedTime: Mar 02, 2022 18:45 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1112543870
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Mar 02, 2022 21:00 +0000
+  EndTime: Mar 03, 2022 21:00 +0000
+  CreatedTime: Mar 02, 2022 20:53 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1112546104
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Mar 02, 2022 21:00 +0000
+  EndTime: Mar 03, 2022 21:00 +0000
+  CreatedTime: Mar 02, 2022 20:56 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
