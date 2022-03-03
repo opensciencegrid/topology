@@ -1,0 +1,35 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: This is the Thunder HPC cluster and North Dakota State University
+GroupID: 1146
+Resources:
+  NDSU-Thunder:
+    Active: True
+    Description: This is the NDSU Thunder HPC
+    ID: 1267
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Nicholas Dusek
+          ID: 17574fde75b3251c8450d851c922d6801e7c58fd
+    FQDN: mwt2-uiuc-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+
