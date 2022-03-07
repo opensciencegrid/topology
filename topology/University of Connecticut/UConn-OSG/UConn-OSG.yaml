@@ -172,4 +172,37 @@ Resources:
       StorageCapacityMax: 50
       StorageCapacityMin: 25
       TapeCapacity: 0
+  UConn-OSG_GWMS_Collector:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+      Security Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T. Jones
+    Description: local UConn glideinWMS collector for Gluex
+    FQDN: gluex.phys.uconn.edu
+    DN: /DC=org/DC=incommon/C=US/ST=Connecticut/L=Storrs/O=University of Connecticut/OU=Academic IT/CN=gremlin.phys.uconn.edu
+    FQDNAliases:
+    - gremlin.phys.uconn.edu
+    ID: 998
+    Services:
+      Condor Collector:
+        Description: glideinWMS collector for GlueX users
+    VOOwnership:
+      Gluex: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      StorageCapacityMax: 50
+      StorageCapacityMin: 25
+      TapeCapacity: 0
 SupportCenter: GLUEX
