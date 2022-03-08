@@ -62,7 +62,7 @@ Resources:
       - OSPool
 
   UChicago_OSGConnect_flock:
-    Active: true
+    Active: false
     Description: Flock access point for the OS Pool
     ID: 1205
     ContactLists:
@@ -90,7 +90,7 @@ Resources:
         Description: OS Pool access point
 
   UChicago_OSGConnect_xd-login:
-    Active: true
+    Active: false
     Description: XD Login access point for the OS Pool
     ID: 1206
     ContactLists:
@@ -116,8 +116,6 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
-    Tags:
-      - OSPool
 
   UChicago_OSGConnect_veritas:
     Active: true
