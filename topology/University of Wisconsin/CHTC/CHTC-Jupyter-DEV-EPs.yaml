@@ -2,20 +2,22 @@ Production: false
 SupportCenter: Self Supported
 
 GroupDescription: >-
-  EPs for the JupyterHub service.
+  EPs for the JupyterHub service at CHTC.
+
+  All FQDNs are fake.
 
   Each user of the service gets their own EP for developing and testing
   potential OSPool jobs. Thus, each EP will be ephemeral, existing only
   as long as its corresponding user is using the service.
 
-GroupID:
+GroupID: 1147
 
 Resources:
   CHTC-Jupyter-DEV-EP:
     Active: true
     Description: >-
       EPs for development and testing of the JupyterHub service.
-    ID:
+    ID: 1269
     ContactLists:
       Administrative Contact:
         Primary:
