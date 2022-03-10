@@ -1,0 +1,36 @@
+Production: false
+SupportCenter: Self Supported
+
+GroupDescription: >-
+  EPs for the JupyterHub service.
+
+  Each user of the service gets their own EP for developing and testing
+  potential OSPool jobs. Thus, each EP will be ephemeral, existing only
+  as long as its corresponding user is using the service.
+
+GroupID:
+
+Resources:
+  CHTC-Jupyter-DEV-EP:
+    Active: true
+    Description: >-
+      EPs for development and testing of the JupyterHub service.
+    ID:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a2619d19dc51fa28b8e306140d6e216c1361ebe5
+          Name: Brian Aydemir
+
+      Security Contact:
+        Primary:
+          ID: a2619d19dc51fa28b8e306140d6e216c1361ebe5
+          Name: Brian Aydemir
+        Secondary:
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+          Name: Brian Bockelman
+
+    FQDN: dev-ep.jupyter.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint
