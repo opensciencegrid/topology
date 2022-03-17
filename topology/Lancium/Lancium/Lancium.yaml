@@ -21,7 +21,9 @@ Resources:
         Primary:
           ID: 91af5365110c5601977381f3ba7d8372a333cf67
           Name: Andrew Grimshaw
-    FQDN: ospool-backfill.lancium.com
+    FQDN: portal.lancium.com
     Services:
       Execution Endpoint:
         Description: Lancium backfill containers
+      Squid:
+        Description: Generic squid service
