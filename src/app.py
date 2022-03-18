@@ -155,7 +155,7 @@ def organizations():
     return _fix_unicode(render_template('organizations.html.j2', org_table=org_table))
 
 
-@app.route("/collaboration/scitoken/text")
+@app.route("/collaborations/osg-scitokens-mapfile.conf")
 def collaborations_scitoken_text():
     """Dumps output of /bin/get-scitokens-mapfile --regex at a text endpoint"""
 
