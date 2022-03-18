@@ -14,11 +14,12 @@ import traceback
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
+
 
 try:
     import stashcache
@@ -173,9 +174,9 @@ def collaborations_scitoken_text():
             pattern = ""
             if url:
                 if subject:
-                    pattern = f'/^{re.escape(url)},{re.escape(subject)}$/'
+                    pattern = f'/^{escape(url)},{escape(subject)}$/'
                 else:
-                    pattern = f'/^{re.escape(url)},/'
+                    pattern = f'/^{escape(url)},/'
             unix_user = token_issuer.get("DefaultUnixUser")
             if description:
                 mapfile += f"# {description}:\n"

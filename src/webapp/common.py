@@ -302,6 +302,22 @@ def readfile(path, logger):
             return None
 
 
+def escape(pattern: str) -> str:
+    """Escapes regex characters that stopped being escaped in python 3.7"""
+
+    escaped_string = re.escape(pattern)
+
+    if sys.version_info < (3, 7):
+        return escaped_string
+
+    unescaped_characters = ['!', '"', '%', "'", ',', '/', ':', ';', '<', '=', '>', '@', "`"]
+    for unescaped_character in unescaped_characters:
+
+        escaped_string = re.sub(unescaped_character, f"\\{unescaped_character}", escaped_string)
+
+    return escaped_string
+
+
 def support_cors(f):
 
     def wrapped():
