@@ -8,6 +8,7 @@ import shlex
 import subprocess
 import sys
 from typing import Dict, List, Union, AnyStr
+from functools import wraps
 
 log = getLogger(__name__)
 
@@ -304,6 +305,7 @@ def readfile(path, logger):
 
 def support_cors(f):
 
+    @wraps(f)
     def wrapped():
 
         response = f()
