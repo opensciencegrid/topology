@@ -1,4 +1,4 @@
-FROM opensciencegrid/software-base:release
+FROM opensciencegrid/software-base:3.6-el8-release
 
 # Install dependencies (application, Apache)
 RUN \
