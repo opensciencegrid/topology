@@ -1,0 +1,155 @@
+{% set want_js = false %}
+{% extends "base.html.j2" %}
+{% block title -%}
+Collaboration Table
+{%- endblock %}
+{% block morehead %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"  rel="stylesheet" >
+{% endblock %}
+{% block content %}
+
+<div class="container-xxl">
+    <div class="row">
+        <div class="col-12 col-xl-8 col-lg-10 col-md-12">
+            <p class="d-none d-sm-block">
+                <b>Click on a row to view Collaboration ( previously Virtual Organization ) details.</b>
+            </p>
+            <div>
+                <div class="pb-2">
+                    <b>Search Specification:</b>
+                </div>
+                <div class="row">
+                    <div class="col-auto">
+                        <b>Specific Field:</b>
+                        <ul>
+                            <li>Use: Column_Title:Search_Term</li>
+                            <li>Example: 'Site:AGLT2'</li>
+                        </ul>
+                    </div>
+                    <div class="col-auto">
+                        <b>Wild Cards:</b>
+                        <ul>
+                            <li>Use: Search_Term*</li>
+                            <li>Example: 'Name:AGLT2*'</li>
+                        </ul>
+                    </div>
+                    <div class="col-auto">
+                        <b>Fuzzy Match:</b>
+                        <ul>
+                            <li>Use: Search_Term~Fuzziness</li>
+                            <li>Example: 'AGLT4~1'</li>
+                        </ul>
+                    </div>
+                    <div class="col-auto">
+                        <b>Logical AND:</b>
+                        <ul>
+                            <li>Use: +Search_Term</li>
+                            <li>Example: '+Active:False +ResourceGroup:CHTC'</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="d-block d-sm-none">
+                <b>Tap on a card to view project details.</b>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-2">
+    <div class="row">
+        <div class="col-12 col-xl-7 col-lg-8 col-md-10">
+            <p id="search-error" class="text-danger"></p>
+            <input list="search-history" class="form-control" id="search" placeholder="Search Resources => Hit Enter to Save Search" type="search"/>
+            <datalist id="search-history"></datalist>
+        </div>
+    </div>
+</div>
+<div class="container-xxl">
+    <div id="wrapper"></div>
+</div>
+<div hidden>
+    <a id="template-card" class="d-block text-decoration-none text-dark hover-shadow" data-bs-toggle="collapse" role="button" aria-expanded="false">
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="row">
+                    <h2 class="LongName"></h2>
+                    <div class="col-12 col-md-6">
+                        <div>
+                            <h5 class="mb-1">Primary URL</h5>
+                            <p class="PrimaryURL"></p>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Fields Of Science</h5>
+                            <p class="FieldsOfScience"></p>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Data Federations</h5>
+                            <p class="DataFederations"></p>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">OASIS</h5>
+                            <p class="OASIS"></p>
+                        </div>
+                        <div class="collapse multi-collapse">
+                            <div>
+                                <h5 class="mb-1">Credentials</h5>
+                                <p class="Credentials"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="modal fade" id="display" tabindex="-1" aria-labelledby="Name" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-fullscreen-lg-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="Name" class="mb-0 LongName"></h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div>
+                            <h5 class="mb-1">Primary URL</h5>
+                            <p class="PrimaryURL"></p>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Fields Of Science</h5>
+                            <p class="FieldsOfScience"></p>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Data Federations</h5>
+                            <p class="DataFederations"></p>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">OASIS</h5>
+                            <p class="OASIS"></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div>
+                            <h5 class="mb-1">Credentials</h5>
+                            <p class="Credentials"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block last %}
+<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+
+<script type="module" src="/static/js/pages/collaborations.js" async></script>
+{% endblock %}
