@@ -46,7 +46,7 @@ class Search {
     save_history = (e) => {
         if(e.keyCode == 13){
             this.history.add(this.node.value)
-            window.localStorage.setItem("search-history", [...this.history.values()].join(","))
+            window.localStorage.setItem("search-history" + window.location.pathname, [...this.history.values()].join(","))
             this.update_history_node()
         }
     }
@@ -59,7 +59,7 @@ class Search {
         }
     }
     load_history = () => {
-        let history = window.localStorage.getItem("search-history")
+        let history = window.localStorage.getItem("search-history" + window.location.pathname)
 
         if(history === null){
             this.history = new Set()

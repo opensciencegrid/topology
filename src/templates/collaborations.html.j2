@@ -19,6 +19,12 @@ Collaboration Table
             <div>
                 <div class="pb-2">
                     <b>Search Specification:</b>
+                    <p>
+                        All data is indexed under a parent key ( ParentKey ) and under a child key
+                        ( ParentKey.IntermediateKey.ChildKey ).
+                        Parent keys are used to search all corresponding child data, child keys are used to search only
+                        their corresponding values.
+                    </p>
                 </div>
                 <div class="row">
                     <div class="col-auto">
