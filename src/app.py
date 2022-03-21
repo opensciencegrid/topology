@@ -159,6 +159,13 @@ def resources():
 
     return render_template("resources.html.j2")
 
+
+@app.route('/collaborations')
+def collaboration_list():
+
+    return render_template("collaborations.html.j2")
+
+
 @app.route('/contacts')
 def contacts():
     try:
@@ -201,6 +208,12 @@ def miscresource_json():
 @app.route('/vosummary/xml')
 def vosummary_xml():
     return _get_xml_or_fail(global_data.get_vos_data().get_tree, request.args)
+
+@app.route('/vosummary/json')
+def vosummary_json():
+    return Response(to_json_bytes(
+        simplify_attr_list(global_data.get_vos_data().get_tree()["VOSummary"]["VO"], namekey='Name')
+    ), mimetype="application/json")
 
 
 @app.route('/rgsummary/xml')
@@ -665,7 +678,7 @@ if __name__ == '__main__':
     if "--auth" in sys.argv[1:]:
         default_authorized = True
     logging.basicConfig(level=logging.DEBUG)
-    app.run(debug=True, use_reloader=True)
+    app.run(debug=True, use_reloader=True, port=9000)
 else:
     root = logging.getLogger()
     root.addHandler(flask.logging.default_handler)
