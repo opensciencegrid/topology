@@ -6,14 +6,14 @@ function populate_node(data, node, columns){
 
         if(column_node === undefined){continue}
 
-        if("html" in column){
+        if("html" in column && data[column["id"]] !== undefined){
 
             remove_children(column_node)
 
             let child = column['html'](data)
             column_node.appendChild(child)
         } else {
-            if(data[column["id"]] === null ){
+            if(data[column["id"]] === null ||  data[column["id"]] === undefined){
                 column_node.innerText = "null"
             } else {
                 column_node.innerText = data[column["id"]].toString()
@@ -79,6 +79,7 @@ class Search {
         let fields = new Set()
         Object.values(data).forEach(value => fields = new Set([...Object.keys(value), ...fields]))
         fields.delete("ref")
+        fields = Array.from(fields.values()).sort()
         this.history = new Set([...fields, ...this.history])
         this.update_history_node()
 
@@ -87,7 +88,7 @@ class Search {
 
             this.ref('ref')
 
-            Array.from(fields.values()).sort().forEach(v => this.field(v.toLowerCase()))
+            fields.forEach(v => this.field(v.toLowerCase()))
 
             data.forEach(function (doc) {
 
@@ -229,7 +230,7 @@ class CardDisplay{
 
             populate_node(value, clone, this.columns)
 
-            let card_key = value['Name'].replace(/\s|\.|\\|\/|\(|\)/g, '')
+            let card_key = value['ref'].replace(/\s|\.|\\|\/|\(|\)/g, '')
 
             clone.setAttribute("href", "#" + card_key)
             clone.setAttribute("aria-controls", card_key)

@@ -212,7 +212,7 @@ def vosummary_xml():
 @app.route('/vosummary/json')
 def vosummary_json():
     return Response(to_json_bytes(
-        simplify_attr_list(global_data.get_vos_data().get_tree()["VOSummary"]["VO"], namekey='Name')
+        simplify_attr_list(global_data.get_vos_data().get_expansion(), namekey='Name')
     ), mimetype="application/json")
 
 

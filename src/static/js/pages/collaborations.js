@@ -35,12 +35,12 @@ const columns = [
             return ""
         }
     }, {
-        id: "DataFederation",
+        id: "DataFederations",
         name: 'Data Federation',
         hidden: true,
         data: d => d,
         html: data => {
-            let key = "DataFederation"
+            let key = "DataFederations"
             if(key in data){
                 return create_ul(data[key])
             }

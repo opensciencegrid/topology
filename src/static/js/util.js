@@ -17,14 +17,13 @@ function flatten(data) {
      */
     const add_prop = (cur, prop) => {
 
-        // Let this live in the commit history in case I use in the future
-        // if(prop.split(".").length > 1)
-        //    add_prop(cur, prop.split(".")[prop.split(".").length - 1])
+        // The search has reserved characters that must be removed
+        let clean_prop = prop.replaceAll("/", "")
 
-        if(prop in result){
-            result[prop] += ", " + cur
+        if(clean_prop in result){
+            result[clean_prop] += ", " + cur
         } else {
-            result[prop] = cur
+            result[clean_prop] = cur
         }
         return result
     }

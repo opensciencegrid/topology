@@ -24,6 +24,20 @@ class VOsData(object):
     def add_vo(self, vo_name, vo_data):
         self.vos[vo_name] = vo_data
 
+    def get_expansion(self, authorized=False, filters: Filters = None):
+        if not filters:
+            filters = Filters()
+        expanded_vo_list = []
+        for vo_name in sorted(self.vos.keys(), key=lambda x: x.lower()):
+            try:
+                expanded_vo_data = self._expand_vo(vo_name, authorized=authorized, filters=filters)
+                if expanded_vo_data:
+                    expanded_vo_list.append(expanded_vo_data)
+            except (KeyError, ValueError, AttributeError) as err:
+                log.exception("Problem with VO data for %s: %s", vo_name, err)
+
+        return expanded_vo_list
+
     def get_tree(self, authorized=False, filters: Filters = None) -> Dict:
         if not filters:
             filters = Filters()
