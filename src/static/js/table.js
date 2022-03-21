@@ -6,7 +6,9 @@ function populate_node(data, node, columns){
 
         if(column_node === undefined){continue}
 
-        if("html" in column && data[column["id"]] !== undefined){
+        column_node.parentNode.hidden = false
+
+        if("html" in column && data[column["id"]] !== undefined && data[column["id"]] !== null){
 
             remove_children(column_node)
 
@@ -14,7 +16,7 @@ function populate_node(data, node, columns){
             column_node.appendChild(child)
         } else {
             if(data[column["id"]] === null ||  data[column["id"]] === undefined){
-                column_node.innerText = "null"
+                column_node.parentNode.hidden = true
             } else {
                 column_node.innerText = data[column["id"]].toString()
             }
@@ -32,7 +34,8 @@ class Search {
         this.error_node = document.getElementById("search-error")
         this.history_node = document.getElementById("search-history")
 
-        this.history = undefined
+        this.history = new Set()
+        this.fields = []
         this.lunr_idx = undefined
         this.timer = undefined
 
@@ -52,7 +55,7 @@ class Search {
     }
     update_history_node = () => {
         remove_children(this.history_node)
-        for(const previous_search of this.history.values()){
+        for(const previous_search of [...this.history.values(), ...this.fields]){
            let option = document.createElement("option")
             option.value = previous_search
             this.history_node.appendChild(option)
@@ -61,34 +64,34 @@ class Search {
     load_history = () => {
         let history = window.localStorage.getItem("search-history" + window.location.pathname)
 
-        if(history === null){
-            this.history = new Set()
-        } else {
+        if(history !== null){
             this.history = new Set(history.split(","))
         }
+
         this.update_history_node()
     }
     initialize = async () => {
 
-        this.load_history()
-
         if(this.lunr_idx){return}
 
+        let search = this
+        this.load_history()
         let data = this.organize_data(await this.data_function())
 
-        let fields = new Set()
-        Object.values(data).forEach(value => fields = new Set([...Object.keys(value), ...fields]))
-        fields.delete("ref")
-        fields = Array.from(fields.values()).sort()
-        this.history = new Set([...fields, ...this.history])
+        // Get the data fields and load them into the search presets
+        this.fields = new Set()
+        Object.values(data).forEach(value => search.fields = new Set([...Object.keys(value), ...search.fields]))
+        this.fields.delete("ref")
+        this.fields = Array.from(search.fields.values()).sort()
         this.update_history_node()
 
+        // Create the search object
         this.lunr_idx = lunr(function () {
             this.tokenizer.separator = /[\s]+/
 
             this.ref('ref')
 
-            fields.forEach(v => this.field(v.toLowerCase()))
+            search.fields.forEach(v => this.field(v.toLowerCase()))
 
             data.forEach(function (doc) {
 

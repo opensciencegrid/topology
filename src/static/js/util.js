@@ -93,10 +93,24 @@ const object_to_ul = (object) => {
 
 const create_li = (text, object = undefined) => {
     let li_node = document.createElement("li")
-    li_node.innerText = text
-    if(object !== undefined){
+
+    if(object === undefined){
+        li_node.innerText = text
+
+    } else if(Object(object) !== object) {
+        let b = document.createElement("b")
+        b.innerText = text
+        li_node.appendChild(b)
+        let span = document.createElement("span")
+        span.innerText = ": " + String(object)
+        li_node.appendChild(span)
+
+    } else {
+        li_node.innerText = text
         li_node.appendChild(create_ul(object))
+
     }
+
     return li_node
 }
 

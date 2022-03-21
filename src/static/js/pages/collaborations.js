@@ -32,7 +32,9 @@ const columns = [
             if(key in data){
                 return create_ul(data[key])
             }
-            return ""
+            let d = document.createElement("span")
+            d.innerText = "null"
+            return d
         }
     }, {
         id: "DataFederations",
@@ -44,7 +46,9 @@ const columns = [
             if(key in data){
                 return create_ul(data[key])
             }
-            return ""
+            let d = document.createElement("span")
+            d.innerText = "null"
+            return d
         }
     }, {
         id: 'OASIS',
@@ -56,7 +60,9 @@ const columns = [
             if(key in data){
                 return create_ul(data[key])
             }
-            return ""
+            let d = document.createElement("span")
+            d.innerText = "null"
+            return d
         }
     }, {
         id: 'Credentials',
@@ -65,10 +71,12 @@ const columns = [
         data: d => d,
         html: data => {
             let key = "Credentials"
-            if(key in data){
-                return create_ul(data[key])
+            if(key in data && data[key]){
+                return create_ul(data[key]["TokenIssuers"]["TokenIssuer"])
             }
-            return ""
+            let d = document.createElement("span")
+            d.innerText = "null"
+            return d
         }
     }
 ]
