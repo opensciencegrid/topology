@@ -15,6 +15,10 @@ Contacts:
   VO Manager:
   - ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
     Name: Richard T. Jones
+Credentials:
+  TokenIssuers:
+    - URL: https://zeus.phys.uconn.edu
+      DefaultUnixUser: gluex
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -52,7 +56,7 @@ DataFederations:
     AllowedOrigins:
         # UConn-OSG_StashCache_origin serves /gluex/uconn0 (FD #68279)
         - UConn-OSG_StashCache_origin
-        # UConn-HPC_SE serves /gluex/uconn1 (FD #68279)
-        - UConn-HPC_SE
+        # UConn-HPC_StashCache_origin serves /gluex/uconn1 (FD #68279)
+        - UConn-HPC_StashCache_origin
     AllowedCaches:
         - ANY

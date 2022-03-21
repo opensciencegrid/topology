@@ -14,7 +14,7 @@ import traceback
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
@@ -154,7 +154,10 @@ def organizations():
 
     return _fix_unicode(render_template('organizations.html.j2', org_table=org_table))
 
+@app.route('/resources')
+def resources():
 
+    return render_template("resources.html.j2")
 
 @app.route('/contacts')
 def contacts():
@@ -171,6 +174,29 @@ def contacts():
 def miscproject_xml():
     return Response(to_xml_bytes(global_data.get_projects()), mimetype='text/xml')
 
+
+@app.route('/miscproject/json')
+@support_cors
+def miscproject_json():
+    projects = simplify_attr_list(global_data.get_projects()["Projects"]["Project"], namekey="Name", del_name=False)
+    return Response(to_json_bytes(projects), mimetype='text/json')
+
+@app.route('/miscresource/json')
+@support_cors
+def miscresource_json():
+    resources = {}
+    topology = global_data.get_topology()
+    for rg in topology.rgs.values():
+        for resource in rg.resources_by_name.values():
+            resources[resource.name] = {
+                "Name": resource.name,
+                "Site": rg.site.name,
+                "Facility": rg.site.facility.name,
+                "ResourceGroup": rg.name,
+                **resource.get_tree()
+            }
+
+    return Response(to_json_bytes(resources), mimetype='text/json')
 
 @app.route('/vosummary/xml')
 def vosummary_xml():

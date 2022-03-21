@@ -52,9 +52,7 @@ DataFederations:
       /xenon/PUBLIC:
         - PUBLIC
       /xenon/PROTECTED:
-        - SciTokens:
-            Issuer: https://scitokens.org/osg-connect
-            Base Path: /osdf
+        - FQAN: /xenon.biggrid.nl
         - DN: /DC=org/DC=cilogon/C=US/O=University of California-San Diego/CN=Kevin Coakley A183421
         - DN: /DC=org/DC=cilogon/C=US/O=University of California-San Diego/CN=Danny Saba T51578603
     AllowedCaches:
