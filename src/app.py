@@ -156,6 +156,12 @@ def organizations():
     return _fix_unicode(render_template('organizations.html.j2', org_table=org_table))
 
 
+@app.route('/resources')
+def resources():
+
+    return render_template("resources.html.j2")
+
+
 @app.route("/collaborations/osg-scitokens-mapfile.conf")
 def collaborations_scitoken_text():
     """Dumps output of /bin/get-scitokens-mapfile --regex at a text endpoint"""
@@ -212,6 +218,23 @@ def miscproject_xml():
 def miscproject_json():
     projects = simplify_attr_list(global_data.get_projects()["Projects"]["Project"], namekey="Name", del_name=False)
     return Response(to_json_bytes(projects), mimetype='text/json')
+
+@app.route('/miscresource/json')
+@support_cors
+def miscresource_json():
+    resources = {}
+    topology = global_data.get_topology()
+    for rg in topology.rgs.values():
+        for resource in rg.resources_by_name.values():
+            resources[resource.name] = {
+                "Name": resource.name,
+                "Site": rg.site.name,
+                "Facility": rg.site.facility.name,
+                "ResourceGroup": rg.name,
+                **resource.get_tree()
+            }
+
+    return Response(to_json_bytes(resources), mimetype='text/json')
 
 @app.route('/vosummary/xml')
 def vosummary_xml():

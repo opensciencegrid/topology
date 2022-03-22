@@ -1,4 +1,4 @@
-FROM centos:centos8
+FROM quay.io/centos/centos:stream8
 
 LABEL maintainer="OSG Software <help@opensciencegrid.org>"
 LABEL name="OSG 3.5 OSG-Notify client"
