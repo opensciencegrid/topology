@@ -1,4 +1,5 @@
 import copy
+import re
 
 from collections import OrderedDict
 from logging import getLogger
@@ -28,11 +29,28 @@ class VOsData(object):
         if not filters:
             filters = Filters()
         expanded_vo_list = []
-        for vo_name in sorted(self.vos.keys(), key=lambda x: x.lower()):
+        for vo_name, vo_data in sorted(self.vos.items(), key=lambda x: x[0].lower()):
             try:
                 expanded_vo_data = self._expand_vo(vo_name, authorized=authorized, filters=filters)
+
+                # Add the regex pattern from the scitokens mapfile
+                if not is_null(vo_data, "Credentials", "TokenIssuers"):
+                    for index, token_issuer in enumerate(vo_data["Credentials"]["TokenIssuers"]):
+                        url = token_issuer.get("URL")
+                        subject = token_issuer.get("Subject", "")
+                        pattern = ""
+                        if url:
+                            if subject:
+                                pattern = f'/^{re.escape(url)},{re.escape(subject)}$/'
+                            else:
+                                pattern = f'/^{re.escape(url)},/'
+
+                        if pattern:
+                            expanded_vo_data["Credentials"]["TokenIssuers"]["TokenIssuer"][index]['Pattern'] = pattern
+
                 if expanded_vo_data:
                     expanded_vo_list.append(expanded_vo_data)
+
             except (KeyError, ValueError, AttributeError) as err:
                 log.exception("Problem with VO data for %s: %s", vo_name, err)
 
