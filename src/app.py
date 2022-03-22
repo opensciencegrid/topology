@@ -263,6 +263,26 @@ def rgdowntime_ical():
     return response
 
 
+@app.route("/cache-authfile")
+def cache_authfile():
+    return _get_cache_authfile(public_only=False)
+
+
+@app.route("/cache-authfile-public")
+def cache_authfile_public():
+    return _get_cache_authfile(public_only=True)
+
+
+@app.route("/scitokens-cache")
+def scitokens_cache():
+    return _get_origin_authfile(public_only=True)
+
+
+@app.route("/scitokens-origin")
+def scitokens_origin():
+    return _get_origin_authfile(public_only=False)
+
+
 @app.route("/stashcache/authfile")
 def authfile():
     return _get_cache_authfile(public_only=False)
