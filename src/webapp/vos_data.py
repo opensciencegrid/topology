@@ -1,12 +1,11 @@
 import copy
-import re
 
 from collections import OrderedDict
 from logging import getLogger
 from typing import Dict, List, Optional
 
 
-from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict
+from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape
 from .contacts_reader import ContactsData
 
 
@@ -41,9 +40,9 @@ class VOsData(object):
                         pattern = ""
                         if url:
                             if subject:
-                                pattern = f'/^{re.escape(url)},{re.escape(subject)}$/'
+                                pattern = f'/^{escape(url)},{escape(subject)}$/'
                             else:
-                                pattern = f'/^{re.escape(url)},/'
+                                pattern = f'/^{escape(url)},/'
 
                         if pattern:
                             expanded_vo_data["Credentials"]["TokenIssuers"]["TokenIssuer"][index]['Pattern'] = pattern
