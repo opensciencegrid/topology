@@ -1,4 +1,4 @@
-FROM opensciencegrid/software-base:release
+FROM opensciencegrid/software-base:3.6-el8-release
 
 # Install dependencies (application, Apache)
 RUN \
@@ -35,6 +35,11 @@ RUN echo "45 */6 * * * root /usr/sbin/fetch-crl -q -r 21600 -p 10" >  /etc/cron.
     echo "@reboot      root /usr/sbin/fetch-crl -q          -p 10" >> /etc/cron.d/fetch-crl && \
     echo "0 0 * * *    root /usr/bin/pkill -USR1 httpd"            >  /etc/cron.d/httpd
 
+
+# Set up Apache configuration
+# Remove default SSL config: default certs don't exist on EL8 so the
+# default vhost (that we don't use) causes httpd startup failures
+RUN rm /etc/httpd/conf.d/ssl.conf
 COPY docker/apache.conf /etc/httpd/conf.d/topology.conf
 COPY docker/supervisor-apache.conf /etc/supervisord.d/40-apache.conf
 

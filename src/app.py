@@ -14,11 +14,12 @@ import traceback
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
+
 
 try:
     import stashcache
@@ -154,6 +155,7 @@ def organizations():
 
     return _fix_unicode(render_template('organizations.html.j2', org_table=org_table))
 
+
 @app.route('/resources')
 def resources():
 
@@ -164,6 +166,42 @@ def resources():
 def collaboration_list():
 
     return render_template("collaborations.html.j2")
+
+
+@app.route("/collaborations/osg-scitokens-mapfile.conf")
+def collaborations_scitoken_text():
+    """Dumps output of /bin/get-scitokens-mapfile --regex at a text endpoint"""
+
+    mapfile = ""
+    all_vos_data = global_data.get_vos_data()
+
+    for vo_name, vo_data in all_vos_data.vos.items():
+        if is_null(vo_data, "Credentials", "TokenIssuers"):
+            continue
+        mapfile += f"## {vo_name} ##\n"
+        for token_issuer in vo_data["Credentials"]["TokenIssuers"]:
+            url = token_issuer.get("URL")
+            subject = token_issuer.get("Subject", "")
+            description = token_issuer.get("Description", "")
+            pattern = ""
+            if url:
+                if subject:
+                    pattern = f'/^{escape(url)},{escape(subject)}$/'
+                else:
+                    pattern = f'/^{escape(url)},/'
+            unix_user = token_issuer.get("DefaultUnixUser")
+            if description:
+                mapfile += f"# {description}:\n"
+            if pattern and unix_user:
+                mapfile += f"SCITOKENS {pattern} {unix_user}\n"
+            else:
+                mapfile += f"# invalid SCITOKENS: {pattern or '<NO URL>'} {unix_user or '<NO UNIX USER>'}\n"
+
+    if not mapfile:
+        mapfile += "# No TokenIssuers found\n"
+
+    return Response(mapfile, mimetype="text/plain")
+
 
 
 @app.route('/contacts')
@@ -678,7 +716,7 @@ if __name__ == '__main__':
     if "--auth" in sys.argv[1:]:
         default_authorized = True
     logging.basicConfig(level=logging.DEBUG)
-    app.run(debug=True, use_reloader=True, port=9000)
+    app.run(debug=True, use_reloader=True)
 else:
     root = logging.getLogger()
     root.addHandler(flask.logging.default_handler)

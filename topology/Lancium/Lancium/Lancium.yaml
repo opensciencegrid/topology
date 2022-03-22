@@ -25,3 +25,24 @@ Resources:
     Services:
       Execution Endpoint:
         Description: Lancium backfill containers
+  Lancium-LMF-Squid:
+    Active: true
+    Description: Squid service located at Lancium LMF datacenter
+    ID: 1270
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+      Security Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+      Site Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+    FQDN: portal.lancium.com
+    Services:
+      Squid:
+        Description: Generic squid service

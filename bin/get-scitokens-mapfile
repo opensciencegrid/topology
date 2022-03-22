@@ -9,11 +9,12 @@ import os
 import re
 import sys
 
+
 if __name__ == "__main__" and __package__ is None:
     _parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     sys.path.append(_parent + "/src")
 
-from webapp.common import is_null
+from webapp.common import is_null, escape
 import webapp.models
 
 from argparse import ArgumentParser
@@ -54,12 +55,12 @@ def main(argv):
             if url:
                 if subject:
                     if args.regex:
-                        pattern = f'/^{re.escape(url)},{re.escape(subject)}$/'
+                        pattern = f'/^{escape(url)},{escape(subject)}$/'
                     else:
                         pattern = f'"{url},{subject}"'
                 else:
                     if args.regex:
-                        pattern = f'/^{re.escape(url)},/'
+                        pattern = f'/^{escape(url)},/'
                     else:
                         pattern = f'"{url}"'
             unix_user = token_issuer.get("DefaultUnixUser")
