@@ -1,0 +1,134 @@
+{% set want_js = false %}
+{% extends "base.html.j2" %}
+{% block title -%}
+Resource Files
+{%- endblock %}
+{% block morehead %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+{% endblock %}
+{% block content %}
+
+<div class="container-xxl">
+    <h2>Resource Files</h2>
+    <div class="row">
+        <div class="col-12 col-xl-8 col-lg-10 col-md-12">
+            <div>
+                <div class="pb-2">
+                    <b>Search Specification:</b>
+                    <p>
+                        All data is indexed under a parent key ( ParentKey ) and under a child key
+                        ( ParentKey.IntermediateKey.ChildKey ).
+                        Parent keys are used to search all corresponding child data, child keys are used to search only
+                        their corresponding values.
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-auto">
+                        <b>Specific Field:</b>
+                        <ul>
+                            <li>Use: Column_Title:Search_Term</li>
+                            <li>Example: 'Site:AGLT2'</li>
+                        </ul>
+                    </div>
+                    <div class="col-auto">
+                        <b>Wild Cards:</b>
+                        <ul>
+                            <li>Use: Search_Term*</li>
+                            <li>Example: 'Name:AGLT2*'</li>
+                        </ul>
+                    </div>
+                    <div class="col-auto">
+                        <b>Fuzzy Match:</b>
+                        <ul>
+                            <li>Use: Search_Term~Fuzziness</li>
+                            <li>Example: 'AGLT4~1'</li>
+                        </ul>
+                    </div>
+                    <div class="col-auto">
+                        <b>Logical AND:</b>
+                        <ul>
+                            <li>Use: +Search_Term</li>
+                            <li>Example: '+Active:False +ResourceGroup:CHTC'</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="d-block d-sm-none">
+                <b>Tap on a card to view project details.</b>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-2">
+    <div class="row">
+        <div class="col-12 col-xl-7 col-lg-8 col-md-10">
+            <p id="search-error" class="text-danger"></p>
+            <input list="search-history" class="form-control" id="search" placeholder="Search Resources => Hit Enter to Save Search" type="search"/>
+            <datalist id="search-history"></datalist>
+        </div>
+    </div>
+</div>
+<div class="container-xxl">
+    <div id="wrapper">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div class="spinner-border m-auto" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="file-card-template" class="card mb-2" hidden>
+    <div class="card-body">
+        <h2 class="Name">Resource Name</h2>
+        <hr>
+        <div class="CacheAuthfile" hidden>
+            <h4 class="mb-0 py-2">Cache Authfile</h4>
+            <div class="bg-light rounded p-2 position-relative">
+                <button class="btn btn-dark me-4 mt-3 position-absolute top-0 end-0">Copy</button>
+                <textarea rows="5" class="w-100" readonly></textarea>
+            </div>
+        </div>
+        <div class="CacheAuthfilePublic" hidden>
+            <div class="row align-items-center py-2">
+                <h4 class="mb-0">Cache Authfile Public</h4>
+            </div>
+            <div class="bg-light rounded p-2 position-relative">
+                <button class="btn btn-dark me-4 mt-3 position-absolute top-0 end-0">Copy</button>
+                <textarea rows="5" class="w-100" readonly></textarea>
+            </div>
+        </div>
+        <div class="ScitokensCache" hidden>
+            <div class="row align-items-center py-2">
+                <h4 class="mb-0">Scitokens Cache</h4>
+            </div>
+            <div class="bg-light rounded p-2 position-relative">
+                <button class="btn btn-dark me-4 mt-3 position-absolute top-0 end-0">Copy</button>
+                <textarea rows="5" class="w-100" readonly></textarea>
+            </div>
+        </div>
+        <div class="ScitokensOrigin" hidden>
+            <div class="row align-items-center py-2">
+                <h4 class="mb-0">Scitokens Origin</h4>
+            </div>
+            <div class="bg-light rounded p-2 position-relative">
+                <button class="btn btn-dark me-4 mt-3 position-absolute top-0 end-0">Copy</button>
+                <textarea rows="5" class="w-100" readonly></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+{% block last %}
+<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script type="module" src="/static/js/pages/resource_files.js" async></script>
+{% endblock %}
