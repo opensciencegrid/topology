@@ -275,6 +275,28 @@ def rgdowntime_ical():
     response.headers.set("Content-Disposition", "attachment", filename="downtime.ics")
     return response
 
+@app.route('/resources/stashcache-files')
+@support_cors
+def resources_stachcache_files():
+    resource_files = {}
+    topology = global_data.get_topology()
+    for rg in topology.rgs.values():
+        for resource in rg.resources_by_name.values():
+            stashcache_files = resource.get_stashcache_files(global_data, app.config["STASHCACHE_LEGACY_AUTH"])
+
+            if not stashcache_files:
+                continue
+
+            resource_files[resource.name] = {
+                **stashcache_files
+            }
+
+    return Response(to_json_bytes(resource_files), mimetype='application/json')
+
+@app.route("/resource-files")
+def resource_files():
+
+    return render_template("resource_files.html.j2")
 
 @app.route("/cache-authfile")
 def cache_authfile():
@@ -736,7 +758,7 @@ if __name__ == '__main__':
     if "--auth" in sys.argv[1:]:
         default_authorized = True
     logging.basicConfig(level=logging.DEBUG)
-    app.run(debug=True, use_reloader=True)
+    app.run(debug=True, use_reloader=True, port=9000)
 else:
     root = logging.getLogger()
     root.addHandler(flask.logging.default_handler)
