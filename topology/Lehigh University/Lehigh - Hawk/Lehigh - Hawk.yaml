@@ -1,0 +1,58 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: "NSF Award ID 2019035 Computing Cluster. Details at https://go.lehigh.edu/hawkcluster"
+GroupID: 1114
+Resources:
+  LEHIGH-HAWK-CE:
+    Active: true
+    Description: This is a Compute Entrypoint for Lehigh - Hawk.
+    ID: 1144
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Steve Anthony
+          ID: 645c812a45f16e7877bfd9e8bf76b81a45481a95
+        Secondary:
+          Name: Alexander Pacheco
+          ID: a7beccb1e82a15ba242882957beaca03aff86c33
+      Security Contact:
+        Primary:
+          Name: Steve Anthony
+          ID: 645c812a45f16e7877bfd9e8bf76b81a45481a95
+        Secondary:
+          Name: James Vincent
+          ID: db7cd4f29b79bdf8ff078a13f51378a67c11af34
+        Tertiary:
+          Name: Alexander Pacheco
+          ID: a7beccb1e82a15ba242882957beaca03aff86c33
+    FQDN: osg-hawk-ce.cc.lehigh.edu
+    Services:
+      CE: 
+        Description: Lehigh CE
+    Tags:
+      - CC*
+  LEHIGH-HAWK-FRONTIER-SQUID:
+    Active: true
+    Description: CNAME DNS alias for our one Frontier Squid nodes.
+    ID: 1149
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Steve Anthony
+          ID: 645c812a45f16e7877bfd9e8bf76b81a45481a95
+      Security Contact:
+        Primary:
+          Name: Steve Anthony
+          ID: 645c812a45f16e7877bfd9e8bf76b81a45481a95
+        Secondary:
+          Name: James Vincent
+          ID: db7cd4f29b79bdf8ff078a13f51378a67c11af34
+        Tertiary:
+          Name: Alexander Pacheco
+          ID: a7beccb1e82a15ba242882957beaca03aff86c33
+    FQDN: osg-squid.cc.lehigh.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: false

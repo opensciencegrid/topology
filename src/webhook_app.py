@@ -15,8 +15,10 @@ import sys
 
 from webapp import default_config
 from webapp import webhook_status_messages
+from webapp.common import readfile
 from webapp.github import GitHubAuth
 from webapp.models import GlobalData
+from webapp.automerge_check import reportable_errors, rejectable_errors
 
 
 app = Flask(__name__)
@@ -37,23 +39,13 @@ src_dir = os.path.abspath(os.path.dirname(__file__))
 _required_base_ref = global_data.webhook_data_branch
 _required_base_label = "%s:%s" % (_required_repo_owner, _required_base_ref)
 
-def _readfile(path):
-    """ return stripped file contents, or None on errors """
-    if path:
-        try:
-            with open(path, mode="rb") as f:
-                return f.read().strip()
-        except IOError as e:
-            app.logger.error("Failed to read file '%s': %s" % (path, e))
-            return None
-
-webhook_secret = _readfile(global_data.webhook_secret_key)
+webhook_secret = readfile(global_data.webhook_secret_key, app.logger)
 if not webhook_secret:
     app.logger.warning("Note, no WEBHOOK_SECRET_KEY configured; "
                        "GitHub payloads will not be validated.")
 
 gh_api_user = global_data.webhook_gh_api_user
-gh_api_token = _readfile(global_data.webhook_gh_api_token).decode()
+gh_api_token = readfile(global_data.webhook_gh_api_token, app.logger).decode()
 if gh_api_user and gh_api_token:
     ghauth = GitHubAuth(gh_api_user, gh_api_token, app.logger)
     ghrepo = ghauth.target_repo(_required_repo_owner, _required_repo_name)
@@ -115,66 +107,76 @@ def get_webhook_pr_state(sha, num='*'):
     else:
         return None, None
 
-@app.route("/status", methods=["GET", "POST"])
-def status_hook():
+@app.route("/check_suite", methods=["GET", "POST"])
+def check_suite_hook():
     if not validate_request_signature(request):
         return Response("Bad X-Hub-Signature", status=400)
 
     event = request.headers.get('X-GitHub-Event')
     if event == "ping":
         return Response('Pong')
-    elif event != "status":
-        app.logger.debug("Ignoring non-status hook of type '%s'" % event)
+    elif event != "check_suite":
+        app.logger.debug("Ignoring non-check_suite hook of type '%s'" % event)
         return Response("Wrong event type", status=400)
 
     payload = request.get_json()
+    action = payload and payload.get('action')
+    if action not in ("completed",):
+        app.logger.info("Ignoring check_suite hook action '%s'" % action)
+        return Response("Not Interested")
     try:
-        head_sha = payload['sha']
+        check_suite = payload['check_suite']
+        head_sha = check_suite['head_sha']
         repo = payload['repository']
-        owner = repo['owner']['login'] # 'opensciencegrid'
-        reponame = repo['name']        # 'topology'
-        context = payload['context']   # 'continuous-integration/travis-ci/push'
-        ci_state = payload['state']    # 'success' ...
-        target_url = payload.get('target_url')  # travis build url
+        owner = repo['owner']['login']          # 'opensciencegrid'
+        reponame = repo['name']                 # 'topology'
+        app_name = check_suite['app']['name']   # 'GitHub Actions'
+        conclusion = check_suite['conclusion']  # 'success' ...
     except (TypeError, KeyError) as e:
-        emsg = "Malformed payload for status hook: %s" % e
+        emsg = "Malformed payload for check_suite hook: %s" % e
         app.logger.error(emsg)
         return Response(emsg, status=400)
-    app.logger.debug("Got status hook '%s' for '%s'" % (ci_state, head_sha))
+    app.logger.debug("Got check_suite hook '%s' for '%s'"
+                     % (conclusion, head_sha))
 
-    valid_contexts = ( 'continuous-integration/travis-ci/pr',
-                       'continuous-integration/travis-ci/push' )
-    if context not in valid_contexts:
-        app.logger.info("Ignoring non-travis status hook for '%s'" % context)
-        return Response("Not Interested; context was '%s'" % context)
+    if app_name != 'GitHub Actions':
+        app.logger.info("Ignoring non-GHA check_suite hook for '%s'"
+                        % app_name)
+        return Response("Not Interested; app_name was '%s'" % app_name)
 
     if owner != _required_repo_owner or reponame != _required_repo_name:
-        app.logger.info("Ignoring status hook repo '%s/%s'"
+        app.logger.info("Ignoring check_suite hook repo '%s/%s'"
                         % (owner, reponame))
         return Response("Not Interested; repo was '%s/%s'" % (owner, reponame))
 
     pr_webhook_state, pull_num = get_webhook_pr_state(head_sha)
     if pr_webhook_state is None or len(pr_webhook_state) != 4:
-        app.logger.info("Got travis '%s' status hook for commit %s;\n"
+        app.logger.info("Got %s '%s' check_suite hook for commit %s;\n"
                 "not merging as No PR automerge info available"
-                % (ci_state, head_sha))
+                % (app_name, conclusion, head_sha))
         return Response("No PR automerge info available for %s" % head_sha)
 
     pr_dt_automerge_ret, base_sha, head_label, sender = pr_webhook_state
     if re.search(r'^-?\d+$', pr_dt_automerge_ret):
         pr_dt_automerge_ret = int(pr_dt_automerge_ret)
 
-    if pr_dt_automerge_ret == 0 and ci_state in ('error', 'failure'):
-        body = webhook_status_messages.ci_failure.format(**locals())
+    if pr_dt_automerge_ret == 0 and conclusion != 'success':
+        if conclusion == 'action_required':
+            osg_bot_msg = webhook_status_messages.ci_action_required
+        else:
+            osg_bot_msg = webhook_status_messages.ci_failure
+        body = osg_bot_msg.format(**locals())
         publish_pr_review(pull_num, body, 'COMMENT', head_sha)
 
-    if ci_state != 'success':
-        app.logger.info("Ignoring travis '%s' status hook" % ci_state)
-        return Response("Not interested; CI state was '%s'" % ci_state)
+    if conclusion != 'success':
+        app.logger.info("Ignoring %s '%s' check_suite hook" %
+                        (app_name, conclusion))
+        return Response("Not interested; check suite conclusion was '%s'"
+                        % conclusion)
 
     if pr_dt_automerge_ret == 0:
-        app.logger.info("Got travis success status hook for commit %s;\n"
-                "eligible for DT automerge" % head_sha)
+        app.logger.info("Got %s success check_suite hook for commit %s;\n"
+                "eligible for DT automerge" % (app_name, head_sha))
         body = None
         publish_pr_review(pull_num, body, 'APPROVE', head_sha)
         title = "Auto-merge Downtime PR #{pull_num} from {head_label}" \
@@ -187,8 +189,8 @@ def status_hook():
         body = osg_bot_msg.format(**locals())
         publish_issue_comment(pull_num, body)
     else:
-        app.logger.info("Got travis success status hook for commit %s;\n"
-                "not eligible for DT automerge" % head_sha)
+        app.logger.info("Got %s success check_suite hook for commit %s;\n"
+                "not eligible for DT automerge" % (app_name, head_sha))
 
     return Response('Thank You')
 
@@ -247,7 +249,7 @@ def pull_request_hook():
 
     global_data.update_webhook_repo()
 
-    script = src_dir + "/tests/automerge_downtime_ok.py"
+    script = src_dir + "/webapp/automerge_check.py"
     headmerge_sha = "%s:%s" % (head_sha, merge_sha) if mergeable else head_sha
     cmd = [script, base_sha, headmerge_sha, sender]
     stdout, stderr, ret = runcmd(cmd, cwd=global_data.webhook_data_dir)
@@ -256,10 +258,11 @@ def pull_request_hook():
     set_webhook_pr_state(pull_num, head_sha, webhook_state)
 
     # only comment on errors if DT files modified or contact unknown
-    if 0 < ret <= 3:
+    if ret in reportable_errors:
         osg_bot_msg = webhook_status_messages.automerge_status_messages[ret]
         body = osg_bot_msg.format(**locals())
-        publish_pr_review(pull_num, body, 'COMMENT', head_sha)
+        action = 'REQUEST_CHANGES' if ret in rejectable_errors else 'COMMENT'
+        publish_pr_review(pull_num, body, action, head_sha)
 
     return Response('Thank You')
 

@@ -1,0 +1,27 @@
+GroupDescription: Resources in the Georgia Tech's H. Milton Stewart
+  School of Industrial and Systems Engineering
+GroupID: 1147
+Production: true
+Resources:
+  Georgia_Tech_ISyE_hps0403:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 289991d7de7b53e4091504ffc3ed4ce43cefdefa
+          Name: Kelley Byron Ross
+      Security Contact:
+        Primary:
+          ID: 289991d7de7b53e4091504ffc3ed4ce43cefdefa
+          Name: Kelley Byron Ross
+    Description: Georgia Tech ISyE submit node
+    FQDN: isye-hps0403.isye.gatech.edu
+    ID: 1269
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+SupportCenter: Self Supported

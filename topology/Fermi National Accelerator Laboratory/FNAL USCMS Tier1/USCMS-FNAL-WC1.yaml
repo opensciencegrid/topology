@@ -88,33 +88,8 @@ Resources:
           endpoint: psonar4.fnal.gov
     VOOwnership:
       Fermilab: 100
-  USCMS PerfSonar IPV6 Test:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
-          Name: Darryl K Wohlt
-      Miscellaneous Contact:
-        Primary:
-          ID: d15cab2ba1421aca11ec451ae36a771822db0778
-          Name: Burt Holzman
-      Resource Report Contact:
-        Primary:
-          ID: 86d6367e268ad10200b21b1a85f114e758052fcb
-          Name: Darryl K Wohlt
-    Description: This is a PerfSonar dual stack instance
-    FQDN: psonartest1.fnal.gov
-    ID: 744
-    Services:
-      net.perfSONAR.Bandwidth:
-        Description: PerfSonar Bandwidth monitoring node
-        Details:
-          endpoint: psonartest1.fnal.gov
-    VOOwnership:
-      Fermilab: 100
   USCMS-FNAL-WC1-CE:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -123,17 +98,6 @@ Resources:
         Secondary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
-      Miscellaneous Contact:
-        Primary:
-          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-          Name: David Alexander Mason
-        Tertiary:
-          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
-          Name: Farrukh Aftab Khan
-      Resource Report Contact:
-        Secondary:
-          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-          Name: David Alexander Mason
       Security Contact:
         Secondary:
           ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
@@ -175,13 +139,6 @@ Resources:
         Secondary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
-      Miscellaneous Contact:
-        Primary:
-          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-          Name: David Alexander Mason
-        Tertiary:
-          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
-          Name: Farrukh Aftab Khan
       Security Contact:
         Secondary:
           ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
@@ -222,17 +179,6 @@ Resources:
         Secondary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
-      Miscellaneous Contact:
-        Primary:
-          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-          Name: David Alexander Mason
-        Tertiary:
-          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
-          Name: Farrukh Aftab Khan
-      Resource Report Contact:
-        Secondary:
-          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-          Name: David Alexander Mason
       Security Contact:
         Secondary:
           ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
@@ -268,17 +214,6 @@ Resources:
         Secondary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
-      Miscellaneous Contact:
-        Primary:
-          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-          Name: David Alexander Mason
-        Tertiary:
-          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
-          Name: Farrukh Aftab Khan
-      Resource Report Contact:
-        Secondary:
-          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-          Name: David Alexander Mason
       Security Contact:
         Secondary:
           ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
@@ -316,10 +251,6 @@ Resources:
         Secondary:
           ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
           Name: Farrukh Aftab Khan
-      Miscellaneous Contact:
-        Tertiary:
-          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
-          Name: Farrukh Aftab Khan
     Description: Gatekeeper for Opportunistic usage at the FNAL CMS Tier-1
     FQDN: cmsosgce-opp1.fnal.gov
     ID: 934
@@ -337,15 +268,8 @@ Resources:
         Secondary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
-      Miscellaneous Contact:
-        Primary:
-          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-          Name: David Alexander Mason
-        Secondary:
-          ID: ae2bc50d651cb793a15bfce35c6717988715f519
-          Name: Chih-Hao Huang
     Description: This is the tape dCache SE at the USCMS Tier 1
-    FQDN: cmsdcatape01.fnal.gov
+    FQDN: cmsdcatape.fnal.gov
     ID: 236
     Services:
       FTS:
@@ -375,15 +299,8 @@ Resources:
         Secondary:
           ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
           Name: Anthony Tiradani
-      Miscellaneous Contact:
-        Primary:
-          ID: fbc689042bf0b68df85561edb1a1fb33e1c799a3
-          Name: David Alexander Mason
-        Secondary:
-          ID: ae2bc50d651cb793a15bfce35c6717988715f519
-          Name: Chih-Hao Huang
     Description: This is the disk dCache SE at the USCMS Tier 1
-    FQDN: cmsdcadisk01.fnal.gov
+    FQDN: cmsdcadisk.fnal.gov
     ID: 979
     Services:
       FTS:
@@ -405,5 +322,24 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 24000
       StorageCapacityMin: 24000
-      TapeCapacity: 0
+      TapeCapacity: 0      
+  USCMS-FNAL-WC1-SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: e2799203e652f11e24de11fcf85b7e8d2b1783f7
+          Name: HYUNWOO KIM
+      Security Contact:
+        Primary:
+          ID: e2799203e652f11e24de11fcf85b7e8d2b1783f7
+          Name: HYUNWOO KIM
+    Description: squid service for cms frontier
+    FQDN: cmsfrontiers.fnal.gov
+    ID: 1006
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      Fermilab: 100
 SupportCenter: USCMS

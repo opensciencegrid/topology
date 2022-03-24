@@ -1,29 +1,7 @@
-Disable: false
 GroupDescription: Belle2 Computing
 GroupID: 349
 Production: true
 Resources:
-  PNNL VOMS Server:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: bd63318d24aabd1e9ebf59d6060c73703cd8a9e2
-          Name: David Earl Cowley
-      Security Contact:
-        Primary:
-          ID: bd63318d24aabd1e9ebf59d6060c73703cd8a9e2
-          Name: David Earl Cowley
-    Description: This is a VOMS server filling multiple roles.  For the Belle VO,
-      it provides a replica of the primary VOMS server at KEK (https://voms.cc.kek.jp:8443/voms/belle/).
-    Disable: false
-    FQDN: voms.hep.pnnl.gov
-    ID: 879
-    Services:
-      VOMS Server:
-        Description: VOMS Server
-    VOOwnership:
-      Belle: 33
   PNNL_BelleII_SE:
     Active: true
     ContactLists:
@@ -36,7 +14,6 @@ Resources:
           ID: c4df94d16cbe5aefb61bac44706452f823118d1c
           Name: Malachi Schram
     Description: SE on dedicated 10Gbps link
-    Disable: false
     FQDN: se.hep.pnnl.gov
     ID: 663
     Services:
@@ -67,17 +44,6 @@ Resources:
         Secondary:
           ID: bd63318d24aabd1e9ebf59d6060c73703cd8a9e2
           Name: David Earl Cowley
-      Miscellaneous Contact:
-        Primary:
-          ID: 2a8aca82441496abd0f52fb71cdcdb4b14804655
-          Name: Kevin M Fox
-      Resource Report Contact:
-        Primary:
-          ID: c4df94d16cbe5aefb61bac44706452f823118d1c
-          Name: Malachi Schram
-        Secondary:
-          ID: bd63318d24aabd1e9ebf59d6060c73703cd8a9e2
-          Name: David Earl Cowley
       Security Contact:
         Primary:
           ID: c4df94d16cbe5aefb61bac44706452f823118d1c
@@ -86,7 +52,6 @@ Resources:
           ID: 4ee02f98a9c6249988a2800dfb65a686fbec7c94
           Name: Gary Robert Smith
     Description: perfSONAR bandwidth node for Belle II mesh
-    Disable: false
     FQDN: ps-bandwidth.hep.pnnl.gov
     ID: 717
     Services:
@@ -106,17 +71,6 @@ Resources:
         Secondary:
           ID: bd63318d24aabd1e9ebf59d6060c73703cd8a9e2
           Name: David Earl Cowley
-      Miscellaneous Contact:
-        Primary:
-          ID: 2a8aca82441496abd0f52fb71cdcdb4b14804655
-          Name: Kevin M Fox
-      Resource Report Contact:
-        Primary:
-          ID: c4df94d16cbe5aefb61bac44706452f823118d1c
-          Name: Malachi Schram
-        Secondary:
-          ID: bd63318d24aabd1e9ebf59d6060c73703cd8a9e2
-          Name: David Earl Cowley
       Security Contact:
         Primary:
           ID: c4df94d16cbe5aefb61bac44706452f823118d1c
@@ -125,7 +79,6 @@ Resources:
           ID: 4ee02f98a9c6249988a2800dfb65a686fbec7c94
           Name: Gary Robert Smith
     Description: perSONAR latency node for Belle II mesh
-    Disable: false
     FQDN: ps-latency.hep.pnnl.gov
     ID: 716
     Services:

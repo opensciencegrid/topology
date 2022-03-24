@@ -85,6 +85,13 @@
                               </xsd:sequence>
                             </xsd:complexType>
                           </xsd:element>
+                          <xsd:element name="Tags">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element minOccurs="0" maxOccurs="unbounded" name="Tag" type="xsd:string" />
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
                           <xsd:element minOccurs="0" name="RSVStatus">
                             <xsd:complexType>
                               <xsd:sequence>
@@ -159,6 +166,7 @@
                                               <xsd:complexType>
                                                 <xsd:sequence>
                                                   <xsd:element minOccurs="0" name="Name" type="xsd:string" />
+                                                  <xsd:element minOccurs="0" name="CILogonID" type="xsd:string" />
                                                   <xsd:element minOccurs="0" name="Email" type="xsd:string" />
                                                   <xsd:element minOccurs="0" name="Phone" type="xsd:string" />
                                                   <xsd:element minOccurs="0" name="SMSAddress" type="xsd:string" />

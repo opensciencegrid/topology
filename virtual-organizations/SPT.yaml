@@ -46,14 +46,9 @@ ID: 124
 LongName: South Pole Telescope
 MembershipServicesURL: https://spt-mgt.grid.uchicago.edu:8443/voms/SPT
 OASIS:
-  Managers:
-    Nathan Whitehorn:
-      DNs: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Nathan Whitehorn
-        3937
-      ID: d7ebadcbca04bf37b33f6183bea3245431eedf38
   OASISRepoURLs:
-  - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/spt.opensciencegrid.org
-  UseOASIS: true
+    - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/spt.opensciencegrid.org
+  UseOASIS: false
 PrimaryURL: http://pole.uchicago.edu
 ReportingGroups:
 - SPT

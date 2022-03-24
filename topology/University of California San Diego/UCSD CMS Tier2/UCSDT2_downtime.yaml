@@ -553,3 +553,619 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 205280881
+  Description: Down for PDU maintenance
+  Severity: Outage
+  StartTime: Apr 17, 2019 15:00 +0000
+  EndTime: Apr 18, 2019 15:00 +0000
+  CreatedTime: Apr 17, 2019 14:08 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 205280882
+  Description: Down for PDU maintenance
+  Severity: Outage
+  StartTime: Apr 17, 2019 15:00 +0000
+  EndTime: Apr 18, 2019 15:00 +0000
+  CreatedTime: Apr 17, 2019 14:08 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 205280883
+  Description: Down for PDU maintenance
+  Severity: Outage
+  StartTime: Apr 17, 2019 15:00 +0000
+  EndTime: Apr 18, 2019 15:00 +0000
+  CreatedTime: Apr 17, 2019 14:08 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 205280884
+  Description: Down for PDU maintenance
+  Severity: Outage
+  StartTime: Apr 17, 2019 15:00 +0000
+  EndTime: Apr 18, 2019 15:00 +0000
+  CreatedTime: Apr 17, 2019 14:08 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 205280885
+  Description: Down for PDU maintenance
+  Severity: Outage
+  StartTime: Apr 17, 2019 15:00 +0000
+  EndTime: Apr 18, 2019 15:00 +0000
+  CreatedTime: Apr 17, 2019 14:08 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 212440865
+  Description: Did not come up cleanly on last downtime
+  Severity: Outage
+  StartTime: Apr 25, 2019 21:00 +0000
+  EndTime: Apr 30, 2019 00:00 +0000
+  CreatedTime: Apr 25, 2019 21:01 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 241752795
+  Description: Replacing fautly breaker in PDU
+  Severity: Outage
+  StartTime: May 30, 2019 13:00 +0000
+  EndTime: May 31, 2019 13:00 +0000
+  CreatedTime: May 29, 2019 19:14 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 241752796
+  Description: Replacing fautly breaker in PDU
+  Severity: Outage
+  StartTime: May 30, 2019 13:00 +0000
+  EndTime: May 31, 2019 13:00 +0000
+  CreatedTime: May 29, 2019 19:14 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 241752797
+  Description: Replacing fautly breaker in PDU
+  Severity: Outage
+  StartTime: May 30, 2019 13:00 +0000
+  EndTime: May 31, 2019 13:00 +0000
+  CreatedTime: May 29, 2019 19:14 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 241752798
+  Description: Replacing fautly breaker in PDU
+  Severity: Outage
+  StartTime: May 30, 2019 13:00 +0000
+  EndTime: May 31, 2019 13:00 +0000
+  CreatedTime: May 29, 2019 19:14 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 241752799
+  Description: Replacing fautly breaker in PDU
+  Severity: Outage
+  StartTime: May 30, 2019 13:00 +0000
+  EndTime: May 31, 2019 13:00 +0000
+  CreatedTime: May 29, 2019 19:14 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 265750641
+  Description: Down for hadoop upgrade
+  Severity: Outage
+  StartTime: Jun 27, 2019 16:00 +0000
+  EndTime: Jun 29, 2019 01:00 +0000
+  CreatedTime: Jun 26, 2019 13:51 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 265750642
+  Description: Down for hadoop upgrade
+  Severity: Outage
+  StartTime: Jun 27, 2019 16:00 +0000
+  EndTime: Jun 29, 2019 01:00 +0000
+  CreatedTime: Jun 26, 2019 13:51 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 265750643
+  Description: Down for hadoop upgrade
+  Severity: Outage
+  StartTime: Jun 27, 2019 16:00 +0000
+  EndTime: Jun 29, 2019 01:00 +0000
+  CreatedTime: Jun 26, 2019 13:51 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 265750644
+  Description: Down for hadoop upgrade
+  Severity: Outage
+  StartTime: Jun 27, 2019 16:00 +0000
+  EndTime: Jun 29, 2019 01:00 +0000
+  CreatedTime: Jun 26, 2019 13:51 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 265750645
+  Description: Down for hadoop upgrade
+  Severity: Outage
+  StartTime: Jun 27, 2019 16:00 +0000
+  EndTime: Jun 29, 2019 01:00 +0000
+  CreatedTime: Jun 26, 2019 13:51 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 344439216
+  Description: Down to work on cooling system
+  Severity: Outage
+  StartTime: Sep 26, 2019 13:30 +0000
+  EndTime: Sep 27, 2019 13:30 +0000
+  CreatedTime: Sep 25, 2019 15:38 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 344439217
+  Description: Down to work on cooling system
+  Severity: Outage
+  StartTime: Sep 26, 2019 13:30 +0000
+  EndTime: Sep 27, 2019 13:30 +0000
+  CreatedTime: Sep 25, 2019 15:38 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 344439218
+  Description: Down to work on cooling system
+  Severity: Outage
+  StartTime: Sep 26, 2019 13:30 +0000
+  EndTime: Sep 27, 2019 13:30 +0000
+  CreatedTime: Sep 25, 2019 15:38 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 344439219
+  Description: Down to work on cooling system
+  Severity: Outage
+  StartTime: Sep 26, 2019 13:30 +0000
+  EndTime: Sep 27, 2019 13:30 +0000
+  CreatedTime: Sep 25, 2019 15:38 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 344439220
+  Description: Down to work on cooling system
+  Severity: Outage
+  StartTime: Sep 26, 2019 13:30 +0000
+  EndTime: Sep 27, 2019 13:30 +0000
+  CreatedTime: Sep 25, 2019 15:38 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 437146484
+  Description: water cooling system maintenance
+  Severity: Outage
+  StartTime: Jan 15, 2020 20:00 +0000
+  EndTime: Jan 16, 2020 20:00 +0000
+  CreatedTime: Jan 10, 2020 21:50 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 437146485
+  Description: water cooling system maintenance
+  Severity: Outage
+  StartTime: Jan 15, 2020 20:00 +0000
+  EndTime: Jan 16, 2020 20:00 +0000
+  CreatedTime: Jan 10, 2020 21:50 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 437146486
+  Description: water cooling system maintenance
+  Severity: Outage
+  StartTime: Jan 15, 2020 20:00 +0000
+  EndTime: Jan 16, 2020 20:00 +0000
+  CreatedTime: Jan 10, 2020 21:50 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 437146487
+  Description: water cooling system maintenance
+  Severity: Outage
+  StartTime: Jan 15, 2020 20:00 +0000
+  EndTime: Jan 16, 2020 20:00 +0000
+  CreatedTime: Jan 10, 2020 21:50 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 437146488
+  Description: water cooling system maintenance
+  Severity: Outage
+  StartTime: Jan 15, 2020 20:00 +0000
+  EndTime: Jan 16, 2020 20:00 +0000
+  CreatedTime: Jan 10, 2020 21:50 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507060150
+  Description: Network outage to UCSDT2
+  Severity: Outage
+  StartTime: Mar 31, 2020 21:00 +0000
+  EndTime: Apr 02, 2020 21:00 +0000
+  CreatedTime: Mar 31, 2020 20:53 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507060151
+  Description: Network outage to UCSDT2
+  Severity: Outage
+  StartTime: Mar 31, 2020 21:00 +0000
+  EndTime: Apr 02, 2020 21:00 +0000
+  CreatedTime: Mar 31, 2020 20:53 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507060152
+  Description: Network outage to UCSDT2
+  Severity: Outage
+  StartTime: Mar 31, 2020 21:00 +0000
+  EndTime: Apr 02, 2020 21:00 +0000
+  CreatedTime: Mar 31, 2020 20:53 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507060153
+  Description: Network outage to UCSDT2
+  Severity: Outage
+  StartTime: Mar 31, 2020 21:00 +0000
+  EndTime: Apr 02, 2020 21:00 +0000
+  CreatedTime: Mar 31, 2020 20:53 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507060154
+  Description: Network outage to UCSDT2
+  Severity: Outage
+  StartTime: Mar 31, 2020 21:00 +0000
+  EndTime: Apr 02, 2020 21:00 +0000
+  CreatedTime: Mar 31, 2020 20:53 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 629544994
+  Description: Cooling failures
+  Severity: Outage
+  StartTime: Aug 20, 2020 15:00 +0000
+  EndTime: Aug 22, 2020 01:00 +0000
+  CreatedTime: Aug 20, 2020 15:14 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 629544995
+  Description: Cooling failures
+  Severity: Outage
+  StartTime: Aug 20, 2020 15:00 +0000
+  EndTime: Aug 22, 2020 01:00 +0000
+  CreatedTime: Aug 20, 2020 15:14 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 629544996
+  Description: Cooling failures
+  Severity: Outage
+  StartTime: Aug 20, 2020 15:00 +0000
+  EndTime: Aug 22, 2020 01:00 +0000
+  CreatedTime: Aug 20, 2020 15:14 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 629544997
+  Description: Cooling failures
+  Severity: Outage
+  StartTime: Aug 20, 2020 15:00 +0000
+  EndTime: Aug 22, 2020 01:00 +0000
+  CreatedTime: Aug 20, 2020 15:14 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 629544998
+  Description: Cooling failures
+  Severity: Outage
+  StartTime: Aug 20, 2020 15:00 +0000
+  EndTime: Aug 22, 2020 01:00 +0000
+  CreatedTime: Aug 20, 2020 15:14 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 665802774
+  Description: Power maintenance
+  Severity: Outage
+  StartTime: Oct 01, 2020 16:00 +0000
+  EndTime: Oct 01, 2020 20:00 +0000
+  CreatedTime: Oct 01, 2020 14:24 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 665802775
+  Description: Power maintenance
+  Severity: Outage
+  StartTime: Oct 01, 2020 16:00 +0000
+  EndTime: Oct 01, 2020 20:00 +0000
+  CreatedTime: Oct 01, 2020 14:24 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 665802776
+  Description: Power maintenance
+  Severity: Outage
+  StartTime: Oct 01, 2020 16:00 +0000
+  EndTime: Oct 01, 2020 20:00 +0000
+  CreatedTime: Oct 01, 2020 14:24 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 665802777
+  Description: Power maintenance
+  Severity: Outage
+  StartTime: Oct 01, 2020 16:00 +0000
+  EndTime: Oct 01, 2020 20:00 +0000
+  CreatedTime: Oct 01, 2020 14:24 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 665802778
+  Description: Power maintenance
+  Severity: Outage
+  StartTime: Oct 01, 2020 16:00 +0000
+  EndTime: Oct 01, 2020 20:00 +0000
+  CreatedTime: Oct 01, 2020 14:24 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 766089747
+  Description: Prepping for new hardware installs
+  Severity: Outage
+  StartTime: Jan 25, 2021 17:00 +0000
+  EndTime: Jan 26, 2021 01:00 +0000
+  CreatedTime: Jan 25, 2021 15:09 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 766089748
+  Description: Prepping for new hardware installs
+  Severity: Outage
+  StartTime: Jan 25, 2021 17:00 +0000
+  EndTime: Jan 26, 2021 01:00 +0000
+  CreatedTime: Jan 25, 2021 15:09 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 766089749
+  Description: Prepping for new hardware installs
+  Severity: Outage
+  StartTime: Jan 25, 2021 17:00 +0000
+  EndTime: Jan 26, 2021 01:00 +0000
+  CreatedTime: Jan 25, 2021 15:09 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 766089750
+  Description: Prepping for new hardware installs
+  Severity: Outage
+  StartTime: Jan 25, 2021 17:00 +0000
+  EndTime: Jan 26, 2021 01:00 +0000
+  CreatedTime: Jan 25, 2021 15:09 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 766089751
+  Description: Prepping for new hardware installs
+  Severity: Outage
+  StartTime: Jan 25, 2021 17:00 +0000
+  EndTime: Jan 26, 2021 01:00 +0000
+  CreatedTime: Jan 25, 2021 15:09 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 835904708
+  Description: Cooling failure
+  Severity: Outage
+  StartTime: Apr 16, 2021 16:00 +0000
+  EndTime: Apr 19, 2021 15:00 +0000
+  CreatedTime: Apr 16, 2021 16:27 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 835904709
+  Description: Cooling failure
+  Severity: Outage
+  StartTime: Apr 16, 2021 16:00 +0000
+  EndTime: Apr 19, 2021 15:00 +0000
+  CreatedTime: Apr 16, 2021 16:27 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 835904710
+  Description: Cooling failure
+  Severity: Outage
+  StartTime: Apr 16, 2021 16:00 +0000
+  EndTime: Apr 19, 2021 15:00 +0000
+  CreatedTime: Apr 16, 2021 16:27 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 835904711
+  Description: Cooling failure
+  Severity: Outage
+  StartTime: Apr 16, 2021 16:00 +0000
+  EndTime: Apr 19, 2021 15:00 +0000
+  CreatedTime: Apr 16, 2021 16:27 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 835904712
+  Description: Cooling failure
+  Severity: Outage
+  StartTime: Apr 16, 2021 16:00 +0000
+  EndTime: Apr 19, 2021 15:00 +0000
+  CreatedTime: Apr 16, 2021 16:27 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 885018473
+  Description: Down for power maintenance
+  Severity: Outage
+  StartTime: Jun 12, 2021 13:00 +0000
+  EndTime: Jun 13, 2021 00:00 +0000
+  CreatedTime: Jun 12, 2021 12:44 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 885018474
+  Description: Down for power maintenance
+  Severity: Outage
+  StartTime: Jun 12, 2021 13:00 +0000
+  EndTime: Jun 13, 2021 00:00 +0000
+  CreatedTime: Jun 12, 2021 12:44 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 885018475
+  Description: Down for power maintenance
+  Severity: Outage
+  StartTime: Jun 12, 2021 13:00 +0000
+  EndTime: Jun 13, 2021 00:00 +0000
+  CreatedTime: Jun 12, 2021 12:44 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 885018476
+  Description: Down for power maintenance
+  Severity: Outage
+  StartTime: Jun 12, 2021 13:00 +0000
+  EndTime: Jun 13, 2021 00:00 +0000
+  CreatedTime: Jun 12, 2021 12:44 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 885018477
+  Description: Down for power maintenance
+  Severity: Outage
+  StartTime: Jun 12, 2021 13:00 +0000
+  EndTime: Jun 13, 2021 00:00 +0000
+  CreatedTime: Jun 12, 2021 12:44 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------

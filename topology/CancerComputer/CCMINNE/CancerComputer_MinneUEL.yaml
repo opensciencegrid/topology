@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Multi-purpose cluster located at UEL-Minneapolis
 GroupID: 484
 Production: true
@@ -14,7 +13,6 @@ Resources:
           ID: 0182f725a01a98ce2359736e09f181f07ad646d5
           Name: Ian Stakenvicius
     Description: The CE for the CancerComputer cluster at UEL-Minneapolis
-    Disable: false
     FQDN: osg-minne.cancercomputer.com
     ID: 945
     Services:
@@ -23,6 +21,4 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osg-minne.cancercomputer.com
-    VOOwnership:
-      OSG: 100
 SupportCenter: CCSUP

@@ -1,38 +1,25 @@
-Disable: false
 GroupDescription: UChicago ITB
 GroupID: 117
 Production: false
 Resources:
   UC_ITB_CONDOR:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-      Resource Report Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
       Security Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
     Description: ITB condor resource @ UC
-    Disable: false
     FQDN: itbv-ce-condor.mwt2.org
     ID: 374
     Services:
@@ -40,92 +27,4 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
-  UC_ITB_PBS:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-      Miscellaneous Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-      Resource Report Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-      Security Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-    Description: ITB resource for PBS
-    Disable: false
-    FQDN: itbv-ce-pbs.mwt2.org
-    ID: 117
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-    VOOwnership:
-      OSG: 100
-  UC_ITB_SE_HADOOP:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-      Security Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-    Description: HDFS/bestman2 based SE for ITB usage
-    Disable: false
-    FQDN: itbv-bmh1.mwt2.org
-    ID: 390
-    Services:
-      SRMv1:
-        Description: SRM V1 Storage Element
-        Details:
-          hidden: false
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      OSG: 100
-  UC_VTB:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-      Miscellaneous Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-      Resource Report Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-      Security Contact:
-        Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
-    Description: VTB resource @ UC
-    Disable: false
-    FQDN: vtbv-ce.mwt2.org
-    ID: 373
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: UChicago

@@ -1,0 +1,38 @@
+GroupDescription: INFN T1 caching infrastructure
+GroupID: 515
+Production: True
+Resources:
+  T1_STASHCACHE_CACHE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: b18e253ecb2d4b8e6be4ee1897afd26ed0616b77
+          Name: Lucia Morganti
+        Secondary:
+          ID: 650ea630109f875e4f1db046b5b14f0cef05f10b
+          Name: Enrico Fattibene
+        Tertiary:
+          ID: 111d9c8900f39a973798f230d802fb903bb704d9
+          Name: Daniele Cesini
+      Security Contact:
+        Primary:
+          ID: b18e253ecb2d4b8e6be4ee1897afd26ed0616b77
+          Name: Lucia Morganti
+        Secondary:
+          ID: 650ea630109f875e4f1db046b5b14f0cef05f10b
+          Name: Enrico Fattibene
+        Tertiary:
+          ID: 111d9c8900f39a973798f230d802fb903bb704d9
+          Name: Daniele Cesini
+    Description: StashCache cache server for INFN T1
+    FQDN: xcache.cr.cnaf.infn.it
+    ID: 1019
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    AllowedVOs:
+      - ANY
+    DN: /DC=org/DC=terena/DC=tcs/C=IT/L=Frascati/O=Istituto Nazionale di Fisica Nucleare/OU=CNAF/CN=ds-102-11-18.cr.cnaf.infn.it
+SupportCenter: Self Supported
+

@@ -1,15 +1,14 @@
 #!/bin/bash
 ask_yn () {
-    local yn
     echo "$@"
-    while true; do
-        read yn
-        case $yn in
+    while read; do
+        case $REPLY in
             [Yy]*) return 0;;
             [Nn]*) return 1;;
             *) echo "Enter yes or no";;
         esac
     done
+    return 2  ## EOF
 }
 
 export FLASK_ENV=development

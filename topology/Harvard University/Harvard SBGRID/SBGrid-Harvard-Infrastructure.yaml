@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Various infrastructure services for SBGrid.
 GroupID: 339
 Production: true
@@ -8,37 +7,13 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-          Name: Michael (Mick) Timony
-        Secondary:
-          ID: 5a210445cd71d7f59fa5c46b288762c93c8333b3
-          Name: Justin O'Connor
-      Miscellaneous Contact:
-        Primary:
-          ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-          Name: Michael (Mick) Timony
-        Secondary:
-          ID: 5a210445cd71d7f59fa5c46b288762c93c8333b3
-          Name: Justin O'Connor
-        Tertiary:
-          ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
-          Name: Piotr Sliz
-      Resource Report Contact:
-        Primary:
-          ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-          Name: Michael (Mick) Timony
-        Secondary:
           ID: 5a210445cd71d7f59fa5c46b288762c93c8333b3
           Name: Justin O'Connor
       Security Contact:
         Primary:
-          ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-          Name: Michael (Mick) Timony
-        Secondary:
           ID: 5a210445cd71d7f59fa5c46b288762c93c8333b3
           Name: Justin O'Connor
     Description: GUMS, VOMS and VOMSAdmin host for SBGrid and NEBioGrid
-    Disable: false
     FQDN: hpc.sbgrid.org
     ID: 298
     Services:

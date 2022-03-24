@@ -1,21 +1,26 @@
-Disable: false
 GroupDescription: Wayne State Grid cluster being access through a hosted ce @ UChicago
 GroupID: 472
 Production: true
 Resources:
   OSG_US_WSU_GRID:
-    Active: true
+    Active: false 
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
       Security Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+      Site Contact:
+        Primary:
+          ID:  f84214412f7b3dbf848808c4ba30d179c5743766
+          Name: Michael Thompson
+        Secondary:
+          ID:  68dfdc5967e11a1e1698ac3a8add1538fe15f1e8
+          Name: Serguei Fedorov
     Description: Wayne State Grid cluster being access through a hosted ce @ UChicago.
-    Disable: false
     FQDN: pearc-ce-2.grid.uchicago.edu
     ID: 895
     Services:
@@ -23,6 +28,29 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
+    Tags:
+      - CC*
+  OSG_US_WSU_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  f84214412f7b3dbf848808c4ba30d179c5743766
+          Name: Michael Thompson
+        Secondary:
+          ID:  68dfdc5967e11a1e1698ac3a8add1538fe15f1e8
+          Name: Serguei Fedorov
+      Security Contact:
+        Primary:
+          ID:  f84214412f7b3dbf848808c4ba30d179c5743766
+          Name: Michael Thompson
+        Secondary:
+          ID:  68dfdc5967e11a1e1698ac3a8add1538fe15f1e8
+          Name: Serguei Fedorov
+    Description: squid service for frontier and cvmfs
+    FQDN: vsgrid1.grid.wayne.edu
+    ID: 1026
+    Services:
+      Squid:
+        Description: Generic squid service
 SupportCenter: UChicago

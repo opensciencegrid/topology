@@ -1,4 +1,4 @@
-Active: false
+Active: True
 AppDescription: A CVMFS repository will be maintained for LArSoft so that participating
   experiments can access common code.
 CertificateOnly: false
@@ -25,6 +25,8 @@ ID: 132
 LongName: Liquid Argon Software Collaboration
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
 OASIS:
+  OASISRepoURLs:
+    - http://oasiscfs.fnal.gov:8000/cvmfs/larsoft-ib.opensciencegrid.org
   UseOASIS: false
 ParentVO:
   ID: 9

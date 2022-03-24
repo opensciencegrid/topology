@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Placeholder for MWT2
 GroupID: 310
 Production: true
@@ -8,37 +7,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: This is unified gatekeeper for MWT2 resources.
-    Disable: false
     FQDN: osg-gk.mwt2.org
     ID: 375
     Services:
@@ -49,14 +36,14 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 10.67
+      APELNormalFactor: 12.53
       AccountingName: US-MWT2
-      HEPSPEC: 231345
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 57836.25
-      KSI2KMin: 57836.25
+      HEPSPEC: 308968
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 77242
+      KSI2KMin: 77242
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
@@ -70,20 +57,9 @@ Resources:
         Secondary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-      Miscellaneous Contact:
-        Primary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Secondary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-      Resource Report Contact:
-        Primary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Secondary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
@@ -91,9 +67,11 @@ Resources:
         Secondary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2-hosted resources for Connect-related submitters. Supporting
       OSG, XENON1T, OSG, ATLAS, CMS, etc via direct flocking.
-    Disable: false
     FQDN: condor.grid.uchicago.edu
     ID: 846
     Services:
@@ -108,37 +86,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 Gatekeeper located at Indiana University @ Indianapolis, IN
-    Disable: false
     FQDN: iut2-gk.mwt2.org
     ID: 470
     Services:
@@ -149,14 +115,14 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 12.53
       AccountingName: US-MWT2
-      HEPSPEC: 0
+      HEPSPEC: 308968
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
+      KSI2KMax: 77242
+      KSI2KMin: 77242
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
@@ -165,37 +131,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 Gatekeeper located at The University of Chicago @ Chicago, IL
-    Disable: false
     FQDN: uct2-gk.mwt2.org
     ID: 471
     Services:
@@ -206,54 +160,42 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 12.53
       AccountingName: US-MWT2
-      HEPSPEC: 0
+      HEPSPEC: 308968
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
+      KSI2KMax: 77242
+      KSI2KMin: 77242
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
   MWT2_CE_UIUC:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 Gatekeeper located at University of Illilnois @ Urbana-Champaign,
       IL
-    Disable: false
     FQDN: mwt2-gk.campuscluster.illinois.edu
     ID: 490
     Services:
@@ -264,14 +206,14 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 12.53
       AccountingName: US-MWT2
-      HEPSPEC: 0
+      HEPSPEC: 308968
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
+      KSI2KMax: 77242
+      KSI2KMin: 77242
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
@@ -280,37 +222,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 CVMFS Squid located at Indiana University @ Indianapolis, IN
-    Disable: false
     FQDN: iut2-cvmfs.mwt2.org
     ID: 912
     Services:
@@ -323,38 +253,26 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 CVMFS Squid located at the University of Chicago @ Chicago,
       IL
-    Disable: false
     FQDN: uct2-cvmfs.mwt2.org
     ID: 913
     Services:
@@ -367,38 +285,26 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 CVMFS Squid located at University of Illilnois @ Urbana-Champaign,
       IL
-    Disable: false
     FQDN: mwt2-cvmfs.campuscluster.illinois.edu
     ID: 914
     Services:
@@ -411,38 +317,26 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 Frontier Squid located at Indiana University @ Indianapolis,
       IN
-    Disable: false
     FQDN: iut2-squid.mwt2.org
     ID: 909
     Services:
@@ -455,38 +349,26 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 Frontier Squid located at the University of Chicago @ Chicago,
       IL
-    Disable: false
     FQDN: uct2-squid.mwt2.org
     ID: 910
     Services:
@@ -499,43 +381,229 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 Frontier Squid located at University of Illilnois @ Urbana-Champaign,
       IL
-    Disable: false
     FQDN: mwt2-squid.campuscluster.illinois.edu
     ID: 911
     Services:
       Squid:
         Description: Generic squid service
+    VOOwnership:
+      ATLAS: 100
+  MWT2_SLATE_UC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 SLATE located at the University of Chicago @ Chicago, IL
+    FQDN: uct2-slate.mwt2.org
+    ID: 1065
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: uct2-slate.mwt2.org:32200
+          Monitored: true
+    VOOwnership:
+      ATLAS: 100
+  MWT2_SLATE_UC_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 SLATE located at the University of Chicago @ Chicago, IL
+    FQDN: sl-uc-xcache1.slateci.io
+    ID: 1239
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: sl-uc-xcache1.slateci.io:32202
+          Monitored: true
+    VOOwnership:
+      ATLAS: 100
+  MWT2_SLATE_IU:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 SLATE located at Indiana University @ Indianapolis, IN
+    FQDN: iut2-slate.mwt2.org
+    ID:  1066
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: iut2-slate.mwt2.org:32200
+          Monitored: true
+    VOOwnership:
+      ATLAS: 100
+  MWT2_SLATE_IU_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 SLATE located at Indiana University @ Indianapolis, IN
+    FQDN: iut2-slate01.mwt2.org
+    ID: 1241
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: iut2-slate01.mwt2.org:32200
+          Monitored: true
+    VOOwnership:
+      ATLAS: 100
+  MWT2_SLATE_UIUC:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 SLATE located at University of Illilnois @ Urbana-Champaign, IL
+    FQDN: mwt2-slate.mwt2.org
+    ID: 1067
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: mwt2-slate.mwt2.org:32200
+          Monitored: false
     VOOwnership:
       ATLAS: 100
   MWT2_UC_SE:
@@ -546,25 +614,11 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Secondary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-      Miscellaneous Contact:
-        Primary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Secondary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
         Tertiary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
@@ -572,12 +626,14 @@ Resources:
         Secondary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-    Description: Part of the MWT2 facility.
-    Disable: false
-    FQDN: uct2-dc1.uchicago.edu
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 dCache/SRM frontend
+    FQDN: uct2-dcache-head.mwt2.org
     FQDNAliases:
     - uct2-dc1.uchicago.edu
-    ID: 70
+    ID: 1182
     Services:
       SRMv2:
         Description: SRM V2 Storage Element
@@ -594,45 +650,168 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      StorageCapacityMax: 7642
-      StorageCapacityMin: 7642
+      StorageCapacityMax: 11278
+      StorageCapacityMin: 11278
+      TapeCapacity: 0
+  MWT2_UC_gridftp:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: GridFTP headnode for MWT2
+    FQDN: uct2-gridftp.mwt2.org
+    ID: 1183
+    Services:
+      GridFtp:
+        Description: gridftp Storage Element
+        Details:
+          hidden: false  
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 11278
+      StorageCapacityMin: 11278
+      TapeCapacity: 0
+  MWT2_UC_XRootD_door:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: XRootD door/headnode for MWT2
+    FQDN: fax.mwt2.org
+    ID: 1184
+    Services:
+      XRootD component:
+        Description: XRootD door
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 11278
+      StorageCapacityMin: 11278
+      TapeCapacity: 0
+  MWT2_UC_WebDAV:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: HTTP-TPC WebDAV service for MWT2
+    FQDN: webdav.mwt2.org
+    ID: 1185
+    Services:
+      WebDAV:
+        Description: HTTP-TPC WebDAV service
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 11278
+      StorageCapacityMin: 11278
       TapeCapacity: 0
   US-MWT2_IU BW:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 perfSONAR-PS Bandwidth instance at Indiana University
-    Disable: false
     FQDN: iut2-net2.iu.edu
     ID: 581
     Services:
@@ -647,37 +826,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: Testbed Perfsonar bandwidth node
-    Disable: false
     FQDN: iut2-net4.iu.edu
     ID: 672
     Services:
@@ -692,37 +859,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: Internal perfsonar bandwidth nodes
-    Disable: false
     FQDN: iut2-net6.iu.edu
     ID: 675
     Services:
@@ -737,37 +892,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: Internal perfsonar bandwidth nodes
-    Disable: false
     FQDN: iut2-net8.iu.edu
     ID: 676
     Services:
@@ -777,42 +920,218 @@ Resources:
           endpoint: iut2-net8.iu.edu
     VOOwnership:
       ATLAS: 100
+  US-MWT2_IU BW4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 perfSONAR-PS Bandwidth instance at Indiana University (Replaces iut2-net2)
+    FQDN: iut2-net10.iu.edu
+    ID: 1223
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: iut2-net10.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU BW5:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 perfSONAR-PS Bandwidth instance at Indiana University (Replaces iut2-net4)
+    FQDN: iut2-net12.iu.edu
+    ID: 1235
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: iut2-net12.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU BW6:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 perfSONAR-PS Bandwidth instance at Indiana University (Replaces iut2-net6)
+    FQDN: iut2-net14.iu.edu
+    ID: 1231
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: iut2-net14.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU BW7:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 perfSONAR-PS Bandwidth instance at Indiana University (Replaces iut2-net8)
+    FQDN: iut2-net16.iu.edu
+    ID: 1233
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: iut2-net16.iu.edu
+    VOOwnership:
+      ATLAS: 100
   US-MWT2_IU LAT:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 perfSONAR-PS Latency instance at Indiana University
-    Disable: false
     FQDN: iut2-net1.iu.edu
     ID: 517
     Services:
@@ -827,37 +1146,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: Testbed Perfsonar latency node
-    Disable: false
     FQDN: iut2-net3.iu.edu
     ID: 671
     Services:
@@ -872,37 +1179,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
-        Secondary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: Campus perfsonar latency node
-    Disable: false
     FQDN: iut2-net5.iu.edu
     ID: 673
     Services:
@@ -917,40 +1212,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: Internal Perfsonar latency nodes
-    Disable: false
     FQDN: iut2-net7.iu.edu
     ID: 674
     Services:
@@ -960,45 +1240,218 @@ Resources:
           endpoint: iut2-net7.iu.edu
     VOOwnership:
       ATLAS: 100
+  US-MWT2_IU LAT4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 perfSONAR-PS Latency instance at Indiana University (replaces iut2-net1)
+    FQDN: iut2-net09.iu.edu
+    ID: 1222
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: iut2-net09.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU LAT5:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 perfSONAR-PS Latency instance at Indiana University (replaces iut2-net3)
+    FQDN: iut2-net11.iu.edu
+    ID: 1234
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: iut2-net11.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU LAT6:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 perfSONAR-PS Latency instance at Indiana University (replaces iut2-net5)
+    FQDN: iut2-net13.iu.edu
+    ID: 1230
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: iut2-net13.iu.edu
+    VOOwnership:
+      ATLAS: 100
+  US-MWT2_IU LAT7:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 perfSONAR-PS Latency instance at Indiana University (replaces iut2-net7)
+    FQDN: iut2-net15.iu.edu
+    ID: 1232
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: iut2-net15.iu.edu
+    VOOwnership:
+      ATLAS: 100
   US-MWT2_UC BW:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 perfSONAR-PS Bandwidth instance at the University of Chicago
-    Disable: false
     FQDN: uct2-net2.mwt2.org
     ID: 580
     Services:
@@ -1013,40 +1466,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: Testbed Perfsonar Bandwidth node
-    Disable: false
     FQDN: uct2-net4.mwt2.org
     ID: 670
     Services:
@@ -1061,40 +1499,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 perfSONAR-PS Latency instance at the University of Chicago
-    Disable: false
     FQDN: uct2-net1.mwt2.org
     ID: 516
     Services:
@@ -1109,40 +1532,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: Testbed PerfSonar Latency node
-    Disable: false
     FQDN: uct2-net3.mwt2.org
     ID: 669
     Services:
@@ -1157,41 +1565,26 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 perfSONAR-PS Bandwidth instance at the University of Illinois
       at Urbana-Champaign
-    Disable: false
     FQDN: mwt2-ps02.campuscluster.illinois.edu
     ID: 582
     Services:
@@ -1206,40 +1599,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: Testbed Perfsonar Bandwidth node
-    Disable: false
     FQDN: mwt2-ps04.campuscluster.illinois.edu
     ID: 791
     Services:
@@ -1254,41 +1632,26 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: MWT2 perfSONAR-PS Latency instance at the University of Illinois
       at Urbana-Champaign
-    Disable: false
     FQDN: mwt2-ps01.campuscluster.illinois.edu
     ID: 518
     Services:
@@ -1303,40 +1666,25 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-      Miscellaneous Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-      Resource Report Contact:
-        Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Tertiary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
       Security Contact:
         Primary:
-          ID: dc9b66f2b0ae746d23a91ba5b1041df7de5eb576
-          Name: David Lesny
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
         Secondary:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
     Description: Testbed PerfSonar Latency node
-    Disable: false
     FQDN: mwt2-ps03.campuscluster.illinois.edu
     ID: 790
     Services:

@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: UCSD glidein factory
 GroupID: 329
 Production: true
@@ -6,16 +5,11 @@ Resources:
   UCSD glidein:
     Active: true
     ContactLists:
-      Resource Report Contact:
-        Primary:
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-          Name: Jeffrey Michael Dost
       Security Contact:
         Primary:
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
           Name: Jeffrey Michael Dost
     Description: UCSD glidein factory
-    Disable: false
     FQDN: gfactory-1.t2.ucsd.edu
     ID: 431
     Services:

@@ -1,12 +1,11 @@
-Disable: false
 Production: true
 SupportCenter: Self Supported
 GroupID: 492
-GroupDescription: This is a small cluster to test OSG / AggieGrid integration
+GroupDescription: Small scavenger cluster that runs on the university's lab machines when they are not in use.
 Resources:
   OSG_US_NMSU_AGGIE_GRID:
+    Active: false
     ID: 977
-    Disable: false
     Description: The Hosted CE serving AggieGrid
     ContactLists:
       Administrative Contact:
@@ -23,11 +22,47 @@ Resources:
         Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Matthew Henderson
+          ID: 027c666af5bf0b1f2476aa4f0eeaed41527275d2
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
     FQDN: hosted-ce21.grid.uchicago.edu
     Services:
       CE:
         Description: NMSU-AggieGrid Hosted CE
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100  # 100% opportunistic
+  SLATE_US_NMSU_AGGIE_GRID:
+    Active: false
+    ID: 1097
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Nicholas Von Wolff
+          ID: 243c442622f34b7e283d95ef53c88928f4986110
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
+      Security Contact:
+        Primary:
+          Name: Nicholas Von Wolff
+          ID: 243c442622f34b7e283d95ef53c88928f4986110
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
+      Site Contact:
+        Primary:
+          Name: Nicholas Von Wolff
+          ID: 243c442622f34b7e283d95ef53c88928f4986110
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
+    FQDN: osg-ce-aggiegrid.nmsu.edu
+    Services:
+      CE:
+        Description: NMSU SlateCI Self-Hosted CE For Aggie Grid
+        Details:
+          hidden: false

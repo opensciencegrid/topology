@@ -48,6 +48,14 @@ OSG Contacts
           {%- endif %}
         </div>
       </div>
+      {% if user.CILogonID -%}
+      <div class="row">
+        <div class="col-sm-3"><span class="font-weight-bold">CILogon:</span></div>
+        <div class="col-sm">
+            {{ user.CILogonID }}
+        </div>
+      </div>
+      {%- endif %}
       {% if authorized -%}
         <div class="row">
           <div class="col-sm-3"><span class="font-weight-bold">Primary Email:</span></div>

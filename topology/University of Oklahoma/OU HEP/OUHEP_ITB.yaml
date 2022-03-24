@@ -1,7 +1,6 @@
-Disable: false
 GroupDescription: OU ITB Resource
 GroupID: 86
-Production: true
+Production: false
 Resources:
   OUHEP_ITB:
     Active: true
@@ -13,16 +12,6 @@ Resources:
         Secondary:
           ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
           Name: Christopher Arnold Walker
-      Resource Report Contact:
-        Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
-          Name: Horst Severini
-        Secondary:
-          ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
-          Name: Christopher Arnold Walker
-        Tertiary:
-          ID: cc443308e844418f15bb019c1fadeaa1a640ff9e
-          Name: Joel Snow
       Security Contact:
         Primary:
           ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
@@ -31,7 +20,6 @@ Resources:
           ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
           Name: Christopher Arnold Walker
     Description: OUHEP ITB site
-    Disable: false
     FQDN: osgitb1.nhn.ou.edu
     FQDNAliases:
     - osgitb2.nhn.ou.edu

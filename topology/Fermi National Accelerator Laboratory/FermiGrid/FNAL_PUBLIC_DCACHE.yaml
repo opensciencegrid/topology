@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Machines associated with Fermilab public dCache
 GroupID: 369
 Production: true
@@ -10,17 +9,6 @@ Resources:
         Primary:
           ID: 5d00a9a86506e3be1f745ccb8a1b0958a6a77eb0
           Name: Bodhitha Jayatilaka
-      Miscellaneous Contact:
-        Primary:
-          ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
-          Name: Tanya Levshina
-      Resource Report Contact:
-        Primary:
-          ID: 5d00a9a86506e3be1f745ccb8a1b0958a6a77eb0
-          Name: Bodhitha Jayatilaka
-        Tertiary:
-          ID: 60f4a8635a890309e84cc656dc5d4a6db702a2c9
-          Name: Yujun Wu
       Security Contact:
         Primary:
           ID: 28e35fff676197be119af149e37c24b444179d0a
@@ -29,7 +17,6 @@ Resources:
           ID: aab4d60a1efd0b582acad180db315f58a5097933
           Name: Mine Altunay
     Description: Fermilab Public dCache
-    Disable: false
     FQDN: fndca2a.fnal.gov
     FQDNAliases:
     - fndca1.fnal.gov

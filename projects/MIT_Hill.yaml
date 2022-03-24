@@ -1,0 +1,25 @@
+Description: This is for NSF-NASA efforts to create very large
+  realistic models of the Earths oceans
+  ( https://data.nas.nasa.gov/ecco/ ). Some of our largest
+  modeling efforts produce multi-petabyte solutions and we are
+  experimenting with sharing via the NSF Open Storage Network to provide
+  broad open access to datasets that are increasingly
+  widely used. We are interested in undertaking high-throughput analysis
+  to identify ocean vorticity feature statistics in different
+  model solutions to better understand air-sea feedbacks that are
+  significant for better modeling climate processes. We are also
+  interested in creating scripts that we can share widely with
+  downstream users throughout the US and globally. We will be using
+  the OSN object store accessed through the Python s3fs and xarray
+  tools. These allow high concurrency access for reading
+  different objects within the project OSN S3 buckets.
+Department: Earth, Atmospheric and Planetary Sciences
+FieldOfScience: Earth and Ocean Sciences
+Organization: Massachusetts Institute of Technology
+PIName: Chris Hill
+
+ID: '795'
+
+Sponsor:
+  CampusGrid:
+    Name: OSG Connect

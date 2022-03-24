@@ -12,17 +12,15 @@ Community: HCC supports NU faculty and staff from a variety of fields and 4 camp
   located at Lincoln, Omaha and Kearney.
 Contacts:
   Administrative Contact:
-  - ID: 64724e33523c051cbf52bcd224a965875735aafc
-    Name: David Swanson
   - ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
     Name: Carl Lundstedt
-  Miscellaneous Contact:
-  - ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
-    Name: Brian Bockelman
-  - ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
-    Name: Garhan Attebury
   - ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
     Name: Derek Weitzel
+  Miscellaneous Contact:
+  - ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+    Name: Garhan Attebury
+  - ID: f7fbc93bc8a7d276e8b5a94fb4ff905841a7763f
+    Name: John Thiltges
   Registration Authority:
   - ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
     Name: Carl Lundstedt
@@ -31,11 +29,13 @@ Contacts:
     Name: Carl Lundstedt
   - ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
     Name: Garhan Attebury
+  - ID: f7fbc93bc8a7d276e8b5a94fb4ff905841a7763f
+    Name: John Thiltges
   VO Manager:
-  - ID: 64724e33523c051cbf52bcd224a965875735aafc
-    Name: David Swanson
   - ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
     Name: Carl Lundstedt
+  - ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
+    Name: Derek Weitzel
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -49,18 +49,7 @@ ID: 67
 LongName: Holland Computing Center at the University of Nebraska.
 MembershipServicesURL: https://hcc-voms.unl.edu:8443/voms/hcc/Login.do
 OASIS:
-  Managers:
-    Brian Bockelman:
-      DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
-        Paul Bockelman
-      ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
-    Derek Weitzel:
-      DNs:
-      - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel 605
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Derek Weitzel
-      ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
-  UseOASIS: true
+  UseOASIS: false
 PrimaryURL: http://hcc.unl.edu
 PurposeURL: http://hcc.unl.edu/GridNebraska
 ReportingGroups:
@@ -69,10 +58,17 @@ SupportURL: http://hcc.unl.edu/contact
 DataFederations:
   StashCache:
     AllowedCaches:
-    - HCC-Stash
+    - ANY
     AllowedOrigins:
     - HCC-Origin
+    - HCC-StashCache-Origin
     Namespaces:
       /hcc/focusday:
       - FQAN:/hcc
       - DN:/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian Paul Bockelman
+      /hcc/PUBLIC:
+        - PUBLIC
+      /hcc/PROTECTED:
+        - SciTokens:
+            Issuer: https://scitokens.org/hcc
+            Base Path: /hcc

@@ -1,12 +1,46 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 120
 Production: true
 Resources:
-  T2_Florida_BW:
+  T2_US_Florida_LT:
     Active: true
     ContactLists:
       Administrative Contact:
+        Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+      Security Contact:
+        Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: This is the perfSONAR-ps latency instance at the University of Florida
+      CMS T2 site for IPv4 and IPv6
+    FQDN: perfsonar1.rc.ufl.edu
+    ID: 1228
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: perfsonar1.rc.ufl.edu
+    VOOwnership:
+      CMS: 100
+  T2_US_Florida_BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+      Miscellaneous Contact:
         Primary:
           ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
           Name: University of Florida CMS Tier 2 Admins
@@ -27,20 +61,19 @@ Resources:
         Secondary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
-    Description: This is the perfSONAR-ps bandwidth instance at the University of
-      Florida CMS T2 site.
-    Disable: false
-    FQDN: perfsonar2.ihepa.ufl.edu
-    ID: 607
+    Description: This is the perfSONAR-ps bandwidth instance at the University of Florida
+      CMS T2 site for IPv4 and IPv6
+    FQDN: perfsonar2.rc.ufl.edu
+    ID: 1229
     Services:
-      net.perfSONAR.Bandwidth:
+      net.perfSONAR.Latency:
         Description: PerfSonar Bandwidth monitoring node
         Details:
-          endpoint: perfsonar2.ihepa.ufl.edu
+          endpoint: perfsonar2.rc.ufl.edu
     VOOwnership:
       CMS: 100
   T2_Florida_LT:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -72,7 +105,6 @@ Resources:
           Name: Bockjoo Kim
     Description: This is the perfSONAR-ps latency instance at the University of Florida
       CMS T2 site.
-    Disable: false
     FQDN: perfsonar1.ihepa.ufl.edu
     ID: 606
     Services:
@@ -82,15 +114,52 @@ Resources:
           endpoint: perfsonar1.ihepa.ufl.edu
     VOOwnership:
       CMS: 100
+  T2_Florida_BW_IPv6:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+      Security Contact:
+        Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: This is the perfSONAR-ps bandwidth instance at the University of
+      Florida CMS T2 site for IPv6
+    FQDN: cmsps1.rc.ufl.edu
+    ID: 1020
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: cmsps1.rc.ufl.edu
+    VOOwnership:
+      CMS: 100
   UFlorida-CMS:
     Active: true
     ContactLists:
-      Miscellaneous Contact:
+      Administrative Contact:
         Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+      Security Contact:
+        Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
     Description: HTCondor-CE
-    Disable: false
     FQDN: cms.rc.ufl.edu
     ID: 666
     Services:
@@ -102,7 +171,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 17.14
+      APELNormalFactor: 20.37
       AccountingName: T2_US_Florida
       HEPSPEC: 14000
       InteropAccounting: true
@@ -116,12 +185,21 @@ Resources:
   UFlorida-HPC:
     Active: true
     ContactLists:
-      Miscellaneous Contact:
+      Administrative Contact:
         Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+      Security Contact:
+        Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
     Description: US CMS Tier-2 site at Florida
-    Disable: false
     FQDN: osg.rc.ufl.edu
     ID: 120
     Services:
@@ -133,7 +211,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 17.14
+      APELNormalFactor: 20.37
       AccountingName: T2_US_Florida
       HEPSPEC: 14000
       InteropAccounting: true
@@ -147,12 +225,21 @@ Resources:
   UFlorida-HPG2:
     Active: true
     ContactLists:
-      Miscellaneous Contact:
+      Administrative Contact:
         Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+      Security Contact:
+        Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
     Description: The CE for the U of Florida HiperGator2 Cluster.
-    Disable: false
     FQDN: cslrm.rc.ufl.edu
     ID: 887
     Services:
@@ -164,7 +251,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 17.14
+      APELNormalFactor: 20.37
       AccountingName: T2_US_Florida
       HEPSPEC: 14000
       InteropAccounting: true
@@ -180,22 +267,19 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
-      Resource Report Contact:
-        Primary:
-          ID: 2d9012f731159dd45a082164c6aac6577167e725
-          Name: Bockjoo Kim
-      Miscellaneous Contact:
+      Security Contact:
         Primary:
           ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
           Name: University of Florida CMS Tier 2 Admins
-      Security Contact:
-        Primary:
+        Secondary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
     Description: Simple Load Balance GridFTP server.
-    Disable: false
     FQDN: cmsio.rc.ufl.edu
     ID: 888
     Services:
@@ -218,19 +302,64 @@ Resources:
       StorageCapacityMax: 616
       StorageCapacityMin: 0
       TapeCapacity: 0
+  UFlorida-XRD:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+      Security Contact:
+        Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
+          ID: 2d9012f731159dd45a082164c6aac6577167e725
+          Name: Bockjoo Kim
+    Description: Xrootd Redirector
+    FQDN: cmsio7.rc.ufl.edu
+    ID: 1000
+    Services:
+      XRootD component:
+        Description: Xrootd Redirector
+        Details:
+          hidden: false
+          uri_override: cmsio7.rc.ufl.edu:1094
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 1
+      AccountingName: T2_US_Florida
+      HEPSPEC: 1
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 1
+      KSI2KMin: 1
+      StorageCapacityMax: 616
+      StorageCapacityMin: 0
+      TapeCapacity: 0
   UFlorida_squid:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
       Security Contact:
         Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
     Description: The first squid server for the U of Florida CMS Tier2.
-    Disable: false
     FQDN: squid1.rc.ufl.edu
     ID: 684
     Services:
@@ -243,14 +372,19 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
       Security Contact:
         Primary:
+          ID: 8fe996dae2ee3abd17af9f8c0f57fa6d166be5ff
+          Name: University of Florida CMS Tier 2 Admins
+        Secondary:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
     Description: Second squid server for U of Florida CMS Tier2
-    Disable: false
     FQDN: squid2.rc.ufl.edu
     ID: 685
     Services:

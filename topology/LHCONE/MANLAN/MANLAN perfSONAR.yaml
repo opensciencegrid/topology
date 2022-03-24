@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: LHCONE perfSONAR instances at MANLAN
 GroupID: 408
 Production: true
@@ -15,7 +14,6 @@ Resources:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: The BNL / ESnet LHCONE perfSONAR instance
-    Disable: false
     FQDN: quark.es.net
     ID: 659
     Services:
@@ -41,7 +39,6 @@ Resources:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: The Internet2 perfSONAR instance for LHCONE at MANLAN
-    Disable: false
     FQDN: lhcone.test.manlan.internet2.edu
     ID: 660
     Services:

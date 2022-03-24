@@ -26,13 +26,12 @@ LongName: Geant4 Software Toolkit
 MembershipServicesURL: https://lcg-voms.cern.ch:8443/voms/geant4
 OASIS:
   Managers:
-    Hans Wenzel:
+    - Name: Krzysztof Genser
       DNs:
-      - /DC=org/DC=doegrids/OU=People/CN=Hans Wenzel 188829
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Hans Wenzel 959
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Hans Wenzel 959
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Hans Wenzel
-      ID: c56ee64dbf3fa94b8e0836b8b8b78d3bcdb34060
+      - /DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Krzysztof Genser/CN=UID:genser
+      ID: 9c85ffa973d9b6ce90827b88a5535cfdefdb3e12
+  OASISRepoURLs:
+  - http://oasiscfs.fnal.gov:8000/cvmfs/geant4-ib.opensciencegrid.org
   UseOASIS: true
 PrimaryURL: http://geant4.cern.ch/
 PurposeURL: http://geant4.cern.ch/applications/index.shtml

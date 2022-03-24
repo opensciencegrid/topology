@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: The 300+ node Brazos cluster, a shared stakeholder resource for
   Texas A&M and OSG researchers.
 GroupID: 273
@@ -9,28 +8,19 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-      Miscellaneous Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-        Tertiary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
-      Resource Report Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-        Tertiary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
+        Secondary:
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
       Security Contact:
         Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
+        Secondary:
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
     Description: This is the gatekeeper host supporting the Texas A&M CMS T3 site.
-    Disable: false
     FQDN: ce01.brazos.tamu.edu
     ID: 630
     Services:
@@ -61,21 +51,19 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-      Resource Report Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-        Tertiary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
+        Secondary:
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
       Security Contact:
         Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
+        Secondary:
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
     Description: GridFTP service for TAMU_BRAZOS
-    Disable: false
     FQDN: gw01.brazos.tamu.edu
     ID: 637
     Services:
@@ -92,21 +80,19 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-      Resource Report Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-        Tertiary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
+        Secondary:
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
       Security Contact:
         Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
+        Secondary:
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
     Description: GridFTP service for TAMU_BRAZOS
-    Disable: false
     FQDN: gw02.brazos.tamu.edu
     ID: 795
     Services:
@@ -123,32 +109,20 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
         Secondary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
-      Miscellaneous Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-        Secondary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
-      Resource Report Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-        Secondary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
       Security Contact:
         Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
+        Secondary:
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
     Description: This is a secondary SE for the TAMU_BRAZOS resource group. This will
       replace the SE running on the TAMU_BRAZOS resource, hurr.tamu.edu
-    Disable: false
     FQDN: srm.brazos.tamu.edu
     ID: 601
     Services:
@@ -175,27 +149,19 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
         Secondary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
-      Resource Report Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-        Secondary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
       Security Contact:
         Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
         Secondary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
     Description: This PerfSONAR node has a 10Gbps interface.
-    Disable: false
     FQDN: psonar-bwctl.brazos.tamu.edu
     ID: 634
     Services:
@@ -211,27 +177,19 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
         Secondary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
-      Resource Report Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-        Secondary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
       Security Contact:
         Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
         Secondary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
     Description: PerfSONAR latency node
-    Disable: false
     FQDN: psonar-owamp.brazos.tamu.edu
     ID: 635
     Services:
@@ -239,6 +197,34 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: psonar-owamp.brazos.tamu.edu
+    VOOwnership:
+      CMS: 70
+      SURAgrid: 30
+  TAMU_BRAZOS_Squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
+        Secondary:
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
+      Security Contact:
+        Primary:
+          ID: 105eeab518a033da10a55768dc77c888238f5338
+          Name: Richard Lawrence
+        Secondary:
+          ID: 3b5496e628dd47e2fd324ac65552c7c6d7929156
+          Name: Taymoor Arif
+    Description: Squid node
+    FQDN: squid.brazos.tamu.edu
+    ID: 1008
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: true
     VOOwnership:
       CMS: 70
       SURAgrid: 30

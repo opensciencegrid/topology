@@ -1,0 +1,152 @@
+Production: true
+SupportCenter: Self Supported
+GroupID: 505
+GroupDescription: This is a small cluster to test Stampede2 integration
+Resources:
+  OSG_US_TACC_STAMPEDE2:
+    ID: 993
+    Active: false
+    Description: The Hosted CE serving Stampede2
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Dan Stanzione
+          ID: 32584110de1e948dc78fbce371ccee0bc3c3df79
+    FQDN: hosted-ce10.grid.uchicago.edu
+    Services:
+      CE:
+        Description: Stampede2 Hosted CE
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 50
+      ATLAS: 50
+  TACC-Stampede2:
+    ID: 1082
+    Active: false
+    Description: The Hosted CE serving TACC-Stampede2
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: hosted-ce10.opensciencegrid.org
+    Services:
+      CE:
+        Description: TACC-Stampede2 Hosted CE
+        Details:
+          hidden: false
+    WLCGInformation:
+      APELNormalFactor: 18
+      InteropAccounting: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+  TACC-Stampede2-CE1:
+    ID: 1178
+    Active: true
+    Description: The Hosted CE serving TACC-Stampede2
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+    FQDN: tacc-stampede2-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: TACC-Stampede2 Hosted CE
+        Details:
+          hidden: false
+  TACC-Stampede2-CE2:
+    ID: 1179
+    Active: true
+    Description: The Hosted CE serving TACC-Stampede2
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+    FQDN: tacc-stampede2-ce2.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: TACC-Stampede2 Hosted CE
+        Details:
+          hidden: false
+  OSG_US_TACC_STAMPEDE2_Squid:
+    ID: 1024
+    Description: Squid serving Stampede2
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Dan Stanzione
+          ID: 32584110de1e948dc78fbce371ccee0bc3c3df79
+        Secondary:
+          Name: Todd Evans
+          ID: 7e5c0c5967de0a65bc78cbbb441a05d70603cabe
+    FQDN: login5.stampede2.tacc.utexas.edu
+    Services:
+      Squid:
+        Description: Squid service for frontier and cvmfs
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 50
+      ATLAS: 50

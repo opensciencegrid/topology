@@ -1,22 +1,20 @@
-Disable: false
 GroupDescription: Entry for hosted CE running at UChicago but submitting to KU cluster
   resources
 GroupID: 462
 Production: true
 Resources:
   HOSTED_KANSAS_CE:
-    Active: true
+    Active: false 
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
       Security Contact:
         Primary:
-          ID: bd2e3964b9b7531c09c58fda7702794119e3fc6e
-          Name: Suchandra Thapa
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
     Description: BOSCO CE gatekeeper for the cluster at KU Community Cluster
-    Disable: false
     FQDN: hosted-ce01.grid.uchicago.edu
     ID: 862
     Services:
@@ -24,6 +22,4 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: UC CI

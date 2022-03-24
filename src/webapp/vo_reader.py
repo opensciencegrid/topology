@@ -38,7 +38,7 @@ def get_vos_data(indir, contacts_data, strict=False) -> VOsData:
                 log.error("skipping (non-strict mode)")
                 continue
         except Exception as e:
-            log.error("%s adding VO %s", e, name)
+            log.error("%r adding VO %s", e, name)
             log.error("Data:\n%s", pprint.pformat(data))
             if strict:
                 raise

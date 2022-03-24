@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: This is the general OSG resource group at OSC.  It is designed to
   support multiple VOs.
 GroupID: 384
@@ -14,16 +13,6 @@ Resources:
         Secondary:
           ID: 8d3cd644fc7261d8f1a55c323b5df5c7e7ef4658
           Name: Troy Baer
-      Resource Report Contact:
-        Primary:
-          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
-          Name: John Dockendorf
-        Secondary:
-          ID: 8d3cd644fc7261d8f1a55c323b5df5c7e7ef4658
-          Name: Troy Baer
-        Tertiary:
-          ID: ef74443fbff08cb97203d3fa7c99ae3966679569
-          Name: Doug Johnson
       Security Contact:
         Primary:
           ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
@@ -32,7 +21,6 @@ Resources:
           ID: 8d3cd644fc7261d8f1a55c323b5df5c7e7ef4658
           Name: Troy Baer
     Description: The main CE for the Ohio Supercomputer Center.
-    Disable: false
     FQDN: osg-ce.hpc.osc.edu
     ID: 891
     Services:
@@ -44,6 +32,8 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
+      Squid:
+        Description: Generic squid service
     VOOwnership:
       Nova: 100
   OSC_OSG_CE_old:
@@ -56,16 +46,6 @@ Resources:
         Secondary:
           ID: 8d3cd644fc7261d8f1a55c323b5df5c7e7ef4658
           Name: Troy Baer
-      Resource Report Contact:
-        Primary:
-          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
-          Name: John Dockendorf
-        Secondary:
-          ID: 8d3cd644fc7261d8f1a55c323b5df5c7e7ef4658
-          Name: Troy Baer
-        Tertiary:
-          ID: ef74443fbff08cb97203d3fa7c99ae3966679569
-          Name: Doug Johnson
       Security Contact:
         Primary:
           ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
@@ -75,7 +55,6 @@ Resources:
           Name: Troy Baer
     Description: The main CE for the Ohio Supercomputer Center.  It will support multiple
       VOs.
-    Disable: false
     FQDN: osg.osc.edu
     ID: 571
     Services:
@@ -87,42 +66,6 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-    VOOwnership:
-      Nova: 100
-  OSC_OSG_squid:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
-          Name: John Dockendorf
-        Secondary:
-          ID: 8d3cd644fc7261d8f1a55c323b5df5c7e7ef4658
-          Name: Troy Baer
-      Resource Report Contact:
-        Primary:
-          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
-          Name: John Dockendorf
-        Secondary:
-          ID: 8d3cd644fc7261d8f1a55c323b5df5c7e7ef4658
-          Name: Troy Baer
-        Tertiary:
-          ID: ef74443fbff08cb97203d3fa7c99ae3966679569
-          Name: Doug Johnson
-      Security Contact:
-        Primary:
-          ID: 5005a90675eec7d4d1d9f3b07734e21a5b71c499
-          Name: John Dockendorf
-        Secondary:
-          ID: 8d3cd644fc7261d8f1a55c323b5df5c7e7ef4658
-          Name: Troy Baer
-    Description: OSC OSG squid server.
-    Disable: false
-    FQDN: osg-ce.hpc.osc.edu
-    ID: 892
-    Services:
-      Squid:
-        Description: Generic squid service
     VOOwnership:
       Nova: 100
 SupportCenter: SUPERB-SC

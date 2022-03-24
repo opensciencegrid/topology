@@ -1,0 +1,57 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: IceCube Tier 3 located at the Niels Bohr Institute
+GroupID: 509
+
+Resources:
+  IceCube_DK_NBI_T3_CE:
+    # Active is true if the resource is accepting requests, and false otherwise.
+    # When first registering a resource, set this to false. Set it to true when it's ready for production.
+    Active: false
+    # Description is a long description of the resource; may be multiple lines
+    Description: This is an ARC CE located at the Niels Bohr Institute
+    ID: 1001
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: NBI Grid Support
+          ID: 045c6fccbae7191e0a3df4538c9835e1a21c1252
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # Security Contact is one to three people to contact regarding security issues
+      Security Contact:
+        Primary:
+          Name: NBI Security Contact
+          ID: 1de686fc47aa666facf054de003edf23be9f012f
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+    FQDN: arc03.hpc.ku.dk
+
+    Services:
+      CE:
+        Description: ARC Compute Element
+        ### Details (optional)
+        # Details:
+        #   # hidden
+        #   hidden: false
+        #   ### uri_override (optional, use if your service is on some non-standard URL)
+        #   # uri_override: <HOST>:<PORT>
+        #   ### sam_uri (optional)
+        #   # sam_uri: htcondor://...
+        #   ### endpoint (for perfSONAR services)
+        #   # endpoint: <HOSTNAME>
+
+    VOOwnership:
+      IceCube: 100
+

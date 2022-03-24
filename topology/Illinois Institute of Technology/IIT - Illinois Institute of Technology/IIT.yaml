@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: HPC & HTC computing resources at IIT
 GroupID: 445
 Production: true
@@ -8,14 +7,13 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
-          Name: Grigoriy Abramov
+          ID: a94f392315385fd6400bf04878857156b74bae23
+          Name: Illinois Institute of Technology RDC Support
       Security Contact:
         Primary:
-          ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
-          Name: Grigoriy Abramov
+          ID: a94f392315385fd6400bf04878857156b74bae23
+          Name: Illinois Institute of Technology RDC Support
     Description: HPC & HTC computing resources
-    Disable: false
     FQDN: iitgrid.iit.edu
     ID: 825
     Services:
@@ -23,21 +21,18 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 50
   IIT_CE1:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
-          Name: Grigoriy Abramov
+          ID: a94f392315385fd6400bf04878857156b74bae23
+          Name: Illinois Institute of Technology RDC Support
       Security Contact:
         Primary:
-          ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
-          Name: Grigoriy Abramov
+          ID: a94f392315385fd6400bf04878857156b74bae23
+          Name: Illinois Institute of Technology RDC Support
     Description: IIT HPC/HTC computing resources. CE
-    Disable: false
     FQDN: iitce1.iit.edu
     ID: 844
     Services:
@@ -45,21 +40,18 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 50
   IIT_CE2:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
-          Name: Grigoriy Abramov
+          ID: a94f392315385fd6400bf04878857156b74bae23
+          Name: Illinois Institute of Technology RDC Support
       Security Contact:
         Primary:
-          ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
-          Name: Grigoriy Abramov
+          ID: a94f392315385fd6400bf04878857156b74bae23
+          Name: Illinois Institute of Technology RDC Support
     Description: IIT HPC/HTC computing resources. CE
-    Disable: false
     FQDN: iitce2.iit.edu
     ID: 847
     Services:
@@ -67,28 +59,24 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 50
   IIT_SUBMIT:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
-          Name: Grigoriy Abramov
+          ID: a94f392315385fd6400bf04878857156b74bae23
+          Name: Illinois Institute of Technology RDC Support
       Security Contact:
         Primary:
-          ID: 4697421d1566ea8c5c64d5e0be8ee190d13f2965
-          Name: Grigoriy Abramov
+          ID: a94f392315385fd6400bf04878857156b74bae23
+          Name: Illinois Institute of Technology RDC Support
     Description: Illinois Institute of Technology
-    Disable: false
     FQDN: otsgrid.iit.edu
+    DN: /CN=otsgrid.iit.edu
     ID: 840
     Services:
       Submit Node:
         Description: OSG Submission Node
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: Community Support Center

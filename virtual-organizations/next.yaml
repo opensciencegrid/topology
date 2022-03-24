@@ -18,14 +18,9 @@ ID: 131
 LongName: Neutrino Experiment with a Xenon TPC
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
 OASIS:
-  Managers:
-    Michael Diesburg:
-      DNs: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Michael Diesburg
-        47
-      ID: ffc9ff0f27ebd113597fa3404c4b2de4a1e5d845
   OASISRepoURLs:
-  - http://oasiscfs.fnal.gov:8000/cvmfs/next.opensciencegrid.org
-  UseOASIS: true
+    - http://oasiscfs.fnal.gov:8000/cvmfs/next.opensciencegrid.org
+  UseOASIS: false
 ParentVO:
   ID: 9
   Name: Fermilab

@@ -1,0 +1,69 @@
+GroupDescription: osg-ce.clemson.edu
+GroupID: 212
+Production: true
+Resources:
+  Clemson-Connect:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
+          Name: Randall Martin
+      Security Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
+          Name: Randall Martin
+    Description: This is the Connect factory for Clemson-Palmetto, primarily used
+      by OSG Connect.
+    FQDN: rccf-osg.ci-connect.net
+    ID: 781
+    Services:
+      Connect:
+        Description: Connect Glidein Factory
+        Details:
+          hidden: false
+          uri_override: osgconnect@user.palmetto.clemson.edu/pbs
+  Clemson-Palmetto:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 7822c02348504512bed5b5b78439c34517fe9892
+          Name: Corey Ferrier
+        Secondary:
+          ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
+          Name: Randall Martin
+      Security Contact:
+        Primary:
+          ID: 7822c02348504512bed5b5b78439c34517fe9892
+          Name: Corey Ferrier
+        Secondary:
+          ID: 56f7f6139ae847fc94317c466a7789acf8cdc85d
+          Name: Randall Martin
+    Description: This machine is directly connected to our Palmetto cluster (with
+      approximately 20,000 cores) and has a shared file systems for /home, $OSG_APP
+      and $OSG_DATA.
+    FQDN: osg-ce.clemson.edu
+    ID: 211
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: Community Support Center

@@ -490,3 +490,1455 @@
   ResourceName: CIT_HEP_CE
   Services:
     - CE
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 223553728
+  Description: Network upgrade
+  Severity: Outage
+  StartTime: May 13, 2019 15:00 +0000
+  EndTime: May 14, 2019 15:00 +0000
+  CreatedTime: May 08, 2019 17:42 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 223553816
+  Description: Network upgrade
+  Severity: Outage
+  StartTime: May 13, 2019 15:00 +0000
+  EndTime: May 14, 2019 15:00 +0000
+  CreatedTime: May 08, 2019 17:43 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 223553889
+  Description: Network upgrade
+  Severity: Outage
+  StartTime: May 13, 2019 15:00 +0000
+  EndTime: May 14, 2019 15:00 +0000
+  CreatedTime: May 08, 2019 17:43 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 223554238
+  Description: Network upgrade
+  Severity: Outage
+  StartTime: May 13, 2019 15:00 +0000
+  EndTime: May 14, 2019 15:00 +0000
+  CreatedTime: May 08, 2019 17:43 +0000
+  ResourceName: CIT_CMS_T2C
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 223554362
+  Description: Network upgrade
+  Severity: Outage
+  StartTime: May 13, 2019 15:00 +0000
+  EndTime: May 14, 2019 15:00 +0000
+  CreatedTime: May 08, 2019 17:43 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 223554458
+  Description: Network upgrade
+  Severity: Outage
+  StartTime: May 13, 2019 15:00 +0000
+  EndTime: May 14, 2019 15:00 +0000
+  CreatedTime: May 08, 2019 17:44 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 223554557
+  Description: Network upgrade
+  Severity: Outage
+  StartTime: May 13, 2019 15:00 +0000
+  EndTime: May 14, 2019 15:00 +0000
+  CreatedTime: May 08, 2019 17:44 +0000
+  ResourceName: Caltech PerfSonar Bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 223554632
+  Description: Network upgrade
+  Severity: Outage
+  StartTime: May 13, 2019 15:00 +0000
+  EndTime: May 14, 2019 15:00 +0000
+  CreatedTime: May 08, 2019 17:44 +0000
+  ResourceName: Caltech PerfSonar Latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+
+- Class: UNSCHEDULED
+  ID: 230416643
+  Description: Unscheduled storage outage due to power
+  Severity: Severe
+  StartTime: May 16, 2019 16:20 +0000
+  EndTime: May 17, 2019 00:20 +0000
+  CreatedTime: May 16, 2019 16:21 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 263737545
+  Description: Building maintenance plus infrastructure upgrade
+  Severity: Outage
+  StartTime: Jun 28, 2019 15:00 +0000
+  EndTime: Jul 01, 2019 16:00 +0000
+  CreatedTime: Jun 25, 2019 20:00 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 263737546
+  Description: Building maintenance plus infrastructure upgrade
+  Severity: Outage
+  StartTime: Jun 28, 2019 15:00 +0000
+  EndTime: Jul 01, 2019 16:00 +0000
+  CreatedTime: Jun 25, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 263737547
+  Description: Building maintenance plus infrastructure upgrade
+  Severity: Outage
+  StartTime: Jun 28, 2019 15:00 +0000
+  EndTime: Jul 01, 2019 16:00 +0000
+  CreatedTime: Jun 25, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 263737548
+  Description: Building maintenance plus infrastructure upgrade
+  Severity: Outage
+  StartTime: Jun 28, 2019 15:00 +0000
+  EndTime: Jul 01, 2019 16:00 +0000
+  CreatedTime: Jun 25, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2C
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 263737549
+  Description: Building maintenance plus infrastructure upgrade
+  Severity: Outage
+  StartTime: Jun 28, 2019 15:00 +0000
+  EndTime: Jul 01, 2019 16:00 +0000
+  CreatedTime: Jun 25, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 263737550
+  Description: Building maintenance plus infrastructure upgrade
+  Severity: Outage
+  StartTime: Jun 28, 2019 15:00 +0000
+  EndTime: Jul 01, 2019 16:00 +0000
+  CreatedTime: Jun 25, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 263737551
+  Description: Building maintenance plus infrastructure upgrade
+  Severity: Outage
+  StartTime: Jun 28, 2019 15:00 +0000
+  EndTime: Jul 01, 2019 16:00 +0000
+  CreatedTime: Jun 25, 2019 20:00 +0000
+  ResourceName: CMS_CIT_T2_SC_ORIGIN_01
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 263737552
+  Description: Building maintenance plus infrastructure upgrade
+  Severity: Outage
+  StartTime: Jun 28, 2019 15:00 +0000
+  EndTime: Jul 01, 2019 16:00 +0000
+  CreatedTime: Jun 25, 2019 20:00 +0000
+  ResourceName: CIT_HEP_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 263737553
+  Description: Building maintenance plus infrastructure upgrade
+  Severity: Outage
+  StartTime: Jun 28, 2019 15:00 +0000
+  EndTime: Jul 01, 2019 16:00 +0000
+  CreatedTime: Jun 25, 2019 20:00 +0000
+  ResourceName: Caltech PerfSonar Bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 263737554
+  Description: Building maintenance plus infrastructure upgrade
+  Severity: Outage
+  StartTime: Jun 28, 2019 15:00 +0000
+  EndTime: Jul 01, 2019 16:00 +0000
+  CreatedTime: Jun 25, 2019 20:00 +0000
+  ResourceName: Caltech PerfSonar Latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+
+
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 283369696
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369697
+  Description: Building maintenance plus infrastructure upgrade
+  Severity: Outage
+  StartTime: Jun 28, 2019 15:00 +0000
+  EndTime: Jul 01, 2019 16:00 +0000
+  CreatedTime: Jun 25, 2019 20:00 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369698
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369699
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CIT_CMS_T2C
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369700
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369701
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369702
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CMS_CIT_T2_SC_ORIGIN_01
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369703
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: CIT_HEP_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369704
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: Caltech PerfSonar Bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369705
+  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
+  Severity: Outage
+  StartTime: Jul 23, 2019 08:00 +0000
+  EndTime: Jul 23, 2019 20:00 +0000
+  CreatedTime: Jul 17, 2019 22:00 +0000
+  ResourceName: Caltech PerfSonar Latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+
+
+
+
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 283369706
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369707
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369708
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369709
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_CMS_T2C
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369710
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369711
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369712
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CMS_CIT_T2_SC_ORIGIN_01
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369713
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: CIT_HEP_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369714
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: Caltech PerfSonar Bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 283369715
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 19, 2019 13:00 +0000
+  EndTime: Aug 20, 2019 07:00 +0000
+  CreatedTime: Aug 16, 2019 18:10 +0000
+  ResourceName: Caltech PerfSonar Latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 325391316
+  Description: Upgrade to 3.5 and HTCondor 8.8.4
+  Severity: Outage
+  StartTime: Sep 04, 2019 18:00 +0000
+  EndTime: Sep 11, 2019 18:00 +0000
+  CreatedTime: Sep 03, 2019 17:50 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+  - CE
+
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 499559472
+  Description: Move CEs to container
+  Severity: Outage
+  StartTime: Mar 25, 2020 12:00 +0000
+  EndTime: Mar 30, 2020 22:00 +0000
+  CreatedTime: Mar 24, 2020 23:20 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+  - CE
+
+# --------------------------------------------------------
+
+- Class: UNSCHEDULED
+  ID: 508000381
+  Description: Tier2 cluster is down (main uplink down)
+  Severity: Outage
+  StartTime: Apr 13, 2020 06:30 +0000
+  EndTime: Apr 15, 2020 06:30 +0000
+  CreatedTime: Apr 13, 2020 06:30 +0000
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 508000382
+  Description: Tier2 cluster is down (main uplink down)
+  Severity: Outage
+  StartTime: Apr 13, 2020 06:30 +0000
+  EndTime: Apr 15, 2020 06:30 +0000
+  CreatedTime: Apr 13, 2020 06:30 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 508000383
+  Description: Tier2 cluster is down (main uplink down)
+  Severity: Outage
+  StartTime: Apr 13, 2020 06:30 +0000
+  EndTime: Apr 15, 2020 06:30 +0000
+  CreatedTime: Apr 13, 2020 06:30 +0000
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 508000384
+  Description: Tier2 cluster is down (main uplink down)
+  Severity: Outage
+  StartTime: Apr 13, 2020 06:30 +0000
+  EndTime: Apr 15, 2020 06:30 +0000
+  CreatedTime: Apr 13, 2020 06:30 +0000
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 508000385
+  Description: Tier2 cluster is down (main uplink down)
+  Severity: Outage
+  StartTime: Apr 13, 2020 06:30 +0000
+  EndTime: Apr 15, 2020 06:30 +0000
+  CreatedTime: Apr 13, 2020 06:30 +0000
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 508000386
+  Description: Tier2 cluster is down (main uplink down)
+  Severity: Outage
+  StartTime: Apr 13, 2020 06:30 +0000
+  EndTime: Apr 15, 2020 06:30 +0000
+  CreatedTime: Apr 13, 2020 06:30 +0000
+  ResourceName: CIT_HEP_CE
+  Services:
+    - CE
+
+# --------------------------------------------------------
+# CENIC Circuit Migration in LA Downtown
+
+- Class: SCHEDULED
+  ID: 579465544
+  Description: CENIC Circuit Migration in LA Downtown
+  Severity: Outage
+  StartTime: Jul 07, 2020 23:30 +0700
+  EndTime: Jul 08, 2020 08:30 +0700
+  CreatedTime: Jun 25, 2020 12:30 +0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 579465545
+  Description: CENIC Circuit Migration in LA Downtown
+  Severity: Outage
+  StartTime: Jul 07, 2020 23:30 +0700
+  EndTime: Jul 08, 2020 08:30 +0700
+  CreatedTime: Jun 25, 2020 12:30 +0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 579465546
+  Description: CENIC Circuit Migration in LA Downtown
+  Severity: Outage
+  StartTime: Jul 07, 2020 23:30 +0700
+  EndTime: Jul 08, 2020 08:30 +0700
+  CreatedTime: Jun 25, 2020 12:30 +0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 579465547
+  Description: CENIC Circuit Migration in LA Downtown
+  Severity: Outage
+  StartTime: Jul 07, 2020 23:30 +0700
+  EndTime: Jul 08, 2020 08:30 +0700
+  CreatedTime: Jun 25, 2020 12:30 +0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 579465548
+  Description: CENIC Circuit Migration in LA Downtown
+  Severity: Outage
+  StartTime: Jul 07, 2020 23:30 +0700
+  EndTime: Jul 08, 2020 08:30 +0700
+  CreatedTime: Jun 25, 2020 12:30 +0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 579465549
+  Description: CENIC Circuit Migration in LA Downtown
+  Severity: Outage
+  StartTime: Jul 07, 2020 23:30 +0700
+  EndTime: Jul 08, 2020 08:30 +0700
+  CreatedTime: Jun 25, 2020 12:30 +0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# --------------------------------------------------------
+
+# --------------------------------------------------------
+# LRT Building Power downtime
+
+- Class: SCHEDULED
+  ID: 603597105
+  Description: LRT Building Power downtime
+  Severity: Outage
+  StartTime: Aug 04, 2020 05:55 -0700
+  EndTime: Aug 05, 2020 10:55 -0700
+  CreatedTime: Jul 31, 2020 17:30 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 603597106
+  Description: LRT Building Power downtime
+  Severity: Outage
+  StartTime: Aug 04, 2020 05:55 -0700
+  EndTime: Aug 05, 2020 10:55 -0700
+  CreatedTime: Jul 31, 2020 17:30 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 603597107
+  Description: LRT Building Power downtime
+  Severity: Outage
+  StartTime: Aug 04, 2020 05:55 -0700
+  EndTime: Aug 05, 2020 10:55 -0700
+  CreatedTime: Jul 31, 2020 17:30 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 603597108
+  Description: LRT Building Power downtime
+  Severity: Outage
+  StartTime: Aug 04, 2020 05:55 -0700
+  EndTime: Aug 05, 2020 10:55 -0700
+  CreatedTime: Jul 31, 2020 17:30 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 603597109
+  Description: LRT Building Power downtime
+  Severity: Outage
+  StartTime: Aug 04, 2020 05:55 -0700
+  EndTime: Aug 05, 2020 10:55 -0700
+  CreatedTime: Jul 31, 2020 17:30 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 603597110
+  Description: LRT Building Power downtime
+  Severity: Outage
+  StartTime: Aug 04, 2020 05:55 -0700
+  EndTime: Aug 05, 2020 10:55 -0700
+  CreatedTime: Jul 31, 2020 17:30 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# --------------------------------------------------------
+
+# --------------------------------------------------------
+# Main Switch replacement
+
+- Class: SCHEDULED
+  ID: 621741704
+  Description: Main Switch replacement
+  Severity: Outage
+  StartTime: Aug 17, 2020 08:00 -0700
+  EndTime: Aug 17, 2020 17:00 -0700
+  CreatedTime: Aug 14, 2020 13:00 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 621741705
+  Description: Main Switch replacement
+  Severity: Outage
+  StartTime: Aug 17, 2020 08:00 -0700
+  EndTime: Aug 17, 2020 17:00 -0700
+  CreatedTime: Aug 14, 2020 13:00 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 621741706
+  Description: Main Switch replacement
+  Severity: Outage
+  StartTime: Aug 17, 2020 08:00 -0700
+  EndTime: Aug 17, 2020 17:00 -0700
+  CreatedTime: Aug 14, 2020 13:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 621741707
+  Description: Main Switch replacement
+  Severity: Outage
+  StartTime: Aug 17, 2020 08:00 -0700
+  EndTime: Aug 17, 2020 17:00 -0700
+  CreatedTime: Aug 14, 2020 13:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 621741708
+  Description: Main Switch replacement
+  Severity: Outage
+  StartTime: Aug 17, 2020 08:00 -0700
+  EndTime: Aug 17, 2020 17:00 -0700
+  CreatedTime: Aug 14, 2020 13:00 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 621741709
+  Description: Main Switch replacement
+  Severity: Outage
+  StartTime: Aug 17, 2020 08:00 -0700
+  EndTime: Aug 17, 2020 17:00 -0700
+  CreatedTime: Aug 14, 2020 13:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# --------------------------------------------------------
+# Power Maitenance in Lauritsen building
+
+- Class: SCHEDULED
+  ID: 639944630
+  Description:  Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 639944631
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 639944632
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 639944633
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 639944634
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 639944635
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Sep 16, 2020 06:00 -0700
+  EndTime: Sep 16, 2020 17:00 -0700
+  CreatedTime: Sep 02, 2020 10:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+# --------------------------------------------------------
+# IP renumbering cit-gatekeeper host will change its public IP
+
+- Class: SCHEDULED
+  ID: 603597111
+  Description: IP renumbering cit-gatekeeper host will change its public IP
+  Severity: Outage
+  StartTime: Oct 20, 2020 08:00 -0700
+  EndTime: Oct 21, 2020 07:59 -0700
+  CreatedTime: Oct 19, 2020 20:38 +0000
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+# --------------------------------------------------------
+# Power Maitenance in Lauritsen building
+
+- Class: SCHEDULED
+  ID: 766089753
+  Description:  Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 766089754
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 766089755
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 766089756
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 766089757
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 766089758
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 766089759
+  Description: Power Maitenance in Lauritsen building
+  Severity: Outage
+  StartTime: Feb 24, 2021 00:00 -0700
+  EndTime: Feb 25, 2021 00:00 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+# --------------------------------------------------------
+# Moving from Private network namespace to Public (IPv4/IPv6)
+- Class: SCHEDULED
+  ID: 826272921
+  Description: Testing Collector/CE/StartDs under public net namespace
+  Severity: Outage
+  StartTime: Apr 08, 2021 00:00 -0700
+  EndTime: Apr 16, 2021 00:00 -0700
+  CreatedTime: Apr 06, 2021 09:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+# --------------------------------------------------------
+# Migration service containers to the new infrastructure
+- Class: SCHEDULED
+  ID: 828282345
+  Description: Migration service containers to the new infrastructure
+  Severity: Outage
+  StartTime: Apr 14, 2021 08:00 -0700
+  EndTime: Apr 14, 2021 17:00 -0700
+  CreatedTime: Apr 12, 2021 12:00 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 828282346
+  Description: Migration service containers to the new infrastructure
+  Severity: Outage
+  StartTime: Apr 14, 2021 08:00 -0700
+  EndTime: Apr 14, 2021 17:00 -0700
+  CreatedTime: Apr 12, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 828282347
+  Description: Migration service containers to the new infrastructure
+  Severity: Outage
+  StartTime: Apr 14, 2021 08:00 -0700
+  EndTime: Apr 14, 2021 17:00 -0700
+  CreatedTime: Apr 12, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+# --------------------------------------------------------
+# Fiber cut NOC-650123
+
+- Class: UNSCHEDULED
+  ID: 866360156
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: UNSCHEDULED
+  ID: 866360157
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 866360158
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 866360159
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  CreatedTime: Feb 01, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 866360160
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 866360161
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 866360162
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: UNSCHEDULED
+  ID: 866360163
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: UNSCHEDULED
+  ID: 866360164
+  Description:  Fiber cut NOC-650123
+  Severity: Outage
+  StartTime: Jun 04, 2021 13:30 -0700
+  EndTime: Jun 06, 2021 09:00 -0700
+  CreatedTime: Jun 04, 2021 13:30 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
+# --------------------------------------------------------
+# Migrating to our own IPv6 range
+
+- Class: SCHEDULED
+  ID: 893044365
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 03, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 893044366
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 03, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 893044367
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 03, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 893044368
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 03, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 893044369
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 03, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 893044370
+  Description:  Migrating to our own IPv6 range
+  Severity: Outage
+  StartTime: Jul 01, 2021 07:00 -0700
+  EndTime: Jul 03, 2021 07:00 -0700
+  CreatedTime: Jun 28, 2021 17:30 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
+
+# -----------------------------------------
+# Disk space does not grow on the trees and is not unlimited
+# CMS Filled too much disk space - lost disk - now we are out of space.
+
+- Class: UNSCHEDULED
+  ID: 893044371
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: UNSCHEDULED
+  ID: 893044372
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 893044373
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 893044374
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 893044375
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 893044376
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 893044377
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: UNSCHEDULED
+  ID: 893044378
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: UNSCHEDULED
+  ID: 893044379
+  Description:  No space left.
+  Severity: Outage
+  StartTime: Jul 13, 2021 07:00 -0700
+  EndTime: Jul 13, 2021 16:00 -0700
+  CreatedTime: Jul 13, 2021 07:30 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
+# ---------------------------------------
+# HTCondor CE keeps crashing with core dump
+
+- Class: UNSCHEDULED
+  ID: 935306752
+  Description:  HTCondor-CE Keeps crashing with core dump
+  Severity: Outage
+  StartTime: Aug 11, 2021 16:00 -0700
+  EndTime: Aug 18, 2021 12:00 -0700
+  CreatedTime: Aug 11, 2021 16:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 941476039
+  Description:  HTCondor-CE Update to 5/9.0.4 release
+  Severity: Outage
+  StartTime: Aug 19, 2021 08:00 -0700
+  EndTime: Aug 19, 2021 08:00 -0700
+  CreatedTime: Aug 18, 2021 12:00 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+# ----------------------------------------
+# Networking upgrades include replacement core router with a new one.
+# Caltech Facilities department will perform an Electricity upgrade:
+# Caltech Substation # 2 is under renovation. This time will allow for
+# transferring the building to a new substation transformer. In addition,
+# facilities staff will be on hand to normalize building systems.
+#
+- Class: SCHEDULED
+  ID: 997651556
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 08:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 997651557
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 08:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651558
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 08:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651559
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 08:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651560
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 08:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 997651561
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 08:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 997651562
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 08:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 997651563
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 08:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 997651564
+  Description:  Networking upgrades, Power station switch
+  Severity: Outage
+  StartTime: Feb 18, 2022 17:00 -0800
+  EndTime: Feb 22, 2022 08:00 -0800
+  CreatedTime: Jan 21, 2022 17:00 -0800
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
+# ----------------------------------------
+# Replacing faulty storage headnodes
+#
+- Class: SCHEDULED
+  ID: 997651565
+  Description:  Replacing faulty storage nodes
+  Severity: Outage
+  StartTime: Feb 7, 2022 09:00 -0800
+  EndTime: Feb 7, 2022 12:00 -0800
+  CreatedTime: Feb 04, 2022 15:00 -0800
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 997651566
+  Description:  Replacing faulty storage nodes
+  Severity: Outage
+  StartTime: Feb 7, 2022 09:00 -0800
+  EndTime: Feb 7, 2022 12:00 -0800
+  CreatedTime: Feb 04, 2022 15:00 -0800
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 997651567
+  Description:  Replacing faulty storage nodes
+  Severity: Outage
+  StartTime: Feb 7, 2022 09:00 -0800
+  EndTime: Feb 7, 2022 12:00 -0800
+  CreatedTime: Feb 04, 2022 15:00 -0800
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 997651568
+  Description:  Replacing faulty storage nodes
+  Severity: Outage
+  StartTime: Feb 7, 2022 09:00 -0800
+  EndTime: Feb 7, 2022 12:00 -0800
+  CreatedTime: Feb 04, 2022 15:00 -0800
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+

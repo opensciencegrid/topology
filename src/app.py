@@ -1,9 +1,11 @@
 """
 Application File
 """
+import csv
 import flask
 import flask.logging
 from flask import Flask, Response, make_response, request, render_template
+from io import StringIO
 import logging
 import os
 import re
@@ -12,10 +14,12 @@ import traceback
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import to_xml_bytes, Filters
-from webapp.forms import GenerateDowntimeForm
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
+from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
+from webapp.oasis_managers import get_oasis_manager_endpoint_info
+
 
 try:
     import stashcache
@@ -38,7 +42,10 @@ def _verify_config(cfg):
         else:
             st = os.stat(ssh_key)
             if st.st_uid != os.getuid() or (st.st_mode & 0o7777) not in (0o700, 0o600, 0o400):
-                raise PermissionError(ssh_key)
+                if cfg["IGNORE_SECRET_PERMS"]:
+                    app.logger.info("Ignoring permissions/ownership issues on " + ssh_key)
+                else:
+                    raise PermissionError(ssh_key)
 
 
 default_authorized = False
@@ -65,6 +72,17 @@ if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
 global_data = GlobalData(app.config, strict=app.config.get("STRICT", app.debug))
+
+
+cilogon_pass = readfile(global_data.cilogon_ldap_passfile, app.logger)
+if not cilogon_pass:
+    app.logger.warning("Note, no CILOGON_LDAP_PASSFILE configured; "
+                       "OASIS Manager ssh key lookups will be unavailable.")
+
+ligo_pass = readfile(global_data.ligo_ldap_passfile, app.logger)
+if not ligo_pass:
+    app.logger.warning("Note, no LIGO_LDAP_PASSFILE configured; "
+                       "LIGO DNs will be unavailable in authfiles.")
 
 
 def _fix_unicode(text):
@@ -98,6 +116,94 @@ def miscuser_xml():
                     mimetype='text/xml')
 
 
+@app.route('/nsfscience/csv')
+def nsfscience_csv():
+    nsfscience = global_data.get_mappings().nsfscience
+    if not nsfscience:
+        return Response("Error getting Field of Science mappings", status=503)
+
+    buffer = StringIO()
+    writer = csv.writer(buffer, delimiter=",")
+    writer.writerow(["Topology Field of Science", "NSF Field of Science"])
+    writer.writerows(nsfscience.items())
+    response = make_response(buffer.getvalue())
+    response.headers.set("Content-Type", "text/csv")
+    response.headers.set("Content-Disposition", "attachment", filename="nsfscience.csv")
+    return response
+
+
+@app.route('/organizations')
+def organizations():
+    project_institution = global_data.get_mappings().project_institution
+    if not project_institution:
+        return Response("Error getting Project/Institution mappings", status=503)
+
+    organizations = set()
+    for project in global_data.get_projects()["Projects"]["Project"]:
+        if "Organization" in project:
+            organizations.add(project["Organization"])
+
+    # Invert the Project/Institution mapping. Note that "institution" == "organization"
+    # and "project" is actually the prefix for the project in our standard naming
+    # convention.
+    prefix_by_org = {pi[1]: pi[0] for pi in project_institution.items()}
+
+    org_table = []
+    for org in sorted(organizations):
+        prefix = prefix_by_org.get(org, "")
+        org_table.append((org, prefix))
+
+    return _fix_unicode(render_template('organizations.html.j2', org_table=org_table))
+
+
+@app.route('/resources')
+def resources():
+
+    return render_template("resources.html.j2")
+
+
+@app.route('/collaborations')
+def collaboration_list():
+
+    return render_template("collaborations.html.j2")
+
+
+@app.route("/collaborations/osg-scitokens-mapfile.conf")
+def collaborations_scitoken_text():
+    """Dumps output of /bin/get-scitokens-mapfile --regex at a text endpoint"""
+
+    mapfile = ""
+    all_vos_data = global_data.get_vos_data()
+
+    for vo_name, vo_data in all_vos_data.vos.items():
+        if is_null(vo_data, "Credentials", "TokenIssuers"):
+            continue
+        mapfile += f"## {vo_name} ##\n"
+        for token_issuer in vo_data["Credentials"]["TokenIssuers"]:
+            url = token_issuer.get("URL")
+            subject = token_issuer.get("Subject", "")
+            description = token_issuer.get("Description", "")
+            pattern = ""
+            if url:
+                if subject:
+                    pattern = f'/^{escape(url)},{escape(subject)}$/'
+                else:
+                    pattern = f'/^{escape(url)},/'
+            unix_user = token_issuer.get("DefaultUnixUser")
+            if description:
+                mapfile += f"# {description}:\n"
+            if pattern and unix_user:
+                mapfile += f"SCITOKENS {pattern} {unix_user}\n"
+            else:
+                mapfile += f"# invalid SCITOKENS: {pattern or '<NO URL>'} {unix_user or '<NO UNIX USER>'}\n"
+
+    if not mapfile:
+        mapfile += "# No TokenIssuers found\n"
+
+    return Response(mapfile, mimetype="text/plain")
+
+
+
 @app.route('/contacts')
 def contacts():
     try:
@@ -114,9 +220,38 @@ def miscproject_xml():
     return Response(to_xml_bytes(global_data.get_projects()), mimetype='text/xml')
 
 
+@app.route('/miscproject/json')
+@support_cors
+def miscproject_json():
+    projects = simplify_attr_list(global_data.get_projects()["Projects"]["Project"], namekey="Name", del_name=False)
+    return Response(to_json_bytes(projects), mimetype='text/json')
+
+@app.route('/miscresource/json')
+@support_cors
+def miscresource_json():
+    resources = {}
+    topology = global_data.get_topology()
+    for rg in topology.rgs.values():
+        for resource in rg.resources_by_name.values():
+            resources[resource.name] = {
+                "Name": resource.name,
+                "Site": rg.site.name,
+                "Facility": rg.site.facility.name,
+                "ResourceGroup": rg.name,
+                **resource.get_tree()
+            }
+
+    return Response(to_json_bytes(resources), mimetype='text/json')
+
 @app.route('/vosummary/xml')
 def vosummary_xml():
     return _get_xml_or_fail(global_data.get_vos_data().get_tree, request.args)
+
+@app.route('/vosummary/json')
+def vosummary_json():
+    return Response(to_json_bytes(
+        simplify_attr_list(global_data.get_vos_data().get_expansion(), namekey='Name')
+    ), mimetype="application/json")
 
 
 @app.route('/rgsummary/xml')
@@ -161,6 +296,57 @@ def origin_authfile():
     return _get_origin_authfile(public_only=False)
 
 
+@app.route("/stashcache/scitokens")
+def scitokens():
+    if not stashcache:
+        return Response("Can't get scitokens config: stashcache module unavailable", status=503)
+    cache_fqdn = request.args.get("cache_fqdn")
+    origin_fqdn = request.args.get("origin_fqdn")
+    if not cache_fqdn and not origin_fqdn:
+        return Response("FQDN of cache or origin server required in the 'cache_fqdn' or 'origin_fqdn' argument", status=400)
+
+    try:
+        if cache_fqdn:
+            cache_scitokens = stashcache.generate_cache_scitokens(global_data.get_vos_data(),
+                                                                global_data.get_topology().get_resource_group_list(),
+                                                                fqdn=cache_fqdn,
+                                                                suppress_errors=False)
+            return Response(cache_scitokens, mimetype="text/plain")
+        elif origin_fqdn:
+            origin_scitokens = stashcache.generate_origin_scitokens(global_data.get_vos_data(),
+                                                                global_data.get_topology().get_resource_group_list(),
+                                                                fqdn=origin_fqdn,
+                                                                suppress_errors=False)
+            return Response(origin_scitokens, mimetype="text/plain")
+    except stashcache.NotRegistered as e:
+        return Response("# No resource registered for {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(str(e)),
+                        mimetype="text/plain", status=404)
+    except stashcache.DataError as e:
+        app.logger.error("{}: {}".format(request.full_path, str(e)))
+        return Response("# Error generating scitokens config for this FQDN: {}\n".format(str(e)) +
+                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        mimetype="text/plain", status=400)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+
+
+@app.route("/oasis-managers/json")
+def oasis_managers():
+    if not _get_authorized():
+        return Response("Not authorized", status=403)
+    vo = request.args.get("vo")
+    if not vo:
+        return Response("'vo' argument is required", status=400)
+    if not cilogon_pass:
+        return Response("CILOGON_LDAP_PASSFILE not configured; "
+                        "OASIS Managers info unavailable", status=503)
+    mgrs = get_oasis_manager_endpoint_info(global_data, vo, cilogon_pass)
+    return Response(to_json_bytes(mgrs), mimetype='application/json')
+
+
 def _get_cache_authfile(public_only):
     if not stashcache:
         return Response("Can't get authfile: stashcache module unavailable", status=503)
@@ -170,11 +356,15 @@ def _get_cache_authfile(public_only):
             generate_function = stashcache.generate_public_cache_authfile
         else:
             generate_function = stashcache.generate_cache_authfile
-        auth = generate_function(global_data.get_vos_data(),
-                                 global_data.get_topology().get_resource_group_list(),
+        auth = generate_function(global_data,
                                  fqdn=cache_fqdn,
                                  legacy=app.config["STASHCACHE_LEGACY_AUTH"],
                                  suppress_errors=False)
+    except stashcache.NotRegistered as e:
+        return Response("# No resource registered for {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(str(e)),
+                        mimetype="text/plain", status=404)
     except stashcache.DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
@@ -197,6 +387,11 @@ def _get_origin_authfile(public_only):
                                                    global_data.get_topology().get_resource_group_list(),
                                                    suppress_errors=False,
                                                    public_only=public_only)
+    except stashcache.NotRegistered as e:
+        return Response("# No resource registered for {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(str(e)),
+                        mimetype="text/plain", status=404)
     except stashcache.DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
@@ -287,6 +482,101 @@ def generate_downtime():
                        edit_url=edit_url, site_dir_url=site_dir_url,
                        new_url=new_url)
 
+@app.route("/generate_resource_group_downtime", methods=["GET", "POST"])
+def generate_resource_group_downtime():
+    form = GenerateResourceGroupDowntimeForm(request.form)
+
+    def github_url(action, path):
+        assert action in ("tree", "edit", "new"), "invalid action"
+        base = global_data.topology_data_repo
+        branch_q = urllib.parse.quote(global_data.topology_data_branch)
+        path_q = urllib.parse.quote(path)
+        param = f"?filename={path_q}" if action == "new" else f"/{path_q}"
+        return f"{base}/{action}/{branch_q}{param}"
+
+    github = False
+    github_topology_root = ""
+    if re.match("http(s?)://github.com", global_data.topology_data_repo):
+        github = True
+        github_topology_root = github_url("tree", "topology")
+
+    def render_form(**kwargs):
+        return render_template("generate_resource_group_downtime_form.html.j2", form=form, infos=form.infos, github=github,
+                               github_topology_root=github_topology_root, **kwargs)
+
+    topo = global_data.get_topology()
+
+    form.facility.choices = _make_choices(topo.sites_by_facility.keys(), select_one=True)
+    facility = form.facility.data
+    if form.change_facility.data:
+
+        # If valid facility
+        if facility in topo.sites_by_facility:
+            form.site.choices = _make_choices(topo.sites_by_facility[facility], True)
+            form.site.data = ""
+            form.resource_group.choices = [("", "-- Select a site first --")]
+            form.resource_group.data = ""
+
+        else:
+            form.facility.data = ""
+            form.site.choices = [("", "-- Select a facility first --")]
+            form.site.data = ""
+            form.resource_group.choices = [("", "-- Select a facility and site first --")]
+            form.resource_group.data = ""
+
+        return render_form()
+
+    form.site.choices = _make_choices(topo.sites_by_facility[facility], True)
+    site = form.site.data
+    if form.change_site.data:
+
+        # If valid site
+        if site in topo.sites_by_facility[facility]:
+            form.resource_group.choices = _make_choices(topo.resource_group_by_site[site], True)
+            form.resource_group.data = ""
+
+        else:
+            form.site.choices = _make_choices(topo.sites_by_facility[facility], True)
+            form.site.data = ""
+            form.resource_group.choices = [("", "-- Select a site first --")]
+            form.resource_group.data = ""
+
+        return render_form()
+
+    form.resource_group.choices = _make_choices(topo.resource_group_by_site[site], True)
+    resource_group = form.resource_group.data
+    if form.change_resource_group.data:
+
+        if resource_group not in topo.resource_group_by_site[site]:
+            form.resource_group.choices = _make_choices(topo.resource_group_by_site[site], True)
+            form.resource_group.data = ""
+
+        return render_form()
+
+    if not form.validate_on_submit():
+        return render_form()
+
+    resources = sorted(topo.resources_by_resource_group[resource_group])
+
+    filepath = "topology/" + topo.downtime_path_by_resource[resources[0]]
+    # ^ filepath relative to the root of the topology repo checkout
+    filename = os.path.basename(filepath)
+
+    # Add github edit URLs or directory URLs for the repo, if we can.
+    new_url = edit_url = site_dir_url = ""
+    if github:
+        site_dir_url = github_url("tree", os.path.dirname(filepath))
+        if os.path.exists(os.path.join(global_data.topology_dir, topo.downtime_path_by_resource[resources[0]])):
+            edit_url = github_url("edit", filepath)
+        else:
+            new_url = github_url("new", filepath)
+
+    form.yamloutput.data = form.get_yaml(resources=resources,
+                                         service_names_by_resource=topo.service_names_by_resource)
+
+    return render_form(filepath=filepath, filename=filename,
+                       edit_url=edit_url, site_dir_url=site_dir_url,
+                       new_url=new_url)
 
 def _make_choices(iterable, select_one=False):
     c = [(_fix_unicode(x), _fix_unicode(x)) for x in sorted(iterable)]
@@ -413,7 +703,10 @@ def _get_authorized():
             if client_dn[3:] in authorized_dns: # "dn:" is at the beginning of the DN
                 if app and app.logger:
                     app.logger.info("Authorized %s", client_dn)
-                return True     
+                return True
+            else:
+                if app and app.logger:
+                    app.logger.debug("Rejected %s", client_dn)
 
     # If it gets here, then it is not authorized
     return default_authorized

@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: This is the 200+ node cluster consisting of desktop lab computers
   running Linux.  Generally available after hours and on weekends.
 GroupID: 298
@@ -11,24 +10,12 @@ Resources:
         Primary:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
-      Miscellaneous Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-        Secondary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
-      Resource Report Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
       Security Contact:
         Primary:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
     Description: This is the CE for the Calclab cluster.  The backend scheduler is
       SLURM.
-    Disable: false
     FQDN: calclab-ce.math.tamu.edu
     ID: 381
     Services:
@@ -49,20 +36,11 @@ Resources:
         Primary:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
-      Miscellaneous Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-      Resource Report Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
       Security Contact:
         Primary:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
     Description: Secondary CE for TAMU_Calclab. Backend scheduler is SLURM.
-    Disable: false
     FQDN: calclab-ce2.math.tamu.edu
     ID: 538
     Services:
@@ -83,23 +61,11 @@ Resources:
         Primary:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
-      Miscellaneous Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
-        Secondary:
-          ID: 36286151aba761fb0b42068c2320c47b932a21bc
-          Name: Guy T Almes
-      Resource Report Contact:
-        Primary:
-          ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
-          Name: Steve Johnson
       Security Contact:
         Primary:
           ID: f7e64a6844f0a9f0d7d16604a857fe33fb059752
           Name: Steve Johnson
     Description: This is the SE for the Calclab cluster.
-    Disable: false
     FQDN: calcfs2.math.tamu.edu
     ID: 382
     Services:

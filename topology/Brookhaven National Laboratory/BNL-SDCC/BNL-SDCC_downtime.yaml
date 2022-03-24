@@ -1,0 +1,23 @@
+- Class: SCHEDULED
+  ID: 702324249
+  Description: 'facility-wide network intervention for upgrade of the network infrastructure  '
+  Severity: Outage
+  StartTime: Dec 01, 2020 11:00 +0000
+  EndTime: Dec 01, 2020 23:00 +0000
+  CreatedTime: Nov 12, 2020 19:53 +0000
+  ResourceName: BNL-SDCC-CE01
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 702324711
+  Description: 'facility-wide network intervention for upgrade of the network infrastructure  '
+  Severity: Outage
+  StartTime: Dec 01, 2020 11:00 +0000
+  EndTime: Dec 01, 2020 23:00 +0000
+  CreatedTime: Nov 12, 2020 19:54 +0000
+  ResourceName: BNL-SUBMIT-01
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+

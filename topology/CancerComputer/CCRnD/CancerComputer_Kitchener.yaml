@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Virtualized compute cluster at CCRnD, supporting VOs and projects
   dealing with cancer-related research
 GroupID: 479
@@ -16,7 +15,6 @@ Resources:
           ID: 0182f725a01a98ce2359736e09f181f07ad646d5
           Name: Ian Stakenvicius
     Description: The CE for the virtualized compute cluster at CCRnD
-    Disable: false
     FQDN: osg-kitchener.cancercomputer.com
     ID: 922
     Services:
@@ -29,6 +27,4 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
 SupportCenter: CCSUP

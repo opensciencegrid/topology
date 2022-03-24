@@ -9,16 +9,6 @@
   StartTime: Jul 13, 2016 12:00 +0000
 # ----------------------------------------------------------
 - Class: SCHEDULED
-  Description: Cleaning of server after data center fire.
-  EndTime: Jul 18, 2016 17:00 +0000
-  ID: 1004953
-  ResourceName: Vanderbilt_CE2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jul 13, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
   Description: Cleaning of SE and all GridFTP servers after data center fire.
   EndTime: Jul 18, 2016 17:00 +0000
   ID: 1004954
@@ -43,16 +33,6 @@
   EndTime: Aug 5, 2016 17:00 +0000
   ID: 1004966
   ResourceName: Vanderbilt_CE1
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Aug 1, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Downtime for fire-cleaning of core network switches for our site.
-  EndTime: Aug 5, 2016 17:00 +0000
-  ID: 1004967
-  ResourceName: Vanderbilt_CE2
   Services:
   - CE
   Severity: Outage
@@ -121,16 +101,6 @@
 - Class: SCHEDULED
   Description: L-Store upgrade
   EndTime: Apr 25, 2017 23:00 +0000
-  ID: 1005277
-  ResourceName: Vanderbilt_CE2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Apr 24, 2017 11:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: L-Store upgrade
-  EndTime: Apr 25, 2017 23:00 +0000
   ID: 1005278
   ResourceName: Vanderbilt_SE
   Services:
@@ -143,16 +113,6 @@
   EndTime: Jun 2, 2017 05:00 +0000
   ID: 1005325
   ResourceName: Vanderbilt_CE1
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: May 30, 2017 05:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Storage hardware upgrade
-  EndTime: Jun 2, 2017 05:00 +0000
-  ID: 1005326
-  ResourceName: Vanderbilt_CE2
   Services:
   - CE
   Severity: Outage
@@ -193,16 +153,6 @@
   EndTime: Aug 28, 2017 13:00 +0000
   ID: 1005413
   ResourceName: Vanderbilt_CE1
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Aug 26, 2017 14:00 +0000
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  Description: Unexpected cluster filesystem outage.
-  EndTime: Aug 28, 2017 13:00 +0000
-  ID: 1005414
-  ResourceName: Vanderbilt_CE2
   Services:
   - CE
   Severity: Outage
@@ -269,16 +219,6 @@
   StartTime: Apr 20, 2018 23:00 +0000
 # ----------------------------------------------------------
 - Class: SCHEDULED
-  Description: Required downtime to update GPFS
-  EndTime: Apr 23, 2018 13:00 +0000
-  ID: 1005641
-  ResourceName: Vanderbilt_CE2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Apr 20, 2018 23:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
   ID: 95824511
   Description: Switch upgrades
   Severity: Outage
@@ -308,3 +248,225 @@
   ResourceName: Vanderbilt_Gridftp
   Services:
   - GridFtp
+- Class: SCHEDULED
+  ID: 460169687
+  Description: Moving racks
+  Severity: Outage
+  StartTime: Feb 11, 2020 00:01 +0000
+  EndTime: Feb 13, 2020 00:01 +0000
+  CreatedTime: Feb 6, 2020 00:01 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 460169688
+  Description: Moving racks
+  Severity: Outage
+  StartTime: Feb 11, 2020 00:01 +0000
+  EndTime: Feb 13, 2020 00:01 +0000
+  CreatedTime: Feb 6, 2020 00:01 +0000
+  ResourceName: Vanderbilt_CE3
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 460169689
+  Description: Moving racks
+  Severity: Outage
+  StartTime: Feb 11, 2020 00:01 +0000
+  EndTime: Feb 13, 2020 00:01 +0000
+  CreatedTime: Feb 6, 2020 00:01 +0000
+  ResourceName: Vanderbilt_CE4
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 518264781
+  Description: Network maintenance
+  Severity: Outage
+  StartTime: Apr 28, 2020 00:01 +0000
+  EndTime: May 2, 2020 00:01 +0000
+  CreatedTime: Apr 15, 2020 00:01 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 518264782
+  Description: Network maintenance
+  Severity: Outage
+  StartTime: Apr 28, 2020 00:01 +0000
+  EndTime: May 2, 2020 00:01 +0000
+  CreatedTime: Apr 15, 2020 00:01 +0000
+  ResourceName: Vanderbilt_CE3
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 518264783
+  Description: Network maintenance
+  Severity: Outage
+  StartTime: Apr 28, 2020 00:01 +0000
+  EndTime: May 2, 2020 00:01 +0000
+  CreatedTime: Apr 15, 2020 00:01 +0000
+  ResourceName: Vanderbilt_CE4
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 621741710
+  Description: Scheduler and infrastructure maintenance
+  Severity: Outage
+  StartTime: Aug 25, 2020 00:01 +0000
+  EndTime: Aug 28, 2020 00:01 +0000
+  CreatedTime: Aug 18, 2020 00:01 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 621741711
+  Description: Scheduler and infrastructure maintenance
+  Severity: Outage
+  StartTime: Aug 25, 2020 00:01 +0000
+  EndTime: Aug 28, 2020 00:01 +0000
+  CreatedTime: Aug 18, 2020 00:01 +0000
+  ResourceName: Vanderbilt_CE3
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 621741712
+  Description: Scheduler and infrastructure maintenance
+  Severity: Outage
+  StartTime: Aug 25, 2020 00:01 +0000
+  EndTime: Aug 28, 2020 00:01 +0000
+  CreatedTime: Aug 18, 2020 00:01 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 621741713
+  Description: Scheduler and infrastructure maintenance
+  Severity: Outage
+  StartTime: Aug 25, 2020 00:01 +0000
+  EndTime: Aug 28, 2020 00:01 +0000
+  CreatedTime: Aug 18, 2020 00:01 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 778115498
+  Description: Network infrastructure maintenance
+  Severity: Outage
+  StartTime: Feb 12, 2021 00:01 +0000
+  EndTime: Feb 15, 2021 00:01 +0000
+  CreatedTime: Feb 9, 2021 18:01 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 778115499
+  Description: Network infrastructure maintenance
+  Severity: Outage
+  StartTime: Feb 12, 2021 00:01 +0000
+  EndTime: Feb 15, 2021 00:01 +0000
+  CreatedTime: Feb 9, 2021 18:01 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 778115500
+  Description: Network infrastructure maintenance
+  Severity: Outage
+  StartTime: Feb 12, 2021 00:01 +0000
+  EndTime: Feb 15, 2021 00:01 +0000
+  CreatedTime: Feb 9, 2021 18:01 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 856779945
+  Description: Operating system and software updates
+  Severity: Outage
+  StartTime: May 18, 2021 00:01 +0000
+  EndTime: May 22, 2021 23:59 +0000
+  CreatedTime: May 11, 2021 21:01 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 856779946
+  Description: Operating system and software updates
+  Severity: Outage
+  StartTime: May 18, 2021 00:01 +0000
+  EndTime: May 22, 2021 23:59 +0000
+  CreatedTime: May 11, 2021 21:01 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 856779947
+  Description: Operating system and software updates
+  Severity: Outage
+  StartTime: May 18, 2021 00:01 +0000
+  EndTime: May 22, 2021 23:59 +0000
+  CreatedTime: May 11, 2021 21:01 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 961985989
+  Description: Operating System Updates and Reconfiguration
+  Severity: Outage
+  StartTime: Sep 17, 2021 05:00 +0000
+  EndTime: Sep 19, 2021 05:00 +0000
+  CreatedTime: Sep 13, 2021 11:00 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 961985990
+  Description: Operating System Updates and Reconfiguration
+  Severity: Outage
+  StartTime: Sep 17, 2021 05:00 +0000
+  EndTime: Sep 19, 2021 05:00 +0000
+  CreatedTime: Sep 13, 2021 11:00 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 961985991
+  Description: Operating System Updates and Reconfiguration
+  Severity: Outage
+  StartTime: Sep 17, 2021 05:00 +0000
+  EndTime: Sep 19, 2021 05:00 +0000
+  CreatedTime: Sep 13, 2021 11:00 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 997651553
+  Description: Operating System Updates and Network Reconfiguration
+  Severity: Outage
+  StartTime: Jan 11, 2022 05:00 +0000
+  EndTime: Jan 13, 2022 05:00 +0000
+  CreatedTime: Jan 07, 2022 17:00 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 997651554
+  Description: Operating System Updates and Network Reconfiguration
+  Severity: Outage
+  StartTime: Jan 11, 2022 05:00 +0000
+  EndTime: Jan 13, 2022 05:00 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 997651555
+  Description: Operating System Updates and Network Reconfiguration
+  Severity: Outage
+  StartTime: Jan 11, 2022 05:00 +0000
+  EndTime: Jan 13, 2022 05:00 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE

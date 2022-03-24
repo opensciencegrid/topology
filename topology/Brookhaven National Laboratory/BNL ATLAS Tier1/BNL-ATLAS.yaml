@@ -1,0 +1,547 @@
+GroupDescription: This site is the ATLAS Tier 1 Facility at Brookhaven National Laboratory.
+GroupID: 235
+Production: true
+Resources:
+  BNL_ATLAS_1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: moved under the resource group BNL_LCG2. This will set the stage
+      for unified site availability with WLCG.
+    FQDN: gridgk01.racf.bnl.gov
+    ID: 3
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk02.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 287779
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 15500
+      KSI2KMin: 15500
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: change resource groupname to BNL-LCG2
+    FQDN: gridgk02.racf.bnl.gov
+    ID: 4
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk02.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
+      not open to general OSG users.
+    FQDN: gridgk03.racf.bnl.gov
+    ID: 325
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk03.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: This is just another gatekeeper, sharing the same backend resources
+      with the other BNL_ATLAS_X gatekeepers.
+    FQDN: gridgk04.racf.bnl.gov
+    ID: 326
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk04.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_6:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
+      not open to general OSG users.
+    FQDN: gridgk06.racf.bnl.gov
+    ID: 418
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk06.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_7:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
+      not open to general OSG users.
+    FQDN: gridgk07.racf.bnl.gov
+    ID: 438
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk07.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  BNL_ATLAS_8:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: This CE will serve grid jobs submitted to the *local* USATLAS resources,
+      e.g. for panda queue ANALY_BNL_LOCAL, at BNL.
+    FQDN: gridgk08.racf.bnl.gov
+    ID: 545
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk08.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_Frontier_Squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
+          Name: John S. De Stefano Jr.
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: Round robin DNS alias for our two Frontier Squid nodes.
+    FQDN: frontier-cache.sdcc.bnl.gov
+    ID: 925
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: true
+    VOOwnership:
+      BNL: 100
+  BNL_ATLAS_CVMFS_Squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
+          Name: John S. De Stefano Jr.
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: Round robin DNS alias for our two Frontier Squid nodes.
+    FQDN: cvmfs-cache.sdcc.bnl.gov
+    ID: 1186
+    Services:
+      Squid:
+        Description: CVMFS site squids
+        Details:
+          Monitored: true
+    VOOwnership:
+      BNL: 100
+  BNL_ATLAS_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: moved under the resource group BNL_LCG2. This will set the stage
+      for unified site availability with WLCG.
+    FQDN: dcsrm.usatlas.bnl.gov
+    ID: 5
+    Services:
+      SRMv2.tape:
+        Description: SRM V2 endpoint for the tape system
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 16800
+      StorageCapacityMin: 16800
+      TapeCapacity: 27000
+  BNL_ATLAS_SE_GRIDFTP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: A gridftp service 
+    FQDN: dcgftp.usatlas.bnl.gov
+    ID: 1089
+    Services:
+      GridFtp:
+        Description: GridFtp service endpoint
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 
+      StorageCapacityMin: 
+      TapeCapacity: 
+  BNL_ATLAS_SE_AWS_East:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: SE at Amazon east region
+    FQDN: bestse01.usatlas.bnl.gov
+    ID: 664
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: true
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  BNL_ATLAS_SE_AWS_West:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: SE at Amazon wes -1 region
+    FQDN: bestse02.usatlas.bnl.gov
+    ID: 728
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: true
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  BNL_ATLAS_SE_AWS_West2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: SE at Amazon West-2 region.
+    FQDN: bestse03.usatlas.bnl.gov
+    ID: 826
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: true
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  lhcmon-bnl:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: perfSonar box
+    FQDN: lhcmon.bnl.gov
+    ID: 554
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: lhcmon.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+  lhcperfmon-bnl:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+      Security Contact:
+        Primary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+    Description: perfSonar box
+    FQDN: lhcperfmon.bnl.gov
+    ID: 555
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: lhcperfmon.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+  ps-development:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+      Security Contact:
+        Primary:
+          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
+          Name: Hironori Ito
+    Description: |-
+      perfsonar development host
+      test mesh host
+    FQDN: ps-development.bnl.gov
+    ID: 689
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: ps-development.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+SupportCenter: USATLAS

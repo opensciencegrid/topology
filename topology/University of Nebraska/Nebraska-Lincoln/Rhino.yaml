@@ -1,0 +1,42 @@
+GroupDescription: Rhino Cluster
+GroupID: 513
+Production: true
+Resources:
+  Rhino:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+      Security Contact:
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: OSG accessible gateway to Nebraska\'s general use facility
+    FQDN: rhino-gw1.unl.edu
+    ID: 1014
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://rhino-gw1.unl.edu
+    VOOwnership:
+      HCC: 100
+    WLCGInformation:
+      APELNormalFactor: 10.86
+      AccountingName: T2_US_Nebraska
+      HEPSPEC: 65650
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+SupportCenter: Community Support Center

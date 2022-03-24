@@ -1,12 +1,11 @@
-Disable: false
 Production: true
 SupportCenter: Self Supported
 GroupID: 488
 GroupDescription: New Mexico State University High Performance Computing group
 Resources:
   OSG_US_NMSU_DISCOVERY:
+    Active: false
     ID: 952
-    Disable: false
     Description: This is a small cluster to test OSG / NMSU integration.
     ContactLists:
       Administrative Contact:
@@ -23,11 +22,49 @@ Resources:
         Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Matthew Henderson
+          ID: 027c666af5bf0b1f2476aa4f0eeaed41527275d2
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
     FQDN: hosted-ce18.grid.uchicago.edu
     Services:
       CE:
         Description: NMSU Hosted CE
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100  # 100% opportunistic
+  SLATE_US_NMSU_DISCOVERY:
+    Active: true
+    ID: 1072
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Nicholas Von Wolff
+          ID: 243c442622f34b7e283d95ef53c88928f4986110
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
+      Security Contact:
+        Primary:
+          Name: Nicholas Von Wolff
+          ID: 243c442622f34b7e283d95ef53c88928f4986110
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
+      Site Contact:
+        Primary:
+          Name: Nicholas Von Wolff
+          ID: 243c442622f34b7e283d95ef53c88928f4986110
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
+    FQDN: osg-ce.nmsu.edu
+    Services:
+      CE:
+        Description: NMSU SlateCI Self-Hosted CE
+        Details:
+          hidden: false
+    Tags:
+      - CC*

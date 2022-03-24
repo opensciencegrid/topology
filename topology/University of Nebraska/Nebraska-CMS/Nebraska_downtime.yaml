@@ -192,3 +192,69 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1108270713
+  Description: Elephant migration impacting all operations
+  Severity: Severe
+  StartTime: Mar 02, 2022 08:00 +0000
+  EndTime: Mar 03, 2022 17:00 +0000
+  CreatedTime: Feb 25, 2022 22:11 +0000
+  ResourceName: Nebraska
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1108273667
+  Description: Elephant migration impacting all operations
+  Severity: Severe
+  StartTime: Mar 02, 2022 08:00 +0000
+  EndTime: Mar 03, 2022 17:00 +0000
+  CreatedTime: Feb 25, 2022 22:16 +0000
+  ResourceName: T2_Nebraska_SE_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1108273850
+  Description: Elephant migration impacting all operations
+  Severity: Severe
+  StartTime: Mar 02, 2022 08:00 +0000
+  EndTime: Mar 03, 2022 17:00 +0000
+  CreatedTime: Feb 25, 2022 22:16 +0000
+  ResourceName: T2_US_Nebraska-red-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1108273948
+  Description: Elephant migration impacting all operations
+  Severity: Severe
+  StartTime: Mar 02, 2022 08:00 +0000
+  EndTime: Mar 03, 2022 17:00 +0000
+  CreatedTime: Feb 25, 2022 22:16 +0000
+  ResourceName: T2_US_Nebraska_red-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1108274092
+  Description: Elephant migration impacting all operations
+  Severity: Severe
+  StartTime: Mar 02, 2022 08:00 +0000
+  EndTime: Mar 03, 2022 17:00 +0000
+  CreatedTime: Feb 25, 2022 22:16 +0000
+  ResourceName: red-gateway1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1108274174
+  Description: Elephant migration impacting all operations
+  Severity: Severe
+  StartTime: Mar 02, 2022 08:00 +0000
+  EndTime: Mar 03, 2022 17:00 +0000
+  CreatedTime: Feb 25, 2022 22:16 +0000
+  ResourceName: red-gateway2
+  Services:
+  - CE
+# ---------------------------------------------------------

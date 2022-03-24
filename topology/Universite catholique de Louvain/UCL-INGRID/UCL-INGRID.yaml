@@ -1,0 +1,28 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: StashCache Origin in Louvain
+GroupID: 1097
+Resources:
+  UCL-Virgo-StashCache-Origin:
+    Active: true
+    Description: Virgo StashCache Origin
+    ID: 1108
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Andres Tanasijczuk
+          ID: 7142b387956966f21dfcedf7fa4eef637c15837c 
+        Secondary:
+          Name: Pavel Demin
+          ID: a1697df7d81a4fe12d6f156922ef6c7b82bd3479
+      Security Contact:
+        Primary:
+          Name: Pavel Demin
+          ID: a1697df7d81a4fe12d6f156922ef6c7b82bd3479 
+    FQDN: ingrid-se09.cism.ucl.ac.be
+    DN: /DC=org/DC=terena/DC=tcs/C=BE/ST=Brabant wallon/L=Louvain-la-Neuve/O=Universite catholique de Louvain/CN=ingrid-se09.cism.ucl.ac.be
+    Services:
+      XRootD origin server:
+        Description: Virgo StashCache Origin Server
+    AllowedVOs:
+      - ANY

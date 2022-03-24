@@ -1,0 +1,33 @@
+AppDescription: CLAS12 Experiment
+CertificateOnly: false
+Community: Hall-B is one of four JLab experimental halls exploring the nature of matter.
+Contacts:
+  Miscellaneous Contact:
+  - ID: 0b1fcee5b04ea0803d5c255c70d969c71c1d9ccb
+    Name: Maurizio Ungaro
+  - ID: 18c37e41b9a7336ff3a7a1793a72eca1b24467df
+    Name: Thomas Britton
+  VO Manager:
+  - ID: 0b1fcee5b04ea0803d5c255c70d969c71c1d9ccb
+    Name: Maurizio Ungaro
+Credentials:
+  TokenIssuers:
+    - URL: https://scicomp.jlab.org/scitokens/clas12
+      DefaultUnixUser: clas12
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - Nuclear Physics
+  SecondaryFields:
+  - Multi-Science Community
+  - Nuclear Physics
+ID: 224
+LongName: Jefferson Lab / CLAS12
+ParentVO:
+  ID: 99
+  Name: JLAB
+PrimaryURL: http://www.jlab.org/div_dept/cio/index.html
+PurposeURL: https://www.jlab.org/physics/hall-b
+ReportingGroups:
+- CLAS12
+SupportURL: https://www.jlab.org/physics/hall-b

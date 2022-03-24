@@ -20,14 +20,9 @@ ID: 102
 LongName: Pierre Auger Observatory
 MembershipServicesURL: https://voms1.egee.cesnet.cz:8443/voms/auger
 OASIS:
-  Managers:
-    Jiri Chudoba:
-      DNs: /DC=cz/DC=cesnet-ca/O=Institute of Physics of the Academy of Sciences of
-        the CR/CN=Jiri Chudoba
-      ID: 3e40fb9b1d433ca8af3aff19a62d68d8809c3d06
   OASISRepoURLs:
-  - http://cvmfs-stratum0.gridpp.rl.ac.uk:8000/cvmfs/auger.egi.eu
-  UseOASIS: true
+    - http://cvmfs-stratum0.gridpp.rl.ac.uk:8000/cvmfs/auger.egi.eu
+  UseOASIS: false
 PrimaryURL: http://www.auger.org
 PurposeURL: http://operations-portal.egi.eu/vo/view/voname/auger
 ReportingGroups:

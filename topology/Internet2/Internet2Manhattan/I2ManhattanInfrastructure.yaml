@@ -1,0 +1,26 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Services located at the Internet2 Manhattan Point of Presence
+GroupID: 523
+Resources:
+  Stashcache-Manhattan:
+    Active: true
+    Description: Internet2Manhattan Cache
+    ID: 1038
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Diego Davila
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+      # Security Contact is one to three people to contact regarding security issues
+      Security Contact:
+        Primary:
+          Name: Diego Davila
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+    FQDN: osg.newy32aoa.nrp.internet2.edu
+    DN: /DC=org/DC=incommon/C=US/ST=Michigan/L=Ann Arbor/O=University Corporation For Advanced Internet Development/CN=osg-new-york-stashcache.nrp.internet2.edu
+    Services:
+      XRootD cache server:
+        Description: Internet2 Manhattan Cache
+    AllowedVOs:
+      - ANY

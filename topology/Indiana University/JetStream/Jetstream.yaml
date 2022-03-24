@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Jetstream resource Group
 GroupID: 466
 Production: true
@@ -15,7 +14,6 @@ Resources:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
           Name: Mats Rynge
     Description: Jetstream-CE-1
-    Disable: false
     FQDN: js-156-186.jetstream-cloud.org
     ID: 882
     Services:
@@ -23,6 +21,28 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100
+  OSG_US_IU_JETSTREAM:
+    ID: 1015
+    Description: JetStream IU CE
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+        Secondary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+      Security Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+        Secondary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+    FQDN: js-157-32.jetstream-cloud.org
+    Services:
+      CE:
+        Description: JetStream IU CE
+        Details:
+          hidden: false
 SupportCenter: osg-glidein-factory

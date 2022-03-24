@@ -1,6 +1,12 @@
 AppDescription: N/A
 CertificateOnly: false
 Community: Dark Energy Survey
+Credentials:
+  TokenIssuers:
+    - Description: DES pilots
+      Subject: despilot@fnal.gov
+      URL: https://cilogon.org/des
+      DefaultUnixUser: despilot
 Contacts:
   Administrative Contact:
   - ID: c3dfd5645bfdb6953c42f5e69a505778cf7a2dc3
@@ -35,9 +41,8 @@ LongName: Dark Energy Survey
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/des/admin/home.action
 OASIS:
   Managers:
-    Joe Boyd:
+    - Name: Joe Boyd
       DNs:
-      - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
       ID: cb55ac2721726ebc83c3781ebe798e05ba425c47

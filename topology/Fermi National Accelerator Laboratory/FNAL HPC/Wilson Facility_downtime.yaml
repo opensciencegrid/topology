@@ -1,0 +1,22 @@
+- Class: SCHEDULED
+  ID: 783991946
+  Description: Migration of CE service to another host
+  Severity: Outage
+  StartTime: Feb 17, 2021 12:00 +0000
+  EndTime: Feb 19, 2021 18:00 +0000
+  CreatedTime: Feb 15, 2021 14:26 +0000
+  ResourceName: FNAL_WILSON
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 814377544
+  Description: Updating home areas for pilot linux accounts
+  Severity: Outage
+  StartTime: Mar 24, 2021 12:00 +0000
+  EndTime: Mar 25, 2021 14:00 +0000
+  CreatedTime: Mar 22, 2021 18:29 +0000
+  ResourceName: FNAL_WILSON
+  Services:
+  - CE
+# ---------------------------------------------------------

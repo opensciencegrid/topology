@@ -8,25 +8,31 @@ Contacts:
   Administrative Contact:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
-  - ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
-    Name: Tanya Levshina
+  - ID: 29a39113245cb237d6377e22152a1cb2585445e3
+    Name: Lauren Michael
   Miscellaneous Contact:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
-  - ID: b78d106207bf13e46d4bb91f15668bfbb54f7904
-    Name: Tanya Levshina
+  - ID: 29a39113245cb237d6377e22152a1cb2585445e3
+    Name: Lauren Michael
   Registration Authority:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
   Security Contact:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
+  - ID: 29a39113245cb237d6377e22152a1cb2585445e3
+    Name: Lauren Michael
   Sponsors:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
   VO Manager:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
+Credentials:
+  TokenIssuers:
+    - URL: https://scitokens.org/osg-connect
+      DefaultUnixUser: osg
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -36,27 +42,29 @@ LongName: Open Science Grid
 MembershipServicesURL: https://voms.opensciencegrid.org:8443/voms/osg
 OASIS:
   Managers:
-    Derek Weitzel:
-      DNs:
-      - /DC=org/DC=doegrids/OU=People/CN=Derek Weitzel 285345
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Derek Weitzel 605
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Derek Weitzel
+    - Name: Derek Weitzel
+      DNs: /DC=org/DC=cilogon/C=US/O=University of Nebraska-Lincoln/CN=Derek Weitzel A31419551
       ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
-    Lincoln Bryant:
+    - Name: Lincoln Bryant
       DNs:
-      - /DC=org/DC=doegrids/OU=People/CN=Lincoln Bryant 718431
       - /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=lbryant/CN=738076/CN=Lincoln Bryant
       ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-    Mats Rynge:
+    - Name: Mats Rynge
       DNs:
       - /DC=org/DC=cilogon/C=US/O=University of Southern California/CN=Mats Rynge A91316
       ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
   OASISRepoURLs:
+  - http://cvmfs.xsede.org:8000/cvmfs/colorado.xsede.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/singularity.opensciencegrid.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/scitokens.osgstorage.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/veritas.opensciencegrid.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/nexo.opensciencegrid.org
-  - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/bnl.opensciencegrid.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/connect.opensciencegrid.org
+  # These are for common software from HSF, which is not a VO, so 
+  #  we include them here in the OSG VO.
+  - http://cvmfs-stratum-zero.cern.ch:8000/cvmfs/sw.hsf.org
+  - http://cvmfs-stratum-zero.cern.ch:8000/cvmfs/sw-nightlies.hsf.org
+  - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/snowmass21.opensciencegrid.org
   UseOASIS: true
 PrimaryURL: http://www.opensciencegrid.org
 PurposeURL: http://www.opensciencegrid.org
@@ -68,7 +76,16 @@ DataFederations:
     Namespaces:
       /user:
         - PUBLIC
-    AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /user
+      /osgconnect/public:
+        - PUBLIC
+      /osgconnect/collab:
+        - PUBLIC
+      /ospool/PROTECTED:
+        - SciTokens:
+            Issuer: https://osg-htc.org/ospool
+            Base Path: /ospool/PROTECTED
+    AllowedOrigins:
+      - OSGCONNECT_ORIGIN
+      - CHTC_OSPOOL_ORIGIN
     AllowedCaches:
       - ANY
-

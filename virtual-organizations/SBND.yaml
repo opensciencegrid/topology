@@ -1,6 +1,12 @@
 AppDescription: SBND Production and Analysis jobs will be run.
 CertificateOnly: false
 Community: Short-Baseline Near Detector collaborators
+Credentials:
+  TokenIssuers:
+    - Description: SBND pilots
+      Subject: sbndpilot@fnal.gov
+      URL: https://cilogon.org/sbnd
+      DefaultUnixUser: sbndpilot
 Contacts:
   Miscellaneous Contact:
   - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
@@ -19,9 +25,8 @@ LongName: Short-Baseline Near Detector
 MembershipServicesURL: https://voms2.fnal.gov:8443/voms/fermilab
 OASIS:
   Managers:
-    Joe Boyd:
+    - Name: Joe Boyd
       DNs:
-      - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
       ID: cb55ac2721726ebc83c3781ebe798e05ba425c47

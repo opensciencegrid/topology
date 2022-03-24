@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: ISI
 GroupID: 483
 Production: true
@@ -9,20 +8,11 @@ Resources:
         Primary:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
           Name: Mats Rynge
-      Miscellaneous Contact:
-        Primary:
-          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
-          Name: Mats Rynge
-      Resource Report Contact:
-        Primary:
-          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
-          Name: Mats Rynge
       Security Contact:
         Primary:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
           Name: Mats Rynge
     Description: OSG accessible gateway
-    Disable: false
     FQDN: osg.isi.edu
     ID: 943
     Services:
@@ -31,6 +21,44 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://osg.isi.edu
-    VOOwnership:
-      OSG: 100
+  ISI-Workflow:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+          Name: Mats Rynge
+      Security Contact:
+        Primary:
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+          Name: Mats Rynge
+    Description: Submit host for the ISI Scitech group
+    FQDN: workflow.isi.edu
+    ID: 1109
+    Services:
+      Submit Node:
+        Description: Submit host for the ISI Scitech group
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+  ISI-OSG-VO:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+          Name: Mats Rynge
+      Security Contact:
+        Primary:
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+          Name: Mats Rynge
+    Description: Testing host for OSG VO flocking
+    FQDN: osg-vo.isi.edu
+    ID: 1110
+    Services:
+      Submit Node:
+        Description: Testing host for OSG VO flocking
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
 SupportCenter: ISI

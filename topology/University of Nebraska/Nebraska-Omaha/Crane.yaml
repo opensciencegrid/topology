@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Crane Cluster
 GroupID: 388
 Production: true
@@ -13,26 +12,9 @@ Resources:
         Secondary:
           ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
           Name: Derek Weitzel
-      Miscellaneous Contact:
-        Primary:
-          ID: 64724e33523c051cbf52bcd224a965875735aafc
-          Name: David Swanson
-        Secondary:
-          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
-          Name: Garhan Attebury
         Tertiary:
-          ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
-          Name: Derek Weitzel
-      Resource Report Contact:
-        Primary:
-          ID: 64724e33523c051cbf52bcd224a965875735aafc
-          Name: David Swanson
-        Secondary:
-          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
-          Name: Garhan Attebury
-        Tertiary:
-          ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
-          Name: Derek Weitzel
+          ID: f7fbc93bc8a7d276e8b5a94fb4ff905841a7763f
+          Name: John Thiltges
       Security Contact:
         Primary:
           ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
@@ -40,8 +22,10 @@ Resources:
         Secondary:
           ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
           Name: Garhan Attebury
+        Tertiary:
+          ID: f7fbc93bc8a7d276e8b5a94fb4ff905841a7763f
+          Name: John Thiltges
     Description: Gatekeeper for Crane
-    Disable: false
     FQDN: crane-gw1.unl.edu
     ID: 602
     Services:
@@ -63,4 +47,29 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
+  HCC-PKI-Proxy:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+      Security Contact:
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: Round robin DNS alias for HCC Squids in Omaha
+    FQDN: hcc-pki-proxy.unl.edu
+    ID: 1004
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      HCC: 100
 SupportCenter: Community Support Center

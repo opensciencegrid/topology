@@ -1,8 +1,29 @@
-Disable: false
 GroupDescription: IceCube cluster
 GroupID: 437
 Production: true
 Resources:
+  IceCube_StashCache_origin:
+    Active: True
+    Description: StashCache origin server for IceCube
+    FQDN: stash-origin.icecube.wisc.edu
+    ID: 1106
+    Services: 
+      XRootD origin server:
+        Description: StashCache origin server
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: bc87af94d3512f536e417f1e45808b975fb2874f
+          Name: Vladimir Brik
+      Security Contact:
+        Primary:
+          ID: 67523ec91c983a4c0c1c576beeac1037aa863da3
+          Name: Steve Barnet
+        Secondary:
+          ID: bc87af94d3512f536e417f1e45808b975fb2874f
+          Name: Vladimir Brik
+    AllowedVOs:
+      - IceCube
   IceCube_Squid:
     Active: true
     Description: Round robin DNS alias for our Frontier Squid nodes.

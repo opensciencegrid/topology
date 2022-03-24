@@ -1,11 +1,9 @@
-#!/usr/bin/python2.7
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
 A simple tool for generating notification emails to the OSG
 """
-from __future__ import print_function
-
 import os
 import sys
 import getpass
@@ -16,6 +14,7 @@ import email.mime.text
 import email.mime.multipart
 
 import gnupg
+
 
 if __name__ == "__main__" and __package__ is None:
     _parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,9 +39,16 @@ def messageFromSignature(signature):
     return message
 
 
-def generateFullMessage(subject, to, from_name, message, sign=True, keyid=None):
+def generateFullMessage(subject, to, from_name, from_addr, message, sign=True, keyid=None):
     basemsg = email.mime.text.MIMEText(message)
     basetext = basemsg.as_string().replace("\n", "\r\n")
+
+    to_addr = from_addr
+    if from_name == 'Open Science Grid':
+        to_name = from_name + ' Helpdesk'
+    else:
+        to_name = from_name
+
     if sign:
         gpg = gnupg.GPG()
         if not keyid:
@@ -66,21 +72,21 @@ def generateFullMessage(subject, to, from_name, message, sign=True, keyid=None):
         msg.attach(signmsg)
         msg['Subject'] = subject
         msg['Bcc'] = ", ".join(to)
-        msg['To'] = '"Open Science Grid Helpdesk" <help@opensciencegrid.org>'
-        msg['From'] = '"%s" <help@opensciencegrid.org>' % from_name
+        msg['To'] = '"%s" <%s>' % (to_name, to_addr)
+        msg['From'] = '"%s" <%s>' % (from_name, from_addr)
         return msg.as_string(unixfrom=True)
     else:
         basemsg['Subject'] = subject
         basemsg['Bcc'] = ", ".join(to)
-        basemsg['To'] = '"Open Science Grid Helpdesk" <help@opensciencegrid.org>'
-        basemsg['From'] = '"%s" <help@opensciencegrid.org>' % from_name
+        basemsg['To'] = '"%s" <%s>' % (to_name, to_addr)
+        basemsg['From'] = '"%s" <%s>' % (from_name, from_addr)
         return basemsg.as_string(unixfrom=True)
 
 
 def parseargs():
     oparser = argparse.ArgumentParser()
-    oparser.add_argument("--host", dest="host", default="my.opensciencegrid.org",
-                         help="Remote topology host (default my.opensciencegrid.org)")
+    oparser.add_argument("--host", dest="host", default="topology.opensciencegrid.org",
+                         help="Remote topology host (default topology.opensciencegrid.org)")
     oparser.add_argument("--cert", dest="cert", help="Client certificate")
     oparser.add_argument("--key", dest="key", help="Client certificate private key")
     oparser.add_argument("--sign", dest="sign", default=True, action="store_true", help="Whether to sign with GPG")
@@ -110,9 +116,13 @@ def parseargs():
                          help="Filter on resources that list VO(s) as a partial owner")
 
     oparser.add_argument("--oim-contact-type", default="all", dest="contact_type",
-                         choices=["all", "administrative", "miscellaneous", "security", "submitter"],
-                         help="Filter on contact type e.g. administrative, miscellaneous, security, or submitter "
+                         choices=["all", "administrative", "miscellaneous", "security", "submitter", "site"],
+                         help="Filter on contact type e.g. administrative, miscellaneous, security, submitter or site"
                          "(default: all)", )
+    oparser.add_argument("--bypass-dns-check", action="store_true", dest="bypass_dns_check",
+                         help="Bypass checking that one of the host's IP addresses matches with the hostanme resolution")
+    oparser.add_argument("--allow-non-ascii", action="store_true", dest="allow_non_ascii",
+                         help="Bypass the checking for non-ascii characters in the message")
 
     args = oparser.parse_args()
 
@@ -123,14 +133,16 @@ def parseargs():
 
     if args.from_name == 'security':
         args.from_name = 'OSG Security Team'
+        args.from_addr = 'security@opensciencegrid.org'
     else:
         args.from_name = 'Open Science Grid'
+        args.from_addr = 'help@opensciencegrid.org'
 
     return args
 
-def network_ok():
+def network_ok(bypass_dns_check):
     info = net_name_addr_utils.get_host_network_info()
-    net_ok = net_name_addr_utils.hostnetinfo_good(info)
+    net_ok = net_name_addr_utils.hostnetinfo_good(info, bypass_dns_check)
 
     if net_ok:
         return True
@@ -143,12 +155,41 @@ def network_ok():
         print("  https://opensciencegrid.org//operations/services/sending-announcements/")
         return False
 
+def replace_smart_quotes_and_dashes(contents):
+    # Replace smart quotes and em/en dashes
+    replaced = contents.replace('“','"').replace('”','"').replace("–","-").replace("—","-")
+    return replaced
+
+def has_non_printable_ascii_characters(contents):
+    ret = False
+    # For each character in the message
+    for c in contents:
+        # Chek if the numeric value of the character is outside the printable ascii range (32-126)
+	# or is a tab(9) or and end of line(10)
+        if ord(c) not in [9, 10] and (ord(c)< 32 or ord(c) > 126):
+            ret = True
+            break
+    return ret
+
 def main():
     args = parseargs()
 
     recipients = set(args.recipients.split())
     if args.oim_recipients and 'vos' in args.oim_recipients:
-        results = topology_utils.get_vo_contacts(args)
+        attempts = 3
+        while attempts > 0:
+            try:
+                results = topology_utils.get_vo_contacts(args)
+            except topology_utils.InvalidPathError as exc:
+                print(exc)
+                exit(1)
+            except topology_utils.IncorrectPasswordError as exc:
+                attempts -= 1
+                if attempts == 0:
+                    print("Too many incorrect password attempts, exiting")
+                    exit(1)
+                else:
+                    print(exc)
         results = topology_utils.filter_contacts(args, results)
         emails = set()
         for name in results.keys():
@@ -157,10 +198,21 @@ def main():
                     emails.add(contact['Email'])
         recipients.update(emails)
     if args.oim_recipients and 'resources' in args.oim_recipients:
-        if args.fqdn_filter:
-            results = topology_utils.get_resource_contacts_by_fqdn(args)
-        else:
-            results = topology_utils.get_resource_contacts(args)
+        attempts = 3
+        while attempts > 0:
+            try:
+                if args.fqdn_filter:
+                    results = topology_utils.get_resource_contacts_by_fqdn(args)
+                else:
+                    results = topology_utils.get_resource_contacts(args)
+            except topology_utils.InvalidPathError as exc:
+                exit(str(exc))
+            except topology_utils.IncorrectPasswordError as exc:
+                attempts -= 1
+                if attempts == 0:
+                    exit("Too many incorrect password attempts, exiting")
+                else:
+                    print(exc)
         results = topology_utils.filter_contacts(args, results)
         emails = set()
         for name in results.keys():
@@ -169,8 +221,17 @@ def main():
                     emails.add(contact['Email'])
         recipients.update(emails)
 
-    with open(args.message, 'r') as fp:
-        contents = fp.read()
+    with open(args.message, 'rb') as fp:
+        contents = fp.read().decode('utf-8', errors='replace')
+
+        # Replace smart quotes and em/en dashes
+        contents = replace_smart_quotes_and_dashes(contents)
+
+        # Check for non-ascii or non printable ascii characters
+        if has_non_printable_ascii_characters(contents) and args.allow_non_ascii == False:
+            print("ERROR: message contains non-ascii or non printable ascii characters.", file=sys.stderr)
+            print("To force sending this message use the --allow-non-ascii option", file=sys.stderr)
+            exit(1)
 
     if args.type != "production":
         if not args.dryrun and (len(recipients) > 5):
@@ -184,21 +245,21 @@ def main():
 ===================================================
 """ + contents
 
-    msg = generateFullMessage(subject=args.subject, to=recipients, from_name=args.from_name, message=contents,
-                              sign=args.sign, keyid=args.keyid)
+    msg = generateFullMessage(subject=args.subject, to=recipients, from_name=args.from_name, from_addr=args.from_addr,
+                              message=contents, sign=args.sign, keyid=args.keyid)
 
     if args.dryrun:
         print(msg)
-    elif network_ok():
+    elif network_ok(args.bypass_dns_check):
         for _ in range(1, 4):
             try:
-                verify_send = raw_input("Really send mail to {0} recipients? (y/N)".format(len(recipients)))
+                verify_send = input("Really send mail to {0} recipients? (y/N)".format(len(recipients)))
             except EOFError:
                 verify_send = 'n'
 
             if verify_send.lower() == 'y':
                 session = smtplib.SMTP('localhost')
-                session.sendmail("help@opensciencegrid.org", recipients, msg)
+                session.sendmail(args.from_addr, recipients, msg)
                 session.quit()
                 break
             elif verify_send.lower() in ['n', '']:

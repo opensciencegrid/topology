@@ -2,6 +2,12 @@ AppDescription: Simulation of detectors and physics and analysis of data will be
 CertificateOnly: false
 Community: This is the international DUNE collaboration composed of former LBNE and
   LBNO members plus other interested parties
+Credentials:
+  TokenIssuers:
+    - Description: DUNE pilots
+      Subject: dunepilot@fnal.gov
+      URL: https://cilogon.org/dune
+      DefaultUnixUser: dunepilot
 Contacts:
   Administrative Contact:
   - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
@@ -37,15 +43,16 @@ LongName: Deep Underground Neutrino Experiment
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/dune
 OASIS:
   Managers:
-    Joe Boyd:
+    - Name: Joe Boyd
       DNs:
-      - /DC=org/DC=doegrids/OU=People/CN=Joe Boyd 817444
       - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Joe Boyd 579
       - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Joe Boyd 3582
       ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
   OASISRepoURLs:
   - http://oasiscfs.fnal.gov:8000/cvmfs/dune.opensciencegrid.org/
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/dune.osgstorage.org/
+  - http://oasiscfs.fnal.gov:8000/cvmfs/dunedaq.opensciencegrid.org
+  - http://oasiscfs.fnal.gov:8000/cvmfs/dunedaq-development.opensciencegrid.org
   UseOASIS: true
 PrimaryURL: http://www.dunescience.org
 PurposeURL: http://www.dunescience.org

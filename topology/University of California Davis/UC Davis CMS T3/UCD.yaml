@@ -9,21 +9,12 @@ Resources:
         Primary:
           ID: 67012139a03cbea5ab5111e07b25fa667051e18e
           Name: Teresa Knight
-      Miscellaneous Contact:
-        Primary:
-          ID: 67012139a03cbea5ab5111e07b25fa667051e18e
-          Name: Teresa Knight
-      Resource Report Contact:
-        Primary:
-          ID: 67012139a03cbea5ab5111e07b25fa667051e18e
-          Name: Teresa Knight
       Security Contact:
         Primary:
           ID: 67012139a03cbea5ab5111e07b25fa667051e18e
           Name: Teresa Knight
     Description: 320 cores each with access to 1.5GB of memory. 1Gbps interconnect
       and 2x10Gbps internet connection. See the Info URL for details.
-    Disable: false
     FQDN: cms.tier3.ucdavis.edu
     ID: 246
     Services:
@@ -44,53 +35,10 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-  UCD_GUMS:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 67012139a03cbea5ab5111e07b25fa667051e18e
-          Name: Teresa Knight
-      Miscellaneous Contact:
-        Primary:
-          ID: 67012139a03cbea5ab5111e07b25fa667051e18e
-          Name: Teresa Knight
-      Resource Report Contact:
-        Primary:
-          ID: 67012139a03cbea5ab5111e07b25fa667051e18e
-          Name: Teresa Knight
-      Security Contact:
-        Primary:
-          ID: 67012139a03cbea5ab5111e07b25fa667051e18e
-          Name: Teresa Knight
-    Description: This serves as our primary squid server, our GUMS auth server. Regular
-      users don't have access.
-    Disable: false
-    FQDN: agent.tier3.ucdavis.edu
-    ID: 311
-    Services:
-      GUMS Server:
-        Description: GUMS Server
-    VOOwnership:
-      CMS: 100
   UCD_SE:
     Active: false
     ContactLists:
       Administrative Contact:
-        Primary:
-          ID: 4c08f615655165ab39c7b627fd37053f441f8bd0
-          Name: Michael Squires
-        Secondary:
-          ID: 67012139a03cbea5ab5111e07b25fa667051e18e
-          Name: Teresa Knight
-      Miscellaneous Contact:
-        Primary:
-          ID: 4c08f615655165ab39c7b627fd37053f441f8bd0
-          Name: Michael Squires
-        Secondary:
-          ID: 67012139a03cbea5ab5111e07b25fa667051e18e
-          Name: Teresa Knight
-      Resource Report Contact:
         Primary:
           ID: 4c08f615655165ab39c7b627fd37053f441f8bd0
           Name: Michael Squires
@@ -105,7 +53,6 @@ Resources:
           ID: 67012139a03cbea5ab5111e07b25fa667051e18e
           Name: Teresa Knight
     Description: Bestman/SRM, Phedex server for UCD CMS T3.
-    Disable: false
     FQDN: se.tier3.ucdavis.edu
     ID: 251
     Services:

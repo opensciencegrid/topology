@@ -2,17 +2,6 @@
   Description: Required to apply security patches, run manufacturer's diagnostics
     tools to RMA faulty components, and other assorted maintenance tasks.
   EndTime: Jun 6, 2016 22:00 +0000
-  ID: 1004916
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jun 6, 2016 03:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Required to apply security patches, run manufacturer's diagnostics
-    tools to RMA faulty components, and other assorted maintenance tasks.
-  EndTime: Jun 6, 2016 22:00 +0000
   ID: 1004917
   ResourceName: UERJ_SE
   Services:
@@ -28,43 +17,12 @@
 
     This procedure will affect all services.
   EndTime: Jul 1, 2016 22:00 +0000
-  ID: 1004942
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jun 29, 2016 01:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    During the past few days we are experiencing an increasing number of hard disk failures in our data nodes.
-
-    As the warranty period of these hard drives is coming to an end, we decided to perform a set of tests on all related nodes.
-
-    This procedure will affect all services.
-  EndTime: Jul 1, 2016 22:00 +0000
   ID: 1004943
   ResourceName: UERJ_SE
   Services:
   - SRMv2
   Severity: Outage
   StartTime: Jun 29, 2016 01:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: "The \u200B\u200Bmilitary\u200B, federal\u200B and state \u200Bpolice\
-    \ have established a \u200Bspecial security \u200Boperation for the surrounding\
-    \ area of Maracan\xE3 Stadium. (\u200BOlympics Games and closing ceremony\u200B\
-    )\nThe UERJ is very close to the Maracan\xE3\u200B \u200BStadium and therefore\
-    \ is included in the special area of security where access restrictions are set.\u200B\
-    \nSo, for these reasons, we will no be able to reach the campus and therefore\
-    \ we decided to shut down the cluster for safety until August 23rd."
-  EndTime: Aug 23, 2016 21:00 +0000
-  ID: 1005003
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Aug 15, 2016 01:00 +0000
 # ----------------------------------------------------------
 - Class: SCHEDULED
   Description: "The \u200B\u200Bmilitary\u200B, federal\u200B and state \u200Bpolice\
@@ -102,17 +60,6 @@
   Description: Due to a major issue with the cluster's electrical infrastructure we
     will have to shut it down as soon as possible, in order to preserve our hardware.
   EndTime: Sep 30, 2016 18:45 +0000
-  ID: 1005059
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Sep 29, 2016 18:45 +0000
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  Description: Due to a major issue with the cluster's electrical infrastructure we
-    will have to shut it down as soon as possible, in order to preserve our hardware.
-  EndTime: Sep 30, 2016 18:45 +0000
   ID: 1005060
   ResourceName: UERJ_CE_2
   Services:
@@ -130,21 +77,6 @@
   - SRMv2
   Severity: Outage
   StartTime: Sep 29, 2016 18:45 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    Due to a major issue with the cluster's electrical infrastructure we will have to shut it down as soon as possible, in order to preserve our hardware. We expect the maintenance work to begin on 2016-09-30 and end by 2016-10-04, end-of-day.
-    Update:
-    The downtime will need to be extended.
-    The company responsible for maintaining the system reported that a specific component needs to be replaced.
-    The arrival time of this component is being estimated.
-  EndTime: Oct 10, 2016 21:00 +0000
-  ID: 1005062
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Sep 30, 2016 18:45 +0000
 # ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
@@ -175,17 +107,6 @@
   - SRMv2
   Severity: Outage
   StartTime: Sep 30, 2016 18:45 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: We will stop the cluster in order to apply security updates, as well
-    as other assorted tasks as needed.
-  EndTime: Oct 31, 2016 20:00 +0000
-  ID: 1005083
-  ResourceName: UERJ_CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Oct 31, 2016 01:00 +0000
 # ----------------------------------------------------------
 - Class: SCHEDULED
   Description: We will stop the cluster in order to apply security updates, as well
@@ -261,3 +182,109 @@
   Severity: Outage
   StartTime: Nov 5, 2016 16:00 +0000
 # ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 241674839
+  Description: We had a problem with one of our circuit breakers
+  Severity: Outage
+  StartTime: May 29, 2019 17:00 +0000
+  EndTime: May 30, 2019 23:59 +0000
+  CreatedTime: May 29, 2019 17:04 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 241678619
+  Description: We had a problem with one of our circuit breakers
+  Severity: Outage
+  StartTime: May 29, 2019 17:00 +0000
+  EndTime: May 30, 2019 23:59 +0000
+  CreatedTime: May 29, 2019 17:11 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 241678909
+  Description: We had a problem with one of our circuit breakers
+  Severity: Outage
+  StartTime: May 29, 2019 17:00 +0000
+  EndTime: May 30, 2019 23:59 +0000
+  CreatedTime: May 29, 2019 17:11 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 460169686
+  Description: 'We will set a downtime for our CE to update our Condor packages. '
+  Severity: Intermittent Outage
+  StartTime: Feb 11, 2020 12:00 +0000
+  EndTime: Feb 13, 2020 12:00 +0000
+  CreatedTime: Feb 06, 2020 13:22 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 773664923
+  Description: The university will undergo a big network maitenance that might affect
+    our services.
+  Severity: Outage
+  StartTime: Feb 05, 2021 03:00 +0000
+  EndTime: Feb 08, 2021 20:00 +0000
+  CreatedTime: Feb 03, 2021 15:34 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 773665734
+  Description: The university will undergo a big network maitenance that might affect
+    our services.
+  Severity: Outage
+  StartTime: Feb 05, 2021 03:00 +0000
+  EndTime: Feb 08, 2021 20:00 +0000
+  CreatedTime: Feb 03, 2021 15:36 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 773665883
+  Description: The university will undergo a big network maitenance that might affect
+    our services.
+  Severity: Outage
+  StartTime: Feb 05, 2021 03:00 +0000
+  EndTime: Feb 08, 2021 20:00 +0000
+  CreatedTime: Feb 03, 2021 15:36 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 773666005
+  Description: The university will undergo a big network maitenance that might affect
+    our services.
+  Severity: Outage
+  StartTime: Feb 05, 2021 03:00 +0000
+  EndTime: Feb 08, 2021 20:00 +0000
+  CreatedTime: Feb 03, 2021 15:36 +0000
+  ResourceName: UERJ_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 773666131
+  Description: The university will undergo a big network maitenance that might affect
+    our services.
+  Severity: Outage
+  StartTime: Feb 05, 2021 03:00 +0000
+  EndTime: Feb 08, 2021 20:00 +0000
+  CreatedTime: Feb 03, 2021 15:36 +0000
+  ResourceName: UERJ_perfSONAR_LT
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+
+

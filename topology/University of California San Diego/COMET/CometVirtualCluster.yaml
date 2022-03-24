@@ -1,0 +1,129 @@
+# Production is true if the resource is for production and not testing use
+Production: true
+# SupportCenter is one of the support centers in topology/support-centers.yaml
+SupportCenter: Community Support Center
+
+# GroupDescription is a long description of the resource group; may be multiple lines.
+GroupDescription: Computing Infrastructure for Virtual Cluster
+
+# If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resourcegroup_id`
+# Otherwise, leave it blank and we will fill in the appropriate value for you.
+GroupID: 514
+
+Resources:
+  Comet-squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
+          Name: Terrence Martin
+      Security Contact:
+        Primary:
+          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
+          Name: Terrence Martin
+        Secondary:
+          Name: Diego Davila
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+    Description: Squid service for Frontier at COMET Virtual Cluster
+    FQDN: osg-comet-frontend.sdsc.edu
+    ID: 1016
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 0
+  COMETVCCE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+        Secondary:
+          Name: Terrence Martin
+          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
+      Security Contact:
+        Primary:
+          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
+          Name: Terrence Martin
+        Secondary:
+          Name: Diego Davila
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+    Description: OSG HTCondor CE
+    FQDN: osg-comet-frontend.sdsc.edu
+    ID: 1017
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://osg-comet-frontend.sdsc.edu
+    VOOwnership:
+      CMS: 0
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T3_US_SDSC
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  CMSHTPC_T3_US_SDSC_osg-comet:
+    ID: 1042
+    Active: false
+    Description: The Hosted CE serving COMET-CometVirtualCluster
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+    FQDN: hosted-ce34.grid.uchicago.edu
+    Services:
+      CE:
+        Description: COMET-CometVirtualCluster Hosted CE
+        Details:
+          hidden: false
+  UCSD-Comet:
+    ID: 1083
+    Active: false
+    Description: The Hosted CE serving UCSD-Comet
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: hosted-ce34.opensciencegrid.org
+    Services:
+      CE:
+        Description: UCSD-Comet Hosted CE
+        Details:
+          hidden: false

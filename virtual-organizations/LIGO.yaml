@@ -1,33 +1,46 @@
-AppDescription: Large data intensive analysis and simulation applications involving
-  workflows and BOINC technology
+AppDescription: The Laser Interferometer Gravitational-Wave Observatory is a large-scale physics experiment and observatory to detect cosmic gravitational waves and to develop gravitational-wave observations as an astronomical tool.
 CertificateOnly: false
-Community: The LIGO Scientific Collaboration
+Community: The LIGO Scientific Collaboration (LSC)
 Contacts:
   Administrative Contact:
   - ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
     Name: Peter Couvares
-  - ID: 617f17e60924aae423561bc6b8039c3acd8889d6
-    Name: Thomas Downes
+  - ID: 504894b714071a10a647aaaa4e1fe7ee3186430b
+    Name: James Alexander Clark
+  - ID: 1e153a63463094d82c7b2786bd2f57f996974984 
+    Name: Duncan MacLeod
   Miscellaneous Contact:
   - ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
     Name: Peter Couvares
-  - ID: c6023fb07e902f43edffdbaab50d7a13e32ae55e
-    Name: Larne Pekowsky
   - ID: 504894b714071a10a647aaaa4e1fe7ee3186430b
     Name: James Alexander Clark
+  - ID: 1e153a63463094d82c7b2786bd2f57f996974984 
+    Name: Duncan MacLeod    
   Registration Authority:
   - ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
     Name: Peter Couvares
+  - ID: 504894b714071a10a647aaaa4e1fe7ee3186430b
+    Name: James Alexander Clark
+  - ID: 1e153a63463094d82c7b2786bd2f57f996974984 
+    Name: Duncan MacLeod
   Security Contact:
   - ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
     Name: Peter Couvares
   - ID: e817cc79849447cc8c98f376e2d0052dda7c675b
     Name: Sharon Brunett
+  - ID: 1e153a63463094d82c7b2786bd2f57f996974984 
+    Name: Duncan MacLeod
   VO Manager:
   - ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
     Name: Peter Couvares
   - ID: 504894b714071a10a647aaaa4e1fe7ee3186430b
     Name: James Alexander Clark
+  - ID: 1e153a63463094d82c7b2786bd2f57f996974984 
+    Name: Duncan MacLeod
+Credentials:
+  TokenIssuers:
+    - URL: https://scitokens.org/ligo
+      DefaultUnixUser: ligo
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -37,34 +50,19 @@ FieldsOfScience:
   - Physics
   - Physics and astronomy
 ID: 23
-LongName: Laser Interferometer Gravitational-Wave Observatory
+LongName: The Laser Interferometer Gravitational-Wave Observatory
 OASIS:
   Managers:
-    Brian Bockelman:
+    - Name: Brian Bockelman
       DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
         Paul Bockelman
       ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
-    James Alexander Clark:
+    - Name: James Alexander Clark
       DNs: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=James Alexander
         Clark 4038
       ID: 504894b714071a10a647aaaa4e1fe7ee3186430b
-    Lazzaro Claudia:
-      DNs: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Lazzaro Claudia
-        4036
-      ID: 267375b4ce27186eaa7648a2cfb6212f0a10ecf8
-    Matyas Selmeci:
-      DNs: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Matyas Selmeci
-      ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
-    Peter Couvares:
-      DNs: /DC=org/DC=cilogon/C=US/O=LIGO/CN=Peter Couvares peter.couvares@ligo.org
-      ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
-    Sharon Brunett:
-      DNs: /DC=org/DC=cilogon/C=US/O=California Institute of Technology/CN=Sharon
-        Brunett A20751
-      ID: e817cc79849447cc8c98f376e2d0052dda7c675b
   OASISRepoURLs:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/ligo.osgstorage.org
-  - http://binaries.ligo.uwm.edu:8000/cvmfs/ligo-containers.opensciencegrid.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/gwosc.osgstorage.org
   UseOASIS: true
 PrimaryURL: http://www.ligo.org
@@ -75,10 +73,36 @@ DataFederations:
   StashCache:
     Namespaces:
       /user/ligo:
-        - FQAN:/osg/ligo
+        - "FQAN:/osg/ligo"
+        - "FQAN:/virgo"
+        - SciTokens:
+            Issuer: https://scitokens.org/ligo
+            Base Path: /user/ligo
+        - SciTokens:
+            Issuer: https://test.cilogon.org/ligo
+            Base Path: /user/ligo
+        - SciTokens:
+            Issuer: https://cilogon.org/ligo
+            Base Path: /user/ligo
       /gwdata:
         - PUBLIC
     AllowedOrigins:
       - CIT_LIGO_ORIGIN
+      - LIGO-StashCache-Origin
+      - UCL-Virgo-StashCache-Origin
     AllowedCaches:
+      - SUT-STASHCACHE
       - HCC-Stash
+      - Georgia_Tech_PACE_GridFTP2
+      - Stashcache-UCSD
+      - Stashcache-UofA
+      - Stashcache-Cardiff
+      - Stashcache-KISTI
+      - Stashcache-Houston
+      - Stashcache-Manhattan
+      - Stashcache-Sunnyvale
+      - Stashcache-Chicago
+      - Stashcache-Kansas
+      - T1_STASHCACHE_CACHE
+      - PIC_STASHCACHE_CACHE
+      - SU_STASHCACHE_CACHE

@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: ANL ASC Tier 3 site
 GroupID: 283
 Production: true
@@ -15,7 +14,6 @@ Resources:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
     Description: This is a gridftp server for ANL ATLAS and ANL ASC users.
-    Disable: false
     FQDN: atlasgridftp.hep.anl.gov
     FQDNAliases:
     - atlasgridftp1.hep.anl.gov
@@ -51,7 +49,6 @@ Resources:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
     Description: This is a storage element - Bestman gateway SRM and gridftp server
-    Disable: false
     FQDN: atlasgridftp1.hep.anl.gov
     ID: 747
     Services:
@@ -74,7 +71,6 @@ Resources:
           Name: Doug Benjamin
     Description: This is a Bestman SRM/Gridftp server used as part of the ANL HPC
       test
-    Disable: false
     FQDN: atlasgridftp02.hep.anl.gov
     ID: 356
     Services:
@@ -111,7 +107,6 @@ Resources:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
     Description: squid service for frontier and cvmfs
-    Disable: false
     FQDN: squid.hep.anl.gov
     ID: 453
     Services:
@@ -131,7 +126,6 @@ Resources:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
     Description: gridftp server used for access to Rucio for ATLAS
-    Disable: false
     FQDN: rucio01.hep.anl.gov
     ID: 714
     Services:

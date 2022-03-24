@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Compute Cluster at the Florida Tech High Energy Physics lab
 GroupID: 163
 Production: true
@@ -10,20 +9,11 @@ Resources:
         Primary:
           ID: dbdac6f745c5a7762318d51445220b2c4727d649
           Name: Ryan Wojtyla
-      Miscellaneous Contact:
-        Primary:
-          ID: dbdac6f745c5a7762318d51445220b2c4727d649
-          Name: Ryan Wojtyla
-      Resource Report Contact:
-        Primary:
-          ID: dbdac6f745c5a7762318d51445220b2c4727d649
-          Name: Ryan Wojtyla
       Security Contact:
         Primary:
           ID: dbdac6f745c5a7762318d51445220b2c4727d649
           Name: Ryan Wojtyla
     Description: Compute Element at the Florida Tech High Energy Physics lab.
-    Disable: false
     FQDN: uscms1.fltech-grid3.fit.edu
     ID: 163
     Services:
@@ -51,20 +41,11 @@ Resources:
         Secondary:
           ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
           Name: Ankit Durgasis Mohapatra
-      Miscellaneous Contact:
-        Secondary:
-          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
-          Name: Ankit Durgasis Mohapatra
-      Resource Report Contact:
-        Secondary:
-          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
-          Name: Ankit Durgasis Mohapatra
       Security Contact:
         Secondary:
           ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
           Name: Ankit Durgasis Mohapatra
     Description: Test server for the benefit of campus IT.
-    Disable: false
     FQDN: gridtest.fit.edu
     ID: 339
     Services:
@@ -74,47 +55,10 @@ Resources:
           hidden: false
     VOOwnership:
       CMS: 100
-  FLTECH-MGMT:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Secondary:
-          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
-          Name: Ankit Durgasis Mohapatra
-      Miscellaneous Contact:
-        Secondary:
-          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
-          Name: Ankit Durgasis Mohapatra
-      Resource Report Contact:
-        Secondary:
-          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
-          Name: Ankit Durgasis Mohapatra
-      Security Contact:
-        Secondary:
-          ID: f57fbddc5eed4711b58b2d0a002d23d9c96ea8cb
-          Name: Ankit Durgasis Mohapatra
-    Description: Management node at the Florida Tech High Energy Physics lab (GUMS
-      server).
-    Disable: false
-    FQDN: uscms1-mgmt.fltech-grid3.fit.edu
-    ID: 592
-    Services:
-      GUMS Server:
-        Description: GUMS Server
-    VOOwnership:
-      CMS: 100
   FLTECH-SE:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary:
-          ID: dbdac6f745c5a7762318d51445220b2c4727d649
-          Name: Ryan Wojtyla
-      Miscellaneous Contact:
-        Primary:
-          ID: dbdac6f745c5a7762318d51445220b2c4727d649
-          Name: Ryan Wojtyla
-      Resource Report Contact:
         Primary:
           ID: dbdac6f745c5a7762318d51445220b2c4727d649
           Name: Ryan Wojtyla
@@ -124,7 +68,6 @@ Resources:
           Name: Ryan Wojtyla
     Description: This is the Storage Element at Florida Institute of Technology that
       provides Squid cache, Bestman SE, and Phedex services.
-    Disable: false
     FQDN: uscms1-se.fltech-grid3.fit.edu
     ID: 269
     Services:

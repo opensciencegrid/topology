@@ -1,47 +1,12 @@
-Disable: false
 GroupDescription: Tier-3 computing center.  Priority given to local users, but opportunistic
   use by CMS VO allowed.
 GroupID: 159
 Production: true
 Resources:
-  UMD_GUMS:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-      Resource Report Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-      Security Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-    Description: New GUMS server for umd-cms (didn't work with internal IP, and Network
-      Operations cannot give me a new FQDN quickly, so will use development one in
-      teh meantime)
-    Disable: false
-    FQDN: hepcmsdev-6.umd.edu
-    ID: 550
-    Services:
-      GUMS Server:
-        Description: GUMS Server
-    VOOwnership:
-      CMS: 100
   umd-ce:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-      Miscellaneous Contact:
-        Secondary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-      Resource Report Contact:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
@@ -50,7 +15,6 @@ Resources:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
     Description: standalone CE separate from our SE, CMS jobs only.
-    Disable: false
     FQDN: hepcms-1.umd.edu
     ID: 796
     Services:
@@ -78,27 +42,12 @@ Resources:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
-      Miscellaneous Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-        Tertiary:
-          ID: 2ee1351b0114a2684f91ca7656d1a2a6f8f33c30
-          Name: Nicholas John Hadley
-      Resource Report Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-        Tertiary:
-          ID: 2ee1351b0114a2684f91ca7656d1a2a6f8f33c30
-          Name: Nicholas John Hadley
       Security Contact:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
     Description: Tier-3 computing center.  Priority given to local users, but opportunistic
       use by CMS VO allowed.
-    Disable: false
     FQDN: hepcms-0.umd.edu
     ID: 159
     Services:
@@ -125,18 +74,35 @@ Resources:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
-      Resource Report Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
       Security Contact:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
     Description: GridFTP for UMD T3 HEPCMS Cluster
-    Disable: false
     FQDN: hepcms-gridftp.umd.edu
     ID: 831
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+  umd-gridftp2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
+          Name: Shabnam Jabeen
+        Secondary:
+          ID: 4cee0f130d367c26289f9f5e2ba2ca56b7b997dd
+          Name: Anwar Bhatti
+      Security Contact:
+        Primary:
+          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
+          Name: Shabnam Jabeen
+    Description: GridFTP for UMD T3 HEPCMS Cluster
+    FQDN: hepcms-gridftp2.umd.edu
+    ID: 1187
     Services:
       GridFtp:
         Description: GridFtp Storage Element
@@ -154,9 +120,30 @@ Resources:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
     Description: squid service for frontier and cvmfs
-    Disable: false
     FQDN: hepcms-squid.umd.edu
     ID: 863
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  umd-squid2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
+          Name: Shabnam Jabeen
+        Secondary:
+          ID: 4cee0f130d367c26289f9f5e2ba2ca56b7b997dd
+          Name: Anwar Bhatti
+      Security Contact:
+        Primary:
+          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
+          Name: Shabnam Jabeen
+    Description: squid service for frontier and cvmfs
+    FQDN: hepcms-squid2.umd.edu
+    ID: 1188
     Services:
       Squid:
         Description: Generic squid service

@@ -1,0 +1,23 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: Resources associated with the Amarel cluster
+GroupID: 1131
+Resources:
+  Rutgers-Amarel-AP1:
+    Active: true
+    Description: The Rutgers Amarel OS Pool access point
+    ID: 1213
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Balamurugan Desinghu
+          ID: 627d2138c12fb4158ddc06b4e67bc0076126c8d9
+      Security Contact:
+        Primary:
+          Name: Balamurugan Desinghu
+          ID: 627d2138c12fb4158ddc06b4e67bc0076126c8d9
+    FQDN: osg-amarel.hpc.rutgers.edu
+    DN: /DC=org/DC=incommon/C=US/postalCode=08901/ST=NJ/L=NEW BRUNSWICK/street=57 US HIGHWAY 1/O=Rutgers, The State University of New Jersey/OU=OIT-CCS/CN=osg-amarel.hpc.rutgers.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point

@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Lab resources for testing
 GroupID: 331
 Production: true
@@ -10,17 +9,12 @@ Resources:
         Secondary:
           ID: 1058b8c8d447782ffa41ad3f78ec684dc7ccfecc
           Name: William M Bradley
-      Resource Report Contact:
-        Secondary:
-          ID: 1058b8c8d447782ffa41ad3f78ec684dc7ccfecc
-          Name: William M Bradley
       Security Contact:
         Secondary:
           ID: 1058b8c8d447782ffa41ad3f78ec684dc7ccfecc
           Name: William M Bradley
     Description: This is test gatekeeper for integrating the OSG stack with a ROCKS
       platfrom.
-    Disable: false
     FQDN: rocksvmfe.uabgrid.uab.edu
     ID: 446
     Services:

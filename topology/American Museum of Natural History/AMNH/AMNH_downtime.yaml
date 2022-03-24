@@ -9,3 +9,58 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 469790101
+  Description: Taken offline due to water leak in data center
+  Severity: Outage
+  StartTime: Feb 16, 2020 01:00 +0000
+  EndTime: Feb 18, 2020 15:30 +0000
+  CreatedTime: Feb 20, 2020 21:44 +0000
+  ResourceName: OSG_US_AMNH_ARES
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 483627534
+  Description: HVAC maintenance
+  Severity: Outage
+  StartTime: Mar 06, 2020 16:00 +0000
+  EndTime: Mar 09, 2020 10:00 +0000
+  CreatedTime: Mar 04, 2020 16:59 +0000
+  ResourceName: OSG_US_AMNH_ARES
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 778104154
+  Description: Cooling system maintenance
+  Severity: Outage
+  StartTime: Feb 20, 2021 12:00 +0000
+  EndTime: Feb 24, 2021 17:00 +0000
+  CreatedTime: Feb 08, 2021 18:53 +0000
+  ResourceName: AMNH-ARES
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 778115364
+  Description: Cooling system maintenance
+  Severity: Outage
+  StartTime: Feb 20, 2021 12:00 +0000
+  EndTime: Feb 24, 2021 17:00 +0000
+  CreatedTime: Feb 08, 2021 19:12 +0000
+  ResourceName: AMNH-HEL
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 778115497
+  Description: Cooling system maintenance
+  Severity: Outage
+  StartTime: Feb 20, 2021 12:00 +0000
+  EndTime: Feb 24, 2021 17:00 +0000
+  CreatedTime: Feb 08, 2021 19:12 +0000
+  ResourceName: AMNH-Mendel
+  Services:
+  - CE
+# ---------------------------------------------------------

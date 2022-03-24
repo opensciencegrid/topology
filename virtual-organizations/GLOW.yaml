@@ -18,16 +18,16 @@ Contacts:
   Registration Authority:
   - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
     Name: Aaron Moate
-  - ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-    Name: Daniel Bradley
   Security Contact:
   - ID: 46a55ac4815b2b8c00ff283549f413113b45d628
     Name: Aaron Moate
-  - ID: 210d07bf782db9938049eaf11820ec908fdda3b5
-    Name: Daniel Bradley
   VO Manager:
   - ID: 48e1c2f26dc3479a6cf9b2de7c79d654ac27b1d1
     Name: Miron Livny
+Credentials:
+  TokenIssuers:
+    - URL: https://chtc.cs.wisc.edu
+      DefaultUnixUser: glow
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -38,15 +38,15 @@ ID: 13
 LongName: Grid Laboratory of Wisconsin
 OASIS:
   Managers:
-    Aaron Moate:
+    - Name: Aaron Moate
       DNs: /DC=org/DC=doegrids/OU=People/CN=Aaron Moate 717557
       ID: 46a55ac4815b2b8c00ff283549f413113b45d628
   UseOASIS: true
-PrimaryURL: http://www.chtc.cs.wisc.edu
-PurposeURL: http://www.chtc.cs.wisc.edu/approach.shtml
+PrimaryURL: https://chtc.cs.wisc.edu
+PurposeURL: https://chtc.cs.wisc.edu/approach.shtml
 ReportingGroups:
 - glow
-SupportURL: http://www.chtc.cs.wisc.edu
+SupportURL: https://chtc.cs.wisc.edu
 DataFederations:
   StashCache:
     Namespaces:
@@ -55,7 +55,12 @@ DataFederations:
       /chtc/PROTECTED:
         - FQAN:/GLOW
         - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+        - SciTokens:
+            Issuer: https://chtc.cs.wisc.edu
+            Base Path: /chtc
     AllowedOrigins:
       - CHTC_STASHCACHE_ORIGIN
+      - CHTC_STASHCACHE_ORIGIN_2000
+      - CHTC_STASHCACHE_ORIGIN_AUTH_2000
     AllowedCaches:
       - ANY

@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: (No resource group description)
 GroupID: 99
 Production: true
@@ -13,19 +12,11 @@ Resources:
         Secondary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
-      Resource Report Contact:
-        Primary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-        Secondary:
-          ID: a2b9cf948598b460caec58e51be63ddc38049e2c
-          Name: Rogerio Iope
       Security Contact:
         Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
     Description: This is the perfSONAR bandwidth server at SPRACE
-    Disable: false
     FQDN: perfsonar-bw.sprace.org.br
     ID: 709
     Services:
@@ -45,19 +36,11 @@ Resources:
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
-      Resource Report Contact:
-        Primary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-        Secondary:
-          ID: a2b9cf948598b460caec58e51be63ddc38049e2c
-          Name: Rogerio Iope
       Security Contact:
         Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
     Description: This is the perfSONAR latency server at SPRACE
-    Disable: false
     FQDN: perfsonar-lt.sprace.org.br
     ID: 523
     Services:
@@ -77,26 +60,6 @@ Resources:
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
-      Miscellaneous Contact:
-        Primary:
-          ID: 084c6602f2a21e310fc5acc2645cb6892f804a0b
-          Name: Eduardo Gregores
-        Secondary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-        Tertiary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-      Resource Report Contact:
-        Primary:
-          ID: a2b9cf948598b460caec58e51be63ddc38049e2c
-          Name: Rogerio Iope
-        Secondary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-        Tertiary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
       Security Contact:
         Primary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
@@ -105,7 +68,6 @@ Resources:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
     Description: Gatekeeper and condor master for SPRACE resource
-    Disable: false
     FQDN: osg-ce.sprace.org.br
     ID: 99
     Services:
@@ -138,26 +100,6 @@ Resources:
         Secondary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
           Name: Marcio Antonio Costa
-      Miscellaneous Contact:
-        Primary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-        Secondary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-        Tertiary:
-          ID: a2b9cf948598b460caec58e51be63ddc38049e2c
-          Name: Rogerio Iope
-      Resource Report Contact:
-        Primary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-        Secondary:
-          ID: a2b9cf948598b460caec58e51be63ddc38049e2c
-          Name: Rogerio Iope
-        Tertiary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
       Security Contact:
         Primary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
@@ -166,7 +108,6 @@ Resources:
           ID: a2b9cf948598b460caec58e51be63ddc38049e2c
           Name: Rogerio Iope
     Description: Storage element for SPRACE resource
-    Disable: false
     FQDN: osg-se.sprace.org.br
     ID: 100
     Services:
@@ -197,26 +138,6 @@ Resources:
         Secondary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
-      Miscellaneous Contact:
-        Primary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-        Secondary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-        Tertiary:
-          ID: a2b9cf948598b460caec58e51be63ddc38049e2c
-          Name: Rogerio Iope
-      Resource Report Contact:
-        Primary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-        Secondary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-        Tertiary:
-          ID: a2b9cf948598b460caec58e51be63ddc38049e2c
-          Name: Rogerio Iope
       Security Contact:
         Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
@@ -225,7 +146,6 @@ Resources:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
     Description: 'Squid Frontier Server #1'
-    Disable: false
     FQDN: frontier.sprace.org.br
     ID: 696
     Services:
@@ -243,26 +163,6 @@ Resources:
         Secondary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
-      Miscellaneous Contact:
-        Primary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-        Secondary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-        Tertiary:
-          ID: a2b9cf948598b460caec58e51be63ddc38049e2c
-          Name: Rogerio Iope
-      Resource Report Contact:
-        Primary:
-          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
-          Name: Marcio Antonio Costa
-        Secondary:
-          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
-          Name: Jadir Marra da Silva
-        Tertiary:
-          ID: a2b9cf948598b460caec58e51be63ddc38049e2c
-          Name: Rogerio Iope
       Security Contact:
         Primary:
           ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
@@ -271,7 +171,6 @@ Resources:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
           Name: Jadir Marra da Silva
     Description: 'Squid Frontier Server #2'
-    Disable: false
     FQDN: frontier2.sprace.org.br
     ID: 697
     Services:

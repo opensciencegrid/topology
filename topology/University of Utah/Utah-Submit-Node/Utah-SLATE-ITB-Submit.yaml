@@ -1,0 +1,40 @@
+GroupDescription: University of Utah Center for Research and High Performance Computing
+GroupID: 1093
+Production: false
+Resources:
+  SLATE_US_UUTAH_ITB_SUBMIT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  40a181cc3b7a43593188c9607310d35cb079bda9
+          Name: Mitchell Steinman
+        Secondary:
+          ID: 8a8a82987a8b4bb84e58ca457c04c80442616369
+          Name: Isaak Getz
+        Tertiary:
+          ID: 91f13c97549bc4eb908e1df68ef8ebfeec05fad3
+          Name: Soundar Rajendran
+      Security Contact:
+        Primary:
+          ID:  40a181cc3b7a43593188c9607310d35cb079bda9
+          Name: Mitchell Steinman
+        Secondary:
+          ID: 8a8a82987a8b4bb84e58ca457c04c80442616369
+          Name: Isaak Getz
+        Tertiary:
+          ID: 91f13c97549bc4eb908e1df68ef8ebfeec05fad3
+          Name: Soundar Rajendran
+      Site Contact:
+        Primary:
+          ID:  ddfa10c8a8500e5c31818e7c1a063b3ce5ab6a8b
+          Name: CHPC OSG Support
+    Description: Development SLATE Submit Node for University of Utah CHPC
+    FQDN: utah-dev1.chpc.utah.edu
+    ID: 1100
+    Services:
+      Submit Node:
+        Description: Submit Node
+        Details:
+          hidden: false
+SupportCenter: Self Supported

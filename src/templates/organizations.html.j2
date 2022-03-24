@@ -1,0 +1,20 @@
+{% set want_js = false %}
+{% extends "base.html.j2" %}
+{% block title -%}
+Organizations
+{%- endblock %}
+{% block content %}
+<div class="container">
+This page lists organizations that are currently used in OSG projects registered in Topology.
+If there is a standard project name prefix used for project belonging to that organization,
+that prefix is also shown.
+<table class="table table-sm table-striped">
+<thead class="thead-dark">
+    <tr><th scope="col">Organization</th><th scope="col">Project Prefix</th></tr>
+    </thead>
+{%- for orgname, prefix in org_table %}
+    <tr><td>{{ orgname }}</td><td>{{ prefix }}</td></tr>
+{% endfor -%}{# org_table #}
+</table>
+</div>
+{% endblock %}

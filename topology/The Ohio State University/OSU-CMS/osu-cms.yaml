@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: CMS Tier3 at The Ohio State University
 GroupID: 237
 Production: true
@@ -8,35 +7,26 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: dc6740d77df4593399bd4d7016ce813aa8cddc88
-          Name: Brian Patrick Francis
-        Secondary:
           ID: bbb60851fbed5d63126b88da5a74c0a1903b0ea9
           Name: Stanley Durkin
-      Miscellaneous Contact:
-        Primary:
-          ID: dc6740d77df4593399bd4d7016ce813aa8cddc88
-          Name: Brian Patrick Francis
         Secondary:
-          ID: bbb60851fbed5d63126b88da5a74c0a1903b0ea9
-          Name: Stanley Durkin
-      Resource Report Contact:
-        Primary:
-          ID: dc6740d77df4593399bd4d7016ce813aa8cddc88
-          Name: Brian Patrick Francis
-        Secondary:
-          ID: bbb60851fbed5d63126b88da5a74c0a1903b0ea9
-          Name: Stanley Durkin
+          ID: 103a711e34a19f9b39a07d443807c84c832c8d29
+          Name: Kai Wei
+        Tertiary:
+          ID: ac72da817ce3d820895e1ffaa498084b5aa66680
+          Name: Michael Carrigan
       Security Contact:
         Primary:
-          ID: dc6740d77df4593399bd4d7016ce813aa8cddc88
-          Name: Brian Patrick Francis
-        Secondary:
           ID: bbb60851fbed5d63126b88da5a74c0a1903b0ea9
           Name: Stanley Durkin
+        Secondary:
+          ID: 103a711e34a19f9b39a07d443807c84c832c8d29
+          Name: Kai Wei
+        Tertiary:
+          ID: ac72da817ce3d820895e1ffaa498084b5aa66680
+          Name: Michael Carrigan
     Description: Tier-3 computing center. Priority given to local users, but opportunistic
       use by CMS VO allowed.
-    Disable: false
     FQDN: cms-0.mps.ohio-state.edu
     ID: 244
     Services:
@@ -48,6 +38,10 @@ Resources:
         Description: SRM V2 Storage Element
         Details:
           hidden: false
+      Squid:
+        Description: Squid Server cms-0
+        Details:
+          Monitored: true
     VOOwnership:
       CMS: 100
     WLCGInformation:

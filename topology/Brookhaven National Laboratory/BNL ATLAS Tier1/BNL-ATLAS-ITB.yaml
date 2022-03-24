@@ -1,0 +1,93 @@
+GroupDescription: This is the BNL ITB resource group, not production services.
+GroupID: 243
+Production: false
+Resources:
+  BNL-ps-testbed:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Secondary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: BNLs perfSONAR testbed instance.
+    FQDN: ps-development.bnl.gov
+    ID: 691
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: ps-development.bnl.gov
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: ps-development.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+  BNL_ITB_Test1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: Move this BNL ITB CE to under the group of BNL-LCG2.
+    FQDN: gridtest01.racf.bnl.gov
+    ID: 6
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridtest01.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 8
+      KSI2KMin: 8
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_Test_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+    Description: Move BNL ITB SE to under BNL-LCG2 group name.
+    FQDN: grid16.racf.bnl.gov
+    FQDNAliases:
+    - localsub01.usatlas.bnl.gov
+    ID: 7
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+SupportCenter: USATLAS

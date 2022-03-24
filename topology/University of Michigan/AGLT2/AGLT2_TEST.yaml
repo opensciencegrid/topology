@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Testing Resource Group
 GroupID: 351
 Production: true
@@ -29,7 +28,6 @@ Resources:
     Description: This is a test CE.  It will initially be used to test the migration
       of the AGLT2 site from the pacman distribute osg_ce to the rpm based version
       of that software.
-    Disable: false
     FQDN: gate03.aglt2.org
     ID: 478
     Services:
@@ -75,7 +73,6 @@ Resources:
           Name: Shawn McKee
     Description: This is the TEST perfSONAR-PS bandwidth instance at the Michigan
       State University AGLT2 site.
-    Disable: false
     FQDN: psmsu06.aglt2.org
     ID: 711
     Services:
@@ -110,7 +107,6 @@ Resources:
           Name: Shawn McKee
     Description: This is the TEST perfSONAR-PS latency instance at the Michigan State
       University AGLT2 site.
-    Disable: false
     FQDN: psmsu05.aglt2.org
     ID: 705
     Services:
@@ -144,7 +140,6 @@ Resources:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: This is the perfSONAR testbed bandwidth instance at UM
-    Disable: false
     FQDN: psum06.aglt2.org
     ID: 668
     Services:
@@ -178,7 +173,6 @@ Resources:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: This is the perfSONAR testbed instance at the University of Michigan
-    Disable: false
     FQDN: psum05.aglt2.org
     ID: 667
     Services:

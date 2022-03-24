@@ -1,0 +1,66 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: Open Science Pool resources hosted at CHTC
+GroupID: 1125
+
+Resources:
+  CHTC_OSPOOL_ORIGIN:
+    Active: false
+    Description: Authenticated origin server for OSPool Users at UW-Madison
+    ID: 1194
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+        Secondary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+        Secondary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+    FQDN: origin-auth2001.chtc.wisc.edu
+    FQDNAliases:
+      - chtc-origin.osg-htc.org
+    DN: /CN=origin-auth2001.chtc.wisc.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache origin server, see OPS-198
+    VOOwnership:
+      OSG: 100
+    AllowedVOs:
+      - ANY
+  CHTC_OSPOOL-OPEN-SCIENCE-CE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: 606b797dcc03cad7135b7cc61b78fbc15eea7ec8
+          Name: Carl Edquist
+      Security Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+    Description: An HTCondor-CE submitting pilots into the OSPool
+    FQDN: os-ce1.opensciencegrid.org
+    ID: 1249
+    Services:
+      CE:
+        Description: HTCondor-CE
+      Submit Node:
+        Description: OSPool Access Point
+    Tags:
+      - OSPool

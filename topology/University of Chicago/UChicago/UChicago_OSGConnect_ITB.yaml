@@ -1,0 +1,29 @@
+Production: false
+SupportCenter: Self Supported
+GroupDescription: Resources associated with the OSG Connect testing infrastructure
+GroupID: 1126
+Resources:
+  UChicago_OSGConnect_login-test:
+    Active: true
+    Description: The test login node for the OS Pool
+    ID: 1197
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: login-test.osgconnect.net
+    DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
+    Services:
+      Submit Node:
+        Description: ITB OS Pool access point

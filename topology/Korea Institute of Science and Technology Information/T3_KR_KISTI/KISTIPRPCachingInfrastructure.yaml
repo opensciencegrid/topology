@@ -1,0 +1,26 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Stashcaches located at KISTI and handled through kubernetes PRP
+GroupID: 509
+Resources:
+  Stashcache-KISTI:
+    Active: true
+    Description: KISTI StashCache
+    ID: 1001
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Diego Davila
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+      # Security Contact is one to three people to contact regarding security issues
+      Security Contact:
+        Primary:
+          Name: Diego Davila
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+    FQDN: dtn2-daejeon.kreonet.net
+    DN: /DC=org/DC=terena/DC=tcs/C=NL/L=Amsterdam/O=Universiteit van Amsterdam/CN=fiona-r-uva.vlan7.uvalight.net
+    Services:
+      XRootD cache server:
+        Description: KISTI PRP Caching Service
+    AllowedVOs:
+      - ANY

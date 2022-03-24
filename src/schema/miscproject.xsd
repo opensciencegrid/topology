@@ -12,7 +12,7 @@
         <xsd:element maxOccurs="unbounded" name="Project">
           <xsd:complexType>
             <xsd:sequence>
-              <xsd:element name="ID" type="xsd:int"/>
+              <xsd:element minOccurs="0" name="ID" type="xsd:string"/>
               <xsd:element name="Name" type="xsd:string"/>
               <xsd:element name="Description" type="xsd:string" />
               <xsd:element name="PIName" type="xsd:string" />
@@ -35,6 +35,40 @@
                         <xsd:sequence>
                           <xsd:element name="ID" type="xsd:int"/>
                           <xsd:element name="Name" type="xsd:string"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="ResourceAllocations">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="ResourceAllocation" minOccurs="0" maxOccurs="unbounded">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="Type" type="xsd:string"/>
+                          <xsd:element name="SubmitResources">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="SubmitResource" type="xsd:string" maxOccurs="unbounded"/>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:element name="ExecuteResourceGroups">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="ExecuteResourceGroup" maxOccurs="unbounded">
+                                  <xsd:complexType>
+                                    <xsd:sequence>
+                                      <xsd:element name="GroupName" type="xsd:string"/>
+                                      <xsd:element name="LocalAllocationID" type="xsd:string"/>
+                                    </xsd:sequence>
+                                  </xsd:complexType>
+                                </xsd:element>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
                         </xsd:sequence>
                       </xsd:complexType>
                     </xsd:element>

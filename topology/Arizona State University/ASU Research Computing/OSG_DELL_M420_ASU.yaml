@@ -1,12 +1,11 @@
-Disable: false
 Production: true
 SupportCenter: Self Supported
 GroupID: 486
 GroupDescription: A test HTCondor cluster for Arizona State University Research Computing.
 Resources:
   OSG_US_ASU_DELL_M420:
+    Active: false
     ID: 949
-    Disable: false
     Description: The hosted CE instance for the ASU test cluster
     ContactLists:
       Administrative Contact:
@@ -23,11 +22,69 @@ Resources:
         Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Johnathan Lee
+          ID: 0cc59bba93ee546d91d24a2c46fe52bbeebd4c63
     FQDN: hosted-ce20.grid.uchicago.edu
     Services:
       CE:
         Description: Arizona State hosted CE
         Details:
           hidden: false
-    VOOwnership:
-      OSG: 100  # 100% opportunistic
+  ASU-DELL_M420:
+    Active: true
+    ID: 1086
+    Description: The SLATE hosted CE instance for the ASU test cluster
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Johnathan Lee
+          ID: 0cc59bba93ee546d91d24a2c46fe52bbeebd4c63
+    FQDN: hosted-ce20.opensciencegrid.org
+    Services:
+      CE:
+        Description: Arizona State hosted CE
+        Details:
+          hidden: false
+  ASU-SQUID1:
+    Active: true
+    Description: ASU squid server
+    ID: 1090
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Johnathan Lee
+          ID: 0cc59bba93ee546d91d24a2c46fe52bbeebd4c63
+    FQDN: osgcondor1.rc.asu.edu
+    Services:
+      Squid:
+        Description: ASU squid server

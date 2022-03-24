@@ -72,3 +72,121 @@
   Severity: Outage
   StartTime: May 21, 2018 14:00 +0000
 # ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 251480023
+  Description: 'Annual MGHPCC power maintenance day '
+  Severity: Outage
+  StartTime: Jun 10, 2019 17:00 +0000
+  EndTime: Jun 12, 2019 04:00 +0000
+  CreatedTime: Jun 10, 2019 01:26 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 579465543
+  Description: Trying to set downtime again
+  Severity: Outage
+  StartTime: Jun 23, 2020 12:00 +0000
+  EndTime: Jun 23, 2020 18:00 +0000
+  CreatedTime: Jun 23, 2020 16:09 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 620849981
+  Description: Hardware error in central BU N7K module.  Network engineers are working
+    on it.  DDM and production are down.
+  Severity: Outage
+  StartTime: Aug 10, 2020 00:01 +0000
+  EndTime: Aug 10, 2020 17:00 +0000
+  CreatedTime: Aug 10, 2020 13:43 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 681521473
+  Description: 'Annual downtime '
+  Severity: Outage
+  StartTime: Oct 19, 2020 09:00 +0000
+  EndTime: Oct 20, 2020 23:00 +0000
+  CreatedTime: Oct 19, 2020 19:02 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 762812933
+  Description: 'GPFS file system '
+  Severity: Outage
+  StartTime: Jan 21, 2021 19:00 +0000
+  EndTime: Feb 02, 2021 04:00 +0000
+  CreatedTime: Jan 21, 2021 20:08 +0000
+  ResourceName: NET2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 820339344
+  Description: Unscheduled power outage at data center
+  Severity: Outage
+  StartTime: Mar 29, 2021 16:04 +0000
+  EndTime: Mar 29, 2021 17:04 +0000
+  CreatedTime: Mar 29, 2021 16:05 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 839671566
+  Description: NESE Core Network upgrade
+  Severity: Severe
+  StartTime: Apr 22, 2021 18:00 +0000
+  EndTime: Apr 23, 2021 03:00 +0000
+  CreatedTime: Apr 21, 2021 01:05 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 933952493
+  Description: Annual MGHPCC site-wide power maintenance
+  Severity: Outage
+  StartTime: Aug 09, 2021 16:00 +0000
+  EndTime: Aug 10, 2021 23:59 +0000
+  CreatedTime: Aug 08, 2021 04:00 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1063514739
+  Description: Kernel upgrade of NFS servers and retirement of 3TB GPFS pool
+  Severity: Severe
+  StartTime: Jan 11, 2022 11:00 +0000
+  EndTime: Jan 11, 2022 14:00 +0000
+  CreatedTime: Jan 05, 2022 02:57 +0000
+  ResourceName: NET2
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1085853095
+  Description: 'GPFS issue retiring old pool.  Need a few hours without DDM to fix. '
+  Severity: Severe
+  StartTime: Jan 30, 2022 23:45 +0000
+  EndTime: Jan 31, 2022 12:00 +0000
+  CreatedTime: Jan 30, 2022 23:28 +0000
+  ResourceName: NET2
+  Services:
+  - GridFtp
+# ---------------------------------------------------------

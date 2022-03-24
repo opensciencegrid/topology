@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Resource Group for the NYU ATLAS Tier3 site
 GroupID: 304
 Production: true
@@ -21,7 +20,6 @@ Resources:
           ID: 79c022a3c909ee8d06223450441187d8df62695c
           Name: George Lewis
     Description: GridFTP server for the NYU ATLAS Tier3 site.
-    Disable: false
     FQDN: t3nfs.physics.nyu.edu
     ID: 392
     Services:

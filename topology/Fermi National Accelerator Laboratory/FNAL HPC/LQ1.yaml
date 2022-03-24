@@ -1,0 +1,32 @@
+GroupDescription: LQ1 is an HPC cluster part of the Fermilab Institutional Cluster allocated to the LQCD collaboration
+GroupID: 540
+Production: true
+Resources:
+  FNAL_LQ1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
+        Secondary:
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
+      Security Contact:
+        Primary:
+          ID: 2c1b608a828130d35204b0c6a7209c5e2d9d93d6
+          Name: Fermilab Cybersecurity Team
+        Secondary:
+          ID: ee62ada7c017daeda2157aa148d30ccca0f13abc
+          Name: Fermilab Incident Response
+    Description: This is the LQ1 cluster headnode
+    FQDN: lq.fnal.gov
+    ID: 1070
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      Fermilab: 100
+SupportCenter: Fermilab

@@ -12,26 +12,25 @@ Contacts:
   Administrative Contact:
   - ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
     Name: Piotr Sliz
-  - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-    Name: Michael (Mick) Timony
+  - ID: d5ebc623588d1696614076faf0257d83806891a2
+    Name: Peter Meyer
   Miscellaneous Contact:
   - ID: 757b564e9dc0b69e22a47c95d26899f260f7e9c1
     Name: Piotr Sliz
-  - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-    Name: Michael (Mick) Timony
   - ID: d5ebc623588d1696614076faf0257d83806891a2
     Name: Peter Meyer
-  Registration Authority:
-  - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-    Name: Michael (Mick) Timony
+  - ID: 5a210445cd71d7f59fa5c46b288762c93c8333b3
+    Name: Justin O'Connor
   - ID: 589c29d386da475eb7115c7e333346ae8f5db6f7
     Name: Michelle Ottaviano
   Security Contact:
-  - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-    Name: Michael (Mick) Timony
+  - ID: 5a210445cd71d7f59fa5c46b288762c93c8333b3
+    Name: Justin O'Connor
+  - ID: d5ebc623588d1696614076faf0257d83806891a2
+    Name: Peter Meyer
   VO Manager:
-  - ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-    Name: Michael (Mick) Timony
+  - ID: d5ebc623588d1696614076faf0257d83806891a2
+    Name: Peter Meyer
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -49,21 +48,10 @@ ID: 32
 LongName: Structural Biology Grid
 OASIS:
   Managers:
-    Michael (Mick) Timony:
-      DNs:
-      - /DC=org/DC=doegrids/OU=People/CN=Michael Timony 230546
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Michael Timony 888
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Michael Timony (Portal)
-        888
-      - /DC=org/DC=doegrids/OU=People/CN=Michael Timony 213442 (portal)
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Michael (Mick)
-        Timony 888
-      - /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Michael Timony
-        (Portal) 888
-      ID: 41c964bb180f52a5be0ffe708fac051a5114d74a
-    Peter Meyer:
-      DNs: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Peter Meyer 2982
+    - Name: Peter Meyer (primary)
+      DNs: /DC=org/DC=cilogon/C=US/O=Harvard University/CN=Peter Meyer A9331936
       ID: d5ebc623588d1696614076faf0257d83806891a2
+
   UseOASIS: true
 PrimaryURL: https://portal.sbgrid.org/
 PurposeURL: http://portal.sbgrid.org/contact/about

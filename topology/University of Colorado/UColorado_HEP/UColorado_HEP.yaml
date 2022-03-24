@@ -1,4 +1,3 @@
-Disable: false
 GroupDescription: Renamed to UColorado_HEP by agopu after Doug agreed it was ok. 2008-07-18.
   Assigned appropriate site as well.
 GroupID: 177
@@ -11,21 +10,30 @@ Resources:
         Primary:
           ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
           Name: Douglas Johnson
-      Miscellaneous Contact:
-        Primary:
-          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
-          Name: Douglas Johnson
-      Resource Report Contact:
-        Primary:
-          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
-          Name: Douglas Johnson
+        Secondary:
+          ID: 827a30f8c6cfdaadcad5970398e1e1256a97af5d
+          Name: Kevin Stenson
+        Tertiary:
+          ID: e655b6dc906d203ebc6df48aa79405e5c61c77b2
+          Name: Keith Ulmer
+        Tertiary 2:
+          ID: 69ea3926aa002ed4a0b7b0866ff2e324bf2174bd
+          Name: John Cumalat
       Security Contact:
         Primary:
           ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
           Name: Douglas Johnson
+        Secondary:
+          ID: 827a30f8c6cfdaadcad5970398e1e1256a97af5d
+          Name: Kevin Stenson
+        Tertiary:
+          ID: e655b6dc906d203ebc6df48aa79405e5c61c77b2
+          Name: Keith Ulmer
+        Tertiary 2:
+          ID: 69ea3926aa002ed4a0b7b0866ff2e324bf2174bd
+          Name: John Cumalat
     Description: Renamed to UColorado_HEP by agopu after Doug agreed it was ok. 2008-07-18.
       Assigned appropriate site as well.
-    Disable: false
     FQDN: heposg01.colorado.edu
     ID: 177
     Services:
@@ -49,18 +57,127 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-  UColorado_SE:
+  UColorado_HEP_Squid01:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
           Name: Douglas Johnson
-      Miscellaneous Contact:
+        Secondary:
+          ID: 827a30f8c6cfdaadcad5970398e1e1256a97af5d
+          Name: Kevin Stenson
+        Tertiary:
+          ID: e655b6dc906d203ebc6df48aa79405e5c61c77b2
+          Name: Keith Ulmer
+        Tertiary 2:
+          ID: 69ea3926aa002ed4a0b7b0866ff2e324bf2174bd
+          Name: John Cumalat
+      Security Contact:
         Primary:
           ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
           Name: Douglas Johnson
-      Resource Report Contact:
+        Secondary:
+          ID: 827a30f8c6cfdaadcad5970398e1e1256a97af5d
+          Name: Kevin Stenson
+        Tertiary:
+          ID: e655b6dc906d203ebc6df48aa79405e5c61c77b2
+          Name: Keith Ulmer
+        Tertiary 2:
+          ID: 69ea3926aa002ed4a0b7b0866ff2e324bf2174bd
+          Name: John Cumalat
+    Description: Squid Server cmsprxy01
+    FQDN: cmsprxy01.colorado.edu
+    ID: 1010
+    Services:
+      Squid:
+        Description: Squid Server cmsprxy01
+        Details:
+          Monitored: true
+    VOOwnership:
+      CMS: 100
+  UColorado_HEP_Squid02:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+        Secondary:
+          ID: 827a30f8c6cfdaadcad5970398e1e1256a97af5d
+          Name: Kevin Stenson
+        Tertiary:
+          ID: e655b6dc906d203ebc6df48aa79405e5c61c77b2
+          Name: Keith Ulmer
+        Tertiary 2:
+          ID: 69ea3926aa002ed4a0b7b0866ff2e324bf2174bd
+          Name: John Cumalat
+      Security Contact:
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+        Secondary:
+          ID: 827a30f8c6cfdaadcad5970398e1e1256a97af5d
+          Name: Kevin Stenson
+        Tertiary:
+          ID: e655b6dc906d203ebc6df48aa79405e5c61c77b2
+          Name: Keith Ulmer
+        Tertiary 2:
+          ID: 69ea3926aa002ed4a0b7b0866ff2e324bf2174bd
+          Name: John Cumalat
+    Description: Squid Server cmsprxy02
+    FQDN: cmsprxy02.colorado.edu
+    ID: 1011
+    Services:
+      Squid:
+        Description: Squid Server cmsprxy02
+        Details:
+          Monitored: true
+    VOOwnership:
+      CMS: 100
+  UColorado_HEP_Squid03:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+        Secondary:
+          ID: 827a30f8c6cfdaadcad5970398e1e1256a97af5d
+          Name: Kevin Stenson
+        Tertiary:
+          ID: e655b6dc906d203ebc6df48aa79405e5c61c77b2
+          Name: Keith Ulmer
+        Tertiary 2:
+          ID: 69ea3926aa002ed4a0b7b0866ff2e324bf2174bd
+          Name: John Cumalat
+      Security Contact:
+        Primary:
+          ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
+          Name: Douglas Johnson
+        Secondary:
+          ID: 827a30f8c6cfdaadcad5970398e1e1256a97af5d
+          Name: Kevin Stenson
+        Tertiary:
+          ID: e655b6dc906d203ebc6df48aa79405e5c61c77b2
+          Name: Keith Ulmer
+        Tertiary 2:
+          ID: 69ea3926aa002ed4a0b7b0866ff2e324bf2174bd
+          Name: John Cumalat
+    Description: Squid Server cmsprxy03
+    FQDN: cmsprxy03.colorado.edu
+    ID: 1012
+    Services:
+      Squid:
+        Description: Squid Server cmsprxy03
+        Details:
+          Monitored: true
+    VOOwnership:
+      CMS: 100
+  UColorado_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
         Primary:
           ID: fd15f6e70b2c5a19b49d1b4ff738965a3332b2d8
           Name: Douglas Johnson
@@ -72,7 +189,6 @@ Resources:
           ID: 4d3d056cf65ebc778382313412964003ce8f5358
           Name: Brian R Drell
     Description: Bestman 2.2.1.x SRM V2.2 Storage Element
-    Disable: false
     FQDN: hepse01.colorado.edu
     ID: 204
     Services:
