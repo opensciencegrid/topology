@@ -4,6 +4,7 @@ GroupID: 508
 GroupDescription: The University of South Florida Student Cluster, run by the Research Computing team
 Resources:
   OSG_US_USF_SC:
+    Active: false
     ID: 997
     Description: The Hosted CE serving SC
     ContactLists:
@@ -26,6 +27,35 @@ Resources:
           Name: Joseph Botto
           ID: 669c00f23e73354429f4e2c8ce560e97bda97f47
     FQDN: hosted-ce19.grid.uchicago.edu
+    Services:
+      CE:
+        Description: SC Hosted CE
+        Details:
+          hidden: false
+  USF:
+    Active: true
+    ID: 1150
+    Description: The Hosted CE serving SC
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Site Contact:
+        Primary:
+          Name: Joseph Botto
+          ID: 669c00f23e73354429f4e2c8ce560e97bda97f47
+    FQDN: hosted-ce18.opensciencegrid.org
     Services:
       CE:
         Description: SC Hosted CE

@@ -3,17 +3,9 @@ GroupID: 358
 Production: true
 Resources:
   CSIU Submit:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
-        Secondary:
-          ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
-          Name: Scott Teige
-      Miscellaneous Contact:
-        Primary:
-          ID: 51e80537c5f71fa8bee57b6196025fd78c0fde0d
-          Name: Kyle Gross
-      Resource Report Contact:
         Secondary:
           ID: 238d6d2794a7aa5391ae3d13297561a015026bb2
           Name: Scott Teige
@@ -29,6 +21,4 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
-    VOOwnership:
-      CSIU: 100
 SupportCenter: OSG-GOC

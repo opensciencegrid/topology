@@ -1,5 +1,5 @@
 # Production is true if the resource is for production and not testing use
-Production: false
+Production: true
 # SupportCenter is one of the support centers in topology/support-centers.yaml
 SupportCenter: Community Support Center
 
@@ -18,20 +18,13 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
-      Resource Report Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
         Secondary:
-          Name: Edgar Mauricio Fajardo Hernandez
-          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Diego Davila
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
     Description: Squid service for Frontier at COMET Virtual Cluster
     FQDN: osg-comet-frontend.sdsc.edu
     ID: 1016
@@ -45,8 +38,8 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a89087e73b4e9d1732c5a7112332688940f06440
-          Name: Edgar Mauricio Fajardo Hernandez
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
         Secondary:
           Name: Terrence Martin
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
@@ -55,8 +48,8 @@ Resources:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
         Secondary:
-          Name: Edgar Mauricio Fajardo Hernandez
-          ID: a89087e73b4e9d1732c5a7112332688940f06440
+          Name: Diego Davila
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
     Description: OSG HTCondor CE
     FQDN: osg-comet-frontend.sdsc.edu
     ID: 1017
@@ -82,6 +75,7 @@ Resources:
       TapeCapacity: 0
   CMSHTPC_T3_US_SDSC_osg-comet:
     ID: 1042
+    Active: false
     Description: The Hosted CE serving COMET-CometVirtualCluster
     ContactLists:
       Administrative Contact:
@@ -100,11 +94,36 @@ Resources:
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Site Contact:
         Primary:
-          ID: a89087e73b4e9d1732c5a7112332688940f06440
-          Name: Edgar Mauricio Fajardo Hernandez
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
     FQDN: hosted-ce34.grid.uchicago.edu
     Services:
       CE:
         Description: COMET-CometVirtualCluster Hosted CE
+        Details:
+          hidden: false
+  UCSD-Comet:
+    ID: 1083
+    Active: false
+    Description: The Hosted CE serving UCSD-Comet
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Marco Mascheroni
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: hosted-ce34.opensciencegrid.org
+    Services:
+      CE:
+        Description: UCSD-Comet Hosted CE
         Details:
           hidden: false

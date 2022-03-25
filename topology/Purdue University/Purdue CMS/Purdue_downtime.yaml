@@ -69,20 +69,6 @@
 # ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
-    During this downtime, critical high-availability fixes will be made to file system and OSG packages upgrade on worker and data nodes.
-
-    Regards,
-    Majid
-  EndTime: Jun 8, 2016 07:55 +0000
-  ID: 1004920
-  ResourceName: Purdue-Hadoop-HT-PBS-CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jun 7, 2016 09:30 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
     Hi All,
 
     Our network group at Purdue will update the main router on Saturday from 9AM to 4PM, consequently will have network outage. All services will be unavailable during the outage.
@@ -147,22 +133,6 @@
 # ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
-    Hi,
-
-    T2_US_Purdue will have a scheduled downtime to upgrade home file system on all clusters. Also, cvmfs/osg will be upgraded. During downtime, all resource will be unavailable.
-
-    Regards,
-    Majid
-  EndTime: Sep 28, 2016 03:55 +0000
-  ID: 1005048
-  ResourceName: Purdue-Hadoop-HT-PBS-CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Sep 27, 2016 11:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
     Hi All,
 
     T2_US_Purdue will be taken down for cluster maintenance beginning at Saturday, November 5th, 2016 at 8:00am. All resources will return to normal operations by Sunday, November 6th, 2016 at 11:59pm.
@@ -174,24 +144,6 @@
   EndTime: Nov 7, 2016 04:55 +0000
   ID: 1005101
   ResourceName: Purdue-Hadoop-CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Nov 5, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    Hi All,
-
-    T2_US_Purdue will be taken down for cluster maintenance beginning at Saturday, November 5th, 2016 at 8:00am. All resources will return to normal operations by Sunday, November 6th, 2016 at 11:59pm.
-
-    During this time, Purdue all clusters and storage systems will have critical kernel security patches applied.
-
-    Regards,
-    Majid
-  EndTime: Nov 7, 2016 04:55 +0000
-  ID: 1005102
-  ResourceName: Purdue-Hadoop-HT-PBS-CE
   Services:
   - CE
   Severity: Outage
@@ -228,25 +180,6 @@
 
     Majid
   EndTime: Jan 14, 2017 17:00 +0000
-  ID: 1005178
-  ResourceName: Purdue-Hadoop-HT-PBS-CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jan 14, 2017 13:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    The Purdue Tier-2 site will have a scheduled downtime on Saturday,
-    January 14th, from 8:00 AM to 12:00 PM EST.  During the downtime, code
-    will be upgraded on the router that serves the CMS cluster.
-
-    CMS resources will be unavailable for use during the downtime period.
-    We will update you once the maintenance is complete.
-
-
-    Majid
-  EndTime: Jan 14, 2017 17:00 +0000
   ID: 1005181
   ResourceName: Purdue-Hadoop-SE-Gridftp
   Services:
@@ -261,16 +194,6 @@
   ResourceName: Purdue-Hadoop-SE-Gridftp
   Services:
   - GridFtp
-  Severity: Outage
-  StartTime: Jul 20, 2017 16:00 +0000
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  Description: T2_US_Purdue is down due to a loss of power in the campus datacenter.
-  EndTime: Jul 20, 2017 23:00 +0000
-  ID: 1005374
-  ResourceName: Purdue-Hadoop-HT-PBS-CE
-  Services:
-  - CE
   Severity: Outage
   StartTime: Jul 20, 2017 16:00 +0000
 # ----------------------------------------------------------
@@ -306,21 +229,6 @@
 # ----------------------------------------------------------
 - Class: SCHEDULED
   Description: |-
-    We will be upgrading the kernel on the Storage Element (hadoop namenodes).  During this upgrade, Purdue CMS T-2 resources will be unavailable.
-
-    Once this work has been completed, we will notify you that all resources have been returned to service.
-
-    Majid
-  EndTime: Nov 6, 2017 22:00 +0000
-  ID: 1005487
-  ResourceName: Purdue-Hadoop-HT-PBS-CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Nov 6, 2017 13:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
     We need to fix the problem of hadoop-osg.rcac.purdue.edu
 
 
@@ -345,19 +253,6 @@
   - GridFtp
   Severity: Outage
   StartTime: Mar 26, 2018 01:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: |-
-    this is a test cluster. testing if I can make the resource downtime.
-
-    Majid
-  EndTime: Apr 10, 2018 21:00 +0000
-  ID: 1005647
-  ResourceName: Purdue-Hadoop-HT-PBS-CE
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Apr 10, 2018 16:00 +0000
 # ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005700
@@ -562,7 +457,7 @@
     Majid
   EndTime: Jun 8, 2016 07:55 +0000
   ID: 1004924
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -578,7 +473,7 @@
     Majid
   EndTime: Sep 10, 2016 20:00 +0000
   ID: 1005027
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -594,7 +489,7 @@
     Majid
   EndTime: Sep 28, 2016 03:55 +0000
   ID: 1005051
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -612,7 +507,7 @@
     Majid
   EndTime: Nov 7, 2016 04:55 +0000
   ID: 1005105
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -631,7 +526,7 @@
     Majid
   EndTime: Jan 14, 2017 17:00 +0000
   ID: 1005182
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -645,7 +540,7 @@
     Majid
   EndTime: Jul 18, 2017 21:00 +0000
   ID: 1005362
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -660,7 +555,7 @@
     \ we will notify you that all resources have been returned to service.\n\nMajid"
   EndTime: Nov 6, 2017 22:00 +0000
   ID: 1005483
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -672,7 +567,7 @@
     will be restored.
   EndTime: Mar 26, 2018 16:00 +0000
   ID: 1005632
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -685,7 +580,7 @@
   StartTime: Aug 2, 2018 06:00 -0400
   EndTime: Aug 2, 2018 23:59 -0400
   CreatedTime: Jul 25, 2018 12:00 -0500
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
     - CE
 # ----------------------------------------------------------
@@ -696,7 +591,7 @@
   StartTime: Nov 14, 2018 13:00 +0000
   EndTime: Nov 15, 2018 03:00 +0000
   CreatedTime: Nov 08, 2018 18:59 +0000
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
 # ---------------------------------------------------------
@@ -707,7 +602,7 @@
   StartTime: Dec 21, 2018 04:00 +0000
   EndTime: Dec 21, 2018 07:00 +0000
   CreatedTime: Dec 20, 2018 20:33 +0000
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
 # ---------------------------------------------------------
@@ -718,7 +613,7 @@
   StartTime: Jan 22, 2019 13:00 +0000
   EndTime: Jan 22, 2019 20:00 +0000
   CreatedTime: Jan 17, 2019 20:14 +0000
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
 # ---------------------------------------------------------
@@ -923,7 +818,7 @@
   StartTime: Feb 11, 2020 13:00 +0000
   EndTime: Feb 12, 2020 05:00 +0000
   CreatedTime: Feb 07, 2020 18:44 +0000
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
 # ---------------------------------------------------------
@@ -970,4 +865,246 @@
   ResourceName: Purdue-Halstead
   Services:
   - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 687607859
+  Description: Routine Cluster Maintenance
+  Severity: Outage
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 04, 2020 15:00 +0000
+  CreatedTime: Oct 26, 2020 20:06 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 689187166
+  Description: Planned cluster maintenance.
+  Severity: Severe
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 04, 2020 15:00 +0000
+  CreatedTime: Oct 28, 2020 15:58 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 690158719
+  Description: Planned cluster maintenance.
+  Severity: Severe
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 04, 2020 15:00 +0000
+  CreatedTime: Oct 29, 2020 18:57 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 690159176
+  Description: Planned cluster maintenance.
+  Severity: Severe
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 04, 2020 15:00 +0000
+  CreatedTime: Oct 29, 2020 18:58 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 690159596
+  Description: Planned cluster maintenance.
+  Severity: Severe
+  StartTime: Nov 03, 2020 13:00 +0000
+  EndTime: Nov 04, 2020 15:00 +0000
+  CreatedTime: Oct 29, 2020 18:59 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 810365233
+  Description: Partial power outage in Data Center
+  Severity: Intermittent Outage
+  StartTime: Mar 17, 2021 23:22 +0000
+  EndTime: Mar 18, 2021 15:00 +0000
+  CreatedTime: Mar 18, 2021 03:02 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 856777412
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 10, 2021 20:15 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 856779944
+  Description: Planned cluster maintenance
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 10, 2021 20:19 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 857656874
+  Description: Planned cluster maintenance.
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 11, 2021 20:41 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 857657743
+  Description: Planned cluster maintenance.
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 11, 2021 20:42 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 857657987
+  Description: Planned cluster maintenance.
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 11, 2021 20:43 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 857658223
+  Description: Planned cluster maintenance.
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 11, 2021 20:43 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 857658586
+  Description: Planned cluster maintenance.
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 11, 2021 20:44 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 857658785
+  Description: Planned cluster maintenance.
+  Severity: Outage
+  StartTime: May 11, 2021 21:00 +0000
+  EndTime: May 13, 2021 03:00 +0000
+  CreatedTime: May 11, 2021 20:44 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 919720658
+  Description: Whole floor downtime
+  Severity: Outage
+  StartTime: Jul 30, 2021 12:00 +0000
+  EndTime: Aug 01, 2021 16:00 +0000
+  CreatedTime: Jul 22, 2021 16:41 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 919721258
+  Description: Whole floor downtime
+  Severity: Outage
+  StartTime: Jul 30, 2021 12:00 +0000
+  EndTime: Aug 01, 2021 16:00 +0000
+  CreatedTime: Jul 22, 2021 16:42 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 919722082
+  Description: Whole floor downtime
+  Severity: Outage
+  StartTime: Jul 30, 2021 12:00 +0000
+  EndTime: Aug 01, 2021 16:00 +0000
+  CreatedTime: Jul 22, 2021 16:43 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 919722311
+  Description: Whole floor downtime
+  Severity: Outage
+  StartTime: Jul 30, 2021 12:00 +0000
+  EndTime: Aug 01, 2021 16:00 +0000
+  CreatedTime: Jul 22, 2021 16:43 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 919722450
+  Description: Whole floor downtime
+  Severity: Outage
+  StartTime: Jul 30, 2021 12:00 +0000
+  EndTime: Aug 01, 2021 16:00 +0000
+  CreatedTime: Jul 22, 2021 16:44 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 919722647
+  Description: Whole floor downtime
+  Severity: Outage
+  StartTime: Jul 30, 2021 12:00 +0000
+  EndTime: Aug 01, 2021 16:00 +0000
+  CreatedTime: Jul 22, 2021 16:44 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 919722893
+  Description: Whole floor downtime
+  Severity: Outage
+  StartTime: Jul 30, 2021 12:00 +0000
+  EndTime: Aug 01, 2021 16:00 +0000
+  CreatedTime: Jul 22, 2021 16:44 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 919723207
+  Description: Whole floor downtime
+  Severity: Outage
+  StartTime: Jul 30, 2021 12:00 +0000
+  EndTime: Aug 01, 2021 16:00 +0000
+  CreatedTime: Jul 22, 2021 16:45 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
 # ---------------------------------------------------------

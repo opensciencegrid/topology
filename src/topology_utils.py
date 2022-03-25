@@ -3,20 +3,27 @@ Various helper utilities necessary for clients of the topology
 service.
 """
 
-from __future__ import print_function
-
 import os
 import sys
 import urllib
 import fnmatch
-try:
-    import urlparse
-except ImportError:
-    import urllib.parse as urlparse
+import urllib.parse as urlparse
 
 import xml.etree.ElementTree as ET
 
 import requests
+
+class Error(Exception):
+    pass
+
+class AuthError(Error):
+    pass
+
+class InvalidPathError(AuthError):
+    pass
+
+class IncorrectPasswordError(AuthError):
+    pass
 
 def get_auth_session(args):
     """
@@ -42,8 +49,13 @@ def get_auth_session(args):
 
     if os.path.exists(cert):
         session.cert = cert
+    else:
+        raise InvalidPathError("Error: could not find cert at %s" % cert)
+    
     if os.path.exists(key):
         session.cert = (cert, key)
+    else:
+        raise InvalidPathError("Error: could not find key at %s" % key)
 
     return session
 
@@ -127,7 +139,7 @@ def get_vo_map(args, session=None):
     old_no_proxy = os.environ.pop('no_proxy', None)
     os.environ['no_proxy'] = '.opensciencegrid.org'
 
-    url = update_url_hostname("https://my.opensciencegrid.org/vosummary"
+    url = update_url_hostname("https://topology.opensciencegrid.org/vosummary"
                               "/xml?all_vos=on&active_value=1", args)
     if session is None:
         with get_auth_session(args) as session:
@@ -205,7 +217,7 @@ def mangle_url(url, args, session=None):
                     % (vo, ", ".join(vo_map)))
             qs_list.append(("voown_sel[]", str(vo_id)))
 
-    url_list[3] = urllib.urlencode(qs_list, doseq=True)
+    url_list[3] = urlparse.urlencode(qs_list, doseq=True)
 
     return urlparse.urlunsplit(url_list)
 
@@ -217,12 +229,20 @@ def get_contacts(args, urltype, roottype):
     old_no_proxy = os.environ.pop('no_proxy', None)
     os.environ['no_proxy'] = '.opensciencegrid.org'
 
-    base_url = "https://my.opensciencegrid.org/" + urltype + "summary/xml?" \
+    base_url = "https://topology.opensciencegrid.org/" + urltype + "summary/xml?" \
                "&active=on&active_value=1&disable=on&disable_value=0"
     with get_auth_session(args) as session:
         url = mangle_url(base_url, args, session)
-        #print(url)
-        response = session.get(url)
+        try:
+            response = session.get(url)
+        except requests.exceptions.ConnectionError as exc:
+            try:
+                if exc.args[0].args[1].errno == 22:
+                    raise IncorrectPasswordError("Incorrect password, please try again")
+                else:
+                    raise exc
+            except (TypeError, AttributeError, IndexError):
+                raise exc
 
     if old_no_proxy is not None:
         os.environ['no_proxy'] = old_no_proxy
@@ -347,13 +367,21 @@ def filter_contacts(args, results):
 
     if args.contact_type != 'all':
         # filter out undesired contact types
-        for name in results.keys():
+        for name in list(results.keys()):
             contact_list = []
             for contact in results[name]:
                 contact_type = contact['ContactType']
                 if contact_type.startswith(args.contact_type):
                     contact_list.append(contact)
             if contact_list == []:
+                del results[name]
+            else:
+                results[name] = contact_list
+
+    if getattr(args, 'contact_emails', None):
+        for name in results.keys():
+            contact_list = [contact for contact in results[name] if contact['Email'] in args.contact_emails]
+            if not contact_list:
                 del results[name]
             else:
                 results[name] = contact_list

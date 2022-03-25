@@ -47,15 +47,6 @@ Resources:
           Name: Ian McEwen
           ID: 7db7954fcf8d9c879e81d293921094c6b5ad67a3
 
-      # Resource Report Contact is one to three people to contact regarding resource reporting issues
-      Resource Report Contact:
-        Primary:
-          Name: Sarah Roberts
-          ID: 178fb61d6a04f995fac9c190fc3786b7dedc7843
-        Secondary:
-          Name: Ian McEwen
-          ID: 7db7954fcf8d9c879e81d293921094c6b5ad67a3
-
       ### Miscellaneous Contact (optional) is one to three people to contact regarding anything else
       # Miscellaneous Contact:
       #   Primary:
@@ -70,6 +61,7 @@ Resources:
 
     # FQDN is the fully qualified domain name of the host running this resource
     FQDN: aragon.cyverse.org
+    DN: /DC=org/DC=incommon/C=US/ST=Arizona/L=Tucson/O=The University of Arizona/CN=aragon.cyverse.org
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
     # FQDNAliases:
     #   - <HOSTNAME1>

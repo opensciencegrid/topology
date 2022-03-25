@@ -1,0 +1,39 @@
+# Production is true if the resource is for production and not testing use
+Production: true
+# SupportCenter is one of the support centers in topology/support-centers.yaml
+SupportCenter: Community Support Center
+
+# GroupDescription is a long description of the resource group; may be multiple lines.
+GroupDescription: Compute infrastructure at SDSC
+
+# If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
+# Otherwise, leave it blank and we will fill in the appropriate value for you.
+GroupID: 1116
+
+# Resources contains one or more resources in this
+# ResourceGroup. A resource provides one or more services
+Resources:
+  # Resource Name should be a short descriptor of the resource.
+  SDSC-Cloud-IceCube-CE:
+    Active: true
+    Description: Cloud CE for IceCube
+    ID: 1146
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+        Secondary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+
+      Security Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+
+    FQDN: icecube-cloud-t4-ce.t2.ucsd.edu
+    Services:
+      CE:
+        Description: Compute Element
+

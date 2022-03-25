@@ -7,26 +7,16 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-        Secondary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          ID: b9c6c5b9aa527d9d0bfb2f2e712c8a448ddfa61d
+          Name: BNL Belle II Tier 1 support
       Miscellaneous Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-        Secondary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          ID: b9c6c5b9aa527d9d0bfb2f2e712c8a448ddfa61d
+          Name: BNL Belle II Tier 1 support
       Security Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          ID: b9c6c5b9aa527d9d0bfb2f2e712c8a448ddfa61d
+          Name: BNL Belle II Tier 1 support
     Description: This is the HTCondor-CE for Belle II  at the Belle-II T1 center at
       BNL
     FQDN: bgk01.sdcc.bnl.gov
@@ -39,35 +29,26 @@ Resources:
           sam_uri: htcondor://bgk01.sdcc.bnl.gov
     VOOwnership:
       Belle: 100
+    WLCGInformation:
+      APELNormalFactor: 10.43
+      AccountingName: BNL_BELLE_II_CE_1
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false 
+      KSI2KMax: 0
+      KSI2KMin: 0
   BNL_BELLE_II_CE_2:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-        Secondary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Miscellaneous Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-        Secondary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          ID: b9c6c5b9aa527d9d0bfb2f2e712c8a448ddfa61d
+          Name: BNL Belle II Tier 1 support
       Security Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Submitter Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
+          ID: b9c6c5b9aa527d9d0bfb2f2e712c8a448ddfa61d
+          Name: BNL Belle II Tier 1 support
     Description: This is a HTCondor-CE for Belle II  at the Belle-II T1 center at
       BNL
     Disable: false
@@ -81,17 +62,26 @@ Resources:
           sam_uri: htcondor://bgk02.sdcc.bnl.gov
     VOOwnership:
       Belle: 100
+    WLCGInformation:
+      APELNormalFactor: 10.43
+      AccountingName: BNL_BELLE_II_CE_2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
   BNL_BELLE_II_SE:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          ID: b9c6c5b9aa527d9d0bfb2f2e712c8a448ddfa61d
+          Name: BNL Belle II Tier 1 support
       Security Contact:
         Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
+          ID: b9c6c5b9aa527d9d0bfb2f2e712c8a448ddfa61d
+          Name: BNL Belle II Tier 1 support
     Description: BNL Belle II dCache
     FQDN: dcblsrm.sdcc.bnl.gov
     ID: 908

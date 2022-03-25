@@ -577,4 +577,237 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
-
+- Class: UNSCHEDULED
+  ID: 756644333
+  Description: Machine room power loss
+  Severity: Outage
+  StartTime: Jan 14, 2021 16:00 +0000
+  EndTime: Jan 15, 2021 05:00 +0000
+  CreatedTime: Jan 14, 2021 16:47 +0000
+  ResourceName: SWT2_CPB
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 756645747
+  Description: Machine room power loss
+  Severity: Outage
+  StartTime: Jan 14, 2021 16:00 +0000
+  EndTime: Jan 14, 2021 23:00 +0000
+  CreatedTime: Jan 14, 2021 16:49 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 756645986
+  Description: Machine room power loss
+  Severity: Outage
+  StartTime: Jan 14, 2021 16:00 +0000
+  EndTime: Jan 14, 2021 23:00 +0000
+  CreatedTime: Jan 14, 2021 16:49 +0000
+  ResourceName: SWT2_CPB_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 756646297
+  Description: Machine room power loss
+  Severity: Outage
+  StartTime: Jan 14, 2021 16:00 +0000
+  EndTime: Jan 15, 2021 05:00 +0000
+  CreatedTime: Jan 14, 2021 16:50 +0000
+  ResourceName: SWT2_CPB_perfSONAR_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 756646529
+  Description: Machine room power loss
+  Severity: Outage
+  StartTime: Jan 14, 2021 16:00 +0000
+  EndTime: Jan 15, 2021 05:00 +0000
+  CreatedTime: Jan 14, 2021 16:50 +0000
+  ResourceName: SWT2_CPB_perfSONAR_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 785753064
+  Description: loss of cooling in the machine room
+  Severity: Outage
+  StartTime: Feb 17, 2021 14:00 +0000
+  EndTime: Feb 23, 2021 06:00 +0000
+  CreatedTime: Feb 17, 2021 15:21 +0000
+  ResourceName: SWT2_CPB
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 785762402
+  Description: loss of cooling in the machine room
+  Severity: Outage
+  StartTime: Feb 17, 2021 14:00 +0000
+  EndTime: Feb 23, 2021 06:00 +0000
+  CreatedTime: Feb 17, 2021 15:37 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 786343546
+  Description: loss of cooling in the machine room
+  Severity: Outage
+  StartTime: Feb 17, 2021 14:00 +0000
+  EndTime: Feb 23, 2021 06:00 +0000
+  CreatedTime: Feb 18, 2021 07:45 +0000
+  ResourceName: SWT2_CPB_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 817103847
+  Description: Water under machine room floor
+  Severity: Outage
+  StartTime: Mar 25, 2021 22:00 +0000
+  EndTime: Mar 26, 2021 22:00 +0000
+  CreatedTime: Mar 25, 2021 22:13 +0000
+  ResourceName: SWT2_CPB
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 817104284
+  Description: Water under machine room floor
+  Severity: Outage
+  StartTime: Mar 25, 2021 22:00 +0000
+  EndTime: Mar 26, 2021 22:00 +0000
+  CreatedTime: Mar 25, 2021 22:13 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 817104485
+  Description: Water under machine room floor
+  Severity: Outage
+  StartTime: Mar 25, 2021 22:00 +0000
+  EndTime: Mar 26, 2021 22:00 +0000
+  CreatedTime: Mar 25, 2021 22:14 +0000
+  ResourceName: SWT2_CPB_SLATE_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 817104679
+  Description: Water under machine room floor
+  Severity: Outage
+  StartTime: Mar 25, 2021 22:00 +0000
+  EndTime: Mar 26, 2021 22:00 +0000
+  CreatedTime: Mar 25, 2021 22:14 +0000
+  ResourceName: SWT2_CPB_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 817104878
+  Description: Water under machine room floor
+  Severity: Outage
+  StartTime: Mar 25, 2021 22:00 +0000
+  EndTime: Mar 26, 2021 22:00 +0000
+  CreatedTime: Mar 25, 2021 22:14 +0000
+  ResourceName: SWT2_CPB_perfSONAR_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 817105064
+  Description: Water under machine room floor
+  Severity: Outage
+  StartTime: Mar 25, 2021 22:00 +0000
+  EndTime: Mar 26, 2021 22:00 +0000
+  CreatedTime: Mar 25, 2021 22:15 +0000
+  ResourceName: SWT2_CPB_perfSONAR_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 821441688
+  Description: Water under machine room floor (again)
+  Severity: Outage
+  StartTime: Mar 30, 2021 22:00 +0000
+  EndTime: Mar 31, 2021 06:00 +0000
+  CreatedTime: Mar 30, 2021 22:42 +0000
+  ResourceName: SWT2_CPB
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 821442137
+  Description: Water under machine room floor (again)
+  Severity: Outage
+  StartTime: Mar 30, 2021 22:00 +0000
+  EndTime: Mar 31, 2021 06:00 +0000
+  CreatedTime: Mar 30, 2021 22:43 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 821442445
+  Description: Water under machine room floor (again)
+  Severity: Outage
+  StartTime: Mar 30, 2021 22:00 +0000
+  EndTime: Mar 31, 2021 06:00 +0000
+  CreatedTime: Mar 30, 2021 22:44 +0000
+  ResourceName: SWT2_CPB_SLATE_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 821442660
+  Description: Water under machine room floor (again)
+  Severity: Outage
+  StartTime: Mar 30, 2021 22:00 +0000
+  EndTime: Mar 31, 2021 06:00 +0000
+  CreatedTime: Mar 30, 2021 22:44 +0000
+  ResourceName: SWT2_CPB_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 821442868
+  Description: Water under machine room floor (again)
+  Severity: Outage
+  StartTime: Mar 30, 2021 22:00 +0000
+  EndTime: Mar 31, 2021 06:00 +0000
+  CreatedTime: Mar 30, 2021 22:44 +0000
+  ResourceName: SWT2_CPB_perfSONAR_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 821443096
+  Description: Water under machine room floor (again)
+  Severity: Outage
+  StartTime: Mar 30, 2021 22:00 +0000
+  EndTime: Mar 31, 2021 06:00 +0000
+  CreatedTime: Mar 30, 2021 22:45 +0000
+  ResourceName: SWT2_CPB_perfSONAR_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 828282344
+  Description: Testing switcher control
+  Severity: Outage
+  StartTime: Apr 08, 2021 21:00 +0000
+  EndTime: Apr 08, 2021 22:00 +0000
+  CreatedTime: Apr 07, 2021 20:43 +0000
+  ResourceName: SWT2_CPB_SE
+  Services:
+  - GridFtp
+# ---------------------------------------------------------

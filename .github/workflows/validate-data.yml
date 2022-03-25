@@ -1,0 +1,45 @@
+name: Validate Topology data
+on: [push, pull_request]
+
+jobs:
+  validate-data:
+    name: Validate Topology data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - name: Install packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install libxml2-utils apache2-dev libldap2-dev libsasl2-dev libyaml-dev
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-apache.txt
+      - name: Verify XML Schema
+        env:
+          GH_EVENT: ${{ github.event_name }}
+          CONTACT_DB_KEY: ${{ secrets.CONTACT_DB_KEY }}
+        run: ./src/tests/test_verify_schema.sh
+      - name: Validate downtimes
+        run: |
+          ./src/tests/verify_downtimes.py
+          ./src/tests/verify_unique_downtime_ids.sh
+      - name: Validate Resources
+        run: ./src/tests/verify_resources.py
+      - name: Validate Site Names
+        run: |
+          ./src/tests/verify_site_names.sh
+      - name: Validate Projects
+        run: |
+          ./src/tests/verify_projects.py
+      - name: Validate StashCache authfile generation
+        run: |
+          ./src/tests/verify_authfile.sh
+          ./src/tests/verify_origin_authfile.sh
+      - name: Validate cacher
+        run: |
+          ./src/topology_cacher.py --outdir=/tmp/topology-cacher

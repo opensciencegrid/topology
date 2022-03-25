@@ -16,9 +16,17 @@ Description: The XENON Dark Matter Experiment located at the Gran Sasso Laborato
   codes called GEANT4 and ROOT.
 FieldOfScience: Astrophysics
 ID: '179'
-Name: xenon1t
 Organization: University of Chicago
 PIName: Luca Grandi
 Sponsor:
   CampusGrid:
     Name: OSG Connect
+
+ResourceAllocations:
+  - Type: XRAC
+    SubmitResources:
+      - UChicago_OSGConnect_login05
+    ExecuteResourceGroups:
+      - GroupName: SDSC-Expanse
+        LocalAllocationID: "chi135"
+

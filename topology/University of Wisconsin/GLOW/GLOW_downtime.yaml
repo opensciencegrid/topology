@@ -674,3 +674,2336 @@
   Services:
   - Submit Node
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507990917
+  Description: Cooling outage requires HTCondor shut down
+  Severity: Outage
+  StartTime: Apr 01, 2020 21:20 +0000
+  EndTime: Apr 06, 2020 23:00 +0000
+  CreatedTime: Apr 01, 2020 22:44 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507997926
+  Description: Cooling outage requires HTCondor shut down
+  Severity: Outage
+  StartTime: Apr 01, 2020 21:20 +0000
+  EndTime: Apr 06, 2020 23:00 +0000
+  CreatedTime: Apr 01, 2020 22:56 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507998557
+  Description: Cooling outage requires HTCondor shut down
+  Severity: Outage
+  StartTime: Apr 01, 2020 21:20 +0000
+  EndTime: Apr 06, 2020 23:00 +0000
+  CreatedTime: Apr 01, 2020 22:57 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507998878
+  Description: Cooling outage requires HTCondor shut down
+  Severity: Outage
+  StartTime: Apr 01, 2020 21:20 +0000
+  EndTime: Apr 06, 2020 23:00 +0000
+  CreatedTime: Apr 01, 2020 22:58 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507999425
+  Description: Cooling outage requires HTCondor shut down
+  Severity: Outage
+  StartTime: Apr 01, 2020 21:20 +0000
+  EndTime: Apr 06, 2020 23:00 +0000
+  CreatedTime: Apr 01, 2020 22:59 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507999426
+  Description: Cooling outage requires HTCondor shut down
+  Severity: Outage
+  StartTime: Apr 01, 2020 21:20 +0000
+  EndTime: Apr 06, 2020 23:00 +0000
+  CreatedTime: Apr 01, 2020 22:59 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507999427
+  Description: Cooling outage requires HTCondor shut down
+  Severity: Outage
+  StartTime: Apr 01, 2020 21:20 +0000
+  EndTime: Apr 06, 2020 23:00 +0000
+  CreatedTime: Apr 01, 2020 22:59 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507999428
+  Description: Cooling outage requires HTCondor shut down
+  Severity: Outage
+  StartTime: Apr 01, 2020 21:20 +0000
+  EndTime: Apr 06, 2020 23:00 +0000
+  CreatedTime: Apr 01, 2020 22:59 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507999429
+  Description: Cooling outage requires HTCondor shut down
+  Severity: Outage
+  StartTime: Apr 01, 2020 21:20 +0000
+  EndTime: Apr 06, 2020 23:00 +0000
+  CreatedTime: Apr 01, 2020 22:59 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 507999430
+  Description: Cooling outage requires HTCondor shut down
+  Severity: Outage
+  StartTime: Apr 01, 2020 21:20 +0000
+  EndTime: Apr 06, 2020 23:00 +0000
+  CreatedTime: Apr 01, 2020 22:59 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 508000380
+  Description: Cooling outage requires HTCondor shut down
+  Severity: Outage
+  StartTime: Apr 01, 2020 21:20 +0000
+  EndTime: Apr 06, 2020 23:00 +0000
+  CreatedTime: Apr 01, 2020 23:00 +0000
+  ResourceName: GLOW_SUBMIT_CERN
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567349261
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 14:30 +0000
+  EndTime: Jun 09, 2020 23:30 +0000
+  CreatedTime: Jun 09, 2020 15:35 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567361319
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 14:30 +0000
+  EndTime: Jun 09, 2020 23:30 +0000
+  CreatedTime: Jun 09, 2020 15:55 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567361807
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 14:30 +0000
+  EndTime: Jun 09, 2020 23:30 +0000
+  CreatedTime: Jun 09, 2020 15:56 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567362025
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 14:30 +0000
+  EndTime: Jun 09, 2020 23:30 +0000
+  CreatedTime: Jun 09, 2020 15:56 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567362589
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 14:30 +0000
+  EndTime: Jun 09, 2020 23:30 +0000
+  CreatedTime: Jun 09, 2020 15:57 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567363672
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 14:30 +0000
+  EndTime: Jun 09, 2020 23:30 +0000
+  CreatedTime: Jun 09, 2020 15:59 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567364285
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 14:30 +0000
+  EndTime: Jun 09, 2020 23:30 +0000
+  CreatedTime: Jun 09, 2020 16:00 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567364518
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 14:30 +0000
+  EndTime: Jun 09, 2020 23:30 +0000
+  CreatedTime: Jun 09, 2020 16:00 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567364727
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 14:30 +0000
+  EndTime: Jun 09, 2020 23:30 +0000
+  CreatedTime: Jun 09, 2020 16:01 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567364946
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 14:30 +0000
+  EndTime: Jun 09, 2020 23:30 +0000
+  CreatedTime: Jun 09, 2020 16:01 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567365131
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 14:30 +0000
+  EndTime: Jun 09, 2020 23:30 +0000
+  CreatedTime: Jun 09, 2020 16:01 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567365358
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 14:30 +0000
+  EndTime: Jun 09, 2020 23:30 +0000
+  CreatedTime: Jun 09, 2020 16:02 +0000
+  ResourceName: GLOW_SUBMIT_CERN
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567349262
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 23:30 +0000
+  EndTime: Jun 10, 2020 23:30 +0000
+  CreatedTime: Jun 10, 2020 01:35 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567361320
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 23:30 +0000
+  EndTime: Jun 10, 2020 23:30 +0000
+  CreatedTime: Jun 10, 2020 01:55 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567361808
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 23:30 +0000
+  EndTime: Jun 10, 2020 23:30 +0000
+  CreatedTime: Jun 10, 2020 01:56 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567362026
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 23:30 +0000
+  EndTime: Jun 10, 2020 23:30 +0000
+  CreatedTime: Jun 10, 2020 01:56 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567362590
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 23:30 +0000
+  EndTime: Jun 10, 2020 23:30 +0000
+  CreatedTime: Jun 10, 2020 01:57 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567363673
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 23:30 +0000
+  EndTime: Jun 10, 2020 23:30 +0000
+  CreatedTime: Jun 10, 2020 01:59 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567364286
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 23:30 +0000
+  EndTime: Jun 10, 2020 23:30 +0000
+  CreatedTime: Jun 10, 2020 02:00 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567364519
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 23:30 +0000
+  EndTime: Jun 10, 2020 23:30 +0000
+  CreatedTime: Jun 10, 2020 02:00 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567364728
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 23:30 +0000
+  EndTime: Jun 10, 2020 23:30 +0000
+  CreatedTime: Jun 10, 2020 02:01 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567364947
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 23:30 +0000
+  EndTime: Jun 10, 2020 23:30 +0000
+  CreatedTime: Jun 10, 2020 02:01 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567365132
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 23:30 +0000
+  EndTime: Jun 10, 2020 23:30 +0000
+  CreatedTime: Jun 10, 2020 02:01 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 567365359
+  Description: Unexpected cooling loss due to campus construction incident
+  Severity: Outage
+  StartTime: Jun 09, 2020 23:30 +0000
+  EndTime: Jun 10, 2020 23:30 +0000
+  CreatedTime: Jun 10, 2020 02:02 +0000
+  ResourceName: GLOW_SUBMIT_CERN
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615006000
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:23 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615006821
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:24 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615007205
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:25 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615007597
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:25 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615007834
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:26 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615008159
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:26 +0000
+  ResourceName: GLOW_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615008453
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:27 +0000
+  ResourceName: GLOW_SQUID1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615008703
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:27 +0000
+  ResourceName: GLOW_SQUID2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615008958
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:28 +0000
+  ResourceName: GLOW_SQUID3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615009154
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:28 +0000
+  ResourceName: GLOW_SQUID4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615009398
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:28 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615009684
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:29 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615009878
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:29 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615010067
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:30 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615010314
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:30 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615010550
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:30 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615010764
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:31 +0000
+  ResourceName: GLOW_SUBMIT_CERN
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615010948
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:31 +0000
+  ResourceName: US-Wisconsin BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 615011127
+  Description: Network outage due to maintenance work
+  Severity: Intermittent Outage
+  StartTime: Aug 04, 2020 13:00 +0000
+  EndTime: Aug 04, 2020 23:00 +0000
+  CreatedTime: Aug 03, 2020 19:31 +0000
+  ResourceName: US-Wisconsin LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 729863869
+  Description: HDFS failure during upgrade -- files not accessible
+  Severity: Intermittent Outage
+  StartTime: Dec 14, 2020 15:45 +0000
+  EndTime: Dec 14, 2020 21:00 +0000
+  CreatedTime: Dec 14, 2020 16:53 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 729872393
+  Description: HDFS failure during upgrade -- files not accessible
+  Severity: Intermittent Outage
+  StartTime: Dec 14, 2020 15:45 +0000
+  EndTime: Dec 14, 2020 21:00 +0000
+  CreatedTime: Dec 14, 2020 17:07 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 729872846
+  Description: HDFS failure during upgrade -- files not accessible
+  Severity: Intermittent Outage
+  StartTime: Dec 14, 2020 15:45 +0000
+  EndTime: Dec 14, 2020 21:00 +0000
+  CreatedTime: Dec 14, 2020 17:08 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 729878163
+  Description: HDFS failure during upgrade -- files not accessible
+  Severity: Intermittent Outage
+  StartTime: Dec 14, 2020 15:45 +0000
+  EndTime: Dec 14, 2020 21:00 +0000
+  CreatedTime: Dec 14, 2020 17:16 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 757624048
+  Description: HDFS update disables access to files on /store
+  Severity: Severe
+  StartTime: Jan 19, 2021 14:00 +0000
+  EndTime: Jan 19, 2021 21:00 +0000
+  CreatedTime: Jan 15, 2021 20:00 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 757624627
+  Description: HDFS update disables access to files on /store
+  Severity: Severe
+  StartTime: Jan 19, 2021 14:00 +0000
+  EndTime: Jan 19, 2021 21:00 +0000
+  CreatedTime: Jan 15, 2021 20:01 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 757625184
+  Description: HDFS update disables access to files on /store
+  Severity: Severe
+  StartTime: Jan 19, 2021 14:00 +0000
+  EndTime: Jan 19, 2021 21:00 +0000
+  CreatedTime: Jan 15, 2021 20:01 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 757625647
+  Description: HDFS update disables access to files on /store
+  Severity: Severe
+  StartTime: Jan 19, 2021 14:00 +0000
+  EndTime: Jan 19, 2021 21:00 +0000
+  CreatedTime: Jan 15, 2021 20:02 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761958361
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:23 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761958899
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:24 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761959148
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:25 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761959408
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:25 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761959601
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:26 +0000
+  ResourceName: GLOW_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761960059
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:26 +0000
+  ResourceName: GLOW_SQUID1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761960248
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:27 +0000
+  ResourceName: GLOW_SQUID2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761960607
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:27 +0000
+  ResourceName: GLOW_SQUID3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761960774
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:27 +0000
+  ResourceName: GLOW_SQUID4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761960955
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:28 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761961168
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:28 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761961358
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:28 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761961557
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:29 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761961735
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:29 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761961924
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:29 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761962157
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:30 +0000
+  ResourceName: US-Wisconsin BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 761962630
+  Description: Network outage due to maintenance work
+  Severity: Severe
+  StartTime: Jan 21, 2021 18:00 +0000
+  EndTime: Jan 21, 2021 21:00 +0000
+  CreatedTime: Jan 20, 2021 20:31 +0000
+  ResourceName: US-Wisconsin LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899897667
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:02 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899902310
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:10 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899902646
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:11 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899902838
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:11 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899903003
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:11 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899903255
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:12 +0000
+  ResourceName: GLOW_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899903520
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:12 +0000
+  ResourceName: GLOW_SQUID1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899903667
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:12 +0000
+  ResourceName: GLOW_SQUID2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899903918
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:13 +0000
+  ResourceName: GLOW_SQUID3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899904084
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:13 +0000
+  ResourceName: GLOW_SQUID4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899904249
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:13 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899904426
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:14 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899904597
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:14 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899904750
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:14 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899904905
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:14 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899905062
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:15 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899905236
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:15 +0000
+  ResourceName: GLOW_SUBMIT_CERN
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899905487
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:15 +0000
+  ResourceName: US-Wisconsin BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 899905794
+  Description: Unscheduled power outage stopped services, followed by slow recovery
+  Severity: Severe
+  StartTime: Jun 25, 2021 08:00 +0000
+  EndTime: Jun 26, 2021 05:00 +0000
+  CreatedTime: Jun 29, 2021 18:16 +0000
+  ResourceName: US-Wisconsin LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126307
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126308
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126309
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126310
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126311
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126312
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126313
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW_SQUID1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126314
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW_SQUID2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126315
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW_SQUID3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126316
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW_SQUID4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126317
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126318
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126319
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126320
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126321
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126322
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126323
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: GLOW_SUBMIT_CERN
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126324
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: US-Wisconsin BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1020126325
+  Description: Loss of cooling due to construction
+  Severity: Outage
+  StartTime: Nov 22, 2021 12:30 +0000
+  EndTime: Nov 24, 2021 23:00 +0000
+  CreatedTime: Nov 15, 2021 21:43 +0000
+  ResourceName: US-Wisconsin LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026940
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026941
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026942
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026943
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026944
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026945
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026946
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW_SQUID1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026947
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW_SQUID2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026948
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW_SQUID3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026949
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW_SQUID4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026950
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026951
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026952
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026953
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026954
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026955
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026956
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: GLOW_SUBMIT_CERN
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026957
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: US-Wisconsin BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027026958
+  Description: Cooling outage due to campus construction and cooling renovation
+  Severity: Outage
+  StartTime: Nov 24, 2021 23:00 +0000
+  EndTime: Nov 25, 2021 23:00 +0000
+  CreatedTime: Nov 23, 2021 21:24 +0000
+  ResourceName: US-Wisconsin LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909108
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909109
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909110
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909111
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909112
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909113
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909114
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW_SQUID1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909115
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW_SQUID2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909116
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW_SQUID3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909117
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW_SQUID4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909118
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909119
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909120
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909121
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909122
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909123
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909124
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: GLOW_SUBMIT_CERN
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909125
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: US-Wisconsin BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1027909126
+  Description: Delays in cooling renovation extend downtime
+  Severity: Outage
+  StartTime: Nov 25, 2021 23:00 +0000
+  EndTime: Nov 26, 2021 20:00 +0000
+  CreatedTime: Nov 24, 2021 21:55 +0000
+  ResourceName: US-Wisconsin LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090507
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090508
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090509
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090510
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090511
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090512
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090513
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SQUID1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090514
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SQUID2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090515
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SQUID3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090516
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SQUID4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090517
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090518
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090519
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090520
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090521
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090522
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090523
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: GLOW_SUBMIT_CERN
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090524
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: US-Wisconsin BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1033090525
+  Description: Downtime due to unexpected cooling failure
+  Severity: Outage
+  StartTime: Nov 30, 2021 21:30 +0000
+  EndTime: Dec 02, 2021 23:00 +0000
+  CreatedTime: Nov 30, 2021 21:50 +0000
+  ResourceName: US-Wisconsin LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403861
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403862
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403863
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403864
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403865
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403866
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403867
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW_SQUID1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403868
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW_SQUID2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403869
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW_SQUID3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403870
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW_SQUID4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403871
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403872
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403873
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403874
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403875
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403876
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403877
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: GLOW_SUBMIT_CERN
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403878
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: US-Wisconsin BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1039403879
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Dec 07, 2021 22:30 +0000
+  EndTime: Dec 08, 2021 05:00 +0000
+  CreatedTime: Dec 08, 2021 05:13 +0000
+  ResourceName: US-Wisconsin LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059331
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059332
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059333
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW-CMS-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059334
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW-CONDOR-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059335
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW-OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059336
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059337
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW_SQUID1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059338
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW_SQUID2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059339
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW_SQUID3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059340
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW_SQUID4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059341
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW_SUBMIT1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059342
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW_SUBMIT2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059343
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW_SUBMIT3
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059344
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW_SUBMIT4
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059345
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW_SUBMIT5
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059346
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW_SUBMIT6
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059347
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: GLOW_SUBMIT_CERN
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059348
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: US-Wisconsin BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1083059349
+  Description: Unexpected downtime due to campus cooling system failure
+  Severity: Severe
+  StartTime: Jan 27, 2022 16:45 +0000
+  EndTime: Jan 28, 2022 23:45 +0000
+  CreatedTime: Jan 27, 2022 17:52 +0000
+  ResourceName: US-Wisconsin LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+

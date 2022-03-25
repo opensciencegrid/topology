@@ -49,15 +49,7 @@ ID: 67
 LongName: Holland Computing Center at the University of Nebraska.
 MembershipServicesURL: https://hcc-voms.unl.edu:8443/voms/hcc/Login.do
 OASIS:
-  Managers:
-    - Name: Brian Bockelman
-      DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
-        Paul Bockelman
-      ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
-    - Name: Derek Weitzel
-      DNs: /DC=org/DC=cilogon/C=US/O=University of Nebraska-Lincoln/CN=Derek Weitzel A215526
-      ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
-  UseOASIS: true
+  UseOASIS: false
 PrimaryURL: http://hcc.unl.edu
 PurposeURL: http://hcc.unl.edu/GridNebraska
 ReportingGroups:

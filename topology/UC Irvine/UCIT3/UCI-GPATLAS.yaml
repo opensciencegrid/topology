@@ -1,0 +1,28 @@
+GroupDescription: University of California Irvine Green Planet Cluster
+GroupID: 543
+Production: true
+SupportCenter: Self Supported
+Resources:
+  UCI-GPATLAS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+      Security Contact:
+        Primary:
+          ID:  bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+      Site Contact:
+        Primary:
+          ID:  dbcd20edf55fb43c78b2e547a393898b42643d29
+          Name: Nathan Crawford
+    Description: SLATE deployed Hosted CE for the GPAtlas Cluster
+    FQDN: hosted-ce40.opensciencegrid.org 
+    ID: 1088
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false

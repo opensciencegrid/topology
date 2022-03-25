@@ -12,14 +12,6 @@ Resources:
         Primary:
           ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
           Name: Petr Vokac
-      Miscellaneous Contact:
-        Primary:
-          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
-          Name: Petr Vokac
-      Resource Report Contact:
-        Primary:
-          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
-          Name: Petr Vokac
     Active: true
     Description: This is CE for OSG (NOvA, DUNE) production at FZU (new cluster with
       HTCondor local batch system)
@@ -45,19 +37,36 @@ Resources:
         Primary:
           ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
           Name: Petr Vokac
-      Miscellaneous Contact:
+    Active: true
+    Description: This is CE for OSG (NOvA, DUNE) production at FZU (new cluster with
+      HTCondor local batch system)
+    FQDN: osgce2.farm.particle.cz
+    ID: 932
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://osgce2.farm.particle.gov:9619/osgce2.farm.particle.gov
+    VOOwnership:
+      DUNE: 45
+      DZero: 10
+      Nova: 45
+  FZU_OSG_CE3:
+    ContactLists:
+      Security Contact:
         Primary:
           ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
           Name: Petr Vokac
-      Resource Report Contact:
+      Administrative Contact:
         Primary:
           ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
           Name: Petr Vokac
     Active: true
     Description: This is CE for OSG (NOvA, DUNE) production at FZU (new cluster with
       HTCondor local batch system)
-    FQDN: osgce2.farm.particle.cz
-    ID: 932
+    FQDN: osgce3.farm.particle.cz
+    ID: 1152
     Services:
       CE:
         Description: Compute Element
@@ -75,14 +84,6 @@ Resources:
           ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
           Name: Petr Vokac
       Administrative Contact:
-        Primary:
-          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
-          Name: Petr Vokac
-      Miscellaneous Contact:
-        Primary:
-          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
-          Name: Petr Vokac
-      Resource Report Contact:
         Primary:
           ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
           Name: Petr Vokac

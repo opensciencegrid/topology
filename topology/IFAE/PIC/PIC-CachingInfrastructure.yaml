@@ -1,6 +1,6 @@
 GroupDescription: PIC caching infrastructure
 GroupID: 532
-Production: False
+Production: True
 Resources:
   PIC_STASHCACHE_CACHE:
     Active: true
@@ -9,10 +9,16 @@ Resources:
         Primary:
           ID: bcef3fbf616e1a28248f5ad1920ec067151a44dc
           Name: Carles Acosta
+        Secondary:
+          ID: 7d6c2bd5c30f7cdfcb3df4c81152d7105a62c292
+          Name: Richard Cruz
       Security Contact:
         Primary:
           ID: bcef3fbf616e1a28248f5ad1920ec067151a44dc
           Name: Carles Acosta
+        Secondary:
+          ID: 7d6c2bd5c30f7cdfcb3df4c81152d7105a62c292
+          Name: Richard Cruz
     Description: StashCache cache server for PIC
     FQDN: xcachevirgo.pic.es
     ID: 1048
@@ -20,6 +26,6 @@ Resources:
       XRootD cache server:
         Description: StashCache cache server
     AllowedVOs:
-      - LIGO
-    DN: /DC=org/DC=terena/DC=tcs/C=ES/ST=Barcelona/L=Bellaterra/O=Institut de Fisica dAltes Energies IFAE/CN=xcachevirgo.pic.es
+      - ANY
+    DN: /DC=org/DC=terena/DC=tcs/C=ES/ST=Barcelona/O=Institut de Fisica d. Altes Energies/CN=xcachevirgo.pic.es
 SupportCenter: Self Supported 

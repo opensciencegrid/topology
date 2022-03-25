@@ -7,38 +7,19 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
-          Name: Yutaro Iiyama
-        Secondary:
-          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
-          Name: Max Goncharov
-      Miscellaneous Contact:
-        Secondary:
-          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
-          Name: Max Goncharov
-        Tertiary:
-          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
-          Name: Yutaro Iiyama
-      Resource Report Contact:
-        Secondary:
-          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
-          Name: Max Goncharov
-        Tertiary:
-          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
-          Name: Yutaro Iiyama
+          ID: 21d33b592da6f41088bdcea5b1ab6167566f9030
+          Name: Zhangqier Wang
       Security Contact:
         Primary:
-          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
-          Name: Yutaro Iiyama
-        Secondary:
-          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
-          Name: Max Goncharov
+          ID: 21d33b592da6f41088bdcea5b1ab6167566f9030
+          Name: Zhangqier Wang
     Description: This is the submission node to MIT on-campus, OSG, and CMS resources.
     FQDN: submit.mit.edu
+    DN: /DC=org/DC=incommon/C=US/ST=Massachusetts/O=Massachusetts Institute of Technology/OU=Information Systems & Technology/CN=submit04.mit.edu
     ID: 832
     Services:
       Submit Node:
-        Description: OSG Submission Node
+        Description: OSPool Access Point
         Details:
           hidden: false
     VOOwnership:

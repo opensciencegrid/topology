@@ -24,8 +24,8 @@ Resources:
           Name: Igor Sfiligoi
           ID: 593daf4f680b3135849201036e1055f03f89cfac
         Secondary:
-          ID: a89087e73b4e9d1732c5a7112332688940f06440
-          Name: Edgar Mauricio Fajardo Hernandez
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
 
       Security Contact:
         Primary:
@@ -40,3 +40,21 @@ Resources:
 
     AllowedVOs:
       - ANY
+
+  NCSA-DES-CMP3:
+    Active: true
+    Description: NCSA DES OS Pool access point
+    ID: 1208
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Greg Daues
+          ID: 24cb9f98f25c1d172e8217b47f5526faab8fdc39
+      Security Contact:
+        Primary:
+          Name: Greg Daues
+          ID: 24cb9f98f25c1d172e8217b47f5526faab8fdc39
+    FQDN: descmp3.cosmology.illinois.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point

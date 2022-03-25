@@ -23,19 +23,9 @@ ID: 86
 LongName: Chicagoland Observatory for Underground Particle Physics
 MembershipServicesURL: https://voms.fnal.gov:8443/voms/fermilab
 OASIS:
-  Managers:
-    - Name: Christophe Bonnaud
-      DNs: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=Christophe
-        Bonnaud 3139
-      ID: 8cc594d4724bec67b459ff043a26b389a5286382
-    - Name: Gabriele Garzoglio
-      DNs:
-      - /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Gabriele Garzoglio
-        203
-      ID: 81b1a18848c9e41c87ee7104aac70b5fcf0c2176
   OASISRepoURLs:
-  - http://oasiscfs.fnal.gov:8000/cvmfs/coupp.opensciencegrid.org/
-  UseOASIS: true
+    - http://oasiscfs.fnal.gov:8000/cvmfs/coupp.opensciencegrid.org/
+  UseOASIS: false
 ParentVO:
   ID: 9
   Name: Fermilab

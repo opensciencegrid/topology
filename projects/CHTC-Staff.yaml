@@ -1,0 +1,29 @@
+Description: Group for CHTC staff who have OSG accounts
+Department: Computer Sciences
+FieldOfScience: Computer Sciences
+Organization: University of Wisconsin-Madison
+PIName: Miron Livny
+
+ID: '758'
+
+Sponsor:
+  CampusGrid:
+    Name: OSG Connect
+
+ResourceAllocations:
+  - Type: Other
+    SubmitResources:
+      - CHTC-ITB-submittest0000
+    ExecuteResourceGroups:
+      - GroupName: CHTC-ITB
+        LocalAllocationID: "glow"
+
+  - Type: XRAC
+    SubmitResources:
+      - CHTC-XD-SUBMIT
+      - UChicago_OSGConnect_login04
+      - UChicago_OSGConnect_login05
+    ExecuteResourceGroups:
+      # OSG allocation
+      - GroupName: TACC-Stampede2
+        LocalAllocationID: "TG-DDM160003"

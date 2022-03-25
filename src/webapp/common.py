@@ -1,12 +1,14 @@
 from collections import OrderedDict
 from logging import getLogger
 import hashlib
+import json
 import os
 import re
 import shlex
 import subprocess
 import sys
 from typing import Dict, List, Union, AnyStr
+from functools import wraps
 
 log = getLogger(__name__)
 
@@ -18,10 +20,10 @@ except ImportError:
     log.warning("CSafeLoader not available - install libyaml-devel and reinstall PyYAML")
     from yaml import SafeLoader
 
-MISCUSER_SCHEMA_URL = "https://my.opensciencegrid.org/schema/miscuser.xsd"
-RGSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgsummary.xsd"
-RGDOWNTIME_SCHEMA_URL = "https://my.opensciencegrid.org/schema/rgdowntime.xsd"
-VOSUMMARY_SCHEMA_URL = "https://my.opensciencegrid.org/schema/vosummary.xsd"
+MISCUSER_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/miscuser.xsd"
+RGSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/rgsummary.xsd"
+RGDOWNTIME_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/rgdowntime.xsd"
+VOSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/vosummary.xsd"
 
 SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
@@ -74,7 +76,7 @@ def ensure_list(x) -> List:
     return [x]
 
 
-def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
+def simplify_attr_list(data: Union[Dict, List], namekey: str, del_name: bool = True) -> Dict:
     """
     Simplify
         [{namekey: "name1", "attr1": "val1", ...},
@@ -91,7 +93,8 @@ def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
         if is_null(new_d, namekey):
             continue
         name = new_d[namekey]
-        del new_d[namekey]
+        if del_name:
+            del new_d[namekey]
         new_data[name] = new_d
     return new_data
 
@@ -144,6 +147,19 @@ def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None,
     return newdata
 
 
+def safe_dict_get(item, *keys, default=None):
+    """ traverse dict hierarchy without producing KeyErrors:
+        safe_dict_get(item, key1, key2, ..., default=default)
+        -> item[key1][key2][...] if defined and not None, else default
+    """
+    for key in keys:
+        if isinstance(item, dict):
+            item = item.get(key)
+        else:
+            return default
+    return default if item is None else item
+
+
 def order_dict(value: Dict, ordering: List, ignore_missing=False) -> OrderedDict:
     """
     Convert a dict to an OrderedDict with key order provided by ``ordering``.
@@ -163,6 +179,26 @@ def to_xml(data) -> str:
 
 def to_xml_bytes(data) -> bytes:
     return to_xml(data).encode("utf-8", errors="replace")
+
+
+# bytes cannot be encoded to json in python3
+def bytes2str(o):
+    if isinstance(o, (list, tuple)):
+        return type(o)(map(bytes2str, o))
+    elif isinstance(o, dict):
+        return dict(map(bytes2str, o.items()))
+    elif isinstance(o, bytes):
+        return o.decode(errors='ignore')
+    else:
+        return o
+
+
+def to_json(data) -> str:
+    return json.dumps(bytes2str(data), sort_keys=True)
+
+
+def to_json_bytes(data) -> bytes:
+    return to_json(data).encode("utf-8", errors="replace")
 
 
 def trim_space(s: str) -> str:
@@ -253,3 +289,48 @@ def load_yaml_file(filename) -> Dict:
     except yaml.YAMLError as e:
         log.error("YAML error in %s: %s", filename, e)
         raise
+
+
+def readfile(path, logger):
+    """ return stripped file contents, or None on errors """
+    if path:
+        try:
+            with open(path, mode="rb") as f:
+                return f.read().strip()
+        except IOError as e:
+            if logger:
+                logger.error("Failed to read file '%s': %s", path, e)
+            return None
+
+
+def escape(pattern: str) -> str:
+    """Escapes regex characters that stopped being escaped in python 3.7"""
+
+    escaped_string = re.escape(pattern)
+
+    if sys.version_info < (3, 7):
+        return escaped_string
+
+    unescaped_characters = ['!', '"', '%', "'", ',', '/', ':', ';', '<', '=', '>', '@', "`"]
+    for unescaped_character in unescaped_characters:
+
+        escaped_string = re.sub(unescaped_character, f"\\{unescaped_character}", escaped_string)
+
+    return escaped_string
+
+
+def support_cors(f):
+
+    @wraps(f)
+    def wrapped():
+
+        response = f()
+
+        response.headers['Access-Control-Allow-Origin'] = '*'
+
+        return response
+
+    return wrapped
+
+
+

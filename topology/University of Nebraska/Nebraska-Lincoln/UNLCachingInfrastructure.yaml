@@ -26,7 +26,7 @@ Resources:
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
     ID: 978
     # ContactLists contain information about people to contact regarding this resource.
-    # The "ID" is a hash of their email address available at https://my.opensciencegrid.org/miscuser/xml
+    # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
     # https://opensciencegrid.org/docs/common/registration/#registering-contacts
     ContactLists:
@@ -177,12 +177,9 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          Name: Marian Zvada
-          ID: 2774337cfe3d359a4ccfdcbd8fe48657f07e3f78
-        Secondary:
           Name: John Thiltges
           ID: f7fbc93bc8a7d276e8b5a94fb4ff905841a7763f
-        Tertiary:
+        Secondary:
           Name: Garhan Attebury
           ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
 

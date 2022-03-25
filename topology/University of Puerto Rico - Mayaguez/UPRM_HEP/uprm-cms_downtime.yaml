@@ -163,4 +163,38 @@
   ResourceName: uprm-cms-ce
   Services:
   - CE
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 717719159
+  Description: Campus Wide Electricity scheduled outage
+  Severity: Outage
+  StartTime: Dec 02, 2020 11:00 +0000
+  EndTime: Dec 02, 2020 19:00 +0000
+  CreatedTime: Nov 30, 2020 15:31 +0000
+  ResourceName: uprm-cms-ce
+  Services:
+  - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 826272920
+  Description: Connector to router is failing initialization, may require replacement.
+  Severity: Outage
+  StartTime: Mar 27, 2021 17:00 +0000
+  EndTime: Apr 12, 2021 17:00 +0000
+  CreatedTime: Apr 05, 2021 12:54 +0000
+  ResourceName: uprm-cms-ce
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 856623608
+  Description: Campus Maintanance Network Outage During weekend some how got extended
+  Severity: Outage
+  StartTime: May 10, 2021 00:00 +0000
+  EndTime: May 11, 2021 17:00 +0000
+  CreatedTime: May 10, 2021 15:59 +0000
+  ResourceName: uprm-cms-ce
+  Services:
+  - CE
+# ---------------------------------------------------------
+

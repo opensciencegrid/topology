@@ -146,3 +146,630 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 618450230
+  Description: Upgrade of dCache to v6.2, no access to the SE of the BNL ATLAS T1
+  Severity: Outage
+  StartTime: Aug 24, 2020 10:00 +0000
+  EndTime: Aug 25, 2020 22:00 +0000
+  CreatedTime: Aug 07, 2020 19:03 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 702319859
+  Description: 'facility-wide network intervention for upgrade of the network infrastructure  '
+  Severity: Outage
+  StartTime: Dec 01, 2020 11:00 +0000
+  EndTime: Dec 01, 2020 23:00 +0000
+  CreatedTime: Nov 12, 2020 19:46 +0000
+  ResourceName: BNL_ATLAS_1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 702319860
+  Description: 'facility-wide network intervention for upgrade of the network infrastructure  '
+  Severity: Outage
+  StartTime: Dec 01, 2020 11:00 +0000
+  EndTime: Dec 01, 2020 23:00 +0000
+  CreatedTime: Nov 12, 2020 19:46 +0000
+  ResourceName: BNL_ATLAS_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 702319861
+  Description: 'facility-wide network intervention for upgrade of the network infrastructure  '
+  Severity: Outage
+  StartTime: Dec 01, 2020 11:00 +0000
+  EndTime: Dec 01, 2020 23:00 +0000
+  CreatedTime: Nov 12, 2020 19:46 +0000
+  ResourceName: BNL_ATLAS_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 702319862
+  Description: 'facility-wide network intervention for upgrade of the network infrastructure  '
+  Severity: Outage
+  StartTime: Dec 01, 2020 11:00 +0000
+  EndTime: Dec 01, 2020 23:00 +0000
+  CreatedTime: Nov 12, 2020 19:46 +0000
+  ResourceName: BNL_ATLAS_4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 702319863
+  Description: 'facility-wide network intervention for upgrade of the network infrastructure  '
+  Severity: Outage
+  StartTime: Dec 01, 2020 11:00 +0000
+  EndTime: Dec 01, 2020 23:00 +0000
+  CreatedTime: Nov 12, 2020 19:46 +0000
+  ResourceName: BNL_ATLAS_6
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 702319864
+  Description: 'facility-wide network intervention for upgrade of the network infrastructure  '
+  Severity: Outage
+  StartTime: Dec 01, 2020 11:00 +0000
+  EndTime: Dec 01, 2020 23:00 +0000
+  CreatedTime: Nov 12, 2020 19:46 +0000
+  ResourceName: BNL_ATLAS_7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 702319865
+  Description: 'facility-wide network intervention for upgrade of the network infrastructure  '
+  Severity: Outage
+  StartTime: Dec 01, 2020 11:00 +0000
+  EndTime: Dec 01, 2020 23:00 +0000
+  CreatedTime: Nov 12, 2020 19:46 +0000
+  ResourceName: BNL_ATLAS_8
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 702322849
+  Description: 'facility-wide network intervention for upgrade of the network infrastructure  '
+  Severity: Outage
+  StartTime: Dec 01, 2020 11:00 +0000
+  EndTime: Dec 01, 2020 23:00 +0000
+  CreatedTime: Nov 12, 2020 19:51 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 702323378
+  Description: 'facility-wide network intervention for upgrade of the network infrastructure  '
+  Severity: Outage
+  StartTime: Dec 01, 2020 11:00 +0000
+  EndTime: Dec 01, 2020 23:00 +0000
+  CreatedTime: Nov 12, 2020 19:52 +0000
+  ResourceName: BNL_ATLAS_SE_GRIDFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 702323684
+  Description: 'facility-wide network intervention for upgrade of the network infrastructure  '
+  Severity: Outage
+  StartTime: Dec 01, 2020 11:00 +0000
+  EndTime: Dec 01, 2020 23:00 +0000
+  CreatedTime: Nov 12, 2020 19:52 +0000
+  ResourceName: BNL_ATLAS_Frontier_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 854270971
+  Description: dCache downtime cancelled
+  Severity: Outage
+  StartTime: May 12, 2021 14:00 +0000
+  EndTime: May 12, 2021 14:00 +0000
+  CreatedTime: May 07, 2021 22:38 +0000
+  ResourceName: BNL_ATLAS_1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 854272795
+  Description: dCache downtime cancelled
+  Severity: Outage
+  StartTime: May 12, 2021 14:00 +0000
+  EndTime: May 12, 2021 14:00 +0000
+  CreatedTime: May 07, 2021 22:41 +0000
+  ResourceName: BNL_ATLAS_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 854272949
+  Description: dCache downtime cancelled
+  Severity: Outage
+  StartTime: May 12, 2021 14:00 +0000
+  EndTime: May 12, 2021 14:00 +0000
+  CreatedTime: May 07, 2021 22:41 +0000
+  ResourceName: BNL_ATLAS_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 854273167
+  Description: dCache downtime cancelled
+  Severity: Outage
+  StartTime: May 12, 2021 14:00 +0000
+  EndTime: May 12, 2021 14:00 +0000
+  CreatedTime: May 07, 2021 22:41 +0000
+  ResourceName: BNL_ATLAS_4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 854273333
+  Description: dCache downtime cancelled
+  Severity: Outage
+  StartTime: May 12, 2021 14:00 +0000
+  EndTime: May 12, 2021 14:00 +0000
+  CreatedTime: May 12, 2021 16:33 +0000
+  ResourceName: BNL_ATLAS_6
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 854273512
+  Description: dCache downtime cancelled
+  Severity: Outage
+  StartTime: May 12, 2021 14:00 +0000
+  EndTime: May 12, 2021 14:00 +0000
+  CreatedTime: May 12, 2021 16:33 +0000
+  ResourceName: BNL_ATLAS_7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 854273717
+  Description: dCache downtime cancelled
+  Severity: Outage
+  StartTime: May 12, 2021 14:00 +0000
+  EndTime: May 12, 2021 14:00 +0000
+  CreatedTime: May 12, 2021 16:33 +0000
+  ResourceName: BNL_ATLAS_8
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 854273984
+  Description: dCache downtime cancelled
+  Severity: Outage
+  StartTime: May 12, 2021 14:00 +0000
+  EndTime: May 12, 2021 14:00 +0000
+  CreatedTime: May 12, 2021 16:33 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 854274288
+  Description: dCache downtime cancelled
+  Severity: Outage
+  StartTime: May 12, 2021 14:00 +0000
+  EndTime: May 12, 2021 14:00 +0000
+  CreatedTime: May 12, 2021 16:33 +0000
+  ResourceName: BNL_ATLAS_SE_GRIDFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 879226572
+  Description: dCache configuration change and minor software update
+  Severity: Outage
+  StartTime: Jun 09, 2021 14:00 +0000
+  EndTime: Jun 09, 2021 16:50 +0000
+  CreatedTime: Jun 05, 2021 21:50 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 879227047
+  Description: dCache configuration change and minor software update
+  Severity: Outage
+  StartTime: Jun 09, 2021 14:00 +0000
+  EndTime: Jun 09, 2021 16:50 +0000
+  CreatedTime: Jun 05, 2021 19:51 +0000
+  ResourceName: BNL_ATLAS_SE_GRIDFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 904894019
+  Description: HPSS Tape system upgrade
+  Severity: Outage
+  StartTime: Aug 02, 2021 12:00 +0000
+  EndTime: Aug 06, 2021 00:00 +0000
+  CreatedTime: Jul 05, 2021 12:50 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 986462483
+  Description: HPSS Tape system core move to new data center
+  Severity: Outage
+  StartTime: Oct 19, 2021 04:00 +0000
+  EndTime: Oct 19, 2021 20:00 +0000
+  CreatedTime: Oct 07, 2021 22:37 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1012451808
+  Description: dCache security update and dCache release upgrade
+  Severity: Outage
+  StartTime: Nov 09, 2021 14:00 +0000
+  EndTime: Nov 09, 2021 18:00 +0000
+  CreatedTime: Nov 07, 2021 00:33 +0000
+  ResourceName: BNL_ATLAS_1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1012451809
+  Description: dCache security update and dCache release upgrade
+  Severity: Outage
+  StartTime: Nov 09, 2021 14:00 +0000
+  EndTime: Nov 09, 2021 18:00 +0000
+  CreatedTime: Nov 07, 2021 00:33 +0000
+  ResourceName: BNL_ATLAS_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1012451810
+  Description: dCache security update and dCache release upgrade
+  Severity: Outage
+  StartTime: Nov 09, 2021 14:00 +0000
+  EndTime: Nov 09, 2021 18:00 +0000
+  CreatedTime: Nov 07, 2021 00:33 +0000
+  ResourceName: BNL_ATLAS_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1012451811
+  Description: dCache security update and dCache release upgrade
+  Severity: Outage
+  StartTime: Nov 09, 2021 14:00 +0000
+  EndTime: Nov 09, 2021 18:00 +0000
+  CreatedTime: Nov 07, 2021 00:33 +0000
+  ResourceName: BNL_ATLAS_4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1012451812
+  Description: dCache security update and dCache release upgrade
+  Severity: Outage
+  StartTime: Nov 09, 2021 14:00 +0000
+  EndTime: Nov 09, 2021 18:00 +0000
+  CreatedTime: Nov 07, 2021 00:33 +0000
+  ResourceName: BNL_ATLAS_6
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1012451813
+  Description: dCache security update and dCache release upgrade
+  Severity: Outage
+  StartTime: Nov 09, 2021 14:00 +0000
+  EndTime: Nov 09, 2021 18:00 +0000
+  CreatedTime: Nov 07, 2021 00:33 +0000
+  ResourceName: BNL_ATLAS_7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1012451814
+  Description: dCache security update and dCache release upgrade
+  Severity: Outage
+  StartTime: Nov 09, 2021 14:00 +0000
+  EndTime: Nov 09, 2021 18:00 +0000
+  CreatedTime: Nov 07, 2021 00:33 +0000
+  ResourceName: BNL_ATLAS_8
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1012451817
+  Description: dCache security update and dCache release upgrade
+  Severity: Outage
+  StartTime: Nov 09, 2021 14:00 +0000
+  EndTime: Nov 09, 2021 18:00 +0000
+  CreatedTime: Nov 07, 2021 00:33 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1012451818
+  Description: dCache security update and dCache release upgrade
+  Severity: Outage
+  StartTime: Nov 09, 2021 14:00 +0000
+  EndTime: Nov 09, 2021 18:00 +0000
+  CreatedTime: Nov 07, 2021 00:33 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_East
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1012451819
+  Description: dCache security update and dCache release upgrade
+  Severity: Outage
+  StartTime: Nov 09, 2021 14:00 +0000
+  EndTime: Nov 09, 2021 18:00 +0000
+  CreatedTime: Nov 07, 2021 00:33 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_West
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1012451820
+  Description: dCache security update and dCache release upgrade
+  Severity: Outage
+  StartTime: Nov 09, 2021 14:00 +0000
+  EndTime: Nov 09, 2021 18:00 +0000
+  CreatedTime: Nov 07, 2021 00:33 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_West2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1012451821
+  Description: dCache security update and dCache release upgrade
+  Severity: Outage
+  StartTime: Nov 09, 2021 14:00 +0000
+  EndTime: Nov 09, 2021 18:00 +0000
+  CreatedTime: Nov 07, 2021 00:33 +0000
+  ResourceName: BNL_ATLAS_SE_GRIDFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913009
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913010
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913011
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913012
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913013
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_6
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913014
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913015
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_8
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913016
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_CVMFS_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913017
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_Frontier_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913018
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913019
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_East
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913020
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_West
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913021
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_West2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913022
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: BNL_ATLAS_SE_GRIDFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913023
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: lhcmon-bnl
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913024
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: lhcperfmon-bnl
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1056913025
+  Description: HPSS Tape system reconfiguration/CE downtime
+  Severity: Outage
+  StartTime: Dec 29, 2021 13:00 +0000
+  EndTime: Dec 29, 2021 17:00 +0000
+  CreatedTime: Dec 28, 2021 11:35 +0000
+  ResourceName: ps-development
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1109771161
+  Description: HPSS Tape system library emergency repair completed
+  Severity: Severe
+  StartTime: Feb 27, 2022 00:00 +0000
+  EndTime: Feb 27, 2022 20:40 +0000
+  CreatedTime: Feb 27, 2022 15:51 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1110017004
+  Description: HPSS Tape system library emergency repair
+  Severity: Outage
+  StartTime: Feb 27, 2022 21:00 +0000
+  EndTime: Feb 28, 2022 20:00 +0000
+  CreatedTime: Feb 27, 2022 22:41 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1129954319
+  Description: replace broken memory in core dCache server
+  Severity: Outage
+  StartTime: Mar 23, 2022 13:00 +0000
+  EndTime: Mar 23, 2022 14:00 +0000
+  CreatedTime: Mar 23, 2022 00:30 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1129955224
+  Description: replace broken memory in core dCache server
+  Severity: Outage
+  StartTime: Mar 23, 2022 13:00 +0000
+  EndTime: Mar 23, 2022 14:00 +0000
+  CreatedTime: Mar 23, 2022 00:32 +0000
+  ResourceName: BNL_ATLAS_SE_GRIDFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------

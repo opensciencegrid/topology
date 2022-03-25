@@ -1,4 +1,4 @@
-GroupDescription: Wilson Facility is a General Purpose HPC cluster at Fermilab
+GroupDescription: Wilson is a General Purpose HPC cluster part of the Fermilab Institutional Cluster
 GroupID: 455
 Production: true
 Resources:
@@ -7,31 +7,24 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 2a33182ee97eebb572baae06c4775b79cf36581f
-          Name: Amitoj Singh
+          ID: b087cec5fb6892ec5ee8ddd64ab2c4bcaaeb8fe1
+          Name: Farrukh Aftab Khan
         Secondary:
-          ID: 67559e9f240aa9a7e3ef24113c6a5cdc386e332b
-          Name: Stuart Fuess
-      Resource Report Contact:
-        Primary:
-          ID: 2a33182ee97eebb572baae06c4775b79cf36581f
-          Name: Amitoj Singh
-        Secondary:
-          ID: 67559e9f240aa9a7e3ef24113c6a5cdc386e332b
-          Name: Stuart Fuess
+          ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
+          Name: Anthony Tiradani
       Security Contact:
         Primary:
-          ID: 2a33182ee97eebb572baae06c4775b79cf36581f
-          Name: Amitoj Singh
+          ID: 2c1b608a828130d35204b0c6a7209c5e2d9d93d6
+          Name: Fermilab Cybersecurity Team
         Secondary:
-          ID: 67559e9f240aa9a7e3ef24113c6a5cdc386e332b
-          Name: Stuart Fuess
+          ID: ee62ada7c017daeda2157aa148d30ccca0f13abc
+          Name: Fermilab Incident Response
     Description: This is the Wilson cluster headnode
-    FQDN: tev.fnal.gov
+    FQDN: wcce01.fnal.gov
     ID: 841
     Services:
-      Submit Node:
-        Description: OSG Submission Node
+      CE:
+        Description: Compute Element
         Details:
           hidden: false
     VOOwnership:

@@ -1,0 +1,93 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Purdue Anvil supercomputer
+GroupID: 1141
+
+Resources:
+  Purdue-Anvil-CE1:
+    Active: true
+    Description: Hosted CE serving Purdue Anvil
+    ID: 1253
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Site Contact:
+        Primary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+    FQDN: purdue-anvil-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Purdue Anvil Hosted CE
+    WLCGInformation:
+      APELNormalFactor: 18
+      InteropAccounting: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+  Purdue-Anvil-Squid1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+        Secondary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Tertiary:
+          ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
+          Name: Nick Smith
+      Security Contact:
+        Primary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+        Secondary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Tertiary:
+          ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
+          Name: Nick Smith
+    Description: Squid service for Anvil.
+    FQDN: squid.cms.anvilcloud.rcac.purdue.edu
+    ID: 1272
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: true
+  Purdue-Anvil-Composable:
+    Active: true
+    Description: Anvil Kubernetes Resource
+    ID: 1265
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Erik Gough
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+        Secondary:
+          ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
+          Name: Nick Smith
+      Security Contact:
+        Primary:
+          Name: Erik Gough
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+        Secondary:
+          ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
+          Name: Nick Smith
+    FQDN: composable.anvil.rcac.purdue.edu
+    Services:
+      Execution Endpoint:
+        Description: OSG backfill on Anvil's Kubernetes resource

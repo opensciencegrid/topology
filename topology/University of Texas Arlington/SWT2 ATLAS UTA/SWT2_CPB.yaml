@@ -12,10 +12,6 @@ Resources:
         Secondary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
-      Resource Report Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
       Security Contact:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
@@ -49,18 +45,49 @@ Resources:
       StorageCapacityMax: 5000
       StorageCapacityMin: 5000
       TapeCapacity: 0
-  SWT2_CPB_DEV:
+  SWT2_CPB_CE_2:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
-      Miscellaneous Contact:
+        Secondary:
+          ID: 85358c47f16fad2a915da157353581016788a30a
+          Name: Mark Sosebee
+      Security Contact:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
-      Resource Report Contact:
+        Secondary:
+          ID: 85358c47f16fad2a915da157353581016788a30a
+          Name: Mark Sosebee
+    Description: Second CE for CPB
+    FQDN: gk10.atlas-swt2.org
+    ID: 1264
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.43
+      AccountingName: US-SWT2
+      HEPSPEC: 102816
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 2086
+      KSI2KMin: 2086
+      StorageCapacityMax: 5000
+      StorageCapacityMin: 5000
+      TapeCapacity: 0      
+  SWT2_CPB_DEV:
+    Active: true
+    ContactLists:
+      Administrative Contact:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
@@ -105,10 +132,6 @@ Resources:
         Secondary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
-      Resource Report Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
       Security Contact:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
@@ -116,11 +139,13 @@ Resources:
         Secondary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
-    FQDN: gk03.atlas-swt2.org
+    FQDN: gridftp.atlas-swt2.org
     ID: 191
     Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
+      GridFtp:
+        Description: GrdFTP endpoint
+      WebDAV:
+        Description: WebDAV endpoint
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -143,13 +168,6 @@ Resources:
         Secondary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
-      Resource Report Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
-        Secondary:
-          ID: 85358c47f16fad2a915da157353581016788a30a
-          Name: Mark Sosebee
       Security Contact:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
@@ -165,17 +183,37 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       ATLAS: 100
-  SWT2_CPB_perfSONAR_bandwidth:
+  SWT2_CPB_SLATE_SQUID:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 85358c47f16fad2a915da157353581016788a30a
-          Name: Mark Sosebee
-        Secondary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan
-      Resource Report Contact:
+        Secondary:
+          ID: 85358c47f16fad2a915da157353581016788a30a
+          Name: Mark Sosebee
+      Security Contact:
+        Primary:
+          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
+          Name: Patrick McGuigan
+        Secondary:
+          ID: 85358c47f16fad2a915da157353581016788a30a
+          Name: Mark Sosebee
+    Description: Frontier/CVMFS SLATE based squid service
+    FQDN: slate01.atlas-swt2.org
+    ID: 1129
+    Services:
+      Squid:
+        Description: Generic squid service
+        Monitored: true
+    VOOwnership:
+      ATLAS: 100      
+      
+  SWT2_CPB_perfSONAR_bandwidth:
+    Active: true
+    ContactLists:
+      Administrative Contact:
         Primary:
           ID: 85358c47f16fad2a915da157353581016788a30a
           Name: Mark Sosebee
@@ -203,20 +241,6 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
-        Secondary:
-          ID: 85358c47f16fad2a915da157353581016788a30a
-          Name: Mark Sosebee
-      Miscellaneous Contact:
-        Primary:
-          ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
-          Name: Patrick McGuigan
-        Secondary:
-          ID: 85358c47f16fad2a915da157353581016788a30a
-          Name: Mark Sosebee
-      Resource Report Contact:
         Primary:
           ID: 2b252bacdbe181b67c74ef8218c1de817e22a15f
           Name: Patrick McGuigan

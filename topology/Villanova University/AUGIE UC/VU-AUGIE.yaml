@@ -1,0 +1,72 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: This is the Villanova University SLURM University Cluster
+GroupID: 1133
+
+Resources:
+  VU-AUGIE-CE1:
+    Active: true
+    Description: This is the AUGIE node at Villanova University
+    ID: 1220
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Villanova UNIT administrators
+          ID: 0c6f37bd6bd7d452b03e0915813a344ba3dbc5a3
+        Secondary:
+          Name: Christopher Washburn
+          ID: 2dde5197c9f6d783c9a4d1e3ec664bfbef5bb17c
+        Tertiary:
+          Name: Mike Carey
+          ID: 5dc16c1fee937343aeb0b21120fa5d90740cb68a
+    FQDN: vu-augie-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: This is the Villanova University Hosted CE for the University Cluster
+    Tags:
+      - CC*
+  VU-AUGIE-SQUID1:
+    Active: true
+    Description: This is the AUGIE node at Villanova University
+    ID: 1242
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Villanova UNIT administrators
+          ID: 0c6f37bd6bd7d452b03e0915813a344ba3dbc5a3
+        Secondary:
+          Name: Christopher Washburn
+          ID: 2dde5197c9f6d783c9a4d1e3ec664bfbef5bb17c
+        Tertiary:
+          Name: Mike Carey
+          ID: 5dc16c1fee937343aeb0b21120fa5d90740cb68a
+      Security Contact:
+        Primary:
+          Name: Villanova UNIT administrators
+          ID: 0c6f37bd6bd7d452b03e0915813a344ba3dbc5a3
+        Secondary:
+          Name: Christopher Washburn
+          ID: 2dde5197c9f6d783c9a4d1e3ec664bfbef5bb17c
+        Tertiary:
+          Name: Mike Carey
+          ID: 5dc16c1fee937343aeb0b21120fa5d90740cb68a
+    FQDN: augie.villanova.edu
+    Services:
+      Squid:
+        Description: This is the Villanova University AUGIE Squid
+    Tags:
+      - CC*

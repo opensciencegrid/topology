@@ -1,9 +1,10 @@
 Production: true
 SupportCenter: Self Supported
 GroupID: 492
-GroupDescription: This is a small cluster to test OSG / AggieGrid integration
+GroupDescription: Small scavenger cluster that runs on the university's lab machines when they are not in use.
 Resources:
   OSG_US_NMSU_AGGIE_GRID:
+    Active: false
     ID: 977
     Description: The Hosted CE serving AggieGrid
     ContactLists:
@@ -32,5 +33,36 @@ Resources:
     Services:
       CE:
         Description: NMSU-AggieGrid Hosted CE
+        Details:
+          hidden: false
+  SLATE_US_NMSU_AGGIE_GRID:
+    Active: false
+    ID: 1097
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Nicholas Von Wolff
+          ID: 243c442622f34b7e283d95ef53c88928f4986110
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
+      Security Contact:
+        Primary:
+          Name: Nicholas Von Wolff
+          ID: 243c442622f34b7e283d95ef53c88928f4986110
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
+      Site Contact:
+        Primary:
+          Name: Nicholas Von Wolff
+          ID: 243c442622f34b7e283d95ef53c88928f4986110
+        Secondary:
+          Name: Strahinja Trecakov
+          ID: d891e1b64e13be9f607ad47543918681fe8c2708
+    FQDN: osg-ce-aggiegrid.nmsu.edu
+    Services:
+      CE:
+        Description: NMSU SlateCI Self-Hosted CE For Aggie Grid
         Details:
           hidden: false

@@ -9,13 +9,6 @@ Resources:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
           Name: Terrence Martin
-      Resource Report Contact:
-        Primary:
-          ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
-          Name: Terrence Martin
-        Secondary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
           ID: 876425696868c8a32fa1b8ee1db792b5c76a9f37
@@ -96,7 +89,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   UCSDT2-B:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -164,7 +157,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 11.6
       AccountingName: T2_US_UCSD
       HEPSPEC: 0
       InteropAccounting: true
@@ -203,7 +196,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 11.6
       AccountingName: T2_US_UCSD
       HEPSPEC: 0
       InteropAccounting: true
@@ -214,6 +207,171 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
+  UCSDT2-Cloud:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+        Secondary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+      Security Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+        Secondary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+    Description: US CMS Tier-2 Cloud resources
+    FQDN: cms-cloud-ce.t2.ucsd.edu
+    ID: 1153
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cms-cloud-ce.t2.ucsd.edu
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.64
+      AccountingName: T2_US_UCSD
+      HEPSPEC: 155247
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  UCSDT2-Cloud-1-squid:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+      Security Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+    Description: Squid service for Frontier at UCSD CMS T2 Cloud
+    FQDN: 20.96.176.24
+    ID: 1158
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: false
+    VOOwnership:
+      CMS: 100
+  UCSDT2-Cloud-2-squid:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+      Security Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+    Description: Squid service for Frontier at UCSD CMS T2 Cloud
+    FQDN: 20.83.227.95
+    ID: 1159
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: false
+    VOOwnership:
+      CMS: 100
+  UCSDT2-Cloud-3-squid:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+      Security Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+    Description: Squid service for Frontier at UCSD CMS T2
+    FQDN: 40.119.41.40
+    ID: 1160
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: false
+    VOOwnership:
+      CMS: 100
+  UCSDT2-Cloud-4-squid:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+      Security Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+    Description: Squid service for Frontier at UCSD CMS T2 Cloud
+    FQDN: 20.186.57.133
+    ID: 1161
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: false
+    VOOwnership:
+      CMS: 100
+  UCSDT2-Cloud-5-squid:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+      Security Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+    Description: Squid service for Frontier at UCSD CMS T2 Cloud
+    FQDN: 20.90.89.36
+    ID: 1162
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: false
+    VOOwnership:
+      CMS: 100
+  UCSDT2-Cloud-6-squid:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+      Security Contact:
+        Primary:
+          Name: Igor Sfiligoi
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+    Description: Squid service for Frontier at UCSD CMS T2 Cloud
+    FQDN: 20.151.68.68
+    ID: 1163
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: false
+    VOOwnership:
+      CMS: 100
   UCSDT2-SE1:
     Active: true
     ContactLists:
@@ -254,7 +412,7 @@ Resources:
       StorageCapacityMin: 1000
       TapeCapacity: 0
   UCSDT2-SE3:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:

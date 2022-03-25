@@ -1,4 +1,4 @@
-GroupDescription: CMS Hadoop cluster at Purdue University, West Lafayette, IN.
+GroupDescription: CMS tier 2 facility at Purdue University, West Lafayette, IN.
 GroupID: 393
 Production: true
 Resources:
@@ -15,20 +15,6 @@ Resources:
         Tertiary:
           ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
           Name: Nick Smith
-      Miscellaneous Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
       Security Contact:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
@@ -60,7 +46,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-  Purdue-Hammer-CE:
+  Purdue-Hammer:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -73,20 +59,6 @@ Resources:
         Tertiary:
           ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
           Name: Nick Smith
-      Miscellaneous Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
       Security Contact:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
@@ -118,7 +90,7 @@ Resources:
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
   Purdue-Rice:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -130,20 +102,6 @@ Resources:
         Tertiary:
           ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
           Name: Nick Smith
-      Miscellaneous Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
       Security Contact:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
@@ -168,9 +126,9 @@ Resources:
       APELNormalFactor: 15.07
       AccountingName: T2_US_Purdue
       HEPSPEC: 85
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
       KSI2KMax: 500
       KSI2KMin: 100
       StorageCapacityMax: 5.5
@@ -189,20 +147,6 @@ Resources:
         Tertiary:
           ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
           Name: Nick Smith
-      Miscellaneous Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
       Security Contact:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
@@ -248,20 +192,6 @@ Resources:
         Tertiary:
           ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
           Name: Nick Smith
-      Miscellaneous Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
       Security Contact:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
@@ -294,8 +224,8 @@ Resources:
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
       TapeCapacity: 5.5
-  Purdue-Hadoop-HT-PBS-CE:
-    Active: false
+  Purdue-Bell:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -307,20 +237,6 @@ Resources:
         Tertiary:
           ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
           Name: Nick Smith
-      Miscellaneous Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
       Security Contact:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
@@ -328,30 +244,31 @@ Resources:
         Secondary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
-    Description: This is the HTCE for clusters managed by PBS batch system at Purdue
-      Tier-2.
-    FQDN: cmspbs-osg.rcac.purdue.edu
-    ID: 724
+    Description: |-
+      Compute Element for Purdue Bell cluster (opportunistic).
+      https://www.rcac.purdue.edu/compute/bell
+    FQDN: bell-osg.rcac.purdue.edu
+    ID: 929
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://cmspbs-osg.rcac.purdue.edu:9619/cmspbs-osg.rcac.purdue.edu
+          sam_uri: htcondor://bell-osg.rcac.purdue.edu:9619/bell-osg.rcac.purdue.edu
     VOOwnership:
-      CMS: 100
+      CMS: 0
     WLCGInformation:
-      APELNormalFactor: 0
+      APELNormalFactor: 19.33
       AccountingName: T2_US_Purdue
       HEPSPEC: 85
-      InteropAccounting: false
+      InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true
       KSI2KMax: 500
       KSI2KMin: 100
-      StorageCapacityMax: 10
+      StorageCapacityMax: 5.5
       StorageCapacityMin: 1
-      TapeCapacity: 0
+      TapeCapacity: 5.5
   Purdue-Hadoop-SE-Gridftp:
     Active: true
     ContactLists:
@@ -365,20 +282,6 @@ Resources:
         Tertiary:
           ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
           Name: Nick Smith
-      Miscellaneous Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
       Security Contact:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
@@ -421,20 +324,6 @@ Resources:
         Tertiary:
           ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
           Name: Nick Smith
-      Miscellaneous Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
       Security Contact:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
@@ -464,20 +353,6 @@ Resources:
         Tertiary:
           ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
           Name: Nick Smith
-      Miscellaneous Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
       Security Contact:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
@@ -507,20 +382,6 @@ Resources:
         Tertiary:
           ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
           Name: Nick Smith
-      Miscellaneous Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
       Security Contact:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595
@@ -563,20 +424,6 @@ Resources:
         Tertiary:
           ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
           Name: Nick Smith
-      Miscellaneous Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-      Resource Report Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
       Security Contact:
         Primary:
           ID: b120c1c48f06940b0604f4a2803fde522d0d0595

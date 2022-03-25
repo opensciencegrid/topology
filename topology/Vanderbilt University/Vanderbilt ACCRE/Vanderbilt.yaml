@@ -10,25 +10,17 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-      Miscellaneous Contact:
-        Primary:
           ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
           Name: Eric Appelt
-        Secondary:
-          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
-          Name: Lihan Liu
         Tertiary:
-          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
-          Name: Shengquan Tuo
-      Resource Report Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-        Secondary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
+        Tertiary 2:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Security Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
@@ -37,13 +29,13 @@ Resources:
           ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
           Name: Eric Appelt
     Description: This is the perfsonar bandwidth server at Vanderbilt University
-    FQDN: perfsonar-bwctl.accre.vanderbilt.edu
+    FQDN: iperf-research-2.accre.vanderbilt.edu 
     ID: 597
     Services:
       net.perfSONAR.Bandwidth:
         Description: PerfSonar Bandwidth monitoring node
         Details:
-          endpoint: perfsonar-bwctl.accre.vanderbilt.edu
+          endpoint: iperf-research-2.accre.vanderbilt.edu 
     VOOwnership:
       CMS: 100
   US-Vanderbilt LT:
@@ -54,25 +46,17 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-      Miscellaneous Contact:
-        Primary:
           ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
           Name: Eric Appelt
-        Secondary:
-          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
-          Name: Lihan Liu
         Tertiary:
-          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
-          Name: Shengquan Tuo
-      Resource Report Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-        Secondary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
+        Tertiary 2:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Security Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
@@ -81,13 +65,13 @@ Resources:
           ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
           Name: Eric Appelt
     Description: This is the perfsonar latency server at Vanderbilt University
-    FQDN: perfsonar-owamp.accre.vanderbilt.edu
+    FQDN: iperf-research-1.accre.vanderbilt.edu 
     ID: 598
     Services:
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
-          endpoint: perfsonar-owamp.accre.vanderbilt.edu
+          endpoint: iperf-research-1.accre.vanderbilt.edu 
     VOOwnership:
       CMS: 100
   Vanderbilt_CE1:
@@ -98,25 +82,17 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-      Miscellaneous Contact:
-        Primary:
           ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
           Name: Eric Appelt
-        Secondary:
-          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
-          Name: Lihan Liu
         Tertiary:
-          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
-          Name: Shengquan Tuo
-      Resource Report Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-        Secondary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
+        Tertiary 2:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Security Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
@@ -155,25 +131,17 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-      Miscellaneous Contact:
-        Primary:
           ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
           Name: Eric Appelt
-        Secondary:
-          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
-          Name: Lihan Liu
         Tertiary:
-          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
-          Name: Shengquan Tuo
-      Resource Report Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-        Secondary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
+        Tertiary 2:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Security Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
@@ -204,32 +172,24 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   Vanderbilt_CE4:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-      Miscellaneous Contact:
-        Primary:
           ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
           Name: Eric Appelt
-        Secondary:
-          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
-          Name: Lihan Liu
         Tertiary:
-          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
-          Name: Shengquan Tuo
-      Resource Report Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-        Secondary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
+        Tertiary 2:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Security Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
@@ -260,6 +220,102 @@ Resources:
       StorageCapacityMax: 6000
       StorageCapacityMin: 1
       TapeCapacity: 0
+  Vanderbilt_CE5:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Tertiary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+        Tertiary 2:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
+      Security Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+    Description: Centos7-based CE
+    FQDN: ce5.accre.vanderbilt.edu
+    ID: 1084
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://ce5.accre.vanderbilt.edu
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 1
+      HEPSPEC: 1
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 1
+      KSI2KMin: 1
+      StorageCapacityMax: 6000
+      StorageCapacityMin: 1
+      TapeCapacity: 0
+  Vanderbilt_CE6:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Tertiary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+        Tertiary 2:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
+      Security Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+    Description: Centos7-based CE
+    FQDN: ce6.accre.vanderbilt.edu
+    ID: 1085
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://ce6.accre.vanderbilt.edu
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 1
+      HEPSPEC: 1
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 1
+      KSI2KMin: 1
+      StorageCapacityMax: 6000
+      StorageCapacityMin: 1
+      TapeCapacity: 0
   Vanderbilt_Gridftp:
     Active: true
     ContactLists:
@@ -268,25 +324,17 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-      Miscellaneous Contact:
-        Primary:
           ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
           Name: Eric Appelt
-        Secondary:
-          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
-          Name: Lihan Liu
         Tertiary:
-          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
-          Name: Shengquan Tuo
-      Resource Report Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-        Secondary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
+        Tertiary 2:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Security Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
@@ -318,31 +366,20 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
-        Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-      Miscellaneous Contact:
-        Primary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
-        Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-        Tertiary:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
-      Resource Report Contact:
-        Primary:
-          ID: f8b4ca01236536e55faee256011d9c70d8eaff67
-          Name: Kevin Buterbaugh
         Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Tertiary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
-        Tertiary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
+        Tertiary 2:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Security Contact:
         Primary:
           ID: f8b4ca01236536e55faee256011d9c70d8eaff67
@@ -380,25 +417,17 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-      Miscellaneous Contact:
-        Primary:
           ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
           Name: Eric Appelt
-        Secondary:
-          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
-          Name: Lihan Liu
         Tertiary:
-          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
-          Name: Shengquan Tuo
-      Resource Report Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-        Secondary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
+        Tertiary 2:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Security Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
@@ -422,25 +451,17 @@ Resources:
           ID: 11107327543306be8c340cfa2281444a2d428318
           Name: Andrew Malone Melo
         Secondary:
-          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
-          Name: Paul Sheldon
-      Miscellaneous Contact:
-        Primary:
           ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
           Name: Eric Appelt
-        Secondary:
-          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
-          Name: Lihan Liu
         Tertiary:
-          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
-          Name: Shengquan Tuo
-      Resource Report Contact:
-        Primary:
-          ID: 11107327543306be8c340cfa2281444a2d428318
-          Name: Andrew Malone Melo
-        Secondary:
           ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
           Name: Paul Sheldon
+        Tertiary 2:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
       Security Contact:
         Primary:
           ID: 11107327543306be8c340cfa2281444a2d428318
