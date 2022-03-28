@@ -351,7 +351,7 @@ def oasis_managers():
 def _get_cache_authfile(public_only):
     if not stashcache:
         return Response("Can't get authfile: stashcache module unavailable", status=503)
-    cache_fqdn = request.args.get("cache_fqdn") if request.args.get("cache_fqdn") else request.args.get("fqdn")
+    cache_fqdn = request.args.get("fqdn") if request.args.get("fqdn") else request.args.get("cache_fqdn")
     try:
         if public_only:
             generate_function = stashcache.generate_public_cache_authfile
