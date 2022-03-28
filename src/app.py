@@ -414,7 +414,7 @@ def _get_scitoken_file(fqdn, get_scitoken_function):
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
 
     if not fqdn:
-        return Response("FQDN of cache or origin server required in the 'cache_fqdn' or 'origin_fqdn' argument", status=400)
+        return Response("FQDN of cache or origin server required in the 'fqdn' argument", status=400)
 
     try:
         scitoken_file = get_scitoken_function(fqdn)
