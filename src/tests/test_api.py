@@ -30,10 +30,6 @@ TEST_ENDPOINTS = [
     '/rgsummary/xml',
     '/rgdowntime/xml',
     '/rgdowntime/ical',
-    "/cache-authfile",
-    "/cache-authfile-public",
-    "/scitokens-cache",
-    "/scitokens-origin",
     "/stashcache/authfile",
     "/stashcache/authfile-public",
     "/stashcache/origin-authfile-public?fqdn=sc-origin2000.chtc.wisc.edu",
@@ -41,7 +37,13 @@ TEST_ENDPOINTS = [
     "/stashcache/scitokens",
     "/oasis-managers/json",
     "/generate_downtime",
-    "/generate_resource_group_downtime"
+    "/generate_resource_group_downtime",
+    "/cache/Authfile-public",
+    "/cache/Authfile",
+    "/origin/Authfile",
+    "/origin/Authfile-public",
+    "/origin/scitokens.conf",
+    "/cache/scitokens.conf"
 ]
 
 
@@ -62,25 +64,71 @@ class TestAPI:
         response = client.get(endpoint)
         assert response.status_code != 404
 
-    def test_cache_authfile_equals_authfile(self, client: flask.Flask):
-        cache_authfile = client.get('/cache-authfile')
-        authfile = client.get("/stashcache/authfile")
-        assert cache_authfile.data == authfile.data
+    def test_cache_authfile(self, client: flask.Flask):
+        resources = client.get('/miscresource/json').json
+        for resource in resources.values():
 
-    def test_cache_authfile_public_equals_authfile_public(self, client: flask.Flask):
-        cache_authfile_public = client.get('/cache-authfile-public')
-        authfile_public = client.get("/stashcache/authfile-public")
-        assert cache_authfile_public.data == authfile_public.data
+            resource_fqdn = resource["FQDN"]
+            previous_endpoint = client.get(f"/cache/Authfile?fqdn={resource_fqdn}")
+            current_endpoint = client.get(f"/stashcache/authfile?cache_fqdn={resource_fqdn}")
 
-    def test_scitokens_cache_equals_origin_authfile_public(self, client: flask.Flask):
-        scitokens_cache = client.get('/scitokens-cache')
-        origin_authfile_public = client.get("/stashcache/origin-authfile-public")
-        assert scitokens_cache.data == origin_authfile_public.data
+            assert previous_endpoint.status_code == current_endpoint.status_code
+            assert previous_endpoint.data == current_endpoint.data
 
-    def test_scitokens_origin_equals_origin_authfile(self, client: flask.Flask):
-        scitokens_origin = client.get('/scitokens-origin')
-        origin_authfile = client.get("/stashcache/origin-authfile")
-        assert scitokens_origin.data == origin_authfile.data
+    def test_cache_authfile_public(self, client: flask.Flask):
+        resources = client.get('/miscresource/json').json
+        for resource in resources.values():
+
+            resource_fqdn = resource["FQDN"]
+            previous_endpoint = client.get(f"/cache/Authfile-public?fqdn={resource_fqdn}")
+            current_endpoint = client.get(f"/stashcache/authfile-public?cache_fqdn={resource_fqdn}")
+
+            assert previous_endpoint.status_code == current_endpoint.status_code
+            assert previous_endpoint.data == current_endpoint.data
+
+    def test_origin_authfile(self, client: flask.Flask):
+        resources = client.get('/miscresource/json').json
+        for resource in resources.values():
+
+            resource_fqdn = resource["FQDN"]
+            previous_endpoint = client.get(f"/origin/Authfile?fqdn={resource_fqdn}")
+            current_endpoint = client.get(f"/stashcache/origin-authfile?fqdn={resource_fqdn}")
+
+            assert previous_endpoint.status_code == current_endpoint.status_code
+            assert previous_endpoint.data == current_endpoint.data
+
+    def test_origin_authfile_public(self, client: flask.Flask):
+        resources = client.get('/miscresource/json').json
+        for resource in resources.values():
+
+            resource_fqdn = resource["FQDN"]
+            previous_endpoint = client.get(f"/origin/Authfile-public?fqdn={resource_fqdn}")
+            current_endpoint = client.get(f"/stashcache/origin-authfile-public?fqdn={resource_fqdn}")
+
+            assert previous_endpoint.status_code == current_endpoint.status_code
+            assert previous_endpoint.data == current_endpoint.data
+
+    def test_cache_scitokens(self, client: flask.Flask):
+        resources = client.get('/miscresource/json').json
+        for resource in resources.values():
+
+            resource_fqdn = resource["FQDN"]
+            previous_endpoint = client.get(f"/stashcache/scitokens?cache_fqdn={resource_fqdn}")
+            current_endpoint = client.get(f"/cache/scitokens.conf?fqdn={resource_fqdn}")
+
+            assert previous_endpoint.status_code == current_endpoint.status_code
+            assert previous_endpoint.data == current_endpoint.data
+
+    def test_origin_scitokens(self, client: flask.Flask):
+        resources = client.get('/miscresource/json').json
+        for resource in resources.values():
+
+            resource_fqdn = resource["FQDN"]
+            previous_endpoint = client.get(f"/stashcache/scitokens?origin_fqdn={resource_fqdn}")
+            current_endpoint = client.get(f"/origin/scitokens.conf?fqdn={resource_fqdn}")
+
+            assert previous_endpoint.status_code == current_endpoint.status_code
+            assert previous_endpoint.data == current_endpoint.data
 
 if __name__ == '__main__':
     pytest.main()
