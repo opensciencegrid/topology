@@ -162,6 +162,12 @@ def resources():
     return render_template("resources.html.j2")
 
 
+@app.route('/collaborations')
+def collaboration_list():
+
+    return render_template("collaborations.html.j2")
+
+
 @app.route("/collaborations/osg-scitokens-mapfile.conf")
 def collaborations_scitoken_text():
     """Dumps output of /bin/get-scitokens-mapfile --regex at a text endpoint"""
@@ -195,6 +201,7 @@ def collaborations_scitoken_text():
         mapfile += "# No TokenIssuers found\n"
 
     return Response(mapfile, mimetype="text/plain")
+
 
 
 @app.route('/contacts')
@@ -239,6 +246,12 @@ def miscresource_json():
 @app.route('/vosummary/xml')
 def vosummary_xml():
     return _get_xml_or_fail(global_data.get_vos_data().get_tree, request.args)
+
+@app.route('/vosummary/json')
+def vosummary_json():
+    return Response(to_json_bytes(
+        simplify_attr_list(global_data.get_vos_data().get_expansion(), namekey='Name')
+    ), mimetype="application/json")
 
 
 @app.route('/rgsummary/xml')

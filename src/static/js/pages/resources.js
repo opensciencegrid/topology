@@ -3,7 +3,6 @@ import {TablePage} from "../table.js"
 
 const data_function = async () => {
     let data = await fetch("/miscresource/json").then(d => d.json())
-    console.log(data)
     return data
 }
 

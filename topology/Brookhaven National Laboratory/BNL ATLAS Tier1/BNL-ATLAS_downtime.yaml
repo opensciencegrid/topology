@@ -751,3 +751,25 @@
   Services:
   - SRMv2.tape
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1129954319
+  Description: replace broken memory in core dCache server
+  Severity: Outage
+  StartTime: Mar 23, 2022 13:00 +0000
+  EndTime: Mar 23, 2022 14:00 +0000
+  CreatedTime: Mar 23, 2022 00:30 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1129955224
+  Description: replace broken memory in core dCache server
+  Severity: Outage
+  StartTime: Mar 23, 2022 13:00 +0000
+  EndTime: Mar 23, 2022 14:00 +0000
+  CreatedTime: Mar 23, 2022 00:32 +0000
+  ResourceName: BNL_ATLAS_SE_GRIDFTP
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
