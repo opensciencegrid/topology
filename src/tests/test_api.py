@@ -102,8 +102,8 @@ class TestAPI:
         for resource in resources.values():
 
             resource_fqdn = resource["FQDN"]
-            previous_endpoint = client.get(f"/origin/Authfile-public?fqdn={resource_fqdn}")
-            current_endpoint = client.get(f"/stashcache/origin-authfile-public?fqdn={resource_fqdn}")
+            current_endpoint = client.get(f"/origin/Authfile-public?fqdn={resource_fqdn}")
+            previous_endpoint = client.get(f"/stashcache/origin-authfile-public?fqdn={resource_fqdn}")
 
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
