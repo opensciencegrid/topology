@@ -85,7 +85,7 @@ class Resource(object):
                     global_data,
                     fqdn=resource.fqdn,
                     legacy=legacy,
-                    suppress_errors=True
+                    suppress_errors=False
                 ), "CacheAuthfilePublic"
             ),
             (
@@ -93,32 +93,51 @@ class Resource(object):
                     global_data,
                     fqdn=resource.fqdn,
                     legacy=legacy,
-                    suppress_errors=True
+                    suppress_errors=False
                 ), "CacheAuthfile"
             ),
             (
-                lambda resource: stashcache.generate_origin_authfile(
-                    resource.fqdn,
+                lambda resource: stashcache.generate_cache_scitokens(
                     global_data.get_vos_data(),
                     global_data.get_topology().get_resource_group_list(),
-                    suppress_errors=True,
-                    public_only=True
-                ), "ScitokensCache"
+                    fqdn=resource.fqdn,
+                    suppress_errors=False
+                ), "CacheScitokens"
             ),
             (
                 lambda resource: stashcache.generate_origin_authfile(
                     resource.fqdn,
                     global_data.get_vos_data(),
                     global_data.get_topology().get_resource_group_list(),
-                    suppress_errors=True,
+                    suppress_errors=False,
+                    public_only=True
+                ), "OriginAuthfilePublic"
+            ),
+            (
+                lambda resource: stashcache.generate_origin_authfile(
+                    resource.fqdn,
+                    global_data.get_vos_data(),
+                    global_data.get_topology().get_resource_group_list(),
+                    suppress_errors=False,
                     public_only=False
-                ), "ScitokensOrigin"
+                ), "OriginAuthfile"
+            ),
+            (
+                lambda resource: stashcache.generate_origin_scitokens(
+                    global_data.get_vos_data(),
+                    global_data.get_topology().get_resource_group_list(),
+                    fqdn=resource.fqdn,
+                    suppress_errors=False
+                ), "OriginScitokens"
             ),
         ]
 
         stashcache_files = {}
         for (file_generator, file_name) in file_generators_and_file_names:
-            stashcache_files[file_name] = file_generator(self)
+            try:
+                stashcache_files[file_name] = file_generator(self)
+            except Exception as error:
+                pass
 
         stashcache_files = {k: v for k, v in stashcache_files.items() if v}  # Remove empty dicts
 
