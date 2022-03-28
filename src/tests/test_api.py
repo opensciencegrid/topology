@@ -69,8 +69,8 @@ class TestAPI:
         for resource in resources.values():
 
             resource_fqdn = resource["FQDN"]
-            previous_endpoint = client.get(f"/cache/Authfile?fqdn={resource_fqdn}")
-            current_endpoint = client.get(f"/stashcache/authfile?cache_fqdn={resource_fqdn}")
+            previous_endpoint = client.get(f"/stashcache/authfile?cache_fqdn={resource_fqdn}")
+            current_endpoint = client.get(f"/cache/Authfile?fqdn={resource_fqdn}")
 
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
@@ -80,8 +80,8 @@ class TestAPI:
         for resource in resources.values():
 
             resource_fqdn = resource["FQDN"]
-            previous_endpoint = client.get(f"/cache/Authfile-public?fqdn={resource_fqdn}")
-            current_endpoint = client.get(f"/stashcache/authfile-public?cache_fqdn={resource_fqdn}")
+            current_endpoint = client.get(f"/cache/Authfile-public?fqdn={resource_fqdn}")
+            previous_endpoint = client.get(f"/stashcache/authfile-public?cache_fqdn={resource_fqdn}")
 
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
@@ -91,8 +91,8 @@ class TestAPI:
         for resource in resources.values():
 
             resource_fqdn = resource["FQDN"]
-            previous_endpoint = client.get(f"/origin/Authfile?fqdn={resource_fqdn}")
-            current_endpoint = client.get(f"/stashcache/origin-authfile?fqdn={resource_fqdn}")
+            current_endpoint = client.get(f"/origin/Authfile?fqdn={resource_fqdn}")
+            previous_endpoint = client.get(f"/stashcache/origin-authfile?fqdn={resource_fqdn}")
 
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
@@ -102,8 +102,8 @@ class TestAPI:
         for resource in resources.values():
 
             resource_fqdn = resource["FQDN"]
-            previous_endpoint = client.get(f"/origin/Authfile-public?fqdn={resource_fqdn}")
-            current_endpoint = client.get(f"/stashcache/origin-authfile-public?fqdn={resource_fqdn}")
+            current_endpoint = client.get(f"/origin/Authfile-public?fqdn={resource_fqdn}")
+            previous_endpoint = client.get(f"/stashcache/origin-authfile-public?fqdn={resource_fqdn}")
 
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data

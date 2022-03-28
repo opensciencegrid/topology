@@ -375,7 +375,7 @@ Resources:
       StorageCapacityMin: 
       TapeCapacity: 
   BNL_ATLAS_SE_AWS_East:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -395,7 +395,7 @@ Resources:
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
-          hidden: false
+          hidden: true
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -410,7 +410,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   BNL_ATLAS_SE_AWS_West:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -430,7 +430,7 @@ Resources:
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
-          hidden: false
+          hidden: true
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -445,7 +445,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   BNL_ATLAS_SE_AWS_West2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -465,7 +465,7 @@ Resources:
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
-          hidden: false
+          hidden: true
     VOOwnership:
       ATLAS: 100
     WLCGInformation:

@@ -387,7 +387,7 @@ def oasis_managers():
 def _get_cache_authfile(public_only):
     if not stashcache:
         return Response("Can't get authfile: stashcache module unavailable", status=503)
-    cache_fqdn = request.args.get("cache_fqdn") if request.args.get("cache_fqdn") else request.args.get("fqdn")
+    cache_fqdn = request.args.get("fqdn") if request.args.get("fqdn") else request.args.get("cache_fqdn")
     try:
         if public_only:
             generate_function = stashcache.generate_public_cache_authfile
@@ -450,7 +450,7 @@ def _get_scitoken_file(fqdn, get_scitoken_function):
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
 
     if not fqdn:
-        return Response("FQDN of cache or origin server required in the 'cache_fqdn' or 'origin_fqdn' argument", status=400)
+        return Response("FQDN of cache or origin server required in the 'fqdn' argument", status=400)
 
     try:
         scitoken_file = get_scitoken_function(fqdn)
@@ -800,7 +800,7 @@ if __name__ == '__main__':
     if "--auth" in sys.argv[1:]:
         default_authorized = True
     logging.basicConfig(level=logging.DEBUG)
-    app.run(debug=True, use_reloader=True, port=9000)
+    app.run(debug=True, use_reloader=True)
 else:
     root = logging.getLogger()
     root.addHandler(flask.logging.default_handler)
