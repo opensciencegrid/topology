@@ -5,7 +5,7 @@ from logging import getLogger
 from typing import Dict, List, Optional
 
 
-from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict
+from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape
 from .contacts_reader import ContactsData
 
 
@@ -23,6 +23,37 @@ class VOsData(object):
 
     def add_vo(self, vo_name, vo_data):
         self.vos[vo_name] = vo_data
+
+    def get_expansion(self, authorized=False, filters: Filters = None):
+        if not filters:
+            filters = Filters()
+        expanded_vo_list = []
+        for vo_name, vo_data in sorted(self.vos.items(), key=lambda x: x[0].lower()):
+            try:
+                expanded_vo_data = self._expand_vo(vo_name, authorized=authorized, filters=filters)
+
+                # Add the regex pattern from the scitokens mapfile
+                if not is_null(vo_data, "Credentials", "TokenIssuers"):
+                    for index, token_issuer in enumerate(vo_data["Credentials"]["TokenIssuers"]):
+                        url = token_issuer.get("URL")
+                        subject = token_issuer.get("Subject", "")
+                        pattern = ""
+                        if url:
+                            if subject:
+                                pattern = f'/^{escape(url)},{escape(subject)}$/'
+                            else:
+                                pattern = f'/^{escape(url)},/'
+
+                        if pattern:
+                            expanded_vo_data["Credentials"]["TokenIssuers"]["TokenIssuer"][index]['Pattern'] = pattern
+
+                if expanded_vo_data:
+                    expanded_vo_list.append(expanded_vo_data)
+
+            except (KeyError, ValueError, AttributeError) as err:
+                log.exception("Problem with VO data for %s: %s", vo_name, err)
+
+        return expanded_vo_list
 
     def get_tree(self, authorized=False, filters: Filters = None) -> Dict:
         if not filters:
