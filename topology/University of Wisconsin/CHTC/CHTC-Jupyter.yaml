@@ -1,29 +1,28 @@
-Production: false
+Production: true
 SupportCenter: Self Supported
 
 GroupDescription: >-
-  EPs for the JupyterHub service at CHTC.
+  EPs for the Jupyter service at CHTC.
 
-  All FQDNs are fake.
-
-  Each user of the service gets their own EP for developing and testing
-  potential OSPool jobs. Thus, each EP will be ephemeral, existing only
-  as long as its corresponding user is using the service.
-
-GroupID: 1147
+GroupID: 1149
 
 Resources:
-  CHTC-Jupyter-DEV-EP:
+  CHTC-Jupyter-User-EP:
     Active: true
     Description: >-
-      EPs for development and testing of the JupyterHub service.
-    ID: 1269
+      Each user of the Jupyter service gets their own EP for developing and
+      testing potential OSPool jobs. Thus, each EP will be ephemeral,
+      existing only as long as its corresponding user is using the service.
+
+      The FQDN is a logical descriptor.
+
+    ID: 1274
+
     ContactLists:
       Administrative Contact:
         Primary:
           ID: a2619d19dc51fa28b8e306140d6e216c1361ebe5
           Name: Brian Aydemir
-
       Security Contact:
         Primary:
           ID: a2619d19dc51fa28b8e306140d6e216c1361ebe5
@@ -32,7 +31,7 @@ Resources:
           ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
           Name: Brian Bockelman
 
-    FQDN: dev-ep.jupyter.chtc.wisc.edu
+    FQDN: user-ep.jupyter.chtc.wisc.edu
     Services:
       Execution Endpoint:
         Description: Execution Endpoint
