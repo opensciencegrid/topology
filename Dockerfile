@@ -16,6 +16,7 @@ RUN \
       mod_ssl \
       gridsite \
       osg-ca-certs \
+      /usr/bin/pkill \
     && yum clean all && rm -rf /var/cache/yum/*
 
 WORKDIR /app
