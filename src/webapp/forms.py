@@ -177,10 +177,10 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
         return True
 
     def get_start_datetime(self):
-        return self.start_datetime.data - datetime.timedelta(minutes=int(self.utc_offset.data))
+        return self.start_datetime.data + datetime.timedelta(minutes=int(self.utc_offset.data))
 
     def get_end_datetime(self):
-        return self.end_datetime.data - datetime.timedelta(minutes=int(self.utc_offset.data))
+        return self.end_datetime.data + datetime.timedelta(minutes=int(self.utc_offset.data))
 
     def get_yaml(self, resources, service_names_by_resource) -> str:
 
@@ -266,10 +266,10 @@ class GenerateDowntimeForm(FlaskForm):
         return True
 
     def get_start_datetime(self):
-        return self.start_datetime.data - datetime.timedelta(minutes=int(self.utc_offset.data))
+        return self.start_datetime.data + datetime.timedelta(minutes=int(self.utc_offset.data))
 
     def get_end_datetime(self):
-        return self.end_datetime.data - datetime.timedelta(minutes=int(self.utc_offset.data))
+        return self.end_datetime.data + datetime.timedelta(minutes=int(self.utc_offset.data))
 
     def get_yaml(self) -> str:
 
