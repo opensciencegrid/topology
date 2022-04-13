@@ -146,6 +146,7 @@ def main():
     errors += test_17_osdf_data(rgs, rgfns)
     warnings += test_18_osdf_data_cache_warnings(rgs, rgfns, vomap)
     warnings += test_19_osdf_data_origin_warnings(rgs, rgfns, vomap)
+    errors += test_20_fqdn_unique_xrootd(rgs, rgfns)
 
 
     print("%d Resource Group files processed." % len(rgs))
@@ -173,6 +174,8 @@ _emsgs = {
     'ResGrpID'      : "Resource Groups must contain a numeric ID",
     'SiteUnique'    : "Site names must be unique across Facilities",
     'FQDNUnique'    : "FQDNs must be unique across the OSG topology",
+    'FQDNUniqueXRootD'
+                    : "FQDNs must be unique for XRootD services",
     'VOOwnership100': "Total VOOwnership must not exceed 100%",
     'NoServices'    : "Valid Services are listed here: %s" % _services_url,
     'NoSupCenter'   : "Valid Support Centers are listed here: %s" % _sups_url,
@@ -791,6 +794,39 @@ def test_19_osdf_data_origin_warnings(rgs, rgfns, vomap):
                               % (rgfn, rname, voname))
                         warnings += 1
     return warnings
+
+
+def test_20_fqdn_unique_xrootd(rgs, rgfns):
+    # fqdns should be unique across all resources in all sites,
+    # but in any case MUST be unique for XRootD services (SOFTWARE-5065)
+
+    errors = 0
+    n2rg = autodict()
+
+    xrd_svcs = ("XRootD origin server", "XRootD cache server")
+
+    for rg,rgfn in zip(rgs,rgfns):
+        for rname,rdict in rg['Resources'].items():
+            fqdn = rdict['FQDN']
+            svcs = rdict['Services']
+            n2rg[fqdn] += [(rgfn,rname,svcs)]
+
+    for fqdn, rgflist in sorted(n2rg.items()):
+        if len(rgflist) == 1:
+            continue
+
+        if any( svc in svcs for _,_,svcs in rgflist for svc in xrd_svcs ):
+            print_emsg_once('FQDNUniqueXRootD')
+            print("Duplicate FQDN '%s' used for XRootD services:" % fqdn)
+
+            for rgfn, rname, svcs in rgflist:
+                for svc in xrd_svcs:
+                    if svc in svcs:
+                        print(" - '%s' on '%s' (%s)" % (svc,rname,rgfn))
+
+            errors += 1
+
+    return errors
 
 
 if __name__ == '__main__':
