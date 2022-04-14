@@ -820,7 +820,7 @@ def test_20_fqdn_unique_xrootd(rgs, rgfns):
             print("Duplicate FQDN '%s' used for XRootD services:" % fqdn)
 
             for rgfn, rname, svcs in rgflist:
-                print(" - %s (%s)" % (rname,rgfile))
+                print(" - %s (%s)" % (rname,rgfn))
                 for svc in xrd_svcs:
                     if svc in svcs:
                         print("   - %s" % svc)
