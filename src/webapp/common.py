@@ -8,6 +8,7 @@ import shlex
 import subprocess
 import sys
 from typing import Dict, List, Union, AnyStr
+from functools import wraps
 
 log = getLogger(__name__)
 
@@ -75,7 +76,7 @@ def ensure_list(x) -> List:
     return [x]
 
 
-def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
+def simplify_attr_list(data: Union[Dict, List], namekey: str, del_name: bool = True) -> Dict:
     """
     Simplify
         [{namekey: "name1", "attr1": "val1", ...},
@@ -92,7 +93,8 @@ def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
         if is_null(new_d, namekey):
             continue
         name = new_d[namekey]
-        del new_d[namekey]
+        if del_name:
+            del new_d[namekey]
         new_data[name] = new_d
     return new_data
 
@@ -299,4 +301,36 @@ def readfile(path, logger):
             if logger:
                 logger.error("Failed to read file '%s': %s", path, e)
             return None
+
+
+def escape(pattern: str) -> str:
+    """Escapes regex characters that stopped being escaped in python 3.7"""
+
+    escaped_string = re.escape(pattern)
+
+    if sys.version_info < (3, 7):
+        return escaped_string
+
+    unescaped_characters = ['!', '"', '%', "'", ',', '/', ':', ';', '<', '=', '>', '@', "`"]
+    for unescaped_character in unescaped_characters:
+
+        escaped_string = re.sub(unescaped_character, f"\\{unescaped_character}", escaped_string)
+
+    return escaped_string
+
+
+def support_cors(f):
+
+    @wraps(f)
+    def wrapped():
+
+        response = f()
+
+        response.headers['Access-Control-Allow-Origin'] = '*'
+
+        return response
+
+    return wrapped
+
+
 

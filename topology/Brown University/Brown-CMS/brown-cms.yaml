@@ -4,7 +4,7 @@ Production: true
 Resources:
   brown-cms-gen3:
     Description: Third generation CMS T3 at Brown
-    FQDN: brux11.hep.brown.edu
+    FQDN: pbrux30cit.hep.brown.edu
     Active: true
     # ^^^ CE not set up yet
     ContactLists:
@@ -41,7 +41,7 @@ Resources:
         Description: XRootD Redirector/Server
         Details:
           hidden: false
-          uri_override: brux30.hep.brown.edu:1094
+          uri_override: pbrux30cit.hep.brown.edu:1094
       GridFtp:
         Description: GridFtp Storage Element
         Details:
