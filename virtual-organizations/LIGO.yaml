@@ -84,6 +84,8 @@ DataFederations:
         - SciTokens:
             Issuer: https://cilogon.org/ligo
             Base Path: /user/ligo
+      /user/virgo:
+        - "FQAN:/virgo"
       /gwdata:
         - PUBLIC
     AllowedOrigins:
