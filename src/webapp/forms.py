@@ -1,7 +1,7 @@
 import datetime
 
 from flask_wtf import FlaskForm
-from wtforms.fields import SelectField, SelectMultipleField, StringField, \
+from wtforms import SelectField, SelectMultipleField, StringField, \
     TextAreaField, SubmitField
 from wtforms.fields.html5 import TimeField, DateField
 from wtforms.validators import InputRequired
