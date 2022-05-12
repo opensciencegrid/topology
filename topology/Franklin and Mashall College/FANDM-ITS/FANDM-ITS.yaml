@@ -9,7 +9,7 @@ GroupDescription: This is a cluster at Franklin and Marshall College
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: 
+GroupID: 1294
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -25,7 +25,7 @@ Resources:
     Description: Hosted CE for FANDM-ITS
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: 
+    ID: 1296
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
