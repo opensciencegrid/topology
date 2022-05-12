@@ -126,6 +126,51 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
+  MWT2_CE_IU2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 Gatekeeper located at Indiana University @ Indianapolis, IN
+    FQDN: iut2-gk02.mwt2.org
+    ID:
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.53
+      AccountingName: US-MWT2
+      HEPSPEC: 308968
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 77242
+      KSI2KMin: 77242
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
   MWT2_CE_UC:
     Active: true
     ContactLists:
