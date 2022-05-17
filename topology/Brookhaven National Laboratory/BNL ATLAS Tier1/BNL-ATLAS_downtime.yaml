@@ -778,7 +778,7 @@
   Description: upgrade to dCache 7.2.16
   Severity: Outage
   StartTime: May 17, 2022 13:00 +0000
-  EndTime: May 17, 2022 17:00 +0000
+  EndTime: May 17, 2022 15:44 +0000
   CreatedTime: May 09, 2022 11:01 +0000
   ResourceName: BNL_ATLAS_1
   Services:
@@ -789,7 +789,7 @@
   Description: upgrade to dCache 7.2.16
   Severity: Outage
   StartTime: May 17, 2022 13:00 +0000
-  EndTime: May 17, 2022 17:00 +0000
+  EndTime: May 17, 2022 15:44 +0000
   CreatedTime: May 09, 2022 11:01 +0000
   ResourceName: BNL_ATLAS_2
   Services:
@@ -800,7 +800,7 @@
   Description: upgrade to dCache 7.2.16
   Severity: Outage
   StartTime: May 17, 2022 13:00 +0000
-  EndTime: May 17, 2022 17:00 +0000
+  EndTime: May 17, 2022 15:44 +0000
   CreatedTime: May 09, 2022 11:01 +0000
   ResourceName: BNL_ATLAS_3
   Services:
@@ -811,7 +811,7 @@
   Description: upgrade to dCache 7.2.16
   Severity: Outage
   StartTime: May 17, 2022 13:00 +0000
-  EndTime: May 17, 2022 17:00 +0000
+  EndTime: May 17, 2022 15:44 +0000
   CreatedTime: May 09, 2022 11:01 +0000
   ResourceName: BNL_ATLAS_4
   Services:
@@ -822,7 +822,7 @@
   Description: upgrade to dCache 7.2.16
   Severity: Outage
   StartTime: May 17, 2022 13:00 +0000
-  EndTime: May 17, 2022 17:00 +0000
+  EndTime: May 17, 2022 15:44 +0000
   CreatedTime: May 09, 2022 11:01 +0000
   ResourceName: BNL_ATLAS_6
   Services:
@@ -833,7 +833,7 @@
   Description: upgrade to dCache 7.2.16
   Severity: Outage
   StartTime: May 17, 2022 13:00 +0000
-  EndTime: May 17, 2022 17:00 +0000
+  EndTime: May 17, 2022 15:44 +0000
   CreatedTime: May 09, 2022 11:01 +0000
   ResourceName: BNL_ATLAS_7
   Services:
@@ -844,7 +844,7 @@
   Description: upgrade to dCache 7.2.16
   Severity: Outage
   StartTime: May 17, 2022 13:00 +0000
-  EndTime: May 17, 2022 17:00 +0000
+  EndTime: May 17, 2022 15:44 +0000
   CreatedTime: May 09, 2022 11:01 +0000
   ResourceName: BNL_ATLAS_8
   Services:
@@ -855,10 +855,11 @@
   Description: upgrade to dCache 7.2.16
   Severity: Outage
   StartTime: May 17, 2022 13:00 +0000
-  EndTime: May 17, 2022 17:00 +0000
+  EndTime: May 17, 2022 15:44 +0000
   CreatedTime: May 09, 2022 11:01 +0000
   ResourceName: BNL_ATLAS_SE
   Services:
+  - SRMv2.disk
   - SRMv2.tape
 # ---------------------------------------------------------
 - Class: SCHEDULED
@@ -866,7 +867,7 @@
   Description: upgrade to dCache 7.2.16
   Severity: Outage
   StartTime: May 17, 2022 13:00 +0000
-  EndTime: May 17, 2022 17:00 +0000
+  EndTime: May 17, 2022 15:44 +0000
   CreatedTime: May 09, 2022 11:01 +0000
   ResourceName: BNL_ATLAS_SE_AWS_East
   Services:
@@ -877,7 +878,7 @@
   Description: upgrade to dCache 7.2.16
   Severity: Outage
   StartTime: May 17, 2022 13:00 +0000
-  EndTime: May 17, 2022 17:00 +0000
+  EndTime: May 17, 2022 15:44 +0000
   CreatedTime: May 09, 2022 11:01 +0000
   ResourceName: BNL_ATLAS_SE_AWS_West
   Services:
@@ -888,7 +889,7 @@
   Description: upgrade to dCache 7.2.16
   Severity: Outage
   StartTime: May 17, 2022 13:00 +0000
-  EndTime: May 17, 2022 17:00 +0000
+  EndTime: May 17, 2022 15:44 +0000
   CreatedTime: May 09, 2022 11:01 +0000
   ResourceName: BNL_ATLAS_SE_AWS_West2
   Services:
@@ -899,7 +900,7 @@
   Description: upgrade to dCache 7.2.16
   Severity: Outage
   StartTime: May 17, 2022 13:00 +0000
-  EndTime: May 17, 2022 17:00 +0000
+  EndTime: May 17, 2022 15:44 +0000
   CreatedTime: May 09, 2022 11:01 +0000
   ResourceName: BNL_ATLAS_SE_GRIDFTP
   Services:
