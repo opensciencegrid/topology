@@ -322,6 +322,8 @@ Resources:
     FQDN: dcsrm.usatlas.bnl.gov
     ID: 5
     Services:
+      SRMv2.disk:
+        Description: SRM V2 endpoint for the disk only storage
       SRMv2.tape:
         Description: SRM V2 endpoint for the tape system
     VOOwnership:
