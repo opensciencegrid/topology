@@ -100,6 +100,20 @@ def map():
 
     return _fix_unicode(render_template('iframe.html.j2', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"]))
 
+@app.route('/map/leaflet_iframe')
+def leaflet_map():
+    rgsummary = global_data.get_topology().get_resource_summary()
+
+    return _fix_unicode(render_template('leaflet_iframe.html.j2', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"]))
+
+@app.route('/api/resource_group_summary')
+def resource_summary():
+    data = global_data.get_topology().get_resource_summary()["ResourceSummary"]["ResourceGroup"]
+
+    return Response(
+        to_json_bytes(simplify_attr_list(data, namekey='GroupName', del_name=False)),
+        mimetype="application/json"
+    )
 
 @app.route('/schema/<xsdfile>')
 def schema(xsdfile):
@@ -777,7 +791,7 @@ if __name__ == '__main__':
     if "--auth" in sys.argv[1:]:
         default_authorized = True
     logging.basicConfig(level=logging.DEBUG)
-    app.run(debug=True, use_reloader=True)
+    app.run(debug=True, use_reloader=True, port=9000)
 else:
     root = logging.getLogger()
     root.addHandler(flask.logging.default_handler)
