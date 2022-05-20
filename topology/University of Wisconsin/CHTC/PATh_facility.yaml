@@ -28,35 +28,3 @@ Resources:
       Execution Endpoint:
         Description: Backfill containers running in the osg production namespace.
 
-  PATh-facility-CHTC-ap7:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-        Secondary:
-          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
-          Name: Brian Lin
-        Tertiary 1:
-          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
-          Name: Matyas Selmeci
-        Tertiary 2:
-          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
-          Name: Brian Bockelman
-      Security Contact:
-        Primary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
-          Name: Aaron Moate
-    Description: PATh facility access point
-    FQDN: ap2007.chtc.wisc.edu
-    FQDNAliases:
-      - ap7.chtc.wisc.edu
-    ID: 1298
-    Services:
-      Submit Node:
-        Description: HTCondor Access Point
-        Details:
-          hidden: false
-    VOOwnership:
-      GLOW: 100
