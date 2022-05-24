@@ -25,6 +25,27 @@ Resources:
     Services:
       Execution Endpoint:
         Description: Lancium backfill containers
+  Lancium-PEP:
+    Active: true
+    Description: Lancium resources managed by the PRP Provisioner
+    ID: 1298
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+          Name: Igor Sfiligoi
+      Security Contact:
+        Primary:
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+          Name: Igor Sfiligoi
+      Site Contact:
+        Primary:
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+          Name: Igor Sfiligoi
+    FQDN: ospool-pep.lancium.com
+    Services:
+      Execution Endpoint:
+        Description: Provisioned Lancium Resources
   Lancium-LMF-Squid:
     Active: true
     Description: Squid service located at Lancium LMF datacenter
