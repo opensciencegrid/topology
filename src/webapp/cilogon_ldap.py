@@ -104,7 +104,7 @@ def get_sup_contact(contact, osgid_lookup, email_lookup):
 def supplement_contact_info(contact, sup_contact):
     for k,v in sup_contact.items():
         if k not in contact:
-            contact[k] = sup_contact
+            contact[k] = v
         elif isinstance(k, dict):
             for k2,v2 in v.items():
                 if k2 not in contact[k]:
