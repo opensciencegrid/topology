@@ -1108,3 +1108,26 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1192012151
+  Description: Cooling Maintenance
+  Severity: Outage
+  StartTime: Jun 14, 2022 12:00 +0000
+  EndTime: Jun 14, 2022 22:00 +0000
+  CreatedTime: Jun 02, 2022 20:20 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1192013614
+  Description: Cooling Maintenance
+  Severity: Outage
+  StartTime: Jun 14, 2022 12:00 +0000
+  EndTime: Jun 14, 2022 22:00 +0000
+  CreatedTime: Jun 02, 2022 20:22 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+
