@@ -102,13 +102,12 @@ def get_sup_contact(contact, osgid_lookup, email_lookup):
 
 
 def supplement_contact_info(contact, sup_contact):
-    for k,v in sup_contact.items():
+    for k in sup_contact:
         if k not in contact:
-            contact[k] = v
-        elif isinstance(contact[k], dict) and isinstance(v, dict):
-            for k2,v2 in v.items():
-                if k2 not in contact[k]:
-                    contact[k][k2] = v2
+            contact[k] = sup_contact[k]
+        elif isinstance(contact[k], dict) and isinstance(sup_contact[k], dict):
+            for k2 in set(sup_contact[k]) - set(contact[k]):
+                contact[k][k2] = sup_contact[k][k2]
 
 
 def merge_yaml_data(yaml_data_main, yaml_data_secondary):
