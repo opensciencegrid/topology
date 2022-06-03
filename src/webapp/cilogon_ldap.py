@@ -68,7 +68,7 @@ def cilogon_id_map_to_yaml_data(m):
 
 def get_osgid_lookup(yaml_data):
     osgid_lookup = {}
-    for id_, contact in yaml_data.items():
+    for contact in yaml_data.values():
         if 'CILogonID' in contact:
             osgid_lookup[contact['CILogonID']] = contact
     return osgid_lookup
@@ -76,7 +76,7 @@ def get_osgid_lookup(yaml_data):
 
 def get_email_lookup(yaml_data):
     email_lookup = {}
-    for id_, contact in yaml_data.items():
+    for contact in yaml_data.values():
         ci = contact.get('ContactInformation')
         if not ci:
             continue
