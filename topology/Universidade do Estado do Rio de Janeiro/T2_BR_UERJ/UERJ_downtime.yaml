@@ -297,5 +297,18 @@
   Services:
   - CE
 # ---------------------------------------------------------
-
+- Class: UNSCHEDULED
+  ID: 1191768908
+  Description: Due to an unexpected power outage in our facilities, several disks in
+    our distributed storage system have been experiencing failures over the past few
+    days.
+  Severity: Severe
+  StartTime: Jun 02, 2022 14:00 +0000
+  EndTime: Jun 08, 2022 20:00 +0000
+  CreatedTime: Jun 02, 2022 13:34 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+  - XRootD component
+# ---------------------------------------------------------
 
