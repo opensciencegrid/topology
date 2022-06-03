@@ -105,7 +105,7 @@ def supplement_contact_info(contact, sup_contact):
     for k,v in sup_contact.items():
         if k not in contact:
             contact[k] = v
-        elif isinstance(k, dict):
+        elif isinstance(v, dict):
             for k2,v2 in v.items():
                 if k2 not in contact[k]:
                     contact[k][k2] = v2
