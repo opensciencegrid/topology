@@ -75,8 +75,10 @@ Resource Group Downtime YAML Generator
         {{ render_dtfield(form.severity) }}
 
         {{ render_dtfield(form.utc_offset) }}
-        {{ render_dtfield(form.start_datetime) }}
-        {{ render_dtfield(form.end_datetime) }}
+        {{ render_dtfield(form.start_date) }}
+        {{ render_dtfield(form.start_time) }}
+        {{ render_dtfield(form.end_date) }}
+        {{ render_dtfield(form.end_time) }}
 
         {{ render_dtbutton(form.generate) }}
       </form>

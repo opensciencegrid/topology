@@ -591,17 +591,6 @@
   - CE
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 161449987
-  Description: Complete power outage AGLT2 UM site
-  Severity: Outage
-  StartTime: Mar 02, 2019 13:00 +0000
-  EndTime: Mar 03, 2019 20:00 +0000
-  CreatedTime: Feb 25, 2019 19:36 +0000
-  ResourceName: AGLT2-squid
-  Services:
-  - Squid
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 161449988
   Description: Complete power outage AGLT2 UM site
   Severity: Outage
@@ -755,17 +744,6 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 689278114
-  Description: major switch updates
-  Severity: Intermittent Outage
-  StartTime: Nov 03, 2020 14:00 +0000
-  EndTime: Nov 03, 2020 18:00 +0000
-  CreatedTime: Oct 28, 2020 18:30 +0000
-  ResourceName: AGLT2-squid
-  Services:
-  - Squid
-# ---------------------------------------------------------
 - Class: UNSCHEDULED
   ID: 863551970
   Description: 'major switch dead. '
@@ -897,17 +875,6 @@
   ResourceName: AGLT2_SE
   Services:
   - GridFtp
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 880782768
-  Description: server room recabling
-  Severity: Outage
-  StartTime: Jun 14, 2021 12:00 +0000
-  EndTime: Jun 22, 2021 14:00 +0000
-  CreatedTime: Jun 07, 2021 15:04 +0000
-  ResourceName: AGLT2-squid
-  Services:
-  - Squid
 # ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 881654640
