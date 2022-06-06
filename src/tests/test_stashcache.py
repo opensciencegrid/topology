@@ -17,7 +17,7 @@ def client():
         yield client
 
 
-class TestStachcache:
+class TestStashcache:
 
     def test_allowedVO_includes_ANY_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
         spy = mocker.spy(stashcache, "_generate_ligo_dns")
