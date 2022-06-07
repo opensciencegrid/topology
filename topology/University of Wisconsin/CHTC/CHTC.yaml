@@ -627,4 +627,30 @@ Resources:
       Execution Endpoint:
         Description: OSG VO backfill containers on the Tiger cluster, in the production namespace
 
+  CHTC-ap7:
+    Active: true
+    Description: The ap7.chtc.wisc.edu login node for the OSG Open Pool
+    ID: 1303
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+      Security Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+    FQDN: ap7.chtc.wisc.edu
+    FQDNAliases:
+      - ap2007.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
 SupportCenter: GLOW-TECH
