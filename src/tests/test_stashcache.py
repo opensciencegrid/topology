@@ -40,6 +40,8 @@ class TestStashcache:
 
         assert spy.call_count == 0
 
+    def test_None_fdqn_isnt_error(self, client: flask.Flask):
+        stashcache.generate_cache_authfile(global_data, None)
 
 
 if __name__ == '__main__':
