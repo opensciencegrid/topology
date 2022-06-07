@@ -237,7 +237,11 @@ def generate_cache_authfile(global_data: GlobalData,
             for g in groups:
                 id_to_dir["g {}".format(g)].add(namespace)
 
-    if legacy:
+    if legacy and resource is not None and \
+            (
+                    "ANY" in resource.data.get("AllowedVOs") or
+                    "LIGO" in resource.data.get("AllowedVOs")
+            ):
         ldappass = readfile(global_data.ligo_ldap_passfile, log)
         for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
             hash = _generate_dn_hash(dn)
