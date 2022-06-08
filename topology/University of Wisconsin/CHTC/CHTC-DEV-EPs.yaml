@@ -50,6 +50,27 @@ Resources:
         Description: Execution Endpoint 
   # ----------------------------------------------------------------------------
 
+  CHTC-DEV-EP-edquist:
+    Active: true
+    Description: EP for dev testing for edquist
+    ID: 1304
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Carl Edquist
+          ID: 606b797dcc03cad7135b7cc61b78fbc15eea7ec8
+
+      Security Contact:
+        Primary:
+          Name: Carl Edquist
+          ID: 606b797dcc03cad7135b7cc61b78fbc15eea7ec8
+
+    FQDN: dev-ep.edquist.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint 
+  # ----------------------------------------------------------------------------
+
   CHTC-DEV-EP-gthain:
     Active: true
     Description: EP for dev testing for gthain
