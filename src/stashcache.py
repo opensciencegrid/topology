@@ -83,6 +83,12 @@ class PublicAuth(AuthMethod):
     def is_public(self):
         return True
 
+    def used_in_authfile(self):
+        return True
+
+    def authfile_id(self):
+        return "u *"
+
 
 class DNAuth(AuthMethod):
     def __init__(self, dn: str):
@@ -211,6 +217,7 @@ class StashCache:
             writeback = ns_data.get("Writeback", None)
             dirlist = ns_data.get("DirList", None)
             authz_list = self.parse_authz_list(
+                path=path,
                 unparsed_authz_list=ns_data.get("Access", []),
                 suppress_errors=suppress_errors
             )
@@ -230,16 +237,16 @@ class StashCache:
         writeback = None
         dirlist = None
         for path, unparsed_authz_list in yaml_data["Namespaces"].items():
-            authz_list = self.parse_authz_list(unparsed_authz_list, suppress_errors)
+            authz_list = self.parse_authz_list(path, unparsed_authz_list, suppress_errors)
             self.namespaces[path] = Namespace(path, self.vo_name, origins, caches, authz_list, writeback, dirlist)
 
-    def parse_authz_list(self, unparsed_authz_list: List[str], suppress_errors) -> List[AuthMethod]:
+    def parse_authz_list(self, path: str, unparsed_authz_list: List[str], suppress_errors) -> List[AuthMethod]:
         authz_list = []
         for authz in unparsed_authz_list:
             try:
                 parsed_authz = parse_authz(authz)
             except DataError as err:
-                new_err = VODataError(vo_name=self.vo_name, text=str(err))
+                new_err = VODataError(vo_name=self.vo_name, text=f"Namespace {path}: {err}")
                 log_or_raise(suppress_errors, new_err)
                 continue
             if parsed_authz.is_public():
@@ -875,21 +882,20 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
 
 
 def generate_origin_authfile2(
-        origin_fqdn: str, vo_data: VOsData, resource_groups: List[ResourceGroup], suppress_errors=True, public_only=False
+        origin_fqdn: str, global_data: GlobalData, suppress_errors=True, public_only=False
 ) -> str:
+    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    vos_data = global_data.get_vos_data()
     origin_resource = _get_resource_by_fqdn(origin_fqdn, resource_groups)
     if not _resource_has_origin(origin_resource):
         return f"# {origin_fqdn} is not a registered XRootD origin server\n"
 
-    public_namespaces = set()
     public_paths = set()
-    id_to_namespaces = defaultdict(set)
     id_to_paths = defaultdict(set)
-    id_to_dn = {}
     id_to_str = {}
     warnings = []
 
-    for vo_name, vo_data in vo_data.vos.items():
+    for vo_name, vo_data in vos_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
             continue
@@ -906,7 +912,7 @@ def generate_origin_authfile2(
             if public_only:
                 continue
 
-            # Extend authz list with SSL certificate auth from allowed caches and the origin inself
+            # Extend authz list with SSL certificate (i.e. DN) auth from the origin itself, and allowed caches
             extended_authz_list: List[AuthMethod] = namespace.authz_list
 
             allowed_resources = [origin_resource]
@@ -945,10 +951,94 @@ def generate_origin_authfile2(
         paths_acl = " ".join(f"{p} lr" for p in sorted(id_to_paths[authfile_id]))
         results_lines.append(f"# {id_to_str[authfile_id]}")
         results_lines.append(f"{authfile_id} {paths_acl}")
-    if public_namespaces:
+
+    # Public paths must be at the end
+    if public_paths:
+        results_lines.append("# Public")
         paths_acl = " ".join(f"{p} lr" for p in sorted(public_paths))
         results_lines.append(f"u * {paths_acl}")
     return "\n".join(results_lines)
+
+
+def generate_origin_scitokens2(
+        origin_fqdn: str, global_data: GlobalData, suppress_errors = True
+) -> str:
+    """
+    Generate the SciTokens needed by a StashCache origin server, given the fqdn
+    of the origin server.
+
+    The scitokens config for a StashCache namespace is in the VO YAML and looks like:
+
+        DataFederations:
+            StashCache:
+                Namespaces:
+                    /store:
+                        - SciTokens:
+                            Issuer: https://scitokens.org/cms
+                            Base Path: /
+                            Restricted Path: /store
+
+    "Restricted Path" is optional.
+    `fqdn` must belong to a registered cache resource.
+
+    You may have multiple `- SciTokens:` blocks
+
+    Returns a file with a dummy "issuer" block if there are no `- SciTokens:` blocks.
+
+    If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
+    no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
+    ValueError or DataError.
+
+    """
+
+    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    vos_data = global_data.get_vos_data()
+
+    origin_resource = _get_resource_by_fqdn(origin_fqdn, resource_groups)
+    if not _resource_has_origin(origin_resource):
+        return f"# {origin_fqdn} is not a registered XRootD origin server\n"
+
+    template = """\
+[Global]
+audience = {allowed_vos_str}
+
+{issuer_blocks_str}
+"""
+
+    allowed_vos = set()
+    issuer_blocks = []
+
+    for vo_name, vo_data in vos_data.vos.items():
+        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+        if not stashcache_data:
+            continue
+        stashcache_obj = StashCache(vo_name, stashcache_data, suppress_errors)
+
+        for path, namespace in stashcache_obj.namespaces.items():
+            if namespace.is_public():
+                continue
+            if not _namespace_allows_origin(namespace, origin_resource):
+                continue
+            if not _resource_allows_namespace(origin_resource, namespace):
+                continue
+
+            for authz in namespace.authz_list:
+                if authz.used_in_scitokens_conf():
+                    issuer_blocks.append(authz.scitokens_conf_block())
+                    allowed_vos.add(vo_name)
+
+    # Older plugin versions require at least one issuer block (SOFTWARE-4389)
+    if not issuer_blocks:
+        issuer_blocks.append("""\
+[Issuer https://scitokens.org/nonexistent]
+issuer = https://scitokens.org/nonexistent
+base_path = "/no-issuers-found"
+""")
+
+    issuer_blocks_str = "\n".join(issuer_blocks)
+    allowed_vos_str = ", ".join(sorted(allowed_vos))
+
+    return template.format(**locals()).rstrip() + "\n"
 
 
 def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
