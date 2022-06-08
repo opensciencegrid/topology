@@ -44,6 +44,7 @@ class DataError(Exception):
 class NotRegistered(Exception):
     """Raised when the FQDN is not registered at all"""
 
+
 class AuthMethod:
     def is_public(self):
         return False
@@ -118,13 +119,13 @@ class Namespace:
                  path: str,
                  origins: List[str] = None,
                  caches: List[str] = None,
-                 access: List[AuthMethod] = None,
+                 authz_list: List[AuthMethod] = None,
                  writeback: Optional[str] = None,
                  dirlist: Optional[str] = None):
         self.path = path
         self.origins = origins or []
         self.caches = caches or []
-        self.access = access or []
+        self.authz_list = authz_list or []
         self.writeback = writeback
         self.dirlist = dirlist
 
@@ -161,9 +162,10 @@ def parse_authz(authz: Union[str, Dict]) -> AuthMethod:
 
 # TODO EC
 class StashCache:
-    def __init__(self, vo_name: str, namespaces: List[Namespace] = None):
+    def __init__(self, vo_name: str, yaml_data: Dict):
         self.vo_name = vo_name
-        self.namespaces = namespaces or []
+        self.namespaces = []
+        self.load_yaml(yaml_data)
 
     def load_yaml(self, yaml_data: Dict):
         if is_null(yaml_data, "Namespaces"):
@@ -176,11 +178,11 @@ class StashCache:
             caches = ns_data.get("AllowedCaches", [])
             writeback = ns_data.get("Writeback", None)
             dirlist = ns_data.get("DirList", None)
-            access = []
+            authz_list = []
             for authz in ns_data.get("Access", []):
-                access.append(parse_authz(authz))
+                authz_list.append(parse_authz(authz))
             self.namespaces.append(Namespace(
-                path, origins, caches, access, writeback, dirlist
+                path, origins, caches, authz_list, writeback, dirlist
             ))
 
     def load_old_yaml(self, yaml_data: Dict):
@@ -188,12 +190,10 @@ class StashCache:
         caches = yaml_data.get("AllowedCaches", [])
         writeback = None
         dirlist = None
-        for path, authz_list in yaml_data["Namespaces"].items():
-            access = []
-            for authz in authz_list:
-                access.append(parse_authz(authz))
+        for path, unparsed_authz_list in yaml_data["Namespaces"].items():
+            authz_list = [parse_authz(authz) for authz in unparsed_authz_list]
             self.namespaces.append(Namespace(
-                path, origins, caches, access, writeback, dirlist
+                path, origins, caches, authz_list, writeback, dirlist
             ))
 
 
@@ -639,6 +639,42 @@ def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_group
     return origin_resource.name in allowed_origins
 
 
+def _origin_is_allowed_in_path(origin_hostname, path: str, stashcache_obj: StashCache, resource_groups, suppress_errors=True):
+    origin_resource = _get_resource_by_fqdn(origin_hostname, resource_groups)
+    if not origin_resource:
+        if suppress_errors:
+            return False
+        else:
+            raise NotRegistered(origin_hostname)
+    if 'XRootD origin server' not in origin_resource.service_names:
+        if suppress_errors:
+            return False
+        else:
+            raise DataError("{} (resource name {}) does not provide an XRootD origin server.".format(origin_hostname, origin_resource.name))
+    allowed_vos = origin_resource.data.get("AllowedVOs")
+    if allowed_vos is None:
+        if suppress_errors:
+            return False
+        else:
+            raise DataError("Origin server at {} (resource name {}) does not provide an AllowedVOs list.".format(origin_hostname, origin_resource.name))
+
+    vo_name = stashcache_obj.vo_name
+    if ANY not in allowed_vos and vo_name not in allowed_vos:
+        return False
+
+    for namespace in stashcache_obj.namespaces:
+        if namespace.path != path:
+            continue
+
+        if not namespace.origins:
+            if suppress_errors:
+                return False
+            else:
+                raise DataError("VO {}, Namespace {} in StashCache does not provide an AllowedOrigins list.".format(vo_name, namespace.path))
+        else:
+            return origin_resource.name in namespace.origins
+
+
 def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True) -> List[Resource]:
     allowed_caches = stashcache_data.get("AllowedCaches")
     if allowed_caches is None:
@@ -779,29 +815,31 @@ audience = {allowed_vos_str}
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
             continue
+        stashcache_obj = StashCache(vo_name, stashcache_data)
 
         if not _origin_is_allowed(fqdn, vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
             continue
 
-        namespaces = stashcache_data.get("Namespaces")
+        namespaces = stashcache_obj.namespaces
         if not namespaces:
             if suppress_errors:
                 continue
             else:
                 raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
 
-        for dirname, authz_list in namespaces.items():
-            if not authz_list:
+        for namespace in namespaces:
+            if not namespace.authz_list:
                 if suppress_errors:
                     continue
                 else:
-                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(dirname, vo_name))
+                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(namespace.path, vo_name))
 
-            for authz in authz_list:
-                if not isinstance(authz, dict) or not isinstance(authz.get("SciTokens"), dict):
+            for authz in namespace.authz_list:
+                if not authz.used_in_scitokens_conf():
                     continue
-                issuer_blocks.append(_get_scitokens_issuer_block(vo_name, authz['SciTokens'],
-                                                                 dirname, suppress_errors))
+                assert isinstance(authz, SciTokenAuth)
+                issuer_blocks.append(authz.scitokens_conf_block())
+                # TODO figure this out somehow
                 allowed_vos.append(vo_name)
 
     # Older plugin versions require at least one issuer block (SOFTWARE-4389)
