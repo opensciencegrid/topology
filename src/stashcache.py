@@ -38,8 +38,22 @@ __oid_map = {
 __dn_split_re = re.compile("/([A-Za-z]+)=")
 
 
+def log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=log.debug):
+    if suppress_errors:
+        logmethod("%s %s", type(an_exception), an_exception)
+    else:
+        raise an_exception
+
+
 class DataError(Exception):
     """Raised when there is a problem in the topology or VO data"""
+
+
+class VODataError(DataError):
+    def __init__(self, vo_name, text):
+        DataError.__init__(self, f"VO {vo_name}: {text}")
+        self.vo_name = vo_name
+
 
 class NotRegistered(Exception):
     """Raised when the FQDN is not registered at all"""
@@ -162,39 +176,55 @@ def parse_authz(authz: Union[str, Dict]) -> AuthMethod:
 
 # TODO EC
 class StashCache:
-    def __init__(self, vo_name: str, yaml_data: Dict):
+    def __init__(self, vo_name: str, yaml_data: Dict, suppress_errors: bool = True):
         self.vo_name = vo_name
-        self.namespaces = []
-        self.load_yaml(yaml_data)
+        self.namespaces = {}
+        self.load_yaml(yaml_data, suppress_errors)
 
-    def load_yaml(self, yaml_data: Dict):
+    def load_yaml(self, yaml_data: Dict, suppress_errors: bool):
         if is_null(yaml_data, "Namespaces"):
             return
         if not is_null(yaml_data, "AllowedOrigins") or not is_null(yaml_data, "AllowedCaches"):
-            return self.load_old_yaml(yaml_data)
+            return self.load_old_yaml(yaml_data, suppress_errors)
 
         for path, ns_data in yaml_data["Namespaces"].items():
-            origins = ns_data.get("AllowedOrigins", [])
-            caches = ns_data.get("AllowedCaches", [])
+            if "AllowedOrigins" not in ns_data:
+                log_or_raise(suppress_errors, VODataError(self.vo_name, f"Namespace {path} has no AllowedOrigins list"))
+                origins = []
+            else:
+                origins = ns_data["AllowedOrigins"]
+            if "AllowedCaches" not in ns_data:
+                log_or_raise(suppress_errors, VODataError(self.vo_name, f"Namespace {path} has no AllowedCaches list"))
+                caches = []
+            else:
+                caches = ns_data["AllowedCaches"]
             writeback = ns_data.get("Writeback", None)
             dirlist = ns_data.get("DirList", None)
             authz_list = []
             for authz in ns_data.get("Access", []):
                 authz_list.append(parse_authz(authz))
-            self.namespaces.append(Namespace(
+            self.namespaces[path]= Namespace(
                 path, origins, caches, authz_list, writeback, dirlist
-            ))
+            )
 
-    def load_old_yaml(self, yaml_data: Dict):
-        origins = yaml_data.get("AllowedOrigins", [])
-        caches = yaml_data.get("AllowedCaches", [])
+    def load_old_yaml(self, yaml_data: Dict, suppress_errors: bool):
+        origins = []
+        try:
+            origins = yaml_data["AllowedOrigins"]
+        except KeyError:
+            log_or_raise(suppress_errors, VODataError(self.vo_name, "StashCache has no AllowedOrigins list"))
+        caches = []
+        try:
+            caches = yaml_data["AllowedCaches"]
+        except KeyError:
+            log_or_raise(suppress_errors, VODataError(self.vo_name, "StashCache has no AllowedCaches list"))
         writeback = None
         dirlist = None
         for path, unparsed_authz_list in yaml_data["Namespaces"].items():
             authz_list = [parse_authz(authz) for authz in unparsed_authz_list]
-            self.namespaces.append(Namespace(
+            self.namespaces[path] = Namespace(
                 path, origins, caches, authz_list, writeback, dirlist
-            ))
+            )
 
 
 def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
@@ -662,17 +692,18 @@ def _origin_is_allowed_in_path(origin_hostname, path: str, stashcache_obj: Stash
     if ANY not in allowed_vos and vo_name not in allowed_vos:
         return False
 
-    for namespace in stashcache_obj.namespaces:
-        if namespace.path != path:
-            continue
+    if path not in stashcache_obj.namespaces:
+        return False
 
-        if not namespace.origins:
-            if suppress_errors:
-                return False
-            else:
-                raise DataError("VO {}, Namespace {} in StashCache does not provide an AllowedOrigins list.".format(vo_name, namespace.path))
+    namespace = stashcache_obj.namespaces[path]
+
+    if not namespace.origins:
+        if suppress_errors:
+            return False
         else:
-            return origin_resource.name in namespace.origins
+            raise DataError("VO {}, Namespace {} in StashCache does not provide an AllowedOrigins list.".format(vo_name, namespace.path))
+    else:
+        return origin_resource.name in namespace.origins
 
 
 def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True) -> List[Resource]:
