@@ -77,6 +77,9 @@ class AuthMethod:
 
 
 class PublicAuth(AuthMethod):
+    def __str__(self):
+        return "PUBLIC"
+
     def is_public(self):
         return True
 
@@ -85,20 +88,25 @@ class DNAuth(AuthMethod):
     def __init__(self, dn: str):
         self.dn = dn
 
+    def __str__(self):
+        return "DN: " + self.dn
+
     def used_in_authfile(self):
         return True
 
-    @property
     def dn_hash(self):
         return _generate_dn_hash(self.dn)
 
     def authfile_id(self):
-        return f"u {self.dn_hash}"
+        return f"u {self.dn_hash()}"
 
 
 class FQANAuth(AuthMethod):
     def __init__(self, fqan: str):
         self.fqan = fqan
+
+    def __str__(self):
+        return "FQAN: " + self.fqan
 
     def used_in_authfile(self):
         return True
@@ -112,6 +120,9 @@ class SciTokenAuth(AuthMethod):
         self.issuer = issuer
         self.base_path = base_path
         self.restricted_path = restricted_path
+
+    def __str__(self):
+        return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path}"
 
     def used_in_scitokens_conf(self):
         return True
@@ -129,19 +140,18 @@ base_path = {self.base_path}
 
 
 class Namespace:
-    def __init__(self,
-                 path: str,
-                 origins: List[str] = None,
-                 caches: List[str] = None,
-                 authz_list: List[AuthMethod] = None,
-                 writeback: Optional[str] = None,
-                 dirlist: Optional[str] = None):
+    def __init__(self, path: str, vo_name: str, origins: List[str] = None, caches: List[str] = None,
+                 authz_list: List[AuthMethod] = None, writeback: Optional[str] = None, dirlist: Optional[str] = None):
         self.path = path
+        self.vo_name = vo_name
         self.origins = origins or []
         self.caches = caches or []
         self.authz_list = authz_list or []
         self.writeback = writeback
         self.dirlist = dirlist
+
+    def is_public(self) -> bool:
+        return self.authz_list and self.authz_list[0].is_public()
 
 
 def parse_authz(authz: Union[str, Dict]) -> AuthMethod:
@@ -178,7 +188,7 @@ def parse_authz(authz: Union[str, Dict]) -> AuthMethod:
 class StashCache:
     def __init__(self, vo_name: str, yaml_data: Dict, suppress_errors: bool = True):
         self.vo_name = vo_name
-        self.namespaces = {}
+        self.namespaces: Dict[str, Namespace] = {}
         self.load_yaml(yaml_data, suppress_errors)
 
     def load_yaml(self, yaml_data: Dict, suppress_errors: bool):
@@ -200,12 +210,11 @@ class StashCache:
                 caches = ns_data["AllowedCaches"]
             writeback = ns_data.get("Writeback", None)
             dirlist = ns_data.get("DirList", None)
-            authz_list = []
-            for authz in ns_data.get("Access", []):
-                authz_list.append(parse_authz(authz))
-            self.namespaces[path]= Namespace(
-                path, origins, caches, authz_list, writeback, dirlist
+            authz_list = self.parse_authz_list(
+                unparsed_authz_list=ns_data.get("Access", []),
+                suppress_errors=suppress_errors
             )
+            self.namespaces[path] = Namespace(path, self.vo_name, origins, caches, authz_list, writeback, dirlist)
 
     def load_old_yaml(self, yaml_data: Dict, suppress_errors: bool):
         origins = []
@@ -221,10 +230,23 @@ class StashCache:
         writeback = None
         dirlist = None
         for path, unparsed_authz_list in yaml_data["Namespaces"].items():
-            authz_list = [parse_authz(authz) for authz in unparsed_authz_list]
-            self.namespaces[path] = Namespace(
-                path, origins, caches, authz_list, writeback, dirlist
-            )
+            authz_list = self.parse_authz_list(unparsed_authz_list, suppress_errors)
+            self.namespaces[path] = Namespace(path, self.vo_name, origins, caches, authz_list, writeback, dirlist)
+
+    def parse_authz_list(self, unparsed_authz_list: List[str], suppress_errors) -> List[AuthMethod]:
+        authz_list = []
+        for authz in unparsed_authz_list:
+            try:
+                parsed_authz = parse_authz(authz)
+            except DataError as err:
+                new_err = VODataError(vo_name=self.vo_name, text=str(err))
+                log_or_raise(suppress_errors, new_err)
+                continue
+            if parsed_authz.is_public():
+                return [parsed_authz]
+            else:
+                authz_list.append(parsed_authz)
+        return authz_list
 
 
 def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
@@ -302,7 +324,7 @@ def _generate_dn_hash(dn: str) -> str:
     return "%08lx.0" % int_summary
 
 
-def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Resource:
+def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Optional[Resource]:
     """Returns the Resource that has the given FQDN; if multiple Resources
     have the same FQDN, returns the first one.
 
@@ -311,6 +333,15 @@ def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Re
         for resource in group.resources:
             if fqdn.lower() == resource.fqdn.lower():
                 return resource
+    return None
+
+
+def _resource_has_cache(resource: Resource) -> bool:
+    return "XRootD cache server" in resource.service_names
+
+
+def _resource_has_origin(resource: Resource) -> bool:
+    return "XRootD origin server" in resource.service_names
 
 
 def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup], suppress_errors: bool) -> Optional[Resource]:
@@ -733,6 +764,44 @@ def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_erro
     return resources
 
 
+def _resource_allows_namespace(resource: Resource, namespace: Optional[Namespace]) -> bool:
+    allowed_vos = resource.data.get("AllowedVOs", [])
+    if ANY in allowed_vos:
+        return True
+    if namespace and namespace.vo_name in allowed_vos:
+        return True
+    return False
+
+
+def _namespace_allows_origin(namespace: Namespace, origin: Optional[Resource]) -> bool:
+    return origin and origin.name in namespace.origins
+
+
+def _namespace_allows_cache(namespace: Namespace, cache: Optional[Resource]) -> bool:
+    if ANY_PUBLIC in namespace.caches:
+        return True
+    return cache and cache.name in namespace.caches
+
+
+def _get_allowed_caches_for_namespace(
+        namespace: Namespace, resource_groups: List[ResourceGroup], suppress_errors=True
+) -> List[Resource]:
+    resources = []
+    for group in resource_groups:
+        for resource in group.resources:
+            if not _resource_has_cache(resource):
+                continue
+
+            if not _resource_allows_namespace(resource, namespace):
+                continue
+
+            if not _namespace_allows_cache(namespace, resource):
+                continue
+
+            resources.append(resource)
+    return resources
+
+
 def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress_errors=True, public_only=False):
     public_namespaces = set()
     id_to_namespaces = defaultdict(set)
@@ -803,6 +872,83 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
     if public_namespaces:
         results += "\nu * {}\n".format(" ".join("{} lr".format(i) for i in sorted(public_namespaces)))
     return results
+
+
+def generate_origin_authfile2(
+        origin_fqdn: str, vo_data: VOsData, resource_groups: List[ResourceGroup], suppress_errors=True, public_only=False
+) -> str:
+    origin_resource = _get_resource_by_fqdn(origin_fqdn, resource_groups)
+    if not _resource_has_origin(origin_resource):
+        return f"# {origin_fqdn} is not a registered XRootD origin server\n"
+
+    public_namespaces = set()
+    public_paths = set()
+    id_to_namespaces = defaultdict(set)
+    id_to_paths = defaultdict(set)
+    id_to_dn = {}
+    id_to_str = {}
+    warnings = []
+
+    for vo_name, vo_data in vo_data.vos.items():
+        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+        if not stashcache_data:
+            continue
+        stashcache_obj = StashCache(vo_name, stashcache_data, suppress_errors)
+
+        for path, namespace in stashcache_obj.namespaces.items():
+            if not _namespace_allows_origin(namespace, origin_resource):
+                continue
+            if not _resource_allows_namespace(origin_resource, namespace):
+                continue
+            if namespace.is_public():
+                public_paths.add(path)
+                continue
+            if public_only:
+                continue
+
+            # Extend authz list with SSL certificate auth from allowed caches and the origin inself
+            extended_authz_list: List[AuthMethod] = namespace.authz_list
+
+            allowed_resources = [origin_resource]
+            # Add caches
+            allowed_caches = _get_allowed_caches_for_namespace(namespace, resource_groups, suppress_errors)
+            if allowed_caches:
+                allowed_resources.extend(allowed_caches)
+            else:
+                warnings.append(f"# WARNING: No working cache / namespace combinations found for {path}")
+
+            for resource in allowed_resources:
+                dn = resource.data.get("DN")
+                if dn:
+                    extended_authz_list.append(DNAuth(dn))
+                else:
+                    warnings.append(
+                        f"# WARNING: Resource {resource.name} was skipped for VO {vo_name}, namespace {path}"
+                        f" because the resource does not provide a DN."
+                    )
+                    continue
+
+            for authz in extended_authz_list:
+                if authz.used_in_authfile():
+                    id_to_paths[authz.authfile_id()].add(path)
+                    id_to_str[authz.authfile_id()] = str(authz)
+
+    if not id_to_paths and not public_paths:
+        if suppress_errors:
+            return ""
+        else:
+            raise DataError("No working StashCache resource/VO combinations found")
+
+    results_lines = []
+    results_lines.extend(warnings)
+    for authfile_id in id_to_paths:
+        paths_acl = " ".join(f"{p} lr" for p in sorted(id_to_paths[authfile_id]))
+        results_lines.append(f"# {id_to_str[authfile_id]}")
+        results_lines.append(f"{authfile_id} {paths_acl}")
+    if public_namespaces:
+        paths_acl = " ".join(f"{p} lr" for p in sorted(public_paths))
+        results_lines.append(f"u * {paths_acl}")
+    return "\n".join(results_lines)
 
 
 def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
