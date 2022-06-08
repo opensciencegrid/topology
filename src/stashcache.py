@@ -7,12 +7,17 @@ import ldap3
 import asn1
 import hashlib
 
-from webapp.common import readfile
+from webapp.common import is_null, readfile
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup
 from webapp.vos_data import VOsData
 
 import logging
+
+
+ANY = "ANY"
+PUBLIC = "PUBLIC"
+ANY_PUBLIC = "ANY_PUBLIC"
 
 log = logging.getLogger(__name__)
 
@@ -38,6 +43,158 @@ class DataError(Exception):
 
 class NotRegistered(Exception):
     """Raised when the FQDN is not registered at all"""
+
+class AuthMethod:
+    def is_public(self):
+        return False
+
+    def used_in_authfile(self):
+        return False
+
+    def used_in_scitokens_conf(self):
+        return False
+
+    def authfile_id(self):
+        return ""
+
+    def scitokens_conf_block(self):
+        return ""
+
+
+class PublicAuth(AuthMethod):
+    def is_public(self):
+        return True
+
+
+class DNAuth(AuthMethod):
+    def __init__(self, dn: str):
+        self.dn = dn
+
+    def used_in_authfile(self):
+        return True
+
+    @property
+    def dn_hash(self):
+        return _generate_dn_hash(self.dn)
+
+    def authfile_id(self):
+        return f"u {self.dn_hash}"
+
+
+class FQANAuth(AuthMethod):
+    def __init__(self, fqan: str):
+        self.fqan = fqan
+
+    def used_in_authfile(self):
+        return True
+
+    def authfile_id(self):
+        return f"g {self.fqan}"
+
+
+class SciTokenAuth(AuthMethod):
+    def __init__(self, issuer: str, base_path: str, restricted_path: Optional[str] = None):
+        self.issuer = issuer
+        self.base_path = base_path
+        self.restricted_path = restricted_path
+
+    def used_in_scitokens_conf(self):
+        return True
+
+    def scitokens_conf_block(self):
+        block = f"""\
+[Issuer {self.issuer}]
+issuer = {self.issuer}
+base_path = {self.base_path}
+"""
+        if self.restricted_path:
+            block += f"restricted_path = {self.restricted_path}\n"
+
+        return block
+
+
+class Namespace:
+    def __init__(self,
+                 path: str,
+                 origins: List[str] = None,
+                 caches: List[str] = None,
+                 access: List[AuthMethod] = None,
+                 writeback: Optional[str] = None,
+                 dirlist: Optional[str] = None):
+        self.path = path
+        self.origins = origins or []
+        self.caches = caches or []
+        self.access = access or []
+        self.writeback = writeback
+        self.dirlist = dirlist
+
+
+def parse_authz(authz: Union[str, Dict]) -> AuthMethod:
+    # TODO: get docstring/comment from _get_user_hashes_and_groups_for_namespace
+    if isinstance(authz, dict):
+        for k, v in authz.items():
+            if k == "SciTokens":
+                try:
+                    return SciTokenAuth(
+                        issuer=v["Issuer"],
+                        base_path=v["Base Path"],
+                        restricted_path=v.get("Restricted Path", None)
+                    )
+                except (KeyError, AttributeError):
+                    raise DataError(f"Invalid authz list entry {authz}")
+            elif k == "FQAN":
+                return FQANAuth(fqan=v)
+            elif k == "DN":
+                return DNAuth(dn=v)
+            else:
+                raise DataError(f"Unknown auth type {k}")
+    elif isinstance(authz, str):
+        if authz.startswith("FQAN:"):
+            return FQANAuth(fqan=authz[5:].strip())
+        elif authz.startswith("DN:"):
+            return DNAuth(dn=authz[3:].strip())
+        elif authz.strip() == "PUBLIC":
+            return PublicAuth()
+        else:
+            raise DataError(f"Unknown authz list entry {authz}")
+
+
+# TODO EC
+class StashCache:
+    def __init__(self, vo_name: str, namespaces: List[Namespace] = None):
+        self.vo_name = vo_name
+        self.namespaces = namespaces or []
+
+    def load_yaml(self, yaml_data: Dict):
+        if is_null(yaml_data, "Namespaces"):
+            return
+        if not is_null(yaml_data, "AllowedOrigins") or not is_null(yaml_data, "AllowedCaches"):
+            return self.load_old_yaml(yaml_data)
+
+        for path, ns_data in yaml_data["Namespaces"].items():
+            origins = ns_data.get("AllowedOrigins", [])
+            caches = ns_data.get("AllowedCaches", [])
+            writeback = ns_data.get("Writeback", None)
+            dirlist = ns_data.get("DirList", None)
+            access = []
+            for authz in ns_data.get("Access", []):
+                access.append(parse_authz(authz))
+            self.namespaces.append(Namespace(
+                path, origins, caches, access, writeback, dirlist
+            ))
+
+    def load_old_yaml(self, yaml_data: Dict):
+        origins = yaml_data.get("AllowedOrigins", [])
+        caches = yaml_data.get("AllowedCaches", [])
+        writeback = None
+        dirlist = None
+        for path, authz_list in yaml_data["Namespaces"].items():
+            access = []
+            for authz in authz_list:
+                access.append(parse_authz(authz))
+            self.namespaces.append(Namespace(
+                path, origins, caches, access, writeback, dirlist
+            ))
 
 
 def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
