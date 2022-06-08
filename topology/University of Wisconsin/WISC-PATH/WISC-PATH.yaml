@@ -1,0 +1,32 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: PATh facility resources located at UW-Madison
+GroupID: 1297
+
+Resources:
+  WISC-PATH-EP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 026718919cb6a13e64c8df3b53398c7214ceeaf1
+          Name: Brian Lin
+        Secondary:
+          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+          Name: Brian Bockelman
+        Tertiary 2:
+          ID: 606b797dcc03cad7135b7cc61b78fbc15eea7ec8
+          Name: Carl Edquist
+      Security Contact:
+        Primary:
+          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          Name: Aaron Moate
+    Description: PATh facility EP located at UW-Madison
+    FQDN: wisc-svc-1.facility.path-cc.io
+    ID: 1302
+    Services:
+      Execution Endpoint:
+        Description: Backfill containers running in the PATh facility
