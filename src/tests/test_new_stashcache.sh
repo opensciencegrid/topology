@@ -40,8 +40,8 @@ do
     for arg in "${cache_args[@]}"
     do
         url=$endpoint$arg
-        printf "%s\n\n\n" "$url" >> $oldfile
-        printf "%s\n\n\n" "$url" >> $newfile
+        printf "\n------------------------\n%s\n\n\n" "$url" >> $oldfile
+        printf "\n------------------------\n%s\n\n\n" "$url" >> $newfile
         curl -L "$prod_topology/$url" | grep -v "^# /" | sort >> $oldfile
         curl -L "$test_topology/$url" | grep -v "^# DN: " | grep -v "^# FQAN: " | sort >> $newfile
     done
@@ -55,8 +55,8 @@ do
     for arg in "${origin_args[@]}"
     do
         url=$endpoint$arg
-        printf "%s\n\n\n" "$url" >> $oldfile
-        printf "%s\n\n\n" "$url" >> $newfile
+        printf "\n------------------------\n%s\n\n\n" "$url" >> $oldfile
+        printf "\n------------------------\n%s\n\n\n" "$url" >> $newfile
         curl -L "$prod_topology/$url" | grep -v "^# /" | sort >> $oldfile
         curl -L "$test_topology/$url" | grep -v "^# DN: " | grep -v "^# FQAN: " | sort >> $newfile
     done
