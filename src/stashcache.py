@@ -762,8 +762,11 @@ def _resource_allows_namespace(resource: Resource, namespace: Optional[Namespace
     allowed_vos = resource.data.get("AllowedVOs", [])
     if ANY in allowed_vos:
         return True
-    if namespace and namespace.vo_name in allowed_vos:
-        return True
+    if namespace:
+        if ANY_PUBLIC in allowed_vos and namespace.is_public():
+            return True
+        elif namespace.vo_name in allowed_vos:
+            return True
     return False
 
 
@@ -772,7 +775,7 @@ def _namespace_allows_origin(namespace: Namespace, origin: Optional[Resource]) -
 
 
 def _namespace_allows_cache(namespace: Namespace, cache: Optional[Resource]) -> bool:
-    if ANY_PUBLIC in namespace.caches:
+    if ANY in namespace.caches:
         return True
     return cache and cache.name in namespace.caches
 
