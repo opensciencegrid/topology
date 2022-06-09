@@ -66,10 +66,64 @@ def cilogon_id_map_to_yaml_data(m):
     return data
 
 
+def get_osgid_lookup(yaml_data):
+    osgid_lookup = {}
+    for contact in yaml_data.values():
+        if 'CILogonID' in contact:
+            osgid_lookup[contact['CILogonID']] = contact
+    return osgid_lookup
+
+
+def get_email_lookup(yaml_data):
+    email_lookup = {}
+    for contact in yaml_data.values():
+        ci = contact.get('ContactInformation')
+        if not ci:
+            continue
+        for Email in ('PrimaryEmail', 'SecondaryEmail'):
+            if Email in ci:
+                email_lookup[ci[Email]] = contact
+    return email_lookup
+
+
+def get_sup_contact(contact, osgid_lookup, email_lookup):
+    id_ = contact.get('CILogonID')
+    if id_ in osgid_lookup:
+        return osgid_lookup[id_]
+    ci = contact.get('ContactInformation')
+    if not ci:
+        return None
+    for Email in ('PrimaryEmail', 'SecondaryEmail'):
+        if Email in ci:
+            addr = ci[Email]
+            if addr in email_lookup:
+                return email_lookup[addr]
+    return None
+
+
+def supplement_contact_info(contact, sup_contact):
+    for k in sup_contact:
+        if k not in contact:
+            contact[k] = sup_contact[k]
+        elif isinstance(contact[k], dict) and isinstance(sup_contact[k], dict):
+            for k2 in set(sup_contact[k]) - set(contact[k]):
+                contact[k][k2] = sup_contact[k][k2]
+
+
 def merge_yaml_data(yaml_data_main, yaml_data_secondary):
+    # main is comanage (cilogon), secondary is contact db
     yd = dict(yaml_data_main)
+    osgid_lookup = get_osgid_lookup(yaml_data_secondary)
+    email_lookup = get_email_lookup(yaml_data_secondary)
+
+    for contact in yd.values():
+        sup_contact = get_sup_contact(contact, osgid_lookup, email_lookup)
+        if sup_contact:
+            supplement_contact_info(contact, sup_contact)
+
     for id_, contact in yaml_data_secondary.items():
         if id_ not in yd:
             yd[id_] = contact
+
     return yd
 
