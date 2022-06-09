@@ -528,7 +528,7 @@ def generate_cache_authfile2(
         authfile_lines[-1] = authfile_lines[-1][:-2]
     else:
         for authfile_id in id_to_paths:
-            paths_acl = " ".join(f"{p} lr" for p in sorted(id_to_paths[authfile_id]))
+            paths_acl = " ".join(f"{p} rl" for p in sorted(id_to_paths[authfile_id]))
             authfile_lines.append(f"# {id_to_str[authfile_id]}")
             authfile_lines.append(f"{authfile_id} {paths_acl}")
 
@@ -607,14 +607,14 @@ def generate_origin_authfile2(
     authfile_lines = []
     authfile_lines.extend(warnings)
     for authfile_id in id_to_paths:
-        paths_acl = " ".join(f"{p} lr" for p in sorted(id_to_paths[authfile_id]))
+        paths_acl = " ".join(f"{p} rl" for p in sorted(id_to_paths[authfile_id]))
         authfile_lines.append(f"# {id_to_str[authfile_id]}")
         authfile_lines.append(f"{authfile_id} {paths_acl}")
 
     # Public paths must be at the end
     if public_paths:
         authfile_lines.append("")
-        paths_acl = " ".join(f"{p} lr" for p in sorted(public_paths))
+        paths_acl = " ".join(f"{p} rl" for p in sorted(public_paths))
         authfile_lines.append(f"u * {paths_acl}")
 
     return "\n".join(authfile_lines) + "\n"
