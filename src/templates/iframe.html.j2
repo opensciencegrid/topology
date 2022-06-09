@@ -205,12 +205,16 @@ will want to adjust the Map.data which populates the select input and legend.
     })
 
     downloadPNG = async () => {
+        document.getElementsByClassName("leaflet-control-zoom")[0].hidden = true
+
         let dataUrl = await domtoimage.toPng(document.getElementById("print-region"))
 
         let link = document.createElement('a');
         link.download = 'OSG_Map.png';
         link.href = dataUrl;
         link.click();
+
+        document.getElementsByClassName("leaflet-control-zoom")[0].hidden = false
     }
 
     toggleFullscreen = async () => {
