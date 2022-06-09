@@ -100,12 +100,6 @@ def map():
 
     return _fix_unicode(render_template('iframe.html.j2', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"]))
 
-@app.route('/map/leaflet_iframe')
-def leaflet_map():
-    rgsummary = global_data.get_topology().get_resource_summary()
-
-    return _fix_unicode(render_template('leaflet_iframe.html.j2', resourcegroups=rgsummary["ResourceSummary"]["ResourceGroup"]))
-
 @app.route('/api/resource_group_summary')
 def resource_summary():
     data = global_data.get_topology().get_resource_summary()["ResourceSummary"]["ResourceGroup"]
