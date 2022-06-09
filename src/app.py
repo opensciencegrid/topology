@@ -330,16 +330,18 @@ def scitokens():
 
     try:
         if cache_fqdn:
-            cache_scitokens = stashcache.generate_cache_scitokens(global_data.get_vos_data(),
-                                                                global_data.get_topology().get_resource_group_list(),
-                                                                fqdn=cache_fqdn,
-                                                                suppress_errors=False)
+            cache_scitokens = stashcache.generate_cache_scitokens2(
+                cache_fqdn,
+                global_data,
+                suppress_errors=False
+            )
             return Response(cache_scitokens, mimetype="text/plain")
         elif origin_fqdn:
-            origin_scitokens = stashcache.generate_origin_scitokens(global_data.get_vos_data(),
-                                                                global_data.get_topology().get_resource_group_list(),
-                                                                fqdn=origin_fqdn,
-                                                                suppress_errors=False)
+            origin_scitokens = stashcache.generate_origin_scitokens2(
+                origin_fqdn,
+                global_data,
+                suppress_errors=False
+            )
             return Response(origin_scitokens, mimetype="text/plain")
     except stashcache.NotRegistered as e:
         return Response("# No resource registered for {}\n"
@@ -375,14 +377,11 @@ def _get_cache_authfile(public_only):
         return Response("Can't get authfile: stashcache module unavailable", status=503)
     cache_fqdn = request.args.get("fqdn") if request.args.get("fqdn") else request.args.get("cache_fqdn")
     try:
-        if public_only:
-            generate_function = stashcache.generate_public_cache_authfile
-        else:
-            generate_function = stashcache.generate_cache_authfile
-        auth = generate_function(global_data,
-                                 fqdn=cache_fqdn,
-                                 legacy=app.config["STASHCACHE_LEGACY_AUTH"],
-                                 suppress_errors=False)
+        auth = stashcache.generate_cache_authfile2(cache_fqdn,
+                                                   global_data,
+                                                   suppress_errors=False,
+                                                   public=public_only,
+                                                   legacy=app.config["STASHCACHE_LEGACY_AUTH"])
     except stashcache.NotRegistered as e:
         return Response("# No resource registered for {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
@@ -405,11 +404,10 @@ def _get_origin_authfile(public_only):
     if 'fqdn' not in request.args:
         return Response("FQDN of origin server required in the 'fqdn' argument", status=400)
     try:
-        auth = stashcache.generate_origin_authfile(request.args['fqdn'],
-                                                   global_data.get_vos_data(),
-                                                   global_data.get_topology().get_resource_group_list(),
-                                                   suppress_errors=False,
-                                                   public_only=public_only)
+        auth = stashcache.generate_origin_authfile2(origin_fqdn=request.args['fqdn'],
+                                                    global_data=global_data,
+                                                    suppress_errors=False,
+                                                    public=public_only)
     except stashcache.NotRegistered as e:
         return Response("# No resource registered for {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
@@ -458,23 +456,29 @@ def _get_scitoken_file(fqdn, get_scitoken_function):
 
 
 def _get_cache_scitoken_file():
-    fqdn = request.args.get('fqdn')
-    get_scitoken_function = lambda fqdn: stashcache.generate_cache_scitokens(global_data.get_vos_data(),
-                                                            global_data.get_topology().get_resource_group_list(),
-                                                            fqdn=fqdn,
-                                                            suppress_errors=False)
+    fqdn_arg = request.args.get("fqdn")
 
-    return _get_scitoken_file(fqdn, get_scitoken_function)
+    def get_scitoken_function(fqdn):
+        return stashcache.generate_cache_scitokens2(
+            cache_fqdn=fqdn,
+            global_data=global_data,
+            suppress_errors=False
+        )
+
+    return _get_scitoken_file(fqdn_arg, get_scitoken_function)
 
 
 def _get_origin_scitoken_file():
-    fqdn = request.args.get("fqdn")
-    get_scitoken_function = lambda fqdn: stashcache.generate_origin_scitokens(global_data.get_vos_data(),
-                                                                global_data.get_topology().get_resource_group_list(),
-                                                                fqdn=fqdn,
-                                                                suppress_errors=False)
+    fqdn_arg = request.args.get("fqdn")
 
-    return _get_scitoken_file(fqdn, get_scitoken_function)
+    def get_scitoken_function(fqdn):
+        return stashcache.generate_origin_scitokens2(
+            origin_fqdn=fqdn,
+            global_data=global_data,
+            suppress_errors=False
+        )
+
+    return _get_scitoken_file(fqdn_arg, get_scitoken_function)
 
 
 @app.route("/generate_downtime", methods=["GET", "POST"])
