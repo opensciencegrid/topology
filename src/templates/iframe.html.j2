@@ -557,7 +557,7 @@ will want to adjust the Map.data which populates the select input and legend.
             )
             this.viewSelect.node.value = this.view
             this.viewSelect.node.addEventListener("change", () => {
-                history.pushState({"data": "data"}, "", "/map/leaflet_iframe?view=" + this.viewSelect.node.value)
+                history.pushState({"data": "data"}, "", "/map/iframe?view=" + this.viewSelect.node.value)
                 this.update()
             })
 
