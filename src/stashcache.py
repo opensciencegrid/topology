@@ -19,6 +19,9 @@ ANY = "ANY"
 PUBLIC = "PUBLIC"
 ANY_PUBLIC = "ANY_PUBLIC"
 
+XROOTD_CACHE_SERVER = "XRootD cache server"
+XROOTD_ORIGIN_SERVER = "XRootD origin server"
+
 log = logging.getLogger(__name__)
 
 __oid_map = {
@@ -331,20 +334,22 @@ def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Op
 
 
 def _resource_has_cache(resource: Resource) -> bool:
-    return "XRootD cache server" in resource.service_names
+    return XROOTD_CACHE_SERVER in resource.service_names
 
 
 def _resource_has_origin(resource: Resource) -> bool:
-    return "XRootD origin server" in resource.service_names
+    return XROOTD_ORIGIN_SERVER in resource.service_names
 
 
-def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup], suppress_errors: bool) -> Optional[Resource]:
-    """If given an FQDN, returns the Resource _if it has an "XRootD cache server" service_.
+def _get_resource_with_service(
+        fqdn: Optional[str], service_name: str, resource_groups: List[ResourceGroup], suppress_errors: bool
+) -> Optional[Resource]:
+    """If given an FQDN, returns the Resource _if it has the given service.
     If given None, returns None.
     If multiple Resources have the same FQDN, checks the first one.
     If suppress_errors is False, raises an expression on the following conditions:
     - no Resource matching FQDN (NotRegistered)
-    - Resource does not provide an XRootD cache server (DataError)
+    - Resource does not provide a SERVICE_NAME (DataError)
     If suppress_errors is True, returns None on the above conditions.
 
     """
@@ -352,16 +357,23 @@ def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup
     if fqdn:
         resource = _get_resource_by_fqdn(fqdn, resource_groups)
         if not resource:
-            if suppress_errors:
-                return None
-            else:
-                raise NotRegistered(fqdn)
-        if "XRootD cache server" not in resource.service_names:
-            if suppress_errors:
-                return None
-            else:
-                raise DataError("{} (resource name {}) does not provide an XRootD cache server.".format(fqdn, resource.name))
+            log_or_raise(suppress_errors, NotRegistered(fqdn))
+            return None
+        if service_name not in resource.service_names:
+            log_or_raise(
+                suppress_errors,
+                DataError(f"{fqdn} (resource name {resource.name}) does not provide a(n) {service_name}.")
+            )
+            return None
     return resource
+
+
+def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup], suppress_errors: bool) -> Optional[Resource]:
+    return _get_resource_with_service(fqdn, XROOTD_CACHE_SERVER, resource_groups, suppress_errors)
+
+
+def _get_origin_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup], suppress_errors: bool) -> Optional[Resource]:
+    return _get_resource_with_service(fqdn, XROOTD_ORIGIN_SERVER, resource_groups, suppress_errors)
 
 
 def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_errors):
@@ -1063,9 +1075,9 @@ def generate_origin_scitokens2(
     resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
     vos_data = global_data.get_vos_data()
 
-    origin_resource = _get_resource_by_fqdn(origin_fqdn, resource_groups)
-    if not _resource_has_origin(origin_resource):
-        return f"# {origin_fqdn} is not a registered XRootD origin server\n"
+    origin_resource = _get_origin_resource(origin_fqdn, resource_groups, suppress_errors)
+    if not origin_resource:
+        return ""
 
     template = """\
 [Global]
@@ -1142,9 +1154,9 @@ def generate_cache_scitokens2(
     resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
     vos_data = global_data.get_vos_data()
 
-    cache_resource = _get_resource_by_fqdn(cache_fqdn, resource_groups)
-    if not _resource_has_origin(cache_resource):
-        return f"# {cache_fqdn} is not a registered XRootD cache server\n"
+    cache_resource = _get_cache_resource(cache_fqdn, resource_groups, suppress_errors)
+    if not cache_resource:
+        return ""
 
     template = """\
 [Global]
