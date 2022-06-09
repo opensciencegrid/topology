@@ -42,8 +42,8 @@ do
         url=$endpoint$arg
         printf "%s\n\n\n" "$url" >> $oldfile
         printf "%s\n\n\n" "$url" >> $newfile
-        curl -L "$prod_topology/$url" >> $oldfile
-        curl -L "$test_topology/$url" >> $newfile
+        curl -L "$prod_topology/$url" | sort >> $oldfile
+        curl -L "$test_topology/$url" | sort >> $newfile
     done
 done
 
@@ -57,8 +57,8 @@ do
         url=$endpoint$arg
         printf "%s\n\n\n" "$url" >> $oldfile
         printf "%s\n\n\n" "$url" >> $newfile
-        curl -L "$prod_topology/$url" >> $oldfile
-        curl -L "$test_topology/$url" >> $newfile
+        curl -L "$prod_topology/$url" | sort >> $oldfile
+        curl -L "$test_topology/$url" | sort >> $newfile
     done
 done
 
