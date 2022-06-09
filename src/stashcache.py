@@ -164,7 +164,14 @@ class Namespace:
 
 
 def parse_authz(authz: Union[str, Dict]) -> AuthMethod:
-    # TODO: get docstring/comment from _get_user_hashes_and_groups_for_namespace
+    """Return the instance of the appropriate AuthMethod from an item in an authz list for a namespace"""
+    # Note:
+    # This is a string:
+    # - FQAN:/foobar
+    # This is a dict:
+    # - FQAN: /foobar
+    # Accept both.
+
     if isinstance(authz, dict):
         for k, v in authz.items():
             if k == "SciTokens":
@@ -406,122 +413,6 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
     if not ret:
         log.debug(f"\tVO {vo_name} does not allow cache {resource.fqdn} in its AllowedCaches list")
     return ret
-
-
-def generate_cache_authfile(global_data: GlobalData,
-                            fqdn=None,
-                            legacy=True,
-                            suppress_errors=True) -> str:
-    """
-    Generate the Xrootd authfile needed by a StashCache cache server.
-    """
-    authfile = ""
-    id_to_dir = defaultdict(set)
-
-    resource = None
-    if fqdn:
-        resource_groups = global_data.get_topology().get_resource_group_list()
-        resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
-        if not resource:
-            return ""
-
-    vo_data = global_data.get_vos_data()
-    for vo_name, vo_details in vo_data.vos.items():
-        stashcache_data = vo_details.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
-
-        namespaces = stashcache_data.get("Namespaces")
-        if not namespaces:
-            if suppress_errors:
-                continue
-            else:
-                raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
-
-        needs_authz = False
-        for namespace, authz_list in namespaces.items():
-            if not authz_list:
-                if suppress_errors:
-                    continue
-                else:
-                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(namespace, vo_name))
-            if authz_list != ["PUBLIC"]:
-                needs_authz = True
-                break
-        if not needs_authz:
-            continue
-
-        if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, False, suppress_errors):
-            continue
-
-        for namespace, authz_list in namespaces.items():
-            user_hashes, groups = _get_user_hashes_and_groups_for_namespace(authz_list, suppress_errors)
-            for u in user_hashes:
-                id_to_dir["u {}".format(u)].add(namespace)
-            for g in groups:
-                id_to_dir["g {}".format(g)].add(namespace)
-
-    if legacy and resource is not None and \
-            (
-                    "ANY" in resource.data.get("AllowedVOs") or
-                    "LIGO" in resource.data.get("AllowedVOs")
-            ):
-        ldappass = readfile(global_data.ligo_ldap_passfile, log)
-        for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
-            hash = _generate_dn_hash(dn)
-            id_to_dir["u {}".format(hash)].add("/user/ligo")
-
-    for id, dir_list in id_to_dir.items():
-        if dir_list:
-            authfile += "{} {}\n".format(id,
-                " ".join([i + " rl" for i in sorted(dir_list)]))
-
-    return authfile
-
-
-def _get_user_hashes_and_groups_for_namespace(authz_list: List[Union[str, Dict]], suppress_errors=True) -> Tuple[Set, Set]:
-    """Return the user (hashes) and groups from DNs and FQANs in an authz list for a namespace"""
-    # Note:
-    # This is a string:
-    # - FQAN:/foobar
-    # This is a dict:
-    # - FQAN: /foobar
-    # Accept both.
-
-    users = set()
-    groups = set()
-    for authz in authz_list:
-        if isinstance(authz, str):
-            if authz.startswith("FQAN:"):
-                fqan = authz[5:].strip()
-                groups.add(fqan)
-            elif authz.startswith("DN:"):
-                dn = authz[3:].strip()
-                dn_hash = _generate_dn_hash(dn)
-                users.add(dn_hash)
-            elif authz.strip() == "PUBLIC":
-                continue
-            else:
-                if not suppress_errors:
-                    raise DataError("Unknown authz list entry {}".format(authz))
-        elif isinstance(authz, dict):
-            if "SciTokens" in authz:
-                continue  # SciTokens are not used in Authfiles
-            elif "FQAN" in authz:
-                fqan = authz["FQAN"].strip()
-                groups.add(fqan)
-            elif "DN" in authz:
-                dn = authz["DN"].strip()
-                dn_hash = _generate_dn_hash(dn)
-                users.add(dn_hash)
-            else:
-                if not suppress_errors:
-                    raise DataError("Unknown authz list entry {}".format(authz))
-        else:
-            if not suppress_errors:
-                raise DataError("Unknown authz list entry {}".format(authz))
-
-    return users, groups
 
 
 def _resource_allows_namespace(resource: Optional[Resource], namespace: Optional[Namespace]) -> bool:
