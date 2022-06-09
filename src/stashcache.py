@@ -521,9 +521,9 @@ def generate_cache_authfile2(
     if public:
         authfile_lines.append("u * \\")
         if legacy:
-            authfile_lines.append("   /user/ligo -rl \\")
+            authfile_lines.append("    /user/ligo -rl \\")
         for path in sorted(public_paths):
-            authfile_lines.append(f"   {path} rl \\")
+            authfile_lines.append(f"    {path} rl \\")
         # Delete trailing ' \' from the last line
         authfile_lines[-1] = authfile_lines[-1][:-2]
     else:
