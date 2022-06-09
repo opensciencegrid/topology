@@ -200,10 +200,11 @@ class StashCache:
     def load_yaml(self, yaml_data: Dict, suppress_errors: bool):
         if is_null(yaml_data, "Namespaces"):
             return
-        if not is_null(yaml_data, "AllowedOrigins") or not is_null(yaml_data, "AllowedCaches"):
-            return self.load_old_yaml(yaml_data, suppress_errors)
 
         for path, ns_data in yaml_data["Namespaces"].items():
+            # Check for old yaml data, where each namespace is a plain list of authz
+            if isinstance(ns_data, list):
+                return self.load_old_yaml(yaml_data, suppress_errors)
             origins = ns_data.get("AllowedOrigins", [])
             caches = ns_data.get("AllowedCaches", [])
             writeback = ns_data.get("Writeback", None)
