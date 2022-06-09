@@ -204,16 +204,8 @@ class StashCache:
             return self.load_old_yaml(yaml_data, suppress_errors)
 
         for path, ns_data in yaml_data["Namespaces"].items():
-            if "AllowedOrigins" not in ns_data:
-                log_or_raise(suppress_errors, VODataError(self.vo_name, f"Namespace {path} has no AllowedOrigins list"))
-                origins = []
-            else:
-                origins = ns_data["AllowedOrigins"]
-            if "AllowedCaches" not in ns_data:
-                log_or_raise(suppress_errors, VODataError(self.vo_name, f"Namespace {path} has no AllowedCaches list"))
-                caches = []
-            else:
-                caches = ns_data["AllowedCaches"]
+            origins = ns_data.get("AllowedOrigins", [])
+            caches = ns_data.get("AllowedCaches", [])
             writeback = ns_data.get("Writeback", None)
             dirlist = ns_data.get("DirList", None)
             authz_list = self.parse_authz_list(
@@ -224,16 +216,8 @@ class StashCache:
             self.namespaces[path] = Namespace(path, self.vo_name, origins, caches, authz_list, writeback, dirlist)
 
     def load_old_yaml(self, yaml_data: Dict, suppress_errors: bool):
-        origins = []
-        try:
-            origins = yaml_data["AllowedOrigins"]
-        except KeyError:
-            log_or_raise(suppress_errors, VODataError(self.vo_name, "StashCache has no AllowedOrigins list"))
-        caches = []
-        try:
-            caches = yaml_data["AllowedCaches"]
-        except KeyError:
-            log_or_raise(suppress_errors, VODataError(self.vo_name, "StashCache has no AllowedCaches list"))
+        origins = yaml_data.get("AllowedOrigins", [])
+        caches = yaml_data.get("AllowedCaches", [])
         writeback = None
         dirlist = None
         for path, unparsed_authz_list in yaml_data["Namespaces"].items():
