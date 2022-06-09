@@ -995,8 +995,9 @@ def generate_origin_authfile2(
             if public:
                 continue
 
-            # Extend authz list with SSL certificate (i.e. DN) auth from the origin itself, and allowed caches
-            extended_authz_list: List[AuthMethod] = namespace.authz_list
+            # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
+            # Ignore FQANs and DNs listed in the namespace's authz list.
+            authz_list = []
 
             allowed_resources = [origin_resource]
             # Add caches
@@ -1009,7 +1010,7 @@ def generate_origin_authfile2(
             for resource in allowed_resources:
                 dn = resource.data.get("DN")
                 if dn:
-                    extended_authz_list.append(DNAuth(dn))
+                    authz_list.append(DNAuth(dn))
                 else:
                     warnings.append(
                         f"# WARNING: Resource {resource.name} was skipped for VO {vo_name}, namespace {path}"
@@ -1017,7 +1018,7 @@ def generate_origin_authfile2(
                     )
                     continue
 
-            for authz in extended_authz_list:
+            for authz in authz_list:
                 if authz.used_in_authfile():
                     id_to_paths[authz.authfile_id()].add(path)
                     id_to_str[authz.authfile_id()] = str(authz)
