@@ -16,17 +16,13 @@ import webapp.models
 import stashcache
 
 parser = argparse.ArgumentParser(description="Generate a SciTokens config for a StashCache origin server.")
-parser.add_argument("fqdn", metavar="Cache_FQDN", help="FQDN of the origin for config generation.")
+parser.add_argument("fqdn", metavar="Origin_FQDN", help="FQDN of the origin for config generation.")
 
 args = parser.parse_args()
 
 global_data = webapp.models.GlobalData()
 
-vodata = global_data.get_vos_data()
-resource_groups = global_data.get_topology().get_resource_group_list()
-
-origin_scitokens = stashcache.generate_origin_scitokens(vodata,
-                                                      resource_groups,
-                                                      fqdn=args.fqdn,
-                                                      suppress_errors=False)
+origin_scitokens = stashcache.generate_origin_scitokens2(
+    args.fqdn, global_data, suppress_errors=False
+)
 print(origin_scitokens, end="")  # config already has trailing newline

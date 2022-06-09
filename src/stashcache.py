@@ -227,7 +227,7 @@ class StashCache:
         dirlist = None
         for path, unparsed_authz_list in yaml_data["Namespaces"].items():
             authz_list = self.parse_authz_list(path, unparsed_authz_list, suppress_errors)
-            log.debug(f"Creating Namespace({path}, {self.vo_name}, {origins}, {caches}, {authz_list}, {writeback}, {dirlist})")
+            # log.debug(f"Creating Namespace({path}, {self.vo_name}, {origins}, {caches}, {authz_list}, {writeback}, {dirlist})")
             self.namespaces[path] = Namespace(path, self.vo_name, origins, caches, authz_list, writeback, dirlist)
 
     def parse_authz_list(self, path: str, unparsed_authz_list: List[str], suppress_errors) -> List[AuthMethod]:
