@@ -362,7 +362,7 @@ def _get_resource_with_service(
         if service_name not in resource.service_names:
             log_or_raise(
                 suppress_errors,
-                DataError(f"{fqdn} (resource name {resource.name}) does not provide a(n) {service_name}.")
+                DataError(f"{fqdn} (resource name {resource.name}) does not provide an {service_name}.")
             )
             return None
     return resource
