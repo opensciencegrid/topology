@@ -1037,7 +1037,7 @@ def generate_origin_authfile2(
 
     # Public paths must be at the end
     if public_paths:
-        authfile_lines.append("# Public")
+        authfile_lines.append("")
         paths_acl = " ".join(f"{p} lr" for p in sorted(public_paths))
         authfile_lines.append(f"u * {paths_acl}")
 
