@@ -936,15 +936,15 @@ def generate_cache_authfile2(
             authfile_lines.append("   /user/ligo -rl \\")
         for path in sorted(public_paths):
             authfile_lines.append(f"   {path} rl \\")
+        # Delete trailing ' \' from the last line
+        authfile_lines[-1] = authfile_lines[-1][:-2]
     else:
         for authfile_id in id_to_paths:
             paths_acl = " ".join(f"{p} lr" for p in sorted(id_to_paths[authfile_id]))
             authfile_lines.append(f"# {id_to_str[authfile_id]}")
             authfile_lines.append(f"{authfile_id} {paths_acl}")
 
-    authfile = "\n".join(authfile_lines)
-    if authfile.endswith("\\\n"):
-        authfile = authfile[:-2] + "\n"
+    authfile = "\n".join(authfile_lines) + "\n"
 
     return authfile
 
@@ -1025,7 +1025,8 @@ def generate_origin_authfile2(
         authfile_lines.append("# Public")
         paths_acl = " ".join(f"{p} lr" for p in sorted(public_paths))
         authfile_lines.append(f"u * {paths_acl}")
-    return "\n".join(authfile_lines)
+
+    return "\n".join(authfile_lines) + "\n"
 
 
 def generate_origin_scitokens2(
