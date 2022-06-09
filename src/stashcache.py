@@ -770,7 +770,10 @@ def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_erro
     return resources
 
 
-def _resource_allows_namespace(resource: Resource, namespace: Optional[Namespace]) -> bool:
+def _resource_allows_namespace(resource: Optional[Resource], namespace: Optional[Namespace]) -> bool:
+    if not resource:
+        # Treat a missing resource as one without restrictions
+        return True
     allowed_vos = resource.data.get("AllowedVOs", [])
     if ANY in allowed_vos:
         return True
@@ -888,11 +891,11 @@ def generate_cache_authfile2(
 ) -> str:
     resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
     vos_data = global_data.get_vos_data()
-    cache_resource = _get_cache_resource(cache_fqdn, resource_groups, suppress_errors)
-    if not public and not cache_resource:
-        if cache_fqdn:
-            return f"# {cache_fqdn} is not a registered XRootD cache server\n"
-        return f"# Non-public authfile not available for an unspecified cache server\n"
+    cache_resource = None
+    if cache_fqdn:
+        cache_resource = _get_cache_resource(cache_fqdn, resource_groups, suppress_errors)
+        if not cache_resource:
+            return ""
 
     public_paths = set()
     id_to_paths = defaultdict(set)
@@ -915,7 +918,7 @@ def generate_cache_authfile2(
         for path, namespace in stashcache_obj.namespaces.items():
             if not _namespace_allows_cache(namespace, cache_resource):
                 continue
-            if not _resource_allows_namespace(cache_resource, namespace):
+            if cache_resource and not _resource_allows_namespace(cache_resource, namespace):
                 continue
             if namespace.is_public():
                 public_paths.add(path)
