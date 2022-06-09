@@ -47,20 +47,45 @@ PurposeURL: https://chtc.cs.wisc.edu/approach.shtml
 ReportingGroups:
 - glow
 SupportURL: https://chtc.cs.wisc.edu
+# DataFederations:
+#   StashCache:
+#     Namespaces:
+#       /chtc/PUBLIC:
+#         - PUBLIC
+#       /chtc/PROTECTED:
+#         - FQAN:/GLOW
+#         - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+#         - SciTokens:
+#             Issuer: https://chtc.cs.wisc.edu
+#             Base Path: /chtc
+#     AllowedOrigins:
+#       - CHTC_STASHCACHE_ORIGIN
+#       - CHTC_STASHCACHE_ORIGIN_2000
+#       - CHTC_STASHCACHE_ORIGIN_AUTH_2000
+#     AllowedCaches:
+#       - ANY
 DataFederations:
   StashCache:
     Namespaces:
       /chtc/PUBLIC:
-        - PUBLIC
+        Access:
+          - PUBLIC
+        AllowedOrigins:
+          - CHTC_STASHCACHE_ORIGIN
+          - CHTC_STASHCACHE_ORIGIN_2000
+        AllowedCaches:
+          - ANY
+
       /chtc/PROTECTED:
-        - FQAN:/GLOW
-        - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
-        - SciTokens:
-            Issuer: https://chtc.cs.wisc.edu
-            Base Path: /chtc
-    AllowedOrigins:
-      - CHTC_STASHCACHE_ORIGIN
-      - CHTC_STASHCACHE_ORIGIN_2000
-      - CHTC_STASHCACHE_ORIGIN_AUTH_2000
-    AllowedCaches:
-      - ANY
+        Access:
+          - FQAN:/GLOW
+          - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              Base Path: /chtc
+        AllowedOrigins:
+          - CHTC_STASHCACHE_ORIGIN_AUTH_2000
+        AllowedCaches:
+          - CHTC_TIGER_CACHE
+          - CHTC_STASHCACHE_CACHE
+
