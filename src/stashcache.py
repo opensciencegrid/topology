@@ -969,9 +969,11 @@ def generate_origin_authfile2(
 ) -> str:
     resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
     vos_data = global_data.get_vos_data()
-    origin_resource = _get_resource_by_fqdn(origin_fqdn, resource_groups)
-    if not _resource_has_origin(origin_resource):
-        return f"# {origin_fqdn} is not a registered XRootD origin server\n"
+    origin_resource = None
+    if origin_fqdn:
+        origin_resource = _get_origin_resource(origin_fqdn, resource_groups, suppress_errors)
+        if not origin_resource:
+            return ""
 
     public_paths = set()
     id_to_paths = defaultdict(set)
