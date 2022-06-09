@@ -23,13 +23,11 @@ args = parser.parse_args()
 
 global_data = webapp.models.GlobalData()
 
-if args.public:
-    generate = stashcache.generate_public_cache_authfile
-else:
-    generate = stashcache.generate_cache_authfile
 if args.fqdn:
-    authfile = generate(global_data, fqdn=args.fqdn[0], suppress_errors=False)
+    fqdn = args.fqdn[0]
 else:
-    authfile = generate(global_data, suppress_errors=False)
+    fqdn = None
+
+authfile = stashcache.generate_cache_authfile2(cache_fqdn=fqdn, global_data=global_data, suppress_errors=False, public=args.public)
 
 print(authfile)
