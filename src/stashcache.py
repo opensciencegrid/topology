@@ -1,4 +1,4 @@
-
+import copy
 from collections import defaultdict
 from typing import Dict, List, Optional, Set, Tuple, Union
 import re
@@ -881,8 +881,86 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
     return results
 
 
+def generate_cache_authfile2(
+        cache_fqdn: Optional[str], global_data: GlobalData, suppress_errors=True, public=False, legacy=True
+) -> str:
+    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    vos_data = global_data.get_vos_data()
+    cache_resource = _get_cache_resource(cache_fqdn, resource_groups, suppress_errors)
+    if not public and not cache_resource:
+        if cache_fqdn:
+            return f"# {cache_fqdn} is not a registered XRootD cache server\n"
+        return f"# Non-public authfile not available for an unspecified cache server\n"
+
+    public_paths = set()
+    id_to_paths = defaultdict(set)
+    id_to_str = {}
+    warnings = []
+
+    ligo_authz_list: List[AuthMethod] = []
+    if legacy and not public:
+        ldappass = readfile(global_data.ligo_ldap_passfile, log)
+        ligo_dns = _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass)
+        for dn in ligo_dns:
+            ligo_authz_list.append(parse_authz(f"DN:{dn}"))
+
+    for vo_name, vo_data in vos_data.vos.items():
+        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+        if not stashcache_data:
+            continue
+        stashcache_obj = StashCache(vo_name, stashcache_data, suppress_errors)
+
+        for path, namespace in stashcache_obj.namespaces.items():
+            if not _namespace_allows_cache(namespace, cache_resource):
+                continue
+            if not _resource_allows_namespace(cache_resource, namespace):
+                continue
+            if namespace.is_public():
+                public_paths.add(path)
+                continue
+            if public:
+                continue
+
+            # Extend authz list with LIGO DNs if applicable
+            extended_authz_list = namespace.authz_list
+            if legacy and path == "/user/ligo":
+                extended_authz_list += ligo_authz_list
+
+            for authz in extended_authz_list:
+                if authz.used_in_authfile():
+                    id_to_paths[authz.authfile_id()].add(path)
+                    id_to_str[authz.authfile_id()] = str(authz)
+
+    if not id_to_paths and not public_paths:
+        if suppress_errors:
+            return ""
+        else:
+            raise DataError("No working StashCache resource/VO combinations found")
+
+    authfile_lines = []
+    authfile_lines.extend(warnings)
+
+    if public:
+        authfile_lines.append("u * \\")
+        if legacy:
+            authfile_lines.append("   /user/ligo -rl \\")
+        for path in sorted(public_paths):
+            authfile_lines.append(f"   {path} rl \\")
+    else:
+        for authfile_id in id_to_paths:
+            paths_acl = " ".join(f"{p} lr" for p in sorted(id_to_paths[authfile_id]))
+            authfile_lines.append(f"# {id_to_str[authfile_id]}")
+            authfile_lines.append(f"{authfile_id} {paths_acl}")
+
+    authfile = "\n".join(authfile_lines)
+    if authfile.endswith("\\\n"):
+        authfile = authfile[:-2] + "\n"
+
+    return authfile
+
+
 def generate_origin_authfile2(
-        origin_fqdn: str, global_data: GlobalData, suppress_errors=True, public_only=False
+        origin_fqdn: str, global_data: GlobalData, suppress_errors=True, public=False
 ) -> str:
     resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
     vos_data = global_data.get_vos_data()
@@ -909,7 +987,7 @@ def generate_origin_authfile2(
             if namespace.is_public():
                 public_paths.add(path)
                 continue
-            if public_only:
+            if public:
                 continue
 
             # Extend authz list with SSL certificate (i.e. DN) auth from the origin itself, and allowed caches
@@ -945,19 +1023,19 @@ def generate_origin_authfile2(
         else:
             raise DataError("No working StashCache resource/VO combinations found")
 
-    results_lines = []
-    results_lines.extend(warnings)
+    authfile_lines = []
+    authfile_lines.extend(warnings)
     for authfile_id in id_to_paths:
         paths_acl = " ".join(f"{p} lr" for p in sorted(id_to_paths[authfile_id]))
-        results_lines.append(f"# {id_to_str[authfile_id]}")
-        results_lines.append(f"{authfile_id} {paths_acl}")
+        authfile_lines.append(f"# {id_to_str[authfile_id]}")
+        authfile_lines.append(f"{authfile_id} {paths_acl}")
 
     # Public paths must be at the end
     if public_paths:
-        results_lines.append("# Public")
+        authfile_lines.append("# Public")
         paths_acl = " ".join(f"{p} lr" for p in sorted(public_paths))
-        results_lines.append(f"u * {paths_acl}")
-    return "\n".join(results_lines)
+        authfile_lines.append(f"u * {paths_acl}")
+    return "\n".join(authfile_lines)
 
 
 def generate_origin_scitokens2(
@@ -1006,7 +1084,7 @@ audience = {allowed_vos_str}
 """
 
     allowed_vos = set()
-    issuer_blocks = []
+    origin_authz_list = []
 
     for vo_name, vo_data in vos_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
@@ -1024,27 +1102,27 @@ audience = {allowed_vos_str}
 
             for authz in namespace.authz_list:
                 if authz.used_in_scitokens_conf():
-                    issuer_blocks.append(authz.scitokens_conf_block())
+                    origin_authz_list.append(authz)
                     allowed_vos.add(vo_name)
 
     # Older plugin versions require at least one issuer block (SOFTWARE-4389)
-    if not issuer_blocks:
-        issuer_blocks.append("""\
-[Issuer https://scitokens.org/nonexistent]
-issuer = https://scitokens.org/nonexistent
-base_path = "/no-issuers-found"
-""")
+    if not origin_authz_list:
+        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found")
+        origin_authz_list.append(dummy_auth)
 
+    issuer_blocks = [a.scitokens_conf_block() for a in origin_authz_list]
     issuer_blocks_str = "\n".join(issuer_blocks)
     allowed_vos_str = ", ".join(sorted(allowed_vos))
 
     return template.format(**locals()).rstrip() + "\n"
 
 
-def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
+def generate_cache_scitokens2(
+        cache_fqdn: str, global_data: GlobalData, suppress_errors = True
+) -> str:
     """
-    Generate the SciTokens needed by a StashCache origin server, given the fqdn
-    of the origin server.
+    Generate the SciTokens needed by a StashCache cache server, given the fqdn
+    of the cache server.
 
     The scitokens config for a StashCache namespace is in the VO YAML and looks like:
 
@@ -1070,54 +1148,49 @@ def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGr
 
     """
 
+    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    vos_data = global_data.get_vos_data()
+
+    cache_resource = _get_resource_by_fqdn(cache_fqdn, resource_groups)
+    if not _resource_has_origin(cache_resource):
+        return f"# {cache_fqdn} is not a registered XRootD cache server\n"
+
     template = """\
 [Global]
 audience = {allowed_vos_str}
 
 {issuer_blocks_str}
 """
-    allowed_vos = []
-    issuer_blocks = []
-    for vo_name, vo_data in vo_data.vos.items():
+
+    allowed_vos = set()
+    origin_authz_list = []
+
+    for vo_name, vo_data in vos_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
         if not stashcache_data:
             continue
-        stashcache_obj = StashCache(vo_name, stashcache_data)
+        stashcache_obj = StashCache(vo_name, stashcache_data, suppress_errors)
 
-        if not _origin_is_allowed(fqdn, vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
-            continue
-
-        namespaces = stashcache_obj.namespaces
-        if not namespaces:
-            if suppress_errors:
+        for path, namespace in stashcache_obj.namespaces.items():
+            if namespace.is_public():
                 continue
-            else:
-                raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
-
-        for namespace in namespaces:
-            if not namespace.authz_list:
-                if suppress_errors:
-                    continue
-                else:
-                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(namespace.path, vo_name))
+            if not _namespace_allows_cache(namespace, cache_resource):
+                continue
+            if not _resource_allows_namespace(cache_resource, namespace):
+                continue
 
             for authz in namespace.authz_list:
-                if not authz.used_in_scitokens_conf():
-                    continue
-                assert isinstance(authz, SciTokenAuth)
-                issuer_blocks.append(authz.scitokens_conf_block())
-                # TODO figure this out somehow
-                allowed_vos.append(vo_name)
+                if authz.used_in_scitokens_conf():
+                    origin_authz_list.append(authz)
+                    allowed_vos.add(vo_name)
 
     # Older plugin versions require at least one issuer block (SOFTWARE-4389)
-    if not issuer_blocks:
-        issuer_blocks.append(
-            _get_scitokens_issuer_block(vo_name="nonexistent",
-                                        scitokens={"Issuer": "https://scitokens.org/nonexistent",
-                                                   "Base Path": "/no-issuers-found"},
-                                        dirname="/no-issuers-found",
-                                        suppress_errors=suppress_errors))
+    if not origin_authz_list:
+        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found")
+        origin_authz_list.append(dummy_auth)
+
+    issuer_blocks = [a.scitokens_conf_block() for a in origin_authz_list]
     issuer_blocks_str = "\n".join(issuer_blocks)
-    allowed_vos_str = ", ".join(allowed_vos)
+    allowed_vos_str = ", ".join(sorted(allowed_vos))
 
     return template.format(**locals()).rstrip() + "\n"
