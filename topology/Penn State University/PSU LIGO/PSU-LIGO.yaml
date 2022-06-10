@@ -30,3 +30,27 @@ Resources:
     Services:
       CE:
         Description: Hosted CE for PSU-LIGO
+
+  PSU-LIGO-CACHE:
+    Active: false
+    Description: This is a cache for public and LIGO data at Penn State
+    ID: 1304
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: TODO
+          ID: TODO
+
+      Security Contact:
+        Primary:
+          Name: TODO
+          ID: TODO
+
+    FQDN: stashcache.gwave.ics.psu.edu
+    DN: /C=US/ST=Pennsylvania/O=The Pennsylvania State University/OU=ICDS/CN=stashcache.gwave.ics.psu.edu
+    Services:
+      XRootD cache server:
+        Description: Cache server
+    AllowedVOs:
+      - ANY_PUBLIC
+      - LIGO
