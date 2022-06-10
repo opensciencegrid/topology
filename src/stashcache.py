@@ -776,3 +776,56 @@ audience = {allowed_vos_str}
     allowed_vos_str = ", ".join(sorted(allowed_vos))
 
     return template.format(**locals()).rstrip() + "\n"
+
+
+def get_namespaces_info(global_data: GlobalData, suppress_errors = True) -> Dict:
+    def _resource_dict(r: Resource):
+        return {"fqdn": r.fqdn, "resource": r.name}
+
+    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    vos_data = global_data.get_vos_data()
+
+    caches = {}
+
+    for group in resource_groups:
+        for resource in group.resources:
+            if _resource_has_cache(resource):
+                caches[resource.name] = _resource_dict(resource)
+
+    result_caches = list(caches.values())
+
+    def _namespace_dict(n: Namespace):
+        nsdict = {
+            "path": n.path,
+            "readhttps": not n.is_public(),
+            "usetokenonread": any(isinstance(a, SciTokenAuth) for a in n.authz_list),
+            "writebackhost": n.writeback,
+            "dirlisthost": n.dirlist,
+            "caches": [],
+        }
+        if ANY in n.caches:
+            nsdict["caches"] = result_caches
+        else:
+            for r in n.caches:
+                try:
+                    nsdict["caches"].append(caches[r])
+                except KeyError:
+                    log_or_raise(suppress_errors,
+                                 VODataError(n.vo_name,
+                                             f"Namespace {n.path}: cache resource {r} not found"))
+        return nsdict
+
+    result_namespaces = []
+    for vo_name, vo_data in vos_data.vos.items():
+        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+        if not stashcache_data:
+            continue
+        stashcache_obj = StashCache(vo_name, stashcache_data, suppress_errors)
+
+        for namespace in stashcache_obj.namespaces.values():
+            result_namespaces.append(_namespace_dict(namespace))
+
+    return {
+        "caches": result_caches,
+        "namespaces": result_namespaces
+    }
