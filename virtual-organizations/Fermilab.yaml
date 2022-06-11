@@ -85,7 +85,8 @@ DataFederations:
   StashCache:
     Namespaces:
       /pnfs/fnal.gov:
-        - PUBLIC
-    AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /pnfs/fnal.gov
-    AllowedCaches:
-      - ANY
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /pnfs/fnal.gov
+        AllowedCaches:
+          - ANY

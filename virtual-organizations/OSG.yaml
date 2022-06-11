@@ -75,17 +75,36 @@ DataFederations:
   StashCache:
     Namespaces:
       /user:
-        - PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - OSGCONNECT_ORIGIN
+          - CHTC_OSPOOL_ORIGIN
+        AllowedCaches:
+          - ANY
       /osgconnect/public:
-        - PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - OSGCONNECT_ORIGIN
+          - CHTC_OSPOOL_ORIGIN
+        AllowedCaches:
+          - ANY
       /osgconnect/collab:
-        - PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - OSGCONNECT_ORIGIN
+          - CHTC_OSPOOL_ORIGIN
+        AllowedCaches:
+          - ANY
       /ospool/PROTECTED:
-        - SciTokens:
-            Issuer: https://osg-htc.org/ospool
-            Base Path: /ospool/PROTECTED
-    AllowedOrigins:
-      - OSGCONNECT_ORIGIN
-      - CHTC_OSPOOL_ORIGIN
-    AllowedCaches:
-      - ANY
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/ospool
+              Base Path: /ospool/PROTECTED
+        AllowedOrigins:
+          - OSGCONNECT_ORIGIN
+          - CHTC_OSPOOL_ORIGIN
+        AllowedCaches:
+          - ANY

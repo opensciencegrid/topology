@@ -61,18 +61,31 @@ ReportingGroups:
 SupportURL: http://hcc.unl.edu/contact
 DataFederations:
   StashCache:
-    AllowedCaches:
-    - ANY
-    AllowedOrigins:
-    - HCC-Origin
-    - HCC-StashCache-Origin
     Namespaces:
       /hcc/focusday:
-      - FQAN:/hcc
-      - DN:/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian Paul Bockelman
+        Authorizations:
+          - FQAN: /hcc
+          - DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian Paul Bockelman
+        AllowedCaches:
+        - ANY
+        AllowedOrigins:
+        - HCC-Origin
+        - HCC-StashCache-Origin
       /hcc/PUBLIC:
-        - PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedCaches:
+        - ANY
+        AllowedOrigins:
+        - HCC-Origin
+        - HCC-StashCache-Origin
       /hcc/PROTECTED:
-        - SciTokens:
-            Issuer: https://scitokens.org/hcc
-            Base Path: /hcc
+        Authorizations:
+          - SciTokens:
+              Issuer: https://scitokens.org/hcc
+              Base Path: /hcc
+        AllowedCaches:
+        - ANY
+        AllowedOrigins:
+        - HCC-Origin
+        - HCC-StashCache-Origin
