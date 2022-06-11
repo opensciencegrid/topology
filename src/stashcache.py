@@ -779,6 +779,7 @@ audience = {allowed_vos_str}
 
 
 def get_namespaces_info(global_data: GlobalData, suppress_errors = True) -> Dict:
+    # Helper functions
     def _cache_resource_dict(r: Resource):
         endpoint = f"{r.fqdn}:8000"
         for svc in r.services:
@@ -787,18 +788,6 @@ def get_namespaces_info(global_data: GlobalData, suppress_errors = True) -> Dict
                     endpoint = svc["Details"]["uri_override"]
                 break
         return {"endpoint": endpoint, "resource": r.name}
-
-    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
-    vos_data = global_data.get_vos_data()
-
-    cache_resource_objs = {}  # type: Dict[str, Resource]
-    cache_resource_dicts = {}  # type: Dict[str, Dict]
-
-    for group in resource_groups:
-        for resource in group.resources:
-            if _resource_has_cache(resource):
-                cache_resource_objs[resource.name] = resource
-                cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
 
     def _namespace_dict(ns: Namespace):
         nsdict = {
@@ -814,6 +803,19 @@ def get_namespaces_info(global_data: GlobalData, suppress_errors = True) -> Dict
             if _resource_allows_namespace(cache_resource_obj, ns) and _namespace_allows_cache(ns, cache_resource_obj):
                 nsdict["caches"].append(cache_resource_dicts[cache_name])
         return nsdict
+    # End helper functions
+
+    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    vos_data = global_data.get_vos_data()
+
+    cache_resource_objs = {}  # type: Dict[str, Resource]
+    cache_resource_dicts = {}  # type: Dict[str, Dict]
+
+    for group in resource_groups:
+        for resource in group.resources:
+            if _resource_has_cache(resource):
+                cache_resource_objs[resource.name] = resource
+                cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
 
     result_namespaces = []
     for vo_name, vo_data in vos_data.vos.items():
