@@ -221,7 +221,7 @@ class StashCache:
             dirlist = ns_data.get("DirList", None)
             authz_list = self.parse_authz_list(
                 path=path,
-                unparsed_authz_list=ns_data.get("Access", []),
+                unparsed_authz_list=ns_data.get("Authorizations", []),
                 suppress_errors=suppress_errors
             )
             log.debug(f"Creating Namespace({path}, {self.vo_name}, {origins}, {caches}, {authz_list}, {writeback}, {dirlist})")

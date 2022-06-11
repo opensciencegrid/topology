@@ -68,7 +68,7 @@ DataFederations:
   StashCache:
     Namespaces:
       /chtc/PUBLIC:
-        Access:
+        Authorizations:
           - PUBLIC
         AllowedOrigins:
           - CHTC_STASHCACHE_ORIGIN
@@ -77,7 +77,7 @@ DataFederations:
           - ANY
 
       /chtc/PROTECTED:
-        Access:
+        Authorizations:
           - FQAN:/GLOW
           - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
           - SciTokens:
