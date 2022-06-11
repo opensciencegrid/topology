@@ -791,34 +791,28 @@ def get_namespaces_info(global_data: GlobalData, suppress_errors = True) -> Dict
     resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
     vos_data = global_data.get_vos_data()
 
-    caches = {}
+    cache_resource_objs = {}  # type: Dict[str, Resource]
+    cache_resource_dicts = {}  # type: Dict[str, Dict]
 
     for group in resource_groups:
         for resource in group.resources:
             if _resource_has_cache(resource):
-                caches[resource.name] = _cache_resource_dict(resource)
+                cache_resource_objs[resource.name] = resource
+                cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
 
-    result_caches = list(caches.values())
-
-    def _namespace_dict(n: Namespace):
+    def _namespace_dict(ns: Namespace):
         nsdict = {
-            "path": n.path,
-            "readhttps": not n.is_public(),
-            "usetokenonread": any(isinstance(a, SciTokenAuth) for a in n.authz_list),
-            "writebackhost": n.writeback,
-            "dirlisthost": n.dirlist,
+            "path": ns.path,
+            "readhttps": not ns.is_public(),
+            "usetokenonread": any(isinstance(a, SciTokenAuth) for a in ns.authz_list),
+            "writebackhost": ns.writeback,
+            "dirlisthost": ns.dirlist,
             "caches": [],
         }
-        if ANY in n.caches:
-            nsdict["caches"] = result_caches
-        else:
-            for r in n.caches:
-                try:
-                    nsdict["caches"].append(caches[r])
-                except KeyError:
-                    log_or_raise(suppress_errors,
-                                 VODataError(n.vo_name,
-                                             f"Namespace {n.path}: cache resource {r} not found"))
+
+        for cache_name, cache_resource_obj in cache_resource_objs.items():
+            if _resource_allows_namespace(cache_resource_obj, ns) and _namespace_allows_cache(ns, cache_resource_obj):
+                nsdict["caches"].append(cache_resource_dicts[cache_name])
         return nsdict
 
     result_namespaces = []
@@ -832,6 +826,6 @@ def get_namespaces_info(global_data: GlobalData, suppress_errors = True) -> Dict
             result_namespaces.append(_namespace_dict(namespace))
 
     return {
-        "caches": result_caches,
+        "caches": list(cache_resource_dicts.values()),
         "namespaces": result_namespaces
     }
