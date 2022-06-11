@@ -779,8 +779,14 @@ audience = {allowed_vos_str}
 
 
 def get_namespaces_info(global_data: GlobalData, suppress_errors = True) -> Dict:
-    def _resource_dict(r: Resource):
-        return {"fqdn": r.fqdn, "resource": r.name}
+    def _cache_resource_dict(r: Resource):
+        endpoint = f"{r.fqdn}:8000"
+        for svc in r.services:
+            if svc.get("Name") == XROOTD_CACHE_SERVER:
+                if not is_null(svc, "Details", "uri_override"):
+                    endpoint = svc["Details"]["uri_override"]
+                break
+        return {"endpoint": endpoint, "resource": r.name}
 
     resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
     vos_data = global_data.get_vos_data()
@@ -790,7 +796,7 @@ def get_namespaces_info(global_data: GlobalData, suppress_errors = True) -> Dict
     for group in resource_groups:
         for resource in group.resources:
             if _resource_has_cache(resource):
-                caches[resource.name] = _resource_dict(resource)
+                caches[resource.name] = _cache_resource_dict(resource)
 
     result_caches = list(caches.values())
 
