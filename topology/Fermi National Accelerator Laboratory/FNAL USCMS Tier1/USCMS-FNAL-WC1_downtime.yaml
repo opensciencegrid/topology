@@ -701,5 +701,29 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1201294319
+  Description: OSG 3.5 to 3.6 transition
+  Severity: Intermittent Outage
+  StartTime: Jun 15, 2022 13:00 +0000
+  EndTime: Jun 15, 2022 22:00 +0000
+  CreatedTime: Jun 13, 2022 12:10 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1201294914
+  Description: OSG 3.5 to 3.6 transition
+  Severity: Intermittent Outage
+  StartTime: Jun 15, 2022 13:00 +0000
+  EndTime: Jun 15, 2022 22:00 +0000
+  CreatedTime: Jun 13, 2022 12:11 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
 
 
