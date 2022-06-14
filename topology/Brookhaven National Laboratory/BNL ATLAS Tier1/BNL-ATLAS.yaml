@@ -267,7 +267,7 @@ Resources:
       Administrative Contact:
         Primary:
           ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
-          Name: John S. De Stefano Jr.
+          Name: John Steven De Stefano Jr.
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -288,7 +288,7 @@ Resources:
       Administrative Contact:
         Primary:
           ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
-          Name: John S. De Stefano Jr.
+          Name: John Steven De Stefano Jr.
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -322,6 +322,8 @@ Resources:
     FQDN: dcsrm.usatlas.bnl.gov
     ID: 5
     Services:
+      SRMv2.disk:
+        Description: SRM V2 endpoint for the disk only storage
       SRMv2.tape:
         Description: SRM V2 endpoint for the tape system
     VOOwnership:
