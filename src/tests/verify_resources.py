@@ -150,6 +150,7 @@ _emsgs = {
     'ResID'         : "Resources must contain a numeric ID",
     'ResIDUnique'   : "Resource IDs must be unique across the OSG topology",
     'ResGrpID'      : "Resource Groups must contain a numeric ID",
+    'ResGrpIDUnique': "Resource Group IDs must be unique across OSG topology",
     'SiteUnique'    : "Site names must be unique across Facilities",
     'FQDNUnique'    : "FQDNs must be unique across the OSG topology",
     'VOOwnership100': "Total VOOwnership must not exceed 100%",
@@ -339,12 +340,15 @@ def test_8_res_ids(rgs, rgfns):
 
     errors = 0
     ridres = autodict()
+    gidrgs = autodict()
 
     for rg,rgfn in zip(rgs,rgfns):
         if not isinstance(rg.get('GroupID'), int):
             print_emsg_once('ResGrpID')
             print("Resource Group missing numeric GroupID: '%s'" % rgfn)
             errors += 1
+        else:
+            gidrgs[rg['ID']] += [rgfn]
 
         for resname,res in sorted(rg['Resources'].items()):
             if not isinstance(res.get('ID'), int):
@@ -354,6 +358,14 @@ def test_8_res_ids(rgs, rgfns):
                 errors += 1
             else:
                 ridres[res['ID']] += [(rgfn, resname)]
+
+    for gid,rglist in sorted(gidrgs.items()):
+        if len(rglist) > 1:
+            print_emsg_once('ResGrpIDUnique')
+            print("Resource Group ID '%s' used for multiple groups:" % gid)
+            for rgfn in rglist:
+                print(" - %s" % rgfn)
+            errors += 1
 
     for rid,reslist in sorted(ridres.items()):
         if len(reslist) > 1:
