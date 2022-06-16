@@ -358,7 +358,7 @@ def scitokens():
         return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
 
 
-@app.route("/stashcache/namespaces.json")
+@app.route("/stashcache/namespaces")
 def stashcache_namespaces_json():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
