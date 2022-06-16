@@ -50,7 +50,7 @@ ReportingGroups:
 DataFederations:
   StashCache:
     Namespaces:
-      /icecube/PUBLIC:
+      - Path: /icecube/PUBLIC
         Authorizations:
           - PUBLIC
         AllowedCaches:

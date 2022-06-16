@@ -77,7 +77,7 @@ SupportURL: http://helpdesk.fnal.gov
 DataFederations:
   StashCache:
     Namespaces:
-      /store:
+      - Path: /store
         Authorizations:
           - FQAN: /cms
           - SciTokens:

@@ -74,7 +74,7 @@ SupportURL: http://www.opensciencegrid.org
 DataFederations:
   StashCache:
     Namespaces:
-      /user:
+      - Path: /user
         Authorizations:
           - PUBLIC
         AllowedOrigins:
@@ -82,7 +82,7 @@ DataFederations:
           - CHTC_OSPOOL_ORIGIN
         AllowedCaches:
           - ANY
-      /osgconnect/public:
+      - Path: /osgconnect/public
         Authorizations:
           - PUBLIC
         AllowedOrigins:
@@ -90,7 +90,7 @@ DataFederations:
           - CHTC_OSPOOL_ORIGIN
         AllowedCaches:
           - ANY
-      /osgconnect/collab:
+      - Path: /osgconnect/collab
         Authorizations:
           - PUBLIC
         AllowedOrigins:
@@ -98,7 +98,7 @@ DataFederations:
           - CHTC_OSPOOL_ORIGIN
         AllowedCaches:
           - ANY
-      /ospool/PROTECTED:
+      - Path: /ospool/PROTECTED
         Authorizations:
           - SciTokens:
               Issuer: https://osg-htc.org/ospool
