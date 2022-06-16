@@ -1,5 +1,5 @@
 import copy
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 from typing import Dict, List, Optional, Set, Tuple, Union
 import re
 import sys
@@ -204,17 +204,22 @@ def parse_authz(authz: Union[str, Dict]) -> AuthMethod:
 class StashCache:
     def __init__(self, vo_name: str, yaml_data: Dict, suppress_errors: bool = True):
         self.vo_name = vo_name
-        self.namespaces: Dict[str, Namespace] = {}
+        self.namespaces: OrderedDict[str, Namespace] = OrderedDict()
         self.load_yaml(yaml_data, suppress_errors)
 
     def load_yaml(self, yaml_data: Dict, suppress_errors: bool):
         if is_null(yaml_data, "Namespaces"):
             return
 
-        for path, ns_data in yaml_data["Namespaces"].items():
-            # Check for old yaml data, where each namespace is a plain list of authz
-            if isinstance(ns_data, list):
-                return self.load_old_yaml(yaml_data, suppress_errors)
+        # Check for old yaml data, where each Namespaces is a dict and each namespace is a plain list of authz
+        if isinstance(yaml_data["Namespaces"], list):
+            return self.load_old_yaml(yaml_data, suppress_errors)
+
+        for idx, ns_data in enumerate(yaml_data["Namespaces"]):
+            # New format; Namespaces is a list of dicts
+            if "Path" not in ns_data:
+                log_or_raise(suppress_errors, VODataError(vo_name=self.vo_name, text=f"Namespace #{idx}: No Path"))
+            path = ns_data["Path"]
             origins = ns_data.get("AllowedOrigins", [])
             caches = ns_data.get("AllowedCaches", [])
             writeback = ns_data.get("Writeback", None)
