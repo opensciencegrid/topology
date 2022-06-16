@@ -49,13 +49,6 @@ ReportingGroups:
 DataFederations:
   StashCache:
     Namespaces:
-      - Path: /xenon/PUBLIC
-        Authorizations:
-          - PUBLIC
-        AllowedCaches:
-          - ANY
-        AllowedOrigins:
-          - RDS_OSDF_ORIGIN
       - Path: /xenon/PROTECTED
         Authorizations:
           - FQAN: /xenon.biggrid.nl
@@ -63,5 +56,12 @@ DataFederations:
           - DN: /DC=org/DC=cilogon/C=US/O=University of California-San Diego/CN=Danny Saba T51578603
         AllowedCaches:
           - RDS_AUTH_OSDF_CACHE
+        AllowedOrigins:
+          - RDS_OSDF_ORIGIN
+      - Path: /xenon/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedCaches:
+          - ANY
         AllowedOrigins:
           - RDS_OSDF_ORIGIN
