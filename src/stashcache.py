@@ -212,7 +212,7 @@ class StashCache:
             return
 
         # Check for old yaml data, where each Namespaces is a dict and each namespace is a plain list of authz
-        if isinstance(yaml_data["Namespaces"], list):
+        if not isinstance(yaml_data["Namespaces"], list):
             return self.load_old_yaml(yaml_data, suppress_errors)
 
         for idx, ns_data in enumerate(yaml_data["Namespaces"]):
