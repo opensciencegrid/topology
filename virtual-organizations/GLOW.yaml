@@ -67,7 +67,7 @@ SupportURL: https://chtc.cs.wisc.edu
 DataFederations:
   StashCache:
     Namespaces:
-      /chtc/PUBLIC:
+      - Path: /chtc/PUBLIC
         Authorizations:
           - PUBLIC
         AllowedOrigins:
@@ -76,7 +76,7 @@ DataFederations:
         AllowedCaches:
           - ANY
 
-      /chtc/PROTECTED:
+      - Path: /chtc/PROTECTED
         Authorizations:
           - FQAN:/GLOW
           - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276

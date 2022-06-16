@@ -72,7 +72,7 @@ ReportingGroups:
 DataFederations:
   StashCache:
     Namespaces:
-      /user/ligo:
+      - Path: /user/ligo
         Authorizations:
           - FQAN: /osg/ligo
           - FQAN: /virgo
@@ -106,7 +106,7 @@ DataFederations:
           - T1_STASHCACHE_CACHE
           - PIC_STASHCACHE_CACHE
           - SU_STASHCACHE_CACHE
-      /gwdata:
+      - Path: /gwdata
         Authorizations:
           - PUBLIC
         AllowedOrigins:

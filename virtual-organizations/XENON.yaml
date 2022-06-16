@@ -49,14 +49,14 @@ ReportingGroups:
 DataFederations:
   StashCache:
     Namespaces:
-      /xenon/PUBLIC:
+      - Path: /xenon/PUBLIC
         Authorizations:
           - PUBLIC
         AllowedCaches:
           - ANY
         AllowedOrigins:
           - RDS_OSDF_ORIGIN
-      /xenon/PROTECTED:
+      - Path: /xenon/PROTECTED
         Authorizations:
           - FQAN: /xenon.biggrid.nl
           - DN: /DC=org/DC=cilogon/C=US/O=University of California-San Diego/CN=Kevin Coakley A183421
