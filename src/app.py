@@ -216,7 +216,8 @@ def collaborations_scitoken_text():
 def contacts():
     try:
         authorized = _get_authorized()
-        users_list = global_data.get_contacts_data().get_tree(_get_authorized())["Users"]["User"]
+        contacts_data = global_data.get_contacts_data().without_duplicates()
+        users_list = contacts_data.get_tree(_get_authorized())["Users"]["User"]
         return _fix_unicode(render_template('contacts.html.j2', users=users_list, authorized=authorized))
     except (KeyError, AttributeError):
         app.log_exception(sys.exc_info())
