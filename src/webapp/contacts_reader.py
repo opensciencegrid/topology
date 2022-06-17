@@ -119,7 +119,7 @@ class ContactsData(object):
                  "@xsi:schemaLocation": MISCUSER_SCHEMA_URL,
                  "User": user_list}}
 
-    def without_duplicates(self) -> ContactsData:
+    def without_duplicates(self):
         data = { id_: contact
                  for id_, contact in self.yaml_data
                  if not _id_is_duplicate(self.yaml_data, id_) }
