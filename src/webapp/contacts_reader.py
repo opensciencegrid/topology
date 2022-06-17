@@ -119,6 +119,38 @@ class ContactsData(object):
                  "@xsi:schemaLocation": MISCUSER_SCHEMA_URL,
                  "User": user_list}}
 
+    def without_duplicates(self) -> ContactsData:
+        data = self.yaml_data
+        data = { id_: contact
+                 for id_, contact in data
+                 if not _id_is_duplicate(data, id_) }
+
+        return ContactsData(data)
+
+
+def _id_is_duplicate(data, id_):
+    contact = data[id_]
+    if 'CILogonID' not in contact:
+        return False
+    cilogonid = contact['CILogonID']
+    if cilogonid == id_:
+        return False
+    if cilogonid not in data:
+        return False
+    # require all values (recursively) to match between two contact items
+    # in order to be considered duplicate, but allow case differences
+    return _recursive_lower(data[cilogonid]) == _recursive_lower(contact)
+
+
+def _recursive_lower(x):
+    if isinstance(x, dict):
+        return { k: _recursive_lower(v) for k,v in x }
+    if isinstance(x, list):
+        return list(map(_recursive_lower, x))
+    if isinstance(x, str):
+        return x.lower()
+    return x
+
 
 def get_contacts_data(infile) -> ContactsData:
     if infile:
