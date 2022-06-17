@@ -548,7 +548,8 @@ def test_14_res_contacts_match(rgs, rgfns, contacts):
             if rcls:
                 for ctype, clevel, ID, name in flatten_res_contacts(rcls):
                     if (contact_id_ok(ID)
-                        and ID in contacts and name != contacts[ID]):
+                        and ID in contacts
+                        and name.lower() != contacts[ID].lower()):
                         print_emsg_once('ContactNameMismatch')
                         print("In '%s', Resource '%s' %s %s '%s' (%s) does not"
                               " match name in contact repo (%s)" % (rgfn,
@@ -568,7 +569,8 @@ def test_14_vo_contacts_match(vos, vofns, contacts):
         if vcs:
             for ctype, ID, name in flatten_vo_contacts(vcs):
                 if (contact_id_ok(ID)
-                    and ID in contacts and name != contacts[ID]):
+                    and ID in contacts
+                    and name.lower() != contacts[ID].lower()):
                     print_emsg_once('ContactNameMismatch')
                     print("In '%s', '%s' Contact ID '%s' (%s) does not"
                           " match name in contact repo (%s)" % (vofn, ctype,
@@ -590,7 +592,8 @@ def test_14_sc_contacts_match(support_centers, contacts):
         if sccs:
             for ctype, ID, name in flatten_sc_contacts(sccs):
                 if (contact_id_ok(ID)
-                    and ID in contacts and name != contacts[ID]):
+                    and ID in contacts
+                    and name.lower() != contacts[ID].lower()):
                     print_emsg_once('ContactNameMismatch')
                     print("Support Center '%s': '%s' Contact ID '%s' (%s)"
                           " does not match name in contact repo (%s)" %
