@@ -1130,4 +1130,36 @@
   Services:
   - CE
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 1207370626
+  Description: Moving day for namenodes.
+  Severity: Outage
+  StartTime: Jun 22, 2022 13:00 +0000
+  EndTime: Jun 22, 2022 22:00 +0000
+  CreatedTime: Jun 20, 2022 14:57 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1207371675
+  Description: Moving day for squids.
+  Severity: Outage
+  StartTime: Jun 22, 2022 13:00 +0000
+  EndTime: Jun 22, 2022 22:00 +0000
+  CreatedTime: Jun 20, 2022 14:59 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1207371913
+  Description: Moving day for squids.
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 20, 2022 14:59 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
