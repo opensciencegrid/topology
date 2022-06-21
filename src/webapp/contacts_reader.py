@@ -143,7 +143,7 @@ def _id_is_duplicate(data, id_):
 
 def _recursive_lower(x):
     if isinstance(x, dict):
-        return { k: _recursive_lower(v) for k,v in x }
+        return { k: _recursive_lower(v) for k,v in x.items() }
     if isinstance(x, list):
         return list(map(_recursive_lower, x))
     if isinstance(x, str):
