@@ -121,7 +121,7 @@ class ContactsData(object):
 
     def without_duplicates(self):
         data = { id_: contact
-                 for id_, contact in self.yaml_data
+                 for id_, contact in self.yaml_data.items()
                  if not _id_is_duplicate(self.yaml_data, id_) }
 
         return ContactsData(data)
