@@ -84,7 +84,7 @@ DataFederations:
         - SciTokens:
             Issuer: https://osg-htc.org/ospool
             # Base Path gets prepended to token scopes
-            Base Path: /
+            Base Path: /ospool/PROTECTED
     AllowedOrigins:
       - OSGCONNECT_ORIGIN
       - CHTC_OSPOOL_ORIGIN
