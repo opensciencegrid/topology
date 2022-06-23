@@ -63,80 +63,72 @@ class NotRegistered(Exception):
 
 
 class AuthMethod:
-    def is_public(self):
-        return False
+    is_public = False
+    used_in_authfile = False
+    used_in_scitokens_conf = False
 
-    def used_in_authfile(self):
-        return False
-
-    def used_in_scitokens_conf(self):
-        return False
-
-    def authfile_id(self):
+    def get_authfile_id(self):
         return ""
 
-    def scitokens_conf_block(self):
+    def get_scitokens_conf_block(self, service_name: str):
         return ""
 
 
 class PublicAuth(AuthMethod):
+    is_public = True
+    used_in_authfile = True
+
     def __str__(self):
         return "PUBLIC"
 
-    def is_public(self):
-        return True
-
-    def used_in_authfile(self):
-        return True
-
-    def authfile_id(self):
+    def get_authfile_id(self):
         return "u *"
 
 
 class DNAuth(AuthMethod):
+    used_in_authfile = True
+
     def __init__(self, dn: str):
         self.dn = dn
 
     def __str__(self):
         return "DN: " + self.dn
 
-    def used_in_authfile(self):
-        return True
-
-    def dn_hash(self):
+    def get_dn_hash(self):
         return _generate_dn_hash(self.dn)
 
-    def authfile_id(self):
-        return f"u {self.dn_hash()}"
+    def get_authfile_id(self):
+        return f"u {self.get_dn_hash()}"
 
 
 class FQANAuth(AuthMethod):
+    used_in_authfile = True
+
     def __init__(self, fqan: str):
         self.fqan = fqan
 
     def __str__(self):
         return "FQAN: " + self.fqan
 
-    def used_in_authfile(self):
-        return True
-
-    def authfile_id(self):
+    def get_authfile_id(self):
         return f"g {self.fqan}"
 
 
 class SciTokenAuth(AuthMethod):
-    def __init__(self, issuer: str, base_path: str, restricted_path: Optional[str] = None):
+    used_in_scitokens_conf = True
+
+    def __init__(self, issuer: str, base_path: str, restricted_path: Optional[str], map_subject: bool):
         self.issuer = issuer
         self.base_path = base_path
         self.restricted_path = restricted_path
+        self.map_subject = map_subject
 
     def __str__(self):
-        return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path}"
+        return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path} map_subject={self.map_subject}"
 
-    def used_in_scitokens_conf(self):
-        return True
-
-    def scitokens_conf_block(self):
+    def get_scitokens_conf_block(self, service_name: str):
+        if service_name not in [XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER]:
+            raise ValueError(f"service_name must be '{XROOTD_CACHE_SERVER}' or '{XROOTD_ORIGIN_SERVER}'")
         block = f"""\
 [Issuer {self.issuer}]
 issuer = {self.issuer}
@@ -144,25 +136,27 @@ base_path = {self.base_path}
 """
         if self.restricted_path:
             block += f"restricted_path = {self.restricted_path}\n"
+        if service_name == "origin":
+            block += f"map_subject = {self.map_subject}\n"
 
         return block
 
 
 class Namespace:
-    def __init__(self, path: str, vo_name: str, origins: List[str] = None, caches: List[str] = None,
-                 authz_list: List[AuthMethod] = None, writeback: Optional[str] = None, dirlist: Optional[str] = None,
-                 map_subject=False):
+    def __init__(self, path: str, vo_name: str, origins: List[str], caches: List[str],
+                 authz_list: List[AuthMethod], writeback: Optional[str], dirlist: Optional[str],
+                 map_subject):
         self.path = path
         self.vo_name = vo_name
-        self.origins = origins or []
-        self.caches = caches or []
-        self.authz_list = authz_list or []
+        self.origins = origins
+        self.caches = caches
+        self.authz_list = authz_list
         self.writeback = writeback
         self.dirlist = dirlist
         self.map_subject = map_subject
 
     def is_public(self) -> bool:
-        return self.authz_list and self.authz_list[0].is_public()
+        return self.authz_list and self.authz_list[0].is_public
 
 
 def parse_authz(authz: Union[str, Dict]) -> AuthMethod:
@@ -181,7 +175,8 @@ def parse_authz(authz: Union[str, Dict]) -> AuthMethod:
                     return SciTokenAuth(
                         issuer=v["Issuer"],
                         base_path=v["Base Path"],
-                        restricted_path=v.get("Restricted Path", None)
+                        restricted_path=v.get("Restricted Path", None),
+                        map_subject=v["Map Subject", False],
                     )
                 except (KeyError, AttributeError):
                     raise DataError(f"Invalid authz list entry {authz}")
@@ -235,7 +230,7 @@ class StashCache:
                 authz_list=authz_list,
                 writeback=ns_data.get("Writeback", None),
                 dirlist=ns_data.get("DirList", None),
-                map_subject=ns_data.get("MapSubject", False)
+                map_subject=ns_data.get("Map Subject", False)
             )
 
     def load_old_yaml(self, yaml_data: Dict, suppress_errors: bool):
@@ -258,7 +253,7 @@ class StashCache:
                 new_err = VODataError(vo_name=self.vo_name, text=f"Namespace {path}: {err}")
                 log_or_raise(suppress_errors, new_err)
                 continue
-            if parsed_authz.is_public():
+            if parsed_authz.is_public:
                 return [parsed_authz]
             else:
                 authz_list.append(parsed_authz)
@@ -517,9 +512,9 @@ def generate_cache_authfile2(
                 extended_authz_list += ligo_authz_list
 
             for authz in extended_authz_list:
-                if authz.used_in_authfile():
-                    id_to_paths[authz.authfile_id()].add(path)
-                    id_to_str[authz.authfile_id()] = str(authz)
+                if authz.used_in_authfile:
+                    id_to_paths[authz.get_authfile_id()].add(path)
+                    id_to_str[authz.get_authfile_id()] = str(authz)
 
     if not id_to_paths and not public_paths:
         if suppress_errors:
@@ -606,9 +601,9 @@ def generate_origin_authfile2(
                     continue
 
             for authz in authz_list:
-                if authz.used_in_authfile():
-                    id_to_paths[authz.authfile_id()].add(path)
-                    id_to_str[authz.authfile_id()] = str(authz)
+                if authz.used_in_authfile:
+                    id_to_paths[authz.get_authfile_id()].add(path)
+                    id_to_str[authz.get_authfile_id()] = str(authz)
 
     if not id_to_paths and not public_paths:
         if suppress_errors:
@@ -695,16 +690,16 @@ audience = {allowed_vos_str}
                 continue
 
             for authz in namespace.authz_list:
-                if authz.used_in_scitokens_conf():
+                if authz.used_in_scitokens_conf:
                     origin_authz_list.append(authz)
                     allowed_vos.add(vo_name)
 
     # Older plugin versions require at least one issuer block (SOFTWARE-4389)
     if not origin_authz_list:
-        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found")
+        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found", restricted_path=None, map_subject=False)
         origin_authz_list.append(dummy_auth)
 
-    issuer_blocks = [a.scitokens_conf_block() for a in origin_authz_list]
+    issuer_blocks = [a.get_scitokens_conf_block(XROOTD_ORIGIN_SERVER) for a in origin_authz_list]
     issuer_blocks_str = "\n".join(issuer_blocks)
     allowed_vos_str = ", ".join(sorted(allowed_vos))
 
@@ -757,7 +752,7 @@ audience = {allowed_vos_str}
 """
 
     allowed_vos = set()
-    origin_authz_list = []
+    cache_authz_list = []
 
     for vo_name, vo_data in vos_data.vos.items():
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
@@ -774,16 +769,16 @@ audience = {allowed_vos_str}
                 continue
 
             for authz in namespace.authz_list:
-                if authz.used_in_scitokens_conf():
-                    origin_authz_list.append(authz)
+                if authz.used_in_scitokens_conf:
+                    cache_authz_list.append(authz)
                     allowed_vos.add(vo_name)
 
     # Older plugin versions require at least one issuer block (SOFTWARE-4389)
-    if not origin_authz_list:
-        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found")
-        origin_authz_list.append(dummy_auth)
+    if not cache_authz_list:
+        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found", restricted_path=None, map_subject=False)
+        cache_authz_list.append(dummy_auth)
 
-    issuer_blocks = [a.scitokens_conf_block() for a in origin_authz_list]
+    issuer_blocks = [a.get_scitokens_conf_block(XROOTD_CACHE_SERVER) for a in cache_authz_list]
     issuer_blocks_str = "\n".join(issuer_blocks)
     allowed_vos_str = ", ".join(sorted(allowed_vos))
 
