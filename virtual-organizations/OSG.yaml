@@ -74,6 +74,8 @@ SupportURL: http://www.opensciencegrid.org
 DataFederations:
   StashCache:
     Namespaces:
+      /osdftest:
+        - PUBLIC
       /user:
         - PUBLIC
       /osgconnect/public:
@@ -88,5 +90,6 @@ DataFederations:
     AllowedOrigins:
       - OSGCONNECT_ORIGIN
       - CHTC_OSPOOL_ORIGIN
+      - SDSC-test-Origin
     AllowedCaches:
       - ANY
