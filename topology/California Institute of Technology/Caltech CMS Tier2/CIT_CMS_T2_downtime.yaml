@@ -1942,3 +1942,53 @@
   Services:
     - XRootD component
 
+
+
+# ----------------------------------------
+# Upgrade kernel on storage nodes.
+# Extra hours allowed for contingency
+#
+- Class: SCHEDULED
+  ID: 997651573
+  Description: Upgrade kernel on storage nodes
+  Severity: Outage
+  StartTime: Jun 28, 2022 09:00 -0700
+  EndTime: Jun 28, 2022 23:59 -0700
+  CreatedTime: Jun 23, 2022 13:00 -0700
+  ResourceName: CIT_CMS_SE
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 997651574
+  Description: Upgrade kernel on storage nodes
+  Severity: Outage
+  StartTime: Jun 28, 2022 09:00 -0700
+  EndTime: Jun 28, 2022 23:59 -0700
+  CreatedTime: Jun 23, 2022 13:00 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 997651575
+  Description: Upgrade kernel on storage nodes
+  Severity: Outage
+  StartTime: Jun 28, 2022 09:00 -0700
+  EndTime: Jun 28, 2022 23:59 -0700
+  CreatedTime: Jun 23, 2022 13:00 -0700
+  ResourceName: CIT_CMS_SE_Ceph
+  Services:
+    - GridFtp
+
+- Class: SCHEDULED
+  ID: 997651576
+  Description: Upgrade kernel on storage nodes
+  Severity: Outage
+  StartTime: Jun 28, 2022 09:00 -0700
+  EndTime: Jun 28, 2022 23:59 -0700
+  CreatedTime: Jun 23, 2022 13:00 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
