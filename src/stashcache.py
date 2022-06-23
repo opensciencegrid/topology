@@ -176,7 +176,7 @@ def parse_authz(authz: Union[str, Dict]) -> AuthMethod:
                         issuer=v["Issuer"],
                         base_path=v["Base Path"],
                         restricted_path=v.get("Restricted Path", None),
-                        map_subject=v["Map Subject", False],
+                        map_subject=v.get("Map Subject", False),
                     )
                 except (KeyError, AttributeError):
                     raise DataError(f"Invalid authz list entry {authz}")
