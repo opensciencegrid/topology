@@ -27,3 +27,27 @@ Resources:
     Services:
       Execution Endpoint:
         Description: Backfill containers running in the osg production namespace.
+
+
+  CHTC-submit6:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: PATh Facility AP (originally OSPool submit node, see OPS-198)
+    FQDN: submit6.chtc.wisc.edu
+    ID: 1191
+    Services:
+      Submit Node:
+        Description: PATh Facility AP (originally OSPool submit node, see OPS-198)
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+
