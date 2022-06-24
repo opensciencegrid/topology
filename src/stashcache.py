@@ -136,7 +136,7 @@ base_path = {self.base_path}
 """
         if self.restricted_path:
             block += f"restricted_path = {self.restricted_path}\n"
-        if service_name == "origin":
+        if service_name == XROOTD_ORIGIN_SERVER:
             block += f"map_subject = {self.map_subject}\n"
 
         return block
