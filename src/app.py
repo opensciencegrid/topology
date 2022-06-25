@@ -15,6 +15,7 @@ import urllib.parse
 
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
+from webapp.exceptions import NotRegistered, DataError
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
@@ -343,12 +344,12 @@ def scitokens():
                 suppress_errors=False
             )
             return Response(origin_scitokens, mimetype="text/plain")
-    except stashcache.NotRegistered as e:
+    except NotRegistered as e:
         return Response("# No resource registered for {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
-    except stashcache.DataError as e:
+    except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating scitokens config for this FQDN: {}\n".format(str(e)) +
                         "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
@@ -366,12 +367,12 @@ def stashcache_namespaces_json():
     try:
         return Response(to_json_bytes(stashcache.get_namespaces_info(global_data, suppress_errors=False)),
                         mimetype='application/json')
-    except stashcache.NotRegistered as e:
+    except NotRegistered as e:
         return Response("# No resource registered for {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
-    except stashcache.DataError as e:
+    except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating namespaces json file: {}\n".format(str(e)) +
                         "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
@@ -406,12 +407,12 @@ def _get_cache_authfile(public_only):
                                                    suppress_errors=False,
                                                    public=public_only,
                                                    legacy=app.config["STASHCACHE_LEGACY_AUTH"])
-    except stashcache.NotRegistered as e:
+    except NotRegistered as e:
         return Response("# No resource registered for {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
-    except stashcache.DataError as e:
+    except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
                         "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
@@ -432,12 +433,12 @@ def _get_origin_authfile(public_only):
                                                     global_data=global_data,
                                                     suppress_errors=False,
                                                     public=public_only)
-    except stashcache.NotRegistered as e:
+    except NotRegistered as e:
         return Response("# No resource registered for {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
-    except stashcache.DataError as e:
+    except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
                         "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
@@ -464,12 +465,12 @@ def _get_scitoken_file(fqdn, get_scitoken_function):
         scitoken_file = get_scitoken_function(fqdn)
         return Response(scitoken_file, mimetype="text/plain")
 
-    except stashcache.NotRegistered as e:
+    except NotRegistered as e:
         return Response("# No resource registered for {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
-    except stashcache.DataError as e:
+    except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating scitokens config for this FQDN: {}\n".format(str(e)) +
                         "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",

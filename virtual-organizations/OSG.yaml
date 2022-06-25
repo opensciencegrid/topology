@@ -109,3 +109,10 @@ DataFederations:
         AllowedCaches:
           - ANY
         Map Subject: True
+      - Path: /osdftest
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - SDSC-test-Origin
+        AllowedCaches:
+          - ANY
