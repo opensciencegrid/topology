@@ -4,6 +4,7 @@ from typing import Dict, List, Optional, Set, Tuple, Union
 import ldap3
 
 from webapp.common import readfile, generate_dn_hash
+from webapp.exceptions import DataError, NotRegistered
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup
 from webapp.vos_data import VOsData
@@ -11,13 +12,6 @@ from webapp.vos_data import VOsData
 import logging
 
 log = logging.getLogger(__name__)
-
-
-class DataError(Exception):
-    """Raised when there is a problem in the topology or VO data"""
-
-class NotRegistered(Exception):
-    """Raised when the FQDN is not registered at all"""
 
 
 def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
