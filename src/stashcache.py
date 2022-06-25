@@ -1,13 +1,11 @@
-import copy
 from collections import defaultdict, OrderedDict
-from typing import Dict, List, Optional, Set, Tuple, Union
+from typing import Dict, List, Optional, Union
 import ldap3
 
 from webapp.common import is_null, readfile, generate_dn_hash
-from webapp.exceptions import DataError, NotRegistered
+from webapp.exceptions import DataError, NotRegistered, VODataError
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
-from webapp.vos_data import VOsData
 
 import logging
 
@@ -225,12 +223,6 @@ def log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=l
         logmethod("%s %s", type(an_exception), an_exception)
     else:
         raise an_exception
-
-
-class VODataError(DataError):
-    def __init__(self, vo_name, text):
-        DataError.__init__(self, f"VO {vo_name}: {text}")
-        self.vo_name = vo_name
 
 
 def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
