@@ -124,7 +124,7 @@ def _namespace_allows_cache(namespace: Namespace, cache: Optional[Resource]) -> 
     return cache and cache.name in namespace.caches
 
 
-def _get_allowed_caches_for_namespace(namespace: Namespace, topology: Topology, suppress_errors=True) -> List[Resource]:
+def _get_allowed_caches_for_namespace(namespace: Namespace, topology: Topology) -> List[Resource]:
     resource_groups = topology.get_resource_group_list()
     resources = []
     for group in resource_groups:
@@ -249,7 +249,7 @@ def generate_origin_authfile(
 
             allowed_resources = [origin_resource]
             # Add caches
-            allowed_caches = _get_allowed_caches_for_namespace(namespace, topology, suppress_errors)
+            allowed_caches = _get_allowed_caches_for_namespace(namespace, topology)
             if allowed_caches:
                 allowed_resources.extend(allowed_caches)
             else:
@@ -441,7 +441,7 @@ audience = {allowed_vos_str}
     return template.format(**locals()).rstrip() + "\n"
 
 
-def get_namespaces_info(global_data: GlobalData, suppress_errors = True) -> Dict:
+def get_namespaces_info(global_data: GlobalData) -> Dict:
     # Helper functions
     def _cache_resource_dict(r: Resource):
         endpoint = f"{r.fqdn}:8000"

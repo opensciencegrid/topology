@@ -365,7 +365,7 @@ def stashcache_namespaces_json():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
     try:
-        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data, suppress_errors=False)),
+        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data)),
                         mimetype='application/json')
     except ResourceNotRegistered as e:
         return Response("# {}\n"
