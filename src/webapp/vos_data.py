@@ -2,12 +2,11 @@ import copy
 
 from collections import OrderedDict
 from logging import getLogger
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Dict, List, Optional, Set, Tuple, Union
 
 from .common import Filters, ParsedYaml, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape, \
     generate_dn_hash
 from .contacts_reader import ContactsData
-from .exceptions import DataError, VODataError
 
 log = getLogger(__name__)
 
@@ -349,7 +348,8 @@ class SciTokenAuth(AuthMethod):
         self.map_subject = map_subject
 
     def __str__(self):
-        return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path} map_subject={self.map_subject}"
+        return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path}" \
+                f"map_subject={self.map_subject}"
 
     def get_scitokens_conf_block(self, service_name: str):
         if service_name not in [XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER]:
@@ -426,7 +426,7 @@ class StashCache:
         self.vo_name = vo_name
         self.namespaces: OrderedDict[str, Namespace] = OrderedDict()
         self.load_yaml(yaml_data)
-        self.errors: List[str] = []
+        self.errors: Set[str] = set()
 
     def load_yaml(self, yaml_data: ParsedYaml):
         if is_null(yaml_data, "Namespaces"):
@@ -439,7 +439,7 @@ class StashCache:
         for idx, ns_data in enumerate(yaml_data["Namespaces"]):
             # New format; Namespaces is a list of dicts
             if "Path" not in ns_data:
-                self.errors.append(f"Namespace #{idx}: No Path")
+                self.errors.add(f"Namespace #{idx}: No Path")
                 continue
             path = ns_data["Path"]
             authz_list = self.parse_authz_list(path=path, unparsed_authz_list=ns_data.get("Authorizations", []))
@@ -455,21 +455,24 @@ class StashCache:
             )
 
     def load_old_yaml(self, yaml_data: ParsedYaml):
-        allowed_origins = yaml_data.get("AllowedOrigins", [])
-        allowed_caches = yaml_data.get("AllowedCaches", [])
-        writeback = None
-        dirlist = None
-        map_subject = False
         for path, unparsed_authz_list in yaml_data["Namespaces"].items():
             authz_list = self.parse_authz_list(path, unparsed_authz_list)
-            self.namespaces[path] = Namespace(path, self.vo_name, allowed_origins, allowed_caches, authz_list, writeback, dirlist, map_subject)
+            self.namespaces[path] = Namespace(
+                path=path,
+                vo_name=self.vo_name,
+                allowed_origins=yaml_data.get("AllowedOrigins", []),
+                allowed_caches=yaml_data.get("AllowedCaches", []),
+                authz_list=authz_list,
+                writeback=None,
+                dirlist=None,
+                map_subject=False)
 
     def parse_authz_list(self, path: str, unparsed_authz_list: List[str]) -> List[AuthMethod]:
         authz_list = []
         for authz in unparsed_authz_list:
             parsed_authz, err = parse_authz(authz)
             if err:
-                self.errors.append(f"Namespace {path}: {err}")
+                self.errors.add(f"Namespace {path}: {err}")
                 continue
             if parsed_authz.is_public:
                 return [parsed_authz]
