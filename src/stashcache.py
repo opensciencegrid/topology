@@ -6,7 +6,7 @@ import ldap3
 from webapp.common import is_null, readfile, generate_dn_hash
 from webapp.exceptions import DataError, NotRegistered
 from webapp.models import GlobalData
-from webapp.topology import Resource, ResourceGroup
+from webapp.topology import Resource, ResourceGroup, Topology
 from webapp.vos_data import VOsData
 
 import logging
@@ -268,18 +268,6 @@ def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
     return results
 
 
-def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Optional[Resource]:
-    """Returns the Resource that has the given FQDN; if multiple Resources
-    have the same FQDN, returns the first one.
-
-    """
-    for group in resource_groups:
-        for resource in group.resources:
-            if fqdn.lower() == resource.fqdn.lower():
-                return resource
-    return None
-
-
 def _resource_has_cache(resource: Resource) -> bool:
     return XROOTD_CACHE_SERVER in resource.service_names
 
@@ -288,9 +276,8 @@ def _resource_has_origin(resource: Resource) -> bool:
     return XROOTD_ORIGIN_SERVER in resource.service_names
 
 
-def _get_resource_with_service(
-        fqdn: Optional[str], service_name: str, resource_groups: List[ResourceGroup], suppress_errors: bool
-) -> Optional[Resource]:
+def _get_resource_with_service(fqdn: Optional[str], service_name: str, topology: Topology,
+                               suppress_errors: bool) -> Optional[Resource]:
     """If given an FQDN, returns the Resource _if it has the given service.
     If given None, returns None.
     If multiple Resources have the same FQDN, checks the first one.
@@ -302,7 +289,7 @@ def _get_resource_with_service(
     """
     resource = None
     if fqdn:
-        resource = _get_resource_by_fqdn(fqdn, resource_groups)
+        resource = topology.safe_get_resource_by_fqdn(fqdn)
         if not resource:
             log_or_raise(suppress_errors, NotRegistered(fqdn))
             return None
@@ -315,12 +302,12 @@ def _get_resource_with_service(
     return resource
 
 
-def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup], suppress_errors: bool) -> Optional[Resource]:
-    return _get_resource_with_service(fqdn, XROOTD_CACHE_SERVER, resource_groups, suppress_errors)
+def _get_cache_resource(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
+    return _get_resource_with_service(fqdn, XROOTD_CACHE_SERVER, topology, suppress_errors)
 
 
-def _get_origin_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup], suppress_errors: bool) -> Optional[Resource]:
-    return _get_resource_with_service(fqdn, XROOTD_ORIGIN_SERVER, resource_groups, suppress_errors)
+def _get_origin_resource(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
+    return _get_resource_with_service(fqdn, XROOTD_ORIGIN_SERVER, topology, suppress_errors)
 
 
 def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_errors):
@@ -380,9 +367,8 @@ def _namespace_allows_cache(namespace: Namespace, cache: Optional[Resource]) -> 
     return cache and cache.name in namespace.caches
 
 
-def _get_allowed_caches_for_namespace(
-        namespace: Namespace, resource_groups: List[ResourceGroup], suppress_errors=True
-) -> List[Resource]:
+def _get_allowed_caches_for_namespace(namespace: Namespace, topology: Topology, suppress_errors=True) -> List[Resource]:
+    resource_groups = topology.get_resource_group_list()
     resources = []
     for group in resource_groups:
         for resource in group.resources:
@@ -402,11 +388,11 @@ def _get_allowed_caches_for_namespace(
 def generate_cache_authfile2(
         cache_fqdn: Optional[str], global_data: GlobalData, suppress_errors=True, public=False, legacy=True
 ) -> str:
-    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
     cache_resource = None
     if cache_fqdn:
-        cache_resource = _get_cache_resource(cache_fqdn, resource_groups, suppress_errors)
+        cache_resource = _get_cache_resource(cache_fqdn, topology, suppress_errors)
         if not cache_resource:
             return ""
 
@@ -480,11 +466,11 @@ def generate_cache_authfile2(
 def generate_origin_authfile2(
         origin_fqdn: str, global_data: GlobalData, suppress_errors=True, public=False
 ) -> str:
-    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
     origin_resource = None
     if origin_fqdn:
-        origin_resource = _get_origin_resource(origin_fqdn, resource_groups, suppress_errors)
+        origin_resource = _get_origin_resource(origin_fqdn, topology, suppress_errors)
         if not origin_resource:
             return ""
 
@@ -516,7 +502,7 @@ def generate_origin_authfile2(
 
             allowed_resources = [origin_resource]
             # Add caches
-            allowed_caches = _get_allowed_caches_for_namespace(namespace, resource_groups, suppress_errors)
+            allowed_caches = _get_allowed_caches_for_namespace(namespace, topology, suppress_errors)
             if allowed_caches:
                 allowed_resources.extend(allowed_caches)
             else:
@@ -591,10 +577,10 @@ def generate_origin_scitokens2(
 
     """
 
-    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
 
-    origin_resource = _get_origin_resource(origin_fqdn, resource_groups, suppress_errors)
+    origin_resource = _get_origin_resource(origin_fqdn, topology, suppress_errors)
     if not origin_resource:
         return ""
 
@@ -670,10 +656,10 @@ def generate_cache_scitokens2(
 
     """
 
-    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
 
-    cache_resource = _get_cache_resource(cache_fqdn, resource_groups, suppress_errors)
+    cache_resource = _get_cache_resource(cache_fqdn, topology, suppress_errors)
     if not cache_resource:
         return ""
 
