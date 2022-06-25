@@ -302,38 +302,6 @@ def _get_origin_resource(fqdn: Optional[str], topology: Topology, suppress_error
     return _get_resource_with_service(fqdn, XROOTD_ORIGIN_SERVER, topology, suppress_errors)
 
 
-def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_errors):
-    allowed_vos = resource.data.get("AllowedVOs")
-    if allowed_vos is None:
-        if suppress_errors:
-            return False
-        else:
-            raise DataError("Cache server at {} (resource name {}) does not provide an AllowedVOs list.".format(resource.fqdn, resource.name))
-
-    if ('ANY' not in allowed_vos and
-            vo_name not in allowed_vos and
-            (not public or 'ANY_PUBLIC' not in allowed_vos)):
-        log.debug(f"\tCache {resource.fqdn} does not allow {vo_name} in its AllowedVOs list")
-        return False
-
-    # For public data, caching is one-way: we OK things as long as the
-    # cache is interested in the data.
-    if public:
-        return True
-
-    allowed_caches = stashcache_data.get("AllowedCaches")
-    if allowed_caches is None:
-        if suppress_errors:
-            return False
-        else:
-            raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
-
-    ret = 'ANY' in allowed_caches or resource.name in allowed_caches
-    if not ret:
-        log.debug(f"\tVO {vo_name} does not allow cache {resource.fqdn} in its AllowedCaches list")
-    return ret
-
-
 def _resource_allows_namespace(resource: Optional[Resource], namespace: Optional[Namespace]) -> bool:
     if not resource:
         # Treat a missing resource as one without restrictions
