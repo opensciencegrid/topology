@@ -368,13 +368,13 @@ base_path = {self.base_path}
 
 
 class Namespace:
-    def __init__(self, path: str, vo_name: str, origins: List[str], caches: List[str],
+    def __init__(self, path: str, vo_name: str, allowed_origins: List[str], allowed_caches: List[str],
                  authz_list: List[AuthMethod], writeback: Optional[str], dirlist: Optional[str],
                  map_subject: bool):
         self.path = path
         self.vo_name = vo_name
-        self.origins = origins
-        self.caches = caches
+        self.allowed_origins = allowed_origins
+        self.allowed_caches = allowed_caches
         self.authz_list = authz_list
         self.writeback = writeback
         self.dirlist = dirlist
@@ -446,8 +446,8 @@ class StashCache:
             self.namespaces[path] = Namespace(
                 path=path,
                 vo_name=self.vo_name,
-                origins=ns_data.get("AllowedOrigins", []),
-                caches=ns_data.get("AllowedCaches", []),
+                allowed_origins=ns_data.get("AllowedOrigins", []),
+                allowed_caches=ns_data.get("AllowedCaches", []),
                 authz_list=authz_list,
                 writeback=ns_data.get("Writeback", None),
                 dirlist=ns_data.get("DirList", None),
@@ -455,14 +455,14 @@ class StashCache:
             )
 
     def load_old_yaml(self, yaml_data: ParsedYaml):
-        origins = yaml_data.get("AllowedOrigins", [])
-        caches = yaml_data.get("AllowedCaches", [])
+        allowed_origins = yaml_data.get("AllowedOrigins", [])
+        allowed_caches = yaml_data.get("AllowedCaches", [])
         writeback = None
         dirlist = None
         map_subject = False
         for path, unparsed_authz_list in yaml_data["Namespaces"].items():
             authz_list = self.parse_authz_list(path, unparsed_authz_list)
-            self.namespaces[path] = Namespace(path, self.vo_name, origins, caches, authz_list, writeback, dirlist, map_subject)
+            self.namespaces[path] = Namespace(path, self.vo_name, allowed_origins, allowed_caches, authz_list, writeback, dirlist, map_subject)
 
     def parse_authz_list(self, path: str, unparsed_authz_list: List[str]) -> List[AuthMethod]:
         authz_list = []

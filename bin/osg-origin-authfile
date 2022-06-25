@@ -24,6 +24,7 @@ args = parser.parse_args()
 
 global_data = webapp.models.GlobalData()
 
-authfile = stashcache.generate_origin_authfile(args.fqdn[0], global_data, suppress_errors=False, public=args.public)
+authfile = stashcache.generate_origin_authfile(args.fqdn[0], global_data, suppress_errors=False,
+                                               public_origin=args.public)
 
 print(authfile, end="")

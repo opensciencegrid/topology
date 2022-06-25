@@ -99,10 +99,7 @@ def _get_origin_resource(fqdn: Optional[str], topology: Topology, suppress_error
     return _get_resource_with_service(fqdn, XROOTD_ORIGIN_SERVER, topology, suppress_errors)
 
 
-def _resource_allows_namespace(resource: Optional[Resource], namespace: Optional[Namespace]) -> bool:
-    if not resource:
-        # Treat a missing resource as one without restrictions
-        return True
+def _resource_allows_namespace(resource: Resource, namespace: Optional[Namespace]) -> bool:
     allowed_vos = resource.data.get("AllowedVOs", [])
     if ANY in allowed_vos:
         return True
@@ -115,35 +112,29 @@ def _resource_allows_namespace(resource: Optional[Resource], namespace: Optional
 
 
 def _namespace_allows_origin(namespace: Namespace, origin: Optional[Resource]) -> bool:
-    return origin and origin.name in namespace.origins
+    return origin and origin.name in namespace.allowed_origins
 
 
 def _namespace_allows_cache(namespace: Namespace, cache: Optional[Resource]) -> bool:
-    if ANY in namespace.caches:
+    if ANY in namespace.allowed_caches:
         return True
-    return cache and cache.name in namespace.caches
+    return cache and cache.name in namespace.allowed_caches
 
 
 def _get_allowed_caches_for_namespace(namespace: Namespace, topology: Topology) -> List[Resource]:
     resource_groups = topology.get_resource_group_list()
-    resources = []
-    for group in resource_groups:
-        for resource in group.resources:
-            if not _resource_has_cache(resource):
-                continue
-
-            if not _resource_allows_namespace(resource, namespace):
-                continue
-
-            if not _namespace_allows_cache(namespace, resource):
-                continue
-
-            resources.append(resource)
-    return resources
+    all_caches = [resource
+                  for group in resource_groups
+                  for resource in group.resources
+                  if _resource_has_cache(resource)]
+    return [cache
+            for cache in all_caches
+            if _namespace_allows_cache(namespace, cache)
+            and _resource_allows_namespace(cache, namespace)]
 
 
 def generate_cache_authfile(
-        cache_fqdn: Optional[str], global_data: GlobalData, suppress_errors=True, public=False, legacy=True
+        cache_fqdn: Optional[str], global_data: GlobalData, suppress_errors=True, public_cache=False, legacy=True
 ) -> str:
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
@@ -159,7 +150,7 @@ def generate_cache_authfile(
     warnings = []
 
     ligo_authz_list: List[AuthMethod] = []
-    if legacy and not public:
+    if legacy and not public_cache:
         ldappass = readfile(global_data.ligo_ldap_passfile, log)
         ligo_dns = _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass)
         for dn in ligo_dns:
@@ -174,7 +165,7 @@ def generate_cache_authfile(
             if namespace.is_public():
                 public_paths.add(path)
                 continue
-            if public:
+            if public_cache:
                 continue
 
             # Extend authz list with LIGO DNs if applicable
@@ -196,7 +187,7 @@ def generate_cache_authfile(
     authfile_lines = []
     authfile_lines.extend(warnings)
 
-    if public:
+    if public_cache:
         authfile_lines.append("u * \\")
         if legacy:
             authfile_lines.append("    /user/ligo -rl \\")
@@ -215,9 +206,7 @@ def generate_cache_authfile(
     return authfile
 
 
-def generate_origin_authfile(
-        origin_fqdn: str, global_data: GlobalData, suppress_errors=True, public=False
-) -> str:
+def generate_origin_authfile(origin_fqdn: str, global_data: GlobalData, suppress_errors=True, public_origin=False) -> str:
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
     origin_resource = None
@@ -240,7 +229,7 @@ def generate_origin_authfile(
             if namespace.is_public():
                 public_paths.add(path)
                 continue
-            if public:
+            if public_origin:
                 continue
 
             # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
@@ -342,7 +331,7 @@ audience = {allowed_vos_str}
     origin_authz_list = []
 
     for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
-        for path, namespace in stashcache_obj.namespaces.items():
+        for namespace in stashcache_obj.namespaces.values():
             if namespace.is_public():
                 continue
             if not _namespace_allows_origin(namespace, origin_resource):
@@ -416,7 +405,7 @@ audience = {allowed_vos_str}
     cache_authz_list = []
 
     for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
-        for path, namespace in stashcache_obj.namespaces.items():
+        for namespace in stashcache_obj.namespaces.values():  # type: Namespace
             if namespace.is_public():
                 continue
             if not _namespace_allows_cache(namespace, cache_resource):
