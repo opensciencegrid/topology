@@ -3,7 +3,7 @@ from typing import Dict, List, Optional
 import ldap3
 
 from webapp.common import is_null, readfile
-from webapp.exceptions import DataError, NotRegistered
+from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
 
@@ -80,12 +80,12 @@ def _get_resource_with_service(fqdn: Optional[str], service_name: str, topology:
     if fqdn:
         resource = topology.safe_get_resource_by_fqdn(fqdn)
         if not resource:
-            log_or_raise(suppress_errors, NotRegistered(fqdn))
+            log_or_raise(suppress_errors, ResourceNotRegistered(fqdn=fqdn))
             return None
         if service_name not in resource.service_names:
             log_or_raise(
                 suppress_errors,
-                DataError(f"{fqdn} (resource name {resource.name}) does not provide an {service_name}.")
+                ResourceMissingService(resource, service_name)
             )
             return None
     return resource
