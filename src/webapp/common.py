@@ -7,7 +7,7 @@ import re
 import shlex
 import subprocess
 import sys
-from typing import Any, Dict, List, Union, AnyStr, NewType
+from typing import Any, Dict, List, Union, AnyStr, NewType, TypeVar
 from functools import wraps
 
 import asn1
@@ -73,7 +73,10 @@ def is_null(x, *keys) -> bool:
                      ])
 
 
-def ensure_list(x) -> List:
+T = TypeVar("T")
+
+
+def ensure_list(x: Union[None, T, List[T]]) -> List[T]:
     if isinstance(x, list):
         return x
     elif x is None:

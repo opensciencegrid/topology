@@ -2,7 +2,7 @@ from collections import defaultdict, OrderedDict
 from typing import Dict, List, Optional, Union
 import ldap3
 
-from webapp.common import is_null, readfile, generate_dn_hash
+from webapp.common import is_null, readfile, generate_dn_hash, ParsedYaml
 from webapp.exceptions import DataError, NotRegistered, VODataError
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
@@ -103,7 +103,7 @@ base_path = {self.base_path}
 class Namespace:
     def __init__(self, path: str, vo_name: str, origins: List[str], caches: List[str],
                  authz_list: List[AuthMethod], writeback: Optional[str], dirlist: Optional[str],
-                 map_subject):
+                 map_subject: bool):
         self.path = path
         self.vo_name = vo_name
         self.origins = origins
@@ -157,12 +157,12 @@ def parse_authz(authz: Union[str, Dict]) -> AuthMethod:
 
 # TODO EC
 class StashCache:
-    def __init__(self, vo_name: str, yaml_data: Dict, suppress_errors: bool = True):
+    def __init__(self, vo_name: str, yaml_data: ParsedYaml, suppress_errors: bool = True):
         self.vo_name = vo_name
         self.namespaces: OrderedDict[str, Namespace] = OrderedDict()
         self.load_yaml(yaml_data, suppress_errors)
 
-    def load_yaml(self, yaml_data: Dict, suppress_errors: bool):
+    def load_yaml(self, yaml_data: ParsedYaml, suppress_errors: bool):
         if is_null(yaml_data, "Namespaces"):
             return
 
@@ -191,7 +191,7 @@ class StashCache:
                 map_subject=ns_data.get("Map Subject", False)
             )
 
-    def load_old_yaml(self, yaml_data: Dict, suppress_errors: bool):
+    def load_old_yaml(self, yaml_data: ParsedYaml, suppress_errors: bool):
         origins = yaml_data.get("AllowedOrigins", [])
         caches = yaml_data.get("AllowedCaches", [])
         writeback = None
