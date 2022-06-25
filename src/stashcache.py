@@ -55,7 +55,7 @@ class DNAuth(AuthMethod):
         return "DN: " + self.dn
 
     def get_dn_hash(self):
-        return _generate_dn_hash(self.dn)
+        return generate_dn_hash(self.dn)
 
     def get_authfile_id(self):
         return f"u {self.get_dn_hash()}"
