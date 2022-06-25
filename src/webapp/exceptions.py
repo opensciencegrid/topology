@@ -11,6 +11,8 @@ class NotRegistered(DataError):
 
 class ResourceNotRegistered(NotRegistered):
     def __init__(self, name=None, fqdn=None):
+        self.name = name
+        self.fqdn = fqdn
         if name:
             text = f"Resource with name {name} not registered"
         elif fqdn:
@@ -22,11 +24,13 @@ class ResourceNotRegistered(NotRegistered):
 
 class ResourceDataError(DataError):
     def __init__(self, resource: Resource, text: str):
+        self.resource = resource
         super().__init__(f"Resource {resource.name}, FQDN {resource.fqdn}: {text}")
 
 
 class ResourceMissingService(ResourceDataError):
     def __init__(self, resource: Resource, service_name: str):
+        self.service_name = service_name
         super().__init__(resource=resource, text=f"Missing expected service {service_name}")
 
 
