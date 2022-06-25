@@ -1,221 +1,18 @@
-from collections import defaultdict, OrderedDict
-from typing import Dict, List, Optional, Union
+from collections import defaultdict
+from typing import Dict, List, Optional
 import ldap3
 
-from webapp.common import is_null, readfile, generate_dn_hash, ParsedYaml
-from webapp.exceptions import DataError, NotRegistered, VODataError
+from webapp.common import is_null, readfile
+from webapp.exceptions import DataError, NotRegistered
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
 
 import logging
 
-
-ANY = "ANY"
-PUBLIC = "PUBLIC"
-ANY_PUBLIC = "ANY_PUBLIC"
-
-XROOTD_CACHE_SERVER = "XRootD cache server"
-XROOTD_ORIGIN_SERVER = "XRootD origin server"
+from webapp.vos_data import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, AuthMethod, DNAuth, SciTokenAuth, Namespace, \
+    parse_authz, ANY, ANY_PUBLIC
 
 log = logging.getLogger(__name__)
-
-
-class AuthMethod:
-    is_public = False
-    used_in_authfile = False
-    used_in_scitokens_conf = False
-
-    def get_authfile_id(self):
-        return ""
-
-    def get_scitokens_conf_block(self, service_name: str):
-        return ""
-
-
-class PublicAuth(AuthMethod):
-    is_public = True
-    used_in_authfile = True
-
-    def __str__(self):
-        return "PUBLIC"
-
-    def get_authfile_id(self):
-        return "u *"
-
-
-class DNAuth(AuthMethod):
-    used_in_authfile = True
-
-    def __init__(self, dn: str):
-        self.dn = dn
-
-    def __str__(self):
-        return "DN: " + self.dn
-
-    def get_dn_hash(self):
-        return generate_dn_hash(self.dn)
-
-    def get_authfile_id(self):
-        return f"u {self.get_dn_hash()}"
-
-
-class FQANAuth(AuthMethod):
-    used_in_authfile = True
-
-    def __init__(self, fqan: str):
-        self.fqan = fqan
-
-    def __str__(self):
-        return "FQAN: " + self.fqan
-
-    def get_authfile_id(self):
-        return f"g {self.fqan}"
-
-
-class SciTokenAuth(AuthMethod):
-    used_in_scitokens_conf = True
-
-    def __init__(self, issuer: str, base_path: str, restricted_path: Optional[str], map_subject: bool):
-        self.issuer = issuer
-        self.base_path = base_path
-        self.restricted_path = restricted_path
-        self.map_subject = map_subject
-
-    def __str__(self):
-        return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path} map_subject={self.map_subject}"
-
-    def get_scitokens_conf_block(self, service_name: str):
-        if service_name not in [XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER]:
-            raise ValueError(f"service_name must be '{XROOTD_CACHE_SERVER}' or '{XROOTD_ORIGIN_SERVER}'")
-        block = f"""\
-[Issuer {self.issuer}]
-issuer = {self.issuer}
-base_path = {self.base_path}
-"""
-        if self.restricted_path:
-            block += f"restricted_path = {self.restricted_path}\n"
-        if service_name == XROOTD_ORIGIN_SERVER:
-            block += f"map_subject = {self.map_subject}\n"
-
-        return block
-
-
-class Namespace:
-    def __init__(self, path: str, vo_name: str, origins: List[str], caches: List[str],
-                 authz_list: List[AuthMethod], writeback: Optional[str], dirlist: Optional[str],
-                 map_subject: bool):
-        self.path = path
-        self.vo_name = vo_name
-        self.origins = origins
-        self.caches = caches
-        self.authz_list = authz_list
-        self.writeback = writeback
-        self.dirlist = dirlist
-        self.map_subject = map_subject
-
-    def is_public(self) -> bool:
-        return self.authz_list and self.authz_list[0].is_public
-
-
-def parse_authz(authz: Union[str, Dict]) -> AuthMethod:
-    """Return the instance of the appropriate AuthMethod from an item in an authz list for a namespace"""
-    # Note:
-    # This is a string:
-    # - FQAN:/foobar
-    # This is a dict:
-    # - FQAN: /foobar
-    # Accept both.
-
-    if isinstance(authz, dict):
-        for k, v in authz.items():
-            if k == "SciTokens":
-                try:
-                    return SciTokenAuth(
-                        issuer=v["Issuer"],
-                        base_path=v["Base Path"],
-                        restricted_path=v.get("Restricted Path", None),
-                        map_subject=v.get("Map Subject", False),
-                    )
-                except (KeyError, AttributeError):
-                    raise DataError(f"Invalid authz list entry {authz}")
-            elif k == "FQAN":
-                return FQANAuth(fqan=v)
-            elif k == "DN":
-                return DNAuth(dn=v)
-            else:
-                raise DataError(f"Unknown auth type {k}")
-    elif isinstance(authz, str):
-        if authz.startswith("FQAN:"):
-            return FQANAuth(fqan=authz[5:].strip())
-        elif authz.startswith("DN:"):
-            return DNAuth(dn=authz[3:].strip())
-        elif authz.strip() == "PUBLIC":
-            return PublicAuth()
-        else:
-            raise DataError(f"Unknown authz list entry {authz}")
-
-
-# TODO EC
-class StashCache:
-    def __init__(self, vo_name: str, yaml_data: ParsedYaml, suppress_errors: bool = True):
-        self.vo_name = vo_name
-        self.namespaces: OrderedDict[str, Namespace] = OrderedDict()
-        self.load_yaml(yaml_data, suppress_errors)
-
-    def load_yaml(self, yaml_data: ParsedYaml, suppress_errors: bool):
-        if is_null(yaml_data, "Namespaces"):
-            return
-
-        # Check for old yaml data, where each Namespaces is a dict and each namespace is a plain list of authz
-        if not isinstance(yaml_data["Namespaces"], list):
-            return self.load_old_yaml(yaml_data, suppress_errors)
-
-        for idx, ns_data in enumerate(yaml_data["Namespaces"]):
-            # New format; Namespaces is a list of dicts
-            if "Path" not in ns_data:
-                log_or_raise(suppress_errors, VODataError(vo_name=self.vo_name, text=f"Namespace #{idx}: No Path"))
-            path = ns_data["Path"]
-            authz_list = self.parse_authz_list(
-                path=path,
-                unparsed_authz_list=ns_data.get("Authorizations", []),
-                suppress_errors=suppress_errors
-            )
-            self.namespaces[path] = Namespace(
-                path=path,
-                vo_name=self.vo_name,
-                origins=ns_data.get("AllowedOrigins", []),
-                caches=ns_data.get("AllowedCaches", []),
-                authz_list=authz_list,
-                writeback=ns_data.get("Writeback", None),
-                dirlist=ns_data.get("DirList", None),
-                map_subject=ns_data.get("Map Subject", False)
-            )
-
-    def load_old_yaml(self, yaml_data: ParsedYaml, suppress_errors: bool):
-        origins = yaml_data.get("AllowedOrigins", [])
-        caches = yaml_data.get("AllowedCaches", [])
-        writeback = None
-        dirlist = None
-        map_subject = False
-        for path, unparsed_authz_list in yaml_data["Namespaces"].items():
-            authz_list = self.parse_authz_list(path, unparsed_authz_list, suppress_errors)
-            # log.debug(f"Creating Namespace({path}, {self.vo_name}, {origins}, {caches}, {authz_list}, {writeback}, {dirlist}, {map_subject})")
-            self.namespaces[path] = Namespace(path, self.vo_name, origins, caches, authz_list, writeback, dirlist, map_subject)
-
-    def parse_authz_list(self, path: str, unparsed_authz_list: List[str], suppress_errors) -> List[AuthMethod]:
-        authz_list = []
-        for authz in unparsed_authz_list:
-            try:
-                parsed_authz = parse_authz(authz)
-            except DataError as err:
-                new_err = VODataError(vo_name=self.vo_name, text=f"Namespace {path}: {err}")
-                log_or_raise(suppress_errors, new_err)
-                continue
-            if parsed_authz.is_public:
-                return [parsed_authz]
-            else:
-                authz_list.append(parsed_authz)
-        return authz_list
 
 
 def log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=log.debug):
@@ -366,14 +163,9 @@ def generate_cache_authfile(
         ldappass = readfile(global_data.ligo_ldap_passfile, log)
         ligo_dns = _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass)
         for dn in ligo_dns:
-            ligo_authz_list.append(parse_authz(f"DN:{dn}"))
+            ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
 
-    for vo_name, vo_data in vos_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
-        stashcache_obj = StashCache(vo_name, stashcache_data, suppress_errors)
-
+    for stashcache_obj in vos_data.stashcache_by_vo_name.values():
         for path, namespace in stashcache_obj.namespaces.items():
             if not _namespace_allows_cache(namespace, cache_resource):
                 continue
@@ -439,12 +231,7 @@ def generate_origin_authfile(
     id_to_str = {}
     warnings = []
 
-    for vo_name, vo_data in vos_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
-        stashcache_obj = StashCache(vo_name, stashcache_data, suppress_errors)
-
+    for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
         for path, namespace in stashcache_obj.namespaces.items():
             if not _namespace_allows_origin(namespace, origin_resource):
                 continue
@@ -554,12 +341,7 @@ audience = {allowed_vos_str}
     allowed_vos = set()
     origin_authz_list = []
 
-    for vo_name, vo_data in vos_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
-        stashcache_obj = StashCache(vo_name, stashcache_data, suppress_errors)
-
+    for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
         for path, namespace in stashcache_obj.namespaces.items():
             if namespace.is_public():
                 continue
@@ -633,12 +415,7 @@ audience = {allowed_vos_str}
     allowed_vos = set()
     cache_authz_list = []
 
-    for vo_name, vo_data in vos_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
-        stashcache_obj = StashCache(vo_name, stashcache_data, suppress_errors)
-
+    for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
         for path, namespace in stashcache_obj.namespaces.items():
             if namespace.is_public():
                 continue
@@ -704,12 +481,7 @@ def get_namespaces_info(global_data: GlobalData, suppress_errors = True) -> Dict
                 cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
 
     result_namespaces = []
-    for vo_name, vo_data in vos_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
-        stashcache_obj = StashCache(vo_name, stashcache_data, suppress_errors)
-
+    for stashcache_obj in vos_data.stashcache_by_vo_name.values():
         for namespace in stashcache_obj.namespaces.values():
             result_namespaces.append(_namespace_dict(namespace))
 
