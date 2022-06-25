@@ -30,7 +30,7 @@ else:
 
 global_data = webapp.models.GlobalData()
 
-cache_scitokens = stashcache.generate_cache_scitokens2(
+cache_scitokens = stashcache.generate_cache_scitokens(
     args.fqdn,
     global_data,
     suppress_errors=False,

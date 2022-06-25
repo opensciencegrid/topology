@@ -331,14 +331,14 @@ def scitokens():
 
     try:
         if cache_fqdn:
-            cache_scitokens = stashcache.generate_cache_scitokens2(
+            cache_scitokens = stashcache.generate_cache_scitokens(
                 cache_fqdn,
                 global_data,
                 suppress_errors=False
             )
             return Response(cache_scitokens, mimetype="text/plain")
         elif origin_fqdn:
-            origin_scitokens = stashcache.generate_origin_scitokens2(
+            origin_scitokens = stashcache.generate_origin_scitokens(
                 origin_fqdn,
                 global_data,
                 suppress_errors=False
@@ -402,11 +402,11 @@ def _get_cache_authfile(public_only):
         return Response("Can't get authfile: stashcache module unavailable", status=503)
     cache_fqdn = request.args.get("fqdn") if request.args.get("fqdn") else request.args.get("cache_fqdn")
     try:
-        auth = stashcache.generate_cache_authfile2(cache_fqdn,
-                                                   global_data,
-                                                   suppress_errors=False,
-                                                   public=public_only,
-                                                   legacy=app.config["STASHCACHE_LEGACY_AUTH"])
+        auth = stashcache.generate_cache_authfile(cache_fqdn,
+                                                  global_data,
+                                                  suppress_errors=False,
+                                                  public=public_only,
+                                                  legacy=app.config["STASHCACHE_LEGACY_AUTH"])
     except NotRegistered as e:
         return Response("# No resource registered for {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
@@ -429,10 +429,10 @@ def _get_origin_authfile(public_only):
     if 'fqdn' not in request.args:
         return Response("FQDN of origin server required in the 'fqdn' argument", status=400)
     try:
-        auth = stashcache.generate_origin_authfile2(origin_fqdn=request.args['fqdn'],
-                                                    global_data=global_data,
-                                                    suppress_errors=False,
-                                                    public=public_only)
+        auth = stashcache.generate_origin_authfile(origin_fqdn=request.args['fqdn'],
+                                                   global_data=global_data,
+                                                   suppress_errors=False,
+                                                   public=public_only)
     except NotRegistered as e:
         return Response("# No resource registered for {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
@@ -484,7 +484,7 @@ def _get_cache_scitoken_file():
     fqdn_arg = request.args.get("fqdn")
 
     def get_scitoken_function(fqdn):
-        return stashcache.generate_cache_scitokens2(
+        return stashcache.generate_cache_scitokens(
             cache_fqdn=fqdn,
             global_data=global_data,
             suppress_errors=False
@@ -497,7 +497,7 @@ def _get_origin_scitoken_file():
     fqdn_arg = request.args.get("fqdn")
 
     def get_scitoken_function(fqdn):
-        return stashcache.generate_origin_scitokens2(
+        return stashcache.generate_origin_scitokens(
             origin_fqdn=fqdn,
             global_data=global_data,
             suppress_errors=False

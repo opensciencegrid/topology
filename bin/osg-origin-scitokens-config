@@ -22,7 +22,7 @@ args = parser.parse_args()
 
 global_data = webapp.models.GlobalData()
 
-origin_scitokens = stashcache.generate_origin_scitokens2(
+origin_scitokens = stashcache.generate_origin_scitokens(
     args.fqdn, global_data, suppress_errors=False
 )
 print(origin_scitokens, end="")  # config already has trailing newline

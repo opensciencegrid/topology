@@ -345,7 +345,7 @@ def _get_allowed_caches_for_namespace(namespace: Namespace, topology: Topology, 
     return resources
 
 
-def generate_cache_authfile2(
+def generate_cache_authfile(
         cache_fqdn: Optional[str], global_data: GlobalData, suppress_errors=True, public=False, legacy=True
 ) -> str:
     topology = global_data.get_topology()
@@ -423,7 +423,7 @@ def generate_cache_authfile2(
     return authfile
 
 
-def generate_origin_authfile2(
+def generate_origin_authfile(
         origin_fqdn: str, global_data: GlobalData, suppress_errors=True, public=False
 ) -> str:
     topology = global_data.get_topology()
@@ -506,7 +506,7 @@ def generate_origin_authfile2(
     return "\n".join(authfile_lines) + "\n"
 
 
-def generate_origin_scitokens2(
+def generate_origin_scitokens(
         origin_fqdn: str, global_data: GlobalData, suppress_errors = True
 ) -> str:
     """
@@ -585,7 +585,7 @@ audience = {allowed_vos_str}
     return template.format(**locals()).rstrip() + "\n"
 
 
-def generate_cache_scitokens2(
+def generate_cache_scitokens(
         cache_fqdn: str, global_data: GlobalData, suppress_errors = True
 ) -> str:
     """
