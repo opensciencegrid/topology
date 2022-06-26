@@ -103,12 +103,12 @@ DataFederations:
           - SciTokens:
               Issuer: https://osg-htc.org/ospool
               Base Path: /ospool/PROTECTED
+              Map Subject: True
         AllowedOrigins:
           - OSGCONNECT_ORIGIN
           - CHTC_OSPOOL_ORIGIN
         AllowedCaches:
           - ANY
-        Map Subject: True
       - Path: /osdftest
         Authorizations:
           - PUBLIC
