@@ -74,4 +74,4 @@ do
     done
 done
 
-diff -u $oldfile $newfile
+diff -U 7 $oldfile $newfile
