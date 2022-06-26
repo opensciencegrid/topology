@@ -7,7 +7,7 @@ import re
 import shlex
 import subprocess
 import sys
-from typing import Dict, List, Union, AnyStr
+from typing import Any, Dict, List, Union, AnyStr, NewType, TypeVar
 from functools import wraps
 
 import asn1
@@ -29,6 +29,8 @@ VOSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/vosummary.xs
 
 SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
+ParsedYaml = NewType("ParsedYaml", Dict[str, Any])
+T = TypeVar("T")
 
 
 class Filters(object):
@@ -70,7 +72,7 @@ def is_null(x, *keys) -> bool:
                      ])
 
 
-def ensure_list(x) -> List:
+def ensure_list(x: Union[None, T, List[T]]) -> List[T]:
     if isinstance(x, list):
         return x
     elif x is None:
@@ -280,7 +282,7 @@ def gen_id(instr: AnyStr, digits, minimum=1, hashfn=hashlib.md5) -> int:
     return minimum + (int(hashfn(instr_b).hexdigest(), 16) % mod)
 
 
-def load_yaml_file(filename) -> Dict:
+def load_yaml_file(filename) -> ParsedYaml:
     """Load a yaml file (wrapper around yaml.safe_load() because it does not
     report the filename in which an error occurred.
 

@@ -11,7 +11,7 @@ import yaml
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import load_yaml_file, to_xml
+from webapp.common import load_yaml_file, to_xml, ParsedYaml
 from webapp.contacts_reader import get_contacts_data
 from webapp.vos_data import VOsData
 
@@ -26,7 +26,7 @@ def get_vos_data(indir, contacts_data, strict=False) -> VOsData:
         if file == "REPORTING_GROUPS.yaml": continue
         if not file.endswith(".yaml"): continue
         name = file[:-5]
-        data = None
+        data = ParsedYaml({})
         try:
             data = load_yaml_file(os.path.join(indir, file))
             vos_data.add_vo(name, data)

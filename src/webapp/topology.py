@@ -7,7 +7,7 @@ from typing import Dict, List, Optional, Tuple
 
 import icalendar
 
-from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters,\
+from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml,\
     is_null, expand_attr_list_single, expand_attr_list, ensure_list
 from .contacts_reader import ContactsData, User
 
@@ -60,7 +60,7 @@ class Site(object):
 
 
 class Resource(object):
-    def __init__(self, name: str, yaml_data: Dict, common_data: CommonData):
+    def __init__(self, name: str, yaml_data: ParsedYaml, common_data: CommonData):
         self.name = name
         self.service_types = common_data.service_types
         self.common_data = common_data
@@ -221,7 +221,7 @@ class Resource(object):
 
 
 class ResourceGroup(object):
-    def __init__(self, name: str, yaml_data: Dict, site: Site, common_data: CommonData):
+    def __init__(self, name: str, yaml_data: ParsedYaml, site: Site, common_data: CommonData):
         self.name = name
         self.site = site
         self.service_types = common_data.service_types
@@ -236,8 +236,8 @@ class ResourceGroup(object):
             try:
                 if not isinstance(res, dict):
                     raise TypeError("expecting a dict")
-                res = Resource(name, res, self.common_data)
-                self.resources_by_name[name] = res
+                res_obj = Resource(name, ParsedYaml(res), self.common_data)
+                self.resources_by_name[name] = res_obj
             except (AttributeError, KeyError, TypeError, ValueError) as err:
                 log.exception("Error with resource %s: %r", name, err)
                 continue
@@ -311,7 +311,7 @@ class Downtime(object):
     TIME_OUTPUT_FMT = "%b %d, %Y %H:%M %p %Z"
     PREFERRED_TIME_FMT = "%b %d, %Y %H:%M %z"  # preferred format, e.g. "Mar 7, 2017 03:00 -0500"
 
-    def __init__(self, rg: ResourceGroup, yaml_data: Dict, common_data: CommonData):
+    def __init__(self, rg: ResourceGroup, yaml_data: ParsedYaml, common_data: CommonData):
         self.rg = rg
         self.data = yaml_data
         for k in ["StartTime", "EndTime", "ID", "Class", "Severity", "ResourceName", "Services"]:
@@ -489,8 +489,9 @@ class Topology(object):
         self.sites = {}
         # rgs are keyed by (site_name, rg_name) tuple
         self.rgs = {}  # type: Dict[Tuple[str, str], ResourceGroup]
-        self.resources_by_facility = defaultdict(list)
-        self.resources_by_resource_group = defaultdict(list)
+        self.resources_by_facility = defaultdict(list)        # type: defaultdict[str, List[Resource]]
+        self.resources_by_resource_group = defaultdict(list)  # type: defaultdict[str, List[str]]
+        # ^^ should have called it resource_names_by_resource_group, sorry.  -mat
         self.resources_by_fqdn = defaultdict(list)  # type: defaultdict[str, List[Resource]]
         self.sites_by_facility = defaultdict(set)
         self.resource_group_by_site = defaultdict(set)
@@ -498,7 +499,7 @@ class Topology(object):
         self.downtime_path_by_resource_group = defaultdict(set)
         self.downtime_path_by_resource = {}
 
-    def add_rg(self, facility_name, site_name, name, parsed_data):
+    def add_rg(self, facility_name: str, site_name: str, name: str, parsed_data: ParsedYaml):
         try:
             rg = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
             self.rgs[(site_name, name)] = rg
@@ -586,7 +587,7 @@ class Topology(object):
 
         return cal
 
-    def add_downtime(self, sitename: str, rgname: str, downtime: Dict):
+    def add_downtime(self, sitename: str, rgname: str, downtime: ParsedYaml):
         try:
             rg = self.rgs[(sitename, rgname)]
         except KeyError:
