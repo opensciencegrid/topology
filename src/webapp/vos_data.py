@@ -348,7 +348,7 @@ class SciTokenAuth(AuthMethod):
         self.map_subject = map_subject
 
     def __str__(self):
-        return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path}" \
+        return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path} " \
                 f"map_subject={self.map_subject}"
 
     def get_scitokens_conf_block(self, service_name: str):
