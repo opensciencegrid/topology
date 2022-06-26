@@ -37,13 +37,18 @@ truncate -s0 $oldfile
 truncate -s0 $newfile
 for endpoint in "${cache_endpoints[@]}"
 do
+    if [[ $endpoint = *scitokens.conf ]]; then
+      maybe_sort="cat"
+    else
+      maybe_sort="sort"
+    fi
     for arg in "${cache_args[@]}"
     do
         url=$endpoint$arg
         printf "\n------------------------\n%s\n\n\n" "$url" >> $oldfile
         printf "\n------------------------\n%s\n\n\n" "$url" >> $newfile
-        curl -L "$prod_topology/$url" | grep -v "^# /" | sort >> $oldfile
-        curl -L "$test_topology/$url" | grep -v "^# DN: " | grep -v "^# FQAN: " | sort >> $newfile
+        curl -L "$prod_topology/$url" | grep -v "^# /" | $maybe_sort >> $oldfile
+        curl -L "$test_topology/$url" | grep -v "^# DN: " | grep -v "^# FQAN: " | $maybe_sort >> $newfile
     done
 done
 
@@ -52,13 +57,18 @@ printf "\n\n\n\n" >> $newfile
 
 for endpoint in "${origin_endpoints[@]}"
 do
+    if [[ $endpoint = *scitokens.conf ]]; then
+      maybe_sort="cat"
+    else
+      maybe_sort="sort"
+    fi
     for arg in "${origin_args[@]}"
     do
         url=$endpoint$arg
         printf "\n------------------------\n%s\n\n\n" "$url" >> $oldfile
         printf "\n------------------------\n%s\n\n\n" "$url" >> $newfile
-        curl -L "$prod_topology/$url" | grep -v "^# /" | sort >> $oldfile
-        curl -L "$test_topology/$url" | grep -v "^# DN: " | grep -v "^# FQAN: " | sort >> $newfile
+        curl -L "$prod_topology/$url" | grep -v "^# /" | $maybe_sort >> $oldfile
+        curl -L "$test_topology/$url" | grep -v "^# DN: " | grep -v "^# FQAN: " | $maybe_sort >> $newfile
     done
 done
 
