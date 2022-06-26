@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-test_topology=http://localhost:5000
+test_topology=http://localhost:9000
 prod_topology=https://topology.opensciencegrid.org
 
 cache_args=(
