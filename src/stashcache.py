@@ -187,7 +187,15 @@ def generate_cache_authfile(
     authfile_lines = []
     authfile_lines.extend(warnings)
 
-    if public_cache:
+    if not public_cache:
+        for authfile_id in id_to_paths:
+            paths_acl = " ".join(f"{p} rl" for p in sorted(id_to_paths[authfile_id]))
+            authfile_lines.append(f"# {id_to_str[authfile_id]}")
+            authfile_lines.append(f"{authfile_id} {paths_acl}")
+
+    # Public paths must be at the end
+    if public_paths:
+        authfile_lines.append("")
         authfile_lines.append("u * \\")
         if legacy:
             authfile_lines.append("    /user/ligo -rl \\")
@@ -195,11 +203,6 @@ def generate_cache_authfile(
             authfile_lines.append(f"    {path} rl \\")
         # Delete trailing ' \' from the last line
         authfile_lines[-1] = authfile_lines[-1][:-2]
-    else:
-        for authfile_id in id_to_paths:
-            paths_acl = " ".join(f"{p} rl" for p in sorted(id_to_paths[authfile_id]))
-            authfile_lines.append(f"# {id_to_str[authfile_id]}")
-            authfile_lines.append(f"{authfile_id} {paths_acl}")
 
     authfile = "\n".join(authfile_lines) + "\n"
 
