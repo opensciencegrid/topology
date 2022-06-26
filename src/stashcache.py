@@ -133,9 +133,8 @@ def _get_allowed_caches_for_namespace(namespace: Namespace, topology: Topology) 
             and _resource_allows_namespace(cache, namespace)]
 
 
-def generate_cache_authfile(
-        cache_fqdn: Optional[str], global_data: GlobalData, suppress_errors=True, public_cache=False, legacy=True
-) -> str:
+def generate_cache_authfile(global_data: GlobalData, cache_fqdn: Optional[str], suppress_errors=True,
+                            public_cache=False, legacy=True) -> str:
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
     cache_resource = None
@@ -209,7 +208,7 @@ def generate_cache_authfile(
     return authfile
 
 
-def generate_origin_authfile(origin_fqdn: str, global_data: GlobalData, suppress_errors=True, public_origin=False) -> str:
+def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress_errors=True, public_origin=False) -> str:
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
     origin_resource = None

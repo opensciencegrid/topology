@@ -28,6 +28,7 @@ if args.fqdn:
 else:
     fqdn = None
 
-authfile = stashcache.generate_cache_authfile(cache_fqdn=fqdn, global_data=global_data, suppress_errors=False, public_cache=args.public)
+authfile = stashcache.generate_cache_authfile(global_data=global_data, cache_fqdn=fqdn, suppress_errors=False,
+                                              public_cache=args.public)
 
 print(authfile)
