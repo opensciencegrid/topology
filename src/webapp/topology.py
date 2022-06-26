@@ -489,7 +489,7 @@ class Topology(object):
         self.sites = {}
         # rgs are keyed by (site_name, rg_name) tuple
         self.rgs = {}  # type: Dict[Tuple[str, str], ResourceGroup]
-        self.resources_by_facility = defaultdict(list)  # type: defaultdict[str, List[Resource]]
+        self.resources_by_facility = defaultdict(list)        # type: defaultdict[str, List[Resource]]
         self.resources_by_resource_group = defaultdict(list)  # type: defaultdict[str, List[str]]
         # ^^ should have called it resource_names_by_resource_group, sorry.  -mat
         self.resources_by_fqdn = defaultdict(list)  # type: defaultdict[str, List[Resource]]
