@@ -21,6 +21,7 @@ origin_args=(
     ""
     "?fqdn=sc-origin2000.chtc.wisc.edu"
     "?fqdn=origin-auth2000.chtc.wisc.edu"
+    "?fqdn=origin-auth2001.chtc.wisc.edu"
     "?fqdn=origin.ligo.caltech.edu"
     "?fqdn=hcc-stashcache-origin.unl.edu"
 )
