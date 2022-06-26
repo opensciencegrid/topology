@@ -24,6 +24,7 @@ origin_args=(
     "?fqdn=origin-auth2001.chtc.wisc.edu"
     "?fqdn=origin.ligo.caltech.edu"
     "?fqdn=hcc-stashcache-origin.unl.edu"
+    "?fqdn=osdftest.t2.ucsd.edu"
 )
 
 origin_endpoints=(
