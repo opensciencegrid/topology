@@ -5,7 +5,7 @@ from logging import getLogger
 from typing import Dict, List, Optional
 
 
-from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape
+from .common import Filters, ParsedYaml, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape
 from .contacts_reader import ContactsData
 
 
@@ -13,15 +13,15 @@ log = getLogger(__name__)
 
 
 class VOsData(object):
-    def __init__(self, contacts_data: ContactsData, reporting_groups_data):
+    def __init__(self, contacts_data: ContactsData, reporting_groups_data: ParsedYaml):
         self.contacts_data = contacts_data
-        self.vos = {}
+        self.vos = {}  # type: Dict[str, ParsedYaml]
         self.reporting_groups_data = reporting_groups_data
 
-    def get_vo_id_to_name(self) -> Dict:
+    def get_vo_id_to_name(self) -> Dict[str, str]:
         return {self.vos[name]["ID"]: name for name in self.vos}
 
-    def add_vo(self, vo_name, vo_data):
+    def add_vo(self, vo_name: str, vo_data: ParsedYaml):
         self.vos[vo_name] = vo_data
 
     def get_expansion(self, authorized=False, filters: Filters = None):
