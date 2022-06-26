@@ -83,6 +83,7 @@ DataFederations:
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu
               Base Path: /chtc
+              Map Subject: True
         AllowedOrigins:
           - CHTC_STASHCACHE_ORIGIN_AUTH_2000
         AllowedCaches:
