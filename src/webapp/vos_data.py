@@ -474,7 +474,6 @@ class StashCache:
             if err:
                 self.errors.add(f"Namespace {path}: {err}")
                 continue
-            print(f"Path: {path}, authz: {parsed_authz}")
             if parsed_authz.is_public:
                 return [parsed_authz]
             else:
