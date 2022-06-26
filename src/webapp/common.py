@@ -29,9 +29,8 @@ VOSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/vosummary.xs
 
 SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
-
 ParsedYaml = NewType("ParsedYaml", Dict[str, Any])
-#ParsedYaml = Dict[str, Any]
+T = TypeVar("T")
 
 
 class Filters(object):
@@ -71,9 +70,6 @@ def is_null(x, *keys) -> bool:
                      "(No resource group description)",
                      "(No resource description)",
                      ])
-
-
-T = TypeVar("T")
 
 
 def ensure_list(x: Union[None, T, List[T]]) -> List[T]:
