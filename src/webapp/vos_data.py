@@ -354,11 +354,9 @@ class SciTokenAuth(AuthMethod):
     def get_scitokens_conf_block(self, service_name: str):
         if service_name not in [XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER]:
             raise ValueError(f"service_name must be '{XROOTD_CACHE_SERVER}' or '{XROOTD_ORIGIN_SERVER}'")
-        block = f"""\
-[Issuer {self.issuer}]
-issuer = {self.issuer}
-base_path = {self.base_path}
-"""
+        block = (f"[Issuer {self.issuer}]\n"
+                 f"issuer = {self.issuer}\n"
+                 f"base_path = {self.base_path}\n")
         if self.restricted_path:
             block += f"restricted_path = {self.restricted_path}\n"
         if service_name == XROOTD_ORIGIN_SERVER:
@@ -395,26 +393,51 @@ def parse_authz(authz: Union[str, Dict]) -> Tuple[AuthMethod, Optional[str]]:
     if isinstance(authz, dict):
         for k, v in authz.items():
             if k == "SciTokens":
-                try:
-                    return SciTokenAuth(
-                        issuer=v["Issuer"],
-                        base_path=v["Base Path"],
-                        restricted_path=v.get("Restricted Path", None),
-                        map_subject=v.get("Map Subject", False),
-                    ), None
-                except (KeyError, AttributeError):
-                    return NullAuth(), f"Invalid authz list entry {authz}"
+                if not isinstance(v, dict) or not v:
+                    return NullAuth(), f"Invalid SciTokens auth {authz}: no attributes"
+                errors = ""
+                issuer = v.get("Issuer")
+                if not issuer:
+                    errors += "'Issuer' missing or empty; "
+                base_path = v.get("Base Path")
+                if not base_path:
+                    errors += "'Base Path' missing or empty; "
+                restricted_path = v.get("Restricted Path", None)
+                if not restricted_path and not isinstance(restricted_path, str):
+                    errors += "'Restricted Path' not a string; "
+                map_subject = v.get("Map Subject", False)
+                if not isinstance(map_subject, bool):
+                    errors += "'Map Subject' not a boolean; "
+                if errors:
+                    errors = errors[:-2]  # chop off last '; '
+                    return NullAuth(), f"Invalid SciTokens auth {authz}: {errors}"
+                return SciTokenAuth(
+                    issuer=issuer,
+                    base_path=base_path,
+                    restricted_path=restricted_path,
+                    map_subject=map_subject
+                ), None
             elif k == "FQAN":
+                if not v:
+                    return NullAuth(), f"Invalid FQAN auth {authz}: FQAN missing or empty"
                 return FQANAuth(fqan=v), None
             elif k == "DN":
+                if not v:
+                    return NullAuth(), f"Invalid DN auth {authz}: DN missing or empty"
                 return DNAuth(dn=v), None
             else:
-                return NullAuth(), f"Unknown auth type {k}"
+                return NullAuth(), f"Unknown auth type {k} in {authz}"
     elif isinstance(authz, str):
         if authz.startswith("FQAN:"):
-            return FQANAuth(fqan=authz[5:].strip()), None
+            fqan = authz[5:].strip()
+            if not fqan:
+                return NullAuth(), f"Invalid FQAN auth {authz}: FQAN missing or empty"
+            return FQANAuth(fqan=fqan), None
         elif authz.startswith("DN:"):
-            return DNAuth(dn=authz[3:].strip()), None
+            dn = authz[3:].strip()
+            if not dn:
+                return NullAuth(), f"Invalid DN auth {authz}: DN missing or empty"
+            return DNAuth(dn=dn), None
         elif authz.strip() == "PUBLIC":
             return PublicAuth(), None
         else:
