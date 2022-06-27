@@ -226,19 +226,19 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
         if not resource:
             return ""
 
-    public_paths = set()
+    public_dirs = set()
     vos_data = global_data.get_vos_data()
     for stashcache_obj in vos_data.stashcache_by_vo_name.values():
-        for path, namespace in stashcache_obj.namespaces.items():
+        for dirname, namespace in stashcache_obj.namespaces.items():
             if not _namespace_allows_cache(namespace, resource):
                 continue
             if resource and not _resource_allows_namespace(resource, namespace):
                 continue
             if namespace.is_public():
-                public_paths.add(path)
+                public_dirs.add(dirname)
 
-    for path in sorted(public_paths):
-        authfile += f"    {path} rl \\\n"
+    for dirname in sorted(public_dirs):
+        authfile += "    {} rl \\\n".format(dirname)
 
     # Delete trailing ' \' from the last line
     if authfile.endswith(" \\\n"):
