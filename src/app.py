@@ -402,8 +402,8 @@ def _get_cache_authfile(public_only):
         return Response("Can't get authfile: stashcache module unavailable", status=503)
     cache_fqdn = request.args.get("fqdn") if request.args.get("fqdn") else request.args.get("cache_fqdn")
     try:
-        auth = stashcache.generate_cache_authfile(global_data, cache_fqdn, suppress_errors=False,
-                                                  public_cache=public_only, legacy=app.config["STASHCACHE_LEGACY_AUTH"])
+        auth = stashcache.generate_cache_authfile(global_data, cache_fqdn, legacy=app.config["STASHCACHE_LEGACY_AUTH"],
+                                                  suppress_errors=False, public_cache=public_only)
     except ResourceNotRegistered as e:
         return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"

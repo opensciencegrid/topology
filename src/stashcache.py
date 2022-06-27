@@ -133,41 +133,45 @@ def _get_allowed_caches_for_namespace(namespace: Namespace, topology: Topology) 
             and _resource_allows_namespace(cache, namespace)]
 
 
-def generate_cache_authfile(global_data: GlobalData, cache_fqdn: Optional[str], suppress_errors=True,
-                            public_cache=False, legacy=True) -> str:
+def generate_cache_authfile(global_data: GlobalData,
+                            fqdn=None,
+                            legacy=True,
+                            suppress_errors=True,
+                            public_cache=False) -> str:
+    """
+    Generate the Xrootd authfile needed by a StashCache cache server.
+    """
     if public_cache:
-        return generate_public_cache_authfile(global_data, fqdn=cache_fqdn, suppress_errors=suppress_errors,
+        return generate_public_cache_authfile(global_data, fqdn=fqdn, suppress_errors=suppress_errors,
                                               legacy=legacy)
-    topology = global_data.get_topology()
-    vos_data = global_data.get_vos_data()
-    cache_resource = None
-    if cache_fqdn:
-        cache_resource = _get_cache_resource(cache_fqdn, topology, suppress_errors)
-        if not cache_resource:
-            return ""
-
-    public_paths = set()
+    authfile = ""
     id_to_paths = defaultdict(set)
     id_to_str = {}
-    warnings = []
+
+    topology = global_data.get_topology()
+    resource = None
+    if fqdn:
+        resource = _get_cache_resource(fqdn, topology, suppress_errors)
+        if not resource:
+            return ""
 
     ligo_authz_list: List[AuthMethod] = []
-    if legacy and not public_cache:
+    if legacy:
         ldappass = readfile(global_data.ligo_ldap_passfile, log)
         ligo_dns = _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass)
         for dn in ligo_dns:
             ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
 
+    public_paths = set()
+    vos_data = global_data.get_vos_data()
     for stashcache_obj in vos_data.stashcache_by_vo_name.values():
         for path, namespace in stashcache_obj.namespaces.items():
-            if not _namespace_allows_cache(namespace, cache_resource):
+            if not _namespace_allows_cache(namespace, resource):
                 continue
-            if cache_resource and not _resource_allows_namespace(cache_resource, namespace):
+            if resource and not _resource_allows_namespace(resource, namespace):
                 continue
             if namespace.is_public():
                 public_paths.add(path)
-                continue
-            if public_cache:
                 continue
 
             # Extend authz list with LIGO DNs if applicable
@@ -186,27 +190,23 @@ def generate_cache_authfile(global_data: GlobalData, cache_fqdn: Optional[str], 
         else:
             raise DataError("No working StashCache resource/VO combinations found")
 
-    authfile_lines = []
-    authfile_lines.extend(warnings)
-
-    if not public_cache:
-        for authfile_id in id_to_paths:
-            paths_acl = " ".join(f"{p} rl" for p in sorted(id_to_paths[authfile_id]))
-            authfile_lines.append(f"# {id_to_str[authfile_id]}")
-            authfile_lines.append(f"{authfile_id} {paths_acl}")
+    for authfile_id in id_to_paths:
+        paths_acl = " ".join(f"{p} rl" for p in sorted(id_to_paths[authfile_id]))
+        authfile += f"# {id_to_str[authfile_id]}\n"
+        authfile += f"{authfile_id} {paths_acl}\n"
 
     # Public paths must be at the end
     if public_paths:
-        authfile_lines.append("")
-        authfile_lines.append("u * \\")
+        authfile += "\n"
         if legacy:
-            authfile_lines.append("    /user/ligo -rl \\")
+            authfile += "u * /user/ligo -rl \\\n"
+        else:
+            authfile += "u * \\\n"
         for path in sorted(public_paths):
-            authfile_lines.append(f"    {path} rl \\")
+            authfile += f"    {path} rl \\\n"
         # Delete trailing ' \' from the last line
-        authfile_lines[-1] = authfile_lines[-1][:-2]
-
-    authfile = "\n".join(authfile_lines) + "\n"
+        if authfile.endswith(" \\\n"):
+            authfile = authfile[:-3] + "\n"
 
     return authfile
 
@@ -237,7 +237,6 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
                 continue
             if namespace.is_public():
                 public_paths.add(path)
-                continue
 
     for path in sorted(public_paths):
         authfile += f"    {path} rl \\\n"
