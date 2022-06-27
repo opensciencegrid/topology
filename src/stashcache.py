@@ -136,14 +136,10 @@ def _get_allowed_caches_for_namespace(namespace: Namespace, topology: Topology) 
 def generate_cache_authfile(global_data: GlobalData,
                             fqdn=None,
                             legacy=True,
-                            suppress_errors=True,
-                            public_cache=False) -> str:
+                            suppress_errors=True) -> str:
     """
     Generate the Xrootd authfile needed by a StashCache cache server.
     """
-    if public_cache:
-        return generate_public_cache_authfile(global_data, fqdn=fqdn, suppress_errors=suppress_errors,
-                                              legacy=legacy)
     authfile = ""
     id_to_dir = defaultdict(set)
     id_to_str = {}
