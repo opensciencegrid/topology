@@ -158,8 +158,7 @@ def generate_cache_authfile(global_data: GlobalData,
     ligo_authz_list: List[AuthMethod] = []
     if legacy:
         ldappass = readfile(global_data.ligo_ldap_passfile, log)
-        ligo_dns = _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass)
-        for dn in ligo_dns:
+        for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
             ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
 
     public_paths = set()
