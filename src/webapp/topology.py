@@ -498,7 +498,6 @@ class Topology(object):
         self.service_names_by_resource = {}  # type: Dict[str, List[str]]
         self.downtime_path_by_resource_group = defaultdict(set)
         self.downtime_path_by_resource = {}
-        self.resources_by_fqdn = defaultdict(list)  # type: defaultdict[str, List[Resource]]
 
     def add_rg(self, facility_name: str, site_name: str, name: str, parsed_data: ParsedYaml):
         try:
@@ -512,8 +511,6 @@ class Topology(object):
                 self.sites_by_facility[facility_name].add(site_name)
                 self.service_names_by_resource[r.name] = r.service_names
                 self.downtime_path_by_resource[r.name] = f"{facility_name}/{site_name}/{name}_downtime.yaml"
-                if r.fqdn:
-                    self.resources_by_fqdn[r.fqdn.lower()].append(r)
         except (AttributeError, KeyError, ValueError) as err:
             log.exception("RG %s, %s error: %r; skipping", site_name, name, err)
 
