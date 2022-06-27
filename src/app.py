@@ -15,7 +15,7 @@ import urllib.parse
 
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
-from webapp.exceptions import NotRegistered, DataError
+from webapp.exceptions import NotRegistered, DataError, ResourceNotRegistered
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
@@ -331,19 +331,13 @@ def scitokens():
 
     try:
         if cache_fqdn:
-            cache_scitokens = stashcache.generate_cache_scitokens(global_data.get_vos_data(),
-                                                                global_data.get_topology().get_resource_group_list(),
-                                                                fqdn=cache_fqdn,
-                                                                suppress_errors=False)
+            cache_scitokens = stashcache.generate_cache_scitokens(global_data, cache_fqdn, suppress_errors=False)
             return Response(cache_scitokens, mimetype="text/plain")
         elif origin_fqdn:
-            origin_scitokens = stashcache.generate_origin_scitokens(global_data.get_vos_data(),
-                                                                global_data.get_topology().get_resource_group_list(),
-                                                                fqdn=origin_fqdn,
-                                                                suppress_errors=False)
+            origin_scitokens = stashcache.generate_origin_scitokens(global_data, origin_fqdn, suppress_errors=False)
             return Response(origin_scitokens, mimetype="text/plain")
-    except NotRegistered as e:
-        return Response("# No resource registered for {}\n"
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
@@ -459,23 +453,21 @@ def _get_scitoken_file(fqdn, get_scitoken_function):
 
 
 def _get_cache_scitoken_file():
-    fqdn = request.args.get('fqdn')
-    get_scitoken_function = lambda fqdn: stashcache.generate_cache_scitokens(global_data.get_vos_data(),
-                                                            global_data.get_topology().get_resource_group_list(),
-                                                            fqdn=fqdn,
-                                                            suppress_errors=False)
+    fqdn_arg = request.args.get("fqdn")
 
-    return _get_scitoken_file(fqdn, get_scitoken_function)
+    def get_scitoken_function(fqdn):
+        return stashcache.generate_cache_scitokens(global_data=global_data, fqdn=fqdn, suppress_errors=False)
+
+    return _get_scitoken_file(fqdn_arg, get_scitoken_function)
 
 
 def _get_origin_scitoken_file():
-    fqdn = request.args.get("fqdn")
-    get_scitoken_function = lambda fqdn: stashcache.generate_origin_scitokens(global_data.get_vos_data(),
-                                                                global_data.get_topology().get_resource_group_list(),
-                                                                fqdn=fqdn,
-                                                                suppress_errors=False)
+    fqdn_arg = request.args.get("fqdn")
 
-    return _get_scitoken_file(fqdn, get_scitoken_function)
+    def get_scitoken_function(fqdn):
+        return stashcache.generate_origin_scitokens(global_data=global_data, fqdn=fqdn, suppress_errors=False)
+
+    return _get_scitoken_file(fqdn_arg, get_scitoken_function)
 
 
 @app.route("/generate_downtime", methods=["GET", "POST"])
