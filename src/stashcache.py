@@ -7,7 +7,7 @@ from webapp.common import readfile, generate_dn_hash
 from webapp.exceptions import DataError, NotRegistered, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
-from webapp.vos_data import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, AuthMethod, DNAuth, Namespace, VOsData, \
+from webapp.vos_data import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, AuthMethod, DNAuth, SciTokenAuth, Namespace, VOsData, \
     parse_authz, ANY, ANY_PUBLIC
 
 
@@ -309,7 +309,7 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
     return authfile
 
 
-def generate_cache_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
+def generate_cache_scitokens(global_data: GlobalData, fqdn: str, suppress_errors=True) -> str:
     """
     Generate the SciTokens needed by a StashCache cache server, given the fqdn
     of the cache server.
@@ -330,11 +330,21 @@ def generate_cache_scitokens(vo_data: VOsData, resource_groups: List[ResourceGro
 
     You may have multiple `- SciTokens:` blocks
 
+    Returns a file with a dummy "issuer" block if there are no `- SciTokens:` blocks.
+
     If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
-    no resource matching fqdn, resource does not contain a cache server, etc.).  Otherwise, raises
+    no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
     ValueError or DataError.
 
     """
+
+    topology = global_data.get_topology()
+    vos_data = global_data.get_vos_data()
+
+    cache_resource = _get_cache_resource2(fqdn, topology, suppress_errors)
+    if not cache_resource:
+        return ""
+
     template = """\
 [Global]
 audience = {allowed_vos_str}
@@ -342,83 +352,33 @@ audience = {allowed_vos_str}
 {issuer_blocks_str}
 """
 
-    if not fqdn:
-        if suppress_errors:
-            return ""
-        else:
-            raise ValueError("fqdn: empty")
+    allowed_vos = set()
+    cache_authz_list = []
 
-    resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
-    if not resource:
-        return ""
+    for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
+        for namespace in stashcache_obj.namespaces.values():  # type: Namespace
+            if namespace.is_public():
+                continue
+            if not _namespace_allows_cache(namespace, cache_resource):
+                continue
+            if not _resource_allows_namespace(cache_resource, namespace):
+                continue
 
-    log.debug(f"Generating stashcache cache config for {fqdn}")
-    allowed_vos = []
-    issuer_blocks = []
-    for vo_name, vo_data in vo_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
+            for authz in namespace.authz_list:
+                if authz.used_in_scitokens_conf:
+                    cache_authz_list.append(authz)
+                    allowed_vos.add(vo_name)
 
-        namespaces = stashcache_data.get("Namespaces", {})
-        if not namespaces:
-            continue
+    # Older plugin versions require at least one issuer block (SOFTWARE-4389)
+    if not cache_authz_list:
+        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found", restricted_path=None, map_subject=False)
+        cache_authz_list.append(dummy_auth)
 
-        log.debug(f"Namespaces found for {vo_name}")
-        needs_authz = False
-        for authz_list in namespaces.values():
-            for authz in authz_list:
-                if authz != "PUBLIC":
-                    needs_authz = True
-                    break
-        if not needs_authz:
-            log.debug(f"\tAuth not needed for {vo_name}")
-            continue
-
-        if not _cache_is_allowed(resource, vo_name, stashcache_data,
-                                 public=False, suppress_errors=suppress_errors):
-            continue
-
-        for dirname, authz_list in namespaces.items():
-            for authz in authz_list:
-                if not isinstance(authz, dict) or not isinstance(authz.get("SciTokens"), dict):
-                    log.debug(f"\tNo SciTokens info for {dirname} in {vo_name}")
-                    continue
-                issuer_blocks.append(_get_scitokens_issuer_block(vo_name, authz['SciTokens'],
-                                                                 dirname, suppress_errors))
-                allowed_vos.append(vo_name)
-
+    issuer_blocks = [a.get_scitokens_conf_block(XROOTD_CACHE_SERVER) for a in cache_authz_list]
     issuer_blocks_str = "\n".join(issuer_blocks)
-    allowed_vos_str = ", ".join(allowed_vos)
+    allowed_vos_str = ", ".join(sorted(allowed_vos))
 
     return template.format(**locals()).rstrip() + "\n"
-
-
-def _get_scitokens_issuer_block(vo_name: str, scitokens: Dict, dirname: str, suppress_errors: bool) -> str:
-    template = """\
-[Issuer {issuer}]
-issuer = {issuer}
-base_path = {base_path}
-{restricted_path_line}
-"""
-    issuer_block = ""
-    if not scitokens.get("Issuer"):
-        if suppress_errors:
-            return ""
-        raise DataError("'Issuer' missing from the SciTokens config for {}.".format(vo_name))
-    issuer = scitokens["Issuer"]
-    if not scitokens.get("Base Path"):
-        if suppress_errors:
-            return ""
-        raise DataError("'Base Path' missing from the SciTokens config for {}.".format(vo_name))
-    base_path = scitokens["Base Path"]
-
-    if scitokens.get("Restricted Path"):
-        restricted_path_line = "restricted_path = {}\n".format(scitokens['Restricted Path'])
-    else:
-        restricted_path_line = ""
-
-    return template.format(**locals())
 
 
 def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_groups, suppress_errors=True):
@@ -552,7 +512,7 @@ def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress
     return results
 
 
-def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
+def generate_origin_scitokens(global_data: GlobalData, fqdn: str, suppress_errors=True) -> str:
     """
     Generate the SciTokens needed by a StashCache origin server, given the fqdn
     of the origin server.
@@ -581,52 +541,44 @@ def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGr
 
     """
 
+    topology = global_data.get_topology()
+    vos_data = global_data.get_vos_data()
+
+    origin_resource = _get_origin_resource2(fqdn, topology, suppress_errors)
+    if not origin_resource:
+        return ""
+
     template = """\
 [Global]
 audience = {allowed_vos_str}
 
 {issuer_blocks_str}
 """
-    allowed_vos = []
-    issuer_blocks = []
-    for vo_name, vo_data in vo_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
 
-        if not _origin_is_allowed(fqdn, vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
-            continue
+    allowed_vos = set()
+    origin_authz_list = []
 
-        namespaces = stashcache_data.get("Namespaces")
-        if not namespaces:
-            if suppress_errors:
+    for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
+        for namespace in stashcache_obj.namespaces.values():
+            if namespace.is_public():
                 continue
-            else:
-                raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
+            if not _namespace_allows_origin(namespace, origin_resource):
+                continue
+            if not _resource_allows_namespace(origin_resource, namespace):
+                continue
 
-        for dirname, authz_list in namespaces.items():
-            if not authz_list:
-                if suppress_errors:
-                    continue
-                else:
-                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(dirname, vo_name))
-
-            for authz in authz_list:
-                if not isinstance(authz, dict) or not isinstance(authz.get("SciTokens"), dict):
-                    continue
-                issuer_blocks.append(_get_scitokens_issuer_block(vo_name, authz['SciTokens'],
-                                                                 dirname, suppress_errors))
-                allowed_vos.append(vo_name)
+            for authz in namespace.authz_list:
+                if authz.used_in_scitokens_conf:
+                    origin_authz_list.append(authz)
+                    allowed_vos.add(vo_name)
 
     # Older plugin versions require at least one issuer block (SOFTWARE-4389)
-    if not issuer_blocks:
-        issuer_blocks.append(
-            _get_scitokens_issuer_block(vo_name="nonexistent",
-                                        scitokens={"Issuer": "https://scitokens.org/nonexistent",
-                                                   "Base Path": "/no-issuers-found"},
-                                        dirname="/no-issuers-found",
-                                        suppress_errors=suppress_errors))
+    if not origin_authz_list:
+        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found", restricted_path=None, map_subject=False)
+        origin_authz_list.append(dummy_auth)
+
+    issuer_blocks = [a.get_scitokens_conf_block(XROOTD_ORIGIN_SERVER) for a in origin_authz_list]
     issuer_blocks_str = "\n".join(issuer_blocks)
-    allowed_vos_str = ", ".join(allowed_vos)
+    allowed_vos_str = ", ".join(sorted(allowed_vos))
 
     return template.format(**locals()).rstrip() + "\n"
