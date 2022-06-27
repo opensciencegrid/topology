@@ -239,6 +239,80 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
     return authfile
 
 
+def generate_cache_scitokens(
+        cache_fqdn: str, global_data: GlobalData, suppress_errors = True
+) -> str:
+    """
+    Generate the SciTokens needed by a StashCache cache server, given the fqdn
+    of the cache server.
+
+    The scitokens config for a StashCache namespace is in the VO YAML and looks like:
+
+        DataFederations:
+            StashCache:
+                Namespaces:
+                    /store:
+                        - SciTokens:
+                            Issuer: https://scitokens.org/cms
+                            Base Path: /
+                            Restricted Path: /store
+
+    "Restricted Path" is optional.
+    `fqdn` must belong to a registered cache resource.
+
+    You may have multiple `- SciTokens:` blocks
+
+    Returns a file with a dummy "issuer" block if there are no `- SciTokens:` blocks.
+
+    If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
+    no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
+    ValueError or DataError.
+
+    """
+
+    topology = global_data.get_topology()
+    vos_data = global_data.get_vos_data()
+
+    cache_resource = _get_cache_resource(cache_fqdn, topology, suppress_errors)
+    if not cache_resource:
+        return ""
+
+    template = """\
+[Global]
+audience = {allowed_vos_str}
+
+{issuer_blocks_str}
+"""
+
+    allowed_vos = set()
+    cache_authz_list = []
+
+    for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
+        for namespace in stashcache_obj.namespaces.values():  # type: Namespace
+            if namespace.is_public():
+                continue
+            if not _namespace_allows_cache(namespace, cache_resource):
+                continue
+            if not _resource_allows_namespace(cache_resource, namespace):
+                continue
+
+            for authz in namespace.authz_list:
+                if authz.used_in_scitokens_conf:
+                    cache_authz_list.append(authz)
+                    allowed_vos.add(vo_name)
+
+    # Older plugin versions require at least one issuer block (SOFTWARE-4389)
+    if not cache_authz_list:
+        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found", restricted_path=None, map_subject=False)
+        cache_authz_list.append(dummy_auth)
+
+    issuer_blocks = [a.get_scitokens_conf_block(XROOTD_CACHE_SERVER) for a in cache_authz_list]
+    issuer_blocks_str = "\n".join(issuer_blocks)
+    allowed_vos_str = ", ".join(sorted(allowed_vos))
+
+    return template.format(**locals()).rstrip() + "\n"
+
+
 def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress_errors=True, public_origin=False) -> str:
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
@@ -383,80 +457,6 @@ audience = {allowed_vos_str}
         origin_authz_list.append(dummy_auth)
 
     issuer_blocks = [a.get_scitokens_conf_block(XROOTD_ORIGIN_SERVER) for a in origin_authz_list]
-    issuer_blocks_str = "\n".join(issuer_blocks)
-    allowed_vos_str = ", ".join(sorted(allowed_vos))
-
-    return template.format(**locals()).rstrip() + "\n"
-
-
-def generate_cache_scitokens(
-        cache_fqdn: str, global_data: GlobalData, suppress_errors = True
-) -> str:
-    """
-    Generate the SciTokens needed by a StashCache cache server, given the fqdn
-    of the cache server.
-
-    The scitokens config for a StashCache namespace is in the VO YAML and looks like:
-
-        DataFederations:
-            StashCache:
-                Namespaces:
-                    /store:
-                        - SciTokens:
-                            Issuer: https://scitokens.org/cms
-                            Base Path: /
-                            Restricted Path: /store
-
-    "Restricted Path" is optional.
-    `fqdn` must belong to a registered cache resource.
-
-    You may have multiple `- SciTokens:` blocks
-
-    Returns a file with a dummy "issuer" block if there are no `- SciTokens:` blocks.
-
-    If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
-    no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
-    ValueError or DataError.
-
-    """
-
-    topology = global_data.get_topology()
-    vos_data = global_data.get_vos_data()
-
-    cache_resource = _get_cache_resource(cache_fqdn, topology, suppress_errors)
-    if not cache_resource:
-        return ""
-
-    template = """\
-[Global]
-audience = {allowed_vos_str}
-
-{issuer_blocks_str}
-"""
-
-    allowed_vos = set()
-    cache_authz_list = []
-
-    for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
-        for namespace in stashcache_obj.namespaces.values():  # type: Namespace
-            if namespace.is_public():
-                continue
-            if not _namespace_allows_cache(namespace, cache_resource):
-                continue
-            if not _resource_allows_namespace(cache_resource, namespace):
-                continue
-
-            for authz in namespace.authz_list:
-                if authz.used_in_scitokens_conf:
-                    cache_authz_list.append(authz)
-                    allowed_vos.add(vo_name)
-
-    # Older plugin versions require at least one issuer block (SOFTWARE-4389)
-    if not cache_authz_list:
-        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found", restricted_path=None, map_subject=False)
-        cache_authz_list.append(dummy_auth)
-
-    issuer_blocks = [a.get_scitokens_conf_block(XROOTD_CACHE_SERVER) for a in cache_authz_list]
     issuer_blocks_str = "\n".join(issuer_blocks)
     allowed_vos_str = ", ".join(sorted(allowed_vos))
 
