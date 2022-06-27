@@ -239,9 +239,7 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
     return authfile
 
 
-def generate_cache_scitokens(
-        cache_fqdn: str, global_data: GlobalData, suppress_errors = True
-) -> str:
+def generate_cache_scitokens(global_data: GlobalData, fqdn: str, suppress_errors=True) -> str:
     """
     Generate the SciTokens needed by a StashCache cache server, given the fqdn
     of the cache server.
@@ -273,7 +271,7 @@ def generate_cache_scitokens(
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
 
-    cache_resource = _get_cache_resource2(cache_fqdn, topology, suppress_errors)
+    cache_resource = _get_cache_resource2(fqdn, topology, suppress_errors)
     if not cache_resource:
         return ""
 
@@ -389,9 +387,7 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
     return "\n".join(authfile_lines) + "\n"
 
 
-def generate_origin_scitokens(
-        origin_fqdn: str, global_data: GlobalData, suppress_errors = True
-) -> str:
+def generate_origin_scitokens(global_data: GlobalData, fqdn: str, suppress_errors=True) -> str:
     """
     Generate the SciTokens needed by a StashCache origin server, given the fqdn
     of the origin server.
@@ -423,7 +419,7 @@ def generate_origin_scitokens(
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
 
-    origin_resource = _get_origin_resource2(origin_fqdn, topology, suppress_errors)
+    origin_resource = _get_origin_resource2(fqdn, topology, suppress_errors)
     if not origin_resource:
         return ""
 

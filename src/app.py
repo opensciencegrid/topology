@@ -331,18 +331,10 @@ def scitokens():
 
     try:
         if cache_fqdn:
-            cache_scitokens = stashcache.generate_cache_scitokens(
-                cache_fqdn,
-                global_data,
-                suppress_errors=False
-            )
+            cache_scitokens = stashcache.generate_cache_scitokens(global_data, cache_fqdn, suppress_errors=False)
             return Response(cache_scitokens, mimetype="text/plain")
         elif origin_fqdn:
-            origin_scitokens = stashcache.generate_origin_scitokens(
-                origin_fqdn,
-                global_data,
-                suppress_errors=False
-            )
+            origin_scitokens = stashcache.generate_origin_scitokens(global_data, origin_fqdn, suppress_errors=False)
             return Response(origin_scitokens, mimetype="text/plain")
     except ResourceNotRegistered as e:
         return Response("# {}\n"
@@ -487,11 +479,7 @@ def _get_cache_scitoken_file():
     fqdn_arg = request.args.get("fqdn")
 
     def get_scitoken_function(fqdn):
-        return stashcache.generate_cache_scitokens(
-            cache_fqdn=fqdn,
-            global_data=global_data,
-            suppress_errors=False
-        )
+        return stashcache.generate_cache_scitokens(global_data=global_data, fqdn=fqdn, suppress_errors=False)
 
     return _get_scitoken_file(fqdn_arg, get_scitoken_function)
 
@@ -500,11 +488,7 @@ def _get_origin_scitoken_file():
     fqdn_arg = request.args.get("fqdn")
 
     def get_scitoken_function(fqdn):
-        return stashcache.generate_origin_scitokens(
-            origin_fqdn=fqdn,
-            global_data=global_data,
-            suppress_errors=False
-        )
+        return stashcache.generate_origin_scitokens(global_data=global_data, fqdn=fqdn, suppress_errors=False)
 
     return _get_scitoken_file(fqdn_arg, get_scitoken_function)
 

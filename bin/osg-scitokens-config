@@ -30,9 +30,5 @@ else:
 
 global_data = webapp.models.GlobalData()
 
-cache_scitokens = stashcache.generate_cache_scitokens(
-    args.fqdn,
-    global_data,
-    suppress_errors=False,
-)
+cache_scitokens = stashcache.generate_cache_scitokens(global_data, args.fqdn, suppress_errors=False)
 print(cache_scitokens, end="")  # config already has trailing newline
