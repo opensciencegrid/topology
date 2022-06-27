@@ -6,11 +6,11 @@ from webapp.common import is_null, readfile
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
-
-import logging
-
 from webapp.vos_data import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, AuthMethod, DNAuth, SciTokenAuth, Namespace, \
     parse_authz, ANY, ANY_PUBLIC
+
+
+import logging
 
 log = logging.getLogger(__name__)
 
