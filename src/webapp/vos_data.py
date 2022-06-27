@@ -418,7 +418,7 @@ def parse_authz(authz: Union[str, Dict]) -> Tuple[AuthMethod, Optional[str]]:
                 if not base_path:
                     errors += "'Base Path' missing or empty; "
                 restricted_path = v.get("Restricted Path", None)
-                if not restricted_path and not isinstance(restricted_path, str):
+                if restricted_path and not isinstance(restricted_path, str):
                     errors += "'Restricted Path' not a string; "
                 map_subject = v.get("Map Subject", False)
                 if not isinstance(map_subject, bool):
