@@ -374,6 +374,29 @@ def scitokens():
         return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
 
 
+@app.route("/stashcache/namespaces")
+def stashcache_namespaces_json():
+    if not stashcache:
+        return Response("Can't get scitokens config: stashcache module unavailable", status=503)
+    try:
+        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data)),
+                        mimetype='application/json')
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(str(e)),
+                        mimetype="text/plain", status=404)
+    except DataError as e:
+        app.logger.error("{}: {}".format(request.full_path, str(e)))
+        return Response("# Error generating namespaces json file: {}\n".format(str(e)) +
+                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        mimetype="text/plain", status=400)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting namespaces json file, please contact help@opensciencegrid.org",
+                        status=503)
+
+
 @app.route("/oasis-managers/json")
 def oasis_managers():
     if not _get_authorized():
