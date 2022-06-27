@@ -7,8 +7,9 @@ from webapp.common import readfile, generate_dn_hash
 from webapp.exceptions import DataError, NotRegistered, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
-from webapp.vos_data import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, Namespace, VOsData, \
-    ANY, ANY_PUBLIC
+from webapp.vos_data import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, AuthMethod, DNAuth, Namespace, VOsData, \
+    parse_authz, ANY, ANY_PUBLIC
+
 
 import logging
 
@@ -207,6 +208,7 @@ def generate_cache_authfile(global_data: GlobalData,
     """
     authfile = ""
     id_to_dir = defaultdict(set)
+    id_to_str = {}
 
     topology = global_data.get_topology()
     resource = None
@@ -215,56 +217,57 @@ def generate_cache_authfile(global_data: GlobalData,
         if not resource:
             return ""
 
-    vo_data = global_data.get_vos_data()
-    for vo_name, vo_details in vo_data.vos.items():
-        stashcache_data = vo_details.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
-
-        namespaces = stashcache_data.get("Namespaces")
-        if not namespaces:
-            if suppress_errors:
-                continue
-            else:
-                raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
-
-        needs_authz = False
-        for namespace, authz_list in namespaces.items():
-            if not authz_list:
-                if suppress_errors:
-                    continue
-                else:
-                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(namespace, vo_name))
-            if authz_list != ["PUBLIC"]:
-                needs_authz = True
-                break
-        if not needs_authz:
-            continue
-
-        if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, False, suppress_errors):
-            continue
-
-        for namespace, authz_list in namespaces.items():
-            user_hashes, groups = _get_user_hashes_and_groups_for_namespace(authz_list, suppress_errors)
-            for u in user_hashes:
-                id_to_dir["u {}".format(u)].add(namespace)
-            for g in groups:
-                id_to_dir["g {}".format(g)].add(namespace)
-
-    if legacy and resource is not None and \
-            (
-                    "ANY" in resource.data.get("AllowedVOs") or
-                    "LIGO" in resource.data.get("AllowedVOs")
-            ):
+    ligo_authz_list: List[AuthMethod] = []
+    if legacy:
         ldappass = readfile(global_data.ligo_ldap_passfile, log)
         for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
-            hash = generate_dn_hash(dn)
-            id_to_dir["u {}".format(hash)].add("/user/ligo")
+            ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
 
-    for id, dir_list in id_to_dir.items():
-        if dir_list:
-            authfile += "{} {}\n".format(id,
-                " ".join([i + " rl" for i in sorted(dir_list)]))
+    public_dirs = set()
+    vos_data = global_data.get_vos_data()
+    for stashcache_obj in vos_data.stashcache_by_vo_name.values():
+        for dirname, namespace in stashcache_obj.namespaces.items():
+            if not _namespace_allows_cache(namespace, resource):
+                continue
+            if resource and not _resource_allows_namespace(resource, namespace):
+                continue
+            if namespace.is_public():
+                public_dirs.add(dirname)
+                continue
+
+            # Extend authz list with LIGO DNs if applicable
+            extended_authz_list = namespace.authz_list
+            if legacy and dirname == "/user/ligo":
+                extended_authz_list += ligo_authz_list
+
+            for authz in extended_authz_list:
+                if authz.used_in_authfile:
+                    id_to_dir[authz.get_authfile_id()].add(dirname)
+                    id_to_str[authz.get_authfile_id()] = str(authz)
+
+    if not id_to_dir and not public_dirs:
+        if suppress_errors:
+            return ""
+        else:
+            raise DataError("No working StashCache resource/VO combinations found")
+
+    for authfile_id in id_to_dir:
+        paths_acl = " ".join(f"{p} rl" for p in sorted(id_to_dir[authfile_id]))
+        authfile += f"# {id_to_str[authfile_id]}\n"
+        authfile += f"{authfile_id} {paths_acl}\n"
+
+    # Public paths must be at the end
+    if public_dirs:
+        authfile += "\n"
+        if legacy:
+            authfile += "u * /user/ligo -rl \\\n"
+        else:
+            authfile += "u * \\\n"
+        for dirname in sorted(public_dirs):
+            authfile += "    {} rl \\\n".format(dirname)
+        # Delete trailing ' \' from the last line
+        if authfile.endswith(" \\\n"):
+            authfile = authfile[:-3] + "\n"
 
     return authfile
 
