@@ -464,8 +464,8 @@ class StashCache:
     def __init__(self, vo_name: str, yaml_data: ParsedYaml):
         self.vo_name = vo_name
         self.namespaces: OrderedDict[str, Namespace] = OrderedDict()
-        self.load_yaml(yaml_data)
         self.errors: Set[str] = set()
+        self.load_yaml(yaml_data)
 
     def load_yaml(self, yaml_data: ParsedYaml):
         if is_null(yaml_data, "Namespaces"):
