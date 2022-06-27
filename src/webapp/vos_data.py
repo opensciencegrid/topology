@@ -348,6 +348,29 @@ class SciTokenAuth(AuthMethod):
         return block
 
 
+class Namespace:
+    def __init__(
+        self,
+        path: str,
+        vo_name: str,
+        allowed_origins: List[str],
+        allowed_caches: List[str],
+        authz_list: List[AuthMethod],
+        writeback: Optional[str],
+        dirlist: Optional[str],
+    ):
+        self.path = path
+        self.vo_name = vo_name
+        self.allowed_origins = allowed_origins
+        self.allowed_caches = allowed_caches
+        self.authz_list = authz_list
+        self.writeback = writeback
+        self.dirlist = dirlist
+
+    def is_public(self) -> bool:
+        return self.authz_list and self.authz_list[0].is_public
+
+
 def parse_authz(authz: Union[str, Dict]) -> Tuple[AuthMethod, Optional[str]]:
     """Return the instance of the appropriate AuthMethod from a single item in an authz list for a namespace.
 
