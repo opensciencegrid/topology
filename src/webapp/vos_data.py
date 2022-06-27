@@ -366,9 +366,17 @@ class SciTokenAuth(AuthMethod):
 
 
 class Namespace:
-    def __init__(self, path: str, vo_name: str, allowed_origins: List[str], allowed_caches: List[str],
-                 authz_list: List[AuthMethod], writeback: Optional[str], dirlist: Optional[str],
-                 map_subject: bool):
+    def __init__(
+        self,
+        path: str,
+        vo_name: str,
+        allowed_origins: List[str],
+        allowed_caches: List[str],
+        authz_list: List[AuthMethod],
+        writeback: Optional[str],
+        dirlist: Optional[str],
+        map_subject: bool
+    ):
         self.path = path
         self.vo_name = vo_name
         self.allowed_origins = allowed_origins
