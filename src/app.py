@@ -15,7 +15,7 @@ import urllib.parse
 
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
-from webapp.exceptions import NotRegistered, DataError, ResourceNotRegistered
+from webapp.exceptions import DataError, ResourceNotRegistered
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
@@ -401,12 +401,12 @@ def _get_cache_authfile(public_only):
                                  fqdn=cache_fqdn,
                                  legacy=app.config["STASHCACHE_LEGACY_AUTH"],
                                  suppress_errors=False)
-    except stashcache.NotRegistered as e:
-        return Response("# No resource registered for {}\n"
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
-    except stashcache.DataError as e:
+    except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
                         "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
@@ -423,13 +423,12 @@ def _get_origin_authfile(public_only):
     if 'fqdn' not in request.args:
         return Response("FQDN of origin server required in the 'fqdn' argument", status=400)
     try:
-        auth = stashcache.generate_origin_authfile(request.args['fqdn'],
-                                                   global_data.get_vos_data(),
-                                                   global_data.get_topology().get_resource_group_list(),
+        auth = stashcache.generate_origin_authfile(global_data=global_data,
+                                                   origin_fqdn=request.args['fqdn'],
                                                    suppress_errors=False,
-                                                   public_only=public_only)
-    except NotRegistered as e:
-        return Response("# No resource registered for {}\n"
+                                                   public_origin=public_only)
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
@@ -460,8 +459,8 @@ def _get_scitoken_file(fqdn, get_scitoken_function):
         scitoken_file = get_scitoken_function(fqdn)
         return Response(scitoken_file, mimetype="text/plain")
 
-    except NotRegistered as e:
-        return Response("# No resource registered for {}\n"
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)

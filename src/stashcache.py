@@ -440,76 +440,80 @@ def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_erro
     return resources
 
 
-def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress_errors=True, public_only=False):
-    public_namespaces = set()
-    id_to_namespaces = defaultdict(set)
-    id_to_dn = {}
+def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress_errors=True, public_origin=False) -> str:
+    topology = global_data.get_topology()
+    vos_data = global_data.get_vos_data()
+    origin_resource = None
+    if origin_fqdn:
+        origin_resource = _get_origin_resource2(origin_fqdn, topology, suppress_errors)
+        if not origin_resource:
+            return ""
+
+    public_paths = set()
+    id_to_paths = defaultdict(set)
+    id_to_str = {}
     warnings = []
-    for vo_name, vo_data in vo_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
 
-        if not _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
-            continue
-
-        namespaces = stashcache_data.get("Namespaces")
-        if not namespaces:
-            if suppress_errors:
+    for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
+        for path, namespace in stashcache_obj.namespaces.items():
+            if not _namespace_allows_origin(namespace, origin_resource):
                 continue
+            if not _resource_allows_namespace(origin_resource, namespace):
+                continue
+            if namespace.is_public():
+                public_paths.add(path)
+                continue
+            if public_origin:
+                continue
+
+            # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
+            # Ignore FQANs and DNs listed in the namespace's authz list.
+            authz_list = []
+
+            allowed_resources = [origin_resource]
+            # Add caches
+            allowed_caches = _get_allowed_caches_for_namespace(namespace, topology)
+            if allowed_caches:
+                allowed_resources.extend(allowed_caches)
             else:
-                raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
-
-        for namespace, authz_list in namespaces.items():
-            if not authz_list:
-                if suppress_errors:
-                    continue
-                else:
-                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(namespace, vo_name))
-
-            if authz_list == ["PUBLIC"]:
-                public_namespaces.add(namespace)
-                continue
-
-            if public_only:
-                continue
-
-            allowed_caches = stashcache_data.get("AllowedCaches")
-            if allowed_caches is None:
-                if suppress_errors:
-                    continue
-                else:
-                    raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
-
-            allowed_resources = _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors)
-            origin_resource = _get_resource_by_fqdn(origin_hostname, resource_groups)
-            allowed_resources.append(origin_resource)
+                warnings.append(f"# WARNING: No working cache / namespace combinations found for {path}")
 
             for resource in allowed_resources:
                 dn = resource.data.get("DN")
-                if not dn:
-                    warnings.append("# WARNING: Resource {} was skipped for VO {}"
-                                    " because the resource does not provide a DN.\n".format(resource.name, vo_name))
+                if dn:
+                    authz_list.append(DNAuth(dn))
+                else:
+                    warnings.append(
+                        f"# WARNING: Resource {resource.name} was skipped for VO {vo_name}, namespace {path}"
+                        f" because the resource does not provide a DN."
+                    )
                     continue
-                dn_hash = generate_dn_hash(dn)
-                id_to_namespaces[dn_hash].add(namespace)
-                id_to_dn[dn_hash] = dn
 
-    if not id_to_namespaces and not public_namespaces:
+            for authz in authz_list:
+                if authz.used_in_authfile:
+                    id_to_paths[authz.get_authfile_id()].add(path)
+                    id_to_str[authz.get_authfile_id()] = str(authz)
+
+    if not id_to_paths and not public_paths:
         if suppress_errors:
             return ""
         else:
             raise DataError("No working StashCache resource/VO combinations found")
 
-    results = ""
-    if warnings:
-        results += "".join(warnings) + "\n"
-    for id, namespaces in id_to_namespaces.items():
-        dn = id_to_dn[id]
-        results += "# {}\nu {} {}\n".format(dn, id, " ".join("{} lr".format(i) for i in sorted(namespaces)))
-    if public_namespaces:
-        results += "\nu * {}\n".format(" ".join("{} lr".format(i) for i in sorted(public_namespaces)))
-    return results
+    authfile_lines = []
+    authfile_lines.extend(warnings)
+    for authfile_id in id_to_paths:
+        paths_acl = " ".join(f"{p} lr" for p in sorted(id_to_paths[authfile_id]))
+        authfile_lines.append(f"# {id_to_str[authfile_id]}")
+        authfile_lines.append(f"{authfile_id} {paths_acl}")
+
+    # Public paths must be at the end
+    if public_paths:
+        authfile_lines.append("")
+        paths_acl = " ".join(f"{p} lr" for p in sorted(public_paths))
+        authfile_lines.append(f"u * {paths_acl}")
+
+    return "\n".join(authfile_lines) + "\n"
 
 
 def generate_origin_scitokens(global_data: GlobalData, fqdn: str, suppress_errors=True) -> str:
