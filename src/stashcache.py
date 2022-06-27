@@ -1,13 +1,13 @@
 
 from collections import defaultdict
-from typing import Dict, List, Optional, Set, Tuple, Union
+from typing import Dict, List, Optional
 import ldap3
 
-from webapp.common import readfile, generate_dn_hash
-from webapp.exceptions import DataError, NotRegistered, ResourceNotRegistered, ResourceMissingService
+from webapp.common import readfile
+from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
-from webapp.vos_data import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, AuthMethod, DNAuth, SciTokenAuth, Namespace, VOsData, \
+from webapp.vos_data import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, AuthMethod, DNAuth, SciTokenAuth, Namespace, \
     parse_authz, ANY, ANY_PUBLIC
 
 
@@ -116,75 +116,6 @@ def _namespace_allows_cache(namespace: Namespace, cache: Optional[Resource]) -> 
     if ANY in namespace.allowed_caches:
         return True
     return cache and cache.name in namespace.allowed_caches
-
-
-def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Resource:
-    """Returns the Resource that has the given FQDN; if multiple Resources
-    have the same FQDN, returns the first one.
-
-    """
-    for group in resource_groups:
-        for resource in group.resources:
-            if fqdn.lower() == resource.fqdn.lower():
-                return resource
-
-
-def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup], suppress_errors: bool) -> Optional[Resource]:
-    """If given an FQDN, returns the Resource _if it has an "XRootD cache server" service_.
-    If given None, returns None.
-    If multiple Resources have the same FQDN, checks the first one.
-    If suppress_errors is False, raises an expression on the following conditions:
-    - no Resource matching FQDN (NotRegistered)
-    - Resource does not provide an XRootD cache server (DataError)
-    If suppress_errors is True, returns None on the above conditions.
-
-    """
-    resource = None
-    if fqdn:
-        resource = _get_resource_by_fqdn(fqdn, resource_groups)
-        if not resource:
-            if suppress_errors:
-                return None
-            else:
-                raise NotRegistered(fqdn)
-        if "XRootD cache server" not in resource.service_names:
-            if suppress_errors:
-                return None
-            else:
-                raise DataError("{} (resource name {}) does not provide an XRootD cache server.".format(fqdn, resource.name))
-    return resource
-
-
-def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_errors):
-    allowed_vos = resource.data.get("AllowedVOs")
-    if allowed_vos is None:
-        if suppress_errors:
-            return False
-        else:
-            raise DataError("Cache server at {} (resource name {}) does not provide an AllowedVOs list.".format(resource.fqdn, resource.name))
-
-    if ('ANY' not in allowed_vos and
-            vo_name not in allowed_vos and
-            (not public or 'ANY_PUBLIC' not in allowed_vos)):
-        log.debug(f"\tCache {resource.fqdn} does not allow {vo_name} in its AllowedVOs list")
-        return False
-
-    # For public data, caching is one-way: we OK things as long as the
-    # cache is interested in the data.
-    if public:
-        return True
-
-    allowed_caches = stashcache_data.get("AllowedCaches")
-    if allowed_caches is None:
-        if suppress_errors:
-            return False
-        else:
-            raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
-
-    ret = 'ANY' in allowed_caches or resource.name in allowed_caches
-    if not ret:
-        log.debug(f"\tVO {vo_name} does not allow cache {resource.fqdn} in its AllowedCaches list")
-    return ret
 
 
 def _get_allowed_caches_for_namespace(namespace: Namespace, topology: Topology) -> List[Resource]:
@@ -379,65 +310,6 @@ audience = {allowed_vos_str}
     allowed_vos_str = ", ".join(sorted(allowed_vos))
 
     return template.format(**locals()).rstrip() + "\n"
-
-
-def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_groups, suppress_errors=True):
-    origin_resource = _get_resource_by_fqdn(origin_hostname, resource_groups)
-    if not origin_resource:
-        if suppress_errors:
-            return False
-        else:
-            raise NotRegistered(origin_hostname)
-    if 'XRootD origin server' not in origin_resource.service_names:
-        if suppress_errors:
-            return False
-        else:
-            raise DataError("{} (resource name {}) does not provide an XRootD origin server.".format(origin_hostname, origin_resource.name))
-    allowed_vos = origin_resource.data.get("AllowedVOs")
-    if allowed_vos is None:
-        if suppress_errors:
-            return False
-        else:
-            raise DataError("Origin server at {} (resource name {}) does not provide an AllowedVOs list.".format(origin_hostname, origin_resource.name))
-
-    if 'ANY' not in allowed_vos and vo_name not in allowed_vos:
-        return False
-
-    allowed_origins = stashcache_data.get("AllowedOrigins")
-    if allowed_origins is None:
-        if suppress_errors:
-            return False
-        else:
-            raise DataError("VO {} in StashCache does not provide an AllowedOrigins list.".format(vo_name))
-
-    return origin_resource.name in allowed_origins
-
-
-def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True) -> List[Resource]:
-    allowed_caches = stashcache_data.get("AllowedCaches")
-    if allowed_caches is None:
-        if suppress_errors:
-            return []
-        else:
-            raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
-
-    resources = []
-    for group in resource_groups:
-        for resource in group.resources:
-            # First, does this provide a cache service?
-            if 'XRootD cache server' not in resource.service_names:
-                continue
-
-            # Next, does it allow this VO?  Unlike the StashCache origin case requiring the origin to list AllowedVOs,
-            # we do not consider the lack of AllowedVOs an error as the cache doesn't
-            # explicitly record *which* data federation it is participating in (might not be SC!).
-            allowed_vos = resource.data.get("AllowedVOs", [])
-            if 'ANY' not in allowed_vos and (vo_name != "ANY_PUBLIC" and vo_name not in allowed_vos):
-                continue
-            if 'ANY' not in allowed_caches and resource.name not in allowed_caches:
-                continue
-            resources.append(resource)
-    return resources
 
 
 def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress_errors=True, public_origin=False) -> str:
