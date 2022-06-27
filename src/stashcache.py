@@ -135,6 +135,9 @@ def _get_allowed_caches_for_namespace(namespace: Namespace, topology: Topology) 
 
 def generate_cache_authfile(global_data: GlobalData, cache_fqdn: Optional[str], suppress_errors=True,
                             public_cache=False, legacy=True) -> str:
+    if public_cache:
+        return generate_public_cache_authfile(global_data, fqdn=cache_fqdn, suppress_errors=suppress_errors,
+                                              legacy=legacy)
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
     cache_resource = None
@@ -204,6 +207,44 @@ def generate_cache_authfile(global_data: GlobalData, cache_fqdn: Optional[str], 
         authfile_lines[-1] = authfile_lines[-1][:-2]
 
     authfile = "\n".join(authfile_lines) + "\n"
+
+    return authfile
+
+
+def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=True, suppress_errors=True) -> str:
+    """
+    Generate the Xrootd authfile needed for public caches
+    """
+    if legacy:
+        authfile = "u * /user/ligo -rl \\\n"
+    else:
+        authfile = "u * \\\n"
+
+    topology = global_data.get_topology()
+    resource = None
+    if fqdn:
+        resource = _get_cache_resource(fqdn, topology, suppress_errors)
+        if not resource:
+            return ""
+
+    public_paths = set()
+    vos_data = global_data.get_vos_data()
+    for stashcache_obj in vos_data.stashcache_by_vo_name.values():
+        for path, namespace in stashcache_obj.namespaces.items():
+            if not _namespace_allows_cache(namespace, resource):
+                continue
+            if resource and not _resource_allows_namespace(resource, namespace):
+                continue
+            if namespace.is_public():
+                public_paths.add(path)
+                continue
+
+    for path in sorted(public_paths):
+        authfile += f"    {path} rl \\\n"
+
+    # Delete trailing ' \' from the last line
+    if authfile.endswith(" \\\n"):
+        authfile = authfile[:-3] + "\n"
 
     return authfile
 
