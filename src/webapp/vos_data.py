@@ -375,7 +375,6 @@ class Namespace:
         authz_list: List[AuthMethod],
         writeback: Optional[str],
         dirlist: Optional[str],
-        map_subject: bool
     ):
         self.path = path
         self.vo_name = vo_name
@@ -384,7 +383,6 @@ class Namespace:
         self.authz_list = authz_list
         self.writeback = writeback
         self.dirlist = dirlist
-        self.map_subject = map_subject
 
     def is_public(self) -> bool:
         return self.authz_list and self.authz_list[0].is_public
@@ -490,7 +488,6 @@ class StashCache:
                 authz_list=authz_list,
                 writeback=ns_data.get("Writeback", None),
                 dirlist=ns_data.get("DirList", None),
-                map_subject=ns_data.get("Map Subject", False)
             )
 
     def load_old_yaml(self, yaml_data: ParsedYaml):
@@ -503,8 +500,7 @@ class StashCache:
                 allowed_caches=yaml_data.get("AllowedCaches", []),
                 authz_list=authz_list,
                 writeback=None,
-                dirlist=None,
-                map_subject=False)
+                dirlist=None)
 
     def parse_authz_list(self, path: str, unparsed_authz_list: List[str]) -> List[AuthMethod]:
         authz_list = []
