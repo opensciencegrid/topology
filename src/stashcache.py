@@ -15,7 +15,7 @@ import logging
 log = logging.getLogger(__name__)
 
 
-def log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=log.debug):
+def _log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=log.debug):
     if suppress_errors:
         logmethod("%s %s", type(an_exception), an_exception)
     else:
@@ -76,10 +76,10 @@ def _get_resource_with_service(fqdn: Optional[str], service_name: str, topology:
     if fqdn:
         resource = topology.safe_get_resource_by_fqdn(fqdn)
         if not resource:
-            log_or_raise(suppress_errors, ResourceNotRegistered(fqdn=fqdn))
+            _log_or_raise(suppress_errors, ResourceNotRegistered(fqdn=fqdn))
             return None
         if service_name not in resource.service_names:
-            log_or_raise(
+            _log_or_raise(
                 suppress_errors,
                 ResourceMissingService(resource, service_name)
             )
