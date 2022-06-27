@@ -2,8 +2,7 @@ import copy
 
 from collections import OrderedDict
 from logging import getLogger
-from typing import Dict, List, Optional, Tuple, Union
-
+from typing import Dict, List, Optional, Set, Tuple, Union
 
 from .common import Filters, ParsedYaml, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape, \
     generate_dn_hash
@@ -22,12 +21,21 @@ class VOsData(object):
         self.contacts_data = contacts_data
         self.vos = {}  # type: Dict[str, ParsedYaml]
         self.reporting_groups_data = reporting_groups_data
+        self.stashcache_by_vo_name = {}  # type: Dict[str, StashCache]
 
     def get_vo_id_to_name(self) -> Dict[str, str]:
         return {self.vos[name]["ID"]: name for name in self.vos}
 
     def add_vo(self, vo_name: str, vo_data: ParsedYaml):
         self.vos[vo_name] = vo_data
+        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+        if stashcache_data:
+            stashcache_obj = StashCache(vo_name, stashcache_data)
+            if stashcache_obj.errors:
+                log.exception("Problem(s) with DataFederations/StashCache data for VO %s: %s",
+                              vo_name, "\n".join(stashcache_obj.errors))
+            else:
+                self.stashcache_by_vo_name[vo_name] = stashcache_obj
 
     def get_expansion(self, authorized=False, filters: Filters = None):
         if not filters:
@@ -439,3 +447,61 @@ def parse_authz(authz: Union[str, Dict]) -> Tuple[AuthMethod, Optional[str]]:
             return PublicAuth(), None
         else:
             return NullAuth(), f"Unknown authz list entry {authz}"
+
+
+class StashCache:
+    def __init__(self, vo_name: str, yaml_data: ParsedYaml):
+        self.vo_name = vo_name
+        self.namespaces: OrderedDict[str, Namespace] = OrderedDict()
+        self.errors: Set[str] = set()
+        self.load_yaml(yaml_data)
+
+    def load_yaml(self, yaml_data: ParsedYaml):
+        if is_null(yaml_data, "Namespaces"):
+            return
+
+        # Check for old yaml data, where each Namespaces is a dict and each namespace is a plain list of authz
+        if not isinstance(yaml_data["Namespaces"], list):
+            return self.load_old_yaml(yaml_data)
+
+        for idx, ns_data in enumerate(yaml_data["Namespaces"]):
+            # New format; Namespaces is a list of dicts
+            if "Path" not in ns_data:
+                self.errors.add(f"Namespace #{idx}: No Path")
+                continue
+            path = ns_data["Path"]
+            authz_list = self.parse_authz_list(path=path, unparsed_authz_list=ns_data.get("Authorizations", []))
+            self.namespaces[path] = Namespace(
+                path=path,
+                vo_name=self.vo_name,
+                allowed_origins=ns_data.get("AllowedOrigins", []),
+                allowed_caches=ns_data.get("AllowedCaches", []),
+                authz_list=authz_list,
+                writeback=ns_data.get("Writeback", None),
+                dirlist=ns_data.get("DirList", None),
+            )
+
+    def load_old_yaml(self, yaml_data: ParsedYaml):
+        for path, unparsed_authz_list in yaml_data["Namespaces"].items():
+            authz_list = self.parse_authz_list(path, unparsed_authz_list)
+            self.namespaces[path] = Namespace(
+                path=path,
+                vo_name=self.vo_name,
+                allowed_origins=yaml_data.get("AllowedOrigins", []),
+                allowed_caches=yaml_data.get("AllowedCaches", []),
+                authz_list=authz_list,
+                writeback=None,
+                dirlist=None)
+
+    def parse_authz_list(self, path: str, unparsed_authz_list: List[str]) -> List[AuthMethod]:
+        authz_list = []
+        for authz in unparsed_authz_list:
+            parsed_authz, err = parse_authz(authz)
+            if err:
+                self.errors.add(f"Namespace {path}: {err}")
+                continue
+            if parsed_authz.is_public:
+                return [parsed_authz]
+            else:
+                authz_list.append(parsed_authz)
+        return authz_list
