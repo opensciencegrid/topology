@@ -14,6 +14,13 @@ import logging
 log = logging.getLogger(__name__)
 
 
+def log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=log.debug):
+    if suppress_errors:
+        logmethod("%s %s", type(an_exception), an_exception)
+    else:
+        raise an_exception
+
+
 def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
     """
     Query the LIGO LDAP server for all grid DNs in the IGWN collab.
