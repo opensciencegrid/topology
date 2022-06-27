@@ -61,10 +61,6 @@ def _resource_has_cache(resource: Resource) -> bool:
     return XROOTD_CACHE_SERVER in resource.service_names
 
 
-def _resource_has_origin(resource: Resource) -> bool:
-    return XROOTD_ORIGIN_SERVER in resource.service_names
-
-
 def _get_resource_with_service(fqdn: Optional[str], service_name: str, topology: Topology,
                                suppress_errors: bool) -> Optional[Resource]:
     """If given an FQDN, returns the Resource _if it has the given service.
