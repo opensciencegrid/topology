@@ -145,7 +145,7 @@ def generate_cache_authfile(global_data: GlobalData,
         return generate_public_cache_authfile(global_data, fqdn=fqdn, suppress_errors=suppress_errors,
                                               legacy=legacy)
     authfile = ""
-    id_to_paths = defaultdict(set)
+    id_to_dir = defaultdict(set)
     id_to_str = {}
 
     topology = global_data.get_topology()
@@ -161,48 +161,48 @@ def generate_cache_authfile(global_data: GlobalData,
         for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
             ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
 
-    public_paths = set()
+    public_dirs = set()
     vos_data = global_data.get_vos_data()
     for stashcache_obj in vos_data.stashcache_by_vo_name.values():
-        for path, namespace in stashcache_obj.namespaces.items():
+        for dirname, namespace in stashcache_obj.namespaces.items():
             if not _namespace_allows_cache(namespace, resource):
                 continue
             if resource and not _resource_allows_namespace(resource, namespace):
                 continue
             if namespace.is_public():
-                public_paths.add(path)
+                public_dirs.add(dirname)
                 continue
 
             # Extend authz list with LIGO DNs if applicable
             extended_authz_list = namespace.authz_list
-            if legacy and path == "/user/ligo":
+            if legacy and dirname == "/user/ligo":
                 extended_authz_list += ligo_authz_list
 
             for authz in extended_authz_list:
                 if authz.used_in_authfile:
-                    id_to_paths[authz.get_authfile_id()].add(path)
+                    id_to_dir[authz.get_authfile_id()].add(dirname)
                     id_to_str[authz.get_authfile_id()] = str(authz)
 
-    if not id_to_paths and not public_paths:
+    if not id_to_dir and not public_dirs:
         if suppress_errors:
             return ""
         else:
             raise DataError("No working StashCache resource/VO combinations found")
 
-    for authfile_id in id_to_paths:
-        paths_acl = " ".join(f"{p} rl" for p in sorted(id_to_paths[authfile_id]))
+    for authfile_id in id_to_dir:
+        paths_acl = " ".join(f"{p} rl" for p in sorted(id_to_dir[authfile_id]))
         authfile += f"# {id_to_str[authfile_id]}\n"
         authfile += f"{authfile_id} {paths_acl}\n"
 
     # Public paths must be at the end
-    if public_paths:
+    if public_dirs:
         authfile += "\n"
         if legacy:
             authfile += "u * /user/ligo -rl \\\n"
         else:
             authfile += "u * \\\n"
-        for path in sorted(public_paths):
-            authfile += f"    {path} rl \\\n"
+        for dirname in sorted(public_dirs):
+            authfile += "    {} rl \\\n".format(dirname)
         # Delete trailing ' \' from the last line
         if authfile.endswith(" \\\n"):
             authfile = authfile[:-3] + "\n"
