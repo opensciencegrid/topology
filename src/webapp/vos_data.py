@@ -16,13 +16,6 @@ XROOTD_CACHE_SERVER = "XRootD cache server"
 XROOTD_ORIGIN_SERVER = "XRootD origin server"
 
 
-def log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=log.debug):
-    if suppress_errors:
-        logmethod("%s %s", type(an_exception), an_exception)
-    else:
-        raise an_exception
-
-
 class VOsData(object):
     def __init__(self, contacts_data: ContactsData, reporting_groups_data: ParsedYaml):
         self.contacts_data = contacts_data
