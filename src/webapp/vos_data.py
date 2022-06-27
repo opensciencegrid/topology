@@ -8,12 +8,10 @@ from .common import Filters, ParsedYaml, VOSUMMARY_SCHEMA_URL, is_null, expand_a
     generate_dn_hash
 from .contacts_reader import ContactsData
 
+
 log = getLogger(__name__)
 
 
-ANY = "ANY"
-PUBLIC = "PUBLIC"
-ANY_PUBLIC = "ANY_PUBLIC"
 XROOTD_CACHE_SERVER = "XRootD cache server"
 XROOTD_ORIGIN_SERVER = "XRootD origin server"
 
