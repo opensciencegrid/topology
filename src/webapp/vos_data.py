@@ -12,6 +12,8 @@ from .contacts_reader import ContactsData
 log = getLogger(__name__)
 
 
+ANY = "ANY"
+ANY_PUBLIC = "ANY_PUBLIC"
 XROOTD_CACHE_SERVER = "XRootD cache server"
 XROOTD_ORIGIN_SERVER = "XRootD origin server"
 

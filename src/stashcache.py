@@ -7,7 +7,8 @@ from webapp.common import readfile, generate_dn_hash
 from webapp.exceptions import DataError, NotRegistered, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
-from webapp.vos_data import XROOTD_CACHE_SERVER, VOsData
+from webapp.vos_data import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, Namespace, VOsData, \
+    ANY, ANY_PUBLIC
 
 import logging
 
@@ -86,6 +87,36 @@ def _get_resource_with_service(fqdn: Optional[str], service_name: str, topology:
     return resource
 
 
+def _get_cache_resource2(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
+    return _get_resource_with_service(fqdn, XROOTD_CACHE_SERVER, topology, suppress_errors)
+
+
+def _get_origin_resource2(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
+    return _get_resource_with_service(fqdn, XROOTD_ORIGIN_SERVER, topology, suppress_errors)
+
+
+def _resource_allows_namespace(resource: Resource, namespace: Optional[Namespace]) -> bool:
+    allowed_vos = resource.data.get("AllowedVOs", [])
+    if ANY in allowed_vos:
+        return True
+    if namespace:
+        if ANY_PUBLIC in allowed_vos and namespace.is_public():
+            return True
+        elif namespace.vo_name in allowed_vos:
+            return True
+    return False
+
+
+def _namespace_allows_origin(namespace: Namespace, origin: Optional[Resource]) -> bool:
+    return origin and origin.name in namespace.allowed_origins
+
+
+def _namespace_allows_cache(namespace: Namespace, cache: Optional[Resource]) -> bool:
+    if ANY in namespace.allowed_caches:
+        return True
+    return cache and cache.name in namespace.allowed_caches
+
+
 def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Resource:
     """Returns the Resource that has the given FQDN; if multiple Resources
     have the same FQDN, returns the first one.
@@ -155,6 +186,18 @@ def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_error
     return ret
 
 
+def _get_allowed_caches_for_namespace(namespace: Namespace, topology: Topology) -> List[Resource]:
+    resource_groups = topology.get_resource_group_list()
+    all_caches = [resource
+                  for group in resource_groups
+                  for resource in group.resources
+                  if _resource_has_cache(resource)]
+    return [cache
+            for cache in all_caches
+            if _namespace_allows_cache(namespace, cache)
+            and _resource_allows_namespace(cache, namespace)]
+
+
 def generate_cache_authfile(global_data: GlobalData,
                             fqdn=None,
                             legacy=True,
@@ -168,7 +211,7 @@ def generate_cache_authfile(global_data: GlobalData,
     topology = global_data.get_topology()
     resource = None
     if fqdn:
-        resource = _get_cache_resource(fqdn, topology.get_resource_group_list(), suppress_errors)
+        resource = _get_cache_resource2(fqdn, topology, suppress_errors)
         if not resource:
             return ""
 
@@ -283,7 +326,7 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
     topology = global_data.get_topology()
     resource = None
     if fqdn:
-        resource = _get_cache_resource(fqdn, topology.get_resource_group_list(), suppress_errors)
+        resource = _get_cache_resource2(fqdn, topology, suppress_errors)
         if not resource:
             return ""
 
