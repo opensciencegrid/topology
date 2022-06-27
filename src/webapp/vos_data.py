@@ -2,14 +2,19 @@ import copy
 
 from collections import OrderedDict
 from logging import getLogger
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple, Union
 
 
-from .common import Filters, ParsedYaml, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape
+from .common import Filters, ParsedYaml, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape, \
+    generate_dn_hash
 from .contacts_reader import ContactsData
 
 
 log = getLogger(__name__)
+
+
+XROOTD_CACHE_SERVER = "XRootD cache server"
+XROOTD_ORIGIN_SERVER = "XRootD origin server"
 
 
 class VOsData(object):
@@ -258,3 +263,156 @@ class VOsData(object):
                 newdata["FQANs"] = None
         new_reporting_groups = expand_attr_list(new_reporting_groups, "Name", ordering=["Name", "FQANs", "Contacts"])
         return {"ReportingGroup": new_reporting_groups}
+
+
+class AuthMethod:
+    is_public = False
+    used_in_authfile = False
+    used_in_scitokens_conf = False
+
+    def get_authfile_id(self):
+        return ""
+
+    def get_scitokens_conf_block(self, service_name: str):
+        return ""
+
+
+class NullAuth(AuthMethod):
+    pass
+
+
+class PublicAuth(AuthMethod):
+    is_public = True
+    used_in_authfile = True
+
+    def __str__(self):
+        return "PUBLIC"
+
+    def get_authfile_id(self):
+        return "u *"
+
+
+class DNAuth(AuthMethod):
+    used_in_authfile = True
+
+    def __init__(self, dn: str):
+        self.dn = dn
+
+    def __str__(self):
+        return "DN: " + self.dn
+
+    def get_dn_hash(self):
+        return generate_dn_hash(self.dn)
+
+    def get_authfile_id(self):
+        return f"u {self.get_dn_hash()}"
+
+
+class FQANAuth(AuthMethod):
+    used_in_authfile = True
+
+    def __init__(self, fqan: str):
+        self.fqan = fqan
+
+    def __str__(self):
+        return "FQAN: " + self.fqan
+
+    def get_authfile_id(self):
+        return f"g {self.fqan}"
+
+
+class SciTokenAuth(AuthMethod):
+    used_in_scitokens_conf = True
+
+    def __init__(self, issuer: str, base_path: str, restricted_path: Optional[str], map_subject: bool):
+        self.issuer = issuer
+        self.base_path = base_path
+        self.restricted_path = restricted_path
+        self.map_subject = map_subject
+
+    def __str__(self):
+        return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path} " \
+                f"map_subject={self.map_subject}"
+
+    def get_scitokens_conf_block(self, service_name: str):
+        if service_name not in [XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER]:
+            raise ValueError(f"service_name must be '{XROOTD_CACHE_SERVER}' or '{XROOTD_ORIGIN_SERVER}'")
+        block = (f"[Issuer {self.issuer}]\n"
+                 f"issuer = {self.issuer}\n"
+                 f"base_path = {self.base_path}\n")
+        if self.restricted_path:
+            block += f"restricted_path = {self.restricted_path}\n"
+        if service_name == XROOTD_ORIGIN_SERVER:
+            block += f"map_subject = {self.map_subject}\n"
+
+        return block
+
+
+def parse_authz(authz: Union[str, Dict]) -> Tuple[AuthMethod, Optional[str]]:
+    """Return the instance of the appropriate AuthMethod from a single item in an authz list for a namespace.
+
+    An authz list item can be a string (for FQAN or DN auth) or dict (FQAN, DN, or SciTokens auth).
+    Return a tuple with the AuthMethod and an optional error string; if there is an error, the auth method is a NullAuth
+    and the error string contains a description of the error.  If there is no error, the error string is None.
+    """
+    # YAML note:
+    # This is a string:
+    # - FQAN:/foobar
+    # This is a dict:
+    # - FQAN: /foobar
+    # Accept both.
+    if isinstance(authz, dict):
+        # We are expecting only one element in this dict: the key indicates the authorization type,
+        # and the value is the contents.
+        for k, v in authz.items():
+            if k == "SciTokens":
+                if not isinstance(v, dict) or not v:
+                    return NullAuth(), f"Invalid SciTokens auth {authz}: no attributes"
+                errors = ""
+                issuer = v.get("Issuer")
+                if not issuer:
+                    errors += "'Issuer' missing or empty; "
+                base_path = v.get("Base Path")
+                if not base_path:
+                    errors += "'Base Path' missing or empty; "
+                restricted_path = v.get("Restricted Path", None)
+                if restricted_path and not isinstance(restricted_path, str):
+                    errors += "'Restricted Path' not a string; "
+                map_subject = v.get("Map Subject", False)
+                if not isinstance(map_subject, bool):
+                    errors += "'Map Subject' not a boolean; "
+                if errors:
+                    errors = errors[:-2]  # chop off last '; '
+                    return NullAuth(), f"Invalid SciTokens auth {authz}: {errors}"
+                return SciTokenAuth(
+                    issuer=issuer,
+                    base_path=base_path,
+                    restricted_path=restricted_path,
+                    map_subject=map_subject
+                ), None
+            elif k == "FQAN":
+                if not v:
+                    return NullAuth(), f"Invalid FQAN auth {authz}: FQAN missing or empty"
+                return FQANAuth(fqan=v), None
+            elif k == "DN":
+                if not v:
+                    return NullAuth(), f"Invalid DN auth {authz}: DN missing or empty"
+                return DNAuth(dn=v), None
+            else:
+                return NullAuth(), f"Unknown auth type {k} in {authz}"
+
+    elif isinstance(authz, str):
+        if authz.startswith("FQAN:"):
+            fqan = authz[5:].strip()
+            if not fqan:
+                return NullAuth(), f"Invalid FQAN auth {authz}: FQAN missing or empty"
+            return FQANAuth(fqan=fqan), None
+        elif authz.startswith("DN:"):
+            dn = authz[3:].strip()
+            if not dn:
+                return NullAuth(), f"Invalid DN auth {authz}: DN missing or empty"
+            return DNAuth(dn=dn), None
+        elif authz.strip() == "PUBLIC":
+            return PublicAuth(), None
+        else:
+            return NullAuth(), f"Unknown authz list entry {authz}"
