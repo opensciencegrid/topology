@@ -391,14 +391,21 @@ class Namespace:
 
 
 def parse_authz(authz: Union[str, Dict]) -> Tuple[AuthMethod, Optional[str]]:
-    """Return the instance of the appropriate AuthMethod from an item in an authz list for a namespace"""
-    # Note:
+    """Return the instance of the appropriate AuthMethod from a single item in an authz list for a namespace.
+
+    An authz list item can be a string (for FQAN or DN auth) or dict (FQAN, DN, or SciTokens auth).
+    Return a tuple with the AuthMethod and an optional error string; if there is an error, the auth method is a NullAuth
+    and the error string contains a description of the error.  If there is no error, the error string is None.
+    """
+    # YAML note:
     # This is a string:
     # - FQAN:/foobar
     # This is a dict:
     # - FQAN: /foobar
     # Accept both.
     if isinstance(authz, dict):
+        # We are expecting only one element in this dict: the key indicates the authorization type,
+        # and the value is the contents.
         for k, v in authz.items():
             if k == "SciTokens":
                 if not isinstance(v, dict) or not v:
@@ -435,6 +442,7 @@ def parse_authz(authz: Union[str, Dict]) -> Tuple[AuthMethod, Optional[str]]:
                 return DNAuth(dn=v), None
             else:
                 return NullAuth(), f"Unknown auth type {k} in {authz}"
+
     elif isinstance(authz, str):
         if authz.startswith("FQAN:"):
             fqan = authz[5:].strip()
