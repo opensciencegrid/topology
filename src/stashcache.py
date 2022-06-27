@@ -331,23 +331,22 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
             return ""
 
     public_dirs = set()
-    vo_data = global_data.get_vos_data()
-    for vo_name, vo_details in vo_data.vos.items():
-        stashcache_data = vo_details.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
-        if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, True, suppress_errors):
-            continue
-
-        for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
-            if "PUBLIC" in authz_list:
+    vos_data = global_data.get_vos_data()
+    for stashcache_obj in vos_data.stashcache_by_vo_name.values():
+        for dirname, namespace in stashcache_obj.namespaces.items():
+            if not _namespace_allows_cache(namespace, resource):
+                continue
+            if resource and not _resource_allows_namespace(resource, namespace):
+                continue
+            if namespace.is_public():
                 public_dirs.add(dirname)
 
     for dirname in sorted(public_dirs):
         authfile += "    {} rl \\\n".format(dirname)
 
-    if authfile.endswith("\\\n"):
-        authfile = authfile[:-2] + "\n"
+    # Delete trailing ' \' from the last line
+    if authfile.endswith(" \\\n"):
+        authfile = authfile[:-3] + "\n"
 
     return authfile
 
