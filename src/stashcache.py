@@ -1,9 +1,8 @@
-
 from collections import defaultdict
 from typing import Dict, List, Optional
 import ldap3
 
-from webapp.common import readfile
+from webapp.common import is_null, readfile
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
@@ -458,3 +457,53 @@ audience = {allowed_vos_str}
     allowed_vos_str = ", ".join(sorted(allowed_vos))
 
     return template.format(**locals()).rstrip() + "\n"
+
+
+def get_namespaces_info(global_data: GlobalData) -> Dict:
+    # Helper functions
+    def _cache_resource_dict(r: Resource):
+        endpoint = f"{r.fqdn}:8000"
+        for svc in r.services:
+            if svc.get("Name") == XROOTD_CACHE_SERVER:
+                if not is_null(svc, "Details", "uri_override"):
+                    endpoint = svc["Details"]["uri_override"]
+                break
+        return {"endpoint": endpoint, "resource": r.name}
+
+    def _namespace_dict(ns: Namespace):
+        nsdict = {
+            "path": ns.path,
+            "readhttps": not ns.is_public(),
+            "usetokenonread": any(isinstance(a, SciTokenAuth) for a in ns.authz_list),
+            "writebackhost": ns.writeback,
+            "dirlisthost": ns.dirlist,
+            "caches": [],
+        }
+
+        for cache_name, cache_resource_obj in cache_resource_objs.items():
+            if _resource_allows_namespace(cache_resource_obj, ns) and _namespace_allows_cache(ns, cache_resource_obj):
+                nsdict["caches"].append(cache_resource_dicts[cache_name])
+        return nsdict
+    # End helper functions
+
+    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    vos_data = global_data.get_vos_data()
+
+    cache_resource_objs = {}  # type: Dict[str, Resource]
+    cache_resource_dicts = {}  # type: Dict[str, Dict]
+
+    for group in resource_groups:
+        for resource in group.resources:
+            if _resource_has_cache(resource):
+                cache_resource_objs[resource.name] = resource
+                cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
+
+    result_namespaces = []
+    for stashcache_obj in vos_data.stashcache_by_vo_name.values():
+        for namespace in stashcache_obj.namespaces.values():
+            result_namespaces.append(_namespace_dict(namespace))
+
+    return {
+        "caches": list(cache_resource_dicts.values()),
+        "namespaces": result_namespaces
+    }
