@@ -134,7 +134,8 @@ def generate_cache_authfile(global_data: GlobalData,
                             legacy=True,
                             suppress_errors=True) -> str:
     """
-    Generate the Xrootd authfile needed by a StashCache cache server.
+    Generate the Xrootd authfile needed by an StashCache cache server.  This contains authenticated data only,
+    no public directories.
     """
     authfile = ""
     id_to_dir = defaultdict(set)
@@ -153,7 +154,6 @@ def generate_cache_authfile(global_data: GlobalData,
         for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
             ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
 
-    public_dirs = set()
     vos_data = global_data.get_vos_data()
     for stashcache_obj in vos_data.stashcache_by_vo_name.values():
         for dirname, namespace in stashcache_obj.namespaces.items():
@@ -162,7 +162,6 @@ def generate_cache_authfile(global_data: GlobalData,
             if resource and not _resource_allows_namespace(resource, namespace):
                 continue
             if namespace.is_public():
-                public_dirs.add(dirname)
                 continue
 
             # Extend authz list with LIGO DNs if applicable
@@ -175,7 +174,8 @@ def generate_cache_authfile(global_data: GlobalData,
                     id_to_dir[authz.get_authfile_id()].add(dirname)
                     id_to_str[authz.get_authfile_id()] = str(authz)
 
-    if not id_to_dir and not public_dirs:
+    # TODO: improve message and turn this into a warning
+    if not id_to_dir:
         if suppress_errors:
             return ""
         else:
@@ -186,25 +186,12 @@ def generate_cache_authfile(global_data: GlobalData,
         authfile += f"# {id_to_str[authfile_id]}\n"
         authfile += f"{authfile_id} {paths_acl}\n"
 
-    # Public paths must be at the end
-    if public_dirs:
-        authfile += "\n"
-        if legacy:
-            authfile += "u * /user/ligo -rl \\\n"
-        else:
-            authfile += "u * \\\n"
-        for dirname in sorted(public_dirs):
-            authfile += "    {} rl \\\n".format(dirname)
-        # Delete trailing ' \' from the last line
-        if authfile.endswith(" \\\n"):
-            authfile = authfile[:-3] + "\n"
-
     return authfile
 
 
 def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=True, suppress_errors=True) -> str:
     """
-    Generate the Xrootd authfile needed for public caches
+    Generate the Xrootd authfile needed for public caches.  This contains public data only, no authenticated data.
     """
     if legacy:
         authfile = "u * /user/ligo -rl \\\n"
@@ -228,6 +215,13 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
                 continue
             if namespace.is_public():
                 public_dirs.add(dirname)
+
+    # TODO: improve message and turn this into a warning
+    if not public_dirs:
+        if suppress_errors:
+            return ""
+        else:
+            raise DataError("No working StashCache resource/VO combinations found")
 
     for dirname in sorted(public_dirs):
         authfile += "    {} rl \\\n".format(dirname)
@@ -331,10 +325,9 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
                 continue
             if not _resource_allows_namespace(origin_resource, namespace):
                 continue
-            if namespace.is_public():
-                public_paths.add(path)
-                continue
             if public_origin:
+                if namespace.is_public():
+                    public_paths.add(path)
                 continue
 
             # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
@@ -365,6 +358,7 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
                     id_to_paths[authz.get_authfile_id()].add(path)
                     id_to_str[authz.get_authfile_id()] = str(authz)
 
+    # TODO: improve message and turn this into a warning
     if not id_to_paths and not public_paths:
         if suppress_errors:
             return ""
