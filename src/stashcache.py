@@ -272,51 +272,6 @@ def generate_cache_authfile(global_data: GlobalData,
     return authfile
 
 
-def _get_user_hashes_and_groups_for_namespace(authz_list: List[Union[str, Dict]], suppress_errors=True) -> Tuple[Set, Set]:
-    """Return the user (hashes) and groups from DNs and FQANs in an authz list for a namespace"""
-    # Note:
-    # This is a string:
-    # - FQAN:/foobar
-    # This is a dict:
-    # - FQAN: /foobar
-    # Accept both.
-
-    users = set()
-    groups = set()
-    for authz in authz_list:
-        if isinstance(authz, str):
-            if authz.startswith("FQAN:"):
-                fqan = authz[5:].strip()
-                groups.add(fqan)
-            elif authz.startswith("DN:"):
-                dn = authz[3:].strip()
-                dn_hash = generate_dn_hash(dn)
-                users.add(dn_hash)
-            elif authz.strip() == "PUBLIC":
-                continue
-            else:
-                if not suppress_errors:
-                    raise DataError("Unknown authz list entry {}".format(authz))
-        elif isinstance(authz, dict):
-            if "SciTokens" in authz:
-                continue  # SciTokens are not used in Authfiles
-            elif "FQAN" in authz:
-                fqan = authz["FQAN"].strip()
-                groups.add(fqan)
-            elif "DN" in authz:
-                dn = authz["DN"].strip()
-                dn_hash = generate_dn_hash(dn)
-                users.add(dn_hash)
-            else:
-                if not suppress_errors:
-                    raise DataError("Unknown authz list entry {}".format(authz))
-        else:
-            if not suppress_errors:
-                raise DataError("Unknown authz list entry {}".format(authz))
-
-    return users, groups
-
-
 def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=True, suppress_errors=True) -> str:
     """
     Generate the Xrootd authfile needed for public caches
