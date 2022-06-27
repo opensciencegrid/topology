@@ -4,10 +4,10 @@ from typing import Dict, List, Optional, Set, Tuple, Union
 import ldap3
 
 from webapp.common import readfile, generate_dn_hash
-from webapp.exceptions import DataError, NotRegistered
+from webapp.exceptions import DataError, NotRegistered, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
-from webapp.topology import Resource, ResourceGroup
-from webapp.vos_data import VOsData
+from webapp.topology import Resource, ResourceGroup, Topology
+from webapp.vos_data import XROOTD_CACHE_SERVER, VOsData
 
 import logging
 
@@ -54,6 +54,36 @@ def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
     conn.unbind()
 
     return results
+
+
+def _resource_has_cache(resource: Resource) -> bool:
+    return XROOTD_CACHE_SERVER in resource.service_names
+
+
+def _get_resource_with_service(fqdn: Optional[str], service_name: str, topology: Topology,
+                               suppress_errors: bool) -> Optional[Resource]:
+    """If given an FQDN, returns the Resource _if it has the given service.
+    If given None, returns None.
+    If multiple Resources have the same FQDN, checks the first one.
+    If suppress_errors is False, raises an expression on the following conditions:
+    - no Resource matching FQDN (NotRegistered)
+    - Resource does not provide a SERVICE_NAME (DataError)
+    If suppress_errors is True, returns None on the above conditions.
+
+    """
+    resource = None
+    if fqdn:
+        resource = topology.safe_get_resource_by_fqdn(fqdn)
+        if not resource:
+            _log_or_raise(suppress_errors, ResourceNotRegistered(fqdn=fqdn))
+            return None
+        if service_name not in resource.service_names:
+            _log_or_raise(
+                suppress_errors,
+                ResourceMissingService(resource, service_name)
+            )
+            return None
+    return resource
 
 
 def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Resource:
@@ -135,10 +165,10 @@ def generate_cache_authfile(global_data: GlobalData,
     authfile = ""
     id_to_dir = defaultdict(set)
 
+    topology = global_data.get_topology()
     resource = None
     if fqdn:
-        resource_groups = global_data.get_topology().get_resource_group_list()
-        resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
+        resource = _get_cache_resource(fqdn, topology.get_resource_group_list(), suppress_errors)
         if not resource:
             return ""
 
@@ -250,10 +280,10 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
     else:
         authfile = "u * \\\n"
 
+    topology = global_data.get_topology()
     resource = None
     if fqdn:
-        resource_groups = global_data.get_topology().get_resource_group_list()
-        resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
+        resource = _get_cache_resource(fqdn, topology.get_resource_group_list(), suppress_errors)
         if not resource:
             return ""
 
