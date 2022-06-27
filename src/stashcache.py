@@ -14,7 +14,7 @@ import logging
 log = logging.getLogger(__name__)
 
 
-def log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=log.debug):
+def _log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=log.debug):
     if suppress_errors:
         logmethod("%s %s", type(an_exception), an_exception)
     else:
