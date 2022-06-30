@@ -322,16 +322,230 @@ AllowedCaches is a list of resource names of caches that will serve data for thi
 The caches must also list the namespace's VO, "ANY", or "ANY_PUBLIC" (public data only) in their AllowedVOs list in order to serve this VO's data.
 
 ```yaml
-Writeback: <HOST>:<PORT>
+Writeback: https://<HOST>:<PORT>
 ```
-Writeback is the hostname and port of the XRootD service (a stash-origin-auth, usually on 1095) that can be used for _writing_ files to.
+Writeback is the HTTPS URL of the XRootD service (a stash-origin-auth, usually on 1095) that can be used for _writing_ files to.
 Writeback is optional.
 
 ```yaml
-DirList: <HOST>:<PORT>
+DirList: https://<HOST>:<PORT>
 ```
-DirList is the hostname and port of an XRootD service that can be used to get a directory listing.
+DirList is the HTTPS URL of an XRootD service that can be used to get a directory listing.
 DirList is optional.
 
 
-### Contents of a cache in resource data
+### Contents of a cache or origin in resource data
+
+A cache is a resource containing an `XRootD cache server` service.
+An origin is a resource containing an `XRootD origin server` service.
+
+The FQDN of the resource is the primary key when looking up auth info for a cache/origin.
+
+A cache/origin should have the DN of their XRootD cert in the DN field.
+A DN is *required* for a cache.
+A DN is recommended for an origin.
+
+A cache/origin must have an AllowedVOs attribute.
+AllowedVOs is a list containing either
+- One or more names of VOs whose namespaces the cache/origin will allow access to
+- "ANY" meaning the cache/origin will serve data for any namespace
+- "ANY_PUBLIC" meaning the cache/origin will serve data for any namespace that has "PUBLIC" in its Authorizations list
+
+The namespaces must also list the cache/origin's resource name in its AllowedCaches/AllowedOrigins list.
+
+
+#### Cache endpoints
+
+The `/stashcache/namespaces` Topology endpoint contains the `<HOST>:<PORT>`
+of the authenticated (`xrootd@stash-cache-auth`) and public (`xrootd@stash-cache`) services.
+The default value for `<HOST>` is the resource's FQDN.
+The default values for `<PORT>` are 8000 for the public service and 8443 for the authenticated service.
+To override these, add a `Details/uri_override` and `Details/auth_uri_override` field to the `XRootD cache server` service.
+For example:
+
+```yaml
+Resources:
+  Stashcache-Chicago:
+    ...
+    Services:
+      XRootD cache server:
+        Description: Internet2 Chicago Cache
+        Details:
+          uri_override:      osg-chicago-stashcache.nrp.internet2.edu:8443
+          auth_uri_override: osg-chicago-stashcache.nrp.internet2.edu:8444
+    ...
+```
+
+### Supporting a Namespace
+
+A namespace is public if it contains "PUBLIC" in its Authorizations list.
+
+An origin supports a public namespace if:
+- The namespace contains the origin resource name in its AllowedOrigins list, and
+- The origin resource contains "ANY", "ANY_PUBLIC", or the namespace's VO in its AllowedVOs list
+
+A cache supports a public namespace if:
+- The namespace contains the cache resource name or "ANY" in its AllowedCaches list, and
+- The cache resource contains "ANY", "ANY_PUBLIC", or the namespace's VO in its AllowedVOs list
+
+A namespace is protected if it does not contain "PUBLIC" in its Authorizations list.
+
+An origin supports a protected namespace if:
+- The namespace contains the origin resource name in its AllowedOrigins list, and
+- The origin resource contains "ANY" or the namespace's VO in its AllowedVOs list
+
+A cache supports a public namespace if:
+- The namespace contains the cache resource name or "ANY" in its AllowedCaches list, and
+- The cache resource contains "ANY" or the namespace's VO in its AllowedVOs list
+
+
+### Origin public Authfile generation
+
+The public Authfile for an origin is served at `/origin/Authfile-public?fqdn=<ORIGIN FQDN>`.
+
+The public Authfile is basically a giant `u *` list:
+- Allow read access to the path of each namespace supported by the origin (`rl` permissions) 
+
+### Origin protected Authfile generation
+
+The non-public Authfile for an origin is served at `/origin/Authfile?fqdn=<ORIGIN FQDN>`.
+
+If the origin resource specifies a DN, add a `u <DN HASH> <PATH1> rl <PATH2> rl ...` ACL for every path supported by the origin.
+
+For every cache resource, add a `u <DN HASH> <PATH1> rl <PATH2> rl ...` ACL for every namespace supported both by that cache and the origin.
+
+### Cache public Authfile generation
+
+The public Authfile for a cache is served at `/cache/Authfile-public?fqdn=<CACHE FQDN>`.
+
+The public Authfile is basically a giant `u *` list:
+- Explicitly deny read access to `/user/ligo` (with `-rl` permissions)
+- Allow read access to the path of each namespace supported by the cache (`rl` permissions) 
+
+### Cache protected Authfile generation
+
+The non-public Authfile for a cache is served at `/cache/Authfile?fqdn=<CACHE FQDN>`.
+
+- Add a `u <DN HASH> <PATH1> rl <PATH2> rl ...` for every DN listed in the Authorizations list of every namespace supported by the cache.
+- Add a `g <FQAN> <PATH1> rl <PATH2> rl ...` for every FQAN listed in the Authorizations list of every namespace supported by the cache.
+
+In addition, if the cache supports the `/user/ligo` namespace and the webapp can access LIGO's LDAP server:
+
+- Add a `u <DN HASH> /user/ligo rl` for every DN obtained from the LIGO's LDAP server.
+
+
+### Origin xrootd-scitokens config generation
+
+The scitokens config file for xrootd-scitokens for an origin is served at `/origin/scitokens.conf?fqdn=<ORIGIN FQDN>`.
+
+- Add an issuer block for every namespace supported by the origin that has a SciTokens entry in its Authorizations list.
+  
+- Add a `[Global]` section setting the audience to a list of supported VOs with issuer blocks.
+
+The end result looks like this:
+```ini
+[Global]
+audience = OSG
+
+[Issuer https://osg-htc.org/ospool]
+issuer = https://osg-htc.org/ospool
+base_path = /ospool/PROTECTED
+map_subject = True
+```
+
+### Cache xrootd-scitokens config generation
+
+The scitokens config file for xrootd-scitokens for a cache is served at `/cache/scitokens.conf?fqdn=<CACHE FQDN>`.
+
+- Add an issuer block for every namespace supported by the cache that has a SciTokens entry in its Authorizations list.
+  
+- Add a `[Global]` section setting the audience to a list of supported VOs with issuer blocks.
+
+The end result looks like this:
+```ini
+[Global]
+audience = IceCube, HCC, GLOW, OSG
+
+[Issuer https://scitokens.org/icecube]
+issuer = https://scitokens.org/icecube
+base_path = /icecube
+
+
+[Issuer https://scitokens.org/hcc]
+issuer = https://scitokens.org/hcc
+base_path = /hcc
+
+
+[Issuer https://chtc.cs.wisc.edu]
+issuer = https://chtc.cs.wisc.edu
+base_path = /chtc
+
+
+[Issuer https://osg-htc.org/ospool]
+issuer = https://osg-htc.org/ospool
+base_path = /ospool/PROTECTED
+```
+
+
+### Namespaces JSON generation
+
+The JSON file containing cache and namespace information for stashcp is served at `/stashcache/namespaces`.
+
+The JSON contains an attribute `caches` that is a list of caches.
+Each cache in the list contains the following attributes:
+- `endpoint`: The `<HOST>:<PORT>` of the public (`xrootd@stash-cache`) service
+- `auth_endpoint`: The `<HOST>:<PORT>` of the authenticated (`xrootd@stash-cache-auth`) service
+- `resource`: The resource name of the cache.
+
+The JSON also contains an attribute `namespaces` that is a list of namespaces with the following attributes:
+- `path` is the path of the namespace
+- `dirlisthost` is the `<HOST>:<PORT>` of the `DirList` attribute in the namespace YAML, or `null` if missing
+- `writebackhost` is the `<HOST>:<PORT>` of the `Writeback` attribute in the namespace YAML, or `null` if missing
+- `readhttps` is `false` if the namespace is public and `true` if the namespace is not public
+- `usetokenonread` is `true` if the namespace has a SciTokens entry in its Authorizations list and `false` otherwise
+- `caches` is a list of caches that support the namespace;
+  each cache in the list contains the `endpoint`, `auth_endpoint`, and `resource` attributes as in the `caches` list above
+
+The final result looks like
+```json
+{
+  "caches": [
+    {
+      "auth_endpoint": "osg-gftp.pace.gatech.edu:8443",
+      "endpoint": "osg-gftp.pace.gatech.edu:8000",
+      "resource": "Georgia_Tech_PACE_GridFTP"
+    },
+    {
+      "auth_endpoint": "osg-gftp2.pace.gatech.edu:8443",
+      "endpoint": "osg-gftp2.pace.gatech.edu:8000",
+      "resource": "Georgia_Tech_PACE_GridFTP2"
+    }
+  ],
+  "namespaces": [
+    {
+      "caches": [
+        {
+          "auth_endpoint": "rds-cache.sdsc.edu:8443",
+          "endpoint": "rds-cache.sdsc.edu:8000",
+          "resource": "RDS_AUTH_OSDF_CACHE"
+        }
+      ],
+      "dirlisthost": null,
+      "path": "/xenon/PROTECTED",
+      "readhttps": true,
+      "usetokenonread": false,
+      "writebackhost": null
+    },
+    {
+      "caches": [
+        (a whole bunch)
+      ],
+      "dirlisthost": "https://origin-auth2001.chtc.wisc.edu:1095",
+      "path": "/ospool/PROTECTED",
+      "readhttps": true,
+      "usetokenonread": true,
+      "writebackhost": "https://origin-auth2001.chtc.wisc.edu:1095"
+    }
+  ]
+}
+```
