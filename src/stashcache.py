@@ -238,28 +238,11 @@ def generate_cache_scitokens(global_data: GlobalData, fqdn: str, suppress_errors
     Generate the SciTokens needed by a StashCache cache server, given the fqdn
     of the cache server.
 
-    The scitokens config for a StashCache namespace is in the VO YAML and looks like:
-
-        DataFederations:
-            StashCache:
-                Namespaces:
-                    /store:
-                        - SciTokens:
-                            Issuer: https://scitokens.org/cms
-                            Base Path: /
-                            Restricted Path: /store
-
-    "Restricted Path" is optional.
-    `fqdn` must belong to a registered cache resource.
-
-    You may have multiple `- SciTokens:` blocks
-
     Returns a file with a dummy "issuer" block if there are no `- SciTokens:` blocks.
 
     If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
     no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
     ValueError or DataError.
-
     """
 
     topology = global_data.get_topology()
@@ -386,28 +369,11 @@ def generate_origin_scitokens(global_data: GlobalData, fqdn: str, suppress_error
     Generate the SciTokens needed by a StashCache origin server, given the fqdn
     of the origin server.
 
-    The scitokens config for a StashCache namespace is in the VO YAML and looks like:
-
-        DataFederations:
-            StashCache:
-                Namespaces:
-                    /store:
-                        - SciTokens:
-                            Issuer: https://scitokens.org/cms
-                            Base Path: /
-                            Restricted Path: /store
-
-    "Restricted Path" is optional.
-    `fqdn` must belong to a registered cache resource.
-
-    You may have multiple `- SciTokens:` blocks
-
     Returns a file with a dummy "issuer" block if there are no `- SciTokens:` blocks.
 
     If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
     no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
     ValueError or DataError.
-
     """
 
     topology = global_data.get_topology()
