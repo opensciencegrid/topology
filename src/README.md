@@ -360,7 +360,7 @@ The `/stashcache/namespaces` Topology endpoint contains the `<HOST>:<PORT>`
 of the authenticated (`xrootd@stash-cache-auth`) and public (`xrootd@stash-cache`) services.
 The default value for `<HOST>` is the resource's FQDN.
 The default values for `<PORT>` are 8000 for the public service and 8443 for the authenticated service.
-To override these, add a `Details/uri_override` and `Details/auth_uri_override` field to the `XRootD cache server` service.
+To override these, add a `Details/endpoint_override` and `Details/auth_endpoint_override` field to the `XRootD cache server` service.
 For example:
 
 ```yaml
@@ -371,8 +371,8 @@ Resources:
       XRootD cache server:
         Description: Internet2 Chicago Cache
         Details:
-          uri_override:      osg-chicago-stashcache.nrp.internet2.edu:8443
-          auth_uri_override: osg-chicago-stashcache.nrp.internet2.edu:8444
+          endpoint_override:      osg-chicago-stashcache.nrp.internet2.edu:8443
+          auth_endpoint_override: osg-chicago-stashcache.nrp.internet2.edu:8444
     ...
 ```
 

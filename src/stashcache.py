@@ -426,11 +426,10 @@ def get_namespaces_info(global_data: GlobalData) -> Dict:
         auth_endpoint = f"{r.fqdn}:8443"
         for svc in r.services:
             if svc.get("Name") == XROOTD_CACHE_SERVER:
-                if not is_null(svc, "Details", "uri_override"):
-                    endpoint = svc["Details"]["uri_override"]
-                # TODO: Add this to the template
-                if not is_null(svc, "Details", "auth_uri_override"):
-                    auth_endpoint = svc["Details"]["auth_uri_override"]
+                if not is_null(svc, "Details", "endpoint_override"):
+                    endpoint = svc["Details"]["endpoint_override"]
+                if not is_null(svc, "Details", "auth_endpoint_override"):
+                    auth_endpoint = svc["Details"]["auth_endpoint_override"]
                 break
         return {"endpoint": endpoint, "auth_endpoint": auth_endpoint, "resource": r.name}
 
