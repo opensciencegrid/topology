@@ -375,6 +375,7 @@ def scitokens():
 
 
 @app.route("/stashcache/namespaces")
+@app.route("/stashcache/namespaces.json")  # for testing; remove before merging
 def stashcache_namespaces_json():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
