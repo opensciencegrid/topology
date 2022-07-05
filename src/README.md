@@ -401,14 +401,14 @@ A cache supports a protected namespace if:
 
 ### Origin public Authfile generation
 
-The public Authfile for an origin is served at `/origin/Authfile-public?fqdn=<ORIGIN FQDN>`.
+The Authfile for a public origin is served at `/origin/Authfile-public?fqdn=<ORIGIN FQDN>`.
 
 The public Authfile is basically a giant `u *` list:
 - Allow read access to the path of each namespace supported by the origin (`rl` permissions) 
 
-### Origin protected Authfile generation
+### Origin authenticated Authfile generation
 
-The non-public Authfile for an origin is served at `/origin/Authfile?fqdn=<ORIGIN FQDN>`.
+The Authfile for an authenticated origin is served at `/origin/Authfile?fqdn=<ORIGIN FQDN>`.
 
 If the origin resource specifies a DN, add a `u <DN HASH> <PATH1> rl <PATH2> rl ...` ACL for every path supported by the origin.
 
@@ -416,15 +416,15 @@ For every cache resource, add a `u <DN HASH> <PATH1> rl <PATH2> rl ...` ACL for 
 
 ### Cache public Authfile generation
 
-The public Authfile for a cache is served at `/cache/Authfile-public?fqdn=<CACHE FQDN>`.
+The Authfile for a public cache is served at `/cache/Authfile-public?fqdn=<CACHE FQDN>`.
 
 The public Authfile is basically a giant `u *` list:
 - Explicitly deny read access to `/user/ligo` (with `-rl` permissions)
 - Allow read access to the path of each namespace supported by the cache (`rl` permissions) 
 
-### Cache protected Authfile generation
+### Cache authenticated Authfile generation
 
-The non-public Authfile for a cache is served at `/cache/Authfile?fqdn=<CACHE FQDN>`.
+The Authfile for an authenticated cache is served at `/cache/Authfile?fqdn=<CACHE FQDN>`.
 
 - Add a `u <DN HASH> <PATH1> rl <PATH2> rl ...` for every DN listed in the Authorizations list of every namespace supported by the cache.
 - Add a `g <FQAN> <PATH1> rl <PATH2> rl ...` for every FQAN listed in the Authorizations list of every namespace supported by the cache.
