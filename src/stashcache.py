@@ -323,7 +323,7 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
         -> str:
     """
     Generate the XRootD Authfile needed by a StashCache origin server, given the FQDN
-    of the origin server and whether it's the public or protected origin instance you're generating for.
+    of the origin server and whether it's the public or authenticated origin instance you're generating for.
 
     If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
     no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
