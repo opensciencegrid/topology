@@ -394,7 +394,7 @@ An origin supports a protected namespace if:
 - The namespace contains the origin resource name in its AllowedOrigins list, and
 - The origin resource contains "ANY" or the namespace's VO in its AllowedVOs list
 
-A cache supports a public namespace if:
+A cache supports a protected namespace if:
 - The namespace contains the cache resource name or "ANY" in its AllowedCaches list, and
 - The cache resource contains "ANY" or the namespace's VO in its AllowedVOs list
 
