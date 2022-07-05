@@ -348,9 +348,10 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
                 continue
             if not _resource_allows_namespace(origin_resource, namespace):
                 continue
+            if namespace.is_public():
+                public_paths.add(path)
+                continue
             if public_origin:
-                if namespace.is_public():
-                    public_paths.add(path)
                 continue
 
             # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
@@ -396,7 +397,7 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
         authfile_lines.append(f"{authfile_id} {paths_acl}")
 
     # Public paths must be at the end
-    if public_paths:
+    if public_origin and public_paths:
         authfile_lines.append("")
         paths_acl = " ".join(f"{p} lr" for p in sorted(public_paths))
         authfile_lines.append(f"u * {paths_acl}")
