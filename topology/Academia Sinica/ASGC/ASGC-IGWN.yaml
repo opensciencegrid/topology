@@ -1,0 +1,34 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: This is an htcondor-ce cluster for the IGWN service on ASGC.
+GroupID: 1300
+
+Resources:
+  ASGC-IGWN-CE:
+    Active: false
+    Description: This is an htcondor-ce for ASGC-IGWN.
+    ID: 1309
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Laspha Chu
+          ID: 8ab2172be9dcf3d3a276c3831b88974b72ea122e
+
+      Security Contact:
+        Primary:
+          Name: ASGC Ops
+          ID: 10008bf673be79c601196a5758dba43849c6c3da
+
+      Site Contact:
+        Primary:
+          Name: ASGC Ops
+          ID: 10008bf673be79c601196a5758dba43849c6c3da
+
+    FQDN: htcondor-ce01.twgrid.org
+
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+
