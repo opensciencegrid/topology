@@ -2,7 +2,7 @@ from collections import defaultdict
 from typing import Dict, List, Optional
 import ldap3
 
-from webapp.common import is_null, readfile
+from webapp.common import is_null, readfile, PreJSON
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
@@ -66,10 +66,10 @@ def _get_resource_with_service(fqdn: Optional[str], service_name: str, topology:
     """If given an FQDN, returns the Resource _if it has the given service.
     If given None, returns None.
     If multiple Resources have the same FQDN, checks the first one.
-    If suppress_errors is False, raises an expression on the following conditions:
-    - no Resource matching FQDN (NotRegistered)
-    - Resource does not provide a SERVICE_NAME (DataError)
-    If suppress_errors is True, returns None on the above conditions.
+    If suppress_errors is False, raises an exception on the following conditions:
+    - no Resource matching FQDN (ResourceNotRegistered)
+    - Resource does not provide a SERVICE_NAME (ResourceMissingService)
+    If suppress_errors is True, logs the error and returns None on the above conditions.
 
     """
     resource = None
@@ -88,14 +88,26 @@ def _get_resource_with_service(fqdn: Optional[str], service_name: str, topology:
 
 
 def _get_cache_resource2(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
+    """Convenience wrapper around _get_resource-with-service() for a cache"""
     return _get_resource_with_service(fqdn, XROOTD_CACHE_SERVER, topology, suppress_errors)
 
 
 def _get_origin_resource2(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
+    """Convenience wrapper around _get_resource-with-service() for an origin"""
     return _get_resource_with_service(fqdn, XROOTD_ORIGIN_SERVER, topology, suppress_errors)
 
 
 def _resource_allows_namespace(resource: Resource, namespace: Optional[Namespace]) -> bool:
+    """Return True if the given resource's (cache or origin) AllowedVOs allows a namespace, which happens if:
+
+    - The namespace's VO is in the AllowedVOs list, or
+    - The namespace is public and ANY_PUBLIC is in the AllowedVOs list, or
+    - ANY is in the AllowedVOs list; in this case, namespace may be `None`
+
+    This says nothing about whether the namespace allows the cache/origin.
+    namespace may be None, in which case thie returns true only if ANY is in the AllowedVOs list.
+    No type/service checking is done in this function.
+    """
     allowed_vos = resource.data.get("AllowedVOs", [])
     if ANY in allowed_vos:
         return True
@@ -108,16 +120,34 @@ def _resource_allows_namespace(resource: Resource, namespace: Optional[Namespace
 
 
 def _namespace_allows_origin(namespace: Namespace, origin: Optional[Resource]) -> bool:
+    """Return True if the given namespace allows a given origin resouce, which happens if
+    the origin resource's name is in the namespace's AllowedOrigins list.
+    Return False if origin is None.
+
+    This says nothing about whether the origin allows the namespace.
+    No type/service checking is done in this function.
+    """
     return origin and origin.name in namespace.allowed_origins
 
 
 def _namespace_allows_cache(namespace: Namespace, cache: Optional[Resource]) -> bool:
+    """Return True if the given namespace allows a given cache resource, which happens if:
+
+    - The cache resource's name is in the namespace's AllowedCaches list, or
+    - The namespace's AllowedCaches list contains ANY; in this cache, cache may be None.
+
+    This says nothing about whether the cache allows the namespace.
+    No type/service checking is done in this function.
+    """
     if ANY in namespace.allowed_caches:
         return True
     return cache and cache.name in namespace.allowed_caches
 
 
-def _get_allowed_caches_for_namespace(namespace: Namespace, topology: Topology) -> List[Resource]:
+def _get_supported_caches_for_namespace(namespace: Namespace, topology: Topology) -> List[Resource]:
+    """Return a list of Resource objects of all caches that support a namespace.  This means the cache allows
+    the namespace, AND the namespace allows the cache.
+    """
     resource_groups = topology.get_resource_group_list()
     all_caches = [resource
                   for group in resource_groups
@@ -278,7 +308,8 @@ audience = {allowed_vos_str}
 
     # Older plugin versions require at least one issuer block (SOFTWARE-4389)
     if not cache_authz_list:
-        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found", restricted_path=None, map_subject=False)
+        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found",
+                                  restricted_path=None, map_subject=False)
         cache_authz_list.append(dummy_auth)
 
     issuer_blocks = [a.get_scitokens_conf_block(XROOTD_CACHE_SERVER) for a in cache_authz_list]
@@ -288,7 +319,16 @@ audience = {allowed_vos_str}
     return template.format(**locals()).rstrip() + "\n"
 
 
-def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress_errors=True, public_origin=False) -> str:
+def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress_errors=True, public_origin=False)\
+        -> str:
+    """
+    Generate the XRootD Authfile needed by a StashCache origin server, given the FQDN
+    of the origin server and whether it's the public or authenticated origin instance you're generating for.
+
+    If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
+    no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
+    ValueError or DataError.
+    """
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
     origin_resource = None
@@ -308,9 +348,10 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
                 continue
             if not _resource_allows_namespace(origin_resource, namespace):
                 continue
+            if namespace.is_public():
+                public_paths.add(path)
+                continue
             if public_origin:
-                if namespace.is_public():
-                    public_paths.add(path)
                 continue
 
             # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
@@ -319,7 +360,7 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
 
             allowed_resources = [origin_resource]
             # Add caches
-            allowed_caches = _get_allowed_caches_for_namespace(namespace, topology)
+            allowed_caches = _get_supported_caches_for_namespace(namespace, topology)
             if allowed_caches:
                 allowed_resources.extend(allowed_caches)
             else:
@@ -356,7 +397,7 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
         authfile_lines.append(f"{authfile_id} {paths_acl}")
 
     # Public paths must be at the end
-    if public_paths:
+    if public_origin and public_paths:
         authfile_lines.append("")
         paths_acl = " ".join(f"{p} lr" for p in sorted(public_paths))
         authfile_lines.append(f"u * {paths_acl}")
@@ -409,7 +450,8 @@ audience = {allowed_vos_str}
 
     # Older plugin versions require at least one issuer block (SOFTWARE-4389)
     if not origin_authz_list:
-        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found", restricted_path=None, map_subject=False)
+        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found",
+                                  restricted_path=None, map_subject=False)
         origin_authz_list.append(dummy_auth)
 
     issuer_blocks = [a.get_scitokens_conf_block(XROOTD_ORIGIN_SERVER) for a in origin_authz_list]
@@ -419,7 +461,13 @@ audience = {allowed_vos_str}
     return template.format(**locals()).rstrip() + "\n"
 
 
-def get_namespaces_info(global_data: GlobalData) -> Dict:
+def get_namespaces_info(global_data: GlobalData) -> PreJSON:
+    """Return data for the /stashcache/namespaces JSON endpoint.
+
+    This includes a list of caches, with some data about cache endpoints,
+    and a list of namespaces with some data about each namespace; see README.md for details.
+
+    """
     # Helper functions
     def _cache_resource_dict(r: Resource):
         endpoint = f"{r.fqdn}:8000"
@@ -466,7 +514,7 @@ def get_namespaces_info(global_data: GlobalData) -> Dict:
         for namespace in stashcache_obj.namespaces.values():
             result_namespaces.append(_namespace_dict(namespace))
 
-    return {
+    return PreJSON({
         "caches": list(cache_resource_dicts.values()),
         "namespaces": result_namespaces
-    }
+    })
