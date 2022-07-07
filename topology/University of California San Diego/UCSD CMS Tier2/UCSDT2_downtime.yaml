@@ -1411,3 +1411,58 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1204713320
+  Description: Power cut to UCSDT2 for building maintenance
+  Severity: Outage
+  StartTime: Jun 22, 2022 16:00 +0000
+  EndTime: Jun 23, 2022 00:00 +0000
+  CreatedTime: Jun 17, 2022 13:08 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1204713321
+  Description: Power cut to UCSDT2 for building maintenance
+  Severity: Outage
+  StartTime: Jun 22, 2022 16:00 +0000
+  EndTime: Jun 23, 2022 00:00 +0000
+  CreatedTime: Jun 17, 2022 13:08 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1204713322
+  Description: Power cut to UCSDT2 for building maintenance
+  Severity: Outage
+  StartTime: Jun 22, 2022 16:00 +0000
+  EndTime: Jun 23, 2022 00:00 +0000
+  CreatedTime: Jun 17, 2022 13:08 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1204713323
+  Description: Power cut to UCSDT2 for building maintenance
+  Severity: Outage
+  StartTime: Jun 22, 2022 16:00 +0000
+  EndTime: Jun 23, 2022 00:00 +0000
+  CreatedTime: Jun 17, 2022 13:08 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1204713324
+  Description: Power cut to UCSDT2 for building maintenance
+  Severity: Outage
+  StartTime: Jun 22, 2022 16:00 +0000
+  EndTime: Jun 23, 2022 00:00 +0000
+  CreatedTime: Jun 17, 2022 13:08 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
