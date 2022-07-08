@@ -22,5 +22,8 @@ Resources:
     Services:
       XRootD cache server:
         Description: Internet2 Kansas Cache
+        Details:
+          endpoint_override:      osg-kansas-city-stashcache.nrp.internet2.edu:8443
+          auth_endpoint_override: osg-kansas-city-stashcache.nrp.internet2.edu:8444
     AllowedVOs:
       - ANY

@@ -23,7 +23,7 @@ Resources:
       XRootD cache server:
         Description: Internet2 Chicago Cache
         Details:
-          uri_override:      osg-chicago-stashcache.nrp.internet2.edu:8443
-          auth_uri_override: osg-chicago-stashcache.nrp.internet2.edu:8444
+          endpoint_override:      osg-chicago-stashcache.nrp.internet2.edu:8443
+          auth_endpoint_override: osg-chicago-stashcache.nrp.internet2.edu:8444
     AllowedVOs:
       - ANY
