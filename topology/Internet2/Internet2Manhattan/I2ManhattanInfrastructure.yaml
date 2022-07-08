@@ -23,7 +23,7 @@ Resources:
       XRootD cache server:
         Description: Internet2 Manhattan Cache
         Details:
-          endpoint_override:      osg-new-york-stashcache.nrp.internet2.edu:8443
+          #endpoint_override:      osg-new-york-stashcache.nrp.internet2.edu:8000
           auth_endpoint_override: osg-new-york-stashcache.nrp.internet2.edu:8444
     AllowedVOs:
       - ANY
