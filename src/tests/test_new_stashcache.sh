@@ -8,7 +8,8 @@ cache_args=(
     "?fqdn=sc-cache.chtc.wisc.edu"
     "?fqdn=stash-cache.osg.chtc.io"
     "?fqdn=dummy.example.net"
-    "?fqdn=osg.kans.nrp.internet2.edu"
+    "?fqdn=osg-kansas-city-stashcache.nrp.internet2.edu"
+    "?fqdn=stashcache.gwave.ics.psu.edu"
 )
 
 cache_endpoints=(
