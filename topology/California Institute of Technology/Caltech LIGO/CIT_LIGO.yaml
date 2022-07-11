@@ -19,4 +19,55 @@ Resources:
         Description: StashCache Origin server
     AllowedVOs:
       - LIGO
+  CIT_LIGO_SQUID1:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: dcs-squid1.ligo.caltech.edu
+    ID: 949
+    Services:
+      Squid proxy server:
+        Description: Frontier-squid proxy server
+    AllowedVOs:
+      - LIGO
+  CIT_LIGO_SQUID2:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: dcs-squid2.ligo.caltech.edu
+    ID: 950
+    Services:
+      Squid proxy server:
+        Description: Frontier-squid proxy server
+    AllowedVOs:
+      - LIGO
+  CIT_LIGO_SQUID3:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: dcs-squid3.ligo.caltech.edu
+    ID: 951
+    Services:
+      Squid proxy server:
+        Description: Frontier-squid proxy server
+    AllowedVOs:
+      - LIGO
 SupportCenter: Advanced LIGO
