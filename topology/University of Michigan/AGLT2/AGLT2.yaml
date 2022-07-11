@@ -99,6 +99,72 @@ Resources:
         Details:
           Monitored: true
     VOOwnership:
+      ATLAS: 90  
+  AGLT2-squid-4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: This is the slate Varnish for Frontier
+    FQDN: es02.aglt2.org
+    ID: 
+    Services:
+      Squid:
+        Description: Generic varnish service
+        Details:
+          Monitored: true
+    VOOwnership:
+      ATLAS: 90
+  AGLT2-squid-5:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: This is the slate Varnish for CVMFS
+    FQDN: es01.aglt2.org
+    ID: 
+    Services:
+      Squid:
+        Description: Generic varnish service
+        Details:
+          Monitored: true
+    VOOwnership:
       ATLAS: 90
   AGLT2_CE_2:
     Active: true
