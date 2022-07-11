@@ -1430,3 +1430,15 @@
   ResourceName: MWT2_UC_gridftp
   Services:
   - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1225619209
+  Description: ICCP Quarterly PM
+  Severity: Outage
+  StartTime: Jul 15, 2022 13:00 +0000
+  EndTime: Jul 17, 2022 13:00 +0000
+  CreatedTime: Jul 11, 2022 17:52 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
