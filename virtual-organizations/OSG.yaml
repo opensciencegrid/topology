@@ -90,6 +90,7 @@ DataFederations:
           - CHTC_OSPOOL_ORIGIN
         AllowedCaches:
           - ANY
+        Writeback: https://stash-xrd.osgconnect.net:1094
       - Path: /osgconnect/collab
         Authorizations:
           - PUBLIC
