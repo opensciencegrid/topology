@@ -124,6 +124,7 @@ def main():
 #   errors += test_14_sc_contacts_match(support_centers, contacts)
     errors += test_15_facility_site_files()
     errors += test_16_Xrootd_DNs(rgs, rgfns)
+    errors += test_17_osdf_data(rgs, rgfns)
 
 
     print("%d Resource Group files processed." % len(rgs))
@@ -165,7 +166,8 @@ _emsgs = {
     'ContactNameMismatch'    : "Contact names must match in contact repo",
     'NoFacility'             : "Facility directories must contain a FACILITY.yaml",
     'NoSite'                 : "Site directories must contain a SITE.yaml",
-    'XrootdWithoutDN'        : "Xrootd cache server must provide a DN"
+    'XrootdWithoutDN'        : "Xrootd cache server must provide a DN",
+    'OSDFServiceVOsList'     : "OSDF Services must contain an AllowedVOs list",
 }
 
 def print_emsg_once(msgtype):
@@ -636,6 +638,49 @@ def test_16_Xrootd_DNs(rgs, rgfns):
                 errors += 1
 
     return errors
+
+
+def test_17_osdf_data(rgs, rgfns):
+    # validate OSDF cache/origin services: (SOFTWARE-4167)
+    # - resources with "XRootD origin server" service must have AllowedVOs list
+    # - resources with "XRootD cache server" service must have AllowedVOs list
+    # - AllowedVOs list items must be either:
+    #   - "ANY"
+    #   - "ANY_PUBLIC"
+    #   - A registered VO (in the virtual-organizations directory)
+
+    vo_names = get_vo_names()
+    allowed_vo_names = vo_names | set(["ANY", "ANY_PUBLIC"])
+    services = ["XRootD origin server", "XRootD cache server"]
+
+    errors = 0
+
+    for rg, rgfn in zip(rgs, rgfns):
+        for rname, rdict in sorted(rg['Resources'].items()):
+            rsvcs = rdict.get('Services', {})
+            if any( svc in rsvcs for svc in services ):
+                if not isinstance(rdict.get('AllowedVOs'), list):
+                    print_emsg_once('OSDFServiceVOsList')
+                    print("In '%s', XRootD cache/origin server Resource '%s'"
+                          " has no AllowedVOs list" % (rgfn, rname))
+                    errors += 1
+                else:
+                    for name in rdict['AllowedVOs']:
+                        if name not in allowed_vo_names:
+                            print_emsg_once('UnknownVO')
+                            print("In '%s', Resource '%s', AllowedVOs has"
+                                  " unknown VO name '%s'" % (rgfn, rname, name))
+                            errors += 1
+    return errors
+
+
+def test_18_osdf_data_warnings(rgs, rgfns, vos):
+    # The following should be added as warnings: (SOFTWARE-4167)
+    # - VOs in AllowedVOs for a resource with an "XRootD origin server"
+    #   service should list that resource or "ANY" in the VO's AllowedOrigins
+    # - VOs in AllowedVOs for a resource with an "XRootD cache server"
+    #   service should list that resource or "ANY" in the VO's AllowedCaches
+    pass
 
 
 if __name__ == '__main__':
