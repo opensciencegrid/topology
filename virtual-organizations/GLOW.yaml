@@ -64,3 +64,31 @@ DataFederations:
       - CHTC_STASHCACHE_ORIGIN_AUTH_2000
     AllowedCaches:
       - ANY
+
+## SOFTWARE-5179 schema
+# DataFederations:
+#   StashCache:
+#     Namespaces:
+#       - Path: /chtc/PUBLIC
+#         Authorizations:
+#           - PUBLIC
+#         AllowedOrigins:
+#           - CHTC_STASHCACHE_ORIGIN
+#           - CHTC_STASHCACHE_ORIGIN_2000
+#         AllowedCaches:
+#           - ANY
+#
+#       - Path: /chtc/PROTECTED
+#         Authorizations:
+#           - FQAN:/GLOW
+#           - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+#           - SciTokens:
+#               Issuer: https://chtc.cs.wisc.edu
+#               Base Path: /chtc
+#               Map Subject: True
+#         AllowedOrigins:
+#           - CHTC_STASHCACHE_ORIGIN_AUTH_2000
+#         AllowedCaches:
+#           - CHTC_TIGER_CACHE
+#           - CHTC_STASHCACHE_CACHE
+

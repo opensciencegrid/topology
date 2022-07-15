@@ -93,3 +93,53 @@ DataFederations:
       - SDSC-test-Origin
     AllowedCaches:
       - ANY
+
+## SOFTWARE-5179 schema
+# DataFederations:
+#   StashCache:
+#     Namespaces:
+#       - Path: /user
+#         Authorizations:
+#           - PUBLIC
+#         AllowedOrigins:
+#           - OSGCONNECT_ORIGIN
+#           - CHTC_OSPOOL_ORIGIN
+#         AllowedCaches:
+#           - ANY
+#       - Path: /osgconnect/public
+#         Authorizations:
+#           - PUBLIC
+#         AllowedOrigins:
+#           - OSGCONNECT_ORIGIN
+#           - CHTC_OSPOOL_ORIGIN
+#         AllowedCaches:
+#           - ANY
+#         Writeback: https://stash-xrd.osgconnect.net:1094
+#       - Path: /osgconnect/collab
+#         Authorizations:
+#           - PUBLIC
+#         AllowedOrigins:
+#           - OSGCONNECT_ORIGIN
+#           - CHTC_OSPOOL_ORIGIN
+#         AllowedCaches:
+#           - ANY
+#       - Path: /ospool/PROTECTED
+#         Authorizations:
+#           - SciTokens:
+#               Issuer: https://osg-htc.org/ospool
+#               Base Path: /ospool/PROTECTED
+#               Map Subject: True
+#         AllowedOrigins:
+#           - OSGCONNECT_ORIGIN
+#           - CHTC_OSPOOL_ORIGIN
+#         AllowedCaches:
+#           - ANY
+#         Writeback: https://origin-auth2001.chtc.wisc.edu:1095
+#         DirList: https://origin-auth2001.chtc.wisc.edu:1095
+#       - Path: /osdftest
+#         Authorizations:
+#           - PUBLIC
+#         AllowedOrigins:
+#           - SDSC-test-Origin
+#         AllowedCaches:
+#           - ANY
