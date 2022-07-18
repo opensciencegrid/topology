@@ -943,3 +943,114 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1231688909
+  Description: 'UPS maintenance '
+  Severity: Outage
+  StartTime: Jul 20, 2022 14:00 +0000
+  EndTime: Jul 20, 2022 18:00 +0000
+  CreatedTime: Jul 18, 2022 18:28 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1231689274
+  Description: 'UPS maintenance '
+  Severity: Outage
+  StartTime: Jul 20, 2022 14:00 +0000
+  EndTime: Jul 20, 2022 18:00 +0000
+  CreatedTime: Jul 18, 2022 18:28 +0000
+  ResourceName: AGLT2_CE_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1231689470
+  Description: 'UPS maintenance '
+  Severity: Outage
+  StartTime: Jul 20, 2022 14:00 +0000
+  EndTime: Jul 20, 2022 18:00 +0000
+  CreatedTime: Jul 18, 2022 18:29 +0000
+  ResourceName: AGLT2_CE_4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1231689645
+  Description: 'UPS maintenance '
+  Severity: Outage
+  StartTime: Jul 20, 2022 14:00 +0000
+  EndTime: Jul 20, 2022 18:00 +0000
+  CreatedTime: Jul 18, 2022 18:29 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1231689975
+  Description: 'UPS maintenance '
+  Severity: Outage
+  StartTime: Jul 20, 2022 14:00 +0000
+  EndTime: Jul 20, 2022 18:00 +0000
+  CreatedTime: Jul 18, 2022 18:29 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1231690215
+  Description: 'UPS maintenance '
+  Severity: Outage
+  StartTime: Jul 20, 2022 14:00 +0000
+  EndTime: Jul 20, 2022 18:00 +0000
+  CreatedTime: Jul 18, 2022 18:30 +0000
+  ResourceName: AGLT2_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1231690649
+  Description: 'UPS maintenance '
+  Severity: Outage
+  StartTime: Jul 20, 2022 14:00 +0000
+  EndTime: Jul 20, 2022 18:00 +0000
+  CreatedTime: Jul 18, 2022 18:31 +0000
+  ResourceName: AGLT2-squid-2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1231690823
+  Description: 'UPS maintenance '
+  Severity: Outage
+  StartTime: Jul 20, 2022 14:00 +0000
+  EndTime: Jul 20, 2022 18:00 +0000
+  CreatedTime: Jul 18, 2022 18:31 +0000
+  ResourceName: AGLT2-squid-3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1231691012
+  Description: 'UPS maintenance '
+  Severity: Outage
+  StartTime: Jul 20, 2022 14:00 +0000
+  EndTime: Jul 20, 2022 18:00 +0000
+  CreatedTime: Jul 18, 2022 18:31 +0000
+  ResourceName: AGLT2-squid-4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1231691181
+  Description: 'UPS maintenance '
+  Severity: Outage
+  StartTime: Jul 20, 2022 14:00 +0000
+  EndTime: Jul 20, 2022 18:00 +0000
+  CreatedTime: Jul 18, 2022 18:31 +0000
+  ResourceName: AGLT2-squid-5
+  Services:
+  - Squid
+# ---------------------------------------------------------
