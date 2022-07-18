@@ -97,7 +97,7 @@ def _get_origin_resource2(fqdn: Optional[str], topology: Topology, suppress_erro
     return _get_resource_with_service(fqdn, XROOTD_ORIGIN_SERVER, topology, suppress_errors)
 
 
-def _resource_allows_namespace(resource: Resource, namespace: Optional[Namespace]) -> bool:
+def resource_allows_namespace(resource: Resource, namespace: Optional[Namespace]) -> bool:
     """Return True if the given resource's (cache or origin) AllowedVOs allows a namespace, which happens if:
 
     - The namespace's VO is in the AllowedVOs list, or
@@ -119,7 +119,7 @@ def _resource_allows_namespace(resource: Resource, namespace: Optional[Namespace
     return False
 
 
-def _namespace_allows_origin(namespace: Namespace, origin: Optional[Resource]) -> bool:
+def namespace_allows_origin(namespace: Namespace, origin: Optional[Resource]) -> bool:
     """Return True if the given namespace allows a given origin resouce, which happens if
     the origin resource's name is in the namespace's AllowedOrigins list.
     Return False if origin is None.
@@ -130,7 +130,7 @@ def _namespace_allows_origin(namespace: Namespace, origin: Optional[Resource]) -
     return origin and origin.name in namespace.allowed_origins
 
 
-def _namespace_allows_cache(namespace: Namespace, cache: Optional[Resource]) -> bool:
+def namespace_allows_cache(namespace: Namespace, cache: Optional[Resource]) -> bool:
     """Return True if the given namespace allows a given cache resource, which happens if:
 
     - The cache resource's name is in the namespace's AllowedCaches list, or
@@ -144,7 +144,7 @@ def _namespace_allows_cache(namespace: Namespace, cache: Optional[Resource]) -> 
     return cache and cache.name in namespace.allowed_caches
 
 
-def _get_supported_caches_for_namespace(namespace: Namespace, topology: Topology) -> List[Resource]:
+def get_supported_caches_for_namespace(namespace: Namespace, topology: Topology) -> List[Resource]:
     """Return a list of Resource objects of all caches that support a namespace.  This means the cache allows
     the namespace, AND the namespace allows the cache.
     """
@@ -155,8 +155,8 @@ def _get_supported_caches_for_namespace(namespace: Namespace, topology: Topology
                   if _resource_has_cache(resource)]
     return [cache
             for cache in all_caches
-            if _namespace_allows_cache(namespace, cache)
-            and _resource_allows_namespace(cache, namespace)]
+            if namespace_allows_cache(namespace, cache)
+            and resource_allows_namespace(cache, namespace)]
 
 
 def generate_cache_authfile(global_data: GlobalData,
@@ -187,9 +187,9 @@ def generate_cache_authfile(global_data: GlobalData,
     vos_data = global_data.get_vos_data()
     for stashcache_obj in vos_data.stashcache_by_vo_name.values():
         for dirname, namespace in stashcache_obj.namespaces.items():
-            if not _namespace_allows_cache(namespace, resource):
+            if not namespace_allows_cache(namespace, resource):
                 continue
-            if resource and not _resource_allows_namespace(resource, namespace):
+            if resource and not resource_allows_namespace(resource, namespace):
                 continue
             if namespace.is_public():
                 continue
@@ -239,9 +239,9 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
     vos_data = global_data.get_vos_data()
     for stashcache_obj in vos_data.stashcache_by_vo_name.values():
         for dirname, namespace in stashcache_obj.namespaces.items():
-            if not _namespace_allows_cache(namespace, resource):
+            if not namespace_allows_cache(namespace, resource):
                 continue
-            if resource and not _resource_allows_namespace(resource, namespace):
+            if resource and not resource_allows_namespace(resource, namespace):
                 continue
             if namespace.is_public():
                 public_dirs.add(dirname)
@@ -296,9 +296,9 @@ audience = {allowed_vos_str}
         for namespace in stashcache_obj.namespaces.values():  # type: Namespace
             if namespace.is_public():
                 continue
-            if not _namespace_allows_cache(namespace, cache_resource):
+            if not namespace_allows_cache(namespace, cache_resource):
                 continue
-            if not _resource_allows_namespace(cache_resource, namespace):
+            if not resource_allows_namespace(cache_resource, namespace):
                 continue
 
             for authz in namespace.authz_list:
@@ -344,9 +344,9 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
 
     for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
         for path, namespace in stashcache_obj.namespaces.items():
-            if not _namespace_allows_origin(namespace, origin_resource):
+            if not namespace_allows_origin(namespace, origin_resource):
                 continue
-            if not _resource_allows_namespace(origin_resource, namespace):
+            if not resource_allows_namespace(origin_resource, namespace):
                 continue
             if namespace.is_public():
                 public_paths.add(path)
@@ -360,7 +360,7 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
 
             allowed_resources = [origin_resource]
             # Add caches
-            allowed_caches = _get_supported_caches_for_namespace(namespace, topology)
+            allowed_caches = get_supported_caches_for_namespace(namespace, topology)
             if allowed_caches:
                 allowed_resources.extend(allowed_caches)
             else:
@@ -438,9 +438,9 @@ audience = {allowed_vos_str}
         for namespace in stashcache_obj.namespaces.values():
             if namespace.is_public():
                 continue
-            if not _namespace_allows_origin(namespace, origin_resource):
+            if not namespace_allows_origin(namespace, origin_resource):
                 continue
-            if not _resource_allows_namespace(origin_resource, namespace):
+            if not resource_allows_namespace(origin_resource, namespace):
                 continue
 
             for authz in namespace.authz_list:
@@ -492,7 +492,7 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
         }
 
         for cache_name, cache_resource_obj in cache_resource_objs.items():
-            if _resource_allows_namespace(cache_resource_obj, ns) and _namespace_allows_cache(ns, cache_resource_obj):
+            if resource_allows_namespace(cache_resource_obj, ns) and namespace_allows_cache(ns, cache_resource_obj):
                 nsdict["caches"].append(cache_resource_dicts[cache_name])
         return nsdict
     # End helper functions
