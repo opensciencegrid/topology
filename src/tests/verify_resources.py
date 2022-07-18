@@ -729,7 +729,11 @@ def test_18_osdf_data_cache_warnings(rgs, rgfns, vomap):
             rsvcs = rdict.get('Services', {})
             if "XRootD cache server" in rsvcs:
                 for voname in rdict.get('AllowedVOs', []):
-                    if not (voname in vo_allowed_caches and
+                    if voname in ["ANY", "ANY_PUBLIC"]:
+                        # TODO: warn if a cache has ANY but there are
+                        # no VOs that allow the cache or list ANY
+                        pass
+                    elif not (voname in vo_allowed_caches and
                             (rname in vo_allowed_caches[voname] or
                              "ANY" in vo_allowed_caches[voname])):
                         print_emsg_once('CacheNotAllowed')
@@ -757,7 +761,11 @@ def test_19_osdf_data_origin_warnings(rgs, rgfns, vomap):
             rsvcs = rdict.get('Services', {})
             if "XRootD origin server" in rsvcs:
                 for voname in rdict.get('AllowedVOs', []):
-                    if not (voname in vo_allowed_origins and
+                    if voname in ["ANY", "ANY_PUBLIC"]:
+                        # TODO: warn if an origin has ANY but there are
+                        # no VOs that allow the origin or list ANY
+                        pass
+                    elif not (voname in vo_allowed_origins and
                             (rname in vo_allowed_origins[voname] or
                              "ANY" in vo_allowed_origins[voname])):
                         print_emsg_once('OriginNotAllowed')
