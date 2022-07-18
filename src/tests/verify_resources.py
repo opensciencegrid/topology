@@ -734,7 +734,7 @@ def test_18_osdf_data_cache_warnings(rgs, rgfns, vomap):
                              "ANY" in vo_allowed_caches[voname])):
                         print_emsg_once('CacheNotAllowed')
                         print("In '%s', Resource '%s' is a Cache and lists"
-                              "'%s' in AllowedVOs; but this VO does not list"
+                              " '%s' in AllowedVOs; but this VO does not list"
                               " that resource in AllowedCaches"
                               % (rgfn, rname, voname))
                         warnings += 1
@@ -762,7 +762,7 @@ def test_19_osdf_data_origin_warnings(rgs, rgfns, vomap):
                              "ANY" in vo_allowed_origins[voname])):
                         print_emsg_once('OriginNotAllowed')
                         print("In '%s', Resource '%s' is a Origin and lists"
-                              "'%s' in AllowedVOs; but this VO does not list"
+                              " '%s' in AllowedVOs; but this VO does not list"
                               " that resource in AllowedOrigins"
                               % (rgfn, rname, voname))
                         warnings += 1
