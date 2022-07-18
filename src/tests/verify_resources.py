@@ -55,9 +55,12 @@ def rgname(fn):
 def sumvals(d):
     return sum(d.values()) if d else 0
 
+def vo_path_to_name(path):
+    return re.search(r'([^/]+)\.yaml$', path).group(1)
+
 def get_vo_names():
-    return set( re.search(r'/([^/]+)\.yaml$', path).group(1) for path in
-                glob.glob(_topdir + "/virtual-organizations/*.yaml") )
+    return set(map(vo_path_to_name,
+               glob.glob(_topdir + "/virtual-organizations/*.yaml")))
 
 def contact_id_ok(ID):
     return re.search(r'^[0-9a-f]{40}$', ID) or re.search(r'^OSG\d+$', ID)
@@ -98,6 +101,7 @@ def main():
     vo_yamls = sorted(glob.glob("virtual-organizations/*.yaml"))
     vofns = list(filter(vofilter, vo_yamls))
     vos = list(map(load_yamlfile, vofns))
+    vomap = dict(zip(map(vo_path_to_name, vofns), vos))
 
     os.chdir("topology")
     contacts = get_contacts()
