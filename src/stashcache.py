@@ -87,12 +87,12 @@ def _get_resource_with_service(fqdn: Optional[str], service_name: str, topology:
     return resource
 
 
-def _get_cache_resource2(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
+def _get_cache_resource(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
     """Convenience wrapper around _get_resource-with-service() for a cache"""
     return _get_resource_with_service(fqdn, XROOTD_CACHE_SERVER, topology, suppress_errors)
 
 
-def _get_origin_resource2(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
+def _get_origin_resource(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
     """Convenience wrapper around _get_resource-with-service() for an origin"""
     return _get_resource_with_service(fqdn, XROOTD_ORIGIN_SERVER, topology, suppress_errors)
 
@@ -174,7 +174,7 @@ def generate_cache_authfile(global_data: GlobalData,
     topology = global_data.get_topology()
     resource = None
     if fqdn:
-        resource = _get_cache_resource2(fqdn, topology, suppress_errors)
+        resource = _get_cache_resource(fqdn, topology, suppress_errors)
         if not resource:
             return ""
 
@@ -231,7 +231,7 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
     topology = global_data.get_topology()
     resource = None
     if fqdn:
-        resource = _get_cache_resource2(fqdn, topology, suppress_errors)
+        resource = _get_cache_resource(fqdn, topology, suppress_errors)
         if not resource:
             return ""
 
@@ -278,7 +278,7 @@ def generate_cache_scitokens(global_data: GlobalData, fqdn: str, suppress_errors
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
 
-    cache_resource = _get_cache_resource2(fqdn, topology, suppress_errors)
+    cache_resource = _get_cache_resource(fqdn, topology, suppress_errors)
     if not cache_resource:
         return ""
 
@@ -333,7 +333,7 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
     vos_data = global_data.get_vos_data()
     origin_resource = None
     if origin_fqdn:
-        origin_resource = _get_origin_resource2(origin_fqdn, topology, suppress_errors)
+        origin_resource = _get_origin_resource(origin_fqdn, topology, suppress_errors)
         if not origin_resource:
             return ""
 
@@ -420,7 +420,7 @@ def generate_origin_scitokens(global_data: GlobalData, fqdn: str, suppress_error
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
 
-    origin_resource = _get_origin_resource2(fqdn, topology, suppress_errors)
+    origin_resource = _get_origin_resource(fqdn, topology, suppress_errors)
     if not origin_resource:
         return ""
 
