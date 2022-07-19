@@ -195,8 +195,7 @@ _emsgs = {
                                " AllowedCaches",
     'OriginNotAllowed'       : "VOs in AllowedVOs for a resource with an"
                                " XRootD origin server service should list"
-                               " that resource or ANY in the VO's"
-                               " AllowedOrigins",
+                               " that resource in the VO's AllowedOrigins",
 }
 
 def print_emsg_once(msgtype):
