@@ -769,7 +769,7 @@ def test_19_osdf_data_origin_warnings(rgs, rgfns, vomap):
                             (rname in vo_allowed_origins[voname] or
                              "ANY" in vo_allowed_origins[voname])):
                         print_emsg_once('OriginNotAllowed')
-                        print("In '%s', Resource '%s' is a Origin and lists"
+                        print("In '%s', Resource '%s' is an Origin and lists"
                               " '%s' in AllowedVOs; but this VO does not list"
                               " that resource in AllowedOrigins"
                               % (rgfn, rname, voname))
