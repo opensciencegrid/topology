@@ -721,6 +721,8 @@ def test_18_osdf_data_cache_warnings(rgs, rgfns, vomap):
     acpath = ['DataFederations', 'StashCache', 'AllowedCaches']
 
     vo_allowed_caches = _get_vo_path_map(vomap, acpath)
+    all_allowed_caches = set.union(vo_allowed_caches.values())
+    any_cache_allowed = "ANY" in all_allowed_caches
 
     warnings = 0
 
@@ -730,9 +732,16 @@ def test_18_osdf_data_cache_warnings(rgs, rgfns, vomap):
             if "XRootD cache server" in rsvcs:
                 for voname in rdict.get('AllowedVOs', []):
                     if voname in ["ANY", "ANY_PUBLIC"]:
-                        # TODO: warn if a cache has ANY but there are
-                        # no VOs that allow the cache or list ANY
-                        pass
+                        if any_cache_allowed:
+                            continue
+                        if rname not in all_allowed_caches:
+                            print_emsg_once('CacheNotAllowed')
+                            print("In '%s', Resource '%s' is a Cache and"
+                                  " allows %s VO; but no VO allows this"
+                                  " resource in AllowedCaches"
+                                  % (rgfn, rname, voname))
+                            warnings += 1
+
                     elif not (voname in vo_allowed_caches and
                             (rname in vo_allowed_caches[voname] or
                              "ANY" in vo_allowed_caches[voname])):
@@ -753,6 +762,9 @@ def test_19_osdf_data_origin_warnings(rgs, rgfns, vomap):
     aopath = ['DataFederations', 'StashCache', 'AllowedOrigins']
 
     vo_allowed_origins = _get_vo_path_map(vomap, aopath)
+    all_allowed_origins = set.union(vo_allowed_origins.values())
+    # do not allow ANY for AllowedOrigins
+    #any_origin_allowed = "ANY" in all_allowed_origins
 
     warnings = 0
 
@@ -762,9 +774,14 @@ def test_19_osdf_data_origin_warnings(rgs, rgfns, vomap):
             if "XRootD origin server" in rsvcs:
                 for voname in rdict.get('AllowedVOs', []):
                     if voname in ["ANY", "ANY_PUBLIC"]:
-                        # TODO: warn if an origin has ANY but there are
-                        # no VOs that allow the origin or list ANY
-                        pass
+                        if rname not in all_allowed_origins:
+                            print_emsg_once('OriginNotAllowed')
+                            print("In '%s', Resource '%s' is an Origin and"
+                                  " allows %s VO; but no VO allows this"
+                                  " resource in AllowedOrigins"
+                                  % (rgfn, rname, voname))
+                            warnings += 1
+
                     elif not (voname in vo_allowed_origins and
                             (rname in vo_allowed_origins[voname] or
                              "ANY" in vo_allowed_origins[voname])):
