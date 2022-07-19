@@ -721,7 +721,7 @@ def test_18_osdf_data_cache_warnings(rgs, rgfns, vomap):
     acpath = ['DataFederations', 'StashCache', 'AllowedCaches']
 
     vo_allowed_caches = _get_vo_path_map(vomap, acpath)
-    all_allowed_caches = set.union(vo_allowed_caches.values())
+    all_allowed_caches = set.union(*vo_allowed_caches.values())
     any_cache_allowed = "ANY" in all_allowed_caches
 
     warnings = 0
@@ -762,7 +762,7 @@ def test_19_osdf_data_origin_warnings(rgs, rgfns, vomap):
     aopath = ['DataFederations', 'StashCache', 'AllowedOrigins']
 
     vo_allowed_origins = _get_vo_path_map(vomap, aopath)
-    all_allowed_origins = set.union(vo_allowed_origins.values())
+    all_allowed_origins = set.union(*vo_allowed_origins.values())
     # do not allow ANY for AllowedOrigins
     #any_origin_allowed = "ANY" in all_allowed_origins
 
