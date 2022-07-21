@@ -28,7 +28,9 @@ EOF
     touch contacts
     chmod 600 contacts
 
-    echo "$CONTACT_DB_KEY" > contacts
+    cat > contacts <<EOF
+$CONTACT_DB_KEY
+EOF
 
     eval `ssh-agent -s`
     ssh-add contacts
