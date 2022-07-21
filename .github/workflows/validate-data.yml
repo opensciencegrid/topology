@@ -44,10 +44,10 @@ jobs:
           ./src/tests/verify_origin_authfile.sh
       - name: Test API
         run: |
-          ./src/tests/test_api.py
+          py.test ./src/tests/test_api.py
       - name: Test StashCache
         run: |
-          ./src/tests/test_stashcache.py
+          py.test ./src/tests/test_stashcache.py
       - name: Test cacher
         run: |
           ./src/topology_cacher.py --outdir=/tmp/topology-cacher
