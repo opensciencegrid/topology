@@ -1,8 +1,7 @@
 #!/bin/bash -e
 
-# Use the Travis build dir if specified, otherwise assume that the
-# repo is unpacked in the current working dir
-REPO_ROOT_DIR=${TRAVIS_BUILD_DIR:-.}
+# Assume that the repo is unpacked in the current working dir
+REPO_ROOT_DIR=$PWD
 
 PYTHONPATH="$PYTHONPATH:$REPO_ROOT_DIR/src"
 export PYTHONPATH
@@ -15,8 +14,8 @@ function verify_xml {
     xmllint --noout --schema "$REPO_ROOT_DIR/src/schema/$type.xsd" $xml
 }
 
-if [[ $TRAVIS_PULL_REQUEST == "false" || $GH_EVENT == 'push' ]] &&
-   [[ $GITHUB_REPOSITORY == 'opensciencegrid/topology' ]]; then
+if [[ $GH_EVENT == 'push' && \
+      $GITHUB_REPOSITORY == 'opensciencegrid/topology' ]]; then
     # Ensure that the .ssh dir exists
     mkdir ~/.ssh
     chmod 0700 ~/.ssh
@@ -29,16 +28,7 @@ EOF
     touch contacts
     chmod 600 contacts
 
-    if [[ $GH_EVENT == 'push' ]]; then
-        echo "$CONTACT_DB_KEY" > contacts
-    else
-        openssl aes-256-cbc \
-                -K $encrypted_457175ef53a3_key \
-                -iv $encrypted_457175ef53a3_iv \
-                -in src/tests/contacts.enc \
-                -out contacts \
-                -d
-    fi
+    echo "$CONTACT_DB_KEY" > contacts
 
     eval `ssh-agent -s`
     ssh-add contacts
@@ -69,9 +59,9 @@ for DATA_TYPE in miscproject vosummary rgsummary; do
 
     # Resource group and VO readers should use the contact info if we have
     # access to the SSH keys for the contacts repo
-    if [[ $DATA_TYPE == 'vosummary' ]] || [[ $DATA_TYPE == 'rgsummary' ]]; then
-        if [[ $TRAVIS_PULL_REQUEST == "false" || $GH_EVENT == 'push' ]] &&
-           [[ $GITHUB_REPOSITORY == 'opensciencegrid/topology' ]]; then
+    if [[ $DATA_TYPE == 'vosummary'  ||  $DATA_TYPE == 'rgsummary' ]]; then
+        if [[ $GH_EVENT == 'push' && \
+              $GITHUB_REPOSITORY == 'opensciencegrid/topology' ]]; then
             READER_ARGS="--contacts $CONTACT_YAML $READER_ARGS"
         fi
     fi
