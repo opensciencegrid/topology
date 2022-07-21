@@ -45,9 +45,13 @@ jobs:
       - name: Test API
         run: |
           py.test ./src/tests/test_api.py
+        env:
+          TOPOLOGY_CONFIG: ${{ env.GITHUB_WORKSPACE }}/src/config-ci.py
       - name: Test StashCache
         run: |
           py.test ./src/tests/test_stashcache.py
+        env:
+          TOPOLOGY_CONFIG: ${{ env.GITHUB_WORKSPACE }}/src/config-ci.py
       - name: Test cacher
         run: |
           ./src/topology_cacher.py --outdir=/tmp/topology-cacher
