@@ -9,9 +9,9 @@ TOPOLOGY_DATA_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # otherwise your changes will get blown away!
 NO_GIT = True
 
-
-# If you have access to contact DB, point this to a checkout of it.
-CONTACT_DATA_DIR = "/tmp/contact"
+# test_verify_schema.sh might have checked this out
+if os.path.isdir("/tmp/contact"):
+    CONTACT_DATA_DIR = "/tmp/contact"
 
 TOPOLOGY_CACHE_LIFETIME = 999
 CONTACT_CACHE_LIFETIME = 999
