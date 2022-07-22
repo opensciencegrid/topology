@@ -26,22 +26,22 @@ jobs:
           GH_EVENT: ${{ github.event_name }}
           CONTACT_DB_KEY: ${{ secrets.CONTACT_DB_KEY }}
         run: ./src/tests/test_verify_schema.sh
-      - name: Validate downtimes
-        run: |
-          ./src/tests/verify_downtimes.py
-          ./src/tests/verify_unique_downtime_ids.sh
-      - name: Validate Resources
-        run: ./src/tests/verify_resources.py
-      - name: Validate Site Names
-        run: |
-          ./src/tests/verify_site_names.sh
-      - name: Validate Projects
-        run: |
-          ./src/tests/verify_projects.py
-      - name: Validate StashCache authfile generation
-        run: |
-          ./src/tests/verify_authfile.sh
-          ./src/tests/verify_origin_authfile.sh
+#      - name: Validate downtimes
+#        run: |
+#          ./src/tests/verify_downtimes.py
+#          ./src/tests/verify_unique_downtime_ids.sh
+#      - name: Validate Resources
+#        run: ./src/tests/verify_resources.py
+#      - name: Validate Site Names
+#        run: |
+#          ./src/tests/verify_site_names.sh
+#      - name: Validate Projects
+#        run: |
+#          ./src/tests/verify_projects.py
+#      - name: Validate StashCache authfile generation
+#        run: |
+#          ./src/tests/verify_authfile.sh
+#          ./src/tests/verify_origin_authfile.sh
       - name: Test API
         run: |
           export TOPOLOGY_CONFIG=$PWD/src/config-ci.py
