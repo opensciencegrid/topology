@@ -78,7 +78,7 @@ class Resource(object):
     def get_stashcache_files(self, global_data, legacy):
         """Gets a resources Cache files as a dictionary"""
 
-        import src.stashcache as stashcache
+        import stashcache
         file_generators_and_file_names = [
             (
                 lambda resource: stashcache.generate_public_cache_authfile(
