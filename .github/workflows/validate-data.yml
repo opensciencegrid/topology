@@ -44,14 +44,12 @@ jobs:
           ./src/tests/verify_origin_authfile.sh
       - name: Test API
         run: |
+          export TOPOLOGY_CONFIG=$PWD/src/config-ci.py
           py.test ./src/tests/test_api.py
-        env:
-          TOPOLOGY_CONFIG: ./src/config-ci.py
       - name: Test StashCache
         run: |
+          export TOPOLOGY_CONFIG=$PWD/src/config-ci.py
           py.test ./src/tests/test_stashcache.py
-        env:
-          TOPOLOGY_CONFIG: ./src/config-ci.py
       - name: Test cacher
         run: |
           ./src/topology_cacher.py --outdir=/tmp/topology-cacher
