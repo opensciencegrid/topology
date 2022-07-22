@@ -1387,3 +1387,58 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1168897429
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: May 10, 2022 13:00 +0000
+  EndTime: May 10, 2022 19:30 +0000
+  CreatedTime: May 07, 2022 02:15 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1168898334
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: May 10, 2022 13:00 +0000
+  EndTime: May 10, 2022 19:30 +0000
+  CreatedTime: May 07, 2022 02:17 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1168898476
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: May 10, 2022 13:00 +0000
+  EndTime: May 10, 2022 19:30 +0000
+  CreatedTime: May 07, 2022 02:17 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1168898593
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: May 10, 2022 13:00 +0000
+  EndTime: May 10, 2022 19:30 +0000
+  CreatedTime: May 07, 2022 02:17 +0000
+  ResourceName: MWT2_UC_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1225619209
+  Description: ICCP Quarterly PM
+  Severity: Outage
+  StartTime: Jul 15, 2022 13:00 +0000
+  EndTime: Jul 17, 2022 13:00 +0000
+  CreatedTime: Jul 11, 2022 17:52 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------

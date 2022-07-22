@@ -2,8 +2,8 @@ import datetime
 
 from flask_wtf import FlaskForm
 from wtforms import SelectField, SelectMultipleField, StringField, \
-    TimeField, TextAreaField, SubmitField
-from wtforms.fields.html5 import DateTimeLocalField
+    TextAreaField, SubmitField
+from wtforms.fields.html5 import TimeField, DateField
 from wtforms.validators import InputRequired
 
 from . import models
@@ -132,8 +132,11 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
     ])
     description = StringField("Description (the reason and/or impact of the outage)", [InputRequired()])
 
-    start_datetime = DateTimeLocalField("Local Start Datetime", format='%Y-%m-%dT%H:%M', validators=[InputRequired()])
-    end_datetime = DateTimeLocalField("Local End Datetime", format='%Y-%m-%dT%H:%M', validators=[InputRequired()])
+    start_date = DateField("Local Start Date", validators=[InputRequired()])
+    start_time = TimeField("Local Start Time", validators=[InputRequired()])
+    end_date = DateField("Local End Date", validators=[InputRequired()])
+    end_time = TimeField("Local End Time", validators=[InputRequired()])
+
     utc_offset = SelectField("UTC Offset", choices=UTCOFFSET_CHOICES)
 
     facility = SelectField("Facility", choices=[], default="")
@@ -162,8 +165,8 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
 
         if not super().validate():
             return False
-        if self.start_datetime.data > self.end_datetime.data:
-            self.end_datetime.errors.append("End date/time must be after start date/time")
+        if self.get_start_datetime() > self.get_end_datetime():
+            self.end_date.errors.append("End date/time must be after start date/time")
             return False
 
         days_in_future = (self.get_start_datetime() - datetime.datetime.utcnow()).days
@@ -177,10 +180,14 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
         return True
 
     def get_start_datetime(self):
-        return self.start_datetime.data - datetime.timedelta(minutes=int(self.utc_offset.data))
+        return datetime.datetime.combine(
+            self.start_date.data, self.start_time.data
+        ) + datetime.timedelta(minutes=int(self.utc_offset.data))
 
     def get_end_datetime(self):
-        return self.end_datetime.data - datetime.timedelta(minutes=int(self.utc_offset.data))
+        return datetime.datetime.combine(
+            self.end_date.data, self.end_time.data
+        ) + datetime.timedelta(minutes=int(self.utc_offset.data))
 
     def get_yaml(self, resources, service_names_by_resource) -> str:
 
@@ -221,8 +228,11 @@ class GenerateDowntimeForm(FlaskForm):
     ])
     description = StringField("Description (the reason and/or impact of the outage)", [InputRequired()])
 
-    start_datetime = DateTimeLocalField("Local Start Datetime", format='%Y-%m-%dT%H:%M', validators=[InputRequired()])
-    end_datetime = DateTimeLocalField("Local End Datetime", format='%Y-%m-%dT%H:%M', validators=[InputRequired()])
+    start_date = DateField("Local Start Date", validators=[InputRequired()])
+    start_time = TimeField("Local Start Time", validators=[InputRequired()])
+    end_date = DateField("Local End Date", validators=[InputRequired()])
+    end_time = TimeField("Local End Time", validators=[InputRequired()])
+
     utc_offset = SelectField("UTC Offset", choices=UTCOFFSET_CHOICES)
 
     services = SelectMultipleField("Known OSG Services (select one or more)", [InputRequired()], choices=[])
@@ -251,8 +261,8 @@ class GenerateDowntimeForm(FlaskForm):
 
         if not super().validate():
             return False
-        if self.start_datetime.data > self.end_datetime.data:
-            self.end_datetime.errors.append("End date/time must be after start date/time")
+        if self.get_start_datetime() > self.get_end_datetime():
+            self.end_date.errors.append("End date/time must be after start date/time")
             return False
 
         days_in_future = (self.get_start_datetime() - datetime.datetime.utcnow()).days
@@ -266,10 +276,14 @@ class GenerateDowntimeForm(FlaskForm):
         return True
 
     def get_start_datetime(self):
-        return self.start_datetime.data - datetime.timedelta(minutes=int(self.utc_offset.data))
+        return datetime.datetime.combine(
+            self.start_date.data, self.start_time.data
+        ) + datetime.timedelta(minutes=int(self.utc_offset.data))
 
     def get_end_datetime(self):
-        return self.end_datetime.data - datetime.timedelta(minutes=int(self.utc_offset.data))
+        return datetime.datetime.combine(
+            self.end_date.data, self.end_time.data
+        ) + datetime.timedelta(minutes=int(self.utc_offset.data))
 
     def get_yaml(self) -> str:
 

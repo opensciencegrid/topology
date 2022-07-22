@@ -3,7 +3,7 @@ GroupID: 134
 Production: true
 Resources:
   UTA_SWT2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -37,16 +37,16 @@ Resources:
       APELNormalFactor: 9.17
       AccountingName: US-SWT2
       HEPSPEC: 21635
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
       KSI2KMax: 2676
       KSI2KMin: 2676
       StorageCapacityMax: 425
       StorageCapacityMin: 425
       TapeCapacity: 0
   UTA_SWT2_SE:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -80,7 +80,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   UTA_SWT2_Squid:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -105,7 +105,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   UTA_SWT2_perfSONAR_bandwidth:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -132,7 +132,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   UTA_SWT2_perfSONAR_latency:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:

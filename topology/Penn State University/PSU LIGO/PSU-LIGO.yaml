@@ -30,3 +30,39 @@ Resources:
     Services:
       CE:
         Description: Hosted CE for PSU-LIGO
+
+  PSU-LIGO-CACHE:
+    Active: false
+    Description: This is a cache for public and LIGO data at Penn State
+    ID: 1304
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Ron Tapia
+          ID: 014a1e9c4442a9594ab1996d2f3f8cdfc4081b88
+        Secondary:
+          Name: Alexander Pace
+          ID: a6d70e0185f0cab8439f3c6ad01e2e37808216f4
+        Tertiary:
+          Name: Chad Hanna
+          ID: e1d8f7051a42e878d9aca9c57083ffa4ccfd115e
+
+      Security Contact:
+        Primary:
+          Name: Ron Tapia
+          ID: 014a1e9c4442a9594ab1996d2f3f8cdfc4081b88
+        Secondary:
+          Name: Alexander Pace
+          ID: a6d70e0185f0cab8439f3c6ad01e2e37808216f4
+        Tertiary:
+          Name: Chad Hanna
+          ID: e1d8f7051a42e878d9aca9c57083ffa4ccfd115e
+
+    FQDN: stashcache.gwave.ics.psu.edu
+    DN: /C=US/ST=Pennsylvania/O=The Pennsylvania State University/OU=ICDS/CN=stashcache.gwave.ics.psu.edu
+    Services:
+      XRootD cache server:
+        Description: Cache server
+    AllowedVOs:
+      - ANY_PUBLIC
+      - LIGO

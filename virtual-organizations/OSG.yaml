@@ -74,6 +74,8 @@ SupportURL: http://www.opensciencegrid.org
 DataFederations:
   StashCache:
     Namespaces:
+      /osdftest:
+        - PUBLIC
       /user:
         - PUBLIC
       /osgconnect/public:
@@ -83,9 +85,11 @@ DataFederations:
       /ospool/PROTECTED:
         - SciTokens:
             Issuer: https://osg-htc.org/ospool
+            # Base Path gets prepended to token scopes
             Base Path: /ospool/PROTECTED
     AllowedOrigins:
       - OSGCONNECT_ORIGIN
       - CHTC_OSPOOL_ORIGIN
+      - SDSC-test-Origin
     AllowedCaches:
       - ANY

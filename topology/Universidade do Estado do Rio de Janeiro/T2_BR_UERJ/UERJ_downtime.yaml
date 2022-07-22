@@ -286,5 +286,29 @@
   Services:
   - net.perfSONAR.Bandwidth
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 1158969467
+  Description: Update to OSG 3.6
+  Severity: Outage
+  StartTime: Apr 27, 2022 12:00 +0000
+  EndTime: Apr 29, 2022 22:00 +0000
+  CreatedTime: Apr 25, 2022 14:29 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1191768908
+  Description: Due to an unexpected power outage in our facilities, several disks in
+    our distributed storage system have been experiencing failures over the past few
+    days.
+  Severity: Severe
+  StartTime: Jun 02, 2022 14:00 +0000
+  EndTime: Jun 08, 2022 20:00 +0000
+  CreatedTime: Jun 02, 2022 13:34 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+  - XRootD component
+# ---------------------------------------------------------
 

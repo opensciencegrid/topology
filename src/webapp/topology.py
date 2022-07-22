@@ -559,6 +559,7 @@ class Topology(object):
         self.rgs = {}  # type: Dict[Tuple[str, str], ResourceGroup]
         self.resources_by_facility = defaultdict(list)
         self.resources_by_resource_group = defaultdict(list)
+        self.resources_by_fqdn = defaultdict(list)  # type: defaultdict[str, List[Resource]]
         self.sites_by_facility = defaultdict(set)
         self.resource_group_by_site = defaultdict(set)
         self.service_names_by_resource = {}  # type: Dict[str, List[str]]
@@ -573,6 +574,7 @@ class Topology(object):
             for r in rg.resources:
                 self.resources_by_facility[facility_name].append(r)
                 self.resources_by_resource_group[rg.name].append(r.name)
+                self.resources_by_fqdn[r.fqdn.lower()].append(r)
                 self.sites_by_facility[facility_name].add(site_name)
                 self.service_names_by_resource[r.name] = r.service_names
                 self.downtime_path_by_resource[r.name] = f"{facility_name}/{site_name}/{name}_downtime.yaml"
@@ -664,3 +666,10 @@ class Topology(object):
             log.warning("Invalid or missing data in downtime -- skipping: %r", err)
             return
         self.downtimes_by_timeframe[dt.timeframe].append(dt)
+
+    def safe_get_resource_by_fqdn(self, fqdn: str) -> Optional[Resource]:
+        """Returns the first resource that has the given FQDN or None if no such resource exists."""
+        try:
+            return self.resources_by_fqdn[fqdn.lower()][0]
+        except (KeyError, IndexError):
+            return None

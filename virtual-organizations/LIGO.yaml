@@ -56,7 +56,7 @@ OASIS:
     - Name: Brian Bockelman
       DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
         Paul Bockelman
-      ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+      ID: OSG1000001
     - Name: James Alexander Clark
       DNs: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=James Alexander
         Clark 4038
@@ -75,6 +75,7 @@ DataFederations:
       /user/ligo:
         - "FQAN:/osg/ligo"
         - "FQAN:/virgo"
+        - "FQAN:/virgo/virgo"
         - SciTokens:
             Issuer: https://scitokens.org/ligo
             Base Path: /user/ligo
@@ -106,3 +107,4 @@ DataFederations:
       - T1_STASHCACHE_CACHE
       - PIC_STASHCACHE_CACHE
       - SU_STASHCACHE_CACHE
+      - PSU-LIGO-CACHE
