@@ -1,0 +1,32 @@
+GroupDescription: >-
+  GridPP effort at the University of Edinburgh to support the DUNE collaboration
+GroupID: 1147
+Production: true
+SupportCenter: Self Supported
+Resources:
+  UKI-SCOTGRID-ECDF-STASHCACHE:
+    Active: true
+    Description: This is an OSDF cache at Scotgrid ECDF.
+    ID: 1269
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 2a466ae8edb874f57a536ac4893be8b749959947
+          Name: Robert Currie
+        Secondary:
+          ID: bde85f0ad08903e1680b531bde422571feca8981
+          Name: Peter Clarke
+      Security Contact:
+        Primary:
+          ID: 2a466ae8edb874f57a536ac4893be8b749959947
+          Name: Robert Currie
+        Secondary:
+          ID: bde85f0ad08903e1680b531bde422571feca8981
+          Name: Peter Clarke
+    FQDN: stashcache.edi.scotgrid.ac.uk
+    DN: /C=UK/O=eScience/OU=Edinburgh/L=NeSC/CN=stashcache.edi.scotgrid.ac.uk
+    Services:
+      XRootD cache server:
+        Description: OSDF cache server
+    AllowedVOs:
+      - ANY

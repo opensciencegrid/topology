@@ -75,6 +75,74 @@ class Resource(object):
         self.fqdn = self.data["FQDN"]
         self.id = self.data["ID"]
 
+    def get_stashcache_files(self, global_data, legacy):
+        """Gets a resources Cache files as a dictionary"""
+
+        import stashcache
+        file_generators_and_file_names = [
+            (
+                lambda resource: stashcache.generate_public_cache_authfile(
+                    global_data,
+                    fqdn=resource.fqdn,
+                    legacy=legacy,
+                    suppress_errors=False
+                ), "CacheAuthfilePublic"
+            ),
+            (
+                lambda resource: stashcache.generate_cache_authfile(
+                    global_data,
+                    fqdn=resource.fqdn,
+                    legacy=legacy,
+                    suppress_errors=False
+                ), "CacheAuthfile"
+            ),
+            (
+                lambda resource: stashcache.generate_cache_scitokens(
+                    global_data.get_vos_data(),
+                    global_data.get_topology().get_resource_group_list(),
+                    fqdn=resource.fqdn,
+                    suppress_errors=False
+                ), "CacheScitokens"
+            ),
+            (
+                lambda resource: stashcache.generate_origin_authfile(
+                    resource.fqdn,
+                    global_data.get_vos_data(),
+                    global_data.get_topology().get_resource_group_list(),
+                    suppress_errors=False,
+                    public_only=True
+                ), "OriginAuthfilePublic"
+            ),
+            (
+                lambda resource: stashcache.generate_origin_authfile(
+                    resource.fqdn,
+                    global_data.get_vos_data(),
+                    global_data.get_topology().get_resource_group_list(),
+                    suppress_errors=False,
+                    public_only=False
+                ), "OriginAuthfile"
+            ),
+            (
+                lambda resource: stashcache.generate_origin_scitokens(
+                    global_data.get_vos_data(),
+                    global_data.get_topology().get_resource_group_list(),
+                    fqdn=resource.fqdn,
+                    suppress_errors=False
+                ), "OriginScitokens"
+            ),
+        ]
+
+        stashcache_files = {}
+        for (file_generator, file_name) in file_generators_and_file_names:
+            try:
+                stashcache_files[file_name] = file_generator(self)
+            except Exception as error:
+                pass
+
+        stashcache_files = {k: v for k, v in stashcache_files.items() if v}  # Remove empty dicts
+
+        return stashcache_files
+
     def get_tree(self, authorized=False, filters: Filters = None) -> Optional[OrderedDict]:
         if filters is None:
             filters = Filters()
@@ -145,8 +213,8 @@ class Resource(object):
             svc.move_to_end("ID", last=False)
         return services_list
 
-    def _expand_tags(self, tags: List) -> List[Dict]:
-        return [ {"Tag": tag} for tag in tags ]
+    def _expand_tags(self, tags: List) -> Dict[str, list]:
+        return {"Tag": tags}
 
     @staticmethod
     def _expand_voownership(voownership: Dict) -> OrderedDict:
@@ -491,6 +559,7 @@ class Topology(object):
         self.rgs = {}  # type: Dict[Tuple[str, str], ResourceGroup]
         self.resources_by_facility = defaultdict(list)
         self.resources_by_resource_group = defaultdict(list)
+        self.resources_by_fqdn = defaultdict(list)  # type: defaultdict[str, List[Resource]]
         self.sites_by_facility = defaultdict(set)
         self.resource_group_by_site = defaultdict(set)
         self.service_names_by_resource = {}  # type: Dict[str, List[str]]
@@ -505,6 +574,7 @@ class Topology(object):
             for r in rg.resources:
                 self.resources_by_facility[facility_name].append(r)
                 self.resources_by_resource_group[rg.name].append(r.name)
+                self.resources_by_fqdn[r.fqdn.lower()].append(r)
                 self.sites_by_facility[facility_name].add(site_name)
                 self.service_names_by_resource[r.name] = r.service_names
                 self.downtime_path_by_resource[r.name] = f"{facility_name}/{site_name}/{name}_downtime.yaml"
@@ -596,3 +666,10 @@ class Topology(object):
             log.warning("Invalid or missing data in downtime -- skipping: %r", err)
             return
         self.downtimes_by_timeframe[dt.timeframe].append(dt)
+
+    def safe_get_resource_by_fqdn(self, fqdn: str) -> Optional[Resource]:
+        """Returns the first resource that has the given FQDN or None if no such resource exists."""
+        try:
+            return self.resources_by_fqdn[fqdn.lower()][0]
+        except (KeyError, IndexError):
+            return None

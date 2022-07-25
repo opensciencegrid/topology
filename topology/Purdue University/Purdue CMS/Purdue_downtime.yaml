@@ -457,7 +457,7 @@
     Majid
   EndTime: Jun 8, 2016 07:55 +0000
   ID: 1004924
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -473,7 +473,7 @@
     Majid
   EndTime: Sep 10, 2016 20:00 +0000
   ID: 1005027
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -489,7 +489,7 @@
     Majid
   EndTime: Sep 28, 2016 03:55 +0000
   ID: 1005051
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -507,7 +507,7 @@
     Majid
   EndTime: Nov 7, 2016 04:55 +0000
   ID: 1005105
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -526,7 +526,7 @@
     Majid
   EndTime: Jan 14, 2017 17:00 +0000
   ID: 1005182
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -540,7 +540,7 @@
     Majid
   EndTime: Jul 18, 2017 21:00 +0000
   ID: 1005362
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -555,7 +555,7 @@
     \ we will notify you that all resources have been returned to service.\n\nMajid"
   EndTime: Nov 6, 2017 22:00 +0000
   ID: 1005483
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -567,7 +567,7 @@
     will be restored.
   EndTime: Mar 26, 2018 16:00 +0000
   ID: 1005632
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
   Severity: Outage
@@ -580,7 +580,7 @@
   StartTime: Aug 2, 2018 06:00 -0400
   EndTime: Aug 2, 2018 23:59 -0400
   CreatedTime: Jul 25, 2018 12:00 -0500
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
     - CE
 # ----------------------------------------------------------
@@ -591,7 +591,7 @@
   StartTime: Nov 14, 2018 13:00 +0000
   EndTime: Nov 15, 2018 03:00 +0000
   CreatedTime: Nov 08, 2018 18:59 +0000
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
 # ---------------------------------------------------------
@@ -602,7 +602,7 @@
   StartTime: Dec 21, 2018 04:00 +0000
   EndTime: Dec 21, 2018 07:00 +0000
   CreatedTime: Dec 20, 2018 20:33 +0000
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
 # ---------------------------------------------------------
@@ -613,7 +613,7 @@
   StartTime: Jan 22, 2019 13:00 +0000
   EndTime: Jan 22, 2019 20:00 +0000
   CreatedTime: Jan 17, 2019 20:14 +0000
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
 # ---------------------------------------------------------
@@ -818,7 +818,7 @@
   StartTime: Feb 11, 2020 13:00 +0000
   EndTime: Feb 12, 2020 05:00 +0000
   CreatedTime: Feb 07, 2020 18:44 +0000
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
 # ---------------------------------------------------------
@@ -873,7 +873,7 @@
   StartTime: Nov 03, 2020 13:00 +0000
   EndTime: Nov 04, 2020 15:00 +0000
   CreatedTime: Oct 26, 2020 20:06 +0000
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
 # ---------------------------------------------------------
@@ -961,7 +961,7 @@
   StartTime: May 11, 2021 21:00 +0000
   EndTime: May 13, 2021 03:00 +0000
   CreatedTime: May 11, 2021 20:41 +0000
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
 # ---------------------------------------------------------
@@ -1082,7 +1082,7 @@
   StartTime: Jul 30, 2021 12:00 +0000
   EndTime: Aug 01, 2021 16:00 +0000
   CreatedTime: Jul 22, 2021 16:44 +0000
-  ResourceName: Purdue-Hammer-CE
+  ResourceName: Purdue-Hammer
   Services:
   - CE
 # ---------------------------------------------------------
@@ -1107,4 +1107,180 @@
   ResourceName: T2_US_Purdue_Squid2
   Services:
   - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1192012151
+  Description: Cooling Maintenance
+  Severity: Outage
+  StartTime: Jun 14, 2022 12:00 +0000
+  EndTime: Jun 14, 2022 22:00 +0000
+  CreatedTime: Jun 02, 2022 20:20 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1192013614
+  Description: Cooling Maintenance
+  Severity: Outage
+  StartTime: Jun 14, 2022 12:00 +0000
+  EndTime: Jun 14, 2022 22:00 +0000
+  CreatedTime: Jun 02, 2022 20:22 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1207370626
+  Description: Moving day for namenodes.
+  Severity: Outage
+  StartTime: Jun 22, 2022 13:00 +0000
+  EndTime: Jun 22, 2022 22:00 +0000
+  CreatedTime: Jun 20, 2022 14:57 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1207371675
+  Description: Moving day for squids.
+  Severity: Outage
+  StartTime: Jun 22, 2022 13:00 +0000
+  EndTime: Jun 22, 2022 22:00 +0000
+  CreatedTime: Jun 20, 2022 14:59 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1207371913
+  Description: Moving day for squids.
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 20, 2022 14:59 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1208211704
+  Description: Moving servers
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 21, 2022 14:19 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1208211705
+  Description: Moving servers
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 21, 2022 14:19 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1208211706
+  Description: Moving servers
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 21, 2022 14:19 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1208211707
+  Description: Moving servers
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 21, 2022 14:19 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1208211708
+  Description: Moving servers
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 21, 2022 14:19 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1208211709
+  Description: Moving servers
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 21, 2022 14:19 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1208211710
+  Description: Moving servers
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 21, 2022 14:19 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1208211711
+  Description: Moving servers
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 21, 2022 14:19 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1208211712
+  Description: Moving servers
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 21, 2022 14:19 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1208211713
+  Description: Moving servers
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 21, 2022 14:19 +0000
+  ResourceName: US-Purdue BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1208211714
+  Description: Moving servers
+  Severity: Outage
+  StartTime: Jun 22, 2022 12:00 +0000
+  EndTime: Jun 22, 2022 21:00 +0000
+  CreatedTime: Jun 21, 2022 14:19 +0000
+  ResourceName: US-Purdue LT
+  Services:
+  - net.perfSONAR.Latency
 # ---------------------------------------------------------

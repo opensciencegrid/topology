@@ -1,0 +1,39 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: Hosted CE for ACIDS resource
+
+GroupID: 1139
+
+Resources:
+  GSU-ACIDS:
+    Active: true
+    Description: Hosted CE for ACIDS resource at GSU
+    ID: 1250
+    ContactLists:
+      # Administrative Contact is one to three people to contact regarding administrative issues
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+
+      # Security Contact is one to three people to contact regarding security issues
+      Security Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          ID:  1b342d6ec2923f2d1f00ad77106e810e6c25fb9c
+          Name: Suranga Edirisinghe Pathirannehelage
+
+    FQDN: gsu-acids-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Compute Element

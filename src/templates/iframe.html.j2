@@ -1,673 +1,623 @@
-<style>
-* {
-margin: 0px;
-padding: 0px;
-}
-body {
-font-family: "Arial";
-color: #333;
-line-height:1.5em;
-font-size: 10pt;
-height: 100%;
-}
-h2, h3 {
-border-bottom:1px dotted #AAAAAA;
-padding-bottom:0.3em;
-margin-bottom: 3px;
-}
-h3, h4, h5 {
-font-size: 90%;
-margin-bottom: 2px;
-}
-a {
-color:white;
-cursor:pointer;
-text-decoration:underline;
-}
-p {
-margin-bottom: 1px;
-}
+<!--
 
-div.resource_group_header, div.downtime_group, div.group_header
-{
-background-color: #555;
-background: -moz-linear-gradient(center top , #777, #444) repeat scroll 0 0 #555;
-color: white;
-margin-bottom: 0.3em;
-margin-top: 0.5em;
-padding: 4px 8px 4px 8px;
-}
-#content div.resource_group_header a {
-color: white;
-padding-left:0px;
-background: none;
-}
+To add a map layer use create a key
 
-div.resource
-{
-padding: 2px;
-padding-left:20px;
-background:#ccc url(/static/images/server.png) no-repeat 2px 3px;
-min-height: 16px;
-margin-bottom: 5px;
-border: 1px solid #bbb;
-}
-div.h4
-{
-background-color: #ddd;
-font-weight: bold;
-font-size: 12px;
-}
-
-div.resource_group
-{
-padding-left:5px;
-padding-right:5px;
-}
-
-.round, .vo_report h4, .vo_report_fqan, .contact_info, .service_info
-{
--moz-border-radius-topleft: 4px;
--moz-border-radius-topright: 4px;
--moz-border-radius-bottomright: 4px;
--moz-border-radius-bottomleft: 4px;
--webkit-border-top-left-radius: 4px;
--webkit-border-top-right-radius: 4px;
--webkit-border-bottom-left-radius: 4px;
--webkit-border-bottom-right-radius: 4px;
-}
-
-span.h3
-{
-margin-bottom: 3px;
-font-weight: bold;
-font-size: 13px;
-}
-span.h4
-{
-margin-bottom: 3px;
-font-weight: bold;
-font-size: 12px;
-}
-
-</style>
-
-<!-- <link href="<?=fullbase()?>/css/html.css" rel="stylesheet" type="text/css" /> -->
-<script type='text/javascript' src='/static/js/jquery-1.8.1.min.js'></script>
-<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyBN3KAdtotBzRlw_CzohzisMgqNapTA7lE"></script>
-<script type="text/javascript" src="/static/js/html2canvas.min.js"></script>
-<script type="text/javascript">
-
-var map;
-var anchor;
-var marker_id = {};
-var infowindow = new google.maps.InfoWindow({maxWidth: 300});
-
-MapStyle = [
-  {
-    "featureType": "administrative.locality",
-    "elementType": "labels.text",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.province",
-    "elementType": "labels.text",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "landscape",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "landscape.natural",
-    "stylers": [
-      {
-        "lightness": 50
-      },
-      {
-        "visibility": "on"
-      }
-    ]
-  }
-];
+To add a view to this map you will want to Site.getMarker and
+will want to adjust the Map.data which populates the select input and legend.
 
 
-function update_anchor() {
-    var pos = map.getCenter();
-    var new_anchor ="#"+pos.toUrlValue()+"|"+map.getZoom()+"|"+map.getMapTypeId();
-    if(anchor != new_anchor) {
-        document.location.hash=pos.toUrlValue()+"|"+map.getZoom()+"|"+map.getMapTypeId();
-        anchor = new_anchor;
-    }
-    setTimeout("update_anchor()", 1000);
-}
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OSG Compute Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+       integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+       crossorigin=""/>
 
-function init(scrollwheel) {
-    //default
-    //var location = new google.maps.LatLng(38.61687,-96.767578);
-    var location = new google.maps.LatLng(29.22889,-90.08789);//show south americas
-    var zoom = 4;
-    var maptype = google.maps.MapTypeId.TERRAIN;
-    
-    //overrride with hash params
-    anchor = document.location.hash.split("#")[1];
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+       integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+       crossorigin=""></script>
 
-    if(anchor) {
-        var params = anchor.split("|");
-        var coords = params[0].split(",");
-        location = new google.maps.LatLng(coords[0], coords[1]);
-        zoom = parseInt(params[1]);
-        maptype = params[2];
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js" integrity="sha512-wUa0ktp10dgVVhWdRVfcUO4vHS0ryT42WOEcXjVVF2+2rcYBKTY7Yx7JCEzjWgPV+rj2EDUr8TwsoWF6IoIOPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        body {margin: 0;}
+
+        #map { height: 100vh; width: 100vw; }
+
+        #full-screen {
+        padding: 8px;
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        z-index: 1000;
+        border-radius: 5px;
+        border: #3a3a3a solid 1px;
     }
 
-    //create map
-    map = new google.maps.Map(document.getElementById('map_canvas'), {
-        scrollwheel: scrollwheel,
-        center: location,
-        zoom: zoom,
-        mapTypeControl: false,
-        mapTypeId: maptype
-    });
-
-    map.setOptions({ styles: MapStyle})
-
-
-    //setup listeners
-    setTimeout("update_anchor()", 1000);//don't hook centerre_changed event.. it fires too often now
-
-    /* 
-    "CE" - C
-    "Squid" - D
-    "SRMv2" - D
-    "net.perfSONAR.Bandwidth" - N
-    "net.perfSONAR.Latency" - N
-    "Submit Node" - C
-    "XRootD cache server" - D
-    "GridFtp" - D
-    "XRootD component" - D
-    "XRootD origin server" - D
-    "Connect" - C
-    "SRMv1" - D
-    "LFC" - D
-    "GUMS Server" - C
-    "Glidein factory" - C
-    "VOMS Server" - C
-    "Apache Server" - D
-    "FTS" - D
-    */
-    var compute_services = new Array("CE", "Submit Node", "Connect", "GUMS Server", "Glidein factory", "VOMS Server");
-    var storage_services = new Array("Squid", "SRMv2", "XRootD cache server", "GridFtp", "XRootD component", "XRootD origin server", "SRMv1", "LFC", "Apache Server", "FTS");
-    var network_services = new Array("net.perfSONAR.Bandwidth", "net.perfSONAR.Latency");
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const queryView = urlParams.get('view');
-    if (queryView != null) {
-        $("#view option[value='"+queryView+"']").attr("selected", "selected");
-    }
-    
-    var sites = {};
-    {% for resourcegroup in resourcegroups %}
-    {% if "Latitude" in resourcegroup["Site"] and "Longitude" in resourcegroup["Site"] and resourcegroup["Disable"] != True %}
-    
-    var curSite = "{{ resourcegroup['Site']['Name'] }}";
-    // Add each resource group to the site
-    if (!(curSite in sites)) {
-        sites[curSite] = [ {{ resourcegroup["Site"]["Latitude"] }},
-                           {{ resourcegroup["Site"]["Longitude"] }},
-                           "{{ resourcegroup["Facility"]["Name"] }}",
-                            Array(),
-                            {isCompute: false, isStorage: false, isNetwork: false, isEdu: false, isCCStar: false, isXrootdOrigin: false, isXrootdCache: false} ]
-    }
-    
-    var resourceGroup = {};
-    resourceGroup["Name"] = "{{ resourcegroup['GroupName'] }}"
-    resourceGroup["Resources"] = Array()
-    
-    {% for resource in resourcegroup['Resources']['Resource'] %}
-    resourceGroup["Resources"].push("{{ resource['Name'] }}");
-    // Check for edu in the FQDN
-    var resourceFQDN = "{{ resource['FQDN'] }}";
-    if (resourceFQDN.endsWith(".edu")) {
-        sites[curSite][4].isEdu = true;
-    }
-
-    {% if 'Tags' in resource and resource['Tags'] != None %}
-    {% for tag in resource['Tags'] %}
-    tag = "{{ tag['Tag'] }}"
-    if (tag == "CC*") {
-        sites[curSite][4].isCCStar = true;
-    }
-    {% endfor %}
-    {% endif %}
-    
-    {% for service in resource['Services']['Service'] %}
-    // {{ service }}
-    // {{ service["ID"] }}
-    // {{ service["Description"] }}
-    serviceName = "{{ service['Name'] }}"
-    if (compute_services.includes(serviceName)) {
-        sites[curSite][4].isCompute = true;
-    } else if (storage_services.includes(serviceName)) {
-        sites[curSite][4].isStorage = true;
-    } else if (network_services.includes(serviceName)) {
-        sites[curSite][4].isNetwork = true;
-    }
-
-    if (serviceName == "XRootD cache server") {
-        sites[curSite][4].isXrootdCache = true;
-    } else if (serviceName == "XRootD origin server") {
-        sites[curSite][4].isXrootdOrigin = true;
-    }
-    {% endfor %}
-    {% endfor %}
-    
-    
-    sites[curSite][3].push(resourceGroup);
-    
-    {% endif %}
-    {% endfor %}
-    {% set counter = 0 %}
-    //add sites
-
-
-
-    var counter = 0;
-    for (site in sites) {
-        var resourceCounter = 0;
-        // Build the site
-        var html = '<h2>' + sites[site][2] + '</h2><div style=\"overflow: auto; max-height: 300px; width: 100%;\">';
-        for (var i = 0; i < sites[site][3].length; i++) {
-            resourcegroup = sites[site][3][i];
-            html += "<div class=\"resource_group_header round\"><span class=\"h3\">Resource Group: " + resourcegroup["Name"] + "</span></div>";
-            resourceCounter += resourcegroup["Resources"].length;
-            for (var a = 0; a < resourcegroup["Resources"].length; a++) {
-                resource = resourcegroup["Resources"][a];
-                html += "<div class=\"resource round\" style=\"margin-bottom: 0;\"><span class=\"h4\">" + resource + "</span></div>";
-                
-            }
+        #full-screen > img {
+            height: 24px;
+            width: 24px;
         }
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(sites[site][0], sites[site][1]),
-            map: map,
-            zIndex: resourceCounter,
-            title: sites[site][2]
-        });
 
-        setInfoWindow(counter, marker, html);
-        marker_id[counter] = {marker: marker, site: sites[site]};
-        $("#site").append("<option value='" + counter + "'>" + site + "</option>");
-        counter += 1;
+        #selection-container {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+
+        #legend {
+            position: absolute;
+            background-color: white;
+            padding: 8px;
+            bottom: 20px;
+            right: 10px;
+            z-index: 1000;
+            border-radius: 5px;
+            border: #3a3a3a solid 1px;
+        }
+
+        .select-container {
+            border-radius: 5px;
+            border: #3a3a3a solid 1px;
+            background: white;
+            margin-left: auto;
+            margin-bottom: 5px;
+        }
+
+        .select-container > label {
+            background: white;
+            padding-left: 8px;
+            font-size: 1rem;
+            color: #3a3a3a;
+        }
+
+        .select-container > select {
+            padding: 8px;
+            font-size: 1rem;
+            border: 0;
+        }
+
+        .popup {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .entry-container {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .entry-container > img {
+            height: 36px;
+            width: 27px;
+        }
+
+        .entry-container > span {
+            font-size: 1rem;
+            margin: auto 0;
+            padding-left: 10px;
+        }
+
+        .card-header {
+            margin: 0;
+        }
+
+        .resource-group-header {
+            border-radius: 5px;
+            background: #3a3a3a;
+            color: #dddddd;
+            padding: 6px;
+            margin: 10px 0 0 0;
+        }
+
+        .resource-container {
+            border: 1px solid #ccc;
+            padding: 6px;
+            border-radius: 4px;
+            margin: 1px 0;
+            display: flex;
+        }
+
+        .resource-container > img {
+            height: 16px;
+            width: 16px;
+        }
+
+        .resource-container > span {
+            padding-left: 8px;
+        }
+
+        #print-button {
+            background: white;
+            position: absolute;
+            top: 10px;
+            left: 55px;
+            padding: 6px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: #3a3a3a solid 1px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <main id="main">
+        <div id="print-region">
+            <div id="map"></div>
+            <div id="legend" class="leaflet-container" hidden>
+                <h2 class="card-header">Legend</h2>
+                <hr>
+                <div id="legend-items"></div>
+            </div>
+        </div>
+
+        <button id="full-screen" onclick="toggleFullscreen()"><img alt="Outward arrows towards corners of square" src="../static/images/map/arrows-fullscreen.svg"/></button>
+
+        <button id="print-button" onclick="downloadPNG()">Print as PNG</button>
+
+        <div id="selection-container">
+            <div id="site-container" class="leaflet-container select-container">
+                <label for="site">Site</label>
+                <select id="site"></select>
+            </div>
+            <div id="view-container" class="leaflet-container select-container">
+                <label for="view">View</label>
+                <select id="view"></select>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    const compute_services = new Set(["CE", "Submit Node", "Connect", "GUMS Server", "Glidein factory", "VOMS Server"]);
+    const storage_services = new Set(["Squid", "SRMv2", "XRootD cache server", "GridFtp", "XRootD component", "XRootD origin server", "SRMv1", "LFC", "Apache Server", "FTS"]);
+    const network_services = new Set(["net.perfSONAR.Bandwidth", "net.perfSONAR.Latency"]);
+    const ospool_facilities = new Set(['American Museum of Natural History', 'Arizona State University', 'Brookhaven National Laboratory', 'California Institute of Technology', 'Cinvestav', 'Clarkson University', 'Clemson University', 'Cybera', 'Fermi National Accelerator Laboratory', 'Florida State University', 'Georgia Institute of Technology', 'Georgia State University', 'Great Plains Network', 'IN2P3', 'INFN-T1', 'Illinois Institute of Technology', 'Indiana University', 'Kansas State University', 'Lancium', 'Lehigh University', 'Louisiana State University', 'Louisiana State University Health Sciences Center', 'New Mexico State University', 'Nikhef', 'North Dakota State University', 'Old Dominion University', 'Purdue University', 'Rice University', 'SURFsara', 'Southern Illinois University Edwardsville', 'Syracuse University', 'The College of New Jersey', 'Tufts University', 'Universidade Estadual Paulista', 'University of California San Diego', 'University of Chicago', 'University of Colorado', 'University of Connecticut', 'University of Illinois at Urbana Champaign', 'University of Michigan', 'University of Mississippi', 'University of Nebraska', 'University of Notre Dame', 'University of Oklahoma', 'University of Puerto Rico - Mayaguez', 'University of South Florida', 'University of Southern California', 'University of Tennessee Chattanooga', 'University of Texas at Austin', 'University of Utah', 'University of Wisconsin', 'Villanova University', 'Wayne State University', 'West Texas A&M University'])
+
+    const iconConfig = {
+        iconSize: [36,36],
+        iconAnchor: [18, 36],
+        popupAnchor: [0,-36],
+        shadowUrl: "/static/images/map/small_shadow.svg",
+        shadowAnchor: [12,30],
+        shadowSize: [24,24]
     }
 
-    // Act like the view changed
-    viewChange(queryView);
-    
-    $("#site").change(function() {
-            var id = $(this).val();
-            var marker = marker_id[id].marker;
-            if(marker) {
-                google.maps.event.trigger(marker, 'click');
+    const originIcon = L.icon({iconUrl: "/static/images/map/origin.svg", ...iconConfig})
+    const cacheIcon = L.icon({iconUrl: "/static/images/map/cache.svg", ...iconConfig})
+    const blueStarIcon = L.icon({iconUrl: "/static/images/map/star_blue.svg", ...iconConfig})
+    const redStarIcon = L.icon({iconUrl: "/static/images/map/star_red.svg", ...iconConfig})
+    const greenStarIcon = L.icon({iconUrl: "/static/images/map/star_green.svg", ...iconConfig})
+    const purpleStarIcon = L.icon({iconUrl: "/static/images/map/star_purple.svg", ...iconConfig})
+    const cacheAndOriginIcon = L.icon({
+        iconUrl: "/static/images/map/cache_and_origin.svg",
+        iconSize: [42,42],
+        iconAnchor: [21, 42],
+        popupAnchor: [0, -42],
+        shadowUrl: "/static/images/map/large_shadow.svg",
+        shadowAnchor: [12,30],
+        shadowSize: [24,24]
+    })
+
+    downloadPNG = async () => {
+        document.getElementsByClassName("leaflet-control-zoom")[0].hidden = true
+
+        let dataUrl = await domtoimage.toPng(document.getElementById("print-region"))
+
+        let link = document.createElement('a');
+        link.download = 'OSG_Map.png';
+        link.href = dataUrl;
+        link.click();
+
+        document.getElementsByClassName("leaflet-control-zoom")[0].hidden = false
+    }
+
+    toggleFullscreen = async () => {
+        document.getElementById("main").requestFullscreen()
+    }
+
+    class Site {
+
+        constructor({
+            Resources: { Resource : resources },
+            Site: { Latitude, Longitude, Name : siteName },
+            Facility: { Name: facilityName },
+            GroupName: resourceGroupName
+        }) {
+            this.resourceGroups = {}
+            this.resourceGroups[resourceGroupName] = resources
+            this.resources = resources
+            this.latitude = Latitude
+            this.longitude = Longitude
+            this.name = name
+            this.facilityName = facilityName
+            this.siteName = siteName
+        }
+
+        addResourceGroup({
+            Resources: { Resource : resources },
+            GroupName: resourceGroupName
+        }) {
+            this.resourceGroups[resourceGroupName] = resources
+        }
+
+        getMarker(view) {
+            let icon;
+
+            if(view === "ComputevsStorage"){
+                if(this.isCompute && this.isStorage){
+                    icon = greenStarIcon
+                } else if(this.isCompute){
+                    icon = blueStarIcon
+                } else if(this.isStorage){
+                    icon = purpleStarIcon
+                }
+
+            } else if(view === "EduvsOther"){
+                if(this.isEDU){
+                    icon = blueStarIcon
+                } else {
+                    icon = greenStarIcon
+                }
+
+            } else if(view === "CCStar"){
+                if(this.isCCStar){
+                    icon = redStarIcon
+                }
+
+            } else if(view === "XRootD") {
+                if (this.isXrootdOrigin && this.isXrootdCache) {
+                    icon = cacheAndOriginIcon
+                } else if (this.isXrootdOrigin) {
+                    icon = originIcon
+                } else if (this.isXrootdCache) {
+                    icon = cacheIcon
+                }
+
+            } else if(view === "OSPool"){
+                if (this.isOSPool){
+                    icon = greenStarIcon
+                }
+
             } else {
-                infowindow.close();
+                icon = greenStarIcon
             }
-    });
 
-    $("#view").change(function() {
-        var view = $(this).val();
-        viewChange(view);
-    });
-    
-    google.maps.event.addListener(infowindow, 'closeclick', function() {
-        $("#site option[value=]").attr("selected", "selected");
-    });
-
-}
-
-function viewChange(view) {
-    
-    // Icons so we can set the anchor as the middle of the image, rather than
-    // the default of the bottom middle.
-    // You have to change these values if you change the size of the file!
-    const star_blue = {
-        url: '/static/images/star_blue.png',
-        size: new google.maps.Size(16, 16),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(8, 8)
-    };
-    const star_green = {
-        url: '/static/images/star_green.png',
-        size: new google.maps.Size(16, 16),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(8, 8)
-    };
-    const star_purple = {
-        url: '/static/images/star_purple.png',
-        size: new google.maps.Size(16, 16),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(8, 8)
-    };
-    const status_green_map = {
-        url: '/static/images/status_green_map.png',
-        size: new google.maps.Size(20, 20),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(10, 10)
-    };
-    const star_red_bigger = {
-        url: '/static/images/star_red_bigger.png',
-        size: new google.maps.Size(24, 24),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(12, 12)
-    };
-    const xrootd_cache = {
-        url: '/static/images/XRootDCache.png',
-        scaledSize: new google.maps.Size(30, 34),
-        origin: new google.maps.Point(0, 0)
-    };
-    const xrootd_origin = {
-        url: '/static/images/XRootDOrigin.png',
-        scaledSize: new google.maps.Size(30, 34),
-        origin: new google.maps.Point(0, 0)
-    };
-    const xrootd_cache_origin = {
-        url: '/static/images/XRootDCacheAndOrigin.png',
-        scaledSize: new google.maps.Size(30, 34),
-        origin: new google.maps.Point(0, 0)
-    };
-
-
-    for (const [key, value] of Object.entries(marker_id)) {
-        // Initially add all markers to the map
-        value.marker.setMap(map);
-        if (view == "EduvsOther") {
-            // Edu = blue
-            // Other = green
-            if ((value.site[4].isEdu == false)) {
-                value.marker.setIcon(star_green);
-            } else {
-                value.marker.setIcon(star_blue);
+            if(!icon){
+                return null
             }
-        } else if (view =="ComputevsStorage") {
-            // storage vs compute
-            // Compute - Blue
-            // Storage - Purple
-            // Compute + Storage = Green
-            if ((value.site[4].isCompute == false) && (value.site[4].isStorage == true)) {
-                value.marker.setIcon(star_purple);
-            } else if ((value.site[4].isCompute == true) && (value.site[4].isStorage == true)){
-                value.marker.setIcon(star_green);
-            } else {
-                value.marker.setIcon(star_blue);
+
+            this.marker = L.marker([this.latitude, this.longitude], {icon: icon}).bindPopup(this.displayHTML);
+            this.marker.site = this
+
+            this.popup = this.marker.getPopup()
+            this.popup.site = this
+
+            return this.marker
+        }
+
+        get services() {
+            if( !this._services ){
+                this._services = this.resources.flatMap( resource => resource?.Services?.Service ? resource?.Services?.Service : [] )
             }
-        } else if (view == "CCStar") {
-            if (value.site[4].isCCStar == true) {
-                value.marker.setIcon(star_red_bigger);
-            } else {
-                // Remove the marker from the map if it's not ccstar
-                value.marker.setMap(null);
+            return this._services
+        }
+
+        get displayHTML() {
+            let container = document.createElement("div")
+            container.classList.add("popup")
+
+            let header = document.createElement("h4")
+            header.textContent = this.facilityName
+            header.classList.add("card-header")
+            container.appendChild(header)
+
+            container.appendChild(document.createElement("hr"))
+
+            for(const [resourceGroupName, resourceGroupResources] of Object.entries(this.resourceGroups)){
+                let resourceGroupNode = document.createElement("h4")
+                resourceGroupNode.innerText = "Resource Group: " + resourceGroupName
+                resourceGroupNode.classList.add("resource-group-header")
+                container.appendChild(resourceGroupNode)
+
+                for(const resource of resourceGroupResources){
+                    let resourceContainerNode = document.createElement("div")
+                    resourceContainerNode.classList.add("resource-container")
+
+                    let imgNode = document.createElement("img")
+                    imgNode.src = "/static/images/map/server_simple.svg"
+                    imgNode.alt = "Image of Server"
+
+                    let resourceNode = document.createElement("span")
+                    resourceNode.innerText = resource?.Name
+                    resourceNode.classList.add("resource-header")
+
+                    resourceContainerNode.appendChild(imgNode)
+                    resourceContainerNode.appendChild(resourceNode)
+
+                    container.appendChild(resourceContainerNode)
+                }
             }
-        } else if (view == "XRootD") {
-            if (value.site[4].isXrootdCache && value.site[4].isXrootdOrigin) {
-                value.marker.setIcon(xrootd_cache_origin);
-            } else if (value.site[4].isXrootdCache == true) {
-                value.marker.setIcon(xrootd_cache);
-            } else if (value.site[4].isXrootdOrigin == true) {
-                value.marker.setIcon(xrootd_origin);
-            } else {
-                // Remove the marker from the map if it's not a Cache/Origin
-                value.marker.setMap(null);
+
+            return container
+        }
+
+        get isCCStar() {
+            if( !this._isCCStar ){
+                this._isCCStar = this.resources.flatMap( resource => resource?.Tags?.Tag ? resource?.Tags?.Tag : [] )
+                    .some(tags => tags.includes("CC*"))
             }
-        } else {
-            // Default is green dots
-            value.marker.setIcon(status_green_map);
+            return this._isCCStar
+        }
+
+        get isEDU() {
+            if( !this._isEDU ){
+                this._isEDU = this.resources.some(({FQDN}) => FQDN.endsWith(".edu"))
+            }
+            return this._isEDU
+        }
+
+        get isCompute() {
+            if( !this._isCompute ){
+                this._isCompute = this.services.some(({Name: name}) => compute_services.has(name))
+            }
+            return this._isCompute
+        }
+
+        get isStorage() {
+            if( !this._isStorage ){
+                this._isStorage = this.services.some(({Name: name}) => storage_services.has(name))
+            }
+            return this._isStorage
+        }
+
+        get isNetwork() {
+            if (!this._isNetwork) {
+                this._isNetwork = this.services.some(({Name: name}) => network_services.has(name))
+            }
+            return this._isNetwork
+        }
+
+        get isXrootdCache() {
+            if( !this._isXrootdCache ){
+                this._isXrootdCache = this.services.some(({Name: name}) => name === "XRootD cache server")
+            }
+            return this._isXrootdCache
+        }
+
+        get isXrootdOrigin(){
+            if( !this._isXrootdOrigin ){
+                this._isXrootdOrigin = this.services.some(({Name: name}) => name === "XRootD origin server")
+            }
+            return this._isXrootdOrigin
+        }
+
+        get isOSPool(){
+            if( !this._isOSPool ){
+                this._isOSPool = ospool_facilities.has(this.facilityName )
+            }
+            return this._isOSPool
         }
     }
-    var legend = null;
-    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].pop();
-    // Hide all the legends
-    $(".legend").hide();
 
-    if (view == "EduvsOther") {
-        legend = $("#legend_edu").clone();
-        window.history.replaceState('', '', UpdateQueryString("view", "EduvsOther"));
-    } else if (view =="ComputevsStorage") {
-        legend = $("#legend_compute").clone();
-        window.history.replaceState('', '', UpdateQueryString("view", "ComputevsStorage"));
-    } else if (view == "CCStar") {
-        legend = $("#legend_ccstar").clone();
-        window.history.replaceState('', '', UpdateQueryString("view", "CCStar"));
-    } else if (view == "XRootD") {
-        legend = $("#legend_xrootd").clone();
-        window.history.replaceState('', '', UpdateQueryString("view", "XRootD"));
-    } else {
-        legend = $("#legend_default").clone();
-        window.history.replaceState('', '', UpdateQueryString("view", ""));
-    }
-    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend[0]);
-    $(legend[0]).show();
-}
+    class Map {
 
-function export_to_png() {
-    // Hide all the controls
-    $('.controls').each(function(i, obj) {
-        $(obj).hide();
-    });
+        constructor() {
 
-    // Hide the Map controls
-    var options = {'disableDefaultUI': true}
-    map.setOptions(options);
+            // Defaults
+            let latitude = 38.96
+            let longitude = -92.37
+            let zoom = 4
 
-    // Have to use setTimeout so that the map can process the update to the options.
-    // Notice, the setTimeout is set to 0, so this just calls the function as fast as possible
-    setTimeout(function() {
-        html2canvas(document.body, {useCORS:true, logging:true}).then(function(canvas) {
-        var img =canvas.toDataURL("image/png,1.0");
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = img;
-        // filename
-        a.download = 'OSG Map';
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(img);
-
-        // Show the controls back
-        $('.controls').each(function(i, obj) {
-            $(obj).show();
-        });
-        options = {'disableDefaultUI': false}
-        map.setOptions(options);
-    });
-
-    }, 0);
-}
-
-function setInfoWindow(id,marker, content) {
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.close();
-        infowindow.setContent(content);
-        infowindow.open(map, marker);
-        if(id != null) {
-            $("#site option[value='"+id+"']").attr("selected", "selected");
-        }
-    });
-}
-
-// https://stackoverflow.com/questions/5999118/how-can-i-add-or-update-a-query-string-parameter
-function UpdateQueryString(key, value, url) {
-    if (!url) url = window.location.href;
-    var re = new RegExp("([?&])" + key + "=.*?(&|#|$)(.*)", "gi"),
-        hash;
-
-    if (re.test(url)) {
-        if (typeof value !== 'undefined' && value !== null) {
-            return url.replace(re, '$1' + key + "=" + value + '$2$3');
-        } 
-        else {
-            hash = url.split('#');
-            url = hash[0].replace(re, '$1$3').replace(/(&|\?)$/, '');
-            if (typeof hash[1] !== 'undefined' && hash[1] !== null) {
-                url += '#' + hash[1];
+            // Check for zoom and location inputs
+            if(window.location.hash){
+                let viewportComponents = window.location.hash.split("#")[1].split("|");
+                [latitude, longitude] = viewportComponents[0].split(',')
+                zoom = viewportComponents[1]
             }
-            return url;
-        }
-    }
-    else {
-        if (typeof value !== 'undefined' && value !== null) {
-            var separator = url.indexOf('?') !== -1 ? '&' : '?';
-            hash = url.split('#');
-            url = hash[0] + separator + key + '=' + value;
-            if (typeof hash[1] !== 'undefined' && hash[1] !== null) {
-                url += '#' + hash[1];
-            }
-            return url;
-        }
-        else {
-            return url;
-        }
-    }
-}
 
-$(document).ready(function() {
-    init(false);//scroll wheel -- off
-});
+            // Initialize the map
+            this.map = L.map('map').setView([latitude, longitude], zoom);
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                accessToken: 'pk.eyJ1IjoidGFraW5nZHJha2UiLCJhIjoiY2wya3IyZGNvMDFyOTNsbnhyZjBteHRycSJ9.g6tRaqN8_iJxHgAQKNP6Tw'
+            }).addTo(this.map);
+
+            // Initialize the legend nodes
+            this.legendNode = document.getElementById("legend")
+            this.legendItemsNode = document.getElementById("legend-items")
+        }
+
+        _updateLegend(legend) {
+            this.legendNode.hidden = false
+
+            while (this.legendItemsNode.firstChild) {
+                this.legendItemsNode.removeChild(this.legendItemsNode.firstChild)
+            }
+
+            Object.entries(legend).forEach(([key, value]) => {
+                let entryContainerNode = document.createElement("div")
+                entryContainerNode.classList.add("entry-container")
+                this.legendItemsNode.appendChild(entryContainerNode)
+
+                let imgNode = document.createElement("img")
+                let labelNode = document.createElement("span")
+                entryContainerNode.appendChild(imgNode)
+                entryContainerNode.appendChild(labelNode)
+
+                imgNode.src = value
+                imgNode.alt = "Icon for " + key
+
+                labelNode.innerText = key
+            })
+
+            this.legendNode.hidden = false
+        }
+
+        _updateLayer(layer) {
+            // Remove previous layer
+            if (this.currentLayer) {
+                this.map.removeLayer(this.currentLayer)
+            }
+
+            // Update to new layer
+            this.currentLayer = layer
+            this.currentLayer.addTo(this.map)
+        }
+
+        update(layer, legend) {
+            this._updateLayer(layer)
+            this._updateLegend(legend)
+        }
+    }
+
+    class Select {
+        constructor(id) {
+            this.node = document.getElementById(id)
+        }
+
+        addOptions(options) {
+            // Remove previous options
+            while(this.node.firstChild){
+                this.node.removeChild(this.node.firstChild)
+            }
+            // Add new options
+            options.forEach(([value, text]) => {
+                let optionNode = document.createElement("option")
+                optionNode.value = value
+                optionNode.innerText = text
+                this.node.appendChild(optionNode)
+            })
+        }
+    }
+
+
+    class SitemapPage {
+
+        constructor() {
+            this.fetchSites()
+
+            this.metaData = {
+                "OSGSites" : {
+                    "longText" : "OSG Sites",
+                    "legend" : {
+                        "OSG Site": greenStarIcon?.options?.iconUrl,
+                    }
+                },
+                "ComputevsStorage" : {
+                    "longText" : "Compute and Storage",
+                    "legend" : {
+                        "Compute Only": blueStarIcon?.options?.iconUrl,
+                        "Storage Only": purpleStarIcon?.options?.iconUrl,
+                        "Compute And Storage": greenStarIcon?.options?.iconUrl,
+                    }
+                },
+                "EduvsOther" : {
+                    "longText" : "EDU sites and others",
+                    "legend" : {
+                        "EDU Site": blueStarIcon?.options?.iconUrl,
+                        "Others": greenStarIcon?.options?.iconUrl,
+                    }
+                },
+                "CCStar" : {
+                    "longText" : "CC* Sites",
+                    "legend" : {
+                        "CC* Site": redStarIcon?.options?.iconUrl
+                    }
+                },
+                "XRootD" : {
+                    "longText" : "XRootD",
+                    "legend" : {
+                        "Origin": originIcon?.options?.iconUrl,
+                        "Cache": cacheIcon?.options?.iconUrl,
+                        "Cache and Origin": cacheAndOriginIcon?.options?.iconUrl,
+                    }
+                },
+                "OSPool" : {
+                    "longText" : "OSPool Contributors",
+                    "legend" : {
+                        "OSPool Contributor" : greenStarIcon?.options?.iconUrl
+                    }
+                }
+            }
+
+            this.leafletMap = new Map()
+            this.leafletMap.map.on("popupopen", (e) => {
+                this.siteSelect.value = e.popup.site.siteName
+            })
+
+            this.viewSelect = new Select("view")
+            this.viewSelect.addOptions(
+                Object.entries(this.metaData).map(([key, value]) => [key, value?.longText])
+            )
+            this.viewSelect.node.value = this.view
+            this.viewSelect.node.addEventListener("change", () => {
+                history.pushState({"data": "data"}, "", "/map/iframe?view=" + this.viewSelect.node.value)
+                this.update()
+            })
+
+            this.siteSelect = new Select("site")
+            this.siteSelect.node.addEventListener("change", () => {
+                this.sites[this.siteSelect.node.value].marker.openPopup()
+            })
+
+            this.layers = {}
+        }
+
+        get view() {
+            let searchParams = new URLSearchParams(window.location.search);
+            return searchParams.get("view") ? searchParams.get("view") : "OSGSites"
+        }
+
+        get layer(){
+            if( !(this.view in this.layers) ){
+                this.layers[this.view] = L.layerGroup(this.markers)
+            }
+            return this.layers[this.view]
+        }
+
+        get markers() {
+            return Object.entries(this.sites).map(([name, site]) => site.getMarker(this.view)).filter(icon => icon !== null)
+        }
+
+        update() {
+            this.siteSelect.addOptions(
+                Object.values(this.layer._layers).map(({ site })=> [site.siteName, site.siteName])
+            )
+            this.leafletMap.update(this.layer, this.metaData[this.view].legend)
+        }
+
+        async fetchSites() {
+            let response = await fetch("/api/resource_group_summary")
+            let resourceGroupJson = await response.json()
+
+            let sites = {}
+            Object.entries(resourceGroupJson).forEach(([key, value]) => {
+                if(value?.Site?.Name in sites){
+                    sites[value?.Site?.Name].addResourceGroup(value)
+                } else {
+                    sites[value?.Site?.Name] = new Site(value)
+                }
+            })
+
+            this.sites = sites
+            this.update()
+        }
+    }
+
+    const page = new SitemapPage()
 </script>
-
-<style>
-#map_canvas {
-width: 100%;
-height: 600px;
-font-size: 10px;
-}
-/*shrink the font size slightly*/
-#map_canvas h2 {
-font-size: 12px;
-}
-#map_canvas span.h3, #map_canvas span.h4 {
-font-size: 10px;
-}
-#map_canvas .resource_group_header {
-padding: 2px 4px;
-}
-#map_canvas .resource {
-padding-top: 3px;
-padding-bottom: 0px;
-background-position: 2px 1px;
-}
-#map_control {
-float: right;
-right: 3px;
-top: 3px;
-position: absolute;
-z-index: 1;
-background-color: white;
-color: #666;
-box-shadow: 1px 1px 5px #333;
-}
-
-#view_control {
-float: left;
-left: 3px;
-top: 3px;
-position: absolute;
-z-index: 1;
-background-color: white;
-color: #666;
-box-shadow: 1px 1px 5px #333;
-}
-
-#print_screen {
-float: left;
-left: 3px;
-top: 2em;
-position: absolute;
-z-index: 1;
-}
-
-#print_screen>button {
-padding: 4px;
-}
-
-.legend {
-    /* font-family: Arial, sans-serif; */
-    background: #fff;
-    padding: 10px;
-    margin: 10px;
-    border: 3px solid #000;
-}
-.legend>div {
-    display: -webkit-flexbox;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    margin-bottom: 0.5em;
-    /*
-    -webkit-flex-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    justify-content: center;
-    */
-  }
-  .legend>div>img {
-    margin-right: 0.5em;
-  }
+</html>
 
 
-</style>
-<div style="position: relative; height: 100%;">
-<div id="map_control" class="controls">&nbsp;Site&nbsp;&nbsp;<select id="site" style="border: none;">
-    <option value="">(None)</option>
-    </select>
-</div>
 
-<div id="view_control" class="controls">&nbsp;View&nbsp;&nbsp;<select id="view" style="border: none;">
-    <option value="OSGSites">OSG Sites (default)</option>
-    <option value="ComputevsStorage">Compute and Storage</option>
-    <option value="EduvsOther">EDU sites and others</option>
-    <option value="CCStar">CC* Sites</option>
-    <option value="XRootD">Data Federation Sites</option>
-    </select>
-</div>
-<div id="print_screen" class="controls">
-    <button type="button" onclick="export_to_png()">Save Screen as PNG</button>
-</div>
-<div id="map_canvas"></div>
-<div id="legend_compute" class="legend" style="display: none"><h2>Legend</h2>
-    <div><img src="/static/images/star_blue.png">Compute Only</div>
-    <div><img src="/static/images/star_purple.png">Storage Only</div>
-    <div><img src="/static/images/star_green.png">Compute and Storage</div>
-</div>
-<div id="legend_edu" class="legend" style="display: none"><h2>Legend</h2>
-    <div><img src="/static/images/star_blue.png">EDU Site</div>
-    <div><img src="/static/images/star_green.png">Others</div>
-</div>
-<div id="legend_default" class="legend" style="display: none"><h2>Legend</h2>
-    <div><img src="/static/images/status_green_map.png">OSG Site</div>
-</div>
-<div id="legend_ccstar" class="legend" style="display: none"><h2>Legend</h2>
-    <div><img src="/static/images/star_red_bigger.png">CC* Site</div>
-</div>
-<div id="legend_xrootd" class="legend" style="display: none"><h2>Legend</h2>
-    <div><img width="30" height="34" src="/static/images/XRootDOrigin.png">Origin</div>
-    <div><img width="30" height="34" src="/static/images/XRootDCache.png">Cache</div>
-    <div><img width="30" height="34" src="/static/images/XRootDCacheAndOrigin.png">Cache &#38; Origin</div>
-</div>
-</div>
 
-<style>
-#map_canvas {
-height: 100%;
-}
-</style>

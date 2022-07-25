@@ -644,4 +644,86 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1019882440
+  Description: Kernel reboots
+  Severity: Intermittent Outage
+  StartTime: Nov 17, 2021 14:00 +0000
+  EndTime: Nov 17, 2021 18:00 +0000
+  CreatedTime: Nov 15, 2021 14:57 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1019883145
+  Description: Kernel reboots
+  Severity: Intermittent Outage
+  StartTime: Nov 17, 2021 14:00 +0000
+  EndTime: Nov 17, 2021 18:00 +0000
+  CreatedTime: Nov 15, 2021 14:58 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1104533281
+  Description: Tape library only -- recalls delayed, dCache stays up.
+  Severity: Intermittent Outage
+  StartTime: Feb 24, 2022 14:00 +0000
+  EndTime: Feb 24, 2022 23:00 +0000
+  CreatedTime: Feb 21, 2022 14:22 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1128757830
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Mar 22, 2022 13:00 +0000
+  EndTime: Mar 22, 2022 21:00 +0000
+  CreatedTime: Mar 21, 2022 15:16 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1146755152
+  Description: dCache upgrade
+  Severity: Intermittent Outage
+  StartTime: Apr 12, 2022 13:00 +0000
+  EndTime: Apr 12, 2022 22:00 +0000
+  CreatedTime: Apr 11, 2022 11:11 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1201294319
+  Description: OSG 3.5 to 3.6 transition
+  Severity: Intermittent Outage
+  StartTime: Jun 15, 2022 13:00 +0000
+  EndTime: Jun 15, 2022 22:00 +0000
+  CreatedTime: Jun 13, 2022 12:10 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1201294914
+  Description: OSG 3.5 to 3.6 transition
+  Severity: Intermittent Outage
+  StartTime: Jun 15, 2022 13:00 +0000
+  EndTime: Jun 15, 2022 22:00 +0000
+  CreatedTime: Jun 13, 2022 12:11 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+
 

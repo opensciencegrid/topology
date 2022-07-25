@@ -12,20 +12,6 @@ Resources:
         Secondary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
-      Miscellaneous Contact:
-        Primary:
-          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
-          Name: Yutaro Iiyama
-        Secondary:
-          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
-          Name: Max Goncharov
-      Resource Report Contact:
-        Primary:
-          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
-          Name: Yutaro Iiyama
-        Secondary:
-          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
-          Name: Max Goncharov
       Security Contact:
         Primary:
           ID: 0b8178c9919fc227c551be02f6dc008c040926d6
@@ -68,6 +54,44 @@ Resources:
         Secondary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
+      Security Contact:
+        Primary:
+          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
+          Name: Yutaro Iiyama
+        Secondary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
+    Description: US CMS Tier-3 storage element at MIT.
+    FQDN: t3serv006.mit.edu
+    ID: 535
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T3_US_MIT
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 250
+      StorageCapacityMin: 250
+  MIT_CMS_T2_Tape-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 0b8178c9919fc227c551be02f6dc008c040926d6
+          Name: Yutaro Iiyama
+        Secondary:
+          ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
+          Name: Max Goncharov
       Miscellaneous Contact:
         Primary:
           ID: 0b8178c9919fc227c551be02f6dc008c040926d6
@@ -89,9 +113,9 @@ Resources:
         Secondary:
           ID: 667a4c2f6e4ea3c84542b50ff05c91cf17bc4980
           Name: Max Goncharov
-    Description: US CMS Tier-3 storage element at MIT.
-    FQDN: t3serv006.mit.edu
-    ID: 535
+    Description: US CMS Tier-2 Tape storage element at MIT.
+    FQDN: tapesrmcms.nese.rc.fas.harvard.edu
+    ID: 1251
     Services:
       SRMv2:
         Description: SRM V2 Storage Element
@@ -101,7 +125,7 @@ Resources:
       CMS: 100
     WLCGInformation:
       APELNormalFactor: 0
-      AccountingName: T3_US_MIT
+      AccountingName: T2_US_MIT_Tape
       HEPSPEC: 0
       InteropAccounting: false
       InteropBDII: true

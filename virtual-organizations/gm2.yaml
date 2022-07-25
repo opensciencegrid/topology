@@ -3,6 +3,12 @@ AppDescription: The purpose of the experiment is to measure the muon anomalous m
   and for data analysis.
 CertificateOnly: false
 Community: The Muon g-2 experiment collaboration
+Credentials:
+  TokenIssuers:
+    - Description: gm2 pilots
+      Subject: gm2pilot@fnal.gov
+      URL: https://cilogon.org/gm2
+      DefaultUnixUser: gm2pilot
 Contacts:
   Administrative Contact:
   - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47

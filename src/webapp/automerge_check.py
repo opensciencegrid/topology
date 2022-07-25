@@ -91,11 +91,11 @@ def main(args):
         errors += ["Will not automerge PR without any file changes."]
 
     if GH_USER is not None:
-        contact = get_gh_contact(GH_USER)
-        if contact is None:
+        contacts = get_gh_contacts(GH_USER)
+        if not contacts:
             errors += ["No contact found for GitHub user '%s'" % GH_USER]
     else:
-        contact = None
+        contacts = []
 
     for fname in DTs:
         dtdict_base = get_downtime_dict_at_version(base, fname)
@@ -116,10 +116,10 @@ def main(args):
         resources_affected = set( dt["ResourceName"] for dt in dtminus ) \
                            | set( dt["ResourceName"] for dt in dtplus  )
 
-        if resources_affected and contact:
+        if resources_affected and contacts:
             rg_fname = re.sub(br'_downtime.yaml$', b'.yaml', fname)
             errors += check_resource_contacts(BASE_SHA, rg_fname,
-                                              resources_affected, contact)
+                                              resources_affected, contacts)
 
     if any( re.match(br'^projects/.*\.yaml', fname) for fname in modified ):
         orgs_base  = get_organizations_at_version(base)
@@ -135,7 +135,7 @@ def main(args):
         else RC.OUT_OF_DATE_ONLY  if len(errors) == 1 and not up_to_date
         else RC.ORGS_ADDED        if orgs_added
         else RC.DT_MOD_ERRORS     if len(DTs) > 0
-        else RC.CONTACT_ERROR     if contact is None
+        else RC.CONTACT_ERROR     if not contacts
         else RC.NON_DT_ERRORS )
 
 class RC:
@@ -252,13 +252,14 @@ def diff_dtdict(dtdict_a, dtdict_b):
 
     return dt_a, dt_b
 
-def check_resource_contacts(sha, rg_fname, resources_affected, contact):
+def check_resource_contacts(sha, rg_fname, resources_affected, contacts):
     resources = get_rg_resources_at_version(sha, rg_fname)
     if resources is None:
         return ["File '%s' failed to parse as YAML" % rg_fname.decode()]
-    return [ "%s not associated with resource '%s'" % (contact, res)
+    contact_ids = set( c.ID for c in contacts )
+    return [ "%s not associated with resource '%s'" % (contacts, res)
              for res in resources_affected if res in resources
-             if contact.ID not in resource_contact_ids(resources[res]) ]
+             if not contact_ids & resource_contact_ids(resources[res]) ]
 
 _contact_fields = ['ID', 'FullName', 'GitHub']
 Contact = collections.namedtuple('Contact', _contact_fields)
@@ -273,10 +274,10 @@ def get_contacts():
     users = xmltree.findall('User')
     return list(map(u2contact, users))
 
-def get_gh_contact(ghuser):
+def get_gh_contacts(ghuser):
     contact_list = get_contacts()
     gh_contacts = [ c for c in contact_list if c.GitHub == ghuser ]
-    return gh_contacts[0] if len(gh_contacts) == 1 else None
+    return gh_contacts
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))

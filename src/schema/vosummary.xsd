@@ -187,6 +187,8 @@
                               <xsd:sequence>
                                 <xsd:element name="URL" type="xsd:string"/>
                                 <xsd:element name="DefaultUnixUser" type="xsd:string"/>
+                                <xsd:element name="Description" type="xsd:string"/>
+                                <xsd:element name="Subject" type="xsd:string"/>
                               </xsd:sequence>
                             </xsd:complexType>
                           </xsd:element>

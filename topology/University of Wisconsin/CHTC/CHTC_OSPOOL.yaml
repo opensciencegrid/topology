@@ -11,24 +11,18 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          ID: OSG1000002
           Name: Matyas Selmeci
         Secondary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          ID: OSG1000015
           Name: Aaron Moate
-        Tertiary:
-          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
-          Name: Timothy Slauson
       Security Contact:
         Primary:
-          ID: ec1013224934d6a11a2a46a5234b3337095f5ec4
+          ID: OSG1000002
           Name: Matyas Selmeci
         Secondary:
-          ID: 46a55ac4815b2b8c00ff283549f413113b45d628
+          ID: OSG1000015
           Name: Aaron Moate
-        Tertiary:
-          ID: 3f306d87236d84ef770ddf0c34844908e2d94dfa
-          Name: Timothy Slauson
     FQDN: origin-auth2001.chtc.wisc.edu
     FQDNAliases:
       - chtc-origin.osg-htc.org
@@ -40,3 +34,33 @@ Resources:
       OSG: 100
     AllowedVOs:
       - ANY
+  CHTC_OSPOOL-OPEN-SCIENCE-CE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000007
+          Name: Carl Edquist
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+    Description: An HTCondor-CE submitting pilots into the OSPool
+    FQDN: os-ce1.opensciencegrid.org
+    ID: 1249
+    Services:
+      CE:
+        Description: HTCondor-CE
+      Submit Node:
+        Description: OSPool Access Point
+    Tags:
+      - OSPool

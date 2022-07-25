@@ -1,0 +1,69 @@
+---
+Production: true
+SupportCenter: Self Supported
+GroupDescription: Compute resources at Lancium
+GroupID: 1137
+Resources:
+  Lancium-Backfill:
+    Active: true
+    Description: Backfill containers running at Lancium computing sites
+    ID: 1243
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+      Security Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+      Site Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+    FQDN: ospool-backfill.lancium.com
+    Services:
+      Execution Endpoint:
+        Description: Lancium backfill containers
+  Lancium-PEP:
+    Active: true
+    Description: Lancium resources managed by the PRP Provisioner
+    ID: 1298
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+          Name: Igor Sfiligoi
+      Security Contact:
+        Primary:
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+          Name: Igor Sfiligoi
+      Site Contact:
+        Primary:
+          ID: 593daf4f680b3135849201036e1055f03f89cfac
+          Name: Igor Sfiligoi
+    FQDN: ospool-pep.lancium.com
+    Services:
+      Execution Endpoint:
+        Description: Provisioned Lancium Resources
+  Lancium-LMF-Squid:
+    Active: true
+    Description: Squid service located at Lancium LMF datacenter
+    ID: 1270
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+      Security Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+      Site Contact:
+        Primary:
+          ID: 91af5365110c5601977381f3ba7d8372a333cf67
+          Name: Andrew Grimshaw
+    FQDN: portal.lancium.com
+    Services:
+      Squid:
+        Description: Generic squid service

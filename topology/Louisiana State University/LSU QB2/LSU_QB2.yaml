@@ -4,6 +4,7 @@ GroupID: 1098
 GroupDescription: This is the LSU_QB2 cluster
 Resources:
   OSG_US_LSU_QB2:
+    Active: false
     ID : 1112
     Description: The Hosted CE serving LSU_SuperMIC
     ContactLists:
@@ -20,6 +21,31 @@ Resources:
           Name: Eric B Wiggins
           ID: cada8414a48f8401782c89876f53a1b6c21c368f
     FQDN: hosted-ce29.grid.uchicago.edu
+    Services:
+      CE:
+        Description: LSU_QB2 Hosted CE
+        Details:
+          hidden: false
+    VOOwnership:
+      LIGO: 100
+
+  LSU-QB2-CE1:
+    ID : 1258
+    Description: The Hosted CE serving LSU_SuperMIC
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Eric B Wiggins
+          ID: cada8414a48f8401782c89876f53a1b6c21c368f
+    FQDN: lsu-qb2-ce1.svc.opensciencegrid.org
     Services:
       CE:
         Description: LSU_QB2 Hosted CE

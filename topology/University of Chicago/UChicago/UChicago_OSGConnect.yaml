@@ -62,7 +62,7 @@ Resources:
       - OSPool
 
   UChicago_OSGConnect_flock:
-    Active: true
+    Active: false
     Description: Flock access point for the OS Pool
     ID: 1205
     ContactLists:
@@ -90,7 +90,7 @@ Resources:
         Description: OS Pool access point
 
   UChicago_OSGConnect_xd-login:
-    Active: true
+    Active: false
     Description: XD Login access point for the OS Pool
     ID: 1206
     ContactLists:
@@ -116,8 +116,6 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
-    Tags:
-      - OSPool
 
   UChicago_OSGConnect_veritas:
     Active: true
@@ -192,7 +190,7 @@ Resources:
         Secondary:
           Name: Lincoln Bryant
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-    FQDN: login.ci-connect.net
+    FQDN: login.ci-connect.uchicago.edu
     DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=login.ci-connect.uchicago.edu
     Services:
       Submit Node:

@@ -67,14 +67,11 @@ Resource Downtime YAML Generator
         {{ render_dtfield(form.description) }}
         {{ render_dtfield(form.severity) }}
 
-        <div class="form-row">
-          {{ render_dtfield(form.start_date, type="date", class_="col-sm-6", placeholder="YYYY-MM-DD") }}
-          {{ render_dtfield(form.start_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour UTC)", asterisk=false) }}
-        </div>
-        <div class="form-row">
-          {{ render_dtfield(form.end_date, type="date", class_="col-sm-6", placeholder="YYYY-MM-DD") }}
-          {{ render_dtfield(form.end_time, type="text", class_="col-sm-6", placeholder="HH:MM (24-hour UTC)", asterisk=false) }}
-        </div>
+        {{ render_dtfield(form.utc_offset) }}
+        {{ render_dtfield(form.start_date) }}
+        {{ render_dtfield(form.start_time) }}
+        {{ render_dtfield(form.end_date) }}
+        {{ render_dtfield(form.end_time) }}
 
         {{ render_dtbutton(form.generate) }}
       </form>
@@ -189,5 +186,9 @@ Resource Downtime YAML Generator
   $( "#resource" ).change( function() {
     $( "#change_resource" ).click();
   } );
+  /* Preset UTC offsets */
+  $( "[name='utc_offset'] > [value=" + new Date().getTimezoneOffset() + "]" ).each( (i, e) => {
+      e.selected = true
+  })
 </script>
 {% endblock %}

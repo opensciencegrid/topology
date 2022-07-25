@@ -53,3 +53,36 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1051193533
+  Description: Tiger cluster maintenance
+  Severity: Outage
+  StartTime: Dec 21, 2021 08:00 +0000
+  EndTime: Dec 22, 2021 23:00 +0000
+  CreatedTime: Dec 21, 2021 20:42 +0000
+  ResourceName: CHTC_TIGER_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1102102506
+  Description: ImagePullBackoff
+  Severity: Outage
+  StartTime: Feb 17, 2022 21:30 +0000
+  EndTime: Feb 24, 2022 23:00 +0000
+  CreatedTime: Feb 18, 2022 18:50 +0000
+  ResourceName: CHTC_TIGER_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1172966228
+  Description: SLURM upgrade
+  Severity: Outage
+  StartTime: May 17, 2022 11:00 +0000
+  EndTime: May 17, 2022 17:00 +0000
+  CreatedTime: May 11, 2022 19:17 +0000
+  ResourceName: CHTC-canary2
+  Services:
+  - CE
+# ---------------------------------------------------------

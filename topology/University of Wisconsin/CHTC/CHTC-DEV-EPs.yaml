@@ -1,0 +1,106 @@
+Production: false
+SupportCenter: Self Supported
+
+GroupDescription: >-
+  Testing EPs for CHTC staff; these will generally be ephemeral, created and
+  destroyed ad-hoc as developers test OSG/CHTC software.  All FQDNs are fake.
+
+GroupID: 1145
+
+Resources:
+  CHTC-DEV-EP-bbockelm:
+    Active: true
+    Description: EP for dev testing for bbockelm
+    ID: 1260
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000001
+          Name: Brian Bockelman
+
+      Security Contact:
+        Primary:
+          ID: OSG1000001
+          Name: Brian Bockelman
+
+    FQDN: dev-ep.bbockelm.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint 
+  # ----------------------------------------------------------------------------
+
+  CHTC-DEV-EP-blin:
+    Active: true
+    Description: EP for dev testing for blin
+    ID: 1261
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+
+    FQDN: dev-ep.blin.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint 
+  # ----------------------------------------------------------------------------
+
+  CHTC-DEV-EP-gthain:
+    Active: true
+    Description: EP for dev testing for gthain
+    ID: 1262
+    ContactLists:
+      Administrative Contact:
+        # Tertiary:
+        #   ID: <pending>
+        #   Name: Greg Thain
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+
+      Security Contact:
+        # Tertiary:
+        #   ID: <pending>
+        #   Name: Greg Thain
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+
+    FQDN: dev-ep.gthain.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint 
+  # ----------------------------------------------------------------------------
+
+  CHTC-DEV-EP-matyas:
+    Active: true
+    Description: EP for dev testing for matyas
+    ID: 1263
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+
+      Security Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+
+    FQDN: dev-ep.matyas.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint 
+  # ----------------------------------------------------------------------------
+

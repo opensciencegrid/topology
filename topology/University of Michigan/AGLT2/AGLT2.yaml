@@ -99,6 +99,72 @@ Resources:
         Details:
           Monitored: true
     VOOwnership:
+      ATLAS: 90  
+  AGLT2-squid-4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: This is the slate Varnish for Frontier
+    FQDN: es02.aglt2.org
+    ID: 1314
+    Services:
+      Squid:
+        Description: Generic varnish service
+        Details:
+          Monitored: true
+    VOOwnership:
+      ATLAS: 90
+  AGLT2-squid-5:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: This is the slate Varnish for CVMFS
+    FQDN: es01.aglt2.org
+    ID: 1315
+    Services:
+      Squid:
+        Description: Generic varnish service
+        Details:
+          Monitored: true
+    VOOwnership:
       ATLAS: 90
   AGLT2_CE_2:
     Active: true
@@ -135,7 +201,7 @@ Resources:
     VOOwnership:
       ATLAS: 10
     WLCGInformation:
-      APELNormalFactor: 11.07
+      APELNormalFactor: 11.38
       AccountingName: US-AGLT2
       HEPSPEC: 400
       InteropAccounting: true
@@ -315,7 +381,7 @@ Resources:
     VOOwnership:
       ATLAS: 90
     WLCGInformation:
-      APELNormalFactor: 10.96
+      APELNormalFactor: 11.38
       AccountingName: US-AGLT2
       HEPSPEC: 124200
       InteropAccounting: true
@@ -360,7 +426,52 @@ Resources:
     VOOwnership:
       ATLAS: 90
     WLCGInformation:
-      APELNormalFactor: 10.96
+      APELNormalFactor: 11.38
+      AccountingName: US-AGLT2
+      HEPSPEC: 124200
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 31050
+      KSI2KMin: 31050
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  AGLT2_CE_4:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: Test gatekeeper for ATLAS, Nov 2021.
+    FQDN: gate04.aglt2.org
+    ID: 1245
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 90
+    WLCGInformation:
+      APELNormalFactor: 11.38
       AccountingName: US-AGLT2
       HEPSPEC: 124200
       InteropAccounting: true

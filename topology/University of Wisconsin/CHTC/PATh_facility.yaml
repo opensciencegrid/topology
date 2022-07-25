@@ -1,0 +1,28 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: PATh facility resources located at CHTC.
+GroupID: 1144
+
+Resources:
+  CHTC-submit6:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: PATh Facility AP (originally OSPool submit node, see OPS-198)
+    FQDN: submit6.chtc.wisc.edu
+    ID: 1191
+    Services:
+      Submit Node:
+        Description: PATh Facility AP (originally OSPool submit node, see OPS-198)
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+

@@ -176,7 +176,20 @@ def main():
 
     recipients = set(args.recipients.split())
     if args.oim_recipients and 'vos' in args.oim_recipients:
-        results = topology_utils.get_vo_contacts(args)
+        attempts = 3
+        while attempts > 0:
+            try:
+                results = topology_utils.get_vo_contacts(args)
+            except topology_utils.InvalidPathError as exc:
+                print(exc)
+                exit(1)
+            except topology_utils.IncorrectPasswordError as exc:
+                attempts -= 1
+                if attempts == 0:
+                    print("Too many incorrect password attempts, exiting")
+                    exit(1)
+                else:
+                    print(exc)
         results = topology_utils.filter_contacts(args, results)
         emails = set()
         for name in results.keys():
@@ -185,10 +198,21 @@ def main():
                     emails.add(contact['Email'])
         recipients.update(emails)
     if args.oim_recipients and 'resources' in args.oim_recipients:
-        if args.fqdn_filter:
-            results = topology_utils.get_resource_contacts_by_fqdn(args)
-        else:
-            results = topology_utils.get_resource_contacts(args)
+        attempts = 3
+        while attempts > 0:
+            try:
+                if args.fqdn_filter:
+                    results = topology_utils.get_resource_contacts_by_fqdn(args)
+                else:
+                    results = topology_utils.get_resource_contacts(args)
+            except topology_utils.InvalidPathError as exc:
+                exit(str(exc))
+            except topology_utils.IncorrectPasswordError as exc:
+                attempts -= 1
+                if attempts == 0:
+                    exit("Too many incorrect password attempts, exiting")
+                else:
+                    print(exc)
         results = topology_utils.filter_contacts(args, results)
         emails = set()
         for name in results.keys():

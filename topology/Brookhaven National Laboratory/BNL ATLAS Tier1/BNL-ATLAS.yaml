@@ -12,10 +12,6 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -53,10 +49,6 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -93,10 +85,6 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -134,10 +122,6 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -175,10 +159,6 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -216,10 +196,6 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -258,10 +234,6 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -295,7 +267,7 @@ Resources:
       Administrative Contact:
         Primary:
           ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
-          Name: John S. De Stefano Jr.
+          Name: John Steven De Stefano Jr.
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -316,7 +288,7 @@ Resources:
       Administrative Contact:
         Primary:
           ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
-          Name: John S. De Stefano Jr.
+          Name: John Steven De Stefano Jr.
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -341,14 +313,6 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Miscellaneous Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -359,7 +323,7 @@ Resources:
     ID: 5
     Services:
       SRMv2.disk:
-        Description: SRM V2 endpoint for the disk system
+        Description: SRM V2 endpoint for the disk only storage
       SRMv2.tape:
         Description: SRM V2 endpoint for the tape system
     VOOwnership:
@@ -386,14 +350,6 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Miscellaneous Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -402,8 +358,8 @@ Resources:
     FQDN: dcgftp.usatlas.bnl.gov
     ID: 1089
     Services:
-      GridFtp:
-        Description: GridFtp service endpoint
+      WebDAV:
+        Description: WebDAV service endpoint
         Details:
           hidden: false
     VOOwnership:
@@ -421,7 +377,7 @@ Resources:
       StorageCapacityMin: 
       TapeCapacity: 
   BNL_ATLAS_SE_AWS_East:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -430,14 +386,6 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Miscellaneous Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Resource Report Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -449,7 +397,7 @@ Resources:
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
-          hidden: false
+          hidden: true
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -464,7 +412,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   BNL_ATLAS_SE_AWS_West:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -473,14 +421,6 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Miscellaneous Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Resource Report Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -492,7 +432,7 @@ Resources:
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
-          hidden: false
+          hidden: true
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -507,7 +447,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   BNL_ATLAS_SE_AWS_West2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -516,14 +456,6 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Miscellaneous Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-      Resource Report Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
@@ -535,7 +467,7 @@ Resources:
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
-          hidden: false
+          hidden: true
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
