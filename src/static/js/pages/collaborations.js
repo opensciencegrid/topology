@@ -1,5 +1,5 @@
 import {create_ul} from "../util.js";
-import {TablePage} from "../table.js"
+import {TablePage} from "../components/table.js"
 
 const data_function = async () => {
     let data = await fetch("/vosummary/json").then(d => d.json())
