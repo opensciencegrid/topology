@@ -28,6 +28,21 @@ class autodict(collections.defaultdict):
     def __repr__(self):
         return '%s(%s)' % (self.__class__.__name__, dict.__repr__(self))
 
+
+# from webapp/common.py
+def safe_dict_get(item, *keys, default=None):
+    """ traverse dict hierarchy without producing KeyErrors:
+        safe_dict_get(item, key1, key2, ..., default=default)
+        -> item[key1][key2][...] if defined and not None, else default
+    """
+    for key in keys:
+        if isinstance(item, dict):
+            item = item.get(key)
+        else:
+            return default
+    return default if item is None else item
+
+
 def rgfilter(fn):
     return not (fn.endswith("_downtime.yaml") or fn.endswith("/SITE.yaml"))
 
@@ -40,9 +55,12 @@ def rgname(fn):
 def sumvals(d):
     return sum(d.values()) if d else 0
 
+def vo_path_to_name(path):
+    return re.search(r'([^/]+)\.yaml$', path).group(1)
+
 def get_vo_names():
-    return set( re.search(r'/([^/]+)\.yaml$', path).group(1) for path in
-                glob.glob(_topdir + "/virtual-organizations/*.yaml") )
+    return set(map(vo_path_to_name,
+               glob.glob(_topdir + "/virtual-organizations/*.yaml")))
 
 def contact_id_ok(ID):
     return re.search(r'^[0-9a-f]{40}$', ID) or re.search(r'^OSG\d+$', ID)
@@ -83,6 +101,7 @@ def main():
     vo_yamls = sorted(glob.glob("virtual-organizations/*.yaml"))
     vofns = list(filter(vofilter, vo_yamls))
     vos = list(map(load_yamlfile, vofns))
+    vomap = dict(zip(map(vo_path_to_name, vofns), vos))
 
     os.chdir("topology")
     contacts = get_contacts()
@@ -124,6 +143,9 @@ def main():
 #   errors += test_14_sc_contacts_match(support_centers, contacts)
     errors += test_15_facility_site_files()
     errors += test_16_Xrootd_DNs(rgs, rgfns)
+    errors += test_17_osdf_data(rgs, rgfns)
+    warnings += test_18_osdf_data_cache_warnings(rgs, rgfns, vomap)
+    warnings += test_19_osdf_data_origin_warnings(rgs, rgfns, vomap)
 
 
     print("%d Resource Group files processed." % len(rgs))
@@ -165,7 +187,15 @@ _emsgs = {
     'ContactNameMismatch'    : "Contact names must match in contact repo",
     'NoFacility'             : "Facility directories must contain a FACILITY.yaml",
     'NoSite'                 : "Site directories must contain a SITE.yaml",
-    'XrootdWithoutDN'        : "Xrootd cache server must provide a DN"
+    'XrootdWithoutDN'        : "Xrootd cache server must provide a DN",
+    'OSDFServiceVOsList'     : "OSDF Services must contain an AllowedVOs list",
+    'CacheNotAllowed'        : "VOs in AllowedVOs for a resource with an"
+                               " XRootD cache server service should list"
+                               " that resource or ANY in the VO's"
+                               " AllowedCaches",
+    'OriginNotAllowed'       : "VOs in AllowedVOs for a resource with an"
+                               " XRootD origin server service should list"
+                               " that resource in the VO's AllowedOrigins",
 }
 
 def print_emsg_once(msgtype):
@@ -638,5 +668,131 @@ def test_16_Xrootd_DNs(rgs, rgfns):
     return errors
 
 
+def test_17_osdf_data(rgs, rgfns):
+    # validate OSDF cache/origin services: (SOFTWARE-4167)
+    # - resources with "XRootD origin server" service must have AllowedVOs list
+    # - resources with "XRootD cache server" service must have AllowedVOs list
+    # - AllowedVOs list items must be either:
+    #   - "ANY"
+    #   - "ANY_PUBLIC"
+    #   - A registered VO (in the virtual-organizations directory)
+
+    vo_names = get_vo_names()
+    allowed_vo_names = vo_names | set(["ANY", "ANY_PUBLIC"])
+    services = ["XRootD origin server", "XRootD cache server"]
+
+    errors = 0
+
+    for rg, rgfn in zip(rgs, rgfns):
+        for rname, rdict in sorted(rg['Resources'].items()):
+            rsvcs = rdict.get('Services', {})
+            if any( svc in rsvcs for svc in services ):
+                if not isinstance(rdict.get('AllowedVOs'), list):
+                    print_emsg_once('OSDFServiceVOsList')
+                    print("In '%s', XRootD cache/origin server Resource '%s'"
+                          " has no AllowedVOs list" % (rgfn, rname))
+                    errors += 1
+                else:
+                    for name in rdict['AllowedVOs']:
+                        if name not in allowed_vo_names:
+                            print_emsg_once('UnknownVO')
+                            print("In '%s', Resource '%s', AllowedVOs has"
+                                  " unknown VO name '%s'" % (rgfn, rname, name))
+                            errors += 1
+    return errors
+
+
+def _get_vo_path_map(vomap, list_path):
+    vo_allowed_map = {
+        voname: safe_dict_get(vo, *list_path) for voname, vo in vomap.items()
+    }
+    return {
+        voname: set(alist) for voname, alist in vo_allowed_map.items()
+        if isinstance(alist, list)
+    }
+
+
+def test_18_osdf_data_cache_warnings(rgs, rgfns, vomap):
+    # The following should be added as warnings: (SOFTWARE-4167)
+    # - VOs in AllowedVOs for a resource with an "XRootD cache server"
+    #   service should list that resource or "ANY" in the VO's AllowedCaches
+
+    acpath = ['DataFederations', 'StashCache', 'AllowedCaches']
+
+    vo_allowed_caches = _get_vo_path_map(vomap, acpath)
+    all_allowed_caches = set.union(*vo_allowed_caches.values())
+    any_cache_allowed = "ANY" in all_allowed_caches
+
+    warnings = 0
+
+    for rg, rgfn in zip(rgs, rgfns):
+        for rname, rdict in sorted(rg['Resources'].items()):
+            rsvcs = rdict.get('Services', {})
+            if "XRootD cache server" in rsvcs:
+                for voname in rdict.get('AllowedVOs', []):
+                    if voname in ["ANY", "ANY_PUBLIC"]:
+                        if any_cache_allowed:
+                            continue
+                        if rname not in all_allowed_caches:
+                            print_emsg_once('CacheNotAllowed')
+                            print("In '%s', Resource '%s' is a Cache and"
+                                  " allows %s VO; but no VO allows this"
+                                  " resource in AllowedCaches"
+                                  % (rgfn, rname, voname))
+                            warnings += 1
+
+                    elif not (voname in vo_allowed_caches and
+                            (rname in vo_allowed_caches[voname] or
+                             "ANY" in vo_allowed_caches[voname])):
+                        print_emsg_once('CacheNotAllowed')
+                        print("In '%s', Resource '%s' is a Cache and lists"
+                              " '%s' in AllowedVOs; but this VO does not list"
+                              " that resource in AllowedCaches"
+                              % (rgfn, rname, voname))
+                        warnings += 1
+    return warnings
+
+
+def test_19_osdf_data_origin_warnings(rgs, rgfns, vomap):
+    # The following should be added as warnings: (SOFTWARE-4167)
+    # - VOs in AllowedVOs for a resource with an "XRootD origin server"
+    #   service should list that resource or "ANY" in the VO's AllowedOrigins
+
+    aopath = ['DataFederations', 'StashCache', 'AllowedOrigins']
+
+    vo_allowed_origins = _get_vo_path_map(vomap, aopath)
+    all_allowed_origins = set.union(*vo_allowed_origins.values())
+    # do not allow ANY for AllowedOrigins
+    #any_origin_allowed = "ANY" in all_allowed_origins
+
+    warnings = 0
+
+    for rg, rgfn in zip(rgs, rgfns):
+        for rname, rdict in sorted(rg['Resources'].items()):
+            rsvcs = rdict.get('Services', {})
+            if "XRootD origin server" in rsvcs:
+                for voname in rdict.get('AllowedVOs', []):
+                    if voname in ["ANY", "ANY_PUBLIC"]:
+                        if rname not in all_allowed_origins:
+                            print_emsg_once('OriginNotAllowed')
+                            print("In '%s', Resource '%s' is an Origin and"
+                                  " allows %s VO; but no VO allows this"
+                                  " resource in AllowedOrigins"
+                                  % (rgfn, rname, voname))
+                            warnings += 1
+
+                    elif not (voname in vo_allowed_origins and
+                            (rname in vo_allowed_origins[voname] or
+                             "ANY" in vo_allowed_origins[voname])):
+                        print_emsg_once('OriginNotAllowed')
+                        print("In '%s', Resource '%s' is an Origin and lists"
+                              " '%s' in AllowedVOs; but this VO does not list"
+                              " that resource in AllowedOrigins"
+                              % (rgfn, rname, voname))
+                        warnings += 1
+    return warnings
+
+
 if __name__ == '__main__':
     sys.exit(main())
+
