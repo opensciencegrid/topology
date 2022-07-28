@@ -12,7 +12,6 @@ log = getLogger(__name__)
 
 
 ANY = "ANY"
-PUBLIC = "PUBLIC"
 ANY_PUBLIC = "ANY_PUBLIC"
 XROOTD_CACHE_SERVER = "XRootD cache server"
 XROOTD_ORIGIN_SERVER = "XRootD origin server"
@@ -275,6 +274,10 @@ class VOsData(object):
         return {"ReportingGroup": new_reporting_groups}
 
 
+#
+# Code for handling DataFederations
+#
+
 class AuthMethod:
     is_public = False
     used_in_authfile = False
@@ -381,6 +384,83 @@ class Namespace:
         return self.authz_list and self.authz_list[0].is_public
 
 
+def _parse_authz_scitokens(attributes: Dict, authz: Dict) -> Tuple[AuthMethod, Optional[str]]:
+    """Parse a SciTokens dict in an authz list for a namespace.  On success, return a SciTokenAuth instance and None;
+    on failure, return a NullAuth instance and a string indicating the error.
+    """
+    errors = ""
+    issuer = attributes.get("Issuer")
+    if not issuer:
+        errors += "'Issuer' missing or empty; "
+    base_path = attributes.get("Base Path")
+    if not base_path:
+        errors += "'Base Path' missing or empty; "
+    restricted_path = attributes.get("Restricted Path", None)
+    if restricted_path and not isinstance(restricted_path, str):
+        errors += "'Restricted Path' not a string; "
+    map_subject = attributes.get("Map Subject", False)
+    if not isinstance(map_subject, bool):
+        errors += "'Map Subject' not a boolean; "
+    if errors:
+        errors = errors[:-2]  # chop off last '; '
+        return NullAuth(), f"Invalid SciTokens auth {authz}: {errors}"
+    return SciTokenAuth(
+        issuer=issuer,
+        base_path=base_path,
+        restricted_path=restricted_path,
+        map_subject=map_subject
+    ), None
+
+
+def _parse_authz_dict(authz: Dict) -> Tuple[AuthMethod, Optional[str]]:
+    """Return the instance of the appropriate AuthMethod from a single item of dict type in an authz list.
+    An authz list item can be a dict for FQAN, DN, or SciTokens.
+
+    We are expecting only one element in this dict: the key indicates the authorization type,
+    and the value is the contents.
+
+    On success, return the appropriate AuthMethod and None; on failure, return a NullAuth and a string describing the error.
+    """
+
+    for auth_type, attributes in authz.items():
+        if auth_type == "SciTokens":
+            if not isinstance(attributes, dict) or not attributes:
+                return NullAuth(), f"Invalid SciTokens auth {authz}: no attributes"
+            return _parse_authz_scitokens(attributes=attributes, authz=authz)
+        elif auth_type == "FQAN":
+            if not attributes:
+                return NullAuth(), f"Invalid FQAN auth {authz}: FQAN missing or empty"
+            return FQANAuth(fqan=attributes), None
+        elif auth_type == "DN":
+            if not attributes:
+                return NullAuth(), f"Invalid DN auth {authz}: DN missing or empty"
+            return DNAuth(dn=attributes), None
+        else:
+            return NullAuth(), f"Unknown auth type {auth_type} in {authz}"
+
+
+def _parse_authz_str(authz: str) -> Tuple[AuthMethod, Optional[str]]:
+    """Return the instance of the appropriate AuthMethod from a single item of string type in an authz list.
+    An authz list item can be a string for FQAN and DN auth only, or PUBLIC.
+
+    On success, return the appropriate AuthMethod and None; on failure, return a NullAuth and a string describing the error.
+    """
+    if authz.startswith("FQAN:"):
+        fqan = authz[5:].strip()
+        if not fqan:
+            return NullAuth(), f"Invalid FQAN auth {authz}: FQAN missing or empty"
+        return FQANAuth(fqan=fqan), None
+    elif authz.startswith("DN:"):
+        dn = authz[3:].strip()
+        if not dn:
+            return NullAuth(), f"Invalid DN auth {authz}: DN missing or empty"
+        return DNAuth(dn=dn), None
+    elif authz.strip() == "PUBLIC":
+        return PublicAuth(), None
+    else:
+        return NullAuth(), f"Unknown authz list entry {authz}"
+
+
 def parse_authz(authz: Union[str, Dict]) -> Tuple[AuthMethod, Optional[str]]:
     """Return the instance of the appropriate AuthMethod from a single item in an authz list for a namespace.
 
@@ -395,60 +475,11 @@ def parse_authz(authz: Union[str, Dict]) -> Tuple[AuthMethod, Optional[str]]:
     # - FQAN: /foobar
     # Accept both.
     if isinstance(authz, dict):
-        # We are expecting only one element in this dict: the key indicates the authorization type,
-        # and the value is the contents.
-        for k, v in authz.items():
-            if k == "SciTokens":
-                if not isinstance(v, dict) or not v:
-                    return NullAuth(), f"Invalid SciTokens auth {authz}: no attributes"
-                errors = ""
-                issuer = v.get("Issuer")
-                if not issuer:
-                    errors += "'Issuer' missing or empty; "
-                base_path = v.get("Base Path")
-                if not base_path:
-                    errors += "'Base Path' missing or empty; "
-                restricted_path = v.get("Restricted Path", None)
-                if restricted_path and not isinstance(restricted_path, str):
-                    errors += "'Restricted Path' not a string; "
-                map_subject = v.get("Map Subject", False)
-                if not isinstance(map_subject, bool):
-                    errors += "'Map Subject' not a boolean; "
-                if errors:
-                    errors = errors[:-2]  # chop off last '; '
-                    return NullAuth(), f"Invalid SciTokens auth {authz}: {errors}"
-                return SciTokenAuth(
-                    issuer=issuer,
-                    base_path=base_path,
-                    restricted_path=restricted_path,
-                    map_subject=map_subject
-                ), None
-            elif k == "FQAN":
-                if not v:
-                    return NullAuth(), f"Invalid FQAN auth {authz}: FQAN missing or empty"
-                return FQANAuth(fqan=v), None
-            elif k == "DN":
-                if not v:
-                    return NullAuth(), f"Invalid DN auth {authz}: DN missing or empty"
-                return DNAuth(dn=v), None
-            else:
-                return NullAuth(), f"Unknown auth type {k} in {authz}"
-
+        return _parse_authz_dict(authz)
     elif isinstance(authz, str):
-        if authz.startswith("FQAN:"):
-            fqan = authz[5:].strip()
-            if not fqan:
-                return NullAuth(), f"Invalid FQAN auth {authz}: FQAN missing or empty"
-            return FQANAuth(fqan=fqan), None
-        elif authz.startswith("DN:"):
-            dn = authz[3:].strip()
-            if not dn:
-                return NullAuth(), f"Invalid DN auth {authz}: DN missing or empty"
-            return DNAuth(dn=dn), None
-        elif authz.strip() == "PUBLIC":
-            return PublicAuth(), None
-        else:
-            return NullAuth(), f"Unknown authz list entry {authz}"
+        return _parse_authz_str(authz)
+    else:
+        return NullAuth(), f"Unknown authz list entry {authz}"
 
 
 class StashCache:
@@ -462,16 +493,26 @@ class StashCache:
         if is_null(yaml_data, "Namespaces"):
             return
 
-        # Check for old yaml data, where each Namespaces is a dict and each namespace is a plain list of authz
-        if not isinstance(yaml_data["Namespaces"], list):
+        # Handle both old format and new format for Namespaces
+        if isinstance(yaml_data["Namespaces"], list):
+            return self.load_new_yaml(yaml_data)
+        else:
             return self.load_old_yaml(yaml_data)
 
+    def load_new_yaml(self, yaml_data: ParsedYaml):
+        """Load new format Namespaces info:
+
+        Namespaces is a list of dicts; AllowedOrigins and AllowedCaches are elements of each dict.
+        """
         for idx, ns_data in enumerate(yaml_data["Namespaces"]):
-            # New format; Namespaces is a list of dicts
             if "Path" not in ns_data:
                 self.errors.add(f"Namespace #{idx}: No Path")
                 continue
             path = ns_data["Path"]
+            if path in self.namespaces:
+                orig_vo_name = self.namespaces[path].vo_name
+                self.errors.add(f"Namespace #{idx}: Redefining {path}; original was defined in {orig_vo_name}")
+                continue
             authz_list = self.parse_authz_list(path=path, unparsed_authz_list=ns_data.get("Authorizations", []))
             self.namespaces[path] = Namespace(
                 path=path,
@@ -484,8 +525,16 @@ class StashCache:
             )
 
     def load_old_yaml(self, yaml_data: ParsedYaml):
+        """Load old format Namespaces/AllowedOrigins/AllowedCaches info:
+
+        Namespaces is a dict, and there are also AllowedOrigins and AllowedCaches lists at the same level.
+        """
         for path, unparsed_authz_list in yaml_data["Namespaces"].items():
             authz_list = self.parse_authz_list(path, unparsed_authz_list)
+            if path in self.namespaces:
+                orig_vo_name = self.namespaces[path].vo_name
+                self.errors.add(f"Redefining {path}; original was defined in {orig_vo_name}")
+                continue
             self.namespaces[path] = Namespace(
                 path=path,
                 vo_name=self.vo_name,
@@ -495,7 +544,7 @@ class StashCache:
                 writeback=None,
                 dirlist=None)
 
-    def parse_authz_list(self, path: str, unparsed_authz_list: List[str]) -> List[AuthMethod]:
+    def parse_authz_list(self, path: str, unparsed_authz_list: List[Union[str, Dict]]) -> List[AuthMethod]:
         authz_list = []
         for authz in unparsed_authz_list:
             parsed_authz, err = parse_authz(authz)

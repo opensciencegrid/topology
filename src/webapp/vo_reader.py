@@ -26,7 +26,6 @@ def get_vos_data(indir, contacts_data, strict=False) -> VOsData:
         if file == "REPORTING_GROUPS.yaml": continue
         if not file.endswith(".yaml"): continue
         name = file[:-5]
-        data = ParsedYaml({})
         try:
             data = load_yaml_file(os.path.join(indir, file))
             vos_data.add_vo(name, data)

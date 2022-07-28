@@ -130,5 +130,36 @@ class TestAPI:
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
 
+    def test_resource_stashcache_files(self, client: flask.Flask):
+        """Tests that the resource table contains the same files as the singular api outputs"""
+
+        def test_stashcache_file(key, endpoint, fqdn, resource_stashcache_files):
+
+            response = client.get(f"{endpoint}?fqdn={fqdn}")
+
+            if key in resource_stashcache_files:
+                assert response.status_code == 200
+                assert response.data.decode() == resource_stashcache_files[key]
+
+            else:
+                assert response.status_code != 200 or not response.data
+
+        resources = client.get('/miscresource/json').json
+        resources_stashcache_files = client.get('/resources/stashcache-files').json
+
+        keys_and_endpoints = [
+            ("CacheAuthfilePublic",  "/cache/Authfile-public"),
+            ("CacheAuthfile",        "/cache/Authfile"),
+            ("CacheScitokens",       "/cache/scitokens.conf"),
+            ("OriginAuthfilePublic", "/origin/Authfile-public"),
+            ("OriginAuthfile",       "/origin/Authfile"),
+            ("OriginScitokens",      "/origin/scitokens.conf")
+        ]
+
+        for resource_name, resource_stashcache_files in resources_stashcache_files.items():
+            for key, endpoint in keys_and_endpoints:
+                test_stashcache_file(key, endpoint, resources[resource_name]["FQDN"], resource_stashcache_files)
+
+
 if __name__ == '__main__':
     pytest.main()
