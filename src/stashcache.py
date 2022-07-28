@@ -319,8 +319,7 @@ audience = {allowed_vos_str}
     return template.format(**locals()).rstrip() + "\n"
 
 
-def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress_errors=True, public_origin=False)\
-        -> str:
+def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors=True, public_origin=False) -> str:
     """
     Generate the XRootD Authfile needed by a StashCache origin server, given the FQDN
     of the origin server and whether it's the public or authenticated origin instance you're generating for.
@@ -332,8 +331,8 @@ def generate_origin_authfile(global_data: GlobalData, origin_fqdn: str, suppress
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
     origin_resource = None
-    if origin_fqdn:
-        origin_resource = _get_origin_resource(origin_fqdn, topology, suppress_errors)
+    if fqdn:
+        origin_resource = _get_origin_resource(fqdn, topology, suppress_errors)
         if not origin_resource:
             return ""
 
