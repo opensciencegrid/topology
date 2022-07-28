@@ -447,10 +447,8 @@ def _get_origin_authfile(public_only):
     if 'fqdn' not in request.args:
         return Response("FQDN of origin server required in the 'fqdn' argument", status=400)
     try:
-        auth = stashcache.generate_origin_authfile(global_data=global_data,
-                                                   origin_fqdn=request.args['fqdn'],
-                                                   suppress_errors=False,
-                                                   public_origin=public_only)
+        auth = stashcache.generate_origin_authfile(global_data=global_data, fqdn=request.args['fqdn'],
+                                                   suppress_errors=False, public_origin=public_only)
     except ResourceNotRegistered as e:
         return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"

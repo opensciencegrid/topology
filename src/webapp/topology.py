@@ -105,22 +105,12 @@ class Resource(object):
                 ), "CacheScitokens"
             ),
             (
-                lambda resource: stashcache.generate_origin_authfile(
-                    resource.fqdn,
-                    global_data.get_vos_data(),
-                    global_data.get_topology().get_resource_group_list(),
-                    suppress_errors=False,
-                    public_only=True
-                ), "OriginAuthfilePublic"
+                lambda resource: stashcache.generate_origin_authfile(resource.fqdn, global_data.get_vos_data(),
+                                                                     global_data.get_topology().get_resource_group_list()), "OriginAuthfilePublic"
             ),
             (
-                lambda resource: stashcache.generate_origin_authfile(
-                    resource.fqdn,
-                    global_data.get_vos_data(),
-                    global_data.get_topology().get_resource_group_list(),
-                    suppress_errors=False,
-                    public_only=False
-                ), "OriginAuthfile"
+                lambda resource: stashcache.generate_origin_authfile(resource.fqdn, global_data.get_vos_data(),
+                                                                     global_data.get_topology().get_resource_group_list()), "OriginAuthfile"
             ),
             (
                 lambda resource: stashcache.generate_origin_scitokens(
