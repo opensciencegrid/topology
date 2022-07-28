@@ -287,7 +287,7 @@ def rgdowntime_ical():
 
 @app.route('/resources/stashcache-files')
 @support_cors
-def resources_stachcache_files():
+def resources_stashcache_files():
     resource_files = {}
     topology = global_data.get_topology()
     for rg in topology.rgs.values():
