@@ -147,6 +147,9 @@ class TestAPI:
         resources = client.get('/miscresource/json').json
         resources_stashcache_files = client.get('/resources/stashcache-files').json
 
+        # Sanity check: have a reasonable number of resources
+        assert len(resources_stashcache_files) > 10
+
         keys_and_endpoints = [
             ("CacheAuthfilePublic",  "/cache/Authfile-public"),
             ("CacheAuthfile",        "/cache/Authfile"),
