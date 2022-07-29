@@ -10,6 +10,7 @@ import icalendar
 from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml,\
     is_null, expand_attr_list_single, expand_attr_list, ensure_list
 from .contacts_reader import ContactsData, User
+from .exceptions import DataError
 
 GRIDTYPE_1 = "OSG Production Resource"
 GRIDTYPE_2 = "OSG Integration Test Bed Resource"
@@ -132,8 +133,8 @@ class Resource(object):
         for (file_generator, file_name) in file_generators_and_file_names:
             try:
                 stashcache_files[file_name] = file_generator(self)
-            except Exception as error:
-                pass
+            except (ValueError, DataError) as error:
+                continue
 
         stashcache_files = {k: v for k, v in stashcache_files.items() if v}  # Remove empty dicts
 

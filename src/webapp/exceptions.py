@@ -1,6 +1,3 @@
-from .topology import Resource
-
-
 class DataError(Exception):
     """Base exception for some problem with the Topology data itself."""
 
@@ -23,13 +20,13 @@ class ResourceNotRegistered(NotRegistered):
 
 
 class ResourceDataError(DataError):
-    def __init__(self, resource: Resource, text: str):
+    def __init__(self, resource: "Resource", text: str):
         self.resource = resource
         super().__init__(f"Resource {resource.name}, FQDN {resource.fqdn}: {text}")
 
 
 class ResourceMissingService(ResourceDataError):
-    def __init__(self, resource: Resource, service_name: str):
+    def __init__(self, resource: "Resource", service_name: str):
         self.service_name = service_name
         super().__init__(resource=resource, text=f"Missing expected service {service_name}")
 
