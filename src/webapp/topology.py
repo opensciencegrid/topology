@@ -68,7 +68,7 @@ class Resource(object):
         if not is_null(yaml_data, "Services"):
             self.services = self._expand_services(yaml_data["Services"])
         else:
-            self.services = []
+            self.services = []  # type: List[OrderedDict]
         self.service_names = [n["Name"] for n in self.services if "Name" in n]
         self.data = yaml_data
         if is_null(yaml_data, "FQDN"):
