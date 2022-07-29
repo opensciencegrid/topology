@@ -132,13 +132,13 @@ class Resource(object):
         ]
 
         stashcache_files = {}
-        if XROOTD_CACHE_SERVER in self.services:
+        if XROOTD_CACHE_SERVER in self.service_names:
             for (file_generator, file_name) in cache_file_generators_and_file_names:
                 try:
                     stashcache_files[file_name] = file_generator(self)
                 except (ValueError, DataError) as error:
                     continue
-        if XROOTD_ORIGIN_SERVER in self.services:
+        if XROOTD_ORIGIN_SERVER in self.service_names:
             for (file_generator, file_name) in origin_file_generators_and_file_names:
                 try:
                     stashcache_files[file_name] = file_generator(self)
