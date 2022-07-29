@@ -80,7 +80,7 @@ class Resource(object):
         """Gets a resources Cache files as a dictionary"""
 
         import stashcache
-        file_generators_and_file_names = [
+        cache_file_generators_and_file_names = [
             (
                 lambda resource: stashcache.generate_public_cache_authfile(
                     global_data,
@@ -104,6 +104,8 @@ class Resource(object):
                     suppress_errors=False
                 ), "CacheScitokens"
             ),
+        ]
+        origin_file_generators_and_file_names = [
             (
                 lambda resource: stashcache.generate_origin_authfile(
                     global_data,
@@ -130,11 +132,18 @@ class Resource(object):
         ]
 
         stashcache_files = {}
-        for (file_generator, file_name) in file_generators_and_file_names:
-            try:
-                stashcache_files[file_name] = file_generator(self)
-            except (ValueError, DataError) as error:
-                continue
+        if XROOTD_CACHE_SERVER in self.services:
+            for (file_generator, file_name) in cache_file_generators_and_file_names:
+                try:
+                    stashcache_files[file_name] = file_generator(self)
+                except (ValueError, DataError) as error:
+                    continue
+        if XROOTD_ORIGIN_SERVER in self.services:
+            for (file_generator, file_name) in origin_file_generators_and_file_names:
+                try:
+                    stashcache_files[file_name] = file_generator(self)
+                except (ValueError, DataError) as error:
+                    continue
 
         stashcache_files = {k: v for k, v in stashcache_files.items() if v}  # Remove empty dicts
 

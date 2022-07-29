@@ -179,10 +179,13 @@ def generate_cache_authfile(global_data: GlobalData,
             return ""
 
     ligo_authz_list: List[AuthMethod] = []
-    if legacy:
-        ldappass = readfile(global_data.ligo_ldap_passfile, log)
-        for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
-            ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
+
+    def fetch_ligo_authz_list_if_needed():
+        if not ligo_authz_list:
+            ldappass = readfile(global_data.ligo_ldap_passfile, log)
+            for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
+                ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
+        return ligo_authz_list
 
     vos_data = global_data.get_vos_data()
     for stashcache_obj in vos_data.stashcache_by_vo_name.values():
@@ -197,7 +200,7 @@ def generate_cache_authfile(global_data: GlobalData,
             # Extend authz list with LIGO DNs if applicable
             extended_authz_list = namespace.authz_list
             if legacy and dirname == "/user/ligo":
-                extended_authz_list += ligo_authz_list
+                extended_authz_list += fetch_ligo_authz_list_if_needed()
 
             for authz in extended_authz_list:
                 if authz.used_in_authfile:
