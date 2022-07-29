@@ -63,7 +63,16 @@ Resources:
       # mailing lists) that are generally responsible for a site's
       # relationship with the OSG (e.g., principal investigators,
       # local administrator contact for OSG Hosted CEs)
-      # Site Contact:
+      Site Contact:
+        Primary:
+          Name: Marko Markoc
+          ID: OSG1000189
+        Secondary:
+          Name: Gary Sandine
+          ID: OSG1000190
+        Tertiary:
+          Name: Jim Stapleton
+          ID: OSG1000191
         # Primary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
@@ -141,12 +150,24 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Marko Markoc
+          ID: OSG1000189
+        Secondary:
+          Name: Gary Sandine
+          ID: OSG1000190
+        Tertiary:
+          Name: Jim Stapleton
+          ID: OSG1000191
       Security Contact:
         Primary:
-          Name: Jeffrey Michael Dost
-          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Marko Markoc
+          ID: OSG1000189
+        Secondary:
+          Name: Gary Sandine
+          ID: OSG1000190
+        Tertiary:
+          Name: Jim Stapleton
+          ID: OSG1000191
     FQDN: coeus.rc.pdx.edu
     ID:  1323
     Services:
