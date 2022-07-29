@@ -15,7 +15,7 @@ import urllib.parse
 
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
-from webapp.exceptions import DataError, ResourceNotRegistered
+from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
@@ -425,7 +425,7 @@ def _get_cache_authfile(public_only):
                                  fqdn=cache_fqdn,
                                  legacy=app.config["STASHCACHE_LEGACY_AUTH"],
                                  suppress_errors=False)
-    except ResourceNotRegistered as e:
+    except (ResourceNotRegistered, ResourceMissingService) as e:
         return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
@@ -449,7 +449,7 @@ def _get_origin_authfile(public_only):
     try:
         auth = stashcache.generate_origin_authfile(global_data=global_data, fqdn=request.args['fqdn'],
                                                    suppress_errors=False, public_origin=public_only)
-    except ResourceNotRegistered as e:
+    except (ResourceNotRegistered, ResourceMissingService) as e:
         return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
