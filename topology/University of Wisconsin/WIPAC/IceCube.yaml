@@ -92,6 +92,64 @@ Resources:
           hidden: true
     VOOwnership:
       IceCube: 100
+  IceCube-sub-grid-test:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000039
+          Name: David Schultz
+        Secondary:
+          ID: bc87af94d3512f536e417f1e45808b975fb2874f
+          Name: Vladimir Brik
+      Security Contact:
+        Primary:
+          ID: 67523ec91c983a4c0c1c576beeac1037aa863da3
+          Name: Steve Barnet
+        Secondary:
+          ID: bc87af94d3512f536e417f1e45808b975fb2874f
+          Name: Vladimir Brik
+    Description: This is a test submit node for the IceCube collaboration.
+    FQDN: sub-grid-test.icecube.wisc.edu
+    ID: 1319
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      IceCube: 100
+    Tags:
+      - OSPool
+  IceCube-sub-2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000039
+          Name: David Schultz
+        Secondary:
+          ID: bc87af94d3512f536e417f1e45808b975fb2874f
+          Name: Vladimir Brik
+      Security Contact:
+        Primary:
+          ID: 67523ec91c983a4c0c1c576beeac1037aa863da3
+          Name: Steve Barnet
+        Secondary:
+          ID: bc87af94d3512f536e417f1e45808b975fb2874f
+          Name: Vladimir Brik
+    Description: This is a submit node for the IceCube collaboration.
+    FQDN: sub-2.icecube.wisc.edu
+    ID: 1322
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      IceCube: 100
+    Tags:
+      - OSPool
   NPX:
     Active: true
     ContactLists:

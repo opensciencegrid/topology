@@ -8,8 +8,9 @@ from typing import Dict, List, Optional, Tuple
 import icalendar
 
 from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml,\
-    is_null, expand_attr_list_single, expand_attr_list, ensure_list
+    is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER
 from .contacts_reader import ContactsData, User
+from .exceptions import DataError
 
 GRIDTYPE_1 = "OSG Production Resource"
 GRIDTYPE_2 = "OSG Integration Test Bed Resource"
@@ -67,13 +68,86 @@ class Resource(object):
         if not is_null(yaml_data, "Services"):
             self.services = self._expand_services(yaml_data["Services"])
         else:
-            self.services = []
+            self.services = []  # type: List[OrderedDict]
         self.service_names = [n["Name"] for n in self.services if "Name" in n]
         self.data = yaml_data
         if is_null(yaml_data, "FQDN"):
             raise ValueError(f"Resource {name} does not have an FQDN")
         self.fqdn = self.data["FQDN"]
         self.id = self.data["ID"]
+
+    def get_stashcache_files(self, global_data, legacy):
+        """Gets a resources Cache files as a dictionary"""
+
+        import stashcache
+        cache_file_generators_and_file_names = [
+            (
+                lambda resource: stashcache.generate_public_cache_authfile(
+                    global_data,
+                    fqdn=resource.fqdn,
+                    legacy=legacy,
+                    suppress_errors=False
+                ), "CacheAuthfilePublic"
+            ),
+            (
+                lambda resource: stashcache.generate_cache_authfile(
+                    global_data,
+                    fqdn=resource.fqdn,
+                    legacy=legacy,
+                    suppress_errors=False
+                ), "CacheAuthfile"
+            ),
+            (
+                lambda resource: stashcache.generate_cache_scitokens(
+                    global_data,
+                    fqdn=resource.fqdn,
+                    suppress_errors=False
+                ), "CacheScitokens"
+            ),
+        ]
+        origin_file_generators_and_file_names = [
+            (
+                lambda resource: stashcache.generate_origin_authfile(
+                    global_data,
+                    fqdn=resource.fqdn,
+                    suppress_errors=False,
+                    public_origin=True
+                ), "OriginAuthfilePublic"
+            ),
+            (
+                lambda resource: stashcache.generate_origin_authfile(
+                    global_data,
+                    fqdn=resource.fqdn,
+                    suppress_errors=False,
+                    public_origin=False
+                ), "OriginAuthfile"
+            ),
+            (
+                lambda resource: stashcache.generate_origin_scitokens(
+                    global_data,
+                    fqdn=resource.fqdn,
+                    suppress_errors=False
+                ), "OriginScitokens"
+            ),
+        ]
+
+        stashcache_files = {}
+        if XROOTD_CACHE_SERVER in self.services:
+            for (file_generator, file_name) in cache_file_generators_and_file_names:
+                try:
+                    stashcache_files[file_name] = file_generator(self)
+                except (ValueError, DataError) as error:
+                    continue
+        if XROOTD_ORIGIN_SERVER in self.services:
+            for (file_generator, file_name) in origin_file_generators_and_file_names:
+                try:
+                    stashcache_files[file_name] = file_generator(self)
+                except (ValueError, DataError) as error:
+                    continue
+
+        stashcache_files = {k: v for k, v in stashcache_files.items() if v}  # Remove empty dicts
+
+        return stashcache_files
 
     def get_tree(self, authorized=False, filters: Filters = None) -> Optional[OrderedDict]:
         if filters is None:

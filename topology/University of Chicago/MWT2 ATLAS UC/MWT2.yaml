@@ -600,6 +600,72 @@ Resources:
           Monitored: false
     VOOwnership:
       ATLAS: 100
+  MWT2_VARNISH:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 SLATE Varnish cache located at University of Chicago, IL
+    FQDN: v4a.atlas-ml.org
+    ID: 1320
+    Services:
+      Squid:
+        Description: Varnish based squid service for Frontier
+        Details:
+          uri_override: v4a.atlas-ml.org:6081
+          Monitored: true
+  MWT2_VARNISH_CVMFS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+    Description: MWT2 SLATE Varnish cache located at University of Chicago, IL
+    FQDN: v4cvmfs.atlas-ml.org
+    ID: 1321
+    Services:
+      Squid:
+        Description: Varnish based squid service for CVMFS
+        Details:
+          uri_override: v4cvmfs.atlas-ml.org:6081
+          Monitored: true
+    VOOwnership:
+      ATLAS: 100
   MWT2_UC_SE:
     Active: true
     ContactLists:

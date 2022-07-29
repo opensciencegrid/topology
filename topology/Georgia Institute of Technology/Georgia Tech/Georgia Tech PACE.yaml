@@ -84,6 +84,8 @@ Resources:
           hidden: false
       XRootD cache server:
         Description: Georgia Tech Caching Server
+    AllowedVOs:
+      - LIGO
     VOOwnership:
       LIGO: 100
   Georgia_Tech_LIGO_Submit_1:
