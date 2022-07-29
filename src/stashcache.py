@@ -2,11 +2,11 @@ from collections import defaultdict
 from typing import Dict, List, Optional
 import ldap3
 
-from webapp.common import is_null, readfile, PreJSON
+from webapp.common import is_null, readfile, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
-from webapp.vos_data import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, AuthMethod, DNAuth, SciTokenAuth, Namespace, \
+from webapp.vos_data import AuthMethod, DNAuth, SciTokenAuth, Namespace, \
     parse_authz, ANY, ANY_PUBLIC
 
 
