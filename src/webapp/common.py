@@ -392,3 +392,7 @@ def generate_dn_hash(dn: str) -> str:
     digest = hash_obj.digest()
     int_summary = digest[0] | digest[1] << 8 | digest[2] << 16 | digest[3] << 24
     return "%08lx.0" % int_summary
+
+
+XROOTD_CACHE_SERVER = "XRootD cache server"
+XROOTD_ORIGIN_SERVER = "XRootD origin server"

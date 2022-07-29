@@ -8,7 +8,7 @@ from typing import Dict, List, Optional, Tuple
 import icalendar
 
 from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml,\
-    is_null, expand_attr_list_single, expand_attr_list, ensure_list
+    is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER
 from .contacts_reader import ContactsData, User
 from .exceptions import DataError
 
