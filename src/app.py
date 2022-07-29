@@ -462,10 +462,6 @@ def _get_origin_authfile(public_only):
     except Exception:
         app.log_exception(sys.exc_info())
         return Response("Server error getting authfile, please contact help@opensciencegrid.org", status=503)
-    if not auth.strip():
-        auth = """\
-# No authorizations generated for this origin; please check configuration in OSG topology or contact help@opensciencegrid.org
-"""
     return Response(auth, mimetype="text/plain")
 
 
