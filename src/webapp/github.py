@@ -94,7 +94,7 @@ class GitHubAuth:
         return self.github_api_call('PUT', url, data)
         # 200 OK / 405 (not mergeable) / 409 (sha mismatch)
 
-    def get_api_url(url):
+    def get_api_url(self, url):
         return self.github_api_call('GET', url, None)
 
     def target_repo(self, owner, repo):
