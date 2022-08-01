@@ -1,3 +1,4 @@
+import re
 import flask
 import pytest
 
@@ -8,6 +9,9 @@ topdir = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(topdir)
 
 from app import app
+
+HOST_PORT_RE = re.compile(r"[a-zA-Z0-9.-]{3,63}:[0-9]{2,5}")
+PROTOCOL_HOST_PORT_RE = re.compile(r"[a-z+]://" + HOST_PORT_RE.pattern)
 
 INVALID_USER = dict(
     username="invalid",
@@ -148,7 +152,7 @@ class TestAPI:
         resources_stashcache_files = client.get('/resources/stashcache-files').json
 
         # Sanity check: have a reasonable number of resources
-        assert len(resources_stashcache_files) > 10
+        assert len(resources_stashcache_files) > 20
 
         keys_and_endpoints = [
             ("CacheAuthfilePublic",  "/cache/Authfile-public"),
@@ -162,6 +166,41 @@ class TestAPI:
         for resource_name, resource_stashcache_files in resources_stashcache_files.items():
             for key, endpoint in keys_and_endpoints:
                 test_stashcache_file(key, endpoint, resources[resource_name]["FQDN"], resource_stashcache_files)
+
+    def test_stashcache_namespaces(self, client: flask.Flask):
+        def validate_cache_schema(cc):
+            assert HOST_PORT_RE.match(cc["auth_endpoint"])
+            assert HOST_PORT_RE.match(cc["endpoint"])
+            assert HOST_PORT_RE.match(cc["resource"])
+
+        def validate_namespace_schema(ns):
+            assert isinstance(ns["caches"], list)  # we do have a case where it's empty
+            assert ns["path"].startswith("/")  # implies str
+            assert isinstance(ns["readhttps"], bool)
+            assert isinstance(ns["usetokenonread"], bool)
+            assert ns["dirlisthost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["dirlisthost"])
+            assert ns["writebackhost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["dirlisthost"])
+
+        response = client.get('/stashcache/namespaces')
+        assert response.status_code == 200
+        namespaces_json = response.json
+
+        assert "caches" in namespaces_json
+        caches = namespaces_json["caches"]
+        # Have a reasonable number of caches
+        assert len(caches) > 20
+        for cache in caches:
+            validate_cache_schema(cache)
+
+        assert "namespaces" in namespaces_json
+        namespaces = namespaces_json["namespaces"]
+        # Have a reasonable number of namespaces
+        assert len(namespaces) > 15
+
+        for namespace in namespaces:
+            validate_namespace_schema(namespace)
+            if namespace["caches"]:
+                validate_cache_schema(namespace["caches"][0])
 
 
 if __name__ == '__main__':
