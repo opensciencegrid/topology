@@ -11,7 +11,7 @@ sys.path.append(topdir)
 from app import app
 
 HOST_PORT_RE = re.compile(r"[a-zA-Z0-9.-]{3,63}:[0-9]{2,5}")
-PROTOCOL_HOST_PORT_RE = re.compile(r"[a-z+]://" + HOST_PORT_RE.pattern)
+PROTOCOL_HOST_PORT_RE = re.compile(r"[a-z]+://" + HOST_PORT_RE.pattern)
 
 INVALID_USER = dict(
     username="invalid",
@@ -137,6 +137,10 @@ class TestAPI:
     def test_resource_stashcache_files(self, client: flask.Flask):
         """Tests that the resource table contains the same files as the singular api outputs"""
 
+        # Disable legacy auth until it's turned back on in Resource.get_stashcache_files()
+        old_legacy_auth = app.config.get("STASHCACHE_LEGACY_AUTH", None)
+        app.config["STASHCACHE_LEGACY_AUTH"] = False
+
         def test_stashcache_file(key, endpoint, fqdn, resource_stashcache_files):
 
             response = client.get(f"{endpoint}?fqdn={fqdn}")
@@ -148,30 +152,38 @@ class TestAPI:
             else:
                 assert response.status_code != 200 or not response.data
 
-        resources = client.get('/miscresource/json').json
-        resources_stashcache_files = client.get('/resources/stashcache-files').json
+        try:
 
-        # Sanity check: have a reasonable number of resources
-        assert len(resources_stashcache_files) > 20
+            resources = client.get('/miscresource/json').json
+            resources_stashcache_files = client.get('/resources/stashcache-files').json
 
-        keys_and_endpoints = [
-            ("CacheAuthfilePublic",  "/cache/Authfile-public"),
-            ("CacheAuthfile",        "/cache/Authfile"),
-            ("CacheScitokens",       "/cache/scitokens.conf"),
-            ("OriginAuthfilePublic", "/origin/Authfile-public"),
-            ("OriginAuthfile",       "/origin/Authfile"),
-            ("OriginScitokens",      "/origin/scitokens.conf")
-        ]
+            # Sanity check: have a reasonable number of resources
+            assert len(resources_stashcache_files) > 20
 
-        for resource_name, resource_stashcache_files in resources_stashcache_files.items():
-            for key, endpoint in keys_and_endpoints:
-                test_stashcache_file(key, endpoint, resources[resource_name]["FQDN"], resource_stashcache_files)
+            keys_and_endpoints = [
+                ("CacheAuthfilePublic",  "/cache/Authfile-public"),
+                ("CacheAuthfile",        "/cache/Authfile"),
+                ("CacheScitokens",       "/cache/scitokens.conf"),
+                ("OriginAuthfilePublic", "/origin/Authfile-public"),
+                ("OriginAuthfile",       "/origin/Authfile"),
+                ("OriginScitokens",      "/origin/scitokens.conf")
+            ]
+
+            for resource_name, resource_stashcache_files in resources_stashcache_files.items():
+                for key, endpoint in keys_and_endpoints:
+                    test_stashcache_file(key, endpoint, resources[resource_name]["FQDN"], resource_stashcache_files)
+
+        finally:
+            if old_legacy_auth is None:
+                del app.config["STASHCACHE_LEGACY_AUTH"]
+            else:
+                app.config["STASHCACHE_LEGACY_AUTH"] = old_legacy_auth
 
     def test_stashcache_namespaces(self, client: flask.Flask):
         def validate_cache_schema(cc):
             assert HOST_PORT_RE.match(cc["auth_endpoint"])
             assert HOST_PORT_RE.match(cc["endpoint"])
-            assert HOST_PORT_RE.match(cc["resource"])
+            assert cc["resource"] and isinstance(cc["resource"], str)
 
         def validate_namespace_schema(ns):
             assert isinstance(ns["caches"], list)  # we do have a case where it's empty
@@ -179,7 +191,7 @@ class TestAPI:
             assert isinstance(ns["readhttps"], bool)
             assert isinstance(ns["usetokenonread"], bool)
             assert ns["dirlisthost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["dirlisthost"])
-            assert ns["writebackhost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["dirlisthost"])
+            assert ns["writebackhost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["writebackhost"])
 
         response = client.get('/stashcache/namespaces')
         assert response.status_code == 200
@@ -200,7 +212,8 @@ class TestAPI:
         for namespace in namespaces:
             validate_namespace_schema(namespace)
             if namespace["caches"]:
-                validate_cache_schema(namespace["caches"][0])
+                for cache in namespace["caches"]:
+                    validate_cache_schema(cache)
 
 
 if __name__ == '__main__':
