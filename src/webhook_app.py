@@ -50,14 +50,14 @@ gh_api_token = readfile(global_data.webhook_gh_api_token, app.logger).decode()
 if gh_api_user and gh_api_token:
     ghauth = GitHubAuth(gh_api_user, gh_api_token, app.logger)
     ghrepo = ghauth.target_repo(_required_repo_owner, _required_repo_name)
+    get_api_url           = ghauth.get_api_url
     publish_pr_review     = ghrepo.publish_pr_review
     publish_issue_comment = ghrepo.publish_issue_comment
-    get_api_url           = ghrepo.get_api_url
     hit_merge_button      = ghrepo.hit_merge_button
 else:
+    get_api_url           = \
     publish_pr_review     = \
     publish_issue_comment = \
-    get_api_url           = \
     hit_merge_button      = lambda *a,**kw: (False, "No API token configured")
     app.logger.warning("Note, no WEBHOOK_GH_API_TOKEN configured; "
                        "GitHub comments won't be published, nor PRs merged.")
