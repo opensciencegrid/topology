@@ -1,6 +1,7 @@
 import re
 import flask
 import pytest
+from pytest_mock import MockerFixture
 
 # Rewrites the path so the app can be imported like it normally is
 import os
@@ -68,7 +69,8 @@ class TestAPI:
         response = client.get(endpoint)
         assert response.status_code != 404
 
-    def test_cache_authfile(self, client: flask.Flask):
+    def test_cache_authfile(self, client: flask.Flask, mocker: MockerFixture):
+        mocker.patch("stashcache._generate_ligo_dns", mocker.MagicMock(return_value=["deadbeef.0"]))
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
 
@@ -134,7 +136,7 @@ class TestAPI:
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
 
-    def test_resource_stashcache_files(self, client: flask.Flask):
+    def test_resource_stashcache_files(self, client: flask.Flask, mocker: MockerFixture):
         """Tests that the resource table contains the same files as the singular api outputs"""
 
         # Disable legacy auth until it's turned back on in Resource.get_stashcache_files()
@@ -153,6 +155,7 @@ class TestAPI:
                 assert response.status_code != 200 or not response.data
 
         try:
+            mocker.patch("stashcache._generate_ligo_dns", mocker.MagicMock(return_value=["deadbeef.0"]))
 
             resources = client.get('/miscresource/json').json
             resources_stashcache_files = client.get('/resources/stashcache-files').json
