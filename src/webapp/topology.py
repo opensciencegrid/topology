@@ -78,6 +78,11 @@ class Resource(object):
 
     def get_stashcache_files(self, global_data, legacy):
         """Gets a resources Cache files as a dictionary"""
+        # TODO Cache this.
+
+        # Until https://opensciencegrid.atlassian.net/browse/SOFTWARE-5276, skip LIGO DNs
+        # because otherwise each file hits the LIGO LDAP server.
+        legacy = False
 
         import stashcache
         cache_file_generators_and_file_names = [
@@ -136,13 +141,13 @@ class Resource(object):
             for (file_generator, file_name) in cache_file_generators_and_file_names:
                 try:
                     stashcache_files[file_name] = file_generator(self)
-                except (ValueError, DataError) as error:
+                except (ValueError, DataError):
                     continue
         if XROOTD_ORIGIN_SERVER in self.service_names:
             for (file_generator, file_name) in origin_file_generators_and_file_names:
                 try:
                     stashcache_files[file_name] = file_generator(self)
-                except (ValueError, DataError) as error:
+                except (ValueError, DataError):
                     continue
 
         stashcache_files = {k: v for k, v in stashcache_files.items() if v}  # Remove empty dicts

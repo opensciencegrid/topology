@@ -168,6 +168,7 @@ def generate_cache_authfile(global_data: GlobalData,
     no public directories.
     """
     authfile = ""
+    end_message = ""
     id_to_dir = defaultdict(set)
     id_to_str = {}
 
@@ -199,8 +200,11 @@ def generate_cache_authfile(global_data: GlobalData,
 
             # Extend authz list with LIGO DNs if applicable
             extended_authz_list = namespace.authz_list
-            if legacy and dirname == "/user/ligo":
-                extended_authz_list += fetch_ligo_authz_list_if_needed()
+            if dirname == "/user/ligo":
+                if legacy:
+                    extended_authz_list += fetch_ligo_authz_list_if_needed()
+                else:
+                    end_message += "# LIGO DNs unavailable\n"
 
             for authz in extended_authz_list:
                 if authz.used_in_authfile:
@@ -219,6 +223,7 @@ def generate_cache_authfile(global_data: GlobalData,
         authfile += f"# {id_to_str[authfile_id]}\n"
         authfile += f"{authfile_id} {paths_acl}\n"
 
+    authfile += end_message
     return authfile
 
 
@@ -226,10 +231,8 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
     """
     Generate the Xrootd authfile needed for public caches.  This contains public data only, no authenticated data.
     """
-    if legacy:
-        authfile = "u * /user/ligo -rl \\\n"
-    else:
-        authfile = "u * \\\n"
+    _ = legacy
+    authfile = "u * /user/ligo -rl \\\n"
 
     topology = global_data.get_topology()
     resource = None
