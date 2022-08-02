@@ -168,7 +168,7 @@ def generate_cache_authfile(global_data: GlobalData,
     no public directories.
     """
     authfile = ""
-    end_message = ""
+    warnings = ""
     id_to_dir = defaultdict(set)
     id_to_str = {}
 
@@ -204,7 +204,7 @@ def generate_cache_authfile(global_data: GlobalData,
                 if legacy:
                     extended_authz_list += fetch_ligo_authz_list_if_needed()
                 else:
-                    end_message += "# LIGO DNs unavailable\n"
+                    warnings += "# LIGO DNs unavailable\n"
 
             for authz in extended_authz_list:
                 if authz.used_in_authfile:
@@ -223,8 +223,7 @@ def generate_cache_authfile(global_data: GlobalData,
         authfile += f"# {id_to_str[authfile_id]}\n"
         authfile += f"{authfile_id} {paths_acl}\n"
 
-    authfile += end_message
-    return authfile
+    return warnings + authfile
 
 
 def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=True, suppress_errors=True) -> str:
