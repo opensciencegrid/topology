@@ -33,5 +33,5 @@ class ResourceMissingService(ResourceDataError):
 
 class VODataError(DataError):
     def __init__(self, vo_name, text):
-        DataError.__init__(self, f"VO {vo_name}: {text}")
+        super().__init__(f"VO {vo_name}: {text}")
         self.vo_name = vo_name
