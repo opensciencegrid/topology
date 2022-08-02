@@ -213,10 +213,7 @@ def generate_cache_authfile(global_data: GlobalData,
 
     # TODO: improve message and turn this into a warning
     if not id_to_dir:
-        if suppress_errors:
-            return ""
-        else:
-            raise DataError("No working StashCache resource/VO combinations found")
+        raise DataError("Cache does not support any protected namespaces")
 
     for authfile_id in id_to_dir:
         paths_acl = " ".join(f"{p} rl" for p in sorted(id_to_dir[authfile_id]))
@@ -253,10 +250,7 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
 
     # TODO: improve message and turn this into a warning
     if not public_dirs:
-        if suppress_errors:
-            return ""
-        else:
-            raise DataError("No working StashCache resource/VO combinations found")
+        raise DataError("Cache does not support any public namespaces")
 
     for dirname in sorted(public_dirs):
         authfile += "    {} rl \\\n".format(dirname)
@@ -368,6 +362,7 @@ def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors
             if allowed_caches:
                 allowed_resources.extend(allowed_caches)
             else:
+                # TODO This situation should be caught by the CI
                 warnings.append(f"# WARNING: No working cache / namespace combinations found for {path}")
 
             for resource in allowed_resources:
@@ -386,12 +381,8 @@ def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors
                     id_to_paths[authz.get_authfile_id()].add(path)
                     id_to_str[authz.get_authfile_id()] = str(authz)
 
-    # TODO: improve message and turn this into a warning
     if not id_to_paths and not public_paths:
-        if suppress_errors:
-            return ""
-        else:
-            raise DataError("No working StashCache resource/VO combinations found")
+        raise DataError("Origin does not support any namespaces")
 
     authfile_lines = []
     authfile_lines.extend(warnings)
