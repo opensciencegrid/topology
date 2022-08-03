@@ -83,6 +83,33 @@ Resources:
           hidden: false
     Tags:
       - CC*
+  SU-ITS-AD-CE4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: f4b0996bf0985f5662d8cc51ef2b156d672b077f
+          Name: Eric Sedore
+        Secondary:
+          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
+          Name: Richard Ameele
+      Security Contact:
+        Primary:
+          ID: f4b0996bf0985f5662d8cc51ef2b156d672b077f
+          Name: Eric Sedore
+        Secondary:
+          ID: f2f9da2faec208f2e3bfa42d5f9b4c20b1a7c525
+          Name: Richard Ameele
+    Description: SU ITS compute element.
+    FQDN: its-condor-ce4.ad.syr.edu
+    ID: 1096
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    Tags:
+      - CC*
   SU-OG-squid1:
     Active: true
     ContactLists:
