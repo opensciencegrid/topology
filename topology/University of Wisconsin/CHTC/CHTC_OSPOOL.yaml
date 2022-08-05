@@ -64,7 +64,7 @@ Resources:
         Description: OSPool Access Point
     Tags:
       - OSPool
-  CHTC-EHT-EP:
+  CHTC-GPU-EP:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -84,8 +84,8 @@ Resources:
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
-    Description: OSPool A100 for EHT
-    FQDN: eht-ep.chtc.wisc.edu
+    Description: OSPool GPU A100 for EHT
+    FQDN: gpu-ep.chtc.wisc.edu
     ID: 1325
     Services:
       Execution Endpoint:
