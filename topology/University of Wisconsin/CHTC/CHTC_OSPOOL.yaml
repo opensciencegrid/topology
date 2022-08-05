@@ -64,3 +64,31 @@ Resources:
         Description: OSPool Access Point
     Tags:
       - OSPool
+  CHTC-EHT-EP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000007
+          Name: Carl Edquist
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+    Description: OSPool A100 for EHT
+    FQDN: eht-ep.chtc.wisc.edu
+    ID: 1325
+    Services:
+      Execution Endpoint:
+        Description: OSG VO backfill containers on the Tiger cluster, in the production namespace
+    Tags:
+      - OSPool
