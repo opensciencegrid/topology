@@ -8,24 +8,24 @@ log = logging.getLogger(__name__)
 
 def get_contact_cilogon_id_map(global_data):
     """ return contacts dict, limited to users with a CILogonID """
-    contacts = global_data.get_contacts_data().users_by_id;
+    contacts = global_data.get_contacts_data().users_by_id
     return { k: v for k, v in contacts.items() if v.cilogon_id is not None }
 
 
 # cilogon ldap query constants
 #_ldap_url = "ldaps://ldap.cilogon.org"
 #_username = "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org"
-_basedn   = "o=OSG,o=CO,dc=cilogon,dc=org"
+_cilogon_basedn   = "o=OSG,o=CO,dc=cilogon,dc=org"
 
 
-def get_cilogon_ldap_id_map(ldap_url, username, ldappass):
+def get_cilogon_ldap_id_map(ldap_url, ldap_user, ldap_pass):
     """ return dict of cilogon ldap data for each CILogonID, with the
         structure: {CILogonID: { "dn": dn, "data": data }, ...} """
     server = ldap3.Server(ldap_url)
-    conn = ldap3.Connection(server, username, ldappass)
+    conn = ldap3.Connection(server, ldap_user, ldap_pass)
     if not conn.bind():
         return None  # connection failure
-    conn.search(_basedn, '(voPersonID=*)', attributes=['*'])
+    conn.search(_cilogon_basedn, '(voPersonID=*)', attributes=['*'])
     result_data = [ (e.entry_dn, e.entry_attributes_as_dict)
                     for e in conn.entries ]
     conn.unbind()
@@ -133,7 +133,7 @@ def merge_yaml_data(yaml_data_main, yaml_data_secondary):
     return yd
 
 
-def get_ligo_ldap_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
+def get_ligo_ldap_dns(ldap_url: str, ldapuser: str, ldap_pass: str) -> List[str]:
     """
     Query the LIGO LDAP server for all grid DNs in the IGWN collab.
 
@@ -146,8 +146,8 @@ def get_ligo_ldap_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
                'robot': base_query.format(community="robot:OSGRobotCert")}
 
     try:
-        server = ldap3.Server(ldapurl, connect_timeout=10)
-        conn = ldap3.Connection(server, user=ldapuser, password=ldappass, raise_exceptions=True, receive_timeout=10)
+        server = ldap3.Server(ldap_url, connect_timeout=10)
+        conn = ldap3.Connection(server, user=ldapuser, password=ldap_pass, raise_exceptions=True, receive_timeout=10)
         conn.bind()
     except ldap3.core.exceptions.LDAPException:
         log.exception("Failed to connect to the LIGO LDAP")
