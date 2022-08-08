@@ -1,13 +1,12 @@
 import datetime
 import logging
 import os
-import re
 import time
 from typing import Dict, Set, List
 
 import yaml
 
-from webapp import cilogon_ldap, common, contacts_reader, mappings, project_reader, rg_reader, vo_reader
+from webapp import common, contacts_reader, ldap_data, mappings, project_reader, rg_reader, vo_reader
 from webapp.common import readfile
 from webapp.contacts_reader import ContactsData
 from webapp.topology import Topology, Downtime
@@ -171,7 +170,7 @@ class GlobalData:
         elif self.comanage_data.should_update():
             try:
                 idmap = self.get_cilogon_ldap_id_map()
-                data = cilogon_ldap.cilogon_id_map_to_yaml_data(idmap)
+                data = ldap_data.cilogon_id_map_to_yaml_data(idmap)
                 self.comanage_data.update(ContactsData(data))
             except Exception:
                 if self.strict:
@@ -185,7 +184,7 @@ class GlobalData:
         url = self.cilogon_ldap_url
         user = self.cilogon_ldap_user
         ldappass = readfile(self.cilogon_ldap_passfile, log)
-        return cilogon_ldap.get_cilogon_ldap_id_map(url, user, ldappass)
+        return ldap_data.get_cilogon_ldap_id_map(url, user, ldappass)
 
     def get_contacts_data(self) -> ContactsData:
         """
@@ -195,7 +194,7 @@ class GlobalData:
             try:
                 yd1 = self.get_comanage_data().yaml_data
                 yd2 = self.get_contact_db_data().yaml_data
-                yd_merged = cilogon_ldap.merge_yaml_data(yd1, yd2)
+                yd_merged = ldap_data.merge_yaml_data(yd1, yd2)
                 self.merged_contacts_data.update(ContactsData(yd_merged))
             except Exception:
                 if self.strict:
