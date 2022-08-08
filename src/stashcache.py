@@ -22,7 +22,7 @@ def _log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=
         raise an_exception
 
 
-def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
+def get_ligo_ldap_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
     """
     Query the LIGO LDAP server for all grid DNs in the IGWN collab.
 
@@ -184,7 +184,7 @@ def generate_cache_authfile(global_data: GlobalData,
     def fetch_ligo_authz_list_if_needed():
         if not ligo_authz_list:
             ldappass = readfile(global_data.ligo_ldap_passfile, log)
-            for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
+            for dn in get_ligo_ldap_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
                 ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
         return ligo_authz_list
 
