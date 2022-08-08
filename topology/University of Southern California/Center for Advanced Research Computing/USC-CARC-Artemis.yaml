@@ -1,0 +1,28 @@
+---
+Production: true
+SupportCenter: Self Supported
+GroupDescription: >
+  Artemis is the frontier-squid proxy for the Center for Advanced Research Computing
+  at the University of Southern California
+GroupID: 
+Resources:
+  USC-CARC-Artemis-Squid:
+    Active: true
+    Description: This is a frontier-squid proxy for CARC at USC.
+    ID: 
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: James Hong
+          ID: fd858d68a68b33617c327004061152291c9e42eb
+      Security Contact:
+        Primary:
+          Name: James Hong
+          ID: fd858d68a68b33617c327004061152291c9e42eb
+    FQDN: artemis-squid.carc.usc.edu
+    Services:
+      Squid:
+        # Description is a brief description of the service
+        Description: Frontier squid proxy for Artemis cluster
+    Tags:
+      - CC*
