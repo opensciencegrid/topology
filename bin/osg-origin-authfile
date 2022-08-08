@@ -24,9 +24,7 @@ args = parser.parse_args()
 
 global_data = webapp.models.GlobalData()
 
-VOData = global_data.get_vos_data()
-ResourceGroups = global_data.get_topology().get_resource_group_list()
-
-authfile = stashcache.generate_origin_authfile(args.fqdn[0], VOData, ResourceGroups, suppress_errors=False, public_only=args.public)
+authfile = stashcache.generate_origin_authfile(global_data, args.fqdn[0], suppress_errors=False,
+                                               public_origin=args.public)
 
 print(authfile, end="")

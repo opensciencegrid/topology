@@ -1,17 +1,25 @@
-
 from collections import defaultdict
-from typing import Dict, List, Optional, Set, Tuple, Union
+from typing import Dict, List, Optional
 import ldap3
 
-from webapp.common import readfile, generate_dn_hash
-from webapp.exceptions import DataError, NotRegistered
+from webapp.common import is_null, readfile, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
+from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
-from webapp.topology import Resource, ResourceGroup
-from webapp.vos_data import VOsData
+from webapp.topology import Resource, ResourceGroup, Topology
+from webapp.vos_data import AuthMethod, DNAuth, SciTokenAuth, Namespace, \
+    parse_authz, ANY, ANY_PUBLIC
+
 
 import logging
 
 log = logging.getLogger(__name__)
+
+
+def _log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=log.debug):
+    if suppress_errors:
+        logmethod("%s %s", type(an_exception), an_exception)
+    else:
+        raise an_exception
 
 
 def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
@@ -49,73 +57,106 @@ def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
     return results
 
 
-def _get_resource_by_fqdn(fqdn: str, resource_groups: List[ResourceGroup]) -> Resource:
-    """Returns the Resource that has the given FQDN; if multiple Resources
-    have the same FQDN, returns the first one.
-
-    """
-    for group in resource_groups:
-        for resource in group.resources:
-            if fqdn.lower() == resource.fqdn.lower():
-                return resource
+def _resource_has_cache(resource: Resource) -> bool:
+    return XROOTD_CACHE_SERVER in resource.service_names
 
 
-def _get_cache_resource(fqdn: Optional[str], resource_groups: List[ResourceGroup], suppress_errors: bool) -> Optional[Resource]:
-    """If given an FQDN, returns the Resource _if it has an "XRootD cache server" service_.
+def _get_resource_with_service(fqdn: Optional[str], service_name: str, topology: Topology,
+                               suppress_errors: bool) -> Optional[Resource]:
+    """If given an FQDN, returns the Resource _if it has the given service.
     If given None, returns None.
     If multiple Resources have the same FQDN, checks the first one.
-    If suppress_errors is False, raises an expression on the following conditions:
-    - no Resource matching FQDN (NotRegistered)
-    - Resource does not provide an XRootD cache server (DataError)
-    If suppress_errors is True, returns None on the above conditions.
+    If suppress_errors is False, raises an exception on the following conditions:
+    - no Resource matching FQDN (ResourceNotRegistered)
+    - Resource does not provide a SERVICE_NAME (ResourceMissingService)
+    If suppress_errors is True, logs the error and returns None on the above conditions.
 
     """
     resource = None
     if fqdn:
-        resource = _get_resource_by_fqdn(fqdn, resource_groups)
+        resource = topology.safe_get_resource_by_fqdn(fqdn)
         if not resource:
-            if suppress_errors:
-                return None
-            else:
-                raise NotRegistered(fqdn)
-        if "XRootD cache server" not in resource.service_names:
-            if suppress_errors:
-                return None
-            else:
-                raise DataError("{} (resource name {}) does not provide an XRootD cache server.".format(fqdn, resource.name))
+            _log_or_raise(suppress_errors, ResourceNotRegistered(fqdn=fqdn))
+            return None
+        if service_name not in resource.service_names:
+            _log_or_raise(
+                suppress_errors,
+                ResourceMissingService(resource, service_name)
+            )
+            return None
     return resource
 
 
-def _cache_is_allowed(resource, vo_name, stashcache_data, public, suppress_errors):
-    allowed_vos = resource.data.get("AllowedVOs")
-    if allowed_vos is None:
-        if suppress_errors:
-            return False
-        else:
-            raise DataError("Cache server at {} (resource name {}) does not provide an AllowedVOs list.".format(resource.fqdn, resource.name))
+def _get_cache_resource(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
+    """Convenience wrapper around _get_resource-with-service() for a cache"""
+    return _get_resource_with_service(fqdn, XROOTD_CACHE_SERVER, topology, suppress_errors)
 
-    if ('ANY' not in allowed_vos and
-            vo_name not in allowed_vos and
-            (not public or 'ANY_PUBLIC' not in allowed_vos)):
-        log.debug(f"\tCache {resource.fqdn} does not allow {vo_name} in its AllowedVOs list")
-        return False
 
-    # For public data, caching is one-way: we OK things as long as the
-    # cache is interested in the data.
-    if public:
+def _get_origin_resource(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
+    """Convenience wrapper around _get_resource-with-service() for an origin"""
+    return _get_resource_with_service(fqdn, XROOTD_ORIGIN_SERVER, topology, suppress_errors)
+
+
+def resource_allows_namespace(resource: Resource, namespace: Optional[Namespace]) -> bool:
+    """Return True if the given resource's (cache or origin) AllowedVOs allows a namespace, which happens if:
+
+    - The namespace's VO is in the AllowedVOs list, or
+    - The namespace is public and ANY_PUBLIC is in the AllowedVOs list, or
+    - ANY is in the AllowedVOs list; in this case, namespace may be `None`
+
+    This says nothing about whether the namespace allows the cache/origin.
+    namespace may be None, in which case thie returns true only if ANY is in the AllowedVOs list.
+    No type/service checking is done in this function.
+    """
+    allowed_vos = resource.data.get("AllowedVOs", [])
+    if ANY in allowed_vos:
         return True
+    if namespace:
+        if ANY_PUBLIC in allowed_vos and namespace.is_public():
+            return True
+        elif namespace.vo_name in allowed_vos:
+            return True
+    return False
 
-    allowed_caches = stashcache_data.get("AllowedCaches")
-    if allowed_caches is None:
-        if suppress_errors:
-            return False
-        else:
-            raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
 
-    ret = 'ANY' in allowed_caches or resource.name in allowed_caches
-    if not ret:
-        log.debug(f"\tVO {vo_name} does not allow cache {resource.fqdn} in its AllowedCaches list")
-    return ret
+def namespace_allows_origin_resource(namespace: Namespace, origin: Optional[Resource]) -> bool:
+    """Return True if the given namespace allows a given origin resouce, which happens if
+    the origin resource's name is in the namespace's AllowedOrigins list.
+    Return False if origin is None.
+
+    This says nothing about whether the origin allows the namespace.
+    No type/service checking is done in this function.
+    """
+    return origin and origin.name in namespace.allowed_origins
+
+
+def namespace_allows_cache_resource(namespace: Namespace, cache: Optional[Resource]) -> bool:
+    """Return True if the given namespace allows a given cache resource, which happens if:
+
+    - The cache resource's name is in the namespace's AllowedCaches list, or
+    - The namespace's AllowedCaches list contains ANY; in this cache, cache may be None.
+
+    This says nothing about whether the cache allows the namespace.
+    No type/service checking is done in this function.
+    """
+    if ANY in namespace.allowed_caches:
+        return True
+    return cache and cache.name in namespace.allowed_caches
+
+
+def get_supported_caches_for_namespace(namespace: Namespace, topology: Topology) -> List[Resource]:
+    """Return a list of Resource objects of all caches that support a namespace.  This means the cache allows
+    the namespace, AND the namespace allows the cache.
+    """
+    resource_groups = topology.get_resource_group_list()
+    all_caches = [resource
+                  for group in resource_groups
+                  for resource in group.resources
+                  if _resource_has_cache(resource)]
+    return [cache
+            for cache in all_caches
+            if namespace_allows_cache_resource(namespace, cache)
+            and resource_allows_namespace(cache, namespace)]
 
 
 def generate_cache_authfile(global_data: GlobalData,
@@ -123,426 +164,122 @@ def generate_cache_authfile(global_data: GlobalData,
                             legacy=True,
                             suppress_errors=True) -> str:
     """
-    Generate the Xrootd authfile needed by a StashCache cache server.
+    Generate the Xrootd authfile needed by an StashCache cache server.  This contains authenticated data only,
+    no public directories.
     """
     authfile = ""
+    warnings = ""
     id_to_dir = defaultdict(set)
+    id_to_str = {}
 
+    topology = global_data.get_topology()
     resource = None
     if fqdn:
-        resource_groups = global_data.get_topology().get_resource_group_list()
-        resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
+        resource = _get_cache_resource(fqdn, topology, suppress_errors)
         if not resource:
             return ""
 
-    vo_data = global_data.get_vos_data()
-    for vo_name, vo_details in vo_data.vos.items():
-        stashcache_data = vo_details.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
+    ligo_authz_list: List[AuthMethod] = []
 
-        namespaces = stashcache_data.get("Namespaces")
-        if not namespaces:
-            if suppress_errors:
+    def fetch_ligo_authz_list_if_needed():
+        if not ligo_authz_list:
+            ldappass = readfile(global_data.ligo_ldap_passfile, log)
+            for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
+                ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
+        return ligo_authz_list
+
+    vos_data = global_data.get_vos_data()
+    for stashcache_obj in vos_data.stashcache_by_vo_name.values():
+        for dirname, namespace in stashcache_obj.namespaces.items():
+            if not namespace_allows_cache_resource(namespace, resource):
                 continue
-            else:
-                raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
+            if resource and not resource_allows_namespace(resource, namespace):
+                continue
+            if namespace.is_public():
+                continue
 
-        needs_authz = False
-        for namespace, authz_list in namespaces.items():
-            if not authz_list:
-                if suppress_errors:
-                    continue
+            # Extend authz list with LIGO DNs if applicable
+            extended_authz_list = namespace.authz_list
+            if dirname == "/user/ligo":
+                if legacy:
+                    extended_authz_list += fetch_ligo_authz_list_if_needed()
                 else:
-                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(namespace, vo_name))
-            if authz_list != ["PUBLIC"]:
-                needs_authz = True
-                break
-        if not needs_authz:
-            continue
+                    warnings += "# LIGO DNs unavailable\n"
 
-        if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, False, suppress_errors):
-            continue
+            for authz in extended_authz_list:
+                if authz.used_in_authfile:
+                    id_to_dir[authz.get_authfile_id()].add(dirname)
+                    id_to_str[authz.get_authfile_id()] = str(authz)
 
-        for namespace, authz_list in namespaces.items():
-            user_hashes, groups = _get_user_hashes_and_groups_for_namespace(authz_list, suppress_errors)
-            for u in user_hashes:
-                id_to_dir["u {}".format(u)].add(namespace)
-            for g in groups:
-                id_to_dir["g {}".format(g)].add(namespace)
+    # TODO: improve message and turn this into a warning
+    if not id_to_dir:
+        raise DataError("Cache does not support any protected namespaces")
 
-    if legacy and resource is not None and \
-            (
-                    "ANY" in resource.data.get("AllowedVOs") or
-                    "LIGO" in resource.data.get("AllowedVOs")
-            ):
-        ldappass = readfile(global_data.ligo_ldap_passfile, log)
-        for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
-            hash = generate_dn_hash(dn)
-            id_to_dir["u {}".format(hash)].add("/user/ligo")
+    for authfile_id in id_to_dir:
+        paths_acl = " ".join(f"{p} rl" for p in sorted(id_to_dir[authfile_id]))
+        authfile += f"# {id_to_str[authfile_id]}\n"
+        authfile += f"{authfile_id} {paths_acl}\n"
 
-    for id, dir_list in id_to_dir.items():
-        if dir_list:
-            authfile += "{} {}\n".format(id,
-                " ".join([i + " rl" for i in sorted(dir_list)]))
-
-    return authfile
-
-
-def _get_user_hashes_and_groups_for_namespace(authz_list: List[Union[str, Dict]], suppress_errors=True) -> Tuple[Set, Set]:
-    """Return the user (hashes) and groups from DNs and FQANs in an authz list for a namespace"""
-    # Note:
-    # This is a string:
-    # - FQAN:/foobar
-    # This is a dict:
-    # - FQAN: /foobar
-    # Accept both.
-
-    users = set()
-    groups = set()
-    for authz in authz_list:
-        if isinstance(authz, str):
-            if authz.startswith("FQAN:"):
-                fqan = authz[5:].strip()
-                groups.add(fqan)
-            elif authz.startswith("DN:"):
-                dn = authz[3:].strip()
-                dn_hash = generate_dn_hash(dn)
-                users.add(dn_hash)
-            elif authz.strip() == "PUBLIC":
-                continue
-            else:
-                if not suppress_errors:
-                    raise DataError("Unknown authz list entry {}".format(authz))
-        elif isinstance(authz, dict):
-            if "SciTokens" in authz:
-                continue  # SciTokens are not used in Authfiles
-            elif "FQAN" in authz:
-                fqan = authz["FQAN"].strip()
-                groups.add(fqan)
-            elif "DN" in authz:
-                dn = authz["DN"].strip()
-                dn_hash = generate_dn_hash(dn)
-                users.add(dn_hash)
-            else:
-                if not suppress_errors:
-                    raise DataError("Unknown authz list entry {}".format(authz))
-        else:
-            if not suppress_errors:
-                raise DataError("Unknown authz list entry {}".format(authz))
-
-    return users, groups
+    return warnings + authfile
 
 
 def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=True, suppress_errors=True) -> str:
     """
-    Generate the Xrootd authfile needed for public caches
+    Generate the Xrootd authfile needed for public caches.  This contains public data only, no authenticated data.
     """
-    if legacy:
-        authfile = "u * /user/ligo -rl \\\n"
-    else:
-        authfile = "u * \\\n"
+    _ = legacy
+    authfile = "u * /user/ligo -rl \\\n"
 
+    topology = global_data.get_topology()
     resource = None
     if fqdn:
-        resource_groups = global_data.get_topology().get_resource_group_list()
-        resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
+        resource = _get_cache_resource(fqdn, topology, suppress_errors)
         if not resource:
             return ""
 
     public_dirs = set()
-    vo_data = global_data.get_vos_data()
-    for vo_name, vo_details in vo_data.vos.items():
-        stashcache_data = vo_details.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
-        if resource and not _cache_is_allowed(resource, vo_name, stashcache_data, True, suppress_errors):
-            continue
-
-        for dirname, authz_list in stashcache_data.get("Namespaces", {}).items():
-            if "PUBLIC" in authz_list:
+    vos_data = global_data.get_vos_data()
+    for stashcache_obj in vos_data.stashcache_by_vo_name.values():
+        for dirname, namespace in stashcache_obj.namespaces.items():
+            if not namespace_allows_cache_resource(namespace, resource):
+                continue
+            if resource and not resource_allows_namespace(resource, namespace):
+                continue
+            if namespace.is_public():
                 public_dirs.add(dirname)
+
+    # TODO: improve message and turn this into a warning
+    if not public_dirs:
+        raise DataError("Cache does not support any public namespaces")
 
     for dirname in sorted(public_dirs):
         authfile += "    {} rl \\\n".format(dirname)
 
-    if authfile.endswith("\\\n"):
-        authfile = authfile[:-2] + "\n"
+    # Delete trailing ' \' from the last line
+    if authfile.endswith(" \\\n"):
+        authfile = authfile[:-3] + "\n"
 
     return authfile
 
 
-def generate_cache_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
+def generate_cache_scitokens(global_data: GlobalData, fqdn: str, suppress_errors=True) -> str:
     """
     Generate the SciTokens needed by a StashCache cache server, given the fqdn
     of the cache server.
-
-    The scitokens config for a StashCache namespace is in the VO YAML and looks like:
-
-        DataFederations:
-            StashCache:
-                Namespaces:
-                    /store:
-                        - SciTokens:
-                            Issuer: https://scitokens.org/cms
-                            Base Path: /
-                            Restricted Path: /store
-
-    "Restricted Path" is optional.
-    `fqdn` must belong to a registered cache resource.
-
-    You may have multiple `- SciTokens:` blocks
-
-    If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
-    no resource matching fqdn, resource does not contain a cache server, etc.).  Otherwise, raises
-    ValueError or DataError.
-
-    """
-    template = """\
-[Global]
-audience = {allowed_vos_str}
-
-{issuer_blocks_str}
-"""
-
-    if not fqdn:
-        if suppress_errors:
-            return ""
-        else:
-            raise ValueError("fqdn: empty")
-
-    resource = _get_cache_resource(fqdn, resource_groups, suppress_errors)
-    if not resource:
-        return ""
-
-    log.debug(f"Generating stashcache cache config for {fqdn}")
-    allowed_vos = []
-    issuer_blocks = []
-    for vo_name, vo_data in vo_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
-
-        namespaces = stashcache_data.get("Namespaces", {})
-        if not namespaces:
-            continue
-
-        log.debug(f"Namespaces found for {vo_name}")
-        needs_authz = False
-        for authz_list in namespaces.values():
-            for authz in authz_list:
-                if authz != "PUBLIC":
-                    needs_authz = True
-                    break
-        if not needs_authz:
-            log.debug(f"\tAuth not needed for {vo_name}")
-            continue
-
-        if not _cache_is_allowed(resource, vo_name, stashcache_data,
-                                 public=False, suppress_errors=suppress_errors):
-            continue
-
-        for dirname, authz_list in namespaces.items():
-            for authz in authz_list:
-                if not isinstance(authz, dict) or not isinstance(authz.get("SciTokens"), dict):
-                    log.debug(f"\tNo SciTokens info for {dirname} in {vo_name}")
-                    continue
-                issuer_blocks.append(_get_scitokens_issuer_block(vo_name, authz['SciTokens'],
-                                                                 dirname, suppress_errors))
-                allowed_vos.append(vo_name)
-
-    issuer_blocks_str = "\n".join(issuer_blocks)
-    allowed_vos_str = ", ".join(allowed_vos)
-
-    return template.format(**locals()).rstrip() + "\n"
-
-
-def _get_scitokens_issuer_block(vo_name: str, scitokens: Dict, dirname: str, suppress_errors: bool) -> str:
-    template = """\
-[Issuer {issuer}]
-issuer = {issuer}
-base_path = {base_path}
-{restricted_path_line}
-"""
-    issuer_block = ""
-    if not scitokens.get("Issuer"):
-        if suppress_errors:
-            return ""
-        raise DataError("'Issuer' missing from the SciTokens config for {}.".format(vo_name))
-    issuer = scitokens["Issuer"]
-    if not scitokens.get("Base Path"):
-        if suppress_errors:
-            return ""
-        raise DataError("'Base Path' missing from the SciTokens config for {}.".format(vo_name))
-    base_path = scitokens["Base Path"]
-
-    if scitokens.get("Restricted Path"):
-        restricted_path_line = "restricted_path = {}\n".format(scitokens['Restricted Path'])
-    else:
-        restricted_path_line = ""
-
-    return template.format(**locals())
-
-
-def _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_groups, suppress_errors=True):
-    origin_resource = _get_resource_by_fqdn(origin_hostname, resource_groups)
-    if not origin_resource:
-        if suppress_errors:
-            return False
-        else:
-            raise NotRegistered(origin_hostname)
-    if 'XRootD origin server' not in origin_resource.service_names:
-        if suppress_errors:
-            return False
-        else:
-            raise DataError("{} (resource name {}) does not provide an XRootD origin server.".format(origin_hostname, origin_resource.name))
-    allowed_vos = origin_resource.data.get("AllowedVOs")
-    if allowed_vos is None:
-        if suppress_errors:
-            return False
-        else:
-            raise DataError("Origin server at {} (resource name {}) does not provide an AllowedVOs list.".format(origin_hostname, origin_resource.name))
-
-    if 'ANY' not in allowed_vos and vo_name not in allowed_vos:
-        return False
-
-    allowed_origins = stashcache_data.get("AllowedOrigins")
-    if allowed_origins is None:
-        if suppress_errors:
-            return False
-        else:
-            raise DataError("VO {} in StashCache does not provide an AllowedOrigins list.".format(vo_name))
-
-    return origin_resource.name in allowed_origins
-
-
-def _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=True) -> List[Resource]:
-    allowed_caches = stashcache_data.get("AllowedCaches")
-    if allowed_caches is None:
-        if suppress_errors:
-            return []
-        else:
-            raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
-
-    resources = []
-    for group in resource_groups:
-        for resource in group.resources:
-            # First, does this provide a cache service?
-            if 'XRootD cache server' not in resource.service_names:
-                continue
-
-            # Next, does it allow this VO?  Unlike the StashCache origin case requiring the origin to list AllowedVOs,
-            # we do not consider the lack of AllowedVOs an error as the cache doesn't
-            # explicitly record *which* data federation it is participating in (might not be SC!).
-            allowed_vos = resource.data.get("AllowedVOs", [])
-            if 'ANY' not in allowed_vos and (vo_name != "ANY_PUBLIC" and vo_name not in allowed_vos):
-                continue
-            if 'ANY' not in allowed_caches and resource.name not in allowed_caches:
-                continue
-            resources.append(resource)
-    return resources
-
-
-def generate_origin_authfile(origin_hostname, vo_data, resource_groups, suppress_errors=True, public_only=False):
-    public_namespaces = set()
-    id_to_namespaces = defaultdict(set)
-    id_to_dn = {}
-    warnings = []
-    for vo_name, vo_data in vo_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
-
-        if not _origin_is_allowed(origin_hostname, vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
-            continue
-
-        namespaces = stashcache_data.get("Namespaces")
-        if not namespaces:
-            if suppress_errors:
-                continue
-            else:
-                raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
-
-        for namespace, authz_list in namespaces.items():
-            if not authz_list:
-                if suppress_errors:
-                    continue
-                else:
-                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(namespace, vo_name))
-
-            if authz_list == ["PUBLIC"]:
-                public_namespaces.add(namespace)
-                continue
-
-            if public_only:
-                continue
-
-            allowed_caches = stashcache_data.get("AllowedCaches")
-            if allowed_caches is None:
-                if suppress_errors:
-                    continue
-                else:
-                    raise DataError("VO {} in StashCache does not provide an AllowedCaches list.".format(vo_name))
-
-            allowed_resources = _get_allowed_caches(vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors)
-            origin_resource = _get_resource_by_fqdn(origin_hostname, resource_groups)
-            allowed_resources.append(origin_resource)
-
-            for resource in allowed_resources:
-                dn = resource.data.get("DN")
-                if not dn:
-                    warnings.append("# WARNING: Resource {} was skipped for VO {}"
-                                    " because the resource does not provide a DN.\n".format(resource.name, vo_name))
-                    continue
-                dn_hash = generate_dn_hash(dn)
-                id_to_namespaces[dn_hash].add(namespace)
-                id_to_dn[dn_hash] = dn
-
-    if not id_to_namespaces and not public_namespaces:
-        if suppress_errors:
-            return ""
-        else:
-            raise DataError("No working StashCache resource/VO combinations found")
-
-    results = ""
-    if warnings:
-        results += "".join(warnings) + "\n"
-    for id, namespaces in id_to_namespaces.items():
-        dn = id_to_dn[id]
-        results += "# {}\nu {} {}\n".format(dn, id, " ".join("{} lr".format(i) for i in sorted(namespaces)))
-    if public_namespaces:
-        results += "\nu * {}\n".format(" ".join("{} lr".format(i) for i in sorted(public_namespaces)))
-    return results
-
-
-def generate_origin_scitokens(vo_data: VOsData, resource_groups: List[ResourceGroup], fqdn: str, suppress_errors=True) -> str:
-    """
-    Generate the SciTokens needed by a StashCache origin server, given the fqdn
-    of the origin server.
-
-    The scitokens config for a StashCache namespace is in the VO YAML and looks like:
-
-        DataFederations:
-            StashCache:
-                Namespaces:
-                    /store:
-                        - SciTokens:
-                            Issuer: https://scitokens.org/cms
-                            Base Path: /
-                            Restricted Path: /store
-
-    "Restricted Path" is optional.
-    `fqdn` must belong to a registered cache resource.
-
-    You may have multiple `- SciTokens:` blocks
 
     Returns a file with a dummy "issuer" block if there are no `- SciTokens:` blocks.
 
     If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
     no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
     ValueError or DataError.
-
     """
+
+    topology = global_data.get_topology()
+    vos_data = global_data.get_vos_data()
+
+    cache_resource = _get_cache_resource(fqdn, topology, suppress_errors)
+    if not cache_resource:
+        return ""
 
     template = """\
 [Global]
@@ -550,46 +287,229 @@ audience = {allowed_vos_str}
 
 {issuer_blocks_str}
 """
-    allowed_vos = []
-    issuer_blocks = []
-    for vo_name, vo_data in vo_data.vos.items():
-        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
-        if not stashcache_data:
-            continue
 
-        if not _origin_is_allowed(fqdn, vo_name, stashcache_data, resource_groups, suppress_errors=suppress_errors):
-            continue
+    allowed_vos = set()
+    cache_authz_list = []
 
-        namespaces = stashcache_data.get("Namespaces")
-        if not namespaces:
-            if suppress_errors:
+    for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
+        for namespace in stashcache_obj.namespaces.values():  # type: Namespace
+            if namespace.is_public():
                 continue
-            else:
-                raise DataError("VO {} in StashCache does not provide a Namespaces list.".format(vo_name))
+            if not namespace_allows_cache_resource(namespace, cache_resource):
+                continue
+            if not resource_allows_namespace(cache_resource, namespace):
+                continue
 
-        for dirname, authz_list in namespaces.items():
-            if not authz_list:
-                if suppress_errors:
-                    continue
-                else:
-                    raise DataError("Namespace {} (VO {}) does not provide any authorizations.".format(dirname, vo_name))
-
-            for authz in authz_list:
-                if not isinstance(authz, dict) or not isinstance(authz.get("SciTokens"), dict):
-                    continue
-                issuer_blocks.append(_get_scitokens_issuer_block(vo_name, authz['SciTokens'],
-                                                                 dirname, suppress_errors))
-                allowed_vos.append(vo_name)
+            for authz in namespace.authz_list:
+                if authz.used_in_scitokens_conf:
+                    cache_authz_list.append(authz)
+                    allowed_vos.add(vo_name)
 
     # Older plugin versions require at least one issuer block (SOFTWARE-4389)
-    if not issuer_blocks:
-        issuer_blocks.append(
-            _get_scitokens_issuer_block(vo_name="nonexistent",
-                                        scitokens={"Issuer": "https://scitokens.org/nonexistent",
-                                                   "Base Path": "/no-issuers-found"},
-                                        dirname="/no-issuers-found",
-                                        suppress_errors=suppress_errors))
+    if not cache_authz_list:
+        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found",
+                                  restricted_path=None, map_subject=False)
+        cache_authz_list.append(dummy_auth)
+
+    issuer_blocks = [a.get_scitokens_conf_block(XROOTD_CACHE_SERVER) for a in cache_authz_list]
     issuer_blocks_str = "\n".join(issuer_blocks)
-    allowed_vos_str = ", ".join(allowed_vos)
+    allowed_vos_str = ", ".join(sorted(allowed_vos))
 
     return template.format(**locals()).rstrip() + "\n"
+
+
+def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors=True, public_origin=False) -> str:
+    """
+    Generate the XRootD Authfile needed by a StashCache origin server, given the FQDN
+    of the origin server and whether it's the public or authenticated origin instance you're generating for.
+
+    If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
+    no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
+    ValueError or DataError.
+    """
+    topology = global_data.get_topology()
+    vos_data = global_data.get_vos_data()
+    origin_resource = None
+    if fqdn:
+        origin_resource = _get_origin_resource(fqdn, topology, suppress_errors)
+        if not origin_resource:
+            return ""
+
+    public_paths = set()
+    id_to_paths = defaultdict(set)
+    id_to_str = {}
+    warnings = []
+
+    for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
+        for path, namespace in stashcache_obj.namespaces.items():
+            if not namespace_allows_origin_resource(namespace, origin_resource):
+                continue
+            if not resource_allows_namespace(origin_resource, namespace):
+                continue
+            if namespace.is_public():
+                public_paths.add(path)
+                continue
+            if public_origin:
+                continue
+
+            # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
+            # Ignore FQANs and DNs listed in the namespace's authz list.
+            authz_list = []
+
+            allowed_resources = [origin_resource]
+            # Add caches
+            allowed_caches = get_supported_caches_for_namespace(namespace, topology)
+            if allowed_caches:
+                allowed_resources.extend(allowed_caches)
+            else:
+                # TODO This situation should be caught by the CI
+                warnings.append(f"# WARNING: No working cache / namespace combinations found for {path}")
+
+            for resource in allowed_resources:
+                dn = resource.data.get("DN")
+                if dn:
+                    authz_list.append(DNAuth(dn))
+                else:
+                    warnings.append(
+                        f"# WARNING: Resource {resource.name} was skipped for VO {vo_name}, namespace {path}"
+                        f" because the resource does not provide a DN."
+                    )
+                    continue
+
+            for authz in authz_list:
+                if authz.used_in_authfile:
+                    id_to_paths[authz.get_authfile_id()].add(path)
+                    id_to_str[authz.get_authfile_id()] = str(authz)
+
+    if not id_to_paths and not public_paths:
+        raise DataError("Origin does not support any namespaces")
+
+    authfile_lines = []
+    authfile_lines.extend(warnings)
+    for authfile_id in id_to_paths:
+        paths_acl = " ".join(f"{p} lr" for p in sorted(id_to_paths[authfile_id]))
+        authfile_lines.append(f"# {id_to_str[authfile_id]}")
+        authfile_lines.append(f"{authfile_id} {paths_acl}")
+
+    # Public paths must be at the end
+    if public_origin and public_paths:
+        authfile_lines.append("")
+        paths_acl = " ".join(f"{p} lr" for p in sorted(public_paths))
+        authfile_lines.append(f"u * {paths_acl}")
+
+    return "\n".join(authfile_lines) + "\n"
+
+
+def generate_origin_scitokens(global_data: GlobalData, fqdn: str, suppress_errors=True) -> str:
+    """
+    Generate the SciTokens needed by a StashCache origin server, given the fqdn
+    of the origin server.
+
+    Returns a file with a dummy "issuer" block if there are no `- SciTokens:` blocks.
+
+    If suppress_errors is True, returns an empty string on various error conditions (e.g. no fqdn,
+    no resource matching fqdn, resource does not contain an origin server, etc.).  Otherwise, raises
+    ValueError or DataError.
+    """
+
+    topology = global_data.get_topology()
+    vos_data = global_data.get_vos_data()
+
+    origin_resource = _get_origin_resource(fqdn, topology, suppress_errors)
+    if not origin_resource:
+        return ""
+
+    template = """\
+[Global]
+audience = {allowed_vos_str}
+
+{issuer_blocks_str}
+"""
+
+    allowed_vos = set()
+    origin_authz_list = []
+
+    for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
+        for namespace in stashcache_obj.namespaces.values():
+            if namespace.is_public():
+                continue
+            if not namespace_allows_origin_resource(namespace, origin_resource):
+                continue
+            if not resource_allows_namespace(origin_resource, namespace):
+                continue
+
+            for authz in namespace.authz_list:
+                if authz.used_in_scitokens_conf:
+                    origin_authz_list.append(authz)
+                    allowed_vos.add(vo_name)
+
+    # Older plugin versions require at least one issuer block (SOFTWARE-4389)
+    if not origin_authz_list:
+        dummy_auth = SciTokenAuth(issuer="https://scitokens.org/nonexistent", base_path="/no-issuers-found",
+                                  restricted_path=None, map_subject=False)
+        origin_authz_list.append(dummy_auth)
+
+    issuer_blocks = [a.get_scitokens_conf_block(XROOTD_ORIGIN_SERVER) for a in origin_authz_list]
+    issuer_blocks_str = "\n".join(issuer_blocks)
+    allowed_vos_str = ", ".join(sorted(allowed_vos))
+
+    return template.format(**locals()).rstrip() + "\n"
+
+
+def get_namespaces_info(global_data: GlobalData) -> PreJSON:
+    """Return data for the /stashcache/namespaces JSON endpoint.
+
+    This includes a list of caches, with some data about cache endpoints,
+    and a list of namespaces with some data about each namespace; see README.md for details.
+
+    """
+    # Helper functions
+    def _cache_resource_dict(r: Resource):
+        endpoint = f"{r.fqdn}:8000"
+        auth_endpoint = f"{r.fqdn}:8443"
+        for svc in r.services:
+            if svc.get("Name") == XROOTD_CACHE_SERVER:
+                if not is_null(svc, "Details", "endpoint_override"):
+                    endpoint = svc["Details"]["endpoint_override"]
+                if not is_null(svc, "Details", "auth_endpoint_override"):
+                    auth_endpoint = svc["Details"]["auth_endpoint_override"]
+                break
+        return {"endpoint": endpoint, "auth_endpoint": auth_endpoint, "resource": r.name}
+
+    def _namespace_dict(ns: Namespace):
+        nsdict = {
+            "path": ns.path,
+            "readhttps": not ns.is_public(),
+            "usetokenonread": any(isinstance(a, SciTokenAuth) for a in ns.authz_list),
+            "writebackhost": ns.writeback,
+            "dirlisthost": ns.dirlist,
+            "caches": [],
+        }
+
+        for cache_name, cache_resource_obj in cache_resource_objs.items():
+            if resource_allows_namespace(cache_resource_obj, ns) and namespace_allows_cache_resource(ns, cache_resource_obj):
+                nsdict["caches"].append(cache_resource_dicts[cache_name])
+        return nsdict
+    # End helper functions
+
+    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    vos_data = global_data.get_vos_data()
+
+    cache_resource_objs = {}  # type: Dict[str, Resource]
+    cache_resource_dicts = {}  # type: Dict[str, Dict]
+
+    for group in resource_groups:
+        for resource in group.resources:
+            if _resource_has_cache(resource):
+                cache_resource_objs[resource.name] = resource
+                cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
+
+    result_namespaces = []
+    for stashcache_obj in vos_data.stashcache_by_vo_name.values():
+        for namespace in stashcache_obj.namespaces.values():
+            result_namespaces.append(_namespace_dict(namespace))
+
+    return PreJSON({
+        "caches": list(cache_resource_dicts.values()),
+        "namespaces": result_namespaces
+    })
