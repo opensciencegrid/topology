@@ -62,3 +62,15 @@ DataFederations:
     AllowedOrigins:
       - IceCube_StashCache_origin
 
+
+## SOFTWARE-5179 schema
+# DataFederations:
+#   StashCache:
+#     Namespaces:
+#       - Path: /icecube/PUBLIC
+#         Authorizations:
+#           - PUBLIC
+#         AllowedCaches:
+#           - ANY
+#         AllowedOrigins:
+#           - IceCube_StashCache_origin
