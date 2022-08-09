@@ -6,6 +6,10 @@ import ldap3
 log = logging.getLogger(__name__)
 
 
+CILOGON_LDAP_TIMEOUT = 10
+LIGO_LDAP_TIMEOUT = 10
+
+
 def get_contact_cilogon_id_map(global_data):
     """ return contacts dict, limited to users with a CILogonID """
     contacts = global_data.get_contacts_data().users_by_id
@@ -21,8 +25,8 @@ _cilogon_basedn   = "o=OSG,o=CO,dc=cilogon,dc=org"
 def get_cilogon_ldap_id_map(ldap_url, ldap_user, ldap_pass):
     """ return dict of cilogon ldap data for each CILogonID, with the
         structure: {CILogonID: { "dn": dn, "data": data }, ...} """
-    server = ldap3.Server(ldap_url)
-    conn = ldap3.Connection(server, ldap_user, ldap_pass)
+    server = ldap3.Server(ldap_url, connect_timeout=CILOGON_LDAP_TIMEOUT)
+    conn = ldap3.Connection(server, ldap_user, ldap_pass, receive_timeout=CILOGON_LDAP_TIMEOUT)
     if not conn.bind():
         return None  # connection failure
     conn.search(_cilogon_basedn, '(voPersonID=*)', attributes=['*'])
@@ -146,8 +150,9 @@ def get_ligo_ldap_dns(ldap_url: str, ldapuser: str, ldap_pass: str) -> List[str]
                'robot': base_query.format(community="robot:OSGRobotCert")}
 
     try:
-        server = ldap3.Server(ldap_url, connect_timeout=10)
-        conn = ldap3.Connection(server, user=ldapuser, password=ldap_pass, raise_exceptions=True, receive_timeout=10)
+        server = ldap3.Server(ldap_url, connect_timeout=LIGO_LDAP_TIMEOUT)
+        conn = ldap3.Connection(server, user=ldapuser, password=ldap_pass, raise_exceptions=True,
+                                receive_timeout=LIGO_LDAP_TIMEOUT)
         conn.bind()
     except ldap3.core.exceptions.LDAPException:
         log.exception("Failed to connect to the LIGO LDAP")
