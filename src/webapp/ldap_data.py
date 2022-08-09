@@ -165,7 +165,7 @@ def get_ligo_ldap_dns(ldap_url: str, ldapuser: str, ldap_pass: str) -> List[str]
                             queries[group],
                             search_scope='SUBTREE',
                             attributes=['gridX509subject'])
-                results += [dn for e in conn.entries for dn in e.gridX509subject]
+                results.extend(dn for e in conn.entries for dn in e.gridX509subject)
             except ldap3.core.exceptions.LDAPException:
                 log.exception("Failed to query LIGO LDAP for %s DNs", group)
     finally:
