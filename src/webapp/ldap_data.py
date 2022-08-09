@@ -158,16 +158,17 @@ def get_ligo_ldap_dns(ldap_url: str, ldapuser: str, ldap_pass: str) -> List[str]
         log.exception("Failed to connect to the LIGO LDAP")
         return results
 
-    for group in ('people', 'robot'):
-        try:
-            conn.search(base_branch.format(group=group),
-                        queries[group],
-                        search_scope='SUBTREE',
-                        attributes=['gridX509subject'])
-            results += [dn for e in conn.entries for dn in e.gridX509subject]
-        except ldap3.core.exceptions.LDAPException:
-            log.exception("Failed to query LIGO LDAP for %s DNs", group)
-
-    conn.unbind()
+    try:
+        for group in ('people', 'robot'):
+            try:
+                conn.search(base_branch.format(group=group),
+                            queries[group],
+                            search_scope='SUBTREE',
+                            attributes=['gridX509subject'])
+                results += [dn for e in conn.entries for dn in e.gridX509subject]
+            except ldap3.core.exceptions.LDAPException:
+                log.exception("Failed to query LIGO LDAP for %s DNs", group)
+    finally:
+        conn.unbind()
 
     return results
