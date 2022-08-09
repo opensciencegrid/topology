@@ -148,8 +148,7 @@ def generate_cache_authfile(global_data: GlobalData,
 
     def fetch_ligo_authz_list_if_needed():
         if not ligo_authz_list:
-            ldappass = readfile(global_data.ligo_ldap_passfile, log)
-            for dn in get_ligo_ldap_dn_list(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
+            for dn in global_data.get_ligo_dn_list():
                 ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
         return ligo_authz_list
 
