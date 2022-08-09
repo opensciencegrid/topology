@@ -3,52 +3,8 @@
 # - SCHEDULED: downtime that has been scheduled at least 48 hours beforehand
 # - UNSCHEDULED: downtime that has occurred due to an event such as a sudden
 #   hardware failure, or any unforseen circumstances
-- Class: UNSCHEDULED
-  # Unique ID, given by `bin/next_downtime_id`
-  ID: 1005710
-  # Summary of the reason for the downtime
-  Description: Power failure in one of the racks.
-  # Downtime severity in descending order:
-  # - Outage
-  # - Severe
-  # - Intermittent Outage
-  # - No Significant Outage Expected
-  Severity: Intermittent Outage
-  # Start date and time of the downtime in the following format:
-  # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
-  # e.g. Mar 28, 2017 22:00 -0500
-  StartTime: Sep 04, 2018 17:00 -0700
-  # End date and time of the downtime in the following format:
-  # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
-  # e.g. Mar 30, 2017 22:00 -0500
-  EndTime: Sep 05, 2018 17:00 -0700
-  # The date and time this entry was created in the following format:
-  # <MONTH> <DAY>, <YEAR> <TIME> <TIME OFFSET>
-  # e.g. Mar 25, 2017 22:00 -0500
-  CreatedTime: Sep 05, 2018 08:00 -0700
-
-  # The resource affected by the downtime
-  ResourceName: CIT_CMS_SE
-  # The serivce(s) affected by the downtime as a list
-  Services:
-    - GridFtp
-    # Additional services if there are any...
-    # - GridFTP
-    # - SRMv2
 
 # Scheduled downtime for switch replacement. 2018-09-12 10am PDT
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1005714
-  Description: Main uplink switch replacement
-  Severity: Outage
-  StartTime: Sep 12, 2018 10:00 -0700
-  EndTime: Sep 12, 2018 17:00 -0700
-  CreatedTime: Sep 09, 2018 15:00 -0700
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
-
 # ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 1005715
@@ -97,32 +53,7 @@
   Services:
     - Squid
 
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1005719
-  Description: Main uplink switch replacement
-  Severity: Outage
-  StartTime: Sep 12, 2018 10:00 -0700
-  EndTime: Sep 12, 2018 17:00 -0700
-  CreatedTime: Sep 09, 2018 15:00 -0700
-  ResourceName: CIT_HEP_CE
-  Services:
-    - CE
-# ----------------------------------------------------------
-
 # Unscheduled downtime after switch replacement. 2018-09-12 09pm PDT
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 1005720
-  Description: Networking issues after switch replacement
-  Severity: Severe
-  StartTime: Sep 12, 2018 21:00 -0700
-  EndTime: Sep 13, 2018 14:00 -0700
-  CreatedTime: Sep 12, 2018 21:00 -0700
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
-
 # ----------------------------------------------------------
 - Class: UNSCHEDULED
   ID: 1005721
@@ -159,29 +90,6 @@
   Services:
     - Squid
 
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 1005724
-  Description: Networking issues after switch replacement
-  Severity: Severe
-  StartTime: Sep 12, 2018 21:00 -0700
-  EndTime: Sep 13, 2018 14:00 -0700
-  CreatedTime: Sep 12, 2018 21:00 -0700
-  ResourceName: CIT_HEP_CE
-  Services:
-    - CE
-# ----------------------------------------------------------
-
-- Class: UNSCHEDULED
-  ID: 25806450
-  Description: unscheduled storage downtime
-  Severity: Outage
-  StartTime: Sep 21, 2018 20:43 +0000
-  EndTime: Sep 22, 2018 21:00 +0000
-  CreatedTime: Sep 21, 2018 20:44 +0000
-  ResourceName: CIT_CMS_SE
-  Services:
-  - GridFtp
 # ---------------------------------------------------------
 
 - Class: UNSCHEDULED
@@ -220,18 +128,6 @@
   - CE
 # ---------------------------------------------------------
 
-- Class: UNSCHEDULED
-  ID: 28235687
-  Description: DNS outage
-  Severity: Severe
-  StartTime: Sep 24, 2018 16:00 +0000
-  EndTime: Sep 25, 2018 16:00 +0000
-  CreatedTime: Sep 24, 2018 16:12 +0000
-  ResourceName: CIT_CMS_SE
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-
 - Class: SCHEDULED
   ID: 47440265
   Description: reinstalling CE
@@ -246,18 +142,6 @@
 # Scheduled downtime for HDFS Upgrade, All datanodes config change,
 # HTCondor Collector under CentOS7 and Also all compute nodes htcondor config
 # upgraded configuration (enable condor_ssh_to_job, cgroups, kernel update)
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  ID: 87839795
-  Description: hdfs upgrades, htcondor upgrades, kernel update. full cluster reboot.
-  Severity: Outage
-  StartTime: Dec 10, 2018 16:00 +0000
-  EndTime: Dec 11, 2018 16:00 +0000
-  CreatedTime: Dec 05, 2018 11:30 +0000
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
-
 # ----------------------------------------------------------
 - Class: SCHEDULED
   ID: 87839796
@@ -307,30 +191,6 @@
     - Squid
 
 # ----------------------------------------------------------
-- Class: SCHEDULED
-  ID: 87839800
-  Description: hdfs upgrades, htcondor upgrades, kernel update. full cluster reboot.
-  Severity: Outage
-  StartTime: Dec 10, 2018 16:00 +0000
-  EndTime: Dec 11, 2018 16:00 +0000
-  CreatedTime: Dec 05, 2018 11:30 +0000
-  ResourceName: CIT_HEP_CE
-  Services:
-    - CE
-
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 120032292
-  Description: power issues in one rack and in others several datanodes down.
-  Severity: Severe
-  StartTime: Jan 11, 2019 10:00 +0000
-  EndTime: Jan 12, 2019 10:00 +0000
-  CreatedTime: Jan 11, 2019 10:00 +0000
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
-
-# ----------------------------------------------------------
 - Class: UNSCHEDULED
   ID: 143988873
   Description: Testing full node scheduling with CMS
@@ -341,21 +201,6 @@
   ResourceName: CIT_CMS_T2
   Services:
     - CE
-
-# ----------------------------------------------------------
-# Caltech Tier2 Power maitenance 23-02-2019
-
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  ID: 149486444
-  Description: Power maitenance at Caltech
-  Severity: Outage
-  StartTime: Feb 22, 2019 18:00 +0000
-  EndTime: Feb 25, 2019 23:00 +0000
-  CreatedTime: Feb 20, 2019 20:00 +0000
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
 
 # ----------------------------------------------------------
 - Class: SCHEDULED
@@ -416,21 +261,6 @@
   Services:
     - Squid
 
-# ---------------------------------------------------------
-# Unscheduled downtime at CIT CMS T2
-# Half of the Tier2 cluster is down (no power, no ping, no reachability)
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 181068983
-  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
-  Severity: Outage
-  StartTime: Apr 01, 2019 11:30 +0000
-  EndTime: Apr 02, 2019 11:30 +0000
-  CreatedTime: Apr 01, 2019 11:20 +0000
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
-
 # ----------------------------------------------------------
 - Class: UNSCHEDULED
   ID: 181068984
@@ -480,29 +310,6 @@
     - Squid
 
 # ----------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 181068988
-  Description: Half of the Tier2 cluster is down (no power, no ping, no reachability)
-  Severity: Outage
-  StartTime: Apr 01, 2019 11:30 +0000
-  EndTime: Apr 02, 2019 11:30 +0000
-  CreatedTime: Apr 01, 2019 11:20 +0000
-  ResourceName: CIT_HEP_CE
-  Services:
-    - CE
-
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  ID: 223553728
-  Description: Network upgrade
-  Severity: Outage
-  StartTime: May 13, 2019 15:00 +0000
-  EndTime: May 14, 2019 15:00 +0000
-  CreatedTime: May 08, 2019 17:42 +0000
-  ResourceName: CIT_CMS_SE
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
 
 - Class: SCHEDULED
   ID: 223553816
@@ -588,32 +395,6 @@
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
 
-- Class: UNSCHEDULED
-  ID: 230416643
-  Description: Unscheduled storage outage due to power
-  Severity: Severe
-  StartTime: May 16, 2019 16:20 +0000
-  EndTime: May 17, 2019 00:20 +0000
-  CreatedTime: May 16, 2019 16:21 +0000
-  ResourceName: CIT_CMS_SE
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-
-
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  ID: 263737545
-  Description: Building maintenance plus infrastructure upgrade
-  Severity: Outage
-  StartTime: Jun 28, 2019 15:00 +0000
-  EndTime: Jul 01, 2019 16:00 +0000
-  CreatedTime: Jun 25, 2019 20:00 +0000
-  ResourceName: CIT_CMS_SE
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-
 - Class: SCHEDULED
   ID: 263737546
   Description: Building maintenance plus infrastructure upgrade
@@ -675,30 +456,6 @@
 # ---------------------------------------------------------
 
 - Class: SCHEDULED
-  ID: 263737551
-  Description: Building maintenance plus infrastructure upgrade
-  Severity: Outage
-  StartTime: Jun 28, 2019 15:00 +0000
-  EndTime: Jul 01, 2019 16:00 +0000
-  CreatedTime: Jun 25, 2019 20:00 +0000
-  ResourceName: CMS_CIT_T2_SC_ORIGIN_01
-  Services:
-  - XRootD origin server
-# ---------------------------------------------------------
-
-- Class: SCHEDULED
-  ID: 263737552
-  Description: Building maintenance plus infrastructure upgrade
-  Severity: Outage
-  StartTime: Jun 28, 2019 15:00 +0000
-  EndTime: Jul 01, 2019 16:00 +0000
-  CreatedTime: Jun 25, 2019 20:00 +0000
-  ResourceName: CIT_HEP_CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-
-- Class: SCHEDULED
   ID: 263737553
   Description: Building maintenance plus infrastructure upgrade
   Severity: Outage
@@ -720,21 +477,6 @@
   ResourceName: Caltech PerfSonar Latency
   Services:
   - net.perfSONAR.Latency
-# ---------------------------------------------------------
-
-
-
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  ID: 283369696
-  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
-  Severity: Outage
-  StartTime: Jul 23, 2019 08:00 +0000
-  EndTime: Jul 23, 2019 20:00 +0000
-  CreatedTime: Jul 17, 2019 22:00 +0000
-  ResourceName: CIT_CMS_SE
-  Services:
-  - GridFtp
 # ---------------------------------------------------------
 
 - Class: SCHEDULED
@@ -798,30 +540,6 @@
 # ---------------------------------------------------------
 
 - Class: SCHEDULED
-  ID: 283369702
-  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
-  Severity: Outage
-  StartTime: Jul 23, 2019 08:00 +0000
-  EndTime: Jul 23, 2019 20:00 +0000
-  CreatedTime: Jul 17, 2019 22:00 +0000
-  ResourceName: CMS_CIT_T2_SC_ORIGIN_01
-  Services:
-  - XRootD origin server
-# ---------------------------------------------------------
-
-- Class: SCHEDULED
-  ID: 283369703
-  Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
-  Severity: Outage
-  StartTime: Jul 23, 2019 08:00 +0000
-  EndTime: Jul 23, 2019 20:00 +0000
-  CreatedTime: Jul 17, 2019 22:00 +0000
-  ResourceName: CIT_HEP_CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-
-- Class: SCHEDULED
   ID: 283369704
   Description: CENIC (ISP) network upgrade/maintanece. They expect 10minute downtime, but we decare 12 hours for contigency 
   Severity: Outage
@@ -843,22 +561,6 @@
   ResourceName: Caltech PerfSonar Latency
   Services:
   - net.perfSONAR.Latency
-# ---------------------------------------------------------
-
-
-
-
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  ID: 283369706
-  Description: Network upgrades
-  Severity: Outage
-  StartTime: Aug 19, 2019 13:00 +0000
-  EndTime: Aug 20, 2019 07:00 +0000
-  CreatedTime: Aug 16, 2019 18:10 +0000
-  ResourceName: CIT_CMS_SE
-  Services:
-  - GridFtp
 # ---------------------------------------------------------
 
 - Class: SCHEDULED
@@ -922,30 +624,6 @@
 # ---------------------------------------------------------
 
 - Class: SCHEDULED
-  ID: 283369712
-  Description: Network upgrades
-  Severity: Outage
-  StartTime: Aug 19, 2019 13:00 +0000
-  EndTime: Aug 20, 2019 07:00 +0000
-  CreatedTime: Aug 16, 2019 18:10 +0000
-  ResourceName: CMS_CIT_T2_SC_ORIGIN_01
-  Services:
-  - XRootD origin server
-# ---------------------------------------------------------
-
-- Class: SCHEDULED
-  ID: 283369713
-  Description: Network upgrades
-  Severity: Outage
-  StartTime: Aug 19, 2019 13:00 +0000
-  EndTime: Aug 20, 2019 07:00 +0000
-  CreatedTime: Aug 16, 2019 18:10 +0000
-  ResourceName: CIT_HEP_CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-
-- Class: SCHEDULED
   ID: 283369714
   Description: Network upgrades
   Severity: Outage
@@ -996,18 +674,6 @@
 # --------------------------------------------------------
 
 - Class: UNSCHEDULED
-  ID: 508000381
-  Description: Tier2 cluster is down (main uplink down)
-  Severity: Outage
-  StartTime: Apr 13, 2020 06:30 +0000
-  EndTime: Apr 15, 2020 06:30 +0000
-  CreatedTime: Apr 13, 2020 06:30 +0000
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
-
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
   ID: 508000382
   Description: Tier2 cluster is down (main uplink down)
   Severity: Outage
@@ -1054,31 +720,8 @@
   Services:
     - Squid
 
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 508000386
-  Description: Tier2 cluster is down (main uplink down)
-  Severity: Outage
-  StartTime: Apr 13, 2020 06:30 +0000
-  EndTime: Apr 15, 2020 06:30 +0000
-  CreatedTime: Apr 13, 2020 06:30 +0000
-  ResourceName: CIT_HEP_CE
-  Services:
-    - CE
-
 # --------------------------------------------------------
 # CENIC Circuit Migration in LA Downtown
-
-- Class: SCHEDULED
-  ID: 579465544
-  Description: CENIC Circuit Migration in LA Downtown
-  Severity: Outage
-  StartTime: Jul 07, 2020 23:30 +0700
-  EndTime: Jul 08, 2020 08:30 +0700
-  CreatedTime: Jun 25, 2020 12:30 +0700
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
 
 - Class: SCHEDULED
   ID: 579465545
@@ -1141,17 +784,6 @@
 # LRT Building Power downtime
 
 - Class: SCHEDULED
-  ID: 603597105
-  Description: LRT Building Power downtime
-  Severity: Outage
-  StartTime: Aug 04, 2020 05:55 -0700
-  EndTime: Aug 05, 2020 10:55 -0700
-  CreatedTime: Jul 31, 2020 17:30 -0700
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
-
-- Class: SCHEDULED
   ID: 603597106
   Description: LRT Building Power downtime
   Severity: Outage
@@ -1212,17 +844,6 @@
 # Main Switch replacement
 
 - Class: SCHEDULED
-  ID: 621741704
-  Description: Main Switch replacement
-  Severity: Outage
-  StartTime: Aug 17, 2020 08:00 -0700
-  EndTime: Aug 17, 2020 17:00 -0700
-  CreatedTime: Aug 14, 2020 13:00 -0700
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
-
-- Class: SCHEDULED
   ID: 621741705
   Description: Main Switch replacement
   Severity: Outage
@@ -1279,17 +900,6 @@
 
 # --------------------------------------------------------
 # Power Maitenance in Lauritsen building
-
-- Class: SCHEDULED
-  ID: 639944630
-  Description:  Power Maitenance in Lauritsen building
-  Severity: Outage
-  StartTime: Sep 16, 2020 06:00 -0700
-  EndTime: Sep 16, 2020 17:00 -0700
-  CreatedTime: Sep 02, 2020 10:00 -0700
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
 
 - Class: SCHEDULED
   ID: 639944631
@@ -1362,17 +972,6 @@
 
 # --------------------------------------------------------
 # Power Maitenance in Lauritsen building
-
-- Class: SCHEDULED
-  ID: 766089753
-  Description:  Power Maitenance in Lauritsen building
-  Severity: Outage
-  StartTime: Feb 24, 2021 00:00 -0700
-  EndTime: Feb 25, 2021 00:00 -0700
-  CreatedTime: Feb 01, 2021 12:00 -0700
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
 
 - Class: SCHEDULED
   ID: 766089754
@@ -1492,17 +1091,6 @@
 # Fiber cut NOC-650123
 
 - Class: UNSCHEDULED
-  ID: 866360156
-  Description:  Fiber cut NOC-650123
-  Severity: Outage
-  StartTime: Jun 04, 2021 13:30 -0700
-  EndTime: Jun 06, 2021 09:00 -0700
-  CreatedTime: Jun 04, 2021 13:30 -0700
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
-
-- Class: UNSCHEDULED
   ID: 866360157
   Description:  Fiber cut NOC-650123
   Severity: Outage
@@ -1570,17 +1158,6 @@
     - XRootD component
 
 - Class: UNSCHEDULED
-  ID: 866360163
-  Description:  Fiber cut NOC-650123
-  Severity: Outage
-  StartTime: Jun 04, 2021 13:30 -0700
-  EndTime: Jun 06, 2021 09:00 -0700
-  CreatedTime: Jun 04, 2021 13:30 -0700
-  ResourceName: CIT_CMS_SE_Ceph
-  Services:
-    - GridFtp
-
-- Class: UNSCHEDULED
   ID: 866360164
   Description:  Fiber cut NOC-650123
   Severity: Outage
@@ -1593,17 +1170,6 @@
 
 # --------------------------------------------------------
 # Migrating to our own IPv6 range
-
-- Class: SCHEDULED
-  ID: 893044365
-  Description:  Migrating to our own IPv6 range
-  Severity: Outage
-  StartTime: Jul 01, 2021 07:00 -0700
-  EndTime: Jul 03, 2021 07:00 -0700
-  CreatedTime: Jun 28, 2021 17:30 -0700
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
 
 - Class: SCHEDULED
   ID: 893044366
@@ -1639,17 +1205,6 @@
     - XRootD component
 
 - Class: SCHEDULED
-  ID: 893044369
-  Description:  Migrating to our own IPv6 range
-  Severity: Outage
-  StartTime: Jul 01, 2021 07:00 -0700
-  EndTime: Jul 03, 2021 07:00 -0700
-  CreatedTime: Jun 28, 2021 17:30 -0700
-  ResourceName: CIT_CMS_SE_Ceph
-  Services:
-    - GridFtp
-
-- Class: SCHEDULED
   ID: 893044370
   Description:  Migrating to our own IPv6 range
   Severity: Outage
@@ -1665,16 +1220,6 @@
 # Disk space does not grow on the trees and is not unlimited
 # CMS Filled too much disk space - lost disk - now we are out of space.
 
-- Class: UNSCHEDULED
-  ID: 893044371
-  Description:  No space left.
-  Severity: Outage
-  StartTime: Jul 13, 2021 07:00 -0700
-  EndTime: Jul 13, 2021 16:00 -0700
-  CreatedTime: Jul 13, 2021 07:30 -0700
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
 
 - Class: UNSCHEDULED
   ID: 893044372
@@ -1743,17 +1288,6 @@
     - XRootD component
 
 - Class: UNSCHEDULED
-  ID: 893044378
-  Description:  No space left.
-  Severity: Outage
-  StartTime: Jul 13, 2021 07:00 -0700
-  EndTime: Jul 13, 2021 16:00 -0700
-  CreatedTime: Jul 13, 2021 07:30 -0700
-  ResourceName: CIT_CMS_SE_Ceph
-  Services:
-    - GridFtp
-
-- Class: UNSCHEDULED
   ID: 893044379
   Description:  No space left.
   Severity: Outage
@@ -1796,16 +1330,6 @@
 # transferring the building to a new substation transformer. In addition,
 # facilities staff will be on hand to normalize building systems.
 #
-- Class: SCHEDULED
-  ID: 997651556
-  Description:  Networking upgrades, Power station switch
-  Severity: Outage
-  StartTime: Feb 18, 2022 17:00 -0800
-  EndTime: Feb 22, 2022 08:00 -0800
-  CreatedTime: Jan 21, 2022 17:00 -0800
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
 
 - Class: SCHEDULED
   ID: 997651557
@@ -1874,17 +1398,6 @@
     - XRootD component
 
 - Class: SCHEDULED
-  ID: 997651563
-  Description:  Networking upgrades, Power station switch
-  Severity: Outage
-  StartTime: Feb 18, 2022 17:00 -0800
-  EndTime: Feb 22, 2022 08:00 -0800
-  CreatedTime: Jan 21, 2022 17:00 -0800
-  ResourceName: CIT_CMS_SE_Ceph
-  Services:
-    - GridFtp
-
-- Class: SCHEDULED
   ID: 997651564
   Description:  Networking upgrades, Power station switch
   Severity: Outage
@@ -1898,16 +1411,6 @@
 # ----------------------------------------
 # Replacing faulty storage headnodes
 #
-- Class: SCHEDULED
-  ID: 997651565
-  Description:  Replacing faulty storage nodes
-  Severity: Outage
-  StartTime: Feb 7, 2022 09:00 -0800
-  EndTime: Feb 7, 2022 12:00 -0800
-  CreatedTime: Feb 04, 2022 15:00 -0800
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
 
 - Class: SCHEDULED
   ID: 997651566
@@ -1919,17 +1422,6 @@
   ResourceName: CIT-CMS-T2-XRD
   Services:
     - XRootD component
-
-- Class: SCHEDULED
-  ID: 997651567
-  Description:  Replacing faulty storage nodes
-  Severity: Outage
-  StartTime: Feb 7, 2022 09:00 -0800
-  EndTime: Feb 7, 2022 12:00 -0800
-  CreatedTime: Feb 04, 2022 15:00 -0800
-  ResourceName: CIT_CMS_SE_Ceph
-  Services:
-    - GridFtp
 
 - Class: SCHEDULED
   ID: 997651568
@@ -1948,16 +1440,6 @@
 # Upgrade kernel on storage nodes.
 # Extra hours allowed for contingency
 #
-- Class: SCHEDULED
-  ID: 997651573
-  Description: Upgrade kernel on storage nodes
-  Severity: Outage
-  StartTime: Jun 28, 2022 09:00 -0700
-  EndTime: Jun 28, 2022 23:59 -0700
-  CreatedTime: Jun 23, 2022 13:00 -0700
-  ResourceName: CIT_CMS_SE
-  Services:
-    - GridFtp
 
 - Class: SCHEDULED
   ID: 997651574
@@ -1969,17 +1451,6 @@
   ResourceName: CIT-CMS-T2-XRD
   Services:
     - XRootD component
-
-- Class: SCHEDULED
-  ID: 997651575
-  Description: Upgrade kernel on storage nodes
-  Severity: Outage
-  StartTime: Jun 28, 2022 09:00 -0700
-  EndTime: Jun 28, 2022 23:59 -0700
-  CreatedTime: Jun 23, 2022 13:00 -0700
-  ResourceName: CIT_CMS_SE_Ceph
-  Services:
-    - GridFtp
 
 - Class: SCHEDULED
   ID: 997651576
