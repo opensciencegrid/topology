@@ -3,7 +3,7 @@ from typing import Dict, List, Optional
 
 from webapp.common import is_null, readfile, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
-from webapp.ldap_data import get_ligo_ldap_dns
+from webapp.ldap_data import get_ligo_ldap_dn_list
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
 from webapp.vos_data import AuthMethod, DNAuth, SciTokenAuth, Namespace, \
@@ -149,7 +149,7 @@ def generate_cache_authfile(global_data: GlobalData,
     def fetch_ligo_authz_list_if_needed():
         if not ligo_authz_list:
             ldappass = readfile(global_data.ligo_ldap_passfile, log)
-            for dn in get_ligo_ldap_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
+            for dn in get_ligo_ldap_dn_list(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
                 ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
         return ligo_authz_list
 

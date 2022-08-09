@@ -137,7 +137,7 @@ def merge_yaml_data(yaml_data_main, yaml_data_secondary):
     return yd
 
 
-def get_ligo_ldap_dns(ldap_url: str, ldapuser: str, ldap_pass: str) -> List[str]:
+def get_ligo_ldap_dn_list(ldap_url: str, ldapuser: str, ldap_pass: str) -> List[str]:
     """
     Query the LIGO LDAP server for all grid DNs in the IGWN collab.
 

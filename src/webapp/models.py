@@ -56,7 +56,7 @@ class GlobalData:
         self.contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
         self.comanage_data = CachedData(cache_lifetime=contact_cache_lifetime)
         self.merged_contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
-        self.ligo_dns = CachedData(cache_lifetime=contact_cache_lifetime)
+        self.ligo_dn_list = CachedData(cache_lifetime=contact_cache_lifetime)
         self.dn_set = CachedData(cache_lifetime=topology_cache_lifetime)
         self.projects = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology = CachedData(cache_lifetime=topology_cache_lifetime)
@@ -205,7 +205,7 @@ class GlobalData:
 
         return self.merged_contacts_data.data
 
-    def get_ligo_dns(self) -> List[str]:
+    def get_ligo_dn_list(self) -> List[str]:
         """
         Get list of DNs of authorized LIGO users from their LDAP
         """
@@ -214,18 +214,18 @@ class GlobalData:
             log.debug("LIGO_LDAP_{URL|USER|PASSFILE} not specified; "
                       "getting empty list")
             return []
-        elif self.ligo_dns.should_update():
+        elif self.ligo_dn_list.should_update():
             try:
                 ligo_ldap_pass = readfile(self.ligo_ldap_passfile, log)
-                new_ligo_dns = ldap_data.get_ligo_ldap_dns(self.ligo_ldap_url, self.ligo_ldap_user, ligo_ldap_pass)
-                self.ligo_dns.update(new_ligo_dns)
+                new_dn_list = ldap_data.get_ligo_ldap_dn_list(self.ligo_ldap_url, self.ligo_ldap_user, ligo_ldap_pass)
+                self.ligo_dn_list.update(new_dn_list)
             except Exception:
                 if self.strict:
                     raise
                 log.exception("Failed to update LIGO data")
-                self.ligo_dns.try_again()
+                self.ligo_dn_list.try_again()
 
-        return self.ligo_dns.data
+        return self.ligo_dn_list.data
 
     def get_dns(self) -> Set:
         """
