@@ -137,7 +137,7 @@ def merge_yaml_data(yaml_data_main, yaml_data_secondary):
     return yd
 
 
-def get_ligo_ldap_dn_list(ldap_url: str, ldapuser: str, ldap_pass: str) -> List[str]:
+def get_ligo_ldap_dn_list(ldap_url: str, ldap_user: str, ldap_pass: str) -> List[str]:
     """
     Query the LIGO LDAP server for all grid DNs in the IGWN collab.
 
@@ -151,7 +151,7 @@ def get_ligo_ldap_dn_list(ldap_url: str, ldapuser: str, ldap_pass: str) -> List[
 
     try:
         server = ldap3.Server(ldap_url, connect_timeout=LIGO_LDAP_TIMEOUT)
-        conn = ldap3.Connection(server, user=ldapuser, password=ldap_pass, raise_exceptions=True,
+        conn = ldap3.Connection(server, user=ldap_user, password=ldap_pass, raise_exceptions=True,
                                 receive_timeout=LIGO_LDAP_TIMEOUT)
         conn.bind()
     except ldap3.core.exceptions.LDAPException:
