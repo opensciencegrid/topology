@@ -61,50 +61,31 @@ ReportingGroups:
 SupportURL: http://hcc.unl.edu/contact
 DataFederations:
   StashCache:
-    AllowedCaches:
-    - ANY
-    AllowedOrigins:
-    - HCC-Origin
-    - HCC-StashCache-Origin
     Namespaces:
-      /hcc/focusday:
-      - FQAN:/hcc
-      - DN:/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian Paul Bockelman
-      /hcc/PUBLIC:
-        - PUBLIC
-      /hcc/PROTECTED:
-        - SciTokens:
-            Issuer: https://scitokens.org/hcc
-            Base Path: /hcc
-
-## SOFTWARE-5179 schema
-# DataFederations:
-#   StashCache:
-#     Namespaces:
-#       - Path: /hcc/focusday
-#         Authorizations:
-#           - FQAN: /hcc
-#           - DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian Paul Bockelman
-#         AllowedCaches:
-#         - ANY
-#         AllowedOrigins:
-#         - HCC-Origin
-#         - HCC-StashCache-Origin
-#       - Path: /hcc/PUBLIC
-#         Authorizations:
-#           - PUBLIC
-#         AllowedCaches:
-#         - ANY
-#         AllowedOrigins:
-#         - HCC-Origin
-#         - HCC-StashCache-Origin
-#       - Path: /hcc/PROTECTED
-#         Authorizations:
-#           - SciTokens:
-#               Issuer: https://scitokens.org/hcc
-#               Base Path: /hcc
-#         AllowedCaches:
-#         - ANY
-#         AllowedOrigins:
-#         - HCC-Origin
-#         - HCC-StashCache-Origin
+      - Path: /hcc/focusday
+        Authorizations:
+          - FQAN: /hcc
+          - DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian Paul Bockelman
+        AllowedCaches:
+        - ANY
+        AllowedOrigins:
+        - HCC-Origin
+        - HCC-StashCache-Origin
+      - Path: /hcc/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedCaches:
+        - ANY
+        AllowedOrigins:
+        - HCC-Origin
+        - HCC-StashCache-Origin
+      - Path: /hcc/PROTECTED
+        Authorizations:
+          - SciTokens:
+              Issuer: https://scitokens.org/hcc
+              Base Path: /hcc
+        AllowedCaches:
+        - ANY
+        AllowedOrigins:
+        - HCC-Origin
+        - HCC-StashCache-Origin
