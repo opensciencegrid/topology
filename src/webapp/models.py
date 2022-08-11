@@ -143,7 +143,8 @@ class GlobalData:
         """
         if not self.config.get("CONTACT_DATA_DIR", None):
             log.debug("CONTACT_DATA_DIR not specified; getting empty contacts")
-            return contacts_reader.get_contacts_data(None)
+            data = contacts_reader.get_contacts_data(None)
+            self.contacts_data.update(data)
         elif self.contacts_data.should_update():
             ok = self._update_contacts_repo()
             if ok:
@@ -167,7 +168,8 @@ class GlobalData:
                 self.cilogon_ldap_passfile):
             log.debug("CILOGON_LDAP_{URL|USER|PASSFILE} not specified; "
                       "getting empty contacts")
-            return contacts_reader.get_contacts_data(None)
+            data = contacts_reader.get_contacts_data(None)
+            self.comanage_data.update(data)
         elif self.comanage_data.should_update():
             try:
                 idmap = self.get_cilogon_ldap_id_map()
