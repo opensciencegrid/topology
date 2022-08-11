@@ -10,8 +10,10 @@ TOPOLOGY_DATA_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NO_GIT = True
 
 # test_verify_schema.sh might have checked this out
-if os.path.isdir("/tmp/contact"):
+if os.path.isdir("/tmp/contact") and os.path.exists("/tmp/contact/contacts.yaml"):
     CONTACT_DATA_DIR = "/tmp/contact"
+else:
+    CONTACT_DATA_DIR = None
 
 TOPOLOGY_CACHE_LIFETIME = 999
 CONTACT_CACHE_LIFETIME = 999
