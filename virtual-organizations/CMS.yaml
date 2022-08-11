@@ -77,25 +77,12 @@ SupportURL: http://helpdesk.fnal.gov
 DataFederations:
   StashCache:
     Namespaces:
-      /store:
-        - FQAN:/cms
-        - SciTokens:
-            Issuer: https://scitokens.org/cms
-            Base Path: /
-            Restricted Path: /store
-    AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /store
-    AllowedCaches: []    # Deny by default
-
-## SOFTWARE-5179 schema
-# DataFederations:
-#   StashCache:
-#     Namespaces:
-#       - Path: /store
-#         Authorizations:
-#           - FQAN: /cms
-#           - SciTokens:
-#               Issuer: https://scitokens.org/cms
-#               Base Path: /
-#               Restricted Path: /store
-#         AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /store
-#         AllowedCaches: []    # Deny by default
+      - Path: /store
+        Authorizations:
+          - FQAN: /cms
+          - SciTokens:
+              Issuer: https://scitokens.org/cms
+              Base Path: /
+              Restricted Path: /store
+        AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /store
+        AllowedCaches: []    # Deny by default

@@ -49,34 +49,19 @@ ReportingGroups:
 DataFederations:
   StashCache:
     Namespaces:
-      /xenon/PUBLIC:
-        - PUBLIC
-      /xenon/PROTECTED:
-        - FQAN: /xenon.biggrid.nl
-        - DN: /DC=org/DC=cilogon/C=US/O=University of California-San Diego/CN=Kevin Coakley A183421
-        - DN: /DC=org/DC=cilogon/C=US/O=University of California-San Diego/CN=Danny Saba T51578603
-    AllowedCaches:
-      - RDS_AUTH_OSDF_CACHE
-    AllowedOrigins:
-      - RDS_OSDF_ORIGIN
-
-## SOFTWARE-5179 schema
-# DataFederations:
-#   StashCache:
-#     Namespaces:
-#       - Path: /xenon/PROTECTED
-#         Authorizations:
-#           - FQAN: /xenon.biggrid.nl
-#           - DN: /DC=org/DC=cilogon/C=US/O=University of California-San Diego/CN=Kevin Coakley A183421
-#           - DN: /DC=org/DC=cilogon/C=US/O=University of California-San Diego/CN=Danny Saba T51578603
-#         AllowedCaches:
-#           - RDS_AUTH_OSDF_CACHE
-#         AllowedOrigins:
-#           - RDS_OSDF_ORIGIN
-#       - Path: /xenon/PUBLIC
-#         Authorizations:
-#           - PUBLIC
-#         AllowedCaches:
-#           - ANY
-#         AllowedOrigins:
-#           - RDS_OSDF_ORIGIN
+      - Path: /xenon/PROTECTED
+        Authorizations:
+          - FQAN: /xenon.biggrid.nl
+          - DN: /DC=org/DC=cilogon/C=US/O=University of California-San Diego/CN=Kevin Coakley A183421
+          - DN: /DC=org/DC=cilogon/C=US/O=University of California-San Diego/CN=Danny Saba T51578603
+        AllowedCaches:
+          - RDS_AUTH_OSDF_CACHE
+        AllowedOrigins:
+          - RDS_OSDF_ORIGIN
+      - Path: /xenon/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedCaches:
+          - ANY
+        AllowedOrigins:
+          - RDS_OSDF_ORIGIN
