@@ -1400,3 +1400,35 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1245343243
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 03, 2022 12:39 +0000
+  EndTime: Aug 03, 2022 21:00 +0000
+  CreatedTime: Aug 03, 2022 13:45 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+- Class: UNSCHEDULED
+  ID: 1245344250
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 03, 2022 12:39 +0000
+  EndTime: Aug 03, 2022 21:00 +0000
+  CreatedTime: Aug 03, 2022 13:47 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1254801423
+  Description: Downtime to upgrade OSG to version 3.6 on CE and WN
+  Severity: Outage
+  StartTime: Aug 16, 2022 13:00 +0000
+  EndTime: Aug 16, 2022 23:00 +0000
+  CreatedTime: Aug 14, 2022 12:29 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------

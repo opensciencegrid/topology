@@ -8,21 +8,21 @@ Contacts:
   Administrative Contact:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
-  - ID: 29a39113245cb237d6377e22152a1cb2585445e3
-    Name: Lauren Michael
+  - ID: OSG1000018
+    Name: Christina Koch
   Miscellaneous Contact:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
-  - ID: 29a39113245cb237d6377e22152a1cb2585445e3
-    Name: Lauren Michael
+  - ID: OSG1000018
+    Name: Christina Koch
   Registration Authority:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
   Security Contact:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
-  - ID: 29a39113245cb237d6377e22152a1cb2585445e3
-    Name: Lauren Michael
+  - ID: OSG1000018
+    Name: Christina Koch
   Sponsors:
   - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
     Name: Mats Rynge
@@ -74,22 +74,48 @@ SupportURL: http://www.opensciencegrid.org
 DataFederations:
   StashCache:
     Namespaces:
-      /osdftest:
-        - PUBLIC
-      /user:
-        - PUBLIC
-      /osgconnect/public:
-        - PUBLIC
-      /osgconnect/collab:
-        - PUBLIC
-      /ospool/PROTECTED:
-        - SciTokens:
-            Issuer: https://osg-htc.org/ospool
-            # Base Path gets prepended to token scopes
-            Base Path: /ospool/PROTECTED
-    AllowedOrigins:
-      - OSGCONNECT_ORIGIN
-      - CHTC_OSPOOL_ORIGIN
-      - SDSC-test-Origin
-    AllowedCaches:
-      - ANY
+      - Path: /user
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - OSGCONNECT_ORIGIN
+          - CHTC_OSPOOL_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /osgconnect/public
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - OSGCONNECT_ORIGIN
+          - CHTC_OSPOOL_ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://stash-xrd.osgconnect.net:1094
+      - Path: /osgconnect/collab
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - OSGCONNECT_ORIGIN
+          - CHTC_OSPOOL_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /ospool/PROTECTED
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/ospool
+              Base Path: /ospool/PROTECTED
+              Map Subject: True
+        AllowedOrigins:
+          - OSGCONNECT_ORIGIN
+          - CHTC_OSPOOL_ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://origin-auth2001.chtc.wisc.edu:1095
+        DirList: https://origin-auth2001.chtc.wisc.edu:1095
+      - Path: /osdftest
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - SDSC-test-Origin
+        AllowedCaches:
+          - ANY

@@ -50,15 +50,10 @@ ReportingGroups:
 DataFederations:
   StashCache:
     Namespaces:
-      /icecube/PUBLIC:
-        - PUBLIC
-      # This path doesn't exist (nor does the issuer) but we need it to generate an acceptable scitokens.conf until SOFTWARE-4223 and/or SOFTWARE-4389 are done.
-      /icecube/PROTECTED:
-        - SciTokens:
-            Issuer: https://scitokens.org/icecube
-            Base Path: /icecube
-    AllowedCaches:
-      - ANY
-    AllowedOrigins:
-      - IceCube_StashCache_origin
-
+      - Path: /icecube/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedCaches:
+          - ANY
+        AllowedOrigins:
+          - IceCube_StashCache_origin

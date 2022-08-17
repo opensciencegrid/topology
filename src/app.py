@@ -15,7 +15,7 @@ import urllib.parse
 
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
-from webapp.exceptions import NotRegistered, DataError
+from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
@@ -285,6 +285,29 @@ def rgdowntime_ical():
     response.headers.set("Content-Disposition", "attachment", filename="downtime.ics")
     return response
 
+@app.route('/resources/stashcache-files')
+@support_cors
+def resources_stashcache_files():
+    resource_files = {}
+    topology = global_data.get_topology()
+    for rg in topology.rgs.values():
+        for resource in rg.resources_by_name.values():
+            stashcache_files = resource.get_stashcache_files(global_data, app.config["STASHCACHE_LEGACY_AUTH"])
+
+            if not stashcache_files:
+                continue
+
+            resource_files[resource.name] = {
+                **stashcache_files
+            }
+
+    return Response(to_json_bytes(resource_files), mimetype='application/json')
+
+@app.route("/resource-files")
+def resource_files():
+
+    return render_template("resource_files.html.j2")
+
 
 @app.route("/cache/scitokens.conf")
 def cache_scitokens():
@@ -331,19 +354,13 @@ def scitokens():
 
     try:
         if cache_fqdn:
-            cache_scitokens = stashcache.generate_cache_scitokens(global_data.get_vos_data(),
-                                                                global_data.get_topology().get_resource_group_list(),
-                                                                fqdn=cache_fqdn,
-                                                                suppress_errors=False)
+            cache_scitokens = stashcache.generate_cache_scitokens(global_data, cache_fqdn, suppress_errors=False)
             return Response(cache_scitokens, mimetype="text/plain")
         elif origin_fqdn:
-            origin_scitokens = stashcache.generate_origin_scitokens(global_data.get_vos_data(),
-                                                                global_data.get_topology().get_resource_group_list(),
-                                                                fqdn=origin_fqdn,
-                                                                suppress_errors=False)
+            origin_scitokens = stashcache.generate_origin_scitokens(global_data, origin_fqdn, suppress_errors=False)
             return Response(origin_scitokens, mimetype="text/plain")
-    except NotRegistered as e:
-        return Response("# No resource registered for {}\n"
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
@@ -355,6 +372,30 @@ def scitokens():
     except Exception:
         app.log_exception(sys.exc_info())
         return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+
+
+@app.route("/stashcache/namespaces")
+@app.route("/stashcache/namespaces.json")  # for testing; remove before merging
+def stashcache_namespaces_json():
+    if not stashcache:
+        return Response("Can't get scitokens config: stashcache module unavailable", status=503)
+    try:
+        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data)),
+                        mimetype='application/json')
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(str(e)),
+                        mimetype="text/plain", status=404)
+    except DataError as e:
+        app.logger.error("{}: {}".format(request.full_path, str(e)))
+        return Response("# Error generating namespaces json file: {}\n".format(str(e)) +
+                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        mimetype="text/plain", status=400)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting namespaces json file, please contact help@opensciencegrid.org",
+                        status=503)
 
 
 @app.route("/oasis-managers/json")
@@ -384,12 +425,12 @@ def _get_cache_authfile(public_only):
                                  fqdn=cache_fqdn,
                                  legacy=app.config["STASHCACHE_LEGACY_AUTH"],
                                  suppress_errors=False)
-    except stashcache.NotRegistered as e:
-        return Response("# No resource registered for {}\n"
+    except (ResourceNotRegistered, ResourceMissingService) as e:
+        return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
-    except stashcache.DataError as e:
+    except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
                         "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
@@ -406,13 +447,10 @@ def _get_origin_authfile(public_only):
     if 'fqdn' not in request.args:
         return Response("FQDN of origin server required in the 'fqdn' argument", status=400)
     try:
-        auth = stashcache.generate_origin_authfile(request.args['fqdn'],
-                                                   global_data.get_vos_data(),
-                                                   global_data.get_topology().get_resource_group_list(),
-                                                   suppress_errors=False,
-                                                   public_only=public_only)
-    except NotRegistered as e:
-        return Response("# No resource registered for {}\n"
+        auth = stashcache.generate_origin_authfile(global_data=global_data, fqdn=request.args['fqdn'],
+                                                   suppress_errors=False, public_origin=public_only)
+    except (ResourceNotRegistered, ResourceMissingService) as e:
+        return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
@@ -424,10 +462,6 @@ def _get_origin_authfile(public_only):
     except Exception:
         app.log_exception(sys.exc_info())
         return Response("Server error getting authfile, please contact help@opensciencegrid.org", status=503)
-    if not auth.strip():
-        auth = """\
-# No authorizations generated for this origin; please check configuration in OSG topology or contact help@opensciencegrid.org
-"""
     return Response(auth, mimetype="text/plain")
 
 
@@ -443,8 +477,8 @@ def _get_scitoken_file(fqdn, get_scitoken_function):
         scitoken_file = get_scitoken_function(fqdn)
         return Response(scitoken_file, mimetype="text/plain")
 
-    except NotRegistered as e:
-        return Response("# No resource registered for {}\n"
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
@@ -459,23 +493,21 @@ def _get_scitoken_file(fqdn, get_scitoken_function):
 
 
 def _get_cache_scitoken_file():
-    fqdn = request.args.get('fqdn')
-    get_scitoken_function = lambda fqdn: stashcache.generate_cache_scitokens(global_data.get_vos_data(),
-                                                            global_data.get_topology().get_resource_group_list(),
-                                                            fqdn=fqdn,
-                                                            suppress_errors=False)
+    fqdn_arg = request.args.get("fqdn")
 
-    return _get_scitoken_file(fqdn, get_scitoken_function)
+    def get_scitoken_function(fqdn):
+        return stashcache.generate_cache_scitokens(global_data=global_data, fqdn=fqdn, suppress_errors=False)
+
+    return _get_scitoken_file(fqdn_arg, get_scitoken_function)
 
 
 def _get_origin_scitoken_file():
-    fqdn = request.args.get("fqdn")
-    get_scitoken_function = lambda fqdn: stashcache.generate_origin_scitokens(global_data.get_vos_data(),
-                                                                global_data.get_topology().get_resource_group_list(),
-                                                                fqdn=fqdn,
-                                                                suppress_errors=False)
+    fqdn_arg = request.args.get("fqdn")
 
-    return _get_scitoken_file(fqdn, get_scitoken_function)
+    def get_scitoken_function(fqdn):
+        return stashcache.generate_origin_scitokens(global_data=global_data, fqdn=fqdn, suppress_errors=False)
+
+    return _get_scitoken_file(fqdn_arg, get_scitoken_function)
 
 
 @app.route("/generate_downtime", methods=["GET", "POST"])

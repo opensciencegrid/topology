@@ -13,8 +13,8 @@ Contacts:
   - ID: OSG1000015
     Name: Aaron Moate
   Miscellaneous Contact:
-  - ID: 29a39113245cb237d6377e22152a1cb2585445e3
-    Name: Lauren Michael
+  - ID: OSG1000018
+    Name: Christina Koch
   Registration Authority:
   - ID: OSG1000015
     Name: Aaron Moate
@@ -47,20 +47,31 @@ PurposeURL: https://chtc.cs.wisc.edu/approach.shtml
 ReportingGroups:
 - glow
 SupportURL: https://chtc.cs.wisc.edu
+
 DataFederations:
-  StashCache:
-    Namespaces:
-      /chtc/PUBLIC:
-        - PUBLIC
-      /chtc/PROTECTED:
-        - FQAN:/GLOW
-        - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
-        - SciTokens:
-            Issuer: https://chtc.cs.wisc.edu
-            Base Path: /chtc
-    AllowedOrigins:
-      - CHTC_STASHCACHE_ORIGIN
-      - CHTC_STASHCACHE_ORIGIN_2000
-      - CHTC_STASHCACHE_ORIGIN_AUTH_2000
-    AllowedCaches:
-      - ANY
+ StashCache:
+   Namespaces:
+     - Path: /chtc/PUBLIC
+       Authorizations:
+         - PUBLIC
+       AllowedOrigins:
+         - CHTC_STASHCACHE_ORIGIN
+         - CHTC_STASHCACHE_ORIGIN_2000
+       AllowedCaches:
+         - ANY
+
+     - Path: /chtc/PROTECTED
+       Authorizations:
+         - FQAN:/GLOW
+         - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+         - SciTokens:
+             Issuer: https://chtc.cs.wisc.edu
+             Base Path: /chtc
+             Map Subject: True
+       AllowedOrigins:
+         - CHTC_STASHCACHE_ORIGIN_AUTH_2000
+       AllowedCaches:
+         # TODO: only allowing CHTC caches defeats the purpose of OSDF; allow PRP caches too?
+         - CHTC_TIGER_CACHE
+         - CHTC_STASHCACHE_CACHE
+

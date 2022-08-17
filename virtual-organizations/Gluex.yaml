@@ -49,14 +49,23 @@ SupportURL: http://gryphn.phys.uconn.edu/UConn-OSG/support.html
 DataFederations:
   StashCache:
     Namespaces:
-      /Gluex:
-        - PUBLIC
-      /gluex:
-        - PUBLIC
-    AllowedOrigins:
-        # UConn-OSG_StashCache_origin serves /gluex/uconn0 (FD #68279)
-        - UConn-OSG_StashCache_origin
-        # UConn-HPC_StashCache_origin serves /gluex/uconn1 (FD #68279)
-        - UConn-HPC_StashCache_origin
-    AllowedCaches:
-        - ANY
+      - Path: /Gluex
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+            # UConn-OSG_StashCache_origin serves /gluex/uconn0 (FD #68279)
+            - UConn-OSG_StashCache_origin
+            # UConn-HPC_StashCache_origin serves /gluex/uconn1 (FD #68279)
+            - UConn-HPC_StashCache_origin
+        AllowedCaches:
+            - ANY
+      - Path: /gluex
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+            # UConn-OSG_StashCache_origin serves /gluex/uconn0 (FD #68279)
+            - UConn-OSG_StashCache_origin
+            # UConn-HPC_StashCache_origin serves /gluex/uconn1 (FD #68279)
+            - UConn-HPC_StashCache_origin
+        AllowedCaches:
+            - ANY
