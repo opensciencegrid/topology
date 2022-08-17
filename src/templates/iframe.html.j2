@@ -270,12 +270,12 @@ will want to adjust the Map.data which populates the select input and legend.
                     icon = redStarIcon
                 }
 
-            } else if(view === "XRootD") {
-                if (this.isXrootdOrigin && this.isXrootdCache) {
+            } else if(view === "OpenScienceDataFederation") {
+                if (this.isOSDFOrigin && this.isOSDFCache) {
                     icon = cacheAndOriginIcon
-                } else if (this.isXrootdOrigin) {
+                } else if (this.isOSDFOrigin) {
                     icon = originIcon
-                } else if (this.isXrootdCache) {
+                } else if (this.isOSDFCache) {
                     icon = cacheIcon
                 }
 
@@ -383,18 +383,18 @@ will want to adjust the Map.data which populates the select input and legend.
             return this._isNetwork
         }
 
-        get isXrootdCache() {
-            if( !this._isXrootdCache ){
-                this._isXrootdCache = this.services.some(({Name: name}) => name === "XRootD cache server")
+        get isOSDFCache() {
+            if( !this._isOSDFCache ){
+                this._isOSDFCache = this.services.some(({Name: name}) => name === "XRootD cache server")
             }
-            return this._isXrootdCache
+            return this._isOSDFCache
         }
 
-        get isXrootdOrigin(){
-            if( !this._isXrootdOrigin ){
-                this._isXrootdOrigin = this.services.some(({Name: name}) => name === "XRootD origin server")
+        get isOSDFOrigin(){
+            if( !this._isOSDFOrigin ){
+                this._isOSDFOrigin = this.services.some(({Name: name}) => name === "XRootD origin server")
             }
-            return this._isXrootdOrigin
+            return this._isOSDFOrigin
         }
 
         get isOSPool(){
@@ -534,8 +534,8 @@ will want to adjust the Map.data which populates the select input and legend.
                         "CC* Site": redStarIcon?.options?.iconUrl
                     }
                 },
-                "XRootD" : {
-                    "longText" : "XRootD",
+                "OpenScienceDataFederation" : {
+                    "longText" : "Open Science Data Federation",
                     "legend" : {
                         "Origin": originIcon?.options?.iconUrl,
                         "Cache": cacheIcon?.options?.iconUrl,
