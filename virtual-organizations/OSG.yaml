@@ -93,7 +93,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://scitokens.org/osg-connect
-              Base Path: /osgconnect/protected
+              Base Path: /
               Map Subject: True
         AllowedOrigins:
           - OSGCONNECT_ORIGIN
