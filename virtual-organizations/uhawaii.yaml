@@ -22,11 +22,10 @@ OASIS:
 DataFederations:
   StashCache:
     Namespaces:
-      /its/bigdata
+      /uhawaii/manoa/ifa
         - PUBLIC
-      /its/fastdata
+      /uhawaii/manoa/ifa
     AllowedOrigins:
-      - ITS_STASHCACHE_ORIGIN_BIGDATA
-      - ITS_STASHCACHE_ORIGIN_FASTDATA
+      - ITS_STASHCACHE_ORIGIN
     AllowedCaches:
       - ANY
