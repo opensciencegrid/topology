@@ -95,6 +95,7 @@ DataFederations:
               Issuer: https://scitokens.org/osg-connect
               Base Path: /
               Map Subject: True
+              Restricted Path: /osgconnect
         AllowedOrigins:
           - OSGCONNECT_ORIGIN
         AllowedCaches:
