@@ -324,3 +324,38 @@ Resources:
     AllowedVOs:
       - GLOW
       - OSG
+
+  CHTC-ITB-HELP-CACHE1:
+    Active: false
+    Description: >-
+      This is a testing StashCache cache server the Tiger cluster,
+      deployed via Helm.
+    ID: 1339
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000007
+          Name: Carl Edquist
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Tertiary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: stash-cache.osg.chtc.io
+    DN: /CN=helm-cache1.osgdev.chtc.io
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    VOOwnership:
+      OSG: 100
+    AllowedVOs:
+      - GLOW
+      - OSG
