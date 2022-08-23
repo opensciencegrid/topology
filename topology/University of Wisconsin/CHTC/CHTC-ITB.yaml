@@ -325,7 +325,7 @@ Resources:
       - GLOW
       - OSG
 
-  CHTC-ITB-HELP-CACHE1:
+  CHTC-ITB-HELM-CACHE1:
     Active: false
     Description: >-
       This is a testing StashCache cache server the Tiger cluster,
@@ -349,7 +349,7 @@ Resources:
         Secondary:
           ID: OSG1000015
           Name: Aaron Moate
-    FQDN: stash-cache.osg.chtc.io
+    FQDN: helm-cache1.osgdev.chtc.io
     DN: /CN=helm-cache1.osgdev.chtc.io
     Services:
       XRootD cache server:
