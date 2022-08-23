@@ -72,38 +72,47 @@ ReportingGroups:
 DataFederations:
   StashCache:
     Namespaces:
-      /user/ligo:
-        - "FQAN:/osg/ligo"
-        - "FQAN:/virgo"
-        - "FQAN:/virgo/virgo"
-        - SciTokens:
-            Issuer: https://scitokens.org/ligo
-            Base Path: /user/ligo
-        - SciTokens:
-            Issuer: https://test.cilogon.org/ligo
-            Base Path: /user/ligo
-        - SciTokens:
-            Issuer: https://cilogon.org/ligo
-            Base Path: /user/ligo
-      /gwdata:
-        - PUBLIC
-    AllowedOrigins:
-      - CIT_LIGO_ORIGIN
-      - LIGO-StashCache-Origin
-      - UCL-Virgo-StashCache-Origin
-    AllowedCaches:
-      - SUT-STASHCACHE
-      - HCC-Stash
-      - Georgia_Tech_PACE_GridFTP2
-      - Stashcache-UCSD
-      - Stashcache-UofA
-      - Stashcache-Cardiff
-      - Stashcache-KISTI
-      - Stashcache-Houston
-      - Stashcache-Manhattan
-      - Stashcache-Sunnyvale
-      - Stashcache-Chicago
-      - Stashcache-Kansas
-      - T1_STASHCACHE_CACHE
-      - PIC_STASHCACHE_CACHE
-      - SU_STASHCACHE_CACHE
+      - Path: /user/ligo
+        Authorizations:
+          - FQAN: /osg/ligo
+          - FQAN: /virgo
+          - FQAN: /virgo/virgo
+          - SciTokens:
+              Issuer: https://scitokens.org/ligo
+              Base Path: /user/ligo
+          - SciTokens:
+              Issuer: https://test.cilogon.org/ligo
+              Base Path: /user/ligo
+          - SciTokens:
+              Issuer: https://cilogon.org/ligo
+              Base Path: /user/ligo
+        AllowedOrigins:
+          - CIT_LIGO_ORIGIN
+          - LIGO-StashCache-Origin
+          - UCL-Virgo-StashCache-Origin
+        AllowedCaches:
+          - SUT-STASHCACHE
+          - HCC-Stash
+          - Georgia_Tech_PACE_GridFTP2
+          - Stashcache-UCSD
+          - Stashcache-UofA
+          - Stashcache-Cardiff
+          - Stashcache-KISTI
+          - Stashcache-Houston
+          - Stashcache-Manhattan
+          - Stashcache-Sunnyvale
+          - Stashcache-Chicago
+          - Stashcache-Kansas
+          - T1_STASHCACHE_CACHE
+          - PIC_STASHCACHE_CACHE
+          - SU_STASHCACHE_CACHE
+          - PSU-LIGO-CACHE
+      - Path: /gwdata
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CIT_LIGO_ORIGIN
+          - LIGO-StashCache-Origin
+          - UCL-Virgo-StashCache-Origin
+        AllowedCaches:
+          - ANY

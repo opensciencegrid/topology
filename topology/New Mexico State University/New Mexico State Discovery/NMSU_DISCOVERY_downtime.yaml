@@ -28,4 +28,24 @@
   ResourceName: SLATE_US_NMSU_DISCOVERY
   Services:
   - CE
+- Class: SCHEDULED
+  ID: 1209250115
+  Description: Replace SSL Certificate
+  Severity: Intermittent Outage
+  StartTime: Jun 23, 2022 23:00 +0000
+  EndTime: Jun 24, 2022 00:00 +0000
+  CreatedTime: Jun 22, 2022 19:10 +0000
+  ResourceName: SLATE_US_NMSU_DISCOVERY
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1243386217
+  Description: Standard Biannual Cluster Downtime
+  Severity: Outage
+  StartTime: Aug 01, 2022 14:00 +0000
+  EndTime: Aug 19, 2022 23:00 +0000
+  CreatedTime: Aug 01, 2022 07:23 +0000
+  ResourceName: SLATE_US_NMSU_DISCOVERY
+  Services:
+  - CE
 # ---------------------------------------------------------

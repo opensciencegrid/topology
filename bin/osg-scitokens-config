@@ -30,11 +30,5 @@ else:
 
 global_data = webapp.models.GlobalData()
 
-vodata = global_data.get_vos_data()
-resource_groups = global_data.get_topology().get_resource_group_list()
-
-cache_scitokens = stashcache.generate_cache_scitokens(vodata,
-                                                      resource_groups,
-                                                      fqdn=args.fqdn,
-                                                      suppress_errors=False)
+cache_scitokens = stashcache.generate_cache_scitokens(global_data, args.fqdn, suppress_errors=False)
 print(cache_scitokens, end="")  # config already has trailing newline

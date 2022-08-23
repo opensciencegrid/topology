@@ -261,3 +261,66 @@ Resources:
     Services:
       Execution Endpoint:
         Description: OSG VO backfill container in the GPU lab
+
+  CHTC-ITB-HELM-ORIGIN1:
+    Active: false
+    Description: >-
+        This is a testing OSDF origin server on the Tiger cluster,
+        deployed via Helm. It serves public data.
+    ID: 1325
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+    FQDN: helm-origin1.osgdev.chtc.io
+    DN: /CN=helm-origin1.osgdev.chtc.io
+    Services:
+      XRootD origin server:
+        Description: xrootd stash-origin server
+    VOOwnership:
+      OSG: 100
+    AllowedVOs:
+      - ANY_PUBLIC
+
+  CHTC-ITB-HELM-ORIGIN2:
+    Active: false
+    Description: >-
+        This is a testing OSDF origin server on the Tiger cluster,
+        deployed via Helm. It serves protected data.
+    ID: 1326
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+    FQDN: helm-origin2.osgdev.chtc.io
+    DN: /CN=helm-origin2.osgdev.chtc.io
+    Services:
+      XRootD origin server:
+        Description: xrootd stash-origin-auth server
+    VOOwnership:
+      OSG: 100
+    AllowedVOs:
+      - GLOW
+      - OSG

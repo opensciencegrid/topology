@@ -3,6 +3,7 @@ on: [push, pull_request]
 
 jobs:
   validate-data:
+    # 'name' must match TARGET_CHECK_RUN_NAME as defined in webhook_app.py
     name: Validate Topology data
     runs-on: ubuntu-latest
     steps:
@@ -40,6 +41,3 @@ jobs:
         run: |
           ./src/tests/verify_authfile.sh
           ./src/tests/verify_origin_authfile.sh
-      - name: Validate cacher
-        run: |
-          ./src/topology_cacher.py --outdir=/tmp/topology-cacher

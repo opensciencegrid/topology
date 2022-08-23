@@ -16,6 +16,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: moved under the resource group BNL_LCG2. This will set the stage
       for unified site availability with WLCG.
     FQDN: gridgk01.racf.bnl.gov
@@ -53,6 +56,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: change resource groupname to BNL-LCG2
     FQDN: gridgk02.racf.bnl.gov
     ID: 4
@@ -89,6 +95,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
     FQDN: gridgk03.racf.bnl.gov
@@ -126,6 +135,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: This is just another gatekeeper, sharing the same backend resources
       with the other BNL_ATLAS_X gatekeepers.
     FQDN: gridgk04.racf.bnl.gov
@@ -163,6 +175,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
     FQDN: gridgk06.racf.bnl.gov
@@ -200,6 +215,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
     FQDN: gridgk07.racf.bnl.gov
@@ -238,6 +256,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: This CE will serve grid jobs submitted to the *local* USATLAS resources,
       e.g. for panda queue ANALY_BNL_LOCAL, at BNL.
     FQDN: gridgk08.racf.bnl.gov
@@ -272,6 +293,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: Round robin DNS alias for our two Frontier Squid nodes.
     FQDN: frontier-cache.sdcc.bnl.gov
     ID: 925
@@ -293,6 +317,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: Round robin DNS alias for our two Frontier Squid nodes.
     FQDN: cvmfs-cache.sdcc.bnl.gov
     ID: 1186
@@ -317,6 +344,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: moved under the resource group BNL_LCG2. This will set the stage
       for unified site availability with WLCG.
     FQDN: dcsrm.usatlas.bnl.gov
@@ -354,12 +384,15 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: A gridftp service 
     FQDN: dcgftp.usatlas.bnl.gov
     ID: 1089
     Services:
-      GridFtp:
-        Description: GridFtp service endpoint
+      WebDAV:
+        Description: WebDAV service endpoint
         Details:
           hidden: false
     VOOwnership:
@@ -390,6 +423,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: SE at Amazon east region
     FQDN: bestse01.usatlas.bnl.gov
     ID: 664
@@ -425,6 +461,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: SE at Amazon wes -1 region
     FQDN: bestse02.usatlas.bnl.gov
     ID: 728
@@ -460,6 +499,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: SE at Amazon West-2 region.
     FQDN: bestse03.usatlas.bnl.gov
     ID: 826
@@ -492,6 +534,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: perfSonar box
     FQDN: lhcmon.bnl.gov
     ID: 554
