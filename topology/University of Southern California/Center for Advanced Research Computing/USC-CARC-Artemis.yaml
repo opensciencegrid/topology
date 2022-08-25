@@ -26,3 +26,23 @@ Resources:
         Description: Frontier squid proxy for Artemis cluster
     Tags:
       - CC*
+  USC-CARC-Artemis-Backfill:
+    Active: true
+    Description: This is an Execution Endpoint for CARC at USC.
+    ID: 1338
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: James Hong
+          ID: OSG1000133
+      Security Contact:
+        Primary:
+          Name: James Hong
+          ID: OSG1000133
+    FQDN: artemis-backfill.carc.usc.edu
+    Services:
+      Execution Endpoint:
+        # Description is a brief description of the service
+        Description: OSPool backfill containers
+    Tags:
+      - CC*

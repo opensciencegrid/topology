@@ -174,7 +174,7 @@ will want to adjust the Map.data which populates the select input and legend.
     </main>
 </body>
 <script>
-    const compute_services = new Set(["CE", "Submit Node", "Connect", "GUMS Server", "Glidein factory", "VOMS Server"]);
+    const compute_services = new Set(["CE", "Submit Node", "Connect", "GUMS Server", "Glidein factory", "VOMS Server", "Execution Endpoint"]);
     const storage_services = new Set(["Squid", "SRMv2", "XRootD cache server", "GridFtp", "XRootD component", "XRootD origin server", "SRMv1", "LFC", "Apache Server", "FTS"]);
     const network_services = new Set(["net.perfSONAR.Bandwidth", "net.perfSONAR.Latency"]);
     const ospool_facilities = new Set(['American Museum of Natural History', 'Arizona State University', 'Brookhaven National Laboratory', 'California Institute of Technology', 'Cinvestav', 'Clarkson University', 'Clemson University', 'Cybera', 'Fermi National Accelerator Laboratory', 'Florida State University', 'Georgia Institute of Technology', 'Georgia State University', 'Great Plains Network', 'IN2P3', 'INFN-T1', 'Illinois Institute of Technology', 'Indiana University', 'Kansas State University', 'Lancium', 'Lehigh University', 'Louisiana State University', 'Louisiana State University Health Sciences Center', 'New Mexico State University', 'Nikhef', 'North Dakota State University', 'Old Dominion University', 'Purdue University', 'Rice University', 'SURFsara', 'Southern Illinois University Edwardsville', 'Syracuse University', 'The College of New Jersey', 'Tufts University', 'Universidade Estadual Paulista', 'University of California San Diego', 'University of Chicago', 'University of Colorado', 'University of Connecticut', 'University of Illinois at Urbana Champaign', 'University of Michigan', 'University of Mississippi', 'University of Nebraska', 'University of Notre Dame', 'University of Oklahoma', 'University of Puerto Rico - Mayaguez', 'University of South Florida', 'University of Southern California', 'University of Tennessee Chattanooga', 'University of Texas at Austin', 'University of Utah', 'University of Wisconsin', 'Villanova University', 'Wayne State University', 'West Texas A&M University'])
@@ -270,12 +270,12 @@ will want to adjust the Map.data which populates the select input and legend.
                     icon = redStarIcon
                 }
 
-            } else if(view === "XRootD") {
-                if (this.isXrootdOrigin && this.isXrootdCache) {
+            } else if(view === "OpenScienceDataFederation") {
+                if (this.isOSDFOrigin && this.isOSDFCache) {
                     icon = cacheAndOriginIcon
-                } else if (this.isXrootdOrigin) {
+                } else if (this.isOSDFOrigin) {
                     icon = originIcon
-                } else if (this.isXrootdCache) {
+                } else if (this.isOSDFCache) {
                     icon = cacheIcon
                 }
 
@@ -383,18 +383,18 @@ will want to adjust the Map.data which populates the select input and legend.
             return this._isNetwork
         }
 
-        get isXrootdCache() {
-            if( !this._isXrootdCache ){
-                this._isXrootdCache = this.services.some(({Name: name}) => name === "XRootD cache server")
+        get isOSDFCache() {
+            if( !this._isOSDFCache ){
+                this._isOSDFCache = this.services.some(({Name: name}) => name === "XRootD cache server")
             }
-            return this._isXrootdCache
+            return this._isOSDFCache
         }
 
-        get isXrootdOrigin(){
-            if( !this._isXrootdOrigin ){
-                this._isXrootdOrigin = this.services.some(({Name: name}) => name === "XRootD origin server")
+        get isOSDFOrigin(){
+            if( !this._isOSDFOrigin ){
+                this._isOSDFOrigin = this.services.some(({Name: name}) => name === "XRootD origin server")
             }
-            return this._isXrootdOrigin
+            return this._isOSDFOrigin
         }
 
         get isOSPool(){
@@ -437,27 +437,42 @@ will want to adjust the Map.data which populates the select input and legend.
             this.legendItemsNode = document.getElementById("legend-items")
         }
 
-        _updateLegend(legend) {
+        _updateLegend(legend, layer) {
             this.legendNode.hidden = false
 
             while (this.legendItemsNode.firstChild) {
                 this.legendItemsNode.removeChild(this.legendItemsNode.firstChild)
             }
 
-            Object.entries(legend).forEach(([key, value]) => {
+            Object.entries(legend).forEach(([iconLabel, iconUrl]) => {
                 let entryContainerNode = document.createElement("div")
                 entryContainerNode.classList.add("entry-container")
                 this.legendItemsNode.appendChild(entryContainerNode)
 
                 let imgNode = document.createElement("img")
                 let labelNode = document.createElement("span")
+                let countNode = document.createElement("span")
                 entryContainerNode.appendChild(imgNode)
                 entryContainerNode.appendChild(labelNode)
+                entryContainerNode.appendChild(countNode)
 
-                imgNode.src = value
-                imgNode.alt = "Icon for " + key
+                imgNode.src = iconUrl
+                imgNode.alt = "Icon for " + iconLabel
 
-                labelNode.innerText = key
+                labelNode.innerText = iconLabel
+
+                // Count values in layer that match iconUrl with current legend item
+                // In this case iconUrl is a proxy for Site Category
+                let siteCount = Object.values(layer._layers)
+                    .reduce((og, v) => {
+                        if(v.options.icon.options.iconUrl === iconUrl){
+                            return og + 1
+                        } else {
+                            return og
+                        }
+                    }, 0)
+
+                countNode.innerText = `( ${siteCount} )`
             })
 
             this.legendNode.hidden = false
@@ -476,7 +491,7 @@ will want to adjust the Map.data which populates the select input and legend.
 
         update(layer, legend) {
             this._updateLayer(layer)
-            this._updateLegend(legend)
+            this._updateLegend(legend, layer)
         }
     }
 
@@ -534,8 +549,8 @@ will want to adjust the Map.data which populates the select input and legend.
                         "CC* Site": redStarIcon?.options?.iconUrl
                     }
                 },
-                "XRootD" : {
-                    "longText" : "XRootD",
+                "OpenScienceDataFederation" : {
+                    "longText" : "Open Science Data Federation",
                     "legend" : {
                         "Origin": originIcon?.options?.iconUrl,
                         "Cache": cacheIcon?.options?.iconUrl,
