@@ -25,10 +25,10 @@ OASIS:
 DataFederations:
   StashCache:
     Namespaces:
-      /uhawaii/manoa/ifa
-        - PUBLIC
-      /uhawaii/manoa/ifa
-    AllowedOrigins:
-      - IFAHURP_OSDF_ORIGIN
-    AllowedCaches:
-      - ANY
+      - Path: /uhawaii/manoa/ifa
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - IFAHURP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
