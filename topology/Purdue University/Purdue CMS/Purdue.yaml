@@ -2,50 +2,6 @@ GroupDescription: CMS tier 2 facility at Purdue University, West Lafayette, IN.
 GroupID: 393
 Production: true
 Resources:
-  Purdue-Hadoop-CE:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-        Tertiary:
-          ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
-          Name: Nick Smith
-      Security Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-    Description: Computing element for CMS Hadoop cluster at Purdue University.
-    FQDN: hadoop-osg.rcac.purdue.edu
-    ID: 620
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-          sam_uri: htcondor://hadoop-osg.rcac.purdue.edu:9619/hadoop-osg.rcac.purdue.edu
-          uri_override: hadoop-osg.rcac.purdue.edu:2119
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 15.07
-      AccountingName: T2_US_Purdue
-      HEPSPEC: 3929
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 500
-      KSI2KMin: 100
-      StorageCapacityMax: 0
-      StorageCapacityMin: 0
-      TapeCapacity: 0
   Purdue-Hammer:
     Active: true
     ContactLists:
@@ -89,51 +45,6 @@ Resources:
       KSI2KMin: 100
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
-  Purdue-Rice:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-        Tertiary:
-          ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
-          Name: Nick Smith
-      Security Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-    Description: |-
-      Computing element for Purdue Rice cluster (opportunistic).
-      http://www.rcac.purdue.edu/userinfo/resources/rice/
-    FQDN: rice-osg.rcac.purdue.edu
-    ID: 827
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-          sam_uri: htcondor://rice-osg.rcac.purdue.edu:9619/rice-osg.rcac.purdue.edu
-    VOOwnership:
-      CMS: 0
-    WLCGInformation:
-      APELNormalFactor: 15.07
-      AccountingName: T2_US_Purdue
-      HEPSPEC: 85
-      InteropAccounting: false
-      InteropBDII: false
-      InteropMonitoring: false
-      KSI2KMax: 500
-      KSI2KMin: 100
-      StorageCapacityMax: 5.5
-      StorageCapacityMin: 1
-      TapeCapacity: 5.5
   Purdue-Halstead:
     Active: true
     ContactLists:
@@ -269,48 +180,6 @@ Resources:
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
       TapeCapacity: 5.5
-  Purdue-Hadoop-SE-Gridftp:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-        Tertiary:
-          ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
-          Name: Nick Smith
-      Security Contact:
-        Primary:
-          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
-          Name: Stefan Piperov
-        Secondary:
-          ID: f11eeb608313b242e14f5aee602b3aff91839ace
-          Name: Erik Gough
-    Description: IPVS frontend to gridftp servers at Purdue University
-    FQDN: cms-gridftp.rcac.purdue.edu
-    ID: 852
-    Services:
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      AccountingName: T2_US_Purdue
-      HEPSPEC: 0
-      InteropAccounting: true
-      InteropBDII: false
-      InteropMonitoring: false
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 3800
-      StorageCapacityMin: 3800
-      TapeCapacity: 0
   T2_US_Purdue_Squid1:
     Active: true
     ContactLists:
