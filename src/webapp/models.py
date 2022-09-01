@@ -1,13 +1,12 @@
 import datetime
 import logging
 import os
-import re
 import time
 from typing import Dict, Set, List
 
 import yaml
 
-from webapp import cilogon_ldap, common, contacts_reader, mappings, project_reader, rg_reader, vo_reader
+from webapp import common, contacts_reader, ldap_data, mappings, project_reader, rg_reader, vo_reader
 from webapp.common import readfile
 from webapp.contacts_reader import ContactsData
 from webapp.topology import Topology, Downtime
@@ -57,6 +56,7 @@ class GlobalData:
         self.contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
         self.comanage_data = CachedData(cache_lifetime=contact_cache_lifetime)
         self.merged_contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
+        self.ligo_dn_list = CachedData(cache_lifetime=contact_cache_lifetime)
         self.dn_set = CachedData(cache_lifetime=topology_cache_lifetime)
         self.projects = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology = CachedData(cache_lifetime=topology_cache_lifetime)
@@ -143,7 +143,8 @@ class GlobalData:
         """
         if not self.config.get("CONTACT_DATA_DIR", None):
             log.debug("CONTACT_DATA_DIR not specified; getting empty contacts")
-            return contacts_reader.get_contacts_data(None)
+            data = contacts_reader.get_contacts_data(None)
+            self.contacts_data.update(data)
         elif self.contacts_data.should_update():
             ok = self._update_contacts_repo()
             if ok:
@@ -167,11 +168,12 @@ class GlobalData:
                 self.cilogon_ldap_passfile):
             log.debug("CILOGON_LDAP_{URL|USER|PASSFILE} not specified; "
                       "getting empty contacts")
-            return contacts_reader.get_contacts_data(None)
+            data = contacts_reader.get_contacts_data(None)
+            self.comanage_data.update(data)
         elif self.comanage_data.should_update():
             try:
                 idmap = self.get_cilogon_ldap_id_map()
-                data = cilogon_ldap.cilogon_id_map_to_yaml_data(idmap)
+                data = ldap_data.cilogon_id_map_to_yaml_data(idmap)
                 self.comanage_data.update(ContactsData(data))
             except Exception:
                 if self.strict:
@@ -185,7 +187,7 @@ class GlobalData:
         url = self.cilogon_ldap_url
         user = self.cilogon_ldap_user
         ldappass = readfile(self.cilogon_ldap_passfile, log)
-        return cilogon_ldap.get_cilogon_ldap_id_map(url, user, ldappass)
+        return ldap_data.get_cilogon_ldap_id_map(url, user, ldappass)
 
     def get_contacts_data(self) -> ContactsData:
         """
@@ -195,7 +197,7 @@ class GlobalData:
             try:
                 yd1 = self.get_comanage_data().yaml_data
                 yd2 = self.get_contact_db_data().yaml_data
-                yd_merged = cilogon_ldap.merge_yaml_data(yd1, yd2)
+                yd_merged = ldap_data.merge_yaml_data(yd1, yd2)
                 self.merged_contacts_data.update(ContactsData(yd_merged))
             except Exception:
                 if self.strict:
@@ -204,6 +206,28 @@ class GlobalData:
                 self.merged_contacts_data.try_again()
 
         return self.merged_contacts_data.data
+
+    def get_ligo_dn_list(self) -> List[str]:
+        """
+        Get list of DNs of authorized LIGO users from their LDAP
+        """
+        if not (self.ligo_ldap_url and self.ligo_ldap_user and
+                self.ligo_ldap_passfile):
+            log.debug("LIGO_LDAP_{URL|USER|PASSFILE} not specified; "
+                      "getting empty list")
+            return []
+        elif self.ligo_dn_list.should_update():
+            try:
+                ligo_ldap_pass = readfile(self.ligo_ldap_passfile, log)
+                new_dn_list = ldap_data.get_ligo_ldap_dn_list(self.ligo_ldap_url, self.ligo_ldap_user, ligo_ldap_pass)
+                self.ligo_dn_list.update(new_dn_list)
+            except Exception:
+                if self.strict:
+                    raise
+                log.exception("Failed to update LIGO data")
+                self.ligo_dn_list.try_again()
+
+        return self.ligo_dn_list.data
 
     def get_dns(self) -> Set:
         """
