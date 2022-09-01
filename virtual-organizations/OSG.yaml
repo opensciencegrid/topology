@@ -79,7 +79,6 @@ DataFederations:
           - PUBLIC
         AllowedOrigins:
           - OSGCONNECT_ORIGIN
-          - CHTC_OSPOOL_ORIGIN
         AllowedCaches:
           - ANY
       - Path: /osgconnect/public
@@ -87,7 +86,18 @@ DataFederations:
           - PUBLIC
         AllowedOrigins:
           - OSGCONNECT_ORIGIN
-          - CHTC_OSPOOL_ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://stash-xrd.osgconnect.net:1094
+      - Path: /osgconnect/protected
+        Authorizations:
+          - SciTokens:
+              Issuer: https://scitokens.org/osg-connect
+              Base Path: /
+              Map Subject: True
+              Restricted Path: /osgconnect
+        AllowedOrigins:
+          - OSGCONNECT_ORIGIN
         AllowedCaches:
           - ANY
         Writeback: https://stash-xrd.osgconnect.net:1094
@@ -96,7 +106,6 @@ DataFederations:
           - PUBLIC
         AllowedOrigins:
           - OSGCONNECT_ORIGIN
-          - CHTC_OSPOOL_ORIGIN
         AllowedCaches:
           - ANY
       - Path: /ospool/PROTECTED
@@ -106,7 +115,6 @@ DataFederations:
               Base Path: /ospool/PROTECTED
               Map Subject: True
         AllowedOrigins:
-          - OSGCONNECT_ORIGIN
           - CHTC_OSPOOL_ORIGIN
         AllowedCaches:
           - ANY

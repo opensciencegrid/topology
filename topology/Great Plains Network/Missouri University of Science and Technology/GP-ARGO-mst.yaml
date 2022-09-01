@@ -2,12 +2,12 @@
 Production: true
 SupportCenter: Self Supported
 GroupDescription: Distributed compute resources made available through GP-ARGO
-GroupID: 1307
+GroupID: 1305
 Resources:
-  GP-ARGO-sdsmt-backfill:
+  GP-ARGO-mst-backfill:
     Active: true
-    Description: Backfill containers running at South Dakota School of Mines and Technology
-    ID: 1286
+    Description: Backfill containers running at Missouri S&T
+    ID: 1329
     ContactLists:
       Administrative Contact:
         Primary:
@@ -17,7 +17,7 @@ Resources:
         Primary:
           ID: 0a077233ccf64c5f4a0888b0de224093f5129e9a
           Name: Kyle Hutson
-    FQDN: sdsmt.gp-argo.greatplains.net
+    FQDN: mst.gp-argo.greatplains.net
     Services:
       Execution Endpoint:
         Description: GP-ARGO backfill containers
