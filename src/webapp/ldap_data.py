@@ -91,7 +91,7 @@ def get_email_lookup(yaml_data):
             continue
         for Email in ('PrimaryEmail', 'SecondaryEmail'):
             if Email in ci:
-                email_lookup[ci[Email]] = contact
+                email_lookup[ci[Email].lower()] = contact
     return email_lookup
 
 
