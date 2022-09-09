@@ -1,9 +1,9 @@
 from collections import defaultdict
 from typing import Dict, List, Optional
-import ldap3
 
 from webapp.common import is_null, readfile, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
+from webapp.ldap_data import get_ligo_ldap_dn_list
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
 from webapp.vos_data import AuthMethod, DNAuth, SciTokenAuth, Namespace, \
@@ -20,41 +20,6 @@ def _log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=
         logmethod("%s %s", type(an_exception), an_exception)
     else:
         raise an_exception
-
-
-def _generate_ligo_dns(ldapurl: str, ldapuser: str, ldappass: str) -> List[str]:
-    """
-    Query the LIGO LDAP server for all grid DNs in the IGWN collab.
-
-    Returns a list of DNs.
-    """
-    results = []
-    base_branch = "ou={group},dc=ligo,dc=org"
-    base_query = "(&(isMemberOf=Communities:{community})(gridX509subject=*))"
-    queries = {'people': base_query.format(community="LSCVirgoLIGOGroupMembers"),
-               'robot': base_query.format(community="robot:OSGRobotCert")}
-
-    try:
-        server = ldap3.Server(ldapurl, connect_timeout=10)
-        conn = ldap3.Connection(server, user=ldapuser, password=ldappass, raise_exceptions=True, receive_timeout=10)
-        conn.bind()
-    except ldap3.core.exceptions.LDAPException:
-        log.exception("Failed to connect to the LIGO LDAP")
-        return results
-
-    for group in ('people', 'robot'):
-        try:
-            conn.search(base_branch.format(group=group),
-                        queries[group],
-                        search_scope='SUBTREE',
-                        attributes=['gridX509subject'])
-            results += [dn for e in conn.entries for dn in e.gridX509subject]
-        except ldap3.core.exceptions.LDAPException:
-            log.exception("Failed to query LIGO LDAP for %s DNs", group)
-
-    conn.unbind()
-
-    return results
 
 
 def _resource_has_cache(resource: Resource) -> bool:
@@ -183,8 +148,7 @@ def generate_cache_authfile(global_data: GlobalData,
 
     def fetch_ligo_authz_list_if_needed():
         if not ligo_authz_list:
-            ldappass = readfile(global_data.ligo_ldap_passfile, log)
-            for dn in _generate_ligo_dns(global_data.ligo_ldap_url, global_data.ligo_ldap_user, ldappass):
+            for dn in global_data.get_ligo_dn_list():
                 ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
         return ligo_authz_list
 
