@@ -75,3 +75,16 @@ DataFederations:
          - CHTC_TIGER_CACHE
          - CHTC_STASHCACHE_CACHE
 
+    - Path: /chtc/PROTECTED-TESTING
+      Authorizations:
+        - FQAN: /GLOW
+        - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+        - SciTokens:
+            Issuer: https://chtc.cs.wisc.edu
+            Base Path: /chtc
+            Map Subject: False
+      AllowedOrigins:
+        - CHTC_STASHCACHE_ORIGIN
+      AllowedCaches:
+        - ANY
+
