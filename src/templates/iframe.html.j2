@@ -437,27 +437,42 @@ will want to adjust the Map.data which populates the select input and legend.
             this.legendItemsNode = document.getElementById("legend-items")
         }
 
-        _updateLegend(legend) {
+        _updateLegend(legend, layer) {
             this.legendNode.hidden = false
 
             while (this.legendItemsNode.firstChild) {
                 this.legendItemsNode.removeChild(this.legendItemsNode.firstChild)
             }
 
-            Object.entries(legend).forEach(([key, value]) => {
+            Object.entries(legend).forEach(([iconLabel, iconUrl]) => {
                 let entryContainerNode = document.createElement("div")
                 entryContainerNode.classList.add("entry-container")
                 this.legendItemsNode.appendChild(entryContainerNode)
 
                 let imgNode = document.createElement("img")
                 let labelNode = document.createElement("span")
+                let countNode = document.createElement("span")
                 entryContainerNode.appendChild(imgNode)
                 entryContainerNode.appendChild(labelNode)
+                entryContainerNode.appendChild(countNode)
 
-                imgNode.src = value
-                imgNode.alt = "Icon for " + key
+                imgNode.src = iconUrl
+                imgNode.alt = "Icon for " + iconLabel
 
-                labelNode.innerText = key
+                labelNode.innerText = iconLabel
+
+                // Count values in layer that match iconUrl with current legend item
+                // In this case iconUrl is a proxy for Site Category
+                let siteCount = Object.values(layer._layers)
+                    .reduce((og, v) => {
+                        if(v.options.icon.options.iconUrl === iconUrl){
+                            return og + 1
+                        } else {
+                            return og
+                        }
+                    }, 0)
+
+                countNode.innerText = `( ${siteCount} )`
             })
 
             this.legendNode.hidden = false
@@ -476,7 +491,7 @@ will want to adjust the Map.data which populates the select input and legend.
 
         update(layer, legend) {
             this._updateLayer(layer)
-            this._updateLegend(legend)
+            this._updateLegend(legend, layer)
         }
     }
 
