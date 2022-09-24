@@ -89,6 +89,18 @@ DataFederations:
         AllowedCaches:
           - ANY
         Writeback: https://stash-xrd.osgconnect.net:1094
+      - Path: /osgconnect/protected
+        Authorizations:
+          - SciTokens:
+              Issuer: https://scitokens.org/osg-connect
+              Base Path: /
+              Map Subject: True
+              Restricted Path: /osgconnect
+        AllowedOrigins:
+          - OSGCONNECT_ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://stash-xrd.osgconnect.net:1094
       - Path: /osgconnect/collab
         Authorizations:
           - PUBLIC

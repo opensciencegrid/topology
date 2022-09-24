@@ -133,10 +133,10 @@ def parseargs():
 
     if args.from_name == 'security':
         args.from_name = 'OSG Security Team'
-        args.from_addr = 'security@opensciencegrid.org'
+        args.from_addr = 'security@osg-htc.org'
     else:
-        args.from_name = 'Open Science Grid'
-        args.from_addr = 'help@opensciencegrid.org'
+        args.from_name = 'OSG'
+        args.from_addr = 'help@osg-htc.org'
 
     return args
 
@@ -152,7 +152,7 @@ def network_ok(bypass_dns_check):
         print("***")
         print("Refusing to send email without hostname/public DNS match.")
         print("For more info, see:")
-        print("  https://opensciencegrid.org//operations/services/sending-announcements/")
+        print("  https://osg-htc.org//operations/services/sending-announcements/")
         return False
 
 def replace_smart_quotes_and_dashes(contents):
@@ -241,7 +241,7 @@ def main():
 ** This is a test of the osg-notify tool
 ** Please IGNORE the contents of this message
 ** If you received this message in error, please
-** contact help@opensciencegrid.org
+** contact help@osg-htc.org
 ===================================================
 """ + contents
 

@@ -104,16 +104,16 @@ SupportURL: http://www.usatlas.bnl.gov/index.shtml
 # DataFederations:
 #   StashCache:
 #     Namespaces:
-#       /<VONAME>/PUBLIC:
-#         - ANY
-#     AllowedOrigins:
-#       - <ORIGIN_RESOURCE>
-#       - ...
+#       - Path: /<VONAME>/PUBLIC:
+#         Authorizations:
+#           - ANY
+#         AllowedOrigins:
+#           - <ORIGIN_RESOURCE>
+#           - ...
 ### For AllowedCaches, if you only have public data, use:
-#     AllowedCaches:
-#       - ANY
+#         AllowedCaches:
+#           - ANY
 ### otherwise use:
-#     AllowedCaches:
-#       - <CACHE_RESOURCE>
-#       - ...
-
+#         AllowedCaches:
+#           - <CACHE_RESOURCE>
+#           - ...
