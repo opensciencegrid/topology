@@ -13,12 +13,15 @@ CVMFS_EXTERNAL_URL = "CVMFS_EXTERNAL_URL"
 baseurl = "https://raw.githubusercontent.com/cvmfs-contrib/config-repo/master"
 ligoconf = "etc/cvmfs/config.d/ligo.osgstorage.org.conf"
 osgconf = "etc/cvmfs/domain.d/osgstorage.org.conf"
-whitelist = "checks/whitelist.txt"
+whitelist = "checks/cache_config_whitelist.txt"
 
 namespaces = "https://topology.opensciencegrid.org/stashcache/namespaces.json"
 
 
-def slurp(url):
+def slurp_file(path):
+    return open(path, "rb").read()
+
+def slurp_url(url):
     local = "%s/../%s" % (os.path.dirname(__file__), url)
     if os.path.exists(local):
         return open(local, "rb").read()
