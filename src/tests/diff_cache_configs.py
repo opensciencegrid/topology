@@ -19,6 +19,7 @@ namespaces = "https://topology.opensciencegrid.org/stashcache/namespaces.json"
 
 
 def slurp_file(path):
+    path = "%s/%s" % (os.path.dirname(__file__), path)
     return open(path, "rb").read()
 
 def slurp_url(url):
