@@ -1432,3 +1432,25 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1291201415
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 25, 2022 15:35 +0000
+  EndTime: Sep 26, 2022 21:35 +0000
+  CreatedTime: Sep 25, 2022 15:35 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1291202264
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 25, 2022 15:35 +0000
+  EndTime: Sep 26, 2022 21:35 +0000
+  CreatedTime: Sep 25, 2022 15:37 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
