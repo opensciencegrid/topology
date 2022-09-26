@@ -13,7 +13,7 @@ CVMFS_EXTERNAL_URL = "CVMFS_EXTERNAL_URL"
 baseurl = "https://raw.githubusercontent.com/cvmfs-contrib/config-repo/master"
 ligoconf = "etc/cvmfs/config.d/ligo.osgstorage.org.conf"
 osgconf = "etc/cvmfs/domain.d/osgstorage.org.conf"
-whitelist = "checks/cache_config_whitelist.txt"
+whitelist = "cache_config_whitelist.txt"
 
 namespaces = "https://topology.opensciencegrid.org/stashcache/namespaces.json"
 
@@ -22,12 +22,8 @@ def slurp_file(path):
     return open(path, "rb").read()
 
 def slurp_url(url):
-    local = "%s/../%s" % (os.path.dirname(__file__), url)
-    if os.path.exists(local):
-        return open(local, "rb").read()
-    else:
-        remote = url if "://" in url else "%s/%s" % (baseurl, url) 
-        return urllib.request.urlopen(remote).read()
+    remote = url if "://" in url else "%s/%s" % (baseurl, url)
+    return urllib.request.urlopen(remote).read()
 
 
 def shell_parse_env(srctxt, env):
@@ -42,7 +38,7 @@ def shell_parse_env(srctxt, env):
 
 
 def get_conf_urls(confurl):
-    txt = slurp(confurl)
+    txt = slurp_url(confurl)
     return shell_parse_env(txt, CVMFS_EXTERNAL_URL).strip().split(";")
 
 
@@ -76,7 +72,7 @@ def cache_endpoints(caches, endpoint):
 
 
 def get_namespaces_map():
-    txt = slurp(namespaces)
+    txt = slurp_url(namespaces)
     d = json.loads(txt)
     return {
         ns['path']: {
@@ -87,7 +83,7 @@ def get_namespaces_map():
 
 
 def get_whitelisted():
-    wl = slurp(whitelist).decode()
+    wl = slurp_file(whitelist).decode()
     return set( l for l in wl.splitlines() if not l.startswith("#") )
 
 
