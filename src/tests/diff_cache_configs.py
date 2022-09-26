@@ -117,11 +117,11 @@ def print_diffs(conf, cvmfs_caches, topology_caches, whitelisted):
         cvmfs_extra   = cvmfs_caches    - topology_caches - whitelisted
 
         if cvmfs_missing:
-            print("Missing items from %s (to add)" % conf)
+            print("Caches in Topology, missing from CVMFS config %s" % conf)
             print_bulletted(cvmfs_missing)
             print("")
         if cvmfs_extra:
-            print("Extra items in %s (to remove)" % conf)
+            print("Caches in CVMFS config %s, missing from Topology" % conf)
             print_bulletted(cvmfs_extra)
             print("")
 
