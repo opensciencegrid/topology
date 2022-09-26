@@ -2,6 +2,7 @@
 
 import re
 import os
+import sys
 import json
 import collections
 import urllib.request
@@ -102,6 +103,9 @@ def do_conf_comparisons():
     print_diffs(osgconf, osg_cvmfs_caches, osg_topology_caches, whitelisted)
     print_diffs(ligoconf, ligo_cvmfs_caches, ligo_topology_caches, whitelisted)
 
+    return (osg_cvmfs_caches == osg_topology_caches and
+            ligo_cvmfs_caches == ligo_topology_caches)
+
 
 def print_diffs(conf, cvmfs_caches, topology_caches, whitelisted):
     conf = os.path.basename(conf)
@@ -128,10 +132,11 @@ def print_bulletted(items):
 
 
 def main():
-    do_conf_comparisons()
+    return do_conf_comparisons()
 
 
 if __name__ == '__main__':
-    main()
+    all_match = main()
+    sys.exit(0 if all_match else 1)
 
 
