@@ -58,7 +58,7 @@ Resources:
           hidden: false
     Tags:
       - CC*
-  TCNJ-ELSA:
+  TCNJ-ELSA-CE2:
     ID: 1137
     Active: true
     Description: The Hosted CE serving TCNJ-ELSA
@@ -77,10 +77,10 @@ Resources:
         Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-    FQDN: tcnj-elsa-ce1.svc.opensciencegrid.org
+    FQDN: tcnj-elsa-ce2.svc.opensciencegrid.org
     Services:
       CE:
-        Description: TCNJ-ELSA Hosted CE
+        Description: TCNJ-ELSA Hosted CE2
         Details:
           hidden: false
     Tags:
