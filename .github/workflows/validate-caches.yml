@@ -1,0 +1,19 @@
+name: Validate StashCache configs
+on:
+  schedule:
+    # Run hourly
+    - cron: '0 * * * *'
+
+jobs:
+  validate-caches:
+    name: Validate Topology caches
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - name: Compare StashCache config lists
+        run: |
+          ./src/tests/diff_cache_configs.py
