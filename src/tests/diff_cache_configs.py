@@ -103,13 +103,13 @@ def do_conf_comparisons():
     print_diffs(osgconf, osg_cvmfs_caches, osg_topology_caches, whitelisted)
     print_diffs(ligoconf, ligo_cvmfs_caches, ligo_topology_caches, whitelisted)
 
-    return (osg_cvmfs_caches == osg_topology_caches and
-            ligo_cvmfs_caches == ligo_topology_caches)
+    return (osg_cvmfs_caches - whitelisted == osg_topology_caches and
+           ligo_cvmfs_caches - whitelisted == ligo_topology_caches)
 
 
 def print_diffs(conf, cvmfs_caches, topology_caches, whitelisted):
     conf = os.path.basename(conf)
-    if cvmfs_caches == topology_caches:
+    if cvmfs_caches - whitelisted == topology_caches:
         print("%s is up to date with topology source" % conf)
         print("")
     else:
