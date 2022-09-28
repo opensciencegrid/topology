@@ -7,6 +7,7 @@ on:
 jobs:
   validate-caches:
     name: Validate Topology caches
+    if: startsWith(github.repository, 'opensciencegrid/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
