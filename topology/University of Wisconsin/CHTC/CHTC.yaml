@@ -605,6 +605,33 @@ Resources:
       Execution Endpoint:
         Description: OSG VO backfill containers on the Tiger cluster, in the production namespace
 
+  TIGER-OSG-BACKFILL:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000007
+          Name: Carl Edquist
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+    Description: OSG VO backfill containers on the Tiger cluster
+    FQDN: tiger-osg-backfill.osgdev.chtc.io
+    ID: 1128
+    Services:
+      Execution Endpoint:
+        Description: OSG VO backfill containers on the Tiger cluster
+
   CHTC-ap7:
     Active: true
     Description: The ap7.chtc.wisc.edu login node for the OSG Open Pool
