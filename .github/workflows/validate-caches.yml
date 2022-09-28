@@ -1,8 +1,8 @@
 name: Validate StashCache configs
 on:
   schedule:
-    # Run hourly
-    - cron: '0 * * * *'
+    # Run daily
+    - cron: '0 0 * * *'
 
 jobs:
   validate-caches:
