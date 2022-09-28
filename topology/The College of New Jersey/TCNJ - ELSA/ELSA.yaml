@@ -58,7 +58,7 @@ Resources:
           hidden: false
     Tags:
       - CC*
-  TCNJ-ELSA-CE1:
+  TCNJ-ELSA:
     ID: 1137
     Active: true
     Description: The Hosted CE serving TCNJ-ELSA
@@ -80,7 +80,7 @@ Resources:
     FQDN: tcnj-elsa-ce1.svc.opensciencegrid.org
     Services:
       CE:
-        Description: TCNJ-ELSA Hosted CE1
+        Description: TCNJ-ELSA Hosted CE
         Details:
           hidden: false
     Tags:
