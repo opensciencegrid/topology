@@ -1,26 +1,35 @@
+import logging
+from typing import List
+
 import ldap3
+
+log = logging.getLogger(__name__)
+
+
+CILOGON_LDAP_TIMEOUT = 10
+LIGO_LDAP_TIMEOUT = 10
 
 
 def get_contact_cilogon_id_map(global_data):
     """ return contacts dict, limited to users with a CILogonID """
-    contacts = global_data.get_contacts_data().users_by_id;
+    contacts = global_data.get_contacts_data().users_by_id
     return { k: v for k, v in contacts.items() if v.cilogon_id is not None }
 
 
 # cilogon ldap query constants
 #_ldap_url = "ldaps://ldap.cilogon.org"
 #_username = "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org"
-_basedn   = "o=OSG,o=CO,dc=cilogon,dc=org"
+_cilogon_basedn   = "o=OSG,o=CO,dc=cilogon,dc=org"
 
 
-def get_cilogon_ldap_id_map(ldap_url, username, ldappass):
+def get_cilogon_ldap_id_map(ldap_url, ldap_user, ldap_pass):
     """ return dict of cilogon ldap data for each CILogonID, with the
         structure: {CILogonID: { "dn": dn, "data": data }, ...} """
-    server = ldap3.Server(ldap_url)
-    conn = ldap3.Connection(server, username, ldappass)
+    server = ldap3.Server(ldap_url, connect_timeout=CILOGON_LDAP_TIMEOUT)
+    conn = ldap3.Connection(server, ldap_user, ldap_pass, receive_timeout=CILOGON_LDAP_TIMEOUT)
     if not conn.bind():
         return None  # connection failure
-    conn.search(_basedn, '(voPersonID=*)', attributes=['*'])
+    conn.search(_cilogon_basedn, '(voPersonID=*)', attributes=['*'])
     result_data = [ (e.entry_dn, e.entry_attributes_as_dict)
                     for e in conn.entries ]
     conn.unbind()
@@ -82,7 +91,7 @@ def get_email_lookup(yaml_data):
             continue
         for Email in ('PrimaryEmail', 'SecondaryEmail'):
             if Email in ci:
-                email_lookup[ci[Email]] = contact
+                email_lookup[ci[Email].lower()] = contact
     return email_lookup
 
 
@@ -127,3 +136,39 @@ def merge_yaml_data(yaml_data_main, yaml_data_secondary):
 
     return yd
 
+
+def get_ligo_ldap_dn_list(ldap_url: str, ldap_user: str, ldap_pass: str) -> List[str]:
+    """
+    Query the LIGO LDAP server for all grid DNs in the IGWN collab.
+
+    Returns a list of DNs.
+    """
+    results = []
+    base_branch = "ou={group},dc=ligo,dc=org"
+    base_query = "(&(isMemberOf=Communities:{community})(gridX509subject=*))"
+    queries = {'people': base_query.format(community="LSCVirgoLIGOGroupMembers"),
+               'robot': base_query.format(community="robot:OSGRobotCert")}
+
+    try:
+        server = ldap3.Server(ldap_url, connect_timeout=LIGO_LDAP_TIMEOUT)
+        conn = ldap3.Connection(server, user=ldap_user, password=ldap_pass, raise_exceptions=True,
+                                receive_timeout=LIGO_LDAP_TIMEOUT)
+        conn.bind()
+    except ldap3.core.exceptions.LDAPException:
+        log.exception("Failed to connect to the LIGO LDAP")
+        return results
+
+    try:
+        for group in ('people', 'robot'):
+            try:
+                conn.search(base_branch.format(group=group),
+                            queries[group],
+                            search_scope='SUBTREE',
+                            attributes=['gridX509subject'])
+                results.extend(dn for e in conn.entries for dn in e.gridX509subject)
+            except ldap3.core.exceptions.LDAPException:
+                log.exception("Failed to query LIGO LDAP for %s DNs", group)
+    finally:
+        conn.unbind()
+
+    return results

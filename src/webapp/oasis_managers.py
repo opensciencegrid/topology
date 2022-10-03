@@ -2,9 +2,9 @@
 
 
 from webapp.common import safe_dict_get
-from webapp.cilogon_ldap import get_cilogon_ldap_id_map
-from webapp.cilogon_ldap import cilogon_id_map_to_ssh_keys
-from webapp.cilogon_ldap import get_contact_cilogon_id_map
+from webapp.ldap_data import get_cilogon_ldap_id_map
+from webapp.ldap_data import cilogon_id_map_to_ssh_keys
+from webapp.ldap_data import get_contact_cilogon_id_map
 
 
 def get_oasis_manager_endpoint_info(global_data, vo, ldappass):

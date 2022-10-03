@@ -1284,3 +1284,135 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1281810514
+  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
+  Severity: Outage
+  StartTime: Sep 16, 2022 10:00 +0000
+  EndTime: Sep 16, 2022 15:59 +0000
+  CreatedTime: Sep 14, 2022 18:44 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1281810515
+  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
+  Severity: Outage
+  StartTime: Sep 16, 2022 10:00 +0000
+  EndTime: Sep 16, 2022 15:59 +0000
+  CreatedTime: Sep 14, 2022 18:44 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1281810516
+  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
+  Severity: Outage
+  StartTime: Sep 16, 2022 10:00 +0000
+  EndTime: Sep 16, 2022 15:59 +0000
+  CreatedTime: Sep 14, 2022 18:44 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1281810517
+  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
+  Severity: Outage
+  StartTime: Sep 16, 2022 10:00 +0000
+  EndTime: Sep 16, 2022 15:59 +0000
+  CreatedTime: Sep 14, 2022 18:44 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1281810518
+  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
+  Severity: Outage
+  StartTime: Sep 16, 2022 10:00 +0000
+  EndTime: Sep 16, 2022 15:59 +0000
+  CreatedTime: Sep 14, 2022 18:44 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1281810519
+  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
+  Severity: Outage
+  StartTime: Sep 16, 2022 10:00 +0000
+  EndTime: Sep 16, 2022 15:59 +0000
+  CreatedTime: Sep 14, 2022 18:44 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1281810520
+  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
+  Severity: Outage
+  StartTime: Sep 16, 2022 10:00 +0000
+  EndTime: Sep 16, 2022 15:59 +0000
+  CreatedTime: Sep 14, 2022 18:44 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1281810521
+  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
+  Severity: Outage
+  StartTime: Sep 16, 2022 10:00 +0000
+  EndTime: Sep 16, 2022 15:59 +0000
+  CreatedTime: Sep 14, 2022 18:44 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1281810522
+  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
+  Severity: Outage
+  StartTime: Sep 16, 2022 10:00 +0000
+  EndTime: Sep 16, 2022 15:59 +0000
+  CreatedTime: Sep 14, 2022 18:44 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1281810523
+  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
+  Severity: Outage
+  StartTime: Sep 16, 2022 10:00 +0000
+  EndTime: Sep 16, 2022 15:59 +0000
+  CreatedTime: Sep 14, 2022 18:44 +0000
+  ResourceName: US-Purdue BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1281810524
+  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
+  Severity: Outage
+  StartTime: Sep 16, 2022 10:00 +0000
+  EndTime: Sep 16, 2022 15:59 +0000
+  CreatedTime: Sep 14, 2022 18:44 +0000
+  ResourceName: US-Purdue LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1298185507
+  Description: Cluster maintenance
+  Severity: Outage
+  StartTime: Oct 04, 2022 12:00 +0000
+  EndTime: Oct 05, 2022 21:00 +0000
+  CreatedTime: Oct 03, 2022 17:35 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------

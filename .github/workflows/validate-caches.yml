@@ -1,0 +1,20 @@
+name: Validate StashCache configs
+on:
+  schedule:
+    # Run daily
+    - cron: '0 0 * * *'
+
+jobs:
+  validate-caches:
+    name: Validate Topology caches
+    if: startsWith(github.repository, 'opensciencegrid/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - name: Compare StashCache config lists
+        run: |
+          ./src/tests/diff_cache_configs.py

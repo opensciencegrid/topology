@@ -70,7 +70,7 @@ class TestAPI:
         assert response.status_code != 404
 
     def test_cache_authfile(self, client: flask.Flask, mocker: MockerFixture):
-        mocker.patch("stashcache._generate_ligo_dns", mocker.MagicMock(return_value=["deadbeef.0"]))
+        mocker.patch("webapp.ldap_data.get_ligo_ldap_dn_list", mocker.MagicMock(return_value=["deadbeef.0"]))
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
 
@@ -155,7 +155,7 @@ class TestAPI:
                 assert response.status_code != 200 or not response.data
 
         try:
-            mocker.patch("stashcache._generate_ligo_dns", mocker.MagicMock(return_value=["deadbeef.0"]))
+            mocker.patch("webapp.ldap_data.get_ligo_ldap_dn_list", mocker.MagicMock(return_value=["deadbeef.0"]))
 
             resources = client.get('/miscresource/json').json
             resources_stashcache_files = client.get('/resources/stashcache-files').json
