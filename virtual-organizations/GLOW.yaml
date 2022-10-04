@@ -88,7 +88,7 @@ DataFederations:
        AllowedCaches:
          - ANY
 
-    - Path: /chtc/itb-helm-origin/PUBLIC
+    - Path: /chtc-itb/helm-origin/PUBLIC
       Authorizations:
         - PUBLIC
       AllowedOrigins:
@@ -96,7 +96,7 @@ DataFederations:
       AllowedCaches:
         - ANY
 
-    - Path: /chtc/itb-helm-origin/PROTECTED
+    - Path: /chtc-itb/helm-origin/PROTECTED
       Authorizations:
         - FQAN:/GLOW
         - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
