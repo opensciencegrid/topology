@@ -115,3 +115,27 @@ def get_datalist(listname):
     return rorable(get)
 
 
+
+# specific queries
+
+
+def get_osgid_github_map():
+    osg_co_groups = get_osg_co_groups() | get_datalist('CoGroups')
+
+    gids = [ g["Id"] for g in osg_co_groups ]
+
+    cgms = [ get_co_group_members(gid) | get_datalist('CoGroupMembers')
+             for gid in gids ]
+
+    pids = set( x['Person']['Id'] for cgm in cgms for x in cgm )
+    pidids = { pid: get_co_person_identifiers(pid) | get_datalist('Identifiers')
+               for pid in pids }
+
+    a = collections.defaultdict(dict)
+    for pid in pidids:
+            for idf in pidids[pid]:
+                    a[pid][idf["Type"]] = idf["Identifier"]
+
+    gh = { a[pid]["osgid"]: a[pid]["GitHub"]
+           for pid in a if "osgid" in a[pid] and "GitHub" in a[pid] }
+
