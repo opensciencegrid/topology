@@ -465,4 +465,81 @@
   Services:
   - net.perfSONAR.Bandwidth
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1300713585
+  Description: We'll need to interrupt our network to repair the optical fiber
+  Severity: Outage
+  StartTime: Oct 10, 2022 09:00 +0000
+  EndTime: Oct 13, 2022 21:00 +0000
+  CreatedTime: Oct 06, 2022 15:49 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1300714164
+  Description: We'll need to interrupt our network to repair the optical fiber
+  Severity: Outage
+  StartTime: Oct 10, 2022 09:00 +0000
+  EndTime: Oct 13, 2022 21:00 +0000
+  CreatedTime: Oct 06, 2022 15:50 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1300714243
+  Description: We'll need to interrupt our network to repair the optical fiber
+  Severity: Outage
+  StartTime: Oct 10, 2022 09:00 +0000
+  EndTime: Oct 13, 2022 21:00 +0000
+  CreatedTime: Oct 06, 2022 15:50 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1300714339
+  Description: We'll need to interrupt our network to repair the optical fiber
+  Severity: Outage
+  StartTime: Oct 10, 2022 09:00 +0000
+  EndTime: Oct 13, 2022 21:00 +0000
+  CreatedTime: Oct 06, 2022 15:50 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1300714433
+  Description: We'll need to interrupt our network to repair the optical fiber
+  Severity: Outage
+  StartTime: Oct 10, 2022 09:00 +0000
+  EndTime: Oct 13, 2022 21:00 +0000
+  CreatedTime: Oct 06, 2022 15:50 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1300714519
+  Description: We'll need to interrupt our network to repair the optical fiber
+  Severity: Outage
+  StartTime: Oct 10, 2022 09:00 +0000
+  EndTime: Oct 13, 2022 21:00 +0000
+  CreatedTime: Oct 06, 2022 15:50 +0000
+  ResourceName: UERJ_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1300714597
+  Description: We'll need to interrupt our network to repair the optical fiber
+  Severity: Outage
+  StartTime: Oct 10, 2022 09:00 +0000
+  EndTime: Oct 13, 2022 21:00 +0000
+  CreatedTime: Oct 06, 2022 15:50 +0000
+  ResourceName: UERJ_perfSONAR_LT
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
 
