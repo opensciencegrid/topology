@@ -133,9 +133,10 @@ def get_osgid_github_map():
 
     a = collections.defaultdict(dict)
     for pid in pidids:
-            for idf in pidids[pid]:
-                    a[pid][idf["Type"]] = idf["Identifier"]
+        for identifier in pidids[pid]:
+            a[pid][identifier["Type"]] = identifier["Identifier"]
 
-    gh = { a[pid]["osgid"]: a[pid]["GitHub"]
-           for pid in a if "osgid" in a[pid] and "GitHub" in a[pid] }
+    return { a[pid]["osgid"]: a[pid]["GitHub"]
+             for pid in a if "osgid" in a[pid] and "GitHub" in a[pid] }
+
 
