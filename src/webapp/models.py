@@ -48,7 +48,8 @@ class GlobalData:
         config.setdefault("CILOGON_LDAP_URL", "ldaps://ldap.cilogon.org")
         config.setdefault("CILOGON_LDAP_USER",
                 "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org")
-        config.setdefault("COMANAGE_REST_ENDPOINT", "https://registry.cilogon.org/registry/")
+        config.setdefault("COMANAGE_REST_ENDPOINT",
+                          "https://registry.cilogon.org/registry/")
         config.setdefault("COMANAGE_REST_OSG_CO_ID", 7)
         config.setdefault("COMANAGE_REST_USER", "co_7.group_fixup")
         config.setdefault("LIGO_LDAP_URL", "ldaps://ldap.ligo.org")
