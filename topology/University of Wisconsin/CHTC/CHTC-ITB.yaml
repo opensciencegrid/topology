@@ -300,3 +300,30 @@ Resources:
     AllowedVOs:
       - GLOW
       - OSG
+
+  TIGER-OSG-BACKFILL-ITB:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000007
+          Name: Carl Edquist
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+    Description: OSG VO backfill containers on the Tiger cluster, serving the ITB pool
+    FQDN: tiger-osg-backfill-itb.osgdev.chtc.io
+    ID: 1342
+    Services:
+      Execution Endpoint:
+        Description: OSG VO backfill containers on the Tiger cluster, serving the ITB pool
