@@ -219,6 +219,8 @@ class GlobalData:
                 yd1 = self.get_comanage_data().yaml_data
                 yd2 = self.get_contact_db_data().yaml_data
                 yd_merged = ldap_data.merge_yaml_data(yd1, yd2)
+                github_map = self.get_comanage_osgid_github_map()
+                rest_data.merge_github_info(yd_merged, github_map)
                 self.merged_contacts_data.update(ContactsData(yd_merged))
             except Exception:
                 if self.strict:
