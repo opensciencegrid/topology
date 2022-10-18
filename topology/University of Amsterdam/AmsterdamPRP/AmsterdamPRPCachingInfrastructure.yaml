@@ -24,5 +24,8 @@ Resources:
     Services:
       XRootD cache server:
         Description: University of Amsterdam Stashcache Caching Server
+        Details:
+          endpoint_override: fiona.uvalight.net:8443
+          auth_endpoint_override: fiona.uvalight.net:8444
     AllowedVOs:
       - ANY
