@@ -17,13 +17,10 @@ Resources:
         Primary:
           Name: Fabio Andrijauskas
           ID: ef5d0be3ec1df913935853ed82396b1eb37a7db0
-    FQDN: osg-sunnyvale-stashcache.nrp.internet2.edu
-    DN: /DC=org/DC=incommon/C=US/ST=Michigan/L=Ann Arbor/O=University Corporation For Advanced Internet Development/CN=osg-sunnyvale-stashcache.nrp.internet2.edu
+    FQDN: osg-sunnyvale-stashcache.t2.ucsd.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=osg-sunnyvale-stashcache.t2.ucsd.edu
     Services:
       XRootD cache server:
         Description: Internet2Sunnyvale Cache
-        Details:
-          #endpoint_override:      osg-sunnyvale-stashcache.nrp.internet2.edu:8000
-          auth_endpoint_override: osg-sunnyvale-stashcache.nrp.internet2.edu:8444
     AllowedVOs:
       - ANY
