@@ -542,4 +542,81 @@
   Services:
   - net.perfSONAR.Bandwidth
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1319006408
+  Description: We had an unexpected issue in our network. We're investigating.
+  Severity: Outage
+  StartTime: Oct 27, 2022 12:00 +0000
+  EndTime: Oct 31, 2022 22:00 +0000
+  CreatedTime: Oct 27, 2022 19:57 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1319006949
+  Description: We had an unexpected issue in our network. We're investigating.
+  Severity: Outage
+  StartTime: Oct 27, 2022 12:00 +0000
+  EndTime: Oct 31, 2022 22:00 +0000
+  CreatedTime: Oct 27, 2022 19:58 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1319007037
+  Description: We had an unexpected issue in our network. We're investigating.
+  Severity: Outage
+  StartTime: Oct 27, 2022 12:00 +0000
+  EndTime: Oct 31, 2022 22:00 +0000
+  CreatedTime: Oct 27, 2022 19:58 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1319007125
+  Description: We had an unexpected issue in our network. We're investigating.
+  Severity: Outage
+  StartTime: Oct 27, 2022 12:00 +0000
+  EndTime: Oct 31, 2022 22:00 +0000
+  CreatedTime: Oct 27, 2022 19:58 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1319007192
+  Description: We had an unexpected issue in our network. We're investigating.
+  Severity: Outage
+  StartTime: Oct 27, 2022 12:00 +0000
+  EndTime: Oct 31, 2022 22:00 +0000
+  CreatedTime: Oct 27, 2022 19:58 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1319007336
+  Description: We had an unexpected issue in our network. We're investigating.
+  Severity: Outage
+  StartTime: Oct 27, 2022 12:00 +0000
+  EndTime: Oct 31, 2022 22:00 +0000
+  CreatedTime: Oct 27, 2022 19:58 +0000
+  ResourceName: UERJ_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1319007402
+  Description: We had an unexpected issue in our network. We're investigating.
+  Severity: Outage
+  StartTime: Oct 27, 2022 12:00 +0000
+  EndTime: Oct 31, 2022 22:00 +0000
+  CreatedTime: Oct 27, 2022 19:59 +0000
+  ResourceName: UERJ_perfSONAR_LT
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
 
