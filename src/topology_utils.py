@@ -45,19 +45,20 @@ def get_auth_session(args):
     if args.key:
         key = args.key
 
-    session = requests.Session()
+    session = {}
 
     if os.path.exists(cert):
-        session.cert = cert
+        session["cert_file"] = cert
     else:
         raise InvalidPathError("Error: could not find cert at %s" % cert)
     
     if os.path.exists(key):
-        session.cert = (cert, key)
+        session["key_file"] = key
     else:
         raise InvalidPathError("Error: could not find key at %s" % key)
-
-    return session
+    session['cert_reqs'] = 'CERT_REQUIRED'
+    session['key_password'] = input("decryption password: ")
+    return urlib3.PoolManager(*session)
 
 
 def update_url_hostname(url, args):
