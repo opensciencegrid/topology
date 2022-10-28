@@ -6,6 +6,7 @@ service.
 import os
 import sys
 import urllib
+import urllib3
 import fnmatch
 import urllib.parse as urlparse
 
@@ -45,19 +46,21 @@ def get_auth_session(args):
     if args.key:
         key = args.key
 
-    session = requests.Session()
-
+    session = {}
+    session['cert_reqs'] = 'CERT_REQUIRED'
     if os.path.exists(cert):
-        session.cert = cert
+        session["cert_file"] = cert
     else:
         raise InvalidPathError("Error: could not find cert at %s" % cert)
     
     if os.path.exists(key):
-        session.cert = (cert, key)
+        session["cert_key"] = key
     else:
         raise InvalidPathError("Error: could not find key at %s" % key)
+    dpass = input("Decryption Pass")
+    session["key_password"] = dpass
 
-    return session
+    return urllib3.PoolManager(*session)
 
 
 def update_url_hostname(url, args):
