@@ -39,9 +39,22 @@ class Facility(object):
     def __init__(self, name: str, id: int):
         self.name = name
         self.id = id
+        self.sites_by_name = dict()
 
     def get_tree(self) -> OrderedDict:
-        return OrderedDict([("ID", self.id), ("Name", self.name)])
+        return OrderedDict([
+            ("ID", self.id),
+            ("Name", self.name),
+            ("IsCCStar", self.is_ccstar)
+        ])
+
+    def add_site(self, site: 'Site'):
+        self.sites_by_name[site.name] = site
+
+    @property
+    def is_ccstar(self):
+        """Check if any sites in this facility are tagged CC*"""
+        return any(site.is_ccstar for site in self.sites_by_name.values())
 
 
 class Site(object):
@@ -50,6 +63,7 @@ class Site(object):
         self.name = name
         self.id = id
         self.facility = facility
+        self.resource_groups_by_name = {}
         self.other_data = site_info
         if "ID" in self.other_data:
             del self.other_data["ID"]
@@ -57,7 +71,21 @@ class Site(object):
     def get_tree(self) -> OrderedDict:
         # Sort the other_data
         sorted_other_data = sorted(list(self.other_data.items()), key=lambda tup: tup[0])
-        return OrderedDict([("ID", self.id), ("Name", self.name)] + sorted_other_data)
+        return OrderedDict(
+            [
+                ("ID", self.id),
+                ("Name", self.name),
+                ("IsCCStar", self.is_ccstar)
+            ] + sorted_other_data
+        )
+
+    def add_resource_group(self, resource_group: 'ResourceGroup'):
+        self.resource_groups_by_name[resource_group.name] = resource_group
+
+    @property
+    def is_ccstar(self):
+        """Check if any resource groups in this site are tagged CC*"""
+        return any(resource_group.is_ccstar for resource_group in self.resource_groups_by_name.values())
 
 
 class Resource(object):
@@ -164,11 +192,12 @@ class Resource(object):
             "Disable": False,
             "VOOwnership": "(Information not available)",
             "WLCGInformation": "(Information not available)",
+            "IsCCStar": self.is_ccstar
         }
 
         new_res = OrderedDict.fromkeys(["ID", "Name", "Active", "Disable", "Services", "Tags",
                                         "Description", "FQDN", "FQDNAliases", "VOOwnership",
-                                        "WLCGInformation", "ContactLists"])
+                                        "WLCGInformation", "ContactLists", "IsCCStar"])
         new_res.update(defaults)
         new_res.update(self.data)
 
@@ -216,6 +245,15 @@ class Resource(object):
             del new_res['AllowedVOs']
 
         return new_res
+
+    @property
+    def is_ccstar(self):
+        """Check if this site is tagged as a CC* Site"""
+        try:
+            return "CC*" in self.data["Tags"]
+        except:
+            return False
+
 
     def _expand_services(self, services: Dict) -> List[OrderedDict]:
         services_list = expand_attr_list(services, "Name", ordering=["Name", "Description", "Details"])
@@ -367,9 +405,14 @@ class ResourceGroup(object):
     def key(self):
         return (self.site.name, self.name)
 
+    @property
+    def is_ccstar(self):
+        """Check if any resources in this resource group are tagged CC*"""
+        return any(resource.is_ccstar for resource in self.resources_by_name.values())
+
     def _expand_rg(self) -> OrderedDict:
         new_rg = OrderedDict.fromkeys(["GridType", "GroupID", "GroupName", "Disable", "Facility", "Site",
-                                       "SupportCenter", "GroupDescription"])
+                                       "SupportCenter", "GroupDescription", "IsCCStar"])
         new_rg.update({"Disable": False})
         new_rg.update(self.data)
 
@@ -377,6 +420,7 @@ class ResourceGroup(object):
         new_rg["Site"] = self.site.get_tree()
         new_rg["GroupName"] = self.name
         new_rg["SupportCenter"] = self.support_center
+        new_rg["IsCCStar"] = self.is_ccstar
         production = new_rg.pop("Production")
         if production:
             new_rg["GridType"] = GRIDTYPE_1
@@ -583,6 +627,7 @@ class Topology(object):
             rg = ResourceGroup(name, parsed_data, self.sites[site_name], self.common_data)
             self.rgs[(site_name, name)] = rg
             self.resource_group_by_site[site_name].add(rg.name)
+            self.sites[site_name].add_resource_group(rg)
             for r in rg.resources:
                 self.resources_by_facility[facility_name].append(r)
                 self.resources_by_resource_group[rg.name].append(r.name)
@@ -597,7 +642,9 @@ class Topology(object):
         self.facilities[name] = Facility(name, id)
 
     def add_site(self, facility_name, name, id, site_info):
-        self.sites[name] = Site(name, id, self.facilities[facility_name], site_info)
+        site = Site(name, id, self.facilities[facility_name], site_info)
+        self.facilities[facility_name].add_site(site)
+        self.sites[name] = site
 
     def get_resource_group_list(self):
         """
