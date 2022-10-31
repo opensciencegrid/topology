@@ -249,10 +249,7 @@ class Resource(object):
     @property
     def is_ccstar(self):
         """Check if this site is tagged as a CC* Site"""
-        try:
-            return "CC*" in self.data["Tags"]
-        except:
-            return False
+        return "CC*" in self.data.get("Tags", [])
 
 
     def _expand_services(self, services: Dict) -> List[OrderedDict]:
