@@ -54,7 +54,10 @@ class Facility(object):
     @property
     def is_ccstar(self):
         """Check if any sites in this facility are tagged CC*"""
-        return any(site.is_ccstar for site in self.sites_by_name.values())
+        if not hasattr(self, "_is_ccstar"):
+            self._is_ccstar = any(site.is_ccstar for site in self.sites_by_name.values())
+
+        return self._is_ccstar
 
 
 class Site(object):
@@ -85,8 +88,10 @@ class Site(object):
     @property
     def is_ccstar(self):
         """Check if any resource groups in this site are tagged CC*"""
-        return any(resource_group.is_ccstar for resource_group in self.resource_groups_by_name.values())
+        if not hasattr(self, "_is_ccstar"):
+            self._is_ccstar = any(resource_group.is_ccstar for resource_group in self.resource_groups_by_name.values())
 
+        return self._is_ccstar
 
 class Resource(object):
     def __init__(self, name: str, yaml_data: ParsedYaml, common_data: CommonData):
@@ -249,7 +254,10 @@ class Resource(object):
     @property
     def is_ccstar(self):
         """Check if this site is tagged as a CC* Site"""
-        return "CC*" in self.data.get("Tags", [])
+        if not hasattr(self, "_is_ccstar"):
+            self._is_ccstar = "CC*" in self.data.get("Tags", [])
+
+        return self._is_ccstar
 
 
     def _expand_services(self, services: Dict) -> List[OrderedDict]:
@@ -405,7 +413,10 @@ class ResourceGroup(object):
     @property
     def is_ccstar(self):
         """Check if any resources in this resource group are tagged CC*"""
-        return any(resource.is_ccstar for resource in self.resources_by_name.values())
+        if not hasattr(self, "_is_ccstar"):
+            self._is_ccstar = any(resource.is_ccstar for resource in self.resources_by_name.values())
+
+        return self._is_ccstar
 
     def _expand_rg(self) -> OrderedDict:
         new_rg = OrderedDict.fromkeys(["GridType", "GroupID", "GroupName", "Disable", "Facility", "Site",
