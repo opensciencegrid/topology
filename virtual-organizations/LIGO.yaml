@@ -79,6 +79,12 @@ DataFederations:
           - FQAN: /virgo
           - FQAN: /virgo/virgo
           - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo
+          - SciTokens:
               Issuer: https://scitokens.org/ligo
               Base Path: /user/ligo
           - SciTokens:
