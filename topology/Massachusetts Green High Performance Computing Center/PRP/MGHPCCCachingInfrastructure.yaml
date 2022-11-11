@@ -4,7 +4,7 @@ GroupDescription: Caching infrastructure in Nebraska
 GroupID: 1318
 
 Resources:
- MGHPCC_NRP_OSDF_CACHE:
+  MGHPCC_NRP_OSDF_CACHE:
     Active: false
     Description: MGHPCC NRP OSDF Cache
     ID: 1348
@@ -15,7 +15,7 @@ Resources:
           ID: ef5d0be3ec1df913935853ed82396b1eb37a7db0
 
     FQDN: dtn-01.nrp.mghpcc.org
-    
+
     Services:
       XRootD cache server:
         Description:  MGHPCC NRP OSDF Cache
