@@ -234,14 +234,21 @@ def miscproject_xml():
 @support_cors
 def miscproject_json():
     projects = simplify_attr_list(global_data.get_projects()["Projects"]["Project"], namekey="Name", del_name=False)
-    return Response(to_json_bytes(projects), mimetype='text/json')
+    return Response(to_json_bytes(projects), mimetype='application/json')
 
 
 @app.route('/miscsite/json')
 @support_cors
 def miscsite_json():
     sites = {name: site.get_tree() for name, site in global_data.get_topology().sites.items()}
-    return Response(to_json_bytes(sites), mimetype='text/json')
+    return Response(to_json_bytes(sites), mimetype='application/json')
+
+
+@app.route('/miscfacility/json')
+@support_cors
+def miscfacility_json():
+    facilities = {name: facility.get_tree() for name, facility in global_data.get_topology().facilities.items()}
+    return Response(to_json_bytes(facilities), mimetype='application/json')
 
 @app.route('/miscresource/json')
 @support_cors
