@@ -6,10 +6,12 @@ from pytest_mock import MockerFixture
 # Rewrites the path so the app can be imported like it normally is
 import os
 import sys
+
 topdir = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(topdir)
 
-from app import app
+from app import app, global_data
+from webapp.topology import Facility, Site, Resource, ResourceGroup
 
 HOST_PORT_RE = re.compile(r"[a-zA-Z0-9.-]{3,63}:[0-9]{2,5}")
 PROTOCOL_HOST_PORT_RE = re.compile(r"[a-z]+://" + HOST_PORT_RE.pattern)
@@ -31,6 +33,8 @@ TEST_ENDPOINTS = [
     '/miscproject/xml',
     '/miscproject/json',
     '/miscresource/json',
+    '/miscsite/json',
+    '/miscfacility/json',
     '/vosummary/xml',
     '/rgsummary/xml',
     '/rgdowntime/xml',
@@ -73,7 +77,6 @@ class TestAPI:
         mocker.patch("webapp.ldap_data.get_ligo_ldap_dn_list", mocker.MagicMock(return_value=["deadbeef.0"]))
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
-
             resource_fqdn = resource["FQDN"]
             previous_endpoint = client.get(f"/stashcache/authfile?cache_fqdn={resource_fqdn}")
             current_endpoint = client.get(f"/cache/Authfile?fqdn={resource_fqdn}")
@@ -84,7 +87,6 @@ class TestAPI:
     def test_cache_authfile_public(self, client: flask.Flask):
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
-
             resource_fqdn = resource["FQDN"]
             current_endpoint = client.get(f"/cache/Authfile-public?fqdn={resource_fqdn}")
             previous_endpoint = client.get(f"/stashcache/authfile-public?cache_fqdn={resource_fqdn}")
@@ -95,7 +97,6 @@ class TestAPI:
     def test_origin_authfile(self, client: flask.Flask):
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
-
             resource_fqdn = resource["FQDN"]
             current_endpoint = client.get(f"/origin/Authfile?fqdn={resource_fqdn}")
             previous_endpoint = client.get(f"/stashcache/origin-authfile?fqdn={resource_fqdn}")
@@ -106,7 +107,6 @@ class TestAPI:
     def test_origin_authfile_public(self, client: flask.Flask):
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
-
             resource_fqdn = resource["FQDN"]
             current_endpoint = client.get(f"/origin/Authfile-public?fqdn={resource_fqdn}")
             previous_endpoint = client.get(f"/stashcache/origin-authfile-public?fqdn={resource_fqdn}")
@@ -117,7 +117,6 @@ class TestAPI:
     def test_cache_scitokens(self, client: flask.Flask):
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
-
             resource_fqdn = resource["FQDN"]
             previous_endpoint = client.get(f"/stashcache/scitokens?cache_fqdn={resource_fqdn}")
             current_endpoint = client.get(f"/cache/scitokens.conf?fqdn={resource_fqdn}")
@@ -128,7 +127,6 @@ class TestAPI:
     def test_origin_scitokens(self, client: flask.Flask):
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
-
             resource_fqdn = resource["FQDN"]
             previous_endpoint = client.get(f"/stashcache/scitokens?origin_fqdn={resource_fqdn}")
             current_endpoint = client.get(f"/origin/scitokens.conf?fqdn={resource_fqdn}")
@@ -164,12 +162,12 @@ class TestAPI:
             assert len(resources_stashcache_files) > 20
 
             keys_and_endpoints = [
-                ("CacheAuthfilePublic",  "/cache/Authfile-public"),
-                ("CacheAuthfile",        "/cache/Authfile"),
-                ("CacheScitokens",       "/cache/scitokens.conf"),
+                ("CacheAuthfilePublic", "/cache/Authfile-public"),
+                ("CacheAuthfile", "/cache/Authfile"),
+                ("CacheScitokens", "/cache/scitokens.conf"),
                 ("OriginAuthfilePublic", "/origin/Authfile-public"),
-                ("OriginAuthfile",       "/origin/Authfile"),
-                ("OriginScitokens",      "/origin/scitokens.conf")
+                ("OriginAuthfile", "/origin/Authfile"),
+                ("OriginScitokens", "/origin/scitokens.conf")
             ]
 
             for resource_name, resource_stashcache_files in resources_stashcache_files.items():
@@ -217,6 +215,523 @@ class TestAPI:
             if namespace["caches"]:
                 for cache in namespace["caches"]:
                     validate_cache_schema(cache)
+
+
+class TestEndpointContent:
+
+    # Pre-build some test cases based on AMNH resources
+    mock_facility = Facility("test_facility_name", 12345)
+
+    mock_site_info = {
+        "AddressLine1": "Central Park West at 79th St.",
+        "City": "New York",
+        "Country": "United States",
+        "Description": "The American Museum of Natural History is one of the world's preeminent scientific and cultural institutions.",
+        "Latitude": 40.7128,
+        "LongName": "American Museum of Natural History",
+        "Longitude": -74.006,
+        "State": "NY",
+        "Zipcode": "10024-5192"
+    }
+    mock_site = Site("test_site_name", 1234, mock_facility, mock_site_info)
+
+    mock_resource_group_info = {
+        'Production': True,
+        'SupportCenter': 'Self Supported',
+        'GroupDescription': 'American Museum of Natural History Slurm cluster for the CC* proposal (NSF 19-533)',
+        'GroupID': 497,
+        'Resources': {
+            'OSG_US_AMNH_ARES': {
+                'Active': False,
+                'Description': 'This is a Hosted CE for the AMNH Slurm cluster',
+                'ID': 985,
+                'ContactLists': {
+                    'Administrative Contact': {
+                        'Primary': {
+                            'Name': 'Marco Mascheroni',
+                            'ID': '030408ab932e143859b5f97a2d1c9e30ba2a9f0d'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Security Contact': {
+                        'Primary': {
+                            'Name': 'Marco Mascheroni',
+                            'ID': '030408ab932e143859b5f97a2d1c9e30ba2a9f0d'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Site Contact': {
+                        'Primary': {
+                            'Name': 'Sajesh Singh',
+                            'ID': '0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e'
+                        },
+                        'Secondary': {
+                            'Name': 'AMNH OSG Contact List',
+                            'ID': 'e7b8d36d684570dcb0ed8ff7b723928d5a93b513'
+                        }
+                    }
+                },
+                'FQDN': 'hosted-ce22.grid.uchicago.edu',
+                'Services': {
+                    'CE': {
+                        'Description': 'American Museum of Natural History Hosted CE'
+                    }
+                },
+                'Tags': ['CC*']
+            },
+            'AMNH-ARES': {
+                'Active': True,
+                'Description': 'This is a Hosted CE for the AMNH Slurm cluster',
+                'ID': 1074,
+                'ContactLists': {
+                    'Administrative Contact': {
+                        'Primary': {
+                            'Name': 'Marco Mascheroni',
+                            'ID': '030408ab932e143859b5f97a2d1c9e30ba2a9f0d'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Security Contact': {
+                        'Primary': {
+                            'Name': 'Marco Mascheroni',
+                            'ID': '030408ab932e143859b5f97a2d1c9e30ba2a9f0d'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Site Contact': {
+                        'Primary': {
+                            'Name': 'Sajesh Singh',
+                            'ID': '0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e'
+                        },
+                        'Secondary': {
+                            'Name': 'AMNH OSG Contact List',
+                            'ID': 'e7b8d36d684570dcb0ed8ff7b723928d5a93b513'
+                        }
+                    }
+                },
+                'FQDN': 'hosted-ce22.opensciencegrid.org',
+                'Services': {
+                    'CE': {
+                        'Description': 'American Museum of Natural History Hosted CE'
+                    }
+                },
+                'Tags': ['CC*']
+            },
+            'AMNH-ARES-CE1': {
+                'Active': True,
+                'Description': 'This is a Hosted CE for the AMNH Slurm cluster',
+                'ID': 1216,
+                'ContactLists': {
+                    'Administrative Contact': {
+                        'Primary': {
+                            'Name': 'Marco Mascheroni',
+                            'ID': '030408ab932e143859b5f97a2d1c9e30ba2a9f0d'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Security Contact': {
+                        'Primary': {
+                            'Name': 'Marco Mascheroni',
+                            'ID': '030408ab932e143859b5f97a2d1c9e30ba2a9f0d'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Site Contact': {
+                        'Primary': {
+                            'Name': 'Sajesh Singh',
+                            'ID': '0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e'
+                        },
+                        'Secondary': {
+                            'Name': 'AMNH OSG Contact List',
+                            'ID': 'e7b8d36d684570dcb0ed8ff7b723928d5a93b513'
+                        }
+                    }
+                },
+                'FQDN': 'amnh-ares-ce1.svc.opensciencegrid.org',
+                'Services': {
+                    'CE': {
+                        'Description': 'American Museum of Natural History Hosted CE'
+                    }
+                },
+                'Tags': ['CC*']
+            },
+            'OSG_US_AMNH_HEL': {
+                'Active': False,
+                'Description': 'Second Hosted CE for the AMNH',
+                'ID': 1052,
+                'ContactLists': {
+                    'Administrative Contact': {
+                        'Primary': {
+                            'Name': 'Marco Mascheroni',
+                            'ID': '030408ab932e143859b5f97a2d1c9e30ba2a9f0d'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Security Contact': {
+                        'Primary': {
+                            'Name': 'Marco Mascheroni',
+                            'ID': '030408ab932e143859b5f97a2d1c9e30ba2a9f0d'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Site Contact': {
+                        'Primary': {
+                            'Name': 'Sajesh Singh',
+                            'ID': '0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e'
+                        },
+                        'Secondary': {
+                            'Name': 'AMNH OSG Contact List',
+                            'ID': 'e7b8d36d684570dcb0ed8ff7b723928d5a93b513'
+                        }
+                    }
+                },
+                'FQDN': 'hosted-ce36.grid.uchicago.edu',
+                'Services': {
+                    'CE': {
+                        'Description': 'American Museum of Natural History Hosted CE for HEL cluster'
+                    }
+                },
+                'Tags': ['CC*']
+            },
+            'AMNH-HEL': {
+                'Active': True,
+                'Description': 'Second Hosted CE for the AMNH',
+                'ID': 1075,
+                'ContactLists': {
+                    'Administrative Contact': {
+                        'Primary': {
+                            'Name': 'Jeffrey Peterson',
+                            'ID': '3ef2e11c271234a34f154e75b28d3b4554bb8f63'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Security Contact': {
+                        'Primary': {
+                            'Name': 'Jeffrey Peterson',
+                            'ID': '3ef2e11c271234a34f154e75b28d3b4554bb8f63'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Site Contact': {
+                        'Primary': {
+                            'Name': 'Sajesh Singh',
+                            'ID': '0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e'
+                        },
+                        'Secondary': {
+                            'Name': 'AMNH OSG Contact List',
+                            'ID': 'e7b8d36d684570dcb0ed8ff7b723928d5a93b513'
+                        }
+                    }
+                },
+                'FQDN': 'hosted-ce36.opensciencegrid.org',
+                'Services': {
+                    'CE': {
+                        'Description': 'American Museum of Natural History Hosted CE for HEL cluster'
+                    }
+                },
+                'Tags': ['CC*']
+            },
+            'AMNH-HEL-CE1': {
+                'Active': True,
+                'Description': 'Second Hosted CE for the AMNH',
+                'ID': 1217,
+                'ContactLists': {
+                    'Administrative Contact': {
+                        'Primary': {
+                            'Name': 'Jeffrey Peterson',
+                            'ID': '3ef2e11c271234a34f154e75b28d3b4554bb8f63'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Security Contact': {
+                        'Primary': {
+                            'Name': 'Jeffrey Peterson',
+                            'ID': '3ef2e11c271234a34f154e75b28d3b4554bb8f63'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Site Contact': {
+                        'Primary': {
+                            'Name': 'Sajesh Singh',
+                            'ID': '0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e'
+                        },
+                        'Secondary': {
+                            'Name': 'AMNH OSG Contact List',
+                            'ID': 'e7b8d36d684570dcb0ed8ff7b723928d5a93b513'
+                        }
+                    }
+                },
+                'FQDN': 'amnh-hel-ce1.svc.opensciencegrid.org',
+                'Services': {
+                    'CE': {
+                        'Description': 'American Museum of Natural History Hosted CE for HEL cluster'
+                    }
+                },
+                'Tags': ['CC*']
+            },
+            'AMNH-Mendel': {
+                'Active': False,
+                'Description': 'Third Hosted CE for the AMNH',
+                'ID': 1111,
+                'ContactLists': {
+                    'Administrative Contact': {
+                        'Primary': {
+                            'Name': 'Marco Mascheroni',
+                            'ID': '030408ab932e143859b5f97a2d1c9e30ba2a9f0d'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Security Contact': {
+                        'Primary': {
+                            'Name': 'Marco Mascheroni',
+                            'ID': '030408ab932e143859b5f97a2d1c9e30ba2a9f0d'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Site Contact': {
+                        'Primary': {
+                            'Name': 'Sajesh Singh',
+                            'ID': '0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e'
+                        },
+                        'Secondary': {
+                            'Name': 'AMNH OSG Contact List',
+                            'ID': 'e7b8d36d684570dcb0ed8ff7b723928d5a93b513'
+                        }
+                    }
+                },
+                'FQDN': 'hosted-ce39.opensciencegrid.org',
+                'Services': {
+                    'CE': {
+                        'Description': 'American Museum of Natural History Hosted CE for Mendel cluster'
+                    }
+                },
+                'Tags': ['CC*']
+            },
+            'AMNH-Mendel-CE1': {
+                'Active': True,
+                'Description': 'Third Hosted CE for the AMNH',
+                'ID': 1221,
+                'ContactLists': {
+                    'Administrative Contact': {
+                        'Primary': {
+                            'Name': 'Marco Mascheroni',
+                            'ID': '030408ab932e143859b5f97a2d1c9e30ba2a9f0d'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Security Contact': {
+                        'Primary': {
+                            'Name': 'Marco Mascheroni',
+                            'ID': '030408ab932e143859b5f97a2d1c9e30ba2a9f0d'
+                        },
+                        'Secondary': {
+                            'Name': 'Jeffrey Michael Dost',
+                            'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                        }
+                    },
+                    'Site Contact': {
+                        'Primary': {
+                            'Name': 'Sajesh Singh',
+                            'ID': '0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e'
+                        },
+                        'Secondary': {
+                            'Name': 'AMNH OSG Contact List',
+                            'ID': 'e7b8d36d684570dcb0ed8ff7b723928d5a93b513'
+                        }
+                    }
+                },
+                'FQDN': 'amnh-mendel-ce1.svc.opensciencegrid.org',
+                'Services': {
+                    'CE': {
+                        'Description': 'American Museum of Natural History Hosted CE for Mendel cluster'
+                    }
+                },
+                'Tags': ['CC*']
+            },
+            'AMNH-Huxley-AP1': {
+                'Active': True,
+                'Description': 'OS Pool access point',
+                'ID': 1210,
+                'ContactLists': {
+                    'Administrative Contact': {
+                        'Primary': {
+                            'Name': 'Sajesh Singh',
+                            'ID': '0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e'
+                        },
+                        'Secondary': {
+                            'Name': 'AMNH OSG Contact List',
+                            'ID': 'e7b8d36d684570dcb0ed8ff7b723928d5a93b513'
+                        }
+                    },
+                    'Security Contact': {
+                        'Primary': {
+                            'Name': 'Sajesh Singh',
+                            'ID': '0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e'
+                        },
+                        'Secondary': {
+                            'Name': 'AMNH OSG Contact List',
+                            'ID': 'e7b8d36d684570dcb0ed8ff7b723928d5a93b513'
+                        }
+                    }
+                },
+                'FQDN': 'huxley-osgsub-001.sdmz.amnh.org',
+                'Services': {
+                    'Submit Node': {
+                        'Description': 'OS Pool access point'
+                    }
+                },
+                'Tags': ['CC*', 'OSPool']
+            },
+            'AMNH-Mendel-AP1': {
+                'Active': True,
+                'Description': 'OS Pool access point',
+                'ID': 1261,
+                'ContactLists': {
+                    'Administrative Contact': {
+                        'Primary': {
+                            'Name': 'Sajesh Singh',
+                            'ID': '0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e'
+                        },
+                        'Secondary': {
+                            'Name': 'AMNH OSG Contact List',
+                            'ID': 'e7b8d36d684570dcb0ed8ff7b723928d5a93b513'
+                        }
+                    },
+                    'Security Contact': {
+                        'Primary': {
+                            'Name': 'Sajesh Singh',
+                            'ID': '0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e'
+                        },
+                        'Secondary': {
+                            'Name': 'AMNH OSG Contact List',
+                            'ID': 'e7b8d36d684570dcb0ed8ff7b723928d5a93b513'
+                        }
+                    }
+                },
+                'FQDN': 'mendel-osgsub-001.sdmz.amnh.org',
+                'Services': {
+                    'Submit Node': {
+                        'Description': 'OS Pool access point'
+                    }
+                },
+                'Tags': ['CC*', 'OSPool']
+            }
+        }
+    }
+    mock_resource_group = ResourceGroup("test_resource_group", mock_resource_group_info, mock_site, global_data.get_topology().common_data)
+
+    mock_resource_information = {
+        'Active': False,
+        'Description': 'Hosted CE for FANDM-ITS',
+        'ID': 1296,
+        'ContactLists': {
+            'Administrative Contact': {
+                'Primary': {
+                    'Name': 'Jeffrey Peterson',
+                    'ID': '3ef2e11c271234a34f154e75b28d3b4554bb8f63'
+                },
+                'Secondary': {
+                    'Name': 'Jeffrey Michael Dost',
+                    'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                }
+            },
+            'Security Contact': {
+                'Primary': {
+                    'Name': 'Jeffrey Peterson',
+                    'ID': '3ef2e11c271234a34f154e75b28d3b4554bb8f63'
+                },
+                'Secondary': {
+                    'Name': 'Jeffrey Michael Dost',
+                    'ID': '3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba'
+                }
+            }
+        },
+        'FQDN': 'fandm-its-ce1.svc.opensciencegrid.org',
+        'Services': {
+            'CE': {
+                'Description': 'FANDM-ITS CE1 hosted CE'
+            }
+        },
+        'Tags': ['CC*']
+    }
+    mock_resource = Resource("AMNH-ARES", mock_resource_information, global_data.get_topology().common_data)
+
+    mock_facility.add_site(mock_site)
+    mock_site.add_resource_group(mock_resource_group)
+
+    def test_resource_defaults(self, client: flask.Flask):
+        resources = client.get('/miscresource/json').json
+
+        # Check that it is not empty
+        assert len(resources) > 0
+
+        # Check that the resource contains the default keys
+        assert set(resources.popitem()[1]).issuperset(["ID", "Name", "Active", "Disable", "Services", "Tags",
+                                                        "Description", "FQDN", "FQDNAliases", "VOOwnership",
+                                                        "WLCGInformation", "ContactLists", "IsCCStar"])
+
+    def test_site_defaults(self, client: flask.Flask):
+        sites = client.get('/miscsite/json').json
+
+        # Check that it is not empty
+        assert len(sites) > 0
+
+        # Check that the site contains the appropriate keys
+        assert set(sites.popitem()[1]).issuperset(["ID", "Name", "IsCCStar"])
+
+    def test_facility_defaults(self, client: flask.Flask):
+        facilities = client.get('/miscfacility/json').json
+
+        # Check that it is not empty
+        assert len(facilities) > 0
+
+        # Check that the site contains the appropriate keys
+        assert set(facilities.popitem()[1]).issuperset(["ID", "Name", "IsCCStar"])
 
 
 if __name__ == '__main__':
