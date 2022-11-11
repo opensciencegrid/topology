@@ -50,6 +50,10 @@ class Facility(object):
 
     def add_site(self, site: 'Site'):
         self.sites_by_name[site.name] = site
+        try:
+            del self._is_ccstar
+        except AttributeError:
+            pass
 
     @property
     def is_ccstar(self):
@@ -84,6 +88,10 @@ class Site(object):
 
     def add_resource_group(self, resource_group: 'ResourceGroup'):
         self.resource_groups_by_name[resource_group.name] = resource_group
+        try:
+            del self._is_ccstar
+        except AttributeError:
+            pass
 
     @property
     def is_ccstar(self):
