@@ -906,4 +906,115 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1319710097
+  Description: Downtime HPSS software upgrade
+  Severity: Outage
+  StartTime: Dec 19, 2022 05:00 +0000
+  EndTime: Dec 21, 2022 02:00 +0000
+  CreatedTime: Oct 28, 2022 15:30 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1322558860
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Dec 19, 2022 14:00 +0000
+  EndTime: Dec 19, 2022 20:00 +0000
+  CreatedTime: Oct 31, 2022 22:38 +0000
+  ResourceName: BNL_ATLAS_1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1322558861
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Dec 19, 2022 14:00 +0000
+  EndTime: Dec 19, 2022 20:00 +0000
+  CreatedTime: Oct 31, 2022 22:38 +0000
+  ResourceName: BNL_ATLAS_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1322558862
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Dec 19, 2022 14:00 +0000
+  EndTime: Dec 19, 2022 20:00 +0000
+  CreatedTime: Oct 31, 2022 22:38 +0000
+  ResourceName: BNL_ATLAS_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1322558863
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Dec 19, 2022 14:00 +0000
+  EndTime: Dec 19, 2022 20:00 +0000
+  CreatedTime: Oct 31, 2022 22:38 +0000
+  ResourceName: BNL_ATLAS_4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1322558864
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Dec 19, 2022 14:00 +0000
+  EndTime: Dec 19, 2022 20:00 +0000
+  CreatedTime: Oct 31, 2022 22:38 +0000
+  ResourceName: BNL_ATLAS_6
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1322558865
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Dec 19, 2022 14:00 +0000
+  EndTime: Dec 19, 2022 20:00 +0000
+  CreatedTime: Oct 31, 2022 22:38 +0000
+  ResourceName: BNL_ATLAS_7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1322558866
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Dec 19, 2022 14:00 +0000
+  EndTime: Dec 19, 2022 20:00 +0000
+  CreatedTime: Oct 31, 2022 22:38 +0000
+  ResourceName: BNL_ATLAS_8
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1322558869
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Dec 19, 2022 14:00 +0000
+  EndTime: Dec 19, 2022 20:00 +0000
+  CreatedTime: Oct 31, 2022 22:38 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.disk
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1322558873
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Dec 19, 2022 14:00 +0000
+  EndTime: Dec 19, 2022 20:00 +0000
+  CreatedTime: Oct 31, 2022 22:38 +0000
+  ResourceName: BNL_ATLAS_SE_GRIDFTP
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+
 

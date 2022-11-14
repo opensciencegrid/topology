@@ -79,6 +79,12 @@ DataFederations:
           - FQAN: /virgo
           - FQAN: /virgo/virgo
           - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo
+          - SciTokens:
               Issuer: https://scitokens.org/ligo
               Base Path: /user/ligo
           - SciTokens:
@@ -93,7 +99,6 @@ DataFederations:
           - UCL-Virgo-StashCache-Origin
         AllowedCaches:
           - SUT-STASHCACHE
-          - HCC-Stash
           - Georgia_Tech_PACE_GridFTP2
           - Stashcache-UCSD
           - Stashcache-UofA
