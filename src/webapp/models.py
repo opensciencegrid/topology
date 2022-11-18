@@ -2,7 +2,7 @@ import datetime
 import logging
 import os
 import time
-from typing import Dict, Set, List
+from typing import Dict, Set, List, Optional
 
 import yaml
 
@@ -137,7 +137,7 @@ class GlobalData:
             return False
         return True
 
-    def get_contact_db_data(self) -> ContactsData:
+    def get_contact_db_data(self) -> Optional[ContactsData]:
         """
         Get the contact information from a private git repo
         """
@@ -160,7 +160,7 @@ class GlobalData:
 
         return self.contacts_data.data
 
-    def get_comanage_data(self) -> ContactsData:
+    def get_comanage_data(self) -> Optional[ContactsData]:
         """
         Get the contact information from comanage / cilogon ldap
         """
@@ -189,7 +189,7 @@ class GlobalData:
         ldappass = readfile(self.cilogon_ldap_passfile, log)
         return ldap_data.get_cilogon_ldap_id_map(url, user, ldappass)
 
-    def get_contacts_data(self) -> ContactsData:
+    def get_contacts_data(self) -> Optional[ContactsData]:
         """
         Get the contact information from a private git repo
         """
@@ -207,7 +207,7 @@ class GlobalData:
 
         return self.merged_contacts_data.data
 
-    def get_ligo_dn_list(self) -> List[str]:
+    def get_ligo_dn_list(self) -> Optional[List[str]]:
         """
         Get list of DNs of authorized LIGO users from their LDAP
         """
@@ -229,7 +229,7 @@ class GlobalData:
 
         return self.ligo_dn_list.data
 
-    def get_dns(self) -> Set:
+    def get_dns(self) -> Optional[Set]:
         """
         Get the set of DNs allowed to access "special" data (such as contact info)
         """
@@ -244,7 +244,7 @@ class GlobalData:
                 self.contacts_data.try_again()
         return self.dn_set.data
 
-    def get_topology(self) -> Topology:
+    def get_topology(self) -> Optional[Topology]:
         if self.topology.should_update():
             ok = self._update_topology_repo()
             if ok:
@@ -260,7 +260,7 @@ class GlobalData:
 
         return self.topology.data
 
-    def get_vos_data(self) -> VOsData:
+    def get_vos_data(self) -> Optional[VOsData]:
         if self.vos_data.should_update():
             ok = self._update_topology_repo()
             if ok:
@@ -276,7 +276,7 @@ class GlobalData:
 
         return self.vos_data.data
 
-    def get_projects(self) -> Dict:
+    def get_projects(self) -> Optional[Dict]:
         if self.projects.should_update():
             ok = self._update_topology_repo()
             if ok:
@@ -292,7 +292,7 @@ class GlobalData:
 
         return self.projects.data
 
-    def get_mappings(self) -> mappings.Mappings:
+    def get_mappings(self) -> Optional[mappings.Mappings]:
         if self.mappings.should_update():
             ok = self._update_topology_repo()
             if ok:
