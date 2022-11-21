@@ -51,7 +51,7 @@ class GlobalData:
         config.setdefault("COMANAGE_REST_ENDPOINT",
                           "https://registry.cilogon.org/registry/")
         config.setdefault("COMANAGE_REST_OSG_CO_ID", 7)
-        config.setdefault("COMANAGE_REST_USER", "co_7.group_fixup")
+        config.setdefault("COMANAGE_REST_USER", "co_7.topology-dev")
         config.setdefault("LIGO_LDAP_URL", "ldaps://ldap.ligo.org")
         config.setdefault("LIGO_LDAP_USER", "uid=osg-services-brian-lin,ou=system,dc=ligo,dc=org")
         config.setdefault("NO_GIT", True)
