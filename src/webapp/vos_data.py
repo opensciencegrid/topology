@@ -5,7 +5,8 @@ from logging import getLogger
 from typing import Dict, List, Optional, Set, Tuple, Union
 
 from .common import Filters, ParsedYaml, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape, \
-    generate_dn_hash, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
+    XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
+from .x509 import generate_dn_hash
 from .contacts_reader import ContactsData
 
 
