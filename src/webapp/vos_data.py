@@ -6,7 +6,10 @@ from typing import Dict, List, Optional, Set, Tuple, Union
 
 from .common import Filters, ParsedYaml, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape, \
     XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
-from .x509 import generate_dn_hash
+try:
+    from .x509 import generate_dn_hash
+except ImportError:  # if we don't have asn1:
+    generate_dn_hash = None
 from .contacts_reader import ContactsData
 
 
@@ -432,6 +435,8 @@ def _parse_authz_dict(authz: Dict) -> Tuple[AuthMethod, Optional[str]]:
                 return NullAuth(), f"Invalid FQAN auth {authz}: FQAN missing or empty"
             return FQANAuth(fqan=attributes), None
         elif auth_type == "DN":
+            if generate_dn_hash is None:
+                return NullAuth(), f"'asn1' library unavailable; cannot handle DN auth {authz}"
             if not attributes:
                 return NullAuth(), f"Invalid DN auth {authz}: DN missing or empty"
             return DNAuth(dn=attributes), None
@@ -451,6 +456,8 @@ def _parse_authz_str(authz: str) -> Tuple[AuthMethod, Optional[str]]:
             return NullAuth(), f"Invalid FQAN auth {authz}: FQAN missing or empty"
         return FQANAuth(fqan=fqan), None
     elif authz.startswith("DN:"):
+        if generate_dn_hash is None:
+            return NullAuth(), f"'asn1' library unavailable; cannot handle DN auth {authz}"
         dn = authz[3:].strip()
         if not dn:
             return NullAuth(), f"Invalid DN auth {authz}: DN missing or empty"
