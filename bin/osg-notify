@@ -173,13 +173,13 @@ def has_non_printable_ascii_characters(contents):
 
 def main():
     args = parseargs()
-
+    pm = None
     recipients = set(args.recipients.split())
     if args.oim_recipients and 'vos' in args.oim_recipients:
         attempts = 3
         while attempts > 0:
             try:
-                results = topology_utils.get_vo_contacts(args)
+                results,pm = topology_utils.get_vo_contacts(args, pm)
             except topology_utils.InvalidPathError as exc:
                 print(exc)
                 exit(1)
@@ -202,9 +202,9 @@ def main():
         while attempts > 0:
             try:
                 if args.fqdn_filter:
-                    results = topology_utils.get_resource_contacts_by_fqdn(args)
+                    results, pm = topology_utils.get_resource_contacts_by_fqdn(args, pm)
                 else:
-                    results = topology_utils.get_resource_contacts(args)
+                    results, pm = topology_utils.get_resource_contacts(args, pm)
             except topology_utils.InvalidPathError as exc:
                 exit(str(exc))
             except topology_utils.IncorrectPasswordError as exc:
