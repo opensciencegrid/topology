@@ -5,10 +5,10 @@ service.
 
 import os
 import sys
-import urllib
+import urllib3
 import fnmatch
 import urllib.parse as urlparse
-
+from getpass import getpass
 import xml.etree.ElementTree as ET
 
 import requests
@@ -57,8 +57,7 @@ def get_auth_session(args):
     else:
         raise InvalidPathError("Error: could not find key at %s" % key)
     session['cert_reqs'] = 'CERT_REQUIRED'
-    session['key_password'] = input("decryption password: ")
-    return urlib3.PoolManager(*session)
+    return urllib3.PoolManager(**session, key_password=getpass("decryption password: "))
 
 
 def update_url_hostname(url, args):
@@ -132,7 +131,7 @@ def get_contact_list_info(contact_list):
     return contact_list_info
 
 
-def get_vo_map(args, session=None):
+def get_vo_map(args, pm=None):
     """
     Generate a dictionary mapping from the VO name (key) to the
     VO ID (value).
@@ -142,11 +141,11 @@ def get_vo_map(args, session=None):
 
     url = update_url_hostname("https://topology.opensciencegrid.org/vosummary"
                               "/xml?all_vos=on&active_value=1", args)
-    if session is None:
-        with get_auth_session(args) as session:
-            response = session.get(url)
+    if pm is None:
+        pm = get_auth_session(args)
+        response = pm.request('GET',url)
     else:
-        response = session.get(url)
+        response = pm.request('GET',url)
 
     if old_no_proxy is not None:
         os.environ['no_proxy'] = old_no_proxy
@@ -171,7 +170,7 @@ def get_vo_map(args, session=None):
         if 'ID' in vo_info and 'Name' in vo_info:
             vo_map[vo_info['Name'].lower()] = vo_info['ID']
 
-    return vo_map
+    return vo_map,pm
 
 
 SERVICE_IDS = {'ce': 1,
@@ -182,7 +181,7 @@ SERVICE_IDS = {'ce': 1,
                'perfsonar-latency': 130,
                'gums': 101,
               }
-def mangle_url(url, args, session=None):
+def mangle_url(url, args, pm=None):
     """
     Given a MyOSG URL, switch to using the hostname specified in the
     arguments
@@ -207,7 +206,7 @@ def mangle_url(url, args, session=None):
             qs_list.append(("service_sel[]", str(service_id)))
 
     if getattr(args, 'owner_vo', None):
-        vo_map = get_vo_map(args, session)
+        vo_map,pm = get_vo_map(args, pm)
         if 'voown' not in qs_dict:
             qs_list.append(("voown", "on"))
         for vo in args.owner_vo.split(","):
@@ -220,10 +219,10 @@ def mangle_url(url, args, session=None):
 
     url_list[3] = urlparse.urlencode(qs_list, doseq=True)
 
-    return urlparse.urlunsplit(url_list)
+    return urlparse.urlunsplit(url_list),pm
 
 
-def get_contacts(args, urltype, roottype):
+def get_contacts(args, urltype, roottype, session=None):
     """
     Get one type of contacts for OSG.
     """
@@ -232,43 +231,46 @@ def get_contacts(args, urltype, roottype):
 
     base_url = "https://topology.opensciencegrid.org/" + urltype + "summary/xml?" \
                "&active=on&active_value=1&disable=on&disable_value=0"
-    with get_auth_session(args) as session:
-        url = mangle_url(base_url, args, session)
+    if(session == None):
+        session = get_auth_session(args)
+    url,session = mangle_url(base_url, args, session)
+    try:
+        response = session.request('GET',url)
+    except requests.exceptions.ConnectionError as exc:
+        print(exc)
         try:
-            response = session.get(url)
-        except requests.exceptions.ConnectionError as exc:
-            try:
-                if exc.args[0].args[1].errno == 22:
-                    raise IncorrectPasswordError("Incorrect password, please try again")
-                else:
-                    raise exc
-            except (TypeError, AttributeError, IndexError):
-                raise exc
+           if exc.args[0].args[1].errno == 22:
+               raise IncorrectPasswordError("Incorrect password, please try again")
+           else:
+               raise exc
+        except (TypeError, AttributeError, IndexError):
+           print(exc)
+           raise exc
 
     if old_no_proxy is not None:
         os.environ['no_proxy'] = old_no_proxy
     else:
         del os.environ['no_proxy']
 
-    if response.status_code != requests.codes.ok:
+    if response.status != requests.codes.ok:
         print("MyOSG request failed (status %d): %s" % \
               (response.status_code, response.text[:2048]), file=sys.stderr)
         return None
 
-    root = ET.fromstring(response.content)
+    root = ET.fromstring(response.data)
     if root.tag != roottype + 'Summary':
         print("MyOSG returned invalid XML with root tag %s" % root.tag,
               file=sys.stderr)
         return None
 
-    return root
+    return root, session
 
 
-def get_vo_contacts(args):
+def get_vo_contacts(args, pm = None):
     """
     Get resource contacts for OSG.  Return results.
     """
-    root = get_contacts(args, 'vo', 'VO')
+    root,pm = get_contacts(args, 'vo', 'VO', pm)
     if root is None:
         return 1
 
@@ -291,17 +293,17 @@ def get_vo_contacts(args):
         if name and contact_list_info:
             results[name] = contact_list_info
 
-    return results
+    return results, pm
 
 
-def get_resource_contacts_by_name_and_fqdn(args):
+def get_resource_contacts_by_name_and_fqdn(args, pm = None):
     """
     Get resource contacts for OSG.  Return results.
 
     Returns two dictionaries, one keyed on the resource name and one keyed on
     the resource FQDN.
     """
-    root = get_contacts(args, 'rg', 'Resource')
+    root, pm = get_contacts(args, 'rg', 'Resource', pm)
     if root is None:
         return {}, {}
 
@@ -336,15 +338,17 @@ def get_resource_contacts_by_name_and_fqdn(args):
                     if resource_fqdn:
                         results_by_fqdn[resource_fqdn] = contact_list_info
 
-    return results_by_name, results_by_fqdn
+    return results_by_name, results_by_fqdn, pm
 
 
-def get_resource_contacts(args):
-    return get_resource_contacts_by_name_and_fqdn(args)[0]
+def get_resource_contacts(args, pm = None):
+    res = get_resource_contacts_by_name_and_fqdn(args, pm)
+    return res[0], res[2]
 
 
-def get_resource_contacts_by_fqdn(args):
-    return get_resource_contacts_by_name_and_fqdn(args)[1]
+def get_resource_contacts_by_fqdn(args, pm=None):
+    res = get_resource_contacts_by_name_and_fqdn(args, pm)
+    return res[1], res[2]
 
 
 def filter_contacts(args, results):
