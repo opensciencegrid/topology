@@ -61,7 +61,7 @@ DataFederations:
       - Path: /icecube/NRP-UNL/PROTECTED
         Authorizations:
           - SciTokens:
-              Issuer: https://osg-htc.org/ospool
+              Issuer: https://chtc.cs.wisc.edu/icecube
               Base Path: /icecube/NRP-UNL/PROTECTED
               Map Subject: False
         AllowedOrigins:
