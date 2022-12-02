@@ -1,0 +1,33 @@
+Production: True
+SupportCenter: Community Support Center
+GroupDescription: NRP Origin infrastructure in Nebraska
+GroupID: 1321
+Resources:
+  NEBRASKA_NRP_OSDF_ORIGIN:
+    Active: false
+    Description: Nebraska NRP OSDF Origin
+    ID: 1351
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: ef5d0be3ec1df913935853ed82396b1eb37a7db0
+        Secondary:
+          Name: John Thiltges
+          ID: f7fbc93bc8a7d276e8b5a94fb4ff905841a7763f
+        Tertiary:
+          Name: Derek Weitzel
+          ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
+      Security Contact:
+        Primary:
+          Name: Garhan Attebury
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+    FQDN: unl-origin.nationalresearchplatform.org
+    DN: 
+    Services:
+      XRootD origin server:
+        # Description is a brief description of the service
+        Description: Nebraska NRP OSDF Origin
+    AllowedVOs:
+      - ANY
+      
