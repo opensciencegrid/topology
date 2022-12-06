@@ -68,6 +68,7 @@ DataFederations:
           - NEBRASKA_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
+        Writeback: https://unl-origin.nationalresearchplatform.org:1095
          
       - Path: /icecube/mghpcc/protected/
         Authorizations:
