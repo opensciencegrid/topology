@@ -58,14 +58,13 @@ DataFederations:
         AllowedOrigins:
           - IceCube_StashCache_origin
           
-      - Path: /icecube/NRP-UNL/PROTECTED
+      - Path: /nrpnb/protected/icecube/NRP-UNL/
         Authorizations:
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu/icecube
-              Base Path: /icecube/NRP-UNL/PROTECTED
+              Base Path: /nrpnb/protected/icecube/NRP-UNL/
               Map Subject: False
         AllowedOrigins:
           - NEBRASKA_NRP_OSDF_ORIGIN
-          - MGHPCC_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
