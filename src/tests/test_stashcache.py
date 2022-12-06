@@ -22,7 +22,7 @@ class TestStashcache:
     def test_allowedVO_includes_ANY_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
         spy = mocker.spy(global_data, "get_ligo_dn_list")
 
-        stashcache.generate_cache_authfile(global_data, "hcc-stash.unl.edu")
+        stashcache.generate_cache_authfile(global_data, "osg-sunnyvale-stashcache.t2.ucsd.edu")
 
         assert spy.call_count == 1
 

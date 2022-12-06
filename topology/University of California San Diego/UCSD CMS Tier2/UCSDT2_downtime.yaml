@@ -1521,3 +1521,58 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1349304538
+  Description: Downtime for cooling system maintenance
+  Severity: Outage
+  StartTime: Dec 05, 2022 16:00 +0000
+  EndTime: Dec 05, 2022 18:00 +0000
+  CreatedTime: Dec 01, 2022 21:34 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1349304539
+  Description: Downtime for cooling system maintenance
+  Severity: Outage
+  StartTime: Dec 05, 2022 16:00 +0000
+  EndTime: Dec 05, 2022 18:00 +0000
+  CreatedTime: Dec 01, 2022 21:34 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1349304540
+  Description: Downtime for cooling system maintenance
+  Severity: Outage
+  StartTime: Dec 05, 2022 16:00 +0000
+  EndTime: Dec 05, 2022 18:00 +0000
+  CreatedTime: Dec 01, 2022 21:34 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1349304541
+  Description: Downtime for cooling system maintenance
+  Severity: Outage
+  StartTime: Dec 05, 2022 16:00 +0000
+  EndTime: Dec 05, 2022 18:00 +0000
+  CreatedTime: Dec 01, 2022 21:34 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1349304542
+  Description: Downtime for cooling system maintenance
+  Severity: Outage
+  StartTime: Dec 05, 2022 16:00 +0000
+  EndTime: Dec 05, 2022 18:00 +0000
+  CreatedTime: Dec 01, 2022 21:34 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
