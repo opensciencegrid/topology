@@ -62,7 +62,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu/icecube
-              Base Path: /icecube/nrpnb/protected
+              Base Path: /icecube
               Map Subject: False
         AllowedOrigins:
           - NEBRASKA_NRP_OSDF_ORIGIN
@@ -74,7 +74,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu/icecube
-              Base Path: /icecube/mghpcc/protected/
+              Base Path: /icecube
               Map Subject: False
         AllowedOrigins:
           - MGHPCC_NRP_OSDF_ORIGIN
