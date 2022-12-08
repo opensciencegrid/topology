@@ -58,7 +58,7 @@ DataFederations:
         AllowedOrigins:
           - IceCube_StashCache_origin
           
-      - Path: /icecube
+      - Path: /icecube/nrpnb/protected
         Authorizations:
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu/icecube
@@ -70,7 +70,7 @@ DataFederations:
           - ANY
         Writeback: https://unl-origin.nationalresearchplatform.org:1095
          
-      - Path: /icecube
+      - Path: /icecube/mghpcc/protected/
         Authorizations:
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu/icecube
