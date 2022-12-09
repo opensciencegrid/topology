@@ -109,7 +109,15 @@ DataFederations:
        AllowedCaches:
          - ANY
 
-     - Path: /s3.amazonaws.com/us-east-1
+     - Path: /s3.amazonaws.com/us-east-1/PUBLIC
+       Authorizations:
+         - PUBLIC
+       AllowedOrigins:
+         - CHTC-ITB-S3-AWS-EAST-ORIGIN
+       AllowedCaches:
+         - ANY
+
+     - Path: /s3.amazonaws.com/us-east-1/PROTECTED
        Authorizations:
          - SciTokens:
              Issuer: https://chtc.cs.wisc.edu
@@ -120,7 +128,15 @@ DataFederations:
        AllowedCaches:
          - ANY
 
-     - Path: /s3.amazonaws.com/us-west-1
+     - Path: /s3.amazonaws.com/us-east-1/PUBLIC
+       Authorizations:
+         - PUBLIC
+       AllowedOrigins:
+         - CHTC-ITB-S3-AWS-WEST-ORIGIN
+       AllowedCaches:
+         - ANY
+
+     - Path: /s3.amazonaws.com/us-west-1/PROTECTED
        Authorizations:
          - SciTokens:
              Issuer: https://chtc.cs.wisc.edu
