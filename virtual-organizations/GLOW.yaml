@@ -109,3 +109,25 @@ DataFederations:
        AllowedCaches:
          - ANY
 
+     - Path: /s3.amazonaws.com/us-east-1
+       Authorizations:
+         - SciTokens:
+             Issuer: https://chtc.cs.wisc.edu
+             Base Path: /s3.amazonaws.com/us-east-1
+             Map Subject: False
+       AllowedOrigins:
+         - CHTC-ITB-S3-AWS-EAST-ORIGIN
+       AllowedCaches:
+         - ANY
+
+     - Path: /s3.amazonaws.com/us-west-1
+       Authorizations:
+         - SciTokens:
+             Issuer: https://chtc.cs.wisc.edu
+             Base Path: /s3.amazonaws.com/us-west-1
+             Map Subject: False
+       AllowedOrigins:
+         - CHTC-ITB-S3-AWS-WEST-ORIGIN
+       AllowedCaches:
+         - ANY
+
