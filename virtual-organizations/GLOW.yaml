@@ -128,7 +128,7 @@ DataFederations:
         AllowedCaches:
           - ANY
 
-      - Path: /s3.amazonaws.com/us-east-1/PUBLIC
+      - Path: /s3.amazonaws.com/us-west-1/PUBLIC
         Authorizations:
           - PUBLIC
         AllowedOrigins:
