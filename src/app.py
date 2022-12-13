@@ -388,6 +388,7 @@ def scitokens():
         return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
 
 
+@app.route("/osdf/namespaces")
 @app.route("/stashcache/namespaces")
 @app.route("/stashcache/namespaces.json")  # for testing; remove before merging
 @support_cors

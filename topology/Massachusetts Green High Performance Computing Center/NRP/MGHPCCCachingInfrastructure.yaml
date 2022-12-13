@@ -1,0 +1,24 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Caching infrastructure in MGHPCC
+GroupID: 1318
+Resources:
+  MGHPCC_NRP_OSDF_CACHE:
+    Active: true
+    Description: MGHPCC NRP OSDF Cache
+    ID: 1348
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+        Secondary:
+          ID: OSG1000009
+          Name: Huijun Zhu
+    FQDN: mghpcc-cache.nationalresearchplatform.org
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=mghpcc-cache.nationalresearchplatform.org
+    Services:
+      XRootD cache server:
+        Description:  MGHPCC NRP OSDF Cache
+    AllowedVOs:
+      - ANY

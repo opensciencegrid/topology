@@ -19,7 +19,7 @@ Resources:
   Clarkson-ACRES:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: true
+    Active: false
     # Description is a long description of the resource; may be multiple lines
     Description: Hosted CE serving Clarkson-ACRES
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
