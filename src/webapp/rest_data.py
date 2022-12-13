@@ -34,10 +34,16 @@ def setup_auth(user, passwd):
     options.authstr = mkauthstr(user, passwd)
 
 
+def _make_bytes(s):
+    return s if isinstance(s, bytes) else s.encode()
+
+
 def mkauthstr(user, passwd):
     from base64 import encodebytes
-    raw_authstr = '%s:%s' % (user, passwd)
-    return encodebytes(raw_authstr.encode()).decode().replace('\n', '')
+    user = _make_bytes(user)
+    passwd = _make_bytes(passwd)
+    raw_authstr = b'%s:%s' % (user, passwd)
+    return encodebytes(raw_authstr).decode().replace('\n', '')
 
 
 def mkrequest(target, **kw):
