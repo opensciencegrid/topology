@@ -149,7 +149,8 @@ def get_osgid_github_map():
 def merge_github_info(yaml_data, osg_github_map):
     """ merge {OSGID: GitHub} map into yaml_data contacts, in-place """
     for id_, contact in yaml_data.items():
-        if id_ in osg_github_map or contact.get("CILogonID") == id_:
+        if id_ in osg_github_map:
             contact["GitHub"] = osg_github_map[id_]
-
+        elif contact.get("CILogonID") in osg_github_map:
+            contact["GitHub"] = osg_github_map[contact["CILogonID"]]
 
