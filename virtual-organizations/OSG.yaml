@@ -127,3 +127,41 @@ DataFederations:
           - SDSC-test-Origin
         AllowedCaches:
           - ANY
+
+      - Path: /s3.amazonaws.com/us-east-1/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CHTC-ITB-S3-AWS-EAST-ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /s3.amazonaws.com/us-east-1/PROTECTED
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/ospool
+              Base Path: /s3.amazonaws.com/us-east-1
+              Map Subject: False
+        AllowedOrigins:
+          - CHTC-ITB-S3-AWS-EAST-ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /s3.amazonaws.com/us-west-1/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CHTC-ITB-S3-AWS-WEST-ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /s3.amazonaws.com/us-west-1/PROTECTED
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/ospool
+              Base Path: /s3.amazonaws.com/us-west-1
+              Map Subject: False
+        AllowedOrigins:
+          - CHTC-S3-AWS-WEST-ORIGIN
+        AllowedCaches:
+          - ANY
