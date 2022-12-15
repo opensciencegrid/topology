@@ -6,7 +6,7 @@ from typing import Dict, Set, List, Optional
 
 import yaml
 
-from webapp import common, contacts_reader, ldap_data, mappings, project_reader, rg_reader, vo_reader
+from webapp import common, contacts_reader, ldap_data, rest_data, mappings, project_reader, rg_reader, vo_reader
 from webapp.common import readfile
 from webapp.contacts_reader import ContactsData
 from webapp.topology import Topology, Downtime
@@ -48,6 +48,10 @@ class GlobalData:
         config.setdefault("CILOGON_LDAP_URL", "ldaps://ldap.cilogon.org")
         config.setdefault("CILOGON_LDAP_USER",
                 "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org")
+        config.setdefault("COMANAGE_REST_ENDPOINT",
+                          "https://registry.cilogon.org/registry/")
+        config.setdefault("COMANAGE_REST_OSG_CO_ID", 7)
+        config.setdefault("COMANAGE_REST_USER", "co_7.topology-dev")
         config.setdefault("LIGO_LDAP_URL", "ldaps://ldap.ligo.org")
         config.setdefault("LIGO_LDAP_USER", "uid=osg-services-brian-lin,ou=system,dc=ligo,dc=org")
         config.setdefault("NO_GIT", True)
@@ -75,6 +79,10 @@ class GlobalData:
         self.cilogon_ldap_passfile = config.get("CILOGON_LDAP_PASSFILE")
         self.cilogon_ldap_url = config.get("CILOGON_LDAP_URL")
         self.cilogon_ldap_user = config.get("CILOGON_LDAP_USER")
+        self.comanage_rest_endpoint = config.get("COMANAGE_REST_ENDPOINT")
+        self.comanage_rest_osg_co_id = config.get("COMANAGE_REST_OSG_CO_ID")
+        self.comanage_rest_user = config.get("COMANAGE_REST_USER")
+        self.comanage_rest_passfile = config.get("COMANAGE_REST_PASSFILE")
         self.ligo_ldap_passfile = config.get("LIGO_LDAP_PASSFILE")
         self.ligo_ldap_url = config.get("LIGO_LDAP_URL")
         self.ligo_ldap_user = config.get("LIGO_LDAP_USER")
@@ -193,6 +201,19 @@ class GlobalData:
         ldappass = readfile(self.cilogon_ldap_passfile, log)
         return ldap_data.get_cilogon_ldap_id_map(url, user, ldappass)
 
+    def get_comanage_osgid_github_map(self):
+
+        endpoint  = self.comanage_rest_endpoint
+        osg_co_id = self.comanage_rest_osg_co_id
+        user      = self.comanage_rest_user
+        passwd    = readfile(self.comanage_rest_passfile, log)
+
+        rest_data.options.endpoint  = endpoint
+        rest_data.options.osg_co_id = osg_co_id
+        rest_data.setup_auth(user, passwd)
+
+        return rest_data.get_osgid_github_map()
+
     def get_contacts_data(self) -> Optional[ContactsData]:
         """
         Get the contact information from a private git repo
@@ -203,6 +224,9 @@ class GlobalData:
                 yd1 = self.get_comanage_data().yaml_data
                 yd2 = self.get_contact_db_data().yaml_data
                 yd_merged = ldap_data.merge_yaml_data(yd1, yd2)
+                # COManage rest api is too slow for querying all users  :(
+                #github_map = self.get_comanage_osgid_github_map()
+                #rest_data.merge_github_info(yd_merged, github_map)
                 self.merged_contacts_data.update(ContactsData(yd_merged))
             except Exception:
                 if self.strict:
