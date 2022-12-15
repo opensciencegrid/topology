@@ -100,41 +100,29 @@ def get_co_person_identifiers(pid):
 
 
 def get_co_group(gid):
-    grouplist = call_api("co_groups/%s.json" % gid) | get_datalist("CoGroups")
+    grouplist = get_datalist("CoGroups", call_api("co_groups/%s.json" % gid))
     if not grouplist:
         raise RuntimeError("No such CO Group Id: %s" % gid)
     return grouplist[0]
 
 
-# @rorable
-# def foo(x): ...
-# x | foo -> foo(x)
-class rorable:
-    def __init__(self, f): self.f = f
-    def __call__(self, *a, **kw): return self.f(*a, **kw)
-    def __ror__ (self, x): return self.f(x)
-
-
-def get_datalist(listname):
-    def get(data):
-        return data[listname] if data else []
-    return rorable(get)
-
+def get_datalist(listname, data):
+    return data[listname] if data else []
 
 
 # specific queries
 
 
 def get_osgid_github_map():
-    osg_co_groups = get_osg_co_groups() | get_datalist('CoGroups')
+    osg_co_groups = get_datalist('CoGroups', get_osg_co_groups())
 
     gids = [ g["Id"] for g in osg_co_groups ]
 
-    cgms = [ get_co_group_members(gid) | get_datalist('CoGroupMembers')
+    cgms = [ get_datalist('CoGroupMembers', get_co_group_members(gid))
              for gid in gids ]
 
     pids = set( x['Person']['Id'] for cgm in cgms for x in cgm )
-    pidids = { pid: get_co_person_identifiers(pid) | get_datalist('Identifiers')
+    pidids = { pid: get_datalist('Identifiers', get_co_person_identifiers(pid))
                for pid in pids }
 
     a = collections.defaultdict(dict)
