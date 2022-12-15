@@ -108,14 +108,24 @@ DataFederations:
           - OSGCONNECT_ORIGIN
         AllowedCaches:
           - ANY
+
+      # HACK: enormous hack to get us going on a demo
+      # https://opensciencegrid.atlassian.net/browse/SOFTWARE-5398
+      # FIXME: rip this out after the demo
+      # TODO: Redesign namespace interface (take 3?). See commit body
+      # for considerations.
+      # - Path: /s3.amazonaws.com/us-east-1/PROTECTED
+      # - Path: /s3.amazonaws.com/us-west-1/PROTECTED
       - Path: /ospool/PROTECTED
         Authorizations:
           - SciTokens:
               Issuer: https://osg-htc.org/ospool
-              Base Path: /ospool/PROTECTED
+              Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
               Map Subject: True
         AllowedOrigins:
           - CHTC_OSPOOL_ORIGIN
+          - CHTC-S3-AWS-WEST-ORIGIN
+          - CHTC-ITB-S3-AWS-EAST-ORIGIN
         AllowedCaches:
           - ANY
         Writeback: https://origin-auth2001.chtc.wisc.edu:1095
@@ -125,5 +135,21 @@ DataFederations:
           - PUBLIC
         AllowedOrigins:
           - SDSC-test-Origin
+        AllowedCaches:
+          - ANY
+
+      - Path: /s3.amazonaws.com/us-east-1/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CHTC-ITB-S3-AWS-EAST-ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /s3.amazonaws.com/us-west-1/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CHTC-ITB-S3-AWS-WEST-ORIGIN
         AllowedCaches:
           - ANY
