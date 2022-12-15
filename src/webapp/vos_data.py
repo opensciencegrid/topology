@@ -365,7 +365,7 @@ class SciTokenAuth(AuthMethod):
     def get_scitokens_conf_block(self, service_name: str):
         if service_name not in [XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER]:
             raise ValueError(f"service_name must be '{XROOTD_CACHE_SERVER}' or '{XROOTD_ORIGIN_SERVER}'")
-        block = (f"[Issuer {self._issuer_block_hash()}]\n"
+        block = (f"[Issuer {self._issuer_block_hash()} {self.issuer}]\n"
                  f"issuer = {self.issuer}\n"
                  f"base_path = {self.base_path}\n")
         if self.restricted_path:
