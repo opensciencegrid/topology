@@ -2,6 +2,16 @@
 
 # COManage REST API functions
 
+
+# This module is not currently used, as it proved TOO SLOW to query for
+# identifiers in serial, and we found a cool workaround to make a limited
+# number of interesting identifiers available to ldap queries.
+# Nonetheless, we are keeping this code around in case we need to use the
+# COManage REST API in the future from topology.
+#
+# https://opensciencegrid.atlassian.net/browse/SOFTWARE-5313
+
+
 import os
 import re
 import sys
