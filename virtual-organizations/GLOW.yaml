@@ -71,7 +71,11 @@ DataFederations:
         AllowedOrigins:
           - CHTC_STASHCACHE_ORIGIN_AUTH_2000
         AllowedCaches:
-          # TODO: only allowing CHTC caches defeats the purpose of OSDF; allow PRP caches too?
+          - Stashcache-Chicago
+          - Stashcache-Kansas
+          - Stashcache-Houston
+          - Stashcache-Manhattan
+          - Stashcache-Sunnyvale
           - CHTC_TIGER_CACHE
           - CHTC_STASHCACHE_CACHE
 
