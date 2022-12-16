@@ -1,4 +1,5 @@
 import copy
+import hashlib
 
 from collections import OrderedDict
 from logging import getLogger
@@ -350,10 +351,21 @@ class SciTokenAuth(AuthMethod):
         return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path} " \
                 f"map_subject={self.map_subject}"
 
+    def _issuer_block_hash(self):
+        # An 8-character hash of this object's parameters that can be used
+        # as the name of the generated "Issuer" block to avoid collisions.
+
+        # Copied from the format string in __str__() so we can change
+        # __str__() later without affecting the hash.
+        return hashlib.sha1(
+            (f"issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path}"
+             f"map_subject={self.map_subject}").encode("utf-8", errors="ignore")
+        ).hexdigest()[0:8]
+
     def get_scitokens_conf_block(self, service_name: str):
         if service_name not in [XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER]:
             raise ValueError(f"service_name must be '{XROOTD_CACHE_SERVER}' or '{XROOTD_ORIGIN_SERVER}'")
-        block = (f"[Issuer {self.issuer}]\n"
+        block = (f"[Issuer {self.issuer} {self._issuer_block_hash()}]\n"
                  f"issuer = {self.issuer}\n"
                  f"base_path = {self.base_path}\n")
         if self.restricted_path:
