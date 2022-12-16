@@ -275,8 +275,8 @@ audience = {allowed_vos_str}
                                   restricted_path=None, map_subject=False)
         cache_authz_list.append(dummy_auth)
 
-    issuer_blocks = [a.get_scitokens_conf_block(XROOTD_CACHE_SERVER) for a in cache_authz_list]
-    issuer_blocks_str = "\n".join(issuer_blocks)
+    issuer_blocks = set(a.get_scitokens_conf_block(XROOTD_CACHE_SERVER) for a in cache_authz_list)
+    issuer_blocks_str = "\n".join(sorted(issuer_blocks))
     allowed_vos_str = ", ".join(sorted(allowed_vos))
 
     return template.format(**locals()).rstrip() + "\n"
@@ -413,8 +413,8 @@ audience = {allowed_vos_str}
                                   restricted_path=None, map_subject=False)
         origin_authz_list.append(dummy_auth)
 
-    issuer_blocks = [a.get_scitokens_conf_block(XROOTD_ORIGIN_SERVER) for a in origin_authz_list]
-    issuer_blocks_str = "\n".join(issuer_blocks)
+    issuer_blocks = set(a.get_scitokens_conf_block(XROOTD_ORIGIN_SERVER) for a in origin_authz_list)
+    issuer_blocks_str = "\n".join(sorted(issuer_blocks))
     allowed_vos_str = ", ".join(sorted(allowed_vos))
 
     return template.format(**locals()).rstrip() + "\n"
