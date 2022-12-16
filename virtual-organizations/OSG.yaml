@@ -114,8 +114,12 @@ DataFederations:
       # FIXME: rip this out after the demo
       # TODO: Redesign namespace interface (take 3?). See commit body
       # for considerations.
-      # - Path: /s3.amazonaws.com/us-east-1/PROTECTED
-      # - Path: /s3.amazonaws.com/us-west-1/PROTECTED
+
+      # NOTE: The SciTokens blocks for Issuer "https://osg-htc.org/ospool" must be the same
+      # between the paths /ospool/PROTECTED, /s3.amazonaws.com/us-east-1/PROTECTED, and
+      # /s3.amazonaws.com/us-west-1/PROTECTED below or we will see problems.  See
+      # c3524138ac8d46eee2a3c33cb75fac50acab41c4 for more information.
+
       - Path: /ospool/PROTECTED
         Authorizations:
           - SciTokens:
@@ -124,12 +128,37 @@ DataFederations:
               Map Subject: True
         AllowedOrigins:
           - CHTC_OSPOOL_ORIGIN
-          - CHTC-S3-AWS-WEST-ORIGIN
-          - CHTC-ITB-S3-AWS-EAST-ORIGIN
         AllowedCaches:
           - ANY
         Writeback: https://origin-auth2001.chtc.wisc.edu:1095
         DirList: https://origin-auth2001.chtc.wisc.edu:1095
+
+      - Path: /s3.amazonaws.com/us-east-1/PROTECTED
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/ospool
+              Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-S3-AWS-EAST-ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://s3-us-east-1.osgdev.chtc.io:1095
+        DirList: https://s3-us-east-1.osgdev.chtc.io:1095
+
+      - Path: /s3.amazonaws.com/us-west-1/PROTECTED
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/ospool
+              Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-S3-AWS-WEST-ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://s3-us-west-1.osgdev.chtc.io:1095
+        DirList: https://s3-us-west-1.osgdev.chtc.io:1095
+
       - Path: /osdftest
         Authorizations:
           - PUBLIC
