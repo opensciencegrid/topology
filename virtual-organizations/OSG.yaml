@@ -142,7 +142,8 @@ DataFederations:
         AllowedOrigins:
           - CHTC-ITB-S3-AWS-EAST-ORIGIN
         AllowedCaches:
-          - ANY
+          - CHTC_STASHCACHE_CACHE
+          - CHTC_TIGER_CACHE
         Writeback: https://s3-us-east-1.osgdev.chtc.io:1095
         DirList: https://s3-us-east-1.osgdev.chtc.io:1095
 
@@ -155,7 +156,8 @@ DataFederations:
         AllowedOrigins:
           - CHTC-ITB-S3-AWS-WEST-ORIGIN
         AllowedCaches:
-          - ANY
+          - CHTC_STASHCACHE_CACHE
+          - CHTC_TIGER_CACHE
         Writeback: https://s3-us-west-1.osgdev.chtc.io:1095
         DirList: https://s3-us-west-1.osgdev.chtc.io:1095
 
