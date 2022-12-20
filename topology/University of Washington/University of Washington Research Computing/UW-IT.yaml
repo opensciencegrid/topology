@@ -20,7 +20,7 @@ Resources:
   UW-IT-CE1:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: false
+    Active: true
     # Description is a long description of the resource; may be multiple lines
     Description: Hosted CE for UW-IT
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
@@ -114,7 +114,8 @@ Resources:
 
     ### Tags (optional) is a list of tags associated with the resource.
     ### Include the tag "CC*" if applicable for a CC* CE.
-    # Tags:
+    Tags:
+      - CC*
     #   - <TAG1>
     #   - <TAG2>
 
