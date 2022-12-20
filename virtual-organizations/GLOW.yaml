@@ -71,7 +71,11 @@ DataFederations:
         AllowedOrigins:
           - CHTC_STASHCACHE_ORIGIN_AUTH_2000
         AllowedCaches:
-          # TODO: only allowing CHTC caches defeats the purpose of OSDF; allow PRP caches too?
+          - Stashcache-Chicago
+          - Stashcache-Kansas
+          - Stashcache-Houston
+          - Stashcache-Manhattan
+          - Stashcache-Sunnyvale
           - CHTC_TIGER_CACHE
           - CHTC_STASHCACHE_CACHE
 
@@ -109,40 +113,3 @@ DataFederations:
         AllowedCaches:
           - ANY
 
-      - Path: /s3.amazonaws.com/us-east-1/PUBLIC
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - CHTC-ITB-S3-AWS-EAST-ORIGIN
-        AllowedCaches:
-          - ANY
-
-      - Path: /s3.amazonaws.com/us-east-1/PROTECTED
-        Authorizations:
-          - SciTokens:
-              Issuer: https://chtc.cs.wisc.edu
-              Base Path: /s3.amazonaws.com/us-east-1
-              Map Subject: False
-        AllowedOrigins:
-          - CHTC-ITB-S3-AWS-EAST-ORIGIN
-        AllowedCaches:
-          - ANY
-
-      - Path: /s3.amazonaws.com/us-west-1/PUBLIC
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - CHTC-ITB-S3-AWS-WEST-ORIGIN
-        AllowedCaches:
-          - ANY
-
-      - Path: /s3.amazonaws.com/us-west-1/PROTECTED
-        Authorizations:
-          - SciTokens:
-              Issuer: https://chtc.cs.wisc.edu
-              Base Path: /s3.amazonaws.com/us-west-1
-              Map Subject: False
-        AllowedOrigins:
-          - CHTC-S3-AWS-WEST-ORIGIN
-        AllowedCaches:
-          - ANY
