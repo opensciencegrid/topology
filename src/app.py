@@ -703,7 +703,8 @@ def generate_project_yaml():
     def render_form(**kwargs):
         return render_template("generate_project_yaml.html.j2", form=form, infos=form.infos, **kwargs)
 
-    form = GenerateProjectForm(request.form, **request.args)
+    form = GenerateProjectForm(request.form,  **request.args)
+    form.field_of_science.choices = [(v, v) for v in global_data.get_mappings().nsfscience.keys()]
 
     if not form.validate_on_submit():
         return render_form()
