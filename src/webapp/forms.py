@@ -1,10 +1,11 @@
 import datetime
 
+import yaml
 from flask_wtf import FlaskForm
 from wtforms import SelectField, SelectMultipleField, StringField, \
     TextAreaField, SubmitField
 from wtforms.fields.html5 import TimeField, DateField
-from wtforms.validators import InputRequired
+from wtforms.validators import InputRequired, ValidationError
 
 from . import models
 
@@ -246,7 +247,7 @@ class GenerateDowntimeForm(FlaskForm):
 
     yamloutput = TextAreaField(None, render_kw={"readonly": True,
                                                 "style": "font-family:monospace; font-size:small;",
-                                                "rows": "15"})
+                                                "rows": "10"})
 
     class Meta:
         csrf = False  # CSRF not needed because no data gets modified
@@ -301,3 +302,145 @@ class GenerateDowntimeForm(FlaskForm):
             resource_name=self.resource.data,
             services=self.services.data,
         )
+
+
+class GenerateProjectForm(FlaskForm):
+    project_name = StringField("Project Name", [InputRequired()])
+    pi_name = StringField("PI Name", [InputRequired()])
+    pi_department_or_organization = StringField("PI Department or Organization", [InputRequired()])
+    pi_institution = StringField("PI Institution", [InputRequired()])
+    field_of_science = SelectField("Field of Science", [InputRequired()], choices=[
+        ('', 'Select Field of Science'),
+        ('Advanced Scientific Computing', 'Advanced Scientific Computing'),
+        ('Agronomy', 'Agronomy'),
+        ('Applied Mathematics', 'Applied Mathematics'),
+        ('Astronomical Sciences', 'Astronomical Sciences'),
+        ('Astronomy', 'Astronomy'),
+        ('Astronomy and Astrophysics', 'Astronomy and Astrophysics'),
+        ('Astrophysics', 'Astrophysics'),
+        ('Atmospheric Sciences', 'Atmospheric Sciences'),
+        ('Biochemistry', 'Biochemistry'),
+        ('Bioinformatics', 'Bioinformatics'),
+        ('Biological Sciences', 'Biological Sciences'),
+        ('Biological and Biomedical Sciences', 'Biological and Biomedical Sciences'),
+        ('Biological and Critical Systems', 'Biological and Critical Systems'),
+        ('Biomedical research', 'Biomedical research'),
+        ('Biophysics', 'Biophysics'),
+        ('Biostatistics', 'Biostatistics'),
+        ('Cellular Biology', 'Cellular Biology'),
+        ('Chemical Engineering', 'Chemical Engineering'),
+        ('Chemical Sciences', 'Chemical Sciences'),
+        ('Chemistry', 'Chemistry'),
+        ('Civil Engineering', 'Civil Engineering'),
+        ('Community Grid', 'Community Grid'),
+        ('Complex Adaptive Systems', 'Complex Adaptive Systems'),
+        ('Computational Biology', 'Computational Biology'),
+        ('Computational Condensed Matter Physics', 'Computational Condensed Matter Physics'),
+        ('Computer Science', 'Computer Science'),
+        ('Computer and Information Science and Engineering', 'Computer and Information Science and Engineering'),
+        ('Computer and Information Services', 'Computer and Information Services'),
+        ('Condensed Matter Physics', 'Condensed Matter Physics'),
+        ('Earth Sciences', 'Earth Sciences'),
+        ('Ecological and Environmental Sciences', 'Ecological and Environmental Sciences'),
+        ('Economics', 'Economics'),
+        ('Education', 'Education'),
+        ('Educational Psychology', 'Educational Psychology'),
+        ('Elementary Particles', 'Elementary Particles'),
+        ('Engineering', 'Engineering'),
+        ('Evolutionary Biology', 'Evolutionary Biology'),
+        ('Evolutionary Sciences', 'Evolutionary Sciences'),
+        ('Finance', 'Finance'),
+        ('Fluid Dynamics', 'Fluid Dynamics'),
+        ('Genetics and Nucleic Acids', 'Genetics and Nucleic Acids'),
+        ('Genomics', 'Genomics'),
+        ('Geographic Information Science', 'Geographic Information Science'),
+        ('Geography', 'Geography'),
+        ('Geological and Earth Sciences', 'Geological and Earth Sciences'),
+        ('Gravitational Physics', 'Gravitational Physics'),
+        ('High Energy Physics', 'High Energy Physics'),
+        ('Information Theory', 'Information Theory'),
+        ('Information, Robotics, and Intelligent Systems', 'Information, Robotics, and Intelligent Systems'),
+        ('Infrastructure Development', 'Infrastructure Development'),
+        ('Logic', 'Logic'),
+        ('Materials Research', 'Materials Research'),
+        ('Materials Science', 'Materials Science'),
+        ('Mathematical Sciences', 'Mathematical Sciences'),
+        ('Mathematics', 'Mathematics'),
+        ('Medical Imaging', 'Medical Imaging'),
+        ('Medical Sciences', 'Medical Sciences'),
+        ('Microbiology', 'Microbiology'),
+        ('Molecular and Structural Biosciences', 'Molecular and Structural Biosciences'),
+        ('Multi-Science Community', 'Multi-Science Community'),
+        ('Multidisciplinary', 'Multidisciplinary'),
+        ('Nanoelectronics', 'Nanoelectronics'),
+        ('National Laboratory', 'National Laboratory'),
+        ('Network Science', 'Network Science'),
+        ('Neuroscience', 'Neuroscience'),
+        ('Nuclear Physics', 'Nuclear Physics'),
+        ('Nutritional Science', 'Nutritional Science'),
+        ('Ocean Sciences', 'Ocean Sciences'),
+        ('Other', 'Other'),
+        ('Particle Physics', 'Particle Physics'),
+        ('Physical Chemistry', 'Physical Chemistry'),
+        ('Physical Therapy', 'Physical Therapy'),
+        ('Physics', 'Physics'),
+        ('Physics and astronomy', 'Physics and astronomy'),
+        ('Physiology', 'Physiology'),
+        ('Planetary Astronomy', 'Planetary Astronomy'),
+        ('Plant Biology', 'Plant Biology'),
+        ('Research Computing', 'Research Computing'),
+        ('Statistics', 'Statistics'),
+        ('Technology', 'Technology'),
+        ('Training', 'Training'),
+        ('Zoology', 'Zoology')
+    ])
+
+    description = TextAreaField(None, render_kw={
+        "style": "font-family:monospace; font-size:small;",
+        "rows": "5"
+    })
+
+    yaml_output = TextAreaField(None, render_kw={"readonly": True,
+                                                "style": "font-family:monospace; font-size:small;",
+                                                "rows": "10"})
+
+    submit = SubmitField("Generate Yaml")
+
+    class Meta:
+        csrf = False  # CSRF not needed because no data gets modified
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.project_name.data = kwargs.get("project_name", self.project_name.data)
+        self.pi_name.data = kwargs.get("pi_name", self.pi_name.data)
+        self.pi_department_or_organization.data = kwargs.get("pi_department_or_organization", self.pi_department_or_organization.data)
+        self.pi_institution.data = kwargs.get("pi_institution", self.pi_institution.data)
+        self.field_of_science.data = kwargs.get("field_of_science", self.field_of_science.data)
+        self.description.data = kwargs.get("description", self.description.data)
+
+        self.infos = ""
+
+    def validate_project_name(form, field):
+        if not set(field.data).isdisjoint(set('/<>:"\\|?*')):
+            intersection = set(field.data).intersection(set('/<>:\"\\|?*'))
+            raise ValidationError(f"Must be valid filename, invalid chars: {intersection}")
+
+    def get_yaml(self) -> str:
+        return yaml.dump({
+            "Description": self.description.data,
+            "FieldOfScience": self.field_of_science.data,
+            "Department": self.pi_department_or_organization.data,
+            "Organization": self.pi_institution.data,
+            "PIName": self.pi_name.data
+        })
+
+    def as_dict(self):
+        return {
+            "description": self.description.data,
+            "field_of_science": self.field_of_science.data,
+            "pi_department_or_organization": self.pi_department_or_organization.data,
+            "pi_institution": self.pi_institution.data,
+            "pi_name": self.pi_name.data,
+            "project_name": self.project_name.data
+        }

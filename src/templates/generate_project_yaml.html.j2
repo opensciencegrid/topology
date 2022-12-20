@@ -1,0 +1,73 @@
+{% set want_js = true %}
+{% extends "base.html.j2" %}
+{% import "formmacros.html.j2" as M %}
+
+{% macro render_dtfield(field) %}
+{{ M.render_field(field, disabled=dtopts_disabled, **kwargs) }}
+{% endmacro %}
+
+{% macro render_dtbutton(button) %}
+{{ M.render_button(button, disabled=dtopts_disabled, **kwargs) }}
+{% endmacro %}
+
+{% set downtime_fieldnames = [
+  "scheduled", "description", "severity", "start_date", "start_time",
+  "end_date", "end_time", "services", "generate"] %}
+
+{% block title -%}
+Resource Downtime YAML Generator
+{%- endblock %}
+
+{% block content %}
+{% if infos %}
+<div class="alert alert-info" role="alert">{{ infos }}</div>
+{% endif %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <!-- LEFT COLUMN --------------------------------------------------------->
+    <div class="col-6">
+      <p>
+          This form generates YAML code that can be added into
+          <a href="https://github.com/opensciencegrid/topology/">OSG's topology repository</a>
+          to add a new project.
+      </p>
+      <form method=post>
+        <!-- NOTE: we are not using CSRF because none of the POST data is actually
+        used to change anything.  If that ever changes, see
+        https://flask-wtf.readthedocs.io/en/stable/csrf.html
+        -->
+        {{ M.render_field(form.project_name) }}
+        {{ M.render_field(form.pi_name) }}
+        {{ M.render_field(form.pi_department_or_organization) }}
+        {{ M.render_field(form.pi_institution) }}
+        {{ M.render_field(form.field_of_science) }}
+        {{ M.render_field(form.description) }}
+        {{ M.render_button(form.submit) }}
+      </form>
+      <p><span style="color:red;">*</span> denotes a required field</p>
+    </div><!-- col-sm -->
+    <div class="col-6">
+        {{ M.render_field(form.yaml_output) }}
+        {% if form_complete %}
+            <div class="rounded p-3 border border-info">
+                <p>
+                    <b>To complete this process you must:</b>
+                </p>
+                <ol>
+                    <li>Navigate to the <a  target="_blank" href="https://github.com/opensciencegrid/topology/new/master/projects">new file Github Page</a></li>
+                    <li>Enter <i>{{ form.project_name.data }}.yaml</i> as the file name</li>
+                    <li>Enter the yaml above as the file contents</li>
+                    <li>Scroll to bottom and create a new PR</li>
+                </ol>
+            </div>
+
+        {% endif %}
+    </div><!-- col-sm -->
+  </div><!-- row -->
+</div><!-- container -->
+{% endblock %}
+
+{% block last %}
+
+{% endblock %}

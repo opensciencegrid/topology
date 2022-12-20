@@ -16,7 +16,7 @@ import urllib.parse
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
-from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
+from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
@@ -696,6 +696,22 @@ def generate_resource_group_downtime():
     return render_form(filepath=filepath, filename=filename,
                        edit_url=edit_url, site_dir_url=site_dir_url,
                        new_url=new_url)
+
+@app.route("/generate_project_yaml", methods=["GET", "POST"])
+def generate_project_yaml():
+
+    def render_form(**kwargs):
+        return render_template("generate_project_yaml.html.j2", form=form, infos=form.infos, **kwargs)
+
+    form = GenerateProjectForm(request.form, **request.args)
+
+    if not form.validate_on_submit():
+        return render_form()
+
+    else:
+        form.yaml_output.data = form.get_yaml()
+        return render_form(form_complete=True)
+
 
 def _make_choices(iterable, select_one=False):
     c = [(_fix_unicode(x), _fix_unicode(x)) for x in sorted(iterable)]
