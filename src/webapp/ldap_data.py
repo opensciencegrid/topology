@@ -72,6 +72,11 @@ def cilogon_id_map_to_yaml_data(m):
             data[id_] = {'CILogonID'          : id_,
                          'FullName'           : entry['data']['cn'][0],
                          'ContactInformation' : cinfo}
+
+            github = entry['data'].get('voPersonExternalID')
+            if github:
+                data[id_]['GitHub'] = github[0]
+
     return data
 
 
@@ -91,7 +96,7 @@ def get_email_lookup(yaml_data):
             continue
         for Email in ('PrimaryEmail', 'SecondaryEmail'):
             if Email in ci:
-                email_lookup[ci[Email]] = contact
+                email_lookup[ci[Email].lower()] = contact
     return email_lookup
 
 

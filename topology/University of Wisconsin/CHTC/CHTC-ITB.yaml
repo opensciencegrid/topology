@@ -125,33 +125,6 @@ Resources:
         Details:
           hidden: false
 
-  TIGER-OSG-BACKFILL:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: OSG1000003
-          Name: Brian Lin
-        Secondary:
-          ID: OSG1000002
-          Name: Matyas Selmeci
-        Tertiary:
-          ID: OSG1000007
-          Name: Carl Edquist
-      Security Contact:
-        Primary:
-          ID: OSG1000003
-          Name: Brian Lin
-        Secondary:
-          ID: OSG1000002
-          Name: Matyas Selmeci
-    Description: OSG VO backfill containers on the Tiger cluster
-    FQDN: tiger-osg-backfill.osgdev.chtc.io
-    ID: 1128
-    Services:
-      Execution Endpoint:
-        Description: OSG VO backfill containers on the Tiger cluster
-
   CHTC-ITB-SLURM-CE:
     Active: true
     ContactLists:
@@ -262,11 +235,11 @@ Resources:
       Execution Endpoint:
         Description: OSG VO backfill container in the GPU lab
 
-  CHTC-ITB-HELM-ORIGIN1:
+  CHTC-ITB-HELM-ORIGIN:
     Active: false
     Description: >-
         This is a testing OSDF origin server on the Tiger cluster,
-        deployed via Helm. It serves public data.
+        deployed via Helm. It serves both public and protected data.
     ID: 1370
     ContactLists:
       Administrative Contact:
@@ -283,47 +256,15 @@ Resources:
         Secondary:
           ID: OSG1000003
           Name: Brian Lin
-    FQDN: helm-origin1.osgdev.chtc.io
-    DN: /CN=helm-origin1.osgdev.chtc.io
+    FQDN: helm-origin.osgdev.chtc.io
+    DN: /CN=helm-origin.osgdev.chtc.io
     Services:
       XRootD origin server:
-        Description: xrootd stash-origin server
-    VOOwnership:
-      OSG: 100
-    AllowedVOs:
-      - ANY_PUBLIC
-
-  CHTC-ITB-HELM-ORIGIN2:
-    Active: false
-    Description: >-
-        This is a testing OSDF origin server on the Tiger cluster,
-        deployed via Helm. It serves protected data.
-    ID: 1326
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: OSG1000002
-          Name: Matyas Selmeci
-        Secondary:
-          ID: OSG1000003
-          Name: Brian Lin
-      Security Contact:
-        Primary:
-          ID: OSG1000002
-          Name: Matyas Selmeci
-        Secondary:
-          ID: OSG1000003
-          Name: Brian Lin
-    FQDN: helm-origin2.osgdev.chtc.io
-    DN: /CN=helm-origin2.osgdev.chtc.io
-    Services:
-      XRootD origin server:
-        Description: xrootd stash-origin-auth server
+        Description: xrootd stash-origin and stash-origin-auth instances
     VOOwnership:
       OSG: 100
     AllowedVOs:
       - GLOW
-      - OSG
 
   CHTC-ITB-HELM-CACHE1:
     Active: false
@@ -358,4 +299,101 @@ Resources:
       OSG: 100
     AllowedVOs:
       - GLOW
+      - OSG
+
+  TIGER-OSG-BACKFILL-ITB:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000007
+          Name: Carl Edquist
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+    Description: OSG VO backfill containers on the Tiger cluster, serving the ITB pool
+    FQDN: tiger-osg-backfill-itb.osgdev.chtc.io
+    ID: 1342
+    Services:
+      Execution Endpoint:
+        Description: OSG VO backfill containers on the Tiger cluster, serving the ITB pool
+
+  CHTC-ITB-S3-AWS-EAST-ORIGIN:
+    Active: true
+    Description: >-
+      This is an origin used for demonstrating integration with AWS
+      East S3 buckets
+    ID: 1356
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000007
+          Name: Carl Edquist
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Tertiary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000001
+          Name: Brian Bockelman
+    FQDN: s3-us-east-1.osgdev.chtc.io
+    DN: /CN=s3-us-east-1.osgdev.chtc.io
+    Services:
+      XRootD origin server:
+        Description: Origin serving both authenticated and unauthenticated data
+    AllowedVOs:
+      - OSG
+
+  CHTC-ITB-S3-AWS-WEST-ORIGIN:
+    Active: true
+    Description: >-
+      This is an origin used for demonstrating integration with AWS
+      West S3 buckets
+    ID: 1357
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000001
+          Name: Brian Bockelman
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000001
+          Name: Brian Bockelman
+    FQDN: s3-us-west-1.osgdev.chtc.io
+    DN: /CN=s3-us-west-1.osgdev.chtc.io
+    Services:
+      XRootD origin server:
+        Description: Origin serving both authenticated and unauthenticated data
+    AllowedVOs:
       - OSG

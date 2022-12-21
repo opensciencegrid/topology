@@ -108,11 +108,23 @@ DataFederations:
           - OSGCONNECT_ORIGIN
         AllowedCaches:
           - ANY
+
+      # HACK: enormous hack to get us going on a demo
+      # https://opensciencegrid.atlassian.net/browse/SOFTWARE-5398
+      # FIXME: rip this out after the demo
+      # TODO: Redesign namespace interface (take 3?). See commit body
+      # for considerations.
+
+      # NOTE: The SciTokens blocks for Issuer "https://osg-htc.org/ospool" must be the same
+      # between the paths /ospool/PROTECTED, /s3.amazonaws.com/us-east-1, and
+      # /s3.amazonaws.com/us-west-1 below or we will see problems.
+      # See c3524138ac8d46eee2a3c33cb75fac50acab41c4 for more information.
+
       - Path: /ospool/PROTECTED
         Authorizations:
           - SciTokens:
               Issuer: https://osg-htc.org/ospool
-              Base Path: /ospool/PROTECTED
+              Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
               Map Subject: True
         AllowedOrigins:
           - CHTC_OSPOOL_ORIGIN
@@ -120,10 +132,38 @@ DataFederations:
           - ANY
         Writeback: https://origin-auth2001.chtc.wisc.edu:1095
         DirList: https://origin-auth2001.chtc.wisc.edu:1095
+
+      - Path: /s3.amazonaws.com/us-east-1
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/ospool
+              Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-S3-AWS-EAST-ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://s3-us-east-1.osgdev.chtc.io:1095
+        DirList: https://s3-us-east-1.osgdev.chtc.io:1095
+
+      - Path: /s3.amazonaws.com/us-west-1
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/ospool
+              Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-S3-AWS-WEST-ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://s3-us-west-1.osgdev.chtc.io:1095
+        DirList: https://s3-us-west-1.osgdev.chtc.io:1095
+
       - Path: /osdftest
         Authorizations:
           - PUBLIC
         AllowedOrigins:
           - SDSC-test-Origin
+          - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
