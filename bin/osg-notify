@@ -21,7 +21,7 @@ if __name__ == "__main__" and __package__ is None:
     sys.path.append(_parent + "/src")
 
 import topology_utils
-from topology_utils import OSGPoolManager
+from topology_utils import TopologyPoolManager
 import net_name_addr_utils
 
 # Parts of this implementation are from the following StackOverflow answer:
@@ -174,7 +174,7 @@ def has_non_printable_ascii_characters(contents):
 
 def main():
     args = parseargs()
-    pm = OSGPoolManager()
+    pm = TopologyPoolManager()
     recipients = set(args.recipients.split())
     if args.oim_recipients and 'vos' in args.oim_recipients:
         attempts = 3
@@ -191,7 +191,7 @@ def main():
                     exit(1)
                 else:
                     print(exc)
-        results = OSGPoolManager.filter_contacts(args, results)
+        results = TopologyPoolManager.filter_contacts(args, results)
         emails = set()
         for name in results.keys():
             for contact in results[name]:
@@ -214,7 +214,7 @@ def main():
                     exit("Too many incorrect password attempts, exiting")
                 else:
                     print(exc)
-        results = OSGPoolManager.filter_contacts(args, results)
+        results = TopologyPoolManager.filter_contacts(args, results)
         emails = set()
         for name in results.keys():
             for contact in results[name]:
