@@ -1,0 +1,24 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Origin infrastructure for SURF-MS4
+GroupID: 1336
+Resources:
+  SURF_MS4_OSDF_ORIGIN:
+    Active: false
+    Description: Origin for SURF-MS4
+    ID: 1394
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: 
+          ID: 
+        Secondary:
+          ID: 
+          Name: 
+    FQDN: osg-origin.ms4.surfsara.nl
+    DN: 
+    Services:
+      XRootD origin server:
+        Description: Origin for SURF-MS4
+    AllowedVOs:
+      - ANY
