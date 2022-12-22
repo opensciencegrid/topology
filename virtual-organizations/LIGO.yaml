@@ -113,6 +113,9 @@ DataFederations:
           - PIC_STASHCACHE_CACHE
           - SU_STASHCACHE_CACHE
           - PSU-LIGO-CACHE
+          - MGHPCC_NRP_OSDF_CACHE
+          - SDSC_NRP_OSDF_CACHE
+          - NEBRASKA_NRP_OSDF_CACHE
       - Path: /gwdata
         Authorizations:
           - PUBLIC
