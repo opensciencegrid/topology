@@ -151,7 +151,7 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
 
     yamloutput = TextAreaField(None, render_kw={"readonly": True,
                                                 "style": "font-family:monospace; font-size:small;",
-                                                "rows": "15"})
+                                                "rows": "10"})
 
     class Meta:
         csrf = False  # CSRF not needed because no data gets modified
@@ -210,7 +210,6 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
             )
 
         return yaml
-
 
 
 class GenerateDowntimeForm(FlaskForm):
@@ -320,10 +319,11 @@ class GenerateProjectForm(FlaskForm):
                                                 "style": "font-family:monospace; font-size:small;",
                                                 "rows": "10"})
 
-    submit = SubmitField("Generate Yaml")
+    auto_submit = SubmitField("Login to Github to Submit Automatically")
+    manual_submit = SubmitField("Submit Manually")
 
     class Meta:
-        csrf = False  # CSRF not needed because no data gets modified
+        csrf = True  # CSRF not needed because no data gets modified
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -338,9 +338,9 @@ class GenerateProjectForm(FlaskForm):
         self.infos = ""
 
     def validate_project_name(form, field):
-        if not set(field.data).isdisjoint(set('/<>:"\\|?*')):
-            intersection = set(field.data).intersection(set('/<>:\"\\|?*'))
-            raise ValidationError(f"Must be valid filename, invalid chars: {intersection}")
+        if not set(field.data).isdisjoint(set('/<>:"\\|?* ')):
+            intersection = set(field.data).intersection(set('/<>:\"\\|?* '))
+            raise ValidationError(f"Must be valid filename, invalid chars: {','.join(intersection)}")
 
     def get_yaml(self) -> str:
         return yaml.dump({
@@ -360,3 +360,11 @@ class GenerateProjectForm(FlaskForm):
             "pi_name": self.pi_name.data,
             "project_name": self.project_name.data
         }
+
+    def clear(self):
+        self.project_name.data = ""
+        self.pi_name.data = ""
+        self.pi_department_or_organization.data = ""
+        self.pi_institution.data = ""
+        self.field_of_science.data = ""
+        self.description.data = ""
