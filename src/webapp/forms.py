@@ -305,7 +305,8 @@ class GenerateDowntimeForm(FlaskForm):
 
 class GenerateProjectForm(FlaskForm):
     project_name = StringField("Project Name", [InputRequired()])
-    pi_name = StringField("PI Name", [InputRequired()])
+    pi_first_name = StringField("PI First Name", [InputRequired()])
+    pi_last_name = StringField("PI Last Name", [InputRequired()])
     pi_department_or_organization = StringField("PI Department or Organization", [InputRequired()])
     pi_institution = StringField("PI Institution", [InputRequired()])
     field_of_science = SelectField("Field of Science", [InputRequired()])
@@ -329,7 +330,8 @@ class GenerateProjectForm(FlaskForm):
         super().__init__(*args, **kwargs)
 
         self.project_name.data = kwargs.get("project_name", self.project_name.data)
-        self.pi_name.data = kwargs.get("pi_name", self.pi_name.data)
+        self.pi_first_name.data = kwargs.get("pi_name", self.pi_first_name.data)
+        self.pi_last_name.data = kwargs.get("pi_name", self.pi_last_name.data)
         self.pi_department_or_organization.data = kwargs.get("pi_department_or_organization", self.pi_department_or_organization.data)
         self.pi_institution.data = kwargs.get("pi_institution", self.pi_institution.data)
         self.field_of_science.data = kwargs.get("field_of_science", self.field_of_science.data)
@@ -348,7 +350,7 @@ class GenerateProjectForm(FlaskForm):
             "FieldOfScience": self.field_of_science.data,
             "Department": self.pi_department_or_organization.data,
             "Organization": self.pi_institution.data,
-            "PIName": self.pi_name.data
+            "PIName": f"{self.pi_first_name.data} {self.pi_last_name.data}"
         })
 
     def as_dict(self):
@@ -357,13 +359,14 @@ class GenerateProjectForm(FlaskForm):
             "field_of_science": self.field_of_science.data,
             "pi_department_or_organization": self.pi_department_or_organization.data,
             "pi_institution": self.pi_institution.data,
-            "pi_name": self.pi_name.data,
+            "pi_name": f"{self.pi_first_name.data} {self.pi_last_name.data}",
             "project_name": self.project_name.data
         }
 
     def clear(self):
         self.project_name.data = ""
-        self.pi_name.data = ""
+        self.pi_first_name.data = ""
+        self.pi_last_name.data = ""
         self.pi_department_or_organization.data = ""
         self.pi_institution.data = ""
         self.field_of_science.data = ""

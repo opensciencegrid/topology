@@ -708,8 +708,10 @@ def generate_resource_group_downtime():
 def generate_project_yaml():
 
     def render_form(**kwargs):
+        institutions = list(global_data.get_mappings().project_institution.items())
         session.pop("form_data", None)
-        return render_template("generate_project_yaml.html.j2", form=form, infos=form.infos, **kwargs)
+
+        return render_template("generate_project_yaml.html.j2", form=form, infos=form.infos, institutions=institutions, **kwargs)
 
     def validate_project_name(form, field):
         project_names = set(x['Name'] for x in global_data.get_projects()['Projects']['Project'])
@@ -719,14 +721,16 @@ def generate_project_yaml():
     form = GenerateProjectForm(request.form, **request.args, **session.get("form_data", {}))
     form.field_of_science.choices = _make_choices(global_data.get_mappings().nsfscience.keys(), select_one=True)
 
-    # Add this validator only once
+    # Add this validator if it is not their
     if not len(form.project_name.validators) > 1:
         form.project_name.validators.append(validate_project_name)
 
-    # If they have returned after logging into Github
+    # If they have returned after logging into Github make the Submission button stand out
     if "github_login" in session:
         form.auto_submit.label.text = "Submit Automatically"
-        form.auto_submit.render_kw = {"class": "btn btn-info"}
+        form.auto_submit.render_kw = {
+            "class": "btn btn-warning"
+        }
 
     # Anything past this point needs a valid form
     if not form.validate_on_submit():

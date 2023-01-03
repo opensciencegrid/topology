@@ -32,12 +32,27 @@ Resource Downtime YAML Generator
           <a href="https://github.com/opensciencegrid/topology/">OSG's topology repository</a>
           to add a new project.
       </p>
+      <p>
+          <b>If your institution is in the list please do not change the project name from the generated value.</b>
+      </p>
       <form method=post>
         {{ form.csrf_token }}
+        <div class="row gx-1">
+          <div class="col-12 col-md-6">
+            {{ M.render_field(form.pi_first_name) }}
+          </div>
+          <div class="col-12 col-md-6">
+            {{ M.render_field(form.pi_last_name) }}
+          </div>
+        </div>
+        {{ M.render_field(form.pi_institution, list="institutions") }}
+        <datalist id="institutions">
+            {% for institute in institutions %}
+                <option value="{{ institute[1] }}">
+            {% endfor %}
+        </datalist>
         {{ M.render_field(form.project_name) }}
-        {{ M.render_field(form.pi_name) }}
         {{ M.render_field(form.pi_department_or_organization) }}
-        {{ M.render_field(form.pi_institution) }}
         {{ M.render_field(form.field_of_science) }}
         {{ M.render_field(form.description) }}
         <div class="row">
@@ -118,10 +133,36 @@ Resource Downtime YAML Generator
 {% endblock %}
 
 {% block last %}
-{% if pr_url %}
-    <script>$('#completed-pr-alert').modal('toggle')</script>
-{% endif %}
-{% if error %}
-    <script>$('#pr-creation-error').modal('toggle')</script>
-{% endif %}
+    <script>
+        const institutions = {
+            {% for institute in institutions %}
+                "{{ institute[1] }}" : "{{ institute[0] }}",
+            {% endfor %}
+        }
+        let project_name_node = document.getElementById("project_name")
+        let pi_institution_node = document.getElementById("pi_institution")
+        let pi_last_name_node = document.getElementById("pi_last_name")
+
+        function updateProjectName(){
+            project_name_node.readOnly = false
+
+            if(!(pi_institution_node.value in institutions) || !pi_last_name_node.value){ return }
+
+            let pi_institution = institutions[pi_institution_node.value]
+            let pi_last_name = pi_last_name_node.value
+
+            project_name_node.value = `${pi_institution}_${pi_last_name}`
+
+            project_name_node.readOnly = true
+        }
+
+        pi_institution_node.addEventListener("change", updateProjectName)
+        pi_last_name_node.addEventListener("change", updateProjectName)
+    </script>
+    {% if pr_url %}
+        <script>$('#completed-pr-alert').modal('toggle')</script>
+    {% endif %}
+    {% if error %}
+        <script>$('#pr-creation-error').modal('toggle')</script>
+    {% endif %}
 {% endblock %}
