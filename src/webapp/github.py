@@ -109,7 +109,7 @@ class GitHubAuth:
         self._add_auth_header(req)
         #add_gh_preview_header(req)
         try:
-            resp = urllib.request.urlopen(req, cafile=certifi.where())  # potentially need cafile=certifi.where()
+            resp = urllib.request.urlopen(req)  # potentially need cafile=certifi.where()
             self.dlog("GitHub API call success for %s" % url)
             return True, resp
         except urllib.error.HTTPError as resp:
