@@ -615,8 +615,18 @@ will want to adjust the Map.data which populates the select input and legend.
             let response = await fetch("/api/resource_group_summary")
             let resourceGroupJson = await response.json()
 
+            // Filter out inactive resources and resource groups with only inactive resources
+            let activeResourceGroupJson = Object.entries(resourceGroupJson).reduce((o, [k,v]) => {
+                let activeResources = v["Resources"]["Resource"].filter(x => x['Active'])
+                if(activeResources.length){
+                    v["Resources"]["Resource"] = activeResources
+                    o[k] = v
+                }
+                return o
+            }, {})
+
             let sites = {}
-            Object.entries(resourceGroupJson).forEach(([key, value]) => {
+            Object.entries(activeResourceGroupJson).forEach(([key, value]) => {
                 if(value?.Site?.Name in sites){
                     sites[value?.Site?.Name].addResourceGroup(value)
                 } else {
