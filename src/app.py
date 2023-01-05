@@ -68,14 +68,6 @@ if "AUTH" in app.config:
     else:
         print("ignoring AUTH option when FLASK_ENV != development", file=sys.stderr)
 
-# Add CSRF Protection
-if app.debug:
-    app.config["SECRET_KEY"] = "this is not very secret"
-elif not app.debug and "SECRET_KEY" not in app.config:
-    raise Exception("SECRET_KEY required when FLASK_ENV != development")
-csrf = CSRFProtect()
-csrf.init_app(app)
-
 if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
@@ -90,6 +82,31 @@ ligo_pass = readfile(global_data.ligo_ldap_passfile, app.logger)
 if not ligo_pass:
     app.logger.warning("Note, no LIGO_LDAP_PASSFILE configured; "
                        "LIGO DNs will be unavailable in authfiles.")
+
+github_oauth_client_secret = readfile(global_data.github_oauth_client_secret, app.logger)
+if not github_oauth_client_secret:
+    app.logger.warning("Note, no GITHUB_OAUTH_CLIENT_SECRET configured; "
+                       "Auto PRs will be unavailable.")
+else:
+    app.config['GITHUB_OAUTH_CLIENT_SECRET'] = github_oauth_client_secret.decode()
+
+osg_bot_github_token = readfile(global_data.osg_bot_github_token, app.logger)
+if not osg_bot_github_token:
+    app.logger.warning("Note, no OSG_BOT_GITHUB_TOKEN configured; "
+                       "Auto PRs will be unavailable.")
+else:
+    app.config['OSG_BOT_GITHUB_TOKEN'] = osg_bot_github_token.decode()
+
+csrf_secret_key = readfile(global_data.csrf_secret_key, app.logger)
+if app.debug and not csrf_secret_key:
+    app.config["SECRET_KEY"] = "this is not very secret"
+elif not app.debug and not csrf_secret_key:
+    raise Exception("SECRET_KEY required when FLASK_ENV != development")
+else:
+    app.config["SECRET_KEY"] = csrf_secret_key.decode()
+
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 
 def _fix_unicode(text):
@@ -732,6 +749,10 @@ def generate_project_yaml():
             "class": "btn btn-warning"
         }
 
+    # Report any external errors
+    if "error" in request.args:
+        return render_form(error=request.args['error'])
+
     # Anything past this point needs a valid form
     if not form.validate_on_submit():
         return render_form()
@@ -747,8 +768,8 @@ def generate_project_yaml():
                 "branch": f"add-project-{request.values['project_name']}",
                 "message": f"Add Project {request.values['project_name']}",
                 "committer": GithubUser.from_token(session["github_login"]['access_token']),
-                "fork_repo": GitHubRepoAPI(GitHubAuth(None, app.config["OSG_BOT_TOKEN"]), 'osg-doc-bot', 'topology'),
-                "root_repo": GitHubRepoAPI(GitHubAuth(None, app.config["OSG_BOT_TOKEN"]), 'opensciencegrid', 'topology'),
+                "fork_repo": GitHubRepoAPI(GitHubAuth("osg-doc-bot", app.config["OSG_BOT_GITHUB_TOKEN"]), 'osg-doc-bot', 'topology'),
+                "root_repo": GitHubRepoAPI(GitHubAuth("osg-doc-bot", app.config["OSG_BOT_GITHUB_TOKEN"]), 'opensciencegrid', 'topology'),
             }
 
             create_pr_response = create_file_pr(**create_pr_data)
@@ -777,6 +798,7 @@ def generate_project_yaml():
 
     return render_form()
 
+
 @app.route("/github/login", methods=["GET"])
 def github_login():
     """Used to login to Github and return to previous location"""
@@ -788,15 +810,21 @@ def github_login():
         data = {
             "code": request.args['code'],
             "client_id": "2bf9c248a619961eb14a",
-            "client_secret": app.config["GITHUB_CLIENT_SECRET"],
+            "client_secret": app.config["GITHUB_OAUTH_CLIENT_SECRET"],
             "redirect_uri": request.args['redirect_uri']
         }
 
-        response = requests.post("https://github.com/login/oauth/access_token", data=data, headers={"Accept": "application/json"})
+        redirect_data = {}
+        try:
+            response = requests.post("https://github.com/login/oauth/access_token", data=data, headers={"Accept": "application/json"})
+            session['github_login'] = response.json()
 
-        session['github_login'] = response.json()
+        except Exception as error:
+            redirect_data['error'] = f"Could not complete exchange with Github for Token: {error}"
 
-        return redirect(urllib.parse.urlparse(request.args['redirect_uri']).geturl())
+        return redirect(
+            f"{urllib.parse.urlparse(request.args['redirect_uri']).geturl()}?{urllib.parse.urlencode(redirect_data)}"
+        )
 
     else:
         session['state'] = os.urandom(24).hex()
