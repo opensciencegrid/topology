@@ -1,0 +1,25 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Services located at the Internet2 Florida Point of Presence
+GroupID: 1337
+Resources:
+  FLORIDA_INTERNET2_OSDF_CACHE:
+    Active: false
+    Description: Internet2 Florida Cache
+    ID: 1403
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+    FQDN: dtn-pas.jack.net.internet2.edu
+    DN: 
+    Services:
+      XRootD cache server:
+        Description: Internet2 Florida Cache
+    AllowedVOs:
+      - ANY
