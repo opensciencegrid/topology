@@ -1,0 +1,25 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Services located at the Internet2 Boise Point of Presence
+GroupID: 1336
+Resources:
+  BOISE_INTERNET2_OSDF_CACHE:
+    Active: true
+    Description: Internet2 Boise Cache
+    ID: 1401
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+    FQDN: dtn-pas.hous.net.internet2.edu
+    DN: 
+    Services:
+      XRootD cache server:
+        Description: Internet2 Boise Cache
+    AllowedVOs:
+      - ANY
