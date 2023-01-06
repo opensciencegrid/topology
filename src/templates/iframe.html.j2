@@ -207,7 +207,9 @@ will want to adjust the Map.data which populates the select input and legend.
     downloadPNG = async () => {
         document.getElementsByClassName("leaflet-control-zoom")[0].hidden = true
 
+        // You have to run it twice - https://github.com/tsayen/dom-to-image/issues/343
         let dataUrl = await domtoimage.toPng(document.getElementById("print-region"))
+        dataUrl = await domtoimage.toPng(document.getElementById("print-region"))
 
         let link = document.createElement('a');
         link.download = 'OSG_Map.png';
@@ -426,7 +428,7 @@ will want to adjust the Map.data which populates the select input and legend.
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                 maxZoom: 18,
-                id: 'mapbox/streets-v11',
+                id: 'mapbox/satellite-streets-v12',
                 tileSize: 512,
                 zoomOffset: -1,
                 accessToken: 'pk.eyJ1IjoidGFraW5nZHJha2UiLCJhIjoiY2wya3IyZGNvMDFyOTNsbnhyZjBteHRycSJ9.g6tRaqN8_iJxHgAQKNP6Tw'
