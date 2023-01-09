@@ -41,6 +41,8 @@ Credentials:
   TokenIssuers:
     - URL: https://scitokens.org/ligo
       DefaultUnixUser: ligo
+    - URL: https://cilogon.org/igwn
+      DefaultUnixUser: ligo
 Disable: false
 FieldsOfScience:
   PrimaryFields:
