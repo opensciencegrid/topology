@@ -233,12 +233,15 @@ will want to adjust the Map.data which populates the select input and legend.
         }) {
             this.resourceGroups = {}
             this.resourceGroups[resourceGroupName] = resources
-            this.resources = resources
             this.latitude = Latitude
             this.longitude = Longitude
             this.name = name
             this.facilityName = facilityName
             this.siteName = siteName
+        }
+
+        get resources(){
+            return Object.values(this.resourceGroups).flatMap(x => x)
         }
 
         addResourceGroup({
