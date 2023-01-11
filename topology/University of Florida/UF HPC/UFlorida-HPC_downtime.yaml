@@ -805,3 +805,47 @@
   Services:
   - XRootD component
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1382875724
+  Description: RHEL8 upgrade
+  Severity: Outage
+  StartTime: Jan 09, 2023 18:05 +0000
+  EndTime: Jan 16, 2023 18:06 +0000
+  CreatedTime: Jan 09, 2023 18:06 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1383595572
+  Description: Network issue
+  Severity: Outage
+  StartTime: Jan 10, 2023 14:05 +0000
+  EndTime: Jan 12, 2023 15:05 +0000
+  CreatedTime: Jan 10, 2023 14:05 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1383596298
+  Description: Network issue
+  Severity: Outage
+  StartTime: Jan 10, 2023 14:05 +0000
+  EndTime: Jan 12, 2023 15:05 +0000
+  CreatedTime: Jan 10, 2023 14:07 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1383596493
+  Description: Network issue
+  Severity: Outage
+  StartTime: Jan 10, 2023 14:05 +0000
+  EndTime: Jan 12, 2023 15:05 +0000
+  CreatedTime: Jan 10, 2023 14:07 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
