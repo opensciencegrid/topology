@@ -57,6 +57,7 @@ OASIS:
   - http://cvmfs.xsede.org:8000/cvmfs/colorado.xsede.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/singularity.opensciencegrid.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/scitokens.osgstorage.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/sdsc-nrp-osdf-origin.osgstorage.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/veritas.opensciencegrid.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/nexo.opensciencegrid.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/connect.opensciencegrid.org
@@ -116,9 +117,9 @@ DataFederations:
       # for considerations.
 
       # NOTE: The SciTokens blocks for Issuer "https://osg-htc.org/ospool" must be the same
-      # between the paths /ospool/PROTECTED, /s3.amazonaws.com/us-east-1/PROTECTED, and
-      # /s3.amazonaws.com/us-west-1/PROTECTED below or we will see problems.  See
-      # c3524138ac8d46eee2a3c33cb75fac50acab41c4 for more information.
+      # between the paths /ospool/PROTECTED, /s3.amazonaws.com/us-east-1, and
+      # /s3.amazonaws.com/us-west-1 below or we will see problems.
+      # See c3524138ac8d46eee2a3c33cb75fac50acab41c4 for more information.
 
       - Path: /ospool/PROTECTED
         Authorizations:
@@ -133,7 +134,7 @@ DataFederations:
         Writeback: https://origin-auth2001.chtc.wisc.edu:1095
         DirList: https://origin-auth2001.chtc.wisc.edu:1095
 
-      - Path: /s3.amazonaws.com/us-east-1/PROTECTED
+      - Path: /s3.amazonaws.com/us-east-1
         Authorizations:
           - SciTokens:
               Issuer: https://osg-htc.org/ospool
@@ -146,7 +147,7 @@ DataFederations:
         Writeback: https://s3-us-east-1.osgdev.chtc.io:1095
         DirList: https://s3-us-east-1.osgdev.chtc.io:1095
 
-      - Path: /s3.amazonaws.com/us-west-1/PROTECTED
+      - Path: /s3.amazonaws.com/us-west-1
         Authorizations:
           - SciTokens:
               Issuer: https://osg-htc.org/ospool
@@ -164,21 +165,6 @@ DataFederations:
           - PUBLIC
         AllowedOrigins:
           - SDSC-test-Origin
-        AllowedCaches:
-          - ANY
-
-      - Path: /s3.amazonaws.com/us-east-1/PUBLIC
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - CHTC-ITB-S3-AWS-EAST-ORIGIN
-        AllowedCaches:
-          - ANY
-
-      - Path: /s3.amazonaws.com/us-west-1/PUBLIC
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - CHTC-ITB-S3-AWS-WEST-ORIGIN
+          - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY

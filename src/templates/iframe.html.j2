@@ -104,7 +104,12 @@ will want to adjust the Map.data which populates the select input and legend.
             padding-left: 10px;
         }
 
-        .card-header {
+        .site-card-header {
+            margin: 0;
+        }
+
+        .facility-card-header {
+            color: #717070;
             margin: 0;
         }
 
@@ -143,6 +148,10 @@ will want to adjust the Map.data which populates the select input and legend.
             border-radius: 5px;
             border: #3a3a3a solid 1px;
             z-index: 1000;
+        }
+
+        #site {
+            max-width: 300px;
         }
     </style>
 </head>
@@ -207,7 +216,9 @@ will want to adjust the Map.data which populates the select input and legend.
     downloadPNG = async () => {
         document.getElementsByClassName("leaflet-control-zoom")[0].hidden = true
 
+        // You have to run it twice - https://github.com/tsayen/dom-to-image/issues/343
         let dataUrl = await domtoimage.toPng(document.getElementById("print-region"))
+        dataUrl = await domtoimage.toPng(document.getElementById("print-region"))
 
         let link = document.createElement('a');
         link.download = 'OSG_Map.png';
@@ -231,12 +242,15 @@ will want to adjust the Map.data which populates the select input and legend.
         }) {
             this.resourceGroups = {}
             this.resourceGroups[resourceGroupName] = resources
-            this.resources = resources
             this.latitude = Latitude
             this.longitude = Longitude
             this.name = name
             this.facilityName = facilityName
             this.siteName = siteName
+        }
+
+        get resources(){
+            return Object.values(this.resourceGroups).flatMap(x => x)
         }
 
         addResourceGroup({
@@ -312,10 +326,15 @@ will want to adjust the Map.data which populates the select input and legend.
             let container = document.createElement("div")
             container.classList.add("popup")
 
-            let header = document.createElement("h4")
-            header.textContent = this.facilityName
-            header.classList.add("card-header")
-            container.appendChild(header)
+            let header_site = document.createElement("h4")
+            header_site.textContent = this.siteName
+            header_site.classList.add("site-card-header")
+            container.appendChild(header_site)
+
+            let header_facility = document.createElement("h5")
+            header_facility.textContent = this.facilityName
+            header_facility.classList.add("facility-card-header")
+            container.appendChild(header_facility)
 
             container.appendChild(document.createElement("hr"))
 
@@ -426,7 +445,7 @@ will want to adjust the Map.data which populates the select input and legend.
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                 maxZoom: 18,
-                id: 'mapbox/streets-v11',
+                id: 'mapbox/satellite-streets-v12',
                 tileSize: 512,
                 zoomOffset: -1,
                 accessToken: 'pk.eyJ1IjoidGFraW5nZHJha2UiLCJhIjoiY2wya3IyZGNvMDFyOTNsbnhyZjBteHRycSJ9.g6tRaqN8_iJxHgAQKNP6Tw'
@@ -568,6 +587,11 @@ will want to adjust the Map.data which populates the select input and legend.
             this.leafletMap = new Map()
             this.leafletMap.map.on("popupopen", (e) => {
                 this.siteSelect.value = e.popup.site.siteName
+
+                // Default is opening '#close' which breaks url paramaters
+                document.getElementsByClassName("leaflet-popup-close-button")[0].addEventListener("click", (e) => {
+                    e.preventDefault()
+                })
             })
 
             this.viewSelect = new Select("view")
@@ -606,7 +630,9 @@ will want to adjust the Map.data which populates the select input and legend.
 
         update() {
             this.siteSelect.addOptions(
-                Object.values(this.layer._layers).map(({ site })=> [site.siteName, site.siteName])
+                Object.values(this.layer._layers)
+                    .map(({ site })=> [site.siteName, `${site.facilityName} - ${site.siteName}`])
+                    .sort((a, b) => a[1].localeCompare(b[1]))
             )
             this.leafletMap.update(this.layer, this.metaData[this.view].legend)
         }
@@ -615,8 +641,18 @@ will want to adjust the Map.data which populates the select input and legend.
             let response = await fetch("/api/resource_group_summary")
             let resourceGroupJson = await response.json()
 
+            // Filter out inactive resources and resource groups with only inactive resources
+            let activeResourceGroupJson = Object.entries(resourceGroupJson).reduce((o, [k,rg]) => {
+                let activeResources = rg["Resources"]["Resource"].filter(x => x['Active'])
+                if(activeResources.length && rg['Production']){
+                    rg["Resources"]["Resource"] = activeResources
+                    o[k] = rg
+                }
+                return o
+            }, {})
+
             let sites = {}
-            Object.entries(resourceGroupJson).forEach(([key, value]) => {
+            Object.entries(activeResourceGroupJson).forEach(([key, value]) => {
                 if(value?.Site?.Name in sites){
                     sites[value?.Site?.Name].addResourceGroup(value)
                 } else {
