@@ -82,7 +82,8 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description: MWT2-hosted resources for Connect-related submitters. Supporting
+    Description:
+      MWT2-hosted resources for Connect-related submitters. Supporting
       OSG, XENON1T, OSG, ATLAS, CMS, etc via direct flocking.
     FQDN: condor.grid.uchicago.edu
     ID: 846
@@ -326,7 +327,8 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description: MWT2 Gatekeeper located at University of Illinois @ Urbana-Champaign,
+    Description:
+      MWT2 Gatekeeper located at University of Illinois @ Urbana-Champaign,
       IL
     FQDN: mwt2-gk.campuscluster.illinois.edu
     ID: 490
@@ -415,7 +417,8 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description: MWT2 CVMFS Squid located at the University of Chicago @ Chicago,
+    Description:
+      MWT2 CVMFS Squid located at the University of Chicago @ Chicago,
       IL
     FQDN: uct2-cvmfs.mwt2.org
     ID: 913
@@ -453,7 +456,8 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description: MWT2 CVMFS Squid located at University of Illinois @ Urbana-Champaign,
+    Description:
+      MWT2 CVMFS Squid located at University of Illinois @ Urbana-Champaign,
       IL
     FQDN: mwt2-cvmfs.campuscluster.illinois.edu
     ID: 914
@@ -726,13 +730,13 @@ Resources:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
     Description: MWT2 SLATE Varnish cache located at University of Chicago, IL
-    FQDN: v4a.atlas-ml.org
+    FQDN: v4a.mwt2.org
     ID: 1320
     Services:
       Squid:
         Description: Varnish based squid service for Frontier
         Details:
-          uri_override: v4a.atlas-ml.org:6081
+          uri_override: v4a.mwt2.org:6081
           Monitored: true
   MWT2_VARNISH_CVMFS:
     Active: true
@@ -764,13 +768,13 @@ Resources:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
     Description: MWT2 SLATE Varnish cache located at University of Chicago, IL
-    FQDN: v4cvmfs.atlas-ml.org
+    FQDN: v4cvmfs.mwt2.org
     ID: 1321
     Services:
       Squid:
         Description: Varnish based squid service for CVMFS
         Details:
-          uri_override: v4cvmfs.atlas-ml.org:6081
+          uri_override: v4cvmfs.mwt2.org:6081
           Monitored: true
     VOOwnership:
       ATLAS: 100
@@ -806,7 +810,7 @@ Resources:
     Description: MWT2 dCache/SRM frontend
     FQDN: uct2-dcache-head.mwt2.org
     FQDNAliases:
-    - uct2-dc1.uchicago.edu
+      - uct2-dc1.uchicago.edu
     ID: 1182
     Services:
       SRMv2:
@@ -863,7 +867,7 @@ Resources:
       GridFtp:
         Description: gridftp Storage Element
         Details:
-          hidden: false  
+          hidden: false
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -1925,7 +1929,8 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description: MWT2 perfSONAR-PS Bandwidth instance at the University of Illinois
+    Description:
+      MWT2 perfSONAR-PS Bandwidth instance at the University of Illinois
       at Urbana-Champaign
     FQDN: mwt2-ps02.campuscluster.illinois.edu
     ID: 582
@@ -2004,7 +2009,8 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description: MWT2 perfSONAR-PS Latency instance at the University of Illinois
+    Description:
+      MWT2 perfSONAR-PS Latency instance at the University of Illinois
       at Urbana-Champaign
     FQDN: mwt2-ps01.campuscluster.illinois.edu
     ID: 518
