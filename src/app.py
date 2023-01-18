@@ -14,7 +14,7 @@ import traceback
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape, create_accepted_response
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
@@ -223,6 +223,21 @@ def contacts():
     except (KeyError, AttributeError):
         app.log_exception(sys.exc_info())
         return Response("Error getting users", status=503)  # well, it's better than crashing
+
+@app.route('/api/institutions')
+def institutions():
+
+    resource_facilities = set(global_data.get_topology().facilities.keys())
+    project_facilities = set(x['Organization'] for x in global_data.get_projects()['Projects']['Project'])
+
+    facilities = project_facilities.union(resource_facilities)
+
+    facility_data = [["Institution Name", "Has Resource(s)", "Has Project(s)"]]
+    for facility in sorted(facilities):
+        facility_data.append([facility, facility in resource_facilities, facility in project_facilities])
+
+    return create_accepted_response(facility_data, request.headers, default="text/csv")
+
 
 
 @app.route('/miscproject/xml')
