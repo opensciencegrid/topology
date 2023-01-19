@@ -12,11 +12,13 @@ dt_not_up_to_date = (
     " was not up-to-date with `{base_label}` ({base_sha});"
     " OSG Staff will need to manually approve this PR.\n"
     "\n"
-    "-- OSG-BOT  :broken_heart:"
+    "-- OSG-BOT  :broken_heart:\n"
+    "\n"
+    "(Attn: @opensciencegrid/software-and-release)"
 )
 
 unexpected_error = (
-    "OSG Staff:\n"
+    "OSG Staff: (@opensciencegrid/software-and-release)\n"
     "\n"
     "There was an unexpected error verifying this PR - please review.\n"
     "\n"
@@ -44,6 +46,8 @@ dt_not_all_checks_pass = (
     "\n"
     "-- OSG-BOT  :mag:\n"
     "\n"
+    "(Attn: @opensciencegrid/software-and-release)\n"
+    "\n"
     "---\n"
     "\n"
     "Output from the automerge downtime check script:\n"
@@ -67,7 +71,9 @@ non_dt_contact_error = (
     "\n"
     "OSG Staff will need to review this PR manually.\n"
     "\n"
-    "-- OSG-BOT  :dark_sunglasses:"
+    "-- OSG-BOT  :dark_sunglasses:\n"
+    "\n"
+    "(Attn: @opensciencegrid/software-and-release)"
 )
 
 new_org_rejected = (
@@ -79,6 +85,8 @@ new_org_rejected = (
     " to a project file; this requires manual review from OSG Staff.\n"
     "\n"
     "-- OSG-BOT  :oncoming_police_car:\n"
+    "\n"
+    "(Attn: @opensciencegrid/software-and-release)\n"
     "\n"
     "---\n"
     "\n"
@@ -111,7 +119,9 @@ ci_failure = (
     "Our CI checks failed for your downtime update;"
     " OSG Staff will help investigate shortly.\n"
     "\n"
-    "-- OSG-BOT  :disappointed:"
+    "-- OSG-BOT  :disappointed:\n"
+    "\n"
+    "(Attn: @opensciencegrid/software-and-release)"
 )
 
 ci_action_required = (
@@ -124,7 +134,9 @@ ci_action_required = (
     "\n"
     "OSG Staff: Please review.\n"
     "\n"
-    "-- OSG-BOT  :lock:"
+    "-- OSG-BOT  :lock:\n"
+    "\n"
+    "(Attn: @opensciencegrid/software-and-release)"
 )
 
 merge_success = (
@@ -144,6 +156,8 @@ merge_failure = (
     "\n"
     "OSG Staff will investigate shortly.\n"
     "\n"
-    "-- OSG-BOT :confused:"
+    "-- OSG-BOT :confused:\n"
+    "\n"
+    "(Attn: @opensciencegrid/software-and-release)"
 )
 
