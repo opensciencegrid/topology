@@ -30,3 +30,24 @@ Resources:
     Services:
       Execution Endpoint:
         Description: Backfill containers running in the osg production namespace.
+        
+  FIU_OSDF_CACHE:
+    Active: false
+    Description: FIU IPv6 OSDF cache
+    ID: 1403
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+    FQDN: fiu-cache.nationalresearchplatform.org
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=fiu-cache.nationalresearchplatform.org
+    Services:
+      XRootD cache server:
+        Description: FIU IPv6 OSDF cache
+    AllowedVOs:
+      - ANY
