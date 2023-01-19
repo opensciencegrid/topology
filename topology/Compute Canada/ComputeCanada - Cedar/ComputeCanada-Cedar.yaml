@@ -32,3 +32,23 @@ Resources:
         Description: ComputeCanada-Cedar Hosted CE
         Details:
           hidden: false
+  ComputeCanada-Cedar-Cache:
+    Active: false
+    Description: Compute Canada Cedar Cluster at SFU - StashCache XRootD cache server
+    ID: 1407
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  OSG1000281
+          Name: Leslie Groer
+      Security Contact:
+        Primary:
+          ID:  OSG1000281
+          Name: Leslie Groer
+    FQDN: osg-cache.sfu.computecanada.ca
+    DN: /C=CA/O=Grid/OU=sfu.computecanada.ca/CN=osg-stash.sfu.computecanada.ca
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    AllowedVOs:
+      - ANY
