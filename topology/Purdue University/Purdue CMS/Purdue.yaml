@@ -38,9 +38,9 @@ Resources:
       APELNormalFactor: 15.07
       AccountingName: T2_US_Purdue
       HEPSPEC: 3929
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
       KSI2KMax: 500
       KSI2KMin: 100
       StorageCapacityMax: 0
@@ -135,7 +135,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 5.5
   Purdue-Halstead:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -203,7 +203,7 @@ Resources:
       Compute Element for Purdue Brown cluster (opportunistic).
       https://www.rcac.purdue.edu/compute/brown
     FQDN: brown-osg.rcac.purdue.edu
-    ID: 929
+    ID: 1378
     Services:
       CE:
         Description: Compute Element

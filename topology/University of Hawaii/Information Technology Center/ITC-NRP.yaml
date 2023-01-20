@@ -1,0 +1,20 @@
+GroupID: 1331
+GroupDescription: Origin for Information Technology Services (University of Hawaii, System)
+SupportCenter: Self Supported
+Production: true
+Resources:
+  ITC_OSDF_ORIGIN:
+    Active: true
+    Description: ITC OSDF Origin
+    ID: 1349
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+    FQDN: fiona.its.hawaii.edu
+    Services:
+      XRootD origin server:
+        Description: ITC OSDF Origin
+    AllowedVOs:
+      - ANY

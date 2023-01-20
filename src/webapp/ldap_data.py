@@ -72,6 +72,11 @@ def cilogon_id_map_to_yaml_data(m):
             data[id_] = {'CILogonID'          : id_,
                          'FullName'           : entry['data']['cn'][0],
                          'ContactInformation' : cinfo}
+
+            github = entry['data'].get('voPersonExternalID')
+            if github:
+                data[id_]['GitHub'] = github[0]
+
     return data
 
 

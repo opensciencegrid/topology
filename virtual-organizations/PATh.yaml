@@ -1,0 +1,86 @@
+Name: PATh
+LongName: Partnership to Advance Throughput Computing
+# AppDescription is a brief description of the VO
+AppDescription: >-
+  The Partnership to Advance Throughput Computing (PATh) is a project funded by NSF’s OAC Campus Cyberinfrastructure (CC*) program in order to address the needs of the rapidly growing community of faculty and students who are embracing Distributed High Throughput Computing (dHTC) technologies and services to advance their research.
+
+# Community is the description of the community the VO belongs to
+Community: Users of Distributed High Throughput Computing
+
+CertificateOnly: false
+
+ID: 226
+
+Contacts:
+  # Administrative Contact is a list of people to contact regarding administrative issues
+  Administrative Contact:
+  - ID: 48e1c2f26dc3479a6cf9b2de7c79d654ac27b1d1
+    Name: Miron Livny
+  - ID: OSG1000001
+    Name: Brian Bockelman
+  - ID: OSG1000018
+    Name: Christina Koch
+
+  # Security Contact is a list of people to contact regarding security issues
+  Security Contact:
+  - ID: OSG1000001
+    Name: Brian Bockelman
+  - ID: OSG1000015
+    Name: Aaron Moate
+
+
+### Credentials (optional) define mappings of auth methods to Unix users for this VO
+# Credentials:
+##### TokenIssuers (optional) is a list of mappings for SciTokens issuers
+#   # TokenIssuers:
+#   ### URL is the https URL of your scitokens issuer, e.g. https://scitokens.org/<VO NAME>
+#   ### DefaultUnixUser is a username that jobs with tokens issued by this issuer should map to
+#   ### Description (optional) is human-readable text describing the mapping
+#   ### Subject (optional) is a token subject to restrict this mapping to
+#   # - URL: <URL>
+#   #   DefaultUnixUser: <USER>
+#   #   Description: <TEXT>
+#   #   Subject: <SUBJECT>
+
+FieldsOfScience:
+
+  # PrimaryFields are the fields of science this VO mostly deals with
+  PrimaryFields:
+  - Multi-Science Community
+
+  ### SecondaryFields (optional) are fields of science this VO occasionally deals with
+  # SecondaryFields:
+  # - <FIELD>
+  # - ...
+
+# PrimaryURL is for general information about the VO
+PrimaryURL: https://path-cc.io
+# PurposeURL explains the VO's purpose
+PurposeURL: https://path-cc.io/about/
+# SupportURL is for support issues
+SupportURL: https://path-cc.io/contact/
+
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /path-facility/protected
+        Authorizations:
+          - SciTokens:
+              Issuer: https://path-cc.io/
+              Base Path: /path-facility/protected
+              Map Subject: True
+        AllowedOrigins: []
+        ## once the origin is registered, replace above with:
+        # AllowedOrigins:
+        #   - CHTC-PATH-ORIGIN
+        AllowedCaches:
+          # Internet2 caches:
+          - Stashcache-Chicago
+          - Stashcache-Kansas
+          - Stashcache-Houston
+          - Stashcache-Manhattan
+          - Stashcache-Sunnyvale
+          # CHTC
+          - CHTC_TIGER_CACHE
+        # Writeback: https://path-origin.chtc.wisc.edu:1095
+        # DirList: https://path-origin.chtc.wisc.edu:1095

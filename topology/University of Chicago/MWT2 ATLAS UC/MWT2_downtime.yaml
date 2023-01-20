@@ -1442,3 +1442,36 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1348259145
+  Description: Switch failure
+  Severity: Outage
+  StartTime: Nov 29, 2022 22:00 +0000
+  EndTime: Dec 05, 2022 14:00 +0000
+  CreatedTime: Nov 30, 2022 16:31 +0000
+  ResourceName: MWT2_CE_IU
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1348262765
+  Description: Switch failure
+  Severity: Outage
+  StartTime: Nov 29, 2022 22:00 +0000
+  EndTime: Dec 05, 2022 14:00 +0000
+  CreatedTime: Nov 30, 2022 16:37 +0000
+  ResourceName: MWT2_CE_IU2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1348264449
+  Description: Switch failure
+  Severity: Outage
+  StartTime: Nov 29, 2022 22:00 +0000
+  EndTime: Dec 05, 2022 14:00 +0000
+  CreatedTime: Nov 30, 2022 16:40 +0000
+  ResourceName: MWT2_SLATE_IU
+  Services:
+  - Squid
+# ---------------------------------------------------------
