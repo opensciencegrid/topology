@@ -81,7 +81,7 @@ DataFederations:
           # CHTC
           - CHTC_TIGER_CACHE
         Writeback: https://path-origin.chtc.wisc.edu:1095
-        # DirList: https://path-origin.chtc.wisc.edu:1095
+        DirList: https://path-origin.chtc.wisc.edu:1095
 
       - Path: /path-facility/projects
         Authorizations:
@@ -101,4 +101,4 @@ DataFederations:
           # CHTC
           - CHTC_TIGER_CACHE
         Writeback: https://path-origin.chtc.wisc.edu:1095
-        # DirList: https://path-origin.chtc.wisc.edu:1095
+        DirList: https://path-origin.chtc.wisc.edu:1095
