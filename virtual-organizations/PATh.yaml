@@ -63,16 +63,34 @@ SupportURL: https://path-cc.io/contact/
 DataFederations:
   StashCache:
     Namespaces:
-      - Path: /path-facility/protected
+      - Path: /path-facility/data
         Authorizations:
           - SciTokens:
               Issuer: https://path-cc.io/
-              Base Path: /path-facility/protected
+              Base Path: /path-facility/data
               Map Subject: True
-        AllowedOrigins: []
-        ## once the origin is registered, replace above with:
-        # AllowedOrigins:
-        #   - CHTC-PATH-ORIGIN
+        AllowedOrigins:
+          - CHTC-PATH-ORIGIN
+        AllowedCaches:
+          # Internet2 caches:
+          - Stashcache-Chicago
+          - Stashcache-Kansas
+          - Stashcache-Houston
+          - Stashcache-Manhattan
+          - Stashcache-Sunnyvale
+          # CHTC
+          - CHTC_TIGER_CACHE
+        # Writeback: https://path-origin.chtc.wisc.edu:1095
+        # DirList: https://path-origin.chtc.wisc.edu:1095
+
+      - Path: /path-facility/projects
+        Authorizations:
+          - SciTokens:
+              Issuer: https://path-cc.io/
+              Base Path: /path-facility/projects
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-PATH-ORIGIN
         AllowedCaches:
           # Internet2 caches:
           - Stashcache-Chicago
