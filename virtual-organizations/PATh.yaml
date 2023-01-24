@@ -80,7 +80,7 @@ DataFederations:
           - Stashcache-Sunnyvale
           # CHTC
           - CHTC_TIGER_CACHE
-        # Writeback: https://path-origin.chtc.wisc.edu:1095
+        Writeback: https://path-origin.chtc.wisc.edu:1095
         # DirList: https://path-origin.chtc.wisc.edu:1095
 
       - Path: /path-facility/projects
@@ -100,5 +100,5 @@ DataFederations:
           - Stashcache-Sunnyvale
           # CHTC
           - CHTC_TIGER_CACHE
-        # Writeback: https://path-origin.chtc.wisc.edu:1095
+        Writeback: https://path-origin.chtc.wisc.edu:1095
         # DirList: https://path-origin.chtc.wisc.edu:1095
