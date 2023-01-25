@@ -309,7 +309,7 @@ def iface_matches(network_iface, pattern):
     """
     if fnmatch.fnmatch(network_iface, pattern):
         return True
-    for family, addrs in network_iface.addresses.items():
+    for _, addrs in network_iface.addresses.items():
         if fnmatch.filter(addrs, pattern):
             return True
     return False
