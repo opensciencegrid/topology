@@ -8,12 +8,10 @@ from typing import Dict, List, Optional, Tuple
 import icalendar
 
 from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml,\
-    is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER
+    is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER,\
+    GRIDTYPE_1, GRIDTYPE_2
 from .contacts_reader import ContactsData, User
 from .exceptions import DataError
-
-GRIDTYPE_1 = "OSG Production Resource"
-GRIDTYPE_2 = "OSG Integration Test Bed Resource"
 
 log = getLogger(__name__)
 
@@ -223,6 +221,10 @@ class Resource(object):
         if filters.service_id:
             filtered_services = [svc for svc in filtered_services
                                  if svc["ID"] in filters.service_id]
+        if filters.service_name:
+            filtered_services = [svc for svc in filtered_services
+                                 if svc["Name"] in filters.service_name]
+
         if filters.service_hidden is not None:
             filtered_services = [svc for svc in filtered_services
                                  if not is_null(svc, "Details", "hidden")
@@ -383,9 +385,13 @@ class ResourceGroup(object):
         if filters is None:
             filters = Filters()
         for filter_list, attribute in [(filters.facility_id, self.site.facility.id),
+                                       (filters.facility_name, self.site.facility.name),
                                        (filters.site_id, self.site.id),
+                                       (filters.site_name, self.site.name),
                                        (filters.support_center_id, self.support_center["ID"]),
-                                       (filters.rg_id, self.id)]:
+                                       (filters.support_center_name, self.support_center["Name"]),
+                                       (filters.rg_id, self.id),
+                                       (filters.rg_name, self.name)]:
             if filter_list and attribute not in filter_list:
                 return
         data_gridtype = GRIDTYPE_1 if self.data.get("Production", None) else GRIDTYPE_2
@@ -490,9 +496,13 @@ class Downtime(object):
         if filters is None:
             filters = Filters()
         for filter_list, attribute in [(filters.facility_id, self.rg.site.facility.id),
+                                       (filters.facility_name, self.rg.site.facility.name),
                                        (filters.site_id, self.rg.site.id),
+                                       (filters.site_name, self.rg.site.name),
                                        (filters.support_center_id, self.rg.support_center["ID"]),
-                                       (filters.rg_id, self.rg.id)]:
+                                       (filters.support_center_name, self.rg.support_center["Name"]),
+                                       (filters.rg_id, self.rg.id),
+                                       (filters.rg_name, self.rg.name)]:
             if filter_list and attribute not in filter_list:
                 return False
 
