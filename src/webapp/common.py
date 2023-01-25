@@ -335,5 +335,15 @@ def support_cors(f):
     return wrapped
 
 
+def cache_control_private(f):
+    """Decorator to set `Cache-Control: private` on response"""
+    @wraps(f)
+    def wrapped():
+        response = f()
+        response.cache_control.private = True
+        return response
+    return wrapped
+
+
 XROOTD_CACHE_SERVER = "XRootD cache server"
 XROOTD_ORIGIN_SERVER = "XRootD origin server"

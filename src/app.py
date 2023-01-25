@@ -14,7 +14,7 @@ import traceback
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape, cache_control_private
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
@@ -90,6 +90,14 @@ def _fix_unicode(text):
     """Convert a partial unicode string to full unicode"""
     return text.encode('utf-8', 'surrogateescape').decode('utf-8')
 
+@app.after_request
+def set_cache_control(response):
+    if response.status_code == 200:
+        # Cache results for 300s
+        response.cache_control.max_age = 300
+        # Serve an expired entry for up to 100s while refreshing in the background
+        response.headers['Cache-Control'] += ', stale-while-revalidate=100'
+    return response
 
 @app.route('/')
 def homepage():
@@ -120,6 +128,7 @@ def schema(xsdfile):
 
 
 @app.route('/miscuser/xml')
+@cache_control_private
 def miscuser_xml():
     return Response(to_xml_bytes(global_data.get_contacts_data().get_tree(_get_authorized())),
                     mimetype='text/xml')
@@ -214,12 +223,13 @@ def collaborations_scitoken_text():
 
 
 @app.route('/contacts')
+@cache_control_private
 def contacts():
     try:
         authorized = _get_authorized()
         contacts_data = global_data.get_contacts_data().without_duplicates()
         users_list = contacts_data.get_tree(_get_authorized())["Users"]["User"]
-        return _fix_unicode(render_template('contacts.html.j2', users=users_list, authorized=authorized))
+        return Response(_fix_unicode(render_template('contacts.html.j2', users=users_list, authorized=authorized)))
     except (KeyError, AttributeError):
         app.log_exception(sys.exc_info())
         return Response("Error getting users", status=503)  # well, it's better than crashing
@@ -415,6 +425,7 @@ def stashcache_namespaces_json():
 
 
 @app.route("/oasis-managers/json")
+@cache_control_private
 def oasis_managers():
     if not _get_authorized():
         return Response("Not authorized", status=403)
@@ -808,9 +819,23 @@ def _get_authorized():
     """
     global app
 
+    if 'GRST_CRED_AURI_0' in request.environ:
+        # Use GridSite envvars if available
+        authinfo = [v for k, v in request.environ.items() if k.startswith('GRST_CRED_AURI_')]
+    else:
+        # If not, use headers added by the upstream proxy to pass GridSite info
+        # WARNING: Be careful which headers are used. We can only use the ones set by a trusted upstream.
+        authinfo = list()
+        for i in range(0,5):
+            # The 0-4 range was chosen arbitrarily. It just needs to match the upstream RequestHeaders config.
+            try:
+                authinfo.append(request.headers['Grst-Cred-Auri-%d' % i])
+            except KeyError:
+                pass
+
     # Loop through looking for all of the creds
-    for key, value in request.environ.items():
-        if key.startswith('GRST_CRED_AURI_') and value.startswith("dn:"):
+    for value in authinfo:
+        if value.startswith("dn:"):
 
             # HTTP unquote the DN:
             client_dn = urllib.parse.unquote_plus(value)
