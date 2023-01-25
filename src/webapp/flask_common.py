@@ -1,8 +1,8 @@
 from flask import Response
 from .common import to_csv, to_json_bytes
+from typing import List
 
-
-def create_accepted_response(data: list, headers, default=None) -> Response:
+def create_accepted_response(data: List, headers, default=None) -> Response:
     """Provides CSV or JSON options for list of list(string)"""
 
     if not default:
