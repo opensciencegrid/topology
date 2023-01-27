@@ -1,0 +1,119 @@
+# Name is the short name of the VO
+Name: ATLAS
+# LongName is the full name of the VO
+LongName: United States ATLAS Collaboration
+# AppDescription is a brief description of the VO
+AppDescription: ATLAS Production and Analysis
+# Community is the description of the community the VO belongs to
+Community: The ATLAS physics community.
+
+CertificateOnly: false
+
+# If you have an up-to-date local git clone, fill ID with the output from `bin/next_virtual_organization_id`
+# Otherwise, leave it blank and we will fill in the appropriate value for you.
+ID: <ID>
+
+# Contacts contain information about people to contact regarding this VO.
+# The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
+# If you cannot find the contact in the above XML, please register the contact:
+# https://opensciencegrid.org/docs/common/registration/#registering-contacts
+Contacts:
+  # Administrative Contact is a list of people to contact regarding administrative issues
+  Administrative Contact:
+  - ID: <EMAIL HASH>
+    Name: <FULL NAME>
+  # - ...
+
+  # Security Contact is a list of people to contact regarding security issues
+  Security Contact:
+  - ID: <EMAIL HASH>
+    Name: <FULL NAME>
+  # - ...
+
+  ### Registration Authority (optional) is a list of people to contact regarding registration issues
+  # Registration Authority:
+  # - ID: <EMAIL HASH>
+  #   Name: <FULL NAME>
+  # - ...
+
+  ### VO Manager (optional) is the list of people who manage this VO
+  # VO Manager:
+  # - ID: <EMAIL HASH>
+  #   Name: <FULL NAME>
+  # - ...
+
+### Credentials (optional) define mappings of auth methods to Unix users for this VO
+# Credentials:
+##### TokenIssuers (optional) is a list of mappings for SciTokens issuers
+#   # TokenIssuers:
+#   ### URL is the https URL of your scitokens issuer, e.g. https://scitokens.org/<VO NAME>
+#   ### DefaultUnixUser is a username that jobs with tokens issued by this issuer should map to
+#   ### Description (optional) is human-readable text describing the mapping
+#   ### Subject (optional) is a token subject to restrict this mapping to
+#   # - URL: <URL>
+#   #   DefaultUnixUser: <USER>
+#   #   Description: <TEXT>
+#   #   Subject: <SUBJECT>
+
+FieldsOfScience:
+
+  # PrimaryFields are the fields of science this VO mostly deals with
+  PrimaryFields:
+  - <FIELD>
+
+  ### SecondaryFields (optional) are fields of science this VO occasionally deals with
+  # SecondaryFields:
+  # - <FIELD>
+  # - ...
+
+# PrimaryURL is for general information about the VO
+PrimaryURL: <URL>
+# PurposeURL explains the VO's purpose
+PurposeURL: http://www.usatlas.bnl.gov/index.shtml
+# SupportURL is for support issues
+SupportURL: http://www.usatlas.bnl.gov/index.shtml
+
+### ReportingGroups (optional) is a list of groups this VO reports to
+# ReportingGroups:
+# - <GROUP>
+# - ...
+
+### OASIS (optional) is information about OASIS usage by the VO
+# OASIS:
+##### UseOASIS is true if this VO uses space on OASIS
+#   UseOASIS: true
+#
+####### Managers (optional) are one or more people with manager access to this VO's OASIS space
+#   # Managers:
+#   #   - Name: <MANAGER NAME>
+#   #     # DNs are one or more DNs for this manager's cert(s)
+#   #     DNs:
+#   #     - <DN>
+#   #     - ...
+#   #   ...
+#
+####### OASISRepoURLs (optional) are one or more URLs for OASIS repositories
+####### owned by this VO (https://opensciencegrid.org/docs/data/external-oasis-repos/)
+#   # OASISRepoURLs:
+#   # - <URL>
+#   # - ...
+
+### DataFederations (optional) is information about data federations that the VO is part of
+### This template is for the StashCache data federation; for instructions,
+### see the documentation at https://opensciencegrid.org/docs/data/stashcache/vo-data/
+# DataFederations:
+#   StashCache:
+#     Namespaces:
+#       - Path: /<VONAME>/PUBLIC:
+#         Authorizations:
+#           - ANY
+#         AllowedOrigins:
+#           - <ORIGIN_RESOURCE>
+#           - ...
+### For AllowedCaches, if you only have public data, use:
+#         AllowedCaches:
+#           - ANY
+### otherwise use:
+#         AllowedCaches:
+#           - <CACHE_RESOURCE>
+#           - ...
