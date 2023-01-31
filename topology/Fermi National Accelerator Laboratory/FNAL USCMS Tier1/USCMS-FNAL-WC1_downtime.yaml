@@ -837,4 +837,16 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1401739041
+  Description: FTS server swap-back
+  Severity: Intermittent Outage
+  StartTime: Feb 01, 2023 14:00 +0000
+  EndTime: Feb 01, 2023 23:00 +0000
+  CreatedTime: Jan 31, 2023 13:05 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - FTS
+# ---------------------------------------------------------
+
 
