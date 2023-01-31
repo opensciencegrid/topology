@@ -133,7 +133,7 @@ def parseargs():
 
     if args.from_name == 'security':
         args.from_name = 'OSG Security Team'
-        args.from_addr = 'security@osg-htc.org'
+        args.from_addr = 'security@opensciencegrid.org'
     else:
         args.from_name = 'OSG'
         args.from_addr = 'help@osg-htc.org'
