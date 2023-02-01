@@ -129,7 +129,7 @@ DataFederations:
               Map Subject: True
           - SciTokens:
               Issuer: https://path-cc.io/
-              Base Path: /ospool/PROTECTED
+              Base Path: /ospool/PROTECTED,/path-facility/data
               Map Subject: True
         AllowedOrigins:
           - CHTC_OSPOOL_ORIGIN
