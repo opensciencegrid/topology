@@ -67,7 +67,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://path-cc.io/
-              Base Path: /path-facility/data
+              Base Path: /ospool/PROTECTED,/path-facility/data
               Map Subject: True
         AllowedOrigins:
           - CHTC-PATH-ORIGIN
