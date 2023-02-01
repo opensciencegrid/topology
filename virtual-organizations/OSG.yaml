@@ -127,6 +127,10 @@ DataFederations:
               Issuer: https://osg-htc.org/ospool
               Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
               Map Subject: True
+          - SciTokens:
+              Issuer: https://path-cc.io/
+              Base Path: /ospool/PROTECTED,/path-facility/data
+              Map Subject: True
         AllowedOrigins:
           - CHTC_OSPOOL_ORIGIN
         AllowedCaches:
@@ -166,5 +170,7 @@ DataFederations:
         AllowedOrigins:
           - SDSC-test-Origin
           - SDSC_NRP_OSDF_ORIGIN
+          - NEBRASKA_NRP_OSDF_ORIGIN
+          - MGHPCC_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
