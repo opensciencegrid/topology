@@ -66,7 +66,7 @@ DataFederations:
       - Path: /path-facility/data
         Authorizations:
           - SciTokens:
-              Issuer: https://path-cc.io/
+              Issuer: https://path-cc.io
               Base Path: /ospool/PROTECTED,/path-facility/data,/path-facility/projects
               Map Subject: True
         AllowedOrigins:
@@ -86,7 +86,7 @@ DataFederations:
       - Path: /path-facility/projects
         Authorizations:
           - SciTokens:
-              Issuer: https://path-cc.io/
+              Issuer: https://path-cc.io
               Base Path: /ospool/PROTECTED,/path-facility/data,/path-facility/projects
               Map Subject: True
         AllowedOrigins:
