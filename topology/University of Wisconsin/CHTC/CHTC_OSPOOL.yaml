@@ -119,6 +119,5 @@ Resources:
     Services:
       Execution Endpoint:
         Description: OSG VO backfill containers on the Tiger cluster, in the development namespace
-    ## ITB pool, not production
-    # Tags:
-    #   - OSPool
+    Tags:
+      - OSPool
