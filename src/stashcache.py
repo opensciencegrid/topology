@@ -7,8 +7,7 @@ from webapp.ldap_data import get_ligo_ldap_dn_list
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
 from webapp.vos_data import AuthMethod, DNAuth, SciTokenAuth, Namespace, \
-    parse_authz, ANY, ANY_PUBLIC
-
+    parse_authz, ANY, ANY_PUBLIC, VOsData
 
 import logging
 
@@ -282,6 +281,60 @@ audience = {allowed_vos_str}
     return template.format(**locals()).rstrip() + "\n"
 
 
+class _IdNamespaceData:
+    def __init__(self):
+        self.public_paths = set()
+        self.id_to_paths = defaultdict(set)
+        self.id_to_str = {}
+        self.warnings = []
+
+    @classmethod
+    def for_origin(cls, topology: Topology, vos_data: VOsData, origin_resource: Resource,
+                   public_origin: bool) -> "_IdNamespaceData":
+        me = cls()
+        for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
+            for path, namespace in stashcache_obj.namespaces.items():
+                if not namespace_allows_origin_resource(namespace, origin_resource):
+                    continue
+                if not resource_allows_namespace(origin_resource, namespace):
+                    continue
+                if namespace.is_public():
+                    me.public_paths.add(path)
+                    continue
+                if public_origin:
+                    continue
+
+                # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
+                # Ignore FQANs and DNs listed in the namespace's authz list.
+                authz_list = []
+
+                allowed_resources = [origin_resource]
+                # Add caches
+                allowed_caches = get_supported_caches_for_namespace(namespace, topology)
+                if allowed_caches:
+                    allowed_resources.extend(allowed_caches)
+                else:
+                    # TODO This situation should be caught by the CI
+                    me.warnings.append(f"# WARNING: No working cache / namespace combinations found for {path}")
+
+                for resource in allowed_resources:
+                    dn = resource.data.get("DN")
+                    if dn:
+                        authz_list.append(DNAuth(dn))
+                    else:
+                        me.warnings.append(
+                            f"# WARNING: Resource {resource.name} was skipped for VO {vo_name}, namespace {path}"
+                            f" because the resource does not provide a DN."
+                        )
+                        continue
+
+                for authz in authz_list:
+                    if authz.used_in_authfile:
+                        me.id_to_paths[authz.get_authfile_id()].add(path)
+                        me.id_to_str[authz.get_authfile_id()] = str(authz)
+        return me
+
+
 def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors=True, public_origin=False) -> str:
     """
     Generate the XRootD Authfile needed by a StashCache origin server, given the FQDN
@@ -299,66 +352,22 @@ def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors
         if not origin_resource:
             return ""
 
-    public_paths = set()
-    id_to_paths = defaultdict(set)
-    id_to_str = {}
-    warnings = []
+    idns = _IdNamespaceData.for_origin(topology, vos_data, origin_resource, public_origin)
 
-    for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
-        for path, namespace in stashcache_obj.namespaces.items():
-            if not namespace_allows_origin_resource(namespace, origin_resource):
-                continue
-            if not resource_allows_namespace(origin_resource, namespace):
-                continue
-            if namespace.is_public():
-                public_paths.add(path)
-                continue
-            if public_origin:
-                continue
-
-            # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
-            # Ignore FQANs and DNs listed in the namespace's authz list.
-            authz_list = []
-
-            allowed_resources = [origin_resource]
-            # Add caches
-            allowed_caches = get_supported_caches_for_namespace(namespace, topology)
-            if allowed_caches:
-                allowed_resources.extend(allowed_caches)
-            else:
-                # TODO This situation should be caught by the CI
-                warnings.append(f"# WARNING: No working cache / namespace combinations found for {path}")
-
-            for resource in allowed_resources:
-                dn = resource.data.get("DN")
-                if dn:
-                    authz_list.append(DNAuth(dn))
-                else:
-                    warnings.append(
-                        f"# WARNING: Resource {resource.name} was skipped for VO {vo_name}, namespace {path}"
-                        f" because the resource does not provide a DN."
-                    )
-                    continue
-
-            for authz in authz_list:
-                if authz.used_in_authfile:
-                    id_to_paths[authz.get_authfile_id()].add(path)
-                    id_to_str[authz.get_authfile_id()] = str(authz)
-
-    if not id_to_paths and not public_paths:
+    if not idns.id_to_paths and not idns.public_paths:
         raise DataError("Origin does not support any namespaces")
 
     authfile_lines = []
-    authfile_lines.extend(warnings)
-    for authfile_id in id_to_paths:
-        paths_acl = " ".join(f"{p} lr" for p in sorted(id_to_paths[authfile_id]))
-        authfile_lines.append(f"# {id_to_str[authfile_id]}")
+    authfile_lines.extend(idns.warnings)
+    for authfile_id in idns.id_to_paths:
+        paths_acl = " ".join(f"{p} lr" for p in sorted(idns.id_to_paths[authfile_id]))
+        authfile_lines.append(f"# {idns.id_to_str[authfile_id]}")
         authfile_lines.append(f"{authfile_id} {paths_acl}")
 
     # Public paths must be at the end
-    if public_origin and public_paths:
+    if public_origin and idns.public_paths:
         authfile_lines.append("")
-        paths_acl = " ".join(f"{p} lr" for p in sorted(public_paths))
+        paths_acl = " ".join(f"{p} lr" for p in sorted(idns.public_paths))
         authfile_lines.append(f"u * {paths_acl}")
 
     return "\n".join(authfile_lines) + "\n"
