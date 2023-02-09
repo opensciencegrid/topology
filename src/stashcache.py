@@ -286,7 +286,7 @@ class _IdNamespaceData:
         self.public_paths = set()
         self.id_to_paths = defaultdict(set)
         self.id_to_str = {}
-        self.dn_to_dn_hash = {}
+        self.grid_mapfile_lines = set()
         self.warnings = []
 
     @classmethod
@@ -333,10 +333,8 @@ class _IdNamespaceData:
                     if authz.used_in_authfile:
                         me.id_to_paths[authz.get_authfile_id()].add(path)
                         me.id_to_str[authz.get_authfile_id()] = str(authz)
-                        try:
-                            me.dn_to_dn_hash[authz.dn] = authz.get_dn_hash()
-                        except AttributeError:  # this authz type doesn't have a DN
-                            pass
+                    if authz.used_in_grid_mapfile:
+                        me.grid_mapfile_lines.add(authz.get_grid_mapfile_line())
         return me
 
 
@@ -395,7 +393,7 @@ def generate_origin_grid_mapfile(global_data: GlobalData, fqdn: str, suppress_er
 
     grid_mapfile_lines = []
     grid_mapfile_lines.extend(idns.warnings)
-    grid_mapfile_lines.extend(f'"{dn}" {dn_hash}' for dn, dn_hash in idns.dn_to_dn_hash.items())
+    grid_mapfile_lines.extend(sorted(idns.grid_mapfile_lines))
 
     return "\n".join(grid_mapfile_lines) + "\n"
 
