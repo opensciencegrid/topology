@@ -292,7 +292,7 @@ class _IdNamespaceData:
     @classmethod
     def for_origin(cls, topology: Topology, vos_data: VOsData, origin_resource: Optional[Resource],
                    public_origin: bool) -> "_IdNamespaceData":
-        me = cls()
+        self = cls()
         for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
             for path, namespace in stashcache_obj.namespaces.items():
                 if not namespace_allows_origin_resource(namespace, origin_resource):
@@ -300,7 +300,7 @@ class _IdNamespaceData:
                 if not resource_allows_namespace(origin_resource, namespace):
                     continue
                 if namespace.is_public():
-                    me.public_paths.add(path)
+                    self.public_paths.add(path)
                     continue
                 if public_origin:
                     continue
@@ -316,14 +316,14 @@ class _IdNamespaceData:
                     allowed_resources.extend(allowed_caches)
                 else:
                     # TODO This situation should be caught by the CI
-                    me.warnings.append(f"# WARNING: No working cache / namespace combinations found for {path}")
+                    self.warnings.append(f"# WARNING: No working cache / namespace combinations found for {path}")
 
                 for resource in allowed_resources:
                     dn = resource.data.get("DN")
                     if dn:
                         authz_list.append(DNAuth(dn))
                     else:
-                        me.warnings.append(
+                        self.warnings.append(
                             f"# WARNING: Resource {resource.name} was skipped for VO {vo_name}, namespace {path}"
                             f" because the resource does not provide a DN."
                         )
@@ -331,11 +331,11 @@ class _IdNamespaceData:
 
                 for authz in authz_list:
                     if authz.used_in_authfile:
-                        me.id_to_paths[authz.get_authfile_id()].add(path)
-                        me.id_to_str[authz.get_authfile_id()] = str(authz)
+                        self.id_to_paths[authz.get_authfile_id()].add(path)
+                        self.id_to_str[authz.get_authfile_id()] = str(authz)
                     if authz.used_in_grid_mapfile:
-                        me.grid_mapfile_lines.add(authz.get_grid_mapfile_line())
-        return me
+                        self.grid_mapfile_lines.add(authz.get_grid_mapfile_line())
+        return self
 
 
 def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors=True, public_origin=False) -> str:
