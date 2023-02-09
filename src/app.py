@@ -12,12 +12,13 @@ import re
 import sys
 import traceback
 import urllib.parse
+import threading
 
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
-from webapp.models import GlobalData
+from webapp.models import GlobalData, update_loop
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
 
@@ -84,6 +85,24 @@ ligo_pass = readfile(global_data.ligo_ldap_passfile, app.logger)
 if not ligo_pass:
     app.logger.warning("Note, no LIGO_LDAP_PASSFILE configured; "
                        "LIGO DNs will be unavailable in authfiles.")
+
+contact_cache_updater = threading.Thread(
+    target=update_loop,
+    args=[
+        global_data.force_update_contacts_data,
+        app.config.get("CONTACT_CACHE_LIFETIME", app.config.get("CACHE_LIFETIME", 60*15)) - 60
+    ]
+)
+topology_data_cache_updater = threading.Thread(
+    target=update_loop,
+    args=[
+        global_data.force_update_topology_data,
+        app.config.get("TOPOLOGY_CACHE_LIFETIME", app.config.get("CACHE_LIFETIME", 60*15)) - 60
+    ]
+)
+
+contact_cache_updater.start()
+topology_data_cache_updater.start()
 
 
 def _fix_unicode(text):

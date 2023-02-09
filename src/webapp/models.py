@@ -331,6 +331,38 @@ class GlobalData:
 
         return self.mappings.data
 
+    def force_update_contacts_data(self):
+        log.debug("Updating Cache: Contacts")
+        self.contacts_data.force_update = True
+        self.comanage_data.force_update = True
+        self.merged_contacts_data.force_update = True
+        self.ligo_dn_list.force_update = True
+
+        self.get_contact_db_data()
+        self.get_comanage_data()
+        self.get_contacts_data()
+        self.get_ligo_dn_list()
+
+    def force_update_topology_data(self):
+        log.debug("Updating Cache: Topology")
+        self.dn_set.force_update = True
+        self.projects.force_update = True
+        self.topology.force_update = True
+        self.vos_data.force_update = True
+        self.mappings.force_update = True
+
+        self.get_dns()
+        self.get_projects()
+        self.get_topology()
+        self.get_vos_data()
+        self.get_mappings()
+
+
+def update_loop(function, sleep):
+    while True:
+        function(),
+        time.sleep(sleep)
+
 
 def _dtid(created_datetime: datetime.datetime):
     dtid_offset = 1_535_000_000.000  # use a more recent epoch -- gives us a few years of smaller IDs
