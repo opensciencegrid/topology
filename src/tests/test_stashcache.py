@@ -12,7 +12,7 @@ sys.path.append(topdir)
 from app import app, global_data
 import stashcache
 
-GRID_MAPPING_REGEX = re.compile(r'^"/[^"]*CN=[^"]+"\s+[0-9a-f]{8}[.]0$')
+GRID_MAPPING_REGEX = re.compile(r'^"(/[^"]*CN=[^"]+")\s+([0-9a-f]{8}[.]0)$')
 # ^^ the DN starts with a slash and will at least have a CN in it.
 EMPTY_LINE_REGEX = re.compile(r'^\s*(#|$)')  # Empty or comment-only lines
 I2_TEST_CACHE = "osg-sunnyvale-stashcache.t2.ucsd.edu"
@@ -72,7 +72,19 @@ class TestStashcache:
     def test_cache_grid_mapfile(self, client: flask.Flask):
         nohost_text = stashcache.generate_cache_grid_mapfile(global_data, "", legacy=False, suppress_errors=False)
         for line in nohost_text.split("\n"):
-            assert EMPTY_LINE_REGEX.match(line), 'Unexpected text "%s".\nFull text:\n%s' % (line, nohost_text)
+            if EMPTY_LINE_REGEX.match(line):
+                continue
+            mm = GRID_MAPPING_REGEX.match(line)
+            if mm:
+                dn = mm.group(1)
+                if "CN=Brian Paul Bockelman" in dn or "CN=Matyas Selmeci A148276" in dn:
+                    # HACK: these two have their FQANs explicitly allowed in some namespaces so it's OK
+                    # for them to show up in grid-mapfiles even without an FQDN
+                    continue
+                else:
+                    assert False, 'Unexpected text "%s".\nFull text:\n%s' % (line, nohost_text)
+            else:
+                assert False, 'Unexpected text "%s".\nFull text:\n%s' % (line, nohost_text)
 
         test_cache_text = stashcache.generate_cache_grid_mapfile(global_data,
                                                                  I2_TEST_CACHE,
