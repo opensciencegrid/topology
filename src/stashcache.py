@@ -123,6 +123,97 @@ def get_supported_caches_for_namespace(namespace: Namespace, topology: Topology)
             and resource_allows_namespace(cache, namespace)]
 
 
+class _IdNamespaceData:
+    def __init__(self):
+        self.public_paths = set()
+        self.id_to_paths = defaultdict(set)
+        self.id_to_str = {}
+        self.grid_mapfile_lines = set()
+        self.warnings = []
+
+    @classmethod
+    def for_cache(cls, topology: Topology, vos_data: VOsData, ligo_authz_list: List[AuthMethod],
+                  cache_resource: Optional[Resource], public_cache: bool) -> "_IdNamespaceData":
+        self = cls()
+
+        for stashcache_obj in vos_data.stashcache_by_vo_name.values():
+            for path, namespace in stashcache_obj.namespaces.items():
+                if not namespace_allows_cache_resource(namespace, cache_resource):
+                    continue
+                if cache_resource and not resource_allows_namespace(cache_resource, namespace):
+                    continue
+                if namespace.is_public():
+                    self.public_paths.add(path)
+                    continue
+                if public_cache:
+                    continue
+
+                # Extend authz list with LIGO DNs if applicable
+                extended_authz_list = namespace.authz_list
+                if path == "/user/ligo":
+                    if ligo_authz_list:
+                        extended_authz_list += ligo_authz_list
+                    else:
+                        self.warnings += "# LIGO DNs unavailable\n"
+
+                for authz in extended_authz_list:
+                    if authz.used_in_authfile:
+                        self.id_to_paths[authz.get_authfile_id()].add(path)
+                        self.id_to_str[authz.get_authfile_id()] = str(authz)
+                    if authz.used_in_grid_mapfile:
+                        self.grid_mapfile_lines.add(authz.get_grid_mapfile_line())
+
+        return self
+
+    @classmethod
+    def for_origin(cls, topology: Topology, vos_data: VOsData, origin_resource: Optional[Resource],
+                   public_origin: bool) -> "_IdNamespaceData":
+        self = cls()
+        for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
+            for path, namespace in stashcache_obj.namespaces.items():
+                if not namespace_allows_origin_resource(namespace, origin_resource):
+                    continue
+                if not resource_allows_namespace(origin_resource, namespace):
+                    continue
+                if namespace.is_public():
+                    self.public_paths.add(path)
+                    continue
+                if public_origin:
+                    continue
+
+                # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
+                # Ignore FQANs and DNs listed in the namespace's authz list.
+                authz_list = []
+
+                allowed_resources = [origin_resource]
+                # Add caches
+                allowed_caches = get_supported_caches_for_namespace(namespace, topology)
+                if allowed_caches:
+                    allowed_resources.extend(allowed_caches)
+                else:
+                    # TODO This situation should be caught by the CI
+                    self.warnings.append(f"# WARNING: No working cache / namespace combinations found for {path}")
+
+                for resource in allowed_resources:
+                    dn = resource.data.get("DN")
+                    if dn:
+                        authz_list.append(DNAuth(dn))
+                    else:
+                        self.warnings.append(
+                            f"# WARNING: Resource {resource.name} was skipped for VO {vo_name}, namespace {path}"
+                            f" because the resource does not provide a DN."
+                        )
+                        continue
+
+                for authz in authz_list:
+                    if authz.used_in_authfile:
+                        self.id_to_paths[authz.get_authfile_id()].add(path)
+                        self.id_to_str[authz.get_authfile_id()] = str(authz)
+                    if authz.used_in_grid_mapfile:
+                        self.grid_mapfile_lines.add(authz.get_grid_mapfile_line())
+        return self
+
+
 def generate_cache_authfile(global_data: GlobalData,
                             fqdn=None,
                             legacy=True,
@@ -259,97 +350,6 @@ audience = {allowed_vos_str}
     allowed_vos_str = ", ".join(sorted(allowed_vos))
 
     return template.format(**locals()).rstrip() + "\n"
-
-
-class _IdNamespaceData:
-    def __init__(self):
-        self.public_paths = set()
-        self.id_to_paths = defaultdict(set)
-        self.id_to_str = {}
-        self.grid_mapfile_lines = set()
-        self.warnings = []
-
-    @classmethod
-    def for_cache(cls, topology: Topology, vos_data: VOsData, ligo_authz_list: List[AuthMethod],
-                  cache_resource: Optional[Resource], public_cache: bool) -> "_IdNamespaceData":
-        self = cls()
-
-        for stashcache_obj in vos_data.stashcache_by_vo_name.values():
-            for path, namespace in stashcache_obj.namespaces.items():
-                if not namespace_allows_cache_resource(namespace, cache_resource):
-                    continue
-                if cache_resource and not resource_allows_namespace(cache_resource, namespace):
-                    continue
-                if namespace.is_public():
-                    self.public_paths.add(path)
-                    continue
-                if public_cache:
-                    continue
-
-                # Extend authz list with LIGO DNs if applicable
-                extended_authz_list = namespace.authz_list
-                if path == "/user/ligo":
-                    if ligo_authz_list:
-                        extended_authz_list += ligo_authz_list
-                    else:
-                        self.warnings += "# LIGO DNs unavailable\n"
-
-                for authz in extended_authz_list:
-                    if authz.used_in_authfile:
-                        self.id_to_paths[authz.get_authfile_id()].add(path)
-                        self.id_to_str[authz.get_authfile_id()] = str(authz)
-                    if authz.used_in_grid_mapfile:
-                        self.grid_mapfile_lines.add(authz.get_grid_mapfile_line())
-
-        return self
-
-    @classmethod
-    def for_origin(cls, topology: Topology, vos_data: VOsData, origin_resource: Optional[Resource],
-                   public_origin: bool) -> "_IdNamespaceData":
-        self = cls()
-        for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
-            for path, namespace in stashcache_obj.namespaces.items():
-                if not namespace_allows_origin_resource(namespace, origin_resource):
-                    continue
-                if not resource_allows_namespace(origin_resource, namespace):
-                    continue
-                if namespace.is_public():
-                    self.public_paths.add(path)
-                    continue
-                if public_origin:
-                    continue
-
-                # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
-                # Ignore FQANs and DNs listed in the namespace's authz list.
-                authz_list = []
-
-                allowed_resources = [origin_resource]
-                # Add caches
-                allowed_caches = get_supported_caches_for_namespace(namespace, topology)
-                if allowed_caches:
-                    allowed_resources.extend(allowed_caches)
-                else:
-                    # TODO This situation should be caught by the CI
-                    self.warnings.append(f"# WARNING: No working cache / namespace combinations found for {path}")
-
-                for resource in allowed_resources:
-                    dn = resource.data.get("DN")
-                    if dn:
-                        authz_list.append(DNAuth(dn))
-                    else:
-                        self.warnings.append(
-                            f"# WARNING: Resource {resource.name} was skipped for VO {vo_name}, namespace {path}"
-                            f" because the resource does not provide a DN."
-                        )
-                        continue
-
-                for authz in authz_list:
-                    if authz.used_in_authfile:
-                        self.id_to_paths[authz.get_authfile_id()].add(path)
-                        self.id_to_str[authz.get_authfile_id()] = str(authz)
-                    if authz.used_in_grid_mapfile:
-                        self.grid_mapfile_lines.add(authz.get_grid_mapfile_line())
-        return self
 
 
 def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors=True, public_origin=False) -> str:
