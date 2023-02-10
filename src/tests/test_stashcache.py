@@ -6,6 +6,7 @@ from pytest_mock import MockerFixture
 # Rewrites the path so the app can be imported like it normally is
 import os
 import sys
+
 topdir = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(topdir)
 
@@ -68,6 +69,16 @@ class TestStashcache:
             else:
                 assert False, 'Unexpected text "%s".\nFull text:\n%s' % (line, test_origin_text)
         assert num_mappings > 5, "Too few mappings found.\nFull text:\n%s" % test_origin_text
+
+    def test_cache_authfile(self, client: flask.Flask):
+        text = stashcache.generate_cache_authfile(
+            global_data,
+            I2_TEST_CACHE,
+            legacy=True,
+            suppress_errors=False,
+        )
+
+        assert False, f"Cache authfile dump:\n{text}"
 
     def test_cache_grid_mapfile(self, client: flask.Flask):
         nohost_text = stashcache.generate_cache_grid_mapfile(global_data, "", legacy=False, suppress_errors=False)
