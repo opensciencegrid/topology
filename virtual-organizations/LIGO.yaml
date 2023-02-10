@@ -102,14 +102,12 @@ DataFederations:
           - Georgia_Tech_PACE_GridFTP2
           - Stashcache-UCSD
           - Stashcache-UofA
-          - Stashcache-Cardiff
           - Stashcache-KISTI
           - Stashcache-Houston
           - Stashcache-Manhattan
           - Stashcache-Sunnyvale
           - Stashcache-Chicago
           - Stashcache-Kansas
-          - T1_STASHCACHE_CACHE
           - PIC_STASHCACHE_CACHE
           - SU_STASHCACHE_CACHE
           - PSU-LIGO-CACHE
@@ -118,7 +116,7 @@ DataFederations:
           - NEBRASKA_NRP_OSDF_CACHE
           - CINCINNATI_INTERNET2_OSDF_CACHE
           - BOISE_INTERNET2_OSDF_CACHE
-          - ComputeCanada-Cedar-Cache
+          - T1_STASHCACHE_CACHE
       - Path: /gwdata
         Authorizations:
           - PUBLIC
