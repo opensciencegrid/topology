@@ -132,9 +132,20 @@ class _IdNamespaceData:
         self.warnings = []
 
     @classmethod
-    def for_cache(cls, topology: Topology, vos_data: VOsData, ligo_authz_list: List[AuthMethod],
+    def for_cache(cls, global_data: GlobalData, topology: Topology, vos_data: VOsData, legacy: bool,
                   cache_resource: Optional[Resource], public_cache: bool) -> "_IdNamespaceData":
         self = cls()
+
+        ligo_authz_list: List[AuthMethod] = []
+
+        # This is needed so we can fetch the LIGO DNs only for caches that
+        # actually support LIGO data, instead of hitting their LDAP server for
+        # every cache.
+        def fetch_ligo_authz_list_if_needed():
+            if not ligo_authz_list:
+                for dn in global_data.get_ligo_dn_list():
+                    ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
+            return ligo_authz_list
 
         for stashcache_obj in vos_data.stashcache_by_vo_name.values():
             for path, namespace in stashcache_obj.namespaces.items():
@@ -151,8 +162,8 @@ class _IdNamespaceData:
                 # Extend authz list with LIGO DNs if applicable
                 extended_authz_list = namespace.authz_list
                 if path == "/user/ligo":
-                    if ligo_authz_list:
-                        extended_authz_list += ligo_authz_list
+                    if legacy:
+                        extended_authz_list += fetch_ligo_authz_list_if_needed()
                     else:
                         self.warnings += "# LIGO DNs unavailable\n"
 
@@ -230,15 +241,11 @@ def generate_cache_authfile(global_data: GlobalData,
         if not resource:
             return ""
 
-    ligo_authz_list: List[AuthMethod] = []
-    if legacy:
-        for dn in global_data.get_ligo_dn_list():
-            ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
-
     idns = _IdNamespaceData.for_cache(
+        global_data=global_data,
         topology=topology,
         vos_data=vos_data,
-        ligo_authz_list=ligo_authz_list,
+        legacy=legacy,
         cache_resource=resource,
         public_cache=False,
     )
@@ -271,9 +278,10 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
             return ""
 
     idns = _IdNamespaceData.for_cache(
+        global_data=global_data,
         topology=topology,
         vos_data=vos_data,
-        ligo_authz_list=[],
+        legacy=legacy,
         cache_resource=resource,
         public_cache=True,
     )
@@ -317,9 +325,10 @@ def generate_cache_grid_mapfile(global_data: GlobalData,
             ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
 
     idns = _IdNamespaceData.for_cache(
+        global_data=global_data,
         topology=topology,
         vos_data=vos_data,
-        ligo_authz_list=ligo_authz_list,
+        legacy=legacy,
         cache_resource=resource,
         public_cache=False,
     )
