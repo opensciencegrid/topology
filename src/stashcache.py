@@ -131,12 +131,8 @@ def generate_cache_authfile(global_data: GlobalData,
     Generate the Xrootd authfile needed by an StashCache cache server.  This contains authenticated data only,
     no public directories.
     """
-    authfile = ""
-    warnings = ""
-    id_to_dir = defaultdict(set)
-    id_to_str = {}
-
     topology = global_data.get_topology()
+    vos_data = global_data.get_vos_data()
     resource = None
     if fqdn:
         resource = _get_cache_resource(fqdn, topology, suppress_errors)
@@ -144,46 +140,30 @@ def generate_cache_authfile(global_data: GlobalData,
             return ""
 
     ligo_authz_list: List[AuthMethod] = []
+    if legacy:
+        for dn in global_data.get_ligo_dn_list():
+            ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
 
-    def fetch_ligo_authz_list_if_needed():
-        if not ligo_authz_list:
-            for dn in global_data.get_ligo_dn_list():
-                ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
-        return ligo_authz_list
-
-    vos_data = global_data.get_vos_data()
-    for stashcache_obj in vos_data.stashcache_by_vo_name.values():
-        for dirname, namespace in stashcache_obj.namespaces.items():
-            if not namespace_allows_cache_resource(namespace, resource):
-                continue
-            if resource and not resource_allows_namespace(resource, namespace):
-                continue
-            if namespace.is_public():
-                continue
-
-            # Extend authz list with LIGO DNs if applicable
-            extended_authz_list = namespace.authz_list
-            if dirname == "/user/ligo":
-                if legacy:
-                    extended_authz_list += fetch_ligo_authz_list_if_needed()
-                else:
-                    warnings += "# LIGO DNs unavailable\n"
-
-            for authz in extended_authz_list:
-                if authz.used_in_authfile:
-                    id_to_dir[authz.get_authfile_id()].add(dirname)
-                    id_to_str[authz.get_authfile_id()] = str(authz)
+    idns = _IdNamespaceData.for_cache(
+        topology=topology,
+        vos_data=vos_data,
+        ligo_authz_list=ligo_authz_list,
+        cache_resource=resource,
+        public_cache=False,
+    )
 
     # TODO: improve message and turn this into a warning
-    if not id_to_dir:
+    if not idns.id_to_paths:
         raise DataError("Cache does not support any protected namespaces")
 
-    for authfile_id in id_to_dir:
-        paths_acl = " ".join(f"{p} rl" for p in sorted(id_to_dir[authfile_id]))
-        authfile += f"# {id_to_str[authfile_id]}\n"
-        authfile += f"{authfile_id} {paths_acl}\n"
+    authfile_lines = []
+    authfile_lines.extend(idns.warnings)
+    for authfile_id in idns.id_to_paths:
+        paths_acl = " ".join(f"{p} rl" for p in sorted(idns.id_to_paths[authfile_id]))
+        authfile_lines.append(f"# {idns.id_to_str[authfile_id]}")
+        authfile_lines.append(f"{authfile_id} {paths_acl}")
 
-    return warnings + authfile
+    return "\n".join(authfile_lines) + "\n"
 
 
 def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=True, suppress_errors=True) -> str:
@@ -191,38 +171,38 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
     Generate the Xrootd authfile needed for public caches.  This contains public data only, no authenticated data.
     """
     _ = legacy
-    authfile = "u * /user/ligo -rl \\\n"
-
     topology = global_data.get_topology()
+    vos_data = global_data.get_vos_data()
     resource = None
     if fqdn:
         resource = _get_cache_resource(fqdn, topology, suppress_errors)
         if not resource:
             return ""
 
-    public_dirs = set()
-    vos_data = global_data.get_vos_data()
-    for stashcache_obj in vos_data.stashcache_by_vo_name.values():
-        for dirname, namespace in stashcache_obj.namespaces.items():
-            if not namespace_allows_cache_resource(namespace, resource):
-                continue
-            if resource and not resource_allows_namespace(resource, namespace):
-                continue
-            if namespace.is_public():
-                public_dirs.add(dirname)
+    idns = _IdNamespaceData.for_cache(
+        topology=topology,
+        vos_data=vos_data,
+        ligo_authz_list=[],
+        cache_resource=resource,
+        public_cache=True,
+    )
 
     # TODO: improve message and turn this into a warning
-    if not public_dirs:
+    if not idns.public_paths:
         raise DataError("Cache does not support any public namespaces")
 
-    for dirname in sorted(public_dirs):
-        authfile += "    {} rl \\\n".format(dirname)
+    authfile_lines = []
+    authfile_lines.extend(idns.warnings)
+    authfile_lines.append("u * /user/ligo -rl \\")
+
+    for dirname in sorted(idns.public_paths):
+        authfile_lines.append(f"    {dirname} rl \\")
 
     # Delete trailing ' \' from the last line
-    if authfile.endswith(" \\\n"):
-        authfile = authfile[:-3] + "\n"
+    if authfile_lines[-1].endswith(" \\"):
+        authfile_lines[-1] = authfile_lines[-1][:-2]
 
-    return authfile
+    return "\n".join(authfile_lines) + "\n"
 
 
 def generate_cache_scitokens(global_data: GlobalData, fqdn: str, suppress_errors=True) -> str:
@@ -288,6 +268,40 @@ class _IdNamespaceData:
         self.id_to_str = {}
         self.grid_mapfile_lines = set()
         self.warnings = []
+
+    @classmethod
+    def for_cache(cls, topology: Topology, vos_data: VOsData, ligo_authz_list: List[AuthMethod],
+                  cache_resource: Optional[Resource], public_cache: bool) -> "_IdNamespaceData":
+        self = cls()
+
+        for stashcache_obj in vos_data.stashcache_by_vo_name.values():
+            for path, namespace in stashcache_obj.namespaces.items():
+                if not namespace_allows_cache_resource(namespace, cache_resource):
+                    continue
+                if cache_resource and not resource_allows_namespace(cache_resource, namespace):
+                    continue
+                if namespace.is_public():
+                    self.public_paths.add(path)
+                    continue
+                if public_cache:
+                    continue
+
+                # Extend authz list with LIGO DNs if applicable
+                extended_authz_list = namespace.authz_list
+                if path == "/user/ligo":
+                    if ligo_authz_list:
+                        extended_authz_list += ligo_authz_list
+                    else:
+                        self.warnings += "# LIGO DNs unavailable\n"
+
+                for authz in extended_authz_list:
+                    if authz.used_in_authfile:
+                        self.id_to_paths[authz.get_authfile_id()].add(path)
+                        self.id_to_str[authz.get_authfile_id()] = str(authz)
+                    if authz.used_in_grid_mapfile:
+                        self.grid_mapfile_lines.add(authz.get_grid_mapfile_line())
+
+        return self
 
     @classmethod
     def for_origin(cls, topology: Topology, vos_data: VOsData, origin_resource: Optional[Resource],
