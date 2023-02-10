@@ -356,6 +356,7 @@ class ResourceGroup(object):
         self.site = site
         self.service_types = common_data.service_types
         self.common_data = common_data
+        self.production = yaml_data.get("Production", "")
 
         scname = yaml_data["SupportCenter"]
         scid = int(common_data.support_centers[scname]["ID"])
@@ -437,7 +438,7 @@ class ResourceGroup(object):
         new_rg["GroupName"] = self.name
         new_rg["SupportCenter"] = self.support_center
         new_rg["IsCCStar"] = self.is_ccstar
-        production = new_rg.pop("Production")
+        production = new_rg.get("Production")
         if production:
             new_rg["GridType"] = GRIDTYPE_1
         else:

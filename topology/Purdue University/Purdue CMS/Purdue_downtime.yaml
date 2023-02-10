@@ -1537,4 +1537,125 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1363894592
+  Description: Local storage system migration
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2022 19:00 +0000
+  EndTime: Dec 21, 2022 01:00 +0000
+  CreatedTime: Dec 18, 2022 18:50 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1363894593
+  Description: Local storage system migration
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2022 19:00 +0000
+  EndTime: Dec 21, 2022 01:00 +0000
+  CreatedTime: Dec 18, 2022 18:50 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1363894594
+  Description: Local storage system migration
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2022 19:00 +0000
+  EndTime: Dec 21, 2022 01:00 +0000
+  CreatedTime: Dec 18, 2022 18:50 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1363894595
+  Description: Local storage system migration
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2022 19:00 +0000
+  EndTime: Dec 21, 2022 01:00 +0000
+  CreatedTime: Dec 18, 2022 18:50 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1363894596
+  Description: Local storage system migration
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2022 19:00 +0000
+  EndTime: Dec 21, 2022 01:00 +0000
+  CreatedTime: Dec 18, 2022 18:50 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1363894597
+  Description: Local storage system migration
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2022 19:00 +0000
+  EndTime: Dec 21, 2022 01:00 +0000
+  CreatedTime: Dec 18, 2022 18:50 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1363894598
+  Description: Local storage system migration
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2022 19:00 +0000
+  EndTime: Dec 21, 2022 01:00 +0000
+  CreatedTime: Dec 18, 2022 18:50 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1363894599
+  Description: Local storage system migration
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2022 19:00 +0000
+  EndTime: Dec 21, 2022 01:00 +0000
+  CreatedTime: Dec 18, 2022 18:50 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1363894600
+  Description: Local storage system migration
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2022 19:00 +0000
+  EndTime: Dec 21, 2022 01:00 +0000
+  CreatedTime: Dec 18, 2022 18:50 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1363894601
+  Description: Local storage system migration
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2022 19:00 +0000
+  EndTime: Dec 21, 2022 01:00 +0000
+  CreatedTime: Dec 18, 2022 18:50 +0000
+  ResourceName: US-Purdue BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1363894602
+  Description: Local storage system migration
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2022 19:00 +0000
+  EndTime: Dec 21, 2022 01:00 +0000
+  CreatedTime: Dec 18, 2022 18:50 +0000
+  ResourceName: US-Purdue LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
 
