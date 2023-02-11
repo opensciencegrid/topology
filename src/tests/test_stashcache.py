@@ -21,15 +21,15 @@ I2_TEST_CACHE = "osg-sunnyvale-stashcache.t2.ucsd.edu"
 
 
 # Some DNs I can use for testing and the hashes they map to.
-# All of these were generated with osg-ca-generator on alma8 and printed with
-#   openssl x509 -in /etc/grid-security/hostcert.pem -noout -subject -subject_hash_old -nameopt compat
-# (trailing ".0" added by hand)
+# All of these were generated with osg-ca-generator on alma8
+#   openssl x509 -in /etc/grid-security/hostcert.pem -noout -subject -nameopt compat
+# I got the hashes from a previous run of the test.
 MOCK_DNS_AND_HASHES = {
-    "/DC=org/DC=opensciencegrid/C=US/O=OSG Software/OU=Services/CN=testhost1": "d460d8b7.0",
-    "/DC=org/DC=opensciencegrid/C=US/O=OSG Software/OU=Services/CN=testhost2": "23c91cd1.0",
-    "/DC=org/DC=opensciencegrid/C=US/O=OSG Software/OU=Services/CN=testhost3": "fd626fa1.0",
-    "/DC=org/DC=opensciencegrid/C=US/O=OSG Software/OU=Services/CN=testhost4": "cc84ae86.0",
-    "/DC=org/DC=opensciencegrid/C=US/O=OSG Software/OU=Services/CN=testhost5": "8967f473.0",
+    "/DC=org/DC=opensciencegrid/C=US/O=OSG Software/OU=Services/CN=testhost1": "f7d78bab.0",
+    "/DC=org/DC=opensciencegrid/C=US/O=OSG Software/OU=Services/CN=testhost2": "941f0a37.0",
+    "/DC=org/DC=opensciencegrid/C=US/O=OSG Software/OU=Services/CN=testhost3": "77934f6c.0",
+    "/DC=org/DC=opensciencegrid/C=US/O=OSG Software/OU=Services/CN=testhost4": "def5b9bc.0",
+    "/DC=org/DC=opensciencegrid/C=US/O=OSG Software/OU=Services/CN=testhost5": "83a7951b.0",
 }
 
 MOCK_DN_LIST = list(MOCK_DNS_AND_HASHES.keys())
@@ -67,37 +67,28 @@ class TestStashcache:
     def test_None_fdqn_isnt_error(self, client: flask.Flask):
         stashcache.generate_cache_authfile(global_data, None)
 
-    def test_origin_grid_mapfile(self, client: flask.Flask):
-        nohost_text = stashcache.generate_origin_grid_mapfile(global_data, "", suppress_errors=False)
-        for line in nohost_text.split("\n"):
-            assert EMPTY_LINE_REGEX.match(line)
+    def test_origin_grid_mapfile_nohost(self, client: flask.Flask):
+        text = stashcache.generate_origin_grid_mapfile(global_data, "", suppress_errors=False)
+        for line in text.split("\n"):
+            assert EMPTY_LINE_REGEX.match(line), f'Unexpected text "{line}".\nFull text:\n{text}\n'
 
-        test_origin_text = stashcache.generate_origin_grid_mapfile(global_data, "origin-auth2001.chtc.wisc.edu",
-                                                                   suppress_errors=False)
+    def test_origin_grid_mapfile_with_host(self, client: flask.Flask):
+        text = stashcache.generate_origin_grid_mapfile(global_data, "origin-auth2001.chtc.wisc.edu",
+                                                       suppress_errors=False)
         num_mappings = 0
-        for line in test_origin_text.split("\n"):
+        for line in text.split("\n"):
             if EMPTY_LINE_REGEX.match(line):
                 continue
             elif GRID_MAPPING_REGEX.match(line):
                 num_mappings += 1
             else:
-                assert False, 'Unexpected text "%s".\nFull text:\n%s' % (line, test_origin_text)
-        assert num_mappings > 5, "Too few mappings found.\nFull text:\n%s" % test_origin_text
+                assert False, f'Unexpected text "{line}".\nFull text:\n{text}\n'
+        assert num_mappings > 5, f"Too few mappings found.\nFull text:\n{text}\n"
 
-    def test_cache_authfile(self, client: flask.Flask, mocker: MockerFixture):
-        m = mocker.patch.object(global_data, "get_ligo_dn_list", spec={"return_value": MOCK_DN_LIST})
-        text = stashcache.generate_cache_authfile(
-            global_data,
-            I2_TEST_CACHE,
-            legacy=True,
-            suppress_errors=False,
-        )
+    def test_cache_grid_mapfile_nohost(self, client: flask.Flask):
+        text = stashcache.generate_cache_grid_mapfile(global_data, "", legacy=False, suppress_errors=False)
 
-        assert False, f"Cache authfile dump:\n{text}"
-
-    def test_cache_grid_mapfile(self, client: flask.Flask, mocker: MockerFixture):
-        nohost_text = stashcache.generate_cache_grid_mapfile(global_data, "", legacy=False, suppress_errors=False)
-        for line in nohost_text.split("\n"):
+        for line in text.split("\n"):
             if EMPTY_LINE_REGEX.match(line):
                 continue
             mm = GRID_MAPPING_REGEX.match(line)
@@ -108,24 +99,25 @@ class TestStashcache:
                     # for them to show up in grid-mapfiles even without an FQDN
                     continue
                 else:
-                    assert False, 'Unexpected text "%s".\nFull text:\n%s' % (line, nohost_text)
+                    assert False, f'Unexpected text "{line}".\nFull text:\n{text}\n'
             else:
-                assert False, 'Unexpected text "%s".\nFull text:\n%s' % (line, nohost_text)
+                assert False, f'Unexpected text "{line}".\nFull text:\n{text}\n'
 
-        m = mocker.patch.object(global_data, "get_ligo_dn_list", spec={"return_value": MOCK_DN_LIST})
-        test_cache_text = stashcache.generate_cache_grid_mapfile(global_data,
-                                                                 I2_TEST_CACHE,
-                                                                 legacy=True,
-                                                                 suppress_errors=False)
+    def test_cache_grid_mapfile_i2_cache(self, client: flask.Flask, mocker: MockerFixture):
+        mocker.patch.object(global_data, "get_ligo_dn_list", return_value=MOCK_DN_LIST, autospec=True)
+        text = stashcache.generate_cache_grid_mapfile(global_data,
+                                                      I2_TEST_CACHE,
+                                                      legacy=True,
+                                                      suppress_errors=False)
         num_mappings = 0
-        for line in test_cache_text.split("\n"):
+        for line in text.split("\n"):
             if EMPTY_LINE_REGEX.match(line):
                 continue
             elif GRID_MAPPING_REGEX.match(line):
                 num_mappings += 1
             else:
-                assert False, 'Unexpected text "%s".\nFull text:\n%s' % (line, test_cache_text)
-        assert num_mappings > 5, "Too few mappings found.\nFull text:\n%s" % test_cache_text
+                assert False, f'Unexpected text "{line}".\nFull text:\n{text}\n'
+        assert num_mappings > 5, f"Too few mappings found.\nFull text:\n{text}\n"
 
 
 if __name__ == '__main__':
