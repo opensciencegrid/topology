@@ -4,7 +4,7 @@ GroupDescription: Stashcaches located at Cardiff University and handled through 
 GroupID: 511
 Resources:
   Stashcache-Cardiff:
-    Active: true
+    Active: false
     Description: Cardiff StashCache
     ID: 1007
     ContactLists:
@@ -22,5 +22,26 @@ Resources:
     Services:
       XRootD cache server:
         Description: Cardiff PRP Caching Service
+    AllowedVOs:
+      - LIGO
+      
+  CARDIFF_UK_OSDF_CACHE:
+    Active: true
+    Description: Cardiff OSDF cache
+    ID: 1413
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+    FQDN: cf-ac-uk-nationalresearchplatform.org
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=cf-ac-uk-nationalresearchplatform.org.nationalresearchplatform.org
+    Services:
+      XRootD cache server:
+        Description: Cardiff PRP OSDF cache Service
     AllowedVOs:
       - LIGO
