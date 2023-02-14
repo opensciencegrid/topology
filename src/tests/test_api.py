@@ -52,7 +52,9 @@ TEST_ENDPOINTS = [
     "/origin/Authfile",
     "/origin/Authfile-public",
     "/origin/scitokens.conf",
-    "/cache/scitokens.conf"
+    "/cache/scitokens.conf",
+    "/cache/grid-mapfile",
+    "/origin/grid-mapfile",
 ]
 
 
