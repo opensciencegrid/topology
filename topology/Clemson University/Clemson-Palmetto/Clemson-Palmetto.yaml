@@ -66,4 +66,86 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
+  Clemson-Palmetto-CE1:
+    # Active is true if the resource is accepting requests, and false otherwise.
+    # When first registering a resource, set this to false. Set it to true when it's ready for production.
+    Active: true
+    # Description is a long description of the resource; may be multiple lines
+    Description: Hosted CE for Clemson-Palmetto
+    # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
+    # Otherwise, leave it blank and we will fill in the appropriate value for you.
+    ID: 1413
+    # ContactLists contain information about people to contact regarding this resource.
+    # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
+    # If you cannot find the contact above XML, please register the contact:
+    # https://opensciencegrid.org/docs/common/registration/#registering-contacts
+    ContactLists:
+      # Administrative Contacts are persons or groups of people (i.e.,
+      # mailing lists) that are directly responsible for the
+      # maintenance of the resource
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # Security Contact are persons or groups of people (i.e.,
+      # mailing lists) that are responsible for handling security
+      # issues related to the resource
+      Security Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+    # FQDN is the fully qualified domain name of the host running this resource
+    FQDN: clemson-palmetto-ce1.svc.opensciencegrid.org
+    ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
+    # FQDNAliases:
+    #   - <HOSTNAME1>
+    #   - <HOSTNAME2>
+
+    # Services is one or more services provided by this resource;
+    # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
+    Services:
+      CE:
+        # Description is a brief description of the service
+        Description: Celmson-Palmetto CE1 hosted CE
+        ### Details (optional)
+        # Details:
+        #   # hidden
+        #   hidden: false
+        #   ### uri_override (optional, use if your service is on some non-standard URL)
+        #   # uri_override: <HOST>:<PORT>
+        #   ### sam_uri (optional)
+        #   # sam_uri: htcondor://...
+        #   ### endpoint (for perfSONAR services)
+        #   # endpoint: <HOSTNAME>
+
+      # Other services if you have any
+      # <SERVICE NAME>:
+      # ...
+
+    ### Tags (optional) is a list of tags associated with the resource.
+    ### Include the tag "CC*" if applicable for a CC* CE.
+    #Tags:
+    #   - <TAG1>
+    #   - <TAG2>
+
 SupportCenter: Community Support Center
