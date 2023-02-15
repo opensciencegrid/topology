@@ -295,6 +295,41 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
 
     return "\n".join(authfile_lines) + "\n"
 
+def generate_cache_grid_mapfile(global_data: GlobalData,
+                                fqdn=None,
+                                legacy=True,
+                                suppress_errors=True) -> str:
+    """
+    Generate a grid-mapfile to map DNs to the DN hashes for a cache server, given the FQDN
+    of the cache server and whether to include LIGO DNs.
+    """
+    topology = global_data.get_topology()
+    vos_data = global_data.get_vos_data()
+    resource = None
+    if fqdn:
+        resource = _get_cache_resource(fqdn, topology, suppress_errors)
+        if not resource:
+            return ""
+
+    ligo_authz_list: List[AuthMethod] = []
+    if legacy:
+        for dn in global_data.get_ligo_dn_list():
+            ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
+
+    idns = _IdNamespaceData.for_cache(
+        topology=topology,
+        vos_data=vos_data,
+        ligo_authz_list=ligo_authz_list,
+        cache_resource=resource,
+        public_cache=False,
+    )
+
+    grid_mapfile_lines = []
+    grid_mapfile_lines.extend(idns.warnings)
+    grid_mapfile_lines.extend(sorted(idns.grid_mapfile_lines))
+
+    return "\n".join(grid_mapfile_lines) + "\n"
+
 
 def generate_cache_scitokens(global_data: GlobalData, fqdn: str, suppress_errors=True) -> str:
     """
