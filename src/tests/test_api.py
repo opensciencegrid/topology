@@ -218,9 +218,88 @@ class TestAPI:
                 for cache in namespace["caches"]:
                     validate_cache_schema(cache)
 
+    def test_origin_grid_mapfile(self, client: flask.Flask):
+        TEST_ORIGIN = "origin-auth2001.chtc.wisc.edu"  # This origin serves protected data
+        response = client.get("/origin/grid-mapfile")
+        assert response.status_code == 400  # fqdn not specified
+
+        # Compare the hashes in an origin's grid-mapfile with the hashes in the origin's Authfile
+
+        # First get a set of the hashes in the grid-mapfile
+        response = client.get(f"/origin/grid-mapfile?fqdn={TEST_ORIGIN}")
+        assert response.status_code == 200
+        grid_mapfile_text = response.data.decode("utf-8")
+        grid_mapfile_lines = grid_mapfile_text.split("\n")
+        # Have a reasonable number of mappings
+        assert len(grid_mapfile_lines) > 20
+
+        mapfile_matches = filter(None,
+                                 (re.fullmatch(r'"[^"]+" ([0-9a-f]+[.]0)', line)
+                                  for line in grid_mapfile_lines))
+        mapfile_hashes = set(match.group(1) for match in mapfile_matches)
+
+        # Next get a set of the user (u) hashes in the authfile
+        response = client.get(f"/origin/Authfile?fqdn={TEST_ORIGIN}")
+        assert response.status_code == 200
+        authfile_text = response.data.decode("utf-8")
+        authfile_lines = authfile_text.split("\n")
+        # Have a reasonable number of caches; each one has a comment with the DN so there should be
+        # twice as many lines as authorizations
+        assert len(authfile_lines) > 40
+
+        authfile_matches = filter(None,
+                                  (re.match(r'u ([0-9a-f]+[.]0)', line)
+                                   for line in authfile_lines))
+        authfile_hashes = set(match.group(1) for match in authfile_matches)
+
+        hashes_not_in_mapfile = authfile_hashes - mapfile_hashes
+        assert not hashes_not_in_mapfile, f"Hashes in authfile but not in mapfile: {hashes_not_in_mapfile}"
+
+        hashes_not_in_authfile = mapfile_hashes - authfile_hashes
+        assert not hashes_not_in_authfile, f"Hashes in mapfile but not in authfile: {hashes_not_in_authfile}"
+
+    def test_cache_grid_mapfile(self, client: flask.Flask):
+        TEST_CACHE = "stash-cache.osg.chtc.io"  # This cache allows cert-based auth but not LIGO data
+        response = client.get("/cache/grid-mapfile")
+        assert response.status_code == 400  # fqdn not specified
+
+        # Compare the hashes in a cache's grid-mapfile with the hashes in the cache's Authfile
+
+        # First get a set of the hashes in the grid-mapfile
+        response = client.get(f"/cache/grid-mapfile?fqdn={TEST_CACHE}")
+        assert response.status_code == 200
+        grid_mapfile_text = response.data.decode("utf-8")
+        grid_mapfile_lines = grid_mapfile_text.split("\n")
+        # Make sure we have some mappings (we may not have LIGO data so there's only a few)
+        assert len(grid_mapfile_lines) > 1
+
+        mapfile_matches = filter(None,
+                                 (re.fullmatch(r'"[^"]+" ([0-9a-f]+[.]0)', line)
+                                  for line in grid_mapfile_lines))
+        mapfile_hashes = set(match.group(1) for match in mapfile_matches)
+
+        # Next get a set of the user (u) hashes in the authfile
+        response = client.get(f"/cache/Authfile?fqdn={TEST_CACHE}")
+        assert response.status_code == 200
+        authfile_text = response.data.decode("utf-8")
+        authfile_lines = authfile_text.split("\n")
+        # Make sure we have some mappings; each one has a comment with the DN so there should be
+        # twice as many lines as authorizations
+        assert len(authfile_lines) > 2
+
+        authfile_matches = filter(None,
+                                  (re.match(r'u ([0-9a-f]+[.]0)', line)
+                                   for line in authfile_lines))
+        authfile_hashes = set(match.group(1) for match in authfile_matches)
+
+        hashes_not_in_mapfile = authfile_hashes - mapfile_hashes
+        assert not hashes_not_in_mapfile, f"Hashes in authfile but not in mapfile: {hashes_not_in_mapfile}"
+
+        hashes_not_in_authfile = mapfile_hashes - authfile_hashes
+        assert not hashes_not_in_authfile, f"Hashes in mapfile but not in authfile: {hashes_not_in_authfile}"
+
 
 class TestEndpointContent:
-
     # Pre-build some test cases based on AMNH resources
     mock_facility = Facility("test_facility_name", 12345)
 
