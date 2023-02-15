@@ -345,6 +345,33 @@ def authfile_public():
     return _get_cache_authfile(public_only=True)
 
 
+@app.route("/cache/grid-mapfile")
+@support_cors
+def cache_grid_mapfile():
+    assert stashcache
+    fqdn = request.args.get("fqdn")
+    if not fqdn:
+        return Response("FQDN of cache server required in the 'fqdn' argument", status=400)
+    try:
+        return Response(stashcache.generate_cache_grid_mapfile(global_data, fqdn, suppress_errors=False),
+                        mimetype="text/plain")
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(e),
+                        mimetype="text/plain", status=404)
+    except DataError as e:
+        app.logger.error("{}: {}".format(request.full_path, e))
+        return Response("# Error generating grid-mapfile for this FQDN:\n"
+                        "# {}\n"
+                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n"
+                        .format(e),
+                        mimetype="text/plain", status=400)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting grid-mapfile, please contact help@opensciencegrid.org", status=503)
+
+
 @app.route("/origin/Authfile")
 @app.route("/stashcache/origin-authfile")
 def origin_authfile():
@@ -355,6 +382,33 @@ def origin_authfile():
 @app.route("/stashcache/origin-authfile-public")
 def origin_authfile_public():
     return _get_origin_authfile(public_only=True)
+
+
+@app.route("/origin/grid-mapfile")
+@support_cors
+def origin_grid_mapfile():
+    assert stashcache
+    fqdn = request.args.get("fqdn")
+    if not fqdn:
+        return Response("FQDN of origin server required in the 'fqdn' argument", status=400)
+    try:
+        return Response(stashcache.generate_origin_grid_mapfile(global_data, fqdn, suppress_errors=False),
+                        mimetype="text/plain")
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
+                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        .format(e),
+                        mimetype="text/plain", status=404)
+    except DataError as e:
+        app.logger.error("{}: {}".format(request.full_path, e))
+        return Response("# Error generating grid-mapfile for this FQDN:\n"
+                        "# {}\n"
+                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n"
+                        .format(e),
+                        mimetype="text/plain", status=400)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting grid-mapfile, please contact help@opensciencegrid.org", status=503)
 
 
 @app.route("/stashcache/scitokens")
