@@ -286,10 +286,11 @@ class _IdNamespaceData:
         self.public_paths = set()
         self.id_to_paths = defaultdict(set)
         self.id_to_str = {}
+        self.dn_to_dn_hash = {}
         self.warnings = []
 
     @classmethod
-    def for_origin(cls, topology: Topology, vos_data: VOsData, origin_resource: Resource,
+    def for_origin(cls, topology: Topology, vos_data: VOsData, origin_resource: Optional[Resource],
                    public_origin: bool) -> "_IdNamespaceData":
         me = cls()
         for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
@@ -332,6 +333,10 @@ class _IdNamespaceData:
                     if authz.used_in_authfile:
                         me.id_to_paths[authz.get_authfile_id()].add(path)
                         me.id_to_str[authz.get_authfile_id()] = str(authz)
+                        try:
+                            me.dn_to_dn_hash[authz.dn] = authz.get_dn_hash()
+                        except AttributeError:  # this authz type doesn't have a DN
+                            pass
         return me
 
 
@@ -371,6 +376,28 @@ def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors
         authfile_lines.append(f"u * {paths_acl}")
 
     return "\n".join(authfile_lines) + "\n"
+
+
+def generate_origin_grid_mapfile(global_data: GlobalData, fqdn: str, suppress_errors=True) -> str:
+    """
+    Generate a grid-mapfile to map DNs to the DN hashes for an origin server given its FQDN.
+
+    """
+    topology = global_data.get_topology()
+    vos_data = global_data.get_vos_data()
+    origin_resource = None
+    if fqdn:
+        origin_resource = _get_origin_resource(fqdn, topology, suppress_errors=suppress_errors)
+        if not origin_resource:
+            return ""
+
+    idns = _IdNamespaceData.for_origin(topology, vos_data, origin_resource, public_origin=False)
+
+    grid_mapfile_lines = []
+    grid_mapfile_lines.extend(idns.warnings)
+    grid_mapfile_lines.extend(f'"{dn}" {dn_hash}' for dn, dn_hash in idns.dn_to_dn_hash.items())
+
+    return "\n".join(grid_mapfile_lines) + "\n"
 
 
 def generate_origin_scitokens(global_data: GlobalData, fqdn: str, suppress_errors=True) -> str:
