@@ -449,7 +449,7 @@ def test_9_res_contact_lists(rgs, rgfns):
 def test_10_res_admin_contact(rgs, rgfns):
     # verify resources have admin contact
 
-    errors = 0
+    warnings = 0
 
     for rg,rgfn in zip(rgs,rgfns):
         for rname,rdict in sorted(rg['Resources'].items()):
@@ -458,17 +458,17 @@ def test_10_res_admin_contact(rgs, rgfns):
                 ctype, etype = 'Administrative', 'NoAdminContact'
                 if not rcls.get('%s Contact' % ctype):
                     print_emsg_once(etype)
-                    print("ERROR: In '%s', Resource '%s' has no %s Contact"
+                    print("WARNING: In '%s', Resource '%s' has no %s Contact"
                           % (rgfn, rname, ctype))
-                    errors += 1
+                    warnings += 1
 
-    return errors
+    return warnings
 
 
 def test_11_res_sec_contact(rgs, rgfns):
     # verify resources have security contact
 
-    errors = 0
+    warnings = 0
 
     for rg,rgfn in zip(rgs,rgfns):
         for rname,rdict in sorted(rg['Resources'].items()):
@@ -477,11 +477,11 @@ def test_11_res_sec_contact(rgs, rgfns):
                 ctype, etype = 'Security', 'NoSecContact'
                 if not rcls.get('%s Contact' % ctype):
                     print_emsg_once(etype)
-                    print("ERROR: In '%s', Resource '%s' has no %s Contact"
+                    print("WARNING: In '%s', Resource '%s' has no %s Contact"
                           % (rgfn, rname, ctype))
-                    errors += 1
+                    warnings += 1
 
-    return errors
+    return warnings
 
 
 def test_12_res_contact_id_fmt(rgs, rgfns):
