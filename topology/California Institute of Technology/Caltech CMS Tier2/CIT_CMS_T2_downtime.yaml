@@ -1501,3 +1501,15 @@
   Services:
     - CE
 
+# ------------------------------------------
+# Testing migration to OSG 3.6
+- Class: SCHEDULED
+  ID: 997651588
+  Description: Migration to OSG 3.6
+  Severity: Outage
+  StartTime: Feb 20, 2023 07:00 -0800
+  EndTime: Feb 21, 2023 07:00 -0800
+  CreatedTime: Feb 16, 2023 09:00 -0800
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
