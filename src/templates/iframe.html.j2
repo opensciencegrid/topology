@@ -28,14 +28,14 @@ will want to adjust the Map.data which populates the select input and legend.
         #map { height: 100vh; width: 100vw; }
 
         #full-screen {
-        padding: 8px;
-        position: absolute;
-        left: 10px;
-        bottom: 10px;
-        z-index: 1000;
-        border-radius: 5px;
-        border: #3a3a3a solid 1px;
-    }
+            padding: 6px 6px 4px 6px;
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            z-index: 1000;
+            border-radius: 5px;
+            border: #3a3a3a solid 1px;
+        }
 
         #full-screen > img {
             height: 24px;
@@ -54,12 +54,18 @@ will want to adjust the Map.data which populates the select input and legend.
         #legend {
             position: absolute;
             background-color: white;
-            padding: 8px;
+            padding: 2px 6px 0px 6px;
             bottom: 20px;
             right: 10px;
             z-index: 1000;
             border-radius: 5px;
             border: #3a3a3a solid 1px;
+            font-size: 12px;
+        }
+
+        .legend-header {
+            margin:0;
+            font-size: 1rem;
         }
 
         .select-container {
@@ -67,18 +73,17 @@ will want to adjust the Map.data which populates the select input and legend.
             border: #3a3a3a solid 1px;
             background: white;
             margin-left: auto;
-            margin-bottom: 5px;
         }
 
         .select-container > label {
             background: white;
-            padding-left: 8px;
+            padding-left: 6px;
             font-size: 1rem;
             color: #3a3a3a;
         }
 
         .select-container > select {
-            padding: 8px;
+            padding: 4px 6px;
             font-size: 1rem;
             border: 0;
         }
@@ -90,18 +95,22 @@ will want to adjust the Map.data which populates the select input and legend.
 
         .entry-container {
             display: flex;
-            margin-top: 10px;
+            margin-bottom: 4px;
+        }
+
+        #legend > hr {
+            margin: 0 0 .3rem 0;
         }
 
         .entry-container > img {
-            height: 36px;
-            width: 27px;
+            height: 28px;
+            width: 21px;
         }
 
         .entry-container > span {
-            font-size: 1rem;
+            font-size: .9rem;
             margin: auto 0;
-            padding-left: 10px;
+            padding-left: 6px;
         }
 
         .site-card-header {
@@ -143,7 +152,7 @@ will want to adjust the Map.data which populates the select input and legend.
             position: absolute;
             top: 10px;
             left: 55px;
-            padding: 6px;
+            padding: 4px 6px;
             font-size: 1rem;
             border-radius: 5px;
             border: #3a3a3a solid 1px;
@@ -160,7 +169,7 @@ will want to adjust the Map.data which populates the select input and legend.
         <div id="print-region">
             <div id="map"></div>
             <div id="legend" class="leaflet-container" hidden>
-                <h2 class="card-header">Legend</h2>
+                <h2 class="legend-header">Legend</h2>
                 <hr>
                 <div id="legend-items"></div>
             </div>
