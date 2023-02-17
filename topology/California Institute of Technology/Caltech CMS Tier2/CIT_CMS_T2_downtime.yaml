@@ -1463,3 +1463,53 @@
   Services:
     - XRootD component
 
+# ------------------------------------------
+# Storage issues (either power or hardware,
+# need physical presence.)
+- Class: UNSCHEDULED
+  ID: 997651581
+  Description: Storage Issues
+  Severity: Outage
+  StartTime: Nov 30, 2022 22:00 -0700
+  EndTime: Dec 1, 2022 17:00 -0700
+  CreatedTime: Nov 30, 2022 22:00 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: UNSCHEDULED
+  ID: 997651582
+  Description: Storage Issues
+  Severity: Outage
+  StartTime: Nov 30, 2022 22:00 -0700
+  EndTime: Dec 1, 2022 17:00 -0700
+  CreatedTime: Nov 30, 2022 22:00 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
+# ------------------------------------------
+# Testing migration to OSG 3.6
+- Class: SCHEDULED
+  ID: 997651587
+  Description: Migration to OSG 3.6
+  Severity: Outage
+  StartTime: Jan 17, 2023 07:00 -0800
+  EndTime: Feb 01, 2023 09:00 -0800
+  CreatedTime: Jan 13, 2023 21:00 -0800
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+# ------------------------------------------
+# Testing migration to OSG 3.6
+- Class: SCHEDULED
+  ID: 997651588
+  Description: Migration to OSG 3.6
+  Severity: Outage
+  StartTime: Feb 20, 2023 07:00 -0800
+  EndTime: Feb 22, 2023 07:00 -0800
+  CreatedTime: Feb 16, 2023 09:00 -0800
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE

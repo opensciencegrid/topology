@@ -49,42 +49,67 @@ ReportingGroups:
 SupportURL: https://chtc.cs.wisc.edu
 
 DataFederations:
- StashCache:
-   Namespaces:
-     - Path: /chtc/PUBLIC
-       Authorizations:
-         - PUBLIC
-       AllowedOrigins:
-         - CHTC_STASHCACHE_ORIGIN
-         - CHTC_STASHCACHE_ORIGIN_2000
-       AllowedCaches:
-         - ANY
+  StashCache:
+    Namespaces:
+      - Path: /chtc/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CHTC_STASHCACHE_ORIGIN
+          - CHTC_STASHCACHE_ORIGIN_2000
+        AllowedCaches:
+          - ANY
 
-     - Path: /chtc/PROTECTED
-       Authorizations:
-         - FQAN:/GLOW
-         - DN:/DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
-         - SciTokens:
-             Issuer: https://chtc.cs.wisc.edu
-             Base Path: /chtc
-             Map Subject: True
-       AllowedOrigins:
-         - CHTC_STASHCACHE_ORIGIN_AUTH_2000
-       AllowedCaches:
-         # TODO: only allowing CHTC caches defeats the purpose of OSDF; allow PRP caches too?
-         - CHTC_TIGER_CACHE
-         - CHTC_STASHCACHE_CACHE
+      - Path: /chtc/PROTECTED
+        Authorizations:
+          - FQAN: /GLOW
+          - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              Base Path: /chtc
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC_STASHCACHE_ORIGIN_AUTH_2000
+        AllowedCaches:
+          - Stashcache-Chicago
+          - Stashcache-Kansas
+          - Stashcache-Houston
+          - Stashcache-Manhattan
+          - Stashcache-Sunnyvale
+          - CHTC_TIGER_CACHE
+          - CHTC_STASHCACHE_CACHE
 
-     - Path: /chtc/PROTECTED-TESTING
-       Authorizations:
-         - FQAN: /GLOW
-         - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
-         - SciTokens:
-             Issuer: https://chtc.cs.wisc.edu
-             Base Path: /chtc
-             Map Subject: False
-       AllowedOrigins:
-         - CHTC_STASHCACHE_ORIGIN
-       AllowedCaches:
-         - ANY
+      - Path: /chtc/PROTECTED-TESTING
+        Authorizations:
+          - FQAN: /GLOW
+          - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              Base Path: /chtc
+              Map Subject: False
+        AllowedOrigins:
+          - CHTC_STASHCACHE_ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /chtc/itb/helm-origin/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CHTC-ITB-HELM-ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /chtc/itb/helm-origin/PROTECTED
+        Authorizations:
+          - FQAN: /GLOW
+          - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              Base Path: /chtc
+              Map Subject: False
+        AllowedOrigins:
+          - CHTC-ITB-HELM-ORIGIN
+        AllowedCaches:
+          - ANY
 

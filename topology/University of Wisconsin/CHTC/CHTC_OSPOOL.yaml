@@ -86,9 +86,38 @@ Resources:
           Name: Matyas Selmeci
     Description: OSPool GPU A100 for EHT
     FQDN: gpu-ep.chtc.wisc.edu
-    ID: 1325
+    ID: 1371
     Services:
       Execution Endpoint:
         Description: OSG VO backfill containers on the Tiger cluster, in the production namespace
+    Tags:
+      - OSPool
+
+  CHTC-ITB-GPU-EP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000007
+          Name: Carl Edquist
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+    Description: ITB GPU A100 for testing
+    FQDN: itb-gpu-ep.osgdev.chtc.io
+    ID: 1410
+    Services:
+      Execution Endpoint:
+        Description: OSG VO backfill containers on the Tiger cluster, in the development namespace
     Tags:
       - OSPool

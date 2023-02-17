@@ -79,6 +79,12 @@ DataFederations:
           - FQAN: /virgo
           - FQAN: /virgo/virgo
           - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo
+          - SciTokens:
               Issuer: https://scitokens.org/ligo
               Base Path: /user/ligo
           - SciTokens:
@@ -93,21 +99,26 @@ DataFederations:
           - UCL-Virgo-StashCache-Origin
         AllowedCaches:
           - SUT-STASHCACHE
-          - HCC-Stash
           - Georgia_Tech_PACE_GridFTP2
           - Stashcache-UCSD
           - Stashcache-UofA
-          - Stashcache-Cardiff
           - Stashcache-KISTI
           - Stashcache-Houston
           - Stashcache-Manhattan
           - Stashcache-Sunnyvale
           - Stashcache-Chicago
           - Stashcache-Kansas
-          - T1_STASHCACHE_CACHE
           - PIC_STASHCACHE_CACHE
           - SU_STASHCACHE_CACHE
           - PSU-LIGO-CACHE
+          - MGHPCC_NRP_OSDF_CACHE
+          - SDSC_NRP_OSDF_CACHE
+          - NEBRASKA_NRP_OSDF_CACHE
+          - CINCINNATI_INTERNET2_OSDF_CACHE
+          - BOISE_INTERNET2_OSDF_CACHE
+          - T1_STASHCACHE_CACHE
+          - CARDIFF_UK_OSDF_CACHE
+          - ComputeCanada-Cedar-Cache
       - Path: /gwdata
         Authorizations:
           - PUBLIC

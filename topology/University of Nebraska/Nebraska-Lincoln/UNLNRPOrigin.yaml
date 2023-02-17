@@ -1,0 +1,33 @@
+Production: True
+SupportCenter: Community Support Center
+GroupDescription: NRP Origin infrastructure in Nebraska
+GroupID: 1333
+Resources:
+  NEBRASKA_NRP_OSDF_ORIGIN:
+    Active: True
+    Description: Nebraska NRP OSDF Origin
+    ID: 1392
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+        Secondary:
+          Name: John Thiltges
+          ID: OSG1000004
+        Tertiary:
+          Name: Derek Weitzel
+          ID: OSG1000006
+      Security Contact:
+        Primary:
+          Name: Garhan Attebury
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+    FQDN: unl-origin.nationalresearchplatform.org
+    DN: /CN=hcc-nrp-shor-c6005.unl.edu
+    Services:
+      XRootD origin server:
+        # Description is a brief description of the service
+        Description: Nebraska NRP OSDF Origin
+    AllowedVOs:
+      - ANY
+      
