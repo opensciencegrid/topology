@@ -11,11 +11,11 @@ sitenames_with_invalid_chars () {
 }
 
 if sitenames_with_invalid_chars -q; then
-  echo "Site names with invalid chars found:"
+  echo "ERROR: Site names with invalid chars found:"
   echo
   sitenames_with_invalid_chars | sed 's/^/ - /'
   echo
-  echo "Site names must match pattern: '^$allowed$'"
+  echo "ERROR: Site names must match pattern: '^$allowed$'"
   exit 1
 else
   echo A-OK
