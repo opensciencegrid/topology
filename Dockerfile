@@ -7,8 +7,8 @@ RUN \
       gcc \
       git \
       libyaml-devel \
-      python3-devel \
-      python3-pip \
+      python39-devel \
+      python39-pip \
     && yum install -y \
       fetch-crl \
       httpd \
@@ -18,6 +18,8 @@ RUN \
       osg-ca-certs \
       /usr/bin/pkill \
     && yum clean all && rm -rf /var/cache/yum/*
+
+RUN alternatives --set python3 /usr/bin/python3.9
 
 WORKDIR /app
 
