@@ -758,6 +758,95 @@
   Services:
   - FTS
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 1392351828
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:19 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392352072
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:20 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392352565
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:20 +0000
+  ResourceName: USCMS-FNAL-WC1-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392353588
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:22 +0000
+  ResourceName: USCMS-FNAL-WC1-CE2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392353065
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:21 +0000
+  ResourceName: USCMS-FNAL-WC1-CE3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392353955
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:23 +0000
+  ResourceName: USCMS-FNAL-WC1-CE4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392354391
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:23 +0000
+  ResourceName: USCMS-FNAL-WC1-OPP1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1401739041
+  Description: FTS server swap-back
+  Severity: Intermittent Outage
+  StartTime: Feb 01, 2023 14:00 +0000
+  EndTime: Feb 01, 2023 23:00 +0000
+  CreatedTime: Jan 31, 2023 13:05 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - FTS
+# ---------------------------------------------------------
 
 

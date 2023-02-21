@@ -41,6 +41,7 @@ ResourceAllocations:
   - Type: Other
     SubmitResources:
       - CHTC-XD-SUBMIT
+      - UChicago_OSGConnect_login04
     ExecuteResourceGroups:
       - GroupName: TACC-Frontera
         LocalAllocationID: "CHE20009"

@@ -26,3 +26,34 @@ Resources:
     VOOwnership:
       GLOW: 100
 
+  CHTC-PATH-ORIGIN:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000001
+          Name: Brian Bockelman
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000001
+          Name: Brian Bockelman
+    FQDN: ap1-origin.facility.path-cc.io
+    DN: /CN=path-origin.facility.path-cc.io
+    ID: 1409
+    Services:
+      XRootD origin server:
+        Description: OSDF origin server
+    AllowedVOs:
+      - PATh

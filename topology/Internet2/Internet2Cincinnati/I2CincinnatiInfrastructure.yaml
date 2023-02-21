@@ -1,0 +1,25 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Services located at the Internet2 Cincinnati Point of Presence
+GroupID: 1339
+Resources:
+  CINCINNATI_INTERNET2_OSDF_CACHE:
+    Active: true
+    Description: Internet2 Cincinnati Cache
+    ID: 1406
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+    FQDN: dtn-pas.cinc.nrp.internet2.edu
+    DN: /DC=org/DC=incommon/C=US/ST=Michigan/O=University Corporation For Advanced Internet Development/CN=dtn-pas.cinc.nrp.internet2.edu
+    Services:
+      XRootD cache server:
+        Description: Internet2 Cincinnati Cache
+    AllowedVOs:
+      - ANY

@@ -401,4 +401,50 @@
   Services:
   - net.perfSONAR.Bandwidth
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1395064543
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Jan 31, 2023 11:00 +0000
+  EndTime: Feb 02, 2023 16:00 +0000
+  CreatedTime: Jan 23, 2023 20:40 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1395064544
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Jan 31, 2023 11:00 +0000
+  EndTime: Feb 02, 2023 16:00 +0000
+  CreatedTime: Jan 23, 2023 20:40 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1395064545
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Jan 31, 2023 11:00 +0000
+  EndTime: Feb 02, 2023 16:00 +0000
+  CreatedTime: Jan 23, 2023 20:40 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1395064546
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Jan 31, 2023 11:00 +0000
+  EndTime: Feb 02, 2023 16:00 +0000
+  CreatedTime: Jan 23, 2023 20:40 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
 
