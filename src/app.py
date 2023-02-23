@@ -357,19 +357,19 @@ def cache_grid_mapfile():
                         mimetype="text/plain")
     except ResourceNotRegistered as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(e),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, e))
         return Response("# Error generating grid-mapfile for this FQDN:\n"
                         "# {}\n"
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n"
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n"
                         .format(e),
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting grid-mapfile, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting grid-mapfile, please contact help@osg-htc.org", status=503)
 
 
 @app.route("/origin/Authfile")
@@ -396,19 +396,19 @@ def origin_grid_mapfile():
                         mimetype="text/plain")
     except ResourceNotRegistered as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(e),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, e))
         return Response("# Error generating grid-mapfile for this FQDN:\n"
                         "# {}\n"
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n"
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n"
                         .format(e),
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting grid-mapfile, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting grid-mapfile, please contact help@osg-htc.org", status=503)
 
 
 @app.route("/stashcache/scitokens")
