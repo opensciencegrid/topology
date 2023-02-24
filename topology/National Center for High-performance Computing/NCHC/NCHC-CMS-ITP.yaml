@@ -1,0 +1,43 @@
+Production: false
+SupportCenter: GGUS
+
+GroupDescription: Opportunistic resource from CMS project.
+GroupID: <ID>
+
+Resources:
+  NCHC-CMS-CE:
+    Active: false
+    Description: Opportunistic resource from CMS project.
+    ID: <ID>
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Chun-Yu Lin
+          ID: 383ae4982bef24cc546b47c4e4f2e52b57e32da6
+
+      Security Contact:
+        Primary:
+          Name: Chun-Yu Lin
+          ID: 383ae4982bef24cc546b47c4e4f2e52b57e32da6
+
+    FQDN: ce02.grid.nchc.org.tw
+
+    Services:
+      CE:
+        Description: HTCondor-CE
+
+    VOOwnership:
+      CMS: 100
+     
+    # WLCGInformation:
+    #   APELNormalFactor: 0.0
+    #   AccountingName: <name>
+    #   HEPSPEC: 0
+    #   InteropAccounting: true
+    #   InteropBDII: true
+    #   InteropMonitoring: true
+    #   KSI2KMax: 0
+    #   KSI2KMin: 0
+    #   StorageCapacityMax: 0
+    #   StorageCapacityMin: 0
+    #   TapeCapacity: 0
