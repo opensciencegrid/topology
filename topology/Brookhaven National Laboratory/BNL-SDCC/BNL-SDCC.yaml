@@ -147,6 +147,30 @@ Resources:
     Services:
       CE:
         Description: Shared Pool Compute Element
+    BNL-SDCC-CE06:
+    Active: true
+    Description: This is a compute cluster for SDCC.
+    ID: 
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+        Secondary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+
+      Security Contact:
+        Primary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+        Secondary:
+          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+          Name: Xin Zhao
+    FQDN: spce06.sdcc.bnl.gov
+    Services:
+      CE:
+        Description: Shared Pool Compute Element
   BNL-SUBMIT-01:
     Active: true
     Description: This is a submit host for SDCC.
