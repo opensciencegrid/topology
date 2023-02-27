@@ -20,7 +20,7 @@ Resources:
   UA-HPC-CE1:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: true
+    Active: false
     # Description is a long description of the resource; may be multiple lines
     Description: Hosted CE serving UA-HPC
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
@@ -75,7 +75,7 @@ Resources:
         #   ID: <EMAIL HASH>
 
     # FQDN is the fully qualified domain name of the host running this resource
-    FQDN: ua-hpc-ce1.svc.opensciencegrid.org
+    FQDN: ua-hpc-ce1-inactive.svc.opensciencegrid.org
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
     # FQDNAliases:
     #   - <HOSTNAME1>
