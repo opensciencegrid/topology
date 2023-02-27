@@ -137,7 +137,7 @@ Resources:
           Monitored: true
     VOOwnership:
       ATLAS: 90
-  AGLT2-squid-5:
+  AGLT2-squid-6:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -162,6 +162,7 @@ Resources:
           Name: Shawn McKee
     Description: This is the slate Varnish 2 for CVMFS
     FQDN: sl-msu-es1.slateci.io
+    ID: 1423
     Services:
       Squid:
         Description: Generic varnish service
