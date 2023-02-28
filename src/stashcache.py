@@ -543,12 +543,15 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
         }
 
         for cache_name, cache_resource_obj in cache_resource_objs.items():
-            if resource_allows_namespace(cache_resource_obj, ns) and namespace_allows_cache_resource(ns, cache_resource_obj):
+            if resource_allows_namespace(cache_resource_obj, ns) and namespace_allows_cache_resource(ns,
+                                                                                                     cache_resource_obj):
                 nsdict["caches"].append(cache_resource_dicts[cache_name])
         return nsdict
+
     # End helper functions
 
-    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    topology = global_data.get_topology()
+    resource_groups: List[ResourceGroup] = topology.get_resource_group_list()
     vos_data = global_data.get_vos_data()
 
     cache_resource_objs = {}  # type: Dict[str, Resource]
@@ -556,7 +559,10 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
 
     for group in resource_groups:
         for resource in group.resources:
-            if _resource_has_cache(resource) and resource.is_active:
+            if (_resource_has_cache(resource)
+                    and resource.is_active
+                    and resource.name not in topology.downed_resource_names
+            ):
                 cache_resource_objs[resource.name] = resource
                 cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
 

@@ -467,7 +467,8 @@ class Downtime(object):
         self.created_time = None
         if not is_null(yaml_data, "CreatedTime"):
             self.created_time = self.parsetime(yaml_data["CreatedTime"])
-        self.res = rg.resources_by_name[yaml_data["ResourceName"]]
+        self.res_name = yaml_data["ResourceName"]
+        self.res = rg.resources_by_name[self.res_name]
         self.service_names = yaml_data["Services"]
         self.service_ids = [common_data.service_types[x] for x in yaml_data["Services"]]
         self.id = yaml_data["ID"]
@@ -643,6 +644,7 @@ class Topology(object):
         self.service_names_by_resource = {}  # type: Dict[str, List[str]]
         self.downtime_path_by_resource_group = defaultdict(set)
         self.downtime_path_by_resource = {}
+        self.downed_resource_names = set()  # resource names that are currently down
 
     def add_rg(self, facility_name: str, site_name: str, name: str, parsed_data: ParsedYaml):
         try:
@@ -747,6 +749,8 @@ class Topology(object):
             log.warning("Invalid or missing data in downtime -- skipping: %r", err)
             return
         self.downtimes_by_timeframe[dt.timeframe].append(dt)
+        if dt.timeframe == Timeframe.PRESENT:
+            self.downed_resource_names.add(dt.res_name)
 
     def safe_get_resource_by_fqdn(self, fqdn: str) -> Optional[Resource]:
         """Returns the first resource that has the given FQDN or None if no such resource exists."""
