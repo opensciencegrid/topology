@@ -260,6 +260,11 @@ class Resource(object):
         return new_res
 
     @property
+    def is_active(self):
+        """Check if the Resource is active and not disabled"""
+        return self.data.get("Active", True) and not self.data.get("Disable", False)
+
+    @property
     def is_ccstar(self):
         """Check if this site is tagged as a CC* Site"""
         if not hasattr(self, "_is_ccstar"):

@@ -556,7 +556,7 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
 
     for group in resource_groups:
         for resource in group.resources:
-            if _resource_has_cache(resource):
+            if _resource_has_cache(resource) and resource.is_active:
                 cache_resource_objs[resource.name] = resource
                 cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
 
