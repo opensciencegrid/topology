@@ -1,0 +1,69 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: Non-HPC resources at NERSC
+
+GroupID: 1348
+
+Resources:
+  NERSC-Non-HPC-Squid1:
+    Active: false
+    Description: This is a Frontier-Squid instance primarily for non-HPC systems at NERSC that need access to CVMFS
+    ID: 1425
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: NERSC Infrastructure Services Group
+          ID: 642672e484cf4e5b326d5f84c1350ff102154637
+
+      Security Contact:
+        Primary:
+          Name: NERSC Infrastructure Services Group
+          ID: 642672e484cf4e5b326d5f84c1350ff102154637
+        Secondary:
+          Name: NERSC Security
+          ID: bd1429ebc743fc6bef0b7a3e9f373bce79ed0301
+
+    # Internal FQDN is fs1.nersc.gov
+    FQDN: fs1-ext.nersc.gov
+
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: true
+
+    VOOwnership:
+      NERSC: 100
+
+
+  NERSC-Non-HPC-Squid2:
+    Active: false
+    Description: This is a Frontier-Squid instance primarily for non-HPC systems at NERSC that need access to CVMFS
+    ID: 1426
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: NERSC Infrastructure Services Group
+          ID: 642672e484cf4e5b326d5f84c1350ff102154637
+
+      Security Contact:
+        Primary:
+          Name: NERSC Infrastructure Services Group
+          ID: 642672e484cf4e5b326d5f84c1350ff102154637
+        Secondary:
+          Name: NERSC Security
+          ID: bd1429ebc743fc6bef0b7a3e9f373bce79ed0301
+
+    # Internal FQDN is fs2.nersc.gov
+    FQDN: fs2-ext.nersc.gov
+
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: true
+
+    VOOwnership:
+      NERSC: 100
+
