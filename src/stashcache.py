@@ -543,8 +543,8 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
         }
 
         for cache_name, cache_resource_obj in cache_resource_objs.items():
-            if resource_allows_namespace(cache_resource_obj, ns) and namespace_allows_cache_resource(ns,
-                                                                                                     cache_resource_obj):
+            if (resource_allows_namespace(cache_resource_obj, ns) and
+                    namespace_allows_cache_resource(ns, cache_resource_obj)):
                 nsdict["caches"].append(cache_resource_dicts[cache_name])
         return nsdict
 
