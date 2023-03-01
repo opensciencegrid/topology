@@ -644,7 +644,7 @@ class Topology(object):
         self.service_names_by_resource = {}  # type: Dict[str, List[str]]
         self.downtime_path_by_resource_group = defaultdict(set)
         self.downtime_path_by_resource = {}
-        self.downed_resource_names = set()  # resource names that are currently down
+        self.present_downtimes_by_resource = defaultdict(list)  # type: defaultdict[str, List[Downtime]]
 
     def add_rg(self, facility_name: str, site_name: str, name: str, parsed_data: ParsedYaml):
         try:
@@ -750,7 +750,7 @@ class Topology(object):
             return
         self.downtimes_by_timeframe[dt.timeframe].append(dt)
         if dt.timeframe == Timeframe.PRESENT:
-            self.downed_resource_names.add(dt.res_name)
+            self.present_downtimes_by_resource[dt.res_name].append(dt)
 
     def safe_get_resource_by_fqdn(self, fqdn: str) -> Optional[Resource]:
         """Returns the first resource that has the given FQDN or None if no such resource exists."""

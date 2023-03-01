@@ -548,6 +548,18 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
                 nsdict["caches"].append(cache_resource_dicts[cache_name])
         return nsdict
 
+    def _resource_has_downed_cache(r: Resource, t: Topology):
+        if r.name not in t.present_downtimes_by_resource:
+            return False
+        downtimes = t.present_downtimes_by_resource[r.name]
+        for dt in downtimes:
+            try:
+                if XROOTD_CACHE_SERVER in dt.service_names:
+                    return True
+            except (KeyError, AttributeError):
+                continue
+        return False
+
     # End helper functions
 
     topology = global_data.get_topology()
@@ -561,7 +573,7 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
         for resource in group.resources:
             if (_resource_has_cache(resource)
                     and resource.is_active
-                    and resource.name not in topology.downed_resource_names
+                    and not _resource_has_downed_cache(resource, topology)
             ):
                 cache_resource_objs[resource.name] = resource
                 cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
