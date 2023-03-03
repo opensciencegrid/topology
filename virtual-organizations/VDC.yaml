@@ -1,0 +1,48 @@
+Name: VDC
+LongName: Virtual Data Collaboratory
+AppDescription: Virtual Data Collaboratory data services
+Community: 'Experiments related to the Virtual Data Collaboratory at the SCI 
+  Institute, University of Utah. It provides an origin for delivering data
+  services. This VO is currently in testing phase'
+
+CertificateOnly: false
+
+ID: 
+
+Contacts:
+  Administrative Contact:
+  - ID: 298e3d0cb95a3d327b0311514201ba88
+    Name: Ivan Rodero
+  Security Contact:
+  - ID: 298e3d0cb95a3d327b0311514201ba88
+    Name: Ivan Rodero
+  Registration Authority:
+  - ID: 298e3d0cb95a3d327b0311514201ba88
+    Name: Ivan Rodero 
+  VO Manager:
+  - ID: 298e3d0cb95a3d327b0311514201ba88
+    Name: Ivan Rodero
+  
+#Disable: false
+
+FieldsOfScience:
+  PrimaryFields:
+  - Computer Science
+  SecondaryFields:
+  - Cyberinfrastructure
+
+PrimaryURL: https://datacollaboratory.org
+PurposeURL: https://datacollaboratory.org
+SupportURL: https://datacollaboratory.org
+
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /VDC/PUBLIC
+        Authorizations:
+          - ANY
+        AllowedOrigins:
+          - Utah-SCI-VDC-ITB-ORIGIN
+        AllowedCaches:
+          - ANY
+          
