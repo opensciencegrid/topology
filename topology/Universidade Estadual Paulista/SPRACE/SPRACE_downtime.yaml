@@ -1487,3 +1487,69 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1432327584
+  Description: Power outage affecting campus
+  Severity: Outage
+  StartTime: Mar 06, 2023 15:00 +0000
+  EndTime: Mar 10, 2023 12:00 +0000
+  CreatedTime: Mar 07, 2023 23:45 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1432327585
+  Description: Power outage affecting campus
+  Severity: Outage
+  StartTime: Mar 06, 2023 15:00 +0000
+  EndTime: Mar 10, 2023 12:00 +0000
+  CreatedTime: Mar 07, 2023 23:45 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1432327586
+  Description: Power outage affecting campus
+  Severity: Outage
+  StartTime: Mar 06, 2023 15:00 +0000
+  EndTime: Mar 10, 2023 12:00 +0000
+  CreatedTime: Mar 07, 2023 23:45 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1432327587
+  Description: Power outage affecting campus
+  Severity: Outage
+  StartTime: Mar 06, 2023 15:00 +0000
+  EndTime: Mar 10, 2023 12:00 +0000
+  CreatedTime: Mar 07, 2023 23:45 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1432327588
+  Description: Power outage affecting campus
+  Severity: Outage
+  StartTime: Mar 06, 2023 15:00 +0000
+  EndTime: Mar 10, 2023 12:00 +0000
+  CreatedTime: Mar 07, 2023 23:45 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1432327589
+  Description: Power outage affecting campus
+  Severity: Outage
+  StartTime: Mar 06, 2023 15:00 +0000
+  EndTime: Mar 10, 2023 12:00 +0000
+  CreatedTime: Mar 07, 2023 23:45 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
