@@ -24,19 +24,28 @@ RGSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/rgsummary.xs
 RGDOWNTIME_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/rgdowntime.xsd"
 VOSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/vosummary.xsd"
 
+GRIDTYPE_1 = "OSG Production Resource"
+GRIDTYPE_2 = "OSG Integration Test Bed Resource"
+
 SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
 ParsedYaml = NewType("ParsedYaml", Dict[str, Any])  # a complex data structure that's a result of parsing a YAML file
 PreJSON = NewType("PreJSON", Dict[str, Any])  # a complex data structure that will be converted to JSON in the webapp
 T = TypeVar("T")
 
+class InvalidArgumentsError(Exception): pass
+
 
 class Filters(object):
     def __init__(self):
         self.facility_id = []
+        self.facility_name = []
         self.site_id = []
+        self.site_name = []
         self.support_center_id = []
+        self.support_center_name = []
         self.service_id = []
+        self.service_name = []
         self.grid_type = None
         self.active = None
         self.disable = None
@@ -44,13 +53,145 @@ class Filters(object):
         self.voown_id = []
         self.voown_name = []
         self.rg_id = []
+        self.rg_name = []
         self.service_hidden = None
         self.oasis = None  # for vosummary
         self.vo_id = []  # for vosummary
+        self.vo_name = []
         self.has_wlcg = None
 
+    @classmethod
+    def from_args(cls, args, global_data):
+        """Parse http request parameters into a filter object"""
+
+        filters = cls()
+
+        filters.active = cls.get_filter_value(args, "active")
+        filters.disable = cls.get_filter_value(args, "disable")
+        filters.oasis = cls.get_filter_value(args, "oasis")
+
+        filters.populate_gridtype_filter_from_args(args)
+        filters.populate_service_hidden_filter_from_args(args)
+        filters.populate_past_days_from_args(args)
+        filters.populate_has_wlcg_from_args(args)
+
+        for filter_key, filter_list, description in [
+            ("facility", filters.facility_id, "facility ID"),
+            ("rg", filters.rg_id, "resource group ID"),
+            ("service", filters.service_id, "service ID"),
+            ("sc", filters.support_center_id, "support center ID"),
+            ("site", filters.site_id, "site ID"),
+            ("vo", filters.vo_id, "VO ID"),
+            ("voown", filters.voown_id, "VO owner ID"),
+        ]:
+            cls.add_selector_filter_from_args(args, filter_key, filter_list, description)
+            cls.add_id_filter_from_args(args, filter_key, filter_list)
+
+        for filter_key, filter_list in [
+            ("facility", filters.facility_name),
+            ("rg", filters.rg_name),
+            ("service", filters.service_name),
+            ("sc", filters.support_center_name),
+            ("site", filters.site_name),
+            ("vo", filters.vo_name),
+            ("voown", filters.voown_name),
+        ]:
+            cls.add_name_filter_from_args(args, filter_key, filter_list)
+
+        filters.populate_voown_name(global_data.get_vos_data().get_vo_id_to_name())
+
+        return filters
+
+    @staticmethod
+    def get_filter_value(args, filter_key):
+        filter_value_key = filter_key + "_value"
+        if filter_key in args:
+            filter_value_str = args.get(filter_value_key, "")
+            if filter_value_str == "0":
+                return False
+            elif filter_value_str == "1":
+                return True
+            else:
+                raise InvalidArgumentsError("{0} must be 0 or 1".format(filter_value_key))
+
+    @staticmethod
+    def add_selector_filter_from_args(args, filter_key, filter_list, description):
+        if filter_key in args:
+            pat = re.compile(r"{0}_(\d+)".format(filter_key))
+            arg_sel = "{0}_sel[]".format(filter_key)
+            for k, v in args.items():
+                if k == arg_sel:
+                    try:
+                        filter_list.append(int(v))
+                    except ValueError:
+                        raise InvalidArgumentsError("{0}={1}: must be int".format(k,v))
+                elif pat.match(k):
+                    m = pat.match(k)
+                    filter_list.append(int(m.group(1)))
+            if not filter_list:
+                raise InvalidArgumentsError("at least one {0} must be specified"
+                                            " via the syntax <code>{1}_<b>ID</b>=on</code>"
+                                            " or <code>{1}_sel[]=<b>ID</b></code>."
+                                            " (These may be specified multiple times for multiple IDs.)"\
+                                            .format(description, filter_key))
+
+    @staticmethod
+    def add_name_filter_from_args(args, filter_key, filter_list):
+        arg_sel = "{0}_name[]".format(filter_key)
+        selected_args = args.getlist(arg_sel)
+        filter_list.extend(selected_args)
+
+    @staticmethod
+    def add_id_filter_from_args(args, filter_key, filter_list):
+        arg_sel = "{0}_id[]".format(filter_key)
+        selected_args = args.getlist(arg_sel)
+        for v in selected_args:
+            try:
+                filter_list.append(int(v))
+            except ValueError:
+                raise InvalidArgumentsError("{0}={1}: must be int".format(arg_sel, v))
+
+    def populate_gridtype_filter_from_args(self, args):
+        if "gridtype" in args:
+            gridtype_1, gridtype_2 = args.get("gridtype_1", ""), args.get("gridtype_2", "")
+            if gridtype_1 == "on" and gridtype_2 == "on":
+                pass
+            elif gridtype_1 == "on":
+                self.grid_type = GRIDTYPE_1
+            elif gridtype_2 == "on":
+                self.grid_type = GRIDTYPE_2
+            else:
+                raise InvalidArgumentsError("gridtype_1 or gridtype_2 or both must be \"on\"")
+
+    def populate_service_hidden_filter_from_args(self, args):
+        if "service_hidden_value" in args:  # note no "service_hidden" args
+            if args["service_hidden_value"] == "0":
+                self.service_hidden = False
+            elif args["service_hidden_value"] == "1":
+                self.service_hidden = True
+            else:
+                raise InvalidArgumentsError("service_hidden_value must be 0 or 1")
+
+    def populate_past_days_from_args(self, args):
+        if "downtime_attrs_showpast" in args:
+            # doesn't make sense for rgsummary but will be ignored anyway
+            try:
+                v = args["downtime_attrs_showpast"]
+                if v == "all":
+                    self.past_days = -1
+                elif not v:
+                    self.past_days = 0
+                else:
+                    self.past_days = int(args["downtime_attrs_showpast"])
+            except ValueError:
+                raise InvalidArgumentsError("downtime_attrs_showpast must be an integer, \"\", or \"all\"")
+
+    def populate_has_wlcg_from_args(self, args):
+        if "has_wlcg" in args:
+            self.has_wlcg = True
+
     def populate_voown_name(self, vo_id_to_name: Dict):
-        self.voown_name = [vo_id_to_name.get(i, "") for i in self.voown_id]
+        self.voown_name.extend([vo_id_to_name.get(i, "") for i in self.voown_id])
 
 
 def is_null(x, *keys) -> bool:

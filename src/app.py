@@ -14,11 +14,11 @@ import traceback
 import urllib.parse
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, \
+    escape
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
 from webapp.models import GlobalData
-from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
 
 
@@ -283,6 +283,7 @@ def rgsummary_xml():
     return _get_xml_or_fail(global_data.get_topology().get_resource_summary, request.args)
 
 
+
 @app.route('/rgdowntime/xml')
 def rgdowntime_xml():
     return _get_xml_or_fail(global_data.get_topology().get_downtimes, request.args)
@@ -291,7 +292,7 @@ def rgdowntime_xml():
 @app.route('/rgdowntime/ical')
 def rgdowntime_ical():
     try:
-        filters = get_filters_from_args(request.args)
+        filters = Filters.from_args(request.args, global_data)
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
     response = make_response(global_data.get_topology().get_downtimes_ical(False, filters).to_ical())
@@ -758,94 +759,9 @@ def _make_choices(iterable, select_one=False):
     return c
 
 
-def get_filters_from_args(args) -> Filters:
-    filters = Filters()
-    def filter_value(filter_key):
-        filter_value_key = filter_key + "_value"
-        if filter_key in args:
-            filter_value_str = args.get(filter_value_key, "")
-            if filter_value_str == "0":
-                return False
-            elif filter_value_str == "1":
-                return True
-            else:
-                raise InvalidArgumentsError("{0} must be 0 or 1".format(filter_value_key))
-    filters.active = filter_value("active")
-    filters.disable = filter_value("disable")
-    filters.oasis = filter_value("oasis")
-
-    if "gridtype" in args:
-        gridtype_1, gridtype_2 = args.get("gridtype_1", ""), args.get("gridtype_2", "")
-        if gridtype_1 == "on" and gridtype_2 == "on":
-            pass
-        elif gridtype_1 == "on":
-            filters.grid_type = GRIDTYPE_1
-        elif gridtype_2 == "on":
-            filters.grid_type = GRIDTYPE_2
-        else:
-            raise InvalidArgumentsError("gridtype_1 or gridtype_2 or both must be \"on\"")
-    if "service_hidden_value" in args:  # note no "service_hidden" args
-        if args["service_hidden_value"] == "0":
-            filters.service_hidden = False
-        elif args["service_hidden_value"] == "1":
-            filters.service_hidden = True
-        else:
-            raise InvalidArgumentsError("service_hidden_value must be 0 or 1")
-    if "downtime_attrs_showpast" in args:
-        # doesn't make sense for rgsummary but will be ignored anyway
-        try:
-            v = args["downtime_attrs_showpast"]
-            if v == "all":
-                filters.past_days = -1
-            elif not v:
-                filters.past_days = 0
-            else:
-                filters.past_days = int(args["downtime_attrs_showpast"])
-        except ValueError:
-            raise InvalidArgumentsError("downtime_attrs_showpast must be an integer, \"\", or \"all\"")
-    if "has_wlcg" in args:
-        filters.has_wlcg = True
-
-    # 2 ways to filter by a key like "facility", "service", "sc", "site", etc.:
-    # - either pass KEY_1=on, KEY_2=on, etc.
-    # - pass KEY_sel[]=1, KEY_sel[]=2, etc. (multiple KEY_sel[] args).
-    for filter_key, filter_list, description in [
-        ("facility", filters.facility_id, "facility ID"),
-        ("rg", filters.rg_id, "resource group ID"),
-        ("service", filters.service_id, "service ID"),
-        ("sc", filters.support_center_id, "support center ID"),
-        ("site", filters.site_id, "site ID"),
-        ("vo", filters.vo_id, "VO ID"),
-        ("voown", filters.voown_id, "VO owner ID"),
-    ]:
-        if filter_key in args:
-            pat = re.compile(r"{0}_(\d+)".format(filter_key))
-            arg_sel = "{0}_sel[]".format(filter_key)
-            for k, v in args.items():
-                if k == arg_sel:
-                    try:
-                        filter_list.append(int(v))
-                    except ValueError:
-                        raise InvalidArgumentsError("{0}={1}: must be int".format(k,v))
-                elif pat.match(k):
-                    m = pat.match(k)
-                    filter_list.append(int(m.group(1)))
-            if not filter_list:
-                raise InvalidArgumentsError("at least one {0} must be specified"
-                                            " via the syntax <code>{1}_<b>ID</b>=on</code>"
-                                            " or <code>{1}_sel[]=<b>ID</b></code>."
-                                            " (These may be specified multiple times for multiple IDs.)"\
-                                            .format(description, filter_key))
-
-    if filters.voown_id:
-        filters.populate_voown_name(global_data.get_vos_data().get_vo_id_to_name())
-
-    return filters
-
-
 def _get_xml_or_fail(getter_function, args):
     try:
-        filters = get_filters_from_args(args)
+        filters = Filters.from_args(args, global_data)
     except InvalidArgumentsError as e:
         return Response("Invalid arguments: " + str(e), status=400)
     return Response(
