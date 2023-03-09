@@ -21,7 +21,12 @@ Resources:
     FQDN: nsgosg.sdsc.edu
     Services:
       Submit Node:
-        Description: OS Pool access point
+        Description: OS Pool access point for NSG
+      XRootD origin server:
+        Description: OSDF origin server for NSG
+    AllowedVOs:
+      - ANY
+    DN: /DC=org/DC=incommon/C=US/ST=California/O="University of California, San Diego"/CN=nsgosg.sdsc.edu
     Tags:
       - OSPool
 
