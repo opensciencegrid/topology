@@ -4,7 +4,7 @@ LongName: Neuroscience Gateway
 AppDescription: A Portal for Computational Neuroscience
 Community: The Neuroscience Gateway (NSG) project facilitates access and use of the NSF-funded HPC, HTC, and academic cloud computing resources by neuroscientists.
 CertificateOnly: false
-ID: <ID>
+ID: 231
 Contacts:
   Administrative Contact:
   - ID: 5cb19c49b0d5fff51f9bff3827f1be928303a54b
@@ -25,10 +25,10 @@ SupportURL: nsghelp@sdsc.edu
 DataFederations:
   StashCache:
     Namespaces:
-      - Path: /NSG/PUBLIC:
-      Authorizations:
-        - ANY
-      AllowedOrigins:
-        - <ORIGIN_RESOURCE>
-      AllowedCaches:
-        - ANY
+      - Path: /NSG/PUBLIC
+        Authorizations:
+          - PUBLIC
+        # AllowedOrigins:
+        #   - ANY
+        AllowedCaches:
+          - ANY
