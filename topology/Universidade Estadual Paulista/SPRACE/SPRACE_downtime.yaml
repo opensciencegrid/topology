@@ -1586,3 +1586,14 @@
   Services:
   - net.perfSONAR.Bandwidth
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434470636
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:17 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
