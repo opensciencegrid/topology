@@ -1641,3 +1641,15 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1434758354
+  Description: Still restoring services after power outage
+  Severity: Outage
+  StartTime: Mar 10, 2023 21:00 +0000
+  EndTime: Mar 13, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 19:17 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
