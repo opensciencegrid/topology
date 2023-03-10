@@ -1608,3 +1608,14 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434474091
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:23 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
