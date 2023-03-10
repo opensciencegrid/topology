@@ -1,14 +1,16 @@
 Production: true
 SupportCenter: Self Supported
 
-GroupDescription: Non-HPC resources at NERSC
+GroupDescription: NERSC Infrastructure (off-HPC-platform)
 
 GroupID: 1348
 
 Resources:
-  NERSC-Non-HPC-Squid1:
+  NERSC-Infra-Squid1:
     Active: false
-    Description: This is a Frontier-Squid instance primarily for non-HPC systems at NERSC that need access to CVMFS
+    Description: >-
+      This is a Frontier-Squid instance situated off the HPC platform. It is primary for all Frontier Cache
+      use, primary for off-HPC-platform CVMFS clients, and secondary (failover) for on-HPC-platform CVMFS clients.
     ID: 1425
     ContactLists:
       Administrative Contact:
@@ -37,9 +39,11 @@ Resources:
       NERSC: 100
 
 
-  NERSC-Non-HPC-Squid2:
+  NERSC-Infra-Squid2:
     Active: false
-    Description: This is a Frontier-Squid instance primarily for non-HPC systems at NERSC that need access to CVMFS
+    Description: >-
+      This is a Frontier-Squid instance situated off the HPC platform. It is primary for all Frontier Cache
+      use, primary for off-HPC-platform CVMFS clients, and secondary (failover) for on-HPC-platform CVMFS clients.
     ID: 1426
     ContactLists:
       Administrative Contact:
