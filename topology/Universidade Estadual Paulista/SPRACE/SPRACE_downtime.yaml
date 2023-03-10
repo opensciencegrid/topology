@@ -1553,3 +1553,69 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434465621
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:09 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434468309
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:13 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434469637
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:16 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434470636
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:17 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434471741
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:19 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434474091
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:23 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
