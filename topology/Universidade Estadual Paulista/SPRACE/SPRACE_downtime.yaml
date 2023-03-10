@@ -1674,4 +1674,15 @@
   Services:
   - net.perfSONAR.Bandwidth
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1434764523
+  Description: Still restoring services after power outage
+  Severity: Outage
+  StartTime: Mar 10, 2023 21:00 +0000
+  EndTime: Mar 13, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 19:27 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
 
