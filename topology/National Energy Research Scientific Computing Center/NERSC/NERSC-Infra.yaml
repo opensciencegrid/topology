@@ -7,7 +7,7 @@ GroupID: 1348
 
 Resources:
   NERSC-Infra-Squid1:
-    Active: false
+    Active: true
     Description: >-
       This is a Frontier-Squid instance situated off the HPC platform. It is primary for all Frontier Cache
       use, primary for off-HPC-platform CVMFS clients, and secondary (failover) for on-HPC-platform CVMFS clients.
@@ -40,7 +40,7 @@ Resources:
 
 
   NERSC-Infra-Squid2:
-    Active: false
+    Active: true
     Description: >-
       This is a Frontier-Squid instance situated off the HPC platform. It is primary for all Frontier Cache
       use, primary for off-HPC-platform CVMFS clients, and secondary (failover) for on-HPC-platform CVMFS clients.
