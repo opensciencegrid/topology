@@ -1685,4 +1685,14 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 1437395813
+  Description: Still restoring services after power outage
+  Severity: Outage
+  StartTime: Mar 13, 2023 21:00 +0000
+  EndTime: Mar 15, 2023 21:00 +0000
+  CreatedTime: Mar 13, 2023 20:33 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
