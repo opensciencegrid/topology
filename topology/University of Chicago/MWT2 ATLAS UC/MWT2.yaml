@@ -577,6 +577,63 @@ Resources:
           Monitored: true
     VOOwnership:
       ATLAS: 100
+  MWT2_SLATE_IU_2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+        Tertiary 2:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+      Miscellaneous Contact:
+        Primary:
+          ID: 3b1876c30549a51501329cbb9678289fc786ac29
+          Name: Frederick Luehring
+      Resource Report Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+        Tertiary 2:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          Name: David Jordan
+        Tertiary 2:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+    Description: MWT2 SLATE located at Indiana University @ Indianapolis, IN
+    FQDN: iut2-slate01.mwt2.org
+    ID: 1241
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: iut2-slate01.mwt2.org:32200
+          Monitored: true
+    VOOwnership:
+      ATLAS: 100  
   MWT2_SLATE_UIUC:
     Active: true
     ContactLists:
