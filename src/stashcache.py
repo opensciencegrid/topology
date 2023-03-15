@@ -6,13 +6,15 @@ from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingS
 from webapp.ldap_data import get_ligo_ldap_dn_list
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
-from webapp.vos_data import AuthMethod, DNAuth, SciTokenAuth, Namespace, \
-    parse_authz, ANY, ANY_PUBLIC, VOsData
+from webapp.vos_data import VOsData
+from webapp.data_federation import AuthMethod, DNAuth, SciTokenAuth, Namespace, parse_authz
 
 import logging
 
 log = logging.getLogger(__name__)
 
+ANY = "ANY"
+ANY_PUBLIC = "ANY_PUBLIC"
 
 def _log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=log.debug):
     if suppress_errors:
