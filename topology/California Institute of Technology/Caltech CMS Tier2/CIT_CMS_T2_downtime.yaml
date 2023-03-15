@@ -1526,3 +1526,89 @@
   ResourceName: CIT_CMS_T2
   Services:
     - CE
+
+
+
+# -----------------------------------------
+# CENIC major failure start at 1235 PST time 8:35 PM UTC
+# CENIC is our primary campus internet services provider
+# [CENIC NOC-698264] Backbone OUTAGE
+
+- Class: UNSCHEDULED
+  ID: 997651594
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 997651595
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 997651596
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 997651597
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 997651598
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 997651599
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: UNSCHEDULED
+  ID: 997651600
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+    
+    
