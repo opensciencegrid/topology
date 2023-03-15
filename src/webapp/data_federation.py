@@ -99,6 +99,53 @@ class SciTokenAuth(AuthMethod):
         return block
 
 
+# TODO Use a dataclass (https://docs.python.org/3.9/library/dataclasses.html)
+# once we can ditch Python 3.6; the webapp no longer supports 3.6 but some of
+# the scripts (e.g. osg-scitokens-config) do.
+class CredentialGeneration:
+    """Class for storing the info of a CredentialGeneration block for a namespace.
+    This is served up by the /osdf/namespaces endpoint.
+    See https://opensciencegrid.atlassian.net/browse/SOFTWARE-5381 for details.
+
+    """
+    STRATEGY_VAULT = "Vault"
+    STRATEGY_OAUTH2 = "OAuth2"
+    def __init__(self, strategy: str, issuer: str, max_scope_depth: int, vault_server: Optional[str]):
+        self.strategy = strategy
+        self.issuer = issuer
+        self.max_scope_depth = max_scope_depth
+        self.vault_server = vault_server
+
+    def __repr__(self):
+        return self.__class__.__name__ + ("(strategy=%r, issuer=%r, max_scope_depth=%r, vault_server=%r)" % (
+            self.strategy, self.issuer, self.max_scope_depth, self.vault_server
+        ))
+
+    def validate(self) -> Set[str]:
+        """Return a set of error strings in the data."""
+        errors = set()
+        errprefix = "CredentialGeneration:"
+        if self.strategy not in [self.STRATEGY_VAULT, self.STRATEGY_OAUTH2]:
+            errors.add(f"{errprefix} invalid Strategy {self.strategy}")
+        if not self.issuer:
+            errors.add(f"{errprefix} issuer not specified")
+        elif not isinstance(self.issuer, str) or "://" not in self.issuer:
+            errors.add(f"{errprefix} invalid Issuer {self.issuer}")
+        if not self.max_scope_depth:
+            errors.add(f"{errprefix} MaxScopeDepth not specified")
+        try:
+            int(self.max_scope_depth)
+        except TypeError:
+            errors.add(f"{errprefix} invalid MaxScopeDepth (not an integer) {self.max_scope_depth}")
+        else:
+            if self.max_scope_depth < 0:
+                errors.add(f"{errprefix} negative MaxScopeDepth {self.max_scope_depth}")
+        if self.strategy == self.STRATEGY_VAULT and not self.vault_server:
+            errors.add(f"{errprefix} VaultServer not specified for a {self.STRATEGY_VAULT} strategy")
+
+        return errors
+
+
 class Namespace:
     def __init__(
         self,
@@ -109,6 +156,7 @@ class Namespace:
         authz_list: List[AuthMethod],
         writeback: Optional[str],
         dirlist: Optional[str],
+        credential_generation: Optional[CredentialGeneration],
     ):
         self.path = path
         self.vo_name = vo_name
@@ -117,6 +165,7 @@ class Namespace:
         self.authz_list = authz_list
         self.writeback = writeback
         self.dirlist = dirlist
+        self.credential_generation = credential_generation
 
     def is_public(self) -> bool:
         return self.authz_list and self.authz_list[0].is_public
@@ -250,12 +299,29 @@ class StashCache:
             if "Path" not in ns_data:
                 self.errors.add(f"Namespace #{idx}: No Path")
                 continue
+
             path = ns_data["Path"]
             if path in self.namespaces:
                 orig_vo_name = self.namespaces[path].vo_name
                 self.errors.add(f"Namespace #{idx}: Redefining {path}; original was defined in {orig_vo_name}")
                 continue
+
             authz_list = self.parse_authz_list(path=path, unparsed_authz_list=ns_data.get("Authorizations", []))
+
+            credential_generation = None
+            if "CredentialGeneration" in ns_data:
+                cg = ns_data["CredentialGeneration"]
+                credential_generation = CredentialGeneration(
+                    strategy=cg.get("Strategy", ""),
+                    issuer=cg.get("Issuer", ""),
+                    max_scope_depth=cg.get("MaxScopeDepth", 0),
+                    vault_server=cg.get("VaultServer", None)
+                )
+                cg_errors = credential_generation.validate()
+                if cg_errors:
+                    self.errors += {f"Namespace {path}: {e}" for e in cg_errors}
+                    continue
+
             self.namespaces[path] = Namespace(
                 path=path,
                 vo_name=self.vo_name,
@@ -264,6 +330,7 @@ class StashCache:
                 authz_list=authz_list,
                 writeback=ns_data.get("Writeback", None),
                 dirlist=ns_data.get("DirList", None),
+                credential_generation=credential_generation,
             )
 
     def load_old_yaml(self, yaml_data: ParsedYaml):
@@ -284,7 +351,9 @@ class StashCache:
                 allowed_caches=yaml_data.get("AllowedCaches", []),
                 authz_list=authz_list,
                 writeback=None,
-                dirlist=None)
+                dirlist=None,
+                credential_generation=None,
+            )
 
     def parse_authz_list(self, path: str, unparsed_authz_list: List[Union[str, Dict]]) -> List[AuthMethod]:
         authz_list = []
