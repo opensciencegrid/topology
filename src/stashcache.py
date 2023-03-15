@@ -1,9 +1,8 @@
 from collections import defaultdict
 from typing import Dict, List, Optional
 
-from webapp.common import is_null, readfile, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
+from webapp.common import is_null, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
-from webapp.ldap_data import get_ligo_ldap_dn_list
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
 from webapp.vos_data import VOsData
