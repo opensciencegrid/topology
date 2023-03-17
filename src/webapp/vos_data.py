@@ -285,6 +285,7 @@ class AuthMethod:
     is_public = False
     used_in_authfile = False
     used_in_scitokens_conf = False
+    used_in_grid_mapfile = False
 
     def get_authfile_id(self):
         return ""
@@ -292,6 +293,8 @@ class AuthMethod:
     def get_scitokens_conf_block(self, service_name: str):
         return ""
 
+    def get_grid_mapfile_line(self):
+        return ""
 
 class NullAuth(AuthMethod):
     pass
@@ -310,6 +313,7 @@ class PublicAuth(AuthMethod):
 
 class DNAuth(AuthMethod):
     used_in_authfile = True
+    used_in_grid_mapfile = True
 
     def __init__(self, dn: str):
         self.dn = dn
@@ -323,6 +327,8 @@ class DNAuth(AuthMethod):
     def get_authfile_id(self):
         return f"u {self.get_dn_hash()}"
 
+    def get_grid_mapfile_line(self):
+        return f'"{self.dn}" {self.get_dn_hash()}'
 
 class FQANAuth(AuthMethod):
     used_in_authfile = True

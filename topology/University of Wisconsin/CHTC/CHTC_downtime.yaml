@@ -86,3 +86,36 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1421785006
+  Description: Auth issues at the site
+  Severity: Outage
+  StartTime: Feb 23, 2023 18:54 +0000
+  EndTime: Mar 10, 2023 15:00 +0000
+  CreatedTime: Feb 23, 2023 18:55 +0000
+  ResourceName: CHTC-canary2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1427149278
+  Description: testing
+  Severity: Outage
+  StartTime: Mar 01, 2023 23:55 +0000
+  EndTime: Mar 02, 2023 00:55 +0000
+  CreatedTime: Mar 01, 2023 23:55 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1433823879
+  Description: Networking issues on kubelet
+  Severity: Severe
+  StartTime: Mar 08, 2023 23:35 +0000
+  EndTime: Mar 09, 2023 19:30 +0000
+  CreatedTime: Mar 09, 2023 17:19 +0000
+  ResourceName: CHTC_TIGER_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------

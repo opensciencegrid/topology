@@ -5,7 +5,7 @@ GroupID: 1144
 
 Resources:
   CHTC-submit6:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -49,7 +49,7 @@ Resources:
         Tertiary:
           ID: OSG1000001
           Name: Brian Bockelman
-    FQDN: path-origin.facility.path-cc.io
+    FQDN: ap1-origin.facility.path-cc.io
     DN: /CN=path-origin.facility.path-cc.io
     ID: 1409
     Services:
@@ -57,3 +57,29 @@ Resources:
         Description: OSDF origin server
     AllowedVOs:
       - PATh
+
+  CHTC-PATH-AP1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+    Description: PATh Facility AP (originally OSPool submit node, see OPS-198)
+    FQDN: ap1.facility.path-cc.io
+    ID: 1421
+    Services:
+      Submit Node:
+        Description: PATh Facility AP (originally OSPool submit node, see OPS-198)
+        Details:
+          hidden: false
