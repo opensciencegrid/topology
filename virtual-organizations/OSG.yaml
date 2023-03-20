@@ -137,6 +137,10 @@ DataFederations:
           - ANY
         Writeback: https://origin-auth2001.chtc.wisc.edu:1095
         DirList: https://origin-auth2001.chtc.wisc.edu:1095
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://osg-htc.org/ospool
+          MaxScopeDepth: 4
 
       - Path: /s3.amazonaws.com/us-east-1
         Authorizations:
