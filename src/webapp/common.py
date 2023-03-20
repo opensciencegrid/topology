@@ -70,7 +70,7 @@ def is_null(x, *keys) -> bool:
                      ])
 
 
-def ensure_list(x: Union[None, T, List[T]]) -> List[T]:
+def ensure_list(x: Union[None, List[T], T]) -> List[T]:
     if isinstance(x, list):
         return x
     elif x is None:
