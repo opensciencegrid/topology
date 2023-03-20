@@ -110,7 +110,7 @@ class CredentialGeneration:
     """
     STRATEGY_VAULT = "Vault"
     STRATEGY_OAUTH2 = "OAuth2"
-    def __init__(self, strategy: str, issuer: str, max_scope_depth: int, vault_server: Optional[str]):
+    def __init__(self, strategy: str, issuer: str, max_scope_depth: Optional[int], vault_server: Optional[str]):
         self.strategy = strategy
         self.issuer = issuer
         self.max_scope_depth = max_scope_depth
@@ -125,23 +125,34 @@ class CredentialGeneration:
         """Return a set of error strings in the data."""
         errors = set()
         errprefix = "CredentialGeneration:"
+
+        # Validate Strategy
         if self.strategy not in [self.STRATEGY_VAULT, self.STRATEGY_OAUTH2]:
             errors.add(f"{errprefix} invalid Strategy {self.strategy}")
+
+        # Validate Issuer
         if not self.issuer:
             errors.add(f"{errprefix} issuer not specified")
         elif not isinstance(self.issuer, str) or "://" not in self.issuer:
             errors.add(f"{errprefix} invalid Issuer {self.issuer}")
-        if not self.max_scope_depth:
-            errors.add(f"{errprefix} MaxScopeDepth not specified")
-        try:
-            int(self.max_scope_depth)
-        except TypeError:
-            errors.add(f"{errprefix} invalid MaxScopeDepth (not an integer) {self.max_scope_depth}")
+
+        # Validate MaxScopeDepth
+        if self.max_scope_depth:
+            try:
+                int(self.max_scope_depth)
+            except TypeError:
+                errors.add(f"{errprefix} invalid MaxScopeDepth (not an integer) {self.max_scope_depth}")
+            else:
+                if self.max_scope_depth < 0:
+                    errors.add(f"{errprefix} negative MaxScopeDepth {self.max_scope_depth}")
+
+        # Validate VaultServer
+        if self.vault_server:
+            if self.strategy != self.STRATEGY_VAULT:
+                errors.add(f"{errprefix} VaultServer specified for a {self.strategy} strategy")
         else:
-            if self.max_scope_depth < 0:
-                errors.add(f"{errprefix} negative MaxScopeDepth {self.max_scope_depth}")
-        if self.strategy == self.STRATEGY_VAULT and not self.vault_server:
-            errors.add(f"{errprefix} VaultServer not specified for a {self.STRATEGY_VAULT} strategy")
+            if self.strategy == self.STRATEGY_VAULT:
+                errors.add(f"{errprefix} VaultServer not specified for a {self.strategy} strategy")
 
         return errors
 
@@ -314,7 +325,7 @@ class StashCache:
                 credential_generation = CredentialGeneration(
                     strategy=cg.get("Strategy", ""),
                     issuer=cg.get("Issuer", ""),
-                    max_scope_depth=cg.get("MaxScopeDepth", 0),
+                    max_scope_depth=cg.get("MaxScopeDepth", None),
                     vault_server=cg.get("VaultServer", None)
                 )
                 cg_errors = credential_generation.validate()
