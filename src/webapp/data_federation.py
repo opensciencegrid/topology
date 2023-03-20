@@ -1,7 +1,7 @@
 from collections import OrderedDict
 from typing import Optional, List, Dict, Tuple, Union, Set
 
-from webapp.common import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, ParsedYaml, is_null
+from .common import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, ParsedYaml, is_null
 try:
     from .x509 import generate_dn_hash
 except ImportError:  # if asn1 is unavailable
