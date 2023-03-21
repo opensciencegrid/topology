@@ -130,15 +130,15 @@ def _parse_authz_scitokens(attributes: Dict, authz: Dict) -> Tuple[AuthMethod, O
     issuer = attributes.get("Issuer")
     if not issuer:
         errors += "'Issuer' missing or empty; "
-    base_path = attributes.get("Base Path")
+    base_path = attributes.get("BasePath", attributes.get("Base Path"))
     if not base_path:
-        errors += "'Base Path' missing or empty; "
-    restricted_path = attributes.get("Restricted Path", None)
+        errors += "'BasePath' missing or empty; "
+    restricted_path = attributes.get("RestrictedPath", attributes.get("Restricted Path", None))
     if restricted_path and not isinstance(restricted_path, str):
-        errors += "'Restricted Path' not a string; "
-    map_subject = attributes.get("Map Subject", False)
+        errors += "'RestrictedPath' not a string; "
+    map_subject = attributes.get("MapSubject", attributes.get("Map Subject", False))
     if not isinstance(map_subject, bool):
-        errors += "'Map Subject' not a boolean; "
+        errors += "'MapSubject' not a boolean; "
     if errors:
         errors = errors[:-2]  # chop off last '; '
         return NullAuth(), f"Invalid SciTokens auth {authz}: {errors}"
