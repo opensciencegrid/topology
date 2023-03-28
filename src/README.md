@@ -526,8 +526,10 @@ The JSON also contains an attribute `namespaces` that is a list of namespaces wi
   If not null, it has:
   - `strategy`: either `OAuth2` or `Vault`
   - `issuer`: the token issuer for the credentials
-  - `max_scope_depth`: optional non-negative integer; the max number of levels you can get a credential to be scoped for.
-  - `vault_server`: `Vault` strategy only; the Vault server
+  - `max_scope_depth`: integer; the max number of levels you can get a credential to be scoped for;
+    "0" means that the scope will always be `/`.
+    Note that scopes are usually relative to the namespace path.
+  - `vault_server`: the Vault server for the `Vault` strategy or null
 
 The final result looks like
 ```json

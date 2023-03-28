@@ -198,8 +198,7 @@ class TestAPI:
             assert ns["writebackhost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["writebackhost"])
             credgen = ns["credential_generation"]
             if credgen is not None:
-                if "max_scope_depth" in credgen:
-                    assert isinstance(credgen["max_scope_depth"]) and credgen["max_scope_depth"] > -1
+                assert isinstance(credgen["max_scope_depth"], int) and credgen["max_scope_depth"] > -1
                 assert credgen["strategy"] in CredentialGeneration.STRATEGIES
                 assert credgen["issuer"] and "://" in credgen["issuer"]
                 if credgen["vault_server"]:

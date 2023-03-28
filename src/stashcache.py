@@ -517,11 +517,12 @@ def get_credential_generation_dict_for_namespace(ns: Namespace) -> Optional[Dict
     if not ns.credential_generation:
         return None
     cg = ns.credential_generation
-    info = {"strategy": cg.strategy, "issuer": cg.issuer}
-    if cg.max_scope_depth is not None:
-        info["max_scope_depth"] = cg.max_scope_depth
-    if cg.vault_server:
-        info["vault_server"] = cg.vault_server
+    info = {
+        "strategy": cg.strategy,
+        "issuer": cg.issuer,
+        "max_scope_depth": cg.max_scope_depth or 0,
+        "vault_server": cg.vault_server or None
+    }
     return info
 
 
