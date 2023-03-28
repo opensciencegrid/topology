@@ -279,9 +279,11 @@ There are three kinds of authorization types:
 
       - SciTokens:
           Issuer: https://chtc.cs.wisc.edu
-          Base Path: /chtc
-          Restricted Path: /PROTECTED/matyas,/PROTECTED/bbockelm
-          Map Subject: True
+          BasePath: /chtc
+          RestrictedPath: /PROTECTED/matyas,/PROTECTED/bbockelm
+          MapSubject: True
+
+  (for backwards compat, `Base Path`, `Restricted Path`, and `Map Subject` are also accepted)
 
   This results in an issuer block that looks like
 
@@ -293,8 +295,8 @@ There are three kinds of authorization types:
 
   See [the XrdSciTokens readme](https://github.com/xrootd/xrootd/tree/master/src/XrdSciTokens#readme) for a reference of what these mean.
  
-  `Restricted Path` is optional (and rarely set); it is omitted if not specified. 
-  `Map Subject` is optional and defaults to `false` if not specified.
+  `RestrictedPath` is optional (and rarely set); it is omitted if not specified. 
+  `MapSubject` is optional and defaults to `false` if not specified.
   It is only used in scitokens.cfg for the origin.
 
 ```yaml
