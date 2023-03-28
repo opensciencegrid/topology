@@ -110,6 +110,7 @@ class CredentialGeneration:
     """
     STRATEGY_VAULT = "Vault"
     STRATEGY_OAUTH2 = "OAuth2"
+    STRATEGIES = [STRATEGY_OAUTH2, STRATEGY_VAULT]
     def __init__(self, strategy: str, issuer: str, max_scope_depth: Optional[int], vault_server: Optional[str]):
         self.strategy = strategy
         self.issuer = issuer
@@ -127,7 +128,7 @@ class CredentialGeneration:
         errprefix = "CredentialGeneration:"
 
         # Validate Strategy
-        if self.strategy not in [self.STRATEGY_VAULT, self.STRATEGY_OAUTH2]:
+        if self.strategy not in self.STRATEGIES:
             errors.add(f"{errprefix} invalid Strategy {self.strategy}")
 
         # Validate Issuer
