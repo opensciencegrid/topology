@@ -1,3 +1,5 @@
+import urllib
+import urllib.parse
 from collections import OrderedDict
 from typing import Optional, List, Dict, Tuple, Union, Set
 
@@ -133,9 +135,13 @@ class CredentialGeneration:
 
         # Validate Issuer
         if not self.issuer:
-            errors.add(f"{errprefix} issuer not specified")
-        elif not isinstance(self.issuer, str) or "://" not in self.issuer:
+            errors.add(f"{errprefix} Issuer not specified")
+        elif not isinstance(self.issuer, str):
             errors.add(f"{errprefix} invalid Issuer {self.issuer}")
+        else:
+            parsed_issuer = urllib.parse.urlparse(self.issuer)
+            if not parsed_issuer.netloc or parsed_issuer.scheme != "https":
+                errors.add(f"{errprefix} Issuer not a valid URL {self.issuer}")
 
         # Validate MaxScopeDepth
         if self.max_scope_depth:

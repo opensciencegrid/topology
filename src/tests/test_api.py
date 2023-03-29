@@ -1,6 +1,7 @@
 import re
 import flask
 import pytest
+import urllib.parse
 from pytest_mock import MockerFixture
 
 # Rewrites the path so the app can be imported like it normally is
@@ -200,7 +201,9 @@ class TestAPI:
             if credgen is not None:
                 assert isinstance(credgen["max_scope_depth"], int) and credgen["max_scope_depth"] > -1
                 assert credgen["strategy"] in CredentialGeneration.STRATEGIES
-                assert credgen["issuer"] and "://" in credgen["issuer"]
+                assert credgen["issuer"]
+                parsed_issuer = urllib.parse.urlparse(credgen["issuer"])
+                assert parsed_issuer.netloc and parsed_issuer.scheme == "https"
                 if credgen["vault_server"]:
                     assert isinstance(credgen["vault_server"], str)
 
