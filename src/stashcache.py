@@ -513,6 +513,19 @@ audience = {allowed_vos_str}
     return template.format(**locals()).rstrip() + "\n"
 
 
+def get_credential_generation_dict_for_namespace(ns: Namespace) -> Optional[Dict]:
+    if not ns.credential_generation:
+        return None
+    cg = ns.credential_generation
+    info = {
+        "strategy": cg.strategy,
+        "issuer": cg.issuer,
+        "max_scope_depth": cg.max_scope_depth or 0,
+        "vault_server": cg.vault_server or None
+    }
+    return info
+
+
 def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     """Return data for the /stashcache/namespaces JSON endpoint.
 
@@ -541,6 +554,7 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
             "writebackhost": ns.writeback,
             "dirlisthost": ns.dirlist,
             "caches": [],
+            "credential_generation": get_credential_generation_dict_for_namespace(ns),
         }
 
         for cache_name, cache_resource_obj in cache_resource_objs.items():

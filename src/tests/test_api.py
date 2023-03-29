@@ -1,6 +1,7 @@
 import re
 import flask
 import pytest
+import urllib.parse
 from pytest_mock import MockerFixture
 
 # Rewrites the path so the app can be imported like it normally is
@@ -12,6 +13,7 @@ sys.path.append(topdir)
 
 from app import app, global_data
 from webapp.topology import Facility, Site, Resource, ResourceGroup
+from webapp.data_federation import CredentialGeneration
 
 HOST_PORT_RE = re.compile(r"[a-zA-Z0-9.-]{3,63}:[0-9]{2,5}")
 PROTOCOL_HOST_PORT_RE = re.compile(r"[a-z]+://" + HOST_PORT_RE.pattern)
@@ -195,6 +197,15 @@ class TestAPI:
             assert isinstance(ns["usetokenonread"], bool)
             assert ns["dirlisthost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["dirlisthost"])
             assert ns["writebackhost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["writebackhost"])
+            credgen = ns["credential_generation"]
+            if credgen is not None:
+                assert isinstance(credgen["max_scope_depth"], int) and credgen["max_scope_depth"] > -1
+                assert credgen["strategy"] in CredentialGeneration.STRATEGIES
+                assert credgen["issuer"]
+                parsed_issuer = urllib.parse.urlparse(credgen["issuer"])
+                assert parsed_issuer.netloc and parsed_issuer.scheme == "https"
+                if credgen["vault_server"]:
+                    assert isinstance(credgen["vault_server"], str)
 
         response = client.get('/stashcache/namespaces')
         assert response.status_code == 200
@@ -212,11 +223,15 @@ class TestAPI:
         # Have a reasonable number of namespaces
         assert len(namespaces) > 15
 
+        found_credgen = False
         for namespace in namespaces:
+            if namespace["credential_generation"] is not None:
+                found_credgen = True
             validate_namespace_schema(namespace)
             if namespace["caches"]:
                 for cache in namespace["caches"]:
                     validate_cache_schema(cache)
+        assert found_credgen, "At least one namespace with credential_generation"
 
     def test_origin_grid_mapfile(self, client: flask.Flask):
         TEST_ORIGIN = "origin-auth2001.chtc.wisc.edu"  # This origin serves protected data
