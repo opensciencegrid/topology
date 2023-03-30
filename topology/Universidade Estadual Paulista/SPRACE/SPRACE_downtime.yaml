@@ -1740,3 +1740,14 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1452196908
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 30, 2023 23:22 +0000
+  EndTime: Mar 31, 2023 18:00 +0000
+  CreatedTime: Mar 30, 2023 23:41 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
