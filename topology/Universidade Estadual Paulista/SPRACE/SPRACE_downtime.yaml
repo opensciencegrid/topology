@@ -1762,3 +1762,14 @@
   Services:
   - net.perfSONAR.Bandwidth
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1452200226
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 30, 2023 23:22 +0000
+  EndTime: Mar 31, 2023 18:00 +0000
+  CreatedTime: Mar 30, 2023 23:47 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
