@@ -1,0 +1,31 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: >-
+  Testing EPs for CHTC staff in the production pool; these will generally be
+  ephemeral, created and destroyed ad-hoc as developers test OSG/CHTC software.
+  All FQDNs are fake.
+
+GroupID: 1350
+
+Resources:
+  CHTC-DEV-PROD-EP-matyas:
+    Active: true
+    Description: EP for testing in production for matyas
+    ID: 1434
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+
+      Security Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+
+    FQDN: dev-prod-ep.matyas.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint
+  # ----------------------------------------------------------------------------

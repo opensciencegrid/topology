@@ -1,18 +1,19 @@
 from collections import defaultdict
 from typing import Dict, List, Optional
 
-from webapp.common import is_null, readfile, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
+from webapp.common import is_null, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
-from webapp.ldap_data import get_ligo_ldap_dn_list
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
-from webapp.vos_data import AuthMethod, DNAuth, SciTokenAuth, Namespace, \
-    parse_authz, ANY, ANY_PUBLIC, VOsData
+from webapp.vos_data import VOsData
+from webapp.data_federation import AuthMethod, DNAuth, SciTokenAuth, Namespace, parse_authz
 
 import logging
 
 log = logging.getLogger(__name__)
 
+ANY = "ANY"
+ANY_PUBLIC = "ANY_PUBLIC"
 
 def _log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=log.debug):
     if suppress_errors:
@@ -512,6 +513,19 @@ audience = {allowed_vos_str}
     return template.format(**locals()).rstrip() + "\n"
 
 
+def get_credential_generation_dict_for_namespace(ns: Namespace) -> Optional[Dict]:
+    if not ns.credential_generation:
+        return None
+    cg = ns.credential_generation
+    info = {
+        "strategy": cg.strategy,
+        "issuer": cg.issuer,
+        "max_scope_depth": cg.max_scope_depth or 0,
+        "vault_server": cg.vault_server or None
+    }
+    return info
+
+
 def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     """Return data for the /stashcache/namespaces JSON endpoint.
 
@@ -540,6 +554,7 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
             "writebackhost": ns.writeback,
             "dirlisthost": ns.dirlist,
             "caches": [],
+            "credential_generation": get_credential_generation_dict_for_namespace(ns),
         }
 
         for cache_name, cache_resource_obj in cache_resource_objs.items():
