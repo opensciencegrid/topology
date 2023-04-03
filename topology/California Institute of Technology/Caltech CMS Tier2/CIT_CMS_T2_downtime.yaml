@@ -1646,3 +1646,47 @@
   ResourceName: CIT_CMS_T2C
   Services:
     - CE
+
+- Class: SCHEDULED
+  ID: 997651604
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 16:10 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 997651605
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 16:10 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 997651606
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 16:10 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 997651607
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 16:10 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
