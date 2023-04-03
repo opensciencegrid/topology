@@ -1611,4 +1611,38 @@
   Services:
     - XRootD component
     
-    
+# ----------------------------------------------------------
+# Config changes on switch requires restart
+
+- Class: SCHEDULED
+  ID: 997651601
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 15:10 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651602
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 15:10 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651603
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 15:10 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
