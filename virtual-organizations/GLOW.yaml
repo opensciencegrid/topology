@@ -113,3 +113,13 @@ DataFederations:
         AllowedCaches:
           - ANY
 
+      - Path: /chtc/staging
+        Authorizations:
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              Base Path: /chtc/PROTECTED, /chtc/staging
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-STASHCACHE_ORIGIN_AUTH_2000
+        AllowedCaches:
+          - ANY
