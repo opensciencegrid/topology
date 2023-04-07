@@ -8,6 +8,7 @@ import sys
 import urllib
 import fnmatch
 import urllib.parse as urlparse
+import yaml
 
 import xml.etree.ElementTree as ET
 
@@ -172,6 +173,13 @@ def get_vo_map(args, session=None):
 
     return vo_map
 
+def get_contact_filter_service_ids():
+    """"
+    Reads and parse filters from services.yaml
+    """
+    with open("../topology/services.yaml", "r") as file:
+        service_ids = yaml.safe_load(file)
+        return(service_ids)
 
 SERVICE_IDS = {'ce': 1,
                'srmv2': 3,
