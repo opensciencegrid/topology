@@ -66,7 +66,7 @@ DataFederations:
           - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu
-              Base Path: /chtc
+              Base Path: /chtc/PROTECTED, /chtc/staging
               Map Subject: True
         AllowedOrigins:
           - CHTC_STASHCACHE_ORIGIN_AUTH_2000
@@ -85,7 +85,7 @@ DataFederations:
           - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu
-              Base Path: /chtc
+              Base Path: /chtc/PROTECTED, /chtc/staging
               Map Subject: False
         AllowedOrigins:
           - CHTC_STASHCACHE_ORIGIN
@@ -106,7 +106,7 @@ DataFederations:
           - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu
-              Base Path: /chtc
+              Base Path: /chtc/PROTECTED, /chtc/staging
               Map Subject: False
         AllowedOrigins:
           - CHTC-ITB-HELM-ORIGIN
