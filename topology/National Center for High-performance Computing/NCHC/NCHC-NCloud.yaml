@@ -1,13 +1,14 @@
-Production: false
-SupportCenter: GGUS
+Disable: false
+Production: true
+SupportCenter: Self Supported
 
-GroupDescription: Opportunistic resource from CMS project.
+GroupDescription: IGWN on the N-Cloud.
 GroupID: 1349
 
 Resources:
   NCHC-CMS-CE:
     Active: false
-    Description: Opportunistic resource from CMS project.
+    Description: IGWN on the N-Cloud.
     ID: 1433
     ContactLists:
       Administrative Contact:
