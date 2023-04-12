@@ -101,6 +101,8 @@ Resources:
         Description: OSG Connect Origin Server
     Tags:
       - OSPool
+    AllowedVOs:
+      - OSG
 
   UChicago_OSGConnect_ap21:
     Active: true
@@ -142,6 +144,8 @@ Resources:
         Description: OSG Connect Origin Server
     Tags:
       - OSPool
+    AllowedVOs:
+      - OSG
 
   UChicago_OSGConnect_ap22:
     Active: true
@@ -183,6 +187,8 @@ Resources:
         Description: OSG Connect Origin Server
     Tags:
       - OSPool
+    AllowedVOs:
+      - OSG
 
   UChicago_OSGConnect_ap23:
     Active: true
@@ -224,6 +230,8 @@ Resources:
         Description: OSG Connect Origin Server
     Tags:
       - OSPool
+    AllowedVOs:
+      - OSG
 
   UChicago_OSGConnect_flock:
     Active: false
