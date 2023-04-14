@@ -88,7 +88,7 @@ DataFederations:
               Base Path: /chtc
               Map Subject: True
         AllowedOrigins:
-          - CHTC-STASHCACHE_ORIGIN_AUTH_2000
+          - CHTC_STASHCACHE_ORIGIN_AUTH_2000
         AllowedCaches:
           - ANY
         Writeback: https://origin-auth2000.chtc.wisc.edu:1095
