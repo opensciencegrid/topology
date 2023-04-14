@@ -80,6 +80,10 @@ DataFederations:
           - CHTC_STASHCACHE_CACHE
         Writeback: https://origin-auth2001.chtc.wisc.edu:1095
         DirList: https://origin-auth2001.chtc.wisc.edu:1095
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://chtc.cs.wisc.edu
+          MaxScopeDepth: 2
 
       - Path: /chtc/PROTECTED-TESTING
         Authorizations:
@@ -127,3 +131,7 @@ DataFederations:
           - ANY
         Writeback: https://origin-auth2000.chtc.wisc.edu:1095
         DirList: https://origin-auth2000.chtc.wisc.edu:1095
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://chtc.cs.wisc.edu
+          MaxScopeDepth: 2
