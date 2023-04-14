@@ -66,7 +66,7 @@ DataFederations:
           - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu
-              Base Path: /chtc
+              Base Path: /chtc/PROTECTED, /chtc/staging
               Map Subject: True
         AllowedOrigins:
           - CHTC_STASHCACHE_ORIGIN_AUTH_2000
@@ -78,6 +78,8 @@ DataFederations:
           - Stashcache-Sunnyvale
           - CHTC_TIGER_CACHE
           - CHTC_STASHCACHE_CACHE
+        Writeback: https://origin-auth2001.chtc.wisc.edu:1095
+        DirList: https://origin-auth2001.chtc.wisc.edu:1095
 
       - Path: /chtc/PROTECTED-TESTING
         Authorizations:
@@ -85,7 +87,7 @@ DataFederations:
           - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu
-              Base Path: /chtc
+              Base Path: /chtc/PROTECTED, /chtc/staging
               Map Subject: False
         AllowedOrigins:
           - CHTC_STASHCACHE_ORIGIN
@@ -106,10 +108,22 @@ DataFederations:
           - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu
-              Base Path: /chtc
+              Base Path: /chtc/PROTECTED, /chtc/staging
               Map Subject: False
         AllowedOrigins:
           - CHTC-ITB-HELM-ORIGIN
         AllowedCaches:
           - ANY
 
+      - Path: /chtc/staging
+        Authorizations:
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              Base Path: /chtc/PROTECTED, /chtc/staging
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-STASHCACHE_ORIGIN_AUTH_2000
+        AllowedCaches:
+          - ANY
+        Writeback: https://origin-auth2000.chtc.wisc.edu:1095
+        DirList: https://origin-auth2000.chtc.wisc.edu:1095
