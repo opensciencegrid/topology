@@ -1,0 +1,29 @@
+---
+Production: true
+SupportCenter: Self Supported
+GroupDescription: This is a cluster at TIFR for the DUNE project
+GroupID: 1351
+Resources:
+  DUNE-IN-TIFR-SIMCLU-CE:
+    Active: true
+    Description: This is a CE at TIFR serving DUNE
+    ID: 1435
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000309
+          Name: Nagaraj Panyam
+        Secondary:
+          ID: eb45993aa7d43359a5a55fcc749b2697196753cd
+          Name: DUNE TIFR admins
+      Security Contact:
+        Primary:
+          ID: OSG1000309
+          Name: Nagaraj Panyam
+        Secondary:
+          ID: eb45993aa7d43359a5a55fcc749b2697196753cd
+          Name: DUNE TIFR admins
+    FQDN: simclu-ce.ino.tifr.res.in
+    Services:
+      CE:
+        Description: OSG HTCondor-CE serving DUNE
