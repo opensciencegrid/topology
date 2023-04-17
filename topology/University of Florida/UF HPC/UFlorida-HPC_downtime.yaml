@@ -860,3 +860,25 @@
   Services:
   - XRootD component
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1467415292
+  Description: RHEL 7-9 upgrade for SE requires the downtime
+  Severity: Outage
+  StartTime: Apr 17, 2023 14:24 +0000
+  EndTime: Apr 18, 2023 21:00 +0000
+  CreatedTime: Apr 17, 2023 14:25 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1467415904
+  Description: RHEL 7-9 upgrade for SE requires the downtime
+  Severity: Outage
+  StartTime: Apr 17, 2023 14:24 +0000
+  EndTime: Apr 18, 2023 21:00 +0000
+  CreatedTime: Apr 17, 2023 14:26 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
