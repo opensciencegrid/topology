@@ -60,38 +60,6 @@ DataFederations:
         AllowedCaches:
           - ANY
 
-      - Path: /chtc/PROTECTED
-        Authorizations:
-          - FQAN: /GLOW
-          - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
-          - SciTokens:
-              Issuer: https://chtc.cs.wisc.edu
-              Base Path: /chtc
-              Map Subject: True
-        AllowedOrigins:
-          - CHTC_STASHCACHE_ORIGIN_AUTH_2000
-        AllowedCaches:
-          - Stashcache-Chicago
-          - Stashcache-Kansas
-          - Stashcache-Houston
-          - Stashcache-Manhattan
-          - Stashcache-Sunnyvale
-          - CHTC_TIGER_CACHE
-          - CHTC_STASHCACHE_CACHE
-
-      - Path: /chtc/PROTECTED-TESTING
-        Authorizations:
-          - FQAN: /GLOW
-          - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
-          - SciTokens:
-              Issuer: https://chtc.cs.wisc.edu
-              Base Path: /chtc
-              Map Subject: False
-        AllowedOrigins:
-          - CHTC_STASHCACHE_ORIGIN
-        AllowedCaches:
-          - ANY
-
       - Path: /chtc/itb/helm-origin/PUBLIC
         Authorizations:
           - PUBLIC
@@ -113,3 +81,19 @@ DataFederations:
         AllowedCaches:
           - ANY
 
+      - Path: /chtc
+        Authorizations:
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              Base Path: /chtc
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC_STASHCACHE_ORIGIN_AUTH_2000
+        AllowedCaches:
+          - ANY
+        Writeback: https://origin-auth2000.chtc.wisc.edu:1095
+        DirList: https://origin-auth2000.chtc.wisc.edu:1095
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://chtc.cs.wisc.edu
+          MaxScopeDepth: 3
