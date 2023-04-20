@@ -3,7 +3,7 @@ SupportCenter: Community Support Center
 GroupDescription: Fermilab origins used as redirectors for xCache
 GroupID: 1353
 Resources:
-  FNAL_REDIRECT_OSDF_ORIGIN:
+  FNAL_OSDF_ORIGIN:
     Active: true
     Description: This is one of the Fermilab xrootd server redirectors.
     ID: 1437
@@ -16,7 +16,7 @@ Resources:
         Primary:
           ID: 28e35fff676197be119af149e37c24b444179d0a
           Name: Jeny Teheran
-    FQDN: stashredirector.fnal.gov
+    FQDN: osdforigin.fnal.gov
     Services:
       XRootD origin server:
         Description: Stash Origin
