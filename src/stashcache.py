@@ -166,7 +166,7 @@ class _IdNamespaceData:
                     if legacy:
                         extended_authz_list += fetch_ligo_authz_list_if_needed()
                     else:
-                        self.warnings += "# LIGO DNs unavailable\n"
+                        self.warnings.append("# LIGO DNs unavailable\n")
 
                 for authz in extended_authz_list:
                     if authz.used_in_authfile:
