@@ -342,6 +342,7 @@ CredentialGeneration:
   BasePath: "<PATH>"
   MaxScopeDepth: <INTEGER>
   VaultServer: "<HOST>:<PORT>"
+  VaultIssuer: "<ISSUER STRING>"
 ```
 CredentialGeneration is an optional block of information about how clients can obtain credentials for the namespace.
 If specified:
