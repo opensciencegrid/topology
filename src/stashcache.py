@@ -520,8 +520,10 @@ def get_credential_generation_dict_for_namespace(ns: Namespace) -> Optional[Dict
     info = {
         "strategy": cg.strategy,
         "issuer": cg.issuer,
+        "base_path": cg.base_path or None,
         "max_scope_depth": cg.max_scope_depth or 0,
-        "vault_server": cg.vault_server or None
+        "vault_server": cg.vault_server or None,
+        "vault_issuer": cg.vault_issuer or None
     }
     return info
 
