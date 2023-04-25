@@ -206,6 +206,10 @@ class TestAPI:
                 assert parsed_issuer.netloc and parsed_issuer.scheme == "https"
                 if credgen["vault_server"]:
                     assert isinstance(credgen["vault_server"], str)
+                if credgen["vault_issuer"]:
+                    assert isinstance(credgen["vault_issuer"], str)
+                if credgen["base_path"]:
+                    assert isinstance(credgen["base_issuer"], str)
 
         response = client.get('/stashcache/namespaces')
         assert response.status_code == 200
