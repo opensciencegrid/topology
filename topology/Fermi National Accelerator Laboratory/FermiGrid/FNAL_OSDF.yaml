@@ -1,0 +1,25 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Fermilab origins used as redirectors for xCache
+GroupID: 1354
+Resources:
+  FNAL_OSDF_ORIGIN:
+    Active: true
+    Description: This is one of the Fermilab xrootd server redirectors.
+    ID: 1444
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000162
+          Name: Fabio Andrijauskas
+      Security Contact:
+        Primary:
+          ID: 28e35fff676197be119af149e37c24b444179d0a
+          Name: Jeny Teheran
+    FQDN: osdforigin.fnal.gov
+    Services:
+      XRootD origin server:
+        Description: Stash Origin
+    AllowedVOs:
+      - ANY
+      
