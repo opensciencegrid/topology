@@ -113,15 +113,17 @@ class CredentialGeneration:
     STRATEGY_VAULT = "Vault"
     STRATEGY_OAUTH2 = "OAuth2"
     STRATEGIES = [STRATEGY_OAUTH2, STRATEGY_VAULT]
-    def __init__(self, strategy: str, issuer: str, max_scope_depth: Optional[int], vault_server: Optional[str]):
+    def __init__(self, strategy: str, issuer: str, max_scope_depth: Optional[int], vault_server: Optional[str], base_path: Optional[str], vault_issuer: Optional[str]):
         self.strategy = strategy
         self.issuer = issuer
         self.max_scope_depth = max_scope_depth
         self.vault_server = vault_server
+        self.base_path = base_path
+        self.vault_issuer = vault_issuer
 
     def __repr__(self):
-        return self.__class__.__name__ + ("(strategy=%r, issuer=%r, max_scope_depth=%r, vault_server=%r)" % (
-            self.strategy, self.issuer, self.max_scope_depth, self.vault_server
+        return self.__class__.__name__ + ("(strategy=%r, issuer=%r, base_path=%r, max_scope_depth=%r, vault_server=%r, vault_issuer=%r)" % (
+            self.strategy, self.issuer, self.base_path, self.max_scope_depth, self.vault_server, self.vault_issuer
         ))
 
     def validate(self) -> Set[str]:
@@ -143,6 +145,10 @@ class CredentialGeneration:
             if not parsed_issuer.netloc or parsed_issuer.scheme != "https":
                 errors.add(f"{errprefix} Issuer not a valid URL {self.issuer}")
 
+        # Validate BasePath
+        if self.base_path and not isinstance(self.base_path, str):
+            errors.add(f"{errprefix} invalid BasePath {self.base_path}")
+
         # Validate MaxScopeDepth
         if self.max_scope_depth:
             try:
@@ -160,6 +166,10 @@ class CredentialGeneration:
         else:
             if self.strategy == self.STRATEGY_VAULT:
                 errors.add(f"{errprefix} VaultServer not specified for a {self.strategy} strategy")
+
+        # Validate VaultIssuer
+        if self.vault_issuer and self.strategy != self.STRATEGY_VAULT:
+            errors.add(f"{errprefix} VaultIssuer specified for a {self.strategy} strategy")
 
         return errors
 
@@ -333,7 +343,9 @@ class StashCache:
                     strategy=cg.get("Strategy", ""),
                     issuer=cg.get("Issuer", ""),
                     max_scope_depth=cg.get("MaxScopeDepth", None),
-                    vault_server=cg.get("VaultServer", None)
+                    vault_server=cg.get("VaultServer", None),
+                    base_path=cg.get("BasePath", None),
+                    vault_issuer=cg.get("VaultIssuer", None),
                 )
                 cg_errors = credential_generation.validate()
                 if cg_errors:
