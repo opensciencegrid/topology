@@ -168,10 +168,11 @@ DataFederations:
         Authorizations:
           - PUBLIC
         AllowedOrigins:
-          - SDSC-test-Origin
-          - SDSC_NRP_OSDF_ORIGIN
-          - NEBRASKA_NRP_OSDF_ORIGIN
           - MGHPCC_NRP_OSDF_ORIGIN
+          - NEBRASKA_NRP_OSDF_ORIGIN
+          - SDSC_NRP_OSDF_ORIGIN
+          - SDSC-test-Origin
+          - SINGAPORE_INTERNET2_OSDF_CACHE
         AllowedCaches:
           - ANY
       

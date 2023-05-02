@@ -1,0 +1,43 @@
+AppDescription: This VO supports multiple sciences on NRP
+CertificateOnly: false
+Community: The NRP VO will support users and experiments that are small enough not to warrant their own separate VO.
+Contacts:
+  Administrative Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas 
+  Security Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas 
+  Sponsors:
+  - ID: c412f5f57dca8fe5c73fb3bc4e86bcf243e9edf7
+    Name: Frank Wuerthwein
+  VO Manager:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas 
+Credentials:
+  TokenIssuers:
+    - URL: https://scitokens.org/nrp
+      DefaultUnixUser: nrp
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - Multi-Science Community
+ID: 232
+LongName: National research platform origin
+
+PrimaryURL: https://nationalresearchplatform.org
+PurposeURL: https://nationalresearchplatform.org
+ReportingGroups:
+- nrp
+SupportURL: https://nationalresearchplatform.org
+
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /nrp
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
