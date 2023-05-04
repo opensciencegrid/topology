@@ -1773,3 +1773,69 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481892234
+  Description: 'network outage '
+  Severity: Outage
+  StartTime: May 04, 2023 08:33 +0000
+  EndTime: May 04, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 08:33 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481892235
+  Description: 'network outage '
+  Severity: Outage
+  StartTime: May 04, 2023 08:33 +0000
+  EndTime: May 04, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 08:33 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481892236
+  Description: 'network outage '
+  Severity: Outage
+  StartTime: May 04, 2023 08:33 +0000
+  EndTime: May 04, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 08:33 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481892237
+  Description: 'network outage '
+  Severity: Outage
+  StartTime: May 04, 2023 08:33 +0000
+  EndTime: May 04, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 08:33 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481892238
+  Description: 'network outage '
+  Severity: Outage
+  StartTime: May 04, 2023 08:33 +0000
+  EndTime: May 04, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 08:33 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481892239
+  Description: 'network outage '
+  Severity: Outage
+  StartTime: May 04, 2023 08:33 +0000
+  EndTime: May 04, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 08:33 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
