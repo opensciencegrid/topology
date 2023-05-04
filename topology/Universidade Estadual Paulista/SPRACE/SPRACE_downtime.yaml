@@ -1839,3 +1839,69 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482256605
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 17:00 +0000
+  EndTime: May 04, 2023 23:00 +0000
+  CreatedTime: May 04, 2023 18:41 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482256606
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 17:00 +0000
+  EndTime: May 04, 2023 23:00 +0000
+  CreatedTime: May 04, 2023 18:41 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482256607
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 17:00 +0000
+  EndTime: May 04, 2023 23:00 +0000
+  CreatedTime: May 04, 2023 18:41 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482256608
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 17:00 +0000
+  EndTime: May 04, 2023 23:00 +0000
+  CreatedTime: May 04, 2023 18:41 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482256609
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 17:00 +0000
+  EndTime: May 04, 2023 23:00 +0000
+  CreatedTime: May 04, 2023 18:41 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482256610
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 17:00 +0000
+  EndTime: May 04, 2023 23:00 +0000
+  CreatedTime: May 04, 2023 18:41 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
