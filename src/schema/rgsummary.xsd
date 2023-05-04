@@ -151,7 +151,7 @@
                                 <xsd:element name="StorageCapacityMax" type="xsd:string"/>
                                 <xsd:element name="HEPSPEC" type="xsd:string" />
                                 <xsd:element minOccurs="0" name="APELNormalFactor" type="xsd:string" />
-                                <xsd:element minOccurs="0" name="HEPScore23Percentage" type="xsd:string" />
+                                <xsd:element minOccurs="0" name="HEPScore23Percentage" type="xsd:float" />
                                 <xsd:element name="TapeCapacity" type="xsd:string"/>
                               </xsd:sequence>
                             </xsd:complexType>
