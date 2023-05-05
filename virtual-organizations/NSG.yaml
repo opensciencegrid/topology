@@ -28,7 +28,7 @@ DataFederations:
       - Path: /NSG/PUBLIC
         Authorizations:
           - PUBLIC
-        # AllowedOrigins:
-        #   - SDSC-NSG-AP1
+        AllowedOrigins:
+           - RDS_OSDF_ORIGIN
         AllowedCaches:
           - ANY
