@@ -349,7 +349,7 @@ class Resource(object):
 
         new_wlcg = OrderedDict.fromkeys(["InteropBDII", "LDAPURL", "InteropMonitoring", "InteropAccounting",
                                          "AccountingName", "KSI2KMin", "KSI2KMax", "StorageCapacityMin",
-                                         "StorageCapacityMax", "HEPSPEC", "APELNormalFactor", "TapeCapacity"])
+                                         "StorageCapacityMax", "HEPSPEC", "APELNormalFactor", "HEPScore23Percentage", "TapeCapacity"])
         new_wlcg.update(defaults)
         new_wlcg.update(wlcg)
         return new_wlcg
