@@ -90,12 +90,19 @@ if not github_oauth_client_secret:
 else:
     app.config['GITHUB_OAUTH_CLIENT_SECRET'] = github_oauth_client_secret.decode()
 
-osg_bot_github_token = readfile(global_data.osg_bot_github_token, app.logger)
-if not osg_bot_github_token:
-    app.logger.warning("Note, no OSG_BOT_GITHUB_TOKEN configured; "
+auto_pr_gh_api_user = readfile(global_data.auto_pr_gh_api_user, app.logger)
+if not auto_pr_gh_api_user:
+    app.logger.warning("Note, no AUTO_PR_GH_API_USER configured; "
                        "Auto PRs will be unavailable.")
 else:
-    app.config['OSG_BOT_GITHUB_TOKEN'] = osg_bot_github_token.decode()
+    app.config['AUTO_PR_GH_API_USER'] = auto_pr_gh_api_user.decode()
+
+auto_pr_gh_api_token = readfile(global_data.auto_pr_gh_api_token, app.logger)
+if not auto_pr_gh_api_token:
+    app.logger.warning("Note, no AUTO_PR_GH_API_TOKEN configured; "
+                       "Auto PRs will be unavailable.")
+else:
+    app.config['AUTO_PR_GH_API_TOKEN'] = auto_pr_gh_api_token.decode()
 
 csrf_secret_key = readfile(global_data.csrf_secret_key, app.logger)
 if app.debug and not csrf_secret_key:
@@ -762,17 +769,21 @@ def generate_project_yaml():
 
         try:
             # Gather necessary data
-            create_pr_data = {
-                "file_path": f"data/{request.values['project_name']}.yaml",
-                "file_content": form.get_yaml(),
-                "branch": f"add-project-{request.values['project_name']}",
-                "message": f"Add Project {request.values['project_name']}",
-                "committer": GithubUser.from_token(session["github_login"]['access_token']),
-                "fork_repo": GitHubRepoAPI(GitHubAuth("osg-doc-bot", app.config["OSG_BOT_GITHUB_TOKEN"]), 'osg-doc-bot', 'topology'),
-                "root_repo": GitHubRepoAPI(GitHubAuth("osg-doc-bot", app.config["OSG_BOT_GITHUB_TOKEN"]), 'opensciencegrid', 'topology'),
-            }
-
-            create_pr_response = create_file_pr(**create_pr_data)
+            create_pr_response = create_file_pr(
+                file_path=f"data/{request.values['project_name']}.yaml",
+                file_content=form.get_yaml(),
+                branch=f"add-project-{request.values['project_name']}",
+                message=f"Add Project {request.values['project_name']}",
+                committer=GithubUser.from_token(session["github_login"]['access_token']),
+                fork_repo=GitHubAuth(
+                    app.config["AUTO_PR_GH_API_USER"],
+                    app.config["AUTO_PR_GH_API_TOKEN"]
+                ).target_repo(app.config["AUTO_PR_GH_API_USER"], 'topology'),
+                root_repo=GitHubAuth(
+                    app.config["AUTO_PR_GH_API_USER"],
+                    app.config["AUTO_PR_GH_API_TOKEN"]
+                ).target_repo('opensciencegrid', 'topology'),
+            )
 
             form.clear()
 
@@ -822,9 +833,10 @@ def github_login():
         except Exception as error:
             redirect_data['error'] = f"Could not complete exchange with Github for Token: {error}"
 
-        return redirect(
-            f"{urllib.parse.urlparse(request.args['redirect_uri']).geturl()}?{urllib.parse.urlencode(redirect_data)}"
-        )
+        redirect_url = urllib.parse.urlparse(request.args['redirect_uri']).geturl()
+        urlencoded_redirect_data = urllib.parse.urlencode(redirect_data)
+
+        return redirect(f"{redirect_url}?{urlencoded_redirect_data}")
 
     else:
         session['state'] = os.urandom(24).hex()

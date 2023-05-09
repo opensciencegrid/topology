@@ -35,13 +35,13 @@ def http_to_dict(success, http_response, throw_error=True):
     if throw_error:
 
         if http_response == "Not Found":
-            raise GithubNotFoundException(f"Request not successful: {str(http_response)}")
+            raise GithubNotFoundException(f"Request not successful: {http_response}")
 
         elif http_response == "Reference already exists":
             raise GithubReferenceExistsException
 
         else:
-            raise GithubRequestException(f"Request not successful: {str(http_response)}")
+            raise GithubRequestException(f"Request not successful: {http_response}")
 
     return {}
 
@@ -109,7 +109,7 @@ class GitHubAuth:
         self._add_auth_header(req)
         #add_gh_preview_header(req)
         try:
-            resp = urllib.request.urlopen(req, cafile=certifi.where())  # potentially need cafile=certifi.where()
+            resp = urllib.request.urlopen(req)
             self.dlog("GitHub API call success for %s" % url)
             return True, resp
         except urllib.error.HTTPError as resp:
@@ -191,10 +191,10 @@ class GitHubAuth:
             "message": message,
             "content": content
         }
-        if sha:        data['sha'] = sha
-        if branch:     data['branch'] = branch
-        if committer:  data['committer'] = committer.to_dict()
-        if author:     data['author'] = author.to_dict()
+        if sha: data['sha'] = sha
+        if branch: data['branch'] = branch
+        if committer: data['committer'] = committer.to_dict()
+        if author: data['author'] = author.to_dict()
 
         return self.github_api_call("PUT", url, data)
 
@@ -239,6 +239,9 @@ class GitHubAuth:
     def get_api_url(self, url):
         return self.github_api_call('GET', url, None)
 
+    def target_repo(self, owner, repo):
+        return GitHubRepoAPI(self, owner, repo)
+
 
 class GitHubRepoAPI:
     # wrapper around GitHubAuth with (owner,repo) specified up front
@@ -248,14 +251,22 @@ class GitHubRepoAPI:
         self.owner = owner
         self.repo = repo
 
-        # Dump in the repos properties for easy access
-        repo_data = http_to_dict(*self.get_repo())
-        for key, value in repo_data.items():
-            setattr(self, key, value)
+        # Add place for Github Repo Data to be added if asked for
+        self._repo_data = None
 
-        # Make sure these values weren't overwritten
-        self.owner = owner
-        self.repo = repo
+    def __getattr__(self, item):
+        """If requested data isn't found locally see if Github has it"""
+        if item in self.repo_data:
+            return self.repo_data[item]
+
+        return None
+
+    @property
+    def repo_data(self):
+        if not self._repo_data:
+            self._repo_data = http_to_dict(*self.get_repo())
+
+        return self._repo_data
 
     def get_repo(self):
         return self.ghauth.get_repo(self.owner, self.repo)
