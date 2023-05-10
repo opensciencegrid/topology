@@ -183,5 +183,29 @@ Resources:
           hidden: false
     VOOwnership:
       JLab: 100
+      
+  JLab-FARM-CLAS-CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 818acb7ebcd1865a17551799f0cfeb5256e0db20
+          Name: Kurt Strosahl
+      Security Contact:
+        Primary:
+          ID: ea9db644eb6f8632cf87fd2cbac8a6e393c21f71
+          Name: Wesley Moore
+    Description: HTcondor-CE server for JLab-FARM CLAS collaboration
+    FQDN: osg-ce-2.jlab.org
+    FQDNAliases:
+    - osg-ce-2.jlab.org
+    ID: 1445
+    Services:
+      CE:
+        Description: Compute Entry Point
+        Details:
+          hidden: false
+    VOOwnership:
+      JLab: 100
 
 SupportCenter: Self Supported
