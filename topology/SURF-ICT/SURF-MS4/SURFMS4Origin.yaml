@@ -1,7 +1,7 @@
 Production: true
 SupportCenter: Community Support Center
 GroupDescription: Origin infrastructure for SURF-MS4
-GroupID: 1336
+GroupID: 1355
 Resources:
   SURF_MS4_OSDF_ORIGIN:
     Active: false
@@ -9,14 +9,14 @@ Resources:
     ID: 1394
     ContactLists:
       Administrative Contact:
-        Primary:
-          Name: 
-          ID: 
+        Primary: 
+          Name: Jasmin Colo
+          ID: OSG1000312
         Secondary:
-          ID: 
-          Name: 
+          ID: OSG1000162
+          Name: Fabio Andrijauskas
     FQDN: osg-origin.ms4.surfsara.nl
-    DN: 
+    DN: /C=NL/ST=Utrecht/O=SURF B.V./CN=osg-origin.ms4.surfsara.nl
     Services:
       XRootD origin server:
         Description: Origin for SURF-MS4
