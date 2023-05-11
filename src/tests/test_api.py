@@ -76,7 +76,7 @@ JSON_ENDPOINTS = [
 
 
 @pytest.fixture
-def client() -> Generator[FlaskClient]:
+def client() -> Generator[FlaskClient, None, None]:
     with app.test_client() as client:
         yield client
 
