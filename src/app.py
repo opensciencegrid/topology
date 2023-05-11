@@ -12,6 +12,8 @@ import re
 import sys
 import traceback
 import urllib.parse
+import gzip
+import json
 
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
@@ -104,11 +106,9 @@ def map():
 @app.route('/api/resource_group_summary')
 def resource_summary():
     data = global_data.get_topology().get_resource_summary()["ResourceSummary"]["ResourceGroup"]
+    json_data = simplify_attr_list(data, namekey='GroupName', del_name=False)
 
-    return Response(
-        to_json_bytes(simplify_attr_list(data, namekey='GroupName', del_name=False)),
-        mimetype="application/json"
-    )
+    return make_json_response(json_data)
 
 @app.route('/schema/<xsdfile>')
 def schema(xsdfile):
@@ -234,21 +234,21 @@ def miscproject_xml():
 @support_cors
 def miscproject_json():
     projects = simplify_attr_list(global_data.get_projects()["Projects"]["Project"], namekey="Name", del_name=False)
-    return Response(to_json_bytes(projects), mimetype='application/json')
+    return make_json_response(projects)
 
 
 @app.route('/miscsite/json')
 @support_cors
 def miscsite_json():
     sites = {name: site.get_tree() for name, site in global_data.get_topology().sites.items()}
-    return Response(to_json_bytes(sites), mimetype='application/json')
+    return make_json_response(sites)
 
 
 @app.route('/miscfacility/json')
 @support_cors
 def miscfacility_json():
     facilities = {name: facility.get_tree() for name, facility in global_data.get_topology().facilities.items()}
-    return Response(to_json_bytes(facilities), mimetype='application/json')
+    return make_json_response(facilities)
 
 @app.route('/miscresource/json')
 @support_cors
@@ -265,17 +265,18 @@ def miscresource_json():
                 **resource.get_tree()
             }
 
-    return Response(to_json_bytes(resources), mimetype='application/json')
+    return make_json_response(resources)
+
 
 @app.route('/vosummary/xml')
 def vosummary_xml():
     return _get_xml_or_fail(global_data.get_vos_data().get_tree, request.args)
 
+
 @app.route('/vosummary/json')
 def vosummary_json():
-    return Response(to_json_bytes(
-        simplify_attr_list(global_data.get_vos_data().get_expansion(), namekey='Name')
-    ), mimetype="application/json")
+    json_data = simplify_attr_list(global_data.get_vos_data().get_expansion(), namekey='Name')
+    return make_json_response(json_data)
 
 
 @app.route('/rgsummary/xml')
@@ -315,7 +316,7 @@ def resources_stashcache_files():
                 **stashcache_files
             }
 
-    return Response(to_json_bytes(resource_files), mimetype='application/json')
+    return make_json_response(resource_files)
 
 @app.route("/resource-files")
 def resource_files():
@@ -450,8 +451,7 @@ def stashcache_namespaces_json():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
     try:
-        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data)),
-                        mimetype='application/json')
+        return make_json_response(stashcache.get_namespaces_info(global_data))
     except ResourceNotRegistered as e:
         return Response("# {}\n"
                         "# Please check your query or contact help@opensciencegrid.org\n"
@@ -883,6 +883,20 @@ def _get_authorized():
 
     # If it gets here, then it is not authorized
     return default_authorized
+
+def make_json_response(json_response: dict) -> flask.Response:
+    """Trys to gzip json response"""
+
+    if 'gzip' in flask.request.headers.get("accept-encoding", ""):
+        content = gzip.compress(json.dumps(json_response).encode('utf8'), 5)
+        response = flask.make_response(content)
+        response.headers['Content-length'] = len(content)
+        response.headers['Content-Encoding'] = 'gzip'
+        response.headers['Content-Type'] = "application/json"
+        return response
+
+    else:
+        return flask.Response(to_json_bytes(json_response), mimetype='application/json')
 
 
 if __name__ == '__main__':

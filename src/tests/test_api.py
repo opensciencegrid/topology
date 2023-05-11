@@ -1,7 +1,10 @@
 import re
-import flask
-import pytest
+import gzip
+import json
 import urllib.parse
+
+from flask.testing import FlaskClient
+import pytest
 from pytest_mock import MockerFixture
 
 # Rewrites the path so the app can be imported like it normally is
@@ -59,25 +62,36 @@ TEST_ENDPOINTS = [
     "/origin/grid-mapfile",
 ]
 
+JSON_ENDPOINTS = [
+    "/api/resource_group_summary",
+    '/miscproject/json',
+    '/miscsite/json',
+    '/miscfacility/json',
+    '/miscresource/json',
+    '/vosummary/json',
+    '/resources/stashcache-files',
+    '/stashcache/namespaces'
+]
+
 
 @pytest.fixture
-def client():
+def client() -> FlaskClient:
     with app.test_client() as client:
         yield client
 
 
 class TestAPI:
 
-    def test_sanity(self, client: flask.Flask):
+    def test_sanity(self, client: FlaskClient):
         response = client.get('/')
         assert response.status_code == 200
 
     @pytest.mark.parametrize('endpoint', TEST_ENDPOINTS)
-    def test_endpoint_existence(self, endpoint, client: flask.Flask):
+    def test_endpoint_existence(self, endpoint, client: FlaskClient):
         response = client.get(endpoint)
         assert response.status_code != 404
 
-    def test_cache_authfile(self, client: flask.Flask, mocker: MockerFixture):
+    def test_cache_authfile(self, client: FlaskClient, mocker: MockerFixture):
         mocker.patch("webapp.ldap_data.get_ligo_ldap_dn_list", mocker.MagicMock(return_value=["deadbeef.0"]))
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
@@ -88,7 +102,7 @@ class TestAPI:
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
 
-    def test_cache_authfile_public(self, client: flask.Flask):
+    def test_cache_authfile_public(self, client: FlaskClient):
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
             resource_fqdn = resource["FQDN"]
@@ -98,7 +112,7 @@ class TestAPI:
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
 
-    def test_origin_authfile(self, client: flask.Flask):
+    def test_origin_authfile(self, client: FlaskClient):
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
             resource_fqdn = resource["FQDN"]
@@ -108,7 +122,7 @@ class TestAPI:
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
 
-    def test_origin_authfile_public(self, client: flask.Flask):
+    def test_origin_authfile_public(self, client: FlaskClient):
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
             resource_fqdn = resource["FQDN"]
@@ -118,7 +132,7 @@ class TestAPI:
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
 
-    def test_cache_scitokens(self, client: flask.Flask):
+    def test_cache_scitokens(self, client: FlaskClient):
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
             resource_fqdn = resource["FQDN"]
@@ -128,7 +142,7 @@ class TestAPI:
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
 
-    def test_origin_scitokens(self, client: flask.Flask):
+    def test_origin_scitokens(self, client: FlaskClient):
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
             resource_fqdn = resource["FQDN"]
@@ -138,7 +152,7 @@ class TestAPI:
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
 
-    def test_resource_stashcache_files(self, client: flask.Flask, mocker: MockerFixture):
+    def test_resource_stashcache_files(self, client: FlaskClient, mocker: MockerFixture):
         """Tests that the resource table contains the same files as the singular api outputs"""
 
         # Disable legacy auth until it's turned back on in Resource.get_stashcache_files()
@@ -184,7 +198,7 @@ class TestAPI:
             else:
                 app.config["STASHCACHE_LEGACY_AUTH"] = old_legacy_auth
 
-    def test_stashcache_namespaces(self, client: flask.Flask):
+    def test_stashcache_namespaces(self, client: FlaskClient):
         def validate_cache_schema(cc):
             assert HOST_PORT_RE.match(cc["auth_endpoint"])
             assert HOST_PORT_RE.match(cc["endpoint"])
@@ -237,7 +251,7 @@ class TestAPI:
                     validate_cache_schema(cache)
         assert found_credgen, "At least one namespace with credential_generation"
 
-    def test_origin_grid_mapfile(self, client: flask.Flask):
+    def test_origin_grid_mapfile(self, client: FlaskClient):
         TEST_ORIGIN = "origin-auth2001.chtc.wisc.edu"  # This origin serves protected data
         response = client.get("/origin/grid-mapfile")
         assert response.status_code == 400  # fqdn not specified
@@ -277,7 +291,7 @@ class TestAPI:
         hashes_not_in_authfile = mapfile_hashes - authfile_hashes
         assert not hashes_not_in_authfile, f"Hashes in mapfile but not in authfile: {hashes_not_in_authfile}"
 
-    def test_cache_grid_mapfile(self, client: flask.Flask):
+    def test_cache_grid_mapfile(self, client: FlaskClient):
         TEST_CACHE = "stash-cache.osg.chtc.io"  # This cache allows cert-based auth but not LIGO data
         response = client.get("/cache/grid-mapfile")
         assert response.status_code == 400  # fqdn not specified
@@ -804,7 +818,7 @@ class TestEndpointContent:
     mock_facility.add_site(mock_site)
     mock_site.add_resource_group(mock_resource_group)
 
-    def test_resource_defaults(self, client: flask.Flask):
+    def test_resource_defaults(self, client: FlaskClient):
         resources = client.get('/miscresource/json').json
 
         # Check that it is not empty
@@ -815,7 +829,7 @@ class TestEndpointContent:
                                                         "Description", "FQDN", "FQDNAliases", "VOOwnership",
                                                         "WLCGInformation", "ContactLists", "IsCCStar"])
 
-    def test_site_defaults(self, client: flask.Flask):
+    def test_site_defaults(self, client: FlaskClient):
         sites = client.get('/miscsite/json').json
 
         # Check that it is not empty
@@ -824,7 +838,7 @@ class TestEndpointContent:
         # Check that the site contains the appropriate keys
         assert set(sites.popitem()[1]).issuperset(["ID", "Name", "IsCCStar"])
 
-    def test_facility_defaults(self, client: flask.Flask):
+    def test_facility_defaults(self, client: FlaskClient):
         facilities = client.get('/miscfacility/json').json
 
         # Check that it is not empty
@@ -832,6 +846,20 @@ class TestEndpointContent:
 
         # Check that the site contains the appropriate keys
         assert set(facilities.popitem()[1]).issuperset(["ID", "Name", "IsCCStar"])
+
+    @pytest.mark.parametrize('endpoint', JSON_ENDPOINTS)
+    def test_zipped_response(self, endpoint, client: FlaskClient):
+        res_zip = client.get(endpoint, headers={"accept-encoding": "gzip"})
+
+        assert res_zip.headers['content-encoding'] == 'gzip'
+
+        d_zip = json.loads(gzip.decompress(res_zip.data))
+
+        res = client.get(endpoint)
+        d = res.json
+
+        assert d_zip == d
+
 
 
 if __name__ == '__main__':

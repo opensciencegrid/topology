@@ -127,7 +127,7 @@ will want to adjust the Map.data which populates the select input and legend.
         }
 
         #legend > hr {
-            margin: 0 0 .3rem 0;
+            margin: .3rem 0;
         }
 
         .entry-container > span {
@@ -192,8 +192,6 @@ will want to adjust the Map.data which populates the select input and legend.
         <div id="print-region">
             <div id="map"></div>
             <div id="legend" class="leaflet-container" hidden>
-                <h2 class="legend-header">Legend</h2>
-                <hr>
                 <div id="legend-items"></div>
             </div>
         </div>
@@ -510,7 +508,6 @@ will want to adjust the Map.data which populates the select input and legend.
         get isOSPool () {
             if(Object.values(this.resources).some(x => this.resourceIsInOSPool(x))){
                 shownOspoolContributors.add(this.name)
-                console.log(shownOspoolContributors)
             }
             return Object.values(this.resources).some(x => this.resourceIsInOSPool(x))
         }
@@ -715,8 +712,6 @@ will want to adjust the Map.data which populates the select input and legend.
 
             this.leafletMap = new Map()
             this.leafletMap.map.on("popupopen", (e) => {
-                console.log("Pop Opened")
-
                 this.siteSelect.value = e.popup.site.siteName
 
                 // Default is opening '#close' which breaks url paramaters
