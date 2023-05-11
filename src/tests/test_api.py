@@ -1,6 +1,7 @@
 import re
 import gzip
 import json
+from typing import Generator
 import urllib.parse
 
 from flask.testing import FlaskClient
@@ -75,7 +76,7 @@ JSON_ENDPOINTS = [
 
 
 @pytest.fixture
-def client() -> FlaskClient:
+def client() -> Generator[FlaskClient]:
     with app.test_client() as client:
         yield client
 

@@ -888,9 +888,9 @@ def make_json_response(json_response: dict) -> flask.Response:
     """Trys to gzip json response"""
 
     if 'gzip' in flask.request.headers.get("accept-encoding", ""):
-        content = gzip.compress(json.dumps(json_response).encode('utf8'), 5)
+        content = gzip.compress(json.dumps(json_response).encode('utf8', errors='replace'), 5)
         response = flask.make_response(content)
-        response.headers['Content-length'] = len(content)
+        response.headers['Content-Length'] = len(content)
         response.headers['Content-Encoding'] = 'gzip'
         response.headers['Content-Type'] = "application/json"
         return response
