@@ -1690,3 +1690,85 @@
   ResourceName: CIT_CMS_T2_XRD_Ceph
   Services:
     - XRootD component
+
+
+# ----------------------------------------------------------
+# CEPH (storage) node maintenance
+
+- Class: SCHEDULED
+  ID: 997651608
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651609
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651610
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651611
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 997651612
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 997651613
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 997651614
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
