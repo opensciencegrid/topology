@@ -2037,3 +2037,69 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1495054023
+  Description: Uplink maintenance
+  Severity: No Significant Outage Expected
+  StartTime: May 23, 2023 12:25 +0000
+  EndTime: May 23, 2023 13:25 +0000
+  CreatedTime: May 19, 2023 14:10 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1495054024
+  Description: Uplink maintenance
+  Severity: No Significant Outage Expected
+  StartTime: May 23, 2023 12:25 +0000
+  EndTime: May 23, 2023 13:25 +0000
+  CreatedTime: May 19, 2023 14:10 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1495054025
+  Description: Uplink maintenance
+  Severity: No Significant Outage Expected
+  StartTime: May 23, 2023 12:25 +0000
+  EndTime: May 23, 2023 13:25 +0000
+  CreatedTime: May 19, 2023 14:10 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1495054026
+  Description: Uplink maintenance
+  Severity: No Significant Outage Expected
+  StartTime: May 23, 2023 12:25 +0000
+  EndTime: May 23, 2023 13:25 +0000
+  CreatedTime: May 19, 2023 14:10 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1495054027
+  Description: Uplink maintenance
+  Severity: No Significant Outage Expected
+  StartTime: May 23, 2023 12:25 +0000
+  EndTime: May 23, 2023 13:25 +0000
+  CreatedTime: May 19, 2023 14:10 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1495054028
+  Description: Uplink maintenance
+  Severity: No Significant Outage Expected
+  StartTime: May 23, 2023 12:25 +0000
+  EndTime: May 23, 2023 13:25 +0000
+  CreatedTime: May 19, 2023 14:10 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
