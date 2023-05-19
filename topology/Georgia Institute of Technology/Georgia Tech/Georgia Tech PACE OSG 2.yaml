@@ -173,4 +173,100 @@ Resources:
       IceCube: 25
       CTA: 25
       OSG: 25
+  Georgia_Tech_PACE_CE_OSG:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000313
+          Name: Eric Coulter
+        Secondary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+      Security Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: OSG1000313
+          Name: Eric Coulter
+        Tertiary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+    Description: This is a Condor CE in front of the PACE cluster, for use by OSG-Connect
+    FQDN: gateway-osg-buzzard.pace.gatech.edu
+    ID: 1446
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    Tags:
+      - CC*
+    VOOwnership:
+      OSG: 100
+  Georgia_Tech_PACE_CE_LIGO:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000313
+          Name: Eric Coulter
+        Secondary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+      Security Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: OSG1000313
+          Name: Eric Coulter
+        Tertiary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+    Description: This is a Condor CE in front of the PACE cluster, for use by LIGO
+    FQDN: gateway-ligo-buzzard.pace.gatech.edu
+    ID: 1447
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    Tags:
+      - CC*
+    VOOwnership:
+      LIGO: 100
+  Georgia_Tech_PACE_CE_ICECUBE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000313
+          Name: Eric Coulter
+        Secondary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+      Security Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: OSG1000313
+          Name: Eric Coulter
+        Tertiary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+    Description: This is a Condor CE in front of the PACE cluster, for use by LIGO
+    FQDN: gateway-ligo-buzzard.pace.gatech.edu
+    ID: 1448
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    Tags:
+      - CC*
+    VOOwnership:
+      ICECUBE: 100
 SupportCenter: Advanced LIGO
