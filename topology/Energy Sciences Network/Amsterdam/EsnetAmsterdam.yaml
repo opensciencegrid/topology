@@ -1,11 +1,11 @@
 Production: true
 SupportCenter: Community Support Center
-GroupDescription: Services located at the Esnet Amasterdam Point of Presence
+GroupDescription: Services located at the ESnet Amsterdam Point of Presence
 GroupID: 1356
 Resources:
   AMSTERDAM_ESNET_OSDF_CACHE:
     Active: true
-    Description: Esnet Amasterdam Cache
+    Description: ESnet Amasterdam Cache
     ID: 1450
     ContactLists:
       Administrative Contact:
@@ -20,6 +20,6 @@ Resources:
     DN: /DC=org/DC=incommon/C=US/ST=California/O=Energy Sciences Network/CN=amst-osdf-xcache01.es.net
     Services:
       XRootD cache server:
-        Description: ESnet Amasterdam Cache
+        Description: ESnet Amsterdam Cache
     AllowedVOs:
       - LIGO
