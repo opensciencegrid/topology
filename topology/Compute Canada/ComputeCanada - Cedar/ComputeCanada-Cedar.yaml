@@ -5,7 +5,7 @@ GroupID: 1095
 GroupDescription: The Compute Canada Cedar cluster
 Resources:
   ComputeCanada-Cedar:
-    ID: 1103
+    ID: 1351
     Description: The Hosted CE serving ComputeCanada-Cedar
     ContactLists:
       Administrative Contact:
@@ -32,3 +32,23 @@ Resources:
         Description: ComputeCanada-Cedar Hosted CE
         Details:
           hidden: false
+  ComputeCanada-Cedar-Cache:
+    Active: true
+    Description: Compute Canada Cedar Cluster at SFU - StashCache XRootD cache server
+    ID: 1407
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  OSG1000281
+          Name: Leslie Groer
+      Security Contact:
+        Primary:
+          ID:  OSG1000281
+          Name: Leslie Groer
+    FQDN: osg-stash-sfu-computecanada-ca.nationalresearchplatform.org
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=osg-stash-sfu-computecanada-ca.nationalresearchplatform.org
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    AllowedVOs:
+      - ANY

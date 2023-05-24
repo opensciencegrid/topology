@@ -1465,3 +1465,641 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1368007266
+  Description: network outage
+  Severity: Outage
+  StartTime: Dec 23, 2022 13:05 +0000
+  EndTime: Dec 24, 2022 13:05 +0000
+  CreatedTime: Dec 23, 2022 13:05 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1368008787
+  Description: network outage
+  Severity: Outage
+  StartTime: Dec 23, 2022 13:05 +0000
+  EndTime: Dec 24, 2022 13:05 +0000
+  CreatedTime: Dec 23, 2022 13:07 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1432325150
+  Description: Power outage affecting campus
+  Severity: Outage
+  StartTime: Mar 06, 2023 15:00 +0000
+  EndTime: Mar 10, 2023 12:30 +0000
+  CreatedTime: Mar 07, 2023 23:41 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1432325151
+  Description: Power outage affecting campus
+  Severity: Outage
+  StartTime: Mar 06, 2023 15:00 +0000
+  EndTime: Mar 10, 2023 12:30 +0000
+  CreatedTime: Mar 07, 2023 23:41 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1432325152
+  Description: Power outage affecting campus
+  Severity: Outage
+  StartTime: Mar 06, 2023 15:00 +0000
+  EndTime: Mar 10, 2023 12:30 +0000
+  CreatedTime: Mar 07, 2023 23:41 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1432325153
+  Description: Power outage affecting campus
+  Severity: Outage
+  StartTime: Mar 06, 2023 15:00 +0000
+  EndTime: Mar 10, 2023 12:30 +0000
+  CreatedTime: Mar 07, 2023 23:41 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1432325154
+  Description: Power outage affecting campus
+  Severity: Outage
+  StartTime: Mar 06, 2023 15:00 +0000
+  EndTime: Mar 10, 2023 12:30 +0000
+  CreatedTime: Mar 07, 2023 23:41 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1432325155
+  Description: Power outage affecting campus
+  Severity: Outage
+  StartTime: Mar 06, 2023 15:00 +0000
+  EndTime: Mar 10, 2023 12:30 +0000
+  CreatedTime: Mar 07, 2023 23:41 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434465621
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:09 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434468309
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:13 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434469637
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:16 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434470636
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:17 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434471741
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:19 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1434474091
+  Description: Maintenance after a power outage
+  Severity: Intermittent Outage
+  StartTime: Mar 10, 2023 11:08 +0000
+  EndTime: Mar 10, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 11:23 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1434755808
+  Description: Still restoring services after power outage
+  Severity: Outage
+  StartTime: Mar 10, 2023 21:00 +0000
+  EndTime: Mar 13, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 19:13 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ------------------------------
+- Class: SCHEDULED
+  ID: 1434756943
+  Description: Still restoring services after power outage
+  Severity: Outage
+  StartTime: Mar 10, 2023 21:00 +0000
+  EndTime: Mar 13, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 19:14 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1434758354
+  Description: Still restoring services after power outage
+  Severity: Outage
+  StartTime: Mar 10, 2023 21:00 +0000
+  EndTime: Mar 13, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 19:17 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1434761049
+  Description: Still restoring services after power outage
+  Severity: Outage
+  StartTime: Mar 10, 2023 21:00 +0000
+  EndTime: Mar 13, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 19:21 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1434762402
+  Description: Still restoring services after power outage
+  Severity: Outage
+  StartTime: Mar 10, 2023 21:00 +0000
+  EndTime: Mar 13, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 19:24 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1434764523
+  Description: Still restoring services after power outage
+  Severity: Outage
+  StartTime: Mar 10, 2023 21:00 +0000
+  EndTime: Mar 13, 2023 21:00 +0000
+  CreatedTime: Mar 10, 2023 19:27 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1437395813
+  Description: Still restoring services after power outage
+  Severity: Outage
+  StartTime: Mar 13, 2023 21:00 +0000
+  EndTime: Mar 15, 2023 21:00 +0000
+  CreatedTime: Mar 13, 2023 20:33 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1437396274
+  Description: Still restoring services after power outage
+  Severity: Outage
+  StartTime: Mar 13, 2023 21:00 +0000
+  EndTime: Mar 15, 2023 21:00 +0000
+  CreatedTime: Mar 13, 2023 20:33 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1452185653
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 30, 2023 23:22 +0000
+  EndTime: Mar 31, 2023 18:00 +0000
+  CreatedTime: Mar 30, 2023 23:22 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1452187170
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 30, 2023 23:22 +0000
+  EndTime: Mar 31, 2023 18:00 +0000
+  CreatedTime: Mar 30, 2023 23:25 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1452196272
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 30, 2023 23:22 +0000
+  EndTime: Mar 31, 2023 18:00 +0000
+  CreatedTime: Mar 30, 2023 23:40 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1452196908
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 30, 2023 23:22 +0000
+  EndTime: Mar 31, 2023 18:00 +0000
+  CreatedTime: Mar 30, 2023 23:41 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1452198505
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 30, 2023 23:22 +0000
+  EndTime: Mar 31, 2023 18:00 +0000
+  CreatedTime: Mar 30, 2023 23:44 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1452200226
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 30, 2023 23:22 +0000
+  EndTime: Mar 31, 2023 18:00 +0000
+  CreatedTime: Mar 30, 2023 23:47 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481892234
+  Description: 'network outage '
+  Severity: Outage
+  StartTime: May 04, 2023 08:33 +0000
+  EndTime: May 04, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 08:33 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481892235
+  Description: 'network outage '
+  Severity: Outage
+  StartTime: May 04, 2023 08:33 +0000
+  EndTime: May 04, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 08:33 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481892236
+  Description: 'network outage '
+  Severity: Outage
+  StartTime: May 04, 2023 08:33 +0000
+  EndTime: May 04, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 08:33 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481892237
+  Description: 'network outage '
+  Severity: Outage
+  StartTime: May 04, 2023 08:33 +0000
+  EndTime: May 04, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 08:33 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481892238
+  Description: 'network outage '
+  Severity: Outage
+  StartTime: May 04, 2023 08:33 +0000
+  EndTime: May 04, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 08:33 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481892239
+  Description: 'network outage '
+  Severity: Outage
+  StartTime: May 04, 2023 08:33 +0000
+  EndTime: May 04, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 08:33 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482256605
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 17:00 +0000
+  EndTime: May 04, 2023 23:00 +0000
+  CreatedTime: May 04, 2023 18:41 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482256606
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 17:00 +0000
+  EndTime: May 04, 2023 23:00 +0000
+  CreatedTime: May 04, 2023 18:41 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482256607
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 17:00 +0000
+  EndTime: May 04, 2023 23:00 +0000
+  CreatedTime: May 04, 2023 18:41 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482256608
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 17:00 +0000
+  EndTime: May 04, 2023 23:00 +0000
+  CreatedTime: May 04, 2023 18:41 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482256609
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 17:00 +0000
+  EndTime: May 04, 2023 23:00 +0000
+  CreatedTime: May 04, 2023 18:41 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482256610
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 17:00 +0000
+  EndTime: May 04, 2023 23:00 +0000
+  CreatedTime: May 04, 2023 18:41 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482352347
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 23:00 +0000
+  EndTime: May 05, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 21:20 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482352348
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 23:00 +0000
+  EndTime: May 05, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 21:20 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482352349
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 23:00 +0000
+  EndTime: May 05, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 21:20 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482352350
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 23:00 +0000
+  EndTime: May 05, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 21:20 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482352351
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 23:00 +0000
+  EndTime: May 05, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 21:20 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1482352352
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 04, 2023 23:00 +0000
+  EndTime: May 05, 2023 17:00 +0000
+  CreatedTime: May 04, 2023 21:20 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1492797123
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 16, 2023 21:47 +0000
+  EndTime: May 17, 2023 15:00 +0000
+  CreatedTime: May 16, 2023 23:28 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1492797124
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 16, 2023 21:47 +0000
+  EndTime: May 17, 2023 15:00 +0000
+  CreatedTime: May 16, 2023 23:28 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1492797125
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 16, 2023 21:47 +0000
+  EndTime: May 17, 2023 15:00 +0000
+  CreatedTime: May 16, 2023 23:28 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1492797126
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 16, 2023 21:47 +0000
+  EndTime: May 17, 2023 15:00 +0000
+  CreatedTime: May 16, 2023 23:28 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1492797127
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 16, 2023 21:47 +0000
+  EndTime: May 17, 2023 15:00 +0000
+  CreatedTime: May 16, 2023 23:28 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1492797128
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 16, 2023 21:47 +0000
+  EndTime: May 17, 2023 15:00 +0000
+  CreatedTime: May 16, 2023 23:28 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1495054023
+  Description: Uplink maintenance
+  Severity: No Significant Outage Expected
+  StartTime: May 23, 2023 12:25 +0000
+  EndTime: May 23, 2023 13:25 +0000
+  CreatedTime: May 19, 2023 14:10 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1495054024
+  Description: Uplink maintenance
+  Severity: No Significant Outage Expected
+  StartTime: May 23, 2023 12:25 +0000
+  EndTime: May 23, 2023 13:25 +0000
+  CreatedTime: May 19, 2023 14:10 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1495054025
+  Description: Uplink maintenance
+  Severity: No Significant Outage Expected
+  StartTime: May 23, 2023 12:25 +0000
+  EndTime: May 23, 2023 13:25 +0000
+  CreatedTime: May 19, 2023 14:10 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1495054026
+  Description: Uplink maintenance
+  Severity: No Significant Outage Expected
+  StartTime: May 23, 2023 12:25 +0000
+  EndTime: May 23, 2023 13:25 +0000
+  CreatedTime: May 19, 2023 14:10 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1495054027
+  Description: Uplink maintenance
+  Severity: No Significant Outage Expected
+  StartTime: May 23, 2023 12:25 +0000
+  EndTime: May 23, 2023 13:25 +0000
+  CreatedTime: May 19, 2023 14:10 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1495054028
+  Description: Uplink maintenance
+  Severity: No Significant Outage Expected
+  StartTime: May 23, 2023 12:25 +0000
+  EndTime: May 23, 2023 13:25 +0000
+  CreatedTime: May 19, 2023 14:10 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------

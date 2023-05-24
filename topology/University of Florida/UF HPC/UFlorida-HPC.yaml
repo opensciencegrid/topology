@@ -210,14 +210,14 @@ Resources:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
     Description: Xrootd Redirector
-    FQDN: cmsio7.rc.ufl.edu
+    FQDN: cmsio2.rc.ufl.edu
     ID: 1000
     Services:
       XRootD component:
         Description: Xrootd Redirector
         Details:
           hidden: false
-          uri_override: cmsio7.rc.ufl.edu:1094
+          uri_override: cmsio2.rc.ufl.edu:1094
     VOOwnership:
       CMS: 100
     WLCGInformation:
@@ -250,7 +250,7 @@ Resources:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
     Description: The first squid server for the U of Florida CMS Tier2.
-    FQDN: squid1.rc.ufl.edu
+    FQDN: cmssquid1.rc.ufl.edu
     ID: 684
     Services:
       Squid:
@@ -275,7 +275,7 @@ Resources:
           ID: 2d9012f731159dd45a082164c6aac6577167e725
           Name: Bockjoo Kim
     Description: Second squid server for U of Florida CMS Tier2
-    FQDN: squid2.rc.ufl.edu
+    FQDN: cmssquid2.rc.ufl.edu
     ID: 685
     Services:
       Squid:

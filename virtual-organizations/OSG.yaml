@@ -57,6 +57,7 @@ OASIS:
   - http://cvmfs.xsede.org:8000/cvmfs/colorado.xsede.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/singularity.opensciencegrid.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/scitokens.osgstorage.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/sdsc-nrp-osdf-origin.osgstorage.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/veritas.opensciencegrid.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/nexo.opensciencegrid.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/connect.opensciencegrid.org
@@ -108,11 +109,23 @@ DataFederations:
           - OSGCONNECT_ORIGIN
         AllowedCaches:
           - ANY
+
+      # HACK: enormous hack to get us going on a demo
+      # https://opensciencegrid.atlassian.net/browse/SOFTWARE-5398
+      # FIXME: rip this out after the demo
+      # TODO: Redesign namespace interface (take 3?). See commit body
+      # for considerations.
+
+      # NOTE: The SciTokens blocks for Issuer "https://osg-htc.org/ospool" must be the same
+      # between the paths /ospool/PROTECTED, /s3.amazonaws.com/us-east-1, and
+      # /s3.amazonaws.com/us-west-1 below or we will see problems.
+      # See c3524138ac8d46eee2a3c33cb75fac50acab41c4 for more information.
+
       - Path: /ospool/PROTECTED
         Authorizations:
           - SciTokens:
               Issuer: https://osg-htc.org/ospool
-              Base Path: /ospool/PROTECTED
+              Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
               Map Subject: True
         AllowedOrigins:
           - CHTC_OSPOOL_ORIGIN
@@ -120,10 +133,96 @@ DataFederations:
           - ANY
         Writeback: https://origin-auth2001.chtc.wisc.edu:1095
         DirList: https://origin-auth2001.chtc.wisc.edu:1095
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://osg-htc.org/ospool
+          MaxScopeDepth: 4
+
+      - Path: /s3.amazonaws.com/us-east-1
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/ospool
+              Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-S3-AWS-EAST-ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://s3-us-east-1.osgdev.chtc.io:1095
+        DirList: https://s3-us-east-1.osgdev.chtc.io:1095
+
+      - Path: /s3.amazonaws.com/us-west-1
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/ospool
+              Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-S3-AWS-WEST-ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://s3-us-west-1.osgdev.chtc.io:1095
+        DirList: https://s3-us-west-1.osgdev.chtc.io:1095
+
       - Path: /osdftest
         Authorizations:
           - PUBLIC
         AllowedOrigins:
+          - MGHPCC_NRP_OSDF_ORIGIN
+          - NEBRASKA_NRP_OSDF_ORIGIN
+          - SDSC_NRP_OSDF_ORIGIN
           - SDSC-test-Origin
+          - SINGAPORE_INTERNET2_OSDF_CACHE
         AllowedCaches:
           - ANY
+      
+      - Path: /ospool/ap20/data
+        Authorizations:
+          - SciTokens:
+              Issuer: https://ap20.uc.osg-htc.org:1094/ospool/ap20
+              Base Path: /ospool/ap20
+              Map Subject: True
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap20
+        AllowedCaches:
+          - ANY
+        Writeback: https://ap20.uc.osg-htc.org:1094
+        DirList: https://ap20.uc.osg-htc.org:1094
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://osg-htc.org/ospool
+          MaxScopeDepth: 4
+      
+      - Path: /ospool/ap21/data
+        Authorizations:
+          - SciTokens:
+              Issuer: https://ap21.uc.osg-htc.org:1094/ospool/ap21
+              Base Path: /ospool/ap21
+              Map Subject: True
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap21
+        AllowedCaches:
+          - ANY
+        Writeback: https://ap21.uc.osg-htc.org:1094
+        DirList: https://ap21.uc.osg-htc.org:1094
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://osg-htc.org/ospool
+          MaxScopeDepth: 4
+
+      - Path: /ospool/ap22/data
+        Authorizations:
+          - SciTokens:
+              Issuer: https://ap22.uc.osg-htc.org:1094/ospool/ap22
+              Base Path: /ospool/ap22
+              Map Subject: True
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap22
+        AllowedCaches:
+          - ANY
+        Writeback: https://ap22.uc.osg-htc.org:1094
+        DirList: https://ap22.uc.osg-htc.org:1094
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://osg-htc.org/ospool
+          MaxScopeDepth: 4

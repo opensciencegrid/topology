@@ -2,6 +2,7 @@
 
 import collections
 import subprocess
+import stat
 import yaml
 import sys
 import os
@@ -195,15 +196,19 @@ def get_file_at_version(sha, fname):
     ret, out = runcmd(args, stderr=_devnull)
     return out
 
-def list_dir_at_version(sha, path):
+def list_files_at_version(sha, path):
     treeish = b'%s:%s' % (sha.encode(), path)
-    args = ['git', 'ls-tree', '-z', '--name-only', treeish]
+    args = ['git', 'ls-tree', '-z', treeish]
     ret, out = runcmd(args, stderr=_devnull)
-    return zsplit(out)
+    for line in zsplit(out):
+        mode, type_, hash_, fname = line.split(None, 3)
+        mode = int(mode, 8)    # mode is in octal
+        if stat.S_ISREG(mode): # skip symlinks
+            yield fname
 
 def get_organizations_at_version(sha):
     projects = [ parse_yaml_at_version(sha, b"projects/" + fname, {})
-                 for fname in list_dir_at_version(sha, b"projects")
+                 for fname in list_files_at_version(sha, b"projects")
                  if re.search(br'.\.yaml$', fname) ]
     return set( p.get("Organization") for p in projects )
 

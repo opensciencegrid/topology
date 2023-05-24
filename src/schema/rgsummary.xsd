@@ -62,6 +62,7 @@
               </xsd:element>
               <xsd:element minOccurs="0" name="GroupDescription" type="xsd:string" />
               <xsd:element name="IsCCStar" type="boolean" minOccurs="0"/>
+              <xsd:element name="Production" type="boolean" />
               <xsd:element name="Resources">
                 <xsd:complexType>
                   <xsd:sequence>
@@ -150,6 +151,7 @@
                                 <xsd:element name="StorageCapacityMax" type="xsd:string"/>
                                 <xsd:element name="HEPSPEC" type="xsd:string" />
                                 <xsd:element minOccurs="0" name="APELNormalFactor" type="xsd:string" />
+                                <xsd:element minOccurs="0" name="HEPScore23Percentage" type="xsd:float" />
                                 <xsd:element name="TapeCapacity" type="xsd:string"/>
                               </xsd:sequence>
                             </xsd:complexType>

@@ -1,0 +1,34 @@
+Name: NSG
+LongName: Neuroscience Gateway
+# AppDescription is a brief description of the VO
+AppDescription: A Portal for Computational Neuroscience
+Community: The Neuroscience Gateway (NSG) project facilitates access and use of the NSF-funded HPC, HTC, and academic cloud computing resources by neuroscientists.
+CertificateOnly: false
+ID: 231
+Contacts:
+  Administrative Contact:
+  - ID: 5cb19c49b0d5fff51f9bff3827f1be928303a54b
+    Name: Marty Kandes
+  Security Contact:
+  - ID: 5cb19c49b0d5fff51f9bff3827f1be928303a54b
+    Name: Marty Kandes
+FieldsOfScience:
+  PrimaryFields:
+  - Neuroscience
+PrimaryURL: https://www.nsgportal.org
+PurposeURL: https://www.nsgportal.org/overview.html
+SupportURL: nsghelp@sdsc.edu
+
+### DataFederations (optional) is information about data federations that the VO is part of
+### This template is for the StashCache data federation; for instructions,
+### see the documentation at https://opensciencegrid.org/docs/data/stashcache/vo-data/
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /NSG/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+           - RDS_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY

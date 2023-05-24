@@ -26,13 +26,13 @@ Resources:
           ID: 111d9c8900f39a973798f230d802fb903bb704d9
           Name: Daniele Cesini
     Description: StashCache cache server for INFN T1
-    FQDN: xcache.cr.cnaf.infn.it
+    FQDN: ds-914.cr.cnaf.infn.it
     ID: 1019
     Services:
       XRootD cache server:
         Description: StashCache cache server
     AllowedVOs:
-      - ANY
+      - LIGO
     DN: /DC=org/DC=terena/DC=tcs/C=IT/ST=Roma/O=Istituto Nazionale di Fisica Nucleare/CN=ds-102-11-18.cr.cnaf.infn.it
 SupportCenter: Self Supported
 
