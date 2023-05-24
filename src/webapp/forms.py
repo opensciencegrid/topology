@@ -159,7 +159,7 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
         self.infos = ""
 
     # https://stackoverflow.com/a/21815180
-    def validate(self):
+    def validate(self, extra_validators=None):
         self.infos = ""
 
         if not super().validate():
@@ -255,7 +255,7 @@ class GenerateDowntimeForm(FlaskForm):
         self.infos = ""
 
     # https://stackoverflow.com/a/21815180
-    def validate(self):
+    def validate(self, extra_validators=None):
         self.infos = ""
 
         if not super().validate():
