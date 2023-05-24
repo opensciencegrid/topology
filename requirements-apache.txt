@@ -1,5 +1,6 @@
 -r requirements-rootless.txt
 
 # mod-wsgi requires apache httpd headers (redhat package httpd-devel, ubuntu package apache2-dev)
-mod-wsgi>=4.9.3,<4.10
+# also gcc and python headers (redhat package python39-devel or similar)
+mod-wsgi~=4.9.4
 
