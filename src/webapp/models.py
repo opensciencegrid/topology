@@ -78,6 +78,10 @@ class GlobalData:
         self.ligo_ldap_passfile = config.get("LIGO_LDAP_PASSFILE")
         self.ligo_ldap_url = config.get("LIGO_LDAP_URL")
         self.ligo_ldap_user = config.get("LIGO_LDAP_USER")
+        self.github_oauth_client_secret = config.get("GITHUB_OAUTH_CLIENT_SECRET")
+        self.auto_pr_gh_api_user = config.get("AUTO_PR_GH_API_USER")
+        self.auto_pr_gh_api_token = config.get("AUTO_PR_GH_API_TOKEN")
+        self.csrf_secret_key = config.get("CSRF_SECRET_KEY")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:

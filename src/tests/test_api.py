@@ -11,6 +11,8 @@ import sys
 topdir = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(topdir)
 
+os.environ['TESTING'] = "True"
+
 from app import app, global_data
 from webapp.topology import Facility, Site, Resource, ResourceGroup
 from webapp.data_federation import CredentialGeneration
