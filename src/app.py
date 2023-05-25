@@ -105,7 +105,7 @@ else:
     app.config['AUTO_PR_GH_API_TOKEN'] = auto_pr_gh_api_token.decode()
 
 csrf_secret_key = readfile(global_data.csrf_secret_key, app.logger)
-if app.debug and not csrf_secret_key:
+if (os.environ.get('TESTING', False) or app.debug) and not csrf_secret_key:
     app.config["SECRET_KEY"] = "this is not very secret"
 elif not app.debug and not csrf_secret_key:
     raise Exception("SECRET_KEY required when FLASK_ENV != development")
