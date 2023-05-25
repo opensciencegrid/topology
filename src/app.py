@@ -17,7 +17,7 @@ from wtforms import ValidationError
 from flask_wtf.csrf import CSRFProtect
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape, cache_control_private
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
 from webapp.models import GlobalData
@@ -120,6 +120,14 @@ def _fix_unicode(text):
     """Convert a partial unicode string to full unicode"""
     return text.encode('utf-8', 'surrogateescape').decode('utf-8')
 
+@app.after_request
+def set_cache_control(response):
+    if response.status_code == 200:
+        # Cache results for 300s
+        response.cache_control.max_age = 300
+        # Serve an expired entry for up to 100s while refreshing in the background
+        response.headers['Cache-Control'] += ', stale-while-revalidate=100'
+    return response
 
 @app.route('/')
 def homepage():
@@ -150,6 +158,7 @@ def schema(xsdfile):
 
 
 @app.route('/miscuser/xml')
+@cache_control_private
 def miscuser_xml():
     return Response(to_xml_bytes(global_data.get_contacts_data().get_tree(_get_authorized())),
                     mimetype='text/xml')
@@ -244,12 +253,13 @@ def collaborations_scitoken_text():
 
 
 @app.route('/contacts')
+@cache_control_private
 def contacts():
     try:
         authorized = _get_authorized()
         contacts_data = global_data.get_contacts_data().without_duplicates()
         users_list = contacts_data.get_tree(_get_authorized())["Users"]["User"]
-        return _fix_unicode(render_template('contacts.html.j2', users=users_list, authorized=authorized))
+        return Response(_fix_unicode(render_template('contacts.html.j2', users=users_list, authorized=authorized)))
     except (KeyError, AttributeError):
         app.log_exception(sys.exc_info())
         return Response("Error getting users", status=503)  # well, it's better than crashing
@@ -375,6 +385,33 @@ def authfile_public():
     return _get_cache_authfile(public_only=True)
 
 
+@app.route("/cache/grid-mapfile")
+@support_cors
+def cache_grid_mapfile():
+    assert stashcache
+    fqdn = request.args.get("fqdn")
+    if not fqdn:
+        return Response("FQDN of cache server required in the 'fqdn' argument", status=400)
+    try:
+        return Response(stashcache.generate_cache_grid_mapfile(global_data, fqdn, suppress_errors=False),
+                        mimetype="text/plain")
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
+                        .format(e),
+                        mimetype="text/plain", status=404)
+    except DataError as e:
+        app.logger.error("{}: {}".format(request.full_path, e))
+        return Response("# Error generating grid-mapfile for this FQDN:\n"
+                        "# {}\n"
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n"
+                        .format(e),
+                        mimetype="text/plain", status=400)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting grid-mapfile, please contact help@osg-htc.org", status=503)
+
+
 @app.route("/origin/Authfile")
 @app.route("/stashcache/origin-authfile")
 def origin_authfile():
@@ -385,6 +422,33 @@ def origin_authfile():
 @app.route("/stashcache/origin-authfile-public")
 def origin_authfile_public():
     return _get_origin_authfile(public_only=True)
+
+
+@app.route("/origin/grid-mapfile")
+@support_cors
+def origin_grid_mapfile():
+    assert stashcache
+    fqdn = request.args.get("fqdn")
+    if not fqdn:
+        return Response("FQDN of origin server required in the 'fqdn' argument", status=400)
+    try:
+        return Response(stashcache.generate_origin_grid_mapfile(global_data, fqdn, suppress_errors=False),
+                        mimetype="text/plain")
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
+                        .format(e),
+                        mimetype="text/plain", status=404)
+    except DataError as e:
+        app.logger.error("{}: {}".format(request.full_path, e))
+        return Response("# Error generating grid-mapfile for this FQDN:\n"
+                        "# {}\n"
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n"
+                        .format(e),
+                        mimetype="text/plain", status=400)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting grid-mapfile, please contact help@osg-htc.org", status=503)
 
 
 @app.route("/stashcache/scitokens")
@@ -445,6 +509,7 @@ def stashcache_namespaces_json():
 
 
 @app.route("/oasis-managers/json")
+@cache_control_private
 def oasis_managers():
     if not _get_authorized():
         return Response("Not authorized", status=403)

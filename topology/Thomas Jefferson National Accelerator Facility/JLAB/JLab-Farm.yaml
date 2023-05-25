@@ -103,7 +103,35 @@ Resources:
     Description: Submit node for JLab
     FQDN: scosg2202.jlab.org
     DN: /DC=org/DC=incommon/C=US/ST=Virginia/L=Newport News/O=Thomas Jefferson National Accelerator Facility/OU=SciComp/CN=scosg2202.jlab.org
-    ID: 1297
+    ID: 1367
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      JLab: 100
+    Tags:
+      - OSPool
+      
+  osg-eic:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 818acb7ebcd1865a17551799f0cfeb5256e0db20
+          Name: Kurt Strosahl
+        Secondary:
+          ID: ea9db644eb6f8632cf87fd2cbac8a6e393c21f71
+          Name: Wesley Moore
+      Security Contact:
+        Primary:
+          ID: 818acb7ebcd1865a17551799f0cfeb5256e0db20
+          Name: Kurt Strosahl
+    Description: Submit node for JLab
+    FQDN: osg-eic.jlab.org
+    DN: /DC=org/DC=incommon/C=US/ST=Virginia/L=Newport News/O=Thomas Jefferson National Accelerator Facility/OU=SciComp/CN=osg-eic.jlab.org
+    ID: 1452
     Services:
       Submit Node:
         Description: OSG Submission Node
@@ -176,6 +204,30 @@ Resources:
     FQDNAliases:
     - osg-ce-1.jlab.org
     ID: 1102
+    Services:
+      CE:
+        Description: Compute Entry Point
+        Details:
+          hidden: false
+    VOOwnership:
+      JLab: 100
+      
+  JLab-FARM-CLAS-CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 818acb7ebcd1865a17551799f0cfeb5256e0db20
+          Name: Kurt Strosahl
+      Security Contact:
+        Primary:
+          ID: ea9db644eb6f8632cf87fd2cbac8a6e393c21f71
+          Name: Wesley Moore
+    Description: HTcondor-CE server for JLab-FARM CLAS collaboration
+    FQDN: osg-ce-2.jlab.org
+    FQDNAliases:
+    - osg-ce-2.jlab.org
+    ID: 1445
     Services:
       CE:
         Description: Compute Entry Point

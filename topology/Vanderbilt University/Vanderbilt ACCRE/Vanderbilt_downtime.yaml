@@ -501,3 +501,86 @@
   ResourceName: Vanderbilt_CE6
   Services:
   - CE
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 997651583
+  Description: Operating System Updates and Network Reconfiguration
+  Severity: Outage
+  StartTime: Jan 10, 2023 05:00 +0000
+  EndTime: Jan 13, 2023 05:00 +0000
+  CreatedTime: Jan 05, 2023 23:00 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 997651584
+  Description: Operating System Updates and Network Reconfiguration
+  Severity: Outage
+  StartTime: Jan 10, 2023 05:00 +0000
+  EndTime: Jan 13, 2023 05:00 +0000
+  CreatedTime: Jan 05, 2023 23:00 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 997651585
+  Description: Operating System Updates and Network Reconfiguration
+  Severity: Outage
+  StartTime: Jan 10, 2023 05:00 +0000
+  EndTime: Jan 13, 2023 05:00 +0000
+  CreatedTime: Jan 05, 2023 23:00 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 997651586
+  Description: Operating System Updates and Network Reconfiguration
+  Severity: Outage
+  StartTime: Jan 10, 2023 05:00 +0000
+  EndTime: Jan 13, 2023 05:00 +0000
+  CreatedTime: Jan 05, 2023 23:00 +0000
+  ResourceName: Vanderbilt_Xrootd
+  Services:
+  - XRootD component
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 997651589
+  Description: Cert upgrade
+  Severity: Outage
+  StartTime: Feb 18, 2023 05:00 +0000
+  EndTime: Feb 22, 2023 05:00 +0000
+  CreatedTime: Feb 16, 2023 23:00 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 997651590
+  Description: Cert upgrade
+  Severity: Outage
+  StartTime: Feb 18, 2023 05:00 +0000
+  EndTime: Feb 22, 2023 05:00 +0000
+  CreatedTime: Feb 16, 2023 23:00 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 997651591
+  Description: Cert upgrade
+  Severity: Outage
+  StartTime: Feb 18, 2023 05:00 +0000
+  EndTime: Feb 22, 2023 05:00 +0000
+  CreatedTime: Feb 16, 2023 23:00 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 997651592
+  Description: Cert upgrade
+  Severity: Outage
+  StartTime: Feb 18, 2023 05:00 +0000
+  EndTime: Feb 22, 2023 05:00 +0000
+  CreatedTime: Feb 16, 2023 23:00 +0000
+  ResourceName: Vanderbilt_Xrootd
+  Services:
+  - XRootD component
+
