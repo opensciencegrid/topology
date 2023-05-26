@@ -1,0 +1,100 @@
+- Class: UNSCHEDULED
+  ID: 563135631
+  Description: forgot to update the CA certs
+  Severity: Severe
+  StartTime: Jun 01, 2020 10:00 +0000
+  EndTime: Jun 04, 2020 15:00 +0000
+  CreatedTime: Jun 04, 2020 18:32 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 627995778
+  Description: cache is overloaded and I need to do some debugging
+  Severity: Intermittent Outage
+  StartTime: Aug 18, 2020 20:15 +0000
+  EndTime: Aug 18, 2020 22:15 +0000
+  CreatedTime: Aug 18, 2020 20:12 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 648491063
+  Description: xrootd 4->5 upgrade
+  Severity: Intermittent Outage
+  StartTime: Sep 11, 2020 13:30 +0000
+  EndTime: Sep 11, 2020 14:00 +0000
+  CreatedTime: Sep 11, 2020 13:31 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1051193533
+  Description: Tiger cluster maintenance
+  Severity: Outage
+  StartTime: Dec 21, 2021 08:00 +0000
+  EndTime: Dec 22, 2021 23:00 +0000
+  CreatedTime: Dec 21, 2021 20:42 +0000
+  ResourceName: CHTC_TIGER_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1102102506
+  Description: ImagePullBackoff
+  Severity: Outage
+  StartTime: Feb 17, 2022 21:30 +0000
+  EndTime: Feb 24, 2022 23:00 +0000
+  CreatedTime: Feb 18, 2022 18:50 +0000
+  ResourceName: CHTC_TIGER_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1427149278
+  Description: testing
+  Severity: Outage
+  StartTime: Mar 01, 2023 23:55 +0000
+  EndTime: Mar 02, 2023 00:55 +0000
+  CreatedTime: Mar 01, 2023 23:55 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1433823879
+  Description: Networking issues on kubelet
+  Severity: Severe
+  StartTime: Mar 08, 2023 23:35 +0000
+  EndTime: Mar 09, 2023 19:30 +0000
+  CreatedTime: Mar 09, 2023 17:19 +0000
+  ResourceName: CHTC_TIGER_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+
+- Class: UNSCHEDULED
+  ID: 1450289310
+  Description: Debugging XrootD deadlock
+  Severity: Outage
+  StartTime: Mar 28, 2023 10:30 +0000
+  EndTime: Apr 30, 2023 10:30 +0000
+  CreatedTime: Mar 28, 2023 18:42 +0000
+  ResourceName: CHTC_TIGER_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1481315892
+  Description: host is down
+  Severity: Outage
+  StartTime: May 03, 2023 16:15 +0000
+  EndTime: May 03, 2023 22:00 +0000
+  CreatedTime: May 03, 2023 16:33 +0000
+  ResourceName: CHTC_STASHCACHE_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
