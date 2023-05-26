@@ -1,0 +1,31 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Origin infrastructure for SURF-MS4
+GroupID: 1358
+Resources:
+  SURF_MS4_OSDF_ORIGIN:
+    Active: false
+    Description: Origin for SURF-MS4
+    ID: 1453
+    ContactLists:
+      Administrative Contact:
+        Primary: 
+          Name: Jasmin Čolo
+          ID: OSG1000312
+        Secondary:
+          ID: OSG1000162
+          Name: Fabio Andrijauskas
+      Security Contact:
+        Primary:
+          Name: Jasmin Čolo
+          ID: OSG1000312
+        Secondary:
+          ID: OSG1000162
+          Name: Fabio Andrijauskas
+    FQDN: osg-origin.ms4.surfsara.nl
+    DN: /C=NL/ST=Utrecht/O=SURF B.V./CN=osg-origin.ms4.surfsara.nl
+    Services:
+      XRootD origin server:
+        Description: Origin for SURF-MS4
+    AllowedVOs:
+      - ANY
