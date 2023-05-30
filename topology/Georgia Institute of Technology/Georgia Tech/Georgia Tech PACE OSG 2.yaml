@@ -10,14 +10,8 @@ Resources:
           ID: OSG1000313
           Name: Eric Coulter
         Secondary:
-          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
-          Name: Mehmet Belgin
-        Tertiary:
           ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
           Name: Ruben Lara
-        Tertiary 2:
-          ID: efbe08500c5999660418137fe2651dd5ce295eba
-          Name: Semir Sarajlic
       Security Contact:
         Primary:
           ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
@@ -26,8 +20,8 @@ Resources:
           ID: OSG1000313
           Name: Eric Coulter
         Tertiary:
-          ID: efbe08500c5999660418137fe2651dd5ce295eba
-          Name: Semir Sarajlic
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
     Description: This is a Condor CE in front of the PACE cluster, for use by LIGO, Icecube, CTA, OSG-Connect and others.
     FQDN: osg-sched2.pace.gatech.edu
     ID: 1059
@@ -53,14 +47,8 @@ Resources:
           ID: OSG1000313
           Name: Eric Coulter
         Secondary:
-          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
-          Name: Mehmet Belgin
-        Tertiary:
           ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
           Name: Ruben Lara
-        Tertiary 2:
-          ID: efbe08500c5999660418137fe2651dd5ce295eba
-          Name: Semir Sarajlic
       Security Contact:
         Primary:
           ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
@@ -69,8 +57,8 @@ Resources:
           ID: OSG1000313
           Name: Eric Coulter
         Tertiary:
-          ID: efbe08500c5999660418137fe2651dd5ce295eba
-          Name: Semir Sarajlic
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
     Description: Second GridFTP server, initially for incoming LIGO, Icecube, CTA, OSG-Connect.
     FQDN: osg-gftp2.pace.gatech.edu
     DN:  /DC=org/DC=incommon/C=US/ST=Georgia/O=Georgia Institute of Technology/OU=Office of Information Technology/CN=osg-gftp2.pace.gatech.edu
@@ -102,9 +90,6 @@ Resources:
         Tertiary:
           ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
           Name: Ruben Lara
-        Tertiary 2:
-          ID: efbe08500c5999660418137fe2651dd5ce295eba
-          Name: Semir Sarajlic
       Security Contact:
         Primary:
           ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
@@ -115,9 +100,6 @@ Resources:
         Tertiary:
           ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
           Name: Ruben Lara
-        Tertiary 2:
-          ID: efbe08500c5999660418137fe2651dd5ce295eba
-          Name: Semir Sarajlic
     Description: Georgia Tech submit node for LIGO, Icecube, CTA, OSG-Connect.
     FQDN: osg-login2.pace.gatech.edu
     DN: /DC=org/DC=incommon/C=US/ST=Georgia/L=Atlanta/O=Georgia Institute of Technology/OU=Office of Information Technology/CN=osg-login2.pace.gatech.edu
@@ -144,12 +126,6 @@ Resources:
         Secondary:
           ID: OSG1000313
           Name: Eric Coulter
-        Tertiary:
-          ID: 60aadecab2baceb94cd6cfdbf600a64581ba6af2
-          Name: Mehmet Belgin
-        Tertiary 2:
-          ID: efbe08500c5999660418137fe2651dd5ce295eba
-          Name: Semir Sarajlic
       Security Contact:
         Primary:
           ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
@@ -158,8 +134,8 @@ Resources:
           ID: 6782bb78755f1c9464843722cdd43b4cb8c51a63
           Name: Trever Nightingale
         Tertiary:
-          ID: efbe08500c5999660418137fe2651dd5ce295eba
-          Name: Semir Sarajlic
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
     Description: This is the Georgia Tech bandwidth instance at the Georgia Institute of Technology
     FQDN: perfsonar.pace.gatech.edu
     ID: 1113
@@ -173,4 +149,100 @@ Resources:
       IceCube: 25
       CTA: 25
       OSG: 25
+  Georgia_Tech_PACE_CE_OSG:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000313
+          Name: Eric Coulter
+        Secondary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+      Security Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: OSG1000313
+          Name: Eric Coulter
+        Tertiary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+    Description: This is a Condor CE in front of the PACE cluster, for use by OSG-Connect
+    FQDN: gateway-osg-buzzard.pace.gatech.edu
+    ID: 1446
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    Tags:
+      - CC*
+    VOOwnership:
+      OSG: 100
+  Georgia_Tech_PACE_CE_LIGO:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000313
+          Name: Eric Coulter
+        Secondary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+      Security Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: OSG1000313
+          Name: Eric Coulter
+        Tertiary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+    Description: This is a Condor CE in front of the PACE cluster, for use by LIGO
+    FQDN: gateway-ligo-buzzard.pace.gatech.edu
+    ID: 1447
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    Tags:
+      - CC*
+    VOOwnership:
+      LIGO: 100
+  Georgia_Tech_PACE_CE_ICECUBE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000313
+          Name: Eric Coulter
+        Secondary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+      Security Contact:
+        Primary:
+          ID: 547c65a6ed5e9e755c023418a47b8b92e88f0523
+          Name: Peter Couvares
+        Secondary:
+          ID: OSG1000313
+          Name: Eric Coulter
+        Tertiary:
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+          Name: Ruben Lara
+    Description: This is a Condor CE in front of the PACE cluster, for use by IceCube
+    FQDN: gateway-icecube-buzzard.pace.gatech.edu
+    ID: 1448
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    Tags:
+      - CC*
+    VOOwnership:
+      IceCube: 100
 SupportCenter: Advanced LIGO

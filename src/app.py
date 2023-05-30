@@ -4,7 +4,7 @@ Application File
 import csv
 import flask
 import flask.logging
-from flask import Flask, Response, make_response, request, render_template
+from flask import Flask, Response, make_response, request, render_template, redirect, url_for, session
 from io import StringIO
 import logging
 import os
@@ -12,15 +12,18 @@ import re
 import sys
 import traceback
 import urllib.parse
+import requests
+from wtforms import ValidationError
+from flask_wtf.csrf import CSRFProtect
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape, cache_control_private
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
-from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
+from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
-
+from webapp.github import create_file_pr, update_file_pr, GithubUser, GitHubAuth, GitHubRepoAPI, GithubRequestException, GithubReferenceExistsException, GithubNotFoundException
 
 try:
     import stashcache
@@ -54,26 +57,21 @@ default_authorized = False
 app = Flask(__name__)
 app.config.from_object(default_config)
 app.config.from_pyfile("config.py", silent=True)
+
 if "TOPOLOGY_CONFIG" in os.environ:
     app.config.from_envvar("TOPOLOGY_CONFIG", silent=False)
 _verify_config(app.config)
+
 if "AUTH" in app.config:
     if app.debug:
         default_authorized = app.config["AUTH"]
     else:
         print("ignoring AUTH option when FLASK_ENV != development", file=sys.stderr)
-if not app.config.get("SECRET_KEY"):
-    app.config["SECRET_KEY"] = "this is not very secret"
-### Replace previous with this when we want to add CSRF protection
-#     if app.debug:
-#         app.config["SECRET_KEY"] = "this is not very secret"
-#     else:
-#         raise Exception("SECRET_KEY required when FLASK_ENV != development")
+
 if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
 global_data = GlobalData(app.config, strict=app.config.get("STRICT", app.debug))
-
 
 cilogon_pass = readfile(global_data.cilogon_ldap_passfile, app.logger)
 if not cilogon_pass:
@@ -85,11 +83,51 @@ if not ligo_pass:
     app.logger.warning("Note, no LIGO_LDAP_PASSFILE configured; "
                        "LIGO DNs will be unavailable in authfiles.")
 
+github_oauth_client_secret = readfile(global_data.github_oauth_client_secret, app.logger)
+if not github_oauth_client_secret:
+    app.logger.warning("Note, no GITHUB_OAUTH_CLIENT_SECRET configured; "
+                       "Auto PRs will be unavailable.")
+else:
+    app.config['GITHUB_OAUTH_CLIENT_SECRET'] = github_oauth_client_secret.decode()
+
+auto_pr_gh_api_user = readfile(global_data.auto_pr_gh_api_user, app.logger)
+if not auto_pr_gh_api_user:
+    app.logger.warning("Note, no AUTO_PR_GH_API_USER configured; "
+                       "Auto PRs will be unavailable.")
+else:
+    app.config['AUTO_PR_GH_API_USER'] = auto_pr_gh_api_user.decode()
+
+auto_pr_gh_api_token = readfile(global_data.auto_pr_gh_api_token, app.logger)
+if not auto_pr_gh_api_token:
+    app.logger.warning("Note, no AUTO_PR_GH_API_TOKEN configured; "
+                       "Auto PRs will be unavailable.")
+else:
+    app.config['AUTO_PR_GH_API_TOKEN'] = auto_pr_gh_api_token.decode()
+
+csrf_secret_key = readfile(global_data.csrf_secret_key, app.logger)
+if (os.environ.get('TESTING', False) or app.debug) and not csrf_secret_key:
+    app.config["SECRET_KEY"] = "this is not very secret"
+elif not app.debug and not csrf_secret_key:
+    raise Exception("SECRET_KEY required when FLASK_ENV != development")
+else:
+    app.config["SECRET_KEY"] = csrf_secret_key.decode()
+
+csrf = CSRFProtect()
+csrf.init_app(app)
+
 
 def _fix_unicode(text):
     """Convert a partial unicode string to full unicode"""
     return text.encode('utf-8', 'surrogateescape').decode('utf-8')
 
+@app.after_request
+def set_cache_control(response):
+    if response.status_code == 200:
+        # Cache results for 300s
+        response.cache_control.max_age = 300
+        # Serve an expired entry for up to 100s while refreshing in the background
+        response.headers['Cache-Control'] += ', stale-while-revalidate=100'
+    return response
 
 @app.route('/')
 def homepage():
@@ -120,6 +158,7 @@ def schema(xsdfile):
 
 
 @app.route('/miscuser/xml')
+@cache_control_private
 def miscuser_xml():
     return Response(to_xml_bytes(global_data.get_contacts_data().get_tree(_get_authorized())),
                     mimetype='text/xml')
@@ -214,12 +253,13 @@ def collaborations_scitoken_text():
 
 
 @app.route('/contacts')
+@cache_control_private
 def contacts():
     try:
         authorized = _get_authorized()
         contacts_data = global_data.get_contacts_data().without_duplicates()
         users_list = contacts_data.get_tree(_get_authorized())["Users"]["User"]
-        return _fix_unicode(render_template('contacts.html.j2', users=users_list, authorized=authorized))
+        return Response(_fix_unicode(render_template('contacts.html.j2', users=users_list, authorized=authorized)))
     except (KeyError, AttributeError):
         app.log_exception(sys.exc_info())
         return Response("Error getting users", status=503)  # well, it's better than crashing
@@ -469,6 +509,7 @@ def stashcache_namespaces_json():
 
 
 @app.route("/oasis-managers/json")
+@cache_control_private
 def oasis_managers():
     if not _get_authorized():
         return Response("Not authorized", status=403)
@@ -750,6 +791,132 @@ def generate_resource_group_downtime():
     return render_form(filepath=filepath, filename=filename,
                        edit_url=edit_url, site_dir_url=site_dir_url,
                        new_url=new_url)
+
+
+@app.route("/generate_project_yaml", methods=["GET", "POST"])
+def generate_project_yaml():
+
+    def render_form(**kwargs):
+        institutions = list(global_data.get_mappings().project_institution.items())
+        session.pop("form_data", None)
+
+        return render_template("generate_project_yaml.html.j2", form=form, infos=form.infos, institutions=institutions, **kwargs)
+
+    def validate_project_name(form, field):
+        project_names = set(x['Name'] for x in global_data.get_projects()['Projects']['Project'])
+        if field.data in project_names:
+            raise ValidationError(f"{field.data} is already registered in OSG Topology. ")
+
+    form = GenerateProjectForm(request.form, **request.args, **session.get("form_data", {}))
+    form.field_of_science.choices = _make_choices(global_data.get_mappings().nsfscience.keys(), select_one=True)
+
+    # Add this validator if it is not their
+    if not len(form.project_name.validators) > 1:
+        form.project_name.validators.append(validate_project_name)
+
+    # If they have returned after logging into Github make the Submission button stand out
+    if "github_login" in session:
+        form.auto_submit.label.text = "Submit Automatically"
+        form.auto_submit.render_kw = {
+            "class": "btn btn-warning"
+        }
+
+    # Report any external errors
+    if "error" in request.args:
+        return render_form(error=request.args['error'])
+
+    # Anything past this point needs a valid form
+    if not form.validate_on_submit():
+        return render_form()
+
+    # If the user has their Github verified
+    if request.method == "POST" and "github_login" in session and "auto_submit" in request.form:
+
+        try:
+            # Gather necessary data
+            create_pr_response = create_file_pr(
+                file_path=f"data/{request.values['project_name']}.yaml",
+                file_content=form.get_yaml(),
+                branch=f"add-project-{request.values['project_name']}",
+                message=f"Add Project {request.values['project_name']}",
+                committer=GithubUser.from_token(session["github_login"]['access_token']),
+                fork_repo=GitHubAuth(
+                    app.config["AUTO_PR_GH_API_USER"],
+                    app.config["AUTO_PR_GH_API_TOKEN"]
+                ).target_repo(app.config["AUTO_PR_GH_API_USER"], 'topology'),
+                root_repo=GitHubAuth(
+                    app.config["AUTO_PR_GH_API_USER"],
+                    app.config["AUTO_PR_GH_API_TOKEN"]
+                ).target_repo('opensciencegrid', 'topology'),
+            )
+
+            form.clear()
+
+            return render_form(pr_url=create_pr_response['html_url'])
+
+        except GithubReferenceExistsException as error:
+            return render_form(error="A Pull-Request for this project already exists, change Project Name and try again.")
+
+        except GithubRequestException as error:
+            return render_form(error="Unexpected Error: Please submit manually.")
+
+    # Start Github Oauth Flow
+    if request.method == "POST" and "auto_submit" in request.form:
+
+        session['form_data'] = form.as_dict()
+        return redirect(f"/github/login?scope=user:email read:user")
+
+    # Generate the yaml for manual addition
+    if request.method == "POST" and "manual_submit" in request.form:
+
+        form.yaml_output.data = form.get_yaml()
+        return render_form(form_complete=True)
+
+    return render_form()
+
+
+@app.route("/github/login", methods=["GET"])
+def github_login():
+    """Used to login to Github and return to previous location"""
+
+    if "code" in request.args:
+        if request.args['state'] != session.pop("state"):
+            return Response("Github returned incorrect state. Try again or email support@osg-htc.org for support.", 401)
+
+        data = {
+            "code": request.args['code'],
+            "client_id": "2bf9c248a619961eb14a",
+            "client_secret": app.config["GITHUB_OAUTH_CLIENT_SECRET"],
+            "redirect_uri": request.args['redirect_uri']
+        }
+
+        redirect_data = {}
+        try:
+            response = requests.post("https://github.com/login/oauth/access_token", data=data, headers={"Accept": "application/json"})
+            session['github_login'] = response.json()
+
+        except Exception as error:
+            redirect_data['error'] = f"Could not complete exchange with Github for Token: {error}"
+
+        redirect_url = urllib.parse.urlparse(request.args['redirect_uri']).geturl()
+        urlencoded_redirect_data = urllib.parse.urlencode(redirect_data)
+
+        return redirect(f"{redirect_url}?{urlencoded_redirect_data}")
+
+    else:
+        session['state'] = os.urandom(24).hex()
+
+        params = {
+            "client_id": "2bf9c248a619961eb14a",
+            "redirect_uri": f"{request.url_root[:-1]}{url_for('github_login')}?redirect_uri={request.environ.get('HTTP_REFERER')}",
+            "scope": request.args['scope'],
+            "state": session['state']
+        }
+
+        AUTH_URL = "https://github.com/login/oauth/authorize"
+
+        return redirect(f"{AUTH_URL}?{urllib.parse.urlencode(params)}", code=303)
+
 
 def _make_choices(iterable, select_one=False):
     c = [(_fix_unicode(x), _fix_unicode(x)) for x in sorted(iterable)]
