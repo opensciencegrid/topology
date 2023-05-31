@@ -97,3 +97,12 @@ DataFederations:
           Strategy: OAuth2
           Issuer: https://chtc.cs.wisc.edu
           MaxScopeDepth: 3
+
+      - Path: /data.lhncbc.nlm.nih.gov/public
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CHTC_NIH_ORIGIN
+        AllowedCaches:
+          - ANY
+
