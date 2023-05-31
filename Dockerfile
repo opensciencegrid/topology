@@ -24,7 +24,7 @@ RUN alternatives --set python3 /usr/bin/python3.9
 WORKDIR /app
 
 # Install application dependencies
-COPY requirements-apache.txt ./
+COPY requirements-apache.txt requirements-rootless.txt ./
 RUN pip3 install --no-cache-dir -r requirements-apache.txt
 
 # Create data directory, and gather SSH keys for git

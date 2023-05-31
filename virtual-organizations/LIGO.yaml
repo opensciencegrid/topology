@@ -122,12 +122,12 @@ DataFederations:
           # No Scitokens issuers because they are duplicated with the /user/ligo path.
           # As long as the caches are kept in sync, this below fix should be fine.
           # But the problem should be solved either by topology (ideally) or the SciTokens XRootD plugin.
-          #- SciTokens:
-          #    Issuer: https://cilogon.org/igwn
-          #    Base Path: /igwn
-          #- SciTokens:
-          #    Issuer: https://test.cilogon.org/igwn
-          #    Base Path: /igwn
+          - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn
         AllowedOrigins:
           - UCL-Virgo-StashCache-Origin
         AllowedCaches:

@@ -1,10 +1,11 @@
 import datetime
 
+import yaml
 from flask_wtf import FlaskForm
 from wtforms import SelectField, SelectMultipleField, StringField, \
     TextAreaField, SubmitField
 from wtforms.fields.html5 import TimeField, DateField
-from wtforms.validators import InputRequired
+from wtforms.validators import InputRequired, ValidationError
 
 from . import models
 
@@ -150,7 +151,7 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
 
     yamloutput = TextAreaField(None, render_kw={"readonly": True,
                                                 "style": "font-family:monospace; font-size:small;",
-                                                "rows": "15"})
+                                                "rows": "10"})
 
     class Meta:
         csrf = False  # CSRF not needed because no data gets modified
@@ -211,7 +212,6 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
         return yaml
 
 
-
 class GenerateDowntimeForm(FlaskForm):
     scheduled = SelectField("Scheduled (registered at least 24 hours in advance)",
                             [InputRequired()], choices=[
@@ -246,7 +246,7 @@ class GenerateDowntimeForm(FlaskForm):
 
     yamloutput = TextAreaField(None, render_kw={"readonly": True,
                                                 "style": "font-family:monospace; font-size:small;",
-                                                "rows": "15"})
+                                                "rows": "10"})
 
     class Meta:
         csrf = False  # CSRF not needed because no data gets modified
@@ -301,3 +301,75 @@ class GenerateDowntimeForm(FlaskForm):
             resource_name=self.resource.data,
             services=self.services.data,
         )
+
+
+class GenerateProjectForm(FlaskForm):
+    project_name = StringField("Project Name", [InputRequired()])
+    pi_first_name = StringField("PI First Name", [InputRequired()])
+    pi_last_name = StringField("PI Last Name", [InputRequired()])
+    pi_department_or_organization = StringField("PI Department or Organization", [InputRequired()])
+    pi_institution = StringField("PI Institution", [InputRequired()])
+    field_of_science = SelectField("Field of Science", [InputRequired()])
+
+    description = TextAreaField(None, render_kw={
+        "style": "font-family:monospace; font-size:small;",
+        "rows": "5"
+    })
+
+    yaml_output = TextAreaField(None, render_kw={"readonly": True,
+                                                "style": "font-family:monospace; font-size:small;",
+                                                "rows": "10"})
+
+    auto_submit = SubmitField("Login to Github to Submit Automatically")
+    manual_submit = SubmitField("Submit Manually")
+
+    class Meta:
+        csrf = True  # CSRF not needed because no data gets modified
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.project_name.data = kwargs.get("project_name", self.project_name.data)
+        self.pi_first_name.data = kwargs.get("pi_first_name", self.pi_first_name.data)
+        self.pi_last_name.data = kwargs.get("pi_last_name", self.pi_last_name.data)
+        self.pi_department_or_organization.data = kwargs.get("pi_department_or_organization", self.pi_department_or_organization.data)
+        self.pi_institution.data = kwargs.get("pi_institution", self.pi_institution.data)
+        self.field_of_science.data = kwargs.get("field_of_science", self.field_of_science.data)
+        self.description.data = kwargs.get("description", self.description.data)
+
+        self.infos = ""
+
+    def validate_project_name(form, field):
+        if not set(field.data).isdisjoint(set('/<>:"\\|?* ')):
+            intersection = set(field.data).intersection(set('/<>:\"\\|?* '))
+            raise ValidationError(f"Must be valid filename, invalid chars: {','.join(intersection)}")
+
+    def get_yaml(self) -> str:
+        return yaml.dump({
+            "Description": self.description.data,
+            "FieldOfScience": self.field_of_science.data,
+            "Department": self.pi_department_or_organization.data,
+            "Organization": self.pi_institution.data,
+            "PIName": f"{self.pi_first_name.data} {self.pi_last_name.data}"
+        })
+
+    def as_dict(self):
+        return {
+            "description": self.description.data,
+            "field_of_science": self.field_of_science.data,
+            "pi_department_or_organization": self.pi_department_or_organization.data,
+            "pi_institution": self.pi_institution.data,
+            "pi_first_name": self.pi_first_name.data,
+            "pi_last_name": self.pi_last_name.data,
+            "pi_name": f"{self.pi_first_name.data} {self.pi_last_name.data}",
+            "project_name": self.project_name.data
+        }
+
+    def clear(self):
+        self.project_name.data = ""
+        self.pi_first_name.data = ""
+        self.pi_last_name.data = ""
+        self.pi_department_or_organization.data = ""
+        self.pi_institution.data = ""
+        self.field_of_science.data = ""
+        self.description.data = ""
