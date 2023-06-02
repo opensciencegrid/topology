@@ -154,7 +154,7 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
                                                 "rows": "10"})
 
     class Meta:
-        csrf = False  # CSRF not needed because no data gets modified
+        csrf = True
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -249,7 +249,7 @@ class GenerateDowntimeForm(FlaskForm):
                                                 "rows": "10"})
 
     class Meta:
-        csrf = False  # CSRF not needed because no data gets modified
+        csrf = True
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -324,7 +324,7 @@ class GenerateProjectForm(FlaskForm):
     manual_submit = SubmitField("Submit Manually")
 
     class Meta:
-        csrf = True  # CSRF not needed because no data gets modified
+        csrf = True
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
