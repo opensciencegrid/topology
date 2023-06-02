@@ -237,8 +237,8 @@ DataFederations:
           - UChicago_OSGConnect_ap23
         AllowedCaches:
           - ANY
-        Writeback: https://ap23.uc.osg-htc.org:1094
-        DirList: https://ap23.uc.osg-htc.org:1094
+        Writeback: https://ap23.uc.osg-htc.org:1095
+        DirList: https://ap23.uc.osg-htc.org:1095
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool/uc-shared
@@ -251,3 +251,4 @@ DataFederations:
           - UChicago_OSGConnect_ap23
         AllowedCaches:
           - ANY
+        DirList: https://ap23.uc.osg-htc.org:1094
