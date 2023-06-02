@@ -14,7 +14,7 @@ WEBHOOK_GH_API_USER = 'osg-bot'
 WEBHOOK_GH_API_TOKEN = None
 
 CONTACT_DATA_DIR = "/tmp/topology/contact"
-CONTACT_DATA_REPO = "git@bitbucket.org:opensciencegrid/contact.git"
+CONTACT_DATA_REPO = "git@github.com:opensciencegrid/contact.git"
 CONTACT_DATA_BRANCH = "master"
 CONTACT_CACHE_LIFETIME = 60 * 2
 
