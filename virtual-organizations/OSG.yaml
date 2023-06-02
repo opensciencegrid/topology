@@ -226,3 +226,20 @@ DataFederations:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
           MaxScopeDepth: 4
+
+      - Path: /ospool/uc-shared
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/ospool/uc-shared
+              Base Path: /ospool/uc-shared
+              Map Subject: True
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap23
+        AllowedCaches:
+          - ANY
+        Writeback: https://ap23.uc.osg-htc.org:1094
+        DirList: https://ap23.uc.osg-htc.org:1094
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://osg-htc.org/ospool
+          MaxScopeDepth: 4
