@@ -24,61 +24,6 @@ Resources:
           uri_override: higgs08.cs.wisc.edu:2119
     VOOwnership:
       ATLAS: 100
-  WISC-ATLAS-SE:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: fd974ec83adf9407641e846dcb78308bda532b35
-          Name: Wen Guan
-      Security Contact:
-        Primary:
-          ID: fd974ec83adf9407641e846dcb78308bda532b35
-          Name: Wen Guan
-    Description: new dcache SE service
-    FQDN: atlas07.chtc.wisc.edu
-    ID: 342
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-          uri_override: atlas07.chtc.wisc.edu:8443
-    VOOwnership:
-      ATLAS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 612
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 1625
-      KSI2KMin: 1300
-      StorageCapacityMax: 320
-      StorageCapacityMin: 300
-      TapeCapacity: 1
-  WISC-ATLAS-SE1:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: fd974ec83adf9407641e846dcb78308bda532b35
-          Name: Wen Guan
-      Security Contact:
-        Primary:
-          ID: fd974ec83adf9407641e846dcb78308bda532b35
-          Name: Wen Guan
-    Description: A new SRM service which will be used for production
-    FQDN: c140.chtc.wisc.edu
-    ID: 629
-    Services:
-      SRMv2:
-        Description: SRM V2 Storage Element
-        Details:
-          hidden: false
-          uri_override: c140.chtc.wisc.edu:8443
-    VOOwnership:
-      ATLAS: 100
   WISC-ATLAS-SUBMIT1:
     Active: true
     ContactLists:
