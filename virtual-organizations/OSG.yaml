@@ -179,15 +179,15 @@ DataFederations:
       - Path: /ospool/ap20/data
         Authorizations:
           - SciTokens:
-              Issuer: https://ap20.uc.osg-htc.org:1094/ospool/ap20
+              Issuer: https://ap20.uc.osg-htc.org:1095/ospool/ap20
               Base Path: /ospool/ap20
               Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap20
         AllowedCaches:
           - ANY
-        Writeback: https://ap20.uc.osg-htc.org:1094
-        DirList: https://ap20.uc.osg-htc.org:1094
+        Writeback: https://ap20.uc.osg-htc.org:1095
+        DirList: https://ap20.uc.osg-htc.org:1095
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
@@ -196,15 +196,15 @@ DataFederations:
       - Path: /ospool/ap21/data
         Authorizations:
           - SciTokens:
-              Issuer: https://ap21.uc.osg-htc.org:1094/ospool/ap21
+              Issuer: https://ap21.uc.osg-htc.org:1095/ospool/ap21
               Base Path: /ospool/ap21
               Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap21
         AllowedCaches:
           - ANY
-        Writeback: https://ap21.uc.osg-htc.org:1094
-        DirList: https://ap21.uc.osg-htc.org:1094
+        Writeback: https://ap21.uc.osg-htc.org:1095
+        DirList: https://ap21.uc.osg-htc.org:1095
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
@@ -213,15 +213,15 @@ DataFederations:
       - Path: /ospool/ap22/data
         Authorizations:
           - SciTokens:
-              Issuer: https://ap22.uc.osg-htc.org:1094/ospool/ap22
+              Issuer: https://ap22.uc.osg-htc.org:1095/ospool/ap22
               Base Path: /ospool/ap22
               Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap22
         AllowedCaches:
           - ANY
-        Writeback: https://ap22.uc.osg-htc.org:1094
-        DirList: https://ap22.uc.osg-htc.org:1094
+        Writeback: https://ap22.uc.osg-htc.org:1095
+        DirList: https://ap22.uc.osg-htc.org:1095
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
