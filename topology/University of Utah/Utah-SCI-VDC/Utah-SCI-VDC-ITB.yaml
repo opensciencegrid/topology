@@ -1,0 +1,26 @@
+GroupDescription: Resource group for the SCI VDC ITB site
+GroupID:  1336
+Production: false
+SupportCenter: Self Supported
+Resources:
+  Utah-SCI-VDC-ITB-ORIGIN:
+    Active: true
+    Description: >-
+        This is a testing OSDF origin server on a VDC resource.
+    ID: 1401
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000271
+          Name: Ivan Rodero
+      Security Contact:
+        Primary:
+          ID: OSG1000271
+          Name: Ivan Rodero
+    FQDN: osg-sci1.datacollaboratory.org
+    DN: /CN=osg-sci1.datacollaboratory.org
+    Services:
+      XRootD origin server:
+        Description: SCI VDC OSDF Origin Server
+    AllowedVOs:
+      - VDC

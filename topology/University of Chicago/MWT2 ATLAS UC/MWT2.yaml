@@ -82,7 +82,8 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description: MWT2-hosted resources for Connect-related submitters. Supporting
+    Description:
+      MWT2-hosted resources for Connect-related submitters. Supporting
       OSG, XENON1T, OSG, ATLAS, CMS, etc via direct flocking.
     FQDN: condor.grid.uchicago.edu
     ID: 846
@@ -298,7 +299,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   MWT2_CE_UIUC:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -326,9 +327,9 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description: MWT2 Gatekeeper located at University of Illinois @ Urbana-Champaign,
-      IL
-    FQDN: mwt2-gk.campuscluster.illinois.edu
+    Description:
+      MWT2 Gatekeeper located at University of Illinois @ Urbana-Champaign, IL
+    FQDN: uiuc-gk.mwt2.org
     ID: 490
     Services:
       CE:
@@ -349,7 +350,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-  MWT2_CVMFS_IU:
+  MWT2_CE_UIUC2:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -378,52 +379,29 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description: MWT2 CVMFS Squid located at Indiana University @ Indianapolis, IN
-    FQDN: iut2-cvmfs.mwt2.org
-    ID: 912
+    Description:
+      MWT2 Gatekeeper located at University of Illinois @ Urbana-Champaign, IL
+    FQDN: uiuc-gk02.mwt2.org
+    ID: 1432
     Services:
-      Squid:
-        Description: Generic squid service
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
     VOOwnership:
       ATLAS: 100
-  MWT2_CVMFS_UC:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Tertiary:
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
-          Name: David Jordan
-        Tertiary 2:
-          ID: OSG1000221
-          Name: Farnaz Golnaraghi
-      Security Contact:
-        Primary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Tertiary:
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
-          Name: David Jordan
-        Tertiary 2:
-          ID: OSG1000221
-          Name: Farnaz Golnaraghi
-    Description: MWT2 CVMFS Squid located at the University of Chicago @ Chicago,
-      IL
-    FQDN: uct2-cvmfs.mwt2.org
-    ID: 913
-    Services:
-      Squid:
-        Description: Generic squid service
-    VOOwnership:
-      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 14.11
+      AccountingName: US-MWT2
+      HEPSPEC: 589592
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 147398
+      KSI2KMin: 147398
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
   MWT2_CVMFS_UIUC:
     Active: true
     ContactLists:
@@ -453,8 +431,8 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description: MWT2 CVMFS Squid located at University of Illinois @ Urbana-Champaign,
-      IL
+    Description:
+      MWT2 CVMFS Squid located at University of Illinois @ Urbana-Champaign, IL
     FQDN: mwt2-cvmfs.campuscluster.illinois.edu
     ID: 914
     Services:
@@ -590,7 +568,7 @@ Resources:
           Name: Farnaz Golnaraghi
     Description: MWT2 SLATE located at Indiana University @ Indianapolis, IN
     FQDN: iut2-slate.mwt2.org
-    ID:  1066
+    ID: 1066
     Services:
       Squid:
         Description: Generic squid service
@@ -603,23 +581,6 @@ Resources:
     Active: true
     ContactLists:
       Administrative Contact:
-        Primary:
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
-          Name: Judith Stephen
-        Secondary:
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
-          Name: Lincoln Bryant
-        Tertiary:
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
-          Name: David Jordan
-        Tertiary 2:
-          ID: OSG1000221
-          Name: Farnaz Golnaraghi
-      Miscellaneous Contact:
-        Primary:
-          ID: 3b1876c30549a51501329cbb9678289fc786ac29
-          Name: Frederick Luehring
-      Resource Report Contact:
         Primary:
           ID: a418fbc5dd33637bba264c01d84d52dd317f2813
           Name: Judith Stephen
@@ -655,7 +616,7 @@ Resources:
           uri_override: iut2-slate01.mwt2.org:32200
           Monitored: true
     VOOwnership:
-      ATLAS: 100
+      ATLAS: 100  
   MWT2_SLATE_UIUC:
     Active: true
     ContactLists:
@@ -726,13 +687,13 @@ Resources:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
     Description: MWT2 SLATE Varnish cache located at University of Chicago, IL
-    FQDN: v4a.atlas-ml.org
+    FQDN: v4a.mwt2.org
     ID: 1320
     Services:
       Squid:
         Description: Varnish based squid service for Frontier
         Details:
-          uri_override: v4a.atlas-ml.org:6081
+          uri_override: v4a.mwt2.org:6081
           Monitored: true
   MWT2_VARNISH_CVMFS:
     Active: true
@@ -764,13 +725,13 @@ Resources:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
     Description: MWT2 SLATE Varnish cache located at University of Chicago, IL
-    FQDN: v4cvmfs.atlas-ml.org
+    FQDN: v4cvmfs.mwt2.org
     ID: 1321
     Services:
       Squid:
         Description: Varnish based squid service for CVMFS
         Details:
-          uri_override: v4cvmfs.atlas-ml.org:6081
+          uri_override: v4cvmfs.mwt2.org:6081
           Monitored: true
     VOOwnership:
       ATLAS: 100
@@ -806,7 +767,7 @@ Resources:
     Description: MWT2 dCache/SRM frontend
     FQDN: uct2-dcache-head.mwt2.org
     FQDNAliases:
-    - uct2-dc1.uchicago.edu
+      - uct2-dc1.uchicago.edu
     ID: 1182
     Services:
       SRMv2:
@@ -863,7 +824,7 @@ Resources:
       GridFtp:
         Description: gridftp Storage Element
         Details:
-          hidden: false  
+          hidden: false
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -1925,7 +1886,8 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description: MWT2 perfSONAR-PS Bandwidth instance at the University of Illinois
+    Description:
+      MWT2 perfSONAR-PS Bandwidth instance at the University of Illinois
       at Urbana-Champaign
     FQDN: mwt2-ps02.campuscluster.illinois.edu
     ID: 582
@@ -2004,7 +1966,8 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description: MWT2 perfSONAR-PS Latency instance at the University of Illinois
+    Description:
+      MWT2 perfSONAR-PS Latency instance at the University of Illinois
       at Urbana-Champaign
     FQDN: mwt2-ps01.campuscluster.illinois.edu
     ID: 518

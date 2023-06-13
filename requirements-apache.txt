@@ -1,31 +1,5 @@
-# *** NOTE ***
-# You MUST keep entries in this file in sync with those in requirements-rootless.txt
+-r requirements-rootless.txt
 
-asn1>=2.2.0,<2.3.0
-certifi>=2019.3.9
-chardet>=3.0.4,<3.1
-click==6.7
-configobj>=5.0.6,<5.1
-Flask>=1.0.2,<1.1
-Flask-WTF>=0.14.2,<0.15
-GitPython>=3.1.9
-gunicorn>=19.9.0,<19.10
-icalendar>=4.0.0,<4.1.0
-idna==2.7
-itsdangerous==0.24
-Jinja2>=2.11.3,<2.12
-ldap3>=2.6.1
-MarkupSafe<2.1
-# ^^ MarkupSafe stuck on 2.0.x due to removal of "soft_unicode" symbol
-python-dateutil>=2.7.3,<2.8
-python-gnupg
-PyYAML>=5.4.1,<5.5
-requests>=2.25.0,<2.26
-six>=1.12.0,<1.13
-urllib3>=1.26.5,<1.27
-Werkzeug>=0.15.3,<0.16
-WTForms>=2.2.1,<2.3
-xmltodict>=0.11.0,<0.12
 # mod-wsgi requires apache httpd headers (redhat package httpd-devel, ubuntu package apache2-dev)
 mod-wsgi>=4.9.3,<4.10
 

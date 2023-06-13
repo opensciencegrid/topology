@@ -1,0 +1,25 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Services located at the Internet2 Denver Point of Presence
+GroupID: 1344
+Resources:
+  DENVER_INTERNET2_OSDF_CACHE:
+    Active: true
+    Description: Internet2 Denver Cache
+    ID: 1418
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+    FQDN: dtn-pas.denv.nrp.internet2.edu
+    DN: /DC=org/DC=incommon/C=US/ST=Michigan/O=University Corporation For Advanced Internet Development/CN=dtn-pas.denv.nrp.internet2.edu
+    Services:
+      XRootD cache server:
+        Description: Internet2 Denver Cache
+    AllowedVOs:
+      - ANY

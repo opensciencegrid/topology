@@ -11,7 +11,12 @@ function verify_xml {
     xml="$1"
     type="$2"
     echo "Validating $type XML schema..."
-    xmllint --noout --schema "$REPO_ROOT_DIR/src/schema/$type.xsd" $xml
+    ret=0
+    xmllint_output=$(xmllint --noout --schema "$REPO_ROOT_DIR/src/schema/$type.xsd" "$xml") || ret=$?
+    if [[ $ret != 0 ]]; then
+        printf "%s\n" "FATAL: XML schema validation failed:" "$xmllint_output"
+    fi
+    return $ret
 }
 
 if [[ $GH_EVENT == 'push' && \
