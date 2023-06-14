@@ -19,7 +19,7 @@ jobs:
     steps:
     - name: make date tag
       id: mkdatetag
-      run: echo “dtag=$(date +%Y%m%d-%H%M)” >> $GITHUB_OUTPUT
+      run: echo "dtag=$(date +%Y%m%d-%H%M)" >> $GITHUB_OUTPUT
 
   build:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
           tag_list+=($registry/$docker_repo:release-$TIMESTAMP)
         done
         IFS=,
-        echo “taglist=${tag_list[*]}” >> $GITHUB_OUTPUT
+        echo "taglist=${tag_list[*]}" >> $GITHUB_OUTPUT
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
