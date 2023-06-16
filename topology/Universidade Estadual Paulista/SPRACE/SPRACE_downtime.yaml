@@ -2169,3 +2169,69 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519028059
+  Description: network outage - possible fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 07:00 +0000
+  EndTime: Jun 16, 2023 15:00 +0000
+  CreatedTime: Jun 16, 2023 08:06 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519028060
+  Description: network outage - possible fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 07:00 +0000
+  EndTime: Jun 16, 2023 15:00 +0000
+  CreatedTime: Jun 16, 2023 08:06 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519028061
+  Description: network outage - possible fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 07:00 +0000
+  EndTime: Jun 16, 2023 15:00 +0000
+  CreatedTime: Jun 16, 2023 08:06 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519028062
+  Description: network outage - possible fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 07:00 +0000
+  EndTime: Jun 16, 2023 15:00 +0000
+  CreatedTime: Jun 16, 2023 08:06 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519028063
+  Description: network outage - possible fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 07:00 +0000
+  EndTime: Jun 16, 2023 15:00 +0000
+  CreatedTime: Jun 16, 2023 08:06 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519028064
+  Description: network outage - possible fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 07:00 +0000
+  EndTime: Jun 16, 2023 15:00 +0000
+  CreatedTime: Jun 16, 2023 08:06 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
