@@ -47,3 +47,7 @@ DataFederations:
               Issuer: https://token.nationalresearchplatform.org/modis
               Base Path: /nrp/protected/MODIS_Aqua_microphysics_images/
               Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
