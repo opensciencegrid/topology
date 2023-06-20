@@ -269,6 +269,51 @@ Resources:
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
       TapeCapacity: 5.5
+  Purdue-Negishi:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+        Tertiary:
+          ID: c47d0e3b7d3a3de938261bd44ae692af60eedd4b
+          Name: Nick Smith
+      Security Contact:
+        Primary:
+          ID: b120c1c48f06940b0604f4a2803fde522d0d0595
+          Name: Stefan Piperov
+        Secondary:
+          ID: f11eeb608313b242e14f5aee602b3aff91839ace
+          Name: Erik Gough
+    Description: |-
+      Compute Element for Purdue Negishi cluster.
+      https://www.rcac.purdue.edu/compute/negishi
+    FQDN: osg.negishi.rcac.purdue.edu
+    ID: 1417
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://osg.negishi.rcac.purdue.edu:9619/osg.negishi.rcac.purdue.edu
+    VOOwnership:
+      CMS: 0
+    WLCGInformation:
+      APELNormalFactor: 19.33
+      AccountingName: T2_US_Purdue
+      HEPSPEC: 85
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      StorageCapacityMax: 5.5
+      StorageCapacityMin: 1
+      TapeCapacity: 5.5
   Purdue-Hadoop-SE-Gridftp:
     Active: true
     ContactLists:

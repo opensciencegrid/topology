@@ -81,7 +81,7 @@ def is_null(x, *keys) -> bool:
                      ])
 
 
-def ensure_list(x: Union[None, T, List[T]]) -> List[T]:
+def ensure_list(x: Union[None, List[T], T]) -> List[T]:
     if isinstance(x, list):
         return x
     elif x is None:
@@ -342,6 +342,16 @@ def support_cors(f):
 
         return response
 
+    return wrapped
+
+
+def cache_control_private(f):
+    """Decorator to set `Cache-Control: private` on response"""
+    @wraps(f)
+    def wrapped():
+        response = f()
+        response.cache_control.private = True
+        return response
     return wrapped
 
 

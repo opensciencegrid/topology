@@ -146,4 +146,4 @@ for the VO(s) that you support:
 | LHC VOs                     | [GGUS](https://ggus.eu)                          |
 | Anyone else                 | [Helpdesk](https://support.opensciencegrid.org) |
 
-Or email us at help@opensciencegrid.org.
+Or email us at help@osg-htc.org.
