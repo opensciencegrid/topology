@@ -320,11 +320,6 @@ def generate_cache_grid_mapfile(global_data: GlobalData,
         if not resource:
             return ""
 
-    ligo_authz_list: List[AuthMethod] = []
-    if legacy:
-        for dn in global_data.get_ligo_dn_list():
-            ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
-
     idns = _IdNamespaceData.for_cache(
         global_data=global_data,
         topology=topology,
