@@ -50,14 +50,14 @@ class TestStashcache:
 
         stashcache.generate_cache_authfile(global_data, "osg-sunnyvale-stashcache.t2.ucsd.edu")
 
-        assert spy.call_count == 1
+        assert spy.call_count == 4
 
     def test_allowedVO_includes_LIGO_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
         spy = mocker.spy(global_data, "get_ligo_dn_list")
 
         stashcache.generate_cache_authfile(global_data, "stashcache.gwave.ics.psu.edu")
 
-        assert spy.call_count == 1
+        assert spy.call_count == 4
 
     def test_allowedVO_excludes_LIGO_and_ANY_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
         spy = mocker.spy(global_data, "get_ligo_dn_list")
