@@ -1680,3 +1680,25 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1521849575
+  Description: Cluster maintenance
+  Severity: Outage
+  StartTime: Jun 21, 2023 11:00 +0000
+  EndTime: Jun 21, 2023 23:00 +0000
+  CreatedTime: Jun 19, 2023 14:29 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1521864975
+  Description: Cluster maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jun 19, 2023 14:54 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
