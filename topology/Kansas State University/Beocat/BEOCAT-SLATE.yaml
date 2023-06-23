@@ -4,7 +4,7 @@ GroupID: 1107
 Production: true
 Resources:
   BEOCAT-SLATE:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -21,6 +21,29 @@ Resources:
     Description: Hosted CE for the Beocat cluster
     FQDN: slate-osg.beocat.ksu.edu
     ID: 1124
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+  KSU-Beocat-CE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          ID:  0a077233ccf64c5f4a0888b0de224093f5129e9a
+          Name: Kyle Hutson
+    Description: Hosted CE for the Beocat cluster, replaces slate-osg.beocat.ksu.edu
+    FQDN: ksu-beocat-ce1.svc.opensciencegrid.org
+    ID: 1408
     Services:
       CE:
         Description: Compute Element

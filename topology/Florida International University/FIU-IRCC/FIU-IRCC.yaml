@@ -1,0 +1,32 @@
+GroupDescription: Florida International University Instructional Research and Computing Center
+GroupID: 1342
+Production: true
+Resources:
+  FIU-IRCC-CE1:
+    Active: true
+    Description: This is a Hosted CE for FIU IRCC group
+    ID: 1414
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+
+      Security Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+
+    FQDN: fiu-ircc-ce1.svc.opensciencegrid.org
+
+    Services:
+      CE:
+        Description: Hosted CE for FIU-IRCC
+        
+SupportCenter: Self Supported

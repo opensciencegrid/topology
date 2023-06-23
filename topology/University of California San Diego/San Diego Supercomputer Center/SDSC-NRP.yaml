@@ -1,10 +1,10 @@
 Production: true
 SupportCenter: Community Support Center
 GroupDescription: Compute infrastructure at SDSC for NRP
-GroupID: 1323
+GroupID: 1335
 
 Resources:
-  SDSC_NRP_OSDF_ORIGIN::
+  SDSC_NRP_OSDF_ORIGIN:
     Active: true
     Description: SDSC NRP origin
     ID: 1354
@@ -20,6 +20,7 @@ Resources:
         Primary:
           Name: Fabio Andrijauskas
           ID: OSG1000162
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=sdsc-origin.nationalresearchplatform.org
     FQDN: sdsc-origin.nationalresearchplatform.org
     Services:
       XRootD origin server:
@@ -27,7 +28,7 @@ Resources:
     AllowedVOs:
       - ANY
   SDSC_NRP_OSDF_CACHE:
-    Active: false
+    Active: true
     Description: SDSC NRP OSDF Cache
     ID: 1355
     ContactLists:
@@ -42,6 +43,7 @@ Resources:
         Primary:
           Name: Fabio Andrijauskas
           ID: OSG1000162
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=sdsc-cache.nationalresearchplatform.org
     FQDN: sdsc-cache.nationalresearchplatform.org
     Services:
       XRootD cache server:

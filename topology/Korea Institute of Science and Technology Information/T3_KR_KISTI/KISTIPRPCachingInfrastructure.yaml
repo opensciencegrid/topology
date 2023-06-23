@@ -6,7 +6,7 @@ Resources:
   Stashcache-KISTI:
     Active: true
     Description: KISTI StashCache
-    ID: 1001
+    ID: 1344
     ContactLists:
       Administrative Contact:
         Primary:
@@ -17,8 +17,8 @@ Resources:
         Primary:
           Name: Fabio Andrijauskas
           ID: OSG1000162
-    FQDN: dtn2-daejeon.kreonet.net
-    DN: /C=KR/O=KISTI/O=KISTI/CN=host/dtn2-daejeon.kreonet.net
+    FQDN: daejeon-kreonet-net.nationalresearchplatform.org
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=daejeon-kreonet-net.nationalresearchplatform.org
     Services:
       XRootD cache server:
         Description: KISTI PRP Caching Service

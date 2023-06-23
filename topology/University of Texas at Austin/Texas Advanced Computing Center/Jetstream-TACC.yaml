@@ -15,32 +15,14 @@ Resources:
           Name: Mats Rynge
     Description: Jetstream-TACC-Backfill
     FQDN: js-129-114-104-199.jetstream-cloud.org
-    ID: 1126
+    ID: 1356
     Services:
       Execution Endpoint:
         Description: OSG VO backfill containers
         Details:
           hidden: false
-  TACC-Jetstream-Backfill-Squid:
-    Description: Frontier Squid serving Jetstream
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
-          Name: Mats Rynge
-      Security Contact:
-        Primary:
-          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
-          Name: Mats Rynge
-    FQDN: squid-jetstream-1.sites.osg-htc.org
-    ID: 1225
-    Services:
-      Squid:
-        Description: Squid service for frontier and cvmfs
-        Details:
-          hidden: false
   OSG_US_TACC_JETSTREAM:
-    ID: 1013
+    ID: 1346
     Description: JetStream TACC CE
     ContactLists:
       Administrative Contact:

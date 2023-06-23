@@ -1,0 +1,168 @@
+{% set want_js = true %}
+{% extends "base.html.j2" %}
+{% import "formmacros.html.j2" as M %}
+
+{% macro render_dtfield(field) %}
+{{ M.render_field(field, disabled=dtopts_disabled, **kwargs) }}
+{% endmacro %}
+
+{% macro render_dtbutton(button) %}
+{{ M.render_button(button, disabled=dtopts_disabled, **kwargs) }}
+{% endmacro %}
+
+{% set downtime_fieldnames = [
+  "scheduled", "description", "severity", "start_date", "start_time",
+  "end_date", "end_time", "services", "generate"] %}
+
+{% block title -%}
+Project YAML Generator
+{%- endblock %}
+
+{% block content %}
+{% if infos %}
+<div class="alert alert-info" role="alert">{{ infos }}</div>
+{% endif %}
+
+<div class="container pt-4">
+  <div class="row justify-content-center">
+    <!-- LEFT COLUMN --------------------------------------------------------->
+    <div class="col-6">
+      <p>
+          This form generates YAML code that can be added into
+          <a href="https://github.com/opensciencegrid/topology/">OSG's topology repository</a>
+          to add a new project.
+      </p>
+      <p>
+          <b>If your institution is in the list please do not change the project name from the generated value.</b>
+      </p>
+      <form method=post>
+        {{ form.csrf_token }}
+        <div class="row gx-1">
+          <div class="col-12 col-md-6">
+            {{ M.render_field(form.pi_first_name) }}
+          </div>
+          <div class="col-12 col-md-6">
+            {{ M.render_field(form.pi_last_name) }}
+          </div>
+        </div>
+        {{ M.render_field(form.pi_institution, list="institutions") }}
+        <datalist id="institutions">
+            {% for institute in institutions %}
+                <option value="{{ institute[1] }}">
+            {% endfor %}
+        </datalist>
+        {{ M.render_field(form.project_name) }}
+        {{ M.render_field(form.pi_department_or_organization) }}
+        {{ M.render_field(form.field_of_science) }}
+        {{ M.render_field(form.description) }}
+        <div class="row">
+          <div class="col-auto">
+              {{ M.render_button(form.auto_submit) }}
+          </div>
+          <div class="col-auto">
+              {{ M.render_button(form.manual_submit) }}
+          </div>
+        </div>
+      </form>
+      <p><span style="color:red;">*</span> denotes a required field</p>
+    </div><!-- col-sm -->
+    {% if form_complete %}
+    <div class="col-6">
+        {{ M.render_field(form.yaml_output) }}
+        <div class="rounded p-3 border border-info">
+            <p>
+                <b>To complete this process you must:</b>
+            </p>
+            <ol>
+                <li>Navigate to the <a  target="_blank" href="https://github.com/opensciencegrid/topology/new/master/projects">new file Github Page</a></li>
+                <li>Enter <i>{{ form.project_name.data }}.yaml</i> as the file name</li>
+                <li>Enter the yaml above as the file contents</li>
+                <li>Scroll to bottom and create a new PR</li>
+            </ol>
+        </div>
+    </div><!-- col-sm -->
+    {% endif %}
+  </div><!-- row -->
+</div><!-- container -->
+{% if pr_url %}
+<div class="modal fade" id="completed-pr-alert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="completed-pr-alert-label">Your PR has been created</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          You can check up on its status on its <a href="{{ pr_url }}">Github Page</a>.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>$('#completed-pr-alert').modal('toggle')</script>
+{% endif %}
+{% if error %}
+<div class="modal fade" id="pr-creation-error" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="completed-pr-alert-label">PR Creation Error</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <p>
+              An error has occurred well creating your Pull-Request. Feel free to update and try again or enter manually.
+          </p>
+          <p class="text-danger">
+              {{ error }}
+          </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block last %}
+    <script>
+        const institutions = {
+            {% for institute in institutions %}
+                "{{ institute[1] }}" : "{{ institute[0] }}",
+            {% endfor %}
+        }
+        let project_name_node = document.getElementById("project_name")
+        let pi_institution_node = document.getElementById("pi_institution")
+        let pi_last_name_node = document.getElementById("pi_last_name")
+
+        function updateProjectName(){
+            project_name_node.readOnly = false
+
+            if(!(pi_institution_node.value in institutions) || !pi_last_name_node.value){ return }
+
+            let pi_institution = institutions[pi_institution_node.value]
+            let pi_last_name = pi_last_name_node.value
+
+            project_name_node.value = `${pi_institution}_${pi_last_name}`
+
+            project_name_node.readOnly = true
+        }
+
+        pi_institution_node.addEventListener("change", updateProjectName)
+        pi_last_name_node.addEventListener("change", updateProjectName)
+    </script>
+    {% if pr_url %}
+        <script>$('#completed-pr-alert').modal('toggle')</script>
+    {% endif %}
+    {% if error %}
+        <script>$('#pr-creation-error').modal('toggle')</script>
+    {% endif %}
+{% endblock %}
