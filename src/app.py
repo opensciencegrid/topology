@@ -469,17 +469,17 @@ def scitokens():
             return Response(origin_scitokens, mimetype="text/plain")
     except ResourceNotRegistered as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating scitokens config for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting scitokens config, please contact help@osg-htc.org", status=503)
 
 
 @app.route("/osdf/namespaces")
@@ -494,17 +494,17 @@ def stashcache_namespaces_json():
                         mimetype='application/json')
     except ResourceNotRegistered as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating namespaces json file: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting namespaces json file, please contact help@opensciencegrid.org",
+        return Response("Server error getting namespaces json file, please contact help@osg-htc.org",
                         status=503)
 
 
@@ -538,17 +538,17 @@ def _get_cache_authfile(public_only):
                                  suppress_errors=False)
     except (ResourceNotRegistered, ResourceMissingService) as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting authfile, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting authfile, please contact help@osg-htc.org", status=503)
     return Response(auth, mimetype="text/plain")
 
 
@@ -562,17 +562,17 @@ def _get_origin_authfile(public_only):
                                                    suppress_errors=False, public_origin=public_only)
     except (ResourceNotRegistered, ResourceMissingService) as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting authfile, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting authfile, please contact help@osg-htc.org", status=503)
     return Response(auth, mimetype="text/plain")
 
 
@@ -590,17 +590,17 @@ def _get_scitoken_file(fqdn, get_scitoken_function):
 
     except ResourceNotRegistered as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating scitokens config for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting scitokens config, please contact help@osg-htc.org", status=503)
 
 
 def _get_cache_scitoken_file():
@@ -835,7 +835,7 @@ def generate_project_yaml():
         try:
             # Gather necessary data
             create_pr_response = create_file_pr(
-                file_path=f"data/{request.values['project_name']}.yaml",
+                file_path=f"projects/{request.values['project_name']}.yaml",
                 file_content=form.get_yaml(),
                 branch=f"add-project-{request.values['project_name']}",
                 message=f"Add Project {request.values['project_name']}",

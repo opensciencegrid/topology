@@ -186,8 +186,8 @@ DataFederations:
           - UChicago_OSGConnect_ap20
         AllowedCaches:
           - ANY
-        Writeback: https://ap20.uc.osg-htc.org:1094
-        DirList: https://ap20.uc.osg-htc.org:1094
+        Writeback: https://ap20.uc.osg-htc.org:1095
+        DirList: https://ap20.uc.osg-htc.org:1095
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
@@ -203,8 +203,8 @@ DataFederations:
           - UChicago_OSGConnect_ap21
         AllowedCaches:
           - ANY
-        Writeback: https://ap21.uc.osg-htc.org:1094
-        DirList: https://ap21.uc.osg-htc.org:1094
+        Writeback: https://ap21.uc.osg-htc.org:1095
+        DirList: https://ap21.uc.osg-htc.org:1095
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
@@ -220,9 +220,26 @@ DataFederations:
           - UChicago_OSGConnect_ap22
         AllowedCaches:
           - ANY
-        Writeback: https://ap22.uc.osg-htc.org:1094
-        DirList: https://ap22.uc.osg-htc.org:1094
+        Writeback: https://ap22.uc.osg-htc.org:1095
+        DirList: https://ap22.uc.osg-htc.org:1095
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
+          MaxScopeDepth: 4
+
+      - Path: /ospool/uc-shared
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/ospool/uc-shared
+              Base Path: /ospool/uc-shared
+              Map Subject: True
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap23
+        AllowedCaches:
+          - ANY
+        Writeback: https://ap23.uc.osg-htc.org:1095
+        DirList: https://ap23.uc.osg-htc.org:1095
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://osg-htc.org/ospool/uc-shared
           MaxScopeDepth: 4

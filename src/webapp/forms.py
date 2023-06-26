@@ -153,7 +153,7 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
                                                 "rows": "10"})
 
     class Meta:
-        csrf = False  # CSRF not needed because no data gets modified
+        csrf = True
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -248,7 +248,7 @@ class GenerateDowntimeForm(FlaskForm):
                                                 "rows": "10"})
 
     class Meta:
-        csrf = False  # CSRF not needed because no data gets modified
+        csrf = True
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -323,14 +323,14 @@ class GenerateProjectForm(FlaskForm):
     manual_submit = SubmitField("Submit Manually")
 
     class Meta:
-        csrf = True  # CSRF not needed because no data gets modified
+        csrf = True
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.project_name.data = kwargs.get("project_name", self.project_name.data)
-        self.pi_first_name.data = kwargs.get("pi_name", self.pi_first_name.data)
-        self.pi_last_name.data = kwargs.get("pi_name", self.pi_last_name.data)
+        self.pi_first_name.data = kwargs.get("pi_first_name", self.pi_first_name.data)
+        self.pi_last_name.data = kwargs.get("pi_last_name", self.pi_last_name.data)
         self.pi_department_or_organization.data = kwargs.get("pi_department_or_organization", self.pi_department_or_organization.data)
         self.pi_institution.data = kwargs.get("pi_institution", self.pi_institution.data)
         self.field_of_science.data = kwargs.get("field_of_science", self.field_of_science.data)
@@ -358,6 +358,8 @@ class GenerateProjectForm(FlaskForm):
             "field_of_science": self.field_of_science.data,
             "pi_department_or_organization": self.pi_department_or_organization.data,
             "pi_institution": self.pi_institution.data,
+            "pi_first_name": self.pi_first_name.data,
+            "pi_last_name": self.pi_last_name.data,
             "pi_name": f"{self.pi_first_name.data} {self.pi_last_name.data}",
             "project_name": self.project_name.data
         }

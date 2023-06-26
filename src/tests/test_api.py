@@ -211,7 +211,7 @@ class TestAPI:
                 if credgen["vault_issuer"]:
                     assert isinstance(credgen["vault_issuer"], str)
                 if credgen["base_path"]:
-                    assert isinstance(credgen["base_issuer"], str)
+                    assert isinstance(credgen["base_path"], str)
 
         response = client.get('/stashcache/namespaces')
         assert response.status_code == 200

@@ -94,6 +94,16 @@ DataFederations:
         Writeback: https://origin-auth2000.chtc.wisc.edu:1095
         DirList: https://origin-auth2000.chtc.wisc.edu:1095
         CredentialGeneration:
+          BasePath: /chtc
           Strategy: OAuth2
           Issuer: https://chtc.cs.wisc.edu
           MaxScopeDepth: 3
+
+      - Path: /data.lhncbc.nlm.nih.gov/public
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CHTC_NIH_ORIGIN
+        AllowedCaches:
+          - ANY
+
