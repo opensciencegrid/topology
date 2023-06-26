@@ -28,14 +28,14 @@ will want to adjust the Map.data which populates the select input and legend.
         #map { height: 100vh; width: 100vw; }
 
         #full-screen {
-        padding: 8px;
-        position: absolute;
-        left: 10px;
-        bottom: 10px;
-        z-index: 1000;
-        border-radius: 5px;
-        border: #3a3a3a solid 1px;
-    }
+            padding: 6px 6px 4px 6px;
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            z-index: 1000;
+            border-radius: 5px;
+            border: #3a3a3a solid 1px;
+        }
 
         #full-screen > img {
             height: 24px;
@@ -54,12 +54,38 @@ will want to adjust the Map.data which populates the select input and legend.
         #legend {
             position: absolute;
             background-color: white;
-            padding: 8px;
+            padding: 2px 6px 0px 6px;
             bottom: 20px;
             right: 10px;
             z-index: 1000;
             border-radius: 5px;
             border: #3a3a3a solid 1px;
+            font-size: 12px;
+        }
+
+        .legend-header {
+            margin:0;
+            font-size: 1rem;
+        }
+
+        .label-container {
+            display: flex;
+            flex-direction: column;
+            padding-left: .2rem;
+        }
+
+        .label-node {
+            font-size: 1rem;
+        }
+
+        .legend-image-container {
+            display:flex;
+        }
+
+        .legend-image-container > img {
+            margin: auto;
+            height: 28px;
+            width: 21px;
         }
 
         .select-container {
@@ -67,18 +93,25 @@ will want to adjust the Map.data which populates the select input and legend.
             border: #3a3a3a solid 1px;
             background: white;
             margin-left: auto;
-            margin-bottom: 5px;
+        }
+
+        .resource-container.compute {
+            background-color: #c5deea;
+        }
+
+        .resource-container.storage {
+            background-color: #dfcce0;
         }
 
         .select-container > label {
             background: white;
-            padding-left: 8px;
+            padding-left: 6px;
             font-size: 1rem;
             color: #3a3a3a;
         }
 
         .select-container > select {
-            padding: 8px;
+            padding: 4px 6px;
             font-size: 1rem;
             border: 0;
         }
@@ -90,21 +123,25 @@ will want to adjust the Map.data which populates the select input and legend.
 
         .entry-container {
             display: flex;
-            margin-top: 10px;
+            margin-bottom: 4px;
         }
 
-        .entry-container > img {
-            height: 36px;
-            width: 27px;
+        #legend > hr {
+            margin: 0 0 .3rem 0;
         }
 
         .entry-container > span {
-            font-size: 1rem;
+            font-size: .9rem;
             margin: auto 0;
-            padding-left: 10px;
+            padding-left: 6px;
         }
 
-        .card-header {
+        .site-card-header {
+            margin: 0;
+        }
+
+        .facility-card-header {
+            color: #717070;
             margin: 0;
         }
 
@@ -138,11 +175,15 @@ will want to adjust the Map.data which populates the select input and legend.
             position: absolute;
             top: 10px;
             left: 55px;
-            padding: 6px;
+            padding: 4px 6px;
             font-size: 1rem;
             border-radius: 5px;
             border: #3a3a3a solid 1px;
             z-index: 1000;
+        }
+
+        #site {
+            max-width: 300px;
         }
     </style>
 </head>
@@ -151,7 +192,7 @@ will want to adjust the Map.data which populates the select input and legend.
         <div id="print-region">
             <div id="map"></div>
             <div id="legend" class="leaflet-container" hidden>
-                <h2 class="card-header">Legend</h2>
+                <h2 class="legend-header">Legend</h2>
                 <hr>
                 <div id="legend-items"></div>
             </div>
@@ -177,7 +218,9 @@ will want to adjust the Map.data which populates the select input and legend.
     const compute_services = new Set(["CE", "Submit Node", "Connect", "GUMS Server", "Glidein factory", "VOMS Server", "Execution Endpoint"]);
     const storage_services = new Set(["Squid", "SRMv2", "XRootD cache server", "GridFtp", "XRootD component", "XRootD origin server", "SRMv1", "LFC", "Apache Server", "FTS"]);
     const network_services = new Set(["net.perfSONAR.Bandwidth", "net.perfSONAR.Latency"]);
-    const ospool_facilities = new Set(['American Museum of Natural History', 'Arizona State University', 'Brookhaven National Laboratory', 'California Institute of Technology', 'Cinvestav', 'Clarkson University', 'Clemson University', 'Cybera', 'Fermi National Accelerator Laboratory', 'Florida State University', 'Georgia Institute of Technology', 'Georgia State University', 'Great Plains Network', 'IN2P3', 'INFN-T1', 'Illinois Institute of Technology', 'Indiana University', 'Kansas State University', 'Lancium', 'Lehigh University', 'Louisiana State University', 'Louisiana State University Health Sciences Center', 'New Mexico State University', 'Nikhef', 'North Dakota State University', 'Old Dominion University', 'Purdue University', 'Rice University', 'SURFsara', 'Southern Illinois University Edwardsville', 'Syracuse University', 'The College of New Jersey', 'Tufts University', 'Universidade Estadual Paulista', 'University of California San Diego', 'University of Chicago', 'University of Colorado', 'University of Connecticut', 'University of Illinois at Urbana Champaign', 'University of Michigan', 'University of Mississippi', 'University of Nebraska', 'University of Notre Dame', 'University of Oklahoma', 'University of Puerto Rico - Mayaguez', 'University of South Florida', 'University of Southern California', 'University of Tennessee Chattanooga', 'University of Texas at Austin', 'University of Utah', 'University of Wisconsin', 'Villanova University', 'Wayne State University', 'West Texas A&M University'])
+    const ospool_resources = new Set([
+        "SU-ITS-CE3", "Expanse-PATH-EP", "SU-ITS-CE2", "Lancium-PEP", "UNL-PATH-EP", "UConn-HPC", "SDSC-PRP-OSPool-Provisioner", "IU-Jetstream2-Backfill", "Lancium-Backfill", "WISC-PATH-EP", "GPGrid", "MWT2", "GLOW", "Purdue-Geddes", "Lehigh - Hawk", "UW-IT", "NWICG_NDCMS", "UColorado_HEP", "TACC-Jetstream-Backfill", "UConn-OSG", "GPN-GP-ARGO-Backfill", "AMNH-Mendel-CE1", "BNL-ATLAS", "TCNJ-ELSA", "CUmulus-Backfill", "AMNH-HEL-CE1", "Rice-RAPID-Backfill", "OSG_US_FSU_HNPGRID", "GP-ARGO-wichita-backfill", "SDSC-PRP-CE1", "UA-HPC-CE1", "VU-AUGIE", "SIUE-CC-production", "GP-ARGO-dsu-backfill", "SLATE_US_NMSU_DISCOVERY", "UC-Denver-CE1", "UTC-Epyc", "Crane", "AGLT2", "GP-ARGO-uams-backfill", "SYRA-PATH-EP", "GP-ARGO-oru-backfill", "USCMS-FNAL-WC1", "GP-ARGO-sdsmt-backfill", "GP-ARGO-sdsu-backfill", "GP-ARGO-astate-backfill", "GP-ARGO-usd-backfill", "Georgia_Tech_PACE_CE_2", "GP-ARGO-ksu-backfill", "GP-ARGO-emporia-backfill", "Rhodes-HPC-CE1", "Swan-CE1", "GP-ARGO-langston-backfill", "GP-ARGO-uark-backfill", "GP-ARGO-creighton-backfill", "ODU-Ubuntu", "LSUHSC-Tigerfish-CE1", "WTAMU_HPC", "ASU-DELL_M420", "GP-ARGO-mst-backfill", "GP-ARGO-ku-backfill", "uprm-cms", "WSU-GRID", "USC-CARC-Artemis-Backfill", "FANDM-ITS", "Clarkson-ACRES-CE2", "NMSU-Discovery-CE1", "LC-ITS", "Rhino", "UA-LR-ITS-EP", "PDX-Coeus-CE1", "GP-ARGO-osu-backfill", "Nebraska", "cinvestav", "ISI", "Purdue-Anvil-Composable", "GP-ARGO-kanren-backfill", "GSU-ACIDS", "Clemson-Palmetto", "LSUHSC-Tigerfish-CE2", "AMNH-ARES-CE1", "GP-ARGO-doane-backfill", "LSU-DB-CE1", "CHTC", "CHTC-canary2", "NMSU-Discovery", "KSU-Beocat-CE1", "WSU-GRID-CE1", "GP-ARGO-cameron-backfill", "SPRACE", "ND_CAMLGPU", "CYBERA_EDMONTON", "UMissHEP", "USF", "Maine-ACG", "Clarkson-ACRES", "FIU-PATH-BACKFILL", "GP-ARGO-semo-backfill", "AMNH-ARES", "FIU-IRCC", "Alabama-CHPC-CE1", "TIGER-OSG-BACKFILL-PROD", "CIT_CMS_T2", "UCR-HPCC-CE1", "Tufts-Cluster", "Purdue-Anvil-CE1", "IIT_CE2", "IIT_CE1", "CHTC-GPU-EP", "Maine-ACG-CE1", "NCSU-HPC-CE1", "SLATE_US_UUTAH_LONEPEAK", "USC-CARC-Carina-Backfill", "SLATE_US_UUTAH_NOTCHPEAK", "ISI_ImageTest", "SLATE_US_UUTAH_KINGSPEAK", "Wilson Facility"
+    ].map(x => x.toLowerCase()))
 
     const iconConfig = {
         iconSize: [36,36],
@@ -204,10 +247,14 @@ will want to adjust the Map.data which populates the select input and legend.
         shadowSize: [24,24]
     })
 
+    let shownOspoolContributors = new Set()
+
     downloadPNG = async () => {
         document.getElementsByClassName("leaflet-control-zoom")[0].hidden = true
 
+        // You have to run it twice - https://github.com/tsayen/dom-to-image/issues/343
         let dataUrl = await domtoimage.toPng(document.getElementById("print-region"))
+        dataUrl = await domtoimage.toPng(document.getElementById("print-region"))
 
         let link = document.createElement('a');
         link.download = 'OSG_Map.png';
@@ -221,6 +268,51 @@ will want to adjust the Map.data which populates the select input and legend.
         document.getElementById("main").requestFullscreen()
     }
 
+    class Resource {
+        constructor({Active, Description, Disable, FQDN, ID, IsCCStar, Name, Services, Tags, ResourceGroupName, ...props}) {
+            this.active = Active;
+            this.description = Description;
+            this.disable = Disable;
+            this.FQDN = FQDN;
+            this.id = ID;
+            this.isCCStar = IsCCStar;
+            this.name = Name;
+            this.services = Services?.Service;
+            this.tags = Tags;
+            this.resourceGroupName = ResourceGroupName;
+            this.isEDU = this.calcIsEDU();
+            this.isCompute = this.calcIsCompute();
+            this.isStorage = this.calcIsStorage()
+            this.isNetwork = this.calcIsNetwork();
+            this.isOSDFCache = this.calcIsOSDFCache();
+            this.isOSDFOrigin = this.calcIsOSDFOrigin();
+        }
+
+        calcIsEDU () {
+            return this.FQDN.endsWith(".edu")
+        }
+
+        calcIsCompute () {
+            return this.services.some(({Name: name}) => compute_services.has(name))
+        }
+
+        calcIsStorage () {
+            return this.services.some(({Name: name}) => storage_services.has(name))
+        }
+
+        calcIsNetwork () {
+            return this.services.some(({Name: name}) => network_services.has(name))
+        }
+
+        calcIsOSDFCache () {
+            return this.services.some(({Name: name}) => name === "XRootD cache server")
+        }
+
+        calcIsOSDFOrigin () {
+            return this.services.some(({Name: name}) => name === "XRootD origin server")
+        }
+    }
+
     class Site {
 
         constructor({
@@ -229,21 +321,25 @@ will want to adjust the Map.data which populates the select input and legend.
             Facility: { Name: facilityName },
             GroupName: resourceGroupName
         }) {
+            this.resources = {}
             this.resourceGroups = {}
-            this.resourceGroups[resourceGroupName] = resources
-            this.resources = resources
             this.latitude = Latitude
             this.longitude = Longitude
-            this.name = name
+            this.name = siteName
             this.facilityName = facilityName
             this.siteName = siteName
+            this.addResourceGroup({ Resources: { Resource : resources }, GroupName: resourceGroupName })
         }
 
         addResourceGroup({
             Resources: { Resource : resources },
             GroupName: resourceGroupName
         }) {
+            resources = resources.map(x => new Resource({...x, ResourceGroupName: resourceGroupName}))
             this.resourceGroups[resourceGroupName] = resources
+            for(let resource of resources){
+                this.resources[resource.name] = resource
+            }
         }
 
         getMarker(view) {
@@ -292,7 +388,7 @@ will want to adjust the Map.data which populates the select input and legend.
                 return null
             }
 
-            this.marker = L.marker([this.latitude, this.longitude], {icon: icon}).bindPopup(this.displayHTML);
+            this.marker = L.marker([this.latitude, this.longitude], {icon: icon}).bindPopup(this.getDisplayHTML(view));
             this.marker.site = this
 
             this.popup = this.marker.getPopup()
@@ -303,38 +399,59 @@ will want to adjust the Map.data which populates the select input and legend.
 
         get services() {
             if( !this._services ){
-                this._services = this.resources.flatMap( resource => resource?.Services?.Service ? resource?.Services?.Service : [] )
+                this._services = Object.values(this.resources).flatMap( resource => resource?.Services?.Service ? resource?.Services?.Service : [] )
             }
             return this._services
         }
 
-        get displayHTML() {
+        getDisplayHTML(view) {
             let container = document.createElement("div")
             container.classList.add("popup")
 
-            let header = document.createElement("h4")
-            header.textContent = this.facilityName
-            header.classList.add("card-header")
-            container.appendChild(header)
+            let header_site = document.createElement("h4")
+            header_site.textContent = this.siteName
+            header_site.classList.add("site-card-header")
+            container.appendChild(header_site)
+
+            let header_facility = document.createElement("h5")
+            header_facility.textContent = this.facilityName
+            header_facility.classList.add("facility-card-header")
+            container.appendChild(header_facility)
 
             container.appendChild(document.createElement("hr"))
 
             for(const [resourceGroupName, resourceGroupResources] of Object.entries(this.resourceGroups)){
+
+                // Check if the rg has any resources to show
+                if(!resourceGroupResources.some(x => this.showResourceInView(x,view))){
+                    continue;
+                }
+
                 let resourceGroupNode = document.createElement("h4")
                 resourceGroupNode.innerText = "Resource Group: " + resourceGroupName
                 resourceGroupNode.classList.add("resource-group-header")
                 container.appendChild(resourceGroupNode)
 
                 for(const resource of resourceGroupResources){
+
+                    // Check if the rg has any resources to show
+                    if(!this.showResourceInView(resource,view)){
+                        continue;
+                    }
+
                     let resourceContainerNode = document.createElement("div")
                     resourceContainerNode.classList.add("resource-container")
+
+                    if(view === "ComputevsStorage"){
+                        resourceContainerNode.classList.add(resource.isCompute ? "compute" : "storage")
+                    }
 
                     let imgNode = document.createElement("img")
                     imgNode.src = "/static/images/map/server_simple.svg"
                     imgNode.alt = "Image of Server"
 
                     let resourceNode = document.createElement("span")
-                    resourceNode.innerText = resource?.Name
+                    resourceNode.innerText = resource?.name
                     resourceNode.classList.add("resource-header")
 
                     resourceContainerNode.appendChild(imgNode)
@@ -347,61 +464,71 @@ will want to adjust the Map.data which populates the select input and legend.
             return container
         }
 
-        get isCCStar() {
-            if( !this._isCCStar ){
-                this._isCCStar = this.resources.flatMap( resource => resource?.Tags?.Tag ? resource?.Tags?.Tag : [] )
-                    .some(tags => tags.includes("CC*"))
+        showResourceInView(resource, view){
+            if(view === "ComputevsStorage"){
+                return resource.isStorage || resource.isCompute
+            } else if(view === "CCStar"){
+                return resource.isCCStar
+            } else if(view === "OpenScienceDataFederation") {
+                return resource.isOSDFCache || resource.isOSDFOrigin
+            } else if(view === "OSPool"){
+                return this.resourceIsInOSPool(resource)
             }
-            return this._isCCStar
+
+            return true;
+        }
+
+
+        get isCCStar() {
+            return Object.values(this.resources).some(x => x.isCCStar)
         }
 
         get isEDU() {
-            if( !this._isEDU ){
-                this._isEDU = this.resources.some(({FQDN}) => FQDN.endsWith(".edu"))
-            }
-            return this._isEDU
+            return Object.values(this.resources).some(x => x.isEDU)
         }
 
         get isCompute() {
-            if( !this._isCompute ){
-                this._isCompute = this.services.some(({Name: name}) => compute_services.has(name))
-            }
-            return this._isCompute
+            return Object.values(this.resources).some(x => x.isCompute)
         }
 
         get isStorage() {
-            if( !this._isStorage ){
-                this._isStorage = this.services.some(({Name: name}) => storage_services.has(name))
-            }
-            return this._isStorage
+            return Object.values(this.resources).some(x => x.isStorage)
         }
 
         get isNetwork() {
-            if (!this._isNetwork) {
-                this._isNetwork = this.services.some(({Name: name}) => network_services.has(name))
-            }
-            return this._isNetwork
+            return Object.values(this.resources).some(x => x.isNetwork)
         }
 
         get isOSDFCache() {
-            if( !this._isOSDFCache ){
-                this._isOSDFCache = this.services.some(({Name: name}) => name === "XRootD cache server")
-            }
-            return this._isOSDFCache
+            return Object.values(this.resources).some(x => x.isOSDFCache)
         }
 
         get isOSDFOrigin(){
-            if( !this._isOSDFOrigin ){
-                this._isOSDFOrigin = this.services.some(({Name: name}) => name === "XRootD origin server")
-            }
-            return this._isOSDFOrigin
+            return Object.values(this.resources).some(x => x.isOSDFOrigin)
         }
 
-        get isOSPool(){
-            if( !this._isOSPool ){
-                this._isOSPool = ospool_facilities.has(this.facilityName )
+        get isOSPool () {
+            if(Object.values(this.resources).some(x => this.resourceIsInOSPool(x))){
+                shownOspoolContributors.add(this.name)
+                console.log(shownOspoolContributors)
             }
-            return this._isOSPool
+            return Object.values(this.resources).some(x => this.resourceIsInOSPool(x))
+        }
+
+        resourceIsInOSPool (resource) {
+            // If this resource is in the ospool_resources list
+            return ospool_resources.has(resource.name.toLowerCase()) ||
+
+                // If this resourceGroup is in the list, and no resources are named that groupname
+                (
+                    !(resource.resourceGroupName in this.resources) &&
+                    ospool_resources.has(resource.resourceGroupName.toLowerCase())
+
+                // If this resources Site name is in the list, and no resources have this Site name
+                ) || (
+                    !(this.siteName in this.resources) &&
+                    ospool_resources.has(this.siteName.toLowerCase())
+                )
         }
     }
 
@@ -426,7 +553,7 @@ will want to adjust the Map.data which populates the select input and legend.
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                 maxZoom: 18,
-                id: 'mapbox/streets-v11',
+                id: 'mapbox/satellite-streets-v12',
                 tileSize: 512,
                 zoomOffset: -1,
                 accessToken: 'pk.eyJ1IjoidGFraW5nZHJha2UiLCJhIjoiY2wya3IyZGNvMDFyOTNsbnhyZjBteHRycSJ9.g6tRaqN8_iJxHgAQKNP6Tw'
@@ -449,12 +576,26 @@ will want to adjust the Map.data which populates the select input and legend.
                 entryContainerNode.classList.add("entry-container")
                 this.legendItemsNode.appendChild(entryContainerNode)
 
+                let imgContainer = document.createElement("div")
+                imgContainer.classList.add("legend-image-container")
+
                 let imgNode = document.createElement("img")
+                imgContainer.appendChild(imgNode)
+
+                let labelContainer = document.createElement("div")
+                labelContainer.classList.add("label-container")
+
                 let labelNode = document.createElement("span")
+                labelNode.classList.add("label-node")
+
                 let countNode = document.createElement("span")
-                entryContainerNode.appendChild(imgNode)
-                entryContainerNode.appendChild(labelNode)
-                entryContainerNode.appendChild(countNode)
+                countNode.classList.add("count-node")
+
+                entryContainerNode.appendChild(imgContainer)
+                labelContainer.append(labelNode)
+                labelContainer.appendChild(countNode)
+                entryContainerNode.appendChild(labelContainer)
+
 
                 imgNode.src = iconUrl
                 imgNode.alt = "Icon for " + iconLabel
@@ -472,7 +613,15 @@ will want to adjust the Map.data which populates the select input and legend.
                         }
                     }, 0)
 
-                countNode.innerText = `( ${siteCount} )`
+                let institutionCount = Object.values(layer._layers)
+                    .reduce((og, v) => {
+                        if(v.options.icon.options.iconUrl === iconUrl){
+                            og.push(v?.site?.facilityName)
+                        }
+                        return og
+                    }, [])
+
+                countNode.innerText = `${siteCount} Sites, ${new Set(institutionCount).size} Institutions`
             })
 
             this.legendNode.hidden = false
@@ -519,7 +668,6 @@ will want to adjust the Map.data which populates the select input and legend.
     class SitemapPage {
 
         constructor() {
-            this.fetchSites()
 
             this.metaData = {
                 "OSGSites" : {
@@ -567,7 +715,15 @@ will want to adjust the Map.data which populates the select input and legend.
 
             this.leafletMap = new Map()
             this.leafletMap.map.on("popupopen", (e) => {
+                console.log("Pop Opened")
+
                 this.siteSelect.value = e.popup.site.siteName
+
+                // Default is opening '#close' which breaks url paramaters
+                for(let x of document.getElementsByClassName("leaflet-popup-close-button")){
+                    x.setAttribute("href", "javascript:void(0)")
+                }
+
             })
 
             this.viewSelect = new Select("view")
@@ -586,6 +742,8 @@ will want to adjust the Map.data which populates the select input and legend.
             })
 
             this.layers = {}
+
+            this.fetchSites()
         }
 
         get view() {
@@ -606,7 +764,9 @@ will want to adjust the Map.data which populates the select input and legend.
 
         update() {
             this.siteSelect.addOptions(
-                Object.values(this.layer._layers).map(({ site })=> [site.siteName, site.siteName])
+                Object.values(this.layer._layers)
+                    .map(({ site })=> [site.siteName, `${site.facilityName} - ${site.siteName}`])
+                    .sort((a, b) => a[1].localeCompare(b[1]))
             )
             this.leafletMap.update(this.layer, this.metaData[this.view].legend)
         }
@@ -615,8 +775,18 @@ will want to adjust the Map.data which populates the select input and legend.
             let response = await fetch("/api/resource_group_summary")
             let resourceGroupJson = await response.json()
 
+            // Filter out inactive resources and resource groups with only inactive resources
+            let activeResourceGroupJson = Object.entries(resourceGroupJson).reduce((o, [k,rg]) => {
+                let activeResources = rg["Resources"]["Resource"].filter(x => x['Active'])
+                if(activeResources.length && rg['Production']){
+                    rg["Resources"]["Resource"] = activeResources
+                    o[k] = rg
+                }
+                return o
+            }, {})
+
             let sites = {}
-            Object.entries(resourceGroupJson).forEach(([key, value]) => {
+            Object.entries(activeResourceGroupJson).forEach(([key, value]) => {
                 if(value?.Site?.Name in sites){
                     sites[value?.Site?.Name].addResourceGroup(value)
                 } else {

@@ -1,7 +1,7 @@
 Production: true
 SupportCenter: Self Supported
 GroupDescription: This is a cluster of EPYC processors at University of Tennessee Chatanooga 
-GroupID: 1112
+GroupID: 1322
 
 Resources:
   UTC-Epyc:
@@ -30,3 +30,5 @@ Resources:
     Services:
       CE:
         Description: Hosted CE for UTC-Epyc
+    Tags:
+      - CC*

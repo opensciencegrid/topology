@@ -389,7 +389,7 @@ Resources:
           Name: Paul Sheldon
     Description: SE attached to Vanderbilt resource group
     FQDN: se1.accre.vanderbilt.edu
-    ID: 241
+    ID: 1375
     Services:
       SRMv2:
         Description: SRM V2 Storage Element
@@ -477,4 +477,39 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       CMS: 100
+  Vanderbilt_Xrootd:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Tertiary:
+          ID: dc620971c7c33ae6874f3691d41b5cd156ce0c63
+          Name: Paul Sheldon
+        Tertiary 2:
+          ID: d6f67b5c1dade02a5b2d3ca88853171f16ed322a
+          Name: Lihan Liu
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
+      Security Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+    Description: Xrootd Redirector
+    FQDN: xrootd-vanderbilt.sites.opensciencegrid.org
+    ID: 1402
+    Services:
+      XRootD component:
+        Description: Xrootd Redirector
+    VOOwnership:
+      CMS: 100
+
 SupportCenter: USCMS_Tier2

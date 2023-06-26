@@ -275,10 +275,11 @@ def get_network_interfaces(pattern):
         retval = {}
 
         for ifa in ifap_iter(ifap):
-            name = ifa.ifa_name
-            i = retval.get(name)
+            name_bytes = ifa.ifa_name
+            name_str = name_bytes.decode('latin-1')
+            i = retval.get(name_str)
             if not i:
-                i = retval[name] = NetworkInterface(name)
+                i = retval[name_str] = NetworkInterface(name_str)
             family, addr = getfamaddr(ifa.ifa_addr.contents)
             if addr:
                 address_list = i.addresses.setdefault(family, set())
@@ -306,9 +307,9 @@ def iface_matches(network_iface, pattern):
     `network_iface` matches `pattern`, False otherwise
 
     """
-    if fnmatch.fnmatch(network_iface.name, pattern):
+    if fnmatch.fnmatch(network_iface, pattern):
         return True
-    for family, addrs in network_iface.addresses.items():
+    for _, addrs in network_iface.addresses.items():
         if fnmatch.filter(addrs, pattern):
             return True
     return False

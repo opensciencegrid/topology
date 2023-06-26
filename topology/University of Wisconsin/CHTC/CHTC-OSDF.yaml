@@ -1,0 +1,182 @@
+Production: true
+SupportCenter: GLOW-TECH
+
+GroupDescription: These are the OSDF resources at CHTC
+
+GroupID: 1359
+
+Resources:
+  CHTC_STASHCACHE_CACHE:
+    Active: true
+    Description: This is a StashCache cache server at UW.
+    ID: 958
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: sc-cache.chtc.wisc.edu
+    DN: /CN=sc-cache.chtc.wisc.edu
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    VOOwnership:
+      GLOW: 100
+    AllowedVOs:
+      - ANY
+
+  CHTC_TIGER_CACHE:
+    Active: true
+    Description: This is a StashCache cache server at UW running on the Tiger Kubernetes cluster.
+    ID: 1098
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: stash-cache.osg.chtc.io
+    DN: /CN=stash-cache.osg.chtc.io
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    VOOwnership:
+      GLOW: 100
+    AllowedVOs:
+      - ANY
+
+  CHTC_STASHCACHE_ORIGIN:
+    Active: true
+    Description: This is a StashCache origin server at UW.
+    ID: 959
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: sc-origin.chtc.wisc.edu
+    DN: /CN=sc-origin.chtc.wisc.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache origin server
+    VOOwnership:
+      GLOW: 100
+    AllowedVOs:
+      - ANY
+
+  CHTC_STASHCACHE_ORIGIN_2000:
+    Active: true
+    Description: This is a StashCache origin server at UW.
+    ID: 1069
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: sc-origin2000.chtc.wisc.edu
+    DN: /CN=sc-origin2000.chtc.wisc.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache origin server
+    VOOwnership:
+      GLOW: 100
+    AllowedVOs:
+      - ANY
+
+  CHTC_STASHCACHE_ORIGIN_AUTH_2000:
+    Active: true
+    Description: This is a StashCache origin server at UW.
+    ID: 1192
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: origin-auth2000.chtc.wisc.edu
+    FQDNAliases:
+      - origin-auth.chtc.wisc.edu
+    DN: /CN=origin-auth2000.chtc.wisc.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache origin server, see OPS-198
+    VOOwnership:
+      GLOW: 100
+    AllowedVOs:
+      - ANY
+
+  CHTC_NIH_ORIGIN:
+    Active: true
+    Description: This is an origin server serving NIH image analysis data
+    ID: 1454
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000283
+          Name: JUSTIN HIEMSTRA
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000283
+          Name: JUSTIN HIEMSTRA
+    FQDN: nih-origin.osgdev.chtc.io
+    DN: /CN=nih-origin.osgdev.chtc.io
+    Services:
+      XRootD origin server:
+        Description: XRootD origin server serving files from an HTTP backend
+    AllowedVOs:
+      - ANY
+
