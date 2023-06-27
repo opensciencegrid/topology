@@ -33,7 +33,7 @@ Resources:
         Details:
           hidden: false
   USF:
-    Active: true
+    Active: false
     ID: 1150
     Description: The Hosted CE serving SC
     ContactLists:
@@ -56,6 +56,35 @@ Resources:
           Name: Anthony Green
           ID: OSG1000275
     FQDN: hosted-ce18.opensciencegrid.org
+    Services:
+      CE:
+        Description: SC Hosted CE
+        Details:
+          hidden: false
+  USF-SC:
+    Active: true
+    ID: 1460
+    Description: The Hosted CE serving SC
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Site Contact:
+        Primary:
+          Name: Anthony Green
+          ID: OSG1000275
+    FQDN: usf-sc-ce1.svc.opensciencegrid.org
     Services:
       CE:
         Description: SC Hosted CE

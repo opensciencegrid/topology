@@ -1,0 +1,25 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Services located at the SingAREN
+GroupID: 1353
+Resources:
+  SINGAPORE_INTERNET2_OSDF_CACHE:
+    Active: true
+    Description: SingAREN Cache
+    ID: 1443
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+    FQDN: singapore.nationalresearchplatform.org
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=singapore.nationalresearchplatform.org
+    Services:
+      XRootD cache server:
+        Description: SingAREN Cache
+    AllowedVOs:
+      - ANY

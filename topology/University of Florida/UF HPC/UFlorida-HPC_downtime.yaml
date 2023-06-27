@@ -810,7 +810,7 @@
   Description: RHEL8 upgrade
   Severity: Outage
   StartTime: Jan 09, 2023 18:05 +0000
-  EndTime: Mar 05, 2023 18:06 +0000
+  EndTime: Jun 22, 2023 16:00 +0000
   CreatedTime: Jan 09, 2023 18:06 +0000
   ResourceName: UFlorida-HPC
   Services:
@@ -848,4 +848,59 @@
   ResourceName: UFlorida-XRD
   Services:
   - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1458013400
+  Description: Lustre needs an OS upgrade to RHEL7,9
+  Severity: Outage
+  StartTime: Apr 17, 2023 13:00 +0000
+  EndTime: Apr 18, 2023 21:00 +0000
+  CreatedTime: Apr 06, 2023 17:15 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1467415292
+  Description: RHEL 7-9 upgrade for SE requires the downtime
+  Severity: Outage
+  StartTime: Apr 17, 2023 14:24 +0000
+  EndTime: Apr 18, 2023 21:00 +0000
+  CreatedTime: Apr 17, 2023 14:25 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1467415904
+  Description: RHEL 7-9 upgrade for SE requires the downtime
+  Severity: Outage
+  StartTime: Apr 17, 2023 14:24 +0000
+  EndTime: Apr 18, 2023 21:00 +0000
+  CreatedTime: Apr 17, 2023 14:26 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1522712596
+  Description: CE upgrade to RHEL8
+  Severity: Outage
+  StartTime: Jun 27, 2023 12:58 +0000
+  EndTime: Jun 27, 2023 21:26 +0000
+  CreatedTime: Jun 20, 2023 14:27 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1522717647
+  Description: CE upgrade to RHEL8
+  Severity: Outage
+  StartTime: Jun 28, 2023 12:58 +0000
+  EndTime: Jun 28, 2023 21:26 +0000
+  CreatedTime: Jun 20, 2023 14:36 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
 # ---------------------------------------------------------

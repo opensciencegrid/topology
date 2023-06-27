@@ -279,9 +279,11 @@ There are three kinds of authorization types:
 
       - SciTokens:
           Issuer: https://chtc.cs.wisc.edu
-          Base Path: /chtc
-          Restricted Path: /PROTECTED/matyas,/PROTECTED/bbockelm
-          Map Subject: True
+          BasePath: /chtc
+          RestrictedPath: /PROTECTED/matyas,/PROTECTED/bbockelm
+          MapSubject: True
+
+  (for backwards compat, `Base Path`, `Restricted Path`, and `Map Subject` are also accepted)
 
   This results in an issuer block that looks like
 
@@ -293,8 +295,8 @@ There are three kinds of authorization types:
 
   See [the XrdSciTokens readme](https://github.com/xrootd/xrootd/tree/master/src/XrdSciTokens#readme) for a reference of what these mean.
  
-  `Restricted Path` is optional (and rarely set); it is omitted if not specified. 
-  `Map Subject` is optional and defaults to `false` if not specified.
+  `RestrictedPath` is optional (and rarely set); it is omitted if not specified. 
+  `MapSubject` is optional and defaults to `false` if not specified.
   It is only used in scitokens.cfg for the origin.
 
 ```yaml
@@ -333,6 +335,27 @@ DirList: https://<HOST>:<PORT>
 DirList is the HTTPS URL of an XRootD service that can be used to get a directory listing.
 DirList is optional.
 
+```yaml
+CredentialGeneration:
+  Strategy: "Vault" or "OAuth2"
+  Issuer: "<ISSUER URL>"
+  BasePath: "<PATH>"
+  MaxScopeDepth: <INTEGER>
+  VaultServer: "<HOST>:<PORT>"
+  VaultIssuer: "<ISSUER STRING>"
+```
+CredentialGeneration is an optional block of information about how clients can obtain credentials for the namespace.
+If specified:
+- Strategy must be `OAuth2` or `Vault`, depending on whether OAuth2 or a Hashicorp Vault server is being used
+- Issuer is a token issuer URL
+- *BasePath* (optional): If using the `OAuth2` strategy - and the base path of the issuer does not match the
+  namespace path - set the base path so the correct scope prefix can be requested by the client
+- MaxScopeDepth (optional) is the maximum number of path components a token's scope field may have;
+  note that scopes are relative to the BasePath.
+  If missing, assumed to be 0, i.e. the scope is always `/`.
+- VaultServer is the endpoint for the Hashicorp Vault server used with the Vault strategy 
+- *VaultIssuer* (optional): If using the `Vault` strategy, this sets the issuer name (opaque string, not
+  a URL) to be used with the vault server.
 
 ### Contents of a cache or origin in resource data
 
@@ -505,6 +528,16 @@ The JSON also contains an attribute `namespaces` that is a list of namespaces wi
 - `usetokenonread` is `true` if the namespace has a SciTokens entry in its Authorizations list and `false` otherwise
 - `caches` is a list of caches that support the namespace;
   each cache in the list contains the `endpoint`, `auth_endpoint`, and `resource` attributes as in the `caches` list above
+- `credential_generation` is information about how to generate credentials that can access the namespace.
+  If not null, it has:
+  - `strategy`: either `OAuth2` or `Vault`
+  - `issuer`: the token issuer for the credentials
+  - `base_path`: the base_path to use for calculation of scopes.  Only set if it is different from the namespace path; otherwise, null
+  - `max_scope_depth`: integer; the max number of levels you can get a credential to be scoped for;
+    "0" means that the scope will always be `/`.
+    Note that scopes are usually relative to the namespace path.
+  - `vault_server`: the Vault server for the `Vault` strategy or null
+  - `vault_issuer`: the Vault issuer for the `Vault` strategy (or null).
 
 The final result looks like
 ```json
@@ -530,6 +563,7 @@ The final result looks like
           "resource": "RDS_AUTH_OSDF_CACHE"
         }
       ],
+      "credential_generation": null,
       "dirlisthost": null,
       "path": "/xenon/PROTECTED",
       "readhttps": true,
@@ -540,6 +574,11 @@ The final result looks like
       "caches": [
         (a whole bunch)
       ],
+      "credential_generation": {
+        "issuer": "https://osg-htc.org/ospool",
+        "max_scope_depth": 4,
+        "strategy": "OAuth2"
+      },
       "dirlisthost": "https://origin-auth2001.chtc.wisc.edu:1095",
       "path": "/ospool/PROTECTED",
       "readhttps": true,

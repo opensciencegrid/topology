@@ -1,0 +1,94 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: NERSC Infrastructure (off-HPC-platform)
+
+GroupID: 1348
+
+Resources:
+  NERSC-Infra-Frontier-Cache:
+    Active: true
+    Description: >-
+      This is a round robin DNS alias to the two Frontier-Squid instances. It is provided as the recommended
+      method for Frontier client configuration, which should use the hostname frontiercache.nersc.gov.
+    ID: 1441
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: NERSC Infrastructure Services Group
+          ID: 642672e484cf4e5b326d5f84c1350ff102154637
+      Security Contact:
+        Primary:
+          Name: NERSC Infrastructure Services Group
+          ID: 642672e484cf4e5b326d5f84c1350ff102154637
+        Secondary:
+          Name: NERSC Security
+          ID: bd1429ebc743fc6bef0b7a3e9f373bce79ed0301
+
+    # Internal FQDN is frontiercache.nersc.gov
+    FQDN: frontiercache-ext.nersc.gov
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: true
+    VOOwnership:
+      NERSC: 100
+
+  NERSC-Infra-Squid1:
+    Active: true
+    Description: >-
+      This is a Frontier-Squid instance situated off the HPC platform. It is primary for all Frontier Cache
+      use, primary for off-HPC-platform CVMFS clients, and secondary (failover) for on-HPC-platform CVMFS clients.
+    ID: 1425
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: NERSC Infrastructure Services Group
+          ID: 642672e484cf4e5b326d5f84c1350ff102154637
+      Security Contact:
+        Primary:
+          Name: NERSC Infrastructure Services Group
+          ID: 642672e484cf4e5b326d5f84c1350ff102154637
+        Secondary:
+          Name: NERSC Security
+          ID: bd1429ebc743fc6bef0b7a3e9f373bce79ed0301
+
+    # Internal FQDN is fs1.nersc.gov
+    FQDN: fs1-ext.nersc.gov
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: true
+    VOOwnership:
+      NERSC: 100
+
+  NERSC-Infra-Squid2:
+    Active: true
+    Description: >-
+      This is a Frontier-Squid instance situated off the HPC platform. It is primary for all Frontier Cache
+      use, primary for off-HPC-platform CVMFS clients, and secondary (failover) for on-HPC-platform CVMFS clients.
+    ID: 1426
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: NERSC Infrastructure Services Group
+          ID: 642672e484cf4e5b326d5f84c1350ff102154637
+      Security Contact:
+        Primary:
+          Name: NERSC Infrastructure Services Group
+          ID: 642672e484cf4e5b326d5f84c1350ff102154637
+        Secondary:
+          Name: NERSC Security
+          ID: bd1429ebc743fc6bef0b7a3e9f373bce79ed0301
+
+    # Internal FQDN is fs2.nersc.gov
+    FQDN: fs2-ext.nersc.gov
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          Monitored: true
+    VOOwnership:
+      NERSC: 100

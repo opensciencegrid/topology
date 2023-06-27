@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <xsd:simpleType name="boolean">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="True"/>
-      <xsd:enumeration value="False"/>
-    </xsd:restriction>
-  </xsd:simpleType>
   <xsd:element name="Projects">
     <xsd:complexType>
       <xsd:sequence>
