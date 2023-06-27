@@ -835,7 +835,7 @@ def generate_project_yaml():
         try:
             # Gather necessary data
             create_pr_response = create_file_pr(
-                file_path=f"data/{request.values['project_name']}.yaml",
+                file_path=f"projects/{request.values['project_name']}.yaml",
                 file_content=form.get_yaml(),
                 branch=f"add-project-{request.values['project_name']}",
                 message=f"Add Project {request.values['project_name']}",
