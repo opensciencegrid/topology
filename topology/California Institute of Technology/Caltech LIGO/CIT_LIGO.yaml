@@ -111,6 +111,7 @@ Resources:
     AllowedVOs:
       - LIGO
   CIT_LIGO_STASHCACHE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -121,6 +122,7 @@ Resources:
           Name: Stuart Anderson
           ID: c50e7cc9d0086272ef995fb76461612d40c70435
     FQDN: stashcache.ligo.caltech.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=stashcache.ligo.caltech.edu
     ID: 1461
     Services:
       XRootD cache server:
