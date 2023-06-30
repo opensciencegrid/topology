@@ -110,4 +110,21 @@ Resources:
         Description: Frontier-squid proxy server
     AllowedVOs:
       - LIGO
+  CIT_LIGO_STASHCACHE:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: stashcache.ligo.caltech.edu
+    ID: 
+    Services:
+      Squid:
+        Description: OSDF Stashcache
+    AllowedVOs:
+      - LIGO
 SupportCenter: Advanced LIGO
