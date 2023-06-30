@@ -3,8 +3,7 @@ import datetime
 import yaml
 from flask_wtf import FlaskForm
 from wtforms import SelectField, SelectMultipleField, StringField, \
-    TextAreaField, SubmitField
-from wtforms.fields.html5 import TimeField, DateField
+    TextAreaField, SubmitField, TimeField, DateField
 from wtforms.validators import InputRequired, ValidationError
 
 from . import models
@@ -161,7 +160,7 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
         self.infos = ""
 
     # https://stackoverflow.com/a/21815180
-    def validate(self):
+    def validate(self, extra_validators=None):
         self.infos = ""
 
         if not super().validate():
@@ -256,7 +255,7 @@ class GenerateDowntimeForm(FlaskForm):
         self.infos = ""
 
     # https://stackoverflow.com/a/21815180
-    def validate(self):
+    def validate(self, extra_validators=None):
         self.infos = ""
 
         if not super().validate():

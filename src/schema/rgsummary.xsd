@@ -4,6 +4,8 @@
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="True"/>
       <xsd:enumeration value="False"/>
+      <xsd:enumeration value="true"/>
+      <xsd:enumeration value="false"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:element name="ResourceSummary">
