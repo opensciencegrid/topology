@@ -686,7 +686,9 @@ def test_16_Xrootd_DNs(rgs, rgfns):
 
     for rg, rgfn in zip(rgs, rgfns):
         for rname, rdict in sorted(rg['Resources'].items()):
-            if 'XRootD cache server' in rdict['Services'] and rdict['Active'] and 'DN' not in rdict:
+            if ('XRootD cache server' in rdict.get('Services', {})
+                    and rdict.get('Active', True)
+                    and not rdict.get('DN', "")):
                 print_emsg_once('XrootdWithoutDN')
                 print("ERROR: In '%s', Xrootd cache server Resource '%s' has no DN" %
                       (rgfn, rname))
