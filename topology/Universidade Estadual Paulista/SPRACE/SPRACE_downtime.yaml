@@ -2367,3 +2367,69 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1531220719
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 30, 2023 10:47 +0000
+  EndTime: Jun 30, 2023 17:00 +0000
+  CreatedTime: Jun 30, 2023 10:47 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1531220720
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 30, 2023 10:47 +0000
+  EndTime: Jun 30, 2023 17:00 +0000
+  CreatedTime: Jun 30, 2023 10:47 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1531220721
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 30, 2023 10:47 +0000
+  EndTime: Jun 30, 2023 17:00 +0000
+  CreatedTime: Jun 30, 2023 10:47 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1531220722
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 30, 2023 10:47 +0000
+  EndTime: Jun 30, 2023 17:00 +0000
+  CreatedTime: Jun 30, 2023 10:47 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1531220723
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 30, 2023 10:47 +0000
+  EndTime: Jun 30, 2023 17:00 +0000
+  CreatedTime: Jun 30, 2023 10:47 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1531220724
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 30, 2023 10:47 +0000
+  EndTime: Jun 30, 2023 17:00 +0000
+  CreatedTime: Jun 30, 2023 10:47 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------

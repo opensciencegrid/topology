@@ -51,16 +51,20 @@ will want to adjust the Map.data which populates the select input and legend.
             z-index: 1000;
         }
 
+        #selection-container[hidden] {
+            display: none;
+        }
+
         #legend {
             position: absolute;
-            background-color: white;
+            background-color: #f7f7f7f5;
             padding: 2px 6px 0px 6px;
             bottom: 20px;
-            right: 10px;
+            right: 4px;
             z-index: 1000;
             border-radius: 5px;
-            border: #3a3a3a solid 1px;
             font-size: 12px;
+            box-shadow: 3px 3px 6px black;
         }
 
         .legend-header {
@@ -75,7 +79,7 @@ will want to adjust the Map.data which populates the select input and legend.
         }
 
         .label-node {
-            font-size: 1rem;
+            font-size: 14px;
         }
 
         .legend-image-container {
@@ -192,8 +196,6 @@ will want to adjust the Map.data which populates the select input and legend.
         <div id="print-region">
             <div id="map"></div>
             <div id="legend" class="leaflet-container" hidden>
-                <h2 class="legend-header">Legend</h2>
-                <hr>
                 <div id="legend-items"></div>
             </div>
         </div>
@@ -715,15 +717,12 @@ will want to adjust the Map.data which populates the select input and legend.
 
             this.leafletMap = new Map()
             this.leafletMap.map.on("popupopen", (e) => {
-                console.log("Pop Opened")
-
                 this.siteSelect.value = e.popup.site.siteName
 
                 // Default is opening '#close' which breaks url paramaters
                 for(let x of document.getElementsByClassName("leaflet-popup-close-button")){
                     x.setAttribute("href", "javascript:void(0)")
                 }
-
             })
 
             this.viewSelect = new Select("view")
@@ -732,7 +731,9 @@ will want to adjust the Map.data which populates the select input and legend.
             )
             this.viewSelect.node.value = this.view
             this.viewSelect.node.addEventListener("change", () => {
-                history.pushState({"data": "data"}, "", "/map/iframe?view=" + this.viewSelect.node.value)
+                let url = new URL(location)
+                url.searchParams.set("view", this.viewSelect.node.value)
+                history.pushState({}, "", url)
                 this.update()
             })
 
@@ -740,6 +741,15 @@ will want to adjust the Map.data which populates the select input and legend.
             this.siteSelect.node.addEventListener("change", () => {
                 this.sites[this.siteSelect.node.value].marker.openPopup()
             })
+
+            const url = new URL(location)
+            let navigation = url.searchParams.get("navigation")
+            if(navigation == 0){
+                document.getElementById("selection-container").hidden = true
+                document.getElementById("print-button").hidden = true
+                document.getElementById("full-screen").hidden = true
+                document.getElementsByClassName("leaflet-top")[0].hidden = true
+            }
 
             this.layers = {}
 
