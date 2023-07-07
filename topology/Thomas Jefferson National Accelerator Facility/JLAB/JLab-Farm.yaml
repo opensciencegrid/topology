@@ -155,6 +155,7 @@ Resources:
           Name: Wesley Moore
     Description: JLab OSG StashCache origin server
     FQDN: sci-xrootd.jlab.org
+    DN: /DC=org/DC=incommon/C=US/ST=Virginia/O=Thomas Jefferson National Accelerator Facility/OU=SciComp/CN=sci-xrootd.jlab.org
     ID: 1087
     Services:
       XRootD origin server:
@@ -162,6 +163,29 @@ Resources:
         Details:
           hidden: false
           uri_override: sci-xrootd.jlab.org:2094
+    AllowedVOs:
+      - ANY
+    VOOwnership:
+      JLab: 100
+
+JLab-StashCache-Cache:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: ea9db644eb6f8632cf87fd2cbac8a6e393c21f71
+          Name: Wesley Moore
+      Security Contact:
+        Primary:
+          ID: ea9db644eb6f8632cf87fd2cbac8a6e393c21f71
+          Name: Wesley Moore
+    Description: JLab OSG StashCache cache server
+    FQDN: sci-xrootd.jlab.org
+    DN: /DC=org/DC=incommon/C=US/ST=Virginia/O=Thomas Jefferson National Accelerator Facility/OU=SciComp/CN=sci-xrootd.jlab.org
+    ID: 1087
+    Services:
+      XRootD cache server:
+        Description: StashCache Cache server for JLab OSG
     AllowedVOs:
       - ANY
     VOOwnership:
