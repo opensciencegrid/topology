@@ -1,6 +1,6 @@
 FROM quay.io/centos/centos:stream8
 
-LABEL maintainer="OSG Software <help@opensciencegrid.org>"
+LABEL maintainer="OSG Software <help@osg-htc.org>"
 LABEL name="OSG 3.5 OSG-Notify client"
 
 RUN yum -y install https://repo.opensciencegrid.org/osg/3.5/osg-3.5-el8-release-latest.rpm \

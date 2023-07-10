@@ -11,6 +11,8 @@ import sys
 topdir = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(topdir)
 
+os.environ['TESTING'] = "True"
+
 from app import app, global_data
 from webapp.topology import Facility, Site, Resource, ResourceGroup
 from webapp.data_federation import CredentialGeneration
@@ -206,6 +208,10 @@ class TestAPI:
                 assert parsed_issuer.netloc and parsed_issuer.scheme == "https"
                 if credgen["vault_server"]:
                     assert isinstance(credgen["vault_server"], str)
+                if credgen["vault_issuer"]:
+                    assert isinstance(credgen["vault_issuer"], str)
+                if credgen["base_path"]:
+                    assert isinstance(credgen["base_path"], str)
 
         response = client.get('/stashcache/namespaces')
         assert response.status_code == 200
