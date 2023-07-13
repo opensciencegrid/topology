@@ -11,17 +11,11 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          Name: Jeffrey Peterson
-          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
-        Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
 
       Security Contact:
         Primary:
-          Name: Jeffrey Peterson
-          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
-        Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
 
@@ -30,6 +24,8 @@ Resources:
     Services:
       CE:
         Description: Hosted CE for PSU-LIGO
+    Tags:
+      - CC*
 
   PSU-LIGO-CACHE:
     Active: false
