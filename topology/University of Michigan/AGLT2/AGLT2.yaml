@@ -2,37 +2,6 @@ GroupDescription: (No resource group description)
 GroupID: 1
 Production: true
 Resources:
-  AGLT2-squid:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
-          Name: Wenjing Wu
-        Secondary:
-          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
-          Name: Philippe Laurens
-        Tertiary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Security Contact:
-        Primary:
-          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
-          Name: Wenjing Wu
-        Secondary:
-          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
-          Name: Philippe Laurens
-        Tertiary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-    Description: This is the round-robin DNS alias for the SQUIDs at AGLT2
-    FQDN: squid.aglt2.org
-    ID: 677
-    Services:
-      Squid:
-        Description: Generic squid service
-    VOOwnership:
-      ATLAS: 90
   AGLT2-squid-2:
     Active: true
     ContactLists:
@@ -124,12 +93,13 @@ Resources:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: This is the slate Varnish for Frontier
-    FQDN: es02.aglt2.org
+    FQDN: sl-um-es2.slateci.io
     ID: 1314
     Services:
       Squid:
         Description: Generic varnish service
         Details:
+          uri_override: sl-um-es2.slateci.io:6081
           Monitored: true
     VOOwnership:
       ATLAS: 90
@@ -156,16 +126,51 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the slate Varnish for CVMFS
-    FQDN: es01.aglt2.org
+    Description: This is the slate Varnish 1 for CVMFS
+    FQDN: sl-um-es3.slateci.io
     ID: 1315
     Services:
       Squid:
         Description: Generic varnish service
         Details:
+          uri_override: sl-um-es3.slateci.io:6081
           Monitored: true
     VOOwnership:
       ATLAS: 90
+  AGLT2-squid-6:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: This is the slate Varnish 2 for CVMFS
+    FQDN: sl-msu-es1.slateci.io
+    ID: 1423
+    Services:
+      Squid:
+        Description: Generic varnish service
+        Details:
+          uri_override:  sl-msu-es1.slateci.io:6081
+          Monitored: true
+    VOOwnership:
+      ATLAS: 100
   AGLT2_CE_2:
     Active: true
     ContactLists:

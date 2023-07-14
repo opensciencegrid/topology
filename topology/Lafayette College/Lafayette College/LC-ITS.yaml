@@ -9,7 +9,7 @@ GroupDescription: This is a cluster at Lafayette College ITS
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: 1315
+GroupID: 1327
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -25,7 +25,7 @@ Resources:
     Description: Hosted CE for LC-ITS
     # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
     # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: 1343
+    ID: 1383
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:

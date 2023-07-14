@@ -9,7 +9,7 @@ Resources:
   UChicago_OSGConnect_login04:
     Active: true
     Description: The login04.osgconnect.net login node for the OSG Open Pool
-    ID: 1173
+    ID: 1400
     ContactLists:
       Administrative Contact:
         Primary:
@@ -60,6 +60,178 @@ Resources:
         Description: OS Pool access point
     Tags:
       - OSPool
+
+  UChicago_OSGConnect_ap20:
+    Active: true
+    Description: The ap20.uc.osg-htc.org login node for the OSG Open Pool
+    ID: 1437
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: David Jordan
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+        Tertiary:
+          Name: Farnaz Golnaraghi
+          ID: OSG1000221
+        Tertiary 2:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: David Jordan
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+        Tertiary:
+          Name: Farnaz Golnaraghi
+          ID: OSG1000221
+        Tertiary 2:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: ap20.uc.osg-htc.org
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+      XRootD origin server:
+        Description: OSG Connect Origin Server
+    Tags:
+      - OSPool
+    AllowedVOs:
+      - OSG
+
+  UChicago_OSGConnect_ap21:
+    Active: true
+    Description: The ap21.uc.osg-htc.org login node for the OSG Open Pool
+    ID: 1438
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Farnaz Golnaraghi
+          ID: OSG1000221
+        Tertiary:
+          Name: David Jordan
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+        Tertiary 2:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Farnaz Golnaraghi
+          ID: OSG1000221
+        Tertiary:
+          Name: David Jordan
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+        Tertiary 2:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: ap21.uc.osg-htc.org
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+      XRootD origin server:
+        Description: OSG Connect Origin Server
+    Tags:
+      - OSPool
+    AllowedVOs:
+      - OSG
+
+  UChicago_OSGConnect_ap22:
+    Active: true
+    Description: The ap22.uc.osg-htc.org login node for the OSG Open Pool
+    ID: 1439
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: David Jordan
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+        Tertiary:
+          Name: Farnaz Golnaraghi
+          ID: OSG1000221
+        Tertiary 2:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: David Jordan
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+        Tertiary:
+          Name: Farnaz Golnaraghi
+          ID: OSG1000221
+        Tertiary 2:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: ap22.uc.osg-htc.org
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+      XRootD origin server:
+        Description: OSG Connect Origin Server
+    Tags:
+      - OSPool
+    AllowedVOs:
+      - OSG
+
+  UChicago_OSGConnect_ap23:
+    Active: true
+    Description: The ap23.uc.osg-htc.org login node for the OSG Open Pool
+    ID: 1440
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Farnaz Golnaraghi
+          ID: OSG1000221
+        Tertiary:
+          Name: David Jordan
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+        Tertiary 2:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+        Secondary:
+          Name: Farnaz Golnaraghi
+          ID: OSG1000221
+        Tertiary:
+          Name: David Jordan
+          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+        Tertiary 2:
+          Name: Lincoln Bryant
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+    FQDN: ap23.uc.osg-htc.org
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+      XRootD origin server:
+        Description: OSG Connect Origin Server
+    Tags:
+      - OSPool
+    AllowedVOs:
+      - OSG
 
   UChicago_OSGConnect_flock:
     Active: false
