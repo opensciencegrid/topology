@@ -1,0 +1,25 @@
+GroupDescription: The University of Wisconsin's Center for High Throughput Computing.  Note
+  that CHTC and GLOW are closely related, and in many contexts, they are synonyms.
+GroupID: 1341
+Production: true
+SupportCenter: Self Supported
+Resources:
+  KENT-STATE-RESEARCH-EP:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000285
+          Name: Philip Thomas
+      Security Contact:
+        Primary:
+          ID: OSG1000285
+          Name: Philip Thomas
+    Description: Kent State Research OSPool containers
+    FQDN: research-ospool-ep.kent.edu
+    ID: 1412
+    Services:
+      Execution Endpoint:
+        Description: Kent State Research OSPool containers
+    Tags:
+      - CC*
