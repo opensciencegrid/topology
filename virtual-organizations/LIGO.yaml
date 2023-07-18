@@ -116,6 +116,8 @@ DataFederations:
           - ComputeCanada-Cedar-Cache
           - JACKSONVILLE_INTERNET2_OSDF_CACHE
           - DENVER_INTERNET2_OSDF_CACHE
+          - AMSTERDAM_ESNET_OSDF_CACHE
+          - LONDON_ESNET_OSDF_CACHE
       - Path: /igwn/virgo
         Authorizations:
           - FQAN: /osg/ligo
@@ -157,6 +159,8 @@ DataFederations:
           - ComputeCanada-Cedar-Cache
           - JACKSONVILLE_INTERNET2_OSDF_CACHE
           - DENVER_INTERNET2_OSDF_CACHE
+          - AMSTERDAM_ESNET_OSDF_CACHE
+          - LONDON_ESNET_OSDF_CACHE
       - Path: /igwn/ligo
         Authorizations:
           - FQAN: /osg/ligo
@@ -198,6 +202,8 @@ DataFederations:
           - ComputeCanada-Cedar-Cache
           - JACKSONVILLE_INTERNET2_OSDF_CACHE
           - DENVER_INTERNET2_OSDF_CACHE
+          - AMSTERDAM_ESNET_OSDF_CACHE
+          - LONDON_ESNET_OSDF_CACHE
       - Path: /igwn/shared
         Authorizations:
           - FQAN: /osg/ligo
@@ -239,6 +245,8 @@ DataFederations:
           - ComputeCanada-Cedar-Cache
           - JACKSONVILLE_INTERNET2_OSDF_CACHE
           - DENVER_INTERNET2_OSDF_CACHE
+          - AMSTERDAM_ESNET_OSDF_CACHE
+          - LONDON_ESNET_OSDF_CACHE
       - Path: /gwdata
         Authorizations:
           - PUBLIC
