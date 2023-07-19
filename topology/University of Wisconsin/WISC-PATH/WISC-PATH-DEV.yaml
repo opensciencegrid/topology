@@ -1,0 +1,29 @@
+Production: false
+SupportCenter: Self Supported
+GroupDescription: Development PATh facility resources located at UW-Madison
+GroupID: 1362
+
+Resources:
+  WISC-PATH-DEV-EP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000001
+          Name: Brian Bockelman
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: PATh Facility EP located at UW-Madison in the development PATh pool
+    FQDN: wisc-path-dev-ep.facility.path-cc.io
+    ID: 1465
+    Services:
+      Execution Endpoint:
+        Description: PATh Facility EP located at UW-Madison in the development PATh pool
