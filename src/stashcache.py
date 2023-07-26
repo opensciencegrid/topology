@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import Dict, List, Optional, Literal
+from typing import Dict, List, Optional
 
 from webapp.common import is_null, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
@@ -542,7 +542,7 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
 
     def _service_resource_dict(
             r: Resource,
-            service_name: Literal[XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER],
+            service_name,
             auth_port_default: int,
             unauth_port_default: int
     ):
@@ -594,7 +594,7 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     def _resource_has_downed_service(
             r: Resource,
             t: Topology,
-            service_name: Literal[XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER]
+            service_name
     ):
         if r.name not in t.present_downtimes_by_resource:
             return False
