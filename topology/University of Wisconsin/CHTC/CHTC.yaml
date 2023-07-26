@@ -502,6 +502,32 @@ Resources:
     VOOwnership:
       GLOW: 100
 
+  CHTC-ospool-eht:
+    Active: true
+    Description: The CHTC hosted EHT Gateway to the OSPool
+    ID: 1467
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Brian Lin
+          ID: OSG1000003
+      Security Contact:
+        Primary:
+          Name: Brian Lin
+          ID: OSG1000003
+    FQDN: ospool-eht.chtc.wisc.edu
+    FQDNAliases:
+      - ospool-eht2000.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
   CHTC-htcss-dev-ap:
     Active: true
     Description: OSPool AP used by the HTCSS dev team
