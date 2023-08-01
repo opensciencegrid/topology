@@ -67,7 +67,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://path-cc.io
-              Base Path: /ospool/PROTECTED,/path-facility/data,/path-facility/projects
+              Base Path: /path-facility/data,/path-facility/development/,/path-facility/projects
               Map Subject: True
         AllowedOrigins:
           - CHTC-PATH-ORIGIN
@@ -87,7 +87,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://path-cc.io
-              Base Path: /ospool/PROTECTED,/path-facility/data,/path-facility/projects
+              Base Path: /path-facility/data,/path-facility/development/,/path-facility/projects
               Map Subject: True
         AllowedOrigins:
           - CHTC-PATH-ORIGIN
@@ -102,3 +102,16 @@ DataFederations:
           - CHTC_TIGER_CACHE
         Writeback: https://ap1-origin.facility.path-cc.io:1095
         DirList: https://ap1-origin.facility.path-cc.io:1095
+
+      - Path: /path-facility/development
+        Authorizations:
+          - SciTokens:
+              Issuer: https://path-cc.io
+              Base Path: /path-facility/data,/path-facility/development/,/path-facility/projects
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-PATH-ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://path-origin.osgdev.chtc.io:1095
+        DirList: https://path-origin.osgdev.chtc.io:1095
