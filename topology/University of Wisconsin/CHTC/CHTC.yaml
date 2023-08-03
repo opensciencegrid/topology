@@ -510,7 +510,7 @@ Resources:
 
   CHTC-ap40:
     Active: true
-    Description: The ap40.chtc.wisc.edu login node for the OSG Open Pool
+    Description: The ap40.uw.osg-htc.org access point for the Open Science Pool
     ID: 1468
     ContactLists:
       Administrative Contact:
@@ -522,6 +522,9 @@ Resources:
           Name: Aaron Moate
           ID: OSG1000015
     FQDN: ap40.chtc.wisc.edu
+    FQDNAliases:
+      - ap2007.chtc.wisc.edu 
+      - ospool-ap2040.chtc.wisc.edu
     Services:
       Submit Node:
         Description: OS Pool access point
@@ -530,7 +533,7 @@ Resources:
     Tags:
       - OSPool
     VOOwnership:
-      GLOW: 100
+      OSG: 100
 
   CHTC-ospool-eht:
     Active: true
