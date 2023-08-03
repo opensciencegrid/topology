@@ -7,6 +7,8 @@ from pytest_mock import MockerFixture
 # Rewrites the path so the app can be imported like it normally is
 import os
 import sys
+import csv
+import io
 
 topdir = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(topdir)
@@ -57,8 +59,9 @@ TEST_ENDPOINTS = [
     "/origin/Authfile-public",
     "/origin/scitokens.conf",
     "/cache/scitokens.conf",
+    "/api/institutions",
     "/cache/grid-mapfile",
-    "/origin/grid-mapfile",
+    "/origin/grid-mapfile"
 ]
 
 
@@ -238,6 +241,21 @@ class TestAPI:
                 for cache in namespace["caches"]:
                     validate_cache_schema(cache)
         assert found_credgen, "At least one namespace with credential_generation"
+
+
+    def test_institution_accept_type(self, client: flask.Flask):
+        """Checks both formats output the same content"""
+
+        json_institutions = client.get("/api/institutions", headers={"Accept": "application/json"}).json
+        json_tuples = [tuple(map(str, x)) for x in sorted(json_institutions, key=lambda x: x[0])]
+
+        csv_institutions = csv.reader(io.StringIO(client.get("/api/institutions").data.decode()))
+        csv_tuples = [tuple(x) for x in sorted(csv_institutions, key=lambda x: x[0])]
+
+        assert len(csv_tuples) == len(json_tuples)
+
+        assert tuple(json_tuples) == tuple(csv_tuples)
+
 
     def test_origin_grid_mapfile(self, client: flask.Flask):
         TEST_ORIGIN = "origin-auth2001.chtc.wisc.edu"  # This origin serves protected data
@@ -834,6 +852,43 @@ class TestEndpointContent:
 
         # Check that the site contains the appropriate keys
         assert set(facilities.popitem()[1]).issuperset(["ID", "Name", "IsCCStar"])
+
+    def test_institution_default(self, client: flask.Flask):
+        institutions = client.get("/api/institutions", headers={"Accept": "application/json"}).json
+
+        assert len(institutions) > 0
+
+        # Check facilities exist and have the "have resources" bit flipped
+        assert [i for i in institutions if i[0] == "JINR"][0][1]
+        assert [i for i in institutions if i[0] == "Universidade de São Paulo - Laboratório de Computação Científica Avançada"][0][1]
+
+        # Project Organizations exist and have "has project" bit flipped
+        assert [i for i in institutions if i[0] == "Iolani School"][0][2]
+        assert [i for i in institutions if i[0] == "University of California, San Diego"][0][2]
+
+        # Both
+        assert [i for i in institutions if i[0] == "Harvard University"][0][1] and [i for i in institutions if i[0] == "Harvard University"][0][2]
+
+        # Check Project only doesn't have resource bit
+        assert [i for i in institutions if i[0] == "National Research Council of Canada"][0][1] is False
+
+        # Facility Tests
+        facilities = set(global_data.get_topology().facilities.keys())
+
+        # Check all facilities exist
+        assert set(i[0] for i in institutions).issuperset(facilities)
+
+        # Check all facilities have their facilities bit flipped
+        assert all(x[1] for x in institutions if x[0] in institutions)
+
+        # Project Tests
+        projects = set(x['Organization'] for x in global_data.get_projects()['Projects']['Project'])
+
+        # Check all projects exist
+        assert set(i[0] for i in institutions).issuperset(projects)
+
+        # Check all projects have the project bit flipped
+        assert all(x[2] for x in institutions if x[0] in projects)
 
 
 if __name__ == '__main__':
