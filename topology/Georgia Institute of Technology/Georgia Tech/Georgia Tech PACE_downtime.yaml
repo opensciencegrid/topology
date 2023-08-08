@@ -503,3 +503,38 @@
   - GridFtp
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1564520488
+  Description: Sitewide maintenance
+  Severity: Intermittent Outage
+  StartTime: Aug 08, 2023 12:00 +0000
+  EndTime: Aug 11, 2023 00:00 +0000
+  CreatedTime: Aug 07, 2023 23:47 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1564520489
+  Description: Sitewide maintenance
+  Severity: Intermittent Outage
+  StartTime: Aug 08, 2023 12:00 +0000
+  EndTime: Aug 11, 2023 00:00 +0000
+  CreatedTime: Aug 07, 2023 23:47 +0000
+  ResourceName: Georgia_Tech_PACE_CE_1
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1564520490
+  Description: Sitewide maintenance
+  Severity: Intermittent Outage
+  StartTime: Aug 08, 2023 12:00 +0000
+  EndTime: Aug 11, 2023 00:00 +0000
+  CreatedTime: Aug 07, 2023 23:47 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
