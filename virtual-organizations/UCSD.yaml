@@ -31,13 +31,11 @@ DataFederations:
     Namespaces:
       - Path: /ucsd
         Authorizations:
-         Authorizations:
-          - PUBLIC
-          - SciTokens:
+           - SciTokens:
               Issuer: https://token.nationalresearchplatform.org/ucsd
               Base Path: /ucsd/physics
               Map Subject: False
-          - PUBLIC
+           - PUBLIC
         AllowedOrigins:
           - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
