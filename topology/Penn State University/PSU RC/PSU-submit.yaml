@@ -1,0 +1,38 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: This is an OSPool Access Point on our RC Cluster
+GroupID: 
+
+Resources:
+  PSU-Submit01:
+    Active: false
+    Description: This is an OSPool Access Point for PSU RC.
+    ID: 
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Robert Sand
+          ID: OSG1000504
+        Secondary:
+          Name: Chad Bahrmann
+          ID: OSG1000509
+        Tertiary:
+          Name: Gary Skouson
+          ID: OSG1000506
+
+      Security Contact:
+        Primary:
+          Name: Robert Sand
+          ID: OSG1000504
+        Secondary:
+          Name: Chad Bahrmann
+          ID: OSG1000509
+        Tertiary:
+          Name: Gary Skouson
+          ID: OSG1000506
+
+    FQDN: submit01.hpc.psu.edu
+    # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
+    Services:
+      Submit Node: 109
+        Description: An OSPool Access Point to submit Jobs to the PSU LIGO Site.
