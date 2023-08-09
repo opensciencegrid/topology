@@ -34,7 +34,7 @@ Resources:
     FQDN: submit01.hpc.psu.edu
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
-      Submit Node: 109
+      Submit Node:
         Description: An OSPool Access Point to submit jobs to the OSPool and PSU LIGO Site.
     Tags:
       - OSPool
