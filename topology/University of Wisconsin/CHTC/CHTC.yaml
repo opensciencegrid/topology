@@ -63,6 +63,8 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
+    Tags:
+      - OSPool
     VOOwnership:
       GLOW: 100
   CHTC-submit2:
@@ -84,6 +86,8 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
+    Tags:
+      - OSPool
     VOOwnership:
       GLOW: 100
 
@@ -106,6 +110,8 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
+    Tags:
+      - OSPool
     VOOwnership:
       GLOW: 100
 
@@ -477,7 +483,7 @@ Resources:
         Description: OSG VO backfill containers on the Tiger cluster
 
   CHTC-ap7:
-    Active: true
+    Active: false
     Description: The ap7.chtc.wisc.edu login node for the OSG Open Pool
     ID: 1303
     ContactLists:
@@ -492,6 +498,71 @@ Resources:
     FQDN: ap7.chtc.wisc.edu
     FQDNAliases:
       - ap2007.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-ap40:
+    Active: true
+    Description: The ap40.uw.osg-htc.org access point for the Open Science Pool
+    ID: 1468
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+      Security Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+    FQDN: ap40.chtc.wisc.edu
+    FQDNAliases:
+      - ap2007.chtc.wisc.edu 
+      - ospool-ap2040.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      OSG: 100
+
+  CHTC-ospool-eht:
+    Active: true
+    Description: The CHTC hosted EHT Gateway to the OSPool
+    ID: 1467
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Brian Lin
+          ID: OSG1000003
+        Secondary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Tertiary:
+          Name: Joe Bartkowiak
+          ID: OSG1000141
+      Security Contact:
+        Primary:
+          Name: Brian Lin
+          ID: OSG1000003
+        Secondary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Tertiary:
+          Name: Joe Bartkowiak
+          ID: OSG1000141
+    FQDN: ospool-eht.chtc.wisc.edu
+    FQDNAliases:
+      - ospool-eht2000.chtc.wisc.edu
     Services:
       Submit Node:
         Description: OS Pool access point
