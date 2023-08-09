@@ -35,4 +35,6 @@ Resources:
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
       Submit Node: 109
-        Description: An OSPool Access Point to submit Jobs to the PSU LIGO Site.
+        Description: An OSPool Access Point to submit jobs to the OSPool and PSU LIGO Site.
+    Tags:
+      - OSPool
