@@ -3,7 +3,7 @@ GroupID: 8
 Production: true
 Resources:
   NET2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -48,7 +48,7 @@ Resources:
       StorageCapacityMin: 2300
       TapeCapacity: 0
   NET2v6:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -93,7 +93,7 @@ Resources:
       StorageCapacityMin: 2300
       TapeCapacity: 0
   net2.bu.edu-squid:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -118,7 +118,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   perfSONAR-NET2-bw:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -145,7 +145,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   perfSONAR-NET2-lat:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -172,7 +172,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   perfSONAR_BU:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -199,7 +199,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   SQUID_SLATE_BU:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
