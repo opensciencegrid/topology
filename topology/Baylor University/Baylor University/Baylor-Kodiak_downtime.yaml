@@ -42,3 +42,15 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1570148706
+  Description: Maintenance
+  Severity: Outage
+  StartTime: Aug 14, 2023 14:00 +0000
+  EndTime: Aug 19, 2023 04:00 +0000
+  CreatedTime: Aug 14, 2023 12:07 +0000
+  ResourceName: Baylor-Kodiak-CE
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
