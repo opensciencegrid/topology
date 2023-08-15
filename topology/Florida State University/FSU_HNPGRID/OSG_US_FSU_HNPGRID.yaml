@@ -52,4 +52,29 @@ Resources:
           hidden: false
     VOOwnership:
       Gluex: 100
+  FSU-HNPGRID-OSDF-Origin:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  73ed2d273dace60d6e6ff5baabeb8755624001bd
+          Name: Sean Dobbs
+      Security Contact:
+        Primary:
+          ID:  73ed2d273dace60d6e6ff5baabeb8755624001bd
+          Name: Sean Dobbs
+      Site Contact:
+        Primary:
+          ID:  73ed2d273dace60d6e6ff5baabeb8755624001bd
+          Name: Sean Dobbs
+    Description: OSDF Origin server for FSU-HNPGRID
+    FQDN: npgrid.fsu.edu
+    ID: <ID>
+    Services:
+      XRootD origin server:
+        Description: OSDF Origin server for FSU-HNPGRID
+        Details:
+          hidden: false
+    VOOwnership:
+      Gluex: 100
 SupportCenter: UChicago
