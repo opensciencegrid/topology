@@ -81,3 +81,57 @@ Resources:
       StorageCapacityMax: 2000
       StorageCapacityMin: 2000
       TapeCapacity: 0
+  NET2-PS-BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+      Security Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+    Description: This is the perfSONAR-PS bandwidth instance at the NET2 site.
+    FQDN: argus1.net2.mghpcc.org
+    ID: 1474
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: argus1.net2.mghpcc.org
+    VOOwnership:
+      ATLAS: 100
+    NET2-PS-LAT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+      Security Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+    Description: This is the perfSONAR-PS latency instance at the NET2 site.
+    FQDN: argus2.net2.mghpcc.org
+    ID: 1475
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: argus2.net2.mghpcc.org
+    VOOwnership:
+      ATLAS: 100
