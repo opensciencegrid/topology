@@ -260,6 +260,11 @@ class Resource(object):
         return new_res
 
     @property
+    def is_active(self):
+        """Check if the Resource is active and not disabled"""
+        return self.data.get("Active", True) and not self.data.get("Disable", False)
+
+    @property
     def is_ccstar(self):
         """Check if this site is tagged as a CC* Site"""
         if not hasattr(self, "_is_ccstar"):
@@ -344,9 +349,11 @@ class Resource(object):
 
         new_wlcg = OrderedDict.fromkeys(["InteropBDII", "LDAPURL", "InteropMonitoring", "InteropAccounting",
                                          "AccountingName", "KSI2KMin", "KSI2KMax", "StorageCapacityMin",
-                                         "StorageCapacityMax", "HEPSPEC", "APELNormalFactor", "TapeCapacity"])
+                                         "StorageCapacityMax", "HEPSPEC", "APELNormalFactor", "HEPScore23Percentage", "TapeCapacity"])
         new_wlcg.update(defaults)
         new_wlcg.update(wlcg)
+        if new_wlcg["HEPScore23Percentage"] is None:
+            del new_wlcg["HEPScore23Percentage"]
         return new_wlcg
 
 
@@ -356,6 +363,7 @@ class ResourceGroup(object):
         self.site = site
         self.service_types = common_data.service_types
         self.common_data = common_data
+        self.production = yaml_data.get("Production", "")
 
         scname = yaml_data["SupportCenter"]
         scid = int(common_data.support_centers[scname]["ID"])
@@ -437,7 +445,7 @@ class ResourceGroup(object):
         new_rg["GroupName"] = self.name
         new_rg["SupportCenter"] = self.support_center
         new_rg["IsCCStar"] = self.is_ccstar
-        production = new_rg.pop("Production")
+        production = new_rg.get("Production")
         if production:
             new_rg["GridType"] = GRIDTYPE_1
         else:
@@ -461,7 +469,8 @@ class Downtime(object):
         self.created_time = None
         if not is_null(yaml_data, "CreatedTime"):
             self.created_time = self.parsetime(yaml_data["CreatedTime"])
-        self.res = rg.resources_by_name[yaml_data["ResourceName"]]
+        self.res_name = yaml_data["ResourceName"]
+        self.res = rg.resources_by_name[self.res_name]
         self.service_names = yaml_data["Services"]
         self.service_ids = [common_data.service_types[x] for x in yaml_data["Services"]]
         self.id = yaml_data["ID"]
@@ -637,6 +646,7 @@ class Topology(object):
         self.service_names_by_resource = {}  # type: Dict[str, List[str]]
         self.downtime_path_by_resource_group = defaultdict(set)
         self.downtime_path_by_resource = {}
+        self.present_downtimes_by_resource = defaultdict(list)  # type: defaultdict[str, List[Downtime]]
 
     def add_rg(self, facility_name: str, site_name: str, name: str, parsed_data: ParsedYaml):
         try:
@@ -741,6 +751,8 @@ class Topology(object):
             log.warning("Invalid or missing data in downtime -- skipping: %r", err)
             return
         self.downtimes_by_timeframe[dt.timeframe].append(dt)
+        if dt.timeframe == Timeframe.PRESENT:
+            self.present_downtimes_by_resource[dt.res_name].append(dt)
 
     def safe_get_resource_by_fqdn(self, fqdn: str) -> Optional[Resource]:
         """Returns the first resource that has the given FQDN or None if no such resource exists."""

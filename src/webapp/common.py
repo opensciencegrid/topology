@@ -13,6 +13,9 @@ log = getLogger(__name__)
 
 import xmltodict
 import yaml
+import csv
+from io import StringIO
+
 try:
     from yaml import CSafeLoader as SafeLoader
 except ImportError:
@@ -53,6 +56,14 @@ class Filters(object):
         self.voown_name = [vo_id_to_name.get(i, "") for i in self.voown_id]
 
 
+def to_csv(data: list) -> str:
+    csv_string = StringIO()
+    writer = csv.writer(csv_string)
+    for row in data:
+        writer.writerow(row)
+    return csv_string.getvalue()
+
+
 def is_null(x, *keys) -> bool:
     for key in keys:
         if not key: continue
@@ -70,7 +81,7 @@ def is_null(x, *keys) -> bool:
                      ])
 
 
-def ensure_list(x: Union[None, T, List[T]]) -> List[T]:
+def ensure_list(x: Union[None, List[T], T]) -> List[T]:
     if isinstance(x, list):
         return x
     elif x is None:
@@ -101,7 +112,7 @@ def simplify_attr_list(data: Union[Dict, List], namekey: str, del_name: bool = T
     return new_data
 
 
-def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=True) -> List[OrderedDict]:
+def expand_attr_list_single(data: Dict, namekey: str, valuekey: str, name_first=True) -> List[OrderedDict]:
     """
     Expand
         {"name1": "val1",
@@ -120,7 +131,8 @@ def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=T
     return newdata
 
 
-def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None, ignore_missing=False) -> List[OrderedDict]:
+def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None] = None, ignore_missing=False) -> List[
+    OrderedDict]:
     """
     Expand
         {"name1": {"attr1": "val1", ...},
@@ -263,6 +275,7 @@ def git_clone_or_pull(repo, dir, branch, ssh_key=None) -> bool:
         ok = ok and run_git_cmd(["checkout", branch], dir=dir)
     return ok
 
+
 def git_clone_or_fetch_mirror(repo, git_dir, ssh_key=None) -> bool:
     if os.path.exists(git_dir):
         ok = run_git_cmd(["fetch", "origin"], git_dir=git_dir, ssh_key=ssh_key)
@@ -270,7 +283,7 @@ def git_clone_or_fetch_mirror(repo, git_dir, ssh_key=None) -> bool:
         ok = run_git_cmd(["clone", "--mirror", repo, git_dir], ssh_key=ssh_key)
         # disable mirror push
         ok = ok and run_git_cmd(["config", "--unset", "remote.origin.mirror"],
-                                                              git_dir=git_dir)
+                                git_dir=git_dir)
     return ok
 
 
@@ -315,23 +328,30 @@ def escape(pattern: str) -> str:
 
     unescaped_characters = ['!', '"', '%', "'", ',', '/', ':', ';', '<', '=', '>', '@', "`"]
     for unescaped_character in unescaped_characters:
-
         escaped_string = re.sub(unescaped_character, f"\\{unescaped_character}", escaped_string)
 
     return escaped_string
 
 
 def support_cors(f):
-
     @wraps(f)
     def wrapped():
-
         response = f()
 
         response.headers['Access-Control-Allow-Origin'] = '*'
 
         return response
 
+    return wrapped
+
+
+def cache_control_private(f):
+    """Decorator to set `Cache-Control: private` on response"""
+    @wraps(f)
+    def wrapped():
+        response = f()
+        response.cache_control.private = True
+        return response
     return wrapped
 
 

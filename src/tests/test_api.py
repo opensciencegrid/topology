@@ -1,17 +1,23 @@
 import re
 import flask
 import pytest
+import urllib.parse
 from pytest_mock import MockerFixture
 
 # Rewrites the path so the app can be imported like it normally is
 import os
 import sys
+import csv
+import io
 
 topdir = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(topdir)
 
+os.environ['TESTING'] = "True"
+
 from app import app, global_data
 from webapp.topology import Facility, Site, Resource, ResourceGroup
+from webapp.data_federation import CredentialGeneration
 
 HOST_PORT_RE = re.compile(r"[a-zA-Z0-9.-]{3,63}:[0-9]{2,5}")
 PROTOCOL_HOST_PORT_RE = re.compile(r"[a-z]+://" + HOST_PORT_RE.pattern)
@@ -52,7 +58,10 @@ TEST_ENDPOINTS = [
     "/origin/Authfile",
     "/origin/Authfile-public",
     "/origin/scitokens.conf",
-    "/cache/scitokens.conf"
+    "/cache/scitokens.conf",
+    "/api/institutions",
+    "/cache/grid-mapfile",
+    "/origin/grid-mapfile"
 ]
 
 
@@ -193,6 +202,19 @@ class TestAPI:
             assert isinstance(ns["usetokenonread"], bool)
             assert ns["dirlisthost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["dirlisthost"])
             assert ns["writebackhost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["writebackhost"])
+            credgen = ns["credential_generation"]
+            if credgen is not None:
+                assert isinstance(credgen["max_scope_depth"], int) and credgen["max_scope_depth"] > -1
+                assert credgen["strategy"] in CredentialGeneration.STRATEGIES
+                assert credgen["issuer"]
+                parsed_issuer = urllib.parse.urlparse(credgen["issuer"])
+                assert parsed_issuer.netloc and parsed_issuer.scheme == "https"
+                if credgen["vault_server"]:
+                    assert isinstance(credgen["vault_server"], str)
+                if credgen["vault_issuer"]:
+                    assert isinstance(credgen["vault_issuer"], str)
+                if credgen["base_path"]:
+                    assert isinstance(credgen["base_path"], str)
 
         response = client.get('/stashcache/namespaces')
         assert response.status_code == 200
@@ -210,15 +232,113 @@ class TestAPI:
         # Have a reasonable number of namespaces
         assert len(namespaces) > 15
 
+        found_credgen = False
         for namespace in namespaces:
+            if namespace["credential_generation"] is not None:
+                found_credgen = True
             validate_namespace_schema(namespace)
             if namespace["caches"]:
                 for cache in namespace["caches"]:
                     validate_cache_schema(cache)
+        assert found_credgen, "At least one namespace with credential_generation"
+
+
+    def test_institution_accept_type(self, client: flask.Flask):
+        """Checks both formats output the same content"""
+
+        json_institutions = client.get("/api/institutions", headers={"Accept": "application/json"}).json
+        json_tuples = [tuple(map(str, x)) for x in sorted(json_institutions, key=lambda x: x[0])]
+
+        csv_institutions = csv.reader(io.StringIO(client.get("/api/institutions").data.decode()))
+        csv_tuples = [tuple(x) for x in sorted(csv_institutions, key=lambda x: x[0])]
+
+        assert len(csv_tuples) == len(json_tuples)
+
+        assert tuple(json_tuples) == tuple(csv_tuples)
+
+
+    def test_origin_grid_mapfile(self, client: flask.Flask):
+        TEST_ORIGIN = "origin-auth2001.chtc.wisc.edu"  # This origin serves protected data
+        response = client.get("/origin/grid-mapfile")
+        assert response.status_code == 400  # fqdn not specified
+
+        # Compare the hashes in an origin's grid-mapfile with the hashes in the origin's Authfile
+
+        # First get a set of the hashes in the grid-mapfile
+        response = client.get(f"/origin/grid-mapfile?fqdn={TEST_ORIGIN}")
+        assert response.status_code == 200
+        grid_mapfile_text = response.data.decode("utf-8")
+        grid_mapfile_lines = grid_mapfile_text.split("\n")
+        # Have a reasonable number of mappings
+        assert len(grid_mapfile_lines) > 20
+
+        mapfile_matches = filter(None,
+                                 (re.fullmatch(r'"[^"]+" ([0-9a-f]+[.]0)', line)
+                                  for line in grid_mapfile_lines))
+        mapfile_hashes = set(match.group(1) for match in mapfile_matches)
+
+        # Next get a set of the user (u) hashes in the authfile
+        response = client.get(f"/origin/Authfile?fqdn={TEST_ORIGIN}")
+        assert response.status_code == 200
+        authfile_text = response.data.decode("utf-8")
+        authfile_lines = authfile_text.split("\n")
+        # Have a reasonable number of caches; each one has a comment with the DN so there should be
+        # twice as many lines as authorizations
+        assert len(authfile_lines) > 40
+
+        authfile_matches = filter(None,
+                                  (re.match(r'u ([0-9a-f]+[.]0)', line)
+                                   for line in authfile_lines))
+        authfile_hashes = set(match.group(1) for match in authfile_matches)
+
+        hashes_not_in_mapfile = authfile_hashes - mapfile_hashes
+        assert not hashes_not_in_mapfile, f"Hashes in authfile but not in mapfile: {hashes_not_in_mapfile}"
+
+        hashes_not_in_authfile = mapfile_hashes - authfile_hashes
+        assert not hashes_not_in_authfile, f"Hashes in mapfile but not in authfile: {hashes_not_in_authfile}"
+
+    def test_cache_grid_mapfile(self, client: flask.Flask):
+        TEST_CACHE = "stash-cache.osg.chtc.io"  # This cache allows cert-based auth but not LIGO data
+        response = client.get("/cache/grid-mapfile")
+        assert response.status_code == 400  # fqdn not specified
+
+        # Compare the hashes in a cache's grid-mapfile with the hashes in the cache's Authfile
+
+        # First get a set of the hashes in the grid-mapfile
+        response = client.get(f"/cache/grid-mapfile?fqdn={TEST_CACHE}")
+        assert response.status_code == 200
+        grid_mapfile_text = response.data.decode("utf-8")
+        grid_mapfile_lines = grid_mapfile_text.split("\n")
+        # Make sure we have some mappings (we may not have LIGO data so there's only a few)
+        assert len(grid_mapfile_lines) > 1
+
+        mapfile_matches = filter(None,
+                                 (re.fullmatch(r'"[^"]+" ([0-9a-f]+[.]0)', line)
+                                  for line in grid_mapfile_lines))
+        mapfile_hashes = set(match.group(1) for match in mapfile_matches)
+
+        # Next get a set of the user (u) hashes in the authfile
+        response = client.get(f"/cache/Authfile?fqdn={TEST_CACHE}")
+        assert response.status_code == 200
+        authfile_text = response.data.decode("utf-8")
+        authfile_lines = authfile_text.split("\n")
+        # Make sure we have some mappings; each one has a comment with the DN so there should be
+        # twice as many lines as authorizations
+        assert len(authfile_lines) > 2
+
+        authfile_matches = filter(None,
+                                  (re.match(r'u ([0-9a-f]+[.]0)', line)
+                                   for line in authfile_lines))
+        authfile_hashes = set(match.group(1) for match in authfile_matches)
+
+        hashes_not_in_mapfile = authfile_hashes - mapfile_hashes
+        assert not hashes_not_in_mapfile, f"Hashes in authfile but not in mapfile: {hashes_not_in_mapfile}"
+
+        hashes_not_in_authfile = mapfile_hashes - authfile_hashes
+        assert not hashes_not_in_authfile, f"Hashes in mapfile but not in authfile: {hashes_not_in_authfile}"
 
 
 class TestEndpointContent:
-
     # Pre-build some test cases based on AMNH resources
     mock_facility = Facility("test_facility_name", 12345)
 
@@ -732,6 +852,43 @@ class TestEndpointContent:
 
         # Check that the site contains the appropriate keys
         assert set(facilities.popitem()[1]).issuperset(["ID", "Name", "IsCCStar"])
+
+    def test_institution_default(self, client: flask.Flask):
+        institutions = client.get("/api/institutions", headers={"Accept": "application/json"}).json
+
+        assert len(institutions) > 0
+
+        # Check facilities exist and have the "have resources" bit flipped
+        assert [i for i in institutions if i[0] == "JINR"][0][1]
+        assert [i for i in institutions if i[0] == "Universidade de São Paulo - Laboratório de Computação Científica Avançada"][0][1]
+
+        # Project Organizations exist and have "has project" bit flipped
+        assert [i for i in institutions if i[0] == "Iolani School"][0][2]
+        assert [i for i in institutions if i[0] == "University of California, San Diego"][0][2]
+
+        # Both
+        assert [i for i in institutions if i[0] == "Harvard University"][0][1] and [i for i in institutions if i[0] == "Harvard University"][0][2]
+
+        # Check Project only doesn't have resource bit
+        assert [i for i in institutions if i[0] == "National Research Council of Canada"][0][1] is False
+
+        # Facility Tests
+        facilities = set(global_data.get_topology().facilities.keys())
+
+        # Check all facilities exist
+        assert set(i[0] for i in institutions).issuperset(facilities)
+
+        # Check all facilities have their facilities bit flipped
+        assert all(x[1] for x in institutions if x[0] in institutions)
+
+        # Project Tests
+        projects = set(x['Organization'] for x in global_data.get_projects()['Projects']['Project'])
+
+        # Check all projects exist
+        assert set(i[0] for i in institutions).issuperset(projects)
+
+        # Check all projects have the project bit flipped
+        assert all(x[2] for x in institutions if x[0] in projects)
 
 
 if __name__ == '__main__':

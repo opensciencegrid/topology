@@ -7,7 +7,7 @@ dupes=$( grep -h '^ *ID:' */*/*_downtime.yaml | awk '{print $2}' | sort |
 
 if [[ $dupes ]]; then
   for d in $dupes; do
-    echo "Found duplicate downtime ID: $d in:"
+    echo "ERROR: Found duplicate downtime ID: $d in:"
     grep -n "^ *ID: *$d *$" */*/*_downtime.yaml | sed "s/^/- /"
   done
   exit 1
