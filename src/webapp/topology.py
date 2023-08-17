@@ -34,6 +34,13 @@ class CommonData(object):
         self.service_types = service_types
         self.support_centers = support_centers
 
+        # Auto-generate IDs for any services and support centers that don't have them
+        for key, val in self.service_types.items():
+            self.service_types[key] = val if val else gen_id_from_yaml({}, key)
+
+        for key, val in self.support_centers.items():
+            val['ID'] = gen_id_from_yaml(val, key)
+
 
 class Facility(object):
     def __init__(self, name: str, id: int):
@@ -461,9 +468,11 @@ class Downtime(object):
     def __init__(self, rg: ResourceGroup, yaml_data: ParsedYaml, common_data: CommonData):
         self.rg = rg
         self.data = yaml_data
-        for k in ["StartTime", "EndTime", "ID", "Class", "Severity", "ResourceName", "Services"]:
+        for k in ["StartTime", "EndTime", "Class", "Severity", "ResourceName", "Services"]:
             if is_null(yaml_data, k):
                 raise ValueError(k)
+        # Downtimes aren't uniquely named, so hash an ID based on several ResourceName + StartTime
+        yaml_data['ID'] = gen_id_from_yaml(yaml_data, '{ResourceName}-{StartTime}'.format(**yaml_data))
         self.start_time = self.parsetime(yaml_data["StartTime"])
         self.end_time = self.parsetime(yaml_data["EndTime"])
         self.created_time = None
