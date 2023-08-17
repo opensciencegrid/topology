@@ -1,6 +1,12 @@
 AppDescription: SBND Production and Analysis jobs will be run.
 CertificateOnly: false
 Community: Short-Baseline Near Detector collaborators
+Credentials:
+  TokenIssuers:
+    - Description: SBND pilots
+      Subject: sbndpilot@fnal.gov
+      URL: https://cilogon.org/sbnd
+      DefaultUnixUser: sbndpilot
 Contacts:
   Miscellaneous Contact:
   - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47

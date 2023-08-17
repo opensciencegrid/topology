@@ -1,6 +1,12 @@
 AppDescription: Simulation for future mu2e experiment
 CertificateOnly: false
 Community: Physics
+Credentials:
+  TokenIssuers:
+    - Description: mu2e pilots
+      Subject: mu2epilot@fnal.gov
+      URL: https://cilogon.org/mu2e
+      DefaultUnixUser: mu2epilot
 Contacts:
   Miscellaneous Contact:
   - ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3

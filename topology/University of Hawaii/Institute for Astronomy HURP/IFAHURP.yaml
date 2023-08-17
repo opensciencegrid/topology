@@ -1,0 +1,20 @@
+GroupID: 1314
+GroupDescription: Origin for The Institute for Astronomy, (University of Hawaii, Manoa) 
+SupportCenter: Self Supported
+Production: true
+Resources:
+  IFAHURP_OSDF_ORIGIN:
+    Active: true
+    Description: IFAHURP OSDF Origin
+    ID: 1340
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+    FQDN: prp01.ifa.hawaii.edu
+    Services:
+      XRootD origin server:
+        Description: IFAHURP OSDF Origin
+    AllowedVOs:
+      - ANY

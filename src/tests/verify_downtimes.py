@@ -84,7 +84,7 @@ def main():
     if errors:
         print("%d errors encountered:" % len(errors))
         for e in errors:
-            print(e, file=sys.stderr)
+            print("ERROR: %s" % e, file=sys.stderr)
         return 1
     else:
         print("A-OK.")

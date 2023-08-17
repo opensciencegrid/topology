@@ -19,7 +19,9 @@ Resources:
         Primary:
           Name: Steve Timm
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
-    FQDN: cori.nersc.gov
+    FQDN: cori-haswell.hepcloud.fnal.gov
+    FQDNAliases:
+       - cori.nersc.gov
     Services:
       CE:
         Description: Bosco SSH direct submit only
@@ -49,7 +51,9 @@ Resources:
         Primary:
           Name: Steve Timm
           ID: 2ab71c21032fd77a73523c3b65af0510ac30d4e3
-    FQDN: cori.hepcloud.fnal.gov
+    FQDN: cori-knl.hepcloud.fnal.gov
+    FQDNAliases:
+       - cori.nersc.gov
     Services:
       CE:
         Description: Bosco SSH direct submit only

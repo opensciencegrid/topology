@@ -113,27 +113,6 @@
   StartTime: Nov 2, 2017 13:00 +0000
 # ----------------------------------------------------------
 - Class: UNSCHEDULED
-  Description: One of the Lustre OSSes requires a maintenance.
-  EndTime: Jan 4, 2018 17:00 +0000
-  ID: 1005549
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
-  Severity: Outage
-  StartTime: Jan 4, 2018 14:00 +0000
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  Description: One of lustre oss (cmsoss3) is not responsive. This causes a stall
-    in the entire site.
-  EndTime: Mar 9, 2018 16:00 +0000
-  ID: 1005620
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
-  Severity: Outage
-  StartTime: Mar 9, 2018 14:00 +0000
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
   Description: One of lustre oss (cmsoss3) is not responsive. This causes a stall
     in the entire site.
   EndTime: Mar 9, 2018 16:00 +0000
@@ -255,49 +234,6 @@
   - CE
   Severity: Outage
   StartTime: Sep 3, 2018 05:00 +0000
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  Description: Network issue due to a switch that went bad.
-  EndTime: Sep 3, 2018 07:15 +0000
-  ID: 1005709
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
-  Severity: Outage
-  StartTime: Sep 3, 2018 05:00 +0000
-# ----------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 53539069
-  Description: lustre hardware issue
-  Severity: Severe
-  StartTime: Oct 23, 2018 13:00 +0000
-  EndTime: Oct 23, 2018 21:00 +0000
-  CreatedTime: Oct 23, 2018 23:05 +0000
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 95610993
-  Description: lustre hardware issue
-  Severity: Outage
-  StartTime: Dec 12, 2018 15:00 +0000
-  EndTime: Dec 12, 2018 21:00 +0000
-  CreatedTime: Dec 11, 2018 14:44 +0000
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 144880518
-  Description: lustre CMSOSS3 issue
-  Severity: Outage
-  StartTime: Feb 06, 2019 15:00 +0000
-  EndTime: Feb 06, 2019 22:00 +0000
-  CreatedTime: Feb 06, 2019 15:20 +0000
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
 # ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 200132800
@@ -348,22 +284,6 @@
   - CE
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 200134564
-  Description: "UFRC will carry out a major maintenance on 5/6 \u2013 5/9. As a result,\
-    \ HiPerGator cluster, home area, /ufrc, /orange as well as /apps will be out of\
-    \ service during this maintenance. User login servers will be down as well.    \
-    \ Though CMS servers including /cms will not be touched in this maintenance, other\
-    \ resources that CMS jobs may rely on will be unavailable therefore CMS jobs will\
-    \ not be able to run at the time. "
-  Severity: Outage
-  StartTime: May 06, 2019 13:00 +0000
-  EndTime: May 10, 2019 06:00 +0000
-  CreatedTime: Apr 11, 2019 15:10 +0000
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 221825172
   Description: "UFRC will carry out a major maintenance on 5/6 \u2013 5/9. As a result,\
     \ HiPerGator cluster, home area, /ufrc, /orange as well as /apps will be out of\
@@ -378,17 +298,6 @@
   ResourceName: UFlorida-XRD
   Services:
   - XRootD component
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 279906262
-  Description: Rack Rearrangement
-  Severity: Outage
-  StartTime: Jul 19, 2019 13:00 +0000
-  EndTime: Jul 19, 2019 21:00 +0000
-  CreatedTime: Jul 12, 2019 23:03 +0000
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
 # ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 279906848
@@ -488,28 +397,6 @@
   ResourceName: UFlorida-HPC
   Services:
   - CE
-# ---------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 409186425
-  Description: Hardware issue
-  Severity: Intermittent Outage
-  StartTime: Dec 09, 2019 13:00 +0000
-  EndTime: Dec 09, 2019 21:00 +0000
-  CreatedTime: Dec 10, 2019 04:00 +0000
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 431706818
-  Description: lustre hardware issue (Controller)
-  Severity: Outage
-  StartTime: Jan 04, 2020 13:00 +0000
-  EndTime: Jan 13, 2020 19:00 +0000
-  CreatedTime: Jan 04, 2020 14:44 +0000
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
 # ---------------------------------------------------------
 - Class: UNSCHEDULED
   ID: 431707356
@@ -622,17 +509,6 @@
   - CE
 # ---------------------------------------------------------
 - Class: UNSCHEDULED
-  ID: 653881553
-  Description: Power outage
-  Severity: Outage
-  StartTime: Sep 17, 2020 15:00 +0000
-  EndTime: Sep 20, 2020 05:00 +0000
-  CreatedTime: Sep 17, 2020 19:15 +0000
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-- Class: UNSCHEDULED
   ID: 653881703
   Description: Power outage
   Severity: Outage
@@ -721,17 +597,6 @@
   - CE
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 706481529
-  Description: Power work for the HPC upgrade
-  Severity: Outage
-  StartTime: Nov 18, 2020 23:00 +0000
-  EndTime: Nov 23, 2020 14:00 +0000
-  CreatedTime: Nov 17, 2020 15:22 +0000
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 706481685
   Description: Power work for the HPC upgrade
   Severity: Outage
@@ -774,17 +639,6 @@
   ResourceName: UFlorida-HPG2
   Services:
   - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 718705534
-  Description: The major power construction work in the Data Center
-  Severity: Outage
-  StartTime: Dec 23, 2020 14:00 +0000
-  EndTime: Jan 11, 2021 04:00 +0000
-  CreatedTime: Dec 01, 2020 18:55 +0000
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
 # ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 718705707
@@ -853,17 +707,6 @@
   - CE
 # ---------------------------------------------------------
 - Class: UNSCHEDULED
-  ID: 839686703
-  Description: Host certficate is expired
-  Severity: Outage
-  StartTime: Apr 20, 2021 23:00 +0000
-  EndTime: Apr 21, 2021 16:00 +0000
-  CreatedTime: Apr 21, 2021 01:31 +0000
-  ResourceName: UFlorida-SLB-GridFTP
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-- Class: UNSCHEDULED
   ID: 839686858
   Description: Host certficate is expired
   Severity: Outage
@@ -915,6 +758,149 @@
   EndTime: Sep 22, 2021 21:00 +0000
   CreatedTime: Sep 21, 2021 23:07 +0000
   ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1377183081
+  Description: Corrective downtime for the power at the Research Computing Center
+  Severity: Outage
+  StartTime: Jan 02, 2023 22:45 +0000
+  EndTime: Jan 09, 2023 13:05 +0000
+  CreatedTime: Jan 03, 2023 03:58 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1377183656
+  Description: Corrective downtime for the power at the Research Computing Center
+  Severity: Outage
+  StartTime: Jan 02, 2023 22:45 +0000
+  EndTime: Jan 09, 2023 13:05 +0000
+  CreatedTime: Jan 03, 2023 03:59 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1377184142
+  Description: Corrective downtime for the power at the Research Computing Center
+  Severity: Outage
+  StartTime: Jan 02, 2023 22:45 +0000
+  EndTime: Jan 09, 2023 13:05 +0000
+  CreatedTime: Jan 03, 2023 04:00 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1377185990
+  Description: Corrective downtime for the power at the Research Computing Center
+  Severity: Outage
+  StartTime: Jan 02, 2023 22:45 +0000
+  EndTime: Jan 09, 2023 13:05 +0000
+  CreatedTime: Jan 03, 2023 04:03 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1382875724
+  Description: RHEL8 upgrade
+  Severity: Outage
+  StartTime: Jan 09, 2023 18:05 +0000
+  EndTime: Jun 22, 2023 16:00 +0000
+  CreatedTime: Jan 09, 2023 18:06 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1383595572
+  Description: Network issue
+  Severity: Outage
+  StartTime: Jan 10, 2023 14:05 +0000
+  EndTime: Jan 13, 2023 22:00 +0000
+  CreatedTime: Jan 10, 2023 14:05 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1383596298
+  Description: Network issue
+  Severity: Outage
+  StartTime: Jan 10, 2023 14:05 +0000
+  EndTime: Jan 13, 2023 22:00 +0000
+  CreatedTime: Jan 10, 2023 14:07 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1383596493
+  Description: Network issue
+  Severity: Outage
+  StartTime: Jan 10, 2023 14:05 +0000
+  EndTime: Jan 13, 2023 22:00 +0000
+  CreatedTime: Jan 10, 2023 14:07 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1458013400
+  Description: Lustre needs an OS upgrade to RHEL7,9
+  Severity: Outage
+  StartTime: Apr 17, 2023 13:00 +0000
+  EndTime: Apr 18, 2023 21:00 +0000
+  CreatedTime: Apr 06, 2023 17:15 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1467415292
+  Description: RHEL 7-9 upgrade for SE requires the downtime
+  Severity: Outage
+  StartTime: Apr 17, 2023 14:24 +0000
+  EndTime: Apr 18, 2023 21:00 +0000
+  CreatedTime: Apr 17, 2023 14:25 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1467415904
+  Description: RHEL 7-9 upgrade for SE requires the downtime
+  Severity: Outage
+  StartTime: Apr 17, 2023 14:24 +0000
+  EndTime: Apr 18, 2023 21:00 +0000
+  CreatedTime: Apr 17, 2023 14:26 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1522712596
+  Description: CE upgrade to RHEL8
+  Severity: Outage
+  StartTime: Jun 27, 2023 12:58 +0000
+  EndTime: Jun 27, 2023 21:26 +0000
+  CreatedTime: Jun 20, 2023 14:27 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1522717647
+  Description: CE upgrade to RHEL8
+  Severity: Outage
+  StartTime: Jun 28, 2023 12:58 +0000
+  EndTime: Jun 28, 2023 21:26 +0000
+  CreatedTime: Jun 20, 2023 14:36 +0000
+  ResourceName: UFlorida-CMS
   Services:
   - CE
 # ---------------------------------------------------------

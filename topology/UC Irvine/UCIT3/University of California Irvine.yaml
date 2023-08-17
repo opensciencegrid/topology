@@ -54,6 +54,8 @@ Resources:
         Description: OSG Submission Node
         Details:
           hidden: false
+    Tags:
+      - OSPool
     VOOwnership:
       ATLAS: 100
 
@@ -86,6 +88,8 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
+    Tags:
+      - OSPool
     VOOwnership:
       ATLAS: 100
 SupportCenter: USATLAS

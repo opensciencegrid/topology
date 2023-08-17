@@ -12,6 +12,7 @@ import re
 import subprocess
 from   subprocess import PIPE
 import sys
+import json
 
 from webapp import default_config
 from webapp import webhook_status_messages
@@ -49,10 +50,12 @@ gh_api_token = readfile(global_data.webhook_gh_api_token, app.logger).decode()
 if gh_api_user and gh_api_token:
     ghauth = GitHubAuth(gh_api_user, gh_api_token, app.logger)
     ghrepo = ghauth.target_repo(_required_repo_owner, _required_repo_name)
+    get_api_url           = ghauth.get_api_url
     publish_pr_review     = ghrepo.publish_pr_review
     publish_issue_comment = ghrepo.publish_issue_comment
     hit_merge_button      = ghrepo.hit_merge_button
 else:
+    get_api_url           = \
     publish_pr_review     = \
     publish_issue_comment = \
     hit_merge_button      = lambda *a,**kw: (False, "No API token configured")
@@ -107,6 +110,24 @@ def get_webhook_pr_state(sha, num='*'):
     else:
         return None, None
 
+
+def check_suite_validates_data(check_runs_url):
+    TARGET_CHECK_RUN_NAME = "Validate Topology data"
+
+    ok, resp = get_api_url(check_runs_url)
+    if not ok:
+        return False
+    check_runs = json.load(resp).get("check_runs")
+    if not isinstance(check_runs, list):
+        return False
+
+    for run in check_runs:
+        if isinstance(run, dict) and run.get("name") == TARGET_CHECK_RUN_NAME:
+            return True
+
+    return False
+
+
 @app.route("/check_suite", methods=["GET", "POST"])
 def check_suite_hook():
     if not validate_request_signature(request):
@@ -126,6 +147,7 @@ def check_suite_hook():
         return Response("Not Interested")
     try:
         check_suite = payload['check_suite']
+        check_runs_url = check_suite['check_runs_url']
         head_sha = check_suite['head_sha']
         repo = payload['repository']
         owner = repo['owner']['login']          # 'opensciencegrid'
@@ -148,6 +170,11 @@ def check_suite_hook():
         app.logger.info("Ignoring check_suite hook repo '%s/%s'"
                         % (owner, reponame))
         return Response("Not Interested; repo was '%s/%s'" % (owner, reponame))
+
+    if not check_suite_validates_data(check_runs_url):
+        app.logger.info("Ignoring non-data check_suite hook for %s"
+                        % check_runs_url)
+        return Response("Not Interested; check_suite does not validate data")
 
     pr_webhook_state, pull_num = get_webhook_pr_state(head_sha)
     if pr_webhook_state is None or len(pr_webhook_state) != 4:

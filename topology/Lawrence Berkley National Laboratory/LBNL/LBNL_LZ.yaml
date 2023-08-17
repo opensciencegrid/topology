@@ -1,0 +1,26 @@
+Production: true
+SupportCenter: LBNL-DSD-support
+GroupDescription: LBNL Lux Zeplin
+GroupID: 1140
+Resources:
+  LBNL-LZ-Squid1:
+    Active: true
+    Description: LBNL CI host directly accessing CVMFS
+    ID: 1252
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Keith Beattie
+          ID: f2550732861974f943af8e6dbc15cc9f4d10da1f
+      Security Contact:
+        Primary:
+          Name: Keith Beattie
+          ID: f2550732861974f943af8e6dbc15cc9f4d10da1f
+    FQDN: lz4.lbl.gov
+    Services:
+      Squid:
+        Description: >
+          Not actually a Squid service (CVMFS access patterns make it unnecessary).
+          The purpose for registration is to disable central monitoring.
+        Details:
+          Monitored: false

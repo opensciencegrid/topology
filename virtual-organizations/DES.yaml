@@ -1,6 +1,12 @@
 AppDescription: N/A
 CertificateOnly: false
 Community: Dark Energy Survey
+Credentials:
+  TokenIssuers:
+    - Description: DES pilots
+      Subject: despilot@fnal.gov
+      URL: https://cilogon.org/des
+      DefaultUnixUser: despilot
 Contacts:
   Administrative Contact:
   - ID: c3dfd5645bfdb6953c42f5e69a505778cf7a2dc3
@@ -43,7 +49,6 @@ OASIS:
   OASISRepoURLs:
   - http://oasiscfs.fnal.gov:8000/cvmfs/des.opensciencegrid.org/
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/des.osgstorage.org/
-  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/desdm.osgstorage.org/
   UseOASIS: true
 PrimaryURL: https://www.darkenergysurvey.org/
 PurposeURL: http://cosmology.illinois.edu

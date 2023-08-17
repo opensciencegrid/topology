@@ -12,13 +12,6 @@ Resources:
         Secondary:
           ID: 61486d6bfdb2dfe01de30e4dbe98067ceee54bff
           Name: Evgeniy Alexeevich Kuznetsov
-      Resource Report Contact:
-        Primary:
-          ID: 6b9e9d9f99dcb757f2fa333d717c14bff167d457
-          Name: Nikita Balashov
-        Secondary:
-          ID: 61486d6bfdb2dfe01de30e4dbe98067ceee54bff
-          Name: Evgeniy Alexeevich Kuznetsov
       Security Contact:
         Primary:
           ID: 6b9e9d9f99dcb757f2fa333d717c14bff167d457
@@ -37,4 +30,23 @@ Resources:
           sam_uri: htcondor://cloud-osg-ce.jinr.ru
     VOOwnership:
       Nova: 100
+  JINR_STASHCACHE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6b9e9d9f99dcb757f2fa333d717c14bff167d457
+          Name: Nikita Balashov
+      Security Contact:
+        Primary:
+          ID: 6b9e9d9f99dcb757f2fa333d717c14bff167d457
+          Name: Nikita Balashov
+    ID: 1266
+    DN: "/C=RU/O=RDIG/OU=hosts/OU=jinr.ru/CN=stashcache.jinr.ru"
+    FQDN: stashcache.jinr.ru
+    Services: 
+      XRootD cache server:
+        Description: JINR cache server
+    AllowedVOs:
+      - ANY
 SupportCenter: JINR

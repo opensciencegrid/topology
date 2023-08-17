@@ -4,17 +4,9 @@ GroupID: 159
 Production: true
 Resources:
   umd-ce:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-      Miscellaneous Contact:
-        Secondary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-      Resource Report Contact:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
@@ -43,27 +35,41 @@ Resources:
       StorageCapacityMax: 5.5
       StorageCapacityMin: 1
       TapeCapacity: 5.5
-  umd-cms:
+  umd-ce2:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
-      Miscellaneous Contact:
+        Secondary:
+          ID: 4cee0f130d367c26289f9f5e2ba2ca56b7b997dd
+          Name: Anwar Bhatti
+      Security Contact:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
-        Tertiary:
-          ID: 2ee1351b0114a2684f91ca7656d1a2a6f8f33c30
-          Name: Nicholas John Hadley
-      Resource Report Contact:
+    Description: Combination CE and SE serving CMS
+    FQDN: hepcms-ce2.umd.edu
+    ID: 1275
+    Services:
+      CE:
+        Description: Compute Entrypoint
+        Details:
+          hidden: false
+      # XRootD component:
+      #   Description: XRootD SE
+      #   Details:
+      #     hidden: false
+    VOOwnership:
+      CMS: 100
+  umd-cms:
+    Active: false
+    ContactLists:
+      Administrative Contact:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
-        Tertiary:
-          ID: 2ee1351b0114a2684f91ca7656d1a2a6f8f33c30
-          Name: Nicholas John Hadley
       Security Contact:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
@@ -90,13 +96,9 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   umd-gridftp:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
-      Resource Report Contact:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
           Name: Shabnam Jabeen
@@ -122,10 +124,6 @@ Resources:
         Secondary:
           ID: 4cee0f130d367c26289f9f5e2ba2ca56b7b997dd
           Name: Anwar Bhatti
-      Resource Report Contact:
-        Primary:
-          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
-          Name: Shabnam Jabeen
       Security Contact:
         Primary:
           ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
@@ -138,8 +136,36 @@ Resources:
         Description: GridFtp Storage Element
         Details:
           hidden: false
-  umd-squid:
+  umd-se2:
     Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
+          Name: Shabnam Jabeen
+        Secondary:
+          ID: 4cee0f130d367c26289f9f5e2ba2ca56b7b997dd
+          Name: Anwar Bhatti
+      Security Contact:
+        Primary:
+          ID: bdd821fe2ff3d859dc96f79e5f8180a7ef529d70
+          Name: Shabnam Jabeen
+    Description: XRootD SE serving CMS
+    FQDN: hepcms-se2.umd.edu
+    ID: 1276
+    Services:
+      XRootD component:
+        Description: XRootD SE
+        Details:
+          hidden: false
+      WebDAV:
+        Description: WebDAV service endpoint
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+  umd-squid:
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:

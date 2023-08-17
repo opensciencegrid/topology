@@ -4,15 +4,18 @@ import hashlib
 import json
 import os
 import re
-import shlex
 import subprocess
 import sys
-from typing import Dict, List, Union, AnyStr
+from typing import Any, Dict, List, Union, AnyStr, NewType, TypeVar
+from functools import wraps
 
 log = getLogger(__name__)
 
 import xmltodict
 import yaml
+import csv
+from io import StringIO
+
 try:
     from yaml import CSafeLoader as SafeLoader
 except ImportError:
@@ -26,6 +29,9 @@ VOSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/vosummary.xs
 
 SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
+ParsedYaml = NewType("ParsedYaml", Dict[str, Any])  # a complex data structure that's a result of parsing a YAML file
+PreJSON = NewType("PreJSON", Dict[str, Any])  # a complex data structure that will be converted to JSON in the webapp
+T = TypeVar("T")
 
 
 class Filters(object):
@@ -50,6 +56,14 @@ class Filters(object):
         self.voown_name = [vo_id_to_name.get(i, "") for i in self.voown_id]
 
 
+def to_csv(data: list) -> str:
+    csv_string = StringIO()
+    writer = csv.writer(csv_string)
+    for row in data:
+        writer.writerow(row)
+    return csv_string.getvalue()
+
+
 def is_null(x, *keys) -> bool:
     for key in keys:
         if not key: continue
@@ -67,7 +81,7 @@ def is_null(x, *keys) -> bool:
                      ])
 
 
-def ensure_list(x) -> List:
+def ensure_list(x: Union[None, List[T], T]) -> List[T]:
     if isinstance(x, list):
         return x
     elif x is None:
@@ -75,7 +89,7 @@ def ensure_list(x) -> List:
     return [x]
 
 
-def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
+def simplify_attr_list(data: Union[Dict, List], namekey: str, del_name: bool = True) -> Dict:
     """
     Simplify
         [{namekey: "name1", "attr1": "val1", ...},
@@ -92,12 +106,13 @@ def simplify_attr_list(data: Union[Dict, List], namekey: str) -> Dict:
         if is_null(new_d, namekey):
             continue
         name = new_d[namekey]
-        del new_d[namekey]
+        if del_name:
+            del new_d[namekey]
         new_data[name] = new_d
     return new_data
 
 
-def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=True) -> List[OrderedDict]:
+def expand_attr_list_single(data: Dict, namekey: str, valuekey: str, name_first=True) -> List[OrderedDict]:
     """
     Expand
         {"name1": "val1",
@@ -116,7 +131,8 @@ def expand_attr_list_single(data: Dict, namekey:str, valuekey: str, name_first=T
     return newdata
 
 
-def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None]=None, ignore_missing=False) -> List[OrderedDict]:
+def expand_attr_list(data: Dict, namekey: str, ordering: Union[List, None] = None, ignore_missing=False) -> List[
+    OrderedDict]:
     """
     Expand
         {"name1": {"attr1": "val1", ...},
@@ -191,11 +207,11 @@ def bytes2str(o):
         return o
 
 
-def to_json(data) -> str:
+def to_json(data: PreJSON) -> str:
     return json.dumps(bytes2str(data), sort_keys=True)
 
 
-def to_json_bytes(data) -> bytes:
+def to_json_bytes(data: PreJSON) -> bytes:
     return to_json(data).encode("utf-8", errors="replace")
 
 
@@ -259,6 +275,7 @@ def git_clone_or_pull(repo, dir, branch, ssh_key=None) -> bool:
         ok = ok and run_git_cmd(["checkout", branch], dir=dir)
     return ok
 
+
 def git_clone_or_fetch_mirror(repo, git_dir, ssh_key=None) -> bool:
     if os.path.exists(git_dir):
         ok = run_git_cmd(["fetch", "origin"], git_dir=git_dir, ssh_key=ssh_key)
@@ -266,7 +283,7 @@ def git_clone_or_fetch_mirror(repo, git_dir, ssh_key=None) -> bool:
         ok = run_git_cmd(["clone", "--mirror", repo, git_dir], ssh_key=ssh_key)
         # disable mirror push
         ok = ok and run_git_cmd(["config", "--unset", "remote.origin.mirror"],
-                                                              git_dir=git_dir)
+                                git_dir=git_dir)
     return ok
 
 
@@ -276,7 +293,7 @@ def gen_id(instr: AnyStr, digits, minimum=1, hashfn=hashlib.md5) -> int:
     return minimum + (int(hashfn(instr_b).hexdigest(), 16) % mod)
 
 
-def load_yaml_file(filename) -> Dict:
+def load_yaml_file(filename) -> ParsedYaml:
     """Load a yaml file (wrapper around yaml.safe_load() because it does not
     report the filename in which an error occurred.
 
@@ -300,3 +317,43 @@ def readfile(path, logger):
                 logger.error("Failed to read file '%s': %s", path, e)
             return None
 
+
+def escape(pattern: str) -> str:
+    """Escapes regex characters that stopped being escaped in python 3.7"""
+
+    escaped_string = re.escape(pattern)
+
+    if sys.version_info < (3, 7):
+        return escaped_string
+
+    unescaped_characters = ['!', '"', '%', "'", ',', '/', ':', ';', '<', '=', '>', '@', "`"]
+    for unescaped_character in unescaped_characters:
+        escaped_string = re.sub(unescaped_character, f"\\{unescaped_character}", escaped_string)
+
+    return escaped_string
+
+
+def support_cors(f):
+    @wraps(f)
+    def wrapped():
+        response = f()
+
+        response.headers['Access-Control-Allow-Origin'] = '*'
+
+        return response
+
+    return wrapped
+
+
+def cache_control_private(f):
+    """Decorator to set `Cache-Control: private` on response"""
+    @wraps(f)
+    def wrapped():
+        response = f()
+        response.cache_control.private = True
+        return response
+    return wrapped
+
+
+XROOTD_CACHE_SERVER = "XRootD cache server"
+XROOTD_ORIGIN_SERVER = "XRootD origin server"

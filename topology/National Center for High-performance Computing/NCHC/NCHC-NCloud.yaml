@@ -1,0 +1,45 @@
+Disable: false
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: IGWN on the N-Cloud.
+GroupID: 1349
+
+Resources:
+  NCHC-CMS-CE:
+    Active: false
+    Description: IGWN on the N-Cloud.
+    ID: 1433
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Chun-Yu Lin
+          ID: 383ae4982bef24cc546b47c4e4f2e52b57e32da6
+
+      Security Contact:
+        Primary:
+          Name: Chun-Yu Lin
+          ID: 383ae4982bef24cc546b47c4e4f2e52b57e32da6
+
+    FQDN: ui.grid.nchc.org.tw
+
+    Services:
+      CE:
+        Description: HTCondor-CE
+
+    VOOwnership:
+      LIGO: 100
+    #  CMS: 100
+      
+    # WLCGInformation:
+    #   APELNormalFactor: 0.0
+    #   AccountingName: <name>
+    #   HEPSPEC: 0
+    #   InteropAccounting: true
+    #   InteropBDII: true
+    #   InteropMonitoring: true
+    #   KSI2KMax: 0
+    #   KSI2KMin: 0
+    #   StorageCapacityMax: 0
+    #   StorageCapacityMin: 0
+    #   TapeCapacity: 0

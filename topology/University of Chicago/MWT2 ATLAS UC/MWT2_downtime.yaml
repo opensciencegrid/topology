@@ -1299,4 +1299,212 @@
   Services:
   - CE
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 1070913344
+  Description: UIUC Campus (ICCP) 2022-Q1 planned maintenance
+  Severity: Outage
+  StartTime: Jan 19, 2022 06:00 +0000
+  EndTime: Jan 20, 2022 06:00 +0000
+  CreatedTime: Jan 13, 2022 16:28 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111752961
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 01:15 +0000
+  CreatedTime: Mar 01, 2022 22:54 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111766057
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 01:15 +0000
+  CreatedTime: Mar 01, 2022 23:16 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111766184
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 01:15 +0000
+  CreatedTime: Mar 01, 2022 23:16 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111766295
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 01:15 +0000
+  CreatedTime: Mar 01, 2022 23:17 +0000
+  ResourceName: MWT2_UC_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111766464
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 01:15 +0000
+  CreatedTime: Mar 01, 2022 23:17 +0000
+  ResourceName: MWT2_CE_IU
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111766570
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 01:15 +0000
+  CreatedTime: Mar 01, 2022 23:17 +0000
+  ResourceName: MWT2_CE_UC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1111766668
+  Description: dCache maintenance
+  Severity: Outage
+  StartTime: Mar 07, 2022 14:00 +0000
+  EndTime: Mar 08, 2022 01:15 +0000
+  CreatedTime: Mar 01, 2022 23:17 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1168897429
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: May 10, 2022 13:00 +0000
+  EndTime: May 10, 2022 19:30 +0000
+  CreatedTime: May 07, 2022 02:15 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1168898334
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: May 10, 2022 13:00 +0000
+  EndTime: May 10, 2022 19:30 +0000
+  CreatedTime: May 07, 2022 02:17 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1168898476
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: May 10, 2022 13:00 +0000
+  EndTime: May 10, 2022 19:30 +0000
+  CreatedTime: May 07, 2022 02:17 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1168898593
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: May 10, 2022 13:00 +0000
+  EndTime: May 10, 2022 19:30 +0000
+  CreatedTime: May 07, 2022 02:17 +0000
+  ResourceName: MWT2_UC_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1225619209
+  Description: ICCP Quarterly PM
+  Severity: Outage
+  StartTime: Jul 15, 2022 13:00 +0000
+  EndTime: Jul 17, 2022 13:00 +0000
+  CreatedTime: Jul 11, 2022 17:52 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1348259145
+  Description: Switch failure
+  Severity: Outage
+  StartTime: Nov 29, 2022 22:00 +0000
+  EndTime: Dec 05, 2022 14:00 +0000
+  CreatedTime: Nov 30, 2022 16:31 +0000
+  ResourceName: MWT2_CE_IU
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1348262765
+  Description: Switch failure
+  Severity: Outage
+  StartTime: Nov 29, 2022 22:00 +0000
+  EndTime: Dec 05, 2022 14:00 +0000
+  CreatedTime: Nov 30, 2022 16:37 +0000
+  ResourceName: MWT2_CE_IU2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1348264449
+  Description: Switch failure
+  Severity: Outage
+  StartTime: Nov 29, 2022 22:00 +0000
+  EndTime: Dec 05, 2022 14:00 +0000
+  CreatedTime: Nov 30, 2022 16:40 +0000
+  ResourceName: MWT2_SLATE_IU
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1497861403
+  Description: dCache downtime
+  Severity: Outage
+  StartTime: May 30, 2023 14:00 +0000
+  EndTime: May 30, 2023 20:25 +0000
+  CreatedTime: May 22, 2023 20:09 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1497861773
+  Description: dCache downtime
+  Severity: Outage
+  StartTime: May 30, 2023 14:00 +0000
+  EndTime: May 30, 2023 20:25 +0000
+  CreatedTime: May 22, 2023 20:09 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1497861882
+  Description: dCache downtime
+  Severity: Outage
+  StartTime: May 30, 2023 14:00 +0000
+  EndTime: May 30, 2023 20:25 +0000
+  CreatedTime: May 22, 2023 20:09 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------

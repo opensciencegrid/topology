@@ -1,0 +1,32 @@
+---
+Production: true
+SupportCenter: Self Supported
+GroupDescription: >-
+  This is a cluster of compute nodes as part of the Cloud and Autonomic
+  Computing Center at GLEAMM
+GroupID: 1302
+
+Resources:
+  GLEAMM-CAC-BACKFILL:
+    Active: true
+    Description: Backfill containers running on GLEAMM-CAC nodes
+    ID: 1324
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  OSG1000184
+          Name: Elham Hojati
+        Secondary:
+          ID: 342c6483676fe7d2be4df2b602ca5bec233ce684
+          Name: Alan Sill
+      Security Contact:
+        Primary:
+          ID:  OSG1000184
+          Name: Elham Hojati
+        Secondary:
+          ID: 342c6483676fe7d2be4df2b602ca5bec233ce684
+          Name: Alan Sill
+    FQDN: backfill.gleamm-cac.ttu.edu
+    Services:
+      Execution Endpoint:
+        Description: Backfill containers running at GLEAMM

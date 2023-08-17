@@ -1,0 +1,25 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Services located at the ESnet London Point of Presence
+GroupID: 1357
+Resources:
+  LONDON_ESNET_OSDF_CACHE:
+    Active: true
+    Description: ESnet London Cache
+    ID: 1451
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+    FQDN: lond-osdf-xcache01.es.net
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=Energy Sciences Network/CN=lond-osdf-xcache01.es.net
+    Services:
+      XRootD cache server:
+        Description: Internet2 London Cache
+    AllowedVOs:
+      - LIGO

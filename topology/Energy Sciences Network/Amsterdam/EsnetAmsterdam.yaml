@@ -1,0 +1,25 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Services located at the ESnet Amsterdam Point of Presence
+GroupID: 1356
+Resources:
+  AMSTERDAM_ESNET_OSDF_CACHE:
+    Active: true
+    Description: ESnet Amasterdam Cache
+    ID: 1450
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+    FQDN: amst-osdf-xcache01.es.net
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=Energy Sciences Network/CN=amst-osdf-xcache01.es.net
+    Services:
+      XRootD cache server:
+        Description: ESnet Amsterdam Cache
+    AllowedVOs:
+      - LIGO

@@ -12,14 +12,13 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: moved under the resource group BNL_LCG2. This will set the stage
       for unified site availability with WLCG.
     FQDN: gridgk01.racf.bnl.gov
@@ -29,7 +28,7 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://gridgk02.racf.bnl.gov
+          sam_uri: htcondor://gridgk01.racf.bnl.gov
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -53,14 +52,13 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: change resource groupname to BNL-LCG2
     FQDN: gridgk02.racf.bnl.gov
     ID: 4
@@ -93,14 +91,13 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
     FQDN: gridgk03.racf.bnl.gov
@@ -134,14 +131,13 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: This is just another gatekeeper, sharing the same backend resources
       with the other BNL_ATLAS_X gatekeepers.
     FQDN: gridgk04.racf.bnl.gov
@@ -175,14 +171,13 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
     FQDN: gridgk06.racf.bnl.gov
@@ -216,14 +211,13 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
     FQDN: gridgk07.racf.bnl.gov
@@ -258,14 +252,13 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: This CE will serve grid jobs submitted to the *local* USATLAS resources,
       e.g. for panda queue ANALY_BNL_LOCAL, at BNL.
     FQDN: gridgk08.racf.bnl.gov
@@ -282,9 +275,9 @@ Resources:
       APELNormalFactor: 12.69
       AccountingName: BNL_ATLAS_1
       HEPSPEC: 0
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
       KSI2KMax: 0
       KSI2KMin: 0
       StorageCapacityMax: 0
@@ -295,11 +288,14 @@ Resources:
       Administrative Contact:
         Primary:
           ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
-          Name: John S. De Stefano Jr.
+          Name: John Steven De Stefano Jr.
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: Round robin DNS alias for our two Frontier Squid nodes.
     FQDN: frontier-cache.sdcc.bnl.gov
     ID: 925
@@ -316,11 +312,14 @@ Resources:
       Administrative Contact:
         Primary:
           ID: 8a7d75ea65a2962520279197c72df6a16e1533a1
-          Name: John S. De Stefano Jr.
+          Name: John Steven De Stefano Jr.
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: Round robin DNS alias for our two Frontier Squid nodes.
     FQDN: cvmfs-cache.sdcc.bnl.gov
     ID: 1186
@@ -341,23 +340,20 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Miscellaneous Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: moved under the resource group BNL_LCG2. This will set the stage
       for unified site availability with WLCG.
     FQDN: dcsrm.usatlas.bnl.gov
     ID: 5
     Services:
+      SRMv2.disk:
+        Description: SRM V2 endpoint for the disk only storage
       SRMv2.tape:
         Description: SRM V2 endpoint for the tape system
     VOOwnership:
@@ -384,24 +380,19 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Miscellaneous Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Resource Report Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: A gridftp service 
     FQDN: dcgftp.usatlas.bnl.gov
     ID: 1089
     Services:
-      GridFtp:
-        Description: GridFtp service endpoint
+      WebDAV:
+        Description: WebDAV service endpoint
         Details:
           hidden: false
     VOOwnership:
@@ -419,7 +410,7 @@ Resources:
       StorageCapacityMin: 
       TapeCapacity: 
   BNL_ATLAS_SE_AWS_East:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -428,18 +419,13 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Miscellaneous Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Resource Report Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: SE at Amazon east region
     FQDN: bestse01.usatlas.bnl.gov
     ID: 664
@@ -447,7 +433,7 @@ Resources:
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
-          hidden: false
+          hidden: true
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -462,7 +448,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   BNL_ATLAS_SE_AWS_West:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -471,18 +457,13 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Miscellaneous Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
-      Resource Report Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: SE at Amazon wes -1 region
     FQDN: bestse02.usatlas.bnl.gov
     ID: 728
@@ -490,7 +471,7 @@ Resources:
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
-          hidden: false
+          hidden: true
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -505,7 +486,7 @@ Resources:
       StorageCapacityMin: 0
       TapeCapacity: 0
   BNL_ATLAS_SE_AWS_West2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -514,18 +495,13 @@ Resources:
         Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-      Miscellaneous Contact:
-        Primary:
-          ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
-          Name: Xin Zhao
-      Resource Report Contact:
-        Primary:
-          ID: cd664fe4b3ce5a2b429ddd41c8877f9ca030800b
-          Name: Hironori Ito
       Security Contact:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: SE at Amazon West-2 region.
     FQDN: bestse03.usatlas.bnl.gov
     ID: 826
@@ -533,7 +509,7 @@ Resources:
       SRMv2:
         Description: SRM V2 Storage Element
         Details:
-          hidden: false
+          hidden: true
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -558,6 +534,9 @@ Resources:
         Primary:
           Name: BNL Atlas Tier 1 support
           ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
     Description: perfSonar box
     FQDN: lhcmon.bnl.gov
     ID: 554

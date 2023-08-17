@@ -4,8 +4,8 @@ GroupID: 1121
 GroupDescription: Louisiana State University Health Sciences Center Tigerfish Cluster
 Resources:
   LSUHSC-Tigerfish-CE1:
-    Active: true
-    ID : 1173
+    Active: false
+    ID: 1173
     Description: The Hosted CE serving LSUHSC-Tigerfish
     ContactLists:
       Administrative Contact:
@@ -23,6 +23,33 @@ Resources:
           Name: Jeffrey Peterson
           ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
     FQDN: lsuhsc-tf-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Hosted CE
+        Details:
+          hidden: false
+    Tags:
+      - CC*
+  LSUHSC-Tigerfish-CE2:
+    Active: true
+    ID : 1391
+    Description: The Hosted CE serving LSUHSC-Tigerfish
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        Secondary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+    FQDN: lsuhsc-tf-ce2.svc.opensciencegrid.org
     Services:
       CE:
         Description: Hosted CE

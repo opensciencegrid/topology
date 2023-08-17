@@ -40,3 +40,28 @@ Resources:
 
     AllowedVOs:
       - ANY
+
+  # Resource Name should be a short descriptor of the resource.
+  SDSC-test-Origin:
+    Active: true
+    Description: OSDF origin test
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+
+    FQDN: osdftest.t2.ucsd.edu
+    ID: 1307
+
+    Services:
+      XRootD origin server:
+        Description: OSDF origin test
+
+    AllowedVOs:
+      - ANY

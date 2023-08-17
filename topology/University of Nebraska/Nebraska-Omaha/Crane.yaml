@@ -3,7 +3,7 @@ GroupID: 388
 Production: true
 Resources:
   Crane-CE1:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -15,13 +15,6 @@ Resources:
         Tertiary:
           ID: f7fbc93bc8a7d276e8b5a94fb4ff905841a7763f
           Name: John Thiltges
-      Resource Report Contact:
-        Primary:
-          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
-          Name: Garhan Attebury
-        Secondary:
-          ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
-          Name: Derek Weitzel
       Security Contact:
         Primary:
           ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
@@ -54,29 +47,4 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-  HCC-PKI-Proxy:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
-          Name: Garhan Attebury
-        Secondary:
-          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
-          Name: Carl Lundstedt
-      Security Contact:
-        Primary:
-          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
-          Name: Garhan Attebury
-        Secondary:
-          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
-          Name: Carl Lundstedt
-    Description: Round robin DNS alias for HCC Squids in Omaha
-    FQDN: hcc-pki-proxy.unl.edu
-    ID: 1004
-    Services:
-      Squid:
-        Description: Generic squid service
-    VOOwnership:
-      HCC: 100
 SupportCenter: Community Support Center

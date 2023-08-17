@@ -4,8 +4,8 @@ from collections import OrderedDict
 from logging import getLogger
 from typing import Dict, List, Optional
 
-
-from .common import Filters, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict
+from .common import Filters, ParsedYaml, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape
+from .data_federation import StashCache
 from .contacts_reader import ContactsData
 
 
@@ -13,16 +13,56 @@ log = getLogger(__name__)
 
 
 class VOsData(object):
-    def __init__(self, contacts_data: ContactsData, reporting_groups_data):
+    def __init__(self, contacts_data: ContactsData, reporting_groups_data: ParsedYaml):
         self.contacts_data = contacts_data
-        self.vos = {}
+        self.vos = {}  # type: Dict[str, ParsedYaml]
         self.reporting_groups_data = reporting_groups_data
+        self.stashcache_by_vo_name = {}  # type: Dict[str, StashCache]
 
-    def get_vo_id_to_name(self) -> Dict:
+    def get_vo_id_to_name(self) -> Dict[str, str]:
         return {self.vos[name]["ID"]: name for name in self.vos}
 
-    def add_vo(self, vo_name, vo_data):
+    def add_vo(self, vo_name: str, vo_data: ParsedYaml):
         self.vos[vo_name] = vo_data
+        stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
+        if stashcache_data:
+            stashcache_obj = StashCache(vo_name, stashcache_data)
+            if stashcache_obj.errors:
+                log.exception("Problem(s) with DataFederations/StashCache data for VO %s: %s",
+                              vo_name, "\n".join(stashcache_obj.errors))
+            else:
+                self.stashcache_by_vo_name[vo_name] = stashcache_obj
+
+    def get_expansion(self, authorized=False, filters: Filters = None):
+        if not filters:
+            filters = Filters()
+        expanded_vo_list = []
+        for vo_name, vo_data in sorted(self.vos.items(), key=lambda x: x[0].lower()):
+            try:
+                expanded_vo_data = self._expand_vo(vo_name, authorized=authorized, filters=filters)
+
+                # Add the regex pattern from the scitokens mapfile
+                if not is_null(vo_data, "Credentials", "TokenIssuers"):
+                    for index, token_issuer in enumerate(vo_data["Credentials"]["TokenIssuers"]):
+                        url = token_issuer.get("URL")
+                        subject = token_issuer.get("Subject", "")
+                        pattern = ""
+                        if url:
+                            if subject:
+                                pattern = f'/^{escape(url)},{escape(subject)}$/'
+                            else:
+                                pattern = f'/^{escape(url)},/'
+
+                        if pattern:
+                            expanded_vo_data["Credentials"]["TokenIssuers"]["TokenIssuer"][index]['Pattern'] = pattern
+
+                if expanded_vo_data:
+                    expanded_vo_list.append(expanded_vo_data)
+
+            except (KeyError, ValueError, AttributeError) as err:
+                log.exception("Problem with VO data for %s: %s", vo_name, err)
+
+        return expanded_vo_list
 
     def get_tree(self, authorized=False, filters: Filters = None) -> Dict:
         if not filters:
@@ -102,7 +142,9 @@ class VOsData(object):
                 new_token_issuers = [
                     OrderedDict([
                         ("URL", x.get("URL")),
-                        ("DefaultUnixUser", x.get("DefaultUnixUser"))
+                        ("DefaultUnixUser", x.get("DefaultUnixUser")),
+                        ("Description", x.get("Description")),
+                        ("Subject", x.get("Subject")),
                     ])
                     for x in token_issuers
                 ]

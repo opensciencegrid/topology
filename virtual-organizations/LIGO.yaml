@@ -37,6 +37,10 @@ Contacts:
     Name: James Alexander Clark
   - ID: 1e153a63463094d82c7b2786bd2f57f996974984 
     Name: Duncan MacLeod
+Credentials:
+  TokenIssuers:
+    - URL: https://scitokens.org/ligo
+      DefaultUnixUser: ligo
 Disable: false
 FieldsOfScience:
   PrimaryFields:
@@ -52,7 +56,7 @@ OASIS:
     - Name: Brian Bockelman
       DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
         Paul Bockelman
-      ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
+      ID: OSG1000001
     - Name: James Alexander Clark
       DNs: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=People/CN=James Alexander
         Clark 4038
@@ -60,6 +64,11 @@ OASIS:
   OASISRepoURLs:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/ligo.osgstorage.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/gwosc.osgstorage.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/igwn.osgstorage.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/virgo.storage.igwn.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/ligo.storage.igwn.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/shared.storage.igwn.org
+  - http://cvmfs-software.ligo.caltech.edu:8000/cvmfs/software.igwn.org
   UseOASIS: true
 PrimaryURL: http://www.ligo.org
 PurposeURL: http://www.ligo.org
@@ -68,36 +77,198 @@ ReportingGroups:
 DataFederations:
   StashCache:
     Namespaces:
-      /user/ligo:
-        - FQAN: /osg/ligo
-        - SciTokens:
-            Issuer: https://scitokens.org/ligo
-            Base Path: /user/ligo
-        - SciTokens:
-            Issuer: https://test.cilogon.org/ligo
-            Base Path: /user/ligo
-        - SciTokens:
-            Issuer: https://cilogon.org/ligo
-            Base Path: /user/ligo
-      /gwdata:
-        - PUBLIC
-    AllowedOrigins:
-      - CIT_LIGO_ORIGIN
-      - LIGO-StashCache-Origin
-      - UCL-Virgo-StashCache-Origin
-    AllowedCaches:
-      - SUT-STASHCACHE
-      - HCC-Stash
-      - Georgia_Tech_PACE_GridFTP2
-      - Stashcache-UCSD
-      - Stashcache-UofA
-      - Stashcache-Cardiff
-      - Stashcache-KISTI
-      - Stashcache-Houston
-      - Stashcache-Manhattan
-      - Stashcache-Sunnyvale
-      - Stashcache-Chicago
-      - Stashcache-Kansas
-      - T1_STASHCACHE_CACHE
-      - PIC_STASHCACHE_CACHE
-      - SU_STASHCACHE_CACHE
+      - Path: /user/ligo
+        Authorizations:
+          - FQAN: /osg/ligo
+          - FQAN: /virgo
+          - FQAN: /virgo/virgo
+          - FQAN: /virgo/ligo
+          - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn
+        AllowedOrigins:
+          - CIT_LIGO_ORIGIN
+          - LIGO-StashCache-Origin
+        AllowedCaches:
+          - SUT-STASHCACHE
+          - Georgia_Tech_PACE_GridFTP2
+          - Stashcache-UCSD
+          - Stashcache-UofA
+          - Stashcache-KISTI
+          - Stashcache-Houston
+          - Stashcache-Manhattan
+          - Stashcache-Sunnyvale
+          - Stashcache-Chicago
+          - Stashcache-Kansas
+          - PIC_STASHCACHE_CACHE
+          - SU_STASHCACHE_CACHE
+          - PSU-LIGO-CACHE
+          - MGHPCC_NRP_OSDF_CACHE
+          - SDSC_NRP_OSDF_CACHE
+          - NEBRASKA_NRP_OSDF_CACHE
+          - CINCINNATI_INTERNET2_OSDF_CACHE
+          - BOISE_INTERNET2_OSDF_CACHE
+          - T1_STASHCACHE_CACHE
+          - CARDIFF_UK_OSDF_CACHE
+          - ComputeCanada-Cedar-Cache
+          - JACKSONVILLE_INTERNET2_OSDF_CACHE
+          - DENVER_INTERNET2_OSDF_CACHE
+          - AMSTERDAM_ESNET_OSDF_CACHE
+          - LONDON_ESNET_OSDF_CACHE
+          - HOUSTON2_INTERNET2_OSDF_CACHE
+          - CIT_LIGO_STASHCACHE
+          - SINGAPORE_INTERNET2_OSDF_CACHE
+          - SPRACE_OSDF_CACHE
+      - Path: /igwn/virgo
+        Authorizations:
+          - FQAN: /osg/ligo
+          - FQAN: /virgo
+          - FQAN: /virgo/virgo
+          - FQAN: /virgo/ligo
+          # No Scitokens issuers because they are duplicated with the /user/ligo path.
+          # As long as the caches are kept in sync, this below fix should be fine.
+          # But the problem should be solved either by topology (ideally) or the SciTokens XRootD plugin.
+          - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn
+        AllowedOrigins:
+          - UCL-Virgo-StashCache-Origin
+        AllowedCaches:
+          - SUT-STASHCACHE
+          - Georgia_Tech_PACE_GridFTP2
+          - Stashcache-UCSD
+          - Stashcache-UofA
+          - Stashcache-KISTI
+          - Stashcache-Houston
+          - Stashcache-Manhattan
+          - Stashcache-Sunnyvale
+          - Stashcache-Chicago
+          - Stashcache-Kansas
+          - PIC_STASHCACHE_CACHE
+          - SU_STASHCACHE_CACHE
+          - PSU-LIGO-CACHE
+          - MGHPCC_NRP_OSDF_CACHE
+          - SDSC_NRP_OSDF_CACHE
+          - NEBRASKA_NRP_OSDF_CACHE
+          - CINCINNATI_INTERNET2_OSDF_CACHE
+          - BOISE_INTERNET2_OSDF_CACHE
+          - T1_STASHCACHE_CACHE
+          - CARDIFF_UK_OSDF_CACHE
+          - ComputeCanada-Cedar-Cache
+          - JACKSONVILLE_INTERNET2_OSDF_CACHE
+          - DENVER_INTERNET2_OSDF_CACHE
+          - AMSTERDAM_ESNET_OSDF_CACHE
+          - LONDON_ESNET_OSDF_CACHE
+          - HOUSTON2_INTERNET2_OSDF_CACHE
+          - CIT_LIGO_STASHCACHE
+          - SINGAPORE_INTERNET2_OSDF_CACHE
+          - SPRACE_OSDF_CACHE
+      - Path: /igwn/ligo
+        Authorizations:
+          - FQAN: /osg/ligo
+          - FQAN: /virgo
+          - FQAN: /virgo/virgo
+          - FQAN: /virgo/ligo
+          # No Scitokens issuers because they are duplicated with the /user/ligo path.
+          # As long as the caches are kept in sync, this below fix should be fine.
+          # But the problem should be solved either by topology (ideally) or the SciTokens XRootD plugin.
+          - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn
+        AllowedOrigins:
+          - CIT_LIGO_ORIGIN_IFO
+        AllowedCaches:
+          - SUT-STASHCACHE
+          - Georgia_Tech_PACE_GridFTP2
+          - Stashcache-UCSD
+          - Stashcache-UofA
+          - Stashcache-KISTI
+          - Stashcache-Houston
+          - Stashcache-Manhattan
+          - Stashcache-Sunnyvale
+          - Stashcache-Chicago
+          - Stashcache-Kansas
+          - PIC_STASHCACHE_CACHE
+          - SU_STASHCACHE_CACHE
+          - PSU-LIGO-CACHE
+          - MGHPCC_NRP_OSDF_CACHE
+          - SDSC_NRP_OSDF_CACHE
+          - NEBRASKA_NRP_OSDF_CACHE
+          - CINCINNATI_INTERNET2_OSDF_CACHE
+          - BOISE_INTERNET2_OSDF_CACHE
+          - T1_STASHCACHE_CACHE
+          - CARDIFF_UK_OSDF_CACHE
+          - ComputeCanada-Cedar-Cache
+          - JACKSONVILLE_INTERNET2_OSDF_CACHE
+          - DENVER_INTERNET2_OSDF_CACHE
+          - AMSTERDAM_ESNET_OSDF_CACHE
+          - LONDON_ESNET_OSDF_CACHE                    
+          - HOUSTON2_INTERNET2_OSDF_CACHE
+          - CIT_LIGO_STASHCACHE
+          - SINGAPORE_INTERNET2_OSDF_CACHE
+          - SPRACE_OSDF_CACHE
+      - Path: /igwn/shared
+        Authorizations:
+          - FQAN: /osg/ligo
+          - FQAN: /virgo
+          - FQAN: /virgo/virgo
+          - FQAN: /virgo/ligo
+          # No Scitokens issuers because they are duplicated with the /user/ligo path.
+          # As long as the caches are kept in sync, this below fix should be fine.
+          # But the problem should be solved either by topology (ideally) or the SciTokens XRootD plugin.
+          - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn
+        AllowedOrigins:
+          - CIT_LIGO_ORIGIN_SHARED
+        AllowedCaches:
+          - SUT-STASHCACHE
+          - Georgia_Tech_PACE_GridFTP2
+          - Stashcache-UCSD
+          - Stashcache-UofA
+          - Stashcache-KISTI
+          - Stashcache-Houston
+          - Stashcache-Manhattan
+          - Stashcache-Sunnyvale
+          - Stashcache-Chicago
+          - Stashcache-Kansas
+          - PIC_STASHCACHE_CACHE
+          - SU_STASHCACHE_CACHE
+          - PSU-LIGO-CACHE
+          - MGHPCC_NRP_OSDF_CACHE
+          - SDSC_NRP_OSDF_CACHE
+          - NEBRASKA_NRP_OSDF_CACHE
+          - CINCINNATI_INTERNET2_OSDF_CACHE
+          - BOISE_INTERNET2_OSDF_CACHE
+          - T1_STASHCACHE_CACHE
+          - CARDIFF_UK_OSDF_CACHE
+          - ComputeCanada-Cedar-Cache
+          - JACKSONVILLE_INTERNET2_OSDF_CACHE
+          - DENVER_INTERNET2_OSDF_CACHE
+          - AMSTERDAM_ESNET_OSDF_CACHE
+          - LONDON_ESNET_OSDF_CACHE
+          - HOUSTON2_INTERNET2_OSDF_CACHE
+          - CIT_LIGO_STASHCACHE
+          - SINGAPORE_INTERNET2_OSDF_CACHE
+          - SPRACE_OSDF_CACHE
+      - Path: /gwdata
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CIT_LIGO_ORIGIN
+          - LIGO-StashCache-Origin
+          - UCL-Virgo-StashCache-Origin
+        AllowedCaches:
+          - ANY

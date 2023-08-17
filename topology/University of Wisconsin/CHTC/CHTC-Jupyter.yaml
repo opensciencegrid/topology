@@ -1,0 +1,37 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: >-
+  EPs for the Jupyter service at CHTC.
+
+GroupID: 1149
+
+Resources:
+  CHTC-Jupyter-User-EP:
+    Active: true
+    Description: >-
+      Each user of the Jupyter service gets their own EP for developing and
+      testing potential OSPool jobs. Thus, each EP will be ephemeral,
+      existing only as long as its corresponding user is using the service.
+
+      The FQDN is a logical descriptor.
+
+    ID: 1274
+
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000031
+          Name: Brian Aydemir
+      Security Contact:
+        Primary:
+          ID: OSG1000031
+          Name: Brian Aydemir
+        Secondary:
+          ID: OSG1000001
+          Name: Brian Bockelman
+
+    FQDN: user-ep.jupyter.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint

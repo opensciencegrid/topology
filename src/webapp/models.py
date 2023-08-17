@@ -1,13 +1,12 @@
 import datetime
 import logging
 import os
-import re
 import time
-from typing import Dict, Set, List
+from typing import Dict, Set, List, Optional
 
 import yaml
 
-from webapp import cilogon_ldap, common, contacts_reader, mappings, project_reader, rg_reader, vo_reader
+from webapp import common, contacts_reader, ldap_data, mappings, project_reader, rg_reader, vo_reader
 from webapp.common import readfile
 from webapp.contacts_reader import ContactsData
 from webapp.topology import Topology, Downtime
@@ -57,6 +56,7 @@ class GlobalData:
         self.contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
         self.comanage_data = CachedData(cache_lifetime=contact_cache_lifetime)
         self.merged_contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
+        self.ligo_dn_list = CachedData(cache_lifetime=contact_cache_lifetime)
         self.dn_set = CachedData(cache_lifetime=topology_cache_lifetime)
         self.projects = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology = CachedData(cache_lifetime=topology_cache_lifetime)
@@ -78,6 +78,10 @@ class GlobalData:
         self.ligo_ldap_passfile = config.get("LIGO_LDAP_PASSFILE")
         self.ligo_ldap_url = config.get("LIGO_LDAP_URL")
         self.ligo_ldap_user = config.get("LIGO_LDAP_USER")
+        self.github_oauth_client_secret = config.get("GITHUB_OAUTH_CLIENT_SECRET")
+        self.auto_pr_gh_api_user = config.get("AUTO_PR_GH_API_USER")
+        self.auto_pr_gh_api_token = config.get("AUTO_PR_GH_API_TOKEN")
+        self.csrf_secret_key = config.get("CSRF_SECRET_KEY")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:
@@ -137,13 +141,17 @@ class GlobalData:
             return False
         return True
 
-    def get_contact_db_data(self) -> ContactsData:
+    def get_contact_db_data(self) -> Optional[ContactsData]:
         """
         Get the contact information from a private git repo
+
+        Returns an empty ContactsData if CONTACT_DATA_DIR is not specified.
+        May return None if we fail to get the data for the first time.
         """
         if not self.config.get("CONTACT_DATA_DIR", None):
             log.debug("CONTACT_DATA_DIR not specified; getting empty contacts")
-            return contacts_reader.get_contacts_data(None)
+            data = contacts_reader.get_contacts_data(None)
+            self.contacts_data.update(data)
         elif self.contacts_data.should_update():
             ok = self._update_contacts_repo()
             if ok:
@@ -159,19 +167,21 @@ class GlobalData:
 
         return self.contacts_data.data
 
-    def get_comanage_data(self) -> ContactsData:
+    def get_comanage_data(self) -> Optional[ContactsData]:
         """
         Get the contact information from comanage / cilogon ldap
+        May return None if we fail to get the data for the first time.
         """
         if not (self.cilogon_ldap_url and self.cilogon_ldap_user and
                 self.cilogon_ldap_passfile):
             log.debug("CILOGON_LDAP_{URL|USER|PASSFILE} not specified; "
                       "getting empty contacts")
-            return contacts_reader.get_contacts_data(None)
+            data = contacts_reader.get_contacts_data(None)
+            self.comanage_data.update(data)
         elif self.comanage_data.should_update():
             try:
                 idmap = self.get_cilogon_ldap_id_map()
-                data = cilogon_ldap.cilogon_id_map_to_yaml_data(idmap)
+                data = ldap_data.cilogon_id_map_to_yaml_data(idmap)
                 self.comanage_data.update(ContactsData(data))
             except Exception:
                 if self.strict:
@@ -185,17 +195,18 @@ class GlobalData:
         url = self.cilogon_ldap_url
         user = self.cilogon_ldap_user
         ldappass = readfile(self.cilogon_ldap_passfile, log)
-        return cilogon_ldap.get_cilogon_ldap_id_map(url, user, ldappass)
+        return ldap_data.get_cilogon_ldap_id_map(url, user, ldappass)
 
-    def get_contacts_data(self) -> ContactsData:
+    def get_contacts_data(self) -> Optional[ContactsData]:
         """
         Get the contact information from a private git repo
+        May return None if we fail to get the data for the first time.
         """
         if self.merged_contacts_data.should_update():
             try:
                 yd1 = self.get_comanage_data().yaml_data
                 yd2 = self.get_contact_db_data().yaml_data
-                yd_merged = cilogon_ldap.merge_yaml_data(yd1, yd2)
+                yd_merged = ldap_data.merge_yaml_data(yd1, yd2)
                 self.merged_contacts_data.update(ContactsData(yd_merged))
             except Exception:
                 if self.strict:
@@ -205,9 +216,33 @@ class GlobalData:
 
         return self.merged_contacts_data.data
 
-    def get_dns(self) -> Set:
+    def get_ligo_dn_list(self) -> Optional[List[str]]:
+        """
+        Get list of DNs of authorized LIGO users from their LDAP
+        May return None if we fail to get the data for the first time.
+        """
+        if not (self.ligo_ldap_url and self.ligo_ldap_user and
+                self.ligo_ldap_passfile):
+            log.debug("LIGO_LDAP_{URL|USER|PASSFILE} not specified; "
+                      "getting empty list")
+            return []
+        elif self.ligo_dn_list.should_update():
+            try:
+                ligo_ldap_pass = readfile(self.ligo_ldap_passfile, log)
+                new_dn_list = ldap_data.get_ligo_ldap_dn_list(self.ligo_ldap_url, self.ligo_ldap_user, ligo_ldap_pass)
+                self.ligo_dn_list.update(new_dn_list)
+            except Exception:
+                if self.strict:
+                    raise
+                log.exception("Failed to update LIGO data")
+                self.ligo_dn_list.try_again()
+
+        return self.ligo_dn_list.data
+
+    def get_dns(self) -> Optional[Set]:
         """
         Get the set of DNs allowed to access "special" data (such as contact info)
+        May return None if we fail to get the data for the first time.
         """
         if self.dn_set.should_update():
             contacts_data = self.get_contacts_data()
@@ -220,7 +255,11 @@ class GlobalData:
                 self.contacts_data.try_again()
         return self.dn_set.data
 
-    def get_topology(self) -> Topology:
+    def get_topology(self) -> Optional[Topology]:
+        """
+        Get Topology data.
+        May return None if we fail to get the data for the first time.
+        """
         if self.topology.should_update():
             ok = self._update_topology_repo()
             if ok:
@@ -236,7 +275,11 @@ class GlobalData:
 
         return self.topology.data
 
-    def get_vos_data(self) -> VOsData:
+    def get_vos_data(self) -> Optional[VOsData]:
+        """
+        Get VO Data.
+        May return None if we fail to get the data for the first time.
+        """
         if self.vos_data.should_update():
             ok = self._update_topology_repo()
             if ok:
@@ -252,7 +295,11 @@ class GlobalData:
 
         return self.vos_data.data
 
-    def get_projects(self) -> Dict:
+    def get_projects(self) -> Optional[Dict]:
+        """
+        Get Project data.
+        May return None if we fail to get the data for the first time.
+        """
         if self.projects.should_update():
             ok = self._update_topology_repo()
             if ok:
@@ -268,7 +315,11 @@ class GlobalData:
 
         return self.projects.data
 
-    def get_mappings(self) -> mappings.Mappings:
+    def get_mappings(self) -> Optional[mappings.Mappings]:
+        """
+        Get mappings data.
+        May return None if we fail to get the data for the first time.
+        """
         if self.mappings.should_update():
             ok = self._update_topology_repo()
             if ok:

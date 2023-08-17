@@ -2,51 +2,6 @@ GroupDescription: (No resource group description)
 GroupID: 10
 Production: true
 Resources:
-  CIT_CMS_SE:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-      Security Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-    Description: LVS load balancer at US CMS Tier-2 site Caltech.
-    FQDN: transfer.ultralight.org
-    ID: 169
-    Services:
-      GridFtp:
-        Description: GridFTP Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      AccountingName: T2_US_Caltech
-      HEPSPEC: 0
-      InteropAccounting: true
-      InteropBDII: false
-      InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 100
-      StorageCapacityMin: 1000
   CIT_CMS_T2:
     Active: true
     ContactLists:
@@ -57,13 +12,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -71,6 +22,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: US CMS Tier-2 site at Caltech
     FQDN: cit-gatekeeper.ultralight.org
     FQDNAliases:
@@ -105,13 +59,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -119,6 +69,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: CE for Caltech CMS Tier2 facility.
     FQDN: cit-gatekeeper2.ultralight.org
     FQDNAliases:
@@ -153,13 +106,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -167,6 +116,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: CE for Caltech CMS Tier2 facility.
     FQDN: cit-gatekeeper3.ultralight.org
     FQDNAliases:
@@ -201,13 +153,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -215,6 +163,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Scheduler for Local users of Caltech CMS Group
     FQDN: login-1.tier2
     ID: 1055
@@ -247,13 +198,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -261,6 +208,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Scheduler for Local users of Caltech CMS Group
     FQDN: login-1.hep.caltech.edu
     ID: 1064
@@ -293,13 +243,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -307,6 +253,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Scheduler for Local users of Caltech CMS Group
     FQDN: login-2.hep.caltech.edu
     ID: 1062
@@ -339,13 +288,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -353,6 +298,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Scheduler for Local users of Caltech CMS Group
     FQDN: login-3.hep.caltech.edu
     ID: 1063
@@ -385,13 +333,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -399,6 +343,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Squid service for frontier and cvmfs
     FQDN: proxy-1.ultralight.org
     ID: 688
@@ -416,13 +363,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -430,6 +373,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Second Squid service for frontier and cvmfs
     FQDN: proxy-2.ultralight.org
     ID: 225
@@ -438,89 +384,6 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       CMS: 100
-  CMS_CIT_T2_SC_ORIGIN_01:
-    Active: false
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-      Security Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-    DN: /DC=org/DC=incommon/C=US/ST=CA/L=Pasadena/O=California Institute of Technology/OU=High Energy Physics/CN=stashcache-origin-01.ultralight.org
-    FQDN: stashcache-origin-01.ultralight.org
-    ID: 1009
-    Services:
-      XRootD origin server:
-        Description: StashCache origin server for user data
-    AllowedVOs:
-      - CMS
-    VOOwnership:
-      CMS: 100
-  CIT_HEP_CE:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-      Security Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-    Description: Local department general purpose cluster providing opportunistic
-      CPUs to CMS.
-    FQDN: muon.hep.caltech.edu
-    FQDNAliases:
-    - muon.hep.caltech.edu
-    ID: 366
-    Services:
-      CE:
-        Description: Compute Element
-        Details:
-          hidden: false
-          sam_uri: htcondor://muon.hep.caltech.edu
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 85
-      InteropAccounting: false
-      InteropBDII: false
-      InteropMonitoring: false
-      KSI2KMax: 500
-      KSI2KMin: 100
-      StorageCapacityMax: 0
-      StorageCapacityMin: 0
-      TapeCapacity: 0
   Caltech PerfSonar Bandwidth:
     Active: true
     ContactLists:
@@ -531,13 +394,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -545,6 +404,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Bandwidth PerfSonar node
     FQDN: perfsonar.ultralight.org
     ID: 610
@@ -565,13 +427,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -579,6 +437,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Latency host for PerfSonar.
     FQDN: perfsonar2.ultralight.org
     ID: 609
@@ -599,13 +460,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -613,6 +470,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Xrootd Redirector
     FQDN: xrootd.ultralight.org
     ID: 1122
@@ -622,51 +482,6 @@ Resources:
         Details:
           hidden: false
           uri_override: xrootd.ultralight.org:1094
-  CIT_CMS_SE_Ceph:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-      Security Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-    Description: LVS load balancer at US CMS Tier-2 site Caltech.
-    FQDN: transfer-lb.ultralight.org
-    ID: 1154
-    Services:
-      GridFtp:
-        Description: GridFTP Storage Element
-        Details:
-          hidden: false
-    VOOwnership:
-      CMS: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      AccountingName: T2_US_Caltech
-      HEPSPEC: 0
-      InteropAccounting: true
-      InteropBDII: false
-      InteropMonitoring: true
-      KSI2KMax: 0
-      KSI2KMin: 0
-      StorageCapacityMax: 100
-      StorageCapacityMin: 1000
   CIT_CMS_T2_XRD_Ceph:
     Active: true
     ContactLists:
@@ -677,13 +492,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
-      Resource Report Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -691,6 +502,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Xrootd Redirector
     FQDN: xrootd-redir.ultralight.org
     ID: 1155

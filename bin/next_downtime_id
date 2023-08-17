@@ -4,6 +4,7 @@ set -o pipefail
 cd "$(dirname "$0")"/..
 
 unset GREP_OPTIONS
-egrep -h '^ *ID: *[0-9]{1,9}\>' topology/*/*/*_downtime.yaml |
+# After 18 digits we might start running into integer overflow issues...
+egrep -h '^ *ID: *[0-9]{1,18}\>' topology/*/*/*_downtime.yaml |
   awk '$2 > max {max = $2}; END {print max + 1}'
 

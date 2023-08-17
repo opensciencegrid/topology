@@ -6,6 +6,12 @@ Community: Fermilab Virtual Organization (VO) - The Fermilab VO is an "umbrella"
   have their own Virtual Organization. Broadly these include the intensity frontier
   program, theoretical simulations, fixed target analysis, and accelerator and beamline
   design as well as activities performed by the Fermilab Campus Grid administrators.
+Credentials:
+  TokenIssuers:
+    - Description: Fermilab pilots
+      Subject: fermilabpilot@fnal.gov
+      URL: https://cilogon.org/fermilab
+      DefaultUnixUser: fermilabpilot
 Contacts:
   Administrative Contact:
   - ID: cb55ac2721726ebc83c3781ebe798e05ba425c47
@@ -47,8 +53,8 @@ OASIS:
   OASISRepoURLs:
     - http://oasiscfs.fnal.gov:8000/cvmfs/fermilab.opensciencegrid.org
     - http://oasiscfs.fnal.gov:8000/cvmfs/larsoft.opensciencegrid.org
-    - http://rcds01.fnal.gov:8000/cvmfs/fifeuser1.opensciencegrid.org
-    - http://rcds01.fnal.gov:8000/cvmfs/fifeuser2.opensciencegrid.org
+    - http://rcds02.fnal.gov:8000/cvmfs/fifeuser1.opensciencegrid.org
+    - http://rcds02.fnal.gov:8000/cvmfs/fifeuser2.opensciencegrid.org
     - http://rcds02.fnal.gov:8000/cvmfs/fifeuser3.opensciencegrid.org
     - http://rcds02.fnal.gov:8000/cvmfs/fifeuser4.opensciencegrid.org
   UseOASIS: false
@@ -78,8 +84,10 @@ SupportURL: http://fermigrid.fnal.gov/
 DataFederations:
   StashCache:
     Namespaces:
-      /pnfs/fnal.gov:
-        - PUBLIC
-    AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /pnfs/fnal.gov
-    AllowedCaches:
-      - ANY
+      - Path: /pnfs/fnal.gov
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - FNAL_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY

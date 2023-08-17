@@ -5,6 +5,7 @@
 A simple tool for generating notification emails to the OSG
 """
 import os
+import re
 import sys
 import getpass
 import smtplib
@@ -133,10 +134,10 @@ def parseargs():
 
     if args.from_name == 'security':
         args.from_name = 'OSG Security Team'
-        args.from_addr = 'security@opensciencegrid.org'
+        args.from_addr = 'security@osg-htc.org'
     else:
-        args.from_name = 'Open Science Grid'
-        args.from_addr = 'help@opensciencegrid.org'
+        args.from_name = 'OSG'
+        args.from_addr = 'help@osg-htc.org'
 
     return args
 
@@ -152,12 +153,17 @@ def network_ok(bypass_dns_check):
         print("***")
         print("Refusing to send email without hostname/public DNS match.")
         print("For more info, see:")
-        print("  https://opensciencegrid.org//operations/services/sending-announcements/")
+        print("  https://osg-htc.org//operations/services/sending-announcements/")
         return False
 
 def replace_smart_quotes_and_dashes(contents):
     # Replace smart quotes and em/en dashes
-    replaced = contents.replace('“','"').replace('”','"').replace("–","-").replace("—","-")
+    regex_sub_map = [(r'[“”]', '"'),
+                     (r'[‘’]', "'"),
+                     (r'[—–]', '-')]
+    replaced = contents
+    for pattern, sub in regex_sub_map:
+        replaced = re.sub(pattern, sub, replaced)
     return replaced
 
 def has_non_printable_ascii_characters(contents):
@@ -176,7 +182,20 @@ def main():
 
     recipients = set(args.recipients.split())
     if args.oim_recipients and 'vos' in args.oim_recipients:
-        results = topology_utils.get_vo_contacts(args)
+        attempts = 3
+        while attempts > 0:
+            try:
+                results = topology_utils.get_vo_contacts(args)
+            except topology_utils.InvalidPathError as exc:
+                print(exc)
+                exit(1)
+            except topology_utils.IncorrectPasswordError as exc:
+                attempts -= 1
+                if attempts == 0:
+                    print("Too many incorrect password attempts, exiting")
+                    exit(1)
+                else:
+                    print(exc)
         results = topology_utils.filter_contacts(args, results)
         emails = set()
         for name in results.keys():
@@ -185,10 +204,21 @@ def main():
                     emails.add(contact['Email'])
         recipients.update(emails)
     if args.oim_recipients and 'resources' in args.oim_recipients:
-        if args.fqdn_filter:
-            results = topology_utils.get_resource_contacts_by_fqdn(args)
-        else:
-            results = topology_utils.get_resource_contacts(args)
+        attempts = 3
+        while attempts > 0:
+            try:
+                if args.fqdn_filter:
+                    results = topology_utils.get_resource_contacts_by_fqdn(args)
+                else:
+                    results = topology_utils.get_resource_contacts(args)
+            except topology_utils.InvalidPathError as exc:
+                exit(str(exc))
+            except topology_utils.IncorrectPasswordError as exc:
+                attempts -= 1
+                if attempts == 0:
+                    exit("Too many incorrect password attempts, exiting")
+                else:
+                    print(exc)
         results = topology_utils.filter_contacts(args, results)
         emails = set()
         for name in results.keys():
@@ -217,7 +247,7 @@ def main():
 ** This is a test of the osg-notify tool
 ** Please IGNORE the contents of this message
 ** If you received this message in error, please
-** contact help@opensciencegrid.org
+** contact help@osg-htc.org
 ===================================================
 """ + contents
 

@@ -644,4 +644,264 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1019882440
+  Description: Kernel reboots
+  Severity: Intermittent Outage
+  StartTime: Nov 17, 2021 14:00 +0000
+  EndTime: Nov 17, 2021 18:00 +0000
+  CreatedTime: Nov 15, 2021 14:57 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1019883145
+  Description: Kernel reboots
+  Severity: Intermittent Outage
+  StartTime: Nov 17, 2021 14:00 +0000
+  EndTime: Nov 17, 2021 18:00 +0000
+  CreatedTime: Nov 15, 2021 14:58 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1104533281
+  Description: Tape library only -- recalls delayed, dCache stays up.
+  Severity: Intermittent Outage
+  StartTime: Feb 24, 2022 14:00 +0000
+  EndTime: Feb 24, 2022 23:00 +0000
+  CreatedTime: Feb 21, 2022 14:22 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1128757830
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Mar 22, 2022 13:00 +0000
+  EndTime: Mar 22, 2022 21:00 +0000
+  CreatedTime: Mar 21, 2022 15:16 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1146755152
+  Description: dCache upgrade
+  Severity: Intermittent Outage
+  StartTime: Apr 12, 2022 13:00 +0000
+  EndTime: Apr 12, 2022 22:00 +0000
+  CreatedTime: Apr 11, 2022 11:11 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1201294319
+  Description: OSG 3.5 to 3.6 transition
+  Severity: Intermittent Outage
+  StartTime: Jun 15, 2022 13:00 +0000
+  EndTime: Jun 15, 2022 22:00 +0000
+  CreatedTime: Jun 13, 2022 12:10 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1201294914
+  Description: OSG 3.5 to 3.6 transition
+  Severity: Intermittent Outage
+  StartTime: Jun 15, 2022 13:00 +0000
+  EndTime: Jun 15, 2022 22:00 +0000
+  CreatedTime: Jun 13, 2022 12:11 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1262675818
+  Description: Network degradation on head node
+  Severity: Severe
+  StartTime: Aug 23, 2022 14:00 +0000
+  EndTime: Aug 23, 2022 16:00 +0000
+  CreatedTime: Aug 23, 2022 15:13 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1298061685
+  Description: FTS server upgrade
+  Severity: No Significant Outage Expected
+  StartTime: Oct 11, 2022 13:00 +0000
+  EndTime: Oct 11, 2022 17:00 +0000
+  CreatedTime: Oct 06, 2022 14:09 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - FTS
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1298061998
+  Description: FTS server upgrade (swap back to original server)
+  Severity: No Significant Outage Expected
+  StartTime: Oct 12, 2022 13:00 +0000
+  EndTime: Oct 12, 2022 17:00 +0000
+  CreatedTime: Oct 06, 2022 14:09 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - FTS
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392351828
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:19 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392352072
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:20 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392352565
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:20 +0000
+  ResourceName: USCMS-FNAL-WC1-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392353588
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:22 +0000
+  ResourceName: USCMS-FNAL-WC1-CE2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392353065
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:21 +0000
+  ResourceName: USCMS-FNAL-WC1-CE3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392353955
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:23 +0000
+  ResourceName: USCMS-FNAL-WC1-CE4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1392354391
+  Description: Kernel reboots, general maintenance and FTS upgrade
+  Severity: Severe
+  StartTime: Jan 24, 2023 14:00 +0000
+  EndTime: Jan 24, 2023 23:00 +0000
+  CreatedTime: Jan 20, 2023 17:23 +0000
+  ResourceName: USCMS-FNAL-WC1-OPP1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1401739041
+  Description: FTS server swap-back
+  Severity: Intermittent Outage
+  StartTime: Feb 01, 2023 14:00 +0000
+  EndTime: Feb 01, 2023 23:00 +0000
+  CreatedTime: Jan 31, 2023 13:05 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - FTS
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1440908245
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Mar 21, 2023 13:00 +0000
+  EndTime: Mar 21, 2023 22:30 +0000
+  CreatedTime: Mar 17, 2023 22:07 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1456251254
+  Description: Replacing the CE hardware
+  Severity: Outage
+  StartTime: Apr 07, 2023 23:00 +0000
+  EndTime: Apr 12, 2023 20:00 +0000
+  CreatedTime: Apr 04, 2023 16:18 +0000
+  ResourceName: USCMS-FNAL-WC1-CE3
+  Services:
+  - CE
+# ---------------------------------------------------------
+
+- Class: UNSCHEDULED
+  ID: 1463377996
+  Description: CE failing pilots, need a downtime to investigate
+  Severity: Severe
+  StartTime: Apr 12, 2023 22:00 +0000
+  EndTime: Apr 14, 2023 16:00 +0000
+  CreatedTime: Apr 12, 2023 22:16 +0000
+  ResourceName: USCMS-FNAL-WC1-CE3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1467303096
+  Description: dCache upgrade
+  Severity: Severe
+  StartTime: Apr 18, 2023 13:00 +0000
+  EndTime: Apr 18, 2023 22:00 +0000
+  CreatedTime: Apr 17, 2023 11:18 +0000
+  ResourceName: USCMS-FNAL-WC1-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1540089671
+  Description: CMS Overfilled resource
+  Severity: Severe
+  StartTime: Jul 09, 2023 12:00 +0000
+  EndTime: Jul 11, 2023 0:00 +0000
+  CreatedTime: Jul 10, 2023 23:09 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
 

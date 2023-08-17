@@ -1,0 +1,25 @@
+---
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: This is access point used by Apache Airavata Gateways
+GroupID: 1303
+Resources:
+  AIRVATA-AP1:
+    Active: true
+    Description: This is an access point for the Pervasive Technology Institute.
+    ID: 1327
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Robert Quick
+          ID: OSG1000208
+      Security Contact:
+        Primary:
+          Name: Robert Quick
+          ID: OSG1000208
+    FQDN: condor.scigap.org
+    Services:
+      Submit Node:
+        Description: Access point for Apache Airavata Gateways
+    Tags:
+      - OSPool

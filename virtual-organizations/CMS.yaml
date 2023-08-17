@@ -2,6 +2,43 @@ AppDescription: Simulation, reconstruction, and analysis packages for high energ
   physics.
 CertificateOnly: false
 Community: Members of the CMS collaboration based in the United States
+Credentials:
+  TokenIssuers:
+    - Description: CMS pilots
+      Subject: bad55f4e-602c-4e8d-a5c5-bd8ffb762113
+      URL: https://cms-auth.web.cern.ch/
+      DefaultUnixUser: cmspilot
+
+    - Description: SAM/ETF tests
+      Subject: 08ca855e-d715-410e-a6ff-ad77306e1763
+      URL: https://cms-auth.web.cern.ch/
+      DefaultUnixUser: lcgadmin
+
+    - Description: CMS ITB pilots
+      Subject: 490a9a36-0268-4070-8813-65af031be5a3
+      URL: https://cms-auth.web.cern.ch/
+      DefaultUnixUser: cmspilot
+
+    - Description: CMS LOCAL pilots
+      Subject: 07f75a9a-bb78-4735-938b-7e61b2b62d5c
+      URL: https://cms-auth.web.cern.ch/
+      DefaultUnixUser: cmslocal
+
+    - Description: CMS ITB LOCAL pilots
+      Subject: efbed8c1-f9a7-4063-92f7-f89c04ce04a3
+      URL: https://cms-auth.web.cern.ch/
+      DefaultUnixUser: cmslocal
+
+    - Description: USCMS LOCAL pilots
+      Subject: 99b97e4f-5cf0-4d3b-9fcc-82fa86dca1e8
+      URL: https://cms-auth.web.cern.ch/
+      DefaultUnixUser: uscmslocal
+
+    - Description: USCMS HEPCloud pilots
+      Subject: 2f327ad0-1934-4635-8ba3-ee72da0a304c
+      URL: https://cms-auth.web.cern.ch/
+      DefaultUnixUser: uscms
+
 Contacts:
   Administrative Contact:
   - ID: 8489f9d11ec9723ae9f11619d325dbfa5516397c
@@ -45,11 +82,12 @@ SupportURL: http://helpdesk.fnal.gov
 DataFederations:
   StashCache:
     Namespaces:
-      /store:
-        - FQAN:/cms
-        - SciTokens:
-            Issuer: https://scitokens.org/cms
-            Base Path: /
-            Restricted Path: /store
-    AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /store
-    AllowedCaches: []    # Deny by default
+      - Path: /store
+        Authorizations:
+          - FQAN: /cms
+          - SciTokens:
+              Issuer: https://scitokens.org/cms
+              Base Path: /
+              Restricted Path: /store
+        AllowedOrigins: []    # FIXME - Contact StashCache operations to find the resource(s) that should be allowed to serve data under /store
+        AllowedCaches: []    # Deny by default
