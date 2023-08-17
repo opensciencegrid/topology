@@ -1,0 +1,33 @@
+AppDescription: University of Hawaii System research data transfer infrastructure
+Community: University of Hawaii System Research
+CertificateOnly: false
+Contacts:
+  Administrative Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+    - Astronomy
+    - Astrophysics
+    - Cancer research
+    - Geosciences
+ID: 227
+LongName: University of Hawaii System
+OASIS:
+  Managers:
+    - Name: Fabio Andrijauskas
+      ID: OSG1000162
+      DNs:
+      - /DC=org/DC=cilogon/C=US/O=University of California-San Diego/CN=Fabio Andrijauskas A51485301
+  UseOASIS: true
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /uhawaii/its
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - ITC_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY

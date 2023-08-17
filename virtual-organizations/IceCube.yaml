@@ -57,3 +57,39 @@ DataFederations:
           - ANY
         AllowedOrigins:
           - IceCube_StashCache_origin
+          
+      - Path: /icecube/production/nrpnb/protected
+        Authorizations:
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu/icecube
+              Base Path: /icecube
+              Map Subject: False
+        AllowedOrigins:
+          - NEBRASKA_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://unl-origin.nationalresearchplatform.org:1095
+         
+      - Path: /icecube/production/mghpcc/protected/
+        Authorizations:
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu/icecube
+              Base Path: /icecube
+              Map Subject: False
+        AllowedOrigins:
+          - MGHPCC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://mghpcc-origin.nationalresearchplatform.org:1095
+
+      - Path: /icecube/production/sdsc/protected/
+        Authorizations:
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu/icecube
+              Base Path: /icecube
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: http://sdsc-origin.nationalresearchplatform.org:1095

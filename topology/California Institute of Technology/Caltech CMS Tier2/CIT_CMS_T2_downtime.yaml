@@ -1463,3 +1463,312 @@
   Services:
     - XRootD component
 
+# ------------------------------------------
+# Storage issues (either power or hardware,
+# need physical presence.)
+- Class: UNSCHEDULED
+  ID: 997651581
+  Description: Storage Issues
+  Severity: Outage
+  StartTime: Nov 30, 2022 22:00 -0700
+  EndTime: Dec 1, 2022 17:00 -0700
+  CreatedTime: Nov 30, 2022 22:00 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: UNSCHEDULED
+  ID: 997651582
+  Description: Storage Issues
+  Severity: Outage
+  StartTime: Nov 30, 2022 22:00 -0700
+  EndTime: Dec 1, 2022 17:00 -0700
+  CreatedTime: Nov 30, 2022 22:00 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
+# ------------------------------------------
+# Testing migration to OSG 3.6
+- Class: SCHEDULED
+  ID: 997651587
+  Description: Migration to OSG 3.6
+  Severity: Outage
+  StartTime: Jan 17, 2023 07:00 -0800
+  EndTime: Feb 01, 2023 09:00 -0800
+  CreatedTime: Jan 13, 2023 21:00 -0800
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+# ------------------------------------------
+# Testing migration to OSG 3.6
+- Class: SCHEDULED
+  ID: 997651588
+  Description: Migration to OSG 3.6
+  Severity: Outage
+  StartTime: Feb 20, 2023 07:00 -0800
+  EndTime: Feb 22, 2023 07:00 -0800
+  CreatedTime: Feb 16, 2023 09:00 -0800
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+# ------------------------------------------
+# Testing migration to OSG 3.6
+- Class: SCHEDULED
+  ID: 997651593
+  Description: Migration to OSG 3.6
+  Severity: Outage
+  StartTime: Feb 24, 2023 07:00 -0800
+  EndTime: Feb 27, 2023 07:00 -0800
+  CreatedTime: Feb 22, 2023 11:30 -0800
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+
+
+# -----------------------------------------
+# CENIC major failure start at 1235 PST time 8:35 PM UTC
+# CENIC is our primary campus internet services provider
+# [CENIC NOC-698264] Backbone OUTAGE
+
+- Class: UNSCHEDULED
+  ID: 997651594
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 997651595
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 997651596
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: UNSCHEDULED
+  ID: 997651597
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 997651598
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: UNSCHEDULED
+  ID: 997651599
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: UNSCHEDULED
+  ID: 997651600
+  Description: ISP (CENIC) backbone outage [CENIC NOC-698264]
+  Severity: Outage
+  StartTime: Mar 2, 2023 12:34 -0800
+  EndTime: Mar 3, 2023 12:34 -0800
+  CreatedTime: Mar 2, 2023 16:54 -0800
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+    
+# ----------------------------------------------------------
+# Config changes on switch requires restart
+
+- Class: SCHEDULED
+  ID: 997651601
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 15:10 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651602
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 15:10 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651603
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 15:10 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651604
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 16:10 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 997651605
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 16:10 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 997651606
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 16:10 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 997651607
+  Description: Restart switch
+  Severity: Outage
+  StartTime: Apr 5, 2023 09:00 -0700
+  EndTime: Apr 5, 2023 13:00 -0700
+  CreatedTime: Apr 3, 2023 16:10 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+
+
+# ----------------------------------------------------------
+# CEPH (storage) node maintenance
+
+- Class: SCHEDULED
+  ID: 997651608
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651609
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651610
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 997651611
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 997651612
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 997651613
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 997651614
+  Description: CEPH (storage) node maintenance
+  Severity: Outage
+  StartTime: May 22, 2023 09:00 -0700
+  EndTime: May 22, 2023 18:00 -0700
+  CreatedTime: May 17, 2023 12:00 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
+

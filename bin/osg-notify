@@ -5,6 +5,7 @@
 A simple tool for generating notification emails to the OSG
 """
 import os
+import re
 import sys
 import getpass
 import smtplib
@@ -157,7 +158,12 @@ def network_ok(bypass_dns_check):
 
 def replace_smart_quotes_and_dashes(contents):
     # Replace smart quotes and em/en dashes
-    replaced = contents.replace('“','"').replace('”','"').replace("–","-").replace("—","-")
+    regex_sub_map = [(r'[“”]', '"'),
+                     (r'[‘’]', "'"),
+                     (r'[—–]', '-')]
+    replaced = contents
+    for pattern, sub in regex_sub_map:
+        replaced = re.sub(pattern, sub, replaced)
     return replaced
 
 def has_non_printable_ascii_characters(contents):

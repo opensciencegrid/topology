@@ -1,0 +1,8 @@
+Department: Physics
+Description: Benchmarking of 2D Isometric Tensor Network Algorithms. Tensor networks states (TNS) are an essential tool in condensed matter physics for simulating quantum systems on standard, classical computers. In one-dimension, Matrix Product State (MPS) methods are provably accurate at representing a large class of physical states, and efficient algorithms have been developed for finding lowest energy, excited , and time-evolved states. In higher dimensions, however, exactly calculating properties of TNS are provably NP-hard, so approximations must be made. A recent development in two-dimensions (2D) is the isometric tensor network (isoTNS), which places restrictions on the network so that calculations become efficient [1]. We have recently developed algorithms for simulations of 2D networks with a finite by infinite geometry (think of an infinitely long ribbon). It is necessary to now benchmark these methods against existing 1D algorithms applied to 2D systems and determine the system sizes at which these methods outperform their 1D counterparts. The simulation code is written in Python and typically is for a single core. [1] Zaletel, Pollmann; Isometric Tensor Network States in Two Dimensions; Phys. Rev. Lett. 124, 037201 (2020)
+FieldOfScience: Physics
+Organization: University of California, Berkeley
+PIName: Sajant Anand
+Sponsor:
+  CampusGrid:
+    Name: OSG-XSEDE

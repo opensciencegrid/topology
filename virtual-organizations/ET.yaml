@@ -1,0 +1,53 @@
+Name: ET
+LongName: Einstein Telescope
+AppDescription: The Einstein Telescope is a proposed underground infrastructure to host a third-generation, gravitational-wave observatory in Europe.
+Community: The Einstein Telescope Scientific Collaboration
+CertificateOnly: false
+ID: 228
+Contacts:
+  Administrative Contact:
+  - ID: f63b159d0c057f82bfe4929353ea943bc0792059
+    Name: Stefano Bagnasco
+  - ID: 7142b387956966f21dfcedf7fa4eef637c15837c
+    Name: Andres Tanasijczuk
+  Security Contact:
+  - ID: f63b159d0c057f82bfe4929353ea943bc0792059
+    Name: Stefano Bagnasco
+  - ID: 7142b387956966f21dfcedf7fa4eef637c15837c
+    Name: Andres Tanasijczuk
+  Registration Authority:
+  - ID: f63b159d0c057f82bfe4929353ea943bc0792059
+    Name: Stefano Bagnasco
+  - ID: 7142b387956966f21dfcedf7fa4eef637c15837c
+    Name: Andres Tanasijczuk
+  VO Manager:
+  - ID: f63b159d0c057f82bfe4929353ea943bc0792059
+    Name: Stefano Bagnasco
+  - ID: 7142b387956966f21dfcedf7fa4eef637c15837c
+    Name: Andres Tanasijczuk
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - Gravitational Physics
+  SecondaryFields:
+  - Astrophysics
+  - Physics
+  - Physics and astronomy
+PrimaryURL: http://www.et-gw.eu
+PurposeURL: http://www.et-gw.eu
+SupportURL: http://www.et-gw.eu
+OASIS:
+  UseOASIS: true
+  OASISRepoURLs:
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/et-gw.osgstorage.org
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /et-gw/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - UCLouvain-ET-OSDF-Origin
+        AllowedCaches:
+          - ANY
+        DirList: http://et-origin.cism.ucl.ac.be:1094

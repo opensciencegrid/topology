@@ -4,7 +4,7 @@ GroupID: 159
 Production: true
 Resources:
   umd-ce:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -64,7 +64,7 @@ Resources:
     VOOwnership:
       CMS: 100
   umd-cms:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -96,7 +96,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   umd-gridftp:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -137,7 +137,7 @@ Resources:
         Details:
           hidden: false
   umd-se2:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -158,10 +158,14 @@ Resources:
         Description: XRootD SE
         Details:
           hidden: false
+      WebDAV:
+        Description: WebDAV service endpoint
+        Details:
+          hidden: false
     VOOwnership:
       CMS: 100
   umd-squid:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:

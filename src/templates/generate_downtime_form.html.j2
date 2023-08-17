@@ -51,10 +51,8 @@ Resource Downtime YAML Generator
       {%- endif %}
 
       <form method=post>
-        <!-- NOTE: we are not using CSRF because none of the POST data is actually
-        used to change anything.  If that ever changes, see
-        https://flask-wtf.readthedocs.io/en/stable/csrf.html
-        -->
+        {{ form.csrf_token }}
+
         {{ M.render_field(form.facility) }}
         {{ M.render_button(form.change_facility) }}
 

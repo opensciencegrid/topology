@@ -1442,3 +1442,69 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1348259145
+  Description: Switch failure
+  Severity: Outage
+  StartTime: Nov 29, 2022 22:00 +0000
+  EndTime: Dec 05, 2022 14:00 +0000
+  CreatedTime: Nov 30, 2022 16:31 +0000
+  ResourceName: MWT2_CE_IU
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1348262765
+  Description: Switch failure
+  Severity: Outage
+  StartTime: Nov 29, 2022 22:00 +0000
+  EndTime: Dec 05, 2022 14:00 +0000
+  CreatedTime: Nov 30, 2022 16:37 +0000
+  ResourceName: MWT2_CE_IU2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1348264449
+  Description: Switch failure
+  Severity: Outage
+  StartTime: Nov 29, 2022 22:00 +0000
+  EndTime: Dec 05, 2022 14:00 +0000
+  CreatedTime: Nov 30, 2022 16:40 +0000
+  ResourceName: MWT2_SLATE_IU
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1497861403
+  Description: dCache downtime
+  Severity: Outage
+  StartTime: May 30, 2023 14:00 +0000
+  EndTime: May 30, 2023 20:25 +0000
+  CreatedTime: May 22, 2023 20:09 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1497861773
+  Description: dCache downtime
+  Severity: Outage
+  StartTime: May 30, 2023 14:00 +0000
+  EndTime: May 30, 2023 20:25 +0000
+  CreatedTime: May 22, 2023 20:09 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1497861882
+  Description: dCache downtime
+  Severity: Outage
+  StartTime: May 30, 2023 14:00 +0000
+  EndTime: May 30, 2023 20:25 +0000
+  CreatedTime: May 22, 2023 20:09 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------

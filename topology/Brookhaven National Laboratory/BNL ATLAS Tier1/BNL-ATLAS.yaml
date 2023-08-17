@@ -28,7 +28,7 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://gridgk02.racf.bnl.gov
+          sam_uri: htcondor://gridgk01.racf.bnl.gov
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -275,9 +275,9 @@ Resources:
       APELNormalFactor: 12.69
       AccountingName: BNL_ATLAS_1
       HEPSPEC: 0
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
       KSI2KMax: 0
       KSI2KMin: 0
       StorageCapacityMax: 0

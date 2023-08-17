@@ -51,14 +51,15 @@ def get_one_project(file: str, campus_grid_ids: Dict, vos_data: VOsData) -> Dict
     data = None
     try:
         data = load_yaml_file(file)
-        if 'CampusGrid' in data['Sponsor']:
-            name = data['Sponsor']['CampusGrid']['Name']
-            ID = campus_grid_ids[name]
-            data['Sponsor']['CampusGrid'] = OrderedDict([("ID", ID), ("Name", name)])
-        elif 'VirtualOrganization' in data['Sponsor']:
-            name = data['Sponsor']['VirtualOrganization']['Name']
-            ID = vos_data.vos[name]['ID']
-            data['Sponsor']['VirtualOrganization'] = OrderedDict([("ID", ID), ("Name", name)])
+        if 'Sponsor' in data:
+            if 'CampusGrid' in data['Sponsor']:
+                name = data['Sponsor']['CampusGrid']['Name']
+                ID = campus_grid_ids[name]
+                data['Sponsor']['CampusGrid'] = OrderedDict([("ID", ID), ("Name", name)])
+            elif 'VirtualOrganization' in data['Sponsor']:
+                name = data['Sponsor']['VirtualOrganization']['Name']
+                ID = vos_data.vos[name]['ID']
+                data['Sponsor']['VirtualOrganization'] = OrderedDict([("ID", ID), ("Name", name)])
 
         if 'ResourceAllocations' in data:
             resource_allocations = [get_resource_allocation(ra, idx) for idx, ra in enumerate(data['ResourceAllocations'])]

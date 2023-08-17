@@ -1,7 +1,7 @@
 Production: true
 SupportCenter: Self Supported
 GroupDescription: PATh facility resources located at UW-Madison
-GroupID: 1297
+GroupID: 1326
 
 Resources:
   WISC-PATH-EP:
@@ -17,16 +17,37 @@ Resources:
         Tertiary:
           ID: 66ee5cfb622a7343dac85dee42815d1f4fbc2d85
           Name: Brian Bockelman
-        Tertiary 2:
-          ID: 606b797dcc03cad7135b7cc61b78fbc15eea7ec8
-          Name: Carl Edquist
       Security Contact:
         Primary:
           ID: 46a55ac4815b2b8c00ff283549f413113b45d628
           Name: Aaron Moate
     Description: PATh facility EP located at UW-Madison
     FQDN: wisc-svc-1.facility.path-cc.io
-    ID: 1302
+    ID: 1368
     Services:
       Execution Endpoint:
         Description: Backfill containers running in the PATh facility
+
+  WISC-PATH-IDPL-EP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000192
+          Name: Gregory Thain
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: EP running in the Wisconsin PATh Facility for IDPL testing
+    FQDN: wisc-path-idpl-ep.facility.path-cc.io
+    ID: 1463
+    Services:
+      Execution Endpoint:
+        Description: EP running in the Wisconsin PATh Facility for IDPL testing
