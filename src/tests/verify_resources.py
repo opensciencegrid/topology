@@ -369,27 +369,30 @@ def test_7_fqdn_unique(rgs, rgfns):
 
 
 def test_8_res_ids(rgs, rgfns):
-    # Check that resources/resource groups have a numeric ID/GroupID
+    # Check that resources/resource groups have a unique, numeric ID/GroupID
+    # in the case that an ID is manually assigned
 
     errors = 0
     ridres = autodict()
     gidrgs = autodict()
 
     for rg,rgfn in zip(rgs,rgfns):
-        if not isinstance(rg.get('GroupID'), int):
+        group_id = rg.get('GroupID')
+        if group_id is not None and not isinstance(group_id, int):
             print_emsg_once('ResGrpID')
             print("ERROR: Resource Group missing numeric GroupID: '%s'" % rgfn)
             errors += 1
-        else:
+        elif group_id:
             gidrgs[rg['GroupID']] += [rgfn]
 
         for resname,res in sorted(rg['Resources'].items()):
-            if not isinstance(res.get('ID'), int):
+            resource_id = res.get('ID')
+            if resource_id is not None and not isinstance(resource_id, int):
                 print_emsg_once('ResID')
                 print("ERROR: Resource '%s' missing numeric ID in '%s'"
                       % (resname, rgfn))
                 errors += 1
-            else:
+            elif resource_id:
                 ridres[res['ID']] += [(rgfn, resname)]
 
     for gid,rglist in sorted(gidrgs.items()):

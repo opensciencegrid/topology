@@ -119,10 +119,11 @@ class Resource(object):
             self.services = []
         self.service_names = [n["Name"] for n in self.services if "Name" in n]
         self.data = yaml_data
+        self.data['ID'] = gen_id_from_yaml(self.data, self.name)
         if is_null(yaml_data, "FQDN"):
             raise ValueError(f"Resource {name} does not have an FQDN")
         self.fqdn = self.data["FQDN"]
-        self.id = gen_id_from_yaml(self.data, self.name)
+        self.id = self.data['ID']
 
     def get_stashcache_files(self, global_data, legacy):
         """Gets a resources Cache files as a dictionary"""
@@ -446,6 +447,7 @@ class ResourceGroup(object):
                                        "SupportCenter", "GroupDescription", "IsCCStar"])
         new_rg.update({"Disable": False})
         new_rg.update(self.data)
+        new_rg['GroupID'] = gen_id_from_yaml(self.data, self.name, "GroupID")
 
         new_rg["Facility"] = self.site.facility.get_tree()
         new_rg["Site"] = self.site.get_tree()
