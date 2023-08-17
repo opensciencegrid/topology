@@ -222,7 +222,6 @@ def trim_space(s: str) -> str:
     ret = re.sub(r"(?m)^[ \t]+", "", ret)
     return ret
 
-
 def run_git_cmd(cmd: List, dir=None, git_dir=None, ssh_key=None) -> bool:
     """
     Run git command, optionally specifying ssh key and/or git dirs
@@ -287,7 +286,14 @@ def git_clone_or_fetch_mirror(repo, git_dir, ssh_key=None) -> bool:
     return ok
 
 
-def gen_id(instr: AnyStr, digits, minimum=1, hashfn=hashlib.md5) -> int:
+def gen_id_from_yaml(data: dict, alternate_name: AnyStr, id_key = "ID", digits = 16, minimum = 1, hashfn=hashlib.md5) -> int:
+    return data.get(id_key, gen_id(alternate_name, digits, minimum, hashfn))
+
+def gen_id(instr: AnyStr, digits = 16, minimum=1, hashfn=hashlib.md5) -> int:
+    """
+    Convert a string to its integer md5sum, used to autogenerate unique IDs for entities where
+    not otherwise specified
+    """
     instr_b = instr if isinstance(instr, bytes) else instr.encode("utf-8", "surrogateescape")
     mod = (10 ** digits) - minimum
     return minimum + (int(hashfn(instr_b).hexdigest(), 16) % mod)

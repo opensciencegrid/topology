@@ -8,7 +8,7 @@ from typing import Dict, List, Optional, Tuple
 import icalendar
 
 from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml,\
-    is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER
+    is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER, gen_id_from_yaml
 from .contacts_reader import ContactsData, User
 from .exceptions import DataError
 
@@ -115,7 +115,7 @@ class Resource(object):
         if is_null(yaml_data, "FQDN"):
             raise ValueError(f"Resource {name} does not have an FQDN")
         self.fqdn = self.data["FQDN"]
-        self.id = self.data["ID"]
+        self.id = gen_id_from_yaml(self.data, self.name)
 
     def get_stashcache_files(self, global_data, legacy):
         """Gets a resources Cache files as a dictionary"""
@@ -420,7 +420,7 @@ class ResourceGroup(object):
 
     @property
     def id(self):
-        return self.data["GroupID"]
+        return gen_id_from_yaml(self.data, self.name, "GroupID")
 
     @property
     def key(self):
