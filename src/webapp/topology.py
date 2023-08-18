@@ -36,7 +36,7 @@ class CommonData(object):
 
         # Auto-generate IDs for any services and support centers that don't have them
         for key, val in self.service_types.items():
-            self.service_types[key] = val if val else gen_id_from_yaml({}, key)
+            self.service_types[key] = val or gen_id_from_yaml({}, key)
 
         for key, val in self.support_centers.items():
             val['ID'] = gen_id_from_yaml(val, key)
@@ -119,11 +119,11 @@ class Resource(object):
             self.services = []
         self.service_names = [n["Name"] for n in self.services if "Name" in n]
         self.data = yaml_data
-        self.data['ID'] = gen_id_from_yaml(self.data, self.name)
+        self.data["ID"] = gen_id_from_yaml(self.data, self.name)
         if is_null(yaml_data, "FQDN"):
             raise ValueError(f"Resource {name} does not have an FQDN")
         self.fqdn = self.data["FQDN"]
-        self.id = self.data['ID']
+        self.id = self.data["ID"]
 
     def get_stashcache_files(self, global_data, legacy):
         """Gets a resources Cache files as a dictionary"""
@@ -473,7 +473,7 @@ class Downtime(object):
         for k in ["StartTime", "EndTime", "Class", "Severity", "ResourceName", "Services"]:
             if is_null(yaml_data, k):
                 raise ValueError(k)
-        # Downtimes aren't uniquely named, so hash an ID based on several ResourceName + StartTime
+        # Downtimes aren't uniquely named, so hash an ID based on ResourceName + StartTime
         yaml_data['ID'] = gen_id_from_yaml(yaml_data, '{ResourceName}-{StartTime}'.format(**yaml_data))
         self.start_time = self.parsetime(yaml_data["StartTime"])
         self.end_time = self.parsetime(yaml_data["EndTime"])

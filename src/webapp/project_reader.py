@@ -71,8 +71,7 @@ def get_one_project(file: str, campus_grid_ids: Dict, vos_data: VOsData) -> Dict
         else:
             data['Name'] = name_from_filename
 
-        data['ID'] = str(gen_id_from_yaml(data, data['Name']))
-
+        data["ID"] = str(gen_id_from_yaml(data, data["Name"]))
 
     except Exception as e:
         log.error("%r adding project %s", e, file)

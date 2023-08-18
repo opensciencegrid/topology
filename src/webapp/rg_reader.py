@@ -72,7 +72,7 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
     for facility_path in root.glob("*/FACILITY.yaml"):
         name = facility_path.parts[-2]
         facility_data = load_yaml_file(facility_path)
-        id_ = gen_id_from_yaml(facility_data if facility_data else {}, name)
+        id_ = gen_id_from_yaml(facility_data or {}, name)
         topology.add_facility(name, id_)
     for site_path in root.glob("*/*/SITE.yaml"):
         facility, name = site_path.parts[-3:-1]
