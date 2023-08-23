@@ -470,11 +470,9 @@ class Downtime(object):
     def __init__(self, rg: ResourceGroup, yaml_data: ParsedYaml, common_data: CommonData):
         self.rg = rg
         self.data = yaml_data
-        for k in ["StartTime", "EndTime", "Class", "Severity", "ResourceName", "Services"]:
+        for k in ["StartTime", "EndTime", "ID", "Class", "Severity", "ResourceName", "Services"]:
             if is_null(yaml_data, k):
                 raise ValueError(k)
-        # Downtimes aren't uniquely named, so hash an ID based on ResourceName + StartTime
-        yaml_data['ID'] = gen_id_from_yaml(yaml_data, '{ResourceName}-{StartTime}'.format(**yaml_data))
         self.start_time = self.parsetime(yaml_data["StartTime"])
         self.end_time = self.parsetime(yaml_data["EndTime"])
         self.created_time = None
