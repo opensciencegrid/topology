@@ -1,0 +1,25 @@
+GroupDescription: ResearchTechnologies
+GroupID: 1366
+Production: true
+Resources:
+  Gateway:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000526
+          Name: Devin Richard Bayly
+      Security Contact:
+        Primary:
+          ID: OSG1000526
+          Name: Devin Richard Bayly
+    Description: Science gateway node on Jestream2
+    FQDN: js-172-93.jetstream-cloud.org
+    ID: 1478
+    Services:
+      Submit Node:
+        Description: Science gateway OSPool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+SupportCenter: Self Supported
