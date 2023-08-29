@@ -11,7 +11,7 @@ CertificateOnly: false
 
 # If you have an up-to-date local git clone, fill ID with the output from `bin/next_virtual_organization_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-ID: <ID>
+ID: 235
 
 # Contacts contain information about people to contact regarding this VO.
 # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
@@ -20,14 +20,18 @@ ID: <ID>
 Contacts:
   # Administrative Contact is a list of people to contact regarding administrative issues
   Administrative Contact:
-  - ID: <EMAIL HASH>
-    Name: <FULL NAME>
+  - ID: OSG1000510
+    Name: Rakitha S Beminiwattha
+  - ID: OSG1000460
+    Name: Sakib Rahman
   # - ...
 
   # Security Contact is a list of people to contact regarding security issues
   Security Contact:
-  - ID: <EMAIL HASH>
-    Name: <FULL NAME>
+  - ID: OSG1000510
+    Name: Rakitha S Beminiwattha
+  - ID: OSG1000460
+    Name: Sakib Rahman
   # - ...
 
   ### Registration Authority (optional) is a list of people to contact regarding registration issues
