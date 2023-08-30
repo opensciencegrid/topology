@@ -1680,3 +1680,157 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1521849575
+  Description: Cluster maintenance
+  Severity: Outage
+  StartTime: Jun 21, 2023 11:00 +0000
+  EndTime: Jun 21, 2023 23:00 +0000
+  CreatedTime: Jun 19, 2023 14:29 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1521864975
+  Description: Cluster maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jun 19, 2023 14:54 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542037973
+  Description: Cluster and storage maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jul 12, 2023 23:16 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542037974
+  Description: Cluster and storage maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jul 12, 2023 23:16 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542037975
+  Description: Cluster and storage maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jul 12, 2023 23:16 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542037976
+  Description: Cluster and storage maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jul 12, 2023 23:16 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542037977
+  Description: Cluster and storage maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jul 12, 2023 23:16 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542037978
+  Description: Cluster and storage maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jul 12, 2023 23:16 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542037979
+  Description: Cluster and storage maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jul 12, 2023 23:16 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542037980
+  Description: Cluster and storage maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jul 12, 2023 23:16 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542037981
+  Description: Cluster and storage maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jul 12, 2023 23:16 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542037982
+  Description: Cluster and storage maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jul 12, 2023 23:16 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542037983
+  Description: Cluster and storage maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jul 12, 2023 23:16 +0000
+  ResourceName: US-Purdue BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542037984
+  Description: Cluster and storage maintenance
+  Severity: Outage
+  StartTime: Jul 19, 2023 11:00 +0000
+  EndTime: Jul 19, 2023 23:00 +0000
+  CreatedTime: Jul 12, 2023 23:16 +0000
+  ResourceName: US-Purdue LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------

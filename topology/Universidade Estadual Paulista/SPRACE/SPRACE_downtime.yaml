@@ -2103,3 +2103,465 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1518522339
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Jun 19, 2023 10:00 +0000
+  EndTime: Jun 20, 2023 22:00 +0000
+  CreatedTime: Jun 15, 2023 18:03 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1518522340
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Jun 19, 2023 10:00 +0000
+  EndTime: Jun 20, 2023 22:00 +0000
+  CreatedTime: Jun 15, 2023 18:03 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1518522341
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Jun 19, 2023 10:00 +0000
+  EndTime: Jun 20, 2023 22:00 +0000
+  CreatedTime: Jun 15, 2023 18:03 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1518522342
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Jun 19, 2023 10:00 +0000
+  EndTime: Jun 20, 2023 22:00 +0000
+  CreatedTime: Jun 15, 2023 18:03 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1518522343
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Jun 19, 2023 10:00 +0000
+  EndTime: Jun 20, 2023 22:00 +0000
+  CreatedTime: Jun 15, 2023 18:03 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1518522344
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Jun 19, 2023 10:00 +0000
+  EndTime: Jun 20, 2023 22:00 +0000
+  CreatedTime: Jun 15, 2023 18:03 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519028059
+  Description: network outage - possible fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 07:00 +0000
+  EndTime: Jun 16, 2023 15:00 +0000
+  CreatedTime: Jun 16, 2023 08:06 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519028060
+  Description: network outage - possible fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 07:00 +0000
+  EndTime: Jun 16, 2023 15:00 +0000
+  CreatedTime: Jun 16, 2023 08:06 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519028061
+  Description: network outage - possible fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 07:00 +0000
+  EndTime: Jun 16, 2023 15:00 +0000
+  CreatedTime: Jun 16, 2023 08:06 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519028062
+  Description: network outage - possible fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 07:00 +0000
+  EndTime: Jun 16, 2023 15:00 +0000
+  CreatedTime: Jun 16, 2023 08:06 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519028063
+  Description: network outage - possible fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 07:00 +0000
+  EndTime: Jun 16, 2023 15:00 +0000
+  CreatedTime: Jun 16, 2023 08:06 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519028064
+  Description: network outage - possible fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 07:00 +0000
+  EndTime: Jun 16, 2023 15:00 +0000
+  CreatedTime: Jun 16, 2023 08:06 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519269098
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 15:00 +0000
+  EndTime: Jun 16, 2023 21:00 +0000
+  CreatedTime: Jun 16, 2023 14:48 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519269099
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 15:00 +0000
+  EndTime: Jun 16, 2023 21:00 +0000
+  CreatedTime: Jun 16, 2023 14:48 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519269100
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 15:00 +0000
+  EndTime: Jun 16, 2023 21:00 +0000
+  CreatedTime: Jun 16, 2023 14:48 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519269101
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 15:00 +0000
+  EndTime: Jun 16, 2023 21:00 +0000
+  CreatedTime: Jun 16, 2023 14:48 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519269102
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 15:00 +0000
+  EndTime: Jun 16, 2023 21:00 +0000
+  CreatedTime: Jun 16, 2023 14:48 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1519269103
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jun 16, 2023 15:00 +0000
+  EndTime: Jun 16, 2023 21:00 +0000
+  CreatedTime: Jun 16, 2023 14:48 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1522894916
+  Description: Network maintenance
+  Severity: Outage
+  StartTime: Jun 20, 2023 22:00 +0000
+  EndTime: Jun 21, 2023 22:00 +0000
+  CreatedTime: Jun 20, 2023 19:31 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1522894917
+  Description: Network maintenance
+  Severity: Outage
+  StartTime: Jun 20, 2023 22:00 +0000
+  EndTime: Jun 21, 2023 22:00 +0000
+  CreatedTime: Jun 20, 2023 19:31 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1522894918
+  Description: Network maintenance
+  Severity: Outage
+  StartTime: Jun 20, 2023 22:00 +0000
+  EndTime: Jun 21, 2023 22:00 +0000
+  CreatedTime: Jun 20, 2023 19:31 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1522894919
+  Description: Network maintenance
+  Severity: Outage
+  StartTime: Jun 20, 2023 22:00 +0000
+  EndTime: Jun 21, 2023 22:00 +0000
+  CreatedTime: Jun 20, 2023 19:31 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1522894920
+  Description: Network maintenance
+  Severity: Outage
+  StartTime: Jun 20, 2023 22:00 +0000
+  EndTime: Jun 21, 2023 22:00 +0000
+  CreatedTime: Jun 20, 2023 19:31 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1522894921
+  Description: Network maintenance
+  Severity: Outage
+  StartTime: Jun 20, 2023 22:00 +0000
+  EndTime: Jun 21, 2023 22:00 +0000
+  CreatedTime: Jun 20, 2023 19:31 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1531220719
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 30, 2023 10:47 +0000
+  EndTime: Jun 30, 2023 17:00 +0000
+  CreatedTime: Jun 30, 2023 10:47 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1531220720
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 30, 2023 10:47 +0000
+  EndTime: Jun 30, 2023 17:00 +0000
+  CreatedTime: Jun 30, 2023 10:47 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1531220721
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 30, 2023 10:47 +0000
+  EndTime: Jun 30, 2023 17:00 +0000
+  CreatedTime: Jun 30, 2023 10:47 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1531220722
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 30, 2023 10:47 +0000
+  EndTime: Jun 30, 2023 17:00 +0000
+  CreatedTime: Jun 30, 2023 10:47 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1531220723
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 30, 2023 10:47 +0000
+  EndTime: Jun 30, 2023 17:00 +0000
+  CreatedTime: Jun 30, 2023 10:47 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1531220724
+  Description: network outage
+  Severity: Outage
+  StartTime: Jun 30, 2023 10:47 +0000
+  EndTime: Jun 30, 2023 17:00 +0000
+  CreatedTime: Jun 30, 2023 10:47 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566003784
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 09, 2023 15:30 +0000
+  EndTime: Aug 09, 2023 21:00 +0000
+  CreatedTime: Aug 09, 2023 16:59 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566003785
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 09, 2023 15:30 +0000
+  EndTime: Aug 09, 2023 21:00 +0000
+  CreatedTime: Aug 09, 2023 16:59 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566003786
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 09, 2023 15:30 +0000
+  EndTime: Aug 09, 2023 21:00 +0000
+  CreatedTime: Aug 09, 2023 16:59 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566003787
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 09, 2023 15:30 +0000
+  EndTime: Aug 09, 2023 21:00 +0000
+  CreatedTime: Aug 09, 2023 16:59 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566003788
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 09, 2023 15:30 +0000
+  EndTime: Aug 09, 2023 21:00 +0000
+  CreatedTime: Aug 09, 2023 16:59 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566003789
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 09, 2023 15:30 +0000
+  EndTime: Aug 09, 2023 21:00 +0000
+  CreatedTime: Aug 09, 2023 16:59 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566179622
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Aug 09, 2023 21:00 +0000
+  EndTime: Aug 10, 2023 01:00 +0000
+  CreatedTime: Aug 09, 2023 21:52 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566179623
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Aug 09, 2023 21:00 +0000
+  EndTime: Aug 10, 2023 01:00 +0000
+  CreatedTime: Aug 09, 2023 21:52 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566179624
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Aug 09, 2023 21:00 +0000
+  EndTime: Aug 10, 2023 01:00 +0000
+  CreatedTime: Aug 09, 2023 21:52 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566179625
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Aug 09, 2023 21:00 +0000
+  EndTime: Aug 10, 2023 01:00 +0000
+  CreatedTime: Aug 09, 2023 21:52 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566179626
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Aug 09, 2023 21:00 +0000
+  EndTime: Aug 10, 2023 01:00 +0000
+  CreatedTime: Aug 09, 2023 21:52 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566179627
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Aug 09, 2023 21:00 +0000
+  EndTime: Aug 10, 2023 01:00 +0000
+  CreatedTime: Aug 09, 2023 21:52 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------

@@ -41,3 +41,13 @@ DataFederations:
           - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
+      - Path: /nrp/protected/sio/MODIS_Aqua_microphysics_images/
+        Authorizations:
+          - SciTokens:
+              Issuer: https://token.nationalresearchplatform.org/modis
+              Base Path: /nrp/protected/sio/MODIS_Aqua_microphysics_images/
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY

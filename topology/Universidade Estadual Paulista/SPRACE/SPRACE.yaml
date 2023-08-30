@@ -1,7 +1,34 @@
-GroupDescription: (No resource group description)
+GroupDescription: SPRACE Resources 
 GroupID: 99
 Production: true
-Resources:
+Resources:  
+  SPRACE_OSDF_CACHE:
+    Active: true
+    Description: SPRACE OSDF cache
+    ID: 1473
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
+          Name: Marcio Antonio Costa
+        Secondary:
+          ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
+          Name: Jadir Marra da Silva
+      Security Contact:
+          Primary:
+            ID: 5e7717a6ad4154d0a8a3b3232080615e8c9e4351
+            Name: Marcio Antonio Costa
+          Secondary:
+            ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
+            Name: Jadir Marra da Silva
+    FQDN: osdf-cache.sprace.org.br 
+    DN: /C=BR/O=ANSP/OU=ANSPGrid CA/OU=Services/CN=osdf-cache.sprace.org.br
+    Services:
+      XRootD cache server:
+        Description: SPRACE OSDF cache
+    AllowedVOs:
+      - ANY
+
   BR-Sprace BW:
     Active: true
     ContactLists:
