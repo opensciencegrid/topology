@@ -1,4 +1,4 @@
-Department: Physics
+Department: Astrophysics
 Description: The XENON Dark Matter Experiment located at the Gran Sasso Laboratories
   (INFN, Italy), is currently the leader world project searching for the so called
   Dark Matter, something which is completely different from ordinary matter. This
@@ -8,10 +8,16 @@ Description: The XENON Dark Matter Experiment located at the Gran Sasso Laborato
   could reveal the nature of the DM looking at the possible interactions of the DM
   with ordinary matter, for instance with the Xenon, a noble gas been liquified at
   very low temperature. The study of the background signal, from the environment and
-  from the materials that make up the new detector containing the Xenon, is essential
-  to understand the detector's behavior and its implications on its performances.
+  from the materials that make up the new detector containing the Xenon (which is
+  currently under construction and called XENON1T), is essential to understand the
+  detector's behavior and its implications on its performances. For this purpose an
+  extensive Montecarlo simulation and study is needed, and this require quite a lot
+  of CPU time. The MC simulation of the XENON experiment is based on the open source
+  codes called GEANT4 and ROOT.
 FieldOfScience: Astrophysics
-Organization: University of Chicago
-PIName: Luca Grandi
-
-
+ID: '15'
+Organization: Columbia University
+PIName: Alfio Rizzo
+Sponsor:
+  VirtualOrganization:
+    Name: OSG
