@@ -1,11 +1,9 @@
 Disable: false
 Production: true
 SupportCenter: Self Supported
-GroupID: 520
 GroupDescription: The UWM-NEMO cluster
 Resources:
   OSG_US_UWM_NEMO:
-    ID: 1033 
     Active: false
     Description: The Hosted CE serving UWM-NEMO
     ContactLists:
@@ -30,7 +28,6 @@ Resources:
         Details:
           hidden: false
   UWM-NEMO:
-    ID: 1079
     Active: true
     Description: The Hosted CE serving UWM-NEMO
     ContactLists:
@@ -56,7 +53,6 @@ Resources:
           hidden: false
 
   NEMO-submit:
-    ID: 1212
     Active: true
     Description: UWM-NEMO OS Pool access point for NEMO cluster.
     ContactLists:
