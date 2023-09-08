@@ -8,7 +8,7 @@ from typing import Dict, List, Optional, Tuple
 import icalendar
 
 from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml,\
-    is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER
+    is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER, gen_id_from_yaml
 from .contacts_reader import ContactsData, User
 from .exceptions import DataError
 
@@ -33,6 +33,13 @@ class CommonData(object):
         self.contacts = contacts
         self.service_types = service_types
         self.support_centers = support_centers
+
+        # Auto-generate IDs for any services and support centers that don't have them
+        for key, val in self.service_types.items():
+            self.service_types[key] = val or gen_id_from_yaml({}, key)
+
+        for key, val in self.support_centers.items():
+            val['ID'] = gen_id_from_yaml(val, key)
 
 
 class Facility(object):
@@ -112,6 +119,7 @@ class Resource(object):
             self.services = []
         self.service_names = [n["Name"] for n in self.services if "Name" in n]
         self.data = yaml_data
+        self.data["ID"] = gen_id_from_yaml(self.data, self.name)
         if is_null(yaml_data, "FQDN"):
             raise ValueError(f"Resource {name} does not have an FQDN")
         self.fqdn = self.data["FQDN"]
@@ -420,7 +428,7 @@ class ResourceGroup(object):
 
     @property
     def id(self):
-        return self.data["GroupID"]
+        return gen_id_from_yaml(self.data, self.name, "GroupID")
 
     @property
     def key(self):
@@ -439,6 +447,7 @@ class ResourceGroup(object):
                                        "SupportCenter", "GroupDescription", "IsCCStar"])
         new_rg.update({"Disable": False})
         new_rg.update(self.data)
+        new_rg['GroupID'] = gen_id_from_yaml(self.data, self.name, "GroupID")
 
         new_rg["Facility"] = self.site.facility.get_tree()
         new_rg["Site"] = self.site.get_tree()

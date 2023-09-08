@@ -1104,3 +1104,135 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1573603394
+  Description: HTCondor upgrade and dCache version upgrade
+  Severity: Outage
+  StartTime: Aug 29, 2023 13:00 +0000
+  EndTime: Aug 29, 2023 17:00 +0000
+  CreatedTime: Aug 18, 2023 12:05 +0000
+  ResourceName: BNL_ATLAS_1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1573603395
+  Description: HTCondor upgrade and dCache version upgrade
+  Severity: Outage
+  StartTime: Aug 29, 2023 13:00 +0000
+  EndTime: Aug 29, 2023 17:00 +0000
+  CreatedTime: Aug 18, 2023 12:05 +0000
+  ResourceName: BNL_ATLAS_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1573603396
+  Description: HTCondor upgrade and dCache version upgrade
+  Severity: Outage
+  StartTime: Aug 29, 2023 13:00 +0000
+  EndTime: Aug 29, 2023 17:00 +0000
+  CreatedTime: Aug 18, 2023 12:05 +0000
+  ResourceName: BNL_ATLAS_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1573603397
+  Description: HTCondor upgrade and dCache version upgrade
+  Severity: Outage
+  StartTime: Aug 29, 2023 13:00 +0000
+  EndTime: Aug 29, 2023 17:00 +0000
+  CreatedTime: Aug 18, 2023 12:05 +0000
+  ResourceName: BNL_ATLAS_4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1573603398
+  Description: HTCondor upgrade and dCache version upgrade
+  Severity: Outage
+  StartTime: Aug 29, 2023 13:00 +0000
+  EndTime: Aug 29, 2023 17:00 +0000
+  CreatedTime: Aug 18, 2023 12:05 +0000
+  ResourceName: BNL_ATLAS_6
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1573603399
+  Description: HTCondor upgrade and dCache version upgrade
+  Severity: Outage
+  StartTime: Aug 29, 2023 13:00 +0000
+  EndTime: Aug 29, 2023 17:00 +0000
+  CreatedTime: Aug 18, 2023 12:05 +0000
+  ResourceName: BNL_ATLAS_7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1573603400
+  Description: HTCondor upgrade and dCache version upgrade
+  Severity: Outage
+  StartTime: Aug 29, 2023 13:00 +0000
+  EndTime: Aug 29, 2023 17:00 +0000
+  CreatedTime: Aug 18, 2023 12:05 +0000
+  ResourceName: BNL_ATLAS_8
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1573603403
+  Description: HTCondor upgrade and dCache version upgrade
+  Severity: Outage
+  StartTime: Aug 29, 2023 13:00 +0000
+  EndTime: Aug 29, 2023 19:00 +0000
+  CreatedTime: Aug 18, 2023 12:05 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.disk
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1573603404
+  Description: HTCondor upgrade and dCache version upgrade
+  Severity: Outage
+  StartTime: Aug 29, 2023 13:00 +0000
+  EndTime: Aug 29, 2023 19:00 +0000
+  CreatedTime: Aug 18, 2023 12:05 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_East
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1573603405
+  Description: HTCondor upgrade and dCache version upgrade
+  Severity: Outage
+  StartTime: Aug 29, 2023 13:00 +0000
+  EndTime: Aug 29, 2023 19:00 +0000
+  CreatedTime: Aug 18, 2023 12:05 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_West
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1573603406
+  Description: HTCondor upgrade and dCache version upgrade
+  Severity: Outage
+  StartTime: Aug 29, 2023 13:00 +0000
+  EndTime: Aug 29, 2023 19:00 +0000
+  CreatedTime: Aug 18, 2023 12:05 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_West2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1573603407
+  Description: HTCondor upgrade and dCache version upgrade
+  Severity: Outage
+  StartTime: Aug 29, 2023 13:00 +0000
+  EndTime: Aug 29, 2023 19:00 +0000
+  CreatedTime: Aug 18, 2023 12:05 +0000
+  ResourceName: BNL_ATLAS_SE_GRIDFTP
+  Services:
+  - WebDAV

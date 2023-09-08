@@ -1,27 +1,21 @@
 Production: true
 SupportCenter: Self Supported
-GroupDescription: This is a cluster for LIGO use at Penn State University 
+GroupDescription: This is a cluster for LIGO and OSG use at Penn State University
 GroupID: 1120
 
 Resources:
   PSU-LIGO:
     Active: true
-    Description: This is a Hosted CE for LIGO use at Penn State.
+    Description: This is a Hosted CE for LIGO use at Penn State. It also has a subset of CC* nodes for OSG to use
     ID: 1172
     ContactLists:
       Administrative Contact:
         Primary:
-          Name: Jeffrey Peterson
-          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
-        Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
 
       Security Contact:
         Primary:
-          Name: Jeffrey Peterson
-          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
-        Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
 
@@ -29,7 +23,9 @@ Resources:
 
     Services:
       CE:
-        Description: Hosted CE for PSU-LIGO
+        Description: Hosted CE for PSU-LIGO and OSPool at PSU
+    Tags:
+      - CC*
 
   PSU-LIGO-CACHE:
     Active: false
