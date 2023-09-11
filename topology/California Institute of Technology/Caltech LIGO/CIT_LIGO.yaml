@@ -149,4 +149,21 @@ Resources:
         Description: OSDF Stashcache
     AllowedVOs:
       - LIGO
+  LIGO_HANFORD_CE1:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Ashton Graves
+          ID: 076aee896f61403d87e9e3f5e06d756b8fd4787c
+      Security Contact:
+        Primary:
+          Name: Ashton Graves
+          ID: 076aee896f61403d87e9e3f5e06d756b8fd4787c
+    FQDN: ligo-hanford-ce1.svc.opensciencegrid.org
+    ID: 1480
+    Services:
+      CE:
+        Description: Hosted CE for LHO
+    AllowedVOs:
+      - LIGO
 SupportCenter: Advanced LIGO
