@@ -59,6 +59,26 @@ Resources:
         Description: StashCache Origin server
     AllowedVOs:
       - LIGO
+  CIT_LIGO_ORIGIN_STAGING:
+    Active: true
+    Description: This serves proprietary user data staged to and from the CIT cluster
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: origin-staging.ligo.caltech.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=origin-staging.ligo.caltech.edu
+    ID: 1479
+    Services:
+      XRootD origin server:
+        Description: StashCache Origin server
+    AllowedVOs:
+      - LIGO
   CIT_LIGO_SQUID1:
     ContactLists:
       Administrative Contact:
