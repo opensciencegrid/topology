@@ -291,7 +291,7 @@ def gen_id_from_yaml(data: dict, alternate_name: str, id_key = "ID", mod = 2 ** 
     Given a yaml object, return its existing ID if an ID is present, or generate a new ID for the object
     based on the md5sum of an alternate string value (usually the key of the object in its parent dictionary)
     """
-    return data.get(id_key) or gen_id(alternate_name, mod, minimum, hashfn)
+    return data[id_key] if data.get(id_key) is not None else gen_id(alternate_name, mod, minimum, hashfn)
 
 def gen_id(instr: AnyStr, mod = 2 ** 31 - 1, minimum=1, hashfn=hashlib.md5) -> int:
     """
