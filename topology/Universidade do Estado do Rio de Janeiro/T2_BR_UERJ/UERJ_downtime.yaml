@@ -696,4 +696,120 @@
   Services:
   - net.perfSONAR.Bandwidth
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542518458
+  Description: We will install/replace physical servers, reposition racks, and servers
+    and swap cables. Everything will be impacted.
+  Severity: Outage
+  StartTime: Jul 17, 2023 10:00 +0000
+  EndTime: Jul 21, 2023 21:00 +0000
+  CreatedTime: Jul 13, 2023 12:37 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542518883
+  Description: We will install/replace physical servers, reposition racks, and servers
+    and swap cables. Everything will be impacted.
+  Severity: Outage
+  StartTime: Jul 17, 2023 10:00 +0000
+  EndTime: Jul 21, 2023 21:00 +0000
+  CreatedTime: Jul 13, 2023 12:38 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542518984
+  Description: We will install/replace physical servers, reposition racks, and servers
+    and swap cables. Everything will be impacted.
+  Severity: Outage
+  StartTime: Jul 17, 2023 10:00 +0000
+  EndTime: Jul 21, 2023 21:00 +0000
+  CreatedTime: Jul 13, 2023 12:38 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542519096
+  Description: We will install/replace physical servers, reposition racks, and servers
+    and swap cables. Everything will be impacted.
+  Severity: Outage
+  StartTime: Jul 17, 2023 10:00 +0000
+  EndTime: Jul 21, 2023 21:00 +0000
+  CreatedTime: Jul 13, 2023 12:38 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1542519189
+  Description: We will install/replace physical servers, reposition racks, and servers
+    and swap cables. Everything will be impacted.
+  Severity: Outage
+  StartTime: Jul 17, 2023 10:00 +0000
+  EndTime: Jul 21, 2023 21:00 +0000
+  CreatedTime: Jul 13, 2023 12:38 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1549695465
+  Description: We need to perform further network tests before activating back the site
+  Severity: Outage
+  StartTime: Jul 21, 2023 20:00 +0000
+  EndTime: Jul 25, 2023 21:00 +0000
+  CreatedTime: Jul 21, 2023 19:59 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1549695615
+  Description: We need to perform further network tests before activating back the site
+  Severity: Outage
+  StartTime: Jul 21, 2023 20:00 +0000
+  EndTime: Jul 25, 2023 21:00 +0000
+  CreatedTime: Jul 21, 2023 19:59 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1549695696
+  Description: We need to perform further network tests before activating back the site
+  Severity: Outage
+  StartTime: Jul 21, 2023 20:00 +0000
+  EndTime: Jul 25, 2023 21:00 +0000
+  CreatedTime: Jul 21, 2023 19:59 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1549695779
+  Description: We need to perform further network tests before activating back the site
+  Severity: Outage
+  StartTime: Jul 21, 2023 20:00 +0000
+  EndTime: Jul 25, 2023 21:00 +0000
+  CreatedTime: Jul 21, 2023 19:59 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1549695876
+  Description: We need to perform further network tests before activating back the site
+  Severity: Outage
+  StartTime: Jul 21, 2023 20:00 +0000
+  EndTime: Jul 25, 2023 21:00 +0000
+  CreatedTime: Jul 21, 2023 19:59 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
 

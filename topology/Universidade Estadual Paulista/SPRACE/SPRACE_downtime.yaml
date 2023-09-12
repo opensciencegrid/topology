@@ -2433,3 +2433,135 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566003784
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 09, 2023 15:30 +0000
+  EndTime: Aug 09, 2023 21:00 +0000
+  CreatedTime: Aug 09, 2023 16:59 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566003785
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 09, 2023 15:30 +0000
+  EndTime: Aug 09, 2023 21:00 +0000
+  CreatedTime: Aug 09, 2023 16:59 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566003786
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 09, 2023 15:30 +0000
+  EndTime: Aug 09, 2023 21:00 +0000
+  CreatedTime: Aug 09, 2023 16:59 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566003787
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 09, 2023 15:30 +0000
+  EndTime: Aug 09, 2023 21:00 +0000
+  CreatedTime: Aug 09, 2023 16:59 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566003788
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 09, 2023 15:30 +0000
+  EndTime: Aug 09, 2023 21:00 +0000
+  CreatedTime: Aug 09, 2023 16:59 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566003789
+  Description: network outage
+  Severity: Outage
+  StartTime: Aug 09, 2023 15:30 +0000
+  EndTime: Aug 09, 2023 21:00 +0000
+  CreatedTime: Aug 09, 2023 16:59 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566179622
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Aug 09, 2023 21:00 +0000
+  EndTime: Aug 10, 2023 01:00 +0000
+  CreatedTime: Aug 09, 2023 21:52 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566179623
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Aug 09, 2023 21:00 +0000
+  EndTime: Aug 10, 2023 01:00 +0000
+  CreatedTime: Aug 09, 2023 21:52 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566179624
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Aug 09, 2023 21:00 +0000
+  EndTime: Aug 10, 2023 01:00 +0000
+  CreatedTime: Aug 09, 2023 21:52 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566179625
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Aug 09, 2023 21:00 +0000
+  EndTime: Aug 10, 2023 01:00 +0000
+  CreatedTime: Aug 09, 2023 21:52 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566179626
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Aug 09, 2023 21:00 +0000
+  EndTime: Aug 10, 2023 01:00 +0000
+  CreatedTime: Aug 09, 2023 21:52 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1566179627
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Aug 09, 2023 21:00 +0000
+  EndTime: Aug 10, 2023 01:00 +0000
+  CreatedTime: Aug 09, 2023 21:52 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------

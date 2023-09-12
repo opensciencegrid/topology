@@ -1,0 +1,41 @@
+AppDescription: This VO supports multiple sciences on UCSD
+CertificateOnly: false
+Community: The UCSD VO will support users and experiments from UCSD.
+Contacts:
+  Administrative Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas 
+  Security Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas 
+  Sponsors:
+  - ID: c412f5f57dca8fe5c73fb3bc4e86bcf243e9edf7
+    Name: Frank Wuerthwein
+  VO Manager:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas 
+Credentials:
+  TokenIssuers:
+    - URL: https://scitokens.org/ucsd
+      DefaultUnixUser: ucsd
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - Multi-Science Community
+ID: 234
+LongName: UCSD multiple sciences origin
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /ucsd
+        Authorizations:
+           - SciTokens:
+              Issuer: https://token.nationalresearchplatform.org/ucsdphysics
+              Base Path: /ucsd/physics
+              Map Subject: False
+           - PUBLIC
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+        
