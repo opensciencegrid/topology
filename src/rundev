@@ -12,6 +12,7 @@ ask_yn () {
 }
 
 export FLASK_ENV=development
+export FLASK_DEBUG=True
 cd "$(dirname "$0")"
 while true; do
     python3 app.py; ret=$?
