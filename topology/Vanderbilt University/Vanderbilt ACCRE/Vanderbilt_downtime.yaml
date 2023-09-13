@@ -583,4 +583,44 @@
   ResourceName: Vanderbilt_Xrootd
   Services:
   - XRootD component
-
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1559162037
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 8, 2023 05:00 +0000
+  EndTime: Aug 11, 2023 05:00 +0000
+  CreatedTime: Aug 3, 2023 02:00 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 1559162038
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 8, 2023 05:00 +0000
+  EndTime: Aug 11, 2023 05:00 +0000
+  CreatedTime: Aug 3, 2023 02:00 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1559162039
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 8, 2023 05:00 +0000
+  EndTime: Aug 11, 2023 05:00 +0000
+  CreatedTime: Aug 3, 2023 02:00 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1559162040
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 8, 2023 05:00 +0000
+  EndTime: Aug 11, 2023 05:00 +0000
+  CreatedTime: Aug 3, 2023 02:00 +0000
+  ResourceName: Vanderbilt_Xrootd
+  Services:
+  - XRootD component

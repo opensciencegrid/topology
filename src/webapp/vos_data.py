@@ -4,7 +4,7 @@ from collections import OrderedDict
 from logging import getLogger
 from typing import Dict, List, Optional
 
-from .common import Filters, ParsedYaml, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape
+from .common import Filters, ParsedYaml, VOSUMMARY_SCHEMA_URL, is_null, expand_attr_list, order_dict, escape, gen_id_from_yaml
 from .data_federation import StashCache
 from .contacts_reader import ContactsData
 
@@ -23,6 +23,7 @@ class VOsData(object):
         return {self.vos[name]["ID"]: name for name in self.vos}
 
     def add_vo(self, vo_name: str, vo_data: ParsedYaml):
+        vo_data["ID"] = gen_id_from_yaml(vo_data, vo_name)
         self.vos[vo_name] = vo_data
         stashcache_data = vo_data.get('DataFederations', {}).get('StashCache')
         if stashcache_data:
@@ -133,6 +134,7 @@ class VOsData(object):
         if not is_null(vo, "ParentVO"):
             parentvo = OrderedDict.fromkeys(["ID", "Name"])
             parentvo.update(vo["ParentVO"])
+            parentvo['ID'] = gen_id_from_yaml(parentvo, parentvo["Name"])
             new_vo["ParentVO"] = parentvo
 
         if not is_null(vo, "Credentials"):

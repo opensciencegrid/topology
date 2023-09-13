@@ -68,4 +68,37 @@ Resources:
       KSI2KMin: 100
       StorageCapacityMax: 4
       StorageCapacityMin: 1
+  ND-CAML-GPU-CE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+      Security Contact:
+        Primary:
+          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Marco Mascheroni
+    Description: GPU Cluster at Notre Dame.
+    FQDN: nd-caml-gpu-ce1.svc.opensciencegrid.org
+    ID: 1469
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    Tags:
+      - CC*
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      HEPSPEC: 85
+      InteropAccounting: false
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      StorageCapacityMax: 4
+      StorageCapacityMin: 1
 SupportCenter: NWICG

@@ -20,3 +20,37 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1523857764
+  Description: Downtime for OSG software update
+  Severity: Intermittent Outage
+  StartTime: Jun 22, 2023 13:00 +0000
+  EndTime: Jun 22, 2023 16:00 +0000
+  CreatedTime: Jun 21, 2023 22:16 +0000
+  ResourceName: Baylor-Kodiak-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1553875428
+  Description: Switching to new server
+  Severity: Intermittent Outage
+  StartTime: Jul 26, 2023 16:15 +0000
+  EndTime: Jul 26, 2023 16:45 +0000
+  CreatedTime: Jul 26, 2023 16:05 +0000
+  ResourceName: Baylor-Kodiak-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1570148706
+  Description: Maintenance
+  Severity: Outage
+  StartTime: Aug 14, 2023 14:00 +0000
+  EndTime: Aug 19, 2023 04:00 +0000
+  CreatedTime: Aug 14, 2023 12:07 +0000
+  ResourceName: Baylor-Kodiak-CE
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------

@@ -18,12 +18,11 @@ import sys
 from pathlib import Path
 import yaml
 
-
 # thanks stackoverflow
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import ensure_list, to_xml, Filters, load_yaml_file
+from webapp.common import ensure_list, to_xml, Filters, load_yaml_file, gen_id_from_yaml
 from webapp.contacts_reader import get_contacts_data
 from webapp.topology import CommonData, Topology
 
@@ -72,7 +71,8 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
 
     for facility_path in root.glob("*/FACILITY.yaml"):
         name = facility_path.parts[-2]
-        id_ = load_yaml_file(facility_path)["ID"]
+        facility_data = load_yaml_file(facility_path)
+        id_ = gen_id_from_yaml(facility_data or {}, name)
         topology.add_facility(name, id_)
     for site_path in root.glob("*/*/SITE.yaml"):
         facility, name = site_path.parts[-3:-1]
@@ -85,7 +85,7 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
                 log.error(skip_msg)
                 continue
         site_info = load_yaml_file(site_path)
-        id_ = site_info["ID"]
+        id_ = gen_id_from_yaml(site_info, name)
         topology.add_site(facility, name, id_, site_info)
     for yaml_path in root.glob("*/*/*.yaml"):
         facility, site, name = yaml_path.parts[-3:]
