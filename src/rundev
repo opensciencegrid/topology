@@ -14,7 +14,7 @@ ask_yn () {
 export FLASK_ENV=development
 cd "$(dirname "$0")"
 while true; do
-    python app.py; ret=$?
+    python3 app.py; ret=$?
     if [[ $ret -eq 0 ]]; then
         exit
     elif [[ $ret -eq 130 ]]; then  # control-C
