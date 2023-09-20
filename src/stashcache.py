@@ -151,7 +151,7 @@ class _IdNamespaceData:
                     ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
             return ligo_authz_list
 
-        for stashcache_obj in vos_data.stashcache_by_vo_name.values():
+        for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
             for path, namespace in stashcache_obj.namespaces.items():
                 if not namespace_allows_cache_resource(namespace, cache_resource):
                     continue
@@ -165,7 +165,7 @@ class _IdNamespaceData:
 
                 # Extend authz list with LIGO DNs if applicable
                 extended_authz_list = namespace.authz_list
-                if path == "/user/ligo":
+                if vo_name.lower() == "ligo":
                     if legacy:
                         extended_authz_list += fetch_ligo_authz_list_if_needed()
                     else:
@@ -322,11 +322,6 @@ def generate_cache_grid_mapfile(global_data: GlobalData,
         resource = _get_cache_resource(fqdn, topology, suppress_errors)
         if not resource:
             return ""
-
-    ligo_authz_list: List[AuthMethod] = []
-    if legacy:
-        for dn in global_data.get_ligo_dn_list():
-            ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
 
     idns = _IdNamespaceData.for_cache(
         global_data=global_data,
