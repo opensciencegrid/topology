@@ -70,6 +70,8 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
     skip_msg = "skipping (non-strict mode)"
 
     for facility_path in root.glob("*"):
+        if not os.path.isdir(facility_path):
+            continue
         name = facility_path.parts[-1]
         facility_yaml_path = facility_path / 'FACILITY.yaml'
         facility_data = load_yaml_file(facility_yaml_path) if facility_yaml_path.exists() else {}
@@ -77,6 +79,7 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
         topology.add_facility(name, id_)
     for site_path in root.glob("*/*/SITE.yaml"):
         facility, name = site_path.parts[-3:-1]
+        assert facility in topology.facilities, f"Missing facility {facility} for site {name}"
         site_info = load_yaml_file(site_path)
         id_ = gen_id_from_yaml(site_info, name)
         topology.add_site(facility, name, id_, site_info)
