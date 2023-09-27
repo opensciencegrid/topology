@@ -2642,3 +2642,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345293
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345294
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345295
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345296
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345297
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345298
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345299
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
