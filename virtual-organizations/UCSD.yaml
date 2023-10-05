@@ -38,4 +38,14 @@ DataFederations:
           - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
+      - Path: /ndp/burnpro3d
+        Authorizations:
+           - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/burnpro3d
+              Base Path: /ndp/burnpro3d
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
   
