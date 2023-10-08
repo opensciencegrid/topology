@@ -2719,3 +2719,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1617970756
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 08, 2023 20:30 +0000
+  EndTime: Oct 09, 2023 15:00 +0000
+  CreatedTime: Oct 08, 2023 20:31 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1617970757
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 08, 2023 20:30 +0000
+  EndTime: Oct 09, 2023 15:00 +0000
+  CreatedTime: Oct 08, 2023 20:31 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1617970758
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 08, 2023 20:30 +0000
+  EndTime: Oct 09, 2023 15:00 +0000
+  CreatedTime: Oct 08, 2023 20:31 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1617970759
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 08, 2023 20:30 +0000
+  EndTime: Oct 09, 2023 15:00 +0000
+  CreatedTime: Oct 08, 2023 20:31 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1617970760
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 08, 2023 20:30 +0000
+  EndTime: Oct 09, 2023 15:00 +0000
+  CreatedTime: Oct 08, 2023 20:31 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1617970761
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 08, 2023 20:30 +0000
+  EndTime: Oct 09, 2023 15:00 +0000
+  CreatedTime: Oct 08, 2023 20:31 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1617970762
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 08, 2023 20:30 +0000
+  EndTime: Oct 09, 2023 15:00 +0000
+  CreatedTime: Oct 08, 2023 20:31 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
