@@ -566,7 +566,8 @@ will want to adjust the Map.data which populates the select input and legend.
 
             // Check for zoom and location inputs
             if(window.location.hash){
-                let viewportComponents = window.location.hash.split("#")[1].split("|");
+                let decodedHash = decodeURI(window.location.hash)
+                let viewportComponents = decodedHash.split("#")[1].split("|");
                 [latitude, longitude] = viewportComponents[0].split(',')
                 zoom = viewportComponents[1]
             }
