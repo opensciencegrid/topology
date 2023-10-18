@@ -14,7 +14,7 @@ Resources:
           ID: OSG1000015
           Name: Aaron Moate
     Description: This is the GLOW/CHTC glidein frontend.
-    FQDN: glidein2.chtc.wisc.edu
+    FQDN: vo-frontend-glow.chtc.wisc.edu
     ID: 638
     Services:
       Submit Node:
@@ -521,10 +521,11 @@ Resources:
         Primary:
           Name: Aaron Moate
           ID: OSG1000015
-    FQDN: ap40.chtc.wisc.edu
+    FQDN: ap40.uw.osg-htc.org
     FQDNAliases:
       - ap2007.chtc.wisc.edu 
       - ospool-ap2040.chtc.wisc.edu
+      - ap40.chtc.wisc.edu
     Services:
       Submit Node:
         Description: OS Pool access point

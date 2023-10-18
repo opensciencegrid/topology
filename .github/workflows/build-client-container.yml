@@ -19,7 +19,7 @@ jobs:
     steps:
     - name: make date tag
       id: mkdatetag
-      run: echo "::set-output name=dtag::$(date +%Y%m%d-%H%M)"
+      run: echo "dtag=$(date +%Y%m%d-%H%M)" >> $GITHUB_OUTPUT
 
   build:
     runs-on: ubuntu-latest
@@ -29,7 +29,7 @@ jobs:
       fail-fast: False
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Generate tag list
       id: generate-tag-list
@@ -43,26 +43,26 @@ jobs:
           tag_list+=($registry/$docker_repo:release-$TIMESTAMP)
         done
         IFS=,
-        echo "::set-output name=taglist::${tag_list[*]}"
+        echo "taglist=${tag_list[*]}" >> $GITHUB_OUTPUT
 
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
+      uses: docker/setup-buildx-action@v2.7.0
 
     - name: Log in to Docker Hub
-      uses: docker/login-action@v1
+      uses: docker/login-action@v2.2.0
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Log in to OSG Harbor
-      uses: docker/login-action@v1
+      uses: docker/login-action@v2.2.0
       with:
         registry: hub.opensciencegrid.org
         username: ${{ secrets.OSG_HARBOR_ROBOT_USER }}
         password: ${{ secrets.OSG_HARBOR_ROBOT_PASSWORD }}
 
     - name: Build and push Client Docker images
-      uses: docker/build-push-action@v2.2.0
+      uses: docker/build-push-action@v4
       with:
         push: true
         tags: "${{ steps.generate-tag-list.outputs.taglist }}"
