@@ -96,8 +96,8 @@ class TestStashcache:
             mm = GRID_MAPPING_REGEX.match(line)
             if mm:
                 dn = mm.group(1)
-                if "CN=Brian Paul Bockelman" in dn or "CN=Matyas Selmeci A148276" in dn:
-                    # HACK: these two have their FQANs explicitly allowed in some namespaces so it's OK
+                if "CN=Brian Paul Bockelman" in dn or "CN=Matyas Selmeci A148276" in dn or "CN=Judith Lorraine Stephen" in dn:
+                    # HACK: these three have their FQANs explicitly allowed in some namespaces so it's OK
                     # for them to show up in grid-mapfiles even without an FQDN
                     continue
                 else:
