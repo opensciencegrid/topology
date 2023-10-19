@@ -53,7 +53,7 @@ DataFederations:
           - ANY
       - Path: /nrp/protected/xenon-biggrid-nl/
         Authorizations:
-          - FQAN: /xenon.biggrid.nl
+          - FQAN: /xenon.biggrid.nl/*
           - DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jstephen/CN=781624/CN=Judith Lorraine Stephen
           - SciTokens:
               Issuer: https://t.nationalresearchplatform.org/xenon
