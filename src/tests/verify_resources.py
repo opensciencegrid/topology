@@ -141,7 +141,7 @@ def main():
     errors += test_14_vo_contacts_match(vos, vofns, contacts)
     # per SOFTWARE-3329, we are not checking support center contacts
 #   errors += test_14_sc_contacts_match(support_centers, contacts)
-    errors += test_15_facility_site_files()
+    errors += test_15_site_files()
     errors += test_16_Xrootd_DNs(rgs, rgfns)
     errors += test_17_osdf_data(rgs, rgfns)
     warnings += test_18_osdf_data_cache_warnings(rgs, rgfns, vomap)
@@ -190,7 +190,6 @@ _emsgs = {
                                " or a CILogonID",
     'UnknownContactID'       : "Contact IDs must exist in contact repo",
     'ContactNameMismatch'    : "Contact names must match in contact repo",
-    'NoFacility'             : "Facility directories must contain a FACILITY.yaml",
     'NoSite'                 : "Site directories must contain a SITE.yaml",
     'XrootdWithoutDN'        : "Xrootd cache server must provide a DN",
     'OSDFServiceVOsList'     : "OSDF Services must contain an AllowedVOs list",
@@ -369,27 +368,30 @@ def test_7_fqdn_unique(rgs, rgfns):
 
 
 def test_8_res_ids(rgs, rgfns):
-    # Check that resources/resource groups have a numeric ID/GroupID
+    # Check that resources/resource groups have a unique, numeric ID/GroupID
+    # in the case that an ID is manually assigned
 
     errors = 0
     ridres = autodict()
     gidrgs = autodict()
 
     for rg,rgfn in zip(rgs,rgfns):
-        if not isinstance(rg.get('GroupID'), int):
+        group_id = rg.get('GroupID')
+        if group_id is not None and not isinstance(group_id, int):
             print_emsg_once('ResGrpID')
             print("ERROR: Resource Group missing numeric GroupID: '%s'" % rgfn)
             errors += 1
-        else:
+        elif group_id:
             gidrgs[rg['GroupID']] += [rgfn]
 
         for resname,res in sorted(rg['Resources'].items()):
-            if not isinstance(res.get('ID'), int):
+            resource_id = res.get('ID')
+            if resource_id is not None and not isinstance(resource_id, int):
                 print_emsg_once('ResID')
                 print("ERROR: Resource '%s' missing numeric ID in '%s'"
                       % (resname, rgfn))
                 errors += 1
-            else:
+            elif resource_id:
                 ridres[res['ID']] += [(rgfn, resname)]
 
     for gid,rglist in sorted(gidrgs.items()):
@@ -660,16 +662,9 @@ def test_14_sc_contacts_match(support_centers, contacts):
     return errors
 
 
-def test_15_facility_site_files():
-    # verify the required FACILITY.yaml and SITE.yaml files
+def test_15_site_files():
+    # verify the required SITE.yaml files
     errors = 0
-
-    for facdir in glob.glob("*/"):
-        if not os.path.exists(facdir + "FACILITY.yaml"):
-            print_emsg_once('NoFacility')
-            print("ERROR: " + facdir[:-1] + " does not have required FACILITY.yaml file")
-            errors += 1
-
     for sitedir in glob.glob("*/*/"):
         if not os.path.exists(sitedir + "SITE.yaml"):
             print_emsg_once('NoSite')

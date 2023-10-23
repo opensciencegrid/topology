@@ -756,5 +756,120 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1549695465
+  Description: We need to perform further network tests before activating back the site
+  Severity: Outage
+  StartTime: Jul 21, 2023 20:00 +0000
+  EndTime: Jul 25, 2023 21:00 +0000
+  CreatedTime: Jul 21, 2023 19:59 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1549695615
+  Description: We need to perform further network tests before activating back the site
+  Severity: Outage
+  StartTime: Jul 21, 2023 20:00 +0000
+  EndTime: Jul 25, 2023 21:00 +0000
+  CreatedTime: Jul 21, 2023 19:59 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1549695696
+  Description: We need to perform further network tests before activating back the site
+  Severity: Outage
+  StartTime: Jul 21, 2023 20:00 +0000
+  EndTime: Jul 25, 2023 21:00 +0000
+  CreatedTime: Jul 21, 2023 19:59 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1549695779
+  Description: We need to perform further network tests before activating back the site
+  Severity: Outage
+  StartTime: Jul 21, 2023 20:00 +0000
+  EndTime: Jul 25, 2023 21:00 +0000
+  CreatedTime: Jul 21, 2023 19:59 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1549695876
+  Description: We need to perform further network tests before activating back the site
+  Severity: Outage
+  StartTime: Jul 21, 2023 20:00 +0000
+  EndTime: Jul 25, 2023 21:00 +0000
+  CreatedTime: Jul 21, 2023 19:59 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1599705929
+  Description: The university had an unexpected power outage that affected everything,
+    including the no-breaks that provide protection for our cluster
+  Severity: Outage
+  StartTime: Sep 17, 2023 17:00 +0000
+  EndTime: Sep 19, 2023 20:00 +0000
+  CreatedTime: Sep 17, 2023 17:09 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1599706673
+  Description: The university had an unexpected power outage that affected everything,
+    including the no-breaks that provide protection for our cluster
+  Severity: Outage
+  StartTime: Sep 17, 2023 17:00 +0000
+  EndTime: Sep 19, 2023 20:00 +0000
+  CreatedTime: Sep 17, 2023 17:11 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1599706806
+  Description: The university had an unexpected power outage that affected everything,
+    including the no-breaks that provide protection for our cluster
+  Severity: Outage
+  StartTime: Sep 17, 2023 17:00 +0000
+  EndTime: Sep 19, 2023 20:00 +0000
+  CreatedTime: Sep 17, 2023 17:11 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1599706923
+  Description: The university had an unexpected power outage that affected everything,
+    including the no-breaks that provide protection for our cluster
+  Severity: Outage
+  StartTime: Sep 17, 2023 17:00 +0000
+  EndTime: Sep 19, 2023 20:00 +0000
+  CreatedTime: Sep 17, 2023 17:11 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1599707014
+  Description: The university had an unexpected power outage that affected everything,
+    including the no-breaks that provide protection for our cluster
+  Severity: Outage
+  StartTime: Sep 17, 2023 17:00 +0000
+  EndTime: Sep 19, 2023 20:00 +0000
+  CreatedTime: Sep 17, 2023 17:11 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
 

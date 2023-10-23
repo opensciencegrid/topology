@@ -18,12 +18,11 @@ import sys
 from pathlib import Path
 import yaml
 
-
 # thanks stackoverflow
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import ensure_list, to_xml, Filters, load_yaml_file
+from webapp.common import ensure_list, to_xml, Filters, load_yaml_file, gen_id_from_yaml
 from webapp.contacts_reader import get_contacts_data
 from webapp.topology import CommonData, Topology
 
@@ -70,22 +69,19 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
 
     skip_msg = "skipping (non-strict mode)"
 
-    for facility_path in root.glob("*/FACILITY.yaml"):
-        name = facility_path.parts[-2]
-        id_ = load_yaml_file(facility_path)["ID"]
+    for facility_path in root.glob("*"):
+        if not os.path.isdir(facility_path):
+            continue
+        name = facility_path.parts[-1]
+        facility_yaml_path = facility_path / 'FACILITY.yaml'
+        facility_data = load_yaml_file(facility_yaml_path) if facility_yaml_path.exists() else {}
+        id_ = gen_id_from_yaml(facility_data or {}, name)
         topology.add_facility(name, id_)
     for site_path in root.glob("*/*/SITE.yaml"):
         facility, name = site_path.parts[-3:-1]
-        if facility not in topology.facilities:
-            msg = f"Missing facility {facility} for site {name}.  Is there a FACILITY.yaml?"
-            if strict:
-                raise TopologyError(msg)
-            else:
-                log.error(msg)
-                log.error(skip_msg)
-                continue
+        assert facility in topology.facilities, f"Missing facility {facility} for site {name}"
         site_info = load_yaml_file(site_path)
-        id_ = site_info["ID"]
+        id_ = gen_id_from_yaml(site_info, name)
         topology.add_site(facility, name, id_, site_info)
     for yaml_path in root.glob("*/*/*.yaml"):
         facility, site, name = yaml_path.parts[-3:]

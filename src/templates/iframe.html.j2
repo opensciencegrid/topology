@@ -221,7 +221,28 @@ will want to adjust the Map.data which populates the select input and legend.
     const storage_services = new Set(["Squid", "SRMv2", "XRootD cache server", "GridFtp", "XRootD component", "XRootD origin server", "SRMv1", "LFC", "Apache Server", "FTS"]);
     const network_services = new Set(["net.perfSONAR.Bandwidth", "net.perfSONAR.Latency"]);
     const ospool_resources = new Set([
-        "SU-ITS-CE3", "Expanse-PATH-EP", "SU-ITS-CE2", "Lancium-PEP", "UNL-PATH-EP", "UConn-HPC", "SDSC-PRP-OSPool-Provisioner", "IU-Jetstream2-Backfill", "Lancium-Backfill", "WISC-PATH-EP", "GPGrid", "MWT2", "GLOW", "Purdue-Geddes", "Lehigh - Hawk", "UW-IT", "NWICG_NDCMS", "UColorado_HEP", "TACC-Jetstream-Backfill", "UConn-OSG", "GPN-GP-ARGO-Backfill", "AMNH-Mendel-CE1", "BNL-ATLAS", "TCNJ-ELSA", "CUmulus-Backfill", "AMNH-HEL-CE1", "Rice-RAPID-Backfill", "OSG_US_FSU_HNPGRID", "GP-ARGO-wichita-backfill", "SDSC-PRP-CE1", "UA-HPC-CE1", "VU-AUGIE", "SIUE-CC-production", "GP-ARGO-dsu-backfill", "SLATE_US_NMSU_DISCOVERY", "UC-Denver-CE1", "UTC-Epyc", "Crane", "AGLT2", "GP-ARGO-uams-backfill", "SYRA-PATH-EP", "GP-ARGO-oru-backfill", "USCMS-FNAL-WC1", "GP-ARGO-sdsmt-backfill", "GP-ARGO-sdsu-backfill", "GP-ARGO-astate-backfill", "GP-ARGO-usd-backfill", "Georgia_Tech_PACE_CE_2", "GP-ARGO-ksu-backfill", "GP-ARGO-emporia-backfill", "Rhodes-HPC-CE1", "Swan-CE1", "GP-ARGO-langston-backfill", "GP-ARGO-uark-backfill", "GP-ARGO-creighton-backfill", "ODU-Ubuntu", "LSUHSC-Tigerfish-CE1", "WTAMU_HPC", "ASU-DELL_M420", "GP-ARGO-mst-backfill", "GP-ARGO-ku-backfill", "uprm-cms", "WSU-GRID", "USC-CARC-Artemis-Backfill", "FANDM-ITS", "Clarkson-ACRES-CE2", "NMSU-Discovery-CE1", "LC-ITS", "Rhino", "UA-LR-ITS-EP", "PDX-Coeus-CE1", "GP-ARGO-osu-backfill", "Nebraska", "cinvestav", "ISI", "Purdue-Anvil-Composable", "GP-ARGO-kanren-backfill", "GSU-ACIDS", "Clemson-Palmetto", "LSUHSC-Tigerfish-CE2", "AMNH-ARES-CE1", "GP-ARGO-doane-backfill", "LSU-DB-CE1", "CHTC", "CHTC-canary2", "NMSU-Discovery", "KSU-Beocat-CE1", "WSU-GRID-CE1", "GP-ARGO-cameron-backfill", "SPRACE", "ND_CAMLGPU", "CYBERA_EDMONTON", "UMissHEP", "USF", "Maine-ACG", "Clarkson-ACRES", "FIU-PATH-BACKFILL", "GP-ARGO-semo-backfill", "AMNH-ARES", "FIU-IRCC", "Alabama-CHPC-CE1", "TIGER-OSG-BACKFILL-PROD", "CIT_CMS_T2", "UCR-HPCC-CE1", "Tufts-Cluster", "Purdue-Anvil-CE1", "IIT_CE2", "IIT_CE1", "CHTC-GPU-EP", "Maine-ACG-CE1", "NCSU-HPC-CE1", "SLATE_US_UUTAH_LONEPEAK", "USC-CARC-Carina-Backfill", "SLATE_US_UUTAH_NOTCHPEAK", "ISI_ImageTest", "SLATE_US_UUTAH_KINGSPEAK", "Wilson Facility"
+        "UMT-Hellgate-CE1", "SU-ITS-CE3", "Expanse-PATH-EP", "SU-ITS-CE2", "Lancium-PEP", "UNL-PATH-EP", "UConn-HPC",
+        "SDSC-PRP-OSPool-Provisioner", "IU-Jetstream2-Backfill", "Lancium-Backfill", "WISC-PATH-EP", "GPGrid", "MWT2",
+        "GLOW", "Purdue-Geddes", "Lehigh - Hawk", "UW-IT", "NWICG_NDCMS", "UColorado_HEP", "TACC-Jetstream-Backfill",
+        "UConn-OSG", "GPN-GP-ARGO-Backfill", "AMNH-Mendel-CE1", "BNL-ATLAS", "TCNJ-ELSA", "CUmulus-Backfill",
+        "AMNH-HEL-CE1", "Rice-RAPID-Backfill", "OSG_US_FSU_HNPGRID", "GP-ARGO-wichita-backfill", "SDSC-PRP-CE1",
+        "UA-HPC-CE1", "VU-AUGIE", "SIUE-CC-production", "GP-ARGO-dsu-backfill", "SLATE_US_NMSU_DISCOVERY",
+        "UC-Denver-CE1", "UTC-Epyc", "Crane", "AGLT2", "GP-ARGO-uams-backfill", "SYRA-PATH-EP", "GP-ARGO-oru-backfill",
+        "USCMS-FNAL-WC1", "GP-ARGO-sdsmt-backfill", "GP-ARGO-sdsu-backfill", "GP-ARGO-astate-backfill",
+        "GP-ARGO-usd-backfill", "Georgia_Tech_PACE_CE_2", "GP-ARGO-ksu-backfill", "GP-ARGO-emporia-backfill",
+        "Rhodes-HPC-CE1", "Swan-CE1", "GP-ARGO-langston-backfill", "GP-ARGO-uark-backfill",
+        "GP-ARGO-creighton-backfill", "ODU-Ubuntu", "LSUHSC-Tigerfish-CE1", "WTAMU_HPC", "ASU-DELL_M420",
+        "GP-ARGO-mst-backfill", "GP-ARGO-ku-backfill", "uprm-cms", "WSU-GRID", "USC-CARC-Artemis-Backfill",
+        "FANDM-ITS", "Clarkson-ACRES-CE2", "NMSU-Discovery-CE1", "LC-ITS", "Rhino", "UA-LR-ITS-EP",
+        "PDX-Coeus-CE1", "GP-ARGO-osu-backfill", "Nebraska", "cinvestav", "ISI", "Purdue-Anvil-Composable",
+        "GP-ARGO-kanren-backfill", "GSU-ACIDS", "Clemson-Palmetto", "LSUHSC-Tigerfish-CE2", "AMNH-ARES-CE1",
+        "GP-ARGO-doane-backfill", "LSU-DB-CE1", "CHTC", "CHTC-canary2", "NMSU-Discovery", "KSU-Beocat-CE1",
+        "WSU-GRID-CE1", "GP-ARGO-cameron-backfill", "SPRACE", "ND_CAMLGPU", "CYBERA_EDMONTON", "UMissHEP",
+        "USF", "Maine-ACG", "Clarkson-ACRES", "FIU-PATH-BACKFILL", "GP-ARGO-semo-backfill", "AMNH-ARES",
+        "FIU-IRCC", "Alabama-CHPC-CE1", "TIGER-OSG-BACKFILL-PROD", "CIT_CMS_T2", "UCR-HPCC-CE1", "Tufts-Cluster",
+        "Purdue-Anvil-CE1", "IIT_CE2", "IIT_CE1", "CHTC-GPU-EP", "Maine-ACG-CE1", "NCSU-HPC-CE1",
+        "SLATE_US_UUTAH_LONEPEAK", "USC-CARC-Carina-Backfill", "SLATE_US_UUTAH_NOTCHPEAK", "ISI_ImageTest",
+        "SLATE_US_UUTAH_KINGSPEAK", "Wilson Facility"
     ].map(x => x.toLowerCase()))
 
     const iconConfig = {
@@ -545,7 +566,8 @@ will want to adjust the Map.data which populates the select input and legend.
 
             // Check for zoom and location inputs
             if(window.location.hash){
-                let viewportComponents = window.location.hash.split("#")[1].split("|");
+                let decodedHash = decodeURI(window.location.hash)
+                let viewportComponents = decodedHash.split("#")[1].split("|");
                 [latitude, longitude] = viewportComponents[0].split(',')
                 zoom = viewportComponents[1]
             }

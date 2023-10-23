@@ -50,14 +50,14 @@ class TestStashcache:
 
         stashcache.generate_cache_authfile(global_data, "osg-sunnyvale-stashcache.t2.ucsd.edu")
 
-        assert spy.call_count == 1
+        assert spy.call_count == 5
 
     def test_allowedVO_includes_LIGO_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
         spy = mocker.spy(global_data, "get_ligo_dn_list")
 
         stashcache.generate_cache_authfile(global_data, "stashcache.gwave.ics.psu.edu")
 
-        assert spy.call_count == 1
+        assert spy.call_count == 5
 
     def test_allowedVO_excludes_LIGO_and_ANY_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
         spy = mocker.spy(global_data, "get_ligo_dn_list")
@@ -96,8 +96,8 @@ class TestStashcache:
             mm = GRID_MAPPING_REGEX.match(line)
             if mm:
                 dn = mm.group(1)
-                if "CN=Brian Paul Bockelman" in dn or "CN=Matyas Selmeci A148276" in dn:
-                    # HACK: these two have their FQANs explicitly allowed in some namespaces so it's OK
+                if "CN=Brian Paul Bockelman" in dn or "CN=Matyas Selmeci A148276" in dn or "CN=Judith Lorraine Stephen" in dn:
+                    # HACK: these three have their FQANs explicitly allowed in some namespaces so it's OK
                     # for them to show up in grid-mapfiles even without an FQDN
                     continue
                 else:
