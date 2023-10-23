@@ -141,7 +141,7 @@ def main():
     errors += test_14_vo_contacts_match(vos, vofns, contacts)
     # per SOFTWARE-3329, we are not checking support center contacts
 #   errors += test_14_sc_contacts_match(support_centers, contacts)
-    errors += test_15_facility_site_files()
+    errors += test_15_site_files()
     errors += test_16_Xrootd_DNs(rgs, rgfns)
     errors += test_17_osdf_data(rgs, rgfns)
     warnings += test_18_osdf_data_cache_warnings(rgs, rgfns, vomap)
@@ -190,7 +190,6 @@ _emsgs = {
                                " or a CILogonID",
     'UnknownContactID'       : "Contact IDs must exist in contact repo",
     'ContactNameMismatch'    : "Contact names must match in contact repo",
-    'NoFacility'             : "Facility directories must contain a FACILITY.yaml",
     'NoSite'                 : "Site directories must contain a SITE.yaml",
     'XrootdWithoutDN'        : "Xrootd cache server must provide a DN",
     'OSDFServiceVOsList'     : "OSDF Services must contain an AllowedVOs list",
@@ -663,16 +662,9 @@ def test_14_sc_contacts_match(support_centers, contacts):
     return errors
 
 
-def test_15_facility_site_files():
-    # verify the required FACILITY.yaml and SITE.yaml files
+def test_15_site_files():
+    # verify the required SITE.yaml files
     errors = 0
-
-    for facdir in glob.glob("*/"):
-        if not os.path.exists(facdir + "FACILITY.yaml"):
-            print_emsg_once('NoFacility')
-            print("ERROR: " + facdir[:-1] + " does not have required FACILITY.yaml file")
-            errors += 1
-
     for sitedir in glob.glob("*/*/"):
         if not os.path.exists(sitedir + "SITE.yaml"):
             print_emsg_once('NoSite')
