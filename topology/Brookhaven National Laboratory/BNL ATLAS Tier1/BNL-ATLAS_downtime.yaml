@@ -1425,17 +1425,6 @@
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 1630657310
-  Description: dCache Downtime
-  Severity: Outage
-  StartTime: Oct 31, 2023 14:00 +0000
-  EndTime: Oct 31, 2023 23:00 +0000
-  CreatedTime: Oct 23, 2023 12:55 +0000
-  ResourceName: BNL_CLOUD
-  Services:
-  - Submit Node
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 1630658348
   Description: Network downtime
   Severity: Outage
@@ -1622,16 +1611,5 @@
   ResourceName: ps-development
   Services:
   - net.perfSONAR.Latency
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1630658688
-  Description: Network downtime
-  Severity: Outage
-  StartTime: Dec 19, 2023 11:00 +0000
-  EndTime: Dec 20, 2023 02:00 +0000
-  CreatedTime: Oct 23, 2023 12:57 +0000
-  ResourceName: BNL_CLOUD
-  Services:
-  - Submit Node
 # ---------------------------------------------------------
 
