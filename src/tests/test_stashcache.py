@@ -112,17 +112,21 @@ class TestStashcache:
         cp = ConfigParser()
         cp.read_string(origin_scitokens_conf, "origin_scitokens.conf")
 
-        assert "Global" in cp, "Missing Global section"
-        assert "Issuer https://test.wisc.edu" in cp, \
-            "Issuer with reasonable length missing"
-        assert "Issuer issuer-thats-50-characters-long-if-you.chop" in cp, \
-            "Issuer that just barely fits if you chop off the scheme missing"
-        assert (cp["Issuer issuer-thats-50-characters-long-if-you.chop"]["issuer"] ==
-                "https://issuer-thats-50-characters-long-if-you.chop"), \
-            "Unexpected issuer in a section we modified"
-        assert not re.search(r"^\[[^]]{51}", origin_scitokens_conf, re.MULTILINE), \
-            "Section over 50 chars long found"
-        # ^^ easier to regexp this
+        try:
+            assert "Global" in cp, "Missing Global section"
+            assert "Issuer https://test.wisc.edu" in cp, \
+                "Issuer with reasonable length missing"
+            assert "Issuer issuer-thats-50-characters-long-if-you.chop" in cp, \
+                "Issuer that just barely fits if you chop off the scheme missing"
+            assert (cp["Issuer issuer-thats-50-characters-long-if-you.chop"]["issuer"] ==
+                    "https://issuer-thats-50-characters-long-if-you.chop"), \
+                "Unexpected issuer in a section we modified"
+            assert not re.search(r"^\[[^]]{51}", origin_scitokens_conf, re.MULTILINE), \
+                "Section over 50 chars long found"
+            # ^^ easier to regexp this
+        except AssertionError:
+            print(f"Generated origin scitokens.conf text:\n{origin_scitokens_conf}\n", file=sys.stderr)
+            raise
 
     def test_None_fdqn_isnt_error(self, client: flask.Flask):
         stashcache.generate_cache_authfile(global_data, None)
