@@ -1,3 +1,4 @@
+import hashlib
 import urllib
 import urllib.parse
 from collections import OrderedDict
@@ -76,6 +77,8 @@ class FQANAuth(AuthMethod):
 
 class SciTokenAuth(AuthMethod):
     used_in_scitokens_conf = True
+    ISSUER_TITLE_MAX_LENGTH = 43  # 50 - the length of 'Issuer '
+                                  # xrootd/xrootd#2074
 
     def __init__(self, issuer: str, base_path: str, restricted_path: Optional[str], map_subject: bool):
         self.issuer = issuer
@@ -90,7 +93,17 @@ class SciTokenAuth(AuthMethod):
     def get_scitokens_conf_block(self, service_name: str):
         if service_name not in [XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER]:
             raise ValueError(f"service_name must be '{XROOTD_CACHE_SERVER}' or '{XROOTD_ORIGIN_SERVER}'")
-        block = (f"[Issuer {self.issuer}]\n"
+
+        issuer_title = self.issuer
+        if issuer_title.startswith("https://"):
+            issuer_title = issuer_title[8:]
+        # title is too long; replace it with a hash
+        if len(issuer_title) > self.ISSUER_TITLE_MAX_LENGTH:
+            hasher = hashlib.sha1()  # sha1 hex digest is 40 chars
+            hasher.update(issuer_title.encode("utf-8", errors="ignore"))
+            issuer_title = hasher.hexdigest()
+
+        block = (f"[Issuer {issuer_title}]\n"
                  f"issuer = {self.issuer}\n"
                  f"base_path = {self.base_path}\n")
         if self.restricted_path:

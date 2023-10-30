@@ -1,6 +1,7 @@
 from configparser import ConfigParser
 import copy
 import flask
+import hashlib
 import pytest
 import re
 from pytest_mock import MockerFixture
@@ -112,15 +113,17 @@ class TestStashcache:
         cp = ConfigParser()
         cp.read_string(origin_scitokens_conf, "origin_scitokens.conf")
 
+        hasher = hashlib.sha1()
+        hasher.update(b"test.wisc.edu/long-name-that-is-over-50-characters-even-if-you-strip-off-https")
+        hashed_title = hasher.hexdigest()
         try:
             assert "Global" in cp, "Missing Global section"
-            assert "Issuer https://test.wisc.edu" in cp, \
+            assert "Issuer test.wisc.edu" in cp, \
                 "Issuer with reasonable length missing"
             assert "Issuer issuer-thats-50-characters-long-if-you.chop" in cp, \
                 "Issuer that just barely fits if you chop off the scheme missing"
-            assert (cp["Issuer issuer-thats-50-characters-long-if-you.chop"]["issuer"] ==
-                    "https://issuer-thats-50-characters-long-if-you.chop"), \
-                "Unexpected issuer in a section we modified"
+            assert f"Issuer {hashed_title}" in cp, \
+                "Issuer that's needed to be hashed missing"
             assert not re.search(r"^\[[^]]{51}", origin_scitokens_conf, re.MULTILINE), \
                 "Section over 50 chars long found"
             # ^^ easier to regexp this
