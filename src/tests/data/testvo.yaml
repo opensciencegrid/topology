@@ -1,0 +1,112 @@
+AppDescription: Test VO
+CertificateOnly: false
+Community: Test VO
+Contacts:
+  Administrative Contact:
+  - ID: OSG1000015
+    Name: Aaron Moate
+  Miscellaneous Contact:
+  - ID: OSG1000018
+    Name: Christina Koch
+  Registration Authority:
+  - ID: OSG1000015
+    Name: Aaron Moate
+  Security Contact:
+  - ID: OSG1000015
+    Name: Aaron Moate
+  VO Manager:
+  - ID: 48e1c2f26dc3479a6cf9b2de7c79d654ac27b1d1
+    Name: Miron Livny
+Credentials:
+  TokenIssuers:
+    - URL: https://test.wisc.edu
+      DefaultUnixUser: vdttest
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - Multi-Science Community
+  SecondaryFields:
+  - Community Grid
+ID: 9999
+LongName: Test Virtual Organization
+OASIS:
+  Managers:
+    - Name: Aaron Moate
+      DNs: /DC=org/DC=doegrids/OU=People/CN=Aaron Moate 717557
+      ID: OSG1000015
+  UseOASIS: true
+PrimaryURL: https://test.wisc.edu
+PurposeURL: https://test.wisc.edu/approach.shtml
+SupportURL: https://test.wisc.edu
+
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /testvo/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          # sc-origin.test.wisc.edu
+          - TEST_STASHCACHE_ORIGIN
+          # sc-origin2000.test.wisc.edu
+          - TEST_STASHCACHE_ORIGIN_2000
+        AllowedCaches:
+          - ANY
+
+      - Path: /testvo/itb/helm-origin/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          # helm-origin.osgdev.test.io
+          - TEST-ITB-HELM-ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /testvo/itb/helm-origin/PROTECTED
+        Authorizations:
+          - FQAN: /TESTVO
+          - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+          - SciTokens:
+              Issuer: https://test.wisc.edu
+              Base Path: /testvo
+              Map Subject: False
+        AllowedOrigins:
+          # helm-origin.osgdev.test.io
+          - TEST-ITB-HELM-ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /testvo
+        Authorizations:
+          - SciTokens:
+              Issuer: https://test.wisc.edu
+              Base Path: /testvo
+              Map Subject: True
+        AllowedOrigins:
+          # origin-auth2000.test.wisc.edu
+          - TEST_STASHCACHE_ORIGIN_AUTH_2000
+        AllowedCaches:
+          - ANY
+        Writeback: https://origin-auth2000.test.wisc.edu:1095
+        DirList: https://origin-auth2000.test.wisc.edu:1095
+        CredentialGeneration:
+          BasePath: /testvo
+          Strategy: OAuth2
+          Issuer: https://test.wisc.edu
+          MaxScopeDepth: 3
+
+      - Path: /testvo/longnametest
+        Authorizations:
+          - SciTokens:
+              Issuer: https://test.wisc.edu/long-name-that-is-over-50-characters-even-if-you-strip-off-https
+              BasePath: "/testvo/longnametest"
+              MapSubject: False
+          - SciTokens:
+              Issuer: https://issuer-thats-50-characters-long-if-you.chop
+              BasePath: /testvo/longnametest
+              MapSubject: False
+        AllowedOrigins:
+          # helm-origin.osgdev.test.io
+          - TEST-ITB-HELM-ORIGIN
+        AllowedCaches:
+          - ANY
