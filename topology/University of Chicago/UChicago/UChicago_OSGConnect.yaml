@@ -534,3 +534,21 @@ Resources:
         Description: OS Pool access point
     Tags:
       - OSPool
+
+  UChicago_OSGConnect_Public_Origin:
+    Active: true
+    Description: OSG Connect Public endpoint
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Secondary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+    FQDN: osdf-public.uc.osg-htc.org
+    Services:
+      XRootD origin server:
+        Description: OSG Connect Public Origin Server
+    AllowedVOs:
+      - OSG
