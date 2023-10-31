@@ -109,6 +109,7 @@ class TestStashcache:
         test_global_data = get_test_global_data(global_data)
         origin_scitokens_conf = stashcache.generate_origin_scitokens(
             test_global_data, TEST_ITB_HELM_ORIGIN)
+        assert origin_scitokens_conf.strip(), "Generated scitokens.conf empty"
 
         cp = ConfigParser()
         cp.read_string(origin_scitokens_conf, "origin_scitokens.conf")
