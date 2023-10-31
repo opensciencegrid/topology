@@ -45,6 +45,10 @@ DataFederations:
       - Path: /testvo/PUBLIC
         Authorizations:
           - PUBLIC
+          - SciTokens:
+              Issuer: https://test.wisc.edu
+              Base Path: /testvo
+              Map Subject: False
         AllowedOrigins:
           # sc-origin.test.wisc.edu
           - TEST_STASHCACHE_ORIGIN
