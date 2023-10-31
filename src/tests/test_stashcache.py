@@ -128,8 +128,26 @@ class TestStashcache:
             print(f"Generated origin scitokens.conf text:\n{origin_scitokens_conf}\n", file=sys.stderr)
             raise
 
-    def test_scitokens_issuer_public_read_auth_write(self, client: flask.Flask):
+    def test_scitokens_issuer_public_read_auth_write_namespaces_info(self, client: flask.Flask):
         test_global_data = get_test_global_data(global_data)
+
+        namespaces_json = stashcache.get_namespaces_info(test_global_data)
+        namespaces = namespaces_json["namespaces"]
+        testvo_PUBLIC_namespace_list = [
+            ns for ns in namespaces if ns.get("path") == "/testvo/PUBLIC"
+        ]
+        assert testvo_PUBLIC_namespace_list, "/testvo/PUBLIC namespace not found"
+        ns = testvo_PUBLIC_namespace_list[0]
+        assert ns["usetokenonread"] is False, \
+            "usetokenonread is wrong for public namespace"
+        assert ns["readhttps"] is False, \
+            "readhttps is wrong for public namespace"
+        assert ns["writebackhost"] == f"https://{TEST_SC_ORIGIN}:1095", \
+            "writebackhost is wrong for namespace with auth write"
+
+    def test_scitokens_issuer_public_read_auth_write_scitokens_conf(self, client: flask.Flask):
+        test_global_data = get_test_global_data(global_data)
+
         origin_scitokens_conf = stashcache.generate_origin_scitokens(
             test_global_data, TEST_SC_ORIGIN)
         assert origin_scitokens_conf.strip(), "Generated scitokens.conf empty"
