@@ -18,7 +18,7 @@ import stashcache
 GRID_MAPPING_REGEX = re.compile(r'^"(/[^"]*CN=[^"]+")\s+([0-9a-f]{8}[.]0)$')
 # ^^ the DN starts with a slash and will at least have a CN in it.
 EMPTY_LINE_REGEX = re.compile(r'^\s*(#|$)')  # Empty or comment-only lines
-I2_TEST_CACHE = "osg-sunnyvale-stashcache.t2.ucsd.edu"
+I2_TEST_CACHE = "osg-sunnyvale-stashcache.nrp.internet2.edu"
 # ^^ one of the Internet2 caches; these serve both public and LIGO data
 
 
@@ -48,7 +48,7 @@ class TestStashcache:
     def test_allowedVO_includes_ANY_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
         spy = mocker.spy(global_data, "get_ligo_dn_list")
 
-        stashcache.generate_cache_authfile(global_data, "osg-sunnyvale-stashcache.t2.ucsd.edu")
+        stashcache.generate_cache_authfile(global_data, "osg-sunnyvale-stashcache.nrp.internet2.edu")
 
         assert spy.call_count == 5
 
