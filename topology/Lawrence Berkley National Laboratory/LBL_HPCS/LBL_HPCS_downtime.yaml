@@ -31,3 +31,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1640473745
+  Description: Cooling work in the machine room and SLURM upgrade
+  Severity: Outage
+  StartTime: Nov 21, 2023 15:00 +0000
+  EndTime: Nov 23, 2023 00:00 +0000
+  CreatedTime: Nov 03, 2023 21:36 +0000
+  ResourceName: LBL_HPCS
+  Services:
+  - CE
+# ---------------------------------------------------------
