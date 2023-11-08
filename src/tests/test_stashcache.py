@@ -138,12 +138,12 @@ class TestStashcache:
         cp.read_string(origin_scitokens_conf, "origin_scitokens.conf")
         try:
             assert "Global" in cp, "Missing Global section"
-            assert "Issuer test.wisc.edu" in cp, \
+            assert "Issuer https://test.wisc.edu" in cp, \
                 "Expected issuer missing"
-            assert "base_path" in cp["Issuer test.wisc.edu"], \
-                "'Issuer test.wisc.edu' section missing expected attribute"
-            assert cp["Issuer test.wisc.edu"]["base_path"] == "/testvo", \
-                "'Issuer test.wisc.edu' section has wrong base path"
+            assert "base_path" in cp["Issuer https://test.wisc.edu"], \
+                "'Issuer https://test.wisc.edu' section missing expected attribute"
+            assert cp["Issuer https://test.wisc.edu"]["base_path"] == "/testvo", \
+                "'Issuer https://test.wisc.edu' section has wrong base path"
         except AssertionError:
             print(f"Generated origin scitokens.conf text:\n{origin_scitokens_conf}\n", file=sys.stderr)
             raise
