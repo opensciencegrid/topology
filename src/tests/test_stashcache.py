@@ -1,7 +1,10 @@
+from configparser import ConfigParser
+import copy
 import flask
 import pytest
 import re
 from pytest_mock import MockerFixture
+import time
 
 # Rewrites the path so the app can be imported like it normally is
 import os
@@ -13,13 +16,17 @@ sys.path.append(topdir)
 os.environ['TESTING'] = "True"
 
 from app import app, global_data
+from webapp import models, topology, vos_data
+from webapp.common import load_yaml_file
 import stashcache
 
 GRID_MAPPING_REGEX = re.compile(r'^"(/[^"]*CN=[^"]+")\s+([0-9a-f]{8}[.]0)$')
 # ^^ the DN starts with a slash and will at least have a CN in it.
 EMPTY_LINE_REGEX = re.compile(r'^\s*(#|$)')  # Empty or comment-only lines
-I2_TEST_CACHE = "osg-sunnyvale-stashcache.t2.ucsd.edu"
+I2_TEST_CACHE = "osg-sunnyvale-stashcache.nrp.internet2.edu"
 # ^^ one of the Internet2 caches; these serve both public and LIGO data
+TEST_ITB_HELM_ORIGIN = "helm-origin.osgdev.test.io"
+# ^^ a fake origin that's in our test data
 
 
 # Some DNs I can use for testing and the hashes they map to.
@@ -37,6 +44,37 @@ MOCK_DNS_AND_HASHES = {
 MOCK_DN_LIST = list(MOCK_DNS_AND_HASHES.keys())
 
 
+def get_test_global_data(global_data: models.GlobalData) -> models.GlobalData:
+    """Get a copy of the global data with some entries created for testing"""
+    new_global_data = copy.deepcopy(global_data)
+
+    # Start with a fully populated set of topology data
+    topo = new_global_data.get_topology()
+    assert isinstance(topo, topology.Topology), "Unable to get Topology data"
+
+    # Add our testing RG
+    testrg = load_yaml_file(topdir + "/tests/data/testrg.yaml")
+    topo.add_rg("University of Wisconsin", "CHTC", "testrg", testrg)
+
+    # Put it back into global_data2 and make sure it doesn't get overwritten by future calls
+    new_global_data.topology.data = topo
+    new_global_data.topology.next_update = time.time() + 999999
+
+    # Start with a fully populated set of VO data
+    vos = new_global_data.get_vos_data()
+    assert isinstance(vos, vos_data.VOsData), "Unable to get VO data"
+
+    # Load our testing VO
+    testvo = load_yaml_file(topdir + "/tests/data/testvo.yaml")
+    vos.add_vo("testvo", testvo)
+
+    # Put it back into global_data2 and make sure it doesn't get overwritten by future calls
+    new_global_data.vos_data.data = vos
+    new_global_data.vos_data.next_update = time.time() + 999999
+
+    return new_global_data
+
+
 @pytest.fixture
 def client():
     with app.test_client() as client:
@@ -48,7 +86,7 @@ class TestStashcache:
     def test_allowedVO_includes_ANY_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
         spy = mocker.spy(global_data, "get_ligo_dn_list")
 
-        stashcache.generate_cache_authfile(global_data, "osg-sunnyvale-stashcache.t2.ucsd.edu")
+        stashcache.generate_cache_authfile(global_data, "osg-sunnyvale-stashcache.nrp.internet2.edu")
 
         assert spy.call_count == 5
 
@@ -65,6 +103,29 @@ class TestStashcache:
         stashcache.generate_cache_authfile(global_data, "rds-cache.sdsc.edu")
 
         assert spy.call_count == 0
+
+    def test_scitokens_issuer_sections(self, client: flask.Flask):
+        test_global_data = get_test_global_data(global_data)
+        origin_scitokens_conf = stashcache.generate_origin_scitokens(
+            test_global_data, TEST_ITB_HELM_ORIGIN)
+        assert origin_scitokens_conf.strip(), "Generated scitokens.conf empty"
+
+        cp = ConfigParser()
+        cp.read_string(origin_scitokens_conf, "origin_scitokens.conf")
+
+        try:
+            assert "Global" in cp, "Missing Global section"
+            assert "Issuer https://test.wisc.edu" in cp, \
+                "Issuer missing"
+            assert "Issuer https://test.wisc.edu/issuer2" in cp, \
+                "Issuer 2 missing"
+            assert "base_path" in cp["Issuer https://test.wisc.edu/issuer2"], \
+                "Issuer 2 base_path missing"
+            assert cp["Issuer https://test.wisc.edu/issuer2"]["base_path"] == "/testvo/issuer2test", \
+                "Issuer 2 has wrong base path"
+        except AssertionError:
+            print(f"Generated origin scitokens.conf text:\n{origin_scitokens_conf}\n", file=sys.stderr)
+            raise
 
     def test_None_fdqn_isnt_error(self, client: flask.Flask):
         stashcache.generate_cache_authfile(global_data, None)
