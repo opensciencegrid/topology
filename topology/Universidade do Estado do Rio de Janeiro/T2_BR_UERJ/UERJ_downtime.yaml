@@ -871,5 +871,60 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1648879378
+  Description: We had to do an unexpected intervention that impacted our services
+  Severity: Outage
+  StartTime: Nov 13, 2023 14:00 +0000
+  EndTime: Nov 14, 2023 20:00 +0000
+  CreatedTime: Nov 13, 2023 15:05 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1648879804
+  Description: We had to do an unexpected intervention that impacted our services
+  Severity: Outage
+  StartTime: Nov 13, 2023 14:00 +0000
+  EndTime: Nov 14, 2023 20:00 +0000
+  CreatedTime: Nov 13, 2023 15:06 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1648879928
+  Description: We had to do an unexpected intervention that impacted our services
+  Severity: Outage
+  StartTime: Nov 13, 2023 14:00 +0000
+  EndTime: Nov 14, 2023 20:00 +0000
+  CreatedTime: Nov 13, 2023 15:06 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1648880014
+  Description: We had to do an unexpected intervention that impacted our services
+  Severity: Outage
+  StartTime: Nov 13, 2023 14:00 +0000
+  EndTime: Nov 14, 2023 20:00 +0000
+  CreatedTime: Nov 13, 2023 15:06 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1648880085
+  Description: We had to do an unexpected intervention that impacted our services
+  Severity: Outage
+  StartTime: Nov 13, 2023 14:00 +0000
+  EndTime: Nov 14, 2023 20:00 +0000
+  CreatedTime: Nov 13, 2023 15:06 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
 
