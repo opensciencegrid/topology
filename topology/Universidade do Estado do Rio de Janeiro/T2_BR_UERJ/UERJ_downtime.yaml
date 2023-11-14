@@ -926,5 +926,58 @@
   Services:
   - Squid
 # ---------------------------------------------------------
-
-
+- Class: UNSCHEDULED
+  ID: 1649879010
+  Description: We need more time to solve issues that arose in our network.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 17, 2023 20:00 +0000
+  CreatedTime: Nov 14, 2023 18:51 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1649879466
+  Description: We need more time to solve issues that arose in our network.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 17, 2023 20:00 +0000
+  CreatedTime: Nov 14, 2023 18:52 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1649879628
+  Description: We need more time to solve issues that arose in our network.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 17, 2023 20:00 +0000
+  CreatedTime: Nov 14, 2023 18:52 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1649879754
+  Description: We need more time to solve issues that arose in our network.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 17, 2023 20:00 +0000
+  CreatedTime: Nov 14, 2023 18:52 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1649879911
+  Description: We need more time to solve issues that arose in our network.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 17, 2023 20:00 +0000
+  CreatedTime: Nov 14, 2023 18:53 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
