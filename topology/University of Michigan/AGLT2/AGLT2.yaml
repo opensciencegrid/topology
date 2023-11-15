@@ -68,7 +68,7 @@ Resources:
         Details:
           Monitored: true
     VOOwnership:
-      ATLAS: 90  
+      ATLAS: 90
   AGLT2-squid-4:
     Active: true
     ContactLists:
@@ -160,14 +160,14 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the slate Varnish 2 for CVMFS
-    FQDN: sl-msu-es1.slateci.io
-    ID: 1423
+    Description: This is Varnish for CVMFS at MSU NRP node
+    FQDN: msu-nrp.aglt2.org
+    ID:
     Services:
       Squid:
-        Description: Generic varnish service
+        Description: Varnish for CVMFS service
         Details:
-          uri_override:  sl-msu-es1.slateci.io:6081
+          uri_override: msu-nrp.aglt2.org:6081
           Monitored: true
     VOOwnership:
       ATLAS: 100
@@ -194,7 +194,8 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the gate keeper at AGLT2 for non-ATLAS VOs that wish to use
+    Description:
+      This is the gate keeper at AGLT2 for non-ATLAS VOs that wish to use
       our site.
     FQDN: gate02.grid.umich.edu
     ID: 250
@@ -510,7 +511,8 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the perfSONAR-PS bandwidth instance at the Michigan State
+    Description:
+      This is the perfSONAR-PS bandwidth instance at the Michigan State
       University AGLT2 site.
     FQDN: psmsu02.aglt2.org
     ID: 586
@@ -544,7 +546,8 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the perfSONAR-PS latency instance at the Michigan State University
+    Description:
+      This is the perfSONAR-PS latency instance at the Michigan State University
       AGLT2 site.
     FQDN: psmsu01.aglt2.org
     ID: 585
@@ -578,7 +581,8 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the perfSONAR-PS bandwidth instance at the University of
+    Description:
+      This is the perfSONAR-PS bandwidth instance at the University of
       Michigan AGLT2 site.
     FQDN: psum02.aglt2.org
     ID: 584
@@ -612,7 +616,8 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the perfSONAR-PS latenchy instance at the University of Michigan
+    Description:
+      This is the perfSONAR-PS latenchy instance at the University of Michigan
       AGLT2 site.
     FQDN: psum01.aglt2.org
     ID: 583
