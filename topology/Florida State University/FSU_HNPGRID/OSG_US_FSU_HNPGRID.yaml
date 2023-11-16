@@ -3,7 +3,7 @@ GroupID: 475
 Production: true
 Resources:
   GLUEX_US_FSU_HNPGRID:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -43,13 +43,40 @@ Resources:
           ID:  73ed2d273dace60d6e6ff5baabeb8755624001bd
           Name: Sean Dobbs
     Description: Hosted CE for HNPGRID cluster
-    FQDN: hosted-ce07.opensciencegrid.org
+    FQDN: fsu-hnpgrid-ce1.svc.opensciencegrid.org
     ID: 1080
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
+    VOOwnership:
+      Gluex: 100
+  FSU-HNPGRID-OSDF-Origin:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  73ed2d273dace60d6e6ff5baabeb8755624001bd
+          Name: Sean Dobbs
+      Security Contact:
+        Primary:
+          ID:  73ed2d273dace60d6e6ff5baabeb8755624001bd
+          Name: Sean Dobbs
+      Site Contact:
+        Primary:
+          ID:  73ed2d273dace60d6e6ff5baabeb8755624001bd
+          Name: Sean Dobbs
+    Description: OSDF Origin server for FSU-HNPGRID
+    FQDN: npgrid.fsu.edu
+    ID: 1476
+    Services:
+      XRootD origin server:
+        Description: OSDF Origin server for FSU-HNPGRID
+        Details:
+          hidden: false
+    AllowedVOs:
+      - Gluex
     VOOwnership:
       Gluex: 100
 SupportCenter: UChicago

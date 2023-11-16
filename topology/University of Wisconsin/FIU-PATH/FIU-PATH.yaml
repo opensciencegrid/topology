@@ -17,9 +17,6 @@ Resources:
         Tertiary:
           ID: OSG1000001
           Name: Brian Bockelman
-        Tertiary 2:
-          ID: OSG1000007
-          Name: Carl Edquist
       Security Contact:
         Primary:
           ID: OSG1000015
@@ -31,6 +28,30 @@ Resources:
       Execution Endpoint:
         Description: Backfill containers running in the osg production namespace.
         
+  FIU-PATH-IDPL-EP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000192
+          Name: Gregory Thain
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: EP running in the FIU PATh Facility for IDPL testing
+    FQDN: fiu-path-idpl-ep.facility.path-cc.io
+    ID: 1464
+    Services:
+      Execution Endpoint:
+        Description: EP running in the FIU PATh Facility for IDPL testing
+
   FIU_OSDF_CACHE:
     Active: false
     Description: FIU IPv6 OSDF cache

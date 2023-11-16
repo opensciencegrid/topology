@@ -13,7 +13,7 @@ import yaml
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import load_yaml_file, to_xml, is_null
+from webapp.common import load_yaml_file, to_xml, is_null, gen_id_from_yaml
 from webapp.vo_reader import get_vos_data
 from webapp.vos_data import VOsData
 
@@ -51,27 +51,27 @@ def get_one_project(file: str, campus_grid_ids: Dict, vos_data: VOsData) -> Dict
     data = None
     try:
         data = load_yaml_file(file)
-        if 'CampusGrid' in data['Sponsor']:
-            name = data['Sponsor']['CampusGrid']['Name']
-            ID = campus_grid_ids[name]
-            data['Sponsor']['CampusGrid'] = OrderedDict([("ID", ID), ("Name", name)])
-        elif 'VirtualOrganization' in data['Sponsor']:
-            name = data['Sponsor']['VirtualOrganization']['Name']
-            ID = vos_data.vos[name]['ID']
-            data['Sponsor']['VirtualOrganization'] = OrderedDict([("ID", ID), ("Name", name)])
+        if 'Sponsor' in data:
+            if 'CampusGrid' in data['Sponsor']:
+                name = data['Sponsor']['CampusGrid']['Name']
+                ID = campus_grid_ids[name]
+                data['Sponsor']['CampusGrid'] = OrderedDict([("ID", ID), ("Name", name)])
+            elif 'VirtualOrganization' in data['Sponsor']:
+                name = data['Sponsor']['VirtualOrganization']['Name']
+                ID = vos_data.vos[name]['ID']
+                data['Sponsor']['VirtualOrganization'] = OrderedDict([("ID", ID), ("Name", name)])
 
         if 'ResourceAllocations' in data:
             resource_allocations = [get_resource_allocation(ra, idx) for idx, ra in enumerate(data['ResourceAllocations'])]
             data['ResourceAllocations'] = {"ResourceAllocation": resource_allocations}
-        if 'ID' not in data:
-            del project['ID']
-
         name_from_filename = os.path.basename(file)[:-5]  # strip '.yaml'
         if not is_null(data, 'Name'):
             if data['Name'] != name_from_filename:
                 log.warning("%s: 'Name' %r does not match filename" % (file, data['Name']))
         else:
             data['Name'] = name_from_filename
+
+        data["ID"] = str(gen_id_from_yaml(data, data["Name"]))
 
     except Exception as e:
         log.error("%r adding project %s", e, file)

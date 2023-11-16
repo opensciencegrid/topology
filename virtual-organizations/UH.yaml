@@ -31,3 +31,10 @@ DataFederations:
           - ITC_OSDF_ORIGIN
         AllowedCaches:
           - ANY
+      - Path: /uhawaii/koa/public
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - KOASTORE_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY

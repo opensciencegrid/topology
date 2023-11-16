@@ -20,3 +20,25 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1541895313
+  Description: Power outage/work affecting our site
+  Severity: Outage
+  StartTime: Jul 20, 2023 17:00 +0000
+  EndTime: Jul 25, 2023 01:00 +0000
+  CreatedTime: Jul 12, 2023 19:18 +0000
+  ResourceName: LBL_HPCS_LRC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1640473745
+  Description: Cooling work in the machine room and SLURM upgrade
+  Severity: Outage
+  StartTime: Nov 21, 2023 15:00 +0000
+  EndTime: Nov 23, 2023 00:00 +0000
+  CreatedTime: Nov 03, 2023 21:36 +0000
+  ResourceName: LBL_HPCS
+  Services:
+  - CE
+# ---------------------------------------------------------

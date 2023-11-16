@@ -1,18 +1,19 @@
 from collections import defaultdict
 from typing import Dict, List, Optional
 
-from webapp.common import is_null, readfile, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
+from webapp.common import is_null, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
-from webapp.ldap_data import get_ligo_ldap_dn_list
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
-from webapp.vos_data import AuthMethod, DNAuth, SciTokenAuth, Namespace, \
-    parse_authz, ANY, ANY_PUBLIC, VOsData
+from webapp.vos_data import VOsData
+from webapp.data_federation import AuthMethod, DNAuth, SciTokenAuth, Namespace, parse_authz
 
 import logging
 
 log = logging.getLogger(__name__)
 
+ANY = "ANY"
+ANY_PUBLIC = "ANY_PUBLIC"
 
 def _log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=log.debug):
     if suppress_errors:
@@ -23,6 +24,9 @@ def _log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=
 
 def _resource_has_cache(resource: Resource) -> bool:
     return XROOTD_CACHE_SERVER in resource.service_names
+
+def _resource_has_origin(resource: Resource) -> bool:
+    return XROOTD_ORIGIN_SERVER in resource.service_names
 
 
 def _get_resource_with_service(fqdn: Optional[str], service_name: str, topology: Topology,
@@ -147,7 +151,7 @@ class _IdNamespaceData:
                     ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
             return ligo_authz_list
 
-        for stashcache_obj in vos_data.stashcache_by_vo_name.values():
+        for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
             for path, namespace in stashcache_obj.namespaces.items():
                 if not namespace_allows_cache_resource(namespace, cache_resource):
                     continue
@@ -161,11 +165,11 @@ class _IdNamespaceData:
 
                 # Extend authz list with LIGO DNs if applicable
                 extended_authz_list = namespace.authz_list
-                if path == "/user/ligo":
+                if vo_name.lower() == "ligo":
                     if legacy:
                         extended_authz_list += fetch_ligo_authz_list_if_needed()
                     else:
-                        self.warnings += "# LIGO DNs unavailable\n"
+                        self.warnings.append("# LIGO DNs unavailable\n")
 
                 for authz in extended_authz_list:
                     if authz.used_in_authfile:
@@ -318,11 +322,6 @@ def generate_cache_grid_mapfile(global_data: GlobalData,
         resource = _get_cache_resource(fqdn, topology, suppress_errors)
         if not resource:
             return ""
-
-    ligo_authz_list: List[AuthMethod] = []
-    if legacy:
-        for dn in global_data.get_ligo_dn_list():
-            ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
 
     idns = _IdNamespaceData.for_cache(
         global_data=global_data,
@@ -512,6 +511,21 @@ audience = {allowed_vos_str}
     return template.format(**locals()).rstrip() + "\n"
 
 
+def get_credential_generation_dict_for_namespace(ns: Namespace) -> Optional[Dict]:
+    if not ns.credential_generation:
+        return None
+    cg = ns.credential_generation
+    info = {
+        "strategy": cg.strategy,
+        "issuer": cg.issuer,
+        "base_path": cg.base_path or None,
+        "max_scope_depth": cg.max_scope_depth or 0,
+        "vault_server": cg.vault_server or None,
+        "vault_issuer": cg.vault_issuer or None
+    }
+    return info
+
+
 def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     """Return data for the /stashcache/namespaces JSON endpoint.
 
@@ -520,17 +534,29 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
 
     """
     # Helper functions
-    def _cache_resource_dict(r: Resource):
-        endpoint = f"{r.fqdn}:8000"
-        auth_endpoint = f"{r.fqdn}:8443"
+
+    def _service_resource_dict(
+            r: Resource,
+            service_name,
+            auth_port_default: int,
+            unauth_port_default: int
+    ):
+        endpoint = f"{r.fqdn}:{unauth_port_default}"
+        auth_endpoint = f"{r.fqdn}:{auth_port_default}"
         for svc in r.services:
-            if svc.get("Name") == XROOTD_CACHE_SERVER:
+            if svc.get("Name") == service_name:
                 if not is_null(svc, "Details", "endpoint_override"):
                     endpoint = svc["Details"]["endpoint_override"]
                 if not is_null(svc, "Details", "auth_endpoint_override"):
                     auth_endpoint = svc["Details"]["auth_endpoint_override"]
                 break
         return {"endpoint": endpoint, "auth_endpoint": auth_endpoint, "resource": r.name}
+
+    def _cache_resource_dict(r: Resource):
+        return _service_resource_dict(r=r, service_name=XROOTD_CACHE_SERVER, auth_port_default=8443, unauth_port_default=8000)
+
+    def _origin_resource_dict(r: Resource):
+        return _service_resource_dict(r=r, service_name=XROOTD_CACHE_SERVER, auth_port_default=1095, unauth_port_default=1094)
 
     def _namespace_dict(ns: Namespace):
         nsdict = {
@@ -540,25 +566,81 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
             "writebackhost": ns.writeback,
             "dirlisthost": ns.dirlist,
             "caches": [],
+            "origins": [],
+            "credential_generation": get_credential_generation_dict_for_namespace(ns),
         }
 
         for cache_name, cache_resource_obj in cache_resource_objs.items():
-            if resource_allows_namespace(cache_resource_obj, ns) and namespace_allows_cache_resource(ns, cache_resource_obj):
+            if (resource_allows_namespace(cache_resource_obj, ns) and
+                    namespace_allows_cache_resource(ns, cache_resource_obj)):
                 nsdict["caches"].append(cache_resource_dicts[cache_name])
+
+        nsdict["caches"].sort(key=lambda d: d["resource"])
+
+        for origin_name, origin_resource_obj in origin_resource_objs.items():
+            if (resource_allows_namespace(origin_resource_obj, ns) and
+                    namespace_allows_origin_resource(ns, origin_resource_obj)):
+                nsdict["origins"].append(origin_resource_dicts[origin_name])
+
+        nsdict["origins"].sort(key=lambda d: d["resource"])
+
         return nsdict
+
+    def _resource_has_downed_service(
+            r: Resource,
+            t: Topology,
+            service_name
+    ):
+        if r.name not in t.present_downtimes_by_resource:
+            return False
+        downtimes = t.present_downtimes_by_resource[r.name]
+        for dt in downtimes:
+            try:
+                if service_name in dt.service_names:
+                    return True
+            except (KeyError, AttributeError):
+                continue
+        return False
+
+    def _resource_has_downed_cache(r: Resource, t: Topology):
+        return _resource_has_downed_service(r, t, XROOTD_CACHE_SERVER)
+
+    def _resource_has_downed_origin(r: Resource, t: Topology):
+        return _resource_has_downed_service(r, t, XROOTD_ORIGIN_SERVER)
+
     # End helper functions
 
-    resource_groups: List[ResourceGroup] = global_data.get_topology().get_resource_group_list()
+    topology = global_data.get_topology()
+    resource_groups: List[ResourceGroup] = topology.get_resource_group_list()
     vos_data = global_data.get_vos_data()
+
+    # Build a dict of cache resources
 
     cache_resource_objs = {}  # type: Dict[str, Resource]
     cache_resource_dicts = {}  # type: Dict[str, Dict]
 
     for group in resource_groups:
         for resource in group.resources:
-            if _resource_has_cache(resource):
+            if (_resource_has_cache(resource)
+                    and resource.is_active
+                    and not _resource_has_downed_cache(resource, topology)
+            ):
                 cache_resource_objs[resource.name] = resource
                 cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
+
+    # Build a dict of origin resources
+
+    origin_resource_objs = {}  # type: Dict[str, Resource]
+    origin_resource_dicts = {}  # type: Dict[str, Dict]
+
+    for group in resource_groups:
+        for resource in group.resources:
+            if (_resource_has_origin(resource)
+                    and resource.is_active
+                    and not _resource_has_downed_origin(resource, topology)
+            ):
+                origin_resource_objs[resource.name] = resource
+                origin_resource_dicts[resource.name] = _origin_resource_dict(resource)
 
     result_namespaces = []
     for stashcache_obj in vos_data.stashcache_by_vo_name.values():
@@ -566,6 +648,6 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
             result_namespaces.append(_namespace_dict(namespace))
 
     return PreJSON({
-        "caches": list(cache_resource_dicts.values()),
-        "namespaces": result_namespaces
+        "caches": sorted(list(cache_resource_dicts.values()), key=lambda x: x["resource"]),
+        "namespaces": sorted(result_namespaces, key=lambda x: x["path"])
     })
