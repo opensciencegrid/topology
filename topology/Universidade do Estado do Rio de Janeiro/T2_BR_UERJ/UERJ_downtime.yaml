@@ -926,5 +926,65 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1651552709
+  Description: We'll need to extend the downtime to better understand what is happening
+    with our virtualization systems. It impacted all our T2 services.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 21, 2023 20:00 +0000
+  CreatedTime: Nov 16, 2023 17:21 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1651552906
+  Description: We'll need to extend the downtime to better understand what is happening
+    with our virtualization systems. It impacted all our T2 services.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 21, 2023 20:00 +0000
+  CreatedTime: Nov 16, 2023 17:21 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1651552966
+  Description: We'll need to extend the downtime to better understand what is happening
+    with our virtualization systems. It impacted all our T2 services.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 21, 2023 20:00 +0000
+  CreatedTime: Nov 16, 2023 17:21 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1651553034
+  Description: We'll need to extend the downtime to better understand what is happening
+    with our virtualization systems. It impacted all our T2 services.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 21, 2023 20:00 +0000
+  CreatedTime: Nov 16, 2023 17:21 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1651553093
+  Description: We'll need to extend the downtime to better understand what is happening
+    with our virtualization systems. It impacted all our T2 services.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 21, 2023 20:00 +0000
+  CreatedTime: Nov 16, 2023 17:21 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
 
