@@ -234,6 +234,24 @@ DataFederations:
           Issuer: https://osg-htc.org/ospool
           MaxScopeDepth: 4
 
+      # SciTokens issuer for ap20
+      - Path: /ospool/ap20/.well-known
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap20
+        # Do not cache this: direct access only
+        AllowedCaches: []
+
+      # SciTokens issuer for ap21
+      - Path: /ospool/ap21/.well-known
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap21
+        # Do not cache this: direct access only
+        AllowedCaches: []
+
       # SciTokens issuer for ap22
       - Path: /ospool/ap22/.well-known
         Authorizations:
