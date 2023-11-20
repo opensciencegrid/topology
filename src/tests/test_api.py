@@ -1,7 +1,7 @@
 import re
 import flask
 import pytest
-from typing import Dict
+from typing import Dict, List
 import urllib.parse
 from pytest_mock import MockerFixture
 
@@ -79,6 +79,11 @@ class TestNamespaces:
         assert response.status_code == 200
         return response.json
 
+    @pytest.fixture(scope="class")
+    def namespaces(self, namespaces_json) -> List[Dict]:
+        assert "namespaces" in namespaces_json
+        return namespaces_json["namespaces"]
+
     @staticmethod
     def validate_cache_schema(cc):
         assert HOST_PORT_RE.match(cc["auth_endpoint"])
@@ -115,9 +120,7 @@ class TestNamespaces:
         for cache in caches:
             self.validate_cache_schema(cache)
 
-    def test_namespaces(self, namespaces_json):
-        assert "namespaces" in namespaces_json
-        namespaces = namespaces_json["namespaces"]
+    def test_namespaces(self, namespaces):
         # Have a reasonable number of namespaces
         assert len(namespaces) > 15
 
@@ -130,6 +133,27 @@ class TestNamespaces:
                 for cache in namespace["caches"]:
                     self.validate_cache_schema(cache)
         assert found_credgen, "At least one namespace with credential_generation"
+
+    @staticmethod
+    def validate_scitokens_block(sci):
+        assert sci["issuer"]
+        assert isinstance(sci["issuer"], str)
+        assert "://" in sci["issuer"]
+        assert isinstance(sci["basepath"], list)
+        assert sci["basepath"]  # must have at least 1
+        for bp in sci["basepath"]:
+            assert bp.startswith("/")  # implies str
+            assert "," not in bp
+        assert isinstance(sci["restrictedpath"], list)
+        for rp in sci["restrictedpath"]:  # may be empty
+            assert rp.startswith("/")  # implies str
+            assert "," not in rp
+
+    def test_issuers_in_namespaces(self, namespaces):
+        for namespace in namespaces:
+            assert isinstance(namespace["scitokens"], list)
+            for scitokens_block in namespace["scitokens"]:
+                self.validate_scitokens_block(scitokens_block)
 
 
 class TestAPI:
