@@ -196,7 +196,7 @@ class Namespace:
         self.credential_generation = credential_generation
 
     def is_public(self) -> bool:
-        return self.authz_list and self.authz_list[0].is_public
+        return any(x for x in self.authz_list if x.is_public)
 
 
 def _parse_authz_scitokens(attributes: Dict, authz: Dict) -> Tuple[AuthMethod, Optional[str]]:
@@ -392,8 +392,5 @@ class StashCache:
             if err:
                 self.errors.add(f"Namespace {path}: {err}")
                 continue
-            if parsed_authz.is_public:
-                return [parsed_authz]
-            else:
-                authz_list.append(parsed_authz)
+            authz_list.append(parsed_authz)
         return authz_list
