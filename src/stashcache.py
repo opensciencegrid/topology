@@ -370,8 +370,6 @@ audience = {allowed_vos_str}
 
     for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
         for namespace in stashcache_obj.namespaces.values():  # type: Namespace
-            if namespace.is_public():
-                continue
             if not namespace_allows_cache_resource(namespace, cache_resource):
                 continue
             if not resource_allows_namespace(cache_resource, namespace):
@@ -486,8 +484,6 @@ audience = {allowed_vos_str}
 
     for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
         for namespace in stashcache_obj.namespaces.values():
-            if namespace.is_public():
-                continue
             if not namespace_allows_origin_resource(namespace, origin_resource):
                 continue
             if not resource_allows_namespace(origin_resource, namespace):
@@ -562,7 +558,7 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
         nsdict = {
             "path": ns.path,
             "readhttps": not ns.is_public(),
-            "usetokenonread": any(isinstance(a, SciTokenAuth) for a in ns.authz_list),
+            "usetokenonread": not ns.is_public() and any(isinstance(a, SciTokenAuth) for a in ns.authz_list),
             "writebackhost": ns.writeback,
             "dirlisthost": ns.dirlist,
             "caches": [],

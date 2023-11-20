@@ -103,4 +103,35 @@ Resources:
       Execution Endpoint:
         Description: Execution Endpoint 
   # ----------------------------------------------------------------------------
+  
+  CHTC-DEV-EP-mwestphall:
+    Active: true
+    Description: EP for dev testing for mwestphall
+    ContactLists:
+      Administrative Contact:
+        Tertiary:
+           ID: OSG1000358
+           Name: MATTHEW WESTPHALL
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+
+      Security Contact:
+        Tertiary:
+          ID: OSG1000358
+          Name: MATTHEW WESTPHALL
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+
+    FQDN: dev-ep.mwestphall.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint 
 

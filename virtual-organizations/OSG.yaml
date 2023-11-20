@@ -109,6 +109,13 @@ DataFederations:
           - OSGCONNECT_ORIGIN
         AllowedCaches:
           - ANY
+      - Path: /ospool/uc-shared/public
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - UChicago_OSGConnect_Public_Origin
+        AllowedCaches:
+          - ANY
 
       # HACK: enormous hack to get us going on a demo
       # https://opensciencegrid.atlassian.net/browse/SOFTWARE-5398
@@ -227,6 +234,15 @@ DataFederations:
           Issuer: https://osg-htc.org/ospool
           MaxScopeDepth: 4
 
+      # SciTokens issuer for ap22
+      - Path: /ospool/ap22/.well-known
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap22
+        # Do not cache this: direct access only
+        AllowedCaches: []
+
       - Path: /ospool/uc-shared/project
         Authorizations:
           - SciTokens:
@@ -247,18 +263,3 @@ DataFederations:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool/uc-shared
           MaxScopeDepth: 4
-
-      - Path: /ospool/uc-shared/public
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - UChicago_OSGConnect_ap23
-        AllowedCaches:
-          - ANY
-        Writeback: https://ap23.uc.osg-htc.org:1095
-        DirList: https://ap23.uc.osg-htc.org:1095
-        CredentialGeneration:
-          Strategy: OAuth2
-          Issuer: https://osg-htc.org/ospool/uc-shared
-          MaxScopeDepth: 4
-

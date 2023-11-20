@@ -2,10 +2,13 @@
 # and not the Integration Test Bed (ITB) pool.
 Production: true
 # SupportCenter is one of the support centers in topology/support-centers.yaml
-SupportCenter: <NAME>
+SupportCenter: Self Supported
 
 # GroupDescription is a long description of the resource group; may be multiple lines.
-GroupDescription: This is a cluster of <SOMETHING> used for the <PROJECT>
+GroupDescription: Michigan State University
+
+# If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
+# Otherwise, leave it blank and we will fill in the appropriate value for you.
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -13,12 +16,12 @@ Resources:
   # Resource Name should be a short descriptor of the resource.
   # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
   # Resource Names need to be unique across all resources in the OSG.
-  <RESOURCE NAME>:
+  MSU-DataMachine-CE1:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
     Active: false
     # Description is a long description of the resource; may be multiple lines
-    Description: This is a <RESOURCE> for <SITE>.
+    Description: Hosted CE serving MSU
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
@@ -29,8 +32,8 @@ Resources:
       # maintenance of the resource
       Administrative Contact:
         Primary:
-          Name: <FIRSTNAME> <LASTNAME>
-          ID: <EMAIL HASH>
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
         # Secondary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
@@ -43,8 +46,8 @@ Resources:
       # issues related to the resource
       Security Contact:
         Primary:
-          Name: <FIRSTNAME> <LASTNAME>
-          ID: <EMAIL HASH>
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
         # Secondary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
@@ -68,7 +71,7 @@ Resources:
         #   ID: <EMAIL HASH>
 
     # FQDN is the fully qualified domain name of the host running this resource
-    FQDN: <HOSTNAME>
+    FQDN: msu-datamachine-ce1.svc.opensciencegrid.org
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
     # FQDNAliases:
     #   - <HOSTNAME1>
@@ -81,9 +84,9 @@ Resources:
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
-      <SERVICE NAME>:
+      CE:
         # Description is a brief description of the service
-        Description: <TEXT>
+        Description: Hosted CE
         ### Details (optional)
         # Details:
         #   # hidden
@@ -104,6 +107,8 @@ Resources:
     # Tags:
     #   - <TAG1>
     #   - <TAG2>
+    Tags:
+      - CC*
 
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
     ### If part of the resource is not owned by the VO, do not list it.
