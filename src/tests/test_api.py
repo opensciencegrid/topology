@@ -73,13 +73,13 @@ def client():
 
 
 class TestNamespaces:
-    @pytest.fixture(scope="class")
+    @pytest.fixture
     def namespaces_json(self, client) -> Dict:
         response = client.get('/stashcache/namespaces')
         assert response.status_code == 200
         return response.json
 
-    @pytest.fixture(scope="class")
+    @pytest.fixture
     def namespaces(self, namespaces_json) -> List[Dict]:
         assert "namespaces" in namespaces_json
         return namespaces_json["namespaces"]
