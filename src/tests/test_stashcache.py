@@ -45,7 +45,8 @@ MOCK_DNS_AND_HASHES = {
 MOCK_DN_LIST = list(MOCK_DNS_AND_HASHES.keys())
 
 
-def get_test_global_data(global_data: models.GlobalData) -> models.GlobalData:
+@pytest.fixture
+def test_global_data() -> models.GlobalData:
     """Get a copy of the global data with some entries created for testing"""
     new_global_data = copy.deepcopy(global_data)
 
@@ -105,8 +106,7 @@ class TestStashcache:
 
         assert spy.call_count == 0
 
-    def test_scitokens_issuer_sections(self, client: flask.Flask):
-        test_global_data = get_test_global_data(global_data)
+    def test_scitokens_issuer_sections(self, test_global_data):
         origin_scitokens_conf = stashcache.generate_origin_scitokens(
             test_global_data, TEST_ITB_HELM_ORIGIN)
         assert origin_scitokens_conf.strip(), "Generated scitokens.conf empty"
@@ -128,9 +128,7 @@ class TestStashcache:
             print(f"Generated origin scitokens.conf text:\n{origin_scitokens_conf}\n", file=sys.stderr)
             raise
 
-    def test_scitokens_issuer_public_read_auth_write_namespaces_info(self, client: flask.Flask):
-        test_global_data = get_test_global_data(global_data)
-
+    def test_scitokens_issuer_public_read_auth_write_namespaces_info(self, test_global_data):
         namespaces_json = stashcache.get_namespaces_info(test_global_data)
         namespaces = namespaces_json["namespaces"]
         testvo_PUBLIC_namespace_list = [
@@ -145,9 +143,7 @@ class TestStashcache:
         assert ns["writebackhost"] == f"https://{TEST_SC_ORIGIN}:1095", \
             "writebackhost is wrong for namespace with auth write"
 
-    def test_scitokens_issuer_public_read_auth_write_scitokens_conf(self, client: flask.Flask):
-        test_global_data = get_test_global_data(global_data)
-
+    def test_scitokens_issuer_public_read_auth_write_scitokens_conf(self, test_global_data):
         origin_scitokens_conf = stashcache.generate_origin_scitokens(
             test_global_data, TEST_SC_ORIGIN)
         assert origin_scitokens_conf.strip(), "Generated scitokens.conf empty"
