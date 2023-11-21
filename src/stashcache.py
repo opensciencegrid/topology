@@ -522,6 +522,13 @@ def get_credential_generation_dict_for_namespace(ns: Namespace) -> Optional[Dict
     return info
 
 
+def get_scitokens_list_for_namespace(ns: Namespace) -> List[Dict]:
+    """Return the list of scitokens issuer info for the .namespaces[*].scitokens attribute in the namespaces JSON"""
+    return list(
+        filter(None, (a.get_namespaces_scitokens_block() for a in ns.authz_list))
+    )
+
+
 def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     """Return data for the /stashcache/namespaces JSON endpoint.
 
@@ -564,6 +571,7 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
             "caches": [],
             "origins": [],
             "credential_generation": get_credential_generation_dict_for_namespace(ns),
+            "scitokens": get_scitokens_list_for_namespace(ns),
         }
 
         for cache_name, cache_resource_obj in cache_resource_objs.items():
