@@ -18,10 +18,6 @@ os.environ['TESTING'] = "True"
 
 from app import app, global_data
 from webapp.topology import Facility, Site, Resource, ResourceGroup
-from webapp.data_federation import CredentialGeneration
-
-HOST_PORT_RE = re.compile(r"[a-zA-Z0-9.-]{3,63}:[0-9]{2,5}")
-PROTOCOL_HOST_PORT_RE = re.compile(r"[a-z]+://" + HOST_PORT_RE.pattern)
 
 INVALID_USER = dict(
     username="invalid",
@@ -62,7 +58,9 @@ TEST_ENDPOINTS = [
     "/cache/scitokens.conf",
     "/api/institutions",
     "/cache/grid-mapfile",
-    "/origin/grid-mapfile"
+    "/origin/grid-mapfile",
+    "/osdf/namespaces",
+    "/stashcache/namespaces",
 ]
 
 
@@ -70,90 +68,6 @@ TEST_ENDPOINTS = [
 def client():
     with app.test_client() as client:
         yield client
-
-
-class TestNamespaces:
-    @pytest.fixture
-    def namespaces_json(self, client) -> Dict:
-        response = client.get('/stashcache/namespaces')
-        assert response.status_code == 200
-        return response.json
-
-    @pytest.fixture
-    def namespaces(self, namespaces_json) -> List[Dict]:
-        assert "namespaces" in namespaces_json
-        return namespaces_json["namespaces"]
-
-    @staticmethod
-    def validate_cache_schema(cc):
-        assert HOST_PORT_RE.match(cc["auth_endpoint"])
-        assert HOST_PORT_RE.match(cc["endpoint"])
-        assert cc["resource"] and isinstance(cc["resource"], str)
-
-    @staticmethod
-    def validate_namespace_schema(ns):
-        assert isinstance(ns["caches"], list)  # we do have a case where it's empty
-        assert ns["path"].startswith("/")  # implies str
-        assert isinstance(ns["readhttps"], bool)
-        assert isinstance(ns["usetokenonread"], bool)
-        assert ns["dirlisthost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["dirlisthost"])
-        assert ns["writebackhost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["writebackhost"])
-        credgen = ns["credential_generation"]
-        if credgen is not None:
-            assert isinstance(credgen["max_scope_depth"], int) and credgen["max_scope_depth"] > -1
-            assert credgen["strategy"] in CredentialGeneration.STRATEGIES
-            assert credgen["issuer"]
-            parsed_issuer = urllib.parse.urlparse(credgen["issuer"])
-            assert parsed_issuer.netloc and parsed_issuer.scheme == "https"
-            if credgen["vault_server"]:
-                assert isinstance(credgen["vault_server"], str)
-            if credgen["vault_issuer"]:
-                assert isinstance(credgen["vault_issuer"], str)
-            if credgen["base_path"]:
-                assert isinstance(credgen["base_path"], str)
-
-    def test_caches(self, namespaces_json):
-        assert "caches" in namespaces_json
-        caches = namespaces_json["caches"]
-        # Have a reasonable number of caches
-        assert len(caches) > 20
-        for cache in caches:
-            self.validate_cache_schema(cache)
-
-    def test_namespaces(self, namespaces):
-        # Have a reasonable number of namespaces
-        assert len(namespaces) > 15
-
-        found_credgen = False
-        for namespace in namespaces:
-            if namespace["credential_generation"] is not None:
-                found_credgen = True
-            self.validate_namespace_schema(namespace)
-            if namespace["caches"]:
-                for cache in namespace["caches"]:
-                    self.validate_cache_schema(cache)
-        assert found_credgen, "At least one namespace with credential_generation"
-
-    @staticmethod
-    def validate_scitokens_block(sci):
-        assert sci["issuer"]
-        assert isinstance(sci["issuer"], str)
-        assert "://" in sci["issuer"]
-        assert isinstance(sci["basepath"], list)
-        assert sci["basepath"]  # must have at least 1
-        for bp in sci["basepath"]:
-            assert bp.startswith("/")  # implies str
-            assert "," not in bp
-        assert isinstance(sci["restrictedpath"], list)
-        for rp in sci["restrictedpath"]:  # may be empty
-            assert rp.startswith("/")  # implies str
-            assert "," not in rp
-
-    def test_issuers_in_namespaces(self, namespaces):
-        for namespace in namespaces:
-            assert isinstance(namespace["scitokens"], list)
-            for scitokens_block in namespace["scitokens"]:
-                self.validate_scitokens_block(scitokens_block)
 
 
 class TestAPI:
@@ -367,6 +281,11 @@ class TestAPI:
 
         hashes_not_in_authfile = mapfile_hashes - authfile_hashes
         assert not hashes_not_in_authfile, f"Hashes in mapfile but not in authfile: {hashes_not_in_authfile}"
+
+    def test_namespaces_json(self, client):
+        response = client.get('/osdf/namespaces')
+        assert response.status_code == 200
+        assert "namespaces" in response.json
 
 
 class TestEndpointContent:
