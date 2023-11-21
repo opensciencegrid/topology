@@ -34,7 +34,9 @@ I2_TEST_CACHE = "osg-sunnyvale-stashcache.nrp.internet2.edu"
 # fake origins in our test data:
 TEST_ITB_HELM_ORIGIN = "helm-origin.osgdev.test.io"
 TEST_SC_ORIGIN = "sc-origin.test.wisc.edu"
-
+TEST_ORIGIN_AUTH2000 = "origin-auth2000.test.wisc.edu"
+TEST_ISSUER = "https://test.wisc.edu"
+TEST_BASEPATH = "/testvo"
 
 # Some DNs I can use for testing and the hashes they map to.
 # All of these were generated with osg-ca-generator on alma8
@@ -304,6 +306,46 @@ class TestNamespaces:
             assert isinstance(namespace["scitokens"], list)
             for scitokens_block in namespace["scitokens"]:
                 self.validate_scitokens_block(scitokens_block)
+
+    def test_testvo_public_namespace(self, namespaces):
+        ns = [
+            ns for ns in namespaces if ns["path"] == "/testvo/PUBLIC"
+        ][0]
+
+        assert ns["readhttps"] is False
+        assert ns["usetokenonread"] is False
+        assert TEST_SC_ORIGIN in ns["writebackhost"]
+        assert len(ns["caches"]) > 10
+        assert len(ns["origins"]) == 2
+        assert ns["credential_generation"] is None
+        assert len(ns["scitokens"]) == 1
+        sci = ns["scitokens"][0]
+        assert sci["issuer"] == TEST_ISSUER
+        assert sci["basepath"] == [TEST_BASEPATH]
+        assert sci["restrictedpath"] == []
+
+
+    def test_testvo_namespace(self, namespaces):
+        ns = [
+            ns for ns in namespaces if ns["path"] == "/testvo"
+        ][0]
+
+        assert ns["readhttps"] is True
+        assert ns["usetokenonread"] is True
+        assert TEST_ORIGIN_AUTH2000 in ns["writebackhost"]
+        assert TEST_ORIGIN_AUTH2000 in ns["dirlisthost"]
+        assert len(ns["caches"]) > 10
+        assert len(ns["origins"]) == 1
+        credgen = ns["credential_generation"]
+        assert credgen["base_path"] == TEST_BASEPATH
+        assert credgen["strategy"] == "OAuth2"
+        assert credgen["issuer"] == TEST_ISSUER
+        assert credgen["max_scope_depth"] == 3
+        assert len(ns["scitokens"]) == 1
+        sci = ns["scitokens"][0]
+        assert sci["issuer"] == TEST_ISSUER
+        assert sci["basepath"] == [TEST_BASEPATH]
+        assert sci["restrictedpath"] == []
 
 
 if __name__ == '__main__':
