@@ -291,13 +291,13 @@ class TestNamespaces:
         assert sci["issuer"]
         assert isinstance(sci["issuer"], str)
         assert "://" in sci["issuer"]
-        assert isinstance(sci["basepath"], list)
-        assert sci["basepath"]  # must have at least 1
-        for bp in sci["basepath"]:
+        assert isinstance(sci["base_path"], list)
+        assert sci["base_path"]  # must have at least 1
+        for bp in sci["base_path"]:
             assert bp.startswith("/")  # implies str
             assert "," not in bp
-        assert isinstance(sci["restrictedpath"], list)
-        for rp in sci["restrictedpath"]:  # may be empty
+        assert isinstance(sci["restricted_path"], list)
+        for rp in sci["restricted_path"]:  # may be empty
             assert rp.startswith("/")  # implies str
             assert "," not in rp
 
@@ -321,8 +321,8 @@ class TestNamespaces:
         assert len(ns["scitokens"]) == 1
         sci = ns["scitokens"][0]
         assert sci["issuer"] == TEST_ISSUER
-        assert sci["basepath"] == [TEST_BASEPATH]
-        assert sci["restrictedpath"] == []
+        assert sci["base_path"] == [TEST_BASEPATH]
+        assert sci["restricted_path"] == []
 
 
     def test_testvo_namespace(self, namespaces):
@@ -344,8 +344,8 @@ class TestNamespaces:
         assert len(ns["scitokens"]) == 1
         sci = ns["scitokens"][0]
         assert sci["issuer"] == TEST_ISSUER
-        assert sci["basepath"] == [TEST_BASEPATH]
-        assert sci["restrictedpath"] == []
+        assert sci["base_path"] == [TEST_BASEPATH]
+        assert sci["restricted_path"] == []
 
 
 if __name__ == '__main__':

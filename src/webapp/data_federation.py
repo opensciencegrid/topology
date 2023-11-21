@@ -104,12 +104,12 @@ class SciTokenAuth(AuthMethod):
         return block
 
     def get_namespaces_scitokens_block(self):
-        basepath = re.split(r"\s*,\s*", self.base_path)
-        restrictedpath = re.split(r"\s*,\s*", self.restricted_path) if self.restricted_path else []
+        base_path = re.split(r"\s*,\s*", self.base_path)
+        restricted_path = re.split(r"\s*,\s*", self.restricted_path) if self.restricted_path else []
         return {
             "issuer": self.issuer,
-            "basepath": basepath,
-            "restrictedpath": restrictedpath,
+            "base_path": base_path,
+            "restricted_path": restricted_path,
         }
 
 
