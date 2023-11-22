@@ -1,3 +1,4 @@
+import re
 import urllib
 import urllib.parse
 from collections import OrderedDict
@@ -25,6 +26,8 @@ class AuthMethod:
     def get_grid_mapfile_line(self):
         return ""
 
+    def get_namespaces_scitokens_block(self):
+        return None
 
 class NullAuth(AuthMethod):
     pass
@@ -99,6 +102,15 @@ class SciTokenAuth(AuthMethod):
             block += f"map_subject = {self.map_subject}\n"
 
         return block
+
+    def get_namespaces_scitokens_block(self):
+        base_path = re.split(r"\s*,\s*", self.base_path)
+        restricted_path = re.split(r"\s*,\s*", self.restricted_path) if self.restricted_path else []
+        return {
+            "issuer": self.issuer,
+            "base_path": base_path,
+            "restricted_path": restricted_path,
+        }
 
 
 # TODO Use a dataclass (https://docs.python.org/3.9/library/dataclasses.html)
