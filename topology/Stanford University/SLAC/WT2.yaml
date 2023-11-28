@@ -70,7 +70,8 @@ Resources:
         Primary:
           ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
           Name: Wei Yang
-    Description: This site use batch fair share to manage resource usage. The maximum
+    Description:
+      This site use batch fair share to manage resource usage. The maximum
       CPU resource listed, which are virtually all owned by ATLAS, are actually maximum
       (average) resource one can expect over a period of time. Occasional usage can
       be much higher.
@@ -225,4 +226,33 @@ Resources:
           endpoint: psnr-farm10.slac.stanford.edu
     VOOwnership:
       ATLAS: 100
+  SLAC_VARNISH_FRONTIER_NRP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 2d51aa6faa109d97dec985456a69cb3dab518c8e
+          Name: Steffen Luitz
+        Secondary:
+          ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
+          Name: Wei Yang
+      Security Contact:
+        Primary:
+          ID: 2d51aa6faa109d97dec985456a69cb3dab518c8e
+          Name: Steffen Luitz
+        Secondary:
+          ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
+          Name: Wei Yang
+    Description: Varnish cache located at UCSC
+    FQDN: seaweed-dtn100-1.ucsc.edu
+    ID:
+    Services:
+      Squid:
+        Description: Varnish based squid service for Frontier at NRP
+        Details:
+          uri_override: seaweed-dtn100-1.ucsc.edu:6082
+          Monitored: true
+    VOOwnership:
+      ATLAS: 100
+
 SupportCenter: USATLAS
