@@ -538,6 +538,10 @@ The JSON also contains an attribute `namespaces` that is a list of namespaces wi
     Note that scopes are usually relative to the namespace path.
   - `vault_server`: the Vault server for the `Vault` strategy or null
   - `vault_issuer`: the Vault issuer for the `Vault` strategy (or null).
+- `scitokens` is information about any `SciTokens` sections in the `Authorizations` list for that namespace (or the empty list if there are none). Each list item has:
+  - `issuer`: the value of the `Issuer` field in the scitokens block
+  - `base_path`: a list which is the value of the `BasePath` (or `Base Path`) field split on commas
+  - `restricted_path`: a list which is the value of the `RestrictedPath` (or `Restricted Path`) field split on commas, or the empty list if unspecified
 
 The final result looks like
 ```json
@@ -567,6 +571,7 @@ The final result looks like
       "dirlisthost": null,
       "path": "/xenon/PROTECTED",
       "readhttps": true,
+      "scitokens": [],
       "usetokenonread": false,
       "writebackhost": null
     },
@@ -582,6 +587,11 @@ The final result looks like
       "dirlisthost": "https://origin-auth2001.chtc.wisc.edu:1095",
       "path": "/ospool/PROTECTED",
       "readhttps": true,
+      "scitokens": {
+        "issuer": "https://osg-htc.org/ospool",
+        "base_path": ["/ospool/PROTECTED", "/s3.amazonaws.com/us-east-1", "/s3.amazonaws.com/us-west-1"],
+        "restricted_path": []
+      },
       "usetokenonread": true,
       "writebackhost": "https://origin-auth2001.chtc.wisc.edu:1095"
     }
