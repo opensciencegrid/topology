@@ -370,8 +370,6 @@ audience = {allowed_vos_str}
 
     for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
         for namespace in stashcache_obj.namespaces.values():  # type: Namespace
-            if namespace.is_public():
-                continue
             if not namespace_allows_cache_resource(namespace, cache_resource):
                 continue
             if not resource_allows_namespace(cache_resource, namespace):
@@ -486,8 +484,6 @@ audience = {allowed_vos_str}
 
     for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
         for namespace in stashcache_obj.namespaces.values():
-            if namespace.is_public():
-                continue
             if not namespace_allows_origin_resource(namespace, origin_resource):
                 continue
             if not resource_allows_namespace(origin_resource, namespace):
@@ -526,6 +522,13 @@ def get_credential_generation_dict_for_namespace(ns: Namespace) -> Optional[Dict
     return info
 
 
+def get_scitokens_list_for_namespace(ns: Namespace) -> List[Dict]:
+    """Return the list of scitokens issuer info for the .namespaces[*].scitokens attribute in the namespaces JSON"""
+    return list(
+        filter(None, (a.get_namespaces_scitokens_block() for a in ns.authz_list))
+    )
+
+
 def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     """Return data for the /stashcache/namespaces JSON endpoint.
 
@@ -562,12 +565,13 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
         nsdict = {
             "path": ns.path,
             "readhttps": not ns.is_public(),
-            "usetokenonread": any(isinstance(a, SciTokenAuth) for a in ns.authz_list),
+            "usetokenonread": not ns.is_public() and any(isinstance(a, SciTokenAuth) for a in ns.authz_list),
             "writebackhost": ns.writeback,
             "dirlisthost": ns.dirlist,
             "caches": [],
             "origins": [],
             "credential_generation": get_credential_generation_dict_for_namespace(ns),
+            "scitokens": get_scitokens_list_for_namespace(ns),
         }
 
         for cache_name, cache_resource_obj in cache_resource_objs.items():
