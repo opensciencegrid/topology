@@ -624,3 +624,34 @@
   ResourceName: Vanderbilt_Xrootd
   Services:
   - XRootD component
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1670549018
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Dec 18, 2023 05:00 +0000
+  EndTime: Dec 21, 2023 05:00 +0000
+  CreatedTime: Dec 13, 2023 18:00 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1670549019
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Dec 18, 2023 05:00 +0000
+  EndTime: Dec 21, 2023 05:00 +0000
+  CreatedTime: Dec 13, 2023 18:00 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1670549020
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Dec 18, 2023 05:00 +0000
+  EndTime: Dec 21, 2023 05:00 +0000
+  CreatedTime: Dec 13, 2023 18:00 +0000
+  ResourceName: Vanderbilt_Xrootd
+  Services:
+  - XRootD component
