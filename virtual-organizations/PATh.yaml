@@ -84,7 +84,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://path-cc.io
-              Base Path: /path-facility/data,/path-facility/development/,/path-facility/projects
+              Base Path: /path-facility/data,/path-facility/development/data/,/path-facility/projects,/path-facility/development/projects/
               Map Subject: True
         AllowedOrigins:
           - CHTC-PATH-ORIGIN
@@ -104,7 +104,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://path-cc.io
-              Base Path: /path-facility/data,/path-facility/development/,/path-facility/projects
+              Base Path: /path-facility/data,/path-facility/development/data/,/path-facility/projects,/path-facility/development/projects/
               Map Subject: True
         AllowedOrigins:
           - CHTC-PATH-ORIGIN
@@ -120,11 +120,24 @@ DataFederations:
         Writeback: https://ap1-origin.facility.path-cc.io:1095
         DirList: https://ap1-origin.facility.path-cc.io:1095
 
-      - Path: /path-facility/development
+      - Path: /path-facility/development/data
         Authorizations:
           - SciTokens:
               Issuer: https://path-cc.io
-              Base Path: /path-facility/data,/path-facility/development/,/path-facility/projects
+              Base Path: /path-facility/data,/path-facility/development/data/,/path-facility/projects,/path-facility/development/projects/
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-PATH-ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://path-origin.osgdev.chtc.io:1095
+        DirList: https://path-origin.osgdev.chtc.io:1095
+
+      - Path: /path-facility/development/projects
+        Authorizations:
+          - SciTokens:
+              Issuer: https://path-cc.io
+              Base Path: /path-facility/data,/path-facility/development/data/,/path-facility/projects,/path-facility/development/projects/
               Map Subject: True
         AllowedOrigins:
           - CHTC-ITB-PATH-ORIGIN
