@@ -91,7 +91,7 @@ def get_contacts():
 def add_cilogon_ids(users, d):
     """ add CILogonIDs to dict so they can be treated like ContactIDs """
     for u in users:
-        cilogonid = u.find('CILogonID')
+        cilogonid = u.find('CILogonID').text
         if cilogonid:
             d[cilogonid] = u.find('FullName').text
     return d
