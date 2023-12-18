@@ -220,7 +220,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://ap22.uc.osg-htc.org:1094/ospool/ap22
-              Base Path: /ospool/ap22/data,/ospool/uc-shared/project
+              Base Path: /ospool/ap22
               Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap22
@@ -232,6 +232,24 @@ DataFederations:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
           MaxScopeDepth: 4
+
+      # SciTokens issuer for ap20
+      - Path: /ospool/ap20/.well-known
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap20
+        # Do not cache this: direct access only
+        AllowedCaches: []
+
+      # SciTokens issuer for ap21
+      - Path: /ospool/ap21/.well-known
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap21
+        # Do not cache this: direct access only
+        AllowedCaches: []
 
       # SciTokens issuer for ap22
       - Path: /ospool/ap22/.well-known

@@ -82,7 +82,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://path-cc.io
-              Base Path: /path-facility/data,/path-facility/development/,/path-facility/projects
+              Base Path: /path-facility/data,/path-facility/development/data/,/path-facility/projects,/path-facility/development/projects/
               Map Subject: True
         AllowedOrigins:
           - CHTC-PATH-ORIGIN
@@ -93,6 +93,11 @@ DataFederations:
           - Stashcache-Houston
           - Stashcache-Manhattan
           - Stashcache-Sunnyvale
+          - BOISE_INTERNET2_OSDF_CACHE
+          - CINCINNATI_INTERNET2_OSDF_CACHE
+          - DENVER_INTERNET2_OSDF_CACHE
+          - HOUSTON2_INTERNET2_OSDF_CACHE
+          - JACKSONVILLE_INTERNET2_OSDF_CACHE
           # CHTC
           - CHTC_TIGER_CACHE
         Writeback: https://ap1-origin.facility.path-cc.io:1095
@@ -102,7 +107,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://path-cc.io
-              Base Path: /path-facility/data,/path-facility/development/,/path-facility/projects
+              Base Path: /path-facility/data,/path-facility/development/data/,/path-facility/projects,/path-facility/development/projects/
               Map Subject: True
         AllowedOrigins:
           - CHTC-PATH-ORIGIN
@@ -113,16 +118,34 @@ DataFederations:
           - Stashcache-Houston
           - Stashcache-Manhattan
           - Stashcache-Sunnyvale
+          - BOISE_INTERNET2_OSDF_CACHE
+          - CINCINNATI_INTERNET2_OSDF_CACHE
+          - DENVER_INTERNET2_OSDF_CACHE
+          - HOUSTON2_INTERNET2_OSDF_CACHE
+          - JACKSONVILLE_INTERNET2_OSDF_CACHE
           # CHTC
           - CHTC_TIGER_CACHE
         Writeback: https://ap1-origin.facility.path-cc.io:1095
         DirList: https://ap1-origin.facility.path-cc.io:1095
 
-      - Path: /path-facility/development
+      - Path: /path-facility/development/data
         Authorizations:
           - SciTokens:
               Issuer: https://path-cc.io
-              Base Path: /path-facility/data,/path-facility/development/,/path-facility/projects
+              Base Path: /path-facility/data,/path-facility/development/data/,/path-facility/projects,/path-facility/development/projects/
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-PATH-ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://path-origin.osgdev.chtc.io:1095
+        DirList: https://path-origin.osgdev.chtc.io:1095
+
+      - Path: /path-facility/development/projects
+        Authorizations:
+          - SciTokens:
+              Issuer: https://path-cc.io
+              Base Path: /path-facility/data,/path-facility/development/data/,/path-facility/projects,/path-facility/development/projects/
               Map Subject: True
         AllowedOrigins:
           - CHTC-ITB-PATH-ORIGIN

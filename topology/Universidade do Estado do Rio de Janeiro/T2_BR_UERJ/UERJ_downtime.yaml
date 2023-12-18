@@ -871,5 +871,244 @@
   Services:
   - Squid
 # ---------------------------------------------------------
-
+- Class: UNSCHEDULED
+  ID: 1648879378
+  Description: We had to do an unexpected intervention that impacted our services
+  Severity: Outage
+  StartTime: Nov 13, 2023 14:00 +0000
+  EndTime: Nov 14, 2023 20:00 +0000
+  CreatedTime: Nov 13, 2023 15:05 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1648879804
+  Description: We had to do an unexpected intervention that impacted our services
+  Severity: Outage
+  StartTime: Nov 13, 2023 14:00 +0000
+  EndTime: Nov 14, 2023 20:00 +0000
+  CreatedTime: Nov 13, 2023 15:06 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1648879928
+  Description: We had to do an unexpected intervention that impacted our services
+  Severity: Outage
+  StartTime: Nov 13, 2023 14:00 +0000
+  EndTime: Nov 14, 2023 20:00 +0000
+  CreatedTime: Nov 13, 2023 15:06 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1648880014
+  Description: We had to do an unexpected intervention that impacted our services
+  Severity: Outage
+  StartTime: Nov 13, 2023 14:00 +0000
+  EndTime: Nov 14, 2023 20:00 +0000
+  CreatedTime: Nov 13, 2023 15:06 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1648880085
+  Description: We had to do an unexpected intervention that impacted our services
+  Severity: Outage
+  StartTime: Nov 13, 2023 14:00 +0000
+  EndTime: Nov 14, 2023 20:00 +0000
+  CreatedTime: Nov 13, 2023 15:06 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1651552709
+  Description: We'll need to extend the downtime to better understand what is happening
+    with our virtualization systems. It impacted all our T2 services.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 21, 2023 20:00 +0000
+  CreatedTime: Nov 16, 2023 17:21 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1651552906
+  Description: We'll need to extend the downtime to better understand what is happening
+    with our virtualization systems. It impacted all our T2 services.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 21, 2023 20:00 +0000
+  CreatedTime: Nov 16, 2023 17:21 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1651552966
+  Description: We'll need to extend the downtime to better understand what is happening
+    with our virtualization systems. It impacted all our T2 services.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 21, 2023 20:00 +0000
+  CreatedTime: Nov 16, 2023 17:21 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1651553034
+  Description: We'll need to extend the downtime to better understand what is happening
+    with our virtualization systems. It impacted all our T2 services.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 21, 2023 20:00 +0000
+  CreatedTime: Nov 16, 2023 17:21 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1651553093
+  Description: We'll need to extend the downtime to better understand what is happening
+    with our virtualization systems. It impacted all our T2 services.
+  Severity: Outage
+  StartTime: Nov 14, 2023 20:00 +0000
+  EndTime: Nov 21, 2023 20:00 +0000
+  CreatedTime: Nov 16, 2023 17:21 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1662638910
+  Description: We are facing IPv6 issues that are impacting our connection with regional
+    redirectors. We will need some time to sort this out with the parts responsible
+    for our routes.
+  Severity: Outage
+  StartTime: Nov 29, 2023 13:00 +0000
+  EndTime: Dec 08, 2023 21:00 +0000
+  CreatedTime: Nov 29, 2023 13:18 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1662639132
+  Description: We are facing IPv6 issues that are impacting our connection with regional
+    redirectors. We will need some time to sort this out with the parts responsible
+    for our routes.
+  Severity: Outage
+  StartTime: Nov 29, 2023 13:00 +0000
+  EndTime: Dec 08, 2023 21:00 +0000
+  CreatedTime: Nov 29, 2023 13:18 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1662639216
+  Description: We are facing IPv6 issues that are impacting our connection with regional
+    redirectors. We will need some time to sort this out with the parts responsible
+    for our routes.
+  Severity: Outage
+  StartTime: Nov 29, 2023 13:00 +0000
+  EndTime: Dec 08, 2023 21:00 +0000
+  CreatedTime: Nov 29, 2023 13:18 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1662639297
+  Description: We are facing IPv6 issues that are impacting our connection with regional
+    redirectors. We will need some time to sort this out with the parts responsible
+    for our routes.
+  Severity: Outage
+  StartTime: Nov 29, 2023 13:00 +0000
+  EndTime: Dec 08, 2023 21:00 +0000
+  CreatedTime: Nov 29, 2023 13:18 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1662639363
+  Description: We are facing IPv6 issues that are impacting our connection with regional
+    redirectors. We will need some time to sort this out with the parts responsible
+    for our routes.
+  Severity: Outage
+  StartTime: Nov 29, 2023 13:00 +0000
+  EndTime: Dec 08, 2023 21:00 +0000
+  CreatedTime: Nov 29, 2023 13:18 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1670548604
+  Description: We're still waiting for our local provider to solve the IPv6 routing
+    issue and they gave us at least 15 days to sort out what is be happening.
+  Severity: Outage
+  StartTime: Dec 08, 2023 21:00 +0000
+  EndTime: Jan 05, 2024 20:00 +0000
+  CreatedTime: Dec 08, 2023 17:01 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1670548796
+  Description: We're still waiting for our local provider to solve the IPv6 routing
+    issue and they gave us at least 15 days to sort out what is be happening.
+  Severity: Outage
+  StartTime: Dec 08, 2023 21:00 +0000
+  EndTime: Jan 05, 2024 20:00 +0000
+  CreatedTime: Dec 08, 2023 17:01 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1670548868
+  Description: We're still waiting for our local provider to solve the IPv6 routing
+    issue and they gave us at least 15 days to sort out what is be happening.
+  Severity: Outage
+  StartTime: Dec 08, 2023 21:00 +0000
+  EndTime: Jan 05, 2024 20:00 +0000
+  CreatedTime: Dec 08, 2023 17:01 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1670548942
+  Description: We're still waiting for our local provider to solve the IPv6 routing
+    issue and they gave us at least 15 days to sort out what is be happening.
+  Severity: Outage
+  StartTime: Dec 08, 2023 21:00 +0000
+  EndTime: Jan 05, 2024 20:00 +0000
+  CreatedTime: Dec 08, 2023 17:01 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1670549017
+  Description: We're still waiting for our local provider to solve the IPv6 routing
+    issue and they gave us at least 15 days to sort out what is be happening.
+  Severity: Outage
+  StartTime: Dec 08, 2023 21:00 +0000
+  EndTime: Jan 05, 2024 20:00 +0000
+  CreatedTime: Dec 08, 2023 17:01 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 

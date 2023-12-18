@@ -19,7 +19,13 @@ def get_contact_cilogon_id_map(global_data):
 # cilogon ldap query constants
 #_ldap_url = "ldaps://ldap.cilogon.org"
 #_username = "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org"
-_cilogon_basedn   = "o=OSG,o=CO,dc=cilogon,dc=org"
+_cilogon_basedn   = "ou=people,o=OSG,o=CO,dc=cilogon,dc=org"
+
+# Filter on all (CO Persons with status == Active) AND
+# (is an active member of the Topology Contacts COU or OASIS Managers COU)
+_ACTIVE_COPERSON_FILTER = "(&(ismemberOf=CO:members:active)" + \
+    "(|(ismemberOf=CO:COU:Topology Contacts:members:active)" + \
+    "(ismemberOf=CO:COU:OASIS Managers:members:active)))"
 
 
 def get_cilogon_ldap_id_map(ldap_url, ldap_user, ldap_pass):
@@ -29,7 +35,7 @@ def get_cilogon_ldap_id_map(ldap_url, ldap_user, ldap_pass):
     conn = ldap3.Connection(server, ldap_user, ldap_pass, receive_timeout=CILOGON_LDAP_TIMEOUT)
     if not conn.bind():
         return None  # connection failure
-    conn.search(_cilogon_basedn, '(voPersonID=*)', attributes=['*'])
+    conn.search(_cilogon_basedn, _ACTIVE_COPERSON_FILTER, search_scope='one', attributes=['*'])
     result_data = [ (e.entry_dn, e.entry_attributes_as_dict)
                     for e in conn.entries ]
     conn.unbind()

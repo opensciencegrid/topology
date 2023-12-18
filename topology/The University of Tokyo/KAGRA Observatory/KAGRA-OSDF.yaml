@@ -1,0 +1,26 @@
+---
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: These are the OSDF resources at the KAGRA Observatory
+
+Resources:
+  KAGRA_OSDF_ORIGIN:
+    Active: true
+    Description: This is an OSDF origin at the KAGRA Observatory
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 5ea6fa23f5d804890b3c22e478c6945f841e5647
+          Name: Marco Meyer
+      Security Contact:
+        Primary:
+          ID: 5ea6fa23f5d804890b3c22e478c6945f841e5647
+          Name: Marco Meyer
+    FQDN: kagra-dsr-b2.icrr.u-tokyo.ac.jp
+    DN: /DC=JP/O=KEK/OU=CRC/CN=host/kagra-dsr-b2.icrr.u-tokyo.ac.jp
+    Services:
+      XRootD origin server:
+        Description: KAGRA OSDF origin server
+    AllowedVOs:
+      - LIGO
