@@ -35,7 +35,7 @@ def get_cilogon_ldap_id_map(ldap_url, ldap_user, ldap_pass):
     conn = ldap3.Connection(server, ldap_user, ldap_pass, receive_timeout=CILOGON_LDAP_TIMEOUT)
     if not conn.bind():
         return None  # connection failure
-    conn.search(_cilogon_basedn, _ACTIVE_COPERSON_FILTER, search_scope='LEVEL', attributes=['*'])
+    conn.search(_cilogon_basedn, _ACTIVE_COPERSON_FILTER, search_scope=ldap3.LEVEL, attributes=['*'])
     result_data = [ (e.entry_dn, e.entry_attributes_as_dict)
                     for e in conn.entries ]
     conn.unbind()
