@@ -20,7 +20,7 @@ os.environ['TESTING'] = "True"
 from app import app, global_data
 from webapp import models, topology, vos_data
 from webapp.common import load_yaml_file
-from webapp.data_federation import CredentialGeneration
+from webapp.data_federation import CredentialGeneration, StashCache
 import stashcache
 
 HOST_PORT_RE = re.compile(r"[a-zA-Z0-9.-]{3,63}:[0-9]{2,5}")
@@ -86,6 +86,12 @@ def test_global_data() -> models.GlobalData:
 
 
 @pytest.fixture
+def ligo_stashcache():
+    vos_data = global_data.get_vos_data()
+    return vos_data.stashcache_by_vo_name["LIGO"]
+
+
+@pytest.fixture
 def client():
     with app.test_client() as client:
         yield client
@@ -93,19 +99,29 @@ def client():
 
 class TestStashcache:
 
-    def test_allowedVO_includes_ANY_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
+    def test_allowedVO_includes_ANY_for_ligo_inclusion(self,
+                                                       client: flask.Flask,
+                                                       mocker: MockerFixture,
+                                                       ligo_stashcache: StashCache):
+        num_auth_namespaces = len([ns for ns in ligo_stashcache.namespaces.values() if not ns.is_public()])
+
         spy = mocker.spy(global_data, "get_ligo_dn_list")
 
         stashcache.generate_cache_authfile(global_data, "osg-sunnyvale-stashcache.nrp.internet2.edu")
 
-        assert spy.call_count == 6
+        assert spy.call_count == num_auth_namespaces
 
-    def test_allowedVO_includes_LIGO_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
+    def test_allowedVO_includes_LIGO_for_ligo_inclusion(self,
+                                                        client: flask.Flask,
+                                                        mocker: MockerFixture,
+                                                        ligo_stashcache: StashCache):
+        num_auth_namespaces = len([ns for ns in ligo_stashcache.namespaces.values() if not ns.is_public()])
+
         spy = mocker.spy(global_data, "get_ligo_dn_list")
 
         stashcache.generate_cache_authfile(global_data, "stashcache.gwave.ics.psu.edu")
 
-        assert spy.call_count == 6
+        assert spy.call_count == num_auth_namespaces
 
     def test_allowedVO_excludes_LIGO_and_ANY_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
         spy = mocker.spy(global_data, "get_ligo_dn_list")
