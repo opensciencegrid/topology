@@ -129,9 +129,6 @@ DataFederations:
           - FQAN: /virgo
           - FQAN: /virgo/virgo
           - FQAN: /virgo/ligo
-          # No Scitokens issuers because they are duplicated with the /user/ligo path.
-          # As long as the caches are kept in sync, this below fix should be fine.
-          # But the problem should be solved either by topology (ideally) or the SciTokens XRootD plugin.
           - SciTokens:
               Issuer: https://cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
@@ -176,9 +173,6 @@ DataFederations:
           - FQAN: /virgo
           - FQAN: /virgo/virgo
           - FQAN: /virgo/ligo
-          # No Scitokens issuers because they are duplicated with the /user/ligo path.
-          # As long as the caches are kept in sync, this below fix should be fine.
-          # But the problem should be solved either by topology (ideally) or the SciTokens XRootD plugin.
           - SciTokens:
               Issuer: https://cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
@@ -223,9 +217,6 @@ DataFederations:
           - FQAN: /virgo
           - FQAN: /virgo/virgo
           - FQAN: /virgo/ligo
-          # No Scitokens issuers because they are duplicated with the /user/ligo path.
-          # As long as the caches are kept in sync, this below fix should be fine.
-          # But the problem should be solved either by topology (ideally) or the SciTokens XRootD plugin.
           - SciTokens:
               Issuer: https://cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
@@ -270,9 +261,6 @@ DataFederations:
           - FQAN: /virgo
           - FQAN: /virgo/virgo
           - FQAN: /virgo/ligo
-          # No Scitokens issuers because they are duplicated with the /user/ligo path.
-          # As long as the caches are kept in sync, this below fix should be fine.
-          # But the problem should be solved either by topology (ideally) or the SciTokens XRootD plugin.
           - SciTokens:
               Issuer: https://cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
@@ -317,9 +305,6 @@ DataFederations:
           - FQAN: /virgo
           - FQAN: /virgo/virgo
           - FQAN: /virgo/ligo
-          # No Scitokens issuers because they are duplicated with the /user/ligo path.
-          # As long as the caches are kept in sync, this below fix should be fine.
-          # But the problem should be solved either by topology (ideally) or the SciTokens XRootD plugin.
           - SciTokens:
               Issuer: https://cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
@@ -365,9 +350,6 @@ DataFederations:
           - FQAN: /virgo
           - FQAN: /virgo/virgo
           - FQAN: /virgo/ligo
-          # No Scitokens issuers because they are duplicated with the /user/ligo path.
-          # As long as the caches are kept in sync, this below fix should be fine.
-          # But the problem should be solved either by topology (ideally) or the SciTokens XRootD plugin.
           - SciTokens:
               Issuer: https://cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
@@ -415,9 +397,6 @@ DataFederations:
           - FQAN: /virgo
           - FQAN: /virgo/virgo
           - FQAN: /virgo/ligo
-          # No Scitokens issuers because they are duplicated with the /user/ligo path.
-          # As long as the caches are kept in sync, this below fix should be fine.
-          # But the problem should be solved either by topology (ideally) or the SciTokens XRootD plugin.
           - SciTokens:
               Issuer: https://cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
