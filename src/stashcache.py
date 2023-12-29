@@ -420,13 +420,17 @@ def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors
                 "# You must use the 'stash-origin' xrootd instance instead.\n")
 
     authfile_lines = []
-    authfile_lines.extend(idns.warnings_auth)
-    for authfile_id in idns.id_to_paths:
-        paths_acl = " ".join(f"{p} lr" for p in sorted(idns.id_to_paths[authfile_id]))
-        authfile_lines.append(f"# {idns.id_to_str[authfile_id]}")
-        authfile_lines.append(f"{authfile_id} {paths_acl}")
+
+    # Only auth origins should serve paths requiring authentication
+    if not public_origin:
+        authfile_lines.extend(idns.warnings_auth)
+        for authfile_id in idns.id_to_paths:
+            paths_acl = " ".join(f"{p} lr" for p in sorted(idns.id_to_paths[authfile_id]))
+            authfile_lines.append(f"# {idns.id_to_str[authfile_id]}")
+            authfile_lines.append(f"{authfile_id} {paths_acl}")
 
     # Public paths must be at the end
+    # XXX Should auth origins _also_ serve public paths?
     if public_origin and idns.public_paths:
         authfile_lines.append("")
         authfile_lines.extend(idns.warnings_public)
