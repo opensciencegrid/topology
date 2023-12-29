@@ -133,7 +133,8 @@ class _IdNamespaceData:
         self.id_to_paths = defaultdict(set)
         self.id_to_str = {}
         self.grid_mapfile_lines = set()
-        self.warnings = []
+        self.warnings_auth = []
+        self.warnings_public = []
 
     @classmethod
     def for_cache(cls, global_data: GlobalData, topology: Topology, vos_data: VOsData, legacy: bool,
@@ -160,8 +161,6 @@ class _IdNamespaceData:
                 if namespace.is_public():
                     self.public_paths.add(path)
                     continue
-                if public_cache:
-                    continue
 
                 # Extend authz list with LIGO DNs if applicable
                 extended_authz_list = namespace.authz_list
@@ -169,7 +168,7 @@ class _IdNamespaceData:
                     if legacy:
                         extended_authz_list += fetch_ligo_authz_list_if_needed()
                     else:
-                        self.warnings.append("# LIGO DNs unavailable\n")
+                        self.warnings_auth.append("# LIGO DNs unavailable\n")
 
                 for authz in extended_authz_list:
                     if authz.used_in_authfile:
@@ -193,8 +192,6 @@ class _IdNamespaceData:
                 if namespace.is_public():
                     self.public_paths.add(path)
                     continue
-                if public_origin:
-                    continue
 
                 # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
                 # Ignore FQANs and DNs listed in the namespace's authz list.
@@ -207,14 +204,15 @@ class _IdNamespaceData:
                     allowed_resources.extend(allowed_caches)
                 else:
                     # TODO This situation should be caught by the CI
-                    self.warnings.append(f"# WARNING: No working cache / namespace combinations found for {path}")
+                    self.warnings_auth.append(f"# WARNING: No working cache / namespace combinations found for {path};"
+                                              " this path may not be cached")
 
                 for resource in allowed_resources:
                     dn = resource.data.get("DN")
                     if dn:
                         authz_list.append(DNAuth(dn))
                     else:
-                        self.warnings.append(
+                        self.warnings_auth.append(
                             f"# WARNING: Resource {resource.name} was skipped for VO {vo_name}, namespace {path}"
                             f" because the resource does not provide a DN."
                         )
@@ -254,12 +252,15 @@ def generate_cache_authfile(global_data: GlobalData,
         public_cache=False,
     )
 
-    # TODO: improve message and turn this into a warning
     if not idns.id_to_paths:
-        raise DataError("Cache does not support any protected namespaces")
+        if not idns.public_paths:
+            raise DataError("Cache does not support any namespaces")  # TODO Catch this in the CI
+        else:
+            return ("# This cache does not support any protected/authenticated namespaces, only public namespaces.\n"
+                    "# You must use the 'stash-cache' xrootd instance instead.\n")
 
     authfile_lines = []
-    authfile_lines.extend(idns.warnings)
+    authfile_lines.extend(idns.warnings_auth)
     for authfile_id in idns.id_to_paths:
         paths_acl = " ".join(f"{p} rl" for p in sorted(idns.id_to_paths[authfile_id]))
         authfile_lines.append(f"# {idns.id_to_str[authfile_id]}")
@@ -290,12 +291,15 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
         public_cache=True,
     )
 
-    # TODO: improve message and turn this into a warning
     if not idns.public_paths:
-        raise DataError("Cache does not support any public namespaces")
+        if not idns.id_to_paths:
+            raise DataError("Cache does not support any namespaces")  # TODO Catch this in the CI
+        else:
+            return ("# This cache does not support any public namespaces, only protected/authenticated namespaces.\n"
+                    "# You must use the 'stash-cache-auth' xrootd instance instead.\n")
 
     authfile_lines = []
-    authfile_lines.extend(idns.warnings)
+    authfile_lines.extend(idns.warnings_auth)
     authfile_lines.append("u * /user/ligo -rl \\")
 
     for dirname in sorted(idns.public_paths):
@@ -333,7 +337,7 @@ def generate_cache_grid_mapfile(global_data: GlobalData,
     )
 
     grid_mapfile_lines = []
-    grid_mapfile_lines.extend(idns.warnings)
+    grid_mapfile_lines.extend(idns.warnings_auth)
     grid_mapfile_lines.extend(sorted(idns.grid_mapfile_lines))
 
     return "\n".join(grid_mapfile_lines) + "\n"
@@ -413,10 +417,16 @@ def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors
     idns = _IdNamespaceData.for_origin(topology, vos_data, origin_resource, public_origin)
 
     if not idns.id_to_paths and not idns.public_paths:
-        raise DataError("Origin does not support any namespaces")
+        raise DataError("Origin does not support any namespaces")  # TODO Catch this in the CI
+    elif public_origin and not idns.public_paths:
+        return ("# This origin does not support any public namespaces, only protected/authenticated namespaces.\n"
+                "# You must use the 'stash-origin-auth' xrootd instance instead.\n")
+    elif not public_origin and not idns.id_to_paths:
+        return ("# This origin does not support any protected/authenticated namespaces, only public namespaces.\n"
+                "# You must use the 'stash-origin' xrootd instance instead.\n")
 
     authfile_lines = []
-    authfile_lines.extend(idns.warnings)
+    authfile_lines.extend(idns.warnings_auth)
     for authfile_id in idns.id_to_paths:
         paths_acl = " ".join(f"{p} lr" for p in sorted(idns.id_to_paths[authfile_id]))
         authfile_lines.append(f"# {idns.id_to_str[authfile_id]}")
@@ -447,7 +457,7 @@ def generate_origin_grid_mapfile(global_data: GlobalData, fqdn: str, suppress_er
     idns = _IdNamespaceData.for_origin(topology, vos_data, origin_resource, public_origin=False)
 
     grid_mapfile_lines = []
-    grid_mapfile_lines.extend(idns.warnings)
+    grid_mapfile_lines.extend(idns.warnings_auth)
     grid_mapfile_lines.extend(sorted(idns.grid_mapfile_lines))
 
     return "\n".join(grid_mapfile_lines) + "\n"
