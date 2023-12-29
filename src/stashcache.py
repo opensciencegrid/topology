@@ -137,8 +137,8 @@ class _IdNamespaceData:
         self.warnings_public = []
 
     @classmethod
-    def for_cache(cls, global_data: GlobalData, topology: Topology, vos_data: VOsData, legacy: bool,
-                  cache_resource: Optional[Resource], public_cache: bool) -> "_IdNamespaceData":
+    def for_cache(cls, global_data: GlobalData, vos_data: VOsData, legacy: bool,
+                  cache_resource: Optional[Resource]) -> "_IdNamespaceData":
         self = cls()
 
         ligo_authz_list: List[AuthMethod] = []
@@ -180,8 +180,8 @@ class _IdNamespaceData:
         return self
 
     @classmethod
-    def for_origin(cls, topology: Topology, vos_data: VOsData, origin_resource: Optional[Resource],
-                   public_origin: bool) -> "_IdNamespaceData":
+    def for_origin(cls, topology: Topology, vos_data: VOsData,
+                   origin_resource: Optional[Resource]) -> "_IdNamespaceData":
         self = cls()
         for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
             for path, namespace in stashcache_obj.namespaces.items():
@@ -245,11 +245,9 @@ def generate_cache_authfile(global_data: GlobalData,
 
     idns = _IdNamespaceData.for_cache(
         global_data=global_data,
-        topology=topology,
         vos_data=vos_data,
         legacy=legacy,
         cache_resource=resource,
-        public_cache=False,
     )
 
     if not idns.id_to_paths:
@@ -284,11 +282,9 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
 
     idns = _IdNamespaceData.for_cache(
         global_data=global_data,
-        topology=topology,
         vos_data=vos_data,
         legacy=legacy,
         cache_resource=resource,
-        public_cache=True,
     )
 
     if not idns.public_paths:
@@ -299,7 +295,7 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
                     "# You must use the 'stash-cache-auth' xrootd instance instead.\n")
 
     authfile_lines = []
-    authfile_lines.extend(idns.warnings_auth)
+    authfile_lines.extend(idns.warnings_public)
     authfile_lines.append("u * /user/ligo -rl \\")
 
     for dirname in sorted(idns.public_paths):
@@ -329,11 +325,9 @@ def generate_cache_grid_mapfile(global_data: GlobalData,
 
     idns = _IdNamespaceData.for_cache(
         global_data=global_data,
-        topology=topology,
         vos_data=vos_data,
         legacy=legacy,
         cache_resource=resource,
-        public_cache=False,
     )
 
     grid_mapfile_lines = []
@@ -414,7 +408,7 @@ def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors
         if not origin_resource:
             return ""
 
-    idns = _IdNamespaceData.for_origin(topology, vos_data, origin_resource, public_origin)
+    idns = _IdNamespaceData.for_origin(topology, vos_data, origin_resource)
 
     if not idns.id_to_paths and not idns.public_paths:
         raise DataError("Origin does not support any namespaces")  # TODO Catch this in the CI
@@ -435,6 +429,7 @@ def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors
     # Public paths must be at the end
     if public_origin and idns.public_paths:
         authfile_lines.append("")
+        authfile_lines.extend(idns.warnings_public)
         paths_acl = " ".join(f"{p} lr" for p in sorted(idns.public_paths))
         authfile_lines.append(f"u * {paths_acl}")
 
@@ -454,7 +449,7 @@ def generate_origin_grid_mapfile(global_data: GlobalData, fqdn: str, suppress_er
         if not origin_resource:
             return ""
 
-    idns = _IdNamespaceData.for_origin(topology, vos_data, origin_resource, public_origin=False)
+    idns = _IdNamespaceData.for_origin(topology, vos_data, origin_resource)
 
     grid_mapfile_lines = []
     grid_mapfile_lines.extend(idns.warnings_auth)
