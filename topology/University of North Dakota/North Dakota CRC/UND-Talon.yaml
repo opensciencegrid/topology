@@ -5,7 +5,7 @@ Production: true
 SupportCenter: Self Supported
 
 # GroupDescription is a long description of the resource group; may be multiple lines.
-GroupDescription: The University of Nevada Reno
+GroupDescription: University of North Dakota
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
@@ -16,35 +16,62 @@ Resources:
   # Resource Name should be a short descriptor of the resource.
   # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
   # Resource Names need to be unique across all resources in the OSG.
-  UNR-CC-CE1:
+  UND-Talon-CE1:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
     Active: true
     # Description is a long description of the resource; may be multiple lines
-    Description: Hosted CE serving UNR
+    Description: Hosted CE serving UND
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
     # https://opensciencegrid.org/docs/common/registration/#registering-contacts
     ContactLists:
+      # Administrative Contacts are persons or groups of people (i.e.,
+      # mailing lists) that are directly responsible for the
+      # maintenance of the resource
       Administrative Contact:
         Primary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # Security Contact are persons or groups of people (i.e.,
+      # mailing lists) that are responsible for handling security
+      # issues related to the resource
       Security Contact:
         Primary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Local Operational Contact:
-        Primary:
-          Name: Austin Parkerson
-          ID: OSG1000645
-        Secondary:
-          Name: Brandon Ramirez
-          ID: OSG1000644
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # Site contact (optional) are persons or groups of people (i.e.,
+      # mailing lists) that are generally responsible for a site's
+      # relationship with the OSG (e.g., principal investigators,
+      # local administrator contact for OSG Hosted CEs)
+      # Site Contact:
+        # Primary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
 
     # FQDN is the fully qualified domain name of the host running this resource
-    FQDN: unr-cc-ce1.svc.opensciencegrid.org
+    FQDN: und-talon-ce1.svc.opensciencegrid.org
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
     # FQDNAliases:
     #   - <HOSTNAME1>
@@ -80,8 +107,6 @@ Resources:
     # Tags:
     #   - <TAG1>
     #   - <TAG2>
-    Tags:
-      - CC*
 
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
     ### If part of the resource is not owned by the VO, do not list it.
