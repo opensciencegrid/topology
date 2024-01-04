@@ -147,6 +147,7 @@ DataFederations:
 
       - Path: /s3.amazonaws.com/us-east-1
         Authorizations:
+          - PUBLIC
           - SciTokens:
               Issuer: https://osg-htc.org/ospool
               Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
@@ -160,6 +161,7 @@ DataFederations:
 
       - Path: /s3.amazonaws.com/us-west-1
         Authorizations:
+          - PUBLIC
           - SciTokens:
               Issuer: https://osg-htc.org/ospool
               Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
