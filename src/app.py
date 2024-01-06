@@ -184,7 +184,7 @@ def nsfscience_csv():
 def institution_ids():
     institution_ids = global_data.get_mappings().institution_ids
     if not institution_ids:
-        return Response("Error getting Institution/OSG ID mappings", status=503)
+        return Response("Error getting Institution/OSG ID mappings: no mappings returned", status=503)
 
     return to_json_bytes(PreJSON(institution_ids))
 
