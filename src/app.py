@@ -186,7 +186,7 @@ def institution_ids():
     if not institution_ids:
         return Response("Error getting Institution/OSG ID mappings: no mappings returned", status=503)
 
-    return to_json_bytes(PreJSON(institution_ids))
+    return Response(to_json_bytes(PreJSON(institution_ids)), mimetype='application/json')
 
 
 @app.route('/organizations')
