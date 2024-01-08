@@ -58,4 +58,14 @@
   ResourceName: NMSU-Discovery-CE1
   Services:
   - CE
+- Class: SCHEDULED
+  ID: 1696997558
+  Description: Scheduled biannual cluster maintenance
+  Severity: Outage
+  StartTime: Jan 08, 2024 15:00 +0000
+  EndTime: Jan 22, 2024 08:00 +0000
+  CreatedTime: Jan 08, 2024 07:42 +0000
+  ResourceName: NMSU-Discovery-CE1
+  Services:
+  - CE
 # ---------------------------------------------------------
