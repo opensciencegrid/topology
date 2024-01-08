@@ -180,3 +180,30 @@ Resources:
     AllowedVOs:
       - ANY
 
+  CHTC_OSGDEV_SHOVELER_CACHE:
+    Active: false
+    Description: This is a testing StashCache cache server with a shoveler at UW running on the Tiger Kubernetes cluster.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: stash-cache-shoveler.osgdev.chtc.io
+    DN: /CN=stash-cache-shoveler.osgdev.chtc.io
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    VOOwnership:
+      GLOW: 100
+    AllowedVOs:
+      - ANY

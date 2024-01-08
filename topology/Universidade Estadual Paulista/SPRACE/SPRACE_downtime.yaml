@@ -2565,3 +2565,234 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1595830451
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 13, 2023 05:30 +0000
+  EndTime: Sep 13, 2023 15:30 +0000
+  CreatedTime: Sep 13, 2023 05:30 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1595830452
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 13, 2023 05:30 +0000
+  EndTime: Sep 13, 2023 15:30 +0000
+  CreatedTime: Sep 13, 2023 05:30 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1595830453
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 13, 2023 05:30 +0000
+  EndTime: Sep 13, 2023 15:30 +0000
+  CreatedTime: Sep 13, 2023 05:30 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1595830454
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 13, 2023 05:30 +0000
+  EndTime: Sep 13, 2023 15:30 +0000
+  CreatedTime: Sep 13, 2023 05:30 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1595830455
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 13, 2023 05:30 +0000
+  EndTime: Sep 13, 2023 15:30 +0000
+  CreatedTime: Sep 13, 2023 05:30 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1595830456
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 13, 2023 05:30 +0000
+  EndTime: Sep 13, 2023 15:30 +0000
+  CreatedTime: Sep 13, 2023 05:30 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1595830457
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 13, 2023 05:30 +0000
+  EndTime: Sep 13, 2023 15:30 +0000
+  CreatedTime: Sep 13, 2023 05:30 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345293
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345294
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345295
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345296
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345297
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345298
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1608345299
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Sep 27, 2023 16:10 +0000
+  EndTime: Sep 28, 2023 00:00 +0000
+  CreatedTime: Sep 27, 2023 17:08 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1646780193
+  Description: network outage
+  Severity: Outage
+  StartTime: Nov 11, 2023 04:46 +0000
+  EndTime: Nov 11, 2023 16:46 +0000
+  CreatedTime: Nov 11, 2023 04:46 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1646780194
+  Description: network outage
+  Severity: Outage
+  StartTime: Nov 11, 2023 04:46 +0000
+  EndTime: Nov 11, 2023 16:46 +0000
+  CreatedTime: Nov 11, 2023 04:46 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1646780195
+  Description: network outage
+  Severity: Outage
+  StartTime: Nov 11, 2023 04:46 +0000
+  EndTime: Nov 11, 2023 16:46 +0000
+  CreatedTime: Nov 11, 2023 04:46 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1646780196
+  Description: network outage
+  Severity: Outage
+  StartTime: Nov 11, 2023 04:46 +0000
+  EndTime: Nov 11, 2023 16:46 +0000
+  CreatedTime: Nov 11, 2023 04:46 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1646780197
+  Description: network outage
+  Severity: Outage
+  StartTime: Nov 11, 2023 04:46 +0000
+  EndTime: Nov 11, 2023 16:46 +0000
+  CreatedTime: Nov 11, 2023 04:46 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1646780198
+  Description: network outage
+  Severity: Outage
+  StartTime: Nov 11, 2023 04:46 +0000
+  EndTime: Nov 11, 2023 16:46 +0000
+  CreatedTime: Nov 11, 2023 04:46 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1646780199
+  Description: network outage
+  Severity: Outage
+  StartTime: Nov 11, 2023 04:46 +0000
+  EndTime: Nov 11, 2023 16:46 +0000
+  CreatedTime: Nov 11, 2023 04:46 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------

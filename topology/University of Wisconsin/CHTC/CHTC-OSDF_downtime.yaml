@@ -98,3 +98,25 @@
   Services:
   - XRootD origin server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1680203660
+  Description: We want to move load to a different cache temporarily
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2023 21:12 +0000
+  EndTime: Jan 02, 2024 05:30 +0000
+  CreatedTime: Dec 19, 2023 21:12 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1693136667
+  Description: decreasing load so I can use it for testing
+  Severity: Outage
+  StartTime: Jan 03, 2024 20:27 +0000
+  EndTime: Jan 14, 2024 02:27 +0000
+  CreatedTime: Jan 03, 2024 20:27 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------

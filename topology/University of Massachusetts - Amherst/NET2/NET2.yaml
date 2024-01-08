@@ -39,8 +39,8 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      StorageCapacityMax: 7395
-      StorageCapacityMin: 7395
+      StorageCapacityMax: 8145
+      StorageCapacityMin: 8145
       TapeCapacity: 0
   NET2_SE_XRootD:
     Active: true
@@ -78,8 +78,8 @@ Resources:
       InteropMonitoring: true
       KSI2KMax: 0
       KSI2KMin: 0
-      StorageCapacityMax: 7395
-      StorageCapacityMin: 7395
+      StorageCapacityMax: 8145
+      StorageCapacityMin: 8145
       TapeCapacity: 0
   NET2-PS-BW:
     Active: true
@@ -133,5 +133,34 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: argus2.net2.mghpcc.org
+    VOOwnership:
+      ATLAS: 100
+  NET2_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+      Security Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+    Description:
+      This is the NET2 squid 
+    FQDN: squidscienceboxnet2-frontier-squid.squid-cvmfs.svc.cluster.local
+    ID: 1480
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: squidscienceboxnet2-frontier-squid.squid-cvmfs.svc.cluster.local:3128
+          Monitored: false
     VOOwnership:
       ATLAS: 100

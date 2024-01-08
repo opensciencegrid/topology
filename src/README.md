@@ -442,7 +442,7 @@ For every cache resource, add a `u <DN HASH> <PATH1> rl <PATH2> rl ...` ACL for 
 The Authfile for a public cache is served at `/cache/Authfile-public?fqdn=<CACHE FQDN>`.
 
 The public Authfile is basically a giant `u *` list:
-- Explicitly deny read access to `/user/ligo` (with `-rl` permissions)
+- Explicitly deny read access to `/user/ligo` (with `-rl` permissions); this is needed, because granting access to the OSG VO `/user` path would otherwise also grant access to `/user/ligo`
 - Allow read access to the path of each namespace supported by the cache (`rl` permissions) 
 
 ### Cache authenticated Authfile generation
@@ -452,9 +452,9 @@ The Authfile for an authenticated cache is served at `/cache/Authfile?fqdn=<CACH
 - Add a `u <DN HASH> <PATH1> rl <PATH2> rl ...` for every DN listed in the Authorizations list of every namespace supported by the cache.
 - Add a `g <FQAN> <PATH1> rl <PATH2> rl ...` for every FQAN listed in the Authorizations list of every namespace supported by the cache.
 
-In addition, if the cache supports the `/user/ligo` namespace and the webapp can access LIGO's LDAP server:
+In addition, if the cache supports the LIGO VO and the webapp can access LIGO's LDAP server:
 
-- Add a `u <DN HASH> /user/ligo rl` for every DN obtained from the LIGO's LDAP server.
+- Add a `u <DN HASH> <LIGO PATH1> rl <LIGO PATH2> rl ...` for every DN obtained from the LIGO's LDAP server.
 
 
 ### Origin xrootd-scitokens config generation
@@ -538,6 +538,10 @@ The JSON also contains an attribute `namespaces` that is a list of namespaces wi
     Note that scopes are usually relative to the namespace path.
   - `vault_server`: the Vault server for the `Vault` strategy or null
   - `vault_issuer`: the Vault issuer for the `Vault` strategy (or null).
+- `scitokens` is information about any `SciTokens` sections in the `Authorizations` list for that namespace (or the empty list if there are none). Each list item has:
+  - `issuer`: the value of the `Issuer` field in the scitokens block
+  - `base_path`: a list which is the value of the `BasePath` (or `Base Path`) field split on commas
+  - `restricted_path`: a list which is the value of the `RestrictedPath` (or `Restricted Path`) field split on commas, or the empty list if unspecified
 
 The final result looks like
 ```json
@@ -567,6 +571,7 @@ The final result looks like
       "dirlisthost": null,
       "path": "/xenon/PROTECTED",
       "readhttps": true,
+      "scitokens": [],
       "usetokenonread": false,
       "writebackhost": null
     },
@@ -582,6 +587,11 @@ The final result looks like
       "dirlisthost": "https://origin-auth2001.chtc.wisc.edu:1095",
       "path": "/ospool/PROTECTED",
       "readhttps": true,
+      "scitokens": {
+        "issuer": "https://osg-htc.org/ospool",
+        "base_path": ["/ospool/PROTECTED", "/s3.amazonaws.com/us-east-1", "/s3.amazonaws.com/us-west-1"],
+        "restricted_path": []
+      },
       "usetokenonread": true,
       "writebackhost": "https://origin-auth2001.chtc.wisc.edu:1095"
     }

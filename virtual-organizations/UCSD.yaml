@@ -27,10 +27,10 @@ LongName: UCSD multiple sciences origin
 DataFederations:
   StashCache:
     Namespaces:
-      - Path: /ucsd
+      - Path: /ucsd/physics
         Authorizations:
            - SciTokens:
-              Issuer: https://token.nationalresearchplatform.org/ucsdphysics
+              Issuer: https://t.nationalresearchplatform.org/ucsdphysics
               Base Path: /ucsd/physics
               Map Subject: False
            - PUBLIC
@@ -38,4 +38,15 @@ DataFederations:
           - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
-        
+      - Path: /ndp/burnpro3d
+        Authorizations:
+           - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/burnpro3d
+              Base Path: /ndp/burnpro3d
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+          - NEBRASKA_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+  

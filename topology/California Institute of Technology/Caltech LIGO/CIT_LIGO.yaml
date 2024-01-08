@@ -79,6 +79,44 @@ Resources:
         Description: StashCache Origin server
     AllowedVOs:
       - LIGO
+  CIT_LIGO_ORIGIN_TEST:
+    Active: true
+    Description: This serves proprietary LIGO interferometer data in a test configuration
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: origin-readtest.ligo.caltech.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=origin-readtest.ligo.caltech.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache Origin server
+    AllowedVOs:
+      - LIGO
+  CIT_LIGO_ORIGIN_TEST_WRITE:
+    Active: true
+    Description: This serves proprietary user data staged to and from the CIT cluster in a test configuration
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: origin-writetest.ligo.caltech.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=origin-writetest.ligo.caltech.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache Origin server
+    AllowedVOs:
+      - LIGO
   CIT_LIGO_SQUID1:
     ContactLists:
       Administrative Contact:
@@ -147,6 +185,29 @@ Resources:
     Services:
       XRootD cache server:
         Description: OSDF Stashcache
+    AllowedVOs:
+      - LIGO
+  LIGO_HANFORD_CE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Ashton Graves
+          ID: OSG1000362
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Ashton Graves
+          ID: OSG1000362
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: ligo-hanford-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Hosted CE for LHO
     AllowedVOs:
       - LIGO
 SupportCenter: Advanced LIGO
