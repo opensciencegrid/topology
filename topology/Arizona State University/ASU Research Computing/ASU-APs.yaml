@@ -1,0 +1,25 @@
+GroupDescription: ASU Access Points
+GroupID: 1367
+Production: true
+Resources:
+  ASU-Comses:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000646
+          Name: Alan Chapman
+      Security Contact:
+        Primary:
+          ID: OSG1000646
+          Name: Alan Chapman
+    Description: Access point
+    FQDN: comses.sol.rc.asu.edu
+    ID: 1481
+    Services:
+      Submit Node:
+        Description: Access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+SupportCenter: Self Supported
