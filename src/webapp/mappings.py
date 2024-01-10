@@ -55,25 +55,25 @@ def validate_institution_ids(institution_ids: List) -> List[str]:
     ensure required attributes are present and nonempty, and there are no duplicates.
     """
     errors = []
-    institution_names_set = set()
-    institution_osg_ids_set = set()
+    institution_name_fields_set = set()
+    institution_id_fields_set = set()
     for ii in institution_ids:
         name = ii.get("name", None)
-        osg_id = ii.get("osg_id", None)
+        id_ = ii.get("id", None)
         if not name:
             errors.append("Missing 'name' in entry %r" % ii)
             continue
-        if not osg_id:
-            errors.append("Missing 'osg_id' in entry %r" % ii)
+        if not id_:
+            errors.append("Missing 'id' in entry %r" % ii)
             continue
-        if name in institution_names_set:
+        if name in institution_name_fields_set:
             errors.append("Duplicate 'name' %s in entry %r" % (name, ii))
             continue
-        if osg_id in institution_osg_ids_set:
-            errors.append("Duplicate 'osg_id' %s in entry %r" % (osg_id, ii))
+        if id_ in institution_id_fields_set:
+            errors.append("Duplicate 'id' %s in entry %r" % (id_, ii))
             continue
-        institution_names_set.add(name)
-        institution_osg_ids_set.add(osg_id)
+        institution_name_fields_set.add(name)
+        institution_id_fields_set.add(id_)
     return errors
 
 

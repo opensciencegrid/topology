@@ -850,10 +850,10 @@ class TestEndpointContent:
         duplicates = len(names_list) - len(names_set)
         assert duplicates == 0, "%d duplicate names found in institution_ids list provided by API" % duplicates
 
-        osg_ids_list = [i["osg_id"] for i in institution_ids_list]
+        osg_ids_list = [i["id"] for i in institution_ids_list]
         osg_ids_set = set(osg_ids_list)
         duplicates = len(osg_ids_list) - len(osg_ids_set)
-        assert duplicates == 0, "%d duplicate osg_ids found in institution_ids list provided by API" % duplicates
+        assert duplicates == 0, "%d duplicate ids found in institution_ids list provided by API" % duplicates
 
 
 if __name__ == '__main__':
