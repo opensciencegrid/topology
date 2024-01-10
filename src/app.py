@@ -17,7 +17,7 @@ from wtforms import ValidationError
 from flask_wtf.csrf import CSRFProtect
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape, cache_control_private
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape, cache_control_private, PreJSON
 from webapp.flask_common import create_accepted_response
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
@@ -179,6 +179,14 @@ def nsfscience_csv():
     response.headers.set("Content-Type", "text/csv")
     response.headers.set("Content-Disposition", "attachment", filename="nsfscience.csv")
     return response
+
+@app.route('/institution_ids')
+def institution_ids():
+    institution_ids = global_data.get_mappings().institution_ids
+    if not institution_ids:
+        return Response("Error getting Institution/OSG ID mappings: no mappings returned", status=503)
+
+    return Response(to_json_bytes(PreJSON(institution_ids)), mimetype='application/json')
 
 
 @app.route('/organizations')
