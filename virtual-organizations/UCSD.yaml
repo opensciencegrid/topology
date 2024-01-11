@@ -52,7 +52,7 @@ DataFederations:
       - Path: /ndp/keycloak-testing
         Authorizations:
            - SciTokens:
-              Issuer: 
+              Issuer: https://idp.nationaldataplatform.org/auth/realms/ndp
               Base Path: /ndp/keycloak-testing
               Map Subject: False
         AllowedOrigins:
