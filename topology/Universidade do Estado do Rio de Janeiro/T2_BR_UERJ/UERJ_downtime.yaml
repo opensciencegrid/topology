@@ -1111,4 +1111,64 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1699977474
+  Description: We'll need another downtime to sort IPv6 issues but also to rebalance
+    some of the nodes that serve our storage.
+  Severity: Outage
+  StartTime: Jan 11, 2024 18:00 +0000
+  EndTime: Jan 17, 2024 21:00 +0000
+  CreatedTime: Jan 11, 2024 18:29 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1699977721
+  Description: We'll need another downtime to sort IPv6 issues but also to rebalance
+    some of the nodes that serve our storage.
+  Severity: Outage
+  StartTime: Jan 11, 2024 18:00 +0000
+  EndTime: Jan 17, 2024 21:00 +0000
+  CreatedTime: Jan 11, 2024 18:29 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1699977798
+  Description: We'll need another downtime to sort IPv6 issues but also to rebalance
+    some of the nodes that serve our storage.
+  Severity: Outage
+  StartTime: Jan 11, 2024 18:00 +0000
+  EndTime: Jan 17, 2024 21:00 +0000
+  CreatedTime: Jan 11, 2024 18:29 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1699977899
+  Description: We'll need another downtime to sort IPv6 issues but also to rebalance
+    some of the nodes that serve our storage.
+  Severity: Outage
+  StartTime: Jan 11, 2024 18:00 +0000
+  EndTime: Jan 17, 2024 21:00 +0000
+  CreatedTime: Jan 11, 2024 18:29 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1699977986
+  Description: We'll need another downtime to sort IPv6 issues but also to rebalance
+    some of the nodes that serve our storage.
+  Severity: Outage
+  StartTime: Jan 11, 2024 18:00 +0000
+  EndTime: Jan 17, 2024 21:00 +0000
+  CreatedTime: Jan 11, 2024 18:29 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
