@@ -1612,4 +1612,192 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080923
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080924
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080925
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080926
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080927
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_6
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080928
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080929
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_8
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080930
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_CVMFS_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080931
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_Frontier_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080932
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.disk
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080933
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_East
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080934
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_West
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080935
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_SE_AWS_West2
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080936
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: BNL_ATLAS_SE_GRIDFTP
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080937
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: lhcmon-bnl
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080938
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: lhcperfmon-bnl
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1700080939
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 22, 2024 14:00 +0000
+  EndTime: Jan 22, 2024 18:00 +0000
+  CreatedTime: Jan 11, 2024 21:21 +0000
+  ResourceName: ps-development
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
 

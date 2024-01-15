@@ -1508,3 +1508,36 @@
   Services:
   - XRootD component
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1699904983
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 16, 2024 15:00 +0000
+  EndTime: Jan 16, 2024 23:00 +0000
+  CreatedTime: Jan 11, 2024 16:28 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1699905360
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 16, 2024 15:00 +0000
+  EndTime: Jan 16, 2024 23:00 +0000
+  CreatedTime: Jan 11, 2024 16:28 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1699905503
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 16, 2024 15:00 +0000
+  EndTime: Jan 16, 2024 23:00 +0000
+  CreatedTime: Jan 11, 2024 16:29 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------

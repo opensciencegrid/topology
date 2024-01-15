@@ -315,18 +315,20 @@ class GlobalData:
 
         return self.projects.data
 
-    def get_mappings(self) -> Optional[mappings.Mappings]:
+    def get_mappings(self, strict=None) -> Optional[mappings.Mappings]:
         """
         Get mappings data.
         May return None if we fail to get the data for the first time.
         """
+        if strict is None:
+            strict = self.strict
         if self.mappings.should_update():
             ok = self._update_topology_repo()
             if ok:
                 try:
-                    self.mappings.update(mappings.get_mappings(indir=self.mappings_dir, strict=self.strict))
+                    self.mappings.update(mappings.get_mappings(indir=self.mappings_dir, strict=strict))
                 except Exception:
-                    if self.strict:
+                    if strict:
                         raise
                     log.exception("Failed to update mappings")
                     self.mappings.try_again()

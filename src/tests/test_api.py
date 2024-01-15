@@ -840,6 +840,21 @@ class TestEndpointContent:
         # Check all projects have the project bit flipped
         assert all(x[2] for x in institutions if x[0] in projects)
 
+    def test_institution_ids(self, client: flask.Flask):
+        _ = global_data.get_mappings(strict=True)
+        institution_ids_list = client.get("/institution_ids").json
+
+        assert len(institution_ids_list) > 20, "Unexpectedly few institutions: %d" % len(institution_ids_list)
+        names_list = [i["name"] for i in institution_ids_list]
+        names_set = set(names_list)
+        duplicates = len(names_list) - len(names_set)
+        assert duplicates == 0, "%d duplicate names found in institution_ids list provided by API" % duplicates
+
+        osg_ids_list = [i["id"] for i in institution_ids_list]
+        osg_ids_set = set(osg_ids_list)
+        duplicates = len(osg_ids_list) - len(osg_ids_set)
+        assert duplicates == 0, "%d duplicate ids found in institution_ids list provided by API" % duplicates
+
 
 if __name__ == '__main__':
     pytest.main()

@@ -80,6 +80,11 @@ DataFederations:
           - CHTC_STASHCACHE_ORIGIN
         AllowedCaches:
           - ANY
+        CredentialGeneration:
+          BasePath: /chtc
+          Strategy: OAuth2
+          Issuer: https://chtc.cs.wisc.edu
+          MaxScopeDepth: 3
 
       - Path: /chtc/PROTECTED/sc-origin2000
         Authorizations:

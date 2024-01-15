@@ -5,11 +5,10 @@ Production: true
 SupportCenter: Self Supported
 
 # GroupDescription is a long description of the resource group; may be multiple lines.
-GroupDescription: Arizona State University, ASU Research Computing, Sol cluster
+GroupDescription: Michigan HORUS
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: 1360
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -17,15 +16,12 @@ Resources:
   # Resource Name should be a short descriptor of the resource.
   # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
   # Resource Names need to be unique across all resources in the OSG.
-  ASU-Sol-CE1:
+  MI-HORUS-CE1:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
     Active: true
     # Description is a long description of the resource; may be multiple lines
-    Description: Hosted CE serving ASU-Sol
-    # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
-    # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: 1459
+    Description: Hosted CE serving Michigan HORUS
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
@@ -59,14 +55,6 @@ Resources:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
 
-      Local Operational Contact:
-        Primary:
-          Name: Alan Chapman
-          ID: OSG1000646
-        Secondary:
-          Name: Johnathan Lee
-          ID: 0cc59bba93ee546d91d24a2c46fe52bbeebd4c63
-
       # Site contact (optional) are persons or groups of people (i.e.,
       # mailing lists) that are generally responsible for a site's
       # relationship with the OSG (e.g., principal investigators,
@@ -83,7 +71,7 @@ Resources:
         #   ID: <EMAIL HASH>
 
     # FQDN is the fully qualified domain name of the host running this resource
-    FQDN: asu-sol-ce1.svc.opensciencegrid.org
+    FQDN: mi-horus-ce1.svc.opensciencegrid.org
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
     # FQDNAliases:
     #   - <HOSTNAME1>
@@ -116,9 +104,11 @@ Resources:
 
     ### Tags (optional) is a list of tags associated with the resource.
     ### Include the tag "CC*" if applicable for a CC* CE.
+    # Tags:
+    #   - <TAG1>
+    #   - <TAG2>
     Tags:
       - CC*
-    #   - <TAG2>
 
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
     ### If part of the resource is not owned by the VO, do not list it.
