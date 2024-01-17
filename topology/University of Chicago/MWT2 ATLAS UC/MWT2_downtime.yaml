@@ -1541,3 +1541,36 @@
   Services:
   - XRootD component
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705201420
+  Description: Continuation of scheduled dCache downtime
+  Severity: Outage
+  StartTime: Jan 17, 2024 19:30 +0000
+  EndTime: Jan 18, 2024 23:00 +0000
+  CreatedTime: Jan 17, 2024 19:35 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705201653
+  Description: Continuation of scheduled dCache downtime
+  Severity: Outage
+  StartTime: Jan 17, 2024 19:30 +0000
+  EndTime: Jan 18, 2024 23:00 +0000
+  CreatedTime: Jan 17, 2024 19:36 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705201787
+  Description: Continuation of scheduled dCache downtime
+  Severity: Outage
+  StartTime: Jan 17, 2024 19:30 +0000
+  EndTime: Jan 18, 2024 23:00 +0000
+  CreatedTime: Jan 17, 2024 19:36 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
