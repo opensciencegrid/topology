@@ -99,13 +99,13 @@ Resources:
           ID: OSG1000284
           Name: Eduardo Bach
     Description: This is the perfSONAR-PS bandwidth instance at the NET2 site.
-    FQDN: argus1.net2.mghpcc.org
+    FQDN: argus-t1.net2.mghpcc.org
     ID: 1474
     Services:
       net.perfSONAR.Bandwidth:
         Description: PerfSonar Bandwidth monitoring node
         Details:
-          endpoint: argus1.net2.mghpcc.org
+          endpoint: argus-t1.net2.mghpcc.org
     VOOwnership:
       ATLAS: 100
   NET2-PS-LAT:
@@ -126,13 +126,13 @@ Resources:
           ID: OSG1000284
           Name: Eduardo Bach
     Description: This is the perfSONAR-PS latency instance at the NET2 site.
-    FQDN: argus2.net2.mghpcc.org
+    FQDN: argus-l1.net2.mghpcc.org
     ID: 1475
     Services:
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
-          endpoint: argus2.net2.mghpcc.org
+          endpoint: argus-l1.net2.mghpcc.org
     VOOwnership:
       ATLAS: 100
   NET2_SQUID:
