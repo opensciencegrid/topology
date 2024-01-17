@@ -2796,3 +2796,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705013302
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jan 17, 2024 13:39 +0000
+  EndTime: Jan 17, 2024 22:00 +0000
+  CreatedTime: Jan 17, 2024 14:22 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705013303
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jan 17, 2024 13:39 +0000
+  EndTime: Jan 17, 2024 22:00 +0000
+  CreatedTime: Jan 17, 2024 14:22 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705013304
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jan 17, 2024 13:39 +0000
+  EndTime: Jan 17, 2024 22:00 +0000
+  CreatedTime: Jan 17, 2024 14:22 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705013305
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jan 17, 2024 13:39 +0000
+  EndTime: Jan 17, 2024 22:00 +0000
+  CreatedTime: Jan 17, 2024 14:22 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705013306
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jan 17, 2024 13:39 +0000
+  EndTime: Jan 17, 2024 22:00 +0000
+  CreatedTime: Jan 17, 2024 14:22 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705013307
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jan 17, 2024 13:39 +0000
+  EndTime: Jan 17, 2024 22:00 +0000
+  CreatedTime: Jan 17, 2024 14:22 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705013308
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Jan 17, 2024 13:39 +0000
+  EndTime: Jan 17, 2024 22:00 +0000
+  CreatedTime: Jan 17, 2024 14:22 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
