@@ -365,14 +365,15 @@ def filter_contacts(args, results):
                     args.fqdn_filter not in fqdn:
                 del results[fqdn]
 
-    if args.contact_type != 'all':
+    if 'all' not in args.contact_type:
         # filter out undesired contact types
         for name in list(results):
             contact_list = []
             for contact in results[name]:
                 contact_type = contact['ContactType']
-                if contact_type.startswith(args.contact_type):
-                    contact_list.append(contact)
+                for args_contact_type in args.contact_type:
+                    if contact_type.startswith(args_contact_type):
+                        contact_list.append(contact)
             if contact_list == []:
                 del results[name]
             else:
