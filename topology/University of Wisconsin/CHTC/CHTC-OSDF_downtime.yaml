@@ -120,3 +120,14 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1704566569
+  Description: Testing new origin software
+  Severity: Intermittent Outage
+  StartTime: Jan 17, 2024 01:57 +0000
+  EndTime: Feb 01, 2024 01:57 +0000
+  CreatedTime: Jan 17, 2024 01:57 +0000
+  ResourceName: CHTC_STASHCACHE_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
