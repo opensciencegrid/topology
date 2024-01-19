@@ -116,7 +116,8 @@ def parseargs():
     oparser.add_argument("--oim-owner-filter", dest="owner_vo",
                          help="Filter on resources that list VO(s) as a partial owner")
 
-    oparser.add_argument("--oim-contact-type", action="append", default=[], dest="contact_type",
+    # should be safe to set default=set() here since we don't call parse_args() twice
+    oparser.add_argument("--oim-contact-type", action="append", default=set(), dest="contact_type",
                          choices=["all", "administrative", "miscellaneous", "security", "submitter", "site",
                                   "local operational", "local security"],
                          help="Filter on contact type e.g. administrative, miscellaneous, security, submitter or site"
