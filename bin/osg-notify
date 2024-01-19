@@ -116,12 +116,9 @@ def parseargs():
     oparser.add_argument("--oim-owner-filter", dest="owner_vo",
                          help="Filter on resources that list VO(s) as a partial owner")
 
-    # should be safe to set default=set() here since we don't call parse_args() twice
-    oparser.add_argument("--oim-contact-type", action="append", default=set(), dest="contact_type",
-                         choices=["all", "administrative", "miscellaneous", "security", "submitter", "site",
-                                  "local operational", "local security"],
-                         help="Filter on contact type e.g. administrative, miscellaneous, security, submitter or site"
-                         "(default: all)", )
+    oparser.add_argument("--oim-contact-type", action="append", dest="contact_type",
+                         choices=["all"] + topology_utils.CONTACT_TYPES,
+                         help="Filter on contact type (default: all)")
     oparser.add_argument("--bypass-dns-check", action="store_true", dest="bypass_dns_check",
                          help="Bypass checking that one of the host's IP addresses matches with the hostanme resolution")
     oparser.add_argument("--allow-non-ascii", action="store_true", dest="allow_non_ascii",
@@ -133,8 +130,10 @@ def parseargs():
         oparser.error("--oim-owner-filter and --oim-recipients=vos options are conflicting")
     if args.name_filter and args.fqdn_filter:
         oparser.error("Can't specify both --oim-name-filter and --oim-fqdn-filter")
+
     if not args.contact_type or ("all" in args.contact_type):
         args.contact_type = ["all"]
+    args.contact_type = set(args.contact_type)  # remove dupes
 
     if args.from_name == 'security':
         args.from_name = 'OSG Security Team'
