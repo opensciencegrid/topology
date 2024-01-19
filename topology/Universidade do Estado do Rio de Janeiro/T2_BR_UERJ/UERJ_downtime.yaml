@@ -1171,4 +1171,59 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1706710904
+  Description: We still have ongoing IPv6 routing issues.
+  Severity: Outage
+  StartTime: Jan 19, 2024 14:00 +0000
+  EndTime: Jan 26, 2024 20:00 +0000
+  CreatedTime: Jan 19, 2024 13:31 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1706711183
+  Description: We still have ongoing IPv6 routing issues.
+  Severity: Outage
+  StartTime: Jan 19, 2024 14:00 +0000
+  EndTime: Jan 26, 2024 20:00 +0000
+  CreatedTime: Jan 19, 2024 13:31 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1706711262
+  Description: We still have ongoing IPv6 routing issues.
+  Severity: Outage
+  StartTime: Jan 19, 2024 14:00 +0000
+  EndTime: Jan 26, 2024 20:00 +0000
+  CreatedTime: Jan 19, 2024 13:32 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1706711347
+  Description: We still have ongoing IPv6 routing issues.
+  Severity: Outage
+  StartTime: Jan 19, 2024 14:00 +0000
+  EndTime: Jan 26, 2024 20:00 +0000
+  CreatedTime: Jan 19, 2024 13:32 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1706711417
+  Description: We still have ongoing IPv6 routing issues.
+  Severity: Outage
+  StartTime: Jan 19, 2024 14:00 +0000
+  EndTime: Jan 26, 2024 20:00 +0000
+  CreatedTime: Jan 19, 2024 13:32 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
