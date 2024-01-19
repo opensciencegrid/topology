@@ -117,10 +117,8 @@ def parseargs():
                          help="Filter on resources that list VO(s) as a partial owner")
 
     oparser.add_argument("--oim-contact-type", action="append", dest="contact_type",
-                         choices=["all", "administrative", "miscellaneous", "security", "submitter", "site",
-                                  "local operational", "local security"],
-                         help="Filter on contact type e.g. administrative, miscellaneous, security, submitter or site"
-                         "(default: all)", )
+                         choices=["all"] + topology_utils.CONTACT_TYPES,
+                         help="Filter on contact type (default: all)")
     oparser.add_argument("--bypass-dns-check", action="store_true", dest="bypass_dns_check",
                          help="Bypass checking that one of the host's IP addresses matches with the hostanme resolution")
     oparser.add_argument("--allow-non-ascii", action="store_true", dest="allow_non_ascii",
