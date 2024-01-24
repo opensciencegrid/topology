@@ -741,3 +741,14 @@
   Services:
   - net.perfSONAR.Bandwidth
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1711266249
+  Description: Site-wide maintenance week
+  Severity: Intermittent Outage
+  StartTime: Jan 23, 2024 07:00 +0000
+  EndTime: Jan 25, 2024 19:00 +0000
+  CreatedTime: Jan 22, 2024 21:11 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
