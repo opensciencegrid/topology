@@ -107,11 +107,12 @@ Resources:
           Name: Christopher Arnold Walker
     Description: Frontier/CVMFS SLATE based squid service
     FQDN: slate01.oscer.ou.edu
-    ID: 
     Services:
       Squid:
         Description: Generic squid service
         Monitored: true
+        Details:
+          uri_override: slate01.oscer.ou.edu:32200
     VOOwnership:
       ATLAS: 100      
 SupportCenter: USATLAS
