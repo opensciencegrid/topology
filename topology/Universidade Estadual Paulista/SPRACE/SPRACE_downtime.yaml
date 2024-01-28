@@ -2873,3 +2873,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1714745302
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 28, 2024 20:41 +0000
+  EndTime: Jan 29, 2024 20:42 +0000
+  CreatedTime: Jan 28, 2024 20:42 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1714745303
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 28, 2024 20:41 +0000
+  EndTime: Jan 29, 2024 20:42 +0000
+  CreatedTime: Jan 28, 2024 20:42 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1714745304
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 28, 2024 20:41 +0000
+  EndTime: Jan 29, 2024 20:42 +0000
+  CreatedTime: Jan 28, 2024 20:42 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1714745305
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 28, 2024 20:41 +0000
+  EndTime: Jan 29, 2024 20:42 +0000
+  CreatedTime: Jan 28, 2024 20:42 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1714745306
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 28, 2024 20:41 +0000
+  EndTime: Jan 29, 2024 20:42 +0000
+  CreatedTime: Jan 28, 2024 20:42 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1714745307
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 28, 2024 20:41 +0000
+  EndTime: Jan 29, 2024 20:42 +0000
+  CreatedTime: Jan 28, 2024 20:42 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1714745308
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 28, 2024 20:41 +0000
+  EndTime: Jan 29, 2024 20:42 +0000
+  CreatedTime: Jan 28, 2024 20:42 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
