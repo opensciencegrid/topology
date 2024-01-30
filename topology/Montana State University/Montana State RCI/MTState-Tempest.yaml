@@ -19,7 +19,7 @@ Resources:
   MTState-Tempest-CE1:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: true
+    Active: false
     # Description is a long description of the resource; may be multiple lines
     Description: Hosted CE serving MTState
     # ContactLists contain information about people to contact regarding this resource.
