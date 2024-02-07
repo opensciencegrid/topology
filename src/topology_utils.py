@@ -20,6 +20,7 @@ CONTACT_TYPES = ["administrative",
                  "security",
                  "submitter",
                  "site",
+                 "local executive",
                  "local operational",
                  "local security"]
 
