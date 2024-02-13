@@ -5,7 +5,7 @@ Production: true
 SupportCenter: Self Supported
 
 # GroupDescription is a long description of the resource group; may be multiple lines.
-GroupDescription: University of Hawaii
+GroupDescription: University of Hawaii System Koa HPC cluster
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
@@ -21,7 +21,7 @@ Resources:
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
     Active: false
     # Description is a long description of the resource; may be multiple lines
-    Description: Hosted CE serving University of Hawaii
+    Description: Hosted CE serving University of Hawaii System Koa HPC cluster
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
