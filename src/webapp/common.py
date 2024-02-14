@@ -275,6 +275,18 @@ def git_clone_or_pull(repo, dir, branch, ssh_key=None) -> bool:
     return ok
 
 
+def is_true(input_) -> bool:
+    """Convert various types of input to a boolean.  Specifically, strings and bytes are checked for the values
+    '1', 'true', 'yes', 'on', case-insensitively.  Other types are just cast to bool using the built-in function.
+    """
+    if isinstance(input_, bytes):
+        input_ = input_.decode(errors="replace")
+    if not isinstance(input_, str):
+        return bool(input)
+    input_ = input_.lower()
+    return input_ in ("1", "true", "yes", "on")
+
+
 def git_clone_or_fetch_mirror(repo, git_dir, ssh_key=None) -> bool:
     if os.path.exists(git_dir):
         ok = run_git_cmd(["fetch", "origin"], git_dir=git_dir, ssh_key=ssh_key)

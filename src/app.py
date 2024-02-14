@@ -17,7 +17,8 @@ from wtforms import ValidationError
 from flask_wtf.csrf import CSRFProtect
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape, cache_control_private, PreJSON
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, \
+    escape, cache_control_private, PreJSON, is_true
 from webapp.flask_common import create_accepted_response
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
@@ -513,8 +514,10 @@ def scitokens():
 def stashcache_namespaces_json():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
+    include_downed = is_true(request.args.get("include_downed", False))
+    include_inactive = is_true(request.args.get("include_inactive", False))
     try:
-        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data)),
+        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data, include_downed, include_inactive)),
                         mimetype='application/json')
     except ResourceNotRegistered as e:
         return Response("# {}\n"
