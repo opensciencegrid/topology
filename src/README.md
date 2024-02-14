@@ -226,7 +226,7 @@ DataFederation:
     Namespaces:
       - <NAMESPACE 1>
       - <NAMESPACE 2>
-      ...
+      # ...
       - <NAMESPACE n>
 ```
 
@@ -250,7 +250,7 @@ Alternatively:
 ```yaml
 Authorizations:
   - <DN/FQAN/SCITOKENS AUTH 1>
-  ...
+  # ...
   - <DN/FQAN/SCITOKENS AUTH n>
 ```
 These denote an authenticated namespace, which requires authentication for read access.
@@ -302,7 +302,7 @@ There are three kinds of authorization types:
 ```yaml
 AllowedOrigins:
   - ORIGIN_RESOURCE1
-  ...
+  # ...
   - ORIGIN_RESOURCEn
 ```
 AllowedOrigins is a list of resource names of origins that will serve data for this namespace.
@@ -316,7 +316,7 @@ or
 ```yaml
 AllowedCaches:
   - CACHE_RESOURCE1
-  ...
+  # ...
   - CACHE_RESOURCEn
 ```
 AllowedCaches is a list of resource names of caches that will serve data for this namespace.
@@ -389,14 +389,14 @@ For example:
 ```yaml
 Resources:
   Stashcache-Chicago:
-    ...
+    # ...
     Services:
       XRootD cache server:
         Description: Internet2 Chicago Cache
         Details:
           endpoint_override:      osg-chicago-stashcache.nrp.internet2.edu:8443
           auth_endpoint_override: osg-chicago-stashcache.nrp.internet2.edu:8444
-    ...
+    # ...
 ```
 
 ### Supporting a Namespace
@@ -577,7 +577,7 @@ The final result looks like
     },
     {
       "caches": [
-        (a whole bunch)
+        // (a whole bunch)
       ],
       "credential_generation": {
         "issuer": "https://osg-htc.org/ospool",
