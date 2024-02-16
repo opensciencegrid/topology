@@ -191,7 +191,7 @@ def main():
                     exit(1)
                 else:
                     print(exc)
-        results = TopologyPoolManager.filter_contacts(args, results)
+        results = pm.filter_contacts(args, results)
         emails = set()
         for name in results.keys():
             for contact in results[name]:
@@ -214,7 +214,7 @@ def main():
                     exit("Too many incorrect password attempts, exiting")
                 else:
                     print(exc)
-        results = TopologyPoolManager.filter_contacts(args, results)
+        results = pm.filter_contacts(args, results)
         emails = set()
         for name in results.keys():
             for contact in results[name]:

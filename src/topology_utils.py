@@ -66,7 +66,6 @@ class TopologyPoolManager(urllib3.PoolManager):
         super().__dict__.update(**session)
         return True
 
-    @staticmethod
     def update_url_hostname(url, args):
         """
         Given a URL and an argument object, update the URL's hostname
@@ -78,7 +77,6 @@ class TopologyPoolManager(urllib3.PoolManager):
         url_list[1] = args.host
         return urlparse.urlunsplit(url_list)
 
-    @staticmethod
     def get_contact_list_info(contact_list):
         """
         Get contact list info out of contact list
@@ -146,7 +144,7 @@ class TopologyPoolManager(urllib3.PoolManager):
         old_no_proxy = os.environ.pop('no_proxy', None)
         os.environ['no_proxy'] = '.opensciencegrid.org'
 
-        url = update_url_hostname("https://topology.opensciencegrid.org/vosummary"
+        url = self.update_url_hostname("https://topology.opensciencegrid.org/vosummary"
                                 "/xml?all_vos=on&active_value=1", args)
         if not self.session:
             self.session = self.get_auth_session(args)
@@ -206,10 +204,10 @@ class TopologyPoolManager(urllib3.PoolManager):
                 qs_list.append(("service", "on"))
             for service in args.provides_service.split(","):
                 service = service.strip().lower()
-                service_id = SERVICE_IDS.get(service)
+                service_id = self.SERVICE_IDS.get(service)
                 if not service_id:
                     raise Exception("Requested service %s not known; known service"
-                                    " names: %s" % (service, ", ".join(SERVICE_IDS)))
+                                    " names: %s" % (service, ", ".join(self.SERVICE_IDS)))
                 qs_list.append(("service_sel[]", str(service_id)))
 
         if getattr(args, 'owner_vo', None):
@@ -295,7 +293,7 @@ class TopologyPoolManager(urllib3.PoolManager):
                 if item.tag == "ContactTypes":
                     for contact_type in item:
                         contact_list_info.extend( \
-                            get_contact_list_info(contact_type))
+                            self.get_contact_list_info(contact_type))
 
             if name and contact_list_info:
                 results[name] = contact_list_info
@@ -337,7 +335,7 @@ class TopologyPoolManager(urllib3.PoolManager):
                             for contact_list in resource_tag:
                                 if contact_list.tag == 'ContactList':
                                     contact_list_info.extend( \
-                                        get_contact_list_info(contact_list))
+                                        self.get_contact_list_info(contact_list))
 
                     if contact_list_info:
                         if resource_name:
@@ -355,7 +353,6 @@ class TopologyPoolManager(urllib3.PoolManager):
     def get_resource_contacts_by_fqdn(self, args):
         return self.get_resource_contacts_by_name_and_fqdn(args)[1]
 
-    @staticmethod
     def filter_contacts(args, results):
         """
         Given a set of result contacts, filter them according to given arguments
