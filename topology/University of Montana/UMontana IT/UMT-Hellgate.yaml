@@ -2,10 +2,13 @@
 # and not the Integration Test Bed (ITB) pool.
 Production: true
 # SupportCenter is one of the support centers in topology/support-centers.yaml
-SupportCenter: <NAME>
+SupportCenter: Self Supported
 
 # GroupDescription is a long description of the resource group; may be multiple lines.
-GroupDescription: This is a cluster of <SOMETHING> used for the <PROJECT>
+GroupDescription: The University of Montana
+
+# If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
+# Otherwise, leave it blank and we will fill in the appropriate value for you.
 
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
@@ -13,95 +16,51 @@ Resources:
   # Resource Name should be a short descriptor of the resource.
   # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
   # Resource Names need to be unique across all resources in the OSG.
-  <RESOURCE NAME>:
+  UMT-Hellgate-CE1:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: false
+    Active: true
     # Description is a long description of the resource; may be multiple lines
-    Description: This is a <RESOURCE> for <SITE>.
+    Description: Hosted CE serving UMT
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
     # https://opensciencegrid.org/docs/common/registration/#registering-contacts
     ContactLists:
-      # Administrative Contacts are persons or groups of people (i.e.,
-      # mailing lists) that are directly responsible for the
-      # maintenance of the resource
+
       Administrative Contact:
         Primary:
-          Name: <FIRSTNAME> <LASTNAME>
-          ID: <EMAIL HASH>
-        # Secondary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
 
-      # Security Contact are persons or groups of people (i.e.,
-      # mailing lists) that are responsible for handling security
-      # issues related to the resource
       Security Contact:
         Primary:
-          Name: <FIRSTNAME> <LASTNAME>
-          ID: <EMAIL HASH>
-        # Secondary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
 
-      # Local contacts are an optional set of persons or groups of
-      # people (i.e., mailing lists) if they are a different from the
-      # persons responsible for the resouce. For example, OSG Hosted
-      # CEs are operated by OSG Staff, who are separate from the local
-      # contacts that are responsible for running the site's scheduler
+      Local Executive Contact:
+        Primary:
+          Name: Zachary Rossmiller
+          ID: OSG1000652
 
-      # (OPTIONAL) Local Executive Contacts are persons or groups of
-      # people (i.e., mailing lists) are responsible for making policy
-      # decisions regarding the site's integration with the OSG resource
-      # Local Executive Contact:
-        # Primary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Secondary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
+      Local Operational Contact:
+        Primary:
+          Name: Michael Couso
+          ID: OSG1000653
+        Secondary:
+          Name: Zachary Rossmiller
+          ID: OSG1000652
 
-      # (OPTIONAL) Local Operaitonal Contacts are persons or groups of
-      # people (i.e., mailing lists) that are directly responsible for the
-      # maintenance of the site's integration with the OSG resource
-      # Local Operational Contact:
-        # Primary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Secondary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-
-      # (OPTIONAL) Local Security Contacts are persons or groups of
-      # mailing lists) that are responsible for handling security
-      # issues related to the site's integration with the OSG resource
-      # Local Security Contact:
-        # Primary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Secondary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
+      Local Security Contact:
+        Primary:
+          Name: Michael Couso
+          ID: OSG1000653
+        Secondary:
+          Name: University of Montana Security Mailing List
+          ID: caa15b73a9d7a7d31937b374502ec348b2d53a0b
 
     # FQDN is the fully qualified domain name of the host running this resource
-    FQDN: <HOSTNAME>
+    FQDN: umt-hellgate-ce1.svc.opensciencegrid.org
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
     # FQDNAliases:
     #   - <HOSTNAME1>
@@ -114,9 +73,9 @@ Resources:
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
-      <SERVICE NAME>:
+      CE:
         # Description is a brief description of the service
-        Description: <TEXT>
+        Description: Hosted CE
         ### Details (optional)
         # Details:
         #   # hidden
@@ -137,6 +96,8 @@ Resources:
     # Tags:
     #   - <TAG1>
     #   - <TAG2>
+    Tags:
+      - CC*
 
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
     ### If part of the resource is not owned by the VO, do not list it.

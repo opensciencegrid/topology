@@ -5,7 +5,7 @@ Production: true
 SupportCenter: Self Supported
 
 # GroupDescription is a long description of the resource group; may be multiple lines.
-GroupDescription: The University of Montana
+GroupDescription: University of Hawaii System Koa HPC cluster
 
 # If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
 # Otherwise, leave it blank and we will fill in the appropriate value for you.
@@ -16,12 +16,10 @@ Resources:
   # Resource Name should be a short descriptor of the resource.
   # e.g. the Center for High Throughput Computing's GlideinWMS Frontend is "CHTC-glidein2"
   # Resource Names need to be unique across all resources in the OSG.
-  UMT-Hellgate-CE1:
-    # Active is true if the resource is accepting requests, and false otherwise.
-    # When first registering a resource, set this to false. Set it to true when it's ready for production.
+  Hawaii-Koa-CE1:
     Active: true
     # Description is a long description of the resource; may be multiple lines
-    Description: Hosted CE serving UMT
+    Description: Hosted CE serving University of Hawaii System Koa HPC cluster
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
@@ -71,7 +69,7 @@ Resources:
         #   ID: <EMAIL HASH>
 
     # FQDN is the fully qualified domain name of the host running this resource
-    FQDN: umt-hellgate-ce1.svc.opensciencegrid.org
+    FQDN: hawaii-koa-ce1.svc.opensciencegrid.org
     ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
     # FQDNAliases:
     #   - <HOSTNAME1>
