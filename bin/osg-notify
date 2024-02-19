@@ -189,6 +189,7 @@ def main():
         while attempts > 0:
             try:
                 results = topology_utils.get_vo_contacts(args)
+                break
             except topology_utils.InvalidPathError as exc:
                 print(exc)
                 exit(1)
@@ -214,6 +215,7 @@ def main():
                     results = topology_utils.get_resource_contacts_by_fqdn(args)
                 else:
                     results = topology_utils.get_resource_contacts(args)
+                break
             except topology_utils.InvalidPathError as exc:
                 exit(str(exc))
             except topology_utils.IncorrectPasswordError as exc:
