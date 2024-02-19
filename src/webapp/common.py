@@ -29,7 +29,7 @@ VOSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/vosummary.xs
 
 SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
-ParsedYaml = NewType("ParsedYaml", Dict[str, Any])  # a complex data structure that's a result of parsing a YAML file
+ParsedYaml = NewType("ParsedYaml", Union[List, Dict[str, Any]])  # a complex data structure that's a result of parsing a YAML file
 PreJSON = NewType("PreJSON", Union[List, Dict[str, Any]])  # a complex data structure that will be converted to JSON in the webapp
 T = TypeVar("T")
 
