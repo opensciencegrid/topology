@@ -33,7 +33,8 @@ I2_TEST_CACHE = "osg-sunnyvale-stashcache.nrp.internet2.edu"
 # ^^ one of the Internet2 caches; these serve both public and LIGO data
 # fake origins in our test data:
 TEST_ITB_HELM_ORIGIN = "helm-origin.osgdev.test.io"
-TEST_ITB_HELM_CACHE1_RESOURCE = "TEST-ITB-HELM-CACHE1"
+TEST_ITB_HELM_CACHE1_RESOURCE = "TEST-ITB-HELM-CACHE1-inactive"
+TEST_ITB_HELM_CACHE2_RESOURCE = "TEST-ITB-HELM-CACHE2-down"
 TEST_SC_ORIGIN = "sc-origin.test.wisc.edu"
 TEST_ORIGIN_AUTH2000 = "origin-auth2000.test.wisc.edu"
 TEST_ISSUER = "https://test.wisc.edu"
@@ -66,6 +67,9 @@ def test_global_data() -> models.GlobalData:
     # Add our testing RG
     testrg = load_yaml_file(topdir + "/tests/data/testrg.yaml")
     topo.add_rg("University of Wisconsin", "CHTC", "testrg", testrg)
+
+    testrg_downtime = load_yaml_file(topdir + "/tests/data/testrg_downtime.yaml")
+    topo.add_downtime("CHTC", "testrg", testrg_downtime)
 
     # Put it back into global_data2 and make sure it doesn't get overwritten by future calls
     new_global_data.topology.data = topo
@@ -264,6 +268,12 @@ class TestNamespaces:
         assert "caches" in namespaces_json
         return namespaces_json["caches"]
 
+    @pytest.fixture
+    def caches_include_downed(self, test_global_data) -> List[Dict]:
+        namespaces_json = stashcache.get_namespaces_info(test_global_data, include_downed=True)
+        assert "caches" in namespaces_json
+        return namespaces_json["caches"]
+
     @staticmethod
     def validate_cache_schema(cc):
         assert HOST_PORT_RE.match(cc["auth_endpoint"])
@@ -381,7 +391,14 @@ class TestNamespaces:
             x["resource"] for x in caches_include_inactive
         ), "Inactive cache missing from namespaces JSON with ?include_inactive=1"
 
-    # TODO Add test for ?include_downed=1
+    def test_caches_include_downed_param(self, caches, caches_include_downed):
+        assert TEST_ITB_HELM_CACHE2_RESOURCE not in (
+            x["resource"] for x in caches
+        ), "Downed cache wrongly present in namespaces JSON without ?include_downed=1"
+        assert TEST_ITB_HELM_CACHE2_RESOURCE in (
+            x["resource"] for x in caches_include_downed
+        ), "Downed cache missing from namespaces JSON with ?include_downed=1"
+
 
 if __name__ == '__main__':
     pytest.main()
