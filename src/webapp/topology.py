@@ -472,7 +472,7 @@ class Downtime(object):
         self.data = yaml_data
         for k in ["StartTime", "EndTime", "ID", "Class", "Severity", "ResourceName", "Services"]:
             if is_null(yaml_data, k):
-                raise ValueError(k)
+                raise ValueError(f"{k} is missing or empty")
         self.start_time = self.parsetime(yaml_data["StartTime"])
         self.end_time = self.parsetime(yaml_data["EndTime"])
         self.created_time = None
