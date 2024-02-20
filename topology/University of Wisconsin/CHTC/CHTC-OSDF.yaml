@@ -88,6 +88,8 @@ Resources:
     Services:
       XRootD origin server:
         Description: StashCache origin server
+        Details:
+          endpoint_override: sc-origin.chtc.wisc.edu:1095
     VOOwnership:
       GLOW: 100
     AllowedVOs:

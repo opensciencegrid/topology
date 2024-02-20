@@ -541,7 +541,7 @@ def get_scitokens_list_for_namespace(ns: Namespace) -> List[Dict]:
 def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     """Return data for the /stashcache/namespaces JSON endpoint.
 
-    This includes a list of caches, with some data about cache endpoints,
+    This includes a list of caches and origins, with some data about their endpoints,
     and a list of namespaces with some data about each namespace; see README.md for details.
 
     """
