@@ -30,6 +30,8 @@ Resources:
     Services:
       XRootD cache server:
         Description: StashCache cache server
+        Details:
+          endpoint_override: sc-cache.chtc.wisc.edu:8443
     VOOwnership:
       GLOW: 100
     AllowedVOs:
