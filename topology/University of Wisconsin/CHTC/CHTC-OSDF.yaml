@@ -239,6 +239,8 @@ Resources:
     Services:
       XRootD cache server:
         Description: Pelican cache server
+        Details:
+          endpoint_override: osdf-uw-cache.svc.osg-htc.org:8443
     VOOwnership:
       GLOW: 100
     AllowedVOs:
