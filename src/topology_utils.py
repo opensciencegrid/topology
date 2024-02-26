@@ -25,6 +25,122 @@ class InvalidPathError(AuthError):
 class IncorrectPasswordError(AuthError):
     pass
 
+
+def update_url_hostname(url, args):
+    """
+    Given a URL and an argument object, update the URL's hostname
+    according to args.host and return the newly-formed URL.
+    """
+    if not args.host:
+        return url
+    url_list = list(urlparse.urlsplit(url))
+    url_list[1] = args.host
+    return urlparse.urlunsplit(url_list)
+
+
+def get_contact_list_info(contact_list):
+    """
+    Get contact list info out of contact list
+
+    In rgsummary, this looks like:
+        <ContactLists>
+            <ContactList>
+                <ContactType>Administrative Contact</ContactType>
+                <Contacts>
+                    <Contact>
+                        <Name>Matyas Selmeci</Name>
+                        ...
+                    </Contact>
+                </Contacts>
+            </ContactList>
+            ...
+        </ContactLists>
+
+    and the arg `contact_list` is the contents of a single <ContactList>
+
+    If vosummary, this looks like:
+        <ContactTypes>
+            <ContactType>
+                <Type>Miscellaneous Contact</Type>
+                <Contacts>
+                    <Contact>
+                        <Name>...</Name>
+                        ...
+                    </Contact>
+                    ...
+                </Contacts>
+            </ContactType>
+            ...
+        </ContactTypes>
+
+    and the arg `contact_list` is the contents of <ContactTypes>
+
+
+    Returns: a list of dicts that each look like:
+    { 'ContactType': 'Administrative Contact',
+    'Name': 'Matyas Selmeci',
+    'Email': '...',
+    ...
+    }
+    """
+    contact_list_info = []
+    for contact in contact_list:
+        if contact.tag == 'ContactType' or contact.tag == 'Type':
+            contact_list_type = contact.text.lower()
+        if contact.tag == 'Contacts':
+            for con in contact:
+                contact_info = { 'ContactType' : contact_list_type }
+                for contact_contents in con:
+                    contact_info[contact_contents.tag] = contact_contents.text
+                contact_list_info.append(contact_info)
+
+    return contact_list_info
+
+
+def filter_contacts(args, results):
+    """
+    Given a set of result contacts, filter them according to given arguments
+    """
+    results = dict(results)  # make a copy so we don't modify the original
+
+    if getattr(args, 'name_filter', None):
+        # filter out undesired names
+        for name in list(results):
+            if not fnmatch.fnmatch(name, args.name_filter) and \
+                    args.name_filter not in name:
+                del results[name]
+    elif getattr(args, 'fqdn_filter', None):
+        # filter out undesired FQDNs
+        for fqdn in list(results):
+            if not fnmatch.fnmatch(fqdn, args.fqdn_filter) and \
+                    args.fqdn_filter not in fqdn:
+                del results[fqdn]
+
+    if 'all' not in args.contact_type:
+        # filter out undesired contact types
+        for name in list(results):
+            contact_list = []
+            for contact in results[name]:
+                contact_type = contact['ContactType']
+                for args_contact_type in args.contact_type:
+                    if contact_type.startswith(args_contact_type):
+                        contact_list.append(contact)
+            if contact_list == []:
+                del results[name]
+            else:
+                results[name] = contact_list
+
+    if getattr(args, 'contact_emails', None):
+        for name in list(results):
+            contact_list = [contact for contact in results[name] if contact['Email'] in args.contact_emails]
+            if not contact_list:
+                del results[name]
+            else:
+                results[name] = contact_list
+
+    return results
+
+
 class TopologyPoolManager(urllib3.PoolManager):
 
     def __init__(self):
@@ -66,75 +182,6 @@ class TopologyPoolManager(urllib3.PoolManager):
         super().__dict__.update(**session)
         return True
 
-    def update_url_hostname(self, url, args):
-        """
-        Given a URL and an argument object, update the URL's hostname
-        according to args.host and return the newly-formed URL.
-        """
-        if not args.host:
-            return url
-        url_list = list(urlparse.urlsplit(url))
-        url_list[1] = args.host
-        return urlparse.urlunsplit(url_list)
-
-    def get_contact_list_info(self, contact_list):
-        """
-        Get contact list info out of contact list
-
-        In rgsummary, this looks like:
-            <ContactLists>
-                <ContactList>
-                    <ContactType>Administrative Contact</ContactType>
-                    <Contacts>
-                        <Contact>
-                            <Name>Matyas Selmeci</Name>
-                            ...
-                        </Contact>
-                    </Contacts>
-                </ContactList>
-                ...
-            </ContactLists>
-
-        and the arg `contact_list` is the contents of a single <ContactList>
-
-        If vosummary, this looks like:
-            <ContactTypes>
-                <ContactType>
-                    <Type>Miscellaneous Contact</Type>
-                    <Contacts>
-                        <Contact>
-                            <Name>...</Name>
-                            ...
-                        </Contact>
-                        ...
-                    </Contacts>
-                </ContactType>
-                ...
-            </ContactTypes>
-
-        and the arg `contact_list` is the contents of <ContactTypes>
-
-
-        Returns: a list of dicts that each look like:
-        { 'ContactType': 'Administrative Contact',
-        'Name': 'Matyas Selmeci',
-        'Email': '...',
-        ...
-        }
-        """
-        contact_list_info = []
-        for contact in contact_list:
-            if contact.tag == 'ContactType' or contact.tag == 'Type':
-                contact_list_type = contact.text.lower()
-            if contact.tag == 'Contacts':
-                for con in contact:
-                    contact_info = { 'ContactType' : contact_list_type }
-                    for contact_contents in con:
-                        contact_info[contact_contents.tag] = contact_contents.text
-                    contact_list_info.append(contact_info)
-
-        return contact_list_info
-
 
     def get_vo_map(self,args):
         """
@@ -144,7 +191,7 @@ class TopologyPoolManager(urllib3.PoolManager):
         old_no_proxy = os.environ.pop('no_proxy', None)
         os.environ['no_proxy'] = '.opensciencegrid.org'
 
-        url = self.update_url_hostname("https://topology.opensciencegrid.org/vosummary"
+        url = update_url_hostname("https://topology.opensciencegrid.org/vosummary"
                                 "/xml?all_vos=on&active_value=1", args)
         if not self.session:
             self.session = self.get_auth_session(args)
@@ -293,7 +340,7 @@ class TopologyPoolManager(urllib3.PoolManager):
                 if item.tag == "ContactTypes":
                     for contact_type in item:
                         contact_list_info.extend( \
-                            self.get_contact_list_info(contact_type))
+                            get_contact_list_info(contact_type))
 
             if name and contact_list_info:
                 results[name] = contact_list_info
@@ -335,7 +382,7 @@ class TopologyPoolManager(urllib3.PoolManager):
                             for contact_list in resource_tag:
                                 if contact_list.tag == 'ContactList':
                                     contact_list_info.extend( \
-                                        self.get_contact_list_info(contact_list))
+                                        get_contact_list_info(contact_list))
 
                     if contact_list_info:
                         if resource_name:
@@ -352,46 +399,3 @@ class TopologyPoolManager(urllib3.PoolManager):
 
     def get_resource_contacts_by_fqdn(self, args):
         return self.get_resource_contacts_by_name_and_fqdn(args)[1]
-
-    def filter_contacts(self, args, results):
-        """
-        Given a set of result contacts, filter them according to given arguments
-        """
-        results = dict(results)  # make a copy so we don't modify the original
-
-        if getattr(args, 'name_filter', None):
-            # filter out undesired names
-            for name in list(results):
-                if not fnmatch.fnmatch(name, args.name_filter) and \
-                        args.name_filter not in name:
-                    del results[name]
-        elif getattr(args, 'fqdn_filter', None):
-            # filter out undesired FQDNs
-            for fqdn in list(results):
-                if not fnmatch.fnmatch(fqdn, args.fqdn_filter) and \
-                        args.fqdn_filter not in fqdn:
-                    del results[fqdn]
-
-        if 'all' not in args.contact_type:
-            # filter out undesired contact types
-            for name in list(results):
-                contact_list = []
-                for contact in results[name]:
-                    contact_type = contact['ContactType']
-                    for args_contact_type in args.contact_type:
-                        if contact_type.startswith(args_contact_type):
-                            contact_list.append(contact)
-                if contact_list == []:
-                    del results[name]
-                else:
-                    results[name] = contact_list
-
-        if getattr(args, 'contact_emails', None):
-            for name in list(results):
-                contact_list = [contact for contact in results[name] if contact['Email'] in args.contact_emails]
-                if not contact_list:
-                    del results[name]
-                else:
-                    results[name] = contact_list
-
-        return results
