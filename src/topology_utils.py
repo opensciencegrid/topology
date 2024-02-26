@@ -147,7 +147,7 @@ class TopologyPoolManager(urllib3.PoolManager):
         self.session = False
         super().__init__()
 
-    def get_auth_session(self,args):
+    def get_auth_session(self, args):
         """
         Return a requests session ready for an XML query.
         """
@@ -156,8 +156,8 @@ class TopologyPoolManager(urllib3.PoolManager):
             cert = '/etc/grid-security/hostcert.pem'
             key = '/etc/grid-security/hostkey.pem'
         else:
-            cert = '/tmp/x509up_u%d' % euid
-            key = '/tmp/x509up_u%d' % euid
+            cert = f'/tmp/x509up_u{euid}'
+            key = f'/tmp/x509up_u{euid}'
 
         cert = os.environ.get('X509_USER_PROXY', cert)
         key = os.environ.get('X509_USER_PROXY', key)
@@ -170,12 +170,12 @@ class TopologyPoolManager(urllib3.PoolManager):
         if os.path.exists(cert):
             self.connection_pool_kw["cert_file"] = cert
         else:
-            raise InvalidPathError("Error: could not find cert at %s" % cert)
+            raise InvalidPathError(f"Error: could not find cert at {cert}")
 
         if os.path.exists(key):
             self.connection_pool_kw["key_file"] = key
         else:
-            raise InvalidPathError("Error: could not find key at %s" % key)
+            raise InvalidPathError(f"Error: could not find key at {key}")
 
         self.connection_pool_kw['cert_reqs'] = 'CERT_REQUIRED'
         self.connection_pool_kw['key_password'] = getpass("decryption password: ")
