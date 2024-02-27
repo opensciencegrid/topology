@@ -1226,4 +1226,124 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1712947099
+  Description: We need to extend the downtime since we're still waiting for a response
+    from our provider.
+  Severity: Outage
+  StartTime: Jan 26, 2024 20:00 +0000
+  EndTime: Feb 02, 2024 20:00 +0000
+  CreatedTime: Jan 26, 2024 18:45 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1712947513
+  Description: We need to extend the downtime since we're still waiting for a response
+    from our provider.
+  Severity: Outage
+  StartTime: Jan 26, 2024 20:00 +0000
+  EndTime: Feb 02, 2024 20:00 +0000
+  CreatedTime: Jan 26, 2024 18:45 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1712947626
+  Description: We need to extend the downtime since we're still waiting for a response
+    from our provider.
+  Severity: Outage
+  StartTime: Jan 26, 2024 20:00 +0000
+  EndTime: Feb 02, 2024 20:00 +0000
+  CreatedTime: Jan 26, 2024 18:46 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1712947724
+  Description: We need to extend the downtime since we're still waiting for a response
+    from our provider.
+  Severity: Outage
+  StartTime: Jan 26, 2024 20:00 +0000
+  EndTime: Feb 02, 2024 20:00 +0000
+  CreatedTime: Jan 26, 2024 18:46 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1712947815
+  Description: We need to extend the downtime since we're still waiting for a response
+    from our provider.
+  Severity: Outage
+  StartTime: Jan 26, 2024 20:00 +0000
+  EndTime: Feb 02, 2024 20:00 +0000
+  CreatedTime: Jan 26, 2024 18:46 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1724229273
+  Description: Unfortunately, we continue to have instabilities in the external network
+    and for this reason we will need to extend the downtime.
+  Severity: Severe
+  StartTime: Feb 08, 2024 20:20 +0000
+  EndTime: Feb 23, 2024 20:00 +0000
+  CreatedTime: Feb 08, 2024 20:08 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1724234439
+  Description: Unfortunately, we continue to have instabilities in the external network
+    and for this reason we will need to extend the downtime.
+  Severity: Severe
+  StartTime: Feb 08, 2024 20:20 +0000
+  EndTime: Feb 23, 2024 20:00 +0000
+  CreatedTime: Feb 08, 2024 20:17 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1724234872
+  Description: Unfortunately, we continue to have instabilities in the external network
+    and for this reason we will need to extend the downtime.
+  Severity: Severe
+  StartTime: Feb 08, 2024 20:20 +0000
+  EndTime: Feb 23, 2024 20:00 +0000
+  CreatedTime: Feb 08, 2024 20:18 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1724235056
+  Description: Unfortunately, we continue to have instabilities in the external network
+    and for this reason we will need to extend the downtime.
+  Severity: Severe
+  StartTime: Feb 08, 2024 20:20 +0000
+  EndTime: Feb 23, 2024 20:00 +0000
+  CreatedTime: Feb 08, 2024 20:18 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1724235408
+  Description: Unfortunately, we continue to have instabilities in the external network
+    and for this reason we will need to extend the downtime.
+  Severity: Severe
+  StartTime: Feb 08, 2024 20:20 +0000
+  EndTime: Feb 23, 2024 20:00 +0000
+  CreatedTime: Feb 08, 2024 20:19 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
 

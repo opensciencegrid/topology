@@ -114,7 +114,7 @@
   Description: decreasing load so I can use it for testing
   Severity: Intermittent Outage
   StartTime: Jan 03, 2024 20:27 +0000
-  EndTime: Jan 31, 2024 02:27 +0000
+  EndTime: Feb 07, 2024 02:27 +0000
   CreatedTime: Jan 03, 2024 20:27 +0000
   ResourceName: CHTC_STASHCACHE_CACHE
   Services:
@@ -125,9 +125,31 @@
   Description: Testing new origin software
   Severity: Intermittent Outage
   StartTime: Jan 17, 2024 01:57 +0000
-  EndTime: Feb 01, 2024 01:57 +0000
+  EndTime: Feb 07, 2024 01:57 +0000
   CreatedTime: Jan 17, 2024 01:57 +0000
   ResourceName: CHTC_STASHCACHE_ORIGIN
   Services:
   - XRootD origin server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1725128022
+  Description: decreasing load so I can use it for testing
+  Severity: Intermittent Outage
+  StartTime: Feb 09, 2024 21:06 +0000
+  EndTime: Feb 12, 2024 17:06 +0000
+  CreatedTime: Feb 09, 2024 21:06 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1729401775
+  Description: it's running slow
+  Severity: Intermittent Outage
+  StartTime: Feb 14, 2024 19:48 +0000
+  EndTime: Feb 24, 2024 05:59 +0000
+  CreatedTime: Feb 14, 2024 19:49 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
 # ---------------------------------------------------------

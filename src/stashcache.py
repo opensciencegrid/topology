@@ -538,12 +538,14 @@ def get_scitokens_list_for_namespace(ns: Namespace) -> List[Dict]:
     )
 
 
-def get_namespaces_info(global_data: GlobalData) -> PreJSON:
+def get_namespaces_info(global_data: GlobalData, include_downed=False, include_inactive=False) -> PreJSON:
     """Return data for the /stashcache/namespaces JSON endpoint.
 
-    This includes a list of caches, with some data about cache endpoints,
+    This includes a list of caches and origins, with some data about their endpoints,
     and a list of namespaces with some data about each namespace; see README.md for details.
 
+    If `include_downed` is True, caches/origins in downtime are also included.
+    If `include_inactive` is True, caches/origins that are not marked as active are also included.
     """
     # Helper functions
 
@@ -635,8 +637,8 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     for group in resource_groups:
         for resource in group.resources:
             if (_resource_has_cache(resource)
-                    and resource.is_active
-                    and not _resource_has_downed_cache(resource, topology)
+                    and (include_inactive or resource.is_active)
+                    and (include_downed or not _resource_has_downed_cache(resource, topology))
             ):
                 cache_resource_objs[resource.name] = resource
                 cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
@@ -649,8 +651,8 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     for group in resource_groups:
         for resource in group.resources:
             if (_resource_has_origin(resource)
-                    and resource.is_active
-                    and not _resource_has_downed_origin(resource, topology)
+                    and (include_inactive or resource.is_active)
+                    and (include_downed or not _resource_has_downed_origin(resource, topology))
             ):
                 origin_resource_objs[resource.name] = resource
                 origin_resource_dicts[resource.name] = _origin_resource_dict(resource)
