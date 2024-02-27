@@ -376,3 +376,37 @@ Resources:
         Description: Origin serving both authenticated and unauthenticated data
     AllowedVOs:
       - OSG
+
+  CHTC-ITB-OSDF-PELICAN-ORIGIN:
+    Active: true
+    Description: >-
+      This is an origin used for testing the Pelican client and
+      integration with the OSDF
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Lin
+    FQDN: itb-osdf-pelican-origin.osgdev.chtc.io
+    DN: /CN=itb-osdf-pelican-origin.osgdev.chtc.io
+    Services:
+      XRootD origin server:
+        Description: ITB OSDF Pelican Origin
+    AllowedVOs:
+      - OSG

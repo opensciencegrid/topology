@@ -130,6 +130,17 @@ DataFederations:
           Issuer: https://chtc.cs.wisc.edu
           MaxScopeDepth: 3
 
+      - Path: /chtc-itb
+        Authorizations:
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              Base Path: /chtc-itb
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-OSDF-PELICAN-ORIGIN
+        AllowedCaches:
+          - ANY
+
       - Path: /data.lhncbc.nlm.nih.gov/public
         Authorizations:
           - PUBLIC
