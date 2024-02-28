@@ -130,11 +130,11 @@ DataFederations:
           Issuer: https://chtc.cs.wisc.edu
           MaxScopeDepth: 3
 
-      - Path: /chtc-itb
+      - Path: /chtc/itb/osdf-pelican
         Authorizations:
           - SciTokens:
               Issuer: https://chtc.cs.wisc.edu
-              Base Path: /chtc-itb
+              Base Path: /chtc
               Map Subject: True
         AllowedOrigins:
           - CHTC-ITB-OSDF-PELICAN-ORIGIN
