@@ -282,7 +282,7 @@ def is_true(input_) -> bool:
     if isinstance(input_, bytes):
         input_ = input_.decode(errors="replace")
     if not isinstance(input_, str):
-        return bool(input)
+        return bool(input_)
     input_ = input_.lower()
     return input_ in ("1", "true", "yes", "on")
 
