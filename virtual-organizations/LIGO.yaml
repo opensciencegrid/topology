@@ -92,6 +92,9 @@ DataFederations:
           - SciTokens:
               Issuer: https://test.cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN
           - LIGO-StashCache-Origin
@@ -137,6 +140,9 @@ DataFederations:
           - SciTokens:
               Issuer: https://test.cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - UCL-Virgo-StashCache-Origin
         AllowedCaches: *ligo-allowed-caches
@@ -151,6 +157,9 @@ DataFederations:
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
           - SciTokens:
               Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_IFO
@@ -167,6 +176,9 @@ DataFederations:
           - SciTokens:
               Issuer: https://test.cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - KAGRA_OSDF_ORIGIN
         AllowedCaches: *ligo-allowed-caches
@@ -182,6 +194,9 @@ DataFederations:
           - SciTokens:
               Issuer: https://test.cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_SHARED
         AllowedCaches: *ligo-allowed-caches
@@ -196,6 +211,9 @@ DataFederations:
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
           - SciTokens:
               Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_STAGING
@@ -215,7 +233,7 @@ DataFederations:
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
           - SciTokens:
               Issuer: https://osdf.igwn.org/cit
-              Base Path: /igwn/test,/igwn/test-write
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_TEST
         AllowedCaches: *ligo-allowed-caches
@@ -233,7 +251,7 @@ DataFederations:
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
           - SciTokens:
               Issuer: https://osdf.igwn.org/cit
-              Base Path: /igwn/test,/igwn/test-write
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_TEST_WRITE
         AllowedCaches: *ligo-allowed-caches
