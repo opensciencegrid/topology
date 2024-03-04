@@ -50,3 +50,27 @@ Resources:
         Description: SDSC NRP OSDF Cache
     AllowedVOs:
       - ANY
+
+SDSC_NRP_OSDF_S3_CACHE:
+    Active: true
+    Description: SDSC NRP OSDF S3 Cache
+    ID: 1355
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+        Secondary:
+          Name: Diego Davila
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+    DN: CN=sdsc-origin.nationalresearchplatform.org
+    FQDN: sdsc-cache.nationalresearchplatform.org
+    Services:
+      XRootD cache server:
+        Description: SDSC NRP OSDF Cache
+    AllowedVOs:
+      - ANY
