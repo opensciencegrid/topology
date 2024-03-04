@@ -1,0 +1,23 @@
+GroupDescription: Rowan Math Access Points
+Production: true
+Resources:
+  Rowan-Math-AP:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000648
+          Name: Nicholas Ian Kaegi
+      Security Contact:
+        Primary:
+          ID: OSG1000648
+          Name: Nicholas Ian Kaegi
+    Description: Access point
+    FQDN: lambda06.rowan.edu
+    Services:
+      Submit Node:
+        Description: Access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+SupportCenter: Self Supported

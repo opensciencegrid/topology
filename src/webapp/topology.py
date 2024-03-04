@@ -469,10 +469,12 @@ class Downtime(object):
 
     def __init__(self, rg: ResourceGroup, yaml_data: ParsedYaml, common_data: CommonData):
         self.rg = rg
+        if not isinstance(yaml_data, dict):
+            raise TypeError("yaml data of type %s is not a dictionary" % type(yaml_data))
         self.data = yaml_data
         for k in ["StartTime", "EndTime", "ID", "Class", "Severity", "ResourceName", "Services"]:
             if is_null(yaml_data, k):
-                raise ValueError(k)
+                raise ValueError(f"{k} is missing or empty")
         self.start_time = self.parsetime(yaml_data["StartTime"])
         self.end_time = self.parsetime(yaml_data["EndTime"])
         self.created_time = None
@@ -754,10 +756,22 @@ class Topology(object):
         except KeyError:
             log.warning("RG %s/%s does not exist -- skipping downtime", sitename, rgname)
             return
+
+        # If someone passes an entire downtime file, add all the downtimes
+        if isinstance(downtime, list):
+            for dt in downtime:
+                self._add_one_downtime(rg, dt)
+            return
+        self._add_one_downtime(rg, downtime)
+
+    def _add_one_downtime(self, rg: ResourceGroup, downtime: ParsedYaml):
         try:
             dt = Downtime(rg, downtime, self.common_data)
         except (KeyError, ValueError) as err:
             log.warning("Invalid or missing data in downtime -- skipping: %r", err)
+            return
+        except TypeError as err:
+            log.warning("Invalid type in downtime(s) -- skipping: %r", err)
             return
         self.downtimes_by_timeframe[dt.timeframe].append(dt)
         if dt.timeframe == Timeframe.PRESENT:

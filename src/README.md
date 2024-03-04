@@ -226,7 +226,7 @@ DataFederation:
     Namespaces:
       - <NAMESPACE 1>
       - <NAMESPACE 2>
-      ...
+      # ...
       - <NAMESPACE n>
 ```
 
@@ -250,7 +250,7 @@ Alternatively:
 ```yaml
 Authorizations:
   - <DN/FQAN/SCITOKENS AUTH 1>
-  ...
+  # ...
   - <DN/FQAN/SCITOKENS AUTH n>
 ```
 These denote an authenticated namespace, which requires authentication for read access.
@@ -302,7 +302,7 @@ There are three kinds of authorization types:
 ```yaml
 AllowedOrigins:
   - ORIGIN_RESOURCE1
-  ...
+  # ...
   - ORIGIN_RESOURCEn
 ```
 AllowedOrigins is a list of resource names of origins that will serve data for this namespace.
@@ -316,7 +316,7 @@ or
 ```yaml
 AllowedCaches:
   - CACHE_RESOURCE1
-  ...
+  # ...
   - CACHE_RESOURCEn
 ```
 AllowedCaches is a list of resource names of caches that will serve data for this namespace.
@@ -389,14 +389,14 @@ For example:
 ```yaml
 Resources:
   Stashcache-Chicago:
-    ...
+    # ...
     Services:
       XRootD cache server:
         Description: Internet2 Chicago Cache
         Details:
           endpoint_override:      osg-chicago-stashcache.nrp.internet2.edu:8443
           auth_endpoint_override: osg-chicago-stashcache.nrp.internet2.edu:8444
-    ...
+    # ...
 ```
 
 ### Supporting a Namespace
@@ -512,7 +512,10 @@ base_path = /ospool/PROTECTED
 
 ### Namespaces JSON generation
 
-The JSON file containing cache and namespace information for stashcp is served at `/stashcache/namespaces`.
+The JSON file containing cache and namespace information for stashcp/OSDF is served at `/osdf/namespaces`.
+The endpoint takes two optional parameters, `include_downed=1`, and `include_inactive=1`;
+if they are set, caches in downtime or that are not marked as active, respectively, are also included in the result.
+Otherwise, they are not included.
 
 The JSON contains an attribute `caches` that is a list of caches.
 Each cache in the list contains the following attributes:
@@ -538,6 +541,10 @@ The JSON also contains an attribute `namespaces` that is a list of namespaces wi
     Note that scopes are usually relative to the namespace path.
   - `vault_server`: the Vault server for the `Vault` strategy or null
   - `vault_issuer`: the Vault issuer for the `Vault` strategy (or null).
+- `scitokens` is information about any `SciTokens` sections in the `Authorizations` list for that namespace (or the empty list if there are none). Each list item has:
+  - `issuer`: the value of the `Issuer` field in the scitokens block
+  - `base_path`: a list which is the value of the `BasePath` (or `Base Path`) field split on commas
+  - `restricted_path`: a list which is the value of the `RestrictedPath` (or `Restricted Path`) field split on commas, or the empty list if unspecified
 
 The final result looks like
 ```json
@@ -567,12 +574,13 @@ The final result looks like
       "dirlisthost": null,
       "path": "/xenon/PROTECTED",
       "readhttps": true,
+      "scitokens": [],
       "usetokenonread": false,
       "writebackhost": null
     },
     {
       "caches": [
-        (a whole bunch)
+        // (a whole bunch)
       ],
       "credential_generation": {
         "issuer": "https://osg-htc.org/ospool",
@@ -582,6 +590,11 @@ The final result looks like
       "dirlisthost": "https://origin-auth2001.chtc.wisc.edu:1095",
       "path": "/ospool/PROTECTED",
       "readhttps": true,
+      "scitokens": {
+        "issuer": "https://osg-htc.org/ospool",
+        "base_path": ["/ospool/PROTECTED", "/s3.amazonaws.com/us-east-1", "/s3.amazonaws.com/us-west-1"],
+        "restricted_path": []
+      },
       "usetokenonread": true,
       "writebackhost": "https://origin-auth2001.chtc.wisc.edu:1095"
     }

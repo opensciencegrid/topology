@@ -9,3 +9,36 @@
   Services:
   - XRootD cache server
 # -------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1715590026
+  Description: Network issues
+  Severity: Outage
+  StartTime: Jan 28, 2024 20:30 +0000
+  EndTime: Feb 02, 2024 20:30 +0000
+  CreatedTime: Jan 29, 2024 20:10 +0000
+  ResourceName: Stashcache-UofA
+  Services:
+  - XRootD cache server
+# -------------------------------------------------------
+  - Class: UNSCHEDULED
+  ID: 1729340062
+  Description: overloaded
+  Severity: Outage
+  StartTime: Feb 14, 2024 20:30 +0000
+  EndTime: Apr 02, 2024 20:30 +0000
+  CreatedTime: Feb 14, 2024 18:06 +0000
+  ResourceName: Stashcache-UofA
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+  - Class: UNSCHEDULED
+  ID: 1736252379
+  Description: overloaded
+  Severity: Outage
+  StartTime: Feb 22, 2024 20:30 +0000
+  EndTime: Mar 10, 2024 20:30 +0000
+  CreatedTime: Feb 22, 2024 18:07 +0000
+  ResourceName: Stashcache-UofA
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
