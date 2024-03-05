@@ -1,3 +1,4 @@
+import contextlib
 import datetime
 import logging
 import os
@@ -5,7 +6,22 @@ import time
 from typing import Dict, Set, List, Optional
 
 import yaml
-from prometheus_client import Summary
+try:
+    from prometheus_client import Summary
+except ImportError:
+    class Summary:
+        """A dummy prometheus_client.Summary class"""
+
+        def __init__(self, name: str, documentation: str):
+            _ = name
+            _ = documentation
+
+        @contextlib.contextmanager
+        def time(self):
+            pass
+            yield
+            pass
+
 
 from webapp import common, contacts_reader, ldap_data, mappings, project_reader, rg_reader, vo_reader
 from webapp.common import readfile
