@@ -71,5 +71,8 @@ Resources:
     Services:
       XRootD origin server:
         Description: SDSC NRP OSDF Origin
+        Details:
+          endpoint_override: sdsc-s3-origin.nationalresearchplatform.org:50123
+          auth_endpoint_override: sdsc-s3-origin.nationalresearchplatform.org:50123
     AllowedVOs:
       - ANY
