@@ -261,19 +261,25 @@ class GlobalData:
         May return None if we fail to get the data for the first time.
         """
         if self.topology.should_update():
-            ok = self._update_topology_repo()
-            if ok:
-                try:
-                    self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data(), strict=self.strict))
-                except Exception:
-                    if self.strict:
-                        raise
-                    log.exception("Failed to update topology")
-                    self.topology.try_again()
-            else:
-                self.topology.try_again()
+            self.update_topology()
 
         return self.topology.data
+
+    def update_topology(self):
+        """
+        Update topology data
+        """
+        ok = self._update_topology_repo()
+        if ok:
+            try:
+                self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data(), strict=self.strict))
+            except Exception:
+                if self.strict:
+                    raise
+                log.exception("Failed to update topology")
+                self.topology.try_again()
+        else:
+            self.topology.try_again()
 
     def get_vos_data(self) -> Optional[VOsData]:
         """
