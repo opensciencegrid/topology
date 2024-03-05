@@ -5,8 +5,6 @@ import csv
 import flask
 import flask.logging
 from flask import Flask, Response, make_response, request, render_template, redirect, url_for, session
-from werkzeug.middleware.dispatcher import DispatcherMiddleware
-from prometheus_client import make_wsgi_app
 from io import StringIO
 import logging
 import os
@@ -1081,10 +1079,16 @@ def _get_authorized():
     return default_authorized
 
 
-# Enable prometheus integration with the topology webapp
-app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
-    '/metrics': make_wsgi_app()
-})
+try:
+    from werkzeug.middleware.dispatcher import DispatcherMiddleware
+    from prometheus_client import make_wsgi_app
+    # Enable prometheus integration with the topology webapp
+    app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
+        '/metrics': make_wsgi_app()
+    })
+except ImportError:
+    print("*** /metrics endpoint unavailable: prometheus-client missing",
+          file=sys.stderr)
 
 
 if __name__ == '__main__':
