@@ -181,6 +181,17 @@ DataFederations:
         AllowedCaches:
           - ANY
 
+      - Path: /nrdstor/protected
+        Authorizations:
+          - SciTokens: https://t.nationalresearchplatform.org/nrdstor
+              Issuer: https://t.nationalresearchplatform.org
+              Base Path: /nrdstor/protected
+              Map Subject: True
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_S3_ORIGIN
+        AllowedCaches:
+          - ANY
+
       - Path: /osdftest
         Authorizations:
           - PUBLIC
