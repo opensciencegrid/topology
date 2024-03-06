@@ -183,7 +183,7 @@ DataFederations:
 
       - Path: /nrdstor/protected
         Authorizations:
-          - SciTokens: https://t.nationalresearchplatform.org/nrdstor
+          - SciTokens:
               Issuer: https://t.nationalresearchplatform.org
               Base Path: /nrdstor/protected
               Map Subject: True
