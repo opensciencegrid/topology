@@ -31,3 +31,29 @@ Resources:
     AllowedVOs:
       - ANY
       
+  NEBRASKA_NRP_HCC_OSDF_ORIGIN:
+    Active: True
+    Description: Nebraska NRP HCC OSDF Origin
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+        Secondary:
+          Name: John Thiltges
+          ID: OSG1000004
+        Tertiary:
+          Name: Derek Weitzel
+          ID: OSG1000006
+      Security Contact:
+        Primary:
+          Name: Garhan Attebury
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+    FQDN: hcc-nrdstor-osdf.unl.edu
+    DN: /CN=hcc-nrdstor-osdf.unl.edu
+    Services:
+      XRootD origin server:
+        # Description is a brief description of the service
+        Description: Nebraska NRP HCC OSDF Origin
+    AllowedVOs:
+      - ANY
