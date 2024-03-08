@@ -1,0 +1,166 @@
+GroupDescription: Placeholder for NET2
+GroupID: 1365
+Production: true
+SupportCenter: USATLAS
+Resources:
+  NET2_SE_WebDAV:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+        Secondary:
+          ID: OSG1000443
+          Name: William Leight
+      Security Contact:
+        Primary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+        Secondary:
+          ID: OSG1000443
+          Name: William Leight
+    Description: HTTP-TPC WebDAV service for NET2
+    FQDN: webdav.data.net2.mghpcc.org
+    ID: 1471
+    Services:
+      WebDAV:
+        Description: HTTP-TPC WebDAV service
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-NET2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 8145
+      StorageCapacityMin: 8145
+      TapeCapacity: 0
+  NET2_SE_XRootD:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+        Secondary:
+          ID: OSG1000443
+          Name: William Leight
+      Security Contact:
+        Primary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+        Secondary:
+          ID: OSG1000443
+          Name: William Leight
+    Description: XRootD door for NET2
+    FQDN: xrootd.data.net2.mghpcc.org
+    ID: 1472
+    Services:
+      XRootD component:
+        Description: XRootD door
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-NET2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 8145
+      StorageCapacityMin: 8145
+      TapeCapacity: 0
+  NET2-PS-BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+      Security Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+    Description: This is the perfSONAR-PS bandwidth instance at the NET2 site.
+    FQDN: argus-t1.net2.mghpcc.org
+    ID: 1474
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: argus-t1.net2.mghpcc.org
+    VOOwnership:
+      ATLAS: 100
+  NET2-PS-LAT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+      Security Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+    Description: This is the perfSONAR-PS latency instance at the NET2 site.
+    FQDN: argus-l1.net2.mghpcc.org
+    ID: 1475
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: argus-l1.net2.mghpcc.org
+    VOOwnership:
+      ATLAS: 100
+  NET2_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+      Security Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+    Description:
+      This is the NET2 squid 
+    FQDN: squidscienceboxnet2-frontier-squid.squid-cvmfs.svc.cluster.local
+    ID: 1480
+    Services:
+      Squid:
+        Description: Generic squid service
+        Details:
+          uri_override: squidscienceboxnet2-frontier-squid.squid-cvmfs.svc.cluster.local:3128
+          Monitored: false
+    VOOwnership:
+      ATLAS: 100

@@ -35,6 +35,31 @@ Resources:
           hidden: false
     Tags:
       - CC*
+  WSU-GRID-CE1:
+    Active: true
+    ID: 1352
+    Description: Hosted CE serving WSU-GRID
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          ID:  f84214412f7b3dbf848808c4ba30d179c5743766
+          Name: Michael Thompson
+    FQDN: wsu-grid-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: WSU-GRID Hosted CE
+        Details:
+          hidden: false
+    Tags:
+      - CC*
   WSU - GRID_ce2:
     Active: false
     ID: 1036

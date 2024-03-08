@@ -11,21 +11,16 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Fabio Andrijauskas
-          ID: ef5d0be3ec1df913935853ed82396b1eb37a7db0
+          ID: OSG1000162
       # Security Contact is one to three people to contact regarding security issues
       Security Contact:
         Primary:
           Name: Fabio Andrijauskas
-          ID: ef5d0be3ec1df913935853ed82396b1eb37a7db0
+          ID: OSG1000162
     FQDN: fiona-r-uva.vlan7.uvalight.net
-    FQDNAliases:
-    - fiona.uvalight.net
-    DN: /DC=org/DC=terena/DC=tcs/C=NL/L=Amsterdam/O=Universiteit van Amsterdam/CN=fiona-r-uva.vlan7.uvalight.net
+    DN: /DC=org/DC=terena/DC=tcs/C=NL/ST=Noord-Holland/O=Universiteit van Amsterdam/CN=fiona-r-uva.vlan7.uvalight.net
     Services:
       XRootD cache server:
         Description: University of Amsterdam Stashcache Caching Server
-        Details:
-          endpoint_override: fiona.uvalight.net:8443
-          auth_endpoint_override: fiona.uvalight.net:8443
     AllowedVOs:
       - ANY

@@ -13,6 +13,17 @@ import xml.etree.ElementTree as ET
 
 import requests
 
+# List of contact types stored in Topology data
+# At time of writing, there isn't anything that restricts a contact to one of these types
+CONTACT_TYPES = ["administrative",
+                 "miscellaneous",
+                 "security",
+                 "submitter",
+                 "site",
+                 "local executive",
+                 "local operational",
+                 "local security"]
+
 class Error(Exception):
     pass
 

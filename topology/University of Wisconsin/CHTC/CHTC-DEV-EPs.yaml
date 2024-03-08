@@ -11,7 +11,7 @@ Resources:
   CHTC-DEV-EP-bbockelm:
     Active: true
     Description: EP for dev testing for bbockelm
-    ID: 1260
+    ID: 1361
     ContactLists:
       Administrative Contact:
         Primary:
@@ -32,7 +32,7 @@ Resources:
   CHTC-DEV-EP-blin:
     Active: true
     Description: EP for dev testing for blin
-    ID: 1261
+    ID: 1362
     ContactLists:
       Administrative Contact:
         Primary:
@@ -103,4 +103,66 @@ Resources:
       Execution Endpoint:
         Description: Execution Endpoint 
   # ----------------------------------------------------------------------------
+  
+  CHTC-DEV-EP-mwestphall:
+    Active: true
+    Description: EP for dev testing for mwestphall
+    ContactLists:
+      Administrative Contact:
+        Tertiary:
+           ID: OSG1000358
+           Name: MATTHEW WESTPHALL
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
 
+      Security Contact:
+        Tertiary:
+          ID: OSG1000358
+          Name: MATTHEW WESTPHALL
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+
+    FQDN: dev-ep.mwestphall.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint 
+  # ----------------------------------------------------------------------------
+
+  CHTC-DEV-EP-cat:
+    Active: true
+    Description: EP for dev testing for Tim C.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Tertiary:
+           ID: OSG1000008
+           Name: Tim Cartwright
+
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Lin
+        Tertiary:
+           ID: OSG1000008
+           Name: Tim Cartwright
+
+    FQDN: dev-ep.cat.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint

@@ -36,7 +36,7 @@ Resources:
         Details:
           hidden: false
   SLATE_US_NMSU_DISCOVERY:
-    Active: true
+    Active: false
     ID: 1072
     ContactLists:
       Administrative Contact:
@@ -68,3 +68,58 @@ Resources:
           hidden: false
     Tags:
       - CC*
+  NMSU-Discovery-CE1:
+    Active: true
+    ID: 1386
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # Security Contact are persons or groups of people (i.e.,
+      # mailing lists) that are responsible for handling security
+      # issues related to the resource
+      Security Contact:
+        Primary:
+          Name: Jeffrey Peterson
+          ID: 3ef2e11c271234a34f154e75b28d3b4554bb8f63
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+    # FQDN is the fully qualified domain name of the host running this resource
+    FQDN: nmsu-discovery-ce1.svc.opensciencegrid.org
+    ### FQDNAliases (optional) are any other DNS aliases by which this host can be accessed
+    # FQDNAliases:
+    #   - <HOSTNAME1>
+    #   - <HOSTNAME2>
+
+    ### DN (optional except for XCache resources) is the DN of the host cert of the resource
+    # in OpenSSL 1.0 format (i.e. /DC=org/DC=incommon/C=US/...)
+    # DN: <DN>
+
+    # Services is one or more services provided by this resource;
+    # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
+    Services:
+      CE:
+        # Description is a brief description of the service
+        Description: NMSU Discovery hosted CE
+    Tags:
+      - CC*
+
+

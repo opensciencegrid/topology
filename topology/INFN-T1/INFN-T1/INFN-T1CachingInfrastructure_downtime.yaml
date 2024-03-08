@@ -1,0 +1,22 @@
+- Class: SCHEDULED
+  ID: 1407056554
+  Description: updating
+  Severity: Outage
+  StartTime: Feb 07, 2023 05:00 +0000
+  EndTime: Feb 28, 2023 20:30 +0000
+  CreatedTime: Feb 06, 2023 17:47 +0000
+  ResourceName: INFN_CNAF_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1736453820
+  Description: checking overload problem
+  Severity: Outage
+  StartTime: Feb 22, 2024 20:30 +0000
+  EndTime: Mar 10, 2024 20:30 +0000
+  CreatedTime: Feb 22, 2024 23:43 +0000
+  ResourceName: INFN_CNAF_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------

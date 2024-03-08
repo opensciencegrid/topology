@@ -2,37 +2,6 @@ GroupDescription: (No resource group description)
 GroupID: 1
 Production: true
 Resources:
-  AGLT2-squid:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
-          Name: Wenjing Wu
-        Secondary:
-          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
-          Name: Philippe Laurens
-        Tertiary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-      Security Contact:
-        Primary:
-          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
-          Name: Wenjing Wu
-        Secondary:
-          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
-          Name: Philippe Laurens
-        Tertiary:
-          ID: a833f94ad3840fe779702409c6b778d79aaed76f
-          Name: Shawn McKee
-    Description: This is the round-robin DNS alias for the SQUIDs at AGLT2
-    FQDN: squid.aglt2.org
-    ID: 677
-    Services:
-      Squid:
-        Description: Generic squid service
-    VOOwnership:
-      ATLAS: 90
   AGLT2-squid-2:
     Active: true
     ContactLists:
@@ -99,7 +68,7 @@ Resources:
         Details:
           Monitored: true
     VOOwnership:
-      ATLAS: 90  
+      ATLAS: 90
   AGLT2-squid-4:
     Active: true
     ContactLists:
@@ -124,12 +93,13 @@ Resources:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
     Description: This is the slate Varnish for Frontier
-    FQDN: es02.aglt2.org
+    FQDN: sl-um-es2.slateci.io
     ID: 1314
     Services:
       Squid:
         Description: Generic varnish service
         Details:
+          uri_override: sl-um-es2.slateci.io:6081
           Monitored: true
     VOOwnership:
       ATLAS: 90
@@ -156,16 +126,50 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the slate Varnish for CVMFS
-    FQDN: es01.aglt2.org
+    Description: This is the slate Varnish 1 for CVMFS
+    FQDN: sl-um-es3.slateci.io
     ID: 1315
     Services:
       Squid:
         Description: Generic varnish service
         Details:
+          uri_override: sl-um-es3.slateci.io:6081
           Monitored: true
     VOOwnership:
       ATLAS: 90
+  AGLT2-squid-6:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+      Security Contact:
+        Primary:
+          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
+          Name: Wenjing Wu
+        Secondary:
+          ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
+          Name: Philippe Laurens
+        Tertiary:
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+          Name: Shawn McKee
+    Description: This is Varnish for CVMFS at MSU NRP node
+    FQDN: msu-nrp.aglt2.org
+    Services:
+      Squid:
+        Description: Varnish for CVMFS service
+        Details:
+          uri_override: msu-nrp.aglt2.org:6081
+          Monitored: true
+    VOOwnership:
+      ATLAS: 100
   AGLT2_CE_2:
     Active: true
     ContactLists:
@@ -189,7 +193,8 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the gate keeper at AGLT2 for non-ATLAS VOs that wish to use
+    Description:
+      This is the gate keeper at AGLT2 for non-ATLAS VOs that wish to use
       our site.
     FQDN: gate02.grid.umich.edu
     ID: 250
@@ -505,7 +510,8 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the perfSONAR-PS bandwidth instance at the Michigan State
+    Description:
+      This is the perfSONAR-PS bandwidth instance at the Michigan State
       University AGLT2 site.
     FQDN: psmsu02.aglt2.org
     ID: 586
@@ -539,7 +545,8 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the perfSONAR-PS latency instance at the Michigan State University
+    Description:
+      This is the perfSONAR-PS latency instance at the Michigan State University
       AGLT2 site.
     FQDN: psmsu01.aglt2.org
     ID: 585
@@ -573,7 +580,8 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the perfSONAR-PS bandwidth instance at the University of
+    Description:
+      This is the perfSONAR-PS bandwidth instance at the University of
       Michigan AGLT2 site.
     FQDN: psum02.aglt2.org
     ID: 584
@@ -607,7 +615,8 @@ Resources:
         Tertiary:
           ID: a833f94ad3840fe779702409c6b778d79aaed76f
           Name: Shawn McKee
-    Description: This is the perfSONAR-PS latenchy instance at the University of Michigan
+    Description:
+      This is the perfSONAR-PS latenchy instance at the University of Michigan
       AGLT2 site.
     FQDN: psum01.aglt2.org
     ID: 583

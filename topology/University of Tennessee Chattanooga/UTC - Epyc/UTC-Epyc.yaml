@@ -1,7 +1,7 @@
 Production: true
 SupportCenter: Self Supported
 GroupDescription: This is a cluster of EPYC processors at University of Tennessee Chatanooga 
-GroupID: 1112
+GroupID: 1322
 
 Resources:
   UTC-Epyc:
@@ -25,8 +25,18 @@ Resources:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
 
+      Local Operational Contact:
+        Primary:
+          Name: Corbin Cawood
+          ID: OSG1000636
+        Secondary:
+          Name: Patrick Bigelow
+          ID: OSG1000637
+
     FQDN: utc-epyc-ce1.svc.opensciencegrid.org
 
     Services:
       CE:
         Description: Hosted CE for UTC-Epyc
+    Tags:
+      - CC*

@@ -49,63 +49,103 @@ ReportingGroups:
 SupportURL: https://chtc.cs.wisc.edu
 
 DataFederations:
- StashCache:
-   Namespaces:
-     - Path: /chtc/PUBLIC
-       Authorizations:
-         - PUBLIC
-       AllowedOrigins:
-         - CHTC_STASHCACHE_ORIGIN
-         - CHTC_STASHCACHE_ORIGIN_2000
-       AllowedCaches:
-         - ANY
+  StashCache:
+    Namespaces:
+      - Path: /chtc/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CHTC_STASHCACHE_ORIGIN
+          - CHTC_STASHCACHE_ORIGIN_2000
+        AllowedCaches:
+          - ANY
 
-     - Path: /chtc/PROTECTED
-       Authorizations:
-         - FQAN: /GLOW
-         - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
-         - SciTokens:
-             Issuer: https://chtc.cs.wisc.edu
-             Base Path: /chtc
-             Map Subject: True
-       AllowedOrigins:
-         - CHTC_STASHCACHE_ORIGIN_AUTH_2000
-       AllowedCaches:
-         # TODO: only allowing CHTC caches defeats the purpose of OSDF; allow PRP caches too?
-         - CHTC_TIGER_CACHE
-         - CHTC_STASHCACHE_CACHE
+      - Path: /chtc/itb/helm-origin/PUBLIC
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CHTC-ITB-HELM-ORIGIN
+        AllowedCaches:
+          - ANY
 
-     - Path: /chtc/PROTECTED-TESTING
-       Authorizations:
-         - FQAN: /GLOW
-         - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
-         - SciTokens:
-             Issuer: https://chtc.cs.wisc.edu
-             Base Path: /chtc
-             Map Subject: False
-       AllowedOrigins:
-         - CHTC_STASHCACHE_ORIGIN
-       AllowedCaches:
-         - ANY
+      - Path: /chtc/PROTECTED/sc-origin
+        Authorizations:
+          - FQAN: /GLOW
+          - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              BasePath: /chtc
+              MapSubject: False
+        AllowedOrigins:
+          - CHTC_STASHCACHE_ORIGIN
+        AllowedCaches:
+          - ANY
+        CredentialGeneration:
+          BasePath: /chtc
+          Strategy: OAuth2
+          Issuer: https://chtc.cs.wisc.edu
+          MaxScopeDepth: 3
 
-     - Path: /chtc/itb/helm-origin/PUBLIC
-       Authorizations:
-         - PUBLIC
-       AllowedOrigins:
-         - CHTC-ITB-HELM-ORIGIN
-       AllowedCaches:
-         - ANY
+      - Path: /chtc/PROTECTED/sc-origin2000
+        Authorizations:
+          - FQAN: /GLOW
+          - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              BasePath: /chtc
+              MapSubject: True
+        AllowedOrigins:
+          - CHTC_STASHCACHE_ORIGIN_2000
+        AllowedCaches:
+          - ANY
 
-     - Path: /chtc/itb/helm-origin/PROTECTED
-       Authorizations:
-         - FQAN: /GLOW
-         - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
-         - SciTokens:
-             Issuer: https://chtc.cs.wisc.edu
-             Base Path: /chtc
-             Map Subject: False
-       AllowedOrigins:
-         - CHTC-ITB-HELM-ORIGIN
-       AllowedCaches:
-         - ANY
+      - Path: /chtc/itb/helm-origin/PROTECTED
+        Authorizations:
+          - FQAN: /GLOW
+          - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              Base Path: /chtc
+              Map Subject: False
+        AllowedOrigins:
+          - CHTC-ITB-HELM-ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /chtc
+        Authorizations:
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              Base Path: /chtc
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC_STASHCACHE_ORIGIN_AUTH_2000
+        AllowedCaches:
+          - ANY
+        Writeback: https://origin-auth2000.chtc.wisc.edu:1095
+        DirList: https://origin-auth2000.chtc.wisc.edu:1095
+        CredentialGeneration:
+          BasePath: /chtc
+          Strategy: OAuth2
+          Issuer: https://chtc.cs.wisc.edu
+          MaxScopeDepth: 3
+
+      - Path: /chtc/itb/osdf-pelican
+        Authorizations:
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              Base Path: /chtc
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-OSDF-PELICAN-ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /data.lhncbc.nlm.nih.gov/public
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - CHTC_NIH_ORIGIN
+        AllowedCaches:
+          - ANY
 

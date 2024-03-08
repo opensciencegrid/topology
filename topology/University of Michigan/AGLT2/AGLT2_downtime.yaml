@@ -1054,3 +1054,183 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1360408285
+  Description: 'campus network maintenance '
+  Severity: No Significant Outage Expected
+  StartTime: Dec 23, 2022 11:00 +0000
+  EndTime: Dec 23, 2022 16:00 +0000
+  CreatedTime: Dec 14, 2022 18:00 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1360409152
+  Description: 'campus network maintenance '
+  Severity: No Significant Outage Expected
+  StartTime: Dec 23, 2022 11:00 +0000
+  EndTime: Dec 23, 2022 16:00 +0000
+  CreatedTime: Dec 14, 2022 18:01 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1360409338
+  Description: 'campus network maintenance '
+  Severity: No Significant Outage Expected
+  StartTime: Dec 23, 2022 11:00 +0000
+  EndTime: Dec 23, 2022 16:00 +0000
+  CreatedTime: Dec 14, 2022 18:02 +0000
+  ResourceName: AGLT2_CE_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1360409718
+  Description: 'campus network maintenance '
+  Severity: No Significant Outage Expected
+  StartTime: Dec 23, 2022 11:00 +0000
+  EndTime: Dec 23, 2022 16:00 +0000
+  CreatedTime: Dec 14, 2022 18:02 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1360409990
+  Description: 'campus network maintenance '
+  Severity: No Significant Outage Expected
+  StartTime: Dec 23, 2022 11:00 +0000
+  EndTime: Dec 23, 2022 16:00 +0000
+  CreatedTime: Dec 14, 2022 18:03 +0000
+  ResourceName: AGLT2_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1360410214
+  Description: 'campus network maintenance '
+  Severity: No Significant Outage Expected
+  StartTime: Dec 23, 2022 11:00 +0000
+  EndTime: Dec 23, 2022 16:00 +0000
+  CreatedTime: Dec 14, 2022 18:03 +0000
+  ResourceName: AGLT2-squid-2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1360410480
+  Description: 'campus network maintenance '
+  Severity: No Significant Outage Expected
+  StartTime: Dec 23, 2022 11:00 +0000
+  EndTime: Dec 23, 2022 16:00 +0000
+  CreatedTime: Dec 14, 2022 18:04 +0000
+  ResourceName: AGLT2-squid-3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1693895432
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jan 11, 2024 14:00 +0000
+  EndTime: Jan 11, 2024 23:00 +0000
+  CreatedTime: Jan 04, 2024 17:32 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1693897123
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jan 11, 2024 14:00 +0000
+  EndTime: Jan 11, 2024 23:00 +0000
+  CreatedTime: Jan 04, 2024 17:35 +0000
+  ResourceName: AGLT2_CE_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1693897393
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jan 11, 2024 14:00 +0000
+  EndTime: Jan 11, 2024 23:00 +0000
+  CreatedTime: Jan 04, 2024 17:35 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1693897675
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jan 11, 2024 14:00 +0000
+  EndTime: Jan 11, 2024 23:00 +0000
+  CreatedTime: Jan 04, 2024 17:36 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1693897961
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jan 11, 2024 14:00 +0000
+  EndTime: Jan 11, 2024 23:00 +0000
+  CreatedTime: Jan 04, 2024 17:36 +0000
+  ResourceName: AGLT2_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1693898395
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jan 11, 2024 14:00 +0000
+  EndTime: Jan 11, 2024 23:00 +0000
+  CreatedTime: Jan 04, 2024 17:37 +0000
+  ResourceName: AGLT2_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1693898858
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jan 11, 2024 14:00 +0000
+  EndTime: Jan 11, 2024 23:00 +0000
+  CreatedTime: Jan 04, 2024 17:38 +0000
+  ResourceName: AGLT2-squid-2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1693899084
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jan 11, 2024 14:00 +0000
+  EndTime: Jan 11, 2024 23:00 +0000
+  CreatedTime: Jan 04, 2024 17:38 +0000
+  ResourceName: AGLT2-squid-3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1693899241
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jan 11, 2024 14:00 +0000
+  EndTime: Jan 11, 2024 23:00 +0000
+  CreatedTime: Jan 04, 2024 17:38 +0000
+  ResourceName: AGLT2-squid-4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+

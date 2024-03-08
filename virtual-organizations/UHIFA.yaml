@@ -1,0 +1,37 @@
+AppDescription: Astronomy and Astrophysics big data from various surveys, simulations and inversions.
+Community: The Institute for Astronomy, (University of Hawaii, Manoa) conducts fundamental astrophysical research, operates astronomical telescopic surveys and develops instrumentation with many collaborators locally, nationally and globally.
+CertificateOnly: false
+Contacts:
+  Administrative Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+    - Astronomy
+    - Astrophysics
+  SecondaryFields:
+    - Wide field astronomical surveys
+    - Solar Spectropolarimetry
+    - Time domain astronomy
+ID: 225
+LongName: Institute for Astronomy, (University of Hawaii, Manoa)
+OASIS:
+  Managers:
+    - Name: Fabio Andrijauskas
+      ID: OSG1000162
+      DNs:
+      - /DC=org/DC=cilogon/C=US/O=University of California-San Diego/CN=Fabio Andrijauskas A51485301
+  OASISRepoURLs:
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/uhawaii.osgstorage.org
+  UseOASIS: true
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /uhawaii/manoa/ifa
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - IFAHURP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY

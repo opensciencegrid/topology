@@ -1,5 +1,5 @@
 GroupDescription: Jetstream2-IU
-GroupID: 1144
+GroupID: 1323
 Production: true
 Resources:
   IU-Jetstream2-Backfill:
@@ -19,6 +19,24 @@ Resources:
     Services:
       Execution Endpoint:
         Description: OSG VO backfill containers
+        Details:
+          hidden: false
+  IU-Jetstream2-Backfill-Squid:
+    Description: Frontier Squid serving Jetstream
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+          Name: Mats Rynge
+      Security Contact:
+        Primary:
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+          Name: Mats Rynge
+    FQDN: squid-jetstream-1.sites.osg-htc.org
+    ID: 1225
+    Services:
+      Squid:
+        Description: Squid service for frontier and cvmfs
         Details:
           hidden: false
 SupportCenter: Self Supported

@@ -5,6 +5,7 @@
 A simple tool for generating notification emails to the OSG
 """
 import os
+import re
 import sys
 import getpass
 import smtplib
@@ -116,10 +117,9 @@ def parseargs():
     oparser.add_argument("--oim-owner-filter", dest="owner_vo",
                          help="Filter on resources that list VO(s) as a partial owner")
 
-    oparser.add_argument("--oim-contact-type", default="all", dest="contact_type",
-                         choices=["all", "administrative", "miscellaneous", "security", "submitter", "site"],
-                         help="Filter on contact type e.g. administrative, miscellaneous, security, submitter or site"
-                         "(default: all)", )
+    oparser.add_argument("--oim-contact-type", action="append", dest="contact_type",
+                         choices=["all"] + topology_utils.CONTACT_TYPES,
+                         help="Filter on contact type (default: all)")
     oparser.add_argument("--bypass-dns-check", action="store_true", dest="bypass_dns_check",
                          help="Bypass checking that one of the host's IP addresses matches with the hostanme resolution")
     oparser.add_argument("--allow-non-ascii", action="store_true", dest="allow_non_ascii",
@@ -131,6 +131,10 @@ def parseargs():
         oparser.error("--oim-owner-filter and --oim-recipients=vos options are conflicting")
     if args.name_filter and args.fqdn_filter:
         oparser.error("Can't specify both --oim-name-filter and --oim-fqdn-filter")
+
+    if not args.contact_type or ("all" in args.contact_type):
+        args.contact_type = ["all"]
+    args.contact_type = set(args.contact_type)  # remove dupes
 
     if args.from_name == 'security':
         args.from_name = 'OSG Security Team'
@@ -158,7 +162,12 @@ def network_ok(bypass_dns_check):
 
 def replace_smart_quotes_and_dashes(contents):
     # Replace smart quotes and em/en dashes
-    replaced = contents.replace('“','"').replace('”','"').replace("–","-").replace("—","-")
+    regex_sub_map = [(r'[“”]', '"'),
+                     (r'[‘’]', "'"),
+                     (r'[—–]', '-')]
+    replaced = contents
+    for pattern, sub in regex_sub_map:
+        replaced = re.sub(pattern, sub, replaced)
     return replaced
 
 def has_non_printable_ascii_characters(contents):
@@ -181,6 +190,7 @@ def main():
         while attempts > 0:
             try:
                 results = pm.get_vo_contacts(args)
+                break
             except topology_utils.InvalidPathError as exc:
                 print(exc)
                 exit(1)

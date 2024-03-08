@@ -4,7 +4,7 @@ Application File
 import csv
 import flask
 import flask.logging
-from flask import Flask, Response, make_response, request, render_template
+from flask import Flask, Response, make_response, request, render_template, redirect, url_for, session
 from io import StringIO
 import logging
 import os
@@ -12,15 +12,20 @@ import re
 import sys
 import traceback
 import urllib.parse
+import requests
+from wtforms import ValidationError
+from flask_wtf.csrf import CSRFProtect
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, \
+    escape, cache_control_private, PreJSON, is_true
+from webapp.flask_common import create_accepted_response
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
-from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm
+from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
 from webapp.models import GlobalData
 from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
-
+from webapp.github import create_file_pr, update_file_pr, GithubUser, GitHubAuth, GitHubRepoAPI, GithubRequestException, GithubReferenceExistsException, GithubNotFoundException
 
 try:
     import stashcache
@@ -54,26 +59,21 @@ default_authorized = False
 app = Flask(__name__)
 app.config.from_object(default_config)
 app.config.from_pyfile("config.py", silent=True)
+
 if "TOPOLOGY_CONFIG" in os.environ:
     app.config.from_envvar("TOPOLOGY_CONFIG", silent=False)
 _verify_config(app.config)
+
 if "AUTH" in app.config:
     if app.debug:
         default_authorized = app.config["AUTH"]
     else:
         print("ignoring AUTH option when FLASK_ENV != development", file=sys.stderr)
-if not app.config.get("SECRET_KEY"):
-    app.config["SECRET_KEY"] = "this is not very secret"
-### Replace previous with this when we want to add CSRF protection
-#     if app.debug:
-#         app.config["SECRET_KEY"] = "this is not very secret"
-#     else:
-#         raise Exception("SECRET_KEY required when FLASK_ENV != development")
+
 if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
 
 global_data = GlobalData(app.config, strict=app.config.get("STRICT", app.debug))
-
 
 cilogon_pass = readfile(global_data.cilogon_ldap_passfile, app.logger)
 if not cilogon_pass:
@@ -85,11 +85,51 @@ if not ligo_pass:
     app.logger.warning("Note, no LIGO_LDAP_PASSFILE configured; "
                        "LIGO DNs will be unavailable in authfiles.")
 
+github_oauth_client_secret = readfile(global_data.github_oauth_client_secret, app.logger)
+if not github_oauth_client_secret:
+    app.logger.warning("Note, no GITHUB_OAUTH_CLIENT_SECRET configured; "
+                       "Auto PRs will be unavailable.")
+else:
+    app.config['GITHUB_OAUTH_CLIENT_SECRET'] = github_oauth_client_secret.decode()
+
+auto_pr_gh_api_user = readfile(global_data.auto_pr_gh_api_user, app.logger)
+if not auto_pr_gh_api_user:
+    app.logger.warning("Note, no AUTO_PR_GH_API_USER configured; "
+                       "Auto PRs will be unavailable.")
+else:
+    app.config['AUTO_PR_GH_API_USER'] = auto_pr_gh_api_user.decode()
+
+auto_pr_gh_api_token = readfile(global_data.auto_pr_gh_api_token, app.logger)
+if not auto_pr_gh_api_token:
+    app.logger.warning("Note, no AUTO_PR_GH_API_TOKEN configured; "
+                       "Auto PRs will be unavailable.")
+else:
+    app.config['AUTO_PR_GH_API_TOKEN'] = auto_pr_gh_api_token.decode()
+
+csrf_secret_key = readfile(global_data.csrf_secret_key, app.logger)
+if (os.environ.get('TESTING', False) or app.debug) and not csrf_secret_key:
+    app.config["SECRET_KEY"] = "this is not very secret"
+elif not app.debug and not csrf_secret_key:
+    raise Exception("SECRET_KEY required when FLASK_ENV != development")
+else:
+    app.config["SECRET_KEY"] = csrf_secret_key.decode()
+
+csrf = CSRFProtect()
+csrf.init_app(app)
+
 
 def _fix_unicode(text):
     """Convert a partial unicode string to full unicode"""
     return text.encode('utf-8', 'surrogateescape').decode('utf-8')
 
+@app.after_request
+def set_cache_control(response):
+    if response.status_code == 200:
+        # Cache results for 300s
+        response.cache_control.max_age = 300
+        # Serve an expired entry for up to 100s while refreshing in the background
+        response.headers['Cache-Control'] += ', stale-while-revalidate=100'
+    return response
 
 @app.route('/')
 def homepage():
@@ -120,6 +160,7 @@ def schema(xsdfile):
 
 
 @app.route('/miscuser/xml')
+@cache_control_private
 def miscuser_xml():
     return Response(to_xml_bytes(global_data.get_contacts_data().get_tree(_get_authorized())),
                     mimetype='text/xml')
@@ -139,6 +180,14 @@ def nsfscience_csv():
     response.headers.set("Content-Type", "text/csv")
     response.headers.set("Content-Disposition", "attachment", filename="nsfscience.csv")
     return response
+
+@app.route('/institution_ids')
+def institution_ids():
+    institution_ids = global_data.get_mappings().institution_ids
+    if not institution_ids:
+        return Response("Error getting Institution/OSG ID mappings: no mappings returned", status=503)
+
+    return Response(to_json_bytes(PreJSON(institution_ids)), mimetype='application/json')
 
 
 @app.route('/organizations')
@@ -214,15 +263,31 @@ def collaborations_scitoken_text():
 
 
 @app.route('/contacts')
+@cache_control_private
 def contacts():
     try:
         authorized = _get_authorized()
         contacts_data = global_data.get_contacts_data().without_duplicates()
         users_list = contacts_data.get_tree(_get_authorized())["Users"]["User"]
-        return _fix_unicode(render_template('contacts.html.j2', users=users_list, authorized=authorized))
+        return Response(_fix_unicode(render_template('contacts.html.j2', users=users_list, authorized=authorized)))
     except (KeyError, AttributeError):
         app.log_exception(sys.exc_info())
         return Response("Error getting users", status=503)  # well, it's better than crashing
+
+@app.route('/api/institutions')
+def institutions():
+
+    resource_facilities = set(global_data.get_topology().facilities.keys())
+    project_facilities = set(x['Organization'] for x in global_data.get_projects()['Projects']['Project'])
+
+    facilities = project_facilities.union(resource_facilities)
+
+    facility_data = [["Institution Name", "Has Resource(s)", "Has Project(s)"]]
+    for facility in sorted(facilities):
+        facility_data.append([facility, facility in resource_facilities, facility in project_facilities])
+
+    return create_accepted_response(facility_data, request.headers, default="text/csv")
+
 
 
 @app.route('/miscproject/xml')
@@ -234,14 +299,21 @@ def miscproject_xml():
 @support_cors
 def miscproject_json():
     projects = simplify_attr_list(global_data.get_projects()["Projects"]["Project"], namekey="Name", del_name=False)
-    return Response(to_json_bytes(projects), mimetype='text/json')
+    return Response(to_json_bytes(projects), mimetype='application/json')
 
 
 @app.route('/miscsite/json')
 @support_cors
 def miscsite_json():
     sites = {name: site.get_tree() for name, site in global_data.get_topology().sites.items()}
-    return Response(to_json_bytes(sites), mimetype='text/json')
+    return Response(to_json_bytes(sites), mimetype='application/json')
+
+
+@app.route('/miscfacility/json')
+@support_cors
+def miscfacility_json():
+    facilities = {name: facility.get_tree() for name, facility in global_data.get_topology().facilities.items()}
+    return Response(to_json_bytes(facilities), mimetype='application/json')
 
 @app.route('/miscresource/json')
 @support_cors
@@ -338,6 +410,33 @@ def authfile_public():
     return _get_cache_authfile(public_only=True)
 
 
+@app.route("/cache/grid-mapfile")
+@support_cors
+def cache_grid_mapfile():
+    assert stashcache
+    fqdn = request.args.get("fqdn")
+    if not fqdn:
+        return Response("FQDN of cache server required in the 'fqdn' argument", status=400)
+    try:
+        return Response(stashcache.generate_cache_grid_mapfile(global_data, fqdn, suppress_errors=False),
+                        mimetype="text/plain")
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
+                        .format(e),
+                        mimetype="text/plain", status=404)
+    except DataError as e:
+        app.logger.error("{}: {}".format(request.full_path, e))
+        return Response("# Error generating grid-mapfile for this FQDN:\n"
+                        "# {}\n"
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n"
+                        .format(e),
+                        mimetype="text/plain", status=400)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting grid-mapfile, please contact help@osg-htc.org", status=503)
+
+
 @app.route("/origin/Authfile")
 @app.route("/stashcache/origin-authfile")
 def origin_authfile():
@@ -348,6 +447,33 @@ def origin_authfile():
 @app.route("/stashcache/origin-authfile-public")
 def origin_authfile_public():
     return _get_origin_authfile(public_only=True)
+
+
+@app.route("/origin/grid-mapfile")
+@support_cors
+def origin_grid_mapfile():
+    assert stashcache
+    fqdn = request.args.get("fqdn")
+    if not fqdn:
+        return Response("FQDN of origin server required in the 'fqdn' argument", status=400)
+    try:
+        return Response(stashcache.generate_origin_grid_mapfile(global_data, fqdn, suppress_errors=False),
+                        mimetype="text/plain")
+    except ResourceNotRegistered as e:
+        return Response("# {}\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
+                        .format(e),
+                        mimetype="text/plain", status=404)
+    except DataError as e:
+        app.logger.error("{}: {}".format(request.full_path, e))
+        return Response("# Error generating grid-mapfile for this FQDN:\n"
+                        "# {}\n"
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n"
+                        .format(e),
+                        mimetype="text/plain", status=400)
+    except Exception:
+        app.log_exception(sys.exc_info())
+        return Response("Server error getting grid-mapfile, please contact help@osg-htc.org", status=503)
 
 
 @app.route("/stashcache/scitokens")
@@ -368,44 +494,49 @@ def scitokens():
             return Response(origin_scitokens, mimetype="text/plain")
     except ResourceNotRegistered as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating scitokens config for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting scitokens config, please contact help@osg-htc.org", status=503)
 
 
+@app.route("/osdf/namespaces")
 @app.route("/stashcache/namespaces")
 @app.route("/stashcache/namespaces.json")  # for testing; remove before merging
+@support_cors
 def stashcache_namespaces_json():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
+    include_downed = is_true(request.args.get("include_downed", False))
+    include_inactive = is_true(request.args.get("include_inactive", False))
     try:
-        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data)),
+        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data, include_downed, include_inactive)),
                         mimetype='application/json')
     except ResourceNotRegistered as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating namespaces json file: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting namespaces json file, please contact help@opensciencegrid.org",
+        return Response("Server error getting namespaces json file, please contact help@osg-htc.org",
                         status=503)
 
 
 @app.route("/oasis-managers/json")
+@cache_control_private
 def oasis_managers():
     if not _get_authorized():
         return Response("Not authorized", status=403)
@@ -434,17 +565,17 @@ def _get_cache_authfile(public_only):
                                  suppress_errors=False)
     except (ResourceNotRegistered, ResourceMissingService) as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting authfile, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting authfile, please contact help@osg-htc.org", status=503)
     return Response(auth, mimetype="text/plain")
 
 
@@ -458,17 +589,17 @@ def _get_origin_authfile(public_only):
                                                    suppress_errors=False, public_origin=public_only)
     except (ResourceNotRegistered, ResourceMissingService) as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting authfile, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting authfile, please contact help@osg-htc.org", status=503)
     return Response(auth, mimetype="text/plain")
 
 
@@ -486,17 +617,17 @@ def _get_scitoken_file(fqdn, get_scitoken_function):
 
     except ResourceNotRegistered as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating scitokens config for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting scitokens config, please contact help@osg-htc.org", status=503)
 
 
 def _get_cache_scitoken_file():
@@ -688,6 +819,132 @@ def generate_resource_group_downtime():
                        edit_url=edit_url, site_dir_url=site_dir_url,
                        new_url=new_url)
 
+
+@app.route("/generate_project_yaml", methods=["GET", "POST"])
+def generate_project_yaml():
+
+    def render_form(**kwargs):
+        institutions = list(global_data.get_mappings().project_institution.items())
+        session.pop("form_data", None)
+
+        return render_template("generate_project_yaml.html.j2", form=form, infos=form.infos, institutions=institutions, **kwargs)
+
+    def validate_project_name(form, field):
+        project_names = set(x['Name'] for x in global_data.get_projects()['Projects']['Project'])
+        if field.data in project_names:
+            raise ValidationError(f"{field.data} is already registered in OSG Topology. ")
+
+    form = GenerateProjectForm(request.form, **request.args, **session.get("form_data", {}))
+    form.field_of_science.choices = _make_choices(global_data.get_mappings().nsfscience.keys(), select_one=True)
+
+    # Add this validator if it is not their
+    if not len(form.project_name.validators) > 1:
+        form.project_name.validators.append(validate_project_name)
+
+    # If they have returned after logging into Github make the Submission button stand out
+    if "github_login" in session:
+        form.auto_submit.label.text = "Submit Automatically"
+        form.auto_submit.render_kw = {
+            "class": "btn btn-warning"
+        }
+
+    # Report any external errors
+    if "error" in request.args:
+        return render_form(error=request.args['error'])
+
+    # Anything past this point needs a valid form
+    if not form.validate_on_submit():
+        return render_form()
+
+    # If the user has their Github verified
+    if request.method == "POST" and "github_login" in session and "auto_submit" in request.form:
+
+        try:
+            # Gather necessary data
+            create_pr_response = create_file_pr(
+                file_path=f"projects/{request.values['project_name']}.yaml",
+                file_content=form.get_yaml(),
+                branch=f"add-project-{request.values['project_name']}",
+                message=f"Add Project {request.values['project_name']}",
+                committer=GithubUser.from_token(session["github_login"]['access_token']),
+                fork_repo=GitHubAuth(
+                    app.config["AUTO_PR_GH_API_USER"],
+                    app.config["AUTO_PR_GH_API_TOKEN"]
+                ).target_repo(app.config["AUTO_PR_GH_API_USER"], 'topology'),
+                root_repo=GitHubAuth(
+                    app.config["AUTO_PR_GH_API_USER"],
+                    app.config["AUTO_PR_GH_API_TOKEN"]
+                ).target_repo('opensciencegrid', 'topology'),
+            )
+
+            form.clear()
+
+            return render_form(pr_url=create_pr_response['html_url'])
+
+        except GithubReferenceExistsException as error:
+            return render_form(error="A Pull-Request for this project already exists, change Project Name and try again.")
+
+        except GithubRequestException as error:
+            return render_form(error="Unexpected Error: Please submit manually.")
+
+    # Start Github Oauth Flow
+    if request.method == "POST" and "auto_submit" in request.form:
+
+        session['form_data'] = form.as_dict()
+        return redirect(f"/github/login?scope=user:email read:user")
+
+    # Generate the yaml for manual addition
+    if request.method == "POST" and "manual_submit" in request.form:
+
+        form.yaml_output.data = form.get_yaml()
+        return render_form(form_complete=True)
+
+    return render_form()
+
+
+@app.route("/github/login", methods=["GET"])
+def github_login():
+    """Used to login to Github and return to previous location"""
+
+    if "code" in request.args:
+        if request.args['state'] != session.pop("state"):
+            return Response("Github returned incorrect state. Try again or email support@osg-htc.org for support.", 401)
+
+        data = {
+            "code": request.args['code'],
+            "client_id": "2bf9c248a619961eb14a",
+            "client_secret": app.config["GITHUB_OAUTH_CLIENT_SECRET"],
+            "redirect_uri": request.args['redirect_uri']
+        }
+
+        redirect_data = {}
+        try:
+            response = requests.post("https://github.com/login/oauth/access_token", data=data, headers={"Accept": "application/json"})
+            session['github_login'] = response.json()
+
+        except Exception as error:
+            redirect_data['error'] = f"Could not complete exchange with Github for Token: {error}"
+
+        redirect_url = urllib.parse.urlparse(request.args['redirect_uri']).geturl()
+        urlencoded_redirect_data = urllib.parse.urlencode(redirect_data)
+
+        return redirect(f"{redirect_url}?{urlencoded_redirect_data}")
+
+    else:
+        session['state'] = os.urandom(24).hex()
+
+        params = {
+            "client_id": "2bf9c248a619961eb14a",
+            "redirect_uri": f"{request.url_root[:-1]}{url_for('github_login')}?redirect_uri={request.environ.get('HTTP_REFERER')}",
+            "scope": request.args['scope'],
+            "state": session['state']
+        }
+
+        AUTH_URL = "https://github.com/login/oauth/authorize"
+
+        return redirect(f"{AUTH_URL}?{urllib.parse.urlencode(params)}", code=303)
+
+
 def _make_choices(iterable, select_one=False):
     c = [(_fix_unicode(x), _fix_unicode(x)) for x in sorted(iterable)]
     if select_one:
@@ -820,6 +1077,18 @@ def _get_authorized():
 
     # If it gets here, then it is not authorized
     return default_authorized
+
+
+try:
+    from werkzeug.middleware.dispatcher import DispatcherMiddleware
+    from prometheus_client import make_wsgi_app
+    # Enable prometheus integration with the topology webapp
+    app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
+        '/metrics': make_wsgi_app()
+    })
+except ImportError:
+    print("*** /metrics endpoint unavailable: prometheus-client missing",
+          file=sys.stderr)
 
 
 if __name__ == '__main__':

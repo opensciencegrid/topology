@@ -9,3 +9,26 @@
   Severity: Outage
   StartTime: Dec 30, 2017 23:00 +0000
 # ----------------------------------------------------------
+
+- Class: UNSCHEDULED
+  ID: 1699269131
+  Description: Offline on check
+  Severity: Outage
+  StartTime: Jan 10, 2024 20:30 +0000
+  EndTime: Jan 12, 2024 20:30 +0000
+  CreatedTime: Jan 10, 2024 22:48 +0000
+  ResourceName: FZU_STASH
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1722553384
+  Description: Firewall issue
+  Severity: Outage
+  StartTime: Feb 06, 2024 20:30 +0000
+  EndTime: Feb 16, 2024 20:30 +0000
+  CreatedTime: Feb 06, 2024 21:35 +0000
+  ResourceName: FZU_STASH
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------

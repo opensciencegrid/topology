@@ -46,7 +46,7 @@ Resources:
       StorageCapacityMin: 5000
       TapeCapacity: 0
   SWT2_CPB_CE_2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -76,9 +76,9 @@ Resources:
       APELNormalFactor: 10.43
       AccountingName: US-SWT2
       HEPSPEC: 102816
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
       KSI2KMax: 2086
       KSI2KMin: 2086
       StorageCapacityMax: 5000
@@ -202,7 +202,7 @@ Resources:
           Name: Mark Sosebee
     Description: Frontier/CVMFS SLATE based squid service
     FQDN: slate01.atlas-swt2.org
-    ID: 1129
+    ID: 1380
     Services:
       Squid:
         Description: Generic squid service

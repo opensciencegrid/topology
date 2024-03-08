@@ -56,3 +56,26 @@ Resources:
         Description: Generic squid service
         Details:
           Monitored: false
+  LEHIGH-HAWK-OSDF-CACHE:
+    Active: true
+    ID: 1456
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Steve Anthony
+          ID: 645c812a45f16e7877bfd9e8bf76b81a45481a95
+      Security Contact:
+        Primary:
+          Name: Steve Anthony
+          ID: 645c812a45f16e7877bfd9e8bf76b81a45481a95
+        Secondary:
+          Name: James Vincent
+          ID: db7cd4f29b79bdf8ff078a13f51378a67c11af34
+    FQDN: osg-hawk-cache.cc.lehigh.edu
+    Services:
+      XRootD cache server:
+        Description: OSDF cache server
+    AllowedVOs:
+     - ANY_PUBLIC 
+    DN: /CN=osg-hawk-cache.cc.lehigh.edu
+    
