@@ -167,18 +167,21 @@ class TopologyPoolManager(urllib3.PoolManager):
         if args.key:
             key = args.key
 
+        session = {}
         if os.path.exists(cert):
-            self.connection_pool_kw["cert_file"] = cert
+            session["cert_file"] = cert
         else:
             raise InvalidPathError(f"Error: could not find cert at {cert}")
 
         if os.path.exists(key):
-            self.connection_pool_kw["key_file"] = key
+            session["key_file"] = key
         else:
             raise InvalidPathError(f"Error: could not find key at {key}")
 
-        self.connection_pool_kw['cert_reqs'] = 'CERT_REQUIRED'
-        self.connection_pool_kw['key_password'] = getpass("decryption password: ")
+        session['cert_reqs'] = 'CERT_REQUIRED'
+        session['key_password'] = getpass("decryption password: ")
+        super().__dict__.update(**session)
+        return True
 
     def get_vo_map(self,args):
         """
