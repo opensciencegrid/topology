@@ -206,6 +206,7 @@ def main():
                     results = pm.get_resource_contacts_by_fqdn(args)
                 else:
                     results = pm.get_resource_contacts(args)
+                break
             except topology_utils.InvalidPathError as exc:
                 exit(str(exc))
             except topology_utils.IncorrectPasswordError as exc:
