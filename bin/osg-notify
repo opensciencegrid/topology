@@ -22,6 +22,7 @@ if __name__ == "__main__" and __package__ is None:
     sys.path.append(_parent + "/src")
 
 import topology_utils
+from topology_utils import TopologyPoolManager
 import net_name_addr_utils
 
 # Parts of this implementation are from the following StackOverflow answer:
@@ -182,13 +183,13 @@ def has_non_printable_ascii_characters(contents):
 
 def main():
     args = parseargs()
-
+    pm = TopologyPoolManager()
     recipients = set(args.recipients.split())
     if args.oim_recipients and 'vos' in args.oim_recipients:
         attempts = 3
         while attempts > 0:
             try:
-                results = topology_utils.get_vo_contacts(args)
+                results = pm.get_vo_contacts(args)
                 break
             except topology_utils.InvalidPathError as exc:
                 print(exc)
@@ -212,9 +213,9 @@ def main():
         while attempts > 0:
             try:
                 if args.fqdn_filter:
-                    results = topology_utils.get_resource_contacts_by_fqdn(args)
+                    results = pm.get_resource_contacts_by_fqdn(args)
                 else:
-                    results = topology_utils.get_resource_contacts(args)
+                    results = pm.get_resource_contacts(args)
                 break
             except topology_utils.InvalidPathError as exc:
                 exit(str(exc))
