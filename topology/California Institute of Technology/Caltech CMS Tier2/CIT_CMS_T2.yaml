@@ -144,7 +144,7 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-  CIT_CMS_T2_Squid:
+  CIT_CMS_T2_Squid_K8s:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -168,14 +168,15 @@ Resources:
           ID: OSG1000240
           Name: Sravya Uppalapati
     Description: Squid service for frontier and cvmfs
-    FQDN: proxy-1.ultralight.org
-    ID: 688
+    FQDN: k8s-squid-01.ultralight.org
+    ID: 1488
     Services:
       Squid:
         Description: Generic squid service
     VOOwnership:
       CMS: 100
-  CIT_CMS_T2_2_Squid:
+  CIT_CMS_T2_2_Squid_K8s:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -198,8 +199,8 @@ Resources:
           ID: OSG1000240
           Name: Sravya Uppalapati
     Description: Second Squid service for frontier and cvmfs
-    FQDN: proxy-2.ultralight.org
-    ID: 225
+    FQDN: k8s-squid-02.ultralight.org
+    ID: 1489
     Services:
       Squid:
         Description: Generic squid service
@@ -475,6 +476,68 @@ Resources:
 # The following below are non active old resources. Not deleting them - as instructed by OSG Team.
 # All of them are set to Active: false
 # =================================================================================================
+  CIT_CMS_T2_Squid:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Squid service for frontier and cvmfs
+    FQDN: proxy-1.ultralight.org
+    ID: 688
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  CIT_CMS_T2_2_Squid:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Second Squid service for frontier and cvmfs
+    FQDN: proxy-2.ultralight.org
+    ID: 225
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
   CIT_CMS_T2L:
     Active: false
     ContactLists:
