@@ -72,6 +72,7 @@ DataFederations:
           - ANY
       - Path: /knightlab/mirror/ncbi-genbank-refseq
         Authorizations:
+          - PUBLIC
           - SciTokens:
               Issuer: https://t.nationalresearchplatform.org/knightlab
               Base Path: /knightlab/mirror/ncbi-genbank-refseq
