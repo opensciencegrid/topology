@@ -49,16 +49,6 @@ DataFederations:
           - NEBRASKA_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
-      - Path: /ndp/sage
-        Authorizations:
-           - SciTokens:
-              Issuer: https://t.nationalresearchplatform.org/sage
-              Base Path: /ndp/sage
-              Map Subject: False
-        AllowedOrigins:
-          - NEBRASKA_NRP_OSDF_ORIGIN
-        AllowedCaches:
-          - ANY  
       - Path: /ndp/keycloak-testing
         Authorizations:
            - SciTokens:
