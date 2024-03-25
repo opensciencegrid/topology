@@ -181,6 +181,17 @@ DataFederations:
         AllowedCaches:
           - ANY
 
+      - Path: /nrdstor/protected
+        Authorizations:
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org
+              Base Path: /nrdstor/protected
+              Map Subject: True
+        AllowedOrigins:
+          - NEBRASKA_NRP_HCC_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+
       - Path: /osdftest
         Authorizations:
           - PUBLIC
