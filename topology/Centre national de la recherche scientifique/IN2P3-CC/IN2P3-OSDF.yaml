@@ -1,0 +1,27 @@
+Production: true
+SupportCenter: IN2P3-CC
+GroupDescription: IN2P3-CC caching infrastructure
+GroupID: 1368
+
+Resources:
+  IN2P3-CC_OSDF_CACHE:
+    Active: true
+    Description: IN2P3-CC cache
+    ID: 10371
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: grid-admin@cc.in2p3.fr
+          ID:
+      Security Contact:
+        Primary:
+          Name: security@cc.in2p3.fr
+          ID: 
+    DN: /DC=org/DC=terena/DC=tcs/C=FR/ST=Paris/O=Centre national de la recherche scientifique/CN=ccstashcache01.in2p3.fr
+    FQDN: ccstashcacheli01.in2p3.fr
+    Services:
+      XRootD origin server:
+        Description: StashCache cache server for IN2P3-CC
+    AllowedVOs:
+      - LIGO
+      - ANY_PUBLIC
