@@ -1,0 +1,29 @@
+Production: true
+SupportCenter: National Center for Atmospheric Research
+GroupDescription: National Center for Atmospheric Research
+GroupID: 1367
+
+Resources:
+  NCAR_OSDF_ORIGIN:
+    Active: true
+    Description: NCAR
+    ID: 10369
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+        Secondary:
+          ID: OSG1000162
+          Name: Fabio Andrijauskas
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+    DN: /CN=ncar-osdf01.hpc.ucar.edu
+    FQDN: ncar-osdf01.hpc.ucar.edu
+    Services:
+      XRootD origin server:
+        Description: NCAR OSDF Origin
+    AllowedVOs:
+      - ANY
