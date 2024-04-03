@@ -148,6 +148,7 @@ DataFederations:
         AllowedCaches: *ligo-allowed-caches
       - Path: /igwn/ligo
         Authorizations:
+          - DN: /CN=hcc-mon2.unl.edu
           - FQAN: /osg/ligo
           - FQAN: /virgo
           - FQAN: /virgo/virgo
