@@ -184,6 +184,7 @@ DataFederations:
       - Path: /nrdstor/protected
         Authorizations:
           - SciTokens:
+              # Simple public and private key issuer, https://github.com/biozit/t
               Issuer: https://t.nationalresearchplatform.org
               Base Path: /nrdstor/protected
               Map Subject: True
