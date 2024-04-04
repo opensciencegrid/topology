@@ -408,5 +408,7 @@ Resources:
     Services:
       XRootD origin server:
         Description: ITB OSDF Pelican Origin
+        Details:
+          endpoint_override: itb-osdf-pelican-origin.osgdev.chtc.io:8443
     AllowedVOs:
       - GLOW
