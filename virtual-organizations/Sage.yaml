@@ -29,7 +29,7 @@ DataFederations:
       - Path: /sage
         Authorizations:
            - SciTokens:
-              Issuer: https://t.nationalresearchplatform.org/sage
+              Issuer: https://sagecontinuum.org
               Base Path: /sage
               Map Subject: False
            - PUBLIC
