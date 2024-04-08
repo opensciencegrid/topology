@@ -136,10 +136,11 @@ DataFederations:
               Map Subject: True
         AllowedOrigins:
           - CHTC_OSPOOL_ORIGIN
+          - CHTC-ap40
         AllowedCaches:
           - ANY
-        Writeback: https://origin-auth2001.chtc.wisc.edu:1095
-        DirList: https://origin-auth2001.chtc.wisc.edu:1095
+        Writeback: https://ospool-ap2140.chtc.wisc.edu:8443
+        DirList: https://ospool-ap2140.chtc.wisc.edu:8443
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
@@ -252,6 +253,23 @@ DataFederations:
           - ANY
         Writeback: https://ap22.uc.osg-htc.org:1095
         DirList: https://ap22.uc.osg-htc.org:1095
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://osg-htc.org/ospool
+          MaxScopeDepth: 4
+
+      - Path: /ospool/ap40/data
+        Authorizations:
+          - SciTokens:
+              Issuer: https://ap40.uw.osg-htc.org:8443
+              Base Path: /ospool/ap40
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ap40
+        AllowedCaches:
+          - ANY
+        Writeback: https://ap40.uw.osg-htc.org:8443
+        DirList: https://ap40.uw.osg-htc.org:8443
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool

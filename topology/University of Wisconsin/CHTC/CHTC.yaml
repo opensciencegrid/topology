@@ -526,9 +526,15 @@ Resources:
       - ap2007.chtc.wisc.edu 
       - ospool-ap2040.chtc.wisc.edu
       - ap40.chtc.wisc.edu
+      - ospool-2140.chtc.wisc.edu
+    DN: /CN=ospool-ap2140.chtc.wisc.edu
     Services:
       Submit Node:
         Description: OS Pool access point
+        Details:
+          hidden: false
+      XRootD origin server:
+        Description: OSDF Pelican origin
         Details:
           hidden: false
     Tags:
