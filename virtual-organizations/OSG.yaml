@@ -272,7 +272,7 @@ DataFederations:
         DirList: https://ap40.uw.osg-htc.org:8443
         CredentialGeneration:
           Strategy: OAuth2
-          Issuer: https://osg-htc.org/ospool
+          Issuer: https://ap40.uw.osg-htc.org:8443
           MaxScopeDepth: 4
 
       # SciTokens issuer for ap20
