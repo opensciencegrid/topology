@@ -16,6 +16,7 @@ import requests
 # List of contact types stored in Topology data
 # At time of writing, there isn't anything that restricts a contact to one of these types
 CONTACT_TYPES = ["administrative",
+                 "executive",
                  "miscellaneous",
                  "security",
                  "submitter",
