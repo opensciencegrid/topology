@@ -1,0 +1,38 @@
+---
+AppDescription: >
+  National Center for Atmospheric Research
+CertificateOnly: false
+Community: The NCAR VO will support users and experiments from NCAR project.
+Contacts:
+  Administrative Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas
+  Security Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas
+  Sponsors:
+  - ID: c412f5f57dca8fe5c73fb3bc4e86bcf243e9edf7
+    Name: Frank Wuerthwein
+  VO Manager:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - Multi-Science Community
+LongName: National Center for Atmospheric Research
+PrimaryURL: https://ncar.ucar.edu/
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /ncar
+        Authorizations:
+           - SciTokens:
+              Issuer: https://ncar.ucar.edu/
+              Base Path: /ncar
+              Map Subject: False
+           - PUBLIC
+        AllowedOrigins:
+          - NCAR_OSDF_ORIGIN:
+        AllowedCaches:
+          - ANY
