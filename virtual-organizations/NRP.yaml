@@ -24,13 +24,11 @@ FieldsOfScience:
   - Multi-Science Community
 ID: 232
 LongName: National research platform origin
-
 PrimaryURL: https://nationalresearchplatform.org
 PurposeURL: https://nationalresearchplatform.org
 ReportingGroups:
 - nrp
 SupportURL: https://nationalresearchplatform.org
-
 DataFederations:
   StashCache:
     Namespaces:
@@ -63,7 +61,6 @@ DataFederations:
           - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
-
       - Path: /nrp/fdp/
         Authorizations:
           - PUBLIC
@@ -75,7 +72,6 @@ DataFederations:
           - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
-          
       - Path: /knightlab
         Authorizations:
           - PUBLIC
