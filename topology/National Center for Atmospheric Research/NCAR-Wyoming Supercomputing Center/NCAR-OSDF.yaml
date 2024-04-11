@@ -24,5 +24,8 @@ Resources:
     Services:
       XRootD origin server:
         Description: NCAR OSDF Origin
+        Details:
+          endpoint_override: ncar.nationalresearchplatform.org:8443
+          auth_endpoint_override: ncar.nationalresearchplatform.org:8443
     AllowedVOs:
       - ANY
