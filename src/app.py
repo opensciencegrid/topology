@@ -1079,6 +1079,18 @@ def _get_authorized():
     return default_authorized
 
 
+try:
+    from werkzeug.middleware.dispatcher import DispatcherMiddleware
+    from prometheus_client import make_wsgi_app
+    # Enable prometheus integration with the topology webapp
+    app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
+        '/metrics': make_wsgi_app()
+    })
+except ImportError:
+    print("*** /metrics endpoint unavailable: prometheus-client missing",
+          file=sys.stderr)
+
+
 if __name__ == '__main__':
     if "--auth" in sys.argv[1:]:
         default_authorized = True

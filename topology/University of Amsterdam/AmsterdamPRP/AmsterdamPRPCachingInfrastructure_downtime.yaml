@@ -36,8 +36,30 @@
   Description: overloaded
   Severity: Outage
   StartTime: Feb 22, 2024 20:30 +0000
-  EndTime: Feb 29, 2024 20:30 +0000
+  EndTime: Mar 10, 2024 20:30 +0000
   CreatedTime: Feb 22, 2024 18:07 +0000
+  ResourceName: Stashcache-UofA
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1765705637
+  Description: overloaded
+  Severity: Outage
+  StartTime: Mar 27, 2024 19:30 +0000
+  EndTime: Apr 01, 2024 19:30 +0000
+  CreatedTime: Mar 27, 2024 20:16 +0000
+  ResourceName: Stashcache-UofA
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1772663326
+  Description: 'due to power grid maintenance '
+  Severity: Outage
+  StartTime: Apr 29, 2024 14:00 +0000
+  EndTime: May 02, 2024 14:30 +0000
+  CreatedTime: Apr 04, 2024 21:32 +0000
   ResourceName: Stashcache-UofA
   Services:
   - XRootD cache server

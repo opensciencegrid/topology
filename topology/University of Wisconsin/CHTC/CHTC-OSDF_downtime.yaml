@@ -153,3 +153,36 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1743168216
+  Description: testing...
+  Severity: Intermittent Outage
+  StartTime: Mar 01, 2024 18:00 +0000
+  EndTime: Mar 04, 2024 21:00 +0000
+  CreatedTime: Mar 01, 2024 18:13 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1748387171
+  Description: keep this down for a while
+  Severity: Intermittent Outage
+  StartTime: Mar 07, 2024 19:11 +0000
+  EndTime: Apr 09, 2024 19:11 +0000
+  CreatedTime: Mar 07, 2024 19:11 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1775938812
+  Description: sc-cache is still flapping when it gets used
+  Severity: Intermittent Outage
+  StartTime: Apr 08, 2024 16:30 +0000
+  EndTime: May 31, 2024 05:00 +0000
+  CreatedTime: Apr 08, 2024 16:31 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------

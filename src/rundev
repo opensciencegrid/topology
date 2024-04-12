@@ -1,11 +1,11 @@
 #!/bin/bash
 ask_yn () {
-    echo "$@"
-    while read; do
+    echo "$@" >&2
+    while read -r; do
         case $REPLY in
             [Yy]*) return 0;;
             [Nn]*) return 1;;
-            *) echo "Enter yes or no";;
+            *) echo "Enter yes or no" >&2;;
         esac
     done
     return 2  ## EOF
@@ -13,15 +13,18 @@ ask_yn () {
 
 export FLASK_ENV=development
 export FLASK_DEBUG=True
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit 1
 while true; do
     python3 app.py; ret=$?
     if [[ $ret -eq 0 ]]; then
         exit
     elif [[ $ret -eq 130 ]]; then  # control-C
-        exit 130
-    elif [[ $ret -eq 136 ]]; then  # kill -9
-        exit 136
+        if ! ask_yn "Interrupted. Restart (y/n)? "; then
+            exit 130
+        fi
+    elif [[ $ret -eq 137 ]]; then  # kill -9
+        echo >&2 "Killed!"
+        exit 137
     else
         if ! ask_yn "Exited with $ret. Retry (y/n)? "; then
             exit $ret

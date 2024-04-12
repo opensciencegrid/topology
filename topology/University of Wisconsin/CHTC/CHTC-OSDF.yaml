@@ -30,6 +30,9 @@ Resources:
     Services:
       XRootD cache server:
         Description: StashCache cache server
+        Details:
+          endpoint_override: sc-cache.chtc.wisc.edu:8443
+          auth_endpoint_override: sc-cache.chtc.wisc.edu:8443
     VOOwnership:
       GLOW: 100
     AllowedVOs:
@@ -239,6 +242,8 @@ Resources:
     Services:
       XRootD cache server:
         Description: Pelican cache server
+        Details:
+          endpoint_override: osdf-uw-cache.svc.osg-htc.org:8443
     VOOwnership:
       GLOW: 100
     AllowedVOs:
