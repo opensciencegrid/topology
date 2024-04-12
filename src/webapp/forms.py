@@ -1,5 +1,6 @@
 import datetime
 
+import requests
 import yaml
 from flask_wtf import FlaskForm
 from wtforms import SelectField, SelectMultipleField, StringField, \
@@ -344,12 +345,17 @@ class GenerateProjectForm(FlaskForm):
             raise ValidationError(f"Must be valid filename, invalid chars: {','.join(intersection)}")
 
     def get_yaml(self) -> str:
+
+        institution_api_data = requests.get("https://topology-institutions.osg-htc.org/api/institution_ids").json()
+        institution_api_data = {i["name"]: i["id"] for i in institution_api_data}
+
         return yaml.dump({
             "Description": self.description.data,
             "FieldOfScience": self.field_of_science.data,
             "Department": self.pi_department_or_organization.data,
             "Organization": self.pi_institution.data,
-            "PIName": f"{self.pi_first_name.data} {self.pi_last_name.data}"
+            "PIName": f"{self.pi_first_name.data} {self.pi_last_name.data}",
+            "InstitutionID": institution_api_data.get(self.pi_institution.data, "Unknown"),
         })
 
     def as_dict(self):
