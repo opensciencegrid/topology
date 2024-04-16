@@ -13,6 +13,10 @@
               <xsd:element name="Organization" type="xsd:string" />
               <xsd:element minOccurs="0" name="Department" type="xsd:string" />
               <xsd:element name="FieldOfScience" type="xsd:string" />
+              <xsd:element name="FieldOfScienceID" type="xsd:string" />
+              <xsd:element name="DangerousCalculated_BroadFieldOfScience" type="xsd:string" />
+              <xsd:element name="DangerousCalculated_MajorFieldOfScience" type="xsd:string" />
+              <xsd:element name="DangerousCalculated_DetailedFieldOfScience" type="xsd:string" />
               <xsd:element name="Sponsor">
                 <xsd:complexType>
                   <xsd:sequence>
