@@ -55,5 +55,8 @@ Resources:
       XRootD origin server:
         # Description is a brief description of the service
         Description: Nebraska NRP HCC OSDF Origin
+        Details:
+          endpoint_override: nrdstor.nationalresearchplatform.org:8443
+          auth_endpoint_override: nrdstor.nationalresearchplatform.org:8443
     AllowedVOs:
       - ANY
