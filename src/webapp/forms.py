@@ -1,4 +1,5 @@
 import datetime
+from typing import Dict
 
 import requests
 import yaml
@@ -344,10 +345,9 @@ class GenerateProjectForm(FlaskForm):
             intersection = set(field.data).intersection(set('/<>:\"\\|?* '))
             raise ValidationError(f"Must be valid filename, invalid chars: {','.join(intersection)}")
 
-    def get_yaml(self) -> str:
+    def get_yaml(self, institution_api_data: Dict) -> str:
 
-        institution_api_data = requests.get("https://topology-institutions.osg-htc.org/api/institution_ids").json()
-        institution_api_data = {i["name"]: i["id"] for i in institution_api_data}
+        institutions_name_mapped = {i["name"]: i["id"] for i in institution_api_data}
 
         return yaml.dump({
             "Description": self.description.data,
@@ -355,7 +355,7 @@ class GenerateProjectForm(FlaskForm):
             "Department": self.pi_department_or_organization.data,
             "Organization": self.pi_institution.data,
             "PIName": f"{self.pi_first_name.data} {self.pi_last_name.data}",
-            "InstitutionID": institution_api_data.get(self.pi_institution.data, "Unknown"),
+            "InstitutionID": institutions_name_mapped.get(self.pi_institution.data, 'Unknown'),
         })
 
     def as_dict(self):
