@@ -1,19 +1,18 @@
 Department: Psychology
-Description: "In educational assessment, several questions must be answered when constructing\
-  \ a test, such as \u201CHow many items are necessary for adequate knowledge measurement\
-  \ precision?\u201D, \u201CHow many field-test students are needed to adequately\
-  \ calibrate model parameters?\u201D, or \u201CWhich computerized adaptive testing\
-  \ (CAT) algorithm performs best?\u201D For complex non-linear models, these questions\
-  \ are typically approached by simulation: Model parameters are calibrated (as if\
-  \ unknown) from simulated student item responses, or the emergent properties of\
-  \ particular CAT algorithms are investigated with a large number of simulated test\
-  \ takers. Since the design space grows quickly, many simulations are necessary to\
-  \ understand general trends.\n\nMatch-for-OSG:\n\nSimulations throughout the test\
-  \ design space can be run independently, requiring little coordination between cores.\
-  \ Computations generally do not have high memory requirements or unusual library/code\
-  \ dependencies, and computations can be recovered from checkpoints easily. The large\
-  \ number of simulations suggests parallel computing, but the independence allows\
-  \ an asynchronous, distributed environment, such as OSG."
+Description: "In educational assessment, several questions must be answered when constructing
+  a test, such as “How many items are necessary for adequate knowledge measurement
+  precision?”, “How many field-test students are needed to adequately calibrate model
+  parameters?”, or “Which computerized adaptive testing (CAT) algorithm performs best?”
+  For complex non-linear models, these questions are typically approached by simulation:
+  Model parameters are calibrated (as if unknown) from simulated student item responses,
+  or the emergent properties of particular CAT algorithms are investigated with a
+  large number of simulated test takers. Since the design space grows quickly, many
+  simulations are necessary to understand general trends.\n\nMatch-for-OSG:\n\nSimulations
+  throughout the test design space can be run independently, requiring little coordination
+  between cores. Computations generally do not have high memory requirements or unusual
+  library/code dependencies, and computations can be recovered from checkpoints easily.
+  The large number of simulations suggests parallel computing, but the independence
+  allows an asynchronous, distributed environment, such as OSG."
 FieldOfScience: Educational Psychology
 ID: '22'
 Organization: University of Illinois Urbana-Champaign
@@ -21,7 +20,4 @@ PIName: Michael J. Culbertson
 Sponsor:
   CampusGrid:
     Name: OSG Connect
-FieldOfScienceID: "42.2806"
-DangerousCalculated_BroadFieldOfScience: Psychology
-DangerousCalculated_MajorFieldOfScience: Counseling and applied psychology
-DangerousCalculated_DetailedFieldOfScience: Educational psychology
+FieldOfScienceID: '42.2806'

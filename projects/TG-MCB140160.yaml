@@ -1,40 +1,39 @@
 Department: Genetics
-Description: "Description: RNA aptamers are small oligonucleotide molecules (~100\
-  \ nucleotides) whose composition and resulting folded structure enable them to bind\
-  \ with high affinity and high selectivity to specific target ligands and therefore\
-  \ hold great promise as potential therapeutic drugs. The first aptamer to receive\
-  \ FDA approval was pegaptanib (Macugen), which is a treatment for wet age-related\
-  \ macular degeneration, a degenerative disease of the macula of the eye that leads\
-  \ to the loss of central vision. The pegaptanib aptamer acts by binding to and inhibiting\
-  \ the action of an isoform of vascular endothelial growth factor (VEGF), arresting\
-  \ degeneration. Functional aptamers are selected from a large, randomized initial\
-  \ library in a process known as SELEX (systematic evolution of ligands by exponential\
-  \ enrichment). This is an iterative process involving numerous rounds of binding,\
-  \ elution, and amplification against a specific target substrate. During each iteration\
-  \ - or round of selection - we enrich for the species with the highest binding affinity\
-  \ to the target. After multiple rounds, we ideally have an enriched aptamer library\
-  \ suitable for subsequent investigation. Modern techniques employ massively parallel\
-  \ sequencing, enabling the generation of large libraries (~10^{6} sequences) in\
-  \ a matter of hours for each round of selection. As RNA is single-stranded, the\
-  \ covariance model (CM) approach (Eddy, SR, Durbin, R (1994). RNA sequence analysis\
-  \ using covariance models. Nucleic Acids Res., 22, 11:2079-88) are ideal for representing\
-  \ motifs in their secondary structures, allowing us to discover patterns within\
-  \ functional aptamer populations following each round. CMs have been implemented\
-  \ in 'Infernal' (http://infernal.janelia.org)  a program that infers RNA alignments\
-  \ based on RNA sequence and structure. Calibrating a single CM in Infernal however\
-  \ can take several hours and is a significant performance bottleneck for our work.\
-  \ However, as each CM calculation is itself independently determined and requires\
-  \ defined pr!\n ocessing\n and memory resources, their computation in parallel using\
-  \ the Open Science Grid offers a potential solution to this problem. Using part\
-  \ of a Campus Champion award to our institution, we have prototyped such a solution\
-  \ by making use of the Simple API for Grid Applications (SAGA) to interface with\
-  \ OSG and manage job submissions and file transfers. When run in parallel, our results\
-  \ showed a significant speed up, constrained by typical latencies and QoS associated\
-  \ with nominal OSG usage. This prior study demonstrated the feasibility of using\
-  \ SAGA and the OSG to support the parallelization of CM analysis of such large scale\
-  \ sequence based aptamer libraries, and forms the basis of this startup allocation\
-  \ request to further constrain workflow productivity and support the PhD research\
-  \ of Mr. Kevin Shieh."
+Description: "Description: RNA aptamers are small oligonucleotide molecules (~100
+  nucleotides) whose composition and resulting folded structure enable them to bind
+  with high affinity and high selectivity to specific target ligands and therefore
+  hold great promise as potential therapeutic drugs. The first aptamer to receive
+  FDA approval was pegaptanib (Macugen), which is a treatment for wet age-related
+  macular degeneration, a degenerative disease of the macula of the eye that leads
+  to the loss of central vision. The pegaptanib aptamer acts by binding to and inhibiting
+  the action of an isoform of vascular endothelial growth factor (VEGF), arresting
+  degeneration. Functional aptamers are selected from a large, randomized initial
+  library in a process known as SELEX (systematic evolution of ligands by exponential
+  enrichment). This is an iterative process involving numerous rounds of binding,
+  elution, and amplification against a specific target substrate. During each iteration
+  - or round of selection - we enrich for the species with the highest binding affinity
+  to the target. After multiple rounds, we ideally have an enriched aptamer library
+  suitable for subsequent investigation. Modern techniques employ massively parallel
+  sequencing, enabling the generation of large libraries (~10^{6} sequences) in a
+  matter of hours for each round of selection. As RNA is single-stranded, the covariance
+  model (CM) approach (Eddy, SR, Durbin, R (1994). RNA sequence analysis using covariance
+  models. Nucleic Acids Res., 22, 11:2079-88) are ideal for representing motifs in
+  their secondary structures, allowing us to discover patterns within functional aptamer
+  populations following each round. CMs have been implemented in 'Infernal' (http://infernal.janelia.org)\
+  \  a program that infers RNA alignments based on RNA sequence and structure. Calibrating
+  a single CM in Infernal however can take several hours and is a significant performance
+  bottleneck for our work. However, as each CM calculation is itself independently
+  determined and requires defined pr!\n ocessing\n and memory resources, their computation
+  in parallel using the Open Science Grid offers a potential solution to this problem.
+  Using part of a Campus Champion award to our institution, we have prototyped such
+  a solution by making use of the Simple API for Grid Applications (SAGA) to interface
+  with OSG and manage job submissions and file transfers. When run in parallel, our
+  results showed a significant speed up, constrained by typical latencies and QoS
+  associated with nominal OSG usage. This prior study demonstrated the feasibility
+  of using SAGA and the OSG to support the parallelization of CM analysis of such
+  large scale sequence based aptamer libraries, and forms the basis of this startup
+  allocation request to further constrain workflow productivity and support the PhD
+  research of Mr. Kevin Shieh."
 FieldOfScience: Molecular and Structural Biosciences
 ID: '84'
 Organization: Albert Einstein College of Medicine
@@ -42,7 +41,4 @@ PIName: David Rhee
 Sponsor:
   CampusGrid:
     Name: OSG-XSEDE
-FieldOfScienceID: "26"
-DangerousCalculated_BroadFieldOfScience: Biological and biomedical sciences
-DangerousCalculated_MajorFieldOfScience: ~
-DangerousCalculated_DetailedFieldOfScience: ~
+FieldOfScienceID: '26'

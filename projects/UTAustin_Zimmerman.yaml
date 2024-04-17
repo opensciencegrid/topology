@@ -11,17 +11,14 @@ Sponsor:
     Name: OSG Connect
 
 ResourceAllocations:
-  - Type: Other
-    SubmitResources:
-      - CHTC-XD-SUBMIT
+- Type: Other
+  SubmitResources:
+  - CHTC-XD-SUBMIT
       # ^^ for testing
-      - UChicago_OSGConnect_login04
-      - UChicago_OSGConnect_login05
-    ExecuteResourceGroups:
-      - GroupName: TACC-Stampede2
-        LocalAllocationID: "GravSearches"
+  - UChicago_OSGConnect_login04
+  - UChicago_OSGConnect_login05
+  ExecuteResourceGroups:
+  - GroupName: TACC-Stampede2
+    LocalAllocationID: GravSearches
 
-FieldOfScienceID: "40.08"
-DangerousCalculated_BroadFieldOfScience: Physical sciences
-DangerousCalculated_MajorFieldOfScience: Physics
-DangerousCalculated_DetailedFieldOfScience: ~
+FieldOfScienceID: '40.08'

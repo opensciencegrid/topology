@@ -1,26 +1,25 @@
 Department: National Center for Genetic Resources Preservation
-Description: "Missing data and genotyping errors are common features of microsatellite\
-  \ data sets used to infer the genetic structure of natural populations.  We used\
-  \ simulated data to quantify the effect of these data aberrations on the accuracy\
-  \ of population structure inference.  Data sets were simulated under the coalescent\
-  \ and ranged from panmictic to highly subdivided with complex, randomly generated,\
-  \ population histories.  Models describing the characteristic patterns of missing\
-  \ data and genotyping error in real microsatellite data sets were developed, and\
-  \ used to modify the simulated data sets.  Performance of an ordination, a tree\
-  \ based, and a model based Bayesian method of population structure inference was\
-  \ evaluated before and after data set modifications.  The ability to recover correct\
-  \ population clusters decreased as missing data increased.  The rate of decrease\
-  \ was similar among analytical procedures, thus no single analytical approach was\
-  \ preferable when\n faced with incomplete data.  Researchers should expect to retrieve\
-  \ 3\u20134% fewer correct clusters for every 1% of a data matrix made up of missing\
-  \ data using these methods.  For every 1% of a matrix that contained erroneous genotypes,\
-  \ approximately 1\u20132% fewer correct clusters were recovered using ordination\
-  \ and tree based methods.  A Bayesian procedure that minimizes the deviation from\
-  \ Hardy Weinberg equilibrium in order to assign individuals to clusters performed\
-  \ better as genotyping error increased.  We attribute this surprising result to\
-  \ the inbreeding like nature of microsatellite genotyping error, and recommend the\
-  \ use of related analytical methods that explicitly account for inbreeding, as a\
-  \ means to mitigate the effect of genotyping error."
+Description: "Missing data and genotyping errors are common features of microsatellite
+  data sets used to infer the genetic structure of natural populations.  We used simulated
+  data to quantify the effect of these data aberrations on the accuracy of population
+  structure inference.  Data sets were simulated under the coalescent and ranged from
+  panmictic to highly subdivided with complex, randomly generated, population histories.\
+  \  Models describing the characteristic patterns of missing data and genotyping
+  error in real microsatellite data sets were developed, and used to modify the simulated
+  data sets.  Performance of an ordination, a tree based, and a model based Bayesian
+  method of population structure inference was evaluated before and after data set
+  modifications.  The ability to recover correct population clusters decreased as
+  missing data increased.  The rate of decrease was similar among analytical procedures,
+  thus no single analytical approach was preferable when\n faced with incomplete data.\
+  \  Researchers should expect to retrieve 3–4% fewer correct clusters for every 1%
+  of a data matrix made up of missing data using these methods.  For every 1% of a
+  matrix that contained erroneous genotypes, approximately 1–2% fewer correct clusters
+  were recovered using ordination and tree based methods.  A Bayesian procedure that
+  minimizes the deviation from Hardy Weinberg equilibrium in order to assign individuals
+  to clusters performed better as genotyping error increased.  We attribute this surprising
+  result to the inbreeding like nature of microsatellite genotyping error, and recommend
+  the use of related analytical methods that explicitly account for inbreeding, as
+  a means to mitigate the effect of genotyping error."
 FieldOfScience: Molecular and Structural Biosciences
 ID: '125'
 Organization: USDA Agricultural Research Service
@@ -28,7 +27,4 @@ PIName: Christopher Richards
 Sponsor:
   CampusGrid:
     Name: OSG Connect
-FieldOfScienceID: "26"
-DangerousCalculated_BroadFieldOfScience: Biological and biomedical sciences
-DangerousCalculated_MajorFieldOfScience: ~
-DangerousCalculated_DetailedFieldOfScience: ~
+FieldOfScienceID: '26'

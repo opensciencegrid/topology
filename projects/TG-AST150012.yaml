@@ -1,47 +1,46 @@
 Department: Unknown
-Description: "We request a startup allocation to support development on two related\
-  \ projects.  The main idea is to use three dimensional simulations to constrain\
-  \ the histories of observed galaxies. The majority of work (1) during the initial\
-  \ periods of this startup will be for Graduate Student S. Alireza Mortazavi to shift\
-  \ an existing Condor-based pipeline at the Space Telescope Science Institute (STScI)\
-  \ to the Open Science Grid in order to test and plan for an ambitious expansion\
-  \ of his research program to constrain the dynamical histories of galaxies (Mortazavi\
-  \ et al. 2015). PI Snyder will also begin to develop pipelines to exploit large-scale\
-  \ cosmological hydrodynamical simulations (2), which predict the evolution of entire\
-  \ populations of galaxies in representative model universes, requiring data-intensive\
-  \ computing.  \n\n1.  Modeling the Initial Conditions of Interacting Galaxy Pairs\
-  \ Using Identikit\n\nWe use the Identikit software (Barnes & Hibbard 2009, Barnes\
-  \ 2011; http://www.ifa.hawaii.edu/~barnes/research/identikit/ ) to model the dynamics\
-  \ of interacting galaxy pairs. By measuring the initial conditions of galaxy mergers,\
-  \ we can constrain both cosmology and galaxy astrophysics. A galactic encounter\
-  \ has several free parameters and it is time consuming to find the best match between\
-  \ model and data. However, Identikit combines multiple techniques to quickly explore\
-  \ parameter space to find the simulation most similar to the observed shape and\
-  \ constituent velocities. We have developed an automated pipeline based on the latest\
-  \ version of Identikit to scan parameter space and find robust matches and associated\
-  \ uncertainties (Mortazavi et al. 2015), implemented in an STScI-based Condor environment.\
-  \ We will continue to test our method against simulations of galaxy mergers to determine\
-  \ the systematic errors in our measurements. In addition, we will apply it to real\
-  \ data: We have observed a sample of ~30 interacting galaxy pairs using different\
-  \ telescopes. We have reached the limits of the HTCondor cluster at STScI, and therefore\
-  \ we seek to test the options available through XSEDE. We need around 50,000 SUs\
-  \ to compute matches and uncertainties of the measurements for each merging pair\
-  \ (observed or simulated), and so we are requesting a startup allocation of 150,000\
-  \ SUs to perform tests while planning for a larger research allocation.  This research\
-  \ will have direct applications for interpreting data from the Sloan Digital Sky\
-  \ Survey-IV survey \"Mapping Nearby Galaxies at APO\" (MaNGA).\n\n2.  Mock data\
-  \ applications from large hydrodynamical simulations\n\nPI Snyder will develop methods\
-  \ for converting large cosmological simulations of galaxy formation (e.g., the Illustris\
-  \ Project www.illustris-project.org) into direct predictions for astronomical observatories.\
-  \  With XSEDE resources, I will seek to expand our Mock Galaxy Observatory efforts\
-  \ in new and ambitious directions, such as creating synthetic survey fields and\
-  \ advanced spectroscopic data products.  For instance, we will explore the possibility\
-  \ of using large cosmological simulations as benchmarks for the Identikit modeling\
-  \ described in project 1.  For testing, we are requesting 50,000 SUs on Gordon,\
-  \ and Data Oasis storage of 5000GB, enough to store two Illustris Simulation (or\
-  \ similar) outputs plus post-processed data products.  In future allocation requests,\
-  \ we may seek to make these model archives available to the community through an\
-  \ XSEDE Gateway."
+Description: "We request a startup allocation to support development on two related
+  projects.  The main idea is to use three dimensional simulations to constrain the
+  histories of observed galaxies. The majority of work (1) during the initial periods
+  of this startup will be for Graduate Student S. Alireza Mortazavi to shift an existing
+  Condor-based pipeline at the Space Telescope Science Institute (STScI) to the Open
+  Science Grid in order to test and plan for an ambitious expansion of his research
+  program to constrain the dynamical histories of galaxies (Mortazavi et al. 2015).
+  PI Snyder will also begin to develop pipelines to exploit large-scale cosmological
+  hydrodynamical simulations (2), which predict the evolution of entire populations
+  of galaxies in representative model universes, requiring data-intensive computing.\
+  \  \n\n1.  Modeling the Initial Conditions of Interacting Galaxy Pairs Using Identikit\n
+  \nWe use the Identikit software (Barnes & Hibbard 2009, Barnes 2011; http://www.ifa.hawaii.edu/~barnes/research/identikit/
+  ) to model the dynamics of interacting galaxy pairs. By measuring the initial conditions
+  of galaxy mergers, we can constrain both cosmology and galaxy astrophysics. A galactic
+  encounter has several free parameters and it is time consuming to find the best
+  match between model and data. However, Identikit combines multiple techniques to
+  quickly explore parameter space to find the simulation most similar to the observed
+  shape and constituent velocities. We have developed an automated pipeline based
+  on the latest version of Identikit to scan parameter space and find robust matches
+  and associated uncertainties (Mortazavi et al. 2015), implemented in an STScI-based
+  Condor environment. We will continue to test our method against simulations of galaxy
+  mergers to determine the systematic errors in our measurements. In addition, we
+  will apply it to real data: We have observed a sample of ~30 interacting galaxy
+  pairs using different telescopes. We have reached the limits of the HTCondor cluster
+  at STScI, and therefore we seek to test the options available through XSEDE. We
+  need around 50,000 SUs to compute matches and uncertainties of the measurements
+  for each merging pair (observed or simulated), and so we are requesting a startup
+  allocation of 150,000 SUs to perform tests while planning for a larger research
+  allocation.  This research will have direct applications for interpreting data from
+  the Sloan Digital Sky Survey-IV survey \"Mapping Nearby Galaxies at APO\" (MaNGA).\n\
+  \n2.  Mock data applications from large hydrodynamical simulations\n\nPI Snyder
+  will develop methods for converting large cosmological simulations of galaxy formation
+  (e.g., the Illustris Project www.illustris-project.org) into direct predictions
+  for astronomical observatories.  With XSEDE resources, I will seek to expand our
+  Mock Galaxy Observatory efforts in new and ambitious directions, such as creating
+  synthetic survey fields and advanced spectroscopic data products.  For instance,
+  we will explore the possibility of using large cosmological simulations as benchmarks
+  for the Identikit modeling described in project 1.  For testing, we are requesting
+  50,000 SUs on Gordon, and Data Oasis storage of 5000GB, enough to store two Illustris
+  Simulation (or similar) outputs plus post-processed data products.  In future allocation
+  requests, we may seek to make these model archives available to the community through
+  an XSEDE Gateway."
 FieldOfScience: Mathematical Sciences
 ID: '152'
 Organization: Space Telescope Science Institute
@@ -49,7 +48,4 @@ PIName: Gregory Snyder
 Sponsor:
   CampusGrid:
     Name: OSG-XSEDE
-FieldOfScienceID: "27"
-DangerousCalculated_BroadFieldOfScience: Mathematics and statistics
-DangerousCalculated_MajorFieldOfScience: ~
-DangerousCalculated_DetailedFieldOfScience: ~
+FieldOfScienceID: '27'

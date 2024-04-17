@@ -1,27 +1,26 @@
 Department: Physics
-Description: "The IceCube Neutrino Observatory is responsible for providing the IceCube\
-  \ collaboration with Monte Carlo data including cosmic-ray shower simulations and\
-  \ simulation of the IceCube detector response. These simulations are used for studying\
-  \ the systematics of our detector and performance of future geometries. In addition,\
-  \ a large volume of background cosmic ray simulation is needed in order to optimize\
-  \ data analyses.\nA key component of simulating the IceCube detector is the correct\
-  \ modeling of the optical properties of the Antarctic ice which requires a lot of\
-  \ computation and has been adapted to run on GPUs.  \n\nThe IceProd framework is\
-  \ a software package developed for IceCube with the goal of managing productions\
-  \ across distributed systems and pooling together isolated computing resources that\
-  \ are scattered throughout the Collaboration. It consists of a central database\
-  \ hosted at University of Wisconsin-Madison and a set of daemons that are responsible\
-  \ for management of grid jobs as and data handling through the use of existing grid\
-  \ technology and network protocols. The IceCube Monte Carlo production is configured\
-  \ as a distributed workflow DAG that utilizes both CPU and GPU resources for various\
-  \ portions of the simulation chain. The intent is to utilize the Keeneland cluster\
-  \ in Georgia Tech to run GPU tasks and OSG for general CPU tasks through XSEDE.\
-  \ Intermediate files can be stored on a GridFTP server and are typically kept until\
-  \ the individual DAG completes.  For a large production run, a typical storage requirement\
-  \ might be on the order of 5 TB.\nThe IceCube collaboration would like to request\
-  \ an initial allocation of 100,000 SU\u2019s. This allocation will be used to produce\
-  \ and reconstruct Monte Carlo simulations for the IC86 in-ice detectors as well\
-  \ as the IT81 surface detector."
+Description: "The IceCube Neutrino Observatory is responsible for providing the IceCube
+  collaboration with Monte Carlo data including cosmic-ray shower simulations and
+  simulation of the IceCube detector response. These simulations are used for studying
+  the systematics of our detector and performance of future geometries. In addition,
+  a large volume of background cosmic ray simulation is needed in order to optimize
+  data analyses.\nA key component of simulating the IceCube detector is the correct
+  modeling of the optical properties of the Antarctic ice which requires a lot of
+  computation and has been adapted to run on GPUs.  \n\nThe IceProd framework is a
+  software package developed for IceCube with the goal of managing productions across
+  distributed systems and pooling together isolated computing resources that are scattered
+  throughout the Collaboration. It consists of a central database hosted at University
+  of Wisconsin-Madison and a set of daemons that are responsible for management of
+  grid jobs as and data handling through the use of existing grid technology and network
+  protocols. The IceCube Monte Carlo production is configured as a distributed workflow
+  DAG that utilizes both CPU and GPU resources for various portions of the simulation
+  chain. The intent is to utilize the Keeneland cluster in Georgia Tech to run GPU
+  tasks and OSG for general CPU tasks through XSEDE. Intermediate files can be stored
+  on a GridFTP server and are typically kept until the individual DAG completes. \
+  \ For a large production run, a typical storage requirement might be on the order
+  of 5 TB.\nThe IceCube collaboration would like to request an initial allocation
+  of 100,000 SU’s. This allocation will be used to produce and reconstruct Monte Carlo
+  simulations for the IC86 in-ice detectors as well as the IT81 surface detector."
 FieldOfScience: High Energy Physics
 ID: '154'
 Organization: University of Wisconsin-Madison
@@ -29,7 +28,4 @@ PIName: Francis  Halzen
 Sponsor:
   CampusGrid:
     Name: OSG-XSEDE
-FieldOfScienceID: "40.08"
-DangerousCalculated_BroadFieldOfScience: Physical sciences
-DangerousCalculated_MajorFieldOfScience: Physics
-DangerousCalculated_DetailedFieldOfScience: ~
+FieldOfScienceID: '40.08'

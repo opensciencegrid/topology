@@ -23,14 +23,11 @@ Sponsor:
     Name: OSG Connect
 
 ResourceAllocations:
-  - Type: XRAC
-    SubmitResources:
-      - UChicago_OSGConnect_login05
-    ExecuteResourceGroups:
-      - GroupName: SDSC-Expanse
-        LocalAllocationID: "chi135"
+- Type: XRAC
+  SubmitResources:
+  - UChicago_OSGConnect_login05
+  ExecuteResourceGroups:
+  - GroupName: SDSC-Expanse
+    LocalAllocationID: chi135
 
-FieldOfScienceID: "40.0202"
-DangerousCalculated_BroadFieldOfScience: Physical sciences
-DangerousCalculated_MajorFieldOfScience: Astronomy and astrophysics
-DangerousCalculated_DetailedFieldOfScience: Astrophysics
+FieldOfScienceID: '40.0202'

@@ -1,42 +1,40 @@
 Department: Physics and Astronomy
-Description: "The genome of many viruses is represented by a long single-stranded\
-  \ ribonucleic acid (RNA)  molecule that appears to fold into a highly compact organized\
-  \ structure inside the viral shell. Such structure contains a variety of topological\
-  \ motifs, such as hairpins, bulges, multi-loops, and notably RNA pseudoknots.  RNA\
-  \ pseudoknots play an important role also in natural RNAs for structural, regulatory\
-  \ and catalytic functions in various biological processes. In particular, it has\
-  \ been recently recognized an interesting interplay between the shape, structure\
-  \ and assembly of icosahedral viral capsids, and the compact RNA packaging topology.\
-  \  The topology of RNA pseudoknots can be effectively studied by using Random Matrix\
-  \ Theory (RMT), by exploiting a correspondence between a graphical representation\
-  \ of RNA structures with pseudoknots and Feynman diagrams of a particular field\
-  \ theory of large random matrices. The theoretical framework of RMT provides a natural\
-  \ analytic tool for the prediction and classification of pseudoknots, since all\
-  \ Feynman diagrams can be organized in a mathematical series, called topological\
-  \ expansion. The PI is interested in studying numerically some recent matrix models\
-  \ based on RMT to describe the structure of viral RNA encapsidated in a viral icosahedral\
-  \ shell.  The PI has long experience in the application of RMT to the study of RNA\
-  \ pseudoknots with RMT, as well as on the simulation of the geometry and shapes\
-  \ of icosahedral shells.  \nThe simulations the PI intends to perform on XSEDE are\
-  \ Monte Carlo runs of large stochastic matrices, since the matrix model is naturally\
-  \ formulated as zero-dimensional SU(N) field theory  of  Hermitian matrices.  The\
-  \ number of matrices L is equal to number of nucleotides of the RNA molecules, which\
-  \ in viral RNAs can be of the order of L~10^3.  Past preliminary studies showed\
-  \ that the size N of the matrices should be sufficiently large to appreciate topological\
-  \ corrections of the order 1/N^2 and 1/N^4 (at least), which implies the simulation\
-  \ of Hermitian random matrices of order N~24 or N~32. Since the number of degrees\
-  \ of freedom for each matrix is N^2~1024, the configuration space has L*N^2~ 10^6\
-  \ degrees of freedom. While matrix multiplication can benefit of parallel computing\
-  \ capabilities, the need of performing Monte Carlo simulations orients the PI to\
-  \ request High Throughput Computing resources for this initial XSEDE Startup application.\
-  \ Such initial experience will provide the PI a baseline to evaluate the possibility\
-  \ to steer future versions of the code towards HPC capabilities, including GPU or\
-  \ CPU-GPU clusters. Current local computational capabilities are sufficient for\
-  \ developing the codes and running toy-model simulations (N~4), but do not satisfy\
-  \ the PI\u2019s needs for research purposes of large realistic systems. Therefore,\
-  \ XSEDE startup resources are requested to test larger systems, optimize the code\
-  \ and explore code\u2019s scalability, as well as familiarize with the XSEDE platform.\n\
-  (1 row)"
+Description: "The genome of many viruses is represented by a long single-stranded
+  ribonucleic acid (RNA)  molecule that appears to fold into a highly compact organized
+  structure inside the viral shell. Such structure contains a variety of topological
+  motifs, such as hairpins, bulges, multi-loops, and notably RNA pseudoknots.  RNA
+  pseudoknots play an important role also in natural RNAs for structural, regulatory
+  and catalytic functions in various biological processes. In particular, it has been
+  recently recognized an interesting interplay between the shape, structure and assembly
+  of icosahedral viral capsids, and the compact RNA packaging topology.  The topology
+  of RNA pseudoknots can be effectively studied by using Random Matrix Theory (RMT),
+  by exploiting a correspondence between a graphical representation of RNA structures
+  with pseudoknots and Feynman diagrams of a particular field theory of large random
+  matrices. The theoretical framework of RMT provides a natural analytic tool for
+  the prediction and classification of pseudoknots, since all Feynman diagrams can
+  be organized in a mathematical series, called topological expansion. The PI is interested
+  in studying numerically some recent matrix models based on RMT to describe the structure
+  of viral RNA encapsidated in a viral icosahedral shell.  The PI has long experience
+  in the application of RMT to the study of RNA pseudoknots with RMT, as well as on
+  the simulation of the geometry and shapes of icosahedral shells.  \nThe simulations
+  the PI intends to perform on XSEDE are Monte Carlo runs of large stochastic matrices,
+  since the matrix model is naturally formulated as zero-dimensional SU(N) field theory\
+  \  of  Hermitian matrices.  The number of matrices L is equal to number of nucleotides
+  of the RNA molecules, which in viral RNAs can be of the order of L~10^3.  Past preliminary
+  studies showed that the size N of the matrices should be sufficiently large to appreciate
+  topological corrections of the order 1/N^2 and 1/N^4 (at least), which implies the
+  simulation of Hermitian random matrices of order N~24 or N~32. Since the number
+  of degrees of freedom for each matrix is N^2~1024, the configuration space has L*N^2~
+  10^6 degrees of freedom. While matrix multiplication can benefit of parallel computing
+  capabilities, the need of performing Monte Carlo simulations orients the PI to request
+  High Throughput Computing resources for this initial XSEDE Startup application.
+  Such initial experience will provide the PI a baseline to evaluate the possibility
+  to steer future versions of the code towards HPC capabilities, including GPU or
+  CPU-GPU clusters. Current local computational capabilities are sufficient for developing
+  the codes and running toy-model simulations (N~4), but do not satisfy the PI’s needs
+  for research purposes of large realistic systems. Therefore, XSEDE startup resources
+  are requested to test larger systems, optimize the code and explore code’s scalability,
+  as well as familiarize with the XSEDE platform.\n(1 row)"
 FieldOfScience: Molecular and Structural Biosciences
 ID: '162'
 Organization: Siena College
@@ -44,7 +42,4 @@ PIName: Graziano   Vernizzi
 Sponsor:
   CampusGrid:
     Name: OSG-XSEDE
-FieldOfScienceID: "26"
-DangerousCalculated_BroadFieldOfScience: Biological and biomedical sciences
-DangerousCalculated_MajorFieldOfScience: ~
-DangerousCalculated_DetailedFieldOfScience: ~
+FieldOfScienceID: '26'

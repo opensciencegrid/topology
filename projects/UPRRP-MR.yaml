@@ -1,15 +1,15 @@
 Department: Physics / Biology
-Description: "In this collaborative project between bioinformatics and physics we\
-  \ use molecular evolution simulations to evolve a population of proteins. We look\
-  \ for the emergence of mutational robustness of proteins in the population. This\
-  \ quantity measures how resistant they are to the deleterious effects of mutations.\
-  \ Previous results from Dr. Massey's group suggest that mutational robustness increases\
-  \ and eventually converges over time. This appears to be an emergent property of\
-  \ proteins. It has profound evolutionary implications. \n\nThe protein structures\
-  \ are obtained from the Protein Data Bank. Non-robust sequences are threaded onto\
-  \ the structure and are subjected to random mutations. The resulting sequences are\
-  \ selected for their free energy of folding. Once the sequences are generated the\
-  \ mutational robustness is calculated in parallel (through Condor)."
+Description: "In this collaborative project between bioinformatics and physics we
+  use molecular evolution simulations to evolve a population of proteins. We look
+  for the emergence of mutational robustness of proteins in the population. This quantity
+  measures how resistant they are to the deleterious effects of mutations. Previous
+  results from Dr. Massey's group suggest that mutational robustness increases and
+  eventually converges over time. This appears to be an emergent property of proteins.
+  It has profound evolutionary implications. \n\nThe protein structures are obtained
+  from the Protein Data Bank. Non-robust sequences are threaded onto the structure
+  and are subjected to random mutations. The resulting sequences are selected for
+  their free energy of folding. Once the sequences are generated the mutational robustness
+  is calculated in parallel (through Condor)."
 FieldOfScience: Bioinformatics
 ID: '42'
 Organization: Universidad de Puerto Rico, Rio Piedras Campus (UPRRP)
@@ -17,7 +17,4 @@ PIName: Steven Massey
 Sponsor:
   VirtualOrganization:
     Name: OSG
-FieldOfScienceID: "26.1103"
-DangerousCalculated_BroadFieldOfScience: Biological and biomedical sciences
-DangerousCalculated_MajorFieldOfScience: Bioinformatics, biostatistics, and computational biology
-DangerousCalculated_DetailedFieldOfScience: Bioinformatics
+FieldOfScienceID: '26.1103'
