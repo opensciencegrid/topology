@@ -17,7 +17,8 @@ from wtforms import ValidationError
 from flask_wtf.csrf import CSRFProtect
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape, cache_control_private
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, \
+    escape, cache_control_private, PreJSON, is_true
 from webapp.flask_common import create_accepted_response
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
@@ -179,6 +180,14 @@ def nsfscience_csv():
     response.headers.set("Content-Type", "text/csv")
     response.headers.set("Content-Disposition", "attachment", filename="nsfscience.csv")
     return response
+
+@app.route('/institution_ids')
+def institution_ids():
+    institution_ids = global_data.get_mappings().institution_ids
+    if not institution_ids:
+        return Response("Error getting Institution/OSG ID mappings: no mappings returned", status=503)
+
+    return Response(to_json_bytes(PreJSON(institution_ids)), mimetype='application/json')
 
 
 @app.route('/organizations')
@@ -505,8 +514,10 @@ def scitokens():
 def stashcache_namespaces_json():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
+    include_downed = is_true(request.args.get("include_downed", False))
+    include_inactive = is_true(request.args.get("include_inactive", False))
     try:
-        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data)),
+        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data, include_downed, include_inactive)),
                         mimetype='application/json')
     except ResourceNotRegistered as e:
         return Response("# {}\n"
@@ -1066,6 +1077,18 @@ def _get_authorized():
 
     # If it gets here, then it is not authorized
     return default_authorized
+
+
+try:
+    from werkzeug.middleware.dispatcher import DispatcherMiddleware
+    from prometheus_client import make_wsgi_app
+    # Enable prometheus integration with the topology webapp
+    app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
+        '/metrics': make_wsgi_app()
+    })
+except ImportError:
+    print("*** /metrics endpoint unavailable: prometheus-client missing",
+          file=sys.stderr)
 
 
 if __name__ == '__main__':

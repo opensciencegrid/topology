@@ -20,7 +20,7 @@ os.environ['TESTING'] = "True"
 from app import app, global_data
 from webapp import models, topology, vos_data
 from webapp.common import load_yaml_file
-from webapp.data_federation import CredentialGeneration
+from webapp.data_federation import CredentialGeneration, StashCache
 import stashcache
 
 HOST_PORT_RE = re.compile(r"[a-zA-Z0-9.-]{3,63}:[0-9]{2,5}")
@@ -33,6 +33,8 @@ I2_TEST_CACHE = "osg-sunnyvale-stashcache.nrp.internet2.edu"
 # ^^ one of the Internet2 caches; these serve both public and LIGO data
 # fake origins in our test data:
 TEST_ITB_HELM_ORIGIN = "helm-origin.osgdev.test.io"
+TEST_ITB_HELM_CACHE1_RESOURCE = "TEST-ITB-HELM-CACHE1-inactive"
+TEST_ITB_HELM_CACHE2_RESOURCE = "TEST-ITB-HELM-CACHE2-down"
 TEST_SC_ORIGIN = "sc-origin.test.wisc.edu"
 TEST_ORIGIN_AUTH2000 = "origin-auth2000.test.wisc.edu"
 TEST_ISSUER = "https://test.wisc.edu"
@@ -66,6 +68,9 @@ def test_global_data() -> models.GlobalData:
     testrg = load_yaml_file(topdir + "/tests/data/testrg.yaml")
     topo.add_rg("University of Wisconsin", "CHTC", "testrg", testrg)
 
+    testrg_downtime = load_yaml_file(topdir + "/tests/data/testrg_downtime.yaml")
+    topo.add_downtime("CHTC", "testrg", testrg_downtime)
+
     # Put it back into global_data2 and make sure it doesn't get overwritten by future calls
     new_global_data.topology.data = topo
     new_global_data.topology.next_update = time.time() + 999999
@@ -86,6 +91,12 @@ def test_global_data() -> models.GlobalData:
 
 
 @pytest.fixture
+def ligo_stashcache():
+    vos_data = global_data.get_vos_data()
+    return vos_data.stashcache_by_vo_name["LIGO"]
+
+
+@pytest.fixture
 def client():
     with app.test_client() as client:
         yield client
@@ -93,19 +104,29 @@ def client():
 
 class TestStashcache:
 
-    def test_allowedVO_includes_ANY_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
+    def test_allowedVO_includes_ANY_for_ligo_inclusion(self,
+                                                       client: flask.Flask,
+                                                       mocker: MockerFixture,
+                                                       ligo_stashcache: StashCache):
+        num_auth_namespaces = len([ns for ns in ligo_stashcache.namespaces.values() if not ns.is_public()])
+
         spy = mocker.spy(global_data, "get_ligo_dn_list")
 
         stashcache.generate_cache_authfile(global_data, "osg-sunnyvale-stashcache.nrp.internet2.edu")
 
-        assert spy.call_count == 5
+        assert spy.call_count == num_auth_namespaces
 
-    def test_allowedVO_includes_LIGO_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
+    def test_allowedVO_includes_LIGO_for_ligo_inclusion(self,
+                                                        client: flask.Flask,
+                                                        mocker: MockerFixture,
+                                                        ligo_stashcache: StashCache):
+        num_auth_namespaces = len([ns for ns in ligo_stashcache.namespaces.values() if not ns.is_public()])
+
         spy = mocker.spy(global_data, "get_ligo_dn_list")
 
         stashcache.generate_cache_authfile(global_data, "stashcache.gwave.ics.psu.edu")
 
-        assert spy.call_count == 5
+        assert spy.call_count == num_auth_namespaces
 
     def test_allowedVO_excludes_LIGO_and_ANY_for_ligo_inclusion(self, client: flask.Flask, mocker: MockerFixture):
         spy = mocker.spy(global_data, "get_ligo_dn_list")
@@ -236,6 +257,23 @@ class TestNamespaces:
         assert "namespaces" in namespaces_json
         return namespaces_json["namespaces"]
 
+    @pytest.fixture
+    def caches(self, namespaces_json) -> List[Dict]:
+        assert "caches" in namespaces_json
+        return namespaces_json["caches"]
+
+    @pytest.fixture
+    def caches_include_inactive(self, test_global_data) -> List[Dict]:
+        namespaces_json = stashcache.get_namespaces_info(test_global_data, include_inactive=True)
+        assert "caches" in namespaces_json
+        return namespaces_json["caches"]
+
+    @pytest.fixture
+    def caches_include_downed(self, test_global_data) -> List[Dict]:
+        namespaces_json = stashcache.get_namespaces_info(test_global_data, include_downed=True)
+        assert "caches" in namespaces_json
+        return namespaces_json["caches"]
+
     @staticmethod
     def validate_cache_schema(cc):
         assert HOST_PORT_RE.match(cc["auth_endpoint"])
@@ -264,9 +302,7 @@ class TestNamespaces:
             if credgen["base_path"]:
                 assert isinstance(credgen["base_path"], str)
 
-    def test_caches(self, namespaces_json):
-        assert "caches" in namespaces_json
-        caches = namespaces_json["caches"]
+    def test_caches(self, caches):
         # Have a reasonable number of caches
         assert len(caches) > 20
         for cache in caches:
@@ -346,6 +382,22 @@ class TestNamespaces:
         assert sci["issuer"] == TEST_ISSUER
         assert sci["base_path"] == [TEST_BASEPATH]
         assert sci["restricted_path"] == []
+
+    def test_caches_include_inactive_param(self, caches, caches_include_inactive):
+        assert TEST_ITB_HELM_CACHE1_RESOURCE not in (
+            x["resource"] for x in caches
+        ), "Inactive cache wrongly present in namespaces JSON without ?include_inactive=1"
+        assert TEST_ITB_HELM_CACHE1_RESOURCE in (
+            x["resource"] for x in caches_include_inactive
+        ), "Inactive cache missing from namespaces JSON with ?include_inactive=1"
+
+    def test_caches_include_downed_param(self, caches, caches_include_downed):
+        assert TEST_ITB_HELM_CACHE2_RESOURCE not in (
+            x["resource"] for x in caches
+        ), "Downed cache wrongly present in namespaces JSON without ?include_downed=1"
+        assert TEST_ITB_HELM_CACHE2_RESOURCE in (
+            x["resource"] for x in caches_include_downed
+        ), "Downed cache missing from namespaces JSON with ?include_downed=1"
 
 
 if __name__ == '__main__':

@@ -904,3 +904,58 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1706760791
+  Description: Deployment of the new data transfer nodes (DTNs) and network upgrade
+  Severity: Outage
+  StartTime: Feb 01, 2024 14:00 +0000
+  EndTime: Feb 02, 2024 22:00 +0000
+  CreatedTime: Jan 19, 2024 14:54 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1706762226
+  Description: Deployment of the new data transfer nodes (DTNs) and network upgrade
+  Severity: Outage
+  StartTime: Feb 01, 2024 14:00 +0000
+  EndTime: Feb 02, 2024 22:00 +0000
+  CreatedTime: Jan 19, 2024 14:57 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1706762729
+  Description: Deployment of the new data transfer nodes (DTNs) and network upgrade
+  Severity: Outage
+  StartTime: Feb 01, 2024 14:00 +0000
+  EndTime: Feb 02, 2024 22:00 +0000
+  CreatedTime: Jan 19, 2024 14:57 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1706762981
+  Description: Deployment of the new data transfer nodes (DTNs) and network upgrade
+  Severity: Outage
+  StartTime: Feb 01, 2024 14:00 +0000
+  EndTime: Feb 02, 2024 22:00 +0000
+  CreatedTime: Jan 19, 2024 14:58 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1740453375
+  Description: IB card replacement
+  Severity: Outage
+  StartTime: Feb 27, 2024 15:00 +0000
+  EndTime: Feb 27, 2024 22:00 +0000
+  CreatedTime: Feb 27, 2024 14:48 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------

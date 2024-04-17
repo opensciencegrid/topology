@@ -68,6 +68,24 @@ DataFederations:
         AllowedCaches:
           - ANY
 
+      - Path: /chtc/PROTECTED/sc-origin
+        Authorizations:
+          - FQAN: /GLOW
+          - DN: /DC=org/DC=cilogon/C=US/O=University of Wisconsin-Madison/CN=Matyas Selmeci A148276
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              BasePath: /chtc
+              MapSubject: False
+        AllowedOrigins:
+          - CHTC_STASHCACHE_ORIGIN
+        AllowedCaches:
+          - ANY
+        CredentialGeneration:
+          BasePath: /chtc
+          Strategy: OAuth2
+          Issuer: https://chtc.cs.wisc.edu
+          MaxScopeDepth: 3
+
       - Path: /chtc/PROTECTED/sc-origin2000
         Authorizations:
           - FQAN: /GLOW
@@ -111,6 +129,17 @@ DataFederations:
           Strategy: OAuth2
           Issuer: https://chtc.cs.wisc.edu
           MaxScopeDepth: 3
+
+      - Path: /chtc/itb/osdf-pelican
+        Authorizations:
+          - SciTokens:
+              Issuer: https://chtc.cs.wisc.edu
+              Base Path: /chtc
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-OSDF-PELICAN-ORIGIN
+        AllowedCaches:
+          - ANY
 
       - Path: /data.lhncbc.nlm.nih.gov/public
         Authorizations:

@@ -52,11 +52,58 @@ Resources:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
 
-      # Site contact (optional) are persons or groups of people (i.e.,
-      # mailing lists) that are generally responsible for a site's
-      # relationship with the OSG (e.g., principal investigators,
-      # local administrator contact for OSG Hosted CEs)
-      # Site Contact:
+      # (OPTIONAL) Executive Contacts are persons or groups of
+      # people (i.e., mailing lists) are responsible for making policy
+      # decisions regarding the site's integration with the OSG resource
+      # Executive Contact:
+        # Primary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # Local contacts are an optional set of persons or groups of
+      # people (i.e., mailing lists) if they are a different from the
+      # persons responsible for the resouce. For example, OSG Hosted
+      # CEs are operated by OSG Staff, who are separate from the local
+      # contacts that are responsible for running the site's scheduler
+
+      # (OPTIONAL) Local Executive Contacts are persons or groups of
+      # people (i.e., mailing lists) are responsible for making policy
+      # decisions regarding the site's integration with the OSG resource
+      # Local Executive Contact:
+        # Primary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # (OPTIONAL) Local Operaitonal Contacts are persons or groups of
+      # people (i.e., mailing lists) that are directly responsible for the
+      # maintenance of the site's integration with the OSG resource
+      # Local Operational Contact:
+        # Primary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # (OPTIONAL) Local Security Contacts are persons or groups of
+      # mailing lists) that are responsible for handling security
+      # issues related to the site's integration with the OSG resource
+      # Local Security Contact:
         # Primary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>

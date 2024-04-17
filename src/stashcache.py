@@ -133,11 +133,12 @@ class _IdNamespaceData:
         self.id_to_paths = defaultdict(set)
         self.id_to_str = {}
         self.grid_mapfile_lines = set()
-        self.warnings = []
+        self.warnings_auth = []
+        self.warnings_public = []
 
     @classmethod
-    def for_cache(cls, global_data: GlobalData, topology: Topology, vos_data: VOsData, legacy: bool,
-                  cache_resource: Optional[Resource], public_cache: bool) -> "_IdNamespaceData":
+    def for_cache(cls, global_data: GlobalData, vos_data: VOsData, legacy: bool,
+                  cache_resource: Optional[Resource]) -> "_IdNamespaceData":
         self = cls()
 
         ligo_authz_list: List[AuthMethod] = []
@@ -160,8 +161,6 @@ class _IdNamespaceData:
                 if namespace.is_public():
                     self.public_paths.add(path)
                     continue
-                if public_cache:
-                    continue
 
                 # Extend authz list with LIGO DNs if applicable
                 extended_authz_list = namespace.authz_list
@@ -169,7 +168,7 @@ class _IdNamespaceData:
                     if legacy:
                         extended_authz_list += fetch_ligo_authz_list_if_needed()
                     else:
-                        self.warnings.append("# LIGO DNs unavailable\n")
+                        self.warnings_auth.append("# LIGO DNs unavailable\n")
 
                 for authz in extended_authz_list:
                     if authz.used_in_authfile:
@@ -181,8 +180,8 @@ class _IdNamespaceData:
         return self
 
     @classmethod
-    def for_origin(cls, topology: Topology, vos_data: VOsData, origin_resource: Optional[Resource],
-                   public_origin: bool) -> "_IdNamespaceData":
+    def for_origin(cls, topology: Topology, vos_data: VOsData,
+                   origin_resource: Optional[Resource]) -> "_IdNamespaceData":
         self = cls()
         for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
             for path, namespace in stashcache_obj.namespaces.items():
@@ -192,8 +191,6 @@ class _IdNamespaceData:
                     continue
                 if namespace.is_public():
                     self.public_paths.add(path)
-                    continue
-                if public_origin:
                     continue
 
                 # The Authfile for origins should contain only caches and the origin itself, via SSL (i.e. DNs).
@@ -207,14 +204,15 @@ class _IdNamespaceData:
                     allowed_resources.extend(allowed_caches)
                 else:
                     # TODO This situation should be caught by the CI
-                    self.warnings.append(f"# WARNING: No working cache / namespace combinations found for {path}")
+                    self.warnings_auth.append(f"# WARNING: No working cache / namespace combinations found for {path};"
+                                              " this path may not be cached")
 
                 for resource in allowed_resources:
                     dn = resource.data.get("DN")
                     if dn:
                         authz_list.append(DNAuth(dn))
                     else:
-                        self.warnings.append(
+                        self.warnings_auth.append(
                             f"# WARNING: Resource {resource.name} was skipped for VO {vo_name}, namespace {path}"
                             f" because the resource does not provide a DN."
                         )
@@ -247,19 +245,20 @@ def generate_cache_authfile(global_data: GlobalData,
 
     idns = _IdNamespaceData.for_cache(
         global_data=global_data,
-        topology=topology,
         vos_data=vos_data,
         legacy=legacy,
         cache_resource=resource,
-        public_cache=False,
     )
 
-    # TODO: improve message and turn this into a warning
     if not idns.id_to_paths:
-        raise DataError("Cache does not support any protected namespaces")
+        if not idns.public_paths:
+            raise DataError("Cache does not support any namespaces")  # TODO Catch this in the CI
+        else:
+            return ("# This cache does not support any protected/authenticated namespaces, only public namespaces.\n"
+                    "# You must use the 'stash-cache' xrootd instance instead.\n")
 
     authfile_lines = []
-    authfile_lines.extend(idns.warnings)
+    authfile_lines.extend(idns.warnings_auth)
     for authfile_id in idns.id_to_paths:
         paths_acl = " ".join(f"{p} rl" for p in sorted(idns.id_to_paths[authfile_id]))
         authfile_lines.append(f"# {idns.id_to_str[authfile_id]}")
@@ -283,19 +282,20 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
 
     idns = _IdNamespaceData.for_cache(
         global_data=global_data,
-        topology=topology,
         vos_data=vos_data,
         legacy=legacy,
         cache_resource=resource,
-        public_cache=True,
     )
 
-    # TODO: improve message and turn this into a warning
     if not idns.public_paths:
-        raise DataError("Cache does not support any public namespaces")
+        if not idns.id_to_paths:
+            raise DataError("Cache does not support any namespaces")  # TODO Catch this in the CI
+        else:
+            return ("# This cache does not support any public namespaces, only protected/authenticated namespaces.\n"
+                    "# You must use the 'stash-cache-auth' xrootd instance instead.\n")
 
     authfile_lines = []
-    authfile_lines.extend(idns.warnings)
+    authfile_lines.extend(idns.warnings_public)
     authfile_lines.append("u * /user/ligo -rl \\")
 
     for dirname in sorted(idns.public_paths):
@@ -325,15 +325,13 @@ def generate_cache_grid_mapfile(global_data: GlobalData,
 
     idns = _IdNamespaceData.for_cache(
         global_data=global_data,
-        topology=topology,
         vos_data=vos_data,
         legacy=legacy,
         cache_resource=resource,
-        public_cache=False,
     )
 
     grid_mapfile_lines = []
-    grid_mapfile_lines.extend(idns.warnings)
+    grid_mapfile_lines.extend(idns.warnings_auth)
     grid_mapfile_lines.extend(sorted(idns.grid_mapfile_lines))
 
     return "\n".join(grid_mapfile_lines) + "\n"
@@ -410,21 +408,32 @@ def generate_origin_authfile(global_data: GlobalData, fqdn: str, suppress_errors
         if not origin_resource:
             return ""
 
-    idns = _IdNamespaceData.for_origin(topology, vos_data, origin_resource, public_origin)
+    idns = _IdNamespaceData.for_origin(topology, vos_data, origin_resource)
 
     if not idns.id_to_paths and not idns.public_paths:
-        raise DataError("Origin does not support any namespaces")
+        raise DataError("Origin does not support any namespaces")  # TODO Catch this in the CI
+    elif public_origin and not idns.public_paths:
+        return ("# This origin does not support any public namespaces, only protected/authenticated namespaces.\n"
+                "# You must use the 'stash-origin-auth' xrootd instance instead.\n")
+    elif not public_origin and not idns.id_to_paths:
+        return ("# This origin does not support any protected/authenticated namespaces, only public namespaces.\n"
+                "# You must use the 'stash-origin' xrootd instance instead.\n")
 
     authfile_lines = []
-    authfile_lines.extend(idns.warnings)
-    for authfile_id in idns.id_to_paths:
-        paths_acl = " ".join(f"{p} lr" for p in sorted(idns.id_to_paths[authfile_id]))
-        authfile_lines.append(f"# {idns.id_to_str[authfile_id]}")
-        authfile_lines.append(f"{authfile_id} {paths_acl}")
+
+    # Only auth origins should serve paths requiring authentication
+    if not public_origin:
+        authfile_lines.extend(idns.warnings_auth)
+        for authfile_id in idns.id_to_paths:
+            paths_acl = " ".join(f"{p} lr" for p in sorted(idns.id_to_paths[authfile_id]))
+            authfile_lines.append(f"# {idns.id_to_str[authfile_id]}")
+            authfile_lines.append(f"{authfile_id} {paths_acl}")
 
     # Public paths must be at the end
+    # XXX Should auth origins _also_ serve public paths?
     if public_origin and idns.public_paths:
         authfile_lines.append("")
+        authfile_lines.extend(idns.warnings_public)
         paths_acl = " ".join(f"{p} lr" for p in sorted(idns.public_paths))
         authfile_lines.append(f"u * {paths_acl}")
 
@@ -444,10 +453,10 @@ def generate_origin_grid_mapfile(global_data: GlobalData, fqdn: str, suppress_er
         if not origin_resource:
             return ""
 
-    idns = _IdNamespaceData.for_origin(topology, vos_data, origin_resource, public_origin=False)
+    idns = _IdNamespaceData.for_origin(topology, vos_data, origin_resource)
 
     grid_mapfile_lines = []
-    grid_mapfile_lines.extend(idns.warnings)
+    grid_mapfile_lines.extend(idns.warnings_auth)
     grid_mapfile_lines.extend(sorted(idns.grid_mapfile_lines))
 
     return "\n".join(grid_mapfile_lines) + "\n"
@@ -529,12 +538,14 @@ def get_scitokens_list_for_namespace(ns: Namespace) -> List[Dict]:
     )
 
 
-def get_namespaces_info(global_data: GlobalData) -> PreJSON:
+def get_namespaces_info(global_data: GlobalData, include_downed=False, include_inactive=False) -> PreJSON:
     """Return data for the /stashcache/namespaces JSON endpoint.
 
-    This includes a list of caches, with some data about cache endpoints,
+    This includes a list of caches and origins, with some data about their endpoints,
     and a list of namespaces with some data about each namespace; see README.md for details.
 
+    If `include_downed` is True, caches/origins in downtime are also included.
+    If `include_inactive` is True, caches/origins that are not marked as active are also included.
     """
     # Helper functions
 
@@ -559,7 +570,7 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
         return _service_resource_dict(r=r, service_name=XROOTD_CACHE_SERVER, auth_port_default=8443, unauth_port_default=8000)
 
     def _origin_resource_dict(r: Resource):
-        return _service_resource_dict(r=r, service_name=XROOTD_CACHE_SERVER, auth_port_default=1095, unauth_port_default=1094)
+        return _service_resource_dict(r=r, service_name=XROOTD_ORIGIN_SERVER, auth_port_default=1095, unauth_port_default=1094)
 
     def _namespace_dict(ns: Namespace):
         nsdict = {
@@ -626,8 +637,8 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     for group in resource_groups:
         for resource in group.resources:
             if (_resource_has_cache(resource)
-                    and resource.is_active
-                    and not _resource_has_downed_cache(resource, topology)
+                    and (include_inactive or resource.is_active)
+                    and (include_downed or not _resource_has_downed_cache(resource, topology))
             ):
                 cache_resource_objs[resource.name] = resource
                 cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
@@ -640,8 +651,8 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     for group in resource_groups:
         for resource in group.resources:
             if (_resource_has_origin(resource)
-                    and resource.is_active
-                    and not _resource_has_downed_origin(resource, topology)
+                    and (include_inactive or resource.is_active)
+                    and (include_downed or not _resource_has_downed_origin(resource, topology))
             ):
                 origin_resource_objs[resource.name] = resource
                 origin_resource_dicts[resource.name] = _origin_resource_dict(resource)
