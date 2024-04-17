@@ -1,10 +1,10 @@
 {% macro render_field(field, helptext='', show_label=true, disabled=false, asterisk=true) -%}
 <div class="form-group {{ kwargs.pop('class_', '') }}">
   {% if show_label %}{{ field.label }}{% if asterisk %}<span style="color:red;">*</span>{% endif %}{% endif %}
-  {% if helptext -%}
+  {% if helptext or field.description -%}
     {% with helpid = field.id+"Help" -%}
     {{ field(class_="form-control", aria_describedby=helpid, **kwargs)|safe }}
-    <small id="{{ helpid }}" class="form-text text-muted">{{ helptext }}</small>
+    <small id="{{ helpid }}" class="form-text text-muted">{{ helptext }}{{ field.description }}</small>
     {%- endwith %}
   {%- else -%}
     {{ field(class_="form-control", disabled=disabled, **kwargs)|safe }}

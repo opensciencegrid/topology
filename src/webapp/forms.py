@@ -310,7 +310,19 @@ class GenerateProjectForm(FlaskForm):
     pi_last_name = StringField("PI Last Name", [InputRequired()])
     pi_department_or_organization = StringField("PI Department or Organization", [InputRequired()])
     pi_institution = StringField("PI Institution", [InputRequired()])
-    field_of_science = SelectField("Field of Science", [InputRequired()])
+    field_of_science = SelectField("Field of Science (Legacy)", [InputRequired()])
+    field_of_science_id = StringField(
+        "Field of Science ID",
+        [InputRequired()],
+        description="""
+            To help the OSPool track impact on fields of science we ask you to download and pick the closest matching 
+            `SED-CIP code\\title` from the
+            <a href='https://ncses.nsf.gov/pubs/nsf24300/assets/technical-notes/tables/nsf24300-taba-005.xlsx'>
+                SED-CIP table
+            </a>. Note that a maximum of 512 options is shown, if you don't see your field of science initially
+            type the title/code in the input.
+        """
+    )
 
     description = TextAreaField(None, render_kw={
         "style": "font-family:monospace; font-size:small;",
@@ -336,6 +348,7 @@ class GenerateProjectForm(FlaskForm):
         self.pi_department_or_organization.data = kwargs.get("pi_department_or_organization", self.pi_department_or_organization.data)
         self.pi_institution.data = kwargs.get("pi_institution", self.pi_institution.data)
         self.field_of_science.data = kwargs.get("field_of_science", self.field_of_science.data)
+        self.field_of_science_id.data = kwargs.get("field_of_science_id", self.field_of_science_id.data)
         self.description.data = kwargs.get("description", self.description.data)
 
         self.infos = ""
@@ -356,12 +369,14 @@ class GenerateProjectForm(FlaskForm):
             "Organization": self.pi_institution.data,
             "PIName": f"{self.pi_first_name.data} {self.pi_last_name.data}",
             "InstitutionID": institutions_name_mapped.get(self.pi_institution.data, 'Unknown'),
+            "FieldOfScienceID": self.field_of_science_id.data,
         })
 
     def as_dict(self):
         return {
             "description": self.description.data,
             "field_of_science": self.field_of_science.data,
+            "field_of_science_id": self.field_of_science_id.data,
             "pi_department_or_organization": self.pi_department_or_organization.data,
             "pi_institution": self.pi_institution.data,
             "pi_first_name": self.pi_first_name.data,
