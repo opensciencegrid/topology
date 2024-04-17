@@ -823,6 +823,12 @@ def generate_resource_group_downtime():
 @app.route("/generate_project_yaml", methods=["GET", "POST"])
 def generate_project_yaml():
 
+    institution_api_data = requests.get(f"{global_data.config.get('INSTITUTIONS_API')}/institution_ids").json()
+    institution_short_names = {x[1]: x[0] for x in global_data.get_mappings().project_institution.items()}
+    institutions = []
+    for institution in institution_api_data:
+        institutions.append((institution['id'], institution['name'], institution_short_names.get(institution['name'], "")))
+
     def render_form(**kwargs):
         institutions = list(global_data.get_mappings().project_institution.items())
         session.pop("form_data", None)
@@ -871,7 +877,7 @@ def generate_project_yaml():
             # Gather necessary data
             create_pr_response = create_file_pr(
                 file_path=f"projects/{request.values['project_name']}.yaml",
-                file_content=form.get_yaml(),
+                file_content=form.get_yaml(institution_api_data),
                 branch=f"add-project-{request.values['project_name']}",
                 message=f"Add Project {request.values['project_name']}",
                 committer=GithubUser.from_token(session["github_login"]['access_token']),
@@ -904,7 +910,7 @@ def generate_project_yaml():
     # Generate the yaml for manual addition
     if request.method == "POST" and "manual_submit" in request.form:
 
-        form.yaml_output.data = form.get_yaml()
+        form.yaml_output.data = form.get_yaml(institution_api_data)
         return render_form(form_complete=True)
 
     return render_form()
