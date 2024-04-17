@@ -827,7 +827,13 @@ def generate_project_yaml():
         institutions = list(global_data.get_mappings().project_institution.items())
         session.pop("form_data", None)
 
-        return render_template("generate_project_yaml.html.j2", form=form, infos=form.infos, institutions=institutions, **kwargs)
+        return render_template(
+            "generate_project_yaml.html.j2",
+            form=form,
+            infos=form.infos,
+            institutions=institutions,
+            fields_of_science=global_data.get_mappings().field_of_science.items(),
+            **kwargs)
 
     def validate_project_name(form, field):
         project_names = set(x['Name'] for x in global_data.get_projects()['Projects']['Project'])
@@ -836,6 +842,8 @@ def generate_project_yaml():
 
     form = GenerateProjectForm(request.form, **request.args, **session.get("form_data", {}))
     form.field_of_science.choices = _make_choices(global_data.get_mappings().nsfscience.keys(), select_one=True)
+
+
 
     # Add this validator if it is not their
     if not len(form.project_name.validators) > 1:
