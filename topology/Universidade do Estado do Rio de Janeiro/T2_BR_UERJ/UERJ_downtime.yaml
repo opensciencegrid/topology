@@ -1346,4 +1346,59 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1783591351
+  Description: We need to test our IPv6 routes with our provider
+  Severity: Outage
+  StartTime: Apr 19, 2024 11:00 +0000
+  EndTime: Apr 24, 2024 20:00 +0000
+  CreatedTime: Apr 17, 2024 13:05 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1783591733
+  Description: We need to test our IPv6 routes with our provider
+  Severity: Outage
+  StartTime: Apr 19, 2024 11:00 +0000
+  EndTime: Apr 24, 2024 20:00 +0000
+  CreatedTime: Apr 17, 2024 13:06 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1783591812
+  Description: We need to test our IPv6 routes with our provider
+  Severity: Outage
+  StartTime: Apr 19, 2024 11:00 +0000
+  EndTime: Apr 24, 2024 20:00 +0000
+  CreatedTime: Apr 17, 2024 13:06 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1783591907
+  Description: We need to test our IPv6 routes with our provider
+  Severity: Outage
+  StartTime: Apr 19, 2024 11:00 +0000
+  EndTime: Apr 24, 2024 20:00 +0000
+  CreatedTime: Apr 17, 2024 13:06 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1783591986
+  Description: We need to test our IPv6 routes with our provider
+  Severity: Outage
+  StartTime: Apr 19, 2024 11:00 +0000
+  EndTime: Apr 24, 2024 20:00 +0000
+  CreatedTime: Apr 17, 2024 13:06 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
