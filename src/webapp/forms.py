@@ -346,7 +346,7 @@ class GenerateProjectForm(FlaskForm):
         self.pi_department_or_organization.data = kwargs.get("pi_department_or_organization", self.pi_department_or_organization.data)
         self.pi_institution.data = kwargs.get("pi_institution", self.pi_institution.data)
         self.field_of_science.data = kwargs.get("field_of_science", self.field_of_science.data)
-        self.field_of_science_id.data = kwargs.get("field_of_science_new", self.field_of_science_id.data)
+        self.field_of_science_id.data = kwargs.get("field_of_science_id", self.field_of_science_id.data)
         self.description.data = kwargs.get("description", self.description.data)
 
         self.infos = ""
