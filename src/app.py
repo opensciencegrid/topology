@@ -823,7 +823,7 @@ def generate_resource_group_downtime():
 @app.route("/generate_project_yaml", methods=["GET", "POST"])
 def generate_project_yaml():
 
-    institution_api_data = requests.get("https://topology-institutions.osg-htc.org/api/institution_ids").json()
+    institution_api_data = requests.get(f"{global_data.config.get('INSTITUTIONS_API')}/institution_ids").json()
     institution_short_names = {x[1]: x[0] for x in global_data.get_mappings().project_institution.items()}
     institutions = []
     for institution in institution_api_data:

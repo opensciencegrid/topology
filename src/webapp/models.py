@@ -67,6 +67,7 @@ class GlobalData:
             config = {}
         config.setdefault("TOPOLOGY_DATA_DIR", ".")
         config.setdefault("CONTACT_DATA_DIR", None)
+        config.setdefault("INSTITUTIONS_API", "https://topology-institutions.osg-htc.org/api")
         config.setdefault("CILOGON_LDAP_URL", "ldaps://ldap.cilogon.org")
         config.setdefault("CILOGON_LDAP_USER",
                 "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org")
