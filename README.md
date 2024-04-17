@@ -134,7 +134,6 @@ For example, either of the following will match GLOW (13), HCC (67), and IceCube
 - `vo=on&vo_sel[]=13&vo_sel[]=67&vo_sel[]=38`
 
 
-
 Getting Help
 ------------
 
