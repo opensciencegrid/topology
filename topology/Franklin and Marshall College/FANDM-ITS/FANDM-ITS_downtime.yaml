@@ -1,0 +1,12 @@
+- Class: SCHEDULED
+  ID: 1784575615
+  Description: General cluster maintenance (software updates, etc.) and reconfiguring Slurm partitions.
+               We are removing osg partition.  After maintenance OSG jobs should use partition name nodes
+  Severity: Outage
+  StartTime: Apr 26, 2024 16:00 +0000
+  EndTime: May 13, 2024 12:00 +0000
+  CreatedTime: Apr 18, 2024 16:26 +0000
+  ResourceName: FANDM-ITS-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
