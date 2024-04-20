@@ -3181,3 +3181,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053134
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053135
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053136
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053137
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053138
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053139
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053140
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
