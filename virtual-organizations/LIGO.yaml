@@ -82,6 +82,7 @@ DataFederations:
       - Path: /user/ligo
         Authorizations:
           - DN: /CN=hcc-mon2.unl.edu
+          - DN: /CN=osdftest.t2.ucsd.edu
           - FQAN: /osg/ligo
           - FQAN: /virgo
           - FQAN: /virgo/virgo
@@ -151,6 +152,7 @@ DataFederations:
       - Path: /igwn/ligo
         Authorizations:
           - DN: /CN=hcc-mon2.unl.edu
+          - DN: /CN=osdftest.t2.ucsd.edu
           - FQAN: /osg/ligo
           - FQAN: /virgo
           - FQAN: /virgo/virgo
