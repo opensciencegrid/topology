@@ -172,6 +172,26 @@ DataFederations:
         Writeback: https://s3-us-west-1.osgdev.chtc.io:1095
         DirList: https://s3-us-west-1.osgdev.chtc.io:1095
 
+      - Path: /osn-sdsc/us-west-1/bp3d-pelican
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_S3_ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /nrdstor/protected
+        Authorizations:
+          - SciTokens:
+              # Simple public and private key issuer, https://github.com/biozit/t
+              Issuer: https://t.nationalresearchplatform.org
+              Base Path: /nrdstor/protected
+              Map Subject: True
+        AllowedOrigins:
+          - NEBRASKA_NRP_HCC_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+
       - Path: /osdftest
         Authorizations:
           - PUBLIC

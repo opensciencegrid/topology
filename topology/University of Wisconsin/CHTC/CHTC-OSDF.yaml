@@ -32,6 +32,7 @@ Resources:
         Description: StashCache cache server
         Details:
           endpoint_override: sc-cache.chtc.wisc.edu:8443
+          auth_endpoint_override: sc-cache.chtc.wisc.edu:8443
     VOOwnership:
       GLOW: 100
     AllowedVOs:
@@ -158,7 +159,7 @@ Resources:
       - ANY
 
   CHTC_NIH_ORIGIN:
-    Active: true
+    Active: false
     Description: This is an origin server serving NIH image analysis data
     ID: 1454
     ContactLists:
@@ -217,7 +218,7 @@ Resources:
     Description: This is a Pelican cache server at UW running on the Tiger Kubernetes cluster
     ContactLists:
       Administrative Contact:
-        Primary: 
+        Primary:
           ID: OSG1000589
           Name: William N Swanson
         Secondary:

@@ -53,6 +53,12 @@ Project YAML Generator
         </datalist>
         {{ M.render_field(form.project_name) }}
         {{ M.render_field(form.pi_department_or_organization) }}
+        {{ M.render_field(form.field_of_science_id, list="fields_of_science") }}
+        <datalist id="fields_of_science">
+            {% for fos in fields_of_science %}
+                <option value="{{ fos[0] }}">{{ fos[1] }}</option>
+            {% endfor %}
+        </datalist>
         {{ M.render_field(form.field_of_science) }}
         {{ M.render_field(form.description) }}
         <div class="row">

@@ -2950,3 +2950,311 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1756741725
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 17, 2024 11:15 +0000
+  EndTime: Mar 17, 2024 22:00 +0000
+  CreatedTime: Mar 17, 2024 11:16 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1756741726
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 17, 2024 11:15 +0000
+  EndTime: Mar 17, 2024 22:00 +0000
+  CreatedTime: Mar 17, 2024 11:16 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1756741727
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 17, 2024 11:15 +0000
+  EndTime: Mar 17, 2024 22:00 +0000
+  CreatedTime: Mar 17, 2024 11:16 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1756741728
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 17, 2024 11:15 +0000
+  EndTime: Mar 17, 2024 22:00 +0000
+  CreatedTime: Mar 17, 2024 11:16 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1756741729
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 17, 2024 11:15 +0000
+  EndTime: Mar 17, 2024 22:00 +0000
+  CreatedTime: Mar 17, 2024 11:16 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1756741730
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 17, 2024 11:15 +0000
+  EndTime: Mar 17, 2024 22:00 +0000
+  CreatedTime: Mar 17, 2024 11:16 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1756741731
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 17, 2024 11:15 +0000
+  EndTime: Mar 17, 2024 22:00 +0000
+  CreatedTime: Mar 17, 2024 11:16 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1758641854
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 19, 2024 16:02 +0000
+  EndTime: Mar 19, 2024 21:00 +0000
+  CreatedTime: Mar 19, 2024 16:03 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1758641855
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 19, 2024 16:02 +0000
+  EndTime: Mar 19, 2024 21:00 +0000
+  CreatedTime: Mar 19, 2024 16:03 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1758641856
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 19, 2024 16:02 +0000
+  EndTime: Mar 19, 2024 21:00 +0000
+  CreatedTime: Mar 19, 2024 16:03 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1758641857
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 19, 2024 16:02 +0000
+  EndTime: Mar 19, 2024 21:00 +0000
+  CreatedTime: Mar 19, 2024 16:03 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1758641858
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 19, 2024 16:02 +0000
+  EndTime: Mar 19, 2024 21:00 +0000
+  CreatedTime: Mar 19, 2024 16:03 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1758641859
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 19, 2024 16:02 +0000
+  EndTime: Mar 19, 2024 21:00 +0000
+  CreatedTime: Mar 19, 2024 16:03 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1758641860
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 19, 2024 16:02 +0000
+  EndTime: Mar 19, 2024 21:00 +0000
+  CreatedTime: Mar 19, 2024 16:03 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1758792503
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Mar 19, 2024 21:01 +0000
+  EndTime: Mar 20, 2024 15:00 +0000
+  CreatedTime: Mar 19, 2024 20:14 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1758792504
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Mar 19, 2024 21:01 +0000
+  EndTime: Mar 20, 2024 15:00 +0000
+  CreatedTime: Mar 19, 2024 20:14 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1758792505
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Mar 19, 2024 21:01 +0000
+  EndTime: Mar 20, 2024 15:00 +0000
+  CreatedTime: Mar 19, 2024 20:14 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1758792506
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Mar 19, 2024 21:01 +0000
+  EndTime: Mar 20, 2024 15:00 +0000
+  CreatedTime: Mar 19, 2024 20:14 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1758792507
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Mar 19, 2024 21:01 +0000
+  EndTime: Mar 20, 2024 15:00 +0000
+  CreatedTime: Mar 19, 2024 20:14 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1758792508
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Mar 19, 2024 21:01 +0000
+  EndTime: Mar 20, 2024 15:00 +0000
+  CreatedTime: Mar 19, 2024 20:14 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1758792509
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: Mar 19, 2024 21:01 +0000
+  EndTime: Mar 20, 2024 15:00 +0000
+  CreatedTime: Mar 19, 2024 20:14 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053134
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053135
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053136
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053137
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053138
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053139
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1786053140
+  Description: Site is offline - Network unreachable
+  Severity: Outage
+  StartTime: Apr 20, 2024 09:28 +0000
+  EndTime: Apr 20, 2024 21:00 +0000
+  CreatedTime: Apr 20, 2024 09:28 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
