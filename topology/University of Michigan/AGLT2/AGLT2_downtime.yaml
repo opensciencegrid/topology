@@ -1321,3 +1321,104 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1790791595
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: May 01, 2024 12:00 +0000
+  EndTime: May 01, 2024 23:00 +0000
+  CreatedTime: Apr 25, 2024 21:05 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+  # ---------------------------------------------------------
+  - Class: SCHEDULED
+  ID: 1790792171
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: May 01, 2024 12:00 +0000
+  EndTime: May 01, 2024 23:00 +0000
+  CreatedTime: Apr 25, 2024 21:06 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1790792324
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: May 01, 2024 12:00 +0000
+  EndTime: May 01, 2024 23:00 +0000
+  CreatedTime: Apr 25, 2024 21:07 +0000
+  ResourceName: AGLT2_CE_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1790792505
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: May 01, 2024 12:00 +0000
+  EndTime: May 01, 2024 23:00 +0000
+  CreatedTime: Apr 25, 2024 21:07 +0000
+  ResourceName: AGLT2_CE_4
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1790792745
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: May 01, 2024 12:00 +0000
+  EndTime: May 01, 2024 23:00 +0000
+  CreatedTime: Apr 25, 2024 21:07 +0000
+  ResourceName: AGLT2_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1790792999
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: May 01, 2024 12:00 +0000
+  EndTime: May 01, 2024 23:00 +0000
+  CreatedTime: Apr 25, 2024 21:08 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1790793309
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: May 01, 2024 12:00 +0000
+  EndTime: May 01, 2024 23:00 +0000
+  CreatedTime: Apr 25, 2024 21:08 +0000
+  ResourceName: AGLT2-squid-2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1790793462
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: May 01, 2024 12:00 +0000
+  EndTime: May 01, 2024 23:00 +0000
+  CreatedTime: Apr 25, 2024 21:09 +0000
+  ResourceName: AGLT2-squid-3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1790793649
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: May 01, 2024 12:00 +0000
+  EndTime: May 01, 2024 23:00 +0000
+  CreatedTime: Apr 25, 2024 21:09 +0000
+  ResourceName: AGLT2-squid-4
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
+  
