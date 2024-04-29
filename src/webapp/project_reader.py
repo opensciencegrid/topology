@@ -47,7 +47,8 @@ def get_resource_allocation(ra: Dict, idx: int) -> OrderedDict:
 
 def get_one_project(file: str, campus_grid_ids: Dict, vos_data: VOsData) -> Dict:
     project = OrderedDict.fromkeys(["ID", "Name", "Description", "PIName", "Organization", "Department",
-                                    "FieldOfScience", "Sponsor", "ResourceAllocations"])
+                                    "FieldOfScience", "Sponsor", "ResourceAllocations", "InstitutionID",
+                                    "FieldOfScienceID"])
     data = None
     try:
         data = load_yaml_file(file)
