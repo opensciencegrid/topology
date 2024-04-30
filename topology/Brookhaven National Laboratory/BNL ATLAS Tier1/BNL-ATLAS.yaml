@@ -370,6 +370,42 @@ Resources:
       StorageCapacityMax: 16800
       StorageCapacityMin: 16800
       TapeCapacity: 27000
+  BNL_ATLAS_TAPE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: OSG1000638
+          Name: Ivan Glushkov
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
+    Description: Duplicated from BNL_ATLAS_SE and updated for TAPE REST API blacklisting 
+    FQDN: dcdoor-tape.usatlas.bnl.gov
+    Services:
+      WebDAV.tape:
+        Description: TAPE REST API endpoint
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 104000
   BNL_ATLAS_SE_GRIDFTP:
     Active: true
     ContactLists:

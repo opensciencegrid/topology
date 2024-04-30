@@ -1,0 +1,27 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: >-
+  Testing EPs for KAPEL integration.
+  These report to production so we can cross-check records against GRACC.
+
+Resources:
+  CHTC-KAPEL-TEST:
+    Active: true
+    Description: EP for testing KAPEL records
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+
+      Security Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+
+    FQDN: kapel-test-ep.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint
+

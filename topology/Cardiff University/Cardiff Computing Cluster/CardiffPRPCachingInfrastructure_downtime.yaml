@@ -31,3 +31,25 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1789162819
+  Description: 'power maintenance '
+  Severity: Outage
+  StartTime: May 01, 2024 08:00 +0000
+  EndTime: May 05, 2024 06:00 +0000
+  CreatedTime: Apr 23, 2024 23:51 +0000
+  ResourceName: CARDIFF_UK_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1790222203
+  Description: overloaded
+  Severity: Outage
+  StartTime: Apr 24, 2024 08:00 +0000
+  EndTime: May 01, 2024 20:00 +0000
+  CreatedTime: Apr 25, 2024 05:17 +0000
+  ResourceName: CARDIFF_UK_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
