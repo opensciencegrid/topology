@@ -288,19 +288,25 @@ class GlobalData:
         """
         if self.topology.should_update():
             with topology_update_summary.time():
-                ok = self._update_topology_repo()
-                if ok:
-                    try:
-                        self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data(), strict=self.strict))
-                    except Exception:
-                        if self.strict:
-                            raise
-                        log.exception("Failed to update topology")
-                        self.topology.try_again()
-                else:
-                    self.topology.try_again()
+                self.update_topology()
 
         return self.topology.data
+
+    def update_topology(self):
+        """
+        Update topology data
+        """
+        ok = self._update_topology_repo()
+        if ok:
+            try:
+                self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data(), strict=self.strict))
+            except Exception:
+                if self.strict:
+                    raise
+                log.exception("Failed to update topology")
+                self.topology.try_again()
+        else:
+            self.topology.try_again()
 
     def get_vos_data(self) -> Optional[VOsData]:
         """
