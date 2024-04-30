@@ -121,7 +121,7 @@ csrf.init_app(app)
 #############################################################################
 # Background update thread
 # Run when the topology cache is 2/3 to expiration
-bg_update_freq = min(global_data.topology.cache_lifetime*2/3, 60) # seconds
+bg_update_freq = max(global_data.topology.cache_lifetime*2/3, 60) # seconds
 bg_update_thread = threading.Thread()
 
 def bg_update_run():
