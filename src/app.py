@@ -8,11 +8,13 @@ from flask import Flask, Response, make_response, request, render_template, redi
 from io import StringIO
 import logging
 import os
+import random
 import re
 import sys
 import traceback
 import urllib.parse
 import requests
+import threading
 from wtforms import ValidationError
 from flask_wtf.csrf import CSRFProtect
 
@@ -116,6 +118,35 @@ else:
 
 csrf = CSRFProtect()
 csrf.init_app(app)
+
+#############################################################################
+# Background update thread
+# Run when the topology cache is 2/3 to expiration
+bg_update_freq = min(global_data.topology.cache_lifetime*2/3, 60) # seconds
+bg_update_thread = threading.Thread()
+
+def bg_update_run():
+    '''Background update task'''
+    app.logger.debug('Background update started')
+    global_data.update_topology()
+
+    # Add +/- 10% random offset to avoid thundering herds
+    delay = bg_update_freq
+    delay *= random.uniform(0.9, 1.1)
+
+    # Set next run
+    global bg_update_thread
+    bg_update_thread = threading.Timer(delay, bg_update_run, ())
+    bg_update_thread.daemon = True
+    bg_update_thread.start()
+    app.logger.info('Background update complete')
+
+# Start background update thread
+bg_update_thread = threading.Timer(bg_update_freq, bg_update_run, ())
+# Make it a daemon thread, so interpreter won't wait on it when exiting
+bg_update_thread.daemon = True
+bg_update_thread.start()
+#############################################################################
 
 
 def _fix_unicode(text):
