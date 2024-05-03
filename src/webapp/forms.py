@@ -8,6 +8,7 @@ from wtforms import SelectField, SelectMultipleField, StringField, \
     TextAreaField, SubmitField, TimeField, DateField
 from wtforms.validators import InputRequired, ValidationError
 
+from .common import fix_newlines
 from . import models
 
 UTCOFFSET_CHOICES = [
@@ -349,7 +350,7 @@ class GenerateProjectForm(FlaskForm):
         self.pi_institution.data = kwargs.get("pi_institution", self.pi_institution.data)
         self.field_of_science.data = kwargs.get("field_of_science", self.field_of_science.data)
         self.field_of_science_id.data = kwargs.get("field_of_science_id", self.field_of_science_id.data)
-        self.description.data = kwargs.get("description", self.description.data)
+        self.description.data = fix_newlines(kwargs.get("description", self.description.data))
 
         self.infos = ""
 

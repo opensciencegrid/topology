@@ -222,6 +222,18 @@ def trim_space(s: str) -> str:
     ret = re.sub(r"(?m)^[ \t]+", "", ret)
     return ret
 
+
+def fix_newlines(in_str):
+    """Replace Windows newlines with Unix newlines in a string;
+    other CR characters are replaced with a space"""
+    if isinstance(in_str, str):
+        return in_str.replace("\r\n", "\n").replace("\r", " ")
+    elif isinstance(in_str, bytes):
+        return in_str.replace(b"\r\n", b"\n").replace(b"\r", b" ")
+    else:
+        return in_str
+
+
 def run_git_cmd(cmd: List, dir=None, git_dir=None, ssh_key=None) -> bool:
     """
     Run git command, optionally specifying ssh key and/or git dirs
