@@ -136,11 +136,10 @@ DataFederations:
               Map Subject: True
         AllowedOrigins:
           - CHTC_OSPOOL_ORIGIN
-          - CHTC-ap40
         AllowedCaches:
           - ANY
-        Writeback: https://ospool-ap2140.chtc.wisc.edu:8443
-        DirList: https://ospool-ap2140.chtc.wisc.edu:8443
+        Writeback: https://origin-auth2001.chtc.wisc.edu:1095
+        DirList: https://origin-auth2001.chtc.wisc.edu:1095
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
