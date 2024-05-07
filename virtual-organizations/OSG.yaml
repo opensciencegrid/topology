@@ -260,18 +260,18 @@ DataFederations:
       - Path: /ospool/ap40/data
         Authorizations:
           - SciTokens:
-              Issuer: https://ap40.uw.osg-htc.org:8443
+              Issuer: https://ospool-ap2140.chtc.wisc.edu:8443
               Base Path: /ospool/ap40
               Map Subject: True
         AllowedOrigins:
           - CHTC-ap40
         AllowedCaches:
           - ANY
-        Writeback: https://ap40.uw.osg-htc.org:8443
-        DirList: https://ap40.uw.osg-htc.org:8443
+        Writeback: https://ospool-ap2140.chtc.wisc.edu:8443
+        DirList: https://ospool-ap2140.chtc.wisc.edu:8443
         CredentialGeneration:
           Strategy: OAuth2
-          Issuer: https://ap40.uw.osg-htc.org:8443
+          Issuer: https://ospool-ap2140.chtc.wisc.edu:8443
           MaxScopeDepth: 4
 
       # SciTokens issuer for ap20
