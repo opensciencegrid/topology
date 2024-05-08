@@ -257,6 +257,23 @@ DataFederations:
           Issuer: https://osg-htc.org/ospool
           MaxScopeDepth: 4
 
+      - Path: /ospool/ap40/data
+        Authorizations:
+          - SciTokens:
+              Issuer: https://ospool-ap2140.chtc.wisc.edu:8443
+              Base Path: /ospool/ap40
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ap40
+        AllowedCaches:
+          - ANY
+        Writeback: https://ospool-ap2140.chtc.wisc.edu:8443
+        DirList: https://ospool-ap2140.chtc.wisc.edu:8443
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://ospool-ap2140.chtc.wisc.edu:8443
+          MaxScopeDepth: 4
+
       # SciTokens issuer for ap20
       - Path: /ospool/ap20/.well-known
         Authorizations:
