@@ -220,14 +220,14 @@ Resources:
           ID: OSG1000212
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
       not open to general OSG users.
-    FQDN: gridgk07.racf.bnl.gov
+    FQDN: gridgk07.sdcc.bnl.gov
     ID: 438
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://gridgk07.racf.bnl.gov
+          sam_uri: htcondor://gridgk07.sdcc.bnl.gov
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -261,14 +261,14 @@ Resources:
           ID: OSG1000212
     Description: This CE will serve grid jobs submitted to the *local* USATLAS resources,
       e.g. for panda queue ANALY_BNL_LOCAL, at BNL.
-    FQDN: gridgk08.racf.bnl.gov
+    FQDN: gridgk08.sdcc.bnl.gov
     ID: 545
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://gridgk08.racf.bnl.gov
+          sam_uri: htcondor://gridgk08.sdcc.bnl.gov
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
