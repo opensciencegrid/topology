@@ -537,6 +537,8 @@ Resources:
         Description: OSDF Pelican origin
         Details:
           hidden: false
+          endpoint_override: ospool-ap2140.chtc.wisc.edu:8443
+          auth_endpoint_override: ospool-ap2140.chtc.wisc.edu:8443          
     Tags:
       - OSPool
     VOOwnership:
