@@ -98,6 +98,6 @@ Resources:
         Description: SDSC NRP FDP OSDF cache
         Details:
           endpoint_override: fdp-cache.nationalresearchplatform.org:8443
-          auth_endpoint_override: sdsc-s3-origin.nationalresearchplatform.org:8443
+          auth_endpoint_override: fdp-cache.nationalresearchplatform.org:8443
     AllowedVOs:
       - ANY

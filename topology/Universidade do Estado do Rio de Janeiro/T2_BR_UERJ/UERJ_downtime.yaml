@@ -1401,4 +1401,59 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1801899214
+  Description: We're migrating our storage
+  Severity: Outage
+  StartTime: May 07, 2024 17:50 +0000
+  EndTime: May 27, 2024 14:00 +0000
+  CreatedTime: May 08, 2024 17:38 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1801899600
+  Description: We're migrating our storage and will update our workernodes to EL8
+  Severity: Outage
+  StartTime: May 07, 2024 17:50 +0000
+  EndTime: May 27, 2024 14:00 +0000
+  CreatedTime: May 08, 2024 17:39 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1801899685
+  Description: We're migrating our storage and will update our workernodes to EL8
+  Severity: Outage
+  StartTime: May 07, 2024 17:50 +0000
+  EndTime: May 27, 2024 14:00 +0000
+  CreatedTime: May 08, 2024 17:39 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1801899756
+  Description: We're migrating our storage and will update our workernodes to EL8
+  Severity: Outage
+  StartTime: May 07, 2024 17:50 +0000
+  EndTime: May 27, 2024 14:00 +0000
+  CreatedTime: May 08, 2024 17:39 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1801899851
+  Description: We're migrating our storage and will update our workernodes to EL8
+  Severity: Outage
+  StartTime: May 07, 2024 17:50 +0000
+  EndTime: May 27, 2024 14:00 +0000
+  CreatedTime: May 08, 2024 17:39 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
