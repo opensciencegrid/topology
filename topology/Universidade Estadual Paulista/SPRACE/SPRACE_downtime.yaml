@@ -3258,3 +3258,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1803572631
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 10, 2024 16:00 +0000
+  EndTime: May 10, 2024 22:00 +0000
+  CreatedTime: May 10, 2024 16:07 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1803572632
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 10, 2024 16:00 +0000
+  EndTime: May 10, 2024 22:00 +0000
+  CreatedTime: May 10, 2024 16:07 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1803572633
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 10, 2024 16:00 +0000
+  EndTime: May 10, 2024 22:00 +0000
+  CreatedTime: May 10, 2024 16:07 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1803572634
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 10, 2024 16:00 +0000
+  EndTime: May 10, 2024 22:00 +0000
+  CreatedTime: May 10, 2024 16:07 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1803572635
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 10, 2024 16:00 +0000
+  EndTime: May 10, 2024 22:00 +0000
+  CreatedTime: May 10, 2024 16:07 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1803572636
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 10, 2024 16:00 +0000
+  EndTime: May 10, 2024 22:00 +0000
+  CreatedTime: May 10, 2024 16:07 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1803572637
+  Description: network outage - fiber cut
+  Severity: Outage
+  StartTime: May 10, 2024 16:00 +0000
+  EndTime: May 10, 2024 22:00 +0000
+  CreatedTime: May 10, 2024 16:07 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
