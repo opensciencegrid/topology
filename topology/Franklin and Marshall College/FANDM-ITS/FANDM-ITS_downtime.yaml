@@ -10,3 +10,16 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1803422265
+  Description: Cluster is now up after maintenance.  We noted before that the partition
+    has changed from osg to nodes.  Please resume sending jobs
+  Severity: No Significant Outage Expected
+  StartTime: May 10, 2024 08:00 +0000
+  EndTime: May 10, 2024 08:00 +0000
+  CreatedTime: May 10, 2024 07:57 +0000
+  ResourceName: FANDM-ITS-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+
