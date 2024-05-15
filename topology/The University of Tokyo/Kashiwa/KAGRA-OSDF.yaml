@@ -1,0 +1,46 @@
+---
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: These are the OSDF KAGRA resources at the Kashiwa Data Center
+
+Resources:
+  KAGRA_OSDF_ORIGIN:
+    Active: true
+    Description: This is an OSDF origin at Kashiwa Data Center
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 5ea6fa23f5d804890b3c22e478c6945f841e5647
+          Name: Marco Meyer
+      Security Contact:
+        Primary:
+          ID: 5ea6fa23f5d804890b3c22e478c6945f841e5647
+          Name: Marco Meyer
+    FQDN: kagra-dsr-b2.icrr.u-tokyo.ac.jp
+    DN: /C=JP/O=KEK/OU=CRC/CN=host/kagra-dsr-b2.icrr.u-tokyo.ac.jp
+    Services:
+      XRootD origin server:
+        Description: KAGRA OSDF origin server
+    AllowedVOs:
+      - LIGO
+
+  KAGRA_OSDF_CACHE:
+    Active: true
+    Description: This is an OSDF cache at the KAGRA Observatory
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 5ea6fa23f5d804890b3c22e478c6945f841e5647
+          Name: Marco Meyer
+      Security Contact:
+        Primary:
+          ID: 5ea6fa23f5d804890b3c22e478c6945f841e5647
+          Name: Marco Meyer
+    FQDN: kagra-dsr-b1.icrr.u-tokyo.ac.jp
+    DN: /C=JP/O=KEK/OU=CRC/CN=host/kagra-dsr-b1.icrr.u-tokyo.ac.jp
+    Services:
+      XRootD cache server:
+        Description: KAGRA OSDF cache server
+    AllowedVOs:
+      - LIGO

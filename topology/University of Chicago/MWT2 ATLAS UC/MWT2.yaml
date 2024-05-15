@@ -327,8 +327,7 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description:
-      MWT2 Gatekeeper located at University of Illinois @ Urbana-Champaign, IL
+    Description: MWT2 Gatekeeper located at University of Illinois @ Urbana-Champaign, IL
     FQDN: uiuc-gk.mwt2.org
     ID: 490
     Services:
@@ -379,8 +378,7 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description:
-      MWT2 Gatekeeper located at University of Illinois @ Urbana-Champaign, IL
+    Description: MWT2 Gatekeeper located at University of Illinois @ Urbana-Champaign, IL
     FQDN: uiuc-gk02.mwt2.org
     ID: 1432
     Services:
@@ -431,8 +429,7 @@ Resources:
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    Description:
-      MWT2 CVMFS Squid located at University of Illinois @ Urbana-Champaign, IL
+    Description: MWT2 CVMFS Squid located at University of Illinois @ Urbana-Champaign, IL
     FQDN: mwt2-cvmfs.campuscluster.illinois.edu
     ID: 914
     Services:
@@ -441,7 +438,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   MWT2_SLATE_UC:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -477,11 +474,11 @@ Resources:
         Description: Generic squid service
         Details:
           uri_override: uct2-slate.mwt2.org:32200
-          Monitored: true
+          Monitored: false
     VOOwnership:
       ATLAS: 100
   MWT2_SLATE_UC_2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -534,7 +531,7 @@ Resources:
         Description: Generic squid service
         Details:
           uri_override: sl-uc-xcache1.slateci.io:32202
-          Monitored: true
+          Monitored: false
     VOOwnership:
       ATLAS: 100
   MWT2_SLATE_IU:
@@ -616,7 +613,7 @@ Resources:
           uri_override: iut2-slate01.mwt2.org:32200
           Monitored: true
     VOOwnership:
-      ATLAS: 100  
+      ATLAS: 100
   MWT2_SLATE_UIUC:
     Active: true
     ContactLists:
@@ -668,8 +665,8 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
-          Name: David Jordan
+          ID: OSG1000064
+          Name: Ilija Vukotic
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
@@ -681,8 +678,8 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
-          Name: David Jordan
+          ID: OSG1000064
+          Name: Ilija Vukotic
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
@@ -706,8 +703,8 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
-          Name: David Jordan
+          ID: OSG1000064
+          Name: Ilija Vukotic
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
@@ -719,8 +716,8 @@ Resources:
           ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
           Name: Lincoln Bryant
         Tertiary:
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
-          Name: David Jordan
+          ID: OSG1000064
+          Name: Ilija Vukotic
         Tertiary 2:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
@@ -732,6 +729,39 @@ Resources:
         Description: Varnish based squid service for CVMFS
         Details:
           uri_override: v4cvmfs.mwt2.org:6081
+          Monitored: true
+    VOOwnership:
+      ATLAS: 100
+  MWT2_VARNISH_CVMFS_NRP:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: OSG1000064
+          Name: Ilija Vukotic
+      Security Contact:
+        Primary:
+          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          Name: Judith Stephen
+        Secondary:
+          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          Name: Lincoln Bryant
+        Tertiary:
+          ID: OSG1000064
+          Name: Ilija Vukotic
+    Description: Varnish cache located at Starlight, Chicago, IL
+    FQDN: igrok-chcg.pacificwave.net
+    Services:
+      Squid:
+        Description: Varnish based squid service for CVMFS at NRP
+        Details:
+          uri_override: igrok-chcg.pacificwave.net:6081
           Monitored: true
     VOOwnership:
       ATLAS: 100

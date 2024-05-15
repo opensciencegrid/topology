@@ -109,6 +109,13 @@ DataFederations:
           - OSGCONNECT_ORIGIN
         AllowedCaches:
           - ANY
+      - Path: /ospool/uc-shared/public
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - UChicago_OSGConnect_Public_Origin
+        AllowedCaches:
+          - ANY
 
       # HACK: enormous hack to get us going on a demo
       # https://opensciencegrid.atlassian.net/browse/SOFTWARE-5398
@@ -140,6 +147,7 @@ DataFederations:
 
       - Path: /s3.amazonaws.com/us-east-1
         Authorizations:
+          - PUBLIC
           - SciTokens:
               Issuer: https://osg-htc.org/ospool
               Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
@@ -153,6 +161,7 @@ DataFederations:
 
       - Path: /s3.amazonaws.com/us-west-1
         Authorizations:
+          - PUBLIC
           - SciTokens:
               Issuer: https://osg-htc.org/ospool
               Base Path: /ospool/PROTECTED,/s3.amazonaws.com/us-east-1,/s3.amazonaws.com/us-west-1
@@ -164,6 +173,26 @@ DataFederations:
         Writeback: https://s3-us-west-1.osgdev.chtc.io:1095
         DirList: https://s3-us-west-1.osgdev.chtc.io:1095
 
+      - Path: /osn-sdsc/us-west-1/bp3d-pelican
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_S3_ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /nrdstor/protected
+        Authorizations:
+          - SciTokens:
+              # Simple public and private key issuer, https://github.com/biozit/t
+              Issuer: https://t.nationalresearchplatform.org
+              Base Path: /nrdstor/protected
+              Map Subject: True
+        AllowedOrigins:
+          - NEBRASKA_NRP_HCC_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+
       - Path: /osdftest
         Authorizations:
           - PUBLIC
@@ -173,6 +202,7 @@ DataFederations:
           - SDSC_NRP_OSDF_ORIGIN
           - SDSC-test-Origin
           - SINGAPORE_INTERNET2_OSDF_CACHE
+          - NEBRASKA_NRP_HCC_OSDF_ORIGIN
         AllowedCaches:
           - ANY
       
@@ -214,7 +244,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://ap22.uc.osg-htc.org:1094/ospool/ap22
-              Base Path: /ospool/ap22
+              Base Path: /ospool/ap22,/ospool/ap22/data,/ospool/uc-shared/project
               Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap22
@@ -227,11 +257,59 @@ DataFederations:
           Issuer: https://osg-htc.org/ospool
           MaxScopeDepth: 4
 
-      - Path: /ospool/uc-shared
+      - Path: /ospool/ap40/data
+        Authorizations:
+          - SciTokens:
+              Issuer: https://ospool-ap2140.chtc.wisc.edu:8443
+              Base Path: /ospool/ap40
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ap40
+        AllowedCaches:
+          - ANY
+        Writeback: https://ospool-ap2140.chtc.wisc.edu:8443
+        DirList: https://ospool-ap2140.chtc.wisc.edu:8443
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://ospool-ap2140.chtc.wisc.edu:8443
+          MaxScopeDepth: 4
+
+      # SciTokens issuer for ap20
+      - Path: /ospool/ap20/.well-known
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap20
+        # Do not cache this: direct access only
+        AllowedCaches: []
+
+      # SciTokens issuer for ap21
+      - Path: /ospool/ap21/.well-known
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap21
+        # Do not cache this: direct access only
+        AllowedCaches: []
+
+      # SciTokens issuer for ap22
+      - Path: /ospool/ap22/.well-known
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - UChicago_OSGConnect_ap22
+        # Do not cache this: direct access only
+        AllowedCaches: []
+
+      - Path: /ospool/uc-shared/project
         Authorizations:
           - SciTokens:
               Issuer: https://osg-htc.org/ospool/uc-shared
-              Base Path: /ospool/uc-shared
+              Base Path: /ospool/uc-shared/project
+              Map Subject: True
+          - SciTokens:
+              Issuer: https://ap22.uc.osg-htc.org:1094/ospool/ap22
+              Base Path: /ospool/ap22,/ospool/ap22/data,/ospool/uc-shared/project
               Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap23
@@ -243,18 +321,3 @@ DataFederations:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool/uc-shared
           MaxScopeDepth: 4
-
-      - Path: /ospool/uc-shared/public
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - UChicago_OSGConnect_ap23
-        AllowedCaches:
-          - ANY
-        Writeback: https://ap23.uc.osg-htc.org:1095
-        DirList: https://ap23.uc.osg-htc.org:1095
-        CredentialGeneration:
-          Strategy: OAuth2
-          Issuer: https://osg-htc.org/ospool/uc-shared
-          MaxScopeDepth: 4
-

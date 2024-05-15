@@ -17,7 +17,8 @@ from wtforms import ValidationError
 from flask_wtf.csrf import CSRFProtect
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape, cache_control_private
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, \
+    escape, cache_control_private, PreJSON, is_true
 from webapp.flask_common import create_accepted_response
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
@@ -179,6 +180,14 @@ def nsfscience_csv():
     response.headers.set("Content-Type", "text/csv")
     response.headers.set("Content-Disposition", "attachment", filename="nsfscience.csv")
     return response
+
+@app.route('/institution_ids')
+def institution_ids():
+    institution_ids = global_data.get_mappings().institution_ids
+    if not institution_ids:
+        return Response("Error getting Institution/OSG ID mappings: no mappings returned", status=503)
+
+    return Response(to_json_bytes(PreJSON(institution_ids)), mimetype='application/json')
 
 
 @app.route('/organizations')
@@ -505,8 +514,10 @@ def scitokens():
 def stashcache_namespaces_json():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
+    include_downed = is_true(request.args.get("include_downed", False))
+    include_inactive = is_true(request.args.get("include_inactive", False))
     try:
-        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data)),
+        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data, include_downed, include_inactive)),
                         mimetype='application/json')
     except ResourceNotRegistered as e:
         return Response("# {}\n"
@@ -812,11 +823,23 @@ def generate_resource_group_downtime():
 @app.route("/generate_project_yaml", methods=["GET", "POST"])
 def generate_project_yaml():
 
+    institution_api_data = requests.get(f"{global_data.config.get('INSTITUTIONS_API')}/institution_ids").json()
+    institution_short_names = {x[1]: x[0] for x in global_data.get_mappings().project_institution.items()}
+    institutions = []
+    for institution in institution_api_data:
+        institutions.append((institution['id'], institution['name'], institution_short_names.get(institution['name'], "")))
+
     def render_form(**kwargs):
         institutions = list(global_data.get_mappings().project_institution.items())
         session.pop("form_data", None)
 
-        return render_template("generate_project_yaml.html.j2", form=form, infos=form.infos, institutions=institutions, **kwargs)
+        return render_template(
+            "generate_project_yaml.html.j2",
+            form=form,
+            infos=form.infos,
+            institutions=institutions,
+            fields_of_science=global_data.get_mappings().field_of_science.items(),
+            **kwargs)
 
     def validate_project_name(form, field):
         project_names = set(x['Name'] for x in global_data.get_projects()['Projects']['Project'])
@@ -825,6 +848,8 @@ def generate_project_yaml():
 
     form = GenerateProjectForm(request.form, **request.args, **session.get("form_data", {}))
     form.field_of_science.choices = _make_choices(global_data.get_mappings().nsfscience.keys(), select_one=True)
+
+
 
     # Add this validator if it is not their
     if not len(form.project_name.validators) > 1:
@@ -852,7 +877,7 @@ def generate_project_yaml():
             # Gather necessary data
             create_pr_response = create_file_pr(
                 file_path=f"projects/{request.values['project_name']}.yaml",
-                file_content=form.get_yaml(),
+                file_content=form.get_yaml(institution_api_data),
                 branch=f"add-project-{request.values['project_name']}",
                 message=f"Add Project {request.values['project_name']}",
                 committer=GithubUser.from_token(session["github_login"]['access_token']),
@@ -885,7 +910,7 @@ def generate_project_yaml():
     # Generate the yaml for manual addition
     if request.method == "POST" and "manual_submit" in request.form:
 
-        form.yaml_output.data = form.get_yaml()
+        form.yaml_output.data = form.get_yaml(institution_api_data)
         return render_form(form_complete=True)
 
     return render_form()
@@ -1066,6 +1091,18 @@ def _get_authorized():
 
     # If it gets here, then it is not authorized
     return default_authorized
+
+
+try:
+    from werkzeug.middleware.dispatcher import DispatcherMiddleware
+    from prometheus_client import make_wsgi_app
+    # Enable prometheus integration with the topology webapp
+    app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
+        '/metrics': make_wsgi_app()
+    })
+except ImportError:
+    print("*** /metrics endpoint unavailable: prometheus-client missing",
+          file=sys.stderr)
 
 
 if __name__ == '__main__':

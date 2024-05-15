@@ -30,6 +30,9 @@ Resources:
     Services:
       XRootD cache server:
         Description: StashCache cache server
+        Details:
+          endpoint_override: sc-cache.chtc.wisc.edu:8443
+          auth_endpoint_override: sc-cache.chtc.wisc.edu:8443
     VOOwnership:
       GLOW: 100
     AllowedVOs:
@@ -88,6 +91,8 @@ Resources:
     Services:
       XRootD origin server:
         Description: StashCache origin server
+        Details:
+          endpoint_override: sc-origin.chtc.wisc.edu:1095
     VOOwnership:
       GLOW: 100
     AllowedVOs:
@@ -154,7 +159,7 @@ Resources:
       - ANY
 
   CHTC_NIH_ORIGIN:
-    Active: true
+    Active: false
     Description: This is an origin server serving NIH image analysis data
     ID: 1454
     ContactLists:
@@ -181,7 +186,7 @@ Resources:
       - ANY
 
   CHTC_OSGDEV_SHOVELER_CACHE:
-    Active: true
+    Active: false
     Description: This is a testing StashCache cache server with a shoveler at UW running on the Tiger Kubernetes cluster.
     ContactLists:
       Administrative Contact:
@@ -203,6 +208,42 @@ Resources:
     Services:
       XRootD cache server:
         Description: StashCache cache server
+    VOOwnership:
+      GLOW: 100
+    AllowedVOs:
+      - ANY
+
+  CHTC_PELICAN_CACHE:
+    Active: true
+    Description: This is a Pelican cache server at UW running on the Tiger Kubernetes cluster
+    ContactLists:
+      Administrative Contact:
+        Primary: 
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Lin
+    FQDN: osdf-uw-cache.svc.osg-htc.org
+    DN: /CN=osdf-uw-cache.svc.osg-htc.org
+    Services:
+      XRootD cache server:
+        Description: Pelican cache server
+        Details:
+          endpoint_override: osdf-uw-cache.svc.osg-htc.org:8443
     VOOwnership:
       GLOW: 100
     AllowedVOs:

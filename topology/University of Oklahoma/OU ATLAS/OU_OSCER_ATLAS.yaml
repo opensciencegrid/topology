@@ -88,4 +88,31 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 10
       StorageCapacityMin: 10
+  OU_OSCER_ATLAS_SLATE_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
+        Secondary:
+          ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
+          Name: Christopher Arnold Walker
+      Security Contact:
+        Primary:
+          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          Name: Horst Severini
+        Secondary:
+          ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
+          Name: Christopher Arnold Walker
+    Description: Frontier/CVMFS SLATE based squid service
+    FQDN: slate01.oscer.ou.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+        Monitored: true
+        Details:
+          uri_override: slate01.oscer.ou.edu:32200
+    VOOwnership:
+      ATLAS: 100      
 SupportCenter: USATLAS

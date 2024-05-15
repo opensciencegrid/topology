@@ -44,8 +44,20 @@ DataFederations:
               Issuer: https://t.nationalresearchplatform.org/burnpro3d
               Base Path: /ndp/burnpro3d
               Map Subject: False
+           - PUBLIC
         AllowedOrigins:
           - SDSC_NRP_OSDF_ORIGIN
+          - NEBRASKA_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
-  
+      - Path: /ndp/keycloak-testing
+        Authorizations:
+           - SciTokens:
+              Issuer: https://idp.nationaldataplatform.org/auth/realms/ndp
+              Base Path: /ndp/keycloak-testing
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+          - NEBRASKA_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY

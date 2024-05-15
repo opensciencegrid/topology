@@ -79,7 +79,9 @@ Resources:
         Description: StashCache Origin server
     AllowedVOs:
       - LIGO
-  CIT_LIGO_SQUID1:
+  CIT_LIGO_ORIGIN_TEST:
+    Active: true
+    Description: This serves proprietary LIGO interferometer data in a test configuration
     ContactLists:
       Administrative Contact:
         Primary:
@@ -89,42 +91,44 @@ Resources:
         Primary:
           Name: Stuart Anderson
           ID: c50e7cc9d0086272ef995fb76461612d40c70435
-    FQDN: dcs-squid1.ligo.caltech.edu
+    FQDN: origin-readtest.ligo.caltech.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=origin-readtest.ligo.caltech.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache Origin server
+    AllowedVOs:
+      - LIGO
+  CIT_LIGO_ORIGIN_TEST_WRITE:
+    Active: true
+    Description: This serves proprietary user data staged to and from the CIT cluster in a test configuration
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: origin-writetest.ligo.caltech.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=origin-writetest.ligo.caltech.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache Origin server
+    AllowedVOs:
+      - LIGO
+  CIT_LIGO_SQUID:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: dcs-squid.ligo.caltech.edu
     ID: 1316
-    Services:
-      Squid:
-        Description: Frontier-squid proxy server
-    AllowedVOs:
-      - LIGO
-  CIT_LIGO_SQUID2:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          Name: Stuart Anderson
-          ID: c50e7cc9d0086272ef995fb76461612d40c70435
-      Security Contact:
-        Primary:
-          Name: Stuart Anderson
-          ID: c50e7cc9d0086272ef995fb76461612d40c70435
-    FQDN: dcs-squid2.ligo.caltech.edu
-    ID: 1317
-    Services:
-      Squid:
-        Description: Frontier-squid proxy server
-    AllowedVOs:
-      - LIGO
-  CIT_LIGO_SQUID3:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          Name: Stuart Anderson
-          ID: c50e7cc9d0086272ef995fb76461612d40c70435
-      Security Contact:
-        Primary:
-          Name: Stuart Anderson
-          ID: c50e7cc9d0086272ef995fb76461612d40c70435
-    FQDN: dcs-squid3.ligo.caltech.edu
-    ID: 1318
     Services:
       Squid:
         Description: Frontier-squid proxy server
