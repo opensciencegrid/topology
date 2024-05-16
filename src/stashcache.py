@@ -564,7 +564,17 @@ def get_namespaces_info(global_data: GlobalData, include_downed=False, include_i
                 if not is_null(svc, "Details", "auth_endpoint_override"):
                     auth_endpoint = svc["Details"]["auth_endpoint_override"]
                 break
-        return {"endpoint": endpoint, "auth_endpoint": auth_endpoint, "resource": r.name}
+        production = None
+        try:
+            production = bool(r.rg.production)
+        except AttributeError:
+            pass
+        return {
+            "endpoint": endpoint,
+            "auth_endpoint": auth_endpoint,
+            "resource": r.name,
+            "production": production,
+        }
 
     def _cache_resource_dict(r: Resource):
         return _service_resource_dict(r=r, service_name=XROOTD_CACHE_SERVER, auth_port_default=8443, unauth_port_default=8000)
