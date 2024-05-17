@@ -513,9 +513,12 @@ base_path = /ospool/PROTECTED
 ### Namespaces JSON generation
 
 The JSON file containing cache and namespace information for stashcp/OSDF is served at `/osdf/namespaces`.
-The endpoint takes two optional parameters, `include_downed=1`, and `include_inactive=1`;
-if they are set, caches in downtime or that are not marked as active, respectively, are also included in the result.
-Otherwise, they are not included.
+The endpoint takes some optional parameters for filtering:
+- `include_downed=1` includes caches that are in downtime in the result; otherwise they are omitted
+- `include_inactive=1` includes caches that are not marked as active in the result; otherwise they are omitted
+- `production=1` includes resources in "production" (as opposed to ITB) in the result
+- `itb=1` includes resources in "itb" in the result
+  if neither `production` nor `itb` are specified then both production and itb resources are included
 
 The JSON contains an attribute `caches` that is a list of caches.
 Each cache in the list contains the following attributes:
