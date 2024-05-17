@@ -7,13 +7,11 @@ from typing import Dict, List, Optional, Tuple
 
 import icalendar
 
-from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml,\
-    is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER, gen_id_from_yaml
+from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml, \
+    is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER, \
+    gen_id_from_yaml, GRIDTYPE_1, GRIDTYPE_2, is_true
 from .contacts_reader import ContactsData, User
 from .exceptions import DataError
-
-GRIDTYPE_1 = "OSG Production Resource"
-GRIDTYPE_2 = "OSG Integration Test Bed Resource"
 
 log = getLogger(__name__)
 
@@ -372,7 +370,7 @@ class ResourceGroup(object):
         self.site = site
         self.service_types = common_data.service_types
         self.common_data = common_data
-        self.production = yaml_data.get("Production", "")
+        self.production = is_true(yaml_data.get("Production", ""))
 
         scname = yaml_data["SupportCenter"]
         scid = int(common_data.support_centers[scname]["ID"])
@@ -395,6 +393,10 @@ class ResourceGroup(object):
     def resources(self):
         return [self.resources_by_name[k] for k in sorted(self.resources_by_name)]
 
+    @property
+    def itb(self):
+        return not self.production
+
     def get_tree(self, authorized=False, filters: Filters = None) -> Optional[OrderedDict]:
         if filters is None:
             filters = Filters()
@@ -404,7 +406,7 @@ class ResourceGroup(object):
                                        (filters.rg_id, self.id)]:
             if filter_list and attribute not in filter_list:
                 return
-        data_gridtype = GRIDTYPE_1 if self.data.get("Production", None) else GRIDTYPE_2
+        data_gridtype = GRIDTYPE_1 if self.production else GRIDTYPE_2
         if filters.grid_type is not None and data_gridtype != filters.grid_type:
             return
 
@@ -455,8 +457,7 @@ class ResourceGroup(object):
         new_rg["GroupName"] = self.name
         new_rg["SupportCenter"] = self.support_center
         new_rg["IsCCStar"] = self.is_ccstar
-        production = new_rg.get("Production")
-        if production:
+        if self.production:
             new_rg["GridType"] = GRIDTYPE_1
         else:
             new_rg["GridType"] = GRIDTYPE_2
