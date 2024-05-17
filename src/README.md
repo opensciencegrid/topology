@@ -522,6 +522,7 @@ Each cache in the list contains the following attributes:
 - `endpoint`: The `<HOST>:<PORT>` of the public (`xrootd@stash-cache`) service
 - `auth_endpoint`: The `<HOST>:<PORT>` of the authenticated (`xrootd@stash-cache-auth`) service
 - `resource`: The resource name of the cache.
+- `production`: true if the resource is in "production" (as opposed to ITB)
 
 The JSON also contains an attribute `namespaces` that is a list of namespaces with the following attributes:
 - `path` is the path of the namespace
@@ -553,11 +554,13 @@ The final result looks like
     {
       "auth_endpoint": "osg-gftp.pace.gatech.edu:8443",
       "endpoint": "osg-gftp.pace.gatech.edu:8000",
+      "production": true,
       "resource": "Georgia_Tech_PACE_GridFTP"
     },
     {
       "auth_endpoint": "osg-gftp2.pace.gatech.edu:8443",
       "endpoint": "osg-gftp2.pace.gatech.edu:8000",
+      "production": true,
       "resource": "Georgia_Tech_PACE_GridFTP2"
     }
   ],
@@ -567,6 +570,7 @@ The final result looks like
         {
           "auth_endpoint": "rds-cache.sdsc.edu:8443",
           "endpoint": "rds-cache.sdsc.edu:8000",
+          "production": true,
           "resource": "RDS_AUTH_OSDF_CACHE"
         }
       ],

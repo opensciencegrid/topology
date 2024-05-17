@@ -1,5 +1,6 @@
 from configparser import ConfigParser
 import copy
+
 import flask
 import pytest
 import re
@@ -279,6 +280,7 @@ class TestNamespaces:
         assert HOST_PORT_RE.match(cc["auth_endpoint"])
         assert HOST_PORT_RE.match(cc["endpoint"])
         assert cc["resource"] and isinstance(cc["resource"], str)
+        assert "production" in cc and isinstance(cc["production"], (type(None), bool))
 
     @staticmethod
     def validate_namespace_schema(ns):

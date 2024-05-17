@@ -109,7 +109,7 @@ class Site(object):
         return self._is_ccstar
 
 class Resource(object):
-    def __init__(self, name: str, yaml_data: ParsedYaml, common_data: CommonData):
+    def __init__(self, name: str, yaml_data: ParsedYaml, common_data: CommonData, rg: "ResourceGroup"):
         self.name = name
         self.service_types = common_data.service_types
         self.common_data = common_data
@@ -124,6 +124,7 @@ class Resource(object):
             raise ValueError(f"Resource {name} does not have an FQDN")
         self.fqdn = self.data["FQDN"]
         self.id = self.data["ID"]
+        self.rg = rg
 
     def get_stashcache_files(self, global_data, legacy):
         """Gets a resources Cache files as a dictionary"""
@@ -378,14 +379,14 @@ class ResourceGroup(object):
         self.support_center = OrderedDict([("ID", scid), ("Name", scname)])
 
         self.resources_by_name = {}
-        for name, res in yaml_data["Resources"].items():
+        for res_name, res in yaml_data["Resources"].items():
             try:
                 if not isinstance(res, dict):
                     raise TypeError("expecting a dict")
-                res_obj = Resource(name, ParsedYaml(res), self.common_data)
-                self.resources_by_name[name] = res_obj
+                res_obj = Resource(res_name, ParsedYaml(res), self.common_data, rg=self)
+                self.resources_by_name[res_name] = res_obj
             except (AttributeError, KeyError, TypeError, ValueError) as err:
-                log.exception("Error with resource %s: %r", name, err)
+                log.exception("Error with resource %s: %r", res_name, err)
                 continue
 
         self.data = yaml_data
