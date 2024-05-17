@@ -538,7 +538,7 @@ def get_scitokens_list_for_namespace(ns: Namespace) -> List[Dict]:
     )
 
 
-def get_namespaces_info(global_data: GlobalData, filters: NamespacesFilters) -> PreJSON:
+def get_namespaces_info(global_data: GlobalData, filters: Optional[NamespacesFilters] = None) -> PreJSON:
     """Return data for the /stashcache/namespaces JSON endpoint.
 
     This includes a list of caches and origins, with some data about their endpoints,
@@ -547,6 +547,9 @@ def get_namespaces_info(global_data: GlobalData, filters: NamespacesFilters) -> 
     If `include_downed` is True, caches/origins in downtime are also included.
     If `include_inactive` is True, caches/origins that are not marked as active are also included.
     """
+    if filters is None:
+        filters = NamespacesFilters()
+
     # Helper functions
 
     def _service_resource_dict(
