@@ -20,12 +20,11 @@ from flask_wtf.csrf import CSRFProtect
 
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, \
-    escape, cache_control_private, PreJSON, is_true
+    escape, cache_control_private, PreJSON, is_true, GRIDTYPE_1, GRIDTYPE_2, NamespacesFilters
 from webapp.flask_common import create_accepted_response
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
 from webapp.models import GlobalData
-from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
 from webapp.github import create_file_pr, update_file_pr, GithubUser, GitHubAuth, GitHubRepoAPI, GithubRequestException, GithubReferenceExistsException, GithubNotFoundException
 
@@ -545,10 +544,20 @@ def scitokens():
 def stashcache_namespaces_json():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
-    include_downed = is_true(request.args.get("include_downed", False))
-    include_inactive = is_true(request.args.get("include_inactive", False))
+    args = request.args
+    filters = NamespacesFilters()
+    filters.include_downed = is_true(args.get("include_downed", False))
+    filters.include_inactive = is_true(args.get("include_inactive", False))
+    if "production" not in args and "itb" not in args:
+        # default: include both production and itb
+        filters.production = True
+        filters.itb = True
+    else:
+        filters.production = is_true(request.args.get("production", False))
+        filters.itb = is_true(request.args.get("itb", False))
+
     try:
-        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data, include_downed, include_inactive)),
+        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data, filters=filters)),
                         mimetype='application/json')
     except ResourceNotRegistered as e:
         return Response("# {}\n"
