@@ -1,7 +1,7 @@
 from collections import defaultdict
 from typing import Dict, List, Optional
 
-from webapp.common import is_null, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
+from webapp.common import is_null, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, NamespacesFilters
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
@@ -538,7 +538,7 @@ def get_scitokens_list_for_namespace(ns: Namespace) -> List[Dict]:
     )
 
 
-def get_namespaces_info(global_data: GlobalData, include_downed=False, include_inactive=False) -> PreJSON:
+def get_namespaces_info(global_data: GlobalData, filters: NamespacesFilters) -> PreJSON:
     """Return data for the /stashcache/namespaces JSON endpoint.
 
     This includes a list of caches and origins, with some data about their endpoints,
@@ -645,10 +645,14 @@ def get_namespaces_info(global_data: GlobalData, include_downed=False, include_i
     cache_resource_dicts = {}  # type: Dict[str, Dict]
 
     for group in resource_groups:
+        if group.production and not filters.production:
+            continue
+        if group.itb and not filters.itb:
+            continue
         for resource in group.resources:
             if (_resource_has_cache(resource)
-                    and (include_inactive or resource.is_active)
-                    and (include_downed or not _resource_has_downed_cache(resource, topology))
+                    and (filters.include_inactive or resource.is_active)
+                    and (filters.include_downed or not _resource_has_downed_cache(resource, topology))
             ):
                 cache_resource_objs[resource.name] = resource
                 cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
@@ -659,10 +663,14 @@ def get_namespaces_info(global_data: GlobalData, include_downed=False, include_i
     origin_resource_dicts = {}  # type: Dict[str, Dict]
 
     for group in resource_groups:
+        if group.production and not filters.production:
+            continue
+        if group.itb and not filters.itb:
+            continue
         for resource in group.resources:
             if (_resource_has_origin(resource)
-                    and (include_inactive or resource.is_active)
-                    and (include_downed or not _resource_has_downed_origin(resource, topology))
+                    and (filters.include_inactive or resource.is_active)
+                    and (filters.include_downed or not _resource_has_downed_origin(resource, topology))
             ):
                 origin_resource_objs[resource.name] = resource
                 origin_resource_dicts[resource.name] = _origin_resource_dict(resource)
