@@ -20,7 +20,7 @@ os.environ['TESTING'] = "True"
 
 from app import app, global_data
 from webapp import models, topology, vos_data
-from webapp.common import load_yaml_file
+from webapp.common import load_yaml_file, NamespacesFilters
 from webapp.data_federation import CredentialGeneration, StashCache
 import stashcache
 
@@ -265,13 +265,35 @@ class TestNamespaces:
 
     @pytest.fixture
     def caches_include_inactive(self, test_global_data) -> List[Dict]:
-        namespaces_json = stashcache.get_namespaces_info(test_global_data, include_inactive=True)
+        filters = NamespacesFilters()
+        filters.include_inactive = True
+        namespaces_json = stashcache.get_namespaces_info(test_global_data, filters)
         assert "caches" in namespaces_json
         return namespaces_json["caches"]
 
     @pytest.fixture
     def caches_include_downed(self, test_global_data) -> List[Dict]:
-        namespaces_json = stashcache.get_namespaces_info(test_global_data, include_downed=True)
+        filters = NamespacesFilters()
+        filters.include_downed = True
+        namespaces_json = stashcache.get_namespaces_info(test_global_data, filters)
+        assert "caches" in namespaces_json
+        return namespaces_json["caches"]
+
+    @pytest.fixture
+    def caches_production(self, test_global_data) -> List[Dict]:
+        filters = NamespacesFilters()
+        filters.production = True
+        filters.itb = False
+        namespaces_json = stashcache.get_namespaces_info(test_global_data, filters)
+        assert "caches" in namespaces_json
+        return namespaces_json["caches"]
+
+    @pytest.fixture
+    def caches_itb(self, test_global_data) -> List[Dict]:
+        filters = NamespacesFilters()
+        filters.production = False
+        filters.itb = True
+        namespaces_json = stashcache.get_namespaces_info(test_global_data, filters)
         assert "caches" in namespaces_json
         return namespaces_json["caches"]
 
@@ -400,6 +422,14 @@ class TestNamespaces:
         assert TEST_ITB_HELM_CACHE2_RESOURCE in (
             x["resource"] for x in caches_include_downed
         ), "Downed cache missing from namespaces JSON with ?include_downed=1"
+
+    def test_caches_production(self, caches_production, caches_itb):
+        assert "TEST_TIGER_CACHE" in (
+            x["resource"] for x in caches_production
+        ), "Production cache not present in namespaces JSON with production filter"
+        assert "TEST_TIGER_CACHE" not in (
+            x["resource"] for x in caches_itb
+        ), "Production cache wrongly present in namespaces JSON with itb filter"
 
 
 if __name__ == '__main__':
