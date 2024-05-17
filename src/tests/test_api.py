@@ -769,7 +769,8 @@ class TestEndpointContent:
         },
         'Tags': ['CC*']
     }
-    mock_resource = Resource("AMNH-ARES", mock_resource_information, global_data.get_topology().common_data)
+    mock_resource = Resource("AMNH-ARES", mock_resource_information, global_data.get_topology().common_data,
+                             mock_resource_group)
 
     mock_facility.add_site(mock_site)
     mock_site.add_resource_group(mock_resource_group)
