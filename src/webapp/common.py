@@ -29,7 +29,7 @@ VOSUMMARY_SCHEMA_URL = "https://topology.opensciencegrid.org/schema/vosummary.xs
 
 SSH_WITH_KEY = os.path.abspath(os.path.dirname(__file__) + "/ssh_with_key.sh")
 
-ParsedYaml = NewType("ParsedYaml", Dict[str, Any])  # a complex data structure that's a result of parsing a YAML file
+ParsedYaml = NewType("ParsedYaml", Union[List, Dict[str, Any]])  # a complex data structure that's a result of parsing a YAML file
 PreJSON = NewType("PreJSON", Union[List, Dict[str, Any]])  # a complex data structure that will be converted to JSON in the webapp
 T = TypeVar("T")
 
@@ -54,6 +54,17 @@ class Filters(object):
 
     def populate_voown_name(self, vo_id_to_name: Dict):
         self.voown_name = [vo_id_to_name.get(i, "") for i in self.voown_id]
+
+
+class NamespacesFilters:
+    """
+    Filters for namespaces json
+    """
+    def __init__(self):
+        self.include_inactive = False
+        self.include_downed = False
+        self.production = True
+        self.itb = True
 
 
 def to_csv(data: list) -> str:
@@ -222,6 +233,13 @@ def trim_space(s: str) -> str:
     ret = re.sub(r"(?m)^[ \t]+", "", ret)
     return ret
 
+
+def fix_newlines(in_str: str) -> str:
+    """Replace Windows newlines with Unix newlines in a string;
+    other CR characters are replaced with a space"""
+    return in_str.replace("\r\n", "\n").replace("\r", " ")
+
+
 def run_git_cmd(cmd: List, dir=None, git_dir=None, ssh_key=None) -> bool:
     """
     Run git command, optionally specifying ssh key and/or git dirs
@@ -273,6 +291,18 @@ def git_clone_or_pull(repo, dir, branch, ssh_key=None) -> bool:
         ok = run_git_cmd(["clone", repo, dir], ssh_key=ssh_key)
         ok = ok and run_git_cmd(["checkout", branch], dir=dir)
     return ok
+
+
+def is_true(input_) -> bool:
+    """Convert various types of input to a boolean.  Specifically, strings and bytes are checked for the values
+    '1', 'true', 'yes', 'on', case-insensitively.  Other types are just cast to bool using the built-in function.
+    """
+    if isinstance(input_, bytes):
+        input_ = input_.decode(errors="replace")
+    if not isinstance(input_, str):
+        return bool(input_)
+    input_ = input_.lower()
+    return input_ in ("1", "true", "yes", "on")
 
 
 def git_clone_or_fetch_mirror(repo, git_dir, ssh_key=None) -> bool:
@@ -366,3 +396,5 @@ def cache_control_private(f):
 
 XROOTD_CACHE_SERVER = "XRootD cache server"
 XROOTD_ORIGIN_SERVER = "XRootD origin server"
+GRIDTYPE_1 = "OSG Production Resource"
+GRIDTYPE_2 = "OSG Integration Test Bed Resource"

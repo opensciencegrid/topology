@@ -69,6 +69,7 @@ OASIS:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/ligo.storage.igwn.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/shared.storage.igwn.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/kagra.storage.igwn.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/ligo-test.storage.igwn.org
   - http://cvmfs-software.ligo.caltech.edu:8000/cvmfs/software.igwn.org
   UseOASIS: true
 PrimaryURL: http://www.ligo.org
@@ -81,6 +82,7 @@ DataFederations:
       - Path: /user/ligo
         Authorizations:
           - DN: /CN=hcc-mon2.unl.edu
+          - DN: /CN=osdftest.t2.ucsd.edu
           - FQAN: /osg/ligo
           - FQAN: /virgo
           - FQAN: /virgo/virgo
@@ -91,10 +93,14 @@ DataFederations:
           - SciTokens:
               Issuer: https://test.cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN
           - LIGO-StashCache-Origin
         AllowedCaches: &ligo-allowed-caches
+          - IN2P3-CC_OSDF_CACHE
           - SUT-STASHCACHE
           - Georgia_Tech_PACE_GridFTP2
           - Stashcache-UCSD
@@ -124,6 +130,7 @@ DataFederations:
           - CIT_LIGO_STASHCACHE
           - SINGAPORE_INTERNET2_OSDF_CACHE
           - SPRACE_OSDF_CACHE
+          - KAGRA_OSDF_CACHE
       - Path: /igwn/virgo
         Authorizations:
           - FQAN: /osg/ligo
@@ -136,11 +143,16 @@ DataFederations:
           - SciTokens:
               Issuer: https://test.cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - UCL-Virgo-StashCache-Origin
         AllowedCaches: *ligo-allowed-caches
       - Path: /igwn/ligo
         Authorizations:
+          - DN: /CN=hcc-mon2.unl.edu
+          - DN: /CN=osdftest.t2.ucsd.edu
           - FQAN: /osg/ligo
           - FQAN: /virgo
           - FQAN: /virgo/virgo
@@ -150,6 +162,9 @@ DataFederations:
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
           - SciTokens:
               Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_IFO
@@ -166,6 +181,9 @@ DataFederations:
           - SciTokens:
               Issuer: https://test.cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - KAGRA_OSDF_ORIGIN
         AllowedCaches: *ligo-allowed-caches
@@ -181,6 +199,9 @@ DataFederations:
           - SciTokens:
               Issuer: https://test.cilogon.org/igwn
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_SHARED
         AllowedCaches: *ligo-allowed-caches
@@ -195,6 +216,9 @@ DataFederations:
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
           - SciTokens:
               Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_STAGING
@@ -214,7 +238,7 @@ DataFederations:
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
           - SciTokens:
               Issuer: https://osdf.igwn.org/cit
-              Base Path: /igwn/test,/igwn/test-write
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_TEST
         AllowedCaches: *ligo-allowed-caches
@@ -232,7 +256,7 @@ DataFederations:
               Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
           - SciTokens:
               Issuer: https://osdf.igwn.org/cit
-              Base Path: /igwn/test,/igwn/test-write
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_TEST_WRITE
         AllowedCaches: *ligo-allowed-caches

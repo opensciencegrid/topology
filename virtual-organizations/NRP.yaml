@@ -24,13 +24,11 @@ FieldsOfScience:
   - Multi-Science Community
 ID: 232
 LongName: National research platform origin
-
 PrimaryURL: https://nationalresearchplatform.org
 PurposeURL: https://nationalresearchplatform.org
 ReportingGroups:
 - nrp
 SupportURL: https://nationalresearchplatform.org
-
 DataFederations:
   StashCache:
     Namespaces:
@@ -58,6 +56,46 @@ DataFederations:
           - SciTokens:
               Issuer: https://t.nationalresearchplatform.org/xenon
               Base Path: /nrp/protected/xenon-biggrid-nl/
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /nrp/fdp/
+        Authorizations:
+          - PUBLIC
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/fdp
+              Base Path: /nrp/fdp/
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /nrp/fdp/gyrokinetic
+        Authorizations:
+          - PUBLIC
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/gyrokinetic
+              Base Path: /nrp/fdp/gyrokinetic/
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /knightlab
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /knightlab/mirror
+        Authorizations:
+          - PUBLIC
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/knightlab
+              Base Path: /knightlab/mirror
               Map Subject: False
         AllowedOrigins:
           - SDSC_NRP_OSDF_ORIGIN

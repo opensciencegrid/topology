@@ -95,6 +95,8 @@ Resources:
     Services:
       XRootD origin server:
         Description: LIGO StashCache Origin Server
+        Details:
+          auth_endpoint_override: xrootd-local.unl.edu:1094
     AllowedVOs:
       - LIGO
       

@@ -8,3 +8,71 @@
   ResourceName: CARDIFF_UK_OSDF_CACHE
   Services:
   - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1729342507
+  Description: overloaded and changing main volume configuration. 
+  Severity: Outage
+  StartTime: Feb 14, 2024 20:30 +0000
+  EndTime: Mar 05, 2024 20:30 +0000
+  CreatedTime: Feb 14, 2024 18:10 +0000
+  ResourceName: CARDIFF_UK_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+  - Class: UNSCHEDULED
+  ID: 1782049725
+  Description: Overloaded, setting for CVMF_ONLY
+  Severity: Outage
+  StartTime: Apr 15, 2024 08:00 +0000
+  EndTime: Apr 16, 2024 05:30 +0000
+  CreatedTime: Apr 15, 2024 18:16 +0000
+  ResourceName: CARDIFF_UK_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1789162819
+  Description: 'power maintenance '
+  Severity: Outage
+  StartTime: May 01, 2024 08:00 +0000
+  EndTime: May 05, 2024 06:00 +0000
+  CreatedTime: Apr 23, 2024 23:51 +0000
+  ResourceName: CARDIFF_UK_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1790222203
+  Description: overloaded
+  Severity: Outage
+  StartTime: Apr 24, 2024 08:00 +0000
+  EndTime: May 01, 2024 20:00 +0000
+  CreatedTime: Apr 25, 2024 05:17 +0000
+  ResourceName: CARDIFF_UK_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1794218483
+  Description: 'Scheduled power outage'
+  Severity: Outage
+  StartTime: May 01, 2024 12:00 +0100
+  EndTime: May 02, 2024 17:00 +0000
+  CreatedTime: May 01, 2024 11:09 +0100
+  ResourceName: CARDIFF_UK_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1808101910
+  Description: overloaded
+  Severity: Outage
+  StartTime: May 14, 2024 19:30 +0000
+  EndTime: May 31, 2024 19:30 +0000
+  CreatedTime: May 15, 2024 21:56 +0000
+  ResourceName: CARDIFF_UK_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+

@@ -1346,4 +1346,114 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1783591351
+  Description: We need to test our IPv6 routes with our provider
+  Severity: Outage
+  StartTime: Apr 19, 2024 11:00 +0000
+  EndTime: Apr 24, 2024 20:00 +0000
+  CreatedTime: Apr 17, 2024 13:05 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1783591733
+  Description: We need to test our IPv6 routes with our provider
+  Severity: Outage
+  StartTime: Apr 19, 2024 11:00 +0000
+  EndTime: Apr 24, 2024 20:00 +0000
+  CreatedTime: Apr 17, 2024 13:06 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1783591812
+  Description: We need to test our IPv6 routes with our provider
+  Severity: Outage
+  StartTime: Apr 19, 2024 11:00 +0000
+  EndTime: Apr 24, 2024 20:00 +0000
+  CreatedTime: Apr 17, 2024 13:06 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1783591907
+  Description: We need to test our IPv6 routes with our provider
+  Severity: Outage
+  StartTime: Apr 19, 2024 11:00 +0000
+  EndTime: Apr 24, 2024 20:00 +0000
+  CreatedTime: Apr 17, 2024 13:06 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1783591986
+  Description: We need to test our IPv6 routes with our provider
+  Severity: Outage
+  StartTime: Apr 19, 2024 11:00 +0000
+  EndTime: Apr 24, 2024 20:00 +0000
+  CreatedTime: Apr 17, 2024 13:06 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1801899214
+  Description: We're migrating our storage
+  Severity: Outage
+  StartTime: May 07, 2024 17:50 +0000
+  EndTime: May 20, 2024 13:00 +0000
+  CreatedTime: May 08, 2024 17:38 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1801899600
+  Description: We're migrating our storage and will update our workernodes to EL8
+  Severity: Outage
+  StartTime: May 07, 2024 17:50 +0000
+  EndTime: May 20, 2024 13:00 +0000
+  CreatedTime: May 08, 2024 17:39 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1801899685
+  Description: We're migrating our storage and will update our workernodes to EL8
+  Severity: Outage
+  StartTime: May 07, 2024 17:50 +0000
+  EndTime: May 20, 2024 13:00 +0000
+  CreatedTime: May 08, 2024 17:39 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1801899756
+  Description: We're migrating our storage and will update our workernodes to EL8
+  Severity: Outage
+  StartTime: May 07, 2024 17:50 +0000
+  EndTime: May 20, 2024 13:00 +0000
+  CreatedTime: May 08, 2024 17:39 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1801899851
+  Description: We're migrating our storage and will update our workernodes to EL8
+  Severity: Outage
+  StartTime: May 07, 2024 17:50 +0000
+  EndTime: May 20, 2024 13:00 +0000
+  CreatedTime: May 08, 2024 17:39 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 

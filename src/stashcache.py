@@ -1,7 +1,7 @@
 from collections import defaultdict
 from typing import Dict, List, Optional
 
-from webapp.common import is_null, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER
+from webapp.common import is_null, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, NamespacesFilters
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
@@ -538,13 +538,18 @@ def get_scitokens_list_for_namespace(ns: Namespace) -> List[Dict]:
     )
 
 
-def get_namespaces_info(global_data: GlobalData) -> PreJSON:
+def get_namespaces_info(global_data: GlobalData, filters: Optional[NamespacesFilters] = None) -> PreJSON:
     """Return data for the /stashcache/namespaces JSON endpoint.
 
     This includes a list of caches and origins, with some data about their endpoints,
     and a list of namespaces with some data about each namespace; see README.md for details.
 
+    If `include_downed` is True, caches/origins in downtime are also included.
+    If `include_inactive` is True, caches/origins that are not marked as active are also included.
     """
+    if filters is None:
+        filters = NamespacesFilters()
+
     # Helper functions
 
     def _service_resource_dict(
@@ -562,13 +567,23 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
                 if not is_null(svc, "Details", "auth_endpoint_override"):
                     auth_endpoint = svc["Details"]["auth_endpoint_override"]
                 break
-        return {"endpoint": endpoint, "auth_endpoint": auth_endpoint, "resource": r.name}
+        production = None
+        try:
+            production = bool(r.rg.production)
+        except AttributeError:
+            pass
+        return {
+            "endpoint": endpoint,
+            "auth_endpoint": auth_endpoint,
+            "resource": r.name,
+            "production": production,
+        }
 
     def _cache_resource_dict(r: Resource):
         return _service_resource_dict(r=r, service_name=XROOTD_CACHE_SERVER, auth_port_default=8443, unauth_port_default=8000)
 
     def _origin_resource_dict(r: Resource):
-        return _service_resource_dict(r=r, service_name=XROOTD_CACHE_SERVER, auth_port_default=1095, unauth_port_default=1094)
+        return _service_resource_dict(r=r, service_name=XROOTD_ORIGIN_SERVER, auth_port_default=1095, unauth_port_default=1094)
 
     def _namespace_dict(ns: Namespace):
         nsdict = {
@@ -633,10 +648,14 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     cache_resource_dicts = {}  # type: Dict[str, Dict]
 
     for group in resource_groups:
+        if group.production and not filters.production:
+            continue
+        if group.itb and not filters.itb:
+            continue
         for resource in group.resources:
             if (_resource_has_cache(resource)
-                    and resource.is_active
-                    and not _resource_has_downed_cache(resource, topology)
+                    and (filters.include_inactive or resource.is_active)
+                    and (filters.include_downed or not _resource_has_downed_cache(resource, topology))
             ):
                 cache_resource_objs[resource.name] = resource
                 cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
@@ -647,10 +666,14 @@ def get_namespaces_info(global_data: GlobalData) -> PreJSON:
     origin_resource_dicts = {}  # type: Dict[str, Dict]
 
     for group in resource_groups:
+        if group.production and not filters.production:
+            continue
+        if group.itb and not filters.itb:
+            continue
         for resource in group.resources:
             if (_resource_has_origin(resource)
-                    and resource.is_active
-                    and not _resource_has_downed_origin(resource, topology)
+                    and (filters.include_inactive or resource.is_active)
+                    and (filters.include_downed or not _resource_has_downed_origin(resource, topology))
             ):
                 origin_resource_objs[resource.name] = resource
                 origin_resource_dicts[resource.name] = _origin_resource_dict(resource)

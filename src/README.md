@@ -226,7 +226,7 @@ DataFederation:
     Namespaces:
       - <NAMESPACE 1>
       - <NAMESPACE 2>
-      ...
+      # ...
       - <NAMESPACE n>
 ```
 
@@ -250,7 +250,7 @@ Alternatively:
 ```yaml
 Authorizations:
   - <DN/FQAN/SCITOKENS AUTH 1>
-  ...
+  # ...
   - <DN/FQAN/SCITOKENS AUTH n>
 ```
 These denote an authenticated namespace, which requires authentication for read access.
@@ -302,7 +302,7 @@ There are three kinds of authorization types:
 ```yaml
 AllowedOrigins:
   - ORIGIN_RESOURCE1
-  ...
+  # ...
   - ORIGIN_RESOURCEn
 ```
 AllowedOrigins is a list of resource names of origins that will serve data for this namespace.
@@ -316,7 +316,7 @@ or
 ```yaml
 AllowedCaches:
   - CACHE_RESOURCE1
-  ...
+  # ...
   - CACHE_RESOURCEn
 ```
 AllowedCaches is a list of resource names of caches that will serve data for this namespace.
@@ -389,14 +389,14 @@ For example:
 ```yaml
 Resources:
   Stashcache-Chicago:
-    ...
+    # ...
     Services:
       XRootD cache server:
         Description: Internet2 Chicago Cache
         Details:
           endpoint_override:      osg-chicago-stashcache.nrp.internet2.edu:8443
           auth_endpoint_override: osg-chicago-stashcache.nrp.internet2.edu:8444
-    ...
+    # ...
 ```
 
 ### Supporting a Namespace
@@ -512,13 +512,20 @@ base_path = /ospool/PROTECTED
 
 ### Namespaces JSON generation
 
-The JSON file containing cache and namespace information for stashcp is served at `/stashcache/namespaces`.
+The JSON file containing cache and namespace information for stashcp/OSDF is served at `/osdf/namespaces`.
+The endpoint takes some optional parameters for filtering:
+- `include_downed=1` includes caches that are in downtime in the result; otherwise they are omitted
+- `include_inactive=1` includes caches that are not marked as active in the result; otherwise they are omitted
+- `production=1` includes resources in "production" (as opposed to ITB) in the result
+- `itb=1` includes resources in "itb" in the result
+  if neither `production` nor `itb` are specified then both production and itb resources are included
 
 The JSON contains an attribute `caches` that is a list of caches.
 Each cache in the list contains the following attributes:
 - `endpoint`: The `<HOST>:<PORT>` of the public (`xrootd@stash-cache`) service
 - `auth_endpoint`: The `<HOST>:<PORT>` of the authenticated (`xrootd@stash-cache-auth`) service
 - `resource`: The resource name of the cache.
+- `production`: true if the resource is in "production" (as opposed to ITB)
 
 The JSON also contains an attribute `namespaces` that is a list of namespaces with the following attributes:
 - `path` is the path of the namespace
@@ -550,11 +557,13 @@ The final result looks like
     {
       "auth_endpoint": "osg-gftp.pace.gatech.edu:8443",
       "endpoint": "osg-gftp.pace.gatech.edu:8000",
+      "production": true,
       "resource": "Georgia_Tech_PACE_GridFTP"
     },
     {
       "auth_endpoint": "osg-gftp2.pace.gatech.edu:8443",
       "endpoint": "osg-gftp2.pace.gatech.edu:8000",
+      "production": true,
       "resource": "Georgia_Tech_PACE_GridFTP2"
     }
   ],
@@ -564,6 +573,7 @@ The final result looks like
         {
           "auth_endpoint": "rds-cache.sdsc.edu:8443",
           "endpoint": "rds-cache.sdsc.edu:8000",
+          "production": true,
           "resource": "RDS_AUTH_OSDF_CACHE"
         }
       ],
@@ -577,7 +587,7 @@ The final result looks like
     },
     {
       "caches": [
-        (a whole bunch)
+        // (a whole bunch)
       ],
       "credential_generation": {
         "issuer": "https://osg-htc.org/ospool",

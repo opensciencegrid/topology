@@ -173,6 +173,26 @@ DataFederations:
         Writeback: https://s3-us-west-1.osgdev.chtc.io:1095
         DirList: https://s3-us-west-1.osgdev.chtc.io:1095
 
+      - Path: /osn-sdsc/us-west-1/bp3d-pelican
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_S3_ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /nrdstor/protected
+        Authorizations:
+          - SciTokens:
+              # Simple public and private key issuer, https://github.com/biozit/t
+              Issuer: https://t.nationalresearchplatform.org
+              Base Path: /nrdstor/protected
+              Map Subject: True
+        AllowedOrigins:
+          - NEBRASKA_NRP_HCC_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+
       - Path: /osdftest
         Authorizations:
           - PUBLIC
@@ -182,6 +202,7 @@ DataFederations:
           - SDSC_NRP_OSDF_ORIGIN
           - SDSC-test-Origin
           - SINGAPORE_INTERNET2_OSDF_CACHE
+          - NEBRASKA_NRP_HCC_OSDF_ORIGIN
         AllowedCaches:
           - ANY
       
@@ -234,6 +255,23 @@ DataFederations:
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
+          MaxScopeDepth: 4
+
+      - Path: /ospool/ap40/data
+        Authorizations:
+          - SciTokens:
+              Issuer: https://ospool-ap2140.chtc.wisc.edu:8443
+              Base Path: /ospool/ap40
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ap40
+        AllowedCaches:
+          - ANY
+        Writeback: https://ospool-ap2140.chtc.wisc.edu:8443
+        DirList: https://ospool-ap2140.chtc.wisc.edu:8443
+        CredentialGeneration:
+          Strategy: OAuth2
+          Issuer: https://ospool-ap2140.chtc.wisc.edu:8443
           MaxScopeDepth: 4
 
       # SciTokens issuer for ap20
