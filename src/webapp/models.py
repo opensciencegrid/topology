@@ -2,7 +2,6 @@ import contextlib
 import datetime
 import logging
 import os
-import time
 from typing import Dict, Set, List, Optional
 
 import yaml
@@ -24,7 +23,7 @@ except ImportError:
 
 
 from webapp import common, contacts_reader, ldap_data, mappings, project_reader, rg_reader, vo_reader
-from webapp.common import readfile
+from webapp.common import readfile, get_timestamp
 from webapp.contacts_reader import ContactsData
 from webapp.topology import Topology, Downtime
 from webapp.vos_data import VOsData
@@ -33,6 +32,7 @@ from webapp.vos_data import VOsData
 log = logging.getLogger(__name__)
 
 topology_update_summary = Summary('topology_update_seconds', 'Time spent updating the topology repo data')
+topology_git_update_summary = Summary('topology_git_update_seconds', 'Time spent pulling/cloning the topology git repo')
 contact_update_summary = Summary('contact_update_seconds', 'Time spent updating the contact repo data')
 comanage_update_summary = Summary('comanage_update_seconds', 'Time spent updating the comanage LDAP data')
 ligo_update_summary = Summary('ligo_update_seconds', 'Time spent updating the LIGO LDAP data')
@@ -52,16 +52,16 @@ class CachedData:
         """Return True if we should update, either because we're past the next update time
         or because force_update is True.
         """
-        return self.force_update or not self.data or time.time() > self.next_update
+        return self.force_update or not self.data or get_timestamp() > self.next_update
 
     def try_again(self):
         """Set the next update time to now + the retry delay."""
-        self.next_update = time.time() + self.retry_delay
+        self.next_update = get_timestamp() + self.retry_delay
 
     def update(self, data):
         """Cache new data and set the next update time to now + the cache lifetime."""
         self.data = data
-        self.timestamp = time.time()
+        self.timestamp = get_timestamp()
         self.next_update = self.timestamp + self.cache_lifetime
         self.force_update = False
 
@@ -90,6 +90,7 @@ class GlobalData:
         self.topology = CachedData(cache_lifetime=topology_cache_lifetime)
         self.vos_data = CachedData(cache_lifetime=topology_cache_lifetime)
         self.mappings = CachedData(cache_lifetime=topology_cache_lifetime)
+        self.topology_repo_stamp = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology_data_dir = config["TOPOLOGY_DATA_DIR"]
         self.topology_data_repo = config.get("TOPOLOGY_DATA_REPO", "")
         self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
@@ -152,6 +153,19 @@ class GlobalData:
                 log.error("%s not in topology repo", d)
                 return False
         return True
+
+    def maybe_update_topology_repo(self):
+        """Update the local git clone of the topology github repo if it hasn't
+        been updated recently (based on the cache time for self.topology_repo_stamp).
+        """
+        if self.topology_repo_stamp.should_update():
+            with topology_git_update_summary.time():
+                ok = self._update_topology_repo()
+            if ok:
+                self.topology_repo_stamp.update(get_timestamp())
+            else:
+                self.topology_repo_stamp.try_again()
+        return self.topology_repo_stamp.data
 
     def _update_contacts_repo(self):
         if not self.config["NO_GIT"]:
@@ -297,11 +311,11 @@ class GlobalData:
 
         return self.topology.data
 
-    def update_topology(self):
+    def update_topology(self) -> None:
         """
-        Update topology data
+        Update topology facility/site/ResourceGroup data
         """
-        ok = self._update_topology_repo()
+        ok = self.maybe_update_topology_repo()
         if ok:
             try:
                 self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data(), strict=self.strict))
@@ -320,7 +334,7 @@ class GlobalData:
         """
         if self.vos_data.should_update():
             with topology_update_summary.time():
-                ok = self._update_topology_repo()
+                ok = self.maybe_update_topology_repo()
                 if ok:
                     try:
                         self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data(), strict=self.strict))
@@ -341,7 +355,7 @@ class GlobalData:
         """
         if self.projects.should_update():
             with topology_update_summary.time():
-                ok = self._update_topology_repo()
+                ok = self.maybe_update_topology_repo()
                 if ok:
                     try:
                         self.projects.update(project_reader.get_projects(self.projects_dir, strict=self.strict))
@@ -364,7 +378,7 @@ class GlobalData:
             strict = self.strict
         if self.mappings.should_update():
             with topology_update_summary.time():
-                ok = self._update_topology_repo()
+                ok = self.maybe_update_topology_repo()
                 if ok:
                     try:
                         self.mappings.update(mappings.get_mappings(indir=self.mappings_dir, strict=strict))
