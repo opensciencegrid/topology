@@ -154,7 +154,7 @@ class GlobalData:
                 return False
         return True
 
-    def maybe_update_topology_repo(self):
+    def maybe_update_topology_repo(self) -> bool:
         """Update the local git clone of the topology github repo if it hasn't
         been updated recently (based on the cache time for self.topology_repo_stamp).
         """
@@ -163,9 +163,11 @@ class GlobalData:
                 ok = self._update_topology_repo()
             if ok:
                 self.topology_repo_stamp.update(get_timestamp())
+                return True
             else:
                 self.topology_repo_stamp.try_again()
-        return self.topology_repo_stamp.data
+                return False
+        return bool(self.topology_repo_stamp.data)
 
     def _update_contacts_repo(self):
         if not self.config["NO_GIT"]:
