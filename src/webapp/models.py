@@ -49,12 +49,17 @@ class CachedData:
         self.next_update = self.timestamp + self.cache_lifetime
 
     def should_update(self):
+        """Return True if we should update, either because we're past the next update time
+        or because force_update is True.
+        """
         return self.force_update or not self.data or time.time() > self.next_update
 
     def try_again(self):
+        """Set the next update time to now + the retry delay."""
         self.next_update = time.time() + self.retry_delay
 
     def update(self, data):
+        """Cache new data and set the next update time to now + the cache lifetime."""
         self.data = data
         self.timestamp = time.time()
         self.next_update = self.timestamp + self.cache_lifetime
@@ -288,19 +293,25 @@ class GlobalData:
         """
         if self.topology.should_update():
             with topology_update_summary.time():
-                ok = self._update_topology_repo()
-                if ok:
-                    try:
-                        self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data(), strict=self.strict))
-                    except Exception:
-                        if self.strict:
-                            raise
-                        log.exception("Failed to update topology")
-                        self.topology.try_again()
-                else:
-                    self.topology.try_again()
+                self.update_topology()
 
         return self.topology.data
+
+    def update_topology(self):
+        """
+        Update topology data
+        """
+        ok = self._update_topology_repo()
+        if ok:
+            try:
+                self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data(), strict=self.strict))
+            except Exception:
+                if self.strict:
+                    raise
+                log.exception("Failed to update topology")
+                self.topology.try_again()
+        else:
+            self.topology.try_again()
 
     def get_vos_data(self) -> Optional[VOsData]:
         """
