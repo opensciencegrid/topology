@@ -56,6 +56,17 @@ class Filters(object):
         self.voown_name = [vo_id_to_name.get(i, "") for i in self.voown_id]
 
 
+class NamespacesFilters:
+    """
+    Filters for namespaces json
+    """
+    def __init__(self):
+        self.include_inactive = False
+        self.include_downed = False
+        self.production = True
+        self.itb = True
+
+
 def to_csv(data: list) -> str:
     csv_string = StringIO()
     writer = csv.writer(csv_string)
@@ -385,3 +396,5 @@ def cache_control_private(f):
 
 XROOTD_CACHE_SERVER = "XRootD cache server"
 XROOTD_ORIGIN_SERVER = "XRootD origin server"
+GRIDTYPE_1 = "OSG Production Resource"
+GRIDTYPE_2 = "OSG Integration Test Bed Resource"
