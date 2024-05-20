@@ -513,15 +513,19 @@ base_path = /ospool/PROTECTED
 ### Namespaces JSON generation
 
 The JSON file containing cache and namespace information for stashcp/OSDF is served at `/osdf/namespaces`.
-The endpoint takes two optional parameters, `include_downed=1`, and `include_inactive=1`;
-if they are set, caches in downtime or that are not marked as active, respectively, are also included in the result.
-Otherwise, they are not included.
+The endpoint takes some optional parameters for filtering:
+- `include_downed=1` includes caches that are in downtime in the result; otherwise they are omitted
+- `include_inactive=1` includes caches that are not marked as active in the result; otherwise they are omitted
+- `production=1` includes resources in "production" (as opposed to ITB) in the result
+- `itb=1` includes resources in "itb" in the result
+  if neither `production` nor `itb` are specified then both production and itb resources are included
 
 The JSON contains an attribute `caches` that is a list of caches.
 Each cache in the list contains the following attributes:
 - `endpoint`: The `<HOST>:<PORT>` of the public (`xrootd@stash-cache`) service
 - `auth_endpoint`: The `<HOST>:<PORT>` of the authenticated (`xrootd@stash-cache-auth`) service
 - `resource`: The resource name of the cache.
+- `production`: true if the resource is in "production" (as opposed to ITB)
 
 The JSON also contains an attribute `namespaces` that is a list of namespaces with the following attributes:
 - `path` is the path of the namespace
@@ -553,11 +557,13 @@ The final result looks like
     {
       "auth_endpoint": "osg-gftp.pace.gatech.edu:8443",
       "endpoint": "osg-gftp.pace.gatech.edu:8000",
+      "production": true,
       "resource": "Georgia_Tech_PACE_GridFTP"
     },
     {
       "auth_endpoint": "osg-gftp2.pace.gatech.edu:8443",
       "endpoint": "osg-gftp2.pace.gatech.edu:8000",
+      "production": true,
       "resource": "Georgia_Tech_PACE_GridFTP2"
     }
   ],
@@ -567,6 +573,7 @@ The final result looks like
         {
           "auth_endpoint": "rds-cache.sdsc.edu:8443",
           "endpoint": "rds-cache.sdsc.edu:8000",
+          "production": true,
           "resource": "RDS_AUTH_OSDF_CACHE"
         }
       ],
