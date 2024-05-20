@@ -6,6 +6,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 from typing import Any, Dict, List, Union, AnyStr, NewType, TypeVar
 from functools import wraps
 
@@ -392,6 +393,14 @@ def cache_control_private(f):
         response.cache_control.private = True
         return response
     return wrapped
+
+
+def get_timestamp():
+    """Return a monotonic timestamp if available, otherwise a wall-clock timestamp."""
+    if hasattr(time, "monotonic"):
+        return time.monotonic()
+    else:
+        return time.time()
 
 
 XROOTD_CACHE_SERVER = "XRootD cache server"
