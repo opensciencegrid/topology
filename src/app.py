@@ -8,22 +8,23 @@ from flask import Flask, Response, make_response, request, render_template, redi
 from io import StringIO
 import logging
 import os
+import random
 import re
 import sys
 import traceback
 import urllib.parse
 import requests
+import threading
 from wtforms import ValidationError
 from flask_wtf.csrf import CSRFProtect
 
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, \
-    escape, cache_control_private, PreJSON, is_true
+    escape, cache_control_private, PreJSON, is_true, GRIDTYPE_1, GRIDTYPE_2, NamespacesFilters
 from webapp.flask_common import create_accepted_response
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
 from webapp.models import GlobalData
-from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
 from webapp.github import create_file_pr, update_file_pr, GithubUser, GitHubAuth, GitHubRepoAPI, GithubRequestException, GithubReferenceExistsException, GithubNotFoundException
 
@@ -116,6 +117,35 @@ else:
 
 csrf = CSRFProtect()
 csrf.init_app(app)
+
+#############################################################################
+# Background update thread
+# Run when the topology cache is 2/3 to expiration
+bg_update_freq = max(global_data.topology.cache_lifetime*2/3, 60) # seconds
+bg_update_thread = threading.Thread()
+
+def bg_update_run():
+    '''Background update task'''
+    app.logger.debug('Background update started')
+    global_data.update_topology()
+
+    # Add +/- 10% random offset to avoid thundering herds
+    delay = bg_update_freq
+    delay *= random.uniform(0.9, 1.1)
+
+    # Set next run
+    global bg_update_thread
+    bg_update_thread = threading.Timer(delay, bg_update_run, ())
+    bg_update_thread.daemon = True
+    bg_update_thread.start()
+    app.logger.info('Background update complete')
+
+# Start background update thread
+bg_update_thread = threading.Timer(bg_update_freq, bg_update_run, ())
+# Make it a daemon thread, so interpreter won't wait on it when exiting
+bg_update_thread.daemon = True
+bg_update_thread.start()
+#############################################################################
 
 
 def _fix_unicode(text):
@@ -514,10 +544,20 @@ def scitokens():
 def stashcache_namespaces_json():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
-    include_downed = is_true(request.args.get("include_downed", False))
-    include_inactive = is_true(request.args.get("include_inactive", False))
+    args = request.args
+    filters = NamespacesFilters()
+    filters.include_downed = is_true(args.get("include_downed", False))
+    filters.include_inactive = is_true(args.get("include_inactive", False))
+    if "production" not in args and "itb" not in args:
+        # default: include both production and itb
+        filters.production = True
+        filters.itb = True
+    else:
+        filters.production = is_true(request.args.get("production", False))
+        filters.itb = is_true(request.args.get("itb", False))
+
     try:
-        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data, include_downed, include_inactive)),
+        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data, filters=filters)),
                         mimetype='application/json')
     except ResourceNotRegistered as e:
         return Response("# {}\n"

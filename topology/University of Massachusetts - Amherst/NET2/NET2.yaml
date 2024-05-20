@@ -154,13 +154,13 @@ Resources:
           Name: Eduardo Bach
     Description:
       This is the NET2 squid 
-    FQDN: squidscienceboxnet2-frontier-squid.squid-cvmfs.svc.cluster.local
+    FQDN: squid.compute.net2.mghpcc.org
     ID: 1480
     Services:
       Squid:
         Description: Generic squid service
         Details:
-          uri_override: squidscienceboxnet2-frontier-squid.squid-cvmfs.svc.cluster.local:3128
-          Monitored: false
+          uri_override: squid.compute.net2.mghpcc.org:3128
+          Monitored: true
     VOOwnership:
       ATLAS: 100
