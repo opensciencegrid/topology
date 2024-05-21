@@ -320,11 +320,13 @@ class GlobalData:
         ok = self.maybe_update_topology_repo()
         if ok:
             try:
+                log.debug("Updating topology RG data")
                 self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data(), strict=self.strict))
+                log.debug("Updated topology RG data successfully")
             except Exception:
                 if self.strict:
                     raise
-                log.exception("Failed to update topology")
+                log.exception("Failed to update topology RG data")
                 self.topology.try_again()
         else:
             self.topology.try_again()
@@ -339,7 +341,9 @@ class GlobalData:
                 ok = self.maybe_update_topology_repo()
                 if ok:
                     try:
+                        log.debug("Updating VOs")
                         self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data(), strict=self.strict))
+                        log.debug("Updated VOs successfully")
                     except Exception:
                         if self.strict:
                             raise
@@ -360,7 +364,9 @@ class GlobalData:
                 ok = self.maybe_update_topology_repo()
                 if ok:
                     try:
+                        log.debug("Updating projects")
                         self.projects.update(project_reader.get_projects(self.projects_dir, strict=self.strict))
+                        log.debug("Updated projects successfully")
                     except Exception:
                         if self.strict:
                             raise
@@ -383,7 +389,9 @@ class GlobalData:
                 ok = self.maybe_update_topology_repo()
                 if ok:
                     try:
+                        log.debug("Updating mappings")
                         self.mappings.update(mappings.get_mappings(indir=self.mappings_dir, strict=strict))
+                        log.debug("Updated mappings successfully")
                     except Exception:
                         if self.strict:
                             raise
