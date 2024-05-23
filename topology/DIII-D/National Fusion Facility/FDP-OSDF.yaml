@@ -1,0 +1,24 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription:  Fusion Data Platform (
+
+Resources:
+  FDP_OSDF_CACHE:
+    Active: true
+    Description: FDP OSDF cache
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162    
+    DN: 
+    FQDN: 
+    Services:
+      XRootD origins server:
+        Description: StashCache cache server for FDP project
+    AllowedVOs:
+      - ANY
