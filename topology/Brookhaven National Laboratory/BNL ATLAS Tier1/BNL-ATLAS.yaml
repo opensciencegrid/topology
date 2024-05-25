@@ -201,7 +201,7 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-  BNL_ATLAS_7:
+  BNL_ATLAS_07:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -219,9 +219,8 @@ Resources:
           Name: Robert Hancock
           ID: OSG1000212
     Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
-      not open to general OSG users.
+      not open to general OSG users. EL9
     FQDN: gridgk07.sdcc.bnl.gov
-    ID: 438
     Services:
       CE:
         Description: Compute Element
@@ -242,7 +241,48 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-  BNL_ATLAS_8:
+  BNL_ATLAS_7:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: OSG1000638
+          Name: Ivan Glushkov
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
+    Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
+      not open to general OSG users.
+    FQDN: gridgk07.racf.bnl.gov
+    ID: 438
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk07.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  BNL_ATLAS_08:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -262,13 +302,52 @@ Resources:
     Description: This CE will serve grid jobs submitted to the *local* USATLAS resources,
       e.g. for panda queue ANALY_BNL_LOCAL, at BNL.
     FQDN: gridgk08.sdcc.bnl.gov
-    ID: 545
     Services:
       CE:
         Description: Compute Element
         Details:
           hidden: false
           sam_uri: htcondor://gridgk08.sdcc.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_8:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: OSG1000638
+          Name: Ivan Glushkov
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
+    Description: This CE will serve grid jobs submitted to the *local* USATLAS resources,
+      e.g. for panda queue ANALY_BNL_LOCAL, at BNL.
+    FQDN: gridgk08.racf.bnl.gov
+    ID: 545
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk08.racf.bnl.gov
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
