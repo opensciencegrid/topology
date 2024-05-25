@@ -292,6 +292,7 @@ def _parse_authz_str(authz: str) -> Tuple[AuthMethod, Optional[str]]:
         return NullAuth(), f"Unknown authz list entry {authz}"
 
 
+@functools.lru_cache(1024)
 def parse_authz(authz: Union[str, Dict]) -> Tuple[AuthMethod, Optional[str]]:
     """Return the instance of the appropriate AuthMethod from a single item in an authz list for a namespace.
 
