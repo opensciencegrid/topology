@@ -1,10 +1,10 @@
 Production: true
 SupportCenter: Self Supported
-GroupDescription:  Fusion Data Platform (
+GroupDescription:  Fusion Data Platform
 
 Resources:
   FDP_OSDF_CACHE:
-    Active: true
+    Active: false
     Description: FDP OSDF cache
     ContactLists:
       Administrative Contact:
@@ -15,10 +15,30 @@ Resources:
         Primary:
           Name: Fabio Andrijauskas 
           ID: OSG1000162    
-    DN: 
-    FQDN: 
+    DN: fdp-d3d-cache.nationalresearchplatform.org
+    FQDN: /CN=fdp-d3d-cache.nationalresearchplatform.org
     Services:
-      XRootD origins server:
-        Description: StashCache cache server for FDP project
+      XRootD cache server:
+        Description: OSDF cache server for FDP project
+    AllowedVOs:
+      - ANY
+
+  FDP_OSDF_ORIGIN:
+    Active: false
+    Description: FDP OSDF origin
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162    
+    DN: fdp-d3d-origin.nationalresearchplatform.org
+    FQDN: /CN=fdp-d3d-origin.nationalresearchplatform.org
+    Services:
+      XRootD cache server:
+        Description: OSDF origin server for FDP project
     AllowedVOs:
       - ANY
