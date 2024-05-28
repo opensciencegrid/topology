@@ -1,3 +1,4 @@
+import functools
 import hashlib
 import re
 
@@ -17,6 +18,7 @@ __oid_map = {
    }
 
 
+@functools.lru_cache(maxsize=2048)
 def generate_dn_hash(dn: str) -> str:
     """
     Given a DN one-liner as commonly encoded in the grid world
