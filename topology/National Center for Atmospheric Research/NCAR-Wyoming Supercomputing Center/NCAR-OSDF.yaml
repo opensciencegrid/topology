@@ -45,14 +45,14 @@ NCAR_OSDF_S3_ORIGIN:
         Primary:
           Name: Fabio Andrijauskas
           ID: OSG1000162
-    DN: /CN=ncar.nationalresearchplatform.org
-    FQDN: ncar.nationalresearchplatform.org
+    DN: /CN=ncar-s3-origin.nationalresearchplatform.org
+    FQDN: ncar-s3-origin.nationalresearchplatform.org
     Services:
       XRootD origin server:
         Description: NCAR OSDF Origin
         Details:
-          endpoint_override: ncar.nationalresearchplatform.org:8444
-          auth_endpoint_override: ncar.nationalresearchplatform.org:8444
+          endpoint_override: ncar-s3-origin.nationalresearchplatform.org:8444
+          auth_endpoint_override: ncar-s3-origin.nationalresearchplatform.org:8444
     AllowedVOs:
       - ANY
       
