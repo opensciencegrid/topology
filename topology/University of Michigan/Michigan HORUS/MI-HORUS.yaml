@@ -27,48 +27,42 @@ Resources:
     # If you cannot find the contact above XML, please register the contact:
     # https://opensciencegrid.org/docs/common/registration/#registering-contacts
     ContactLists:
-      # Administrative Contacts are persons or groups of people (i.e.,
-      # mailing lists) that are directly responsible for the
-      # maintenance of the resource
       Administrative Contact:
         Primary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-        # Secondary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
 
-      # Security Contact are persons or groups of people (i.e.,
-      # mailing lists) that are responsible for handling security
-      # issues related to the resource
       Security Contact:
         Primary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-        # Secondary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
 
-      # Site contact (optional) are persons or groups of people (i.e.,
-      # mailing lists) that are generally responsible for a site's
-      # relationship with the OSG (e.g., principal investigators,
-      # local administrator contact for OSG Hosted CEs)
-      # Site Contact:
-        # Primary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Secondary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
+      Local Operational Contact:
+        Primary:
+          Name: Muhammad Akhdhor
+          ID: OSG1000654
+        Secondary:
+          Name: Michael Thompson
+          ID: f84214412f7b3dbf848808c4ba30d179c5743766
+        Tertiary:
+          Name: Andrew Keen
+          ID: OSG1000660
+
+      Local Security Contact:
+        Primary:
+          Name: HORUS Security Mailing List
+          ID: d7ec710e472267ffcc69de4070491f48582ccc2f
+
+      Local Executive Contact:
+        Primary:
+          Name: Shawn McKee
+          ID: a833f94ad3840fe779702409c6b778d79aaed76f
+        Secondary:
+          Name: Robert Eugene Stovall
+          ID: OSG1000685
+        Tertiary:
+          Name: Robert Michael Thompson
+          ID: OSG1000697
 
     # FQDN is the fully qualified domain name of the host running this resource
     FQDN: mi-horus-ce1.svc.opensciencegrid.org

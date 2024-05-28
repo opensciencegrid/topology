@@ -172,10 +172,10 @@ class _IdNamespaceData:
 
                 for authz in extended_authz_list:
                     if authz.used_in_authfile:
-                        self.id_to_paths[authz.get_authfile_id()].add(path)
-                        self.id_to_str[authz.get_authfile_id()] = str(authz)
+                        self.id_to_paths[authz.authfile_id].add(path)
+                        self.id_to_str[authz.authfile_id] = str(authz)
                     if authz.used_in_grid_mapfile:
-                        self.grid_mapfile_lines.add(authz.get_grid_mapfile_line())
+                        self.grid_mapfile_lines.add(authz.grid_mapfile_line)
 
         return self
 
@@ -220,10 +220,10 @@ class _IdNamespaceData:
 
                 for authz in authz_list:
                     if authz.used_in_authfile:
-                        self.id_to_paths[authz.get_authfile_id()].add(path)
-                        self.id_to_str[authz.get_authfile_id()] = str(authz)
+                        self.id_to_paths[authz.authfile_id].add(path)
+                        self.id_to_str[authz.authfile_id] = str(authz)
                     if authz.used_in_grid_mapfile:
-                        self.grid_mapfile_lines.add(authz.get_grid_mapfile_line())
+                        self.grid_mapfile_lines.add(authz.grid_mapfile_line)
         return self
 
 
@@ -534,7 +534,7 @@ def get_credential_generation_dict_for_namespace(ns: Namespace) -> Optional[Dict
 def get_scitokens_list_for_namespace(ns: Namespace) -> List[Dict]:
     """Return the list of scitokens issuer info for the .namespaces[*].scitokens attribute in the namespaces JSON"""
     return list(
-        filter(None, (a.get_namespaces_scitokens_block() for a in ns.authz_list))
+        filter(None, (a.namespaces_scitokens_block for a in ns.authz_list))
     )
 
 
