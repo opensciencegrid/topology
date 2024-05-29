@@ -1,10 +1,9 @@
 Production: true
 SupportCenter: Self Supported
 GroupDescription:  Fusion Data Platform
-
 Resources:
   FDP_OSDF_CACHE:
-    Active: false
+    Active: true
     Description: FDP OSDF cache
     ContactLists:
       Administrative Contact:
@@ -22,7 +21,7 @@ Resources:
         Description: OSDF cache server for FDP project
     AllowedVOs:
       - ANY
-
+  
   FDP_OSDF_ORIGIN:
     Active: false
     Description: FDP OSDF origin
