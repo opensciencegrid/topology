@@ -133,6 +133,7 @@ DataFederations:
           - KAGRA_OSDF_CACHE
       - Path: /igwn/virgo
         Authorizations:
+          - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
           - FQAN: /osg/ligo
           - FQAN: /virgo
           - FQAN: /virgo/virgo
@@ -151,6 +152,7 @@ DataFederations:
         AllowedCaches: *ligo-allowed-caches
       - Path: /igwn/ligo
         Authorizations:
+          - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
           - DN: /CN=hcc-mon2.unl.edu
           - DN: /CN=osdftest.t2.ucsd.edu
           - FQAN: /osg/ligo
@@ -171,6 +173,7 @@ DataFederations:
         AllowedCaches: *ligo-allowed-caches
       - Path: /igwn/kagra
         Authorizations:
+          - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
           - FQAN: /osg/ligo
           - FQAN: /virgo
           - FQAN: /virgo/virgo
@@ -189,6 +192,7 @@ DataFederations:
         AllowedCaches: *ligo-allowed-caches
       - Path: /igwn/shared
         Authorizations:
+          - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
           - FQAN: /osg/ligo
           - FQAN: /virgo
           - FQAN: /virgo/virgo
@@ -226,6 +230,7 @@ DataFederations:
         Writeback: https://origin-staging.ligo.caltech.edu:1095
       - Path: /igwn/test
         Authorizations:
+          - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
           - FQAN: /osg/ligo
           - FQAN: /virgo
           - FQAN: /virgo/virgo

@@ -1,4 +1,3 @@
-import functools
 import re
 import urllib
 import urllib.parse
@@ -89,7 +88,6 @@ class SciTokenAuth(AuthMethod):
         return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path} " \
                 f"map_subject={self.map_subject}"
 
-    @functools.lru_cache(4)
     def get_scitokens_conf_block(self, service_name: str):
         if service_name not in [XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER]:
             raise ValueError(f"service_name must be '{XROOTD_CACHE_SERVER}' or '{XROOTD_ORIGIN_SERVER}'")
