@@ -3,7 +3,7 @@ GroupID: 91
 Production: true
 Resources:
   SLAC:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -28,7 +28,7 @@ Resources:
     VOOwnership:
       SLAC: 100
   SLAC-ATLAS-T3_GRIDFTP:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -60,7 +60,7 @@ Resources:
       StorageCapacityMin: 5
       TapeCapacity: 0
   WT2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -97,7 +97,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   WT2_CE_2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -118,7 +118,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   WT2_SE:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -150,7 +150,7 @@ Resources:
       StorageCapacityMax: 3890
       StorageCapacityMin: 3890
   WT2_SE_2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -182,7 +182,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 0
   perfSONAR_bw_SLAC:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -206,7 +206,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   perfSONAR_lat_SLAC:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -226,5 +226,24 @@ Resources:
           endpoint: psnr-farm10.slac.stanford.edu
     VOOwnership:
       ATLAS: 100
+  S3DFsquid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
+          Name: Wei Yang
+      Security Contact:
+        Primary:
+          ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
+          Name: Wei Yang
+    Description: SLAC S3DF squid proxy
+    FQDN: sdfproxy.slac.stanford.edu
+    ID:
+    Services:
+      Squid:
+        Description: SLAC S3DF primary squid proxy
+        Details:
+          endpoint: sdfproxy.slac.stanford.edu
 
 SupportCenter: USATLAS
