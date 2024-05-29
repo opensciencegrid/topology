@@ -203,7 +203,7 @@ class TestAPI:
 
 
     def test_origin_grid_mapfile(self, client: flask.Flask):
-        TEST_ORIGIN = "origin-auth2001.chtc.wisc.edu"  # This origin serves protected data
+        TEST_ORIGIN = "ap20.uc.osg-htc.org"  # This origin serves protected data
         response = client.get("/origin/grid-mapfile")
         assert response.status_code == 400  # fqdn not specified
 
