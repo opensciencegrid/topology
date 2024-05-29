@@ -12,22 +12,20 @@ except ImportError:  # if asn1 is unavailable
 
 
 class AuthMethod:
+    __slots__ = ("authfile_id", "grid_mapfile_line", "namespaces_scitokens_block")
     is_public = False
     used_in_authfile = False
     used_in_scitokens_conf = False
     used_in_grid_mapfile = False
 
-    def get_authfile_id(self):
-        return ""
+    def __init__(self):
+        self.authfile_id = ""
+        self.grid_mapfile_line = ""
+        self.namespaces_scitokens_block = None
 
     def get_scitokens_conf_block(self, service_name: str):
         return ""
 
-    def get_grid_mapfile_line(self):
-        return ""
-
-    def get_namespaces_scitokens_block(self):
-        return None
 
 class NullAuth(AuthMethod):
     pass
@@ -37,54 +35,54 @@ class PublicAuth(AuthMethod):
     is_public = True
     used_in_authfile = True
 
+    def __init__(self):
+        super().__init__()
+        self.authfile_id = "u *"
+
     def __str__(self):
         return "PUBLIC"
 
-    def get_authfile_id(self):
-        return "u *"
-
 
 class DNAuth(AuthMethod):
+    __slots__ = ("dn", "dn_hash")
     used_in_authfile = True
     used_in_grid_mapfile = True
 
     def __init__(self, dn: str):
+        super().__init__()
         self.dn = dn
+        self.dn_hash = generate_dn_hash(dn)
+        self.authfile_id = f"u {self.dn_hash}"
+        self.grid_mapfile_line = f'"{self.dn}" {self.dn_hash}'
 
     def __str__(self):
         return "DN: " + self.dn
 
-    def get_dn_hash(self):
-        return generate_dn_hash(self.dn)
-
-    def get_authfile_id(self):
-        return f"u {self.get_dn_hash()}"
-
-    def get_grid_mapfile_line(self):
-        return f'"{self.dn}" {self.get_dn_hash()}'
-
 
 class FQANAuth(AuthMethod):
+    __slots__ = ("fqan",)
     used_in_authfile = True
 
     def __init__(self, fqan: str):
+        super().__init__()
         self.fqan = fqan
+        self.authfile_id = f"g {self.fqan}"
 
     def __str__(self):
         return "FQAN: " + self.fqan
 
-    def get_authfile_id(self):
-        return f"g {self.fqan}"
-
 
 class SciTokenAuth(AuthMethod):
+    __slots__ = ("issuer", "base_path", "restricted_path", "map_subject")
     used_in_scitokens_conf = True
 
     def __init__(self, issuer: str, base_path: str, restricted_path: Optional[str], map_subject: bool):
+        super().__init__()
         self.issuer = issuer
         self.base_path = base_path
         self.restricted_path = restricted_path
         self.map_subject = map_subject
+        self.namespaces_scitokens_block = self._get_namespaces_scitokens_block()
 
     def __str__(self):
         return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path} " \
@@ -103,7 +101,7 @@ class SciTokenAuth(AuthMethod):
 
         return block
 
-    def get_namespaces_scitokens_block(self):
+    def _get_namespaces_scitokens_block(self):
         base_path = re.split(r"\s*,\s*", self.base_path)
         restricted_path = re.split(r"\s*,\s*", self.restricted_path) if self.restricted_path else []
         return {

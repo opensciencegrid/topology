@@ -3412,3 +3412,14 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1812904442
+  Description: Host update to Alma 9 and OSG 23
+  Severity: Outage
+  StartTime: May 23, 2024 11:00 +0000
+  EndTime: May 23, 2024 21:00 +0000
+  CreatedTime: May 21, 2024 11:20 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------

@@ -153,14 +153,42 @@ Resources:
           ID: OSG1000284
           Name: Eduardo Bach
     Description:
-      This is the NET2 squid 
+      This is a NET2 squid proxy. 
     FQDN: squid.compute.net2.mghpcc.org
     ID: 1480
     Services:
       Squid:
-        Description: Generic squid service
+        Description: This is the Frontier distribution of Squid.
         Details:
           uri_override: squid.compute.net2.mghpcc.org:3128
+          Monitored: true
+    VOOwnership:
+      ATLAS: 100
+  NET2_NRP_VARNISH_FRONTIER:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+      Security Contact:
+        Primary:
+          ID: OSG1000443
+          Name: William Leight
+        Secondary:
+          ID: OSG1000284
+          Name: Eduardo Bach
+    Description:
+      This is a NET2 Varnish proxy at NRP. 
+    FQDN: storage-01.nrp.mghpcc.org
+    Services:
+      Squid:
+        Description: This is a Varnish proxy flavour.
+        Details:
+          uri_override: storage-01.nrp.mghpcc.org:6082
           Monitored: true
     VOOwnership:
       ATLAS: 100
