@@ -201,7 +201,7 @@ class TestStashcache:
             assert EMPTY_LINE_REGEX.match(line), f'Unexpected text "{line}".\nFull text:\n{text}\n'
 
     def test_origin_grid_mapfile_with_host(self, client: flask.Flask):
-        text = stashcache.generate_origin_grid_mapfile(global_data, "origin-auth2001.chtc.wisc.edu",
+        text = stashcache.generate_origin_grid_mapfile(global_data, "ap20.uc.osg-htc.org",
                                                        suppress_errors=False)
         num_mappings = 0
         for line in text.split("\n"):

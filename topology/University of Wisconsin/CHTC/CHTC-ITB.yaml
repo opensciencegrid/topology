@@ -311,7 +311,7 @@ Resources:
         Description: OSG VO backfill containers on the Tiger cluster, serving the ITB pool
 
   CHTC-ITB-S3-AWS-EAST-ORIGIN:
-    Active: true
+    Active: false
     Description: >-
       This is an origin used for demonstrating integration with AWS
       East S3 buckets
@@ -343,7 +343,7 @@ Resources:
       - OSG
 
   CHTC-ITB-S3-AWS-WEST-ORIGIN:
-    Active: true
+    Active: false
     Description: >-
       This is an origin used for demonstrating integration with AWS
       West S3 buckets
