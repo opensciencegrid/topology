@@ -2,6 +2,7 @@ import contextlib
 import datetime
 import logging
 import os
+import time
 from typing import Dict, Set, List, Optional
 
 import yaml
@@ -23,7 +24,7 @@ except ImportError:
 
 
 from webapp import common, contacts_reader, ldap_data, mappings, project_reader, rg_reader, vo_reader
-from webapp.common import readfile, get_timestamp
+from webapp.common import readfile
 from webapp.contacts_reader import ContactsData
 from webapp.topology import Topology, Downtime
 from webapp.vos_data import VOsData
@@ -52,16 +53,16 @@ class CachedData:
         """Return True if we should update, either because we're past the next update time
         or because force_update is True.
         """
-        return self.force_update or not self.data or get_timestamp() > self.next_update
+        return self.force_update or not self.data or time.monotonic() > self.next_update
 
     def try_again(self):
         """Set the next update time to now + the retry delay."""
-        self.next_update = get_timestamp() + self.retry_delay
+        self.next_update = time.monotonic() + self.retry_delay
 
     def update(self, data):
         """Cache new data and set the next update time to now + the cache lifetime."""
         self.data = data
-        self.timestamp = get_timestamp()
+        self.timestamp = time.monotonic()
         self.next_update = self.timestamp + self.cache_lifetime
         self.force_update = False
 
@@ -162,7 +163,7 @@ class GlobalData:
             with topology_git_update_summary.time():
                 ok = self._update_topology_repo()
             if ok:
-                self.topology_repo_stamp.update(get_timestamp())
+                self.topology_repo_stamp.update(time.monotonic())
                 return True
             else:
                 self.topology_repo_stamp.try_again()
