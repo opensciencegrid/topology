@@ -4,9 +4,9 @@ GroupDescription: Compute infrastructure
 GroupID: 1335
 
 Resources:
-  MI_NRP_OSDF_ORIGIN:
+  Missouri-Rise-Origin1-NRP:
     Active: false
-    Description: MI NRP origin
+    Description: MO NRP origin
     ContactLists:
       Administrative Contact:
         Primary:
@@ -19,10 +19,10 @@ Resources:
         Primary:
           Name: Fabio Andrijauskas
           ID: OSG1000162
-    DN: /CN=mi-origin.nationalresearchplatform.org
-    FQDN: mi-origin.nationalresearchplatform.org
+    DN: /CN=mo-origin.nationalresearchplatform.org
+    FQDN: mo-origin.nationalresearchplatform.org
     Services:
       XRootD origin server:
-        Description: MI NRP origin
+        Description: MO NRP origin
     AllowedVOs:
       - ANY
