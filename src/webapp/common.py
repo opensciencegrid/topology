@@ -396,5 +396,7 @@ def cache_control_private(f):
 
 XROOTD_CACHE_SERVER = "XRootD cache server"
 XROOTD_ORIGIN_SERVER = "XRootD origin server"
+PELICAN_CACHE = "Pelican cache"
+PELICAN_ORIGIN = "Pelican origin"
 GRIDTYPE_1 = "OSG Production Resource"
 GRIDTYPE_2 = "OSG Integration Test Bed Resource"
