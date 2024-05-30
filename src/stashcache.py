@@ -1,8 +1,9 @@
 from collections import defaultdict
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Sequence
 
-from webapp.common import is_null, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, NamespacesFilters
-from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
+from webapp.common import is_null, PreJSON, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, PELICAN_CACHE, PELICAN_ORIGIN, \
+    NamespacesFilters
+from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingServices
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
 from webapp.vos_data import VOsData
@@ -22,47 +23,52 @@ def _log_or_raise(suppress_errors: bool, an_exception: BaseException, logmethod=
         raise an_exception
 
 
-def _resource_has_cache(resource: Resource) -> bool:
-    return XROOTD_CACHE_SERVER in resource.service_names
-
-def _resource_has_origin(resource: Resource) -> bool:
-    return XROOTD_ORIGIN_SERVER in resource.service_names
-
-
-def _get_resource_with_service(fqdn: Optional[str], service_name: str, topology: Topology,
-                               suppress_errors: bool) -> Optional[Resource]:
-    """If given an FQDN, returns the Resource _if it has the given service.
+def _get_resource_with_services(fqdn: Optional[str], service_names: Sequence[str], topology: Topology,
+                                suppress_errors: bool) -> Optional[Resource]:
+    """
+    If given an FQDN, returns the Resource if it has one of the given services.
     If given None, returns None.
     If multiple Resources have the same FQDN, checks the first one.
     If suppress_errors is False, raises an exception on the following conditions:
     - no Resource matching FQDN (ResourceNotRegistered)
-    - Resource does not provide a SERVICE_NAME (ResourceMissingService)
+    - Resource does not provide any of the services in SERVICE_NAMES (ResourceMissingServices)
     If suppress_errors is True, logs the error and returns None on the above conditions.
-
     """
     resource = None
+    if isinstance(service_names, str):
+        service_names = [service_names]
     if fqdn:
         resource = topology.safe_get_resource_by_fqdn(fqdn)
         if not resource:
             _log_or_raise(suppress_errors, ResourceNotRegistered(fqdn=fqdn))
             return None
-        if service_name not in resource.service_names:
+
+        for service_name in service_names:
+            if service_name in resource.service_names:
+                return resource
+        else:
             _log_or_raise(
                 suppress_errors,
-                ResourceMissingService(resource, service_name)
+                ResourceMissingServices(resource, service_names)
             )
             return None
     return resource
 
 
 def _get_cache_resource(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
-    """Convenience wrapper around _get_resource-with-service() for a cache"""
-    return _get_resource_with_service(fqdn, XROOTD_CACHE_SERVER, topology, suppress_errors)
+    """
+    Convenience wrapper around _get_resource_with_services() for an xrootd
+    or pelican cache
+    """
+    return _get_resource_with_services(fqdn, [XROOTD_CACHE_SERVER, PELICAN_CACHE], topology, suppress_errors)
 
 
 def _get_origin_resource(fqdn: Optional[str], topology: Topology, suppress_errors: bool) -> Optional[Resource]:
-    """Convenience wrapper around _get_resource-with-service() for an origin"""
-    return _get_resource_with_service(fqdn, XROOTD_ORIGIN_SERVER, topology, suppress_errors)
+    """
+    Convenience wrapper around _get_resource_with_services() for an xrootd
+    or pelican origin
+    """
+    return _get_resource_with_services(fqdn, [XROOTD_ORIGIN_SERVER, PELICAN_ORIGIN], topology, suppress_errors)
 
 
 def resource_allows_namespace(resource: Resource, namespace: Optional[Namespace]) -> bool:
@@ -120,7 +126,8 @@ def get_supported_caches_for_namespace(namespace: Namespace, topology: Topology)
     all_caches = [resource
                   for group in resource_groups
                   for resource in group.resources
-                  if _resource_has_cache(resource)]
+                  if (resource.has_xrootd_cache or
+                      resource.has_pelican_cache)]
     return [cache
             for cache in all_caches
             if namespace_allows_cache_resource(namespace, cache)
@@ -546,6 +553,8 @@ def get_namespaces_info(global_data: GlobalData, filters: Optional[NamespacesFil
 
     If `include_downed` is True, caches/origins in downtime are also included.
     If `include_inactive` is True, caches/origins that are not marked as active are also included.
+
+    NOTE: This is specific to XRootD caches and origins; Pelican caches and origins are not included.
     """
     if filters is None:
         filters = NamespacesFilters()
@@ -579,10 +588,10 @@ def get_namespaces_info(global_data: GlobalData, filters: Optional[NamespacesFil
             "production": production,
         }
 
-    def _cache_resource_dict(r: Resource):
+    def _xrootd_cache_resource_dict(r: Resource):
         return _service_resource_dict(r=r, service_name=XROOTD_CACHE_SERVER, auth_port_default=8443, unauth_port_default=8000)
 
-    def _origin_resource_dict(r: Resource):
+    def _xrootd_origin_resource_dict(r: Resource):
         return _service_resource_dict(r=r, service_name=XROOTD_ORIGIN_SERVER, auth_port_default=1095, unauth_port_default=1094)
 
     def _namespace_dict(ns: Namespace):
@@ -653,12 +662,12 @@ def get_namespaces_info(global_data: GlobalData, filters: Optional[NamespacesFil
         if group.itb and not filters.itb:
             continue
         for resource in group.resources:
-            if (_resource_has_cache(resource)
+            if (resource.has_xrootd_cache
                     and (filters.include_inactive or resource.is_active)
                     and (filters.include_downed or not _resource_has_downed_cache(resource, topology))
             ):
                 cache_resource_objs[resource.name] = resource
-                cache_resource_dicts[resource.name] = _cache_resource_dict(resource)
+                cache_resource_dicts[resource.name] = _xrootd_cache_resource_dict(resource)
 
     # Build a dict of origin resources
 
@@ -671,12 +680,12 @@ def get_namespaces_info(global_data: GlobalData, filters: Optional[NamespacesFil
         if group.itb and not filters.itb:
             continue
         for resource in group.resources:
-            if (_resource_has_origin(resource)
+            if (resource.has_xrootd_origin
                     and (filters.include_inactive or resource.is_active)
                     and (filters.include_downed or not _resource_has_downed_origin(resource, topology))
             ):
                 origin_resource_objs[resource.name] = resource
-                origin_resource_dicts[resource.name] = _origin_resource_dict(resource)
+                origin_resource_dicts[resource.name] = _xrootd_origin_resource_dict(resource)
 
     result_namespaces = []
     for stashcache_obj in vos_data.stashcache_by_vo_name.values():
