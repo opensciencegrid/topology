@@ -1,0 +1,28 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Compute infrastructure
+GroupID: 1335
+
+Resources:
+  MI_NRP_OSDF_ORIGIN:
+    Active: false
+    Description: MI NRP origin
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+        Secondary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+    DN: /CN=mi-origin.nationalresearchplatform.org
+    FQDN: mi-origin.nationalresearchplatform.org
+    Services:
+      XRootD origin server:
+        Description: MI NRP origin
+    AllowedVOs:
+      - ANY
