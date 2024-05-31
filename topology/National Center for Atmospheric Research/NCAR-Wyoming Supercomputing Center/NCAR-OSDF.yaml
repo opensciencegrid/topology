@@ -30,7 +30,7 @@ Resources:
     AllowedVOs:
       - ANY
 
-NCAR_OSDF_S3_ORIGIN:
+  NCAR_OSDF_S3_ORIGIN:
     Active: true
     Description: NCAR OSDF S3 Origin
     ContactLists:
@@ -55,4 +55,3 @@ NCAR_OSDF_S3_ORIGIN:
           auth_endpoint_override: ncar-s3-origin.nationalresearchplatform.org:8444
     AllowedVOs:
       - ANY
-      
