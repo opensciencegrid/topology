@@ -203,10 +203,10 @@ class GlobalData:
                 if ok:
                     try:
                         self.contacts_data.update(contacts_reader.get_contacts_data(self.contacts_file))
-                    except Exception:
+                    except Exception as err:
                         if self.strict:
                             raise
-                        log.exception("Failed to update contacts data")
+                        log.exception("Failed to update contacts data (%s)", err)
                         self.contacts_data.try_again()
                 else:
                     self.contacts_data.try_again()
@@ -230,10 +230,10 @@ class GlobalData:
                     idmap = self.get_cilogon_ldap_id_map()
                     data = ldap_data.cilogon_id_map_to_yaml_data(idmap)
                     self.comanage_data.update(ContactsData(data))
-                except Exception:
+                except Exception as err:
                     if self.strict:
                         raise
-                    log.exception("Failed to update comanage data")
+                    log.exception("Failed to update comanage data (%s)", err)
                     self.comanage_data.try_again()
 
         return self.comanage_data.data
@@ -255,10 +255,10 @@ class GlobalData:
                 yd2 = self.get_contact_db_data().yaml_data
                 yd_merged = ldap_data.merge_yaml_data(yd1, yd2)
                 self.merged_contacts_data.update(ContactsData(yd_merged))
-            except Exception:
+            except Exception as err:
                 if self.strict:
                     raise
-                log.exception("Failed to update merged contacts data")
+                log.exception("Failed to update merged contacts data (%s)", err)
                 self.merged_contacts_data.try_again()
 
         return self.merged_contacts_data.data
@@ -279,10 +279,10 @@ class GlobalData:
                     ligo_ldap_pass = readfile(self.ligo_ldap_passfile, log)
                     new_dn_list = ldap_data.get_ligo_ldap_dn_list(self.ligo_ldap_url, self.ligo_ldap_user, ligo_ldap_pass)
                     self.ligo_dn_list.update(new_dn_list)
-                except Exception:
+                except Exception as err:
                     if self.strict:
                         raise
-                    log.exception("Failed to update LIGO data")
+                    log.exception("Failed to update LIGO data (%s)", err)
                     self.ligo_dn_list.try_again()
 
         return self.ligo_dn_list.data
@@ -296,10 +296,10 @@ class GlobalData:
             contacts_data = self.get_contacts_data()
             try:
                 self.dn_set.update(set(contacts_data.get_dns()))
-            except Exception:
+            except Exception as err:
                 if self.strict:
                     raise
-                log.exception("Failed to update DNs")
+                log.exception("Failed to update DNs (%s)", err)
                 self.contacts_data.try_again()
         return self.dn_set.data
 
@@ -324,10 +324,10 @@ class GlobalData:
                 log.debug("Updating topology RG data")
                 self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data(), strict=self.strict))
                 log.debug("Updated topology RG data successfully")
-            except Exception:
+            except Exception as err:
                 if self.strict:
                     raise
-                log.exception("Failed to update topology RG data")
+                log.exception("Failed to update topology RG data (%s)", err)
                 self.topology.try_again()
         else:
             self.topology.try_again()
@@ -345,10 +345,10 @@ class GlobalData:
                         log.debug("Updating VOs")
                         self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data(), strict=self.strict))
                         log.debug("Updated VOs successfully")
-                    except Exception:
+                    except Exception as err:
                         if self.strict:
                             raise
-                        log.exception("Failed to update VOs")
+                        log.exception("Failed to update VOs (%s)", err)
                         self.vos_data.try_again()
                 else:
                     self.vos_data.try_again()
@@ -368,10 +368,10 @@ class GlobalData:
                         log.debug("Updating projects")
                         self.projects.update(project_reader.get_projects(self.projects_dir, strict=self.strict))
                         log.debug("Updated projects successfully")
-                    except Exception:
+                    except Exception as err:
                         if self.strict:
                             raise
-                        log.exception("Failed to update projects")
+                        log.exception("Failed to update projects (%s)", err)
                         self.projects.try_again()
                 else:
                     self.projects.try_again()
@@ -393,10 +393,10 @@ class GlobalData:
                         log.debug("Updating mappings")
                         self.mappings.update(mappings.get_mappings(indir=self.mappings_dir, strict=strict))
                         log.debug("Updated mappings successfully")
-                    except Exception:
+                    except Exception as err:
                         if self.strict:
                             raise
-                        log.exception("Failed to update mappings")
+                        log.exception("Failed to update mappings (%s)", err)
                         self.mappings.try_again()
                 else:
                     self.mappings.try_again()
@@ -412,7 +412,7 @@ def _dtid(created_datetime: datetime.datetime):
     return int((timestamp - dtid_offset) * multiplier)
 
 
-def get_downtime_yaml(id: int,
+def get_downtime_yaml(id_: int,
                       start_datetime: datetime.datetime,
                       end_datetime: datetime.datetime,
                       created_datetime: datetime.datetime,
@@ -428,8 +428,8 @@ def get_downtime_yaml(id: int,
 
     """
 
-    def render(key, value):
-        return yaml.safe_dump({key: value}, default_flow_style=False).strip()
+    def render(key_, value_):
+        return yaml.safe_dump({key_: value_}, default_flow_style=False).strip()
 
     def indent(in_str, amount):
         spaces = ' ' * amount
@@ -441,7 +441,7 @@ def get_downtime_yaml(id: int,
 
     result = "- " + render("Class", class_)
     for key, value in [
-        ("ID", id),
+        ("ID", id_),
         ("Description", description),
         ("Severity", severity),
         ("StartTime", start_time_str),

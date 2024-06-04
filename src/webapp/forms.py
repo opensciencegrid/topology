@@ -200,7 +200,7 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
         yaml = ""
         for index, resource in enumerate(resources):
             yaml += models.get_downtime_yaml(
-                id=dtid+index,
+                id_=dtid + index,
                 start_datetime=self.get_start_datetime(),
                 end_datetime=self.get_end_datetime(),
                 created_datetime=created_datetime,
@@ -293,7 +293,7 @@ class GenerateDowntimeForm(FlaskForm):
         dtid = models._dtid(created_datetime)
 
         return models.get_downtime_yaml(
-            id=dtid,
+            id_=dtid,
             start_datetime=self.get_start_datetime(),
             end_datetime=self.get_end_datetime(),
             created_datetime=created_datetime,
