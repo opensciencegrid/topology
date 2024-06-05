@@ -756,12 +756,12 @@ Resources:
           ID: OSG1000064
           Name: Ilija Vukotic
     Description: Varnish cache located at Starlight, Chicago, IL
-    FQDN: igrok-chcg.pacificwave.net
+    FQDN: dtn108.sl.startap.net
     Services:
       Squid:
         Description: Varnish based squid service for CVMFS at NRP
         Details:
-          uri_override: igrok-chcg.pacificwave.net:6081
+          uri_override: dtn108.sl.startap.net:6082
           Monitored: true
     VOOwnership:
       ATLAS: 100
