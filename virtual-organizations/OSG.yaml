@@ -196,7 +196,7 @@ DataFederations:
       - Path: /ospool/ap40/data
         Authorizations:
           - SciTokens:
-              Issuer: https://ospool-ap2140.chtc.wisc.edu:8443
+              Issuer: https://osg-htc.org/ospool
               Base Path: /ospool/ap40
               Map Subject: True
         AllowedOrigins:
