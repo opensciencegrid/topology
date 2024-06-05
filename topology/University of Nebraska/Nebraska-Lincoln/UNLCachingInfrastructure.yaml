@@ -126,5 +126,8 @@ Resources:
     Services:
       XRootD cache server:
         Description: Nebraska NRP OSDF Cache
+        Details:
+          endpoint_override: unl-cache.nationalresearchplatform.org:8443
+          auth_endpoint_override: unl-cache.nationalresearchplatform.org:8443
     AllowedVOs:
       - ANY
