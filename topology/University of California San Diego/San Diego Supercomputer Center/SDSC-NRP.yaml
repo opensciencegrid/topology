@@ -76,28 +76,4 @@ Resources:
           auth_endpoint_override: sdsc-s3-origin.nationalresearchplatform.org:8444
     AllowedVOs:
       - ANY
-  SDSC_NRP_FDP_OSDF_CACHE:
-    Active: true
-    Description: SDSC NRP OSDF FDP project cache
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          Name: Fabio Andrijauskas
-          ID: OSG1000162
-        Secondary:
-          Name: Diego Davila
-          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
-      Security Contact:
-        Primary:
-          Name: Fabio Andrijauskas
-          ID: OSG1000162
-    DN: /CN=fdp-cache.nationalresearchplatform.org
-    FQDN: fdp-cache.nationalresearchplatform.org
-    Services:
-      XRootD cache server:
-        Description: SDSC NRP FDP OSDF cache
-        Details:
-          endpoint_override: fdp-cache.nationalresearchplatform.org:8443
-          auth_endpoint_override: fdp-cache.nationalresearchplatform.org:8443
-    AllowedVOs:
-      - ANY
+    
