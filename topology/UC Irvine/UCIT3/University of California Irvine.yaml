@@ -12,17 +12,27 @@ Resources:
         Primary:
           ID: bb69da4f25103364b78eec103a2b084e289af8ee
           Name: Anyes Taffard
+      Local Operational Contact:
+        Primary:
+          ID: dbcd20edf55fb43c78b2e547a393898b42643d29
+          Name: Nathan Crawford
     Active: true
-    Description: UCI gridftp
+    Description: UCI gridftp and LHC @ UC glidein scheduler submit host.
     FQDN: gpatlas2.ps.uci.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, Irvine/CN=gpatlas2.ps.uci.edu
     ID: 441
     Services:
       GridFtp:
         Description: GridFtp Storage Element
         Details:
           hidden: false
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool  
     VOOwnership:
       ATLAS: 100
+      
   UCLHC IRVINE SUBMIT HOST:
     Active: true
     ContactLists:
@@ -40,18 +50,17 @@ Resources:
         Secondary:
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
           Name: Jeffrey Michael Dost
-      Site Contact:
+      Local Operational Contact:
         Primary:
           ID: dbcd20edf55fb43c78b2e547a393898b42643d29
           Name: Nathan Crawford
-    Description: LHC @ UC glidein scheduler submit host. This host is hosted at UCI
-      and managed via puppet at UCSD.
+    Description: LHC @ UC glidein scheduler submit host.
     FQDN: uclhc-1.ps.uci.edu
-    DN: /DC=org/DC=incommon/C=US/ST=California/L=Irvine/O=University of California, Irvine/OU=School of Physical Sciences/CN=uclhc-1.ps.uci.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, Irvine/CN=uclhc-1.ps.uci.edu
     ID: 778
     Services:
       Submit Node:
-        Description: OSG Submission Node
+        Description: OS Pool access point
         Details:
           hidden: false
     Tags:
@@ -76,14 +85,13 @@ Resources:
         Secondary:
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
           Name: Jeffrey Michael Dost
-      Site Contact:
+      Local Operational Contact:
         Primary:
           ID: dbcd20edf55fb43c78b2e547a393898b42643d29
           Name: Nathan Crawford
-    Description: LHC @ UC glidein scheduler submit host. This host is hosted at UCI
-      and managed via puppet at UCSD.
+    Description: LHC @ UC glidein scheduler submit host.
     FQDN: uclhc-2.ps.uci.edu
-    DN: /DC=org/DC=incommon/C=US/ST=California/L=Irvine/O=University of California, Irvine/OU=School of Physical Sciences/CN=uclhc-2.ps.uci.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, Irvine/CN=uclhc-2.ps.uci.edu
     ID: 1209
     Services:
       Submit Node:
