@@ -19,6 +19,9 @@ Resources:
     Services:
       XRootD cache server:
         Description: OSDF cache server for FDP project
+        Details:
+          endpoint_override: fdp-d3d-cache.nationalresearchplatform.org:8443
+          auth_endpoint_override: fdp-d3d-cache.nationalresearchplatform.org:8443
     AllowedVOs:
       - ANY
   
