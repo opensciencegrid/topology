@@ -2,6 +2,7 @@
 
 import collections
 import subprocess
+import requests
 import stat
 import yaml
 import sys
@@ -220,8 +221,10 @@ def get_organizations_at_version(sha):
     return set( p.get("Organization") for p in projects )
 
 def get_invalid_institution_ids(sha, fnames):
+    valid_institutions = requests.get('https://topology-institutions.osg-htc.org/api/institution_ids').json()
+    institution_ids = [i['id'] for i in valid_institutions]
     projects = { fname : parse_yaml_at_version(sha, fname, {}) for fname in fnames }
-    return [fname for fname, yaml in projects.items() if not yaml.get("InstitutionID", "").startswith("https://osg-htc.org/iid/")]
+    return [fname for fname, yaml in projects.items() if not yaml.get("InstitutionID", "") in institution_ids]
 
 
 def commit_is_merged(sha_a, sha_b):
