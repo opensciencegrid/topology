@@ -292,7 +292,7 @@ def pull_request_hook():
         action = 'REQUEST_CHANGES' if ret in rejectable_errors else 'COMMENT'
         publish_pr_review(pull_num, body, action, head_sha)
 
-    return Response(f'Thank You: {osg_bot_msg}')
+    return Response(f'Thank You')
 
 
 def runcmd(cmd, input=None, **kw):
