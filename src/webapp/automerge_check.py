@@ -9,8 +9,6 @@ import sys
 import os
 import re
 
-from webapp.models import GlobalData
-
 try:
     from urllib.request import urlopen
 except ImportError:
@@ -23,8 +21,7 @@ except ImportError:
 
 import xml.etree.ElementTree as et
 
-INSTITUTIONS_API = GlobalData().config.get('INSTITUTIONS_API')
-INSTITUTIONS_TLD = INSTITUTIONS_API.replace('/api','') # direct users to homepage rather than api
+INSTITUTIONS_API = "https://topology-institutions.osg-htc.org"
 
 # NOTE: throughout this program, git shas are of type str, while paths and
 # filenames are of type bytes.  The motivation behind this is to handle
@@ -138,7 +135,7 @@ def main(args):
         if invalid_institutions:
             errors += [
                 f"Unrecognized InstitutionID in project(s) {', '.join(invalid_institutions)}. "
-                f"See {INSTITUTIONS_TLD} for known ID list."
+                f"See {INSTITUTIONS_API} for known ID list."
             ]
     else:
         orgs_added = None
@@ -226,10 +223,10 @@ def get_organizations_at_version(sha):
     return set( p.get("Organization") for p in projects )
 
 def get_invalid_institution_ids(sha, fnames):
-    valid_institutions = requests.get(f'{INSTITUTIONS_API}/institution_ids').json()
+    valid_institutions = requests.get(f'{INSTITUTIONS_API}/api/institution_ids').json()
     institution_ids = [i['id'] for i in valid_institutions]
     projects = { fname : parse_yaml_at_version(sha, fname, {}) for fname in fnames }
-    return [fname for fname, yaml in projects.items() if not yaml.get("InstitutionID", "") in institution_ids]
+    return [fname.decode() for fname, yaml in projects.items() if not yaml.get("InstitutionID", "") in institution_ids]
 
 
 def commit_is_merged(sha_a, sha_b):

@@ -285,14 +285,13 @@ def pull_request_hook():
     set_webhook_pr_state(pull_num, head_sha, webhook_state)
 
     # only comment on errors if DT files modified or contact unknown
-    osg_bot_msg = "No reported errors"
     if ret in reportable_errors:
         osg_bot_msg = webhook_status_messages.automerge_status_messages[ret]
         body = osg_bot_msg.format(**locals())
         action = 'REQUEST_CHANGES' if ret in rejectable_errors else 'COMMENT'
         publish_pr_review(pull_num, body, action, head_sha)
 
-    return Response(f'Thank You')
+    return Response('Thank You')
 
 
 def runcmd(cmd, input=None, **kw):
