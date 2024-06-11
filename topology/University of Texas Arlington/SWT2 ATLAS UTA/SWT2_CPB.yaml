@@ -284,8 +284,8 @@ Resources:
     Description: ATLAS Tier2 Kubernetes queue
     FQDN: cpb-k8s.atlas-swt2.org  # placeholder
     Services:
-      CE:
-        Description: Compute Element
+      Execution Endpoint:
+        Description: Container-based ATLAS PanDA pilots
         Details:
           hidden: false
     VOOwnership:
