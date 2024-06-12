@@ -153,7 +153,7 @@ DataFederations:
         AllowedCaches:
           - ANY
         Writeback: https://ap20.uc.osg-htc.org:1095
-        #DirList: https://ap20.uc.osg-htc.org:1095
+        DirList: https://ap20.uc.osg-htc.org:1095
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
@@ -170,7 +170,7 @@ DataFederations:
         AllowedCaches:
           - ANY
         Writeback: https://ap21.uc.osg-htc.org:1095
-        #DirList: https://ap21.uc.osg-htc.org:1095
+        DirList: https://ap21.uc.osg-htc.org:1095
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
@@ -187,7 +187,7 @@ DataFederations:
         AllowedCaches:
           - ANY
         Writeback: https://ap22.uc.osg-htc.org:1095
-        #DirList: https://ap22.uc.osg-htc.org:1095
+        DirList: https://ap22.uc.osg-htc.org:1095
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool
@@ -204,7 +204,7 @@ DataFederations:
         AllowedCaches:
           - ANY
         Writeback: https://ospool-ap2140.chtc.wisc.edu:8443
-        #DirList: https://ospool-ap2140.chtc.wisc.edu:8443
+        DirList: https://ospool-ap2140.chtc.wisc.edu:8443
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://ospool-ap2140.chtc.wisc.edu:8443
@@ -252,7 +252,7 @@ DataFederations:
         AllowedCaches:
           - ANY
         Writeback: https://ap23.uc.osg-htc.org:1095
-        #DirList: https://ap23.uc.osg-htc.org:1095
+        DirList: https://ap23.uc.osg-htc.org:1095
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool/uc-shared
