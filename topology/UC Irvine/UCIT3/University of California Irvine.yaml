@@ -1,7 +1,9 @@
-GroupDescription: UCI ATLAS Tier-3
-GroupID: 287
 Production: true
+SupportCenter: USATLAS
+GroupDescription: UCI ATLAS Tier-3
+
 Resources:
+#Archived Resources (inactive)
   UCI_ATLAS_GRIDFTP:
     ContactLists:
       Security Contact:
@@ -16,7 +18,7 @@ Resources:
         Primary:
           ID: OSG1000711
           Name: Nathan Crawford
-    Active: true
+    Active: false
     Description: UCI gridftp and LHC @ UC glidein scheduler submit host.
     FQDN: gpatlas2.ps.uci.edu
     DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, Irvine/CN=gpatlas2.ps.uci.edu
@@ -34,7 +36,7 @@ Resources:
       ATLAS: 100
       
   UCLHC IRVINE SUBMIT HOST:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -67,9 +69,11 @@ Resources:
       - OSPool
     VOOwnership:
       ATLAS: 100
-
-  UCIT3-AP2:
+      
+#Active Resources
+  UCIT3-AP1:
     Active: true
+    Description: UCI ATLAS Access Point 1.
     ContactLists:
       Administrative Contact:
         Primary:
@@ -78,6 +82,49 @@ Resources:
         Secondary:
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
           Name: Jeffrey Michael Dost
+        Tertiary:
+          ID: OSG1000711
+          Name: Nathan Crawford
+      Security Contact:
+        Primary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+        Secondary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
+        Tertiary:
+          ID: OSG1000711
+          Name: Nathan Crawford
+      Local Operational Contact:
+        Primary:
+          ID: OSG1000711
+          Name: Nathan Crawford
+    FQDN: uclhc-1.ps.uci.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, Irvine/CN=uclhc-1.ps.uci.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      ATLAS: 100
+      
+  UCIT3-AP2:
+    Active: true
+    Description: UCI ATLAS Access Point 2.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+        Secondary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
+        Tertiary:
+          ID: OSG1000711
+          Name: Nathan Crawford
       Security Contact:
         Primary:
           ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
@@ -89,10 +136,8 @@ Resources:
         Primary:
           ID: OSG1000711
           Name: Nathan Crawford
-    Description: LHC @ UC glidein scheduler submit host.
     FQDN: uclhc-2.ps.uci.edu
     DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, Irvine/CN=uclhc-2.ps.uci.edu
-    ID: 1209
     Services:
       Submit Node:
         Description: OS Pool access point
@@ -100,4 +145,73 @@ Resources:
       - OSPool
     VOOwnership:
       ATLAS: 100
-SupportCenter: USATLAS
+
+  UCIT3-AP3:
+    Active: true
+    Description: UCI ATLAS Access Point 3.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+        Secondary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
+        Tertiary:
+          ID: OSG1000711
+          Name: Nathan Crawford
+      Security Contact:
+        Primary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+        Secondary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
+      Local Operational Contact:
+        Primary:
+          ID: OSG1000711
+          Name: Nathan Crawford
+    FQDN: gpatlas1.ps.uci.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, Irvine/CN=gpatlas1.ps.uci.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+    VOOwnership:
+      ATLAS: 100
+
+  UCIT3-AP4:
+    Active: true
+    Description: UCI ATLAS Access Point 4.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+        Secondary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
+        Tertiary:
+          ID: OSG1000711
+          Name: Nathan Crawford
+      Security Contact:
+        Primary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+        Secondary:
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+          Name: Jeffrey Michael Dost
+      Local Operational Contact:
+        Primary:
+          ID: OSG1000711
+          Name: Nathan Crawford
+    FQDN: gpatlas2.ps.uci.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, Irvine/CN=gpatlas2.ps.uci.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+    VOOwnership:
+      ATLAS: 100
