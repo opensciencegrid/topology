@@ -2,7 +2,7 @@ GroupDescription: "HPC4L initiative (https://hpc4l-webpage.web.cern.ch/)"
 Production: true
 Resources:
   HPC4L-CE:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -33,7 +33,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   HPC4L-SE:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -62,7 +62,7 @@ Resources:
       StorageCapacityMax: 8.2
       StorageCapacityMin: 1
   HPC4L-SE-2:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -91,7 +91,7 @@ Resources:
       StorageCapacityMax: 8.2
       StorageCapacityMin: 1
   HPC4L-Squid:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
