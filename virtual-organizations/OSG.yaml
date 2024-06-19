@@ -195,8 +195,8 @@ DataFederations:
       - Path: /ospool/ap40/data
         Authorizations:
           - SciTokens:
-              Issuer: https://ospool-ap2140.chtc.wisc.edu:8443
-              Base Path: /ospool/ap40
+              Issuer: https://osg-htc.org/ospool
+              Base Path: /ospool/ap40/data
               Map Subject: True
         AllowedOrigins:
           - CHTC-ap40
@@ -209,32 +209,36 @@ DataFederations:
           Issuer: https://ospool-ap2140.chtc.wisc.edu:8443
           MaxScopeDepth: 4
 
-      # SciTokens issuer for ap20
-      - Path: /ospool/ap20/.well-known
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - UChicago_OSGConnect_ap20
-        # Do not cache this: direct access only
-        AllowedCaches: []
+      ### These scitokens issuers are intentionally unregistered: the xrootd
+      ### service serving them does not pull config from Topology, and the
+      ### data is not meant to be cached.
 
-      # SciTokens issuer for ap21
-      - Path: /ospool/ap21/.well-known
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - UChicago_OSGConnect_ap21
-        # Do not cache this: direct access only
-        AllowedCaches: []
+      # # SciTokens issuer for ap20
+      # - Path: /ospool/ap20/.well-known
+      #   Authorizations:
+      #     - PUBLIC
+      #   AllowedOrigins:
+      #     - UChicago_OSGConnect_ap20
+      #   # Do not cache this: direct access only
+      #   AllowedCaches: []
 
-      # SciTokens issuer for ap22
-      - Path: /ospool/ap22/.well-known
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - UChicago_OSGConnect_ap22
-        # Do not cache this: direct access only
-        AllowedCaches: []
+      # # SciTokens issuer for ap21
+      # - Path: /ospool/ap21/.well-known
+      #   Authorizations:
+      #     - PUBLIC
+      #   AllowedOrigins:
+      #     - UChicago_OSGConnect_ap21
+      #   # Do not cache this: direct access only
+      #   AllowedCaches: []
+
+      # # SciTokens issuer for ap22
+      # - Path: /ospool/ap22/.well-known
+      #   Authorizations:
+      #     - PUBLIC
+      #   AllowedOrigins:
+      #     - UChicago_OSGConnect_ap22
+      #   # Do not cache this: direct access only
+      #   AllowedCaches: []
 
       - Path: /ospool/uc-shared/project
         Authorizations:

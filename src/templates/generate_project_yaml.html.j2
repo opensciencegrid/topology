@@ -152,7 +152,7 @@ Project YAML Generator
         function updateProjectName(){
             project_name_node.readOnly = false
 
-            if(!(pi_institution_node.value in institutions) || !pi_last_name_node.value){ return }
+            if(!(pi_institution_node.value in institutions) || !institutions[pi_institution_node.value] || !pi_last_name_node.value){ return }
 
             let pi_institution = institutions[pi_institution_node.value]
             let pi_last_name = pi_last_name_node.value

@@ -867,10 +867,9 @@ def generate_project_yaml():
     institution_short_names = {x[1]: x[0] for x in global_data.get_mappings().project_institution.items()}
     institutions = []
     for institution in institution_api_data:
-        institutions.append((institution['id'], institution['name'], institution_short_names.get(institution['name'], "")))
+        institutions.append((institution_short_names.get(institution['name'], ""), institution['name']))
 
     def render_form(**kwargs):
-        institutions = list(global_data.get_mappings().project_institution.items())
         session.pop("form_data", None)
 
         return render_template(
