@@ -307,8 +307,8 @@ will want to adjust the Map.data which populates the select input and legend.
             this.isCompute = this.calcIsCompute();
             this.isStorage = this.calcIsStorage()
             this.isNetwork = this.calcIsNetwork();
-            this.isOSDFCache = this.calcIsOSDFCache();
-            this.isOSDFOrigin = this.calcIsOSDFOrigin();
+            this.isCache = this.calcIsCache();
+            this.isOrigin = this.calcIsOrigin();
         }
 
         calcIsEDU () {
@@ -327,12 +327,12 @@ will want to adjust the Map.data which populates the select input and legend.
             return this.services.some(({Name: name}) => network_services.has(name))
         }
 
-        calcIsOSDFCache () {
-            return this.services.some(({Name: name}) => name === "XRootD cache server")
+        calcIsCache () {
+            return this.services.some(({Name: name}) => name === "XRootD cache server" || name === "Pelican cache")
         }
 
-        calcIsOSDFOrigin () {
-            return this.services.some(({Name: name}) => name === "XRootD origin server")
+        calcIsOrigin () {
+            return this.services.some(({Name: name}) => name === "XRootD origin server" || name === "Pelican origin")
         }
     }
 
@@ -390,11 +390,11 @@ will want to adjust the Map.data which populates the select input and legend.
                 }
 
             } else if(view === "OpenScienceDataFederation") {
-                if (this.isOSDFOrigin && this.isOSDFCache) {
+                if (this.isOrigin && this.isCache) {
                     icon = cacheAndOriginIcon
-                } else if (this.isOSDFOrigin) {
+                } else if (this.isOrigin) {
                     icon = originIcon
-                } else if (this.isOSDFCache) {
+                } else if (this.isCache) {
                     icon = cacheIcon
                 }
 
@@ -493,7 +493,7 @@ will want to adjust the Map.data which populates the select input and legend.
             } else if(view === "CCStar"){
                 return resource.isCCStar
             } else if(view === "OpenScienceDataFederation") {
-                return resource.isOSDFCache || resource.isOSDFOrigin
+                return resource.isCache || resource.isOrigin
             } else if(view === "OSPool"){
                 return this.resourceIsInOSPool(resource)
             }
@@ -522,12 +522,12 @@ will want to adjust the Map.data which populates the select input and legend.
             return Object.values(this.resources).some(x => x.isNetwork)
         }
 
-        get isOSDFCache() {
-            return Object.values(this.resources).some(x => x.isOSDFCache)
+        get isCache() {
+            return Object.values(this.resources).some(x => x.isCache)
         }
 
-        get isOSDFOrigin(){
-            return Object.values(this.resources).some(x => x.isOSDFOrigin)
+        get isOrigin(){
+            return Object.values(this.resources).some(x => x.isOrigin)
         }
 
         get isOSPool () {
