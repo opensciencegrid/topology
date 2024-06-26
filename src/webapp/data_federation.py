@@ -4,7 +4,7 @@ import urllib.parse
 from collections import OrderedDict
 from typing import Optional, List, Dict, Tuple, Union, Set
 
-from .common import XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, ParsedYaml, is_null
+from .common import PELICAN_CACHE, PELICAN_ORIGIN, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER, ParsedYaml, is_null
 try:
     from .x509 import generate_dn_hash
 except ImportError:  # if asn1 is unavailable
@@ -89,14 +89,16 @@ class SciTokenAuth(AuthMethod):
                 f"map_subject={self.map_subject}"
 
     def get_scitokens_conf_block(self, service_name: str):
-        if service_name not in [XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER]:
-            raise ValueError(f"service_name must be '{XROOTD_CACHE_SERVER}' or '{XROOTD_ORIGIN_SERVER}'")
+        if service_name not in {PELICAN_CACHE, PELICAN_ORIGIN, XROOTD_CACHE_SERVER, XROOTD_ORIGIN_SERVER}:
+            raise ValueError(
+                f"service_name must be one of: '{PELICAN_CACHE}', '{PELICAN_ORIGIN}', "
+                f"'{XROOTD_CACHE_SERVER}', or '{XROOTD_ORIGIN_SERVER}'")
         block = (f"[Issuer {self.issuer}]\n"
                  f"issuer = {self.issuer}\n"
                  f"base_path = {self.base_path}\n")
         if self.restricted_path:
             block += f"restricted_path = {self.restricted_path}\n"
-        if service_name == XROOTD_ORIGIN_SERVER:
+        if service_name in {PELICAN_ORIGIN, XROOTD_ORIGIN_SERVER}:
             block += f"map_subject = {self.map_subject}\n"
 
         return block
