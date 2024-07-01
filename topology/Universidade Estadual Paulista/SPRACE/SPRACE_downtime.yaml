@@ -3423,3 +3423,80 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1845976534
+  Description: network maintenance
+  Severity: Intermittent Outage
+  StartTime: Jul 01, 2024 17:00 +0000
+  EndTime: Jul 01, 2024 21:00 +0000
+  CreatedTime: Jun 28, 2024 18:00 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1845976535
+  Description: network maintenance
+  Severity: Intermittent Outage
+  StartTime: Jul 01, 2024 17:00 +0000
+  EndTime: Jul 01, 2024 21:00 +0000
+  CreatedTime: Jun 28, 2024 18:00 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1845976536
+  Description: network maintenance
+  Severity: Intermittent Outage
+  StartTime: Jul 01, 2024 17:00 +0000
+  EndTime: Jul 01, 2024 21:00 +0000
+  CreatedTime: Jun 28, 2024 18:00 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1845976537
+  Description: network maintenance
+  Severity: Intermittent Outage
+  StartTime: Jul 01, 2024 17:00 +0000
+  EndTime: Jul 01, 2024 21:00 +0000
+  CreatedTime: Jun 28, 2024 18:00 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1845976538
+  Description: network maintenance
+  Severity: Intermittent Outage
+  StartTime: Jul 01, 2024 17:00 +0000
+  EndTime: Jul 01, 2024 21:00 +0000
+  CreatedTime: Jun 28, 2024 18:00 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1845976539
+  Description: network maintenance
+  Severity: Intermittent Outage
+  StartTime: Jul 01, 2024 17:00 +0000
+  EndTime: Jul 01, 2024 21:00 +0000
+  CreatedTime: Jun 28, 2024 18:00 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1845976540
+  Description: network maintenance
+  Severity: Intermittent Outage
+  StartTime: Jul 01, 2024 17:00 +0000
+  EndTime: Jul 01, 2024 21:00 +0000
+  CreatedTime: Jun 28, 2024 18:00 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
