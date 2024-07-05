@@ -438,7 +438,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   MWT2_SLATE_UC:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -467,14 +467,14 @@ Resources:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
     Description: MWT2 SLATE located at the University of Chicago @ Chicago, IL
-    FQDN: uct2-slate.mwt2.org
+    FQDN: uct2-squid.mwt2.org
     ID: 1065
     Services:
       Squid:
         Description: Generic squid service
         Details:
-          uri_override: uct2-slate.mwt2.org:32200
-          Monitored: false
+          uri_override: uct2-squid.mwt2.org:3128
+          Monitored: true
     VOOwnership:
       ATLAS: 100
   MWT2_SLATE_UC_2:
