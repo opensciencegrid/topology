@@ -1,12 +1,12 @@
 Production: true
 SupportCenter: Community Support Center
 GroupDescription: Infrastructure for SURF-MS4
-GroupID: 1358
+GroupID: 
 Resources:
-  SURF_MS4_OSDF_ORIGIN:
+  SURF_MS4_OSDF_STASHCACHE:
     Active: false
-    Description: Origin for SURF-MS4
-    ID: 1453
+    Description: StashCache at SURF-MS4 for LVK
+    ID: 
     ContactLists:
       Administrative Contact:
         Primary: 
@@ -22,10 +22,10 @@ Resources:
         Secondary:
           ID: OSG1000162
           Name: Fabio Andrijauskas
-    FQDN: osg-origin.ms4.surfsara.nl
-    DN: /C=NL/ST=Utrecht/O=SURF B.V./CN=osg-origin.ms4.surfsara.nl
+    FQDN: osg-cache.ms4.surfsara.nl
+    DN: /C=NL/ST=Utrecht/O=SURF B.V./CN=osg-cache.ms4.surfsara.nl
     Services:
-      XRootD origin server:
-        Description: Origin for SURF-MS4
+      XRootD cache server:
+        Description: Cache at SURF-MS4 for LVK
     AllowedVOs:
       - ANY
