@@ -1475,3 +1475,201 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1497861403
+  Description: dCache downtime
+  Severity: Outage
+  StartTime: May 30, 2023 14:00 +0000
+  EndTime: May 30, 2023 20:25 +0000
+  CreatedTime: May 22, 2023 20:09 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1497861773
+  Description: dCache downtime
+  Severity: Outage
+  StartTime: May 30, 2023 14:00 +0000
+  EndTime: May 30, 2023 20:25 +0000
+  CreatedTime: May 22, 2023 20:09 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1497861882
+  Description: dCache downtime
+  Severity: Outage
+  StartTime: May 30, 2023 14:00 +0000
+  EndTime: May 30, 2023 20:25 +0000
+  CreatedTime: May 22, 2023 20:09 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1699904983
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 16, 2024 15:00 +0000
+  EndTime: Jan 16, 2024 21:00 +0000
+  CreatedTime: Jan 11, 2024 16:28 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1699905360
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 16, 2024 15:00 +0000
+  EndTime: Jan 16, 2024 21:00 +0000
+  CreatedTime: Jan 11, 2024 16:28 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1699905503
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jan 16, 2024 15:00 +0000
+  EndTime: Jan 16, 2024 21:00 +0000
+  CreatedTime: Jan 11, 2024 16:29 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705201420
+  Description: Continuation of scheduled dCache downtime
+  Severity: Outage
+  StartTime: Jan 17, 2024 19:30 +0000
+  EndTime: Jan 18, 2024 18:45 +0000
+  CreatedTime: Jan 17, 2024 19:35 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705201653
+  Description: Continuation of scheduled dCache downtime
+  Severity: Outage
+  StartTime: Jan 17, 2024 19:30 +0000
+  EndTime: Jan 18, 2024 18:45 +0000
+  CreatedTime: Jan 17, 2024 19:36 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1705201787
+  Description: Continuation of scheduled dCache downtime
+  Severity: Outage
+  StartTime: Jan 17, 2024 19:30 +0000
+  EndTime: Jan 18, 2024 18:45 +0000
+  CreatedTime: Jan 17, 2024 19:36 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1819285909
+  Description: EL9 Upgrades
+  Severity: Outage
+  StartTime: Jun 10, 2024 14:00 +0000
+  EndTime: Jun 10, 2024 22:00 +0000
+  CreatedTime: May 28, 2024 20:36 +0000
+  ResourceName: MWT2_CE_IU
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1819286180
+  Description: EL9 Upgrades
+  Severity: Outage
+  StartTime: Jun 10, 2024 14:00 +0000
+  EndTime: Jun 10, 2024 22:00 +0000
+  CreatedTime: May 28, 2024 20:36 +0000
+  ResourceName: MWT2_CE_IU2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1819286287
+  Description: EL9 Upgrades
+  Severity: Outage
+  StartTime: Jun 10, 2024 14:00 +0000
+  EndTime: Jun 10, 2024 22:00 +0000
+  CreatedTime: May 28, 2024 20:37 +0000
+  ResourceName: MWT2_CE_UC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1819286377
+  Description: EL9 Upgrades
+  Severity: Outage
+  StartTime: Jun 10, 2024 14:00 +0000
+  EndTime: Jun 10, 2024 22:00 +0000
+  CreatedTime: May 28, 2024 20:37 +0000
+  ResourceName: MWT2_CE_UC2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1819286612
+  Description: EL9 Upgrades
+  Severity: Outage
+  StartTime: Jun 10, 2024 14:00 +0000
+  EndTime: Jun 10, 2024 22:00 +0000
+  CreatedTime: May 28, 2024 20:37 +0000
+  ResourceName: MWT2_CE_UIUC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1819286698
+  Description: EL9 Upgrades
+  Severity: Outage
+  StartTime: Jun 10, 2024 14:00 +0000
+  EndTime: Jun 10, 2024 22:00 +0000
+  CreatedTime: May 28, 2024 20:37 +0000
+  ResourceName: MWT2_CE_UIUC2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1819286864
+  Description: EL9 Upgrades
+  Severity: Outage
+  StartTime: Jun 10, 2024 14:00 +0000
+  EndTime: Jun 10, 2024 22:00 +0000
+  CreatedTime: May 28, 2024 20:38 +0000
+  ResourceName: MWT2_UC_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1819286951
+  Description: EL9 Upgrades
+  Severity: Outage
+  StartTime: Jun 10, 2024 14:00 +0000
+  EndTime: Jun 10, 2024 22:00 +0000
+  CreatedTime: May 28, 2024 20:38 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1819287109
+  Description: EL9 Upgrades
+  Severity: Outage
+  StartTime: Jun 10, 2024 14:00 +0000
+  EndTime: Jun 10, 2024 22:00 +0000
+  CreatedTime: May 28, 2024 20:38 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------

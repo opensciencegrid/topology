@@ -160,13 +160,13 @@ Resources:
           Name: Carl Lundstedt
     Description: perfSONAR-PS bandwidth instance at T2_US_Nebraska, University of
       Nebraska-Lincoln
-    FQDN: hcc-ps02.unl.edu
+    FQDN: hcc-shor-ps-bw.unl.edu
     ID: 519
     Services:
       net.perfSONAR.Bandwidth:
         Description: PerfSonar Bandwidth monitoring node
         Details:
-          endpoint: hcc-ps02.unl.edu
+          endpoint: hcc-shor-ps-bw.unl.edu
     VOOwnership:
       HCC: 100
   US-Nebraska BW (Test):
@@ -212,13 +212,13 @@ Resources:
           ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
           Name: Carl Lundstedt
     Description: perfSonar node at T2_US_Nebraska for latency
-    FQDN: hcc-ps01.unl.edu
+    FQDN: hcc-shor-ps-lt.unl.edu
     ID: 505
     Services:
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
-          endpoint: hcc-ps01.unl.edu
+          endpoint: hcc-shor-ps-lt.unl.edu
     VOOwnership:
       HCC: 100
   red-gateway1:
@@ -253,6 +253,7 @@ Resources:
       APELNormalFactor: 10.62
       AccountingName: T2_US_Nebraska
       HEPSPEC: 100245
+      HEPScore23Percentage: 0.1
       InteropAccounting: true
       InteropBDII: true
       InteropMonitoring: true

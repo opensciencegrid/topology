@@ -1,3 +1,4 @@
+import contextlib
 import datetime
 import logging
 import os
@@ -5,6 +6,22 @@ import time
 from typing import Dict, Set, List, Optional
 
 import yaml
+try:
+    from prometheus_client import Summary
+except ImportError:
+    class Summary:
+        """A dummy prometheus_client.Summary class"""
+
+        def __init__(self, name: str, documentation: str):
+            _ = name
+            _ = documentation
+
+        @contextlib.contextmanager
+        def time(self):
+            pass
+            yield
+            pass
+
 
 from webapp import common, contacts_reader, ldap_data, mappings, project_reader, rg_reader, vo_reader
 from webapp.common import readfile
@@ -14,6 +31,12 @@ from webapp.vos_data import VOsData
 
 
 log = logging.getLogger(__name__)
+
+topology_update_summary = Summary('topology_update_seconds', 'Time spent updating the topology repo data')
+topology_git_update_summary = Summary('topology_git_update_seconds', 'Time spent pulling/cloning the topology git repo')
+contact_update_summary = Summary('contact_update_seconds', 'Time spent updating the contact repo data')
+comanage_update_summary = Summary('comanage_update_seconds', 'Time spent updating the comanage LDAP data')
+ligo_update_summary = Summary('ligo_update_seconds', 'Time spent updating the LIGO LDAP data')
 
 
 class CachedData:
@@ -27,14 +50,19 @@ class CachedData:
         self.next_update = self.timestamp + self.cache_lifetime
 
     def should_update(self):
-        return self.force_update or not self.data or time.time() > self.next_update
+        """Return True if we should update, either because we're past the next update time
+        or because force_update is True.
+        """
+        return self.force_update or not self.data or time.monotonic() > self.next_update
 
     def try_again(self):
-        self.next_update = time.time() + self.retry_delay
+        """Set the next update time to now + the retry delay."""
+        self.next_update = time.monotonic() + self.retry_delay
 
     def update(self, data):
+        """Cache new data and set the next update time to now + the cache lifetime."""
         self.data = data
-        self.timestamp = time.time()
+        self.timestamp = time.monotonic()
         self.next_update = self.timestamp + self.cache_lifetime
         self.force_update = False
 
@@ -45,6 +73,7 @@ class GlobalData:
             config = {}
         config.setdefault("TOPOLOGY_DATA_DIR", ".")
         config.setdefault("CONTACT_DATA_DIR", None)
+        config.setdefault("INSTITUTIONS_API", "https://topology-institutions.osg-htc.org/api")
         config.setdefault("CILOGON_LDAP_URL", "ldaps://ldap.cilogon.org")
         config.setdefault("CILOGON_LDAP_USER",
                 "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org")
@@ -62,6 +91,7 @@ class GlobalData:
         self.topology = CachedData(cache_lifetime=topology_cache_lifetime)
         self.vos_data = CachedData(cache_lifetime=topology_cache_lifetime)
         self.mappings = CachedData(cache_lifetime=topology_cache_lifetime)
+        self.topology_repo_stamp = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology_data_dir = config["TOPOLOGY_DATA_DIR"]
         self.topology_data_repo = config.get("TOPOLOGY_DATA_REPO", "")
         self.topology_data_branch = config.get("TOPOLOGY_DATA_BRANCH", "")
@@ -78,6 +108,10 @@ class GlobalData:
         self.ligo_ldap_passfile = config.get("LIGO_LDAP_PASSFILE")
         self.ligo_ldap_url = config.get("LIGO_LDAP_URL")
         self.ligo_ldap_user = config.get("LIGO_LDAP_USER")
+        self.github_oauth_client_secret = config.get("GITHUB_OAUTH_CLIENT_SECRET")
+        self.auto_pr_gh_api_user = config.get("AUTO_PR_GH_API_USER")
+        self.auto_pr_gh_api_token = config.get("AUTO_PR_GH_API_TOKEN")
+        self.csrf_secret_key = config.get("CSRF_SECRET_KEY")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:
@@ -121,6 +155,21 @@ class GlobalData:
                 return False
         return True
 
+    def maybe_update_topology_repo(self) -> bool:
+        """Update the local git clone of the topology github repo if it hasn't
+        been updated recently (based on the cache time for self.topology_repo_stamp).
+        """
+        if self.topology_repo_stamp.should_update():
+            with topology_git_update_summary.time():
+                ok = self._update_topology_repo()
+            if ok:
+                self.topology_repo_stamp.update(time.monotonic())
+                return True
+            else:
+                self.topology_repo_stamp.try_again()
+                return False
+        return bool(self.topology_repo_stamp.data)
+
     def _update_contacts_repo(self):
         if not self.config["NO_GIT"]:
             parent = os.path.dirname(self.config["CONTACT_DATA_DIR"])
@@ -149,17 +198,18 @@ class GlobalData:
             data = contacts_reader.get_contacts_data(None)
             self.contacts_data.update(data)
         elif self.contacts_data.should_update():
-            ok = self._update_contacts_repo()
-            if ok:
-                try:
-                    self.contacts_data.update(contacts_reader.get_contacts_data(self.contacts_file))
-                except Exception:
-                    if self.strict:
-                        raise
-                    log.exception("Failed to update contacts data")
+            with contact_update_summary.time():
+                ok = self._update_contacts_repo()
+                if ok:
+                    try:
+                        self.contacts_data.update(contacts_reader.get_contacts_data(self.contacts_file))
+                    except Exception as err:
+                        if self.strict:
+                            raise
+                        log.exception("Failed to update contacts data (%s)", err)
+                        self.contacts_data.try_again()
+                else:
                     self.contacts_data.try_again()
-            else:
-                self.contacts_data.try_again()
 
         return self.contacts_data.data
 
@@ -175,15 +225,16 @@ class GlobalData:
             data = contacts_reader.get_contacts_data(None)
             self.comanage_data.update(data)
         elif self.comanage_data.should_update():
-            try:
-                idmap = self.get_cilogon_ldap_id_map()
-                data = ldap_data.cilogon_id_map_to_yaml_data(idmap)
-                self.comanage_data.update(ContactsData(data))
-            except Exception:
-                if self.strict:
-                    raise
-                log.exception("Failed to update comanage data")
-                self.comanage_data.try_again()
+            with comanage_update_summary.time():
+                try:
+                    idmap = self.get_cilogon_ldap_id_map()
+                    data = ldap_data.cilogon_id_map_to_yaml_data(idmap)
+                    self.comanage_data.update(ContactsData(data))
+                except Exception as err:
+                    if self.strict:
+                        raise
+                    log.exception("Failed to update comanage data (%s)", err)
+                    self.comanage_data.try_again()
 
         return self.comanage_data.data
 
@@ -204,10 +255,10 @@ class GlobalData:
                 yd2 = self.get_contact_db_data().yaml_data
                 yd_merged = ldap_data.merge_yaml_data(yd1, yd2)
                 self.merged_contacts_data.update(ContactsData(yd_merged))
-            except Exception:
+            except Exception as err:
                 if self.strict:
                     raise
-                log.exception("Failed to update merged contacts data")
+                log.exception("Failed to update merged contacts data (%s)", err)
                 self.merged_contacts_data.try_again()
 
         return self.merged_contacts_data.data
@@ -223,15 +274,16 @@ class GlobalData:
                       "getting empty list")
             return []
         elif self.ligo_dn_list.should_update():
-            try:
-                ligo_ldap_pass = readfile(self.ligo_ldap_passfile, log)
-                new_dn_list = ldap_data.get_ligo_ldap_dn_list(self.ligo_ldap_url, self.ligo_ldap_user, ligo_ldap_pass)
-                self.ligo_dn_list.update(new_dn_list)
-            except Exception:
-                if self.strict:
-                    raise
-                log.exception("Failed to update LIGO data")
-                self.ligo_dn_list.try_again()
+            with ligo_update_summary.time():
+                try:
+                    ligo_ldap_pass = readfile(self.ligo_ldap_passfile, log)
+                    new_dn_list = ldap_data.get_ligo_ldap_dn_list(self.ligo_ldap_url, self.ligo_ldap_user, ligo_ldap_pass)
+                    self.ligo_dn_list.update(new_dn_list)
+                except Exception as err:
+                    if self.strict:
+                        raise
+                    log.exception("Failed to update LIGO data (%s)", err)
+                    self.ligo_dn_list.try_again()
 
         return self.ligo_dn_list.data
 
@@ -244,10 +296,10 @@ class GlobalData:
             contacts_data = self.get_contacts_data()
             try:
                 self.dn_set.update(set(contacts_data.get_dns()))
-            except Exception:
+            except Exception as err:
                 if self.strict:
                     raise
-                log.exception("Failed to update DNs")
+                log.exception("Failed to update DNs (%s)", err)
                 self.contacts_data.try_again()
         return self.dn_set.data
 
@@ -257,19 +309,28 @@ class GlobalData:
         May return None if we fail to get the data for the first time.
         """
         if self.topology.should_update():
-            ok = self._update_topology_repo()
-            if ok:
-                try:
-                    self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data(), strict=self.strict))
-                except Exception:
-                    if self.strict:
-                        raise
-                    log.exception("Failed to update topology")
-                    self.topology.try_again()
-            else:
-                self.topology.try_again()
+            with topology_update_summary.time():
+                self.update_topology()
 
         return self.topology.data
+
+    def update_topology(self) -> None:
+        """
+        Update topology facility/site/ResourceGroup data
+        """
+        ok = self.maybe_update_topology_repo()
+        if ok:
+            try:
+                log.debug("Updating topology RG data")
+                self.topology.update(rg_reader.get_topology(self.topology_dir, self.get_contacts_data(), strict=self.strict))
+                log.debug("Updated topology RG data successfully")
+            except Exception as err:
+                if self.strict:
+                    raise
+                log.exception("Failed to update topology RG data (%s)", err)
+                self.topology.try_again()
+        else:
+            self.topology.try_again()
 
     def get_vos_data(self) -> Optional[VOsData]:
         """
@@ -277,17 +338,20 @@ class GlobalData:
         May return None if we fail to get the data for the first time.
         """
         if self.vos_data.should_update():
-            ok = self._update_topology_repo()
-            if ok:
-                try:
-                    self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data(), strict=self.strict))
-                except Exception:
-                    if self.strict:
-                        raise
-                    log.exception("Failed to update VOs")
+            with topology_update_summary.time():
+                ok = self.maybe_update_topology_repo()
+                if ok:
+                    try:
+                        log.debug("Updating VOs")
+                        self.vos_data.update(vo_reader.get_vos_data(self.vos_dir, self.get_contacts_data(), strict=self.strict))
+                        log.debug("Updated VOs successfully")
+                    except Exception as err:
+                        if self.strict:
+                            raise
+                        log.exception("Failed to update VOs (%s)", err)
+                        self.vos_data.try_again()
+                else:
                     self.vos_data.try_again()
-            else:
-                self.vos_data.try_again()
 
         return self.vos_data.data
 
@@ -297,37 +361,45 @@ class GlobalData:
         May return None if we fail to get the data for the first time.
         """
         if self.projects.should_update():
-            ok = self._update_topology_repo()
-            if ok:
-                try:
-                    self.projects.update(project_reader.get_projects(self.projects_dir, strict=self.strict))
-                except Exception:
-                    if self.strict:
-                        raise
-                    log.exception("Failed to update projects")
+            with topology_update_summary.time():
+                ok = self.maybe_update_topology_repo()
+                if ok:
+                    try:
+                        log.debug("Updating projects")
+                        self.projects.update(project_reader.get_projects(self.projects_dir, strict=self.strict))
+                        log.debug("Updated projects successfully")
+                    except Exception as err:
+                        if self.strict:
+                            raise
+                        log.exception("Failed to update projects (%s)", err)
+                        self.projects.try_again()
+                else:
                     self.projects.try_again()
-            else:
-                self.projects.try_again()
 
         return self.projects.data
 
-    def get_mappings(self) -> Optional[mappings.Mappings]:
+    def get_mappings(self, strict=None) -> Optional[mappings.Mappings]:
         """
         Get mappings data.
         May return None if we fail to get the data for the first time.
         """
+        if strict is None:
+            strict = self.strict
         if self.mappings.should_update():
-            ok = self._update_topology_repo()
-            if ok:
-                try:
-                    self.mappings.update(mappings.get_mappings(indir=self.mappings_dir, strict=self.strict))
-                except Exception:
-                    if self.strict:
-                        raise
-                    log.exception("Failed to update mappings")
+            with topology_update_summary.time():
+                ok = self.maybe_update_topology_repo()
+                if ok:
+                    try:
+                        log.debug("Updating mappings")
+                        self.mappings.update(mappings.get_mappings(indir=self.mappings_dir, strict=strict))
+                        log.debug("Updated mappings successfully")
+                    except Exception as err:
+                        if self.strict:
+                            raise
+                        log.exception("Failed to update mappings (%s)", err)
+                        self.mappings.try_again()
+                else:
                     self.mappings.try_again()
-            else:
-                self.mappings.try_again()
 
         return self.mappings.data
 
@@ -340,7 +412,7 @@ def _dtid(created_datetime: datetime.datetime):
     return int((timestamp - dtid_offset) * multiplier)
 
 
-def get_downtime_yaml(id: int,
+def get_downtime_yaml(id_: int,
                       start_datetime: datetime.datetime,
                       end_datetime: datetime.datetime,
                       created_datetime: datetime.datetime,
@@ -356,8 +428,8 @@ def get_downtime_yaml(id: int,
 
     """
 
-    def render(key, value):
-        return yaml.safe_dump({key: value}, default_flow_style=False).strip()
+    def render(key_, value_):
+        return yaml.safe_dump({key_: value_}, default_flow_style=False).strip()
 
     def indent(in_str, amount):
         spaces = ' ' * amount
@@ -369,7 +441,7 @@ def get_downtime_yaml(id: int,
 
     result = "- " + render("Class", class_)
     for key, value in [
-        ("ID", id),
+        ("ID", id_),
         ("Description", description),
         ("Severity", severity),
         ("StartTime", start_time_str),

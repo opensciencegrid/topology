@@ -1,11 +1,11 @@
 - Class: UNSCHEDULED
   ID: 1299092679
-  Description: SLURM update
+  Description: SLURM update [it was scheduled, I was on travel so registering it a little late]
   Severity: Outage
   StartTime: Oct 04, 2022 17:00 +0000
   EndTime: Oct 05, 2022 17:00 +0000
   CreatedTime: Oct 04, 2022 18:47 +0000
-  ResourceName: LBL_HPCS
+  ResourceName: LBL_HPCS_LRC
   Services:
   - CE
 # ---------------------------------------------------------
@@ -17,6 +17,39 @@
   EndTime: Oct 05, 2022 17:00 +0000
   CreatedTime: Oct 04, 2022 18:47 +0000
   ResourceName: LBL_HPCS_LRC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1541895313
+  Description: Power outage/work affecting our site
+  Severity: Outage
+  StartTime: Jul 20, 2023 17:00 +0000
+  EndTime: Jul 25, 2023 01:00 +0000
+  CreatedTime: Jul 12, 2023 19:18 +0000
+  ResourceName: LBL_HPCS_LRC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1640473745
+  Description: Cooling work in the machine room and SLURM upgrade
+  Severity: Outage
+  StartTime: Nov 21, 2023 15:00 +0000
+  EndTime: Nov 23, 2023 00:00 +0000
+  CreatedTime: Nov 03, 2023 21:36 +0000
+  ResourceName: LBL_HPCS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1704317781
+  Description: Cooling and Power work
+  Severity: Outage
+  StartTime: Jan 19, 2024 16:00 +0000
+  EndTime: Jan 25, 2024 01:00 +0000
+  CreatedTime: Jan 16, 2024 19:02 +0000
+  ResourceName: LBL_HPCS
   Services:
   - CE
 # ---------------------------------------------------------

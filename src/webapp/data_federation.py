@@ -1,3 +1,4 @@
+import re
 import urllib
 import urllib.parse
 from collections import OrderedDict
@@ -11,18 +12,18 @@ except ImportError:  # if asn1 is unavailable
 
 
 class AuthMethod:
+    __slots__ = ("authfile_id", "grid_mapfile_line", "namespaces_scitokens_block")
     is_public = False
     used_in_authfile = False
     used_in_scitokens_conf = False
     used_in_grid_mapfile = False
 
-    def get_authfile_id(self):
-        return ""
+    def __init__(self):
+        self.authfile_id = ""
+        self.grid_mapfile_line = ""
+        self.namespaces_scitokens_block = None
 
     def get_scitokens_conf_block(self, service_name: str):
-        return ""
-
-    def get_grid_mapfile_line(self):
         return ""
 
 
@@ -34,54 +35,54 @@ class PublicAuth(AuthMethod):
     is_public = True
     used_in_authfile = True
 
+    def __init__(self):
+        super().__init__()
+        self.authfile_id = "u *"
+
     def __str__(self):
         return "PUBLIC"
 
-    def get_authfile_id(self):
-        return "u *"
-
 
 class DNAuth(AuthMethod):
+    __slots__ = ("dn", "dn_hash")
     used_in_authfile = True
     used_in_grid_mapfile = True
 
     def __init__(self, dn: str):
+        super().__init__()
         self.dn = dn
+        self.dn_hash = generate_dn_hash(dn)
+        self.authfile_id = f"u {self.dn_hash}"
+        self.grid_mapfile_line = f'"{self.dn}" {self.dn_hash}'
 
     def __str__(self):
         return "DN: " + self.dn
 
-    def get_dn_hash(self):
-        return generate_dn_hash(self.dn)
-
-    def get_authfile_id(self):
-        return f"u {self.get_dn_hash()}"
-
-    def get_grid_mapfile_line(self):
-        return f'"{self.dn}" {self.get_dn_hash()}'
-
 
 class FQANAuth(AuthMethod):
+    __slots__ = ("fqan",)
     used_in_authfile = True
 
     def __init__(self, fqan: str):
+        super().__init__()
         self.fqan = fqan
+        self.authfile_id = f"g {self.fqan}"
 
     def __str__(self):
         return "FQAN: " + self.fqan
 
-    def get_authfile_id(self):
-        return f"g {self.fqan}"
-
 
 class SciTokenAuth(AuthMethod):
+    __slots__ = ("issuer", "base_path", "restricted_path", "map_subject")
     used_in_scitokens_conf = True
 
     def __init__(self, issuer: str, base_path: str, restricted_path: Optional[str], map_subject: bool):
+        super().__init__()
         self.issuer = issuer
         self.base_path = base_path
         self.restricted_path = restricted_path
         self.map_subject = map_subject
+        self.namespaces_scitokens_block = self._get_namespaces_scitokens_block()
 
     def __str__(self):
         return f"SciToken: issuer={self.issuer} base_path={self.base_path} restricted_path={self.restricted_path} " \
@@ -100,6 +101,15 @@ class SciTokenAuth(AuthMethod):
 
         return block
 
+    def _get_namespaces_scitokens_block(self):
+        base_path = re.split(r"\s*,\s*", self.base_path)
+        restricted_path = re.split(r"\s*,\s*", self.restricted_path) if self.restricted_path else []
+        return {
+            "issuer": self.issuer,
+            "base_path": base_path,
+            "restricted_path": restricted_path,
+        }
+
 
 # TODO Use a dataclass (https://docs.python.org/3.9/library/dataclasses.html)
 # once we can ditch Python 3.6; the webapp no longer supports 3.6 but some of
@@ -113,15 +123,17 @@ class CredentialGeneration:
     STRATEGY_VAULT = "Vault"
     STRATEGY_OAUTH2 = "OAuth2"
     STRATEGIES = [STRATEGY_OAUTH2, STRATEGY_VAULT]
-    def __init__(self, strategy: str, issuer: str, max_scope_depth: Optional[int], vault_server: Optional[str]):
+    def __init__(self, strategy: str, issuer: str, max_scope_depth: Optional[int], vault_server: Optional[str], base_path: Optional[str], vault_issuer: Optional[str]):
         self.strategy = strategy
         self.issuer = issuer
         self.max_scope_depth = max_scope_depth
         self.vault_server = vault_server
+        self.base_path = base_path
+        self.vault_issuer = vault_issuer
 
     def __repr__(self):
-        return self.__class__.__name__ + ("(strategy=%r, issuer=%r, max_scope_depth=%r, vault_server=%r)" % (
-            self.strategy, self.issuer, self.max_scope_depth, self.vault_server
+        return self.__class__.__name__ + ("(strategy=%r, issuer=%r, base_path=%r, max_scope_depth=%r, vault_server=%r, vault_issuer=%r)" % (
+            self.strategy, self.issuer, self.base_path, self.max_scope_depth, self.vault_server, self.vault_issuer
         ))
 
     def validate(self) -> Set[str]:
@@ -143,6 +155,10 @@ class CredentialGeneration:
             if not parsed_issuer.netloc or parsed_issuer.scheme != "https":
                 errors.add(f"{errprefix} Issuer not a valid URL {self.issuer}")
 
+        # Validate BasePath
+        if self.base_path and not isinstance(self.base_path, str):
+            errors.add(f"{errprefix} invalid BasePath {self.base_path}")
+
         # Validate MaxScopeDepth
         if self.max_scope_depth:
             try:
@@ -160,6 +176,10 @@ class CredentialGeneration:
         else:
             if self.strategy == self.STRATEGY_VAULT:
                 errors.add(f"{errprefix} VaultServer not specified for a {self.strategy} strategy")
+
+        # Validate VaultIssuer
+        if self.vault_issuer and self.strategy != self.STRATEGY_VAULT:
+            errors.add(f"{errprefix} VaultIssuer specified for a {self.strategy} strategy")
 
         return errors
 
@@ -186,7 +206,7 @@ class Namespace:
         self.credential_generation = credential_generation
 
     def is_public(self) -> bool:
-        return self.authz_list and self.authz_list[0].is_public
+        return any(x for x in self.authz_list if x.is_public)
 
 
 def _parse_authz_scitokens(attributes: Dict, authz: Dict) -> Tuple[AuthMethod, Optional[str]]:
@@ -333,7 +353,9 @@ class StashCache:
                     strategy=cg.get("Strategy", ""),
                     issuer=cg.get("Issuer", ""),
                     max_scope_depth=cg.get("MaxScopeDepth", None),
-                    vault_server=cg.get("VaultServer", None)
+                    vault_server=cg.get("VaultServer", None),
+                    base_path=cg.get("BasePath", None),
+                    vault_issuer=cg.get("VaultIssuer", None),
                 )
                 cg_errors = credential_generation.validate()
                 if cg_errors:
@@ -380,8 +402,5 @@ class StashCache:
             if err:
                 self.errors.add(f"Namespace {path}: {err}")
                 continue
-            if parsed_authz.is_public:
-                return [parsed_authz]
-            else:
-                authz_list.append(parsed_authz)
+            authz_list.append(parsed_authz)
         return authz_list

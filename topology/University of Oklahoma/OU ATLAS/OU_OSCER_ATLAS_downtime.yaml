@@ -613,3 +613,181 @@
   - GridFtp
   - XRootD component
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1467578017
+  Description: OSCER cluster upgrade
+  Severity: Outage
+  StartTime: Apr 19, 2023 13:00 +0000
+  EndTime: Apr 20, 2023 23:55 +0000
+  CreatedTime: Apr 17, 2023 18:56 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1467578018
+  Description: OSCER cluster upgrade
+  Severity: Outage
+  StartTime: Apr 19, 2023 13:00 +0000
+  EndTime: Apr 20, 2023 23:55 +0000
+  CreatedTime: Apr 17, 2023 18:56 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1491912448
+  Description: OSCER cluster maintenance
+  Severity: Outage
+  StartTime: May 17, 2023 13:00 +0000
+  EndTime: May 18, 2023 04:00 +0000
+  CreatedTime: May 15, 2023 22:54 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1493451617
+  Description: OSCER cluster maintenance
+  Severity: Outage
+  StartTime: May 17, 2023 13:00 +0000
+  EndTime: May 18, 2023 04:00 +0000
+  CreatedTime: May 15, 2023 22:54 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1509713508
+  Description: OSCER network upgrade
+  Severity: Outage
+  StartTime: Jun 08, 2023 13:00 +0000
+  EndTime: Jun 09, 2023 04:00 +0000
+  CreatedTime: Jun 05, 2023 13:22 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1509713509
+  Description: OSCER network upgrade
+  Severity: Outage
+  StartTime: Jun 08, 2023 13:00 +0000
+  EndTime: Jun 09, 2023 04:00 +0000
+  CreatedTime: Jun 05, 2023 13:22 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1546161183
+  Description: SLURM upgrade
+  Severity: Outage
+  StartTime: Jul 19, 2023 13:00 +0000
+  EndTime: Jul 20, 2023 02:30 +0000
+  CreatedTime: Jul 17, 2023 17:48 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1616676468
+  Description: SLURM and core network upgrades
+  Severity: Outage
+  StartTime: Oct 11, 2023 13:00 +0000
+  EndTime: Oct 11, 2023 23:00 +0000
+  CreatedTime: Oct 07, 2023 08:34 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1616676469
+  Description: SLURM and core network upgrades
+  Severity: Outage
+  StartTime: Oct 11, 2023 13:00 +0000
+  EndTime: Oct 11, 2023 23:00 +0000
+  CreatedTime: Oct 07, 2023 08:34 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1739735017
+  Description: OSCER IPA/LDAP/Auth management upgrade
+  Severity: Outage
+  StartTime: Feb 28, 2024 14:00 +0000
+  EndTime: Feb 29, 2024 03:30 +0000
+  CreatedTime: Feb 26, 2024 18:51 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1739735018
+  Description: OSCER IPA/LDAP/Auth management upgrade
+  Severity: Outage
+  StartTime: Feb 28, 2024 14:00 +0000
+  EndTime: Feb 29, 2024 03:30 +0000
+  CreatedTime: Feb 26, 2024 18:51 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1739735019
+  Description: OSCER IPA/LDAP/Auth management upgrade
+  Severity: Outage
+  StartTime: Feb 28, 2024 14:00 +0000
+  EndTime: Feb 29, 2024 03:30 +0000
+  CreatedTime: Feb 26, 2024 18:51 +0000
+  ResourceName: OU_OSCER_ATLAS_SLATE_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1842497571
+  Description: OSCER cluster maintenance
+  Severity: Outage
+  StartTime: Jun 26, 2024 13:00 +0000
+  EndTime: Jun 27, 2024 03:00 +0000
+  CreatedTime: Jun 24, 2024 17:22 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1842497572
+  Description: OSCER cluster maintenance
+  Severity: Outage
+  StartTime: Jun 26, 2024 13:00 +0000
+  EndTime: Jun 27, 2024 03:00 +0000
+  CreatedTime: Jun 24, 2024 17:22 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1842497573
+  Description: OSCER cluster maintenance
+  Severity: Outage
+  StartTime: Jun 26, 2024 13:00 +0000
+  EndTime: Jun 27, 2024 03:00 +0000
+  CreatedTime: Jun 24, 2024 17:22 +0000
+  ResourceName: OU_OSCER_ATLAS_SLATE_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------

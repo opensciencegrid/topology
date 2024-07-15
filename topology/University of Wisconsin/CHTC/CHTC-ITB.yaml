@@ -77,9 +77,6 @@ Resources:
         Secondary:
           ID: OSG1000003
           Name: Brian Lin
-        Tertiary:
-          ID: OSG1000007
-          Name: Carl Edquist
       Security Contact:
         Primary:
           ID: OSG1000002
@@ -126,7 +123,7 @@ Resources:
           hidden: false
 
   CHTC-ITB-SLURM-CE:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -135,9 +132,6 @@ Resources:
         Secondary:
           ID: OSG1000003
           Name: Brian Lin
-        Tertiary:
-          ID: OSG1000007
-          Name: Carl Edquist
       Security Contact:
         Primary:
           ID: OSG1000002
@@ -187,9 +181,6 @@ Resources:
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
-        Tertiary:
-          ID: OSG1000007
-          Name: Carl Edquist
       Security Contact:
         Primary:
           ID: OSG1000003
@@ -218,9 +209,6 @@ Resources:
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
-        Tertiary:
-          ID: OSG1000007
-          Name: Carl Edquist
       Security Contact:
         Primary:
           ID: OSG1000003
@@ -275,9 +263,6 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: OSG1000007
-          Name: Carl Edquist
-        Secondary:
           ID: OSG1000003
           Name: Brian Lin
         Tertiary:
@@ -311,9 +296,6 @@ Resources:
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
-        Tertiary:
-          ID: OSG1000007
-          Name: Carl Edquist
       Security Contact:
         Primary:
           ID: OSG1000003
@@ -329,7 +311,7 @@ Resources:
         Description: OSG VO backfill containers on the Tiger cluster, serving the ITB pool
 
   CHTC-ITB-S3-AWS-EAST-ORIGIN:
-    Active: true
+    Active: false
     Description: >-
       This is an origin used for demonstrating integration with AWS
       East S3 buckets
@@ -337,9 +319,6 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: OSG1000007
-          Name: Carl Edquist
-        Secondary:
           ID: OSG1000003
           Name: Brian Lin
         Tertiary:
@@ -364,7 +343,7 @@ Resources:
       - OSG
 
   CHTC-ITB-S3-AWS-WEST-ORIGIN:
-    Active: true
+    Active: false
     Description: >-
       This is an origin used for demonstrating integration with AWS
       West S3 buckets
@@ -397,3 +376,77 @@ Resources:
         Description: Origin serving both authenticated and unauthenticated data
     AllowedVOs:
       - OSG
+
+  CHTC-ITB-OSDF-PELICAN-ORIGIN:
+    Active: true
+    Description: >-
+      This is an origin used for testing the Pelican client and
+      integration with the OSDF
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Lin
+    FQDN: itb-osdf-pelican-origin.osdf-dev.chtc.io
+    DN: /CN=itb-osdf-pelican-origin.osdf-dev.chtc.io
+    Services:
+      XRootD origin server:
+        Description: ITB OSDF Pelican Origin
+        Details:
+          endpoint_override: itb-osdf-pelican-origin.osdf-dev.chtc.io:8443
+          auth_endpoint_override: itb-osdf-pelican-origin.osdf-dev.chtc.io:8443
+    AllowedVOs:
+      - GLOW
+
+  CHTC-ITB-OSDF-PELICAN-CACHE:
+    Active: true
+    Description: >-
+      This is a cache used for testing the Pelican client and
+      integration with the OSDF
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Lin
+    FQDN: itb-osdf-pelican-cache.osdf-dev.chtc.io
+    DN: /CN=itb-osdf-pelican-cache.osdf-dev.chtc.io
+    Services:
+      XRootD cache server:
+        Description: ITB OSDF Pelican Cache
+        Details:
+          endpoint_override: itb-osdf-pelican-cache.osdf-dev.chtc.io:8443
+          auth_endpoint_override: itb-osdf-pelican-cache.osdf-dev.chtc.io:8443
+    AllowedVOs:
+      - GLOW

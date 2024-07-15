@@ -20,3 +20,27 @@ Resources:
     Services:
       Execution Endpoint:
         Description: UALR backfill containers
+        
+  UA-LR-ITS-squid1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000251
+          Name: Timothy Stoddard
+        Secondary:
+          ID: OSG1000251
+          Name: Timothy Stoddard
+      Security Contact:
+        Primary:
+          ID: OSG1000251
+          Name: Timothy Stoddard
+        Secondary:
+          ID: OSG1000251
+          Name: Timothy Stoddard
+    Description: The first squid server for UA Little Rock.
+    FQDN: frontier-cache.res.ualr.edu
+    ID: 1442
+    Services:
+      Squid:
+        Description: Generic squid service

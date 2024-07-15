@@ -1,22 +1,23 @@
 import re
 import flask
 import pytest
+from typing import Dict, List
 import urllib.parse
 from pytest_mock import MockerFixture
 
 # Rewrites the path so the app can be imported like it normally is
 import os
 import sys
+import csv
+import io
 
 topdir = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(topdir)
 
+os.environ['TESTING'] = "True"
+
 from app import app, global_data
 from webapp.topology import Facility, Site, Resource, ResourceGroup
-from webapp.data_federation import CredentialGeneration
-
-HOST_PORT_RE = re.compile(r"[a-zA-Z0-9.-]{3,63}:[0-9]{2,5}")
-PROTOCOL_HOST_PORT_RE = re.compile(r"[a-z]+://" + HOST_PORT_RE.pattern)
 
 INVALID_USER = dict(
     username="invalid",
@@ -55,8 +56,11 @@ TEST_ENDPOINTS = [
     "/origin/Authfile-public",
     "/origin/scitokens.conf",
     "/cache/scitokens.conf",
+    "/api/institutions",
     "/cache/grid-mapfile",
     "/origin/grid-mapfile",
+    "/osdf/namespaces",
+    "/stashcache/namespaces",
 ]
 
 
@@ -184,57 +188,22 @@ class TestAPI:
             else:
                 app.config["STASHCACHE_LEGACY_AUTH"] = old_legacy_auth
 
-    def test_stashcache_namespaces(self, client: flask.Flask):
-        def validate_cache_schema(cc):
-            assert HOST_PORT_RE.match(cc["auth_endpoint"])
-            assert HOST_PORT_RE.match(cc["endpoint"])
-            assert cc["resource"] and isinstance(cc["resource"], str)
+    def test_institution_accept_type(self, client: flask.Flask):
+        """Checks both formats output the same content"""
 
-        def validate_namespace_schema(ns):
-            assert isinstance(ns["caches"], list)  # we do have a case where it's empty
-            assert ns["path"].startswith("/")  # implies str
-            assert isinstance(ns["readhttps"], bool)
-            assert isinstance(ns["usetokenonread"], bool)
-            assert ns["dirlisthost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["dirlisthost"])
-            assert ns["writebackhost"] is None or PROTOCOL_HOST_PORT_RE.match(ns["writebackhost"])
-            credgen = ns["credential_generation"]
-            if credgen is not None:
-                assert isinstance(credgen["max_scope_depth"], int) and credgen["max_scope_depth"] > -1
-                assert credgen["strategy"] in CredentialGeneration.STRATEGIES
-                assert credgen["issuer"]
-                parsed_issuer = urllib.parse.urlparse(credgen["issuer"])
-                assert parsed_issuer.netloc and parsed_issuer.scheme == "https"
-                if credgen["vault_server"]:
-                    assert isinstance(credgen["vault_server"], str)
+        json_institutions = client.get("/api/institutions", headers={"Accept": "application/json"}).json
+        json_tuples = [tuple(map(str, x)) for x in sorted(json_institutions, key=lambda x: x[0])]
 
-        response = client.get('/stashcache/namespaces')
-        assert response.status_code == 200
-        namespaces_json = response.json
+        csv_institutions = csv.reader(io.StringIO(client.get("/api/institutions").data.decode()))
+        csv_tuples = [tuple(x) for x in sorted(csv_institutions, key=lambda x: x[0])]
 
-        assert "caches" in namespaces_json
-        caches = namespaces_json["caches"]
-        # Have a reasonable number of caches
-        assert len(caches) > 20
-        for cache in caches:
-            validate_cache_schema(cache)
+        assert len(csv_tuples) == len(json_tuples)
 
-        assert "namespaces" in namespaces_json
-        namespaces = namespaces_json["namespaces"]
-        # Have a reasonable number of namespaces
-        assert len(namespaces) > 15
+        assert tuple(json_tuples) == tuple(csv_tuples)
 
-        found_credgen = False
-        for namespace in namespaces:
-            if namespace["credential_generation"] is not None:
-                found_credgen = True
-            validate_namespace_schema(namespace)
-            if namespace["caches"]:
-                for cache in namespace["caches"]:
-                    validate_cache_schema(cache)
-        assert found_credgen, "At least one namespace with credential_generation"
 
     def test_origin_grid_mapfile(self, client: flask.Flask):
-        TEST_ORIGIN = "origin-auth2001.chtc.wisc.edu"  # This origin serves protected data
+        TEST_ORIGIN = "ap20.uc.osg-htc.org"  # This origin serves protected data
         response = client.get("/origin/grid-mapfile")
         assert response.status_code == 400  # fqdn not specified
 
@@ -312,6 +281,11 @@ class TestAPI:
 
         hashes_not_in_authfile = mapfile_hashes - authfile_hashes
         assert not hashes_not_in_authfile, f"Hashes in mapfile but not in authfile: {hashes_not_in_authfile}"
+
+    def test_namespaces_json(self, client):
+        response = client.get('/osdf/namespaces')
+        assert response.status_code == 200
+        assert "namespaces" in response.json
 
 
 class TestEndpointContent:
@@ -795,7 +769,8 @@ class TestEndpointContent:
         },
         'Tags': ['CC*']
     }
-    mock_resource = Resource("AMNH-ARES", mock_resource_information, global_data.get_topology().common_data)
+    mock_resource = Resource("AMNH-ARES", mock_resource_information, global_data.get_topology().common_data,
+                             mock_resource_group)
 
     mock_facility.add_site(mock_site)
     mock_site.add_resource_group(mock_resource_group)
@@ -828,6 +803,58 @@ class TestEndpointContent:
 
         # Check that the site contains the appropriate keys
         assert set(facilities.popitem()[1]).issuperset(["ID", "Name", "IsCCStar"])
+
+    def test_institution_default(self, client: flask.Flask):
+        institutions = client.get("/api/institutions", headers={"Accept": "application/json"}).json
+
+        assert len(institutions) > 0
+
+        # Check facilities exist and have the "have resources" bit flipped
+        assert [i for i in institutions if i[0] == "JINR"][0][1]
+        assert [i for i in institutions if i[0] == "Universidade de São Paulo - Laboratório de Computação Científica Avançada"][0][1]
+
+        # Project Organizations exist and have "has project" bit flipped
+        assert [i for i in institutions if i[0] == "Iolani School"][0][2]
+        assert [i for i in institutions if i[0] == "University of California, San Diego"][0][2]
+
+        # Both
+        assert [i for i in institutions if i[0] == "Harvard University"][0][1] and [i for i in institutions if i[0] == "Harvard University"][0][2]
+
+        # Check Project only doesn't have resource bit
+        assert [i for i in institutions if i[0] == "National Research Council of Canada"][0][1] is False
+
+        # Facility Tests
+        facilities = set(global_data.get_topology().facilities.keys())
+
+        # Check all facilities exist
+        assert set(i[0] for i in institutions).issuperset(facilities)
+
+        # Check all facilities have their facilities bit flipped
+        assert all(x[1] for x in institutions if x[0] in institutions)
+
+        # Project Tests
+        projects = set(x['Organization'] for x in global_data.get_projects()['Projects']['Project'])
+
+        # Check all projects exist
+        assert set(i[0] for i in institutions).issuperset(projects)
+
+        # Check all projects have the project bit flipped
+        assert all(x[2] for x in institutions if x[0] in projects)
+
+    def test_institution_ids(self, client: flask.Flask):
+        _ = global_data.get_mappings(strict=True)
+        institution_ids_list = client.get("/institution_ids").json
+
+        assert len(institution_ids_list) > 20, "Unexpectedly few institutions: %d" % len(institution_ids_list)
+        names_list = [i["name"] for i in institution_ids_list]
+        names_set = set(names_list)
+        duplicates = len(names_list) - len(names_set)
+        assert duplicates == 0, "%d duplicate names found in institution_ids list provided by API" % duplicates
+
+        osg_ids_list = [i["id"] for i in institution_ids_list]
+        osg_ids_set = set(osg_ids_list)
+        duplicates = len(osg_ids_list) - len(osg_ids_set)
+        assert duplicates == 0, "%d duplicate ids found in institution_ids list provided by API" % duplicates
 
 
 if __name__ == '__main__':

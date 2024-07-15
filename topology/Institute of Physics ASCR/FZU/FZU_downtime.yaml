@@ -9,3 +9,98 @@
   Severity: Outage
   StartTime: Dec 30, 2017 23:00 +0000
 # ----------------------------------------------------------
+
+- Class: UNSCHEDULED
+  ID: 1699269131
+  Description: Offline on check
+  Severity: Outage
+  StartTime: Jan 10, 2024 20:30 +0000
+  EndTime: Jan 12, 2024 20:30 +0000
+  CreatedTime: Jan 10, 2024 22:48 +0000
+  ResourceName: FZU_STASH
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1722553384
+  Description: Firewall issue
+  Severity: Outage
+  StartTime: Feb 06, 2024 20:30 +0000
+  EndTime: Feb 16, 2024 20:30 +0000
+  CreatedTime: Feb 06, 2024 21:35 +0000
+  ResourceName: FZU_STASH
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1837692118
+  Description: See https://goc.egi.eu/portal/index.php?Page_Type=Downtime&id=35391 and
+    https://goc.egi.eu/portal/index.php?Page_Type=Downtime&id=35395
+  Severity: Outage
+  StartTime: Jun 14, 2024 12:00 +0000
+  EndTime: Jun 21, 2024 16:00 +0000
+  CreatedTime: Jun 19, 2024 03:53 +0000
+  ResourceName: FZU_OSG_CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1837692119
+  Description: See https://goc.egi.eu/portal/index.php?Page_Type=Downtime&id=35391 and
+    https://goc.egi.eu/portal/index.php?Page_Type=Downtime&id=35395
+  Severity: Outage
+  StartTime: Jun 14, 2024 12:00 +0000
+  EndTime: Jun 21, 2024 16:00 +0000
+  CreatedTime: Jun 19, 2024 03:53 +0000
+  ResourceName: FZU_OSG_CE2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1837692120
+  Description: See https://goc.egi.eu/portal/index.php?Page_Type=Downtime&id=35391 and
+    https://goc.egi.eu/portal/index.php?Page_Type=Downtime&id=35395
+  Severity: Outage
+  StartTime: Jun 14, 2024 12:00 +0000
+  EndTime: Jun 21, 2024 16:00 +0000
+  CreatedTime: Jun 19, 2024 03:53 +0000
+  ResourceName: FZU_OSG_CE3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1837692121
+  Description: See https://goc.egi.eu/portal/index.php?Page_Type=Downtime&id=35391 and
+    https://goc.egi.eu/portal/index.php?Page_Type=Downtime&id=35395
+  Severity: Outage
+  StartTime: Jun 14, 2024 12:00 +0000
+  EndTime: Jun 21, 2024 16:00 +0000
+  CreatedTime: Jun 19, 2024 03:53 +0000
+  ResourceName: FZU_STASH
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1837692122
+  Description: See https://goc.egi.eu/portal/index.php?Page_Type=Downtime&id=35391 and
+    https://goc.egi.eu/portal/index.php?Page_Type=Downtime&id=35395
+  Severity: Outage
+  StartTime: Jun 14, 2024 12:00 +0000
+  EndTime: Jun 21, 2024 16:00 +0000
+  CreatedTime: Jun 19, 2024 03:53 +0000
+  ResourceName: perfSONAR_FZU_bandwidth
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1837692123
+  Description: See https://goc.egi.eu/portal/index.php?Page_Type=Downtime&id=35391 and
+    https://goc.egi.eu/portal/index.php?Page_Type=Downtime&id=35395
+  Severity: Outage
+  StartTime: Jun 14, 2024 12:00 +0000
+  EndTime: Jun 21, 2024 16:00 +0000
+  CreatedTime: Jun 19, 2024 03:53 +0000
+  ResourceName: perfSONAR_FZU_latency
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
