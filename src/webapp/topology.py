@@ -9,7 +9,7 @@ import icalendar
 
 from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml, \
     is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER, \
-    gen_id_from_yaml, GRIDTYPE_1, GRIDTYPE_2, is_true
+    gen_id_from_yaml, GRIDTYPE_1, GRIDTYPE_2, is_true, PELICAN_ORIGIN, PELICAN_CACHE
 from .contacts_reader import ContactsData, User
 from .exceptions import DataError
 
@@ -111,8 +111,25 @@ class Resource(object):
         self.name = name
         self.service_types = common_data.service_types
         self.common_data = common_data
+        # Some "indexes" to speed up data lookup
+        self.has_xrootd_cache = False
+        self.has_xrootd_origin = False
+        self.has_pelican_cache = False
+        self.has_pelican_origin = False
+        self.service_names = []
         if not is_null(yaml_data, "Services"):
             self.services = self._expand_services(yaml_data["Services"])
+            for svc in self.services:
+                if "Name" in svc:
+                    self.service_names.append(svc["Name"])
+                    if svc["Name"] == XROOTD_CACHE_SERVER:
+                        self.has_xrootd_cache = True
+                    elif svc["Name"] == XROOTD_ORIGIN_SERVER:
+                        self.has_xrootd_origin = True
+                    elif svc["Name"] == PELICAN_CACHE:
+                        self.has_pelican_cache = True
+                    elif svc["Name"] == PELICAN_ORIGIN:
+                        self.has_pelican_origin = True
         else:
             self.services = []
         self.service_names = [n["Name"] for n in self.services if "Name" in n]
