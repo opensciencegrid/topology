@@ -1,0 +1,39 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: Resources associated with the UChicago Pile cluster
+
+Resources: 
+  UChicago_Pile_Backfill:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000765
+          Name: David Jordan 
+        Secondary:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+        Tertiary:
+          ID: OSG1000013
+          Name: Lincoln Bryant
+        Tertiary 2:
+          ID: OSG1000016
+          Name: Judith Stephen
+      Security Contact:
+        Primary:
+          ID: OSG1000765
+          Name: David Jordan 
+        Secondary:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+        Tertiary:
+          ID: OSG1000013
+          Name: Lincoln Bryant
+        Tertiary 2:
+          ID: OSG1000016
+          Name: Judith Stephen
+    Description: OSG VO backfill containers on the UChicago Pile cluster.
+    FQDN: pile-backfill.grid.uchicago.edu
+    Services:
+      Execution Endpoint:
+        Description: OSG VO backfill containers on the UChicago Pile cluster.
