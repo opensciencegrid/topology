@@ -22,7 +22,7 @@ from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, \
     escape, cache_control_private, PreJSON, is_true, GRIDTYPE_1, GRIDTYPE_2, NamespacesFilters
 from webapp.flask_common import create_accepted_response
-from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
+from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingServices
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
 from webapp.models import GlobalData
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
@@ -603,7 +603,7 @@ def _get_cache_authfile(public_only):
                                  fqdn=cache_fqdn,
                                  legacy=app.config["STASHCACHE_LEGACY_AUTH"],
                                  suppress_errors=False)
-    except (ResourceNotRegistered, ResourceMissingService) as e:
+    except (ResourceNotRegistered, ResourceMissingServices) as e:
         return Response("# {}\n"
                         "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
@@ -627,7 +627,7 @@ def _get_origin_authfile(public_only):
     try:
         auth = stashcache.generate_origin_authfile(global_data=global_data, fqdn=request.args['fqdn'],
                                                    suppress_errors=False, public_origin=public_only)
-    except (ResourceNotRegistered, ResourceMissingService) as e:
+    except (ResourceNotRegistered, ResourceMissingServices) as e:
         return Response("# {}\n"
                         "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
