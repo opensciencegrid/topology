@@ -240,10 +240,8 @@ Resources:
     FQDN: osdf-uw-cache.svc.osg-htc.org
     DN: /CN=osdf-uw-cache.svc.osg-htc.org
     Services:
-      XRootD cache server:
+      Pelican cache:
         Description: Pelican cache server
-        Details:
-          endpoint_override: osdf-uw-cache.svc.osg-htc.org:8443
     VOOwnership:
       GLOW: 100
     AllowedVOs:
