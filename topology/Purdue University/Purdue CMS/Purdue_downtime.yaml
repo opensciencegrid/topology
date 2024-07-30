@@ -2142,3 +2142,15 @@
   Services:
   - EOS
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1873501847
+  Description: Cluster maintenance
+  Severity: Outage
+  StartTime: Jul 31, 2024 12:00 +0000
+  EndTime: Jul 31, 2024 21:00 +0000
+  CreatedTime: Jul 30, 2024 14:36 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+
