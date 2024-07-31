@@ -836,7 +836,85 @@
   Description: Site Wide Maintenance
   Severity: Outage
   StartTime: May 07, 2024 10:00 +0000
-  EndTime: May 11, 2024 03:59 +0000
+  EndTime: May 11, 2024 03:59 +0000- Class: SCHEDULED
+  ID: 1874682385
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682386
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682387
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_PACE_CE_ICECUBE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682388
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_PACE_CE_LIGO
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682389
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_PACE_CE_OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682390
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682391
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
   CreatedTime: May 07, 2024 14:41 +0000
   ResourceName: Georgia_Tech_PACE_perfSONAR_BW
   Services:
