@@ -553,3 +553,25 @@ Resources:
         Description: OSG Connect Public Origin Server
     AllowedVOs:
       - OSG
+
+  UChicago_OSGConnect_Pelican_Public_Origin:
+    Active: true
+    Description: OSG Connect Public endpoint
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000016
+          Name: Judith Stephen
+        Secondary:
+          ID: OSG1000765
+          Name: David Jordan
+        Tertiary:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+    FQDN: pelican-osdf-public.tempest.uchicago.edu
+    DN: /CN=pelican-osdf-public.tempest.uchicago.edu
+    Services:
+      Pelican origin:
+        Description: OSG Connect Public Origin Server
+    AllowedVOs:
+      - OSG
