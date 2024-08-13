@@ -208,3 +208,14 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1885765227
+  Description: slow
+  Severity: Intermittent Outage
+  StartTime: Aug 13, 2024 19:15 +0000
+  EndTime: Sep 13, 2024 19:15 +0000
+  CreatedTime: Aug 13, 2024 19:15 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
