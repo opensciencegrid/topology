@@ -24,14 +24,14 @@ OASIS:
 DataFederations:
   StashCache:
     Namespaces:
-      - Path: /uhawaii/its
+      - Path: /uhitc
         Authorizations:
           - PUBLIC
         AllowedOrigins:
           - ITC_OSDF_ORIGIN
         AllowedCaches:
           - ANY
-      - Path: /uhawaii/koa/public
+      - Path: /uhkoa
         Authorizations:
           - PUBLIC
         AllowedOrigins:
