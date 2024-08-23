@@ -27,3 +27,24 @@ Resources:
     Services:
       Submit Node:
         Description: ITB OS Pool access point
+  UChicago_OSGConnect_Pelican_Public_ITB:
+    Active: true
+    Description: OSG Connect ITB Public endpoint via Pelican
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000016
+          Name: Judith Stephen
+        Secondary:
+          ID: OSG1000765
+          Name: David Jordan
+        Tertiary:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+    FQDN: pelican-public-itb.tempest.uchicago.edu
+    DN: /CN=pelican-public-itb.tempest.uchicago.edu
+    Services:
+      Pelican origin:
+        Description: OSG Connect ITB Public Origin Server
+    AllowedVOs:
+      - OSG
