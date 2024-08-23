@@ -123,3 +123,14 @@ DataFederations:
           - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
+      - Path: /nrp/sdsc
+        Authorizations:
+          - PUBLIC
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/sdsc
+              Base Path: /nrp/sdsc
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
