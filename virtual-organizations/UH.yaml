@@ -34,6 +34,10 @@ DataFederations:
       - Path: /uhkoa
         Authorizations:
           - PUBLIC
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/uhkoa
+              Base Path: /uhkoa
+              Map Subject: False
         AllowedOrigins:
           - KOASTORE_OSDF_ORIGIN
         AllowedCaches:
