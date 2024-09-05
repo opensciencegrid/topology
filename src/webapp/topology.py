@@ -41,14 +41,16 @@ class CommonData(object):
 
 
 class Facility(object):
-    def __init__(self, name: str, id: int):
+    def __init__(self, name: str, id: int, institution_id: str = None):
         self.name = name
         self.id = id
+        self.institution_id = institution_id
         self.sites_by_name = dict()
 
     def get_tree(self) -> OrderedDict:
         return OrderedDict([
             ("ID", self.id),
+            ("InstitutionID", self.institution_id),
             ("Name", self.name),
             ("IsCCStar", self.is_ccstar)
         ])
@@ -694,8 +696,8 @@ class Topology(object):
         except (AttributeError, KeyError, ValueError) as err:
             log.exception("RG %s, %s error: %r; skipping", site_name, name, err)
 
-    def add_facility(self, name, id):
-        self.facilities[name] = Facility(name, id)
+    def add_facility(self, name, id, institution_id=None):
+        self.facilities[name] = Facility(name, id, institution_id)
 
     def add_site(self, facility_name, name, id, site_info):
         site = Site(name, id, self.facilities[facility_name], site_info)
