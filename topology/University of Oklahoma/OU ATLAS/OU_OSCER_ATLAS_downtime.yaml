@@ -826,3 +826,38 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1905606113
+  Description: test downtime to check propagation to SAM/ETF
+  Severity: Outage
+  StartTime: Sep 05, 2024 19:00 +0000
+  EndTime: Sep 05, 2024 19:30 +0000
+  CreatedTime: Sep 05, 2024 18:23 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1905606114
+  Description: test downtime to check propagation to SAM/ETF
+  Severity: Outage
+  StartTime: Sep 05, 2024 19:00 +0000
+  EndTime: Sep 05, 2024 19:30 +0000
+  CreatedTime: Sep 05, 2024 18:23 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1905606115
+  Description: test downtime to check propagation to SAM/ETF
+  Severity: Outage
+  StartTime: Sep 05, 2024 19:00 +0000
+  EndTime: Sep 05, 2024 19:30 +0000
+  CreatedTime: Sep 05, 2024 18:23 +0000
+  ResourceName: OU_OSCER_ATLAS_SLATE_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
