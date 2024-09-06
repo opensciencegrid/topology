@@ -3,8 +3,6 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    - cron: '0 0 * * *'
 
 jobs:
   check:
@@ -18,5 +16,5 @@ jobs:
         with:
           python-version: 3.9.15
           cache: 'pip' # caching pip dependencies
-      - run: pip install -r ./.github/scripts/check_project_fos_precision/requirements.txt
-      - run: python ./.github/scripts/check_project_fos_precision/main.py
+      - run: pip install -r ./.github/scripts/check_facility_has_institution_id/requirements.txt
+      - run: python ./.github/scripts/check_facility_has_institution_id/main.py
