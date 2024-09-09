@@ -3,23 +3,52 @@
 import yaml
 import sys
 import glob
+import requests
 
-def check_facility_has_institution_id(yaml_string: str):
+export_mapping = False
+
+# Get the list of valid institution ids
+response = requests.get("https://topology-institutions.osg-htc.org/api/institution_ids")
+topology_institutions = response.json()
+topology_institutions_by_id = {x['id']: x for x in topology_institutions}
+topology_institution_ids = {x['id'] for x in topology_institutions}
+
+def check_facility_institution_id(yaml_string: str):
+
     facility = yaml.load(yaml_string, Loader=yaml.Loader)
-    if 'InstitutionID' in facility:
-        return True
+    if 'InstitutionID' not in facility:
+        raise Exception("FACILITY.yaml does not have an InstitutionID field")
 
-    print(facility)
-    return False
+    if facility['InstitutionID'] not in topology_institution_ids and facility['InstitutionID'] is not None:
+        raise Exception(f"Invalid InstitutionID: {facility['InstitutionID']}")
+
+def provide_human_check_interface(facility_files: list):
+
+    facility_institution_mapping = {}
+    for file in facility_files:
+        with open(file, 'r') as f:
+            facility_name = file.split('/')[-2]
+            facility = yaml.load(f, Loader=yaml.Loader)
+            facility_institution_mapping[facility_name] = topology_institutions_by_id.get(facility['InstitutionID'], {}).get('name', None)
+
+    if export_mapping:
+        with open("facility_institution_mapping.yaml", 'w') as f:
+            yaml.dump(facility_institution_mapping, f)
+
+    else:
+        print(facility_institution_mapping)
 
 def main():
 
     facility_files = glob.glob("../../../topology/**/FACILITY.yaml")
+
+    # Check the files
     for file in facility_files:
         with open(file, 'r') as f:
-            if not check_facility_has_institution_id(f):
-                print(f"{file} does not have an institution_id field.")
-                sys.exit(1)
+            check_facility_institution_id(f)
+
+    provide_human_check_interface(facility_files)
+
 
 if __name__ == "__main__":
     main()
