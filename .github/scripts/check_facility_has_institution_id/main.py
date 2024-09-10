@@ -43,9 +43,19 @@ def main():
     facility_files = glob.glob("../../../topology/**/FACILITY.yaml")
 
     # Check the files
+    errors = []
     for file in facility_files:
         with open(file, 'r') as f:
-            check_facility_institution_id(f)
+            try:
+                check_facility_institution_id(f)
+            except Exception as e:
+                errors.append((file.split("/")[-2], e))
+
+    # Print the errors and exit if needed
+    if errors:
+        for error in errors:
+            print(f"Error in {error[0]}: \n\t {error[1]}")
+        sys.exit(1)
 
     provide_human_check_interface(facility_files)
 
