@@ -3962,3 +3962,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930720
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930721
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930722
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930723
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930724
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930725
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930726
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
