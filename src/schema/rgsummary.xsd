@@ -30,6 +30,7 @@
                 <xsd:complexType>
                   <xsd:sequence>
                     <xsd:element name="ID" type="xsd:int" />
+                    <xsd:element name="InstitutionID" type="xsd:string" />
                     <xsd:element name="Name" type="xsd:string" />
                     <xsd:element name="IsCCStar" type="boolean" minOccurs="0" />
                   </xsd:sequence>
