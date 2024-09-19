@@ -145,3 +145,10 @@ DataFederations:
           - Missouri-Rise-Origin1-NRP
         AllowedCaches:
           - ANY
+      - Path: /nrp/osdf
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
