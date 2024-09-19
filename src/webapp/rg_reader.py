@@ -76,7 +76,7 @@ def get_topology(indir="../topology", contacts_data=None, strict=False):
         facility_yaml_path = facility_path / 'FACILITY.yaml'
         facility_data = load_yaml_file(facility_yaml_path) if facility_yaml_path.exists() else {}
         id_ = gen_id_from_yaml(facility_data or {}, name)
-        topology.add_facility(name, id_)
+        topology.add_facility(name, id_, facility_data['InstitutionID'] if 'InstitutionID' in facility_data else None)
     for site_path in root.glob("*/*/SITE.yaml"):
         facility, name = site_path.parts[-3:-1]
         assert facility in topology.facilities, f"Missing facility {facility} for site {name}"
