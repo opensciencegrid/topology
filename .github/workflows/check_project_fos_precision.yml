@@ -2,7 +2,7 @@ name: Check Project FOS Precision
 on:
   pull_request:
     branches:
-      - main
+      - master
   schedule:
     - cron: '0 0 * * *'
 
