@@ -1,0 +1,20 @@
+name: Check Project FOS Precision
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    if: startsWith(github.repository, 'opensciencegrid/')
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9.15
+          cache: 'pip' # caching pip dependencies
+      - run: pip install -r ./.github/scripts/check_facility_has_institution_id/requirements.txt
+      - run: python ./.github/scripts/check_facility_has_institution_id/main.py
