@@ -28,4 +28,24 @@ Resources:
     Services:
       Execution Endpoint:
         Description: Execution Endpoint
+
+  
+  CHTC-DEV-PROD-EP-mwestphall:
+    Active: true
+    Description: EP for testing in production for Matt W
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000358
+          Name: MATTHEW WESTPHALL
+
+      Security Contact:
+        Primary:           
+          ID: OSG1000358
+          Name: MATTHEW WESTPHALL
+
+    FQDN: dev-prod-ep.mwestphall.chtc.wisc.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint
   # ----------------------------------------------------------------------------
