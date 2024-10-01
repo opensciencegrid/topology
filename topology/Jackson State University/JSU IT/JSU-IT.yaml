@@ -1,0 +1,41 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: This is an OSPool Access Point on our IT Cluster
+
+Resources:
+  JSU-ap0:
+    Active: true
+    Description: This is an OSPool Access Point for JSU IT.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jackson State University IT
+          ID: f2b7cd041f56af2d018a07acb079a85dda4e2d90
+        Secondary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Tertiary:
+          Name: Brian Lin
+          ID: OSG1000003
+      Security Contact:
+        Primary:
+          Name: Jackson State University IT
+          ID: f2b7cd041f56af2d018a07acb079a85dda4e2d90
+        Secondary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Tertiary:
+          Name: Brian Lin
+          ID: OSG1000003
+      Local Executive Contact:
+        Primary:
+          Name: Michael Robinson
+          ID: OSG1000832
+
+    FQDN: chtc.ap0.jsums.edu
+    # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
+    Services:
+      Submit Node:
+        Description: An OSPool Access Point to submit jobs to the OSPool.
+    Tags:
+      - OSPool

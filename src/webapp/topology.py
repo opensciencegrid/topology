@@ -9,7 +9,7 @@ import icalendar
 
 from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml, \
     is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER, \
-    gen_id_from_yaml, GRIDTYPE_1, GRIDTYPE_2, is_true
+    gen_id_from_yaml, GRIDTYPE_1, GRIDTYPE_2, is_true, PELICAN_ORIGIN, PELICAN_CACHE
 from .contacts_reader import ContactsData, User
 from .exceptions import DataError
 
@@ -41,14 +41,16 @@ class CommonData(object):
 
 
 class Facility(object):
-    def __init__(self, name: str, id: int):
+    def __init__(self, name: str, id: int, institution_id: str = None):
         self.name = name
         self.id = id
+        self.institution_id = institution_id
         self.sites_by_name = dict()
 
     def get_tree(self) -> OrderedDict:
         return OrderedDict([
             ("ID", self.id),
+            ("InstitutionID", self.institution_id),
             ("Name", self.name),
             ("IsCCStar", self.is_ccstar)
         ])
@@ -111,8 +113,25 @@ class Resource(object):
         self.name = name
         self.service_types = common_data.service_types
         self.common_data = common_data
+        # Some "indexes" to speed up data lookup
+        self.has_xrootd_cache = False
+        self.has_xrootd_origin = False
+        self.has_pelican_cache = False
+        self.has_pelican_origin = False
+        self.service_names = []
         if not is_null(yaml_data, "Services"):
             self.services = self._expand_services(yaml_data["Services"])
+            for svc in self.services:
+                if "Name" in svc:
+                    self.service_names.append(svc["Name"])
+                    if svc["Name"] == XROOTD_CACHE_SERVER:
+                        self.has_xrootd_cache = True
+                    elif svc["Name"] == XROOTD_ORIGIN_SERVER:
+                        self.has_xrootd_origin = True
+                    elif svc["Name"] == PELICAN_CACHE:
+                        self.has_pelican_cache = True
+                    elif svc["Name"] == PELICAN_ORIGIN:
+                        self.has_pelican_origin = True
         else:
             self.services = []
         self.service_names = [n["Name"] for n in self.services if "Name" in n]
@@ -677,8 +696,8 @@ class Topology(object):
         except (AttributeError, KeyError, ValueError) as err:
             log.exception("RG %s, %s error: %r; skipping", site_name, name, err)
 
-    def add_facility(self, name, id):
-        self.facilities[name] = Facility(name, id)
+    def add_facility(self, name, id, institution_id=None):
+        self.facilities[name] = Facility(name, id, institution_id)
 
     def add_site(self, facility_name, name, id, site_info):
         site = Site(name, id, self.facilities[facility_name], site_info)

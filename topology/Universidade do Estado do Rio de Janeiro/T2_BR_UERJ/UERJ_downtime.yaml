@@ -1456,4 +1456,71 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1844303261
+  Description: We need to make adjustments to one of our CEs
+  Severity: Outage
+  StartTime: Jun 26, 2024 19:00 +0000
+  EndTime: Jun 27, 2024 15:00 +0000
+  CreatedTime: Jun 26, 2024 19:32 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1913144316
+  Description: We're having connectiong problems and need to investigate the reasons.
+  Severity: Outage
+  StartTime: Sep 13, 2024 12:00 +0000
+  EndTime: Sep 20, 2024 12:00 +0000
+  CreatedTime: Sep 14, 2024 11:47 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1913144747
+  Description: We're having connectiong problems and need to investigate the reasons.
+  Severity: Outage
+  StartTime: Sep 13, 2024 12:00 +0000
+  EndTime: Sep 20, 2024 12:00 +0000
+  CreatedTime: Sep 14, 2024 11:47 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1913145039
+  Description: We're having connectiong problems and need to investigate the reasons.
+  Severity: Outage
+  StartTime: Sep 13, 2024 12:00 +0000
+  EndTime: Sep 20, 2024 12:00 +0000
+  CreatedTime: Sep 14, 2024 11:48 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1913145250
+  Description: We're having connectiong problems and need to investigate the reasons.
+  Severity: Outage
+  StartTime: Sep 13, 2024 12:00 +0000
+  EndTime: Sep 20, 2024 12:00 +0000
+  CreatedTime: Sep 14, 2024 11:48 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1913145453
+  Description: We're having connectiong problems and need to investigate the reasons.
+  Severity: Outage
+  StartTime: Sep 13, 2024 12:00 +0000
+  EndTime: Sep 20, 2024 12:00 +0000
+  CreatedTime: Sep 14, 2024 11:49 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+
 

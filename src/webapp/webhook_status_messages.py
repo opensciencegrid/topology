@@ -76,7 +76,7 @@ new_org_rejected = (
     "Thank you for your pull request.\n"
     "\n"
     "Your [requested changes]({base_sha}...{head_sha}) add a new organization"
-    " to a project file; this requires manual review from OSG Staff.\n"
+    " or project ID to a project file; this requires manual review from OSG Staff.\n"
     "\n"
     "-- OSG-BOT  :oncoming_police_car:\n"
     "\n"
