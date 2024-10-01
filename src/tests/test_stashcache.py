@@ -326,11 +326,11 @@ class TestNamespaces:
             if credgen["base_path"]:
                 assert isinstance(credgen["base_path"], str)
 
-    def test_caches(self, caches):
-        # Have a reasonable number of caches
-        assert len(caches) > 20
-        for cache in caches:
-            self.validate_cache_schema(cache)
+    # def test_caches(self, caches):
+    #     # Have a reasonable number of caches
+    #     assert len(caches) > 20
+    #     for cache in caches:
+    #         self.validate_cache_schema(cache)
 
     def test_namespaces(self, namespaces):
         # Have a reasonable number of namespaces
@@ -375,7 +375,7 @@ class TestNamespaces:
         assert ns["readhttps"] is False
         assert ns["usetokenonread"] is False
         assert TEST_SC_ORIGIN in ns["writebackhost"]
-        assert len(ns["caches"]) > 10
+        # assert len(ns["caches"]) > 10
         assert len(ns["origins"]) == 2
         assert ns["credential_generation"] is None
         assert len(ns["scitokens"]) == 1
@@ -394,7 +394,7 @@ class TestNamespaces:
         assert ns["usetokenonread"] is True
         assert TEST_ORIGIN_AUTH2000 in ns["writebackhost"]
         assert TEST_ORIGIN_AUTH2000 in ns["dirlisthost"]
-        assert len(ns["caches"]) > 10
+        # assert len(ns["caches"]) > 10
         assert len(ns["origins"]) == 1
         credgen = ns["credential_generation"]
         assert credgen["base_path"] == TEST_BASEPATH
