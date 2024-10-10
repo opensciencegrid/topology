@@ -4050,3 +4050,14 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1935791647
+  Description: Cert issue
+  Severity: Outage
+  StartTime: Oct 09, 2024 19:30 +0000
+  EndTime: Oct 21, 2024 19:30 +0000
+  CreatedTime: Oct 10, 2024 16:52 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
