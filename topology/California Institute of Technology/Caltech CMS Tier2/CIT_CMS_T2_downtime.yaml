@@ -1852,3 +1852,82 @@
   Services:
     - XRootD component
 
+# ----------------------------------------------------------
+# CEPH (Local Storage) migration to IPv6. 
+
+- Class: SCHEDULED
+  ID: 1935791648
+  Description: CEPH (Local Storage) migration to IPv6.
+  Severity: Outage
+  StartTime: Oct 16, 2024 08:00 -0700
+  EndTime: Oct 16, 2024 17:00 -0700
+  CreatedTime: Oct 11, 2024 15:00 -0700
+  ResourceName: CIT_CMS_T2
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 1935791649
+  Description: CEPH (Local Storage) migration to IPv6.
+  Severity: Outage
+  StartTime: Oct 16, 2024 08:00 -0700
+  EndTime: Oct 16, 2024 17:00 -0700
+  CreatedTime: Oct 11, 2024 15:00 -0700
+  ResourceName: CIT_CMS_T2B
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 1935791650
+  Description: CEPH (Local Storage) migration to IPv6.
+  Severity: Outage
+  StartTime: Oct 16, 2024 08:00 -0700
+  EndTime: Oct 16, 2024 17:00 -0700
+  CreatedTime: Oct 11, 2024 15:00 -0700
+  ResourceName: CIT_CMS_T2C
+  Services:
+    - CE
+
+- Class: SCHEDULED
+  ID: 1935791651
+  Description: CEPH (Local Storage) migration to IPv6.
+  Severity: Outage
+  StartTime: Oct 16, 2024 08:00 -0700
+  EndTime: Oct 16, 2024 17:00 -0700
+  CreatedTime: Oct 11, 2024 15:00 -0700
+  ResourceName: CIT_CMS_T2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 1935791652
+  Description: CEPH (Local Storage) migration to IPv6.
+  Severity: Outage
+  StartTime: Oct 16, 2024 08:00 -0700
+  EndTime: Oct 16, 2024 17:00 -0700
+  CreatedTime: Oct 11, 2024 15:00 -0700
+  ResourceName: CIT_CMS_T2_2_Squid
+  Services:
+    - Squid
+
+- Class: SCHEDULED
+  ID: 1935791653
+  Description: CEPH (Local Storage) migration to IPv6.
+  Severity: Outage
+  StartTime: Oct 16, 2024 08:00 -0700
+  EndTime: Oct 16, 2024 17:00 -0700
+  CreatedTime: Oct 11, 2024 15:00 -0700
+  ResourceName: CIT-CMS-T2-XRD
+  Services:
+    - XRootD component
+
+- Class: SCHEDULED
+  ID: 1935791654
+  Description: CEPH (Local Storage) migration to IPv6.
+  Severity: Outage
+  StartTime: Oct 16, 2024 08:00 -0700
+  EndTime: Oct 16, 2024 17:00 -0700
+  CreatedTime: Oct 11, 2024 15:00 -0700
+  ResourceName: CIT_CMS_T2_XRD_Ceph
+  Services:
+    - XRootD component
