@@ -13,16 +13,16 @@ Resources:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
         Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
+          ID: 
+          Name: 
 
       Security Contact:
         Primary:
+          ID: OSG1000212
+          Name: Robert Hancock
+        Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-        Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
     FQDN: spce01.sdcc.bnl.gov
     Services:
       CE:
@@ -37,16 +37,16 @@ Resources:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
         Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
+          ID: 
+          Name: 
 
       Security Contact:
         Primary:
+          ID: OSG1000212
+          Name: Robert Hancock
+        Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-        Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
     FQDN: spce02.sdcc.bnl.gov
     Services:
       CE:
@@ -61,16 +61,16 @@ Resources:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
         Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
+          ID: 
+          Name: 
 
       Security Contact:
         Primary:
+          ID: OSG1000212
+          Name: Robert Hancock
+        Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-        Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
     FQDN: spce03.sdcc.bnl.gov
     Services:
       CE:
@@ -85,16 +85,16 @@ Resources:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
         Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
+          ID: 
+          Name: 
 
       Security Contact:
         Primary:
+          ID: OSG1000212
+          Name: Robert Hancock
+        Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-        Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
     FQDN: spce04.sdcc.bnl.gov
     Services:
       CE:
@@ -109,16 +109,16 @@ Resources:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
         Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
+          ID: 
+          Name: 
 
       Security Contact:
         Primary:
+          ID: OSG1000212
+          Name: Robert Hancock
+        Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-        Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
     FQDN: spce05.sdcc.bnl.gov
     Services:
       CE:
@@ -133,44 +133,45 @@ Resources:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
         Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
+          ID: 
+          Name: 
 
       Security Contact:
         Primary:
-          ID: b39de31776fc01735eff9678a851c2126a3680be
-          Name: Doug Benjamin
+          ID: OSG1000212
+          Name: 
         Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
+          ID: Doug Benjamin
+          Name: Robert Hancock
     FQDN: spce05.sdcc.bnl.gov
     Services:
       CE:
         Description: Shared Pool Compute Element
-  BNL-SDCC-CE06:
+  BNL-SDCC-CE11:
     Active: true
     Description: This is a compute cluster for SDCC.
-    ID: 1431
+    ID: 
     ContactLists:
       Administrative Contact:
         Primary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
         Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
+          ID: 
+          Name: 
 
       Security Contact:
         Primary:
+          ID: OSG1000212
+          Name: Robert Hancock
+        Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-        Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
-    FQDN: spce06.sdcc.bnl.gov
+    FQDN: spce11.sdcc.bnl.gov
     Services:
       CE:
         Description: Shared Pool Compute Element
+
   BNL-SUBMIT-01:
     Active: true
     Description: This is a submit host for SDCC.
@@ -181,16 +182,16 @@ Resources:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
         Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
+          ID: 
+          Name: 
 
       Security Contact:
         Primary:
+          ID: OSG1000212
+          Name: Robert Hancock
+        Secondary:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
-        Secondary:
-          ID: OSG1000116
-          Name: Xin Zhao
     FQDN: osgsub01.sdcc.bnl.gov
     DN: /DC=org/DC=incommon/C=US/ST=New York/L=Upton/O=Brookhaven National Laboratory/OU=SDCC/CN=osgsub01.sdcc.bnl.gov
     Services:
