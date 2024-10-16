@@ -576,9 +576,9 @@ Resources:
     AllowedVOs:
       - OSG
 
-  UChicago_OSGConnect_Pelican_Authenticated_Origin:
+  UChicago_OSGConnect_Pelican_Project_Origin:
     Active: true
-    Description: OSG Connect Authenticated endpoint
+    Description: OSG Connect Project Endpoint
     ContactLists:
       Administrative Contact:
         Primary:
@@ -590,10 +590,10 @@ Resources:
         Tertiary:
           ID: OSG1000221
           Name: Farnaz Golnaraghi
-    FQDN: pelican-osdf-authenticated.tempest.uchicago.edu
-    DN: /CN=pelican-osdf-authenticated.tempest.uchicago.edu
+    FQDN: pelican-osdf-project.tempest.uchicago.edu
+    DN: /CN=pelican-osdf-project.tempest.uchicago.edu
     Services:
       Pelican origin:
-        Description: OSG Connect Authenticated Origin Server
+        Description: OSG Connect Project Origin Server
     AllowedVOs:
       - OSG
