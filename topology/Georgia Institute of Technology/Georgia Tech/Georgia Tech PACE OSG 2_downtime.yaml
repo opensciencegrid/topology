@@ -1000,3 +1000,15 @@
   Services:
   - net.perfSONAR.Bandwidth
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1941153002
+  Description: server returned 403 Forbidden
+  Severity: Outage
+  StartTime: Oct 15, 2024 19:30 +0000
+  EndTime: Oct 21, 2024 19:30 +0000
+  CreatedTime: Oct 16, 2024 21:48 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+
