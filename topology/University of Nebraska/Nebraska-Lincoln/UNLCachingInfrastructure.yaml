@@ -124,10 +124,7 @@ Resources:
     FQDN: unl-cache.nationalresearchplatform.org
     DN: /CN=unl-cache.nationalresearchplatform.org
     Services:
-      XRootD cache server:
+      Pelican cache:
         Description: Nebraska NRP OSDF Cache
-        Details:
-          endpoint_override: unl-cache.nationalresearchplatform.org:8443
-          auth_endpoint_override: unl-cache.nationalresearchplatform.org:8443
     AllowedVOs:
       - ANY
