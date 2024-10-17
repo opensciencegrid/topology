@@ -1,0 +1,22 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: Ampere ARM HTC Cluster at CARC
+Resources:
+
+  Harrisburg-HT24A01-EP:
+    Active: false
+    Description: ARM EP Server at HU CARC
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Aditya Syal
+          ID: OSG1000764
+      Security Contact:
+        Primary:
+          Name: Aditya Syal
+          ID: OSG1000764
+    FQDN: HT24A01.carc.harrisburgu.edu
+    Services:
+      Execution Endpoint:
+        Description: CARC ARM EP
