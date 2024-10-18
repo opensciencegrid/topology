@@ -3,7 +3,7 @@ SupportCenter: Community Support Center
 GroupDescription: Infrastructure for SURF-MS4
 Resources:
   SURF_MS4_OSDF_STASHCACHE:
-    Active: false
+    Active: true
     Description: OSDF Cache at SURF-MS4 for LVK
     ContactLists:
       Administrative Contact:
@@ -26,4 +26,4 @@ Resources:
       XRootD cache server:
         Description: Cache at SURF-MS4 for LVK
     AllowedVOs:
-      - ANY
+      - LIGO
