@@ -2,6 +2,45 @@ GroupDescription: This site is the ATLAS Tier 1 Facility at Brookhaven National 
 GroupID: 235
 Production: true
 Resources:
+  BNL_ATLAS_01:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: OSG1000638
+          Name: Ivan Glushkov
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
+    Description: moved under the resource group BNL_LCG2. This will set the stage
+      for unified site availability with WLCG.
+    FQDN: gridgk01.sdcc.bnl.gov
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk01.sdcc.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 287779
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 15500
+      KSI2KMin: 15500
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
   BNL_ATLAS_1:
     Active: true
     ContactLists:
@@ -42,8 +81,46 @@ Resources:
       KSI2KMin: 15500
       StorageCapacityMax: 0
       StorageCapacityMin: 0
+  BNL_ATLAS_02:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: OSG1000638
+          Name: Ivan Glushkov
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
+    Description: change resource groupname to BNL-LCG2
+    FQDN: gridgk02.sdcc.bnl.gov
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk02.sdcc.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
   BNL_ATLAS_2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -68,6 +145,45 @@ Resources:
         Details:
           hidden: false
           sam_uri: htcondor://gridgk02.racf.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_03:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: OSG1000638
+          Name: Ivan Glushkov
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
+    Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
+      not open to general OSG users.
+    FQDN: gridgk03.sdcc.bnl.gov
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk03.sdcc.bnl.gov
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
@@ -121,6 +237,45 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
+  BNL_ATLAS_04:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: OSG1000638
+          Name: Ivan Glushkov
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
+    Description: This is just another gatekeeper, sharing the same backend resources
+      with the other BNL_ATLAS_X gatekeepers.
+    FQDN: gridgk04.sdcc.bnl.gov
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk04.sdcc.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
   BNL_ATLAS_4:
     Active: true
     ContactLists:
@@ -161,8 +316,47 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-  BNL_ATLAS_6:
+  BNL_ATLAS_06:
     Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: OSG1000638
+          Name: Ivan Glushkov
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
+    Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
+      not open to general OSG users.
+    FQDN: gridgk06.sdcc.bnl.gov
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk06.sdcc.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_6:
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -201,8 +395,48 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-  BNL_ATLAS_7:
+  BNL_ATLAS_07:
     Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: OSG1000638
+          Name: Ivan Glushkov
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
+    Description: An OSG CE resource at BNL, mainly serving USATLAS production jobs,
+      not open to general OSG users. EL9
+    FQDN: gridgk07.sdcc.bnl.gov
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk07.sdcc.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  BNL_ATLAS_7:
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -242,8 +476,47 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
-  BNL_ATLAS_8:
+  BNL_ATLAS_08:
     Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: OSG1000638
+          Name: Ivan Glushkov
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
+    Description: This CE will serve grid jobs submitted to the *local* USATLAS resources,
+      e.g. for panda queue ANALY_BNL_LOCAL, at BNL.
+    FQDN: gridgk08.sdcc.bnl.gov
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://gridgk08.sdcc.bnl.gov
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.69
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  BNL_ATLAS_8:
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -370,6 +643,42 @@ Resources:
       StorageCapacityMax: 16800
       StorageCapacityMin: 16800
       TapeCapacity: 27000
+  BNL_ATLAS_TAPE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+          Name: BNL Atlas Tier 1 support
+        Secondary:
+          ID: OSG1000638
+          Name: Ivan Glushkov
+      Security Contact:
+        Primary:
+          Name: BNL Atlas Tier 1 support
+          ID: 1e47726bf41f2128059de31cf7bc9c8d5dcadad6
+        Secondary:
+          Name: Robert Hancock
+          ID: OSG1000212
+    Description: Duplicated from BNL_ATLAS_SE and updated for TAPE REST API blacklisting 
+    FQDN: dcdoor-tape.usatlas.bnl.gov
+    Services:
+      WebDAV.tape:
+        Description: TAPE REST API endpoint
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: BNL_ATLAS_1
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 104000
   BNL_ATLAS_SE_GRIDFTP:
     Active: true
     ContactLists:

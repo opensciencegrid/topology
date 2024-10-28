@@ -30,7 +30,9 @@ RUN pip3 install --no-cache-dir -r requirements-apache.txt
 # Create data directory, and gather SSH keys for git
 RUN mkdir                  /data && \
     chown -v apache:apache /data && \
-    ssh-keyscan github.com bitbucket.org >> /etc/ssh/ssh_known_hosts
+    ssh-keyscan github.com bitbucket.org >> /etc/ssh/ssh_known_hosts && \
+    git config --global --add safe.directory /data/app/topology && \
+    git config --global --add safe.directory /data/app/contact
 
 # Add fetch-crl cronjob
 # Add daily restart of httpd to load renewed certificates

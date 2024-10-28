@@ -37,7 +37,7 @@ Resources:
     VOOwnership:
       ATLAS: 90
   AGLT2-squid-3:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -66,7 +66,7 @@ Resources:
       Squid:
         Description: Generic squid service
         Details:
-          Monitored: true
+          Monitored: false
     VOOwnership:
       ATLAS: 90
   AGLT2-squid-4:
@@ -99,7 +99,7 @@ Resources:
       Squid:
         Description: Generic varnish service
         Details:
-          uri_override: sl-um-es2.slateci.io:6081
+          uri_override: sl-um-es2.slateci.io:6082
           Monitored: true
     VOOwnership:
       ATLAS: 90
@@ -175,8 +175,8 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
-          Name: Wenjing Wu
+          ID: OSG1000064
+          Name: Ilija Vukotic
         Secondary:
           ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
           Name: Philippe Laurens
@@ -185,8 +185,8 @@ Resources:
           Name: Shawn McKee
       Security Contact:
         Primary:
-          ID: 737e25f3cb6a16c6c1846ee2601b5e5b102bc157
-          Name: Wenjing Wu
+          ID: OSG1000064
+          Name: Ilija Vukotic
         Secondary:
           ID: fe2ecaf4ad4a0923d1be605ad55a8ca71f67eb66
           Name: Philippe Laurens

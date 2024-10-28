@@ -7,13 +7,11 @@ from typing import Dict, List, Optional, Tuple
 
 import icalendar
 
-from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml,\
-    is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER, gen_id_from_yaml
+from .common import RGDOWNTIME_SCHEMA_URL, RGSUMMARY_SCHEMA_URL, Filters, ParsedYaml, \
+    is_null, expand_attr_list_single, expand_attr_list, ensure_list, XROOTD_ORIGIN_SERVER, XROOTD_CACHE_SERVER, \
+    gen_id_from_yaml, GRIDTYPE_1, GRIDTYPE_2, is_true, PELICAN_ORIGIN, PELICAN_CACHE
 from .contacts_reader import ContactsData, User
 from .exceptions import DataError
-
-GRIDTYPE_1 = "OSG Production Resource"
-GRIDTYPE_2 = "OSG Integration Test Bed Resource"
 
 log = getLogger(__name__)
 
@@ -43,14 +41,16 @@ class CommonData(object):
 
 
 class Facility(object):
-    def __init__(self, name: str, id: int):
+    def __init__(self, name: str, id: int, institution_id: str = None):
         self.name = name
         self.id = id
+        self.institution_id = institution_id
         self.sites_by_name = dict()
 
     def get_tree(self) -> OrderedDict:
         return OrderedDict([
             ("ID", self.id),
+            ("InstitutionID", self.institution_id),
             ("Name", self.name),
             ("IsCCStar", self.is_ccstar)
         ])
@@ -109,12 +109,29 @@ class Site(object):
         return self._is_ccstar
 
 class Resource(object):
-    def __init__(self, name: str, yaml_data: ParsedYaml, common_data: CommonData):
+    def __init__(self, name: str, yaml_data: ParsedYaml, common_data: CommonData, rg: "ResourceGroup"):
         self.name = name
         self.service_types = common_data.service_types
         self.common_data = common_data
+        # Some "indexes" to speed up data lookup
+        self.has_xrootd_cache = False
+        self.has_xrootd_origin = False
+        self.has_pelican_cache = False
+        self.has_pelican_origin = False
+        self.service_names = []
         if not is_null(yaml_data, "Services"):
             self.services = self._expand_services(yaml_data["Services"])
+            for svc in self.services:
+                if "Name" in svc:
+                    self.service_names.append(svc["Name"])
+                    if svc["Name"] == XROOTD_CACHE_SERVER:
+                        self.has_xrootd_cache = True
+                    elif svc["Name"] == XROOTD_ORIGIN_SERVER:
+                        self.has_xrootd_origin = True
+                    elif svc["Name"] == PELICAN_CACHE:
+                        self.has_pelican_cache = True
+                    elif svc["Name"] == PELICAN_ORIGIN:
+                        self.has_pelican_origin = True
         else:
             self.services = []
         self.service_names = [n["Name"] for n in self.services if "Name" in n]
@@ -124,6 +141,7 @@ class Resource(object):
             raise ValueError(f"Resource {name} does not have an FQDN")
         self.fqdn = self.data["FQDN"]
         self.id = self.data["ID"]
+        self.rg = rg
 
     def get_stashcache_files(self, global_data, legacy):
         """Gets a resources Cache files as a dictionary"""
@@ -371,21 +389,21 @@ class ResourceGroup(object):
         self.site = site
         self.service_types = common_data.service_types
         self.common_data = common_data
-        self.production = yaml_data.get("Production", "")
+        self.production = is_true(yaml_data.get("Production", ""))
 
         scname = yaml_data["SupportCenter"]
         scid = int(common_data.support_centers[scname]["ID"])
         self.support_center = OrderedDict([("ID", scid), ("Name", scname)])
 
         self.resources_by_name = {}
-        for name, res in yaml_data["Resources"].items():
+        for res_name, res in yaml_data["Resources"].items():
             try:
                 if not isinstance(res, dict):
                     raise TypeError("expecting a dict")
-                res_obj = Resource(name, ParsedYaml(res), self.common_data)
-                self.resources_by_name[name] = res_obj
+                res_obj = Resource(res_name, ParsedYaml(res), self.common_data, rg=self)
+                self.resources_by_name[res_name] = res_obj
             except (AttributeError, KeyError, TypeError, ValueError) as err:
-                log.exception("Error with resource %s: %r", name, err)
+                log.exception("Error with resource %s: %r", res_name, err)
                 continue
 
         self.data = yaml_data
@@ -393,6 +411,10 @@ class ResourceGroup(object):
     @property
     def resources(self):
         return [self.resources_by_name[k] for k in sorted(self.resources_by_name)]
+
+    @property
+    def itb(self):
+        return not self.production
 
     def get_tree(self, authorized=False, filters: Filters = None) -> Optional[OrderedDict]:
         if filters is None:
@@ -403,7 +425,7 @@ class ResourceGroup(object):
                                        (filters.rg_id, self.id)]:
             if filter_list and attribute not in filter_list:
                 return
-        data_gridtype = GRIDTYPE_1 if self.data.get("Production", None) else GRIDTYPE_2
+        data_gridtype = GRIDTYPE_1 if self.production else GRIDTYPE_2
         if filters.grid_type is not None and data_gridtype != filters.grid_type:
             return
 
@@ -454,8 +476,7 @@ class ResourceGroup(object):
         new_rg["GroupName"] = self.name
         new_rg["SupportCenter"] = self.support_center
         new_rg["IsCCStar"] = self.is_ccstar
-        production = new_rg.get("Production")
-        if production:
+        if self.production:
             new_rg["GridType"] = GRIDTYPE_1
         else:
             new_rg["GridType"] = GRIDTYPE_2
@@ -675,8 +696,8 @@ class Topology(object):
         except (AttributeError, KeyError, ValueError) as err:
             log.exception("RG %s, %s error: %r; skipping", site_name, name, err)
 
-    def add_facility(self, name, id):
-        self.facilities[name] = Facility(name, id)
+    def add_facility(self, name, id, institution_id=None):
+        self.facilities[name] = Facility(name, id, institution_id)
 
     def add_site(self, facility_name, name, id, site_info):
         site = Site(name, id, self.facilities[facility_name], site_info)

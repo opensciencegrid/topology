@@ -2,6 +2,7 @@
 
 import collections
 import subprocess
+import requests
 import stat
 import yaml
 import sys
@@ -20,6 +21,7 @@ except ImportError:
 
 import xml.etree.ElementTree as et
 
+INSTITUTIONS_API = "https://topology-institutions.osg-htc.org"
 
 # NOTE: throughout this program, git shas are of type str, while paths and
 # filenames are of type bytes.  The motivation behind this is to handle
@@ -122,19 +124,27 @@ def main(args):
             errors += check_resource_contacts(BASE_SHA, rg_fname,
                                               resources_affected, contacts)
 
-    if any( re.match(br'^projects/.*\.yaml', fname) for fname in modified ):
+    updated_projects = [fname for fname in modified if re.match(br'^projects/.*\.yaml', fname)]
+    if updated_projects:
         orgs_base  = get_organizations_at_version(base)
         orgs_new   = get_organizations_at_version(head)
         orgs_added = orgs_new - orgs_base
         for org in sorted(orgs_added):
             errors += ["New Organization '%s' requires OSG approval" % org]
+        invalid_institutions = get_invalid_institution_ids(head, updated_projects)
+        if invalid_institutions:
+            errors += [
+                f"Unrecognized InstitutionID in project(s) {', '.join(invalid_institutions)}. "
+                f"See {INSTITUTIONS_API} for known ID list."
+            ]
     else:
         orgs_added = None
+        invalid_institutions = None
 
     print_errors(errors)
     return ( RC.ALL_CHECKS_PASS   if len(errors) == 0
         else RC.OUT_OF_DATE_ONLY  if len(errors) == 1 and not up_to_date
-        else RC.ORGS_ADDED        if orgs_added
+        else RC.ORGS_ADDED        if orgs_added or invalid_institutions
         else RC.DT_MOD_ERRORS     if len(DTs) > 0
         else RC.CONTACT_ERROR     if not contacts
         else RC.NON_DT_ERRORS )
@@ -211,6 +221,13 @@ def get_organizations_at_version(sha):
                  for fname in list_files_at_version(sha, b"projects")
                  if re.search(br'.\.yaml$', fname) ]
     return set( p.get("Organization") for p in projects )
+
+def get_invalid_institution_ids(sha, fnames):
+    valid_institutions = requests.get(f'{INSTITUTIONS_API}/api/institution_ids').json()
+    institution_ids = [i['id'] for i in valid_institutions]
+    projects = { fname : parse_yaml_at_version(sha, fname, {}) for fname in fnames }
+    return [fname.decode() for fname, yaml in projects.items() if not yaml.get("InstitutionID", "") in institution_ids]
+
 
 def commit_is_merged(sha_a, sha_b):
     args = ['git', 'merge-base', '--is-ancestor', sha_a, sha_b]

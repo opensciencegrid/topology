@@ -307,8 +307,9 @@ def iface_matches(network_iface, pattern):
     `network_iface` matches `pattern`, False otherwise
 
     """
-    if fnmatch.fnmatch(network_iface, pattern):
-        return True
+    for _, addrs in network_iface.addresses.items():
+        if fnmatch.fnmatch(' '.join(addrs), pattern):
+            return True    
     for _, addrs in network_iface.addresses.items():
         if fnmatch.filter(addrs, pattern):
             return True

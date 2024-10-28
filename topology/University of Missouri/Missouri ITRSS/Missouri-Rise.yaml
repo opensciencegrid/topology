@@ -1,0 +1,27 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Compute infrastructure
+
+Resources:
+  MISSOURI_RISE_NRP_OSDF_ORIGIN:
+    Active: false
+    Description: MO NRP origin
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+        Secondary:
+          ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
+          Name: Diego Davila
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+    DN: /CN=mo-origin.nationalresearchplatform.org
+    FQDN: mo-origin.nationalresearchplatform.org
+    Services:
+      XRootD origin server:
+        Description: MO NRP origin
+    AllowedVOs:
+      - ANY

@@ -4,7 +4,7 @@ GroupDescription: Caching infrastructure in MGHPCC
 GroupID: 1318
 Resources:
   MGHPCC_NRP_OSDF_CACHE:
-    Active: true
+    Active: false
     Description: MGHPCC NRP OSDF Cache
     ID: 1348
     ContactLists:
@@ -18,7 +18,7 @@ Resources:
     FQDN: mghpcc-cache.nationalresearchplatform.org
     DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=mghpcc-cache.nationalresearchplatform.org
     Services:
-      XRootD cache server:
+      Pelican cache:
         Description:  MGHPCC NRP OSDF Cache
     AllowedVOs:
       - ANY

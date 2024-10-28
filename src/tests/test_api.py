@@ -203,7 +203,7 @@ class TestAPI:
 
 
     def test_origin_grid_mapfile(self, client: flask.Flask):
-        TEST_ORIGIN = "origin-auth2001.chtc.wisc.edu"  # This origin serves protected data
+        TEST_ORIGIN = "ap20.uc.osg-htc.org"  # This origin serves protected data
         response = client.get("/origin/grid-mapfile")
         assert response.status_code == 400  # fqdn not specified
 
@@ -769,7 +769,8 @@ class TestEndpointContent:
         },
         'Tags': ['CC*']
     }
-    mock_resource = Resource("AMNH-ARES", mock_resource_information, global_data.get_topology().common_data)
+    mock_resource = Resource("AMNH-ARES", mock_resource_information, global_data.get_topology().common_data,
+                             mock_resource_group)
 
     mock_facility.add_site(mock_site)
     mock_site.add_resource_group(mock_resource_group)

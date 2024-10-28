@@ -153,3 +153,92 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1743168216
+  Description: testing...
+  Severity: Intermittent Outage
+  StartTime: Mar 01, 2024 18:00 +0000
+  EndTime: Mar 04, 2024 21:00 +0000
+  CreatedTime: Mar 01, 2024 18:13 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1748387171
+  Description: keep this down for a while
+  Severity: Intermittent Outage
+  StartTime: Mar 07, 2024 19:11 +0000
+  EndTime: Apr 09, 2024 19:11 +0000
+  CreatedTime: Mar 07, 2024 19:11 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1775938812
+  Description: sc-cache is still flapping when it gets used
+  Severity: Intermittent Outage
+  StartTime: Apr 08, 2024 16:30 +0000
+  EndTime: May 31, 2024 05:00 +0000
+  CreatedTime: Apr 08, 2024 16:31 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1825261289
+  Description: received complaints about overloading
+  Severity: Intermittent Outage
+  StartTime: Jun 04, 2024 18:35 +0000
+  EndTime: Jul 06, 2024 18:35 +0000
+  CreatedTime: Jun 04, 2024 18:35 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1860755453
+  Description: slow
+  Severity: Intermittent Outage
+  StartTime: Jul 15, 2024 20:32 +0000
+  EndTime: Aug 15, 2024 20:32 +0000
+  CreatedTime: Jul 15, 2024 20:32 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1885765227
+  Description: slow
+  Severity: Intermittent Outage
+  StartTime: Aug 13, 2024 19:15 +0000
+  EndTime: Sep 13, 2024 19:15 +0000
+  CreatedTime: Aug 13, 2024 19:15 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1927923446
+  Description: Cache is slow
+  Severity: Intermittent Outage
+  StartTime: Oct 01, 2024 14:18 +0000
+  EndTime: Nov 15, 2024 14:19 +0000
+  CreatedTime: Oct 01, 2024 14:19 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1928268871
+  Description: HW issue
+  Severity: Outage
+  StartTime: Oct 01, 2024 08:00 +0000
+  EndTime: Oct 10, 2024 15:30 +0000
+  CreatedTime: Oct 01, 2024 23:54 +0000
+  ResourceName: CHTC_PELICAN_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+

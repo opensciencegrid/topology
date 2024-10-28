@@ -2,7 +2,7 @@ GroupDescription: "HPC4L initiative (https://hpc4l-webpage.web.cern.ch/)"
 Production: true
 Resources:
   HPC4L-CE:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -33,7 +33,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   HPC4L-SE:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -61,8 +61,37 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 8.2
       StorageCapacityMin: 1
+  HPC4L-SE-2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000629
+          Name: Saadallah si Itani
+      Security Contact:
+        Primary:
+          ID: OSG1000629
+          Name: Saadallah si Itani
+    Description: EOS-based SE for the HPC4L effort
+    FQDN: mgm.hpc4l.org
+    Services:
+      EOS:
+        Description: EOS Storage Element
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_LB_HPC4L
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 8.2
+      StorageCapacityMin: 1
   HPC4L-Squid:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:

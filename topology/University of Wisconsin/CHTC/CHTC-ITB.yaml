@@ -9,7 +9,7 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000020
           Name: Tim Theisen
@@ -19,7 +19,7 @@ Resources:
       Security Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000020
           Name: Tim Theisen
@@ -41,7 +41,7 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000001
           Name: Brian Bockelman
@@ -51,7 +51,7 @@ Resources:
       Security Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000001
           Name: Brian Bockelman
@@ -76,14 +76,14 @@ Resources:
           Name: Matyas Selmeci
         Secondary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
       Security Contact:
         Primary:
           ID: OSG1000002
           Name: Matyas Selmeci
         Secondary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Tertiary:
           ID: OSG1000001
           Name: Brian Bockelman
@@ -102,14 +102,14 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
       Security Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
@@ -131,14 +131,14 @@ Resources:
           Name: Matyas Selmeci
         Secondary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
       Security Contact:
         Primary:
           ID: OSG1000002
           Name: Matyas Selmeci
         Secondary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
     Description: Hosted CE that submits to a CHTC SLURM submit node, used for testing hosed CE containers
     DN: /CN=itb-slurm-ce.osgdev.chtc.io
     FQDN: itb-slurm-ce.osgdev.chtc.io
@@ -177,14 +177,14 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
       Security Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
@@ -205,14 +205,14 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
       Security Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
@@ -236,14 +236,14 @@ Resources:
           Name: Matyas Selmeci
         Secondary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
       Security Contact:
         Primary:
           ID: OSG1000002
           Name: Matyas Selmeci
         Secondary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
     FQDN: helm-origin.osgdev.chtc.io
     DN: /CN=helm-origin.osgdev.chtc.io
     Services:
@@ -264,7 +264,7 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Tertiary:
           ID: OSG1000002
           Name: Matyas Selmeci
@@ -292,14 +292,14 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
       Security Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
@@ -311,7 +311,7 @@ Resources:
         Description: OSG VO backfill containers on the Tiger cluster, serving the ITB pool
 
   CHTC-ITB-S3-AWS-EAST-ORIGIN:
-    Active: true
+    Active: false
     Description: >-
       This is an origin used for demonstrating integration with AWS
       East S3 buckets
@@ -320,14 +320,14 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Tertiary:
           ID: OSG1000002
           Name: Matyas Selmeci
       Security Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
@@ -343,7 +343,7 @@ Resources:
       - OSG
 
   CHTC-ITB-S3-AWS-WEST-ORIGIN:
-    Active: true
+    Active: false
     Description: >-
       This is an origin used for demonstrating integration with AWS
       West S3 buckets
@@ -352,7 +352,7 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
@@ -362,7 +362,7 @@ Resources:
       Security Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
@@ -376,3 +376,71 @@ Resources:
         Description: Origin serving both authenticated and unauthenticated data
     AllowedVOs:
       - OSG
+
+  CHTC-ITB-OSDF-PELICAN-ORIGIN:
+    Active: true
+    Description: >-
+      This is an origin used for testing the Pelican client and
+      integration with the OSDF
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    FQDN: itb-osdf-pelican-origin.osdf-dev.chtc.io
+    DN: /CN=itb-osdf-pelican-origin.osdf-dev.chtc.io
+    Services:
+      Pelican origin:
+        Description: ITB OSDF Pelican Origin
+    AllowedVOs:
+      - GLOW
+
+  CHTC-ITB-OSDF-PELICAN-CACHE:
+    Active: true
+    Description: >-
+      This is a cache used for testing the Pelican client and
+      integration with the OSDF
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    FQDN: itb-osdf-pelican-cache.osdf-dev.chtc.io
+    DN: /CN=itb-osdf-pelican-cache.osdf-dev.chtc.io
+    Services:
+      Pelican cache:
+        Description: ITB OSDF Pelican Cache
+    AllowedVOs:
+      - GLOW

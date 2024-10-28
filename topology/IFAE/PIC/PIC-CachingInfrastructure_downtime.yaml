@@ -19,3 +19,37 @@
   ResourceName: PIC_STASHCACHE_CACHE
   Services:
   - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1788188780
+  Description: Overloaded
+  Severity: Outage
+  StartTime: Apr 22, 2024 19:30 +0000
+  EndTime: Apr 29, 2024 19:30 +0000
+  CreatedTime: Apr 22, 2024 20:47 +0000
+  ResourceName: PIC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1869275492
+  Description: OS upgrade
+  Severity: Outage
+  StartTime: Jul 29, 2024 05:00 +0000
+  EndTime: Jul 29, 2024 23:00 +0000
+  CreatedTime: Jul 25, 2024 17:12 +0000
+  ResourceName: PIC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1941151244
+  Description: 'error: "cannot allocate memory"'
+  Severity: Outage
+  StartTime: Oct 15, 2024 19:30 +0000
+  EndTime: Oct 21, 2024 19:30 +0000
+  CreatedTime: Oct 16, 2024 21:45 +0000
+  ResourceName: PIC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------

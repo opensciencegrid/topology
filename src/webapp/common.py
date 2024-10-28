@@ -56,6 +56,17 @@ class Filters(object):
         self.voown_name = [vo_id_to_name.get(i, "") for i in self.voown_id]
 
 
+class NamespacesFilters:
+    """
+    Filters for namespaces json
+    """
+    def __init__(self):
+        self.include_inactive = False
+        self.include_downed = False
+        self.production = True
+        self.itb = True
+
+
 def to_csv(data: list) -> str:
     csv_string = StringIO()
     writer = csv.writer(csv_string)
@@ -222,6 +233,13 @@ def trim_space(s: str) -> str:
     ret = re.sub(r"(?m)^[ \t]+", "", ret)
     return ret
 
+
+def fix_newlines(in_str: str) -> str:
+    """Replace Windows newlines with Unix newlines in a string;
+    other CR characters are replaced with a space"""
+    return in_str.replace("\r\n", "\n").replace("\r", " ")
+
+
 def run_git_cmd(cmd: List, dir=None, git_dir=None, ssh_key=None) -> bool:
     """
     Run git command, optionally specifying ssh key and/or git dirs
@@ -378,3 +396,7 @@ def cache_control_private(f):
 
 XROOTD_CACHE_SERVER = "XRootD cache server"
 XROOTD_ORIGIN_SERVER = "XRootD origin server"
+PELICAN_CACHE = "Pelican cache"
+PELICAN_ORIGIN = "Pelican origin"
+GRIDTYPE_1 = "OSG Production Resource"
+GRIDTYPE_2 = "OSG Integration Test Bed Resource"

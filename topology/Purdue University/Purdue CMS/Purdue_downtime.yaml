@@ -1988,3 +1988,169 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165179
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165180
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165181
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: Purdue-EOS-SE
+  Services:
+  - EOS
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165182
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165183
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165184
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165185
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165186
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165187
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165188
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165189
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165190
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: US-Purdue BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1761165191
+  Description: EOS upgrades
+  Severity: Outage
+  StartTime: Mar 26, 2024 10:00 +0000
+  EndTime: Mar 26, 2024 22:00 +0000
+  CreatedTime: Mar 22, 2024 14:08 +0000
+  ResourceName: US-Purdue LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1819162937
+  Description: Power transfer for datacenter circuits
+  Severity: Severe
+  StartTime: May 30, 2024 11:00 +0000
+  EndTime: May 30, 2024 21:00 +0000
+  CreatedTime: May 28, 2024 17:11 +0000
+  ResourceName: Purdue-EOS-SE
+  Services:
+  - EOS
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1873501847
+  Description: Cluster maintenance
+  Severity: Outage
+  StartTime: Jul 31, 2024 12:00 +0000
+  EndTime: Jul 31, 2024 21:00 +0000
+  CreatedTime: Jul 30, 2024 14:36 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+

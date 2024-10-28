@@ -8,7 +8,7 @@ GroupID: 1359
 Resources:
   CHTC_STASHCACHE_CACHE:
     Active: true
-    Description: This is a StashCache cache server at UW.
+    Description: This is a Pelican cache server at UW.
     ID: 958
     ContactLists:
       Administrative Contact:
@@ -28,15 +28,15 @@ Resources:
     FQDN: sc-cache.chtc.wisc.edu
     DN: /CN=sc-cache.chtc.wisc.edu
     Services:
-      XRootD cache server:
-        Description: StashCache cache server
+      Pelican cache:
+        Description: Pelican cache server
     VOOwnership:
       GLOW: 100
     AllowedVOs:
       - ANY
 
   CHTC_TIGER_CACHE:
-    Active: true
+    Active: false
     Description: This is a StashCache cache server at UW running on the Tiger Kubernetes cluster.
     ID: 1098
     ContactLists:
@@ -66,7 +66,7 @@ Resources:
 
   CHTC_STASHCACHE_ORIGIN:
     Active: true
-    Description: This is a StashCache origin server at UW.
+    Description: This is a Pelican origin server at UW serving /chtc/PUBLIC
     ID: 959
     ContactLists:
       Administrative Contact:
@@ -86,8 +86,8 @@ Resources:
     FQDN: sc-origin.chtc.wisc.edu
     DN: /CN=sc-origin.chtc.wisc.edu
     Services:
-      XRootD origin server:
-        Description: StashCache origin server
+      Pelican origin:
+        Description: Pelican origin server
         Details:
           endpoint_override: sc-origin.chtc.wisc.edu:1095
     VOOwnership:
@@ -156,7 +156,7 @@ Resources:
       - ANY
 
   CHTC_NIH_ORIGIN:
-    Active: true
+    Active: false
     Description: This is an origin server serving NIH image analysis data
     ID: 1454
     ContactLists:
@@ -223,7 +223,7 @@ Resources:
           Name: Matyas Selmeci
         Tertiary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
       Security Contact:
         Primary:
           ID: OSG1000589
@@ -233,11 +233,11 @@ Resources:
           Name: Matyas Selmeci
         Tertiary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
     FQDN: osdf-uw-cache.svc.osg-htc.org
     DN: /CN=osdf-uw-cache.svc.osg-htc.org
     Services:
-      XRootD cache server:
+      Pelican cache:
         Description: Pelican cache server
     VOOwnership:
       GLOW: 100

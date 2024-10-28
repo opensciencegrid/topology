@@ -19,3 +19,36 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1754329572
+  Description: changing main volume
+  Severity: Outage
+  StartTime: Mar 14, 2024 16:30 +0000
+  EndTime: Mar 14, 2024 16:30 +0000
+  CreatedTime: Mar 14, 2024 16:15 +0000
+  ResourceName: Stashcache-UCSD
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1860710904
+  Description: Mark as down until Fabio can check
+  Severity: Outage
+  StartTime: Jul 15, 2024 19:00 +0000
+  EndTime: Jul 15, 2024 21:40 +0000
+  CreatedTime: Jul 15, 2024 19:18 +0000
+  ResourceName: Stashcache-UCSD
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1940229574
+  Description: HW tests
+  Severity: Outage
+  StartTime: Oct 14, 2024 19:30 +0000
+  EndTime: Oct 17, 2024 19:30 +0000
+  CreatedTime: Oct 15, 2024 20:09 +0000
+  ResourceName: Stashcache-UCSD
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------

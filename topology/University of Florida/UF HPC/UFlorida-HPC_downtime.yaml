@@ -948,3 +948,47 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1740453375
+  Description: IB card replacement
+  Severity: Outage
+  StartTime: Feb 27, 2024 15:00 +0000
+  EndTime: Feb 27, 2024 22:00 +0000
+  CreatedTime: Feb 27, 2024 14:48 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1886589429
+  Description: Storage upgrade prevents job submissions
+  Severity: Outage
+  StartTime: Aug 14, 2024 09:00 +0000
+  EndTime: Aug 17, 2024 21:00 +0000
+  CreatedTime: Aug 14, 2024 18:09 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1886589830
+  Description: Storage upgrade prevents job submissions
+  Severity: Outage
+  StartTime: Aug 14, 2024 09:00 +0000
+  EndTime: Aug 17, 2024 21:00 +0000
+  CreatedTime: Aug 14, 2024 18:09 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1886590095
+  Description: Storage upgrade prevents job submissions
+  Severity: Outage
+  StartTime: Aug 14, 2024 09:00 +0000
+  EndTime: Aug 17, 2024 21:00 +0000
+  CreatedTime: Aug 14, 2024 18:10 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
