@@ -1,0 +1,27 @@
+Department: Computer Science and Information Systems
+Description: "Approximate query processing (or AQP) is an emerging research topic\
+  \ in big data analytics. AQP focuses on deriving fast and accurate estimations for\
+  \ complex queries that are usually time-consuming and expensive to run on large\
+  \ datasets. Traditional methods, such as histogram and sketch, are insufficient\
+  \ when applied to big data because of the processing limits. An essential question\
+  \ lacking research is how to assess the errors of AQP estimations.\nThis project\
+  \ focuses on assessing the errors of AQP query estimations, especially for common\
+  \ selection queries. Traditional methods can generate confidence intervals for query\
+  \ estimations based on strict assumptions such as the normal distribution assumption.\
+  \ Therefore, they are not applicable to massive datasets. In this project, the PI\
+  \ will employ a novel non-parametric statistical method called bootstrap sampling\
+  \ which requires less strict assumptions and brings many statistical advantages.\n\
+  A prototype system will be developed employing bootstrap sampling to efficiently\
+  \ compute standard errors and confidence intervals for AQP systems, especially those\
+  \ answering selection queries, namely \u03C3-AQP. Selection queries comprise a large\
+  \ portion of daily data queries. For broader applications, this framework will allow\
+  \ selection queries to include common aggregation operators such as average, sum,\
+  \ and count. The PI will investigate the computing and storage costs when bootstrap\
+  \ replicas are computed. A framework will be developed to automate both the AQP\
+  \ estimation and error estimation operations. Extensive benchmarks will be performed\
+  \ on large datasets such as the TPC-H benchmark."
+FieldOfScience: Computer Science
+FieldOfScienceID: '11.0701'
+InstitutionID: "https://osg-htc.org/iid/afu2chyu4qlj"
+Organization: Youngstown State University
+PIName: Feng Yu

@@ -23,7 +23,7 @@ Resources:
     DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=sdsc-origin.nationalresearchplatform.org
     FQDN: sdsc-origin.nationalresearchplatform.org
     Services:
-      XRootD origin server:
+      Pelican origin:
         Description: SDSC NRP OSDF Origin
     AllowedVOs:
       - ANY
@@ -46,7 +46,7 @@ Resources:
     DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=sdsc-cache.nationalresearchplatform.org
     FQDN: sdsc-cache.nationalresearchplatform.org
     Services:
-      XRootD cache server:
+      Pelican cache:
         Description: SDSC NRP OSDF Cache
     AllowedVOs:
       - ANY

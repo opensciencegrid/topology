@@ -220,30 +220,47 @@ will want to adjust the Map.data which populates the select input and legend.
     const compute_services = new Set(["CE", "Submit Node", "Connect", "GUMS Server", "Glidein factory", "VOMS Server", "Execution Endpoint"]);
     const storage_services = new Set(["Squid", "SRMv2", "XRootD cache server", "GridFtp", "XRootD component", "XRootD origin server", "SRMv1", "LFC", "Apache Server", "FTS"]);
     const network_services = new Set(["net.perfSONAR.Bandwidth", "net.perfSONAR.Latency"]);
-    const ospool_resources = new Set([
-        "UMT-Hellgate-CE1", "SU-ITS-CE3", "Expanse-PATH-EP", "SU-ITS-CE2", "Lancium-PEP", "UNL-PATH-EP", "UConn-HPC",
-        "SDSC-PRP-OSPool-Provisioner", "IU-Jetstream2-Backfill", "Lancium-Backfill", "WISC-PATH-EP", "GPGrid", "MWT2",
-        "GLOW", "Purdue-Geddes", "Lehigh - Hawk", "UW-IT", "NWICG_NDCMS", "UColorado_HEP", "TACC-Jetstream-Backfill",
-        "UConn-OSG", "GPN-GP-ARGO-Backfill", "AMNH-Mendel-CE1", "BNL-ATLAS", "TCNJ-ELSA", "CUmulus-Backfill",
-        "AMNH-HEL-CE1", "Rice-RAPID-Backfill", "OSG_US_FSU_HNPGRID", "GP-ARGO-wichita-backfill", "SDSC-PRP-CE1",
-        "UA-HPC-CE1", "VU-AUGIE", "SIUE-CC-production", "GP-ARGO-dsu-backfill", "SLATE_US_NMSU_DISCOVERY",
-        "UC-Denver-CE1", "UTC-Epyc", "Crane", "AGLT2", "GP-ARGO-uams-backfill", "SYRA-PATH-EP", "GP-ARGO-oru-backfill",
-        "USCMS-FNAL-WC1", "GP-ARGO-sdsmt-backfill", "GP-ARGO-sdsu-backfill", "GP-ARGO-astate-backfill",
-        "GP-ARGO-usd-backfill", "Georgia_Tech_PACE_CE_2", "GP-ARGO-ksu-backfill", "GP-ARGO-emporia-backfill",
-        "Rhodes-HPC-CE1", "Swan-CE1", "GP-ARGO-langston-backfill", "GP-ARGO-uark-backfill",
-        "GP-ARGO-creighton-backfill", "ODU-Ubuntu", "LSUHSC-Tigerfish-CE1", "WTAMU_HPC", "ASU-DELL_M420",
-        "GP-ARGO-mst-backfill", "GP-ARGO-ku-backfill", "uprm-cms", "WSU-GRID", "USC-CARC-Artemis-Backfill",
-        "FANDM-ITS", "Clarkson-ACRES-CE2", "NMSU-Discovery-CE1", "LC-ITS", "Rhino", "UA-LR-ITS-EP",
-        "PDX-Coeus-CE1", "GP-ARGO-osu-backfill", "Nebraska", "cinvestav", "ISI", "Purdue-Anvil-Composable",
-        "GP-ARGO-kanren-backfill", "GSU-ACIDS", "Clemson-Palmetto", "LSUHSC-Tigerfish-CE2", "AMNH-ARES-CE1",
-        "GP-ARGO-doane-backfill", "LSU-DB-CE1", "CHTC", "CHTC-canary2", "NMSU-Discovery", "KSU-Beocat-CE1",
-        "WSU-GRID-CE1", "GP-ARGO-cameron-backfill", "SPRACE", "ND_CAMLGPU", "CYBERA_EDMONTON", "UMissHEP",
-        "USF", "Maine-ACG", "Clarkson-ACRES", "FIU-PATH-BACKFILL", "GP-ARGO-semo-backfill", "AMNH-ARES",
-        "FIU-IRCC", "Alabama-CHPC-CE1", "TIGER-OSG-BACKFILL-PROD", "CIT_CMS_T2", "UCR-HPCC-CE1", "Tufts-Cluster",
-        "Purdue-Anvil-CE1", "IIT_CE2", "IIT_CE1", "CHTC-GPU-EP", "Maine-ACG-CE1", "NCSU-HPC-CE1",
-        "SLATE_US_UUTAH_LONEPEAK", "USC-CARC-Carina-Backfill", "SLATE_US_UUTAH_NOTCHPEAK", "ISI_ImageTest",
-        "SLATE_US_UUTAH_KINGSPEAK", "Wilson Facility"
+    const backup_ospool_resources = new Set([
+        "Expanse-PATH-EP", "SU-ITS-CE3", "MWT2", "SU-ITS-CE2", "UConn-HPC", "IU-Jetstream2-Backfill", "Purdue-Geddes",
+        "UNL-PATH-EP", "GPGrid", "WISC-PATH-EP", "GLOW", "Lancium-Backfill", "UNKNOWN", "Clemson-Palmetto-CE1",
+        "Lancium-PEP", "MTState-Tempest-CE1", "SDSC-PRP-OSPool-Provisioner", "UW-IT", "Lehigh - Hawk", "NWICG_NDCMS",
+        "UColorado_HEP", "MI-HORUS-CE1", "SIUE-CC-production", "AMNH-Mendel-CE1", "NDSU-Lancium-Backfill",
+        "OU_OCHEP_SWT2", "Purdue-Anvil-CE1", "VU-AUGIE", "TACC-Jetstream-Backfill", "CHTC-Spark-CE1", "BNL-ATLAS",
+        "UC-Denver-CE1", "KSU-Beocat-CE1", "AMNH-HEL-CE1", "Nebraska", "OSG_US_FSU_HNPGRID", "PSU-LIGO", "TCNJ-ELSA",
+        "SYRA-PATH-EP", "GP-ARGO-wichita-backfill", "Alabama-CHPC-CE1", "UConn-OSG", "UA-LR-ITS-EP", "USCMS-FNAL-WC1",
+        "AGLT2", "LSUHSC-Tigerfish-CE2", "Rhodes-HPC-CE1", "CUmulus-Backfill", "Purdue-Anvil-Composable", "Crane",
+        "UTC-Epyc", "USD-Lawrence-CE1", "Georgia_Tech_PACE_CE_2", "GPN-GP-ARGO-Backfill", "Swan-CE1", "LC-ITS",
+        "GP-ARGO-sdsu-backfill", "GP-ARGO-dsu-backfill", "IIT_CE2", "Georgia_Tech_PACE_CE_OSG", "NMSU-Discovery-CE1",
+        "Rice-RAPID-Backfill", "GP-ARGO-uams-backfill", "UA-HPC-CE1", "GP-ARGO-usd-backfill", "GP-ARGO-sdsmt-backfill",
+        "GP-ARGO-astate-backfill", "GP-ARGO-oru-backfill", "Rhino", "ODU-Ubuntu", "ORU-Titan-CE1",
+        "GP-ARGO-mst-backfill", "SLATE_US_NMSU_DISCOVERY", "Maine-ACG-CE1", "GP-ARGO-uark-backfill",
+        "GP-ARGO-emporia-backfill", "Hawaii-Koa-CE1", "LIGO-WA-CE", "FANDM-ITS", "GP-ARGO-ksu-backfill", "AMNH-Mendel",
+        "GP-ARGO-ku-backfill", "ASU-Sol-CE1", "PDX-Coeus-CE1", "MSU-DataMachine-CE1", "GP-ARGO-creighton-backfill",
+        "GSU-ACIDS", "SDSC-PRP-CE1", "GP-ARGO-doane-backfill", "GP-ARGO-semo-backfill", "GP-ARGO-langston-backfill",
+        "USC-CARC-Artemis-Backfill", "LSUHSC-Tigerfish-CE1", "uprm-cms", "WSU-GRID", "IRISHEP-SSL-RIVER-DEV-BACKFILL",
+        "SLATE_US_UUTAH_NOTCHPEAK", "GP-ARGO-cameron-backfill", "ASU-DELL_M420", "WTAMU_HPC", "UW-IT-CE1",
+        "Clarkson-ACRES-CE2", "WSU-GRID-CE1", "Clemson-Palmetto", "SLATE_US_NMSU_AGGIE_GRID", "CHTC-canary2", "ISI",
+        "AMNH-HEL", "SDSC-TS-CE1", "ND_CAMLGPU", "SLATE_US_UUTAH_LONEPEAK", "KENT-STATE-RESEARCH-EP", "SDSC-Expanse",
+        "LSU-DB-CE1", "TACC-Stampede2-CE2", "VU-AUGIE-CE1", "GP-ARGO-osu-backfill", "UChicago_Pile_Backfill",
+        "AMNH-ARES-CE1", "IIT_CE1", "Wilson Facility", "cinvestav", "SLATE_US_UUTAH_KINGSPEAK", "FIU-IRCC", "WTAMU-HPC",
+        "CHTC", "FSU-HNPGRID", "SPRACE", "USF", "SDSC-Expanse-CE1", "UND-Talon-CE1", "AMNH-ARES", "UNR-CC-CE1",
+        "UMT-Hellgate-CE1", "CYBERA_EDMONTON", "SDSC-PRP", "Clarkson-ACRES", "GP-ARGO-kanren-backfill", "BEOCAT-SLATE",
+        "NMSU-Discovery", "UAH-Voyager-CE1", "UCR-HPCC-CE1", "Local Job", "chameleon-uc-dev-backfill", "NDSU-CCAST",
+        "FIU-PATH-BACKFILL", "IRISHEP-SSL-UCHICAGO", "ND-CAML_gpu", "USF-SC", "FIU-IRCC-CE1", "UMissHEP", "CIT_CMS_T2",
+        "Maine-ACG", "TIGER-OSG-BACKFILL-PROD", "SDSC-Triton_Stratus", "CHTC-GPU-EP", "NCSU-HPC-CE1",
+        "Jetstream2-IU-Backfill", "Tufts-Cluster", "LC-ITS-CE1", "PATH-OSPOOL-BACKFILL", "JetStream", "Lancium-HMF-ITB",
+        "scott.grid.uchicago.edu", "amundsen.grid.uchicago.edu", "USC-CARC-Carina-Backfill", "GSU-ACORE",
+        "GLUEX_US_FSU_HNPGRID", "TNTech-Warp1-CE1", "MIT_CMS", "Langston-Lion-CE1", "OSG_US_ISI_osg",
+        "UIUC-TGI-RAILS-CE1", "rutgers-cms", "OSG_US_GSU_ACORE", "TACC-PATH-EP", "ISI_ImageTest",
+        "CancerComputer_MinneUEL_CE", "UCSDT2", "OSG_US_MWT2_gk", "BELLARMINE_TIER2", "HOSTED-CE-CHTC-UBUNTU",
+        "UWM-NEMO", "UFlorida-HPC", "UTA_SWT2", "PSC-Bridges2-CE2", "CHTC-DEV-EP-matyas", "RABBIT-OSG-BACKFILL-PROD",
+        "BNL-SDCC-CE01", "UWEC-BOSE-CE1", "OSG_US_USF_SC", "OSG_US_NMSU_DISCOVERY", "JLab-FARM-CE", "matyas-laptop",
+        "ComputeCanada-Cedar", "UERJ", "CHTC-ITB-GPU-BACKFILL", "CHTC-Jupyter-User-EP", "BrianTest", "TCNJ - ELSA",
+        "Lamar-Cluster", "OSG_US_TCNJ_ELSA", "OSG_US_UMD_SIAB", "TACC-Stampede2-ce2", "Anvil", "DESY-ZN",
+        "FIU_HPCOSG_CE", "Jetstream", "NDSU-Lancium-Backfill-Test", "OSG_US_ASU_DELL_M420", "OSG_US_GSU-ACORE",
+        "SLATE_US_UIUC_HTC", "nat.mwt2.org"
     ].map(x => x.toLowerCase()))
+    const backup_ospool_resource_timestamp = "2024-09-12"
 
     const iconConfig = {
         iconSize: [36,36],
@@ -338,12 +355,15 @@ will want to adjust the Map.data which populates the select input and legend.
 
     class Site {
 
-        constructor({
-            Resources: { Resource : resources },
-            Site: { Latitude, Longitude, Name : siteName },
-            Facility: { Name: facilityName },
-            GroupName: resourceGroupName
-        }) {
+        constructor(
+            {
+                Resources: { Resource : resources },
+                Site: { Latitude, Longitude, Name : siteName },
+                Facility: { Name: facilityName },
+                GroupName: resourceGroupName
+            },
+            ospoolResources
+        ) {
             this.resources = {}
             this.resourceGroups = {}
             this.latitude = Latitude
@@ -352,6 +372,7 @@ will want to adjust the Map.data which populates the select input and legend.
             this.facilityName = facilityName
             this.siteName = siteName
             this.addResourceGroup({ Resources: { Resource : resources }, GroupName: resourceGroupName })
+            this.ospoolResources = ospoolResources
         }
 
         addResourceGroup({
@@ -533,24 +554,23 @@ will want to adjust the Map.data which populates the select input and legend.
         get isOSPool () {
             if(Object.values(this.resources).some(x => this.resourceIsInOSPool(x))){
                 shownOspoolContributors.add(this.name)
-                console.log(shownOspoolContributors)
             }
             return Object.values(this.resources).some(x => this.resourceIsInOSPool(x))
         }
 
         resourceIsInOSPool (resource) {
             // If this resource is in the ospool_resources list
-            return ospool_resources.has(resource.name.toLowerCase()) ||
+            return this.ospoolResources.has(resource.name.toLowerCase()) ||
 
                 // If this resourceGroup is in the list, and no resources are named that groupname
                 (
                     !(resource.resourceGroupName in this.resources) &&
-                    ospool_resources.has(resource.resourceGroupName.toLowerCase())
+                    this.ospoolResources.has(resource.resourceGroupName.toLowerCase())
 
                 // If this resources Site name is in the list, and no resources have this Site name
                 ) || (
                     !(this.siteName in this.resources) &&
-                    ospool_resources.has(this.siteName.toLowerCase())
+                    this.ospoolResources.has(this.siteName.toLowerCase())
                 )
         }
     }
@@ -624,7 +644,7 @@ will want to adjust the Map.data which populates the select input and legend.
                 imgNode.src = iconUrl
                 imgNode.alt = "Icon for " + iconLabel
 
-                labelNode.innerText = iconLabel
+                labelNode.innerHTML = iconLabel
 
                 // Count values in layer that match iconUrl with current legend item
                 // In this case iconUrl is a proxy for Site Category
@@ -693,50 +713,6 @@ will want to adjust the Map.data which populates the select input and legend.
 
         constructor() {
 
-            this.metaData = {
-                "OSGSites" : {
-                    "longText" : "OSG Sites",
-                    "legend" : {
-                        "OSG Site": greenStarIcon?.options?.iconUrl,
-                    }
-                },
-                "ComputevsStorage" : {
-                    "longText" : "Compute and Storage",
-                    "legend" : {
-                        "Compute Only": blueStarIcon?.options?.iconUrl,
-                        "Storage Only": purpleStarIcon?.options?.iconUrl,
-                        "Compute And Storage": greenStarIcon?.options?.iconUrl,
-                    }
-                },
-                "EduvsOther" : {
-                    "longText" : "EDU sites and others",
-                    "legend" : {
-                        "EDU Site": blueStarIcon?.options?.iconUrl,
-                        "Others": greenStarIcon?.options?.iconUrl,
-                    }
-                },
-                "CCStar" : {
-                    "longText" : "CC* Sites",
-                    "legend" : {
-                        "CC* Site": redStarIcon?.options?.iconUrl
-                    }
-                },
-                "OpenScienceDataFederation" : {
-                    "longText" : "Open Science Data Federation",
-                    "legend" : {
-                        "Origin": originIcon?.options?.iconUrl,
-                        "Cache": cacheIcon?.options?.iconUrl,
-                        "Cache and Origin": cacheAndOriginIcon?.options?.iconUrl,
-                    }
-                },
-                "OSPool" : {
-                    "longText" : "OSPool Contributors",
-                    "legend" : {
-                        "OSPool Contributor" : greenStarIcon?.options?.iconUrl
-                    }
-                }
-            }
-
             this.leafletMap = new Map()
             this.leafletMap.map.on("popupopen", (e) => {
                 this.siteSelect.value = e.popup.site.siteName
@@ -775,7 +751,7 @@ will want to adjust the Map.data which populates the select input and legend.
 
             this.layers = {}
 
-            this.fetchSites()
+            this.asyncWork()
         }
 
         get view() {
@@ -794,6 +770,52 @@ will want to adjust the Map.data which populates the select input and legend.
             return Object.entries(this.sites).map(([name, site]) => site.getMarker(this.view)).filter(icon => icon !== null)
         }
 
+        get metaData() {
+            return {
+                "OSGSites" : {
+                    "longText" : "OSG Sites",
+                    "legend" : {
+                        "OSG Site": greenStarIcon?.options?.iconUrl,
+                    }
+                },
+                "ComputevsStorage" : {
+                    "longText" : "Compute and Storage",
+                    "legend" : {
+                        "Compute Only": blueStarIcon?.options?.iconUrl,
+                        "Storage Only": purpleStarIcon?.options?.iconUrl,
+                        "Compute And Storage": greenStarIcon?.options?.iconUrl,
+                    }
+                },
+                "EduvsOther" : {
+                    "longText" : "EDU sites and others",
+                    "legend" : {
+                        "EDU Site": blueStarIcon?.options?.iconUrl,
+                        "Others": greenStarIcon?.options?.iconUrl,
+                    }
+                },
+                "CCStar" : {
+                    "longText" : "CC* Sites",
+                    "legend" : {
+                        "CC* Site": redStarIcon?.options?.iconUrl
+                    }
+                },
+                "OpenScienceDataFederation" : {
+                    "longText" : "Open Science Data Federation",
+                    "legend" : {
+                        "Origin": originIcon?.options?.iconUrl,
+                        "Cache": cacheIcon?.options?.iconUrl,
+                        "Cache and Origin": cacheAndOriginIcon?.options?.iconUrl,
+                    }
+                },
+                "OSPool" : {
+                    "longText" : `OSPool Contributors`,
+                    "legend" : {
+                        [`<div>OSPool Contributor</div><div style="margin-top: -7px; color: #848484"><small>Updated ${this.ospoolResourcesTimestamp}</small></div>`]: greenStarIcon?.options?.iconUrl
+                    }
+                }
+            }
+        }
+
         update() {
             this.siteSelect.addOptions(
                 Object.values(this.layer._layers)
@@ -801,6 +823,36 @@ will want to adjust the Map.data which populates the select input and legend.
                     .sort((a, b) => a[1].localeCompare(b[1]))
             )
             this.leafletMap.update(this.layer, this.metaData[this.view].legend)
+        }
+
+        async asyncWork () {
+            await this.fetchOSPoolResources()
+            await this.fetchSites()
+        }
+
+        /** Fetches the OSPool resources falling back if failing */
+        async fetchOSPoolResources() {
+            try {
+                await this.fetchOSPoolResourcesList()
+                await this.fetchOSPoolResourceUpdateTime()
+            } catch (e) {
+                console.error(e)
+                this.ospoolResourcesTimestamp = backup_ospool_resource_timestamp
+                this.ospoolResources = backup_ospool_resources
+            }
+        }
+
+        async fetchOSPoolResourceUpdateTime() {
+            const response = await fetch("https://api.github.com/repos/osg-htc/ospool-data/commits")
+            const commits = await response.json()
+            const timestampString = commits[0].commit.author.date
+            this.ospoolResourcesTimestamp = new Date(timestampString).toLocaleString()
+        }
+
+        async fetchOSPoolResourcesList() {
+            let response = await fetch("https://osg-htc.org/ospool-data/data/ospool_resources_report/ospool_resources.json")
+            let ospoolResources = await response.json()
+            this.ospoolResources = new Set(ospoolResources.map(x => x.toLowerCase()))
         }
 
         async fetchSites() {
@@ -822,7 +874,7 @@ will want to adjust the Map.data which populates the select input and legend.
                 if(value?.Site?.Name in sites){
                     sites[value?.Site?.Name].addResourceGroup(value)
                 } else {
-                    sites[value?.Site?.Name] = new Site(value)
+                    sites[value?.Site?.Name] = new Site(value, this.ospoolResources)
                 }
             })
 

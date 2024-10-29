@@ -3500,3 +3500,564 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1909963714
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 10, 2024 19:25 +0000
+  EndTime: Sep 10, 2024 23:00 +0000
+  CreatedTime: Sep 10, 2024 19:26 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1909963715
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 10, 2024 19:25 +0000
+  EndTime: Sep 10, 2024 23:00 +0000
+  CreatedTime: Sep 10, 2024 19:26 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1909963716
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 10, 2024 19:25 +0000
+  EndTime: Sep 10, 2024 23:00 +0000
+  CreatedTime: Sep 10, 2024 19:26 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1909963717
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 10, 2024 19:25 +0000
+  EndTime: Sep 10, 2024 23:00 +0000
+  CreatedTime: Sep 10, 2024 19:26 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1909963718
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 10, 2024 19:25 +0000
+  EndTime: Sep 10, 2024 23:00 +0000
+  CreatedTime: Sep 10, 2024 19:26 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1909963719
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 10, 2024 19:25 +0000
+  EndTime: Sep 10, 2024 23:00 +0000
+  CreatedTime: Sep 10, 2024 19:26 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1909963720
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 10, 2024 19:25 +0000
+  EndTime: Sep 10, 2024 23:00 +0000
+  CreatedTime: Sep 10, 2024 19:26 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1910006897
+  Description: HW issue
+  Severity: Outage
+  StartTime: Sep 09, 2024 00:00 +0000
+  EndTime: Sep 16, 2024 11:30 +0000
+  CreatedTime: Sep 10, 2024 20:38 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1912780378
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 14, 2024 01:40 +0000
+  EndTime: Sep 15, 2024 01:40 +0000
+  CreatedTime: Sep 14, 2024 01:40 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1912780379
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 14, 2024 01:40 +0000
+  EndTime: Sep 15, 2024 01:40 +0000
+  CreatedTime: Sep 14, 2024 01:40 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1912780380
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 14, 2024 01:40 +0000
+  EndTime: Sep 15, 2024 01:40 +0000
+  CreatedTime: Sep 14, 2024 01:40 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1912780381
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 14, 2024 01:40 +0000
+  EndTime: Sep 15, 2024 01:40 +0000
+  CreatedTime: Sep 14, 2024 01:40 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1912780382
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 14, 2024 01:40 +0000
+  EndTime: Sep 15, 2024 01:40 +0000
+  CreatedTime: Sep 14, 2024 01:40 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1912780383
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 14, 2024 01:40 +0000
+  EndTime: Sep 15, 2024 01:40 +0000
+  CreatedTime: Sep 14, 2024 01:40 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1912780384
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 14, 2024 01:40 +0000
+  EndTime: Sep 15, 2024 01:40 +0000
+  CreatedTime: Sep 14, 2024 01:40 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1913608023
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2024 00:39 +0000
+  EndTime: Sep 16, 2024 15:00 +0000
+  CreatedTime: Sep 15, 2024 00:40 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1913608024
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2024 00:39 +0000
+  EndTime: Sep 16, 2024 15:00 +0000
+  CreatedTime: Sep 15, 2024 00:40 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1913608025
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2024 00:39 +0000
+  EndTime: Sep 16, 2024 15:00 +0000
+  CreatedTime: Sep 15, 2024 00:40 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1913608026
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2024 00:39 +0000
+  EndTime: Sep 16, 2024 15:00 +0000
+  CreatedTime: Sep 15, 2024 00:40 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1913608027
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2024 00:39 +0000
+  EndTime: Sep 16, 2024 15:00 +0000
+  CreatedTime: Sep 15, 2024 00:40 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1913608028
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2024 00:39 +0000
+  EndTime: Sep 16, 2024 15:00 +0000
+  CreatedTime: Sep 15, 2024 00:40 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1913608029
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2024 00:39 +0000
+  EndTime: Sep 16, 2024 15:00 +0000
+  CreatedTime: Sep 15, 2024 00:40 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1914992219
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 15:06 +0000
+  EndTime: Sep 16, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 15:07 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1914992220
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 15:06 +0000
+  EndTime: Sep 16, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 15:07 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1914992221
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 15:06 +0000
+  EndTime: Sep 16, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 15:07 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1914992222
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 15:06 +0000
+  EndTime: Sep 16, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 15:07 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1914992223
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 15:06 +0000
+  EndTime: Sep 16, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 15:07 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1914992224
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 15:06 +0000
+  EndTime: Sep 16, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 15:07 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1914992225
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 15:06 +0000
+  EndTime: Sep 16, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 15:07 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1915209077
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 21:00 +0000
+  EndTime: Sep 17, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 21:08 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1915209078
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 21:00 +0000
+  EndTime: Sep 17, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 21:08 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1915209079
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 21:00 +0000
+  EndTime: Sep 17, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 21:08 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1915209080
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 21:00 +0000
+  EndTime: Sep 17, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 21:08 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1915209081
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 21:00 +0000
+  EndTime: Sep 17, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 21:08 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1915209082
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 21:00 +0000
+  EndTime: Sep 17, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 21:08 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1915209083
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 16, 2024 21:00 +0000
+  EndTime: Sep 17, 2024 21:00 +0000
+  CreatedTime: Sep 16, 2024 21:08 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1915949340
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 17, 2024 21:00 +0000
+  EndTime: Sep 18, 2024 21:00 +0000
+  CreatedTime: Sep 17, 2024 17:42 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1915949341
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 17, 2024 21:00 +0000
+  EndTime: Sep 18, 2024 21:00 +0000
+  CreatedTime: Sep 17, 2024 17:42 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1915949342
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 17, 2024 21:00 +0000
+  EndTime: Sep 18, 2024 21:00 +0000
+  CreatedTime: Sep 17, 2024 17:42 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1915949343
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 17, 2024 21:00 +0000
+  EndTime: Sep 18, 2024 21:00 +0000
+  CreatedTime: Sep 17, 2024 17:42 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1915949344
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 17, 2024 21:00 +0000
+  EndTime: Sep 18, 2024 21:00 +0000
+  CreatedTime: Sep 17, 2024 17:42 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1915949345
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 17, 2024 21:00 +0000
+  EndTime: Sep 18, 2024 21:00 +0000
+  CreatedTime: Sep 17, 2024 17:42 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1915949346
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 17, 2024 21:00 +0000
+  EndTime: Sep 18, 2024 21:00 +0000
+  CreatedTime: Sep 17, 2024 17:42 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930720
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930721
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930722
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930723
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930724
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930725
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1916930726
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 18, 2024 21:00 +0000
+  EndTime: Sep 19, 2024 15:00 +0000
+  CreatedTime: Sep 18, 2024 20:57 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1935791647
+  Description: Cert issue
+  Severity: Outage
+  StartTime: Oct 09, 2024 19:30 +0000
+  EndTime: Oct 21, 2024 19:30 +0000
+  CreatedTime: Oct 10, 2024 16:52 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------

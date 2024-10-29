@@ -9,4 +9,25 @@
   Services:
   - XRootD origin server
 # ---------------------------------------------------------
-
+- Class: UNSCHEDULED
+  ID: 1875362292
+  Description: HW issue
+  Severity: Outage
+  StartTime: Jul 31, 2024 08:01 +0000
+  EndTime: Aug 08, 2024 19:30 +0000
+  CreatedTime: Aug 01, 2024 18:17 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1911495645
+  Description: HW issue
+  Severity: Outage
+  StartTime: Sep 11, 2024 00:00 +0000
+  EndTime: Sep 23, 2024 11:30 +0000
+  CreatedTime: Sep 12, 2024 13:59 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------

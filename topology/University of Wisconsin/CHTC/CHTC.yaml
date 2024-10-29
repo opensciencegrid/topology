@@ -338,14 +338,14 @@ Resources:
           Name: Matyas Selmeci
         Secondary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
       Security Contact:
         Primary:
           ID: OSG1000002
           Name: Matyas Selmeci
         Secondary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
     Description: Hosted CE that submits to a CHTC SLURM submit node, used for testing hosted CE containers
     DN: /CN=canary2.osg.chtc.io
     FQDN: canary2.osg.chtc.io
@@ -384,14 +384,14 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000015
           Name: Aaron Moate
       Security Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000015
           Name: Aaron Moate
@@ -411,7 +411,7 @@ Resources:
           Name: Matyas Selmeci
         Secondary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Tertiary:
           ID: OSG1000001
           Name: Brian Bockelman
@@ -421,7 +421,7 @@ Resources:
           Name: Matyas Selmeci
         Secondary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Tertiary:
           ID: OSG1000001
           Name: Brian Bockelman
@@ -440,14 +440,14 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
       Security Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
@@ -464,14 +464,14 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
       Security Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
@@ -533,12 +533,8 @@ Resources:
         Description: OS Pool access point
         Details:
           hidden: false
-      XRootD origin server:
+      Pelican origin:
         Description: OSDF Pelican origin
-        Details:
-          hidden: false
-          endpoint_override: ospool-ap2140.chtc.wisc.edu:8443
-          auth_endpoint_override: ospool-ap2140.chtc.wisc.edu:8443          
     Tags:
       - OSPool
     VOOwnership:
@@ -553,7 +549,7 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          Name: Brian Lin
+          Name: Brian Hua Lin
           ID: OSG1000003
         Secondary:
           Name: Matyas Selmeci
@@ -563,7 +559,7 @@ Resources:
           ID: OSG1000141
       Security Contact:
         Primary:
-          Name: Brian Lin
+          Name: Brian Hua Lin
           ID: OSG1000003
         Secondary:
           Name: Matyas Selmeci
@@ -591,14 +587,14 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          Name: Brian Lin
+          Name: Brian Hua Lin
           ID: OSG1000003
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
       Security Contact:
         Primary:
-          Name: Brian Lin
+          Name: Brian Hua Lin
           ID: OSG1000003
         Secondary:
           Name: Aaron Moate

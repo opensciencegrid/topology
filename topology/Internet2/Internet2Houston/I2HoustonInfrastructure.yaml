@@ -20,7 +20,7 @@ Resources:
     FQDN: osg-houston-stashcache.nrp.internet2.edu
     DN: /DC=org/DC=incommon/C=US/ST=Michigan/O=University Corporation For Advanced Internet Development/CN=osg-houston-stashcache.nrp.internet2.edu
     Services:
-      XRootD cache server:
+      Pelican cache:
         Description: Internet2Houston Cache
     AllowedVOs:
       - ANY
@@ -41,7 +41,7 @@ Resources:
     FQDN: dtn-pas.hous.nrp.internet2.edu
     DN: /DC=org/DC=incommon/C=US/ST=Michigan/O=University Corporation For Advanced Internet Development/CN=dtn-pas.hous.nrp.internet2.edu
     Services:
-      XRootD cache server:
+      Pelican cache:
         Description: Internet2 Houston 2 Cache
     AllowedVOs:
       - ANY
