@@ -71,7 +71,7 @@ DataFederations:
         AllowedOrigins:
           - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
-          - ANY
+          - FDP_OSDF_CACHE
       - Path: /nrp/fdp/gyrokinetic
         Authorizations:
           - PUBLIC
@@ -82,7 +82,7 @@ DataFederations:
         AllowedOrigins:
           - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
-          - ANY
+          - FDP_OSDF_CACHE
       - Path: /knightlab
         Authorizations:
           - PUBLIC
@@ -103,7 +103,6 @@ DataFederations:
           - ANY
       - Path: /fdp-d3d
         Authorizations:
-          - PUBLIC
           - SciTokens:
               Issuer: https://t.nationalresearchplatform.org/fdp-d3d
               Base Path: /fdp-d3d
@@ -111,7 +110,7 @@ DataFederations:
         AllowedOrigins:
           - FDP_OSDF_ORIGIN
         AllowedCaches:
-          - ANY
+          - FDP_OSDF_CACHE
       - Path: /nrp/so
         Authorizations:
           - PUBLIC
