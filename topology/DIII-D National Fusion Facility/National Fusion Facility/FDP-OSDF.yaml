@@ -20,7 +20,7 @@ Resources:
       Pelican cache:
         Description: OSDF cache server for FDP project
     AllowedVOs:
-      - ANY
+      - NRP
   
   FDP_OSDF_ORIGIN:
     Active: true
@@ -40,4 +40,4 @@ Resources:
       Pelican origin:
         Description: OSDF origin server for FDP project
     AllowedVOs:
-      - ANY
+      - NRP
