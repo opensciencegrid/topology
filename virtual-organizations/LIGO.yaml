@@ -172,6 +172,7 @@ DataFederations:
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_IFO
         AllowedCaches: *ligo-allowed-caches
+        DirList: https://origin-ifo.ligo.caltech.edu:1095
       - Path: /igwn/kagra
         Authorizations:
           - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
@@ -210,6 +211,7 @@ DataFederations:
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_SHARED
         AllowedCaches: *ligo-allowed-caches
+        DirList: https://origin-shared.ligo.caltech.edu:1095
       - Path: /igwn/cit
         Authorizations:
           - FQAN: /osg/ligo
@@ -229,6 +231,7 @@ DataFederations:
           - CIT_LIGO_ORIGIN_STAGING
         AllowedCaches: *ligo-allowed-caches
         Writeback: https://origin-staging.ligo.caltech.edu:1095
+        DirList: https://origin-staging.ligo.caltech.edu:1095
       - Path: /igwn/test
         Authorizations:
           - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
@@ -248,6 +251,7 @@ DataFederations:
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_TEST
         AllowedCaches: *ligo-allowed-caches
+        DirList: https://origin-readtest.ligo.caltech.edu:1095
       - Path: /igwn/test-write
         Authorizations:
           - FQAN: /osg/ligo
@@ -267,6 +271,7 @@ DataFederations:
           - CIT_LIGO_ORIGIN_TEST_WRITE
         AllowedCaches: *ligo-allowed-caches
         Writeback: https://origin-writetest.ligo.caltech.edu:1095
+        DirList: https://origin-writetest.ligo.caltech.edu:1095
       - Path: /gwdata
         Authorizations:
           - PUBLIC
@@ -276,3 +281,4 @@ DataFederations:
           - UCL-Virgo-StashCache-Origin
         AllowedCaches:
           - ANY
+        DirList: https://origin.ligo.caltech.edu:1094
