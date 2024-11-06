@@ -192,6 +192,7 @@ DataFederations:
         AllowedOrigins:
           - KAGRA_OSDF_ORIGIN
         AllowedCaches: *ligo-allowed-caches
+        DirList: https://kagra-dsr-b2.icrr.u-tokyo.ac.jp:1095
       - Path: /igwn/shared
         Authorizations:
           - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
