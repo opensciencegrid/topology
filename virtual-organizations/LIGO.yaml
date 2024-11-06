@@ -151,6 +151,7 @@ DataFederations:
         AllowedOrigins:
           - UCL-Virgo-StashCache-Origin
         AllowedCaches: *ligo-allowed-caches
+        DirList: https://ingrid-se09.cism.ucl.ac.be:1095
       - Path: /igwn/ligo
         Authorizations:
           - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
