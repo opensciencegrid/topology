@@ -13,6 +13,7 @@ Resources:
           Name: Marcio Antonio Costa
         Secondary:
           ID: 2f652c47255fc4d6b45f19667be57b8517ea006f
+          
           Name: Jadir Marra da Silva
       Security Contact:
           Primary:
@@ -24,7 +25,7 @@ Resources:
     FQDN: osdf-cache.sprace.org.br 
     DN: /C=BR/O=ANSP/OU=ANSPGrid CA/OU=Services/CN=osdf-cache.sprace.org.br
     Services:
-      XRootD cache server:
+      Pelican cache:
         Description: SPRACE OSDF cache
     AllowedVOs:
       - ANY
