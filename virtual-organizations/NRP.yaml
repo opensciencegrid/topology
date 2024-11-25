@@ -160,3 +160,13 @@ DataFederations:
           - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
+      - Path: /nrp/unl
+        Authorizations:
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/unl
+              Base Path: /nrp/unl
+              Map Subject: False
+        AllowedOrigins:
+          - NEBRASKA_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
