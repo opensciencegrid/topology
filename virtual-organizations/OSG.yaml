@@ -146,7 +146,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://ap20.uc.osg-htc.org:1094/ospool/ap20
-              Base Path: /ospool/ap20
+              Base Path: /ospool/ap20,/ospool/uc-shared/project
               Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap20
@@ -163,7 +163,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://ap21.uc.osg-htc.org:1094/ospool/ap21
-              Base Path: /ospool/ap21
+              Base Path: /ospool/ap21,/ospool/uc-shared/project
               Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap21
@@ -180,7 +180,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://ap22.uc.osg-htc.org:1094/ospool/ap22
-              Base Path: /ospool/ap22,/ospool/ap22/data,/ospool/uc-shared/project
+              Base Path: /ospool/ap22,/ospool/uc-shared/project
               Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap22
@@ -248,15 +248,24 @@ DataFederations:
               Base Path: /ospool/uc-shared/project
               Map Subject: True
           - SciTokens:
+              Issuer: https://ap20.uc.osg-htc.org:1094/ospool/ap20
+              Base Path: /ospool/ap20,/ospool/uc-shared/project
+              Map Subject: True
+          - SciTokens:
+              Issuer: https://ap21.uc.osg-htc.org:1094/ospool/ap21
+              Base Path: /ospool/ap21,/ospool/uc-shared/project
+              Map Subject: True
+          - SciTokens:
               Issuer: https://ap22.uc.osg-htc.org:1094/ospool/ap22
-              Base Path: /ospool/ap22,/ospool/ap22/data,/ospool/uc-shared/project
+              Base Path: /ospool/ap22,/ospool/uc-shared/project
               Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap23
+          - UChicago_OSGConnect_Pelican_Project_Origin
         AllowedCaches:
           - ANY
-        Writeback: https://ap23.uc.osg-htc.org:1095
-        DirList: https://ap23.uc.osg-htc.org:1095
+        Writeback: https://pelican-osdf-project.tempest.uchicago.edu:8443
+        DirList: https://pelican-osdf-project.tempest.uchicago.edu:8443
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool/uc-shared
