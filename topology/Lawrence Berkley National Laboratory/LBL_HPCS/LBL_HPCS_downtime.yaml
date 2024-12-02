@@ -53,6 +53,7 @@
   Services:
   - CE
 # ---------------------------------------------------------
+# THIS ONE WAS ACTUALLY CANCELLED LATER REPLACED BY THE ONE BELOW
 - Class: SCHEDULED
   ID: 1943419756
   Description: Power work
@@ -64,3 +65,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1981498547
+  Description: Power work
+  Severity: Outage
+  StartTime: Dec 01, 2024 20:00 +0000
+  EndTime: Dec 12, 2024 01:00 +0000
+  CreatedTime: Dec 02, 2024 14:30 +0000
+  ResourceName: LBL_HPCS_LRC
+  Services:
+  - CE
+  # ---------------------------------------------------------
