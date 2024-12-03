@@ -163,7 +163,7 @@ DataFederations:
       - Path: /nrp/unl
         Authorizations:
           - SciTokens:
-              Issuer: https://t.nationalresearchplatform.org/unl
+              Issuer: https://t.nationalresearchplatform.org/unl-nrp
               Base Path: /nrp/unl
               Map Subject: False
         AllowedOrigins:
