@@ -1,4 +1,83 @@
 - Class: SCHEDULED
+  ID: 1982446369
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 14, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446370
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 14, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446371
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 14, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_PACE_CE_ICECUBE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446372
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 14, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_PACE_CE_LIGO
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446373
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 14, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_PACE_CE_OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446374
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 14, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446375
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 14, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
   ID: 616857515
   Description: Quarterly Maintenance
   Severity: Outage
@@ -1011,4 +1090,3 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
-
