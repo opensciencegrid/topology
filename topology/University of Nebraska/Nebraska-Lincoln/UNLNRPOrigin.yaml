@@ -52,11 +52,7 @@ Resources:
     FQDN: nrdstor.nationalresearchplatform.org
     DN: /CN=nrdstor.nationalresearchplatform.org
     Services:
-      XRootD origin server:
-        # Description is a brief description of the service
+      Pelican origin:
         Description: Nebraska NRP HCC OSDF Origin
-        Details:
-          endpoint_override: nrdstor.nationalresearchplatform.org:8443
-          auth_endpoint_override: nrdstor.nationalresearchplatform.org:8443
     AllowedVOs:
       - ANY
