@@ -1,4 +1,4 @@
-GroupDescription: (No resource group description)
+GroupDescription: SLAC National Accelerator Laboraotry
 GroupID: 91
 Production: true
 Resources:
@@ -59,8 +59,8 @@ Resources:
       StorageCapacityMax: 100
       StorageCapacityMin: 5
       TapeCapacity: 0
-  WT2:
-    Active: false
+  WT2_CE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -75,16 +75,16 @@ Resources:
       CPU resource listed, which are virtually all owned by ATLAS, are actually maximum
       (average) resource one can expect over a period of time. Occasional usage can
       be much higher.
-    FQDN: osgserv06.slac.stanford.edu
+    FQDN: sdfarcce001.slac.stanford.edu
     ID: 91
     Services:
       CE:
-        Description: Compute Element
+        Description: ARC Compute Element
         Details:
           hidden: false
-          sam_uri: htcondor://osgserv06.slac.stanford.edu
+          #sam_uri: htcondor://osgserv06.slac.stanford.edu
     VOOwnership:
-      ATLAS: 100
+      ATLAS: 10
     WLCGInformation:
       APELNormalFactor: 12.49
       AccountingName: US-WT2
@@ -118,7 +118,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   WT2_SE:
-    Active: false
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -128,12 +128,12 @@ Resources:
         Primary:
           ID: cf2de3eba56782b901bade70fe8bc1c18c36dd90
           Name: Wei Yang
-    Description: SE at SLAC
-    FQDN: osggridftp02.slac.stanford.edu
+    Description: ATLAS Xrootd storage at SLAC
+    FQDN: sdfdtn005.slac.stanford.edu
     ID: 166
     Services:
-      GridFtp:
-        Description: GridFtp Storage Element
+      XRootD component:
+        Description: XRootD component
         Details:
           hidden: false
     VOOwnership:
