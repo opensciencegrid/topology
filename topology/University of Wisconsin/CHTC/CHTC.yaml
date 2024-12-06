@@ -656,4 +656,27 @@ Resources:
     VOOwnership:
       GLOW: 100
 
+  CHTC-townsend-submit:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Access Point
+    FQDN: townsend-submit.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
 SupportCenter: GLOW-TECH
