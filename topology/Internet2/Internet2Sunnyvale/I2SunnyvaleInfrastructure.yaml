@@ -17,10 +17,10 @@ Resources:
         Primary:
           Name: Fabio Andrijauskas
           ID: OSG1000162
-    FQDN: osg-sunnyvale-stashcache.t2.ucsd.edu
-    DN: /DC=org/DC=incommon/C=US/ST=California/O=University of California, San Diego/CN=osg-sunnyvale-stashcache.t2.ucsd.edu
+    FQDN: osg-sunnyvale-stashcache.nrp.internet2.edu
+    DN: /DC=org/DC=incommon/C=US/ST=Michigan/O=University Corporation For Advanced Internet Development/CN=osg-sunnyvale-stashcache.nrp.internet2.edu
     Services:
-      XRootD cache server:
+      Pelican cache:
         Description: Internet2Sunnyvale Cache
     AllowedVOs:
       - ANY

@@ -14,17 +14,33 @@ Credentials:
       Subject: 750e9609-485a-4ed4-bf16-d5cc46c71024
       URL: https://atlas-auth.web.cern.ch/
       DefaultUnixUser: usatlas3
+
+    # IAM development instances
+
+    - Description: ATLAS IAM development instance
+      Subject: 7dee38a3-6ab8-4fe2-9e4c-58039c21d817
+      URL: https://atlas-auth.cern.ch/
+      DefaultUnixUser: usatlas1
+    - Description: ATLAS SAM/ETF (development)
+      Subject: 5c5d2a4d-9177-3efa-912f-1b4e5c9fb660
+      URL: https://atlas-auth.cern.ch/
+      DefaultUnixUser: usatlas2
+    - Description: ATLAS analysis (development)
+      Subject: 750e9609-485a-4ed4-bf16-d5cc46c71024
+      URL: https://atlas-auth.cern.ch/
+      DefaultUnixUser: usatlas3
+
 Community: The ATLAS physics community.
 Contacts:
   Administrative Contact:
-  - ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+  - ID: OSG1000116
     Name: Xin Zhao
   - ID: 3b1876c30549a51501329cbb9678289fc786ac29
     Name: Frederick Luehring
   Security Contact:
   - ID: b48e7f038e5586a4c6bdc7515941f2decc359e7f
     Name: Shigeki Misawa
-  - ID: a688fe1904cfc91c2c5529eb898a13f9ebfbadbe
+  - ID: OSG1000116
     Name: Xin Zhao
   - ID: 3b1876c30549a51501329cbb9678289fc786ac29
     Name: Frederick Luehring

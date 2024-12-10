@@ -583,4 +583,106 @@
   ResourceName: Vanderbilt_Xrootd
   Services:
   - XRootD component
-
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1559162037
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 8, 2023 05:00 +0000
+  EndTime: Aug 11, 2023 05:00 +0000
+  CreatedTime: Aug 3, 2023 02:00 +0000
+  ResourceName: Vanderbilt_Gridftp
+  Services:
+  - GridFtp
+- Class: SCHEDULED
+  ID: 1559162038
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 8, 2023 05:00 +0000
+  EndTime: Aug 11, 2023 05:00 +0000
+  CreatedTime: Aug 3, 2023 02:00 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1559162039
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 8, 2023 05:00 +0000
+  EndTime: Aug 11, 2023 05:00 +0000
+  CreatedTime: Aug 3, 2023 02:00 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1559162040
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Aug 8, 2023 05:00 +0000
+  EndTime: Aug 11, 2023 05:00 +0000
+  CreatedTime: Aug 3, 2023 02:00 +0000
+  ResourceName: Vanderbilt_Xrootd
+  Services:
+  - XRootD component
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1670549018
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Dec 18, 2023 05:00 +0000
+  EndTime: Dec 21, 2023 05:00 +0000
+  CreatedTime: Dec 13, 2023 18:00 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1670549019
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Dec 18, 2023 05:00 +0000
+  EndTime: Dec 21, 2023 05:00 +0000
+  CreatedTime: Dec 13, 2023 18:00 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1670549020
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: Dec 18, 2023 05:00 +0000
+  EndTime: Dec 21, 2023 05:00 +0000
+  CreatedTime: Dec 13, 2023 18:00 +0000
+  ResourceName: Vanderbilt_Xrootd
+  Services:
+  - XRootD component
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1812904443
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: May 28, 2024 05:00 +0000
+  EndTime: May 31, 2024 05:00 +0000
+  CreatedTime: May 23, 2024 02:00 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1812904444
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: May 28, 2024 05:00 +0000
+  EndTime: May 31, 2024 05:00 +0000
+  CreatedTime: May 23, 2024 02:00 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1812904445
+  Description: Network upgrades
+  Severity: Outage
+  StartTime: May 28, 2024 05:00 +0000
+  EndTime: May 31, 2024 05:00 +0000
+  CreatedTime: May 23, 2024 02:00 +0000
+  ResourceName: Vanderbilt_Xrootd
+  Services:
+  - XRootD component

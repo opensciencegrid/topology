@@ -1,0 +1,29 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: Infrastructure for SURF-MS4
+Resources:
+  SURF_MS4_OSDF_STASHCACHE:
+    Active: true
+    Description: OSDF Cache at SURF-MS4 for LVK
+    ContactLists:
+      Administrative Contact:
+        Primary: 
+          Name: Jasmin Čolo
+          ID: OSG1000312
+        Secondary:
+          ID: OSG1000162
+          Name: Fabio Andrijauskas
+      Security Contact:
+        Primary:
+          Name: Jasmin Čolo
+          ID: OSG1000312
+        Secondary:
+          ID: OSG1000162
+          Name: Fabio Andrijauskas
+    FQDN: osg-cache.ms4.surfsara.nl
+    DN: /DC=org/DC=terena/DC=tcs/C=NL/ST=Utrecht/O=SURF B.V./CN=osg-cache.ms4.surfsara.nl
+    Services:
+      XRootD cache server:
+        Description: Cache at SURF-MS4 for LVK
+    AllowedVOs:
+      - ANY

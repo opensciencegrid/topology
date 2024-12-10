@@ -9,3 +9,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1903815939
+  Description: Downtime to test Pelican topology downtime integration
+  Severity: Outage
+  StartTime: Sep 4, 2024 12:00 -0600
+  EndTime: Sep 4, 2024 17:00 -0600
+  CreatedTime: Sep 4, 2024 11:00 -0600
+  ResourceName: CHTC-ITB-OSDF-PELICAN-ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------

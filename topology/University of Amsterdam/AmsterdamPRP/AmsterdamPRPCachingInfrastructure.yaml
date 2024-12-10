@@ -17,10 +17,10 @@ Resources:
         Primary:
           Name: Fabio Andrijauskas
           ID: OSG1000162
-    FQDN: fiona-r-uva.vlan7.uvalight.net
-    DN: /DC=org/DC=terena/DC=tcs/C=NL/ST=Noord-Holland/O=Universiteit van Amsterdam/CN=fiona-r-uva.vlan7.uvalight.net
+    FQDN: amst-fiona.nationalresearchplatform.org
+    DN: /CN=amst-fiona.nationalresearchplatform.org
     Services:
-      XRootD cache server:
+      Pelican cache:
         Description: University of Amsterdam Stashcache Caching Server
     AllowedVOs:
       - ANY

@@ -20,3 +20,85 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1523857764
+  Description: Downtime for OSG software update
+  Severity: Intermittent Outage
+  StartTime: Jun 22, 2023 13:00 +0000
+  EndTime: Jun 22, 2023 16:00 +0000
+  CreatedTime: Jun 21, 2023 22:16 +0000
+  ResourceName: Baylor-Kodiak-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1553875428
+  Description: Switching to new server
+  Severity: Intermittent Outage
+  StartTime: Jul 26, 2023 16:15 +0000
+  EndTime: Jul 26, 2023 16:45 +0000
+  CreatedTime: Jul 26, 2023 16:05 +0000
+  ResourceName: Baylor-Kodiak-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1570148706
+  Description: Maintenance
+  Severity: Outage
+  StartTime: Aug 14, 2023 14:00 +0000
+  EndTime: Aug 19, 2023 04:00 +0000
+  CreatedTime: Aug 14, 2023 12:07 +0000
+  ResourceName: Baylor-Kodiak-CE
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1696887320
+  Description: Maintenance
+  Severity: Severe
+  StartTime: Jan 08, 2024 15:00 +0000
+  EndTime: Jan 13, 2024 05:00 +0000
+  CreatedTime: Jan 08, 2024 04:38 +0000
+  ResourceName: Baylor-Kodiak-CE
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1812193642
+  Description: Scheduled maintenance
+  Severity: Outage
+  StartTime: May 20, 2024 14:00 +0000
+  EndTime: May 22, 2024 22:00 +0000
+  CreatedTime: May 20, 2024 15:36 +0000
+  ResourceName: Baylor-Kodiak-CE
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1894246811
+  Description: Scheduled maintenance
+  Severity: Outage
+  StartTime: Aug 19, 2024 15:00 +0000
+  EndTime: Aug 23, 2024 14:30 +0000
+  CreatedTime: Aug 23, 2024 14:51 +0000
+  ResourceName: Baylor-Kodiak-CE
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1894255721
+  Description: Additional upgrade work on CE & SE scheduled
+  Severity: Intermittent Outage
+  StartTime: Aug 23, 2024 17:00 +0000
+  EndTime: Aug 23, 2024 22:00 +0000
+  CreatedTime: Aug 23, 2024 15:06 +0000
+  ResourceName: Baylor-Kodiak-CE
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------

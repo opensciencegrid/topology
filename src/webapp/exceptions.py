@@ -25,10 +25,17 @@ class ResourceDataError(DataError):
         super().__init__(f"Resource {resource.name}, FQDN {resource.fqdn}: {text}")
 
 
-class ResourceMissingService(ResourceDataError):
-    def __init__(self, resource: "Resource", service_name: str):
-        self.service_name = service_name
-        super().__init__(resource=resource, text=f"Missing expected service {service_name}")
+class ResourceMissingServices(ResourceDataError):
+    def __init__(self, resource: "Resource", service_names):
+        if isinstance(service_names, str):
+            service_names = [service_names]
+        self.service_names = service_names
+        self.service_names_str = ", ".join(service_names)
+        super().__init__(
+            resource=resource,
+            text="None of the following expected services are available: " +
+                 self.service_names_str
+        )
 
 
 class VODataError(DataError):

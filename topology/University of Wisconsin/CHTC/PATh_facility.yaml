@@ -32,7 +32,7 @@ Resources:
       Administrative Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
@@ -42,7 +42,7 @@ Resources:
       Security Contact:
         Primary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
         Secondary:
           ID: OSG1000002
           Name: Matyas Selmeci
@@ -67,14 +67,14 @@ Resources:
           Name: Aaron Moate
         Secondary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
       Security Contact:
         Primary:
           ID: OSG1000015
           Name: Aaron Moate
         Secondary:
           ID: OSG1000003
-          Name: Brian Lin
+          Name: Brian Hua Lin
     Description: PATh Facility AP (originally OSPool submit node, see OPS-198)
     FQDN: ap1.facility.path-cc.io
     ID: 1421
@@ -83,3 +83,5 @@ Resources:
         Description: PATh Facility AP (originally OSPool submit node, see OPS-198)
         Details:
           hidden: false
+    Tags:
+      - OSPool

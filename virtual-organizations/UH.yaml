@@ -24,10 +24,21 @@ OASIS:
 DataFederations:
   StashCache:
     Namespaces:
-      - Path: /uhawaii/its
+      - Path: /uhitc
         Authorizations:
           - PUBLIC
         AllowedOrigins:
           - ITC_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /uhkoa
+        Authorizations:
+          - PUBLIC
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/uhkoa
+              Base Path: /uhkoa
+              Map Subject: False
+        AllowedOrigins:
+          - KOASTORE_OSDF_ORIGIN
         AllowedCaches:
           - ANY

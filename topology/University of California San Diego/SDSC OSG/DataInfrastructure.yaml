@@ -1,19 +1,8 @@
-# Production is true if the resource is for production and not testing use
 Production: false
-# SupportCenter is one of the support centers in topology/support-centers.yaml
 SupportCenter: Community Support Center
-
-# GroupDescription is a long description of the resource group; may be multiple lines.
 GroupDescription: Data infrastructure at SDSC
-
-# If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resourcegroup_id`
-# Otherwise, leave it blank and we will fill in the appropriate value for you.
 GroupID: 494
-
-# Resources contains one or more resources in this
-# ResourceGroup. A resource provides one or more services
 Resources:
-  # Resource Name should be a short descriptor of the resource.
   SDSC-MERRA2-Origin:
     Active: false
     Description: SDSC MERRA2 StashCache XRootD origin
@@ -26,22 +15,17 @@ Resources:
         Secondary:
           ID: bc36e7fe84fffcb5cf195fe09cc42336f5cd5d1f
           Name: Diego Davila
-
       Security Contact:
         Primary:
           Name: Igor Sfiligoi
           ID: 593daf4f680b3135849201036e1055f03f89cfac
-
     FQDN: stashcache-origin-merra2.nautilus.optiputer.net
-
     Services:
       XRootD origin server:
         Description: SDSC MERRA2 Origin Server, initally for XCache testing.
-
     AllowedVOs:
       - ANY
 
-  # Resource Name should be a short descriptor of the resource.
   SDSC-test-Origin:
     Active: true
     Description: OSDF origin test
@@ -50,18 +34,14 @@ Resources:
         Primary:
           Name: Fabio Andrijauskas
           ID: OSG1000162
-
       Security Contact:
         Primary:
           Name: Fabio Andrijauskas
           ID: OSG1000162
-
     FQDN: osdftest.t2.ucsd.edu
     ID: 1307
-
     Services:
       XRootD origin server:
         Description: OSDF origin test
-
     AllowedVOs:
       - ANY

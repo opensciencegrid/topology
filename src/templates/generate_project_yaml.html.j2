@@ -15,7 +15,7 @@
   "end_date", "end_time", "services", "generate"] %}
 
 {% block title -%}
-Resource Downtime YAML Generator
+Project YAML Generator
 {%- endblock %}
 
 {% block content %}
@@ -53,6 +53,12 @@ Resource Downtime YAML Generator
         </datalist>
         {{ M.render_field(form.project_name) }}
         {{ M.render_field(form.pi_department_or_organization) }}
+        {{ M.render_field(form.field_of_science_id, list="fields_of_science") }}
+        <datalist id="fields_of_science">
+            {% for fos in fields_of_science %}
+                <option value="{{ fos[0] }}">{{ fos[1] }}</option>
+            {% endfor %}
+        </datalist>
         {{ M.render_field(form.field_of_science) }}
         {{ M.render_field(form.description) }}
         <div class="row">
@@ -146,7 +152,7 @@ Resource Downtime YAML Generator
         function updateProjectName(){
             project_name_node.readOnly = false
 
-            if(!(pi_institution_node.value in institutions) || !pi_last_name_node.value){ return }
+            if(!(pi_institution_node.value in institutions) || !institutions[pi_institution_node.value] || !pi_last_name_node.value){ return }
 
             let pi_institution = institutions[pi_institution_node.value]
             let pi_last_name = pi_last_name_node.value

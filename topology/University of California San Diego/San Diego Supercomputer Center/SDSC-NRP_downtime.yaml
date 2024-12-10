@@ -9,3 +9,135 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1669795206
+  Description: HW problem
+  Severity: Outage
+  StartTime: Dec 07, 2023 15:30 +0000
+  EndTime: Dec 15, 2023 15:30 +0000
+  CreatedTime: Dec 07, 2023 20:05 +0000
+  ResourceName: SDSC_NRP_OSDF_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+  - Class: UNSCHEDULED
+  ID: 1705198277
+  Description: 'HW problems '
+  Severity: Outage
+  StartTime: Jan 15, 2024 20:30 +0000
+  EndTime: Jan 19, 2024 20:30 +0000
+  CreatedTime: Jan 17, 2024 19:30 +0000
+  ResourceName: SDSC_NRP_OSDF_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+  - Class: UNSCHEDULED
+  ID: 1729484800
+  Description: network issue
+  Severity: Outage
+  StartTime: Feb 14, 2024 20:30 +0000
+  EndTime: Feb 23, 2024 20:30 +0000
+  CreatedTime: Feb 14, 2024 22:08 +0000
+  ResourceName: SDSC_NRP_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1808852858
+  Description: HW issue
+  Severity: Outage
+  StartTime: May 13, 2024 19:30 +0000
+  EndTime: May 25, 2024 19:30 +0000
+  CreatedTime: May 16, 2024 18:48 +0000
+  ResourceName: SDSC_NRP_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1808853650
+  Description: HW issue
+  Severity: Outage
+  StartTime: May 13, 2024 19:30 +0000
+  EndTime: May 25, 2024 19:30 +0000
+  CreatedTime: May 16, 2024 18:49 +0000
+  ResourceName: SDSC_NRP_OSDF_S3_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1825239949
+  Description: toPelican
+  Severity: Outage
+  StartTime: Jun 03, 2024 08:01 +0000
+  EndTime: Jun 08, 2024 08:01 +0000
+  CreatedTime: Jun 04, 2024 17:59 +0000
+  ResourceName: SDSC_NRP_OSDF_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1842520649
+  Description: HW issue - storage
+  Severity: Outage
+  StartTime: Jun 23, 2024 19:30 +0000
+  EndTime: Jun 24, 2024 01:01 +0000
+  CreatedTime: Jun 24, 2024 18:01 +0000
+  ResourceName: SDSC_NRP_OSDF_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1886964689
+  Description: HW issue
+  Severity: Outage
+  StartTime: Aug 13, 2024 19:30 +0000
+  EndTime: Aug 16, 2024 19:00 +0000
+  CreatedTime: Aug 15, 2024 04:34 +0000
+  ResourceName: SDSC_NRP_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1928280241
+  Description: 'Storage maintenance '
+  Severity: Outage
+  StartTime: Sep 30, 2024 19:03 +0000
+  EndTime: Oct 04, 2024 19:30 +0000
+  CreatedTime: Oct 02, 2024 00:13 +0000
+  ResourceName: SDSC_NRP_OSDF_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1942926373
+  Description: HW issue
+  Severity: Outage
+  StartTime: Oct 17, 2024 19:30 +0000
+  EndTime: Oct 22, 2024 19:30 +0000
+  CreatedTime: Oct 18, 2024 23:03 +0000
+  ResourceName: SDSC_NRP_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1957420509
+  Description: Storage fix
+  Severity: Outage
+  StartTime: Nov 04, 2024 09:00 +0000
+  EndTime: Nov 06, 2024 20:30 +0000
+  CreatedTime: Nov 04, 2024 17:40 +0000
+  ResourceName: SDSC_NRP_OSDF_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1957422659
+  Description: Storage fix
+  Severity: Outage
+  StartTime: Nov 04, 2024 09:00 +0000
+  EndTime: Nov 06, 2024 20:30 +0000
+  CreatedTime: Nov 04, 2024 17:44 +0000
+  ResourceName: SDSC_NRP_OSDF_XENON_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------

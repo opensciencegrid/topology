@@ -1,0 +1,55 @@
+- Class: UNSCHEDULED
+  ID: 1589383507
+  Description: no network
+  Severity: Outage
+  StartTime: Aug 31, 2023 19:30 +0000
+  EndTime: Sep 29, 2023 19:30 +0000
+  CreatedTime: Sep 05, 2023 18:25 +0000
+  ResourceName: JACKSONVILLE_INTERNET2_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1745957949
+  Description: HW Issues
+  Severity: Severe
+  StartTime: Mar 04, 2024 20:30 +0000
+  EndTime: Mar 15, 2024 20:30 +0000
+  CreatedTime: Mar 04, 2024 23:43 +0000
+  ResourceName: JACKSONVILLE_INTERNET2_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1898041785
+  Description: HW issue
+  Severity: Outage
+  StartTime: Aug 26, 2024 08:01 +0000
+  EndTime: Aug 29, 2024 19:30 +0000
+  CreatedTime: Aug 28, 2024 00:16 +0000
+  ResourceName: JACKSONVILLE_INTERNET2_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1903809760
+  Description: HW Issue
+  Severity: Outage
+  StartTime: Sep 02, 2024 19:30 +0000
+  EndTime: Sep 30, 2024 19:30 +0000
+  CreatedTime: Sep 03, 2024 16:29 +0000
+  ResourceName: JACKSONVILLE_INTERNET2_OSDF_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1934308761
+  Description: Hurricane
+  Severity: Outage
+  StartTime: Oct 09, 2024 06:30 +0000
+  EndTime: Oct 09, 2024 07:30 +0000
+  CreatedTime: Oct 08, 2024 23:41 +0000
+  ResourceName: JACKSONVILLE_INTERNET2_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------

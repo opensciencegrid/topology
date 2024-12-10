@@ -1,0 +1,45 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: University of Wisconsin-Eau Claire
+
+Resources:
+  UWEC-BOSE-CE1:
+    Active: true
+    Description: Hosted CE serving UWEC
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+
+      Local Executive Contact:
+        Primary:
+          Name: Tyler Bauer
+          ID: OSG1000848
+        Secondary:
+          Name: UWEC LTS HPC mailing list
+          ID: ec590b27cd45d9c14f737463eca84b0c72ea5e38
+      Local Operational Contact:
+        Primary:
+          Name: Tyler Bauer
+          ID: OSG1000848
+        Secondary:
+          Name: UWEC LTS HPC mailing list
+          ID: ec590b27cd45d9c14f737463eca84b0c72ea5e38
+      Local Security Contact:
+        Primary:
+          Name: Tyler Bauer
+          ID: OSG1000848
+        Secondary:
+          Name: UWEC LTS HPC mailing list
+          ID: ec590b27cd45d9c14f737463eca84b0c72ea5e38
+
+    FQDN: uwec-bose-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Hosted CE

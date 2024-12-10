@@ -1,0 +1,277 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: Test Resource Group
+
+GroupID: 91359
+
+Resources:
+  TEST_STASHCACHE_CACHE:
+    Active: true
+    Description: This is a StashCache cache server at TEST.
+    ID: 99958
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: sc-cache.test.wisc.edu
+    DN: /CN=sc-cache.test.wisc.edu
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    VOOwnership:
+      testvo: 100
+    AllowedVOs:
+      - ANY
+
+  TEST_TIGER_CACHE:
+    Active: true
+    Description: This is a StashCache cache server at TEST running on the Tiger Kubernetes cluster.
+    ID: 91098
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: stash-cache.osg.test.io
+    DN: /CN=stash-cache.osg.test.io
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    VOOwnership:
+      testvo: 100
+    AllowedVOs:
+      - ANY
+
+  TEST_STASHCACHE_ORIGIN:
+    Active: true
+    Description: This is a StashCache origin server at TEST.
+    ID: 99959
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: sc-origin.test.wisc.edu
+    DN: /CN=sc-origin.test.wisc.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache origin server
+    VOOwnership:
+      testvo: 100
+    AllowedVOs:
+      - ANY
+
+  TEST_STASHCACHE_ORIGIN_2000:
+    Active: true
+    Description: This is a StashCache origin server at TEST.
+    ID: 91069
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: sc-origin2000.test.wisc.edu
+    DN: /CN=sc-origin2000.test.wisc.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache origin server
+    VOOwnership:
+      testvo: 100
+    AllowedVOs:
+      - ANY
+
+  TEST_STASHCACHE_ORIGIN_AUTH_2000:
+    Active: true
+    Description: This is a StashCache origin server at TEST.
+    ID: 91192
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: origin-auth2000.test.wisc.edu
+    FQDNAliases:
+      - origin-auth.test.wisc.edu
+    DN: /CN=origin-auth2000.test.wisc.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache origin server, see OPS-198
+    VOOwnership:
+      testvo: 100
+    AllowedVOs:
+      - ANY
+
+  TEST_OSGDEV_SHOVELER_CACHE:
+    Active: true
+    Description: This is a testing StashCache cache server with a shoveler at TEST running on the Tiger Kubernetes cluster.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: stash-cache-shoveler.osgdev.test.io
+    DN: /CN=stash-cache-shoveler.osgdev.test.io
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    VOOwnership:
+      testvo: 100
+    AllowedVOs:
+      - ANY
+
+  TEST-ITB-HELM-ORIGIN:
+    Active: false
+    Description: >-
+        This is a testing OSDF origin server on the Tiger cluster,
+        deployed via Helm. It serves both public and protected data.
+    ID: 91370
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    FQDN: helm-origin.osgdev.test.io
+    DN: /CN=helm-origin.osgdev.test.io
+    Services:
+      XRootD origin server:
+        Description: xrootd stash-origin and stash-origin-auth instances
+    VOOwnership:
+      testvo: 100
+    AllowedVOs:
+      - testvo
+
+  TEST-ITB-HELM-CACHE1-inactive:
+    Active: false
+    Description: >-
+      This is a testing StashCache cache server the Tiger cluster,
+      deployed via Helm.  It is inactive.
+    ID: 91339
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: helm-cache1.osgdev.test.io
+    DN: /CN=helm-cache1.osgdev.test.io
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    VOOwnership:
+      testvo: 100
+    AllowedVOs:
+      - testvo
+      - OSG
+
+  TEST-ITB-HELM-CACHE2-down:
+    Active: true
+    Description: >-
+      This is a testing StashCache cache server the Tiger cluster,
+      deployed via Helm. It is active but down
+    ID: 91340
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: helm-cache2.osgdev.test.io
+    DN: /CN=helm-cache2.osgdev.test.io
+    Services:
+      XRootD cache server:
+        Description: StashCache cache server
+    VOOwnership:
+      testvo: 100
+    AllowedVOs:
+      - testvo
+      - OSG

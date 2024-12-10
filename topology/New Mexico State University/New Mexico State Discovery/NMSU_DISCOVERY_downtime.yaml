@@ -48,4 +48,34 @@
   ResourceName: SLATE_US_NMSU_DISCOVERY
   Services:
   - CE
+- Class: SCHEDULED
+  ID: 1559162036
+  Description: Biannual Maintenance
+  Severity: Outage
+  StartTime: Aug 01, 2023 15:00 +0000
+  EndTime: Aug 16, 2023 06:59 +0000
+  CreatedTime: Aug 01, 2023 18:56 +0000
+  ResourceName: NMSU-Discovery-CE1
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1696997558
+  Description: Scheduled biannual cluster maintenance
+  Severity: Outage
+  StartTime: Jan 08, 2024 15:00 +0000
+  EndTime: Jan 22, 2024 08:00 +0000
+  CreatedTime: Jan 08, 2024 07:42 +0000
+  ResourceName: NMSU-Discovery-CE1
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 1903792728
+  Description: Scheduled biannual cluster maintenance
+  Severity: Outage
+  StartTime: Sep 03, 2024 14:00 +0000
+  EndTime: Sep 16, 2024 14:00 +0000
+  CreatedTime: Sep 03, 2024 16:00 +0000
+  ResourceName: NMSU-Discovery-CE1
+  Services:
+  - CE
 # ---------------------------------------------------------

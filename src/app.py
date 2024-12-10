@@ -8,20 +8,23 @@ from flask import Flask, Response, make_response, request, render_template, redi
 from io import StringIO
 import logging
 import os
+import random
 import re
 import sys
 import traceback
 import urllib.parse
 import requests
+import threading
 from wtforms import ValidationError
 from flask_wtf.csrf import CSRFProtect
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, escape, cache_control_private
-from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingService
+from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, \
+    escape, cache_control_private, PreJSON, is_true, GRIDTYPE_1, GRIDTYPE_2, NamespacesFilters
+from webapp.flask_common import create_accepted_response
+from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingServices
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
 from webapp.models import GlobalData
-from webapp.topology import GRIDTYPE_1, GRIDTYPE_2
 from webapp.oasis_managers import get_oasis_manager_endpoint_info
 from webapp.github import create_file_pr, update_file_pr, GithubUser, GitHubAuth, GitHubRepoAPI, GithubRequestException, GithubReferenceExistsException, GithubNotFoundException
 
@@ -115,6 +118,35 @@ else:
 csrf = CSRFProtect()
 csrf.init_app(app)
 
+#############################################################################
+# Background update thread
+# Run when the topology cache is 2/3 to expiration
+bg_update_freq = max(global_data.topology.cache_lifetime*2/3, 60) # seconds
+bg_update_thread = threading.Thread()
+
+def bg_update_run():
+    '''Background update task'''
+    app.logger.debug('Background update started')
+    global_data.update_topology()
+
+    # Add +/- 10% random offset to avoid thundering herds
+    delay = bg_update_freq
+    delay *= random.uniform(0.9, 1.1)
+
+    # Set next run
+    global bg_update_thread
+    bg_update_thread = threading.Timer(delay, bg_update_run, ())
+    bg_update_thread.daemon = True
+    bg_update_thread.start()
+    app.logger.info('Background update complete')
+
+# Start background update thread
+bg_update_thread = threading.Timer(bg_update_freq, bg_update_run, ())
+# Make it a daemon thread, so interpreter won't wait on it when exiting
+bg_update_thread.daemon = True
+bg_update_thread.start()
+#############################################################################
+
 
 def _fix_unicode(text):
     """Convert a partial unicode string to full unicode"""
@@ -178,6 +210,14 @@ def nsfscience_csv():
     response.headers.set("Content-Type", "text/csv")
     response.headers.set("Content-Disposition", "attachment", filename="nsfscience.csv")
     return response
+
+@app.route('/institution_ids')
+def institution_ids():
+    institution_ids = global_data.get_mappings().institution_ids
+    if not institution_ids:
+        return Response("Error getting Institution/OSG ID mappings: no mappings returned", status=503)
+
+    return Response(to_json_bytes(PreJSON(institution_ids)), mimetype='application/json')
 
 
 @app.route('/organizations')
@@ -263,6 +303,21 @@ def contacts():
     except (KeyError, AttributeError):
         app.log_exception(sys.exc_info())
         return Response("Error getting users", status=503)  # well, it's better than crashing
+
+@app.route('/api/institutions')
+def institutions():
+
+    resource_facilities = set(global_data.get_topology().facilities.keys())
+    project_facilities = set(x['Organization'] for x in global_data.get_projects()['Projects']['Project'])
+
+    facilities = project_facilities.union(resource_facilities)
+
+    facility_data = [["Institution Name", "Has Resource(s)", "Has Project(s)"]]
+    for facility in sorted(facilities):
+        facility_data.append([facility, facility in resource_facilities, facility in project_facilities])
+
+    return create_accepted_response(facility_data, request.headers, default="text/csv")
+
 
 
 @app.route('/miscproject/xml')
@@ -469,17 +524,17 @@ def scitokens():
             return Response(origin_scitokens, mimetype="text/plain")
     except ResourceNotRegistered as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating scitokens config for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting scitokens config, please contact help@osg-htc.org", status=503)
 
 
 @app.route("/osdf/namespaces")
@@ -489,22 +544,34 @@ def scitokens():
 def stashcache_namespaces_json():
     if not stashcache:
         return Response("Can't get scitokens config: stashcache module unavailable", status=503)
+    args = request.args
+    filters = NamespacesFilters()
+    filters.include_downed = is_true(args.get("include_downed", False))
+    filters.include_inactive = is_true(args.get("include_inactive", False))
+    if "production" not in args and "itb" not in args:
+        # default: include both production and itb
+        filters.production = True
+        filters.itb = True
+    else:
+        filters.production = is_true(request.args.get("production", False))
+        filters.itb = is_true(request.args.get("itb", False))
+
     try:
-        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data)),
+        return Response(to_json_bytes(stashcache.get_namespaces_info(global_data, filters=filters)),
                         mimetype='application/json')
     except ResourceNotRegistered as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating namespaces json file: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting namespaces json file, please contact help@opensciencegrid.org",
+        return Response("Server error getting namespaces json file, please contact help@osg-htc.org",
                         status=503)
 
 
@@ -536,19 +603,19 @@ def _get_cache_authfile(public_only):
                                  fqdn=cache_fqdn,
                                  legacy=app.config["STASHCACHE_LEGACY_AUTH"],
                                  suppress_errors=False)
-    except (ResourceNotRegistered, ResourceMissingService) as e:
+    except (ResourceNotRegistered, ResourceMissingServices) as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting authfile, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting authfile, please contact help@osg-htc.org", status=503)
     return Response(auth, mimetype="text/plain")
 
 
@@ -560,19 +627,19 @@ def _get_origin_authfile(public_only):
     try:
         auth = stashcache.generate_origin_authfile(global_data=global_data, fqdn=request.args['fqdn'],
                                                    suppress_errors=False, public_origin=public_only)
-    except (ResourceNotRegistered, ResourceMissingService) as e:
+    except (ResourceNotRegistered, ResourceMissingServices) as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating authfile for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting authfile, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting authfile, please contact help@osg-htc.org", status=503)
     return Response(auth, mimetype="text/plain")
 
 
@@ -590,17 +657,17 @@ def _get_scitoken_file(fqdn, get_scitoken_function):
 
     except ResourceNotRegistered as e:
         return Response("# {}\n"
-                        "# Please check your query or contact help@opensciencegrid.org\n"
+                        "# Please check your query or contact help@osg-htc.org\n"
                         .format(str(e)),
                         mimetype="text/plain", status=404)
     except DataError as e:
         app.logger.error("{}: {}".format(request.full_path, str(e)))
         return Response("# Error generating scitokens config for this FQDN: {}\n".format(str(e)) +
-                        "# Please check configuration in OSG topology or contact help@opensciencegrid.org\n",
+                        "# Please check configuration in OSG topology or contact help@osg-htc.org\n",
                         mimetype="text/plain", status=400)
     except Exception:
         app.log_exception(sys.exc_info())
-        return Response("Server error getting scitokens config, please contact help@opensciencegrid.org", status=503)
+        return Response("Server error getting scitokens config, please contact help@osg-htc.org", status=503)
 
 
 def _get_cache_scitoken_file():
@@ -796,11 +863,22 @@ def generate_resource_group_downtime():
 @app.route("/generate_project_yaml", methods=["GET", "POST"])
 def generate_project_yaml():
 
+    institution_api_data = requests.get(f"{global_data.config.get('INSTITUTIONS_API')}/institution_ids").json()
+    institution_short_names = {x[1]: x[0] for x in global_data.get_mappings().project_institution.items()}
+    institutions = []
+    for institution in institution_api_data:
+        institutions.append((institution_short_names.get(institution['name'], ""), institution['name']))
+
     def render_form(**kwargs):
-        institutions = list(global_data.get_mappings().project_institution.items())
         session.pop("form_data", None)
 
-        return render_template("generate_project_yaml.html.j2", form=form, infos=form.infos, institutions=institutions, **kwargs)
+        return render_template(
+            "generate_project_yaml.html.j2",
+            form=form,
+            infos=form.infos,
+            institutions=institutions,
+            fields_of_science=global_data.get_mappings().field_of_science.items(),
+            **kwargs)
 
     def validate_project_name(form, field):
         project_names = set(x['Name'] for x in global_data.get_projects()['Projects']['Project'])
@@ -809,6 +887,8 @@ def generate_project_yaml():
 
     form = GenerateProjectForm(request.form, **request.args, **session.get("form_data", {}))
     form.field_of_science.choices = _make_choices(global_data.get_mappings().nsfscience.keys(), select_one=True)
+
+
 
     # Add this validator if it is not their
     if not len(form.project_name.validators) > 1:
@@ -835,8 +915,8 @@ def generate_project_yaml():
         try:
             # Gather necessary data
             create_pr_response = create_file_pr(
-                file_path=f"data/{request.values['project_name']}.yaml",
-                file_content=form.get_yaml(),
+                file_path=f"projects/{request.values['project_name']}.yaml",
+                file_content=form.get_yaml(institution_api_data),
                 branch=f"add-project-{request.values['project_name']}",
                 message=f"Add Project {request.values['project_name']}",
                 committer=GithubUser.from_token(session["github_login"]['access_token']),
@@ -869,7 +949,7 @@ def generate_project_yaml():
     # Generate the yaml for manual addition
     if request.method == "POST" and "manual_submit" in request.form:
 
-        form.yaml_output.data = form.get_yaml()
+        form.yaml_output.data = form.get_yaml(institution_api_data)
         return render_form(form_complete=True)
 
     return render_form()
@@ -1050,6 +1130,18 @@ def _get_authorized():
 
     # If it gets here, then it is not authorized
     return default_authorized
+
+
+try:
+    from werkzeug.middleware.dispatcher import DispatcherMiddleware
+    from prometheus_client import make_wsgi_app
+    # Enable prometheus integration with the topology webapp
+    app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
+        '/metrics': make_wsgi_app()
+    })
+except ImportError:
+    print("*** /metrics endpoint unavailable: prometheus-client missing",
+          file=sys.stderr)
 
 
 if __name__ == '__main__':

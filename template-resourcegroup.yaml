@@ -7,10 +7,6 @@ SupportCenter: <NAME>
 # GroupDescription is a long description of the resource group; may be multiple lines.
 GroupDescription: This is a cluster of <SOMETHING> used for the <PROJECT>
 
-# If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
-# Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: <ID>
-
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
 Resources:
@@ -23,9 +19,6 @@ Resources:
     Active: false
     # Description is a long description of the resource; may be multiple lines
     Description: This is a <RESOURCE> for <SITE>.
-    # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
-    # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: <ID>
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
@@ -59,11 +52,58 @@ Resources:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
 
-      # Site contact (optional) are persons or groups of people (i.e.,
-      # mailing lists) that are generally responsible for a site's
-      # relationship with the OSG (e.g., principal investigators,
-      # local administrator contact for OSG Hosted CEs)
-      # Site Contact:
+      # (OPTIONAL) Executive Contacts are persons or groups of
+      # people (i.e., mailing lists) are responsible for making policy
+      # decisions regarding the site's integration with the OSG resource
+      # Executive Contact:
+        # Primary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # Local contacts are an optional set of persons or groups of
+      # people (i.e., mailing lists) if they are a different from the
+      # persons responsible for the resouce. For example, OSG Hosted
+      # CEs are operated by OSG Staff, who are separate from the local
+      # contacts that are responsible for running the site's scheduler
+
+      # (OPTIONAL) Local Executive Contacts are persons or groups of
+      # people (i.e., mailing lists) are responsible for making policy
+      # decisions regarding the site's integration with the OSG resource
+      # Local Executive Contact:
+        # Primary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # (OPTIONAL) Local Operaitonal Contacts are persons or groups of
+      # people (i.e., mailing lists) that are directly responsible for the
+      # maintenance of the site's integration with the OSG resource
+      # Local Operational Contact:
+        # Primary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # (OPTIONAL) Local Security Contacts are persons or groups of
+      # mailing lists) that are responsible for handling security
+      # issues related to the site's integration with the OSG resource
+      # Local Security Contact:
         # Primary:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>

@@ -98,3 +98,157 @@
   Services:
   - XRootD origin server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1680203660
+  Description: We want to move load to a different cache temporarily
+  Severity: Intermittent Outage
+  StartTime: Dec 19, 2023 21:12 +0000
+  EndTime: Jan 02, 2024 05:30 +0000
+  CreatedTime: Dec 19, 2023 21:12 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1693136667
+  Description: decreasing load so I can use it for testing
+  Severity: Intermittent Outage
+  StartTime: Jan 03, 2024 20:27 +0000
+  EndTime: Feb 07, 2024 02:27 +0000
+  CreatedTime: Jan 03, 2024 20:27 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1704566569
+  Description: Testing new origin software
+  Severity: Intermittent Outage
+  StartTime: Jan 17, 2024 01:57 +0000
+  EndTime: Feb 07, 2024 01:57 +0000
+  CreatedTime: Jan 17, 2024 01:57 +0000
+  ResourceName: CHTC_STASHCACHE_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1725128022
+  Description: decreasing load so I can use it for testing
+  Severity: Intermittent Outage
+  StartTime: Feb 09, 2024 21:06 +0000
+  EndTime: Feb 12, 2024 17:06 +0000
+  CreatedTime: Feb 09, 2024 21:06 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1729401775
+  Description: it's running slow
+  Severity: Intermittent Outage
+  StartTime: Feb 14, 2024 19:48 +0000
+  EndTime: Feb 24, 2024 05:59 +0000
+  CreatedTime: Feb 14, 2024 19:49 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1743168216
+  Description: testing...
+  Severity: Intermittent Outage
+  StartTime: Mar 01, 2024 18:00 +0000
+  EndTime: Mar 04, 2024 21:00 +0000
+  CreatedTime: Mar 01, 2024 18:13 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1748387171
+  Description: keep this down for a while
+  Severity: Intermittent Outage
+  StartTime: Mar 07, 2024 19:11 +0000
+  EndTime: Apr 09, 2024 19:11 +0000
+  CreatedTime: Mar 07, 2024 19:11 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1775938812
+  Description: sc-cache is still flapping when it gets used
+  Severity: Intermittent Outage
+  StartTime: Apr 08, 2024 16:30 +0000
+  EndTime: May 31, 2024 05:00 +0000
+  CreatedTime: Apr 08, 2024 16:31 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1825261289
+  Description: received complaints about overloading
+  Severity: Intermittent Outage
+  StartTime: Jun 04, 2024 18:35 +0000
+  EndTime: Jul 06, 2024 18:35 +0000
+  CreatedTime: Jun 04, 2024 18:35 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1860755453
+  Description: slow
+  Severity: Intermittent Outage
+  StartTime: Jul 15, 2024 20:32 +0000
+  EndTime: Aug 15, 2024 20:32 +0000
+  CreatedTime: Jul 15, 2024 20:32 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1885765227
+  Description: slow
+  Severity: Intermittent Outage
+  StartTime: Aug 13, 2024 19:15 +0000
+  EndTime: Sep 13, 2024 19:15 +0000
+  CreatedTime: Aug 13, 2024 19:15 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1927923446
+  Description: Cache is slow
+  Severity: Intermittent Outage
+  StartTime: Oct 01, 2024 14:18 +0000
+  EndTime: Nov 15, 2024 14:19 +0000
+  CreatedTime: Oct 01, 2024 14:19 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1928268871
+  Description: HW issue
+  Severity: Outage
+  StartTime: Oct 01, 2024 08:00 +0000
+  EndTime: Oct 10, 2024 15:30 +0000
+  CreatedTime: Oct 01, 2024 23:54 +0000
+  ResourceName: CHTC_PELICAN_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1981831413
+  Description: crashing
+  Severity: Outage
+  StartTime: Dec 02, 2024 23:43 +0000
+  EndTime: Dec 06, 2024 23:45 +0000
+  CreatedTime: Dec 02, 2024 23:45 +0000
+  ResourceName: CHTC_STASHCACHE_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------

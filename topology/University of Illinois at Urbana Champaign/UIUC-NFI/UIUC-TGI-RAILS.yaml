@@ -1,0 +1,24 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: This is the UIUC cluster for Taylor Geospatial Institute
+Resources:
+  UIUC-TGI-RAILS-CE1:
+    Active: true
+    Description: This is the UIUC cluster for Taylor Geospatial Institute
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Ashton Graves 
+          ID: OSG1000362
+      Security Contact:
+        Primary:
+          Name: Ashton Graves 
+          ID: OSG1000362
+    FQDN: uiuc-tgi-rails-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    Tags:
+      - CC*

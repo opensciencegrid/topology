@@ -29,19 +29,16 @@ ResourceAllocations:
   - Type: XRAC
     SubmitResources:
       - CHTC-XD-SUBMIT
+      - CHTC-ap40
     ExecuteResourceGroups:
       - GroupName: SDSC-Expanse
         LocalAllocationID: "cwr109"
-      # Bridges2
-      - GroupName: PSC-Bridges2
-        LocalAllocationID: "che200052p"
-      # Stampede2 (OSG allocation)
-      - GroupName: TACC-Stampede2
-        LocalAllocationID: "TG-DDM160003"
   - Type: Other
     SubmitResources:
       - CHTC-XD-SUBMIT
-      - UChicago_OSGConnect_login04
+      - CHTC-ap40
     ExecuteResourceGroups:
       - GroupName: TACC-Frontera
         LocalAllocationID: "CHE20009"
+InstitutionID: 'https://osg-htc.org/iid/3cqqrc2cgibl'
+FieldOfScienceID: '40.05'

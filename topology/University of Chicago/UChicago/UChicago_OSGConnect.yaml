@@ -14,17 +14,17 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: login04.osgconnect.net
     DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
     Services:
@@ -41,18 +41,18 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
 
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: login05.osgconnect.net
     DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
     Services:
@@ -69,30 +69,30 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: David Jordan
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          ID: OSG1000765
         Tertiary:
           Name: Farnaz Golnaraghi
           ID: OSG1000221
         Tertiary 2:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
 
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: David Jordan
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          ID: OSG1000765
         Tertiary:
           Name: Farnaz Golnaraghi
           ID: OSG1000221
         Tertiary 2:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: ap20.uc.osg-htc.org
     Services:
       Submit Node:
@@ -112,30 +112,30 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Farnaz Golnaraghi
           ID: OSG1000221
         Tertiary:
           Name: David Jordan
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          ID: OSG1000765
         Tertiary 2:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
 
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Farnaz Golnaraghi
           ID: OSG1000221
         Tertiary:
           Name: David Jordan
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          ID: OSG1000765
         Tertiary 2:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: ap21.uc.osg-htc.org
     Services:
       Submit Node:
@@ -155,30 +155,30 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: David Jordan
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          ID: OSG1000765
         Tertiary:
           Name: Farnaz Golnaraghi
           ID: OSG1000221
         Tertiary 2:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
 
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: David Jordan
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          ID: OSG1000765
         Tertiary:
           Name: Farnaz Golnaraghi
           ID: OSG1000221
         Tertiary 2:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: ap22.uc.osg-htc.org
     Services:
       Submit Node:
@@ -189,7 +189,7 @@ Resources:
       - OSPool
     AllowedVOs:
       - OSG
-
+15
   UChicago_OSGConnect_ap23:
     Active: true
     Description: The ap23.uc.osg-htc.org login node for the OSG Open Pool
@@ -198,37 +198,35 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Farnaz Golnaraghi
           ID: OSG1000221
         Tertiary:
           Name: David Jordan
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          ID: OSG1000765
         Tertiary 2:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
 
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Farnaz Golnaraghi
           ID: OSG1000221
         Tertiary:
           Name: David Jordan
-          ID: 3c60d9a835029389712c5f6cc30720bc5562519d
+          ID: OSG1000765
         Tertiary 2:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: ap23.uc.osg-htc.org
     Services:
       Submit Node:
         Description: OS Pool access point
-      XRootD origin server:
-        Description: OSG Connect Origin Server
-    Tags:
+    Tags:15
       - OSPool
     AllowedVOs:
       - OSG
@@ -244,17 +242,17 @@ Resources:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
         Secondary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Tertiary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: flock.opensciencegrid.org
     DN: /DC=org/DC=incommon/C=US/ST=Wisconsin/L=Madison/O=University of Wisconsin-Madison/OU=OCIS/CN=flock.opensciencegrid.org
     Services:
@@ -272,17 +270,17 @@ Resources:
           ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
         Secondary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Tertiary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: xd-login.opensciencegrid.org
     DN: /DC=org/DC=incommon/C=US/ST=Wisconsin/L=Madison/O=University of Wisconsin-Madison/OU=OCIS/CN=xd-login.opensciencegrid.org
     Services:
@@ -297,17 +295,17 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: login.veritas.ci-connect.net
     DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
     Services:
@@ -324,17 +322,17 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: duke-login.osgconnect.net
     DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=duke-login.osgconnect.net
     Services:
@@ -344,24 +342,24 @@ Resources:
       - OSPool
 
   UChicago_OSGConnect_ci-connect:
-    Active: true
+    Active: true15
     Description: The CI Connect access point
     ID: 1198
     ContactLists:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: login.ci-connect.uchicago.edu
     DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=login.ci-connect.uchicago.edu
     Services:
@@ -378,17 +376,17 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: login.xenon.ci-connect.net
     DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
     Services:
@@ -408,17 +406,17 @@ Resources:
           Name: Kenyi Hurtado Anampa
         Secondary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Tertiary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: login.cms.ci-connect.net
     DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=login.cms.ci-connect.net
     Services:
@@ -435,17 +433,17 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: login.snowmass21.io
     DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
     Services:
@@ -462,17 +460,17 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: login.collab.ci-connect.net
     DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
     Services:
@@ -489,17 +487,17 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: amundsen.grid.uchicago.edu
     DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=amundsen.grid.uchicago.edu
     Services:
@@ -516,17 +514,17 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: scott.grid.uchicago.edu
     DN: /DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=scott.grid.uchicago.edu
     Services:
@@ -534,3 +532,66 @@ Resources:
         Description: OS Pool access point
     Tags:
       - OSPool
+
+  UChicago_OSGConnect_Public_Origin:
+    Active: false
+    Description: OSG Connect Public endpoint
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000013
+          Name: Lincoln Bryant
+        Secondary:
+          ID: OSG1000016
+          Name: Judith Stephen
+    FQDN: osdf-public.tempest.uchicago.edu
+    DN: /CN=osdf-public.tempest.uchicago.edu
+    Services:
+      XRootD origin server:
+        Description: OSG Connect Public Origin Server
+    AllowedVOs:
+      - OSG
+
+  UChicago_OSGConnect_Pelican_Public_Origin:
+    Active: true
+    Description: OSG Connect Public endpoint
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000016
+          Name: Judith Stephen
+        Secondary:
+          ID: OSG1000765
+          Name: David Jordan
+        Tertiary:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+    FQDN: pelican-osdf-public.tempest.uchicago.edu
+    DN: /CN=pelican-osdf-public.tempest.uchicago.edu
+    Services:
+      Pelican origin:
+        Description: OSG Connect Public Origin Server
+    AllowedVOs:
+      - OSG
+
+  UChicago_OSGConnect_Pelican_Project_Origin:
+    Active: true
+    Description: OSG Connect Project Endpoint
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000016
+          Name: Judith Stephen
+        Secondary:
+          ID: OSG1000765
+          Name: David Jordan
+        Tertiary:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+    FQDN: pelican-osdf-project.tempest.uchicago.edu
+    DN: /CN=pelican-osdf-project.tempest.uchicago.edu
+    Services:
+      Pelican origin:
+        Description: OSG Connect Project Origin Server
+    AllowedVOs:
+      - OSG
