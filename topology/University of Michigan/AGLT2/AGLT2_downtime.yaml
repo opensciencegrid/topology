@@ -1420,5 +1420,17 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1988470112
+  Description: dCache nameSpace database down
+  Severity: Outage
+  StartTime: Dec 10, 2024 16:00 +0000
+  EndTime: Dec 11, 2024 17:00 +0000
+  CreatedTime: Dec 10, 2024 16:10 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  - WebDAV
+# ---------------------------------------------------------
 
   
