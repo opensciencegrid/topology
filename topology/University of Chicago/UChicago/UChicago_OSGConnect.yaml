@@ -189,7 +189,6 @@ Resources:
       - OSPool
     AllowedVOs:
       - OSG
-15
   UChicago_OSGConnect_ap23:
     Active: true
     Description: The ap23.uc.osg-htc.org login node for the OSG Open Pool
@@ -226,7 +225,7 @@ Resources:
     Services:
       Submit Node:
         Description: OS Pool access point
-    Tags:15
+    Tags:
       - OSPool
     AllowedVOs:
       - OSG
@@ -342,7 +341,7 @@ Resources:
       - OSPool
 
   UChicago_OSGConnect_ci-connect:
-    Active: true15
+    Active: true
     Description: The CI Connect access point
     ID: 1198
     ContactLists:
