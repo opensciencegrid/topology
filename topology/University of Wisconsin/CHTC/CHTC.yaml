@@ -686,17 +686,28 @@ Resources:
         Primary:
           ID: OSG1000015
           Name: Aaron Moate
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
       Security Contact:
         Primary:
           ID: OSG1000015
-          Name: Aaron Moate
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
     Description: CHTC Access Point
     FQDN: townsend-ap2000.chtc.wisc.edu
     FQDNAliases:
     - townsend-ap.chtc.wisc.edu
     Services:
       Submit Node:
-        Description: OS Pool access point
+        Description: OSPool access point
         Details:
           hidden: false
     Tags:
