@@ -243,3 +243,26 @@ Resources:
       GLOW: 100
     AllowedVOs:
       - ANY
+
+  CHTC_DOREA_ORIGIN:
+    Active: true
+    Description: This is an origin serving the Dorea Lab
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000670
+          Name: Theng Vang
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000670
+          Name: Theng Vang
+    FQDN: dorea-origin2000.chtc.wisc.edu
+    Services:
+      Pelican origin:
+        Description: Pelican origin server
