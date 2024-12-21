@@ -1577,6 +1577,61 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1997465237
+  Description: We have a severe rainstorm that impacted our network operations.
+  Severity: Outage
+  StartTime: Dec 20, 2024 18:00 +0000
+  EndTime: Jan 07, 2025 18:00 +0000
+  CreatedTime: Dec 21, 2024 02:02 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1997465718
+  Description: We have a severe rainstorm that impacted our network operations.
+  Severity: Outage
+  StartTime: Dec 20, 2024 18:00 +0000
+  EndTime: Jan 07, 2025 18:00 +0000
+  CreatedTime: Dec 21, 2024 02:02 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1997465958
+  Description: We have a severe rainstorm that impacted our network operations.
+  Severity: Outage
+  StartTime: Dec 20, 2024 18:00 +0000
+  EndTime: Jan 07, 2025 18:00 +0000
+  CreatedTime: Dec 21, 2024 02:03 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1997466173
+  Description: We have a severe rainstorm that impacted our network operations.
+  Severity: Outage
+  StartTime: Dec 20, 2024 18:00 +0000
+  EndTime: Jan 07, 2025 18:00 +0000
+  CreatedTime: Dec 21, 2024 02:03 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1997466341
+  Description: We have a severe rainstorm that impacted our network operations.
+  Severity: Outage
+  StartTime: Dec 20, 2024 18:00 +0000
+  EndTime: Jan 07, 2025 18:00 +0000
+  CreatedTime: Dec 21, 2024 02:03 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
 
 
