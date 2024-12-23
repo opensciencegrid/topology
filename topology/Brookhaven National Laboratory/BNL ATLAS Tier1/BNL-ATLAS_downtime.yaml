@@ -1833,4 +1833,115 @@
   Services:
   - WebDAV.tape
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1999861019
+  Description: BNL F&O Power Intervention
+  Severity: Outage
+  StartTime: Dec 30, 2024 14:00 +0000
+  EndTime: Dec 31, 2024 16:00 +0000
+  CreatedTime: Dec 23, 2024 20:35 +0000
+  ResourceName: BNL_ATLAS_01
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1999861895
+  Description: BNL F&O Power Intervention
+  Severity: Outage
+  StartTime: Dec 30, 2024 14:00 +0000
+  EndTime: Dec 31, 2024 16:00 +0000
+  CreatedTime: Dec 23, 2024 20:36 +0000
+  ResourceName: BNL_ATLAS_02
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1999862281
+  Description: BNL F&O Power Intervention
+  Severity: Outage
+  StartTime: Dec 30, 2024 14:00 +0000
+  EndTime: Dec 31, 2024 16:00 +0000
+  CreatedTime: Dec 23, 2024 20:37 +0000
+  ResourceName: BNL_ATLAS_03
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1999862452
+  Description: BNL F&O Power Intervention
+  Severity: Outage
+  StartTime: Dec 30, 2024 14:00 +0000
+  EndTime: Dec 31, 2024 16:00 +0000
+  CreatedTime: Dec 23, 2024 20:37 +0000
+  ResourceName: BNL_ATLAS_04
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1999862600
+  Description: BNL F&O Power Intervention
+  Severity: Outage
+  StartTime: Dec 30, 2024 14:00 +0000
+  EndTime: Dec 31, 2024 16:00 +0000
+  CreatedTime: Dec 23, 2024 20:37 +0000
+  ResourceName: BNL_ATLAS_06
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1999862787
+  Description: BNL F&O Power Intervention
+  Severity: Outage
+  StartTime: Dec 30, 2024 14:00 +0000
+  EndTime: Dec 31, 2024 16:00 +0000
+  CreatedTime: Dec 23, 2024 20:37 +0000
+  ResourceName: BNL_ATLAS_07
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1999862928
+  Description: BNL F&O Power Intervention
+  Severity: Outage
+  StartTime: Dec 30, 2024 14:00 +0000
+  EndTime: Dec 31, 2024 16:00 +0000
+  CreatedTime: Dec 23, 2024 20:38 +0000
+  ResourceName: BNL_ATLAS_08
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1999863720
+  Description: BNL F&O Power Intervention
+  Severity: Outage
+  StartTime: Dec 30, 2024 14:00 +0000
+  EndTime: Dec 31, 2024 16:00 +0000
+  CreatedTime: Dec 23, 2024 20:39 +0000
+  ResourceName: BNL_ATLAS_SE
+  Services:
+  - SRMv2.disk
+  - SRMv2.tape
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1999864571
+  Description: BNL F&O Power Intervention
+  Severity: Outage
+  StartTime: Dec 30, 2024 14:00 +0000
+  EndTime: Dec 31, 2024 16:00 +0000
+  CreatedTime: Dec 23, 2024 20:40 +0000
+  ResourceName: BNL_ATLAS_TAPE
+  Services:
+  - WebDAV.tape
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1999866503
+  Description: BNL F&O Power Intervention
+  Severity: Outage
+  StartTime: Dec 30, 2024 14:00 +0000
+  EndTime: Dec 31, 2024 16:00 +0000
+  CreatedTime: Dec 23, 2024 20:44 +0000
+  ResourceName: BNL_ATLAS_SE_GRIDFTP
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
 
