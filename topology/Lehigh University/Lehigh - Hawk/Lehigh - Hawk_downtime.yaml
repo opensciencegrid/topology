@@ -119,3 +119,15 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2008339833
+  Description: Cluster OS upgrade from Cent8 Stream to Alma9
+  Severity: Outage
+  StartTime: Jan 06, 2025 13:00 +0000
+  EndTime: Jan 10, 2025 22:00 +0000
+  CreatedTime: Jan 02, 2025 16:06 +0000
+  ResourceName: LEHIGH-HAWK-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+
