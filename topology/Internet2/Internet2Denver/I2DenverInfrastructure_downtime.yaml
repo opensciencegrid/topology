@@ -98,5 +98,15 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
-
+- Class: UNSCHEDULED
+  ID: 2008805383
+  Description: "Failed to pull image \"hub.openscie \u2502 \u2502 ncegrid.org/pelican_platform/osdf-cache:v7.11.8\""
+  Severity: Outage
+  StartTime: Jan 02, 2025 20:30 +0000
+  EndTime: Jan 10, 2025 20:30 +0000
+  CreatedTime: Jan 03, 2025 05:02 +0000
+  ResourceName: DENVER_INTERNET2_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
 
