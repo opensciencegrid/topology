@@ -7,7 +7,7 @@ GroupID: 1359
 
 Resources:
   CHTC_STASHCACHE_CACHE:
-    Active: true
+    Active: false
     Description: This is a Pelican cache server at UW.
     ID: 958
     ContactLists:
@@ -96,7 +96,7 @@ Resources:
       - ANY
 
   CHTC_STASHCACHE_ORIGIN_2000:
-    Active: true
+    Active: false
     Description: This is a StashCache origin server at UW.
     ID: 1069
     ContactLists:
