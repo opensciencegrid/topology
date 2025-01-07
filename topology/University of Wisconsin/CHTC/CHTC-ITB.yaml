@@ -411,6 +411,39 @@ Resources:
     AllowedVOs:
       - GLOW
 
+  CHTC-ITB-PELICANPLATFORM-ORIGIN:
+    Active: true
+    Description: >-
+      This is an origin used for serving /pelicanplatform in the ITB OSDF.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    FQDN: pelicanplatform-origin.osdf-dev.chtc.io
+    DN: /CN=pelicanplatform-origin.osdf-dev.chtc.io
+    Services:
+      Pelican origin:
+        Description: Origin for /pelicanplatform in ITB OSDF
+    AllowedVOs:
+      - GLOW
+
   ITB-OSDF-CHTC-ORIGIN:
     Active: true
     Description: >-
