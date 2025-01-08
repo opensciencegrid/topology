@@ -2,6 +2,11 @@ GroupDescription: CHTC resources used in the OSDF-ITB federation
 Production: false
 SupportCenter: Self Supported
 Resources:
+
+  #######################################################################
+  # Old, pre-Pelican resources
+  #######################################################################
+
   CHTC-ITB-HELM-ORIGIN:
     Active: false
     Description: >-
@@ -131,6 +136,11 @@ Resources:
         Description: Origin serving both authenticated and unauthenticated data
     AllowedVOs:
       - OSG
+
+
+  #######################################################################
+  # Pelican-based resources
+  #######################################################################
 
   CHTC-ITB-OSDF-PELICAN-ORIGIN:
     Active: true
