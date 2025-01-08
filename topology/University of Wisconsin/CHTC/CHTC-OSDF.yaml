@@ -6,9 +6,14 @@ GroupDescription: These are the OSDF resources at CHTC
 GroupID: 1359
 
 Resources:
+
+  #######################################################################
+  # Old, pre-Pelican resources
+  #######################################################################
+
   CHTC_STASHCACHE_CACHE:
-    Active: true
-    Description: This is a Pelican cache server at UW.
+    Active: false
+    Description: This was a Pelican cache server at UW.
     ID: 958
     ContactLists:
       Administrative Contact:
@@ -37,7 +42,7 @@ Resources:
 
   CHTC_TIGER_CACHE:
     Active: false
-    Description: This is a StashCache cache server at UW running on the Tiger Kubernetes cluster.
+    Description: This was a StashCache cache server at UW running on the Tiger Kubernetes cluster.
     ID: 1098
     ContactLists:
       Administrative Contact:
@@ -64,40 +69,9 @@ Resources:
     AllowedVOs:
       - ANY
 
-  CHTC_STASHCACHE_ORIGIN:
-    Active: true
-    Description: This is a Pelican origin server at UW serving /chtc/PUBLIC
-    ID: 959
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: OSG1000002
-          Name: Matyas Selmeci
-        Secondary:
-          ID: OSG1000015
-          Name: Aaron Moate
-      Security Contact:
-        Primary:
-          ID: OSG1000002
-          Name: Matyas Selmeci
-        Secondary:
-          ID: OSG1000015
-          Name: Aaron Moate
-    FQDN: sc-origin.chtc.wisc.edu
-    DN: /CN=sc-origin.chtc.wisc.edu
-    Services:
-      Pelican origin:
-        Description: Pelican origin server
-        Details:
-          endpoint_override: sc-origin.chtc.wisc.edu:1095
-    VOOwnership:
-      GLOW: 100
-    AllowedVOs:
-      - ANY
-
   CHTC_STASHCACHE_ORIGIN_2000:
-    Active: true
-    Description: This is a StashCache origin server at UW.
+    Active: false
+    Description: This was a StashCache origin server at UW.
     ID: 1069
     ContactLists:
       Administrative Contact:
@@ -126,7 +100,7 @@ Resources:
 
   CHTC_STASHCACHE_ORIGIN_AUTH_2000:
     Active: false
-    Description: This is a StashCache origin server at UW.
+    Description: This was a StashCache origin server at UW.
     ID: 1192
     ContactLists:
       Administrative Contact:
@@ -157,7 +131,7 @@ Resources:
 
   CHTC_NIH_ORIGIN:
     Active: false
-    Description: This is an origin server serving NIH image analysis data
+    Description: This was an origin server serving NIH image analysis data
     ID: 1454
     ContactLists:
       Administrative Contact:
@@ -184,7 +158,7 @@ Resources:
 
   CHTC_OSGDEV_SHOVELER_CACHE:
     Active: false
-    Description: This is a testing StashCache cache server with a shoveler at UW running on the Tiger Kubernetes cluster.
+    Description: This was a testing StashCache cache server with a shoveler at UW running on the Tiger Kubernetes cluster.
     ContactLists:
       Administrative Contact:
         Primary:
@@ -205,6 +179,42 @@ Resources:
     Services:
       XRootD cache server:
         Description: StashCache cache server
+    VOOwnership:
+      GLOW: 100
+    AllowedVOs:
+      - ANY
+
+
+  #######################################################################
+  # Pelican-based resources
+  #######################################################################
+
+  CHTC_STASHCACHE_ORIGIN:
+    Active: true
+    Description: This is a Pelican origin server at UW serving /chtc/PUBLIC
+    ID: 959
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: sc-origin.chtc.wisc.edu
+    DN: /CN=sc-origin.chtc.wisc.edu
+    Services:
+      Pelican origin:
+        Description: Pelican origin server
+        Details:
+          endpoint_override: sc-origin.chtc.wisc.edu:1095
     VOOwnership:
       GLOW: 100
     AllowedVOs:
