@@ -36,3 +36,14 @@ DataFederations:
           - NEBRASKA_NRP_HCC_OSDF_ORIGIN 
         AllowedCaches:
           - ANY
+      - Path: /sage-backup
+        Authorizations:
+           - SciTokens:
+              Issuer: https://sagecontinuum.org
+              Base Path: /sage
+              Map Subject: False
+        AllowedOrigins:
+          - PURDUE_OSDF_ORIGIN: 
+        AllowedCaches:
+          - ANY
+
