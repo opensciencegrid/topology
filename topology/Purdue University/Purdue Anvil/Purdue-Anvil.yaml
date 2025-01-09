@@ -91,3 +91,19 @@ Resources:
     Services:
       Execution Endpoint:
         Description: OSG backfill on Anvil's Kubernetes resource
+        
+  PURDUE_OSDF_ORIGIN:
+    Active: true
+    Description: Purdue OSDF Origin
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+    FQDN: purdue-origin.nationalresearchplatform.org
+    DN: /CN=purdue-origin.nationalresearchplatform.org
+    Services:
+      Pelican origin:
+        Description: Purdue OSDF Origin
+    AllowedVOs:
+      - ANY
