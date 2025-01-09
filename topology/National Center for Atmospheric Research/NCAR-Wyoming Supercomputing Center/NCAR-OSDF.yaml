@@ -53,3 +53,27 @@ Resources:
           auth_endpoint_override: ncar-s3-origin.nationalresearchplatform.org:8444
     AllowedVOs:
       - ANY
+  NCAR_OSDF_CACHE:
+    Active: true
+    Description: NCAR cache
+    ID: 10369
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+        Secondary:
+          ID: OSG1000162
+          Name: Fabio Andrijauskas
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+    DN: /CN=ncar-cache.nationalresearchplatform.org
+    FQDN: ncar-cache.nationalresearchplatform.org
+    Services:
+      Pelican origin:
+        Description: NCAR OSDF cache
+        Details:
+    AllowedVOs:
+      - ANY
