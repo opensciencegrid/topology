@@ -31,3 +31,14 @@
   Services:
   - XRootD origin server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2015332821
+  Description: network issue - no Internet
+  Severity: Outage
+  StartTime: Jan 09, 2025 20:03 +0000
+  EndTime: Jan 15, 2025 20:30 +0000
+  CreatedTime: Jan 10, 2025 18:21 +0000
+  ResourceName: NCAR_OSDF_CACHE
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
