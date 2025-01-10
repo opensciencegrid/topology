@@ -1,4 +1,83 @@
 - Class: SCHEDULED
+  ID: 2015289369
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289370
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289371
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_PACE_CE_ICECUBE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289372
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_PACE_CE_LIGO
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289373
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_PACE_CE_OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289374
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289375
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
   ID: 1982446369
   Description: Complete infrastructure migration to RHEL9 and OSG23
   Severity: Intermittent Outage
