@@ -1632,6 +1632,66 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015285142
+  Description: The university needs to perform some electrical maitenance that will
+    force us to shut down for a couple of days
+  Severity: Outage
+  StartTime: Jan 13, 2025 09:00 +0000
+  EndTime: Jan 15, 2025 14:00 +0000
+  CreatedTime: Jan 10, 2025 17:01 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015285362
+  Description: The university needs to perform some electrical maitenance that will
+    force us to shut down for a couple of days
+  Severity: Outage
+  StartTime: Jan 13, 2025 09:00 +0000
+  EndTime: Jan 15, 2025 14:00 +0000
+  CreatedTime: Jan 10, 2025 17:02 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015285448
+  Description: The university needs to perform some electrical maitenance that will
+    force us to shut down for a couple of days
+  Severity: Outage
+  StartTime: Jan 13, 2025 09:00 +0000
+  EndTime: Jan 15, 2025 14:00 +0000
+  CreatedTime: Jan 10, 2025 17:02 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015285534
+  Description: The university needs to perform some electrical maitenance that will
+    force us to shut down for a couple of days
+  Severity: Outage
+  StartTime: Jan 13, 2025 09:00 +0000
+  EndTime: Jan 15, 2025 14:00 +0000
+  CreatedTime: Jan 10, 2025 17:02 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015285623
+  Description: The university needs to perform some electrical maitenance that will
+    force us to shut down for a couple of days
+  Severity: Outage
+  StartTime: Jan 13, 2025 09:00 +0000
+  EndTime: Jan 15, 2025 14:00 +0000
+  CreatedTime: Jan 10, 2025 17:02 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
 
 
