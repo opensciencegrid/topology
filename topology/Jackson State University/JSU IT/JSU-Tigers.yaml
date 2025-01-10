@@ -39,3 +39,21 @@ Resources:
         Description: An OSPool Access Point to submit jobs to the OSPool.
     Tags:
       - OSPool
+
+  JSU-Tigers-CE1:
+    Active: false
+    Description: Hosted CE serving JSU
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+
+    FQDN: jsu-tigers-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Hosted CE

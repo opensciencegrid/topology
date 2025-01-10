@@ -19,3 +19,26 @@
   ResourceName: Stashcache-Manhattan
   Services:
   - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2009392812
+  Description: ImagePullBackOff
+  Severity: Outage
+  StartTime: Jan 03, 2025 21:00 +0000
+  EndTime: Jan 07, 2025 20:30 +0000
+  CreatedTime: Jan 03, 2025 21:21 +0000
+  ResourceName: Stashcache-Manhattan
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2014657721
+  Description: Network problem
+  Severity: Outage
+  StartTime: Jan 08, 2025 20:30 +0000
+  EndTime: Jan 14, 2025 20:30 +0000
+  CreatedTime: Jan 09, 2025 23:36 +0000
+  ResourceName: Stashcache-Manhattan
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
