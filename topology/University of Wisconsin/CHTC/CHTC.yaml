@@ -716,4 +716,39 @@ Resources:
     VOOwnership:
       GLOW: 100
 
+  CHTC-osg-sw-submit:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000358
+          Name: MATTHEW WESTPHALL
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000358
+          Name: MATTHEW WESTPHALL
+    Description: CHTC Access Point
+    FQDN: osg-sw-submit.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OSPool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
 SupportCenter: GLOW-TECH
