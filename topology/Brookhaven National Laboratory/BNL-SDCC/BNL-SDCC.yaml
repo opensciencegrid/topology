@@ -132,7 +132,6 @@ Resources:
   BNL-SDCC-CE11:
     Active: true
     Description: This is a compute cluster for SDCC.
-    ID: 
     ContactLists:
       Administrative Contact:
         Primary:
@@ -147,6 +146,26 @@ Resources:
           ID: b39de31776fc01735eff9678a851c2126a3680be
           Name: Doug Benjamin
     FQDN: spce11.sdcc.bnl.gov
+    Services:
+      CE:
+        Description: Shared Pool Compute Element
+  BNL-SDCC-SPOOLCE01:
+    Active: true
+    Description: This is a compute cluster for SDCC.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+
+      Security Contact:
+        Primary:
+          ID: OSG1000212
+          Name: Robert Hancock
+        Secondary:
+          ID: b39de31776fc01735eff9678a851c2126a3680be
+          Name: Doug Benjamin
+    FQDN: spoolce01.sdcc.bnl.gov
     Services:
       CE:
         Description: Shared Pool Compute Element
