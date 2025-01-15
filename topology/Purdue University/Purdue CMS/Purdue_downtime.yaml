@@ -2461,3 +2461,14 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2019653048
+  Description: OS upgrade for Slurm controller and CE
+  Severity: Outage
+  StartTime: Jan 22, 2025 11:00 +0000
+  EndTime: Jan 22, 2025 22:00 +0000
+  CreatedTime: Jan 15, 2025 18:21 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
