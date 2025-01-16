@@ -19,3 +19,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2014661104
+  Description: offline - checking with the admin
+  Severity: Outage
+  StartTime: Jan 08, 2025 20:30 +0000
+  EndTime: Jan 14, 2025 20:30 +0000
+  CreatedTime: Jan 09, 2025 23:41 +0000
+  ResourceName: JINR_STASHCACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------

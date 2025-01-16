@@ -2153,4 +2153,322 @@
   Services:
   - CE
 # ---------------------------------------------------------
-
+- Class: UNSCHEDULED
+  ID: 1999808692
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808693
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808694
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: Purdue-EOS-SE
+  Services:
+  - EOS
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808695
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: Purdue-Gautschi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808696
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808697
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808698
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808699
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808700
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808701
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808702
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808703
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808704
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: US-Purdue BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1999808705
+  Description: Storage outage - will affect all computing too
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:06 +0000
+  EndTime: Dec 31, 2024 23:00 +0000
+  CreatedTime: Dec 23, 2024 19:07 +0000
+  ResourceName: US-Purdue LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237572
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 08, 2025 19:30 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237573
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 08, 2025 19:30 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237574
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 17, 2025 22:55 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: Purdue-EOS-SE
+  Services:
+  - EOS
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237575
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 08, 2025 19:30 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: Purdue-Gautschi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237576
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 10, 2025 22:55 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: Purdue-Hadoop-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237577
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 10, 2025 22:55 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237578
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 08, 2025 19:30 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237579
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 08, 2025 19:30 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237580
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 08, 2025 19:30 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237581
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 08, 2025 19:30 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: Purdue-Rice
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237582
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 08, 2025 19:30 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237583
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 08, 2025 19:30 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237584
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 08, 2025 19:30 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: US-Purdue BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005237585
+  Description: ongoing storage outage
+  Severity: Outage
+  StartTime: Dec 23, 2024 09:00 +0000
+  EndTime: Jan 08, 2025 19:30 +0000
+  CreatedTime: Dec 30, 2024 01:55 +0000
+  ResourceName: US-Purdue LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2019653048
+  Description: OS upgrade for Slurm controller and CE
+  Severity: Outage
+  StartTime: Jan 22, 2025 11:00 +0000
+  EndTime: Jan 22, 2025 22:00 +0000
+  CreatedTime: Jan 15, 2025 18:21 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------

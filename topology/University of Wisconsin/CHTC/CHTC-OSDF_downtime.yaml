@@ -252,3 +252,14 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2020480474
+  Description: Testing upgrade to Pelican 7.12.0
+  Severity: Outage
+  StartTime: Jan 16, 2025 16:20 +0000
+  EndTime: Jan 16, 2025 19:30 +0000
+  CreatedTime: Jan 16, 2025 17:20 +0000
+  ResourceName: CHTC_PELICAN_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
