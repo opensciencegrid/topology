@@ -4,7 +4,8 @@ GroupID: 1105
 GroupDescription: This is the LSU - Deep Bayou cluster
 Resources:
   LSU-DB-CE1:
-    Active: true
+    # Permanently decommissioned 2025-01-17 at site request, do not re-activate (FD #78639)
+    Active: false
     ID: 1395
     Description: The Hosted CE serving LSU - Deep Bayou
     ContactLists:
