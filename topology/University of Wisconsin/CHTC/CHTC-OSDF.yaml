@@ -276,3 +276,36 @@ Resources:
     Services:
       Pelican origin:
         Description: Pelican origin server
+
+  CHTC_PELICANPLATFORM_ORIGIN:
+    Active: true
+    Description: >-
+      This is an origin used for serving /pelicanplatform in the OSDF.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    FQDN: pelicanplatform-origin.osdf-prod.chtc.io
+    DN: /CN=pelicanplatform-origin.osdf-prod.chtc.io
+    Services:
+      Pelican origin:
+        Description: Origin for /pelicanplatform in OSDF
+    AllowedVOs:
+      - ANY
