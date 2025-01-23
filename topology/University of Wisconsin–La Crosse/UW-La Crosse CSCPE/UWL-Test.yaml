@@ -127,20 +127,9 @@ Resources:
 
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
-    # Services:
-      # <SERVICE NAME>:
-        # Description is a brief description of the service
-        # Description: <TEXT>
-        ### Details (optional)
-        # Details:
-        #   # hidden
-        #   hidden: false
-        #   ### uri_override (optional, use if your service is on some non-standard URL)
-        #   # uri_override: <HOST>:<PORT>
-        #   ### sam_uri (optional)
-        #   # sam_uri: htcondor://...
-        #   ### endpoint (for perfSONAR services)
-        #   # endpoint: <HOSTNAME>
+    Services:
+      Execution Endpoint:
+        Description: Container EPs contributing to the OSPool
 
       # Other services if you have any
       # <SERVICE NAME>:
@@ -148,9 +137,8 @@ Resources:
 
     ### Tags (optional) is a list of tags associated with the resource.
     ### Include the tag "CC*" if applicable for a CC* CE.
-    # Tags:
-    #   - <TAG1>
-    #   - <TAG2>
+    Tags:
+      - OSPool
 
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
     ### If part of the resource is not owned by the VO, do not list it.
