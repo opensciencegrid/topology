@@ -64,3 +64,27 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2014661978
+  Description: offline - checking with the admin
+  Severity: Outage
+  StartTime: Jan 08, 2025 20:30 +0000
+  EndTime: Jan 14, 2025 20:30 +0000
+  CreatedTime: Jan 09, 2025 23:43 +0000
+  ResourceName: ComputeCanada-Cedar-Cache
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2020581750
+  Description: systems at SFU are down for a week for electrical and cooling work
+  Severity: Outage
+  StartTime: Jan 13, 2025 20:30 +0000
+  EndTime: Jan 24, 2025 20:30 +0000
+  CreatedTime: Jan 16, 2025 20:09 +0000
+  ResourceName: ComputeCanada-Cedar-Cache
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+
+
