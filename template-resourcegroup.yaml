@@ -20,9 +20,9 @@ Resources:
     # Description is a long description of the resource; may be multiple lines
     Description: This is a <RESOURCE> for <SITE>.
     # ContactLists contain information about people to contact regarding this resource.
-    # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
-    # If you cannot find the contact above XML, please register the contact:
-    # https://opensciencegrid.org/docs/common/registration/#registering-contacts
+    # The "ID" of a user or email list can be found at https://topology.opensciencegrid.org/contacts
+    # If you cannot find the ID, plesae follow the docs at
+    # https://osg-htc.org/docs/common/contact-registration/
     ContactLists:
       # Administrative Contacts are persons or groups of people (i.e.,
       # mailing lists) that are directly responsible for the
@@ -148,6 +148,7 @@ Resources:
 
     ### Tags (optional) is a list of tags associated with the resource.
     ### Include the tag "CC*" if applicable for a CC* CE.
+    ### Resources contributing to the OSPool should have the "OSPool" tag.
     # Tags:
     #   - <TAG1>
     #   - <TAG2>
