@@ -1,0 +1,43 @@
+AppDescription: This VO supports multiple sciences on MO university
+CertificateOnly: false
+Community: MO NRP origin
+Contacts:
+  Administrative Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas 
+  Security Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas 
+  VO Manager:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas 
+FieldsOfScience:
+  PrimaryFields:
+  - Multi-Science Community
+ID: 
+LongName: National research platform origin
+PrimaryURL: https://nationalresearchplatform.org
+PurposeURL: https://nationalresearchplatform.org
+ReportingGroups:
+- nrp
+SupportURL: https://nationalresearchplatform.org
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /nrp
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /nrp/protected/sio/MODIS_Aqua_microphysics_images/
+        Authorizations:
+          - SciTokens:
+              Issuer: https://token.nationalresearchplatform.org/modis
+              Base Path: /nrp/protected/sio/MODIS_Aqua_microphysics_images/
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
