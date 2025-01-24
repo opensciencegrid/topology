@@ -7,10 +7,6 @@ SupportCenter: Self Supported
 # GroupDescription is a long description of the resource group; may be multiple lines.
 GroupDescription: University of California, Merced
 
-# If you have an up-to-date local git clone, fill GroupID with the output from `bin/next_resource_group_id`
-# Otherwise, leave it blank and we will fill in the appropriate value for you.
-GroupID: 
-
 # Resources contains one or more resources in this
 # ResourceGroup. A resource provides one or more services
 Resources:
@@ -23,9 +19,6 @@ Resources:
     Active: true
     # Description is a long description of the resource; may be multiple lines
     Description: Hosted CE serving UCMerced Pinnacles
-    # If you have an up-to-date local git clone, fill ID with the output from `bin/next_resource_id`
-    # Otherwise, leave it blank and we will fill in the appropriate value for you.
-    ID: 
     # ContactLists contain information about people to contact regarding this resource.
     # The "ID" is a hash of their email address available at https://topology.opensciencegrid.org/miscuser/xml
     # If you cannot find the contact above XML, please register the contact:
