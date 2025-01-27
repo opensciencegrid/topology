@@ -1,4 +1,4 @@
-FROM opensciencegrid/software-base:3.6-al8-release
+FROM hub.opensciencegrid.org/opensciencegrid/software-base:24-el8-release
 
 # Install dependencies (application, Apache)
 RUN \
@@ -51,3 +51,5 @@ COPY docker/apache.conf /etc/httpd/conf.d/topology.conf
 COPY docker/supervisor-apache.conf /etc/supervisord.d/40-apache.conf
 
 EXPOSE 8080/tcp 8443/tcp
+
+ENV ENABLE_SHA1=YES
