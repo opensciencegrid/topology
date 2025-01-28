@@ -152,4 +152,15 @@
   Services:
   - XRootD origin server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2030047774
+  Description: pelican Upgrade
+  Severity: Outage
+  StartTime: Jan 27, 2025 09:00 +0000
+  EndTime: Jan 28, 2025 20:30 +0000
+  CreatedTime: Jan 27, 2025 19:06 +0000
+  ResourceName: SDSC_NRP_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
 
