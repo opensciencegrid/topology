@@ -189,6 +189,46 @@ Resources:
       - OSPool
     AllowedVOs:
       - OSG
+
+  UChicago_OSGConnect_ap22_pelican:
+    Active: true
+    Description: The pelican service for ap22.uc.osg-htc.org
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: OSG1000016
+        Secondary:
+          Name: David Jordan
+          ID: OSG1000765
+        Tertiary:
+          Name: Farnaz Golnaraghi
+          ID: OSG1000221
+        Tertiary 2:
+          Name: Lincoln Bryant
+          ID: OSG1000013
+      Security Contact:
+        Primary:
+          Name: Judith Stephen
+          ID: OSG1000016
+        Secondary:
+          Name: David Jordan
+          ID: OSG1000765
+        Tertiary:
+          Name: Farnaz Golnaraghi
+          ID: OSG1000221
+        Tertiary 2:
+          Name: Lincoln Bryant
+          ID: OSG1000013
+    FQDN: ap22-pelican.grid.uchicago.edu
+    Services:
+      Pelican origin:
+        Description: The pelican service for ap22.uc.osg-htc.org
+    Tags:
+      - OSPool
+    AllowedVOs:
+      - OSG
+
   UChicago_OSGConnect_ap23:
     Active: true
     Description: The ap23.uc.osg-htc.org login node for the OSG Open Pool
