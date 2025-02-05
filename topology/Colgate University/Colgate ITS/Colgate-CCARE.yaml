@@ -1,27 +1,3 @@
-GroupDescription: Colgate University Research DMZ Gateway
-Production: true
-Resources:
-  Colgate-CCARE-EP:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 
-          Name: Kyriakos Tsoukalas
-      Security Contact:
-        Primary:
-          ID: 
-          Name: Kyriakos Tsoukalas
-    Description: Execution Point
-    FQDN: osg.dmz.research.colgate.edu
-    Services:
-      Submit Node:
-        Description: Slurm scheduler
-        Details:
-          hidden: false
-    Tags:
-      - OSPool
-SupportCenter: Self Supported
-
 # Production is true if the resources in this group will join the production OSG pool,
 # and not the Integration Test Bed (ITB) pool.
 Production: true
