@@ -128,9 +128,9 @@ Resources:
     # Services is one or more services provided by this resource;
     # valid services are listed in topology/services.yaml with the format "<SERVICE NAME>: <ID>"
     Services:
-      GPU-Compute:
+      Colgate-CCARE-EP:
         # Description is a brief description of the service
-        Description: NVIDIA H100 GPU Compute
+        Description: 4x NVIDIA H100 GPU Compute
         ### Details (optional)
         # Details:
         #   # hidden
@@ -143,8 +143,6 @@ Resources:
         #   # endpoint: <HOSTNAME>
 
       # Other services if you have any
-      Slurm:
-        Description: Slurm batch scheduler
       # ...
 
     ### Tags (optional) is a list of tags associated with the resource.
