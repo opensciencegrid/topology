@@ -45,9 +45,21 @@
   Description: Storage problem
   Severity: Outage
   StartTime: Feb 03, 2025 09:00 +0000
-  EndTime: Feb 14, 2025 20:30 +0000
+  EndTime: Feb 05, 2025 20:30 +0000
   CreatedTime: Feb 03, 2025 18:07 +0000
   ResourceName: Stashcache-Kansas
   Services:
   - Pelican cache
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2038816539
+  Description: 'Storage issue: read only - probably SSD/HDD problem'
+  Severity: Outage
+  StartTime: Feb 05, 2025 09:00 +0000
+  EndTime: Feb 14, 2025 20:30 +0000
+  CreatedTime: Feb 06, 2025 22:40 +0000
+  ResourceName: Stashcache-Kansas
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+
