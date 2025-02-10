@@ -131,48 +131,6 @@ Resources:
       Execution Endpoint:
         # Description is a brief description of the service
         Description: 4x NVIDIA H100 GPU Compute
-        ### Details (optional)
-        # Details:
-        #   # hidden
-        #   hidden: false
-        #   ### uri_override (optional, use if your service is on some non-standard URL)
-        #   # uri_override: <HOST>:<PORT>
-        #   ### sam_uri (optional)
-        #   # sam_uri: htcondor://...
-        #   ### endpoint (for perfSONAR services)
-        #   # endpoint: <HOSTNAME>
 
-      # Other services if you have any
-      # ...
-
-    ### Tags (optional) is a list of tags associated with the resource.
-    ### Include the tag "CC*" if applicable for a CC* CE.
-    # Tags:
-    #   - <TAG1>
-    #   - <TAG2>
-
-    ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
-    ### If part of the resource is not owned by the VO, do not list it.
-    ### The total percentage cannot exceed 100.
-    # VOOwnership:
-    #   <VO1>: <PERCENT>
-    #   <VO2>: <PERCENT>
-
-    ### WLCGInformation (optional) is only for resources that are part of the WLCG
-    # WLCGInformation:
-    #   APELNormalFactor: 0.0
-    #   HEPScore23Percentage: 0.0
-    #   AccountingName: <name>
-    #   HEPSPEC: 0
-    #   InteropAccounting: true
-    #   InteropBDII: true
-    #   InteropMonitoring: true
-    #   KSI2KMax: 0
-    #   KSI2KMin: 0
-    #   StorageCapacityMax: 0
-    #   StorageCapacityMin: 0
-    #   TapeCapacity: 0
-
-  # Other resources if you have any...
-  # <RESOURCE NAME>:
-  # ...
+    Tags:
+      - "CC*"
