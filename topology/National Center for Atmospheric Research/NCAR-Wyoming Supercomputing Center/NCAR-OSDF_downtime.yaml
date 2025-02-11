@@ -42,3 +42,36 @@
   Services:
   - Pelican origin
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2043097563
+  Description: 'Filesystem maintenance '
+  Severity: Outage
+  StartTime: Feb 11, 2025 09:00 +0000
+  EndTime: Feb 13, 2025 20:30 +0000
+  CreatedTime: Feb 11, 2025 21:35 +0000
+  ResourceName: NCAR_OSDF_CACHE
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2043097564
+  Description: 'Filesystem maintenance '
+  Severity: Outage
+  StartTime: Feb 11, 2025 09:00 +0000
+  EndTime: Feb 13, 2025 20:30 +0000
+  CreatedTime: Feb 11, 2025 21:35 +0000
+  ResourceName: NCAR_OSDF_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2043097565
+  Description: 'Filesystem maintenance '
+  Severity: Outage
+  StartTime: Feb 11, 2025 09:00 +0000
+  EndTime: Feb 13, 2025 20:30 +0000
+  CreatedTime: Feb 11, 2025 21:35 +0000
+  ResourceName: NCAR_OSDF_S3_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
