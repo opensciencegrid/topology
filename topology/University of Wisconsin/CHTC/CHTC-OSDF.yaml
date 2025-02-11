@@ -69,35 +69,6 @@ Resources:
     AllowedVOs:
       - ANY
 
-  CHTC_STASHCACHE_ORIGIN_2000:
-    Active: false
-    Description: This was a StashCache origin server at UW.
-    ID: 1069
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: OSG1000002
-          Name: Matyas Selmeci
-        Secondary:
-          ID: OSG1000015
-          Name: Aaron Moate
-      Security Contact:
-        Primary:
-          ID: OSG1000002
-          Name: Matyas Selmeci
-        Secondary:
-          ID: OSG1000015
-          Name: Aaron Moate
-    FQDN: sc-origin2000.chtc.wisc.edu
-    DN: /CN=sc-origin2000.chtc.wisc.edu
-    Services:
-      XRootD origin server:
-        Description: StashCache origin server
-    VOOwnership:
-      GLOW: 100
-    AllowedVOs:
-      - ANY
-
   CHTC_STASHCACHE_ORIGIN_AUTH_2000:
     Active: false
     Description: This was a StashCache origin server at UW.
