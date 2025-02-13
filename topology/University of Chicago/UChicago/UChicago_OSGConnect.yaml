@@ -185,45 +185,8 @@ Resources:
         Description: OS Pool access point
       XRootD origin server:
         Description: OSG Connect Origin Server
-    Tags:
-      - OSPool
-    AllowedVOs:
-      - OSG
-
-  UChicago_OSGConnect_ap22_pelican:
-    Active: true
-    Description: The pelican service for ap22.uc.osg-htc.org
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          Name: Judith Stephen
-          ID: OSG1000016
-        Secondary:
-          Name: David Jordan
-          ID: OSG1000765
-        Tertiary:
-          Name: Farnaz Golnaraghi
-          ID: OSG1000221
-        Tertiary 2:
-          Name: Lincoln Bryant
-          ID: OSG1000013
-      Security Contact:
-        Primary:
-          Name: Judith Stephen
-          ID: OSG1000016
-        Secondary:
-          Name: David Jordan
-          ID: OSG1000765
-        Tertiary:
-          Name: Farnaz Golnaraghi
-          ID: OSG1000221
-        Tertiary 2:
-          Name: Lincoln Bryant
-          ID: OSG1000013
-    FQDN: ap22-pelican.grid.uchicago.edu
-    Services:
       Pelican origin:
-        Description: The pelican service for ap22.uc.osg-htc.org
+        Description: Pelican Origin for ap22
     Tags:
       - OSPool
     AllowedVOs:
