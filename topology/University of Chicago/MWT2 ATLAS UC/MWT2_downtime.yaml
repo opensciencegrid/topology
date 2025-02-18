@@ -1673,3 +1673,25 @@
   Services:
   - XRootD component
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2043867210
+  Description: IU Site Maintenance
+  Severity: Outage
+  StartTime: Feb 20, 2025 14:00 +0000
+  EndTime: Feb 21, 2025 00:00 +0000
+  CreatedTime: Feb 12, 2025 18:58 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2043867548
+  Description: IU Site Maintenance
+  Severity: Outage
+  StartTime: Feb 20, 2025 14:00 +0000
+  EndTime: Feb 21, 2025 00:00 +0000
+  CreatedTime: Feb 12, 2025 18:59 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------

@@ -7,37 +7,6 @@ Resources:
   # Old, pre-Pelican resources
   #######################################################################
 
-  CHTC-ITB-HELM-ORIGIN:
-    Active: false
-    Description: >-
-        This was a testing OSDF origin server on the Tiger cluster,
-        deployed via Helm. It served both public and protected data.
-    ID: 1370
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: OSG1000002
-          Name: Matyas Selmeci
-        Secondary:
-          ID: OSG1000003
-          Name: Brian Hua Lin
-      Security Contact:
-        Primary:
-          ID: OSG1000002
-          Name: Matyas Selmeci
-        Secondary:
-          ID: OSG1000003
-          Name: Brian Hua Lin
-    FQDN: helm-origin.osgdev.chtc.io
-    DN: /CN=helm-origin.osgdev.chtc.io
-    Services:
-      XRootD origin server:
-        Description: xrootd stash-origin and stash-origin-auth instances
-    VOOwnership:
-      OSG: 100
-    AllowedVOs:
-      - GLOW
-
   CHTC-ITB-HELM-CACHE1:
     Active: false
     Description: >-
