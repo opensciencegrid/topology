@@ -244,3 +244,32 @@ Resources:
         Description: ITB OSDF Pelican Cache
     AllowedVOs:
       - GLOW
+
+  CHTC-ITB-ORIGIN2000:
+    Active: true
+    Description: This is an origin serving the OSDF ITB
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000670
+          Name: Theng Vang
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000670
+          Name: Theng Vang
+    FQDN: osdf-itb-origin2000.chtc.wisc.edu
+    Services:
+      Pelican origin:
+        Description: OSDF ITB origin server
