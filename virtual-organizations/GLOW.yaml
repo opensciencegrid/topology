@@ -48,25 +48,3 @@ ReportingGroups:
 - glow
 SupportURL: https://chtc.cs.wisc.edu
 
-DataFederations:
-  StashCache:
-    Namespaces:
-      - Path: /chtc/itb/osdf-pelican
-        Authorizations:
-          - SciTokens:
-              Issuer: https://chtc.cs.wisc.edu
-              Base Path: /chtc
-              Map Subject: True
-        AllowedOrigins:
-          - CHTC-ITB-OSDF-PELICAN-ORIGIN
-        AllowedCaches:
-          - ANY
-
-      - Path: /data.lhncbc.nlm.nih.gov/public
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - CHTC_NIH_ORIGIN
-        AllowedCaches:
-          - ANY
-
