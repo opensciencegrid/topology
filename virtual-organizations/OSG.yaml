@@ -148,6 +148,10 @@ DataFederations:
               Issuer: https://ap20.uc.osg-htc.org:1094/ospool/ap20
               Base Path: /ospool/ap20,/ospool/uc-shared/project
               Map Subject: True
+          - SciTokens:
+              Issuer: https://ap20.uc.osg-htc.org:8444
+              Base Path: /ospool/ap20
+              Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap20
         AllowedCaches:
@@ -165,6 +169,10 @@ DataFederations:
               Issuer: https://ap21.uc.osg-htc.org:1094/ospool/ap21
               Base Path: /ospool/ap21,/ospool/uc-shared/project
               Map Subject: True
+          - SciTokens:
+              Issuer: https://ap21.uc.osg-htc.org:8444
+              Base Path: /ospool/ap21
+              Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap21
         AllowedCaches:
@@ -180,6 +188,10 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://ap22.uc.osg-htc.org:1094/ospool/ap22
+              Base Path: /ospool/ap22
+              Map Subject: True
+          - SciTokens:
+              Issuer: https://ap22.uc.osg-htc.org:8444
               Base Path: /ospool/ap22
               Map Subject: True
         AllowedOrigins:
