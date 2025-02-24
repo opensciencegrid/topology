@@ -58,9 +58,21 @@
   Description: Lost PVC
   Severity: Outage
   StartTime: Jan 08, 2025 09:00 +0000
-  EndTime: Jan 10, 2025 20:30 +0000
-  CreatedTime: Jan 08, 2025 22:57 +0000
+  EndTime: Jan 30, 2025 20:30 +0000
+  CreatedTime: Jan 20, 2025 22:57 +0000
   ResourceName: NEBRASKA_NRP_OSDF_CACHE
   Services:
   - Pelican cache
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2036064744
+  Description: Storage problem
+  Severity: Outage
+  StartTime: Feb 03, 2025 09:00 +0000
+  EndTime: Feb 05, 2025 20:30 +0000
+  CreatedTime: Feb 03, 2025 18:14 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+

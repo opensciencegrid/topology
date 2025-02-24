@@ -359,7 +359,7 @@ Resources:
       StorageCapacityMin: 1
       TapeCapacity: 5.5
   Purdue-Hadoop-SE-Gridftp:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -424,6 +424,14 @@ Resources:
     FQDN: eos.cms.rcac.purdue.edu
     ID:
     Services:
+      XRootD component:
+        Description: XRootD SE
+        Details:
+          hidden: false
+      WebDAV:
+        Description: WebDAV service endpoint
+        Details:
+          hidden: false
       EOS:
         Description: EOS Storage Element
         Details:
