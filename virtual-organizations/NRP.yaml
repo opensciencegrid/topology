@@ -170,3 +170,24 @@ DataFederations:
           - NEBRASKA_NRP_HCC_OSDF_ORIGIN
         AllowedCaches:
           - ANY
+          
+      - Path: /jkb-lab
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/osdf/jkb-lab
+              Base Path: /jkb-lab
+              Map Subject: False
+        AllowedOrigins:
+          - NEBRASKA_NRP_HCC_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /jkb-lab-public
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/osdf/jkb-lab
+              Base Path: /jkb-lab-public
+              Map Subject: False
+        AllowedOrigins:
+          - NEBRASKA_NRP_HCC_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
