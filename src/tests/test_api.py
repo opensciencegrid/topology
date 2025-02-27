@@ -44,7 +44,7 @@ TEST_ENDPOINTS = [
     '/rgdowntime/ical',
     "/stashcache/authfile",
     "/stashcache/authfile-public",
-    "/stashcache/origin-authfile-public?fqdn=sc-origin2000.chtc.wisc.edu",
+    "/stashcache/origin-authfile-public?fqdn=sc-origin.chtc.wisc.edu",
     "/stashcache/origin-authfile",
     "/stashcache/scitokens",
     "/oasis-managers/json",

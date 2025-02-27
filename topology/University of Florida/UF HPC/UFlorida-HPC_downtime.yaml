@@ -992,3 +992,47 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2013473820
+  Description: Storage issue that needs to be repaired.
+  Severity: Outage
+  StartTime: Jan 08, 2025 14:42 +0000
+  EndTime: Jan 22, 2025 20:42 +0000
+  CreatedTime: Jan 08, 2025 14:43 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2013474258
+  Description: Storage issue that needs to be repaired.
+  Severity: Outage
+  StartTime: Jan 08, 2025 14:42 +0000
+  EndTime: Jan 22, 2025 20:42 +0000
+  CreatedTime: Jan 08, 2025 14:43 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2013474446
+  Description: Storage issue that needs to be repaired.
+  Severity: Outage
+  StartTime: Jan 08, 2025 14:42 +0000
+  EndTime: Jan 22, 2025 20:42 +0000
+  CreatedTime: Jan 08, 2025 14:44 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2013474622
+  Description: Storage issue that needs to be repaired.
+  Severity: Outage
+  StartTime: Jan 08, 2025 14:42 +0000
+  EndTime: Jan 22, 2025 20:42 +0000
+  CreatedTime: Jan 08, 2025 14:44 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------

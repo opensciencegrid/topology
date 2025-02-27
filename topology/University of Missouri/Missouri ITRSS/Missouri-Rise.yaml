@@ -4,7 +4,7 @@ GroupDescription: Compute infrastructure
 
 Resources:
   MISSOURI_RISE_NRP_OSDF_ORIGIN:
-    Active: false
+    Active: true
     Description: MO NRP origin
     ContactLists:
       Administrative Contact:
@@ -21,7 +21,7 @@ Resources:
     DN: /CN=mo-origin.nationalresearchplatform.org
     FQDN: mo-origin.nationalresearchplatform.org
     Services:
-      XRootD origin server:
+      Pelican origin:
         Description: MO NRP origin
     AllowedVOs:
       - ANY

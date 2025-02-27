@@ -109,4 +109,26 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2014491756
+  Description: '"Unable to perform accept; too many open files"'
+  Severity: Outage
+  StartTime: Jan 08, 2025 09:00 +0000
+  EndTime: Jan 09, 2025 20:30 +0000
+  CreatedTime: Jan 09, 2025 18:59 +0000
+  ResourceName: DENVER_INTERNET2_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2050952124
+  Description: 'Boot NVme replacement '
+  Severity: Outage
+  StartTime: Feb 19, 2025 20:30 +0000
+  EndTime: Feb 24, 2025 20:30 +0000
+  CreatedTime: Feb 20, 2025 23:46 +0000
+  ResourceName: DENVER_INTERNET2_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
 
