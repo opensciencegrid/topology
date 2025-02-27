@@ -2,6 +2,7 @@ Production: true
 SupportCenter: Self Supported
 GroupDescription:  Fusion Data Platform
 Resources:
+
   FDP_OSDF_CACHE:
     Active: true
     Description: FDP OSDF cache
@@ -21,7 +22,27 @@ Resources:
         Description: OSDF cache server for FDP project
     AllowedVOs:
       - NRP
-  
+
+  FDP_NERSC_OSDF_CACHE:
+    Active: false
+    Description: FDP NERSC OSDF cache
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162    
+    DN: /CN=fdp-d3d-cache.nersc.gov
+    FQDN: fdp-d3d-cache.nersc.gov
+    Services:
+      Pelican cache:
+        Description: OSDF NERSC cache server for FDP project
+    AllowedVOs:
+      - NRP
+
   FDP_OSDF_ORIGIN:
     Active: true
     Description: FDP OSDF origin
