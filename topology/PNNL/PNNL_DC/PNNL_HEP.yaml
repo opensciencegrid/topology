@@ -3,22 +3,16 @@ GroupID: 429
 Production: true
 Resources:
   PNNL_HEP_CE00:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
           ID: c4df94d16cbe5aefb61bac44706452f823118d1c
           Name: Malachi Schram
-        Secondary:
-          ID: bd63318d24aabd1e9ebf59d6060c73703cd8a9e2
-          Name: David Earl Cowley
       Security Contact:
         Primary:
           ID: c4df94d16cbe5aefb61bac44706452f823118d1c
           Name: Malachi Schram
-        Secondary:
-          ID: bd63318d24aabd1e9ebf59d6060c73703cd8a9e2
-          Name: David Earl Cowley
     Description: Compute Element use for general HEP needs
     FQDN: gridgk00.hep.pnnl.gov
     ID: 746
