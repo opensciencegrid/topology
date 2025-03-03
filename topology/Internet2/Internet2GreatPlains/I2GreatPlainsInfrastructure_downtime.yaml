@@ -73,4 +73,14 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 2060205457
+  Description: DNS and node renaming
+  Severity: Outage
+  StartTime: Mar 02, 2025 20:30 +0000
+  EndTime: Mar 14, 2025 20:30 +0000
+  CreatedTime: Mar 03, 2025 16:49 +0000
+  ResourceName: Stashcache-Kansas
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
