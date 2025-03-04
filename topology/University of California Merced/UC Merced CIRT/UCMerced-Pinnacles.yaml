@@ -67,6 +67,25 @@ Resources:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
 
+      Local Executive Contact:
+        Primary:
+          Name: Sarvani Chadalapaka
+          ID: OSG1000902
+      Local Operational Contact:
+        Primary:
+          Name: Robert Romero
+          ID: OSG1000939
+        Secondary:
+          Name: CIRT UC Merced list
+          ID: 09cdc22832ce5ac15c1111263f88b4a76db3a1ce
+      Local Security Contact:
+        Primary:
+          Name: Robert Romero
+          ID: OSG1000939
+        Secondary:
+          Name: Infosec UC Merced list
+          ID: 37af6d26a4bcca9ec91d63385b84b850bb92e860
+
     # FQDN is the fully qualified domain name of the host running this resource
     FQDN: ucmerced-pinnacles-ce1.svc.opensciencegrid.org
     Services:
