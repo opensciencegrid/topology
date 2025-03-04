@@ -1001,3 +1001,38 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2061125534
+  Description: network switch and compute node move
+  Severity: Outage
+  StartTime: Mar 06, 2025 14:00 +0000
+  EndTime: Mar 06, 2025 17:00 +0000
+  CreatedTime: Mar 04, 2025 18:22 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2061125535
+  Description: network switch and compute node move
+  Severity: Outage
+  StartTime: Mar 06, 2025 14:00 +0000
+  EndTime: Mar 06, 2025 17:00 +0000
+  CreatedTime: Mar 04, 2025 18:22 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2061125536
+  Description: network switch and compute node move
+  Severity: Outage
+  StartTime: Mar 06, 2025 14:00 +0000
+  EndTime: Mar 06, 2025 17:00 +0000
+  CreatedTime: Mar 04, 2025 18:22 +0000
+  ResourceName: OU_OSCER_ATLAS_SLATE_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
