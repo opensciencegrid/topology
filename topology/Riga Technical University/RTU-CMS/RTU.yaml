@@ -305,3 +305,29 @@ Resources:
         #   # sam_uri: htcondor://...
         #   ### endpoint (for perfSONAR services)
         #   # endpoint: <HOSTNAME>
+#
+###
+#
+
+  T2_LV_HPCNET-XROOTD:
+    Active: true
+    Description: This is XrootD service for T2_LV_HPCNET.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igors Makarkins
+          ID: OSG1000678
+      Security Contact:
+        Primary:
+          Name: Igors Makarkins
+          ID: OSG1000678
+    FQDN: xrootd.tier2.hpc-net.lv
+    Services:
+      XRootD component:
+        Description: XrootD service for T2_LV_HPCNET
+        Details:
+          hidden: false
+      WbDAV:
+        Description: WebDAV service for T2_LV_HPCNET
+        Details:
+          hidden: false
