@@ -178,7 +178,7 @@ DataFederations:
               Base Path: /jkb-lab
               Map Subject: False
         AllowedOrigins:
-          - NEBRASKA_NRP_HCC_OSDF_ORIGIN
+          - NEBRASKA_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
       - Path: /jkb-lab-public
@@ -188,6 +188,6 @@ DataFederations:
               Base Path: /jkb-lab-public
               Map Subject: False
         AllowedOrigins:
-          - NEBRASKA_NRP_HCC_OSDF_ORIGIN
+          - NEBRASKA_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
