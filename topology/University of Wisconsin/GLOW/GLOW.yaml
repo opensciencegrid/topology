@@ -191,6 +191,24 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       CMS: 100
+  GLOW_OSG_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: OSG Squid Servers RR alias
+    FQDN: osgsquid.hep.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
   GLOW_SQUID1:
     Active: true
     ContactLists:
