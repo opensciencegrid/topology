@@ -279,8 +279,8 @@ DataFederations:
           - PUBLIC
         AllowedOrigins:
           - CIT_LIGO_ORIGIN
-          - LIGO-StashCache-Origin
-          - UCL-Virgo-StashCache-Origin
+          #- LIGO-StashCache-Origin
+          #- UCL-Virgo-StashCache-Origin
         AllowedCaches:
           - ANY
         DirList: https://origin.ligo.caltech.edu:1094
