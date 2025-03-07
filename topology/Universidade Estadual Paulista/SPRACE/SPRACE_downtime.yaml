@@ -4369,3 +4369,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725734
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725735
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725736
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725737
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725738
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725739
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725740
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
