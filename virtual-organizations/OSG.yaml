@@ -146,7 +146,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://ap20.uc.osg-htc.org:1094/ospool/ap20
-              Base Path: /ospool/ap20,/ospool/uc-shared/project
+              Base Path: /ospool/ap20
               Map Subject: True
           - SciTokens:
               Issuer: https://ap20.uc.osg-htc.org:8444
@@ -167,7 +167,7 @@ DataFederations:
         Authorizations:
           - SciTokens:
               Issuer: https://ap21.uc.osg-htc.org:1094/ospool/ap21
-              Base Path: /ospool/ap21,/ospool/uc-shared/project
+              Base Path: /ospool/ap21
               Map Subject: True
           - SciTokens:
               Issuer: https://ap21.uc.osg-htc.org:8444
@@ -256,16 +256,12 @@ DataFederations:
       - Path: /ospool/uc-shared/project
         Authorizations:
           - SciTokens:
-              Issuer: https://osg-htc.org/ospool/uc-shared
+              Issuer: https://pelican-osdf-project.tempest.uchicago.edu:8444
               Base Path: /ospool/uc-shared/project
               Map Subject: True
           - SciTokens:
-              Issuer: https://ap20.uc.osg-htc.org:1094/ospool/ap20
-              Base Path: /ospool/ap20,/ospool/uc-shared/project
-              Map Subject: True
-          - SciTokens:
-              Issuer: https://ap21.uc.osg-htc.org:1094/ospool/ap21
-              Base Path: /ospool/ap21,/ospool/uc-shared/project
+              Issuer: https://osg-htc.org/ospool/uc-shared
+              Base Path: /ospool/uc-shared/project
               Map Subject: True
         AllowedOrigins:
           - UChicago_OSGConnect_ap23
