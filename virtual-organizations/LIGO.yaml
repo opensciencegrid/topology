@@ -272,6 +272,8 @@ DataFederations:
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_TEST_WRITE
         AllowedCaches: *ligo-allowed-caches
+        Writeback: https://origin-writetest.ligo.caltech.edu:8443
+        DirList: https://origin-writetest.ligo.caltech.edu:8443
       - Path: /gwdata
         Authorizations:
           - PUBLIC
