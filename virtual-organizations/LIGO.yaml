@@ -234,6 +234,7 @@ DataFederations:
         AllowedCaches: *ligo-allowed-caches
         Writeback: https://origin-staging.ligo.caltech.edu:1095
         DirList: https://origin-staging.ligo.caltech.edu:1095
+
       - Path: /igwn/test
         Authorizations:
           - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
@@ -253,7 +254,7 @@ DataFederations:
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_TEST
         AllowedCaches: *ligo-allowed-caches
-        DirList: https://origin-readtest.ligo.caltech.edu:1095
+
       - Path: /igwn/test-write
         Authorizations:
           - FQAN: /osg/ligo
