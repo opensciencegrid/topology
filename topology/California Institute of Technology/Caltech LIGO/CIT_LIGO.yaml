@@ -79,25 +79,35 @@ Resources:
         Description: StashCache Origin server
     AllowedVOs:
       - LIGO
+
   CIT_LIGO_ORIGIN_TEST:
     Active: true
     Description: This serves proprietary LIGO interferometer data in a test configuration
     ContactLists:
       Administrative Contact:
         Primary:
+          Name: Joshua Willis
+          ID: OSG1000316
+        Secondary:
           Name: Stuart Anderson
           ID: c50e7cc9d0086272ef995fb76461612d40c70435
       Security Contact:
-        Primary:
+        # Primary:
+        #   Name: Randy Trudeau
+        #   ID: <not registered>
+        # Secondary:
+        #   Name: Warren Anderson
+        #   ID: <not registered>
+        Tertiary:
           Name: Stuart Anderson
           ID: c50e7cc9d0086272ef995fb76461612d40c70435
     FQDN: origin-readtest.ligo.caltech.edu
-    DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=origin-readtest.ligo.caltech.edu
     Services:
-      XRootD origin server:
-        Description: StashCache Origin server
+      Pelican origin:
+        Description: Pelican origin
     AllowedVOs:
       - LIGO
+
   CIT_LIGO_ORIGIN_TEST_WRITE:
     Active: true
     Description: This serves proprietary user data staged to and from the CIT cluster in a test configuration
@@ -125,6 +135,7 @@ Resources:
         Description: Pelican origin
     AllowedVOs:
       - LIGO
+
   CIT_LIGO_SQUID:
     ContactLists:
       Administrative Contact:
