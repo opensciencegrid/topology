@@ -174,4 +174,15 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074245106
+  Description: NRP issue
+  Severity: Outage
+  StartTime: Mar 19, 2025 17:00 +0000
+  EndTime: Mar 24, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 22:48 +0000
+  ResourceName: SDSC_NRP_OSDF_XENON_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
 
