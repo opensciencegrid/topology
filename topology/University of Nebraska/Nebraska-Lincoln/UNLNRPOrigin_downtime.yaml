@@ -110,5 +110,27 @@
   Services:
   - XRootD origin server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074242970
+  Description: NRP issue
+  Severity: Outage
+  StartTime: Mar 19, 2025 17:00 +0000
+  EndTime: Mar 24, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 22:44 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074243192
+  Description: NRP issue
+  Severity: Outage
+  StartTime: Mar 19, 2025 17:00 +0000
+  EndTime: Mar 24, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 22:45 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
 
 
