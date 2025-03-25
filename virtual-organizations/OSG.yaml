@@ -259,17 +259,10 @@ DataFederations:
               Issuer: https://pelican-osdf-project.tempest.uchicago.edu
               Base Path: /ospool/uc-shared/project
               Map Subject: True
-          - SciTokens:
-              Issuer: https://osg-htc.org/ospool/uc-shared
-              Base Path: /ospool/uc-shared/project
-              Map Subject: True
         AllowedOrigins:
-          - UChicago_OSGConnect_ap23
           - UChicago_OSGConnect_Pelican_Project_Origin
         AllowedCaches:
           - ANY
-        Writeback: https://pelican-osdf-project.tempest.uchicago.edu:8443
-        DirList: https://pelican-osdf-project.tempest.uchicago.edu:8443
         CredentialGeneration:
           Strategy: OAuth2
           Issuer: https://osg-htc.org/ospool/uc-shared
