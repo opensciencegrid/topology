@@ -76,3 +76,36 @@
   Services:
   - CE
   # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2075464101
+  Description: Planned work in the building [power down]
+  Severity: Outage
+  StartTime: Apr 07, 2025 17:00 +0000
+  EndTime: Apr 12, 2025 01:00 +0000
+  CreatedTime: Mar 21, 2025 08:40 +0000
+  ResourceName: LBL_HPCS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2075464102
+  Description: Planned work in the building [power down]
+  Severity: Outage
+  StartTime: Apr 07, 2025 17:00 +0000
+  EndTime: Apr 12, 2025 01:00 +0000
+  CreatedTime: Mar 21, 2025 08:40 +0000
+  ResourceName: LBL_HPCS_LRC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2075464103
+  Description: Planned work in the building [power down]
+  Severity: Outage
+  StartTime: Apr 07, 2025 17:00 +0000
+  EndTime: Apr 12, 2025 01:00 +0000
+  CreatedTime: Mar 21, 2025 08:40 +0000
+  ResourceName: LBL_HPCS_Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
