@@ -191,3 +191,14 @@ DataFederations:
           - NEBRASKA_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
+
+      - Path: /mals
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/osdf/mals
+              Base Path: /mals
+              Map Subject: False
+        AllowedOrigins:
+          - PURDUE_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
