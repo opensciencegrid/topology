@@ -24,7 +24,7 @@ Resources:
       - NRP
 
   FDP_NERSC_OSDF_CACHE:
-    Active: false
+    Active: true
     Description: FDP NERSC OSDF cache
     ContactLists:
       Administrative Contact:
@@ -35,8 +35,8 @@ Resources:
         Primary:
           Name: Fabio Andrijauskas 
           ID: OSG1000162    
-    DN: /CN=fdp-d3d-cache.nersc.gov
-    FQDN: fdp-d3d-cache.nersc.gov
+    DN: /CN=dtn14.nersc.gov 
+    FQDN: dtn14.nersc.gov 
     Services:
       Pelican cache:
         Description: OSDF NERSC cache server for FDP project
