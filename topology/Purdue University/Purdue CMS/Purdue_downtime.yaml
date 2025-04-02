@@ -85,17 +85,6 @@
   Severity: Outage
   StartTime: Sep 10, 2016 13:00 +0000
 # ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 284168132
-  Description: Planned cluster maintenance
-  Severity: Outage
-  StartTime: Jul 23, 2019 11:55 +0000
-  EndTime: Jul 23, 2019 23:55 +0000
-  CreatedTime: Jul 17, 2019 21:26 +0000
-  ResourceName: Purdue-Hadoop-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
 - Class: UNSCHEDULED
   Description: T2_US_Purdue is down due to a loss of power in the campus datacenter.
   EndTime: Jul 21, 2017 00:00 +0000
@@ -656,17 +645,6 @@
   - CE
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 1208211706
-  Description: Moving servers
-  Severity: Outage
-  StartTime: Jun 22, 2022 12:00 +0000
-  EndTime: Jun 22, 2022 21:00 +0000
-  CreatedTime: Jun 21, 2022 14:19 +0000
-  ResourceName: Purdue-Hadoop-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 1208211708
   Description: Moving servers
   Severity: Outage
@@ -753,28 +731,6 @@
   ResourceName: Purdue-Brown
   Services:
   - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1281810516
-  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
-  Severity: Outage
-  StartTime: Sep 16, 2022 10:00 +0000
-  EndTime: Sep 16, 2022 15:59 +0000
-  CreatedTime: Sep 14, 2022 18:44 +0000
-  ResourceName: Purdue-Hadoop-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1281810517
-  Description: 'SE: Change in HDFS cluster parameters, optimizing I/O'
-  Severity: Outage
-  StartTime: Sep 16, 2022 10:00 +0000
-  EndTime: Sep 16, 2022 15:59 +0000
-  CreatedTime: Sep 14, 2022 18:44 +0000
-  ResourceName: Purdue-Hadoop-SE-Gridftp
-  Services:
-  - GridFtp
 # ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 1281810518
@@ -876,28 +832,6 @@
   - CE
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 1355813085
-  Description: Local storage system migration
-  Severity: Intermittent Outage
-  StartTime: Dec 15, 2022 06:00 +0000
-  EndTime: Dec 17, 2022 04:59 +0000
-  CreatedTime: Dec 09, 2022 10:21 +0000
-  ResourceName: Purdue-Hadoop-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1355813086
-  Description: Local storage system migration
-  Severity: Intermittent Outage
-  StartTime: Dec 15, 2022 06:00 +0000
-  EndTime: Dec 17, 2022 04:59 +0000
-  CreatedTime: Dec 09, 2022 10:21 +0000
-  ResourceName: Purdue-Hadoop-SE-Gridftp
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 1355813087
   Description: Local storage system migration
   Severity: Intermittent Outage
@@ -984,28 +918,6 @@
   ResourceName: Purdue-Brown
   Services:
   - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1363894594
-  Description: Local storage system migration
-  Severity: Intermittent Outage
-  StartTime: Dec 19, 2022 19:00 +0000
-  EndTime: Dec 21, 2022 01:00 +0000
-  CreatedTime: Dec 18, 2022 18:50 +0000
-  ResourceName: Purdue-Hadoop-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1363894595
-  Description: Local storage system migration
-  Severity: Intermittent Outage
-  StartTime: Dec 19, 2022 19:00 +0000
-  EndTime: Dec 21, 2022 01:00 +0000
-  CreatedTime: Dec 18, 2022 18:50 +0000
-  ResourceName: Purdue-Hadoop-SE-Gridftp
-  Services:
-  - GridFtp
 # ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 1363894596
@@ -1140,28 +1052,6 @@
   - CE
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 1542037975
-  Description: Cluster and storage maintenance
-  Severity: Outage
-  StartTime: Jul 19, 2023 11:00 +0000
-  EndTime: Jul 19, 2023 23:00 +0000
-  CreatedTime: Jul 12, 2023 23:16 +0000
-  ResourceName: Purdue-Hadoop-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1542037976
-  Description: Cluster and storage maintenance
-  Severity: Outage
-  StartTime: Jul 19, 2023 11:00 +0000
-  EndTime: Jul 19, 2023 23:00 +0000
-  CreatedTime: Jul 12, 2023 23:16 +0000
-  ResourceName: Purdue-Hadoop-SE-Gridftp
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 1542037977
   Description: Cluster and storage maintenance
   Severity: Outage
@@ -1270,28 +1160,6 @@
   ResourceName: Purdue-EOS-SE
   Services:
   - EOS
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1663815566
-  Description: Hardware intervention on Storage Management node
-  Severity: Severe
-  StartTime: Dec 07, 2023 13:00 +0000
-  EndTime: Dec 07, 2023 18:00 +0000
-  CreatedTime: Nov 30, 2023 21:59 +0000
-  ResourceName: Purdue-Hadoop-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1663815567
-  Description: Hardware intervention on Storage Management node
-  Severity: Severe
-  StartTime: Dec 07, 2023 13:00 +0000
-  EndTime: Dec 07, 2023 18:00 +0000
-  CreatedTime: Nov 30, 2023 21:59 +0000
-  ResourceName: Purdue-Hadoop-SE-Gridftp
-  Services:
-  - GridFtp
 # ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 1663815568
@@ -1413,28 +1281,6 @@
   ResourceName: Purdue-EOS-SE
   Services:
   - EOS
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1761165182
-  Description: EOS upgrades
-  Severity: Outage
-  StartTime: Mar 26, 2024 10:00 +0000
-  EndTime: Mar 26, 2024 22:00 +0000
-  CreatedTime: Mar 22, 2024 14:08 +0000
-  ResourceName: Purdue-Hadoop-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1761165183
-  Description: EOS upgrades
-  Severity: Outage
-  StartTime: Mar 26, 2024 10:00 +0000
-  EndTime: Mar 26, 2024 22:00 +0000
-  CreatedTime: Mar 22, 2024 14:08 +0000
-  ResourceName: Purdue-Hadoop-SE-Gridftp
-  Services:
-  - GridFtp
 # ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 1761165184
@@ -1580,28 +1426,6 @@
   - CE
 # ---------------------------------------------------------
 - Class: UNSCHEDULED
-  ID: 1999808696
-  Description: Storage outage - will affect all computing too
-  Severity: Outage
-  StartTime: Dec 23, 2024 09:06 +0000
-  EndTime: Dec 31, 2024 23:00 +0000
-  CreatedTime: Dec 23, 2024 19:07 +0000
-  ResourceName: Purdue-Hadoop-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 1999808697
-  Description: Storage outage - will affect all computing too
-  Severity: Outage
-  StartTime: Dec 23, 2024 09:06 +0000
-  EndTime: Dec 31, 2024 23:00 +0000
-  CreatedTime: Dec 23, 2024 19:07 +0000
-  ResourceName: Purdue-Hadoop-SE-Gridftp
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-- Class: UNSCHEDULED
   ID: 1999808698
   Description: Storage outage - will affect all computing too
   Severity: Outage
@@ -1722,28 +1546,6 @@
   ResourceName: Purdue-Gautschi
   Services:
   - CE
-# ---------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 2005237576
-  Description: ongoing storage outage
-  Severity: Outage
-  StartTime: Dec 23, 2024 09:00 +0000
-  EndTime: Jan 10, 2025 22:55 +0000
-  CreatedTime: Dec 30, 2024 01:55 +0000
-  ResourceName: Purdue-Hadoop-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 2005237577
-  Description: ongoing storage outage
-  Severity: Outage
-  StartTime: Dec 23, 2024 09:00 +0000
-  EndTime: Jan 10, 2025 22:55 +0000
-  CreatedTime: Dec 30, 2024 01:55 +0000
-  ResourceName: Purdue-Hadoop-SE-Gridftp
-  Services:
-  - GridFtp
 # ---------------------------------------------------------
 - Class: UNSCHEDULED
   ID: 2005237578
