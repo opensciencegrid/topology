@@ -5,6 +5,7 @@
 A simple tool for generating notification emails to the OSG
 """
 import os
+import re
 import sys
 import getpass
 import smtplib
@@ -21,6 +22,7 @@ if __name__ == "__main__" and __package__ is None:
     sys.path.append(_parent + "/src")
 
 import topology_utils
+from topology_utils import TopologyPoolManager
 import net_name_addr_utils
 
 # Parts of this implementation are from the following StackOverflow answer:
@@ -115,10 +117,9 @@ def parseargs():
     oparser.add_argument("--oim-owner-filter", dest="owner_vo",
                          help="Filter on resources that list VO(s) as a partial owner")
 
-    oparser.add_argument("--oim-contact-type", default="all", dest="contact_type",
-                         choices=["all", "administrative", "miscellaneous", "security", "submitter", "site"],
-                         help="Filter on contact type e.g. administrative, miscellaneous, security, submitter or site"
-                         "(default: all)", )
+    oparser.add_argument("--oim-contact-type", action="append", dest="contact_type",
+                         choices=["all"] + topology_utils.CONTACT_TYPES,
+                         help="Filter on contact type (default: all)")
     oparser.add_argument("--bypass-dns-check", action="store_true", dest="bypass_dns_check",
                          help="Bypass checking that one of the host's IP addresses matches with the hostanme resolution")
     oparser.add_argument("--allow-non-ascii", action="store_true", dest="allow_non_ascii",
@@ -131,12 +132,16 @@ def parseargs():
     if args.name_filter and args.fqdn_filter:
         oparser.error("Can't specify both --oim-name-filter and --oim-fqdn-filter")
 
+    if not args.contact_type or ("all" in args.contact_type):
+        args.contact_type = ["all"]
+    args.contact_type = set(args.contact_type)  # remove dupes
+
     if args.from_name == 'security':
         args.from_name = 'OSG Security Team'
-        args.from_addr = 'security@opensciencegrid.org'
+        args.from_addr = 'security@osg-htc.org'
     else:
-        args.from_name = 'Open Science Grid'
-        args.from_addr = 'help@opensciencegrid.org'
+        args.from_name = 'OSG'
+        args.from_addr = 'help@osg-htc.org'
 
     return args
 
@@ -152,12 +157,17 @@ def network_ok(bypass_dns_check):
         print("***")
         print("Refusing to send email without hostname/public DNS match.")
         print("For more info, see:")
-        print("  https://opensciencegrid.org//operations/services/sending-announcements/")
+        print("  https://osg-htc.org//operations/services/sending-announcements/")
         return False
 
 def replace_smart_quotes_and_dashes(contents):
     # Replace smart quotes and em/en dashes
-    replaced = contents.replace('“','"').replace('”','"').replace("–","-").replace("—","-")
+    regex_sub_map = [(r'[“”]', '"'),
+                     (r'[‘’]', "'"),
+                     (r'[—–]', '-')]
+    replaced = contents
+    for pattern, sub in regex_sub_map:
+        replaced = re.sub(pattern, sub, replaced)
     return replaced
 
 def has_non_printable_ascii_characters(contents):
@@ -173,13 +183,14 @@ def has_non_printable_ascii_characters(contents):
 
 def main():
     args = parseargs()
-
+    pm = TopologyPoolManager()
     recipients = set(args.recipients.split())
     if args.oim_recipients and 'vos' in args.oim_recipients:
         attempts = 3
         while attempts > 0:
             try:
-                results = topology_utils.get_vo_contacts(args)
+                results = pm.get_vo_contacts(args)
+                break
             except topology_utils.InvalidPathError as exc:
                 print(exc)
                 exit(1)
@@ -202,9 +213,10 @@ def main():
         while attempts > 0:
             try:
                 if args.fqdn_filter:
-                    results = topology_utils.get_resource_contacts_by_fqdn(args)
+                    results = pm.get_resource_contacts_by_fqdn(args)
                 else:
-                    results = topology_utils.get_resource_contacts(args)
+                    results = pm.get_resource_contacts(args)
+                break
             except topology_utils.InvalidPathError as exc:
                 exit(str(exc))
             except topology_utils.IncorrectPasswordError as exc:
@@ -241,7 +253,7 @@ def main():
 ** This is a test of the osg-notify tool
 ** Please IGNORE the contents of this message
 ** If you received this message in error, please
-** contact help@opensciencegrid.org
+** contact help@osg-htc.org
 ===================================================
 """ + contents
 

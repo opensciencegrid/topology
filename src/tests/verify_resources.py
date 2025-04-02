@@ -91,7 +91,7 @@ def get_contacts():
 def add_cilogon_ids(users, d):
     """ add CILogonIDs to dict so they can be treated like ContactIDs """
     for u in users:
-        cilogonid = u.find('CILogonID')
+        cilogonid = u.find('CILogonID').text
         if cilogonid:
             d[cilogonid] = u.find('FullName').text
     return d
@@ -141,11 +141,12 @@ def main():
     errors += test_14_vo_contacts_match(vos, vofns, contacts)
     # per SOFTWARE-3329, we are not checking support center contacts
 #   errors += test_14_sc_contacts_match(support_centers, contacts)
-    errors += test_15_facility_site_files()
+    errors += test_15_site_files()
     errors += test_16_Xrootd_DNs(rgs, rgfns)
     errors += test_17_osdf_data(rgs, rgfns)
     warnings += test_18_osdf_data_cache_warnings(rgs, rgfns, vomap)
     warnings += test_19_osdf_data_origin_warnings(rgs, rgfns, vomap)
+    errors += test_20_fqdn_unique_xrootd(rgs, rgfns)
 
 
     print("%d Resource Group files processed." % len(rgs))
@@ -170,9 +171,13 @@ _emsgs = {
     'RGUnique'      : "Resource Group names must be unique across all Sites",
     'ResUnique'     : "Resource names must be unique across the OSG topology",
     'ResID'         : "Resources must contain a numeric ID",
+    'ResIDUnique'   : "Resource IDs must be unique across the OSG topology",
     'ResGrpID'      : "Resource Groups must contain a numeric ID",
+    'ResGrpIDUnique': "Resource Group IDs must be unique across OSG topology",
     'SiteUnique'    : "Site names must be unique across Facilities",
     'FQDNUnique'    : "FQDNs must be unique across the OSG topology",
+    'FQDNUniqueXRootD'
+                    : "FQDNs must be unique for XRootD services",
     'VOOwnership100': "Total VOOwnership must not exceed 100%",
     'NoServices'    : "Valid Services are listed here: %s" % _services_url,
     'NoSupCenter'   : "Valid Support Centers are listed here: %s" % _sups_url,
@@ -185,7 +190,6 @@ _emsgs = {
                                " or a CILogonID",
     'UnknownContactID'       : "Contact IDs must exist in contact repo",
     'ContactNameMismatch'    : "Contact names must match in contact repo",
-    'NoFacility'             : "Facility directories must contain a FACILITY.yaml",
     'NoSite'                 : "Site directories must contain a SITE.yaml",
     'XrootdWithoutDN'        : "Xrootd cache server must provide a DN",
     'OSDFServiceVOsList'     : "OSDF Services must contain an AllowedVOs list",
@@ -216,7 +220,7 @@ def test_1_rg_unique(rgs, rgfns):
     for name, rgflist in sorted(rgmap.items()):
         if len(rgflist) > 1:
             print_emsg_once('RGUnique')
-            print("Resource Group '%s' mentioned for multiple Sites:" % name)
+            print("ERROR: Resource Group '%s' mentioned for multiple Sites:" % name)
             for rgfile in rgflist:
                 print(" - %s" % rgfile)
             errors += 1
@@ -238,7 +242,7 @@ def test_2_res_unique(rgs, rgfns):
     for r, rgflist in sorted(r2rg.items()):
         if len(rgflist) > 1:
             print_emsg_once('ResUnique')
-            print("Resource '%s' mentioned for multiple groups:" % r)
+            print("ERROR: Resource '%s' mentioned for multiple groups:" % r)
             for rgfile in rgflist:
                 print(" - %s" % rgfile)
             errors += 1
@@ -259,14 +263,14 @@ def test_3_voownership(rgs, rgfns):
             total_vo_ownership = sumvals(rdict.get('VOOwnership'))
             if not 0 <= total_vo_ownership <= 100:
                 print_emsg_once('VOOwnership100')
-                print("In '%s', Resource '%s' has total VOOwnership = %d%%" %
+                print("ERROR: In '%s', Resource '%s' has total VOOwnership = %d%%" %
                       (rgfn, rname, total_vo_ownership))
                 errors += 1
             if total_vo_ownership:
                 for vo in rdict['VOOwnership']:
                     if vo not in vo_names:
                         print_emsg_once('UnknownVO')
-                        print("In '%s', Resource '%s' has unknown VO '%s'" %
+                        print("ERROR: In '%s', Resource '%s' has unknown VO '%s'" %
                               (rgfn, rname, vo))
                         errors += 1
     return errors
@@ -285,12 +289,12 @@ def test_4_res_svcs(rgs, rgfns):
             rsvcs = rdict.get('Services')
             if not rsvcs:
                 print_emsg_once('NoServices')
-                print("In '%s', Resource '%s' has no Services" % (rgfn, rname))
+                print("ERROR: In '%s', Resource '%s' has no Services" % (rgfn, rname))
                 errors += 1
             else:
                 for svc in sorted(set(rsvcs) - set(services)):
                     print_emsg_once('NoServices')
-                    print("In '%s', Resource '%s' has unknown Service '%s'" %
+                    print("ERROR: In '%s', Resource '%s' has unknown Service '%s'" %
                           (rgfn, rname, svc))
                     errors += 1
     return errors
@@ -301,18 +305,18 @@ def test_5_sc(rgs, rgfns, support_centers):
 
     errors = 0
     if support_centers is None:
-        print("File missing: 'topology/support-centers.yaml'")
+        print("ERROR: File missing: 'topology/support-centers.yaml'")
         return 1
 
     for rg,rgfn in zip(rgs,rgfns):
         sc = rg.get('SupportCenter')
         if not sc:
             print_emsg_once('NoSupCenter')
-            print("Resource Group '%s' has no SupportCenter" % rgfn)
+            print("ERROR: Resource Group '%s' has no SupportCenter" % rgfn)
             errors += 1
         elif sc not in support_centers:
             print_emsg_once('NoSupCenter')
-            print("Resource Group '%s' has unknown SupportCenter '%s'" %
+            print("ERROR: Resource Group '%s' has unknown SupportCenter '%s'" %
                   (rgfn, sc))
             errors += 1
 
@@ -332,7 +336,7 @@ def test_6_site():
     for site, faclist in sorted(smap.items()):
         if len(faclist) > 1:
             print_emsg_once('SiteUnique')
-            print("Site '%s' mentioned for multiple Facilities:" % site)
+            print("ERROR: Site '%s' mentioned for multiple Facilities:" % site)
             for fac in faclist:
                 print(" - %s" % fac)
             errors += 1
@@ -355,7 +359,7 @@ def test_7_fqdn_unique(rgs, rgfns):
     for fqdn, rgflist in sorted(n2rg.items()):
         if len(rgflist) > 1:
             print_emsg_once('FQDNUnique')
-            print("FQDN '%s' mentioned for multiple resources:" % fqdn)
+            print("ERROR: FQDN '%s' mentioned for multiple resources:" % fqdn)
             for rgfile,rname in rgflist:
                 print(" - %s (%s)" % (rname,rgfile))
             errors += 1
@@ -364,22 +368,47 @@ def test_7_fqdn_unique(rgs, rgfns):
 
 
 def test_8_res_ids(rgs, rgfns):
-    # Check that resources/resource groups have a numeric ID/GroupID
+    # Check that resources/resource groups have a unique, numeric ID/GroupID
+    # in the case that an ID is manually assigned
 
     errors = 0
+    ridres = autodict()
+    gidrgs = autodict()
 
     for rg,rgfn in zip(rgs,rgfns):
-        if not isinstance(rg.get('GroupID'), int):
+        group_id = rg.get('GroupID')
+        if group_id is not None and not isinstance(group_id, int):
             print_emsg_once('ResGrpID')
-            print("Resource Group missing numeric GroupID: '%s'" % rgfn)
+            print("ERROR: Resource Group missing numeric GroupID: '%s'" % rgfn)
             errors += 1
+        elif group_id:
+            gidrgs[rg['GroupID']] += [rgfn]
 
         for resname,res in sorted(rg['Resources'].items()):
-            if not isinstance(res.get('ID'), int):
+            resource_id = res.get('ID')
+            if resource_id is not None and not isinstance(resource_id, int):
                 print_emsg_once('ResID')
-                print("Resource '%s' missing numeric ID in '%s'"
+                print("ERROR: Resource '%s' missing numeric ID in '%s'"
                       % (resname, rgfn))
                 errors += 1
+            elif resource_id:
+                ridres[res['ID']] += [(rgfn, resname)]
+
+    for gid,rglist in sorted(gidrgs.items()):
+        if len(rglist) > 1:
+            print_emsg_once('ResGrpIDUnique')
+            print("ERROR: Resource Group ID '%s' used for multiple groups:" % gid)
+            for rgfn in rglist:
+                print(" - %s" % rgfn)
+            errors += 1
+
+    for rid,reslist in sorted(ridres.items()):
+        if len(reslist) > 1:
+            print_emsg_once('ResIDUnique')
+            print("ERROR: Resource ID '%s' used for multiple resources:" % rid)
+            for rgfn,resname in reslist:
+                print(" - %s: %s" % (rgfn, resname))
+            errors += 1
 
     return errors
 
@@ -412,7 +441,7 @@ def test_9_res_contact_lists(rgs, rgfns):
             rcls = rdict.get('ContactLists')
             if not rcls:
                 print_emsg_once('NoResourceContactLists')
-                print("In '%s', Resource '%s' has no ContactLists"
+                print("ERROR: In '%s', Resource '%s' has no ContactLists"
                       % (rgfn, rname))
                 errors += 1
 
@@ -422,7 +451,7 @@ def test_9_res_contact_lists(rgs, rgfns):
 def test_10_res_admin_contact(rgs, rgfns):
     # verify resources have admin contact
 
-    errors = 0
+    warnings = 0
 
     for rg,rgfn in zip(rgs,rgfns):
         for rname,rdict in sorted(rg['Resources'].items()):
@@ -431,17 +460,17 @@ def test_10_res_admin_contact(rgs, rgfns):
                 ctype, etype = 'Administrative', 'NoAdminContact'
                 if not rcls.get('%s Contact' % ctype):
                     print_emsg_once(etype)
-                    print("In '%s', Resource '%s' has no %s Contact"
+                    print("WARNING: In '%s', Resource '%s' has no %s Contact"
                           % (rgfn, rname, ctype))
-                    errors += 1
+                    warnings += 1
 
-    return errors
+    return warnings
 
 
 def test_11_res_sec_contact(rgs, rgfns):
     # verify resources have security contact
 
-    errors = 0
+    warnings = 0
 
     for rg,rgfn in zip(rgs,rgfns):
         for rname,rdict in sorted(rg['Resources'].items()):
@@ -450,11 +479,11 @@ def test_11_res_sec_contact(rgs, rgfns):
                 ctype, etype = 'Security', 'NoSecContact'
                 if not rcls.get('%s Contact' % ctype):
                     print_emsg_once(etype)
-                    print("In '%s', Resource '%s' has no %s Contact"
+                    print("WARNING: In '%s', Resource '%s' has no %s Contact"
                           % (rgfn, rname, ctype))
-                    errors += 1
+                    warnings += 1
 
-    return errors
+    return warnings
 
 
 def test_12_res_contact_id_fmt(rgs, rgfns):
@@ -469,7 +498,7 @@ def test_12_res_contact_id_fmt(rgs, rgfns):
                 for ctype, clevel, ID, name in flatten_res_contacts(rcls):
                     if not contact_id_ok(ID):
                         print_emsg_once('MalformedContactID')
-                        print("In '%s', Resource '%s' has malformed %s %s '%s'"
+                        print("ERROR: In '%s', Resource '%s' has malformed %s %s '%s'"
                               " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
                         errors += 1
     return errors
@@ -486,7 +515,7 @@ def test_12_vo_contact_id_fmt(vos, vofns):
             for ctype, ID, name in flatten_vo_contacts(vcs):
                 if not contact_id_ok(ID):
                     print_emsg_once('MalformedContactID')
-                    print("In '%s', malformed '%s' Contact ID '%s'"
+                    print("ERROR: In '%s', malformed '%s' Contact ID '%s'"
                           " (%s)" % (vofn, ctype, ID, name))
                     errors += 1
     return errors
@@ -505,7 +534,7 @@ def test_12_sc_contact_id_fmt(support_centers):
             for ctype, ID, name in flatten_sc_contacts(sccs):
                 if not contact_id_ok(ID):
                     print_emsg_once('MalformedContactID')
-                    print("Support Center '%s' has malformed '%s'"
+                    print("ERROR: Support Center '%s' has malformed '%s'"
                           " Contact ID '%s' (%s)" % (scname, ctype, ID, name))
                     errors += 1
     return errors
@@ -523,7 +552,7 @@ def test_13_res_contacts_exist(rgs, rgfns, contacts):
                 for ctype, clevel, ID, name in flatten_res_contacts(rcls):
                     if contact_id_ok(ID) and ID not in contacts:
                         print_emsg_once('UnknownContactID')
-                        print("In '%s', Resource '%s' has unknown %s %s '%s'"
+                        print("ERROR: In '%s', Resource '%s' has unknown %s %s '%s'"
                               " (%s)" % (rgfn, rname, clevel, ctype, ID, name))
                         errors += 1
 
@@ -541,7 +570,7 @@ def test_13_vo_contacts_exist(vos, vofns, contacts):
             for ctype, ID, name in flatten_vo_contacts(vcs):
                 if contact_id_ok(ID) and ID not in contacts:
                     print_emsg_once('UnknownContactID')
-                    print("In '%s', unknown '%s' Contact ID '%s'"
+                    print("ERROR: In '%s', unknown '%s' Contact ID '%s'"
                           " (%s)" % (vofn, ctype, ID, name))
                     errors += 1
 
@@ -561,7 +590,7 @@ def test_13_sc_contacts_exist(support_centers, contacts):
             for ctype, ID, name in flatten_sc_contacts(sccs):
                 if contact_id_ok(ID) and ID not in contacts:
                     print_emsg_once('UnknownContactID')
-                    print("Support Center '%s' has unknown '%s'"
+                    print("ERROR: Support Center '%s' has unknown '%s'"
                           " Contact ID '%s' (%s)" % (scname, ctype, ID, name))
                     errors += 1
     return errors
@@ -581,7 +610,7 @@ def test_14_res_contacts_match(rgs, rgfns, contacts):
                         and ID in contacts
                         and name.lower() != contacts[ID].lower()):
                         print_emsg_once('ContactNameMismatch')
-                        print("In '%s', Resource '%s' %s %s '%s' (%s) does not"
+                        print("ERROR: In '%s', Resource '%s' %s %s '%s' (%s) does not"
                               " match name in contact repo (%s)" % (rgfn,
                               rname, clevel, ctype, ID, name, contacts[ID]))
                         errors += 1
@@ -602,7 +631,7 @@ def test_14_vo_contacts_match(vos, vofns, contacts):
                     and ID in contacts
                     and name.lower() != contacts[ID].lower()):
                     print_emsg_once('ContactNameMismatch')
-                    print("In '%s', '%s' Contact ID '%s' (%s) does not"
+                    print("ERROR: In '%s', '%s' Contact ID '%s' (%s) does not"
                           " match name in contact repo (%s)" % (vofn, ctype,
                           ID, name, contacts[ID]))
                     errors += 1
@@ -625,7 +654,7 @@ def test_14_sc_contacts_match(support_centers, contacts):
                     and ID in contacts
                     and name.lower() != contacts[ID].lower()):
                     print_emsg_once('ContactNameMismatch')
-                    print("Support Center '%s': '%s' Contact ID '%s' (%s)"
+                    print("ERROR: Support Center '%s': '%s' Contact ID '%s' (%s)"
                           " does not match name in contact repo (%s)" %
                           (scname, ctype, ID, name, contacts[ID]))
                     errors += 1
@@ -633,20 +662,13 @@ def test_14_sc_contacts_match(support_centers, contacts):
     return errors
 
 
-def test_15_facility_site_files():
-    # verify the required FACILITY.yaml and SITE.yaml files
+def test_15_site_files():
+    # verify the required SITE.yaml files
     errors = 0
-
-    for facdir in glob.glob("*/"):
-        if not os.path.exists(facdir + "FACILITY.yaml"):
-            print_emsg_once('NoFacility')
-            print(facdir[:-1] + " does not have required FACILITY.yaml file")
-            errors += 1
-
     for sitedir in glob.glob("*/*/"):
         if not os.path.exists(sitedir + "SITE.yaml"):
             print_emsg_once('NoSite')
-            print(sitedir[:-1] + " does not have required SITE.yaml file")
+            print("ERROR: " + sitedir[:-1] + " does not have required SITE.yaml file")
             errors += 1
 
     return errors
@@ -659,9 +681,11 @@ def test_16_Xrootd_DNs(rgs, rgfns):
 
     for rg, rgfn in zip(rgs, rgfns):
         for rname, rdict in sorted(rg['Resources'].items()):
-            if 'XRootD cache server' in rdict['Services'] and rdict['Active'] and 'DN' not in rdict:
+            if ('XRootD cache server' in rdict.get('Services', {})
+                    and rdict.get('Active', True)
+                    and not rdict.get('DN', "")):
                 print_emsg_once('XrootdWithoutDN')
-                print("In '%s', Xrootd cache server Resource '%s' has no DN" %
+                print("ERROR: In '%s', Xrootd cache server Resource '%s' has no DN" %
                       (rgfn, rname))
                 errors += 1
 
@@ -689,14 +713,14 @@ def test_17_osdf_data(rgs, rgfns):
             if any( svc in rsvcs for svc in services ):
                 if not isinstance(rdict.get('AllowedVOs'), list):
                     print_emsg_once('OSDFServiceVOsList')
-                    print("In '%s', XRootD cache/origin server Resource '%s'"
+                    print("ERROR: In '%s', XRootD cache/origin server Resource '%s'"
                           " has no AllowedVOs list" % (rgfn, rname))
                     errors += 1
                 else:
                     for name in rdict['AllowedVOs']:
                         if name not in allowed_vo_names:
                             print_emsg_once('UnknownVO')
-                            print("In '%s', Resource '%s', AllowedVOs has"
+                            print("ERROR: In '%s', Resource '%s', AllowedVOs has"
                                   " unknown VO name '%s'" % (rgfn, rname, name))
                             errors += 1
     return errors
@@ -735,7 +759,7 @@ def test_18_osdf_data_cache_warnings(rgs, rgfns, vomap):
                             continue
                         if rname not in all_allowed_caches:
                             print_emsg_once('CacheNotAllowed')
-                            print("In '%s', Resource '%s' is a Cache and"
+                            print("WARNING: In '%s', Resource '%s' is a Cache and"
                                   " allows %s VO; but no VO allows this"
                                   " resource in AllowedCaches"
                                   % (rgfn, rname, voname))
@@ -745,7 +769,7 @@ def test_18_osdf_data_cache_warnings(rgs, rgfns, vomap):
                             (rname in vo_allowed_caches[voname] or
                              "ANY" in vo_allowed_caches[voname])):
                         print_emsg_once('CacheNotAllowed')
-                        print("In '%s', Resource '%s' is a Cache and lists"
+                        print("WARNING: In '%s', Resource '%s' is a Cache and lists"
                               " '%s' in AllowedVOs; but this VO does not list"
                               " that resource in AllowedCaches"
                               % (rgfn, rname, voname))
@@ -775,7 +799,7 @@ def test_19_osdf_data_origin_warnings(rgs, rgfns, vomap):
                     if voname in ["ANY", "ANY_PUBLIC"]:
                         if rname not in all_allowed_origins:
                             print_emsg_once('OriginNotAllowed')
-                            print("In '%s', Resource '%s' is an Origin and"
+                            print("WARNING: In '%s', Resource '%s' is an Origin and"
                                   " allows %s VO; but no VO allows this"
                                   " resource in AllowedOrigins"
                                   % (rgfn, rname, voname))
@@ -785,12 +809,46 @@ def test_19_osdf_data_origin_warnings(rgs, rgfns, vomap):
                             (rname in vo_allowed_origins[voname] or
                              "ANY" in vo_allowed_origins[voname])):
                         print_emsg_once('OriginNotAllowed')
-                        print("In '%s', Resource '%s' is an Origin and lists"
+                        print("WARNING: In '%s', Resource '%s' is an Origin and lists"
                               " '%s' in AllowedVOs; but this VO does not list"
                               " that resource in AllowedOrigins"
                               % (rgfn, rname, voname))
                         warnings += 1
     return warnings
+
+
+def test_20_fqdn_unique_xrootd(rgs, rgfns):
+    # fqdns should be unique across all resources in all sites,
+    # but in any case MUST be unique for XRootD services (SOFTWARE-5065)
+
+    errors = 0
+    n2rg = autodict()
+
+    xrd_svcs = ("XRootD origin server", "XRootD cache server")
+
+    for rg,rgfn in zip(rgs,rgfns):
+        for rname,rdict in rg['Resources'].items():
+            fqdn = rdict['FQDN']
+            svcs = rdict['Services']
+            n2rg[fqdn] += [(rgfn,rname,svcs)]
+
+    for fqdn, rgflist in sorted(n2rg.items()):
+        if len(rgflist) == 1:
+            continue
+
+        if any( svc in svcs for _,_,svcs in rgflist for svc in xrd_svcs ):
+            print_emsg_once('FQDNUniqueXRootD')
+            print("ERROR: Duplicate FQDN '%s' used for XRootD services:" % fqdn)
+
+            for rgfn, rname, svcs in rgflist:
+                print(" - %s (%s)" % (rname,rgfn))
+                for svc in xrd_svcs:
+                    if svc in svcs:
+                        print("   - %s" % svc)
+
+            errors += 1
+
+    return errors
 
 
 if __name__ == '__main__':

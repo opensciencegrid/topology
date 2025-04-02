@@ -64,6 +64,13 @@ OASIS:
   OASISRepoURLs:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/ligo.osgstorage.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/gwosc.osgstorage.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/igwn.osgstorage.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/virgo.storage.igwn.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/ligo.storage.igwn.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/shared.storage.igwn.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/kagra.storage.igwn.org
+  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/ligo-test.storage.igwn.org
+  - http://cvmfs-software.ligo.caltech.edu:8000/cvmfs/software.igwn.org
   UseOASIS: true
 PrimaryURL: http://www.ligo.org
 PurposeURL: http://www.ligo.org
@@ -74,45 +81,205 @@ DataFederations:
     Namespaces:
       - Path: /user/ligo
         Authorizations:
+          - DN: /CN=hcc-mon2.unl.edu
+          - DN: /CN=osdftest.t2.ucsd.edu
           - FQAN: /osg/ligo
           - FQAN: /virgo
           - FQAN: /virgo/virgo
+          - FQAN: /virgo/ligo
           - SciTokens:
-              Issuer: https://scitokens.org/ligo
-              Base Path: /user/ligo
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
           - SciTokens:
-              Issuer: https://test.cilogon.org/ligo
-              Base Path: /user/ligo
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
           - SciTokens:
-              Issuer: https://cilogon.org/ligo
-              Base Path: /user/ligo
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
         AllowedOrigins:
           - CIT_LIGO_ORIGIN
           - LIGO-StashCache-Origin
-          - UCL-Virgo-StashCache-Origin
-        AllowedCaches:
+        AllowedCaches: &ligo-allowed-caches
+          - IN2P3-CC_OSDF_CACHE
           - SUT-STASHCACHE
-          - HCC-Stash
           - Georgia_Tech_PACE_GridFTP2
           - Stashcache-UCSD
           - Stashcache-UofA
-          - Stashcache-Cardiff
           - Stashcache-KISTI
           - Stashcache-Houston
           - Stashcache-Manhattan
           - Stashcache-Sunnyvale
           - Stashcache-Chicago
           - Stashcache-Kansas
-          - T1_STASHCACHE_CACHE
           - PIC_STASHCACHE_CACHE
           - SU_STASHCACHE_CACHE
           - PSU-LIGO-CACHE
+          - MGHPCC_NRP_OSDF_CACHE
+          - SDSC_NRP_OSDF_CACHE
+          - NEBRASKA_NRP_OSDF_CACHE
+          - CINCINNATI_INTERNET2_OSDF_CACHE
+          - BOISE_INTERNET2_OSDF_CACHE
+          - INFN_CNAF_OSDF_CACHE
+          - CARDIFF_UK_OSDF_CACHE
+          - ComputeCanada-Cedar-Cache
+          - JACKSONVILLE_INTERNET2_OSDF_CACHE
+          - DENVER_INTERNET2_OSDF_CACHE
+          - AMSTERDAM_ESNET_OSDF_CACHE
+          - LONDON_ESNET_OSDF_CACHE
+          - HOUSTON2_INTERNET2_OSDF_CACHE
+          - CIT_LIGO_STASHCACHE
+          - SINGAPORE_INTERNET2_OSDF_CACHE
+          - SPRACE_OSDF_CACHE
+          - KAGRA_OSDF_CACHE
+          - SURF_MS4_OSDF_STASHCACHE
+      - Path: /igwn/virgo
+        Authorizations:
+          - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
+          - FQAN: /osg/ligo
+          - FQAN: /virgo
+          - FQAN: /virgo/virgo
+          - FQAN: /virgo/ligo
+          - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+        AllowedOrigins:
+          - UCL-Virgo-StashCache-Origin
+        AllowedCaches: *ligo-allowed-caches
+        DirList: https://ingrid-se09.cism.ucl.ac.be:1095
+      - Path: /igwn/ligo
+        Authorizations:
+          - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
+          - DN: /CN=hcc-mon2.unl.edu
+          - DN: /CN=osdftest.t2.ucsd.edu
+          - FQAN: /osg/ligo
+          - FQAN: /virgo
+          - FQAN: /virgo/virgo
+          - FQAN: /virgo/ligo
+          - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+        AllowedOrigins:
+          - CIT_LIGO_ORIGIN_IFO
+        AllowedCaches: *ligo-allowed-caches
+        DirList: https://origin-ifo.ligo.caltech.edu:1095
+      - Path: /igwn/kagra
+        Authorizations:
+          - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
+          - FQAN: /osg/ligo
+          - FQAN: /virgo
+          - FQAN: /virgo/virgo
+          - FQAN: /virgo/ligo
+          - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+        AllowedOrigins:
+          - KAGRA_OSDF_ORIGIN
+        AllowedCaches: *ligo-allowed-caches
+        DirList: https://kagra-dsr-b2.icrr.u-tokyo.ac.jp:1095
+      - Path: /igwn/shared
+        Authorizations:
+          - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
+          - FQAN: /osg/ligo
+          - FQAN: /virgo
+          - FQAN: /virgo/virgo
+          - FQAN: /virgo/ligo
+          - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+        AllowedOrigins:
+          - CIT_LIGO_ORIGIN_SHARED
+        AllowedCaches: *ligo-allowed-caches
+        DirList: https://origin-shared.ligo.caltech.edu:1095
+      - Path: /igwn/cit
+        Authorizations:
+          - FQAN: /osg/ligo
+          - FQAN: /virgo
+          - FQAN: /virgo/virgo
+          - FQAN: /virgo/ligo
+          - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+        AllowedOrigins:
+          - CIT_LIGO_ORIGIN_STAGING
+        AllowedCaches: *ligo-allowed-caches
+        Writeback: https://origin-staging.ligo.caltech.edu:1095
+        DirList: https://origin-staging.ligo.caltech.edu:1095
+
+      - Path: /igwn/test
+        Authorizations:
+          - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
+          - FQAN: /osg/ligo
+          - FQAN: /virgo
+          - FQAN: /virgo/virgo
+          - FQAN: /virgo/ligo
+          - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+        AllowedOrigins:
+          - CIT_LIGO_ORIGIN_TEST
+        AllowedCaches: *ligo-allowed-caches
+
+      - Path: /igwn/test-write
+        Authorizations:
+          - FQAN: /osg/ligo
+          - FQAN: /virgo
+          - FQAN: /virgo/virgo
+          - FQAN: /virgo/ligo
+          - SciTokens:
+              Issuer: https://cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://test.cilogon.org/igwn
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+          - SciTokens:
+              Issuer: https://osdf.igwn.org/cit
+              Base Path: /user/ligo,/igwn,/igwn/cit,/igwn/test,/igwn/test-write
+        AllowedOrigins:
+          - CIT_LIGO_ORIGIN_TEST_WRITE
+        AllowedCaches: *ligo-allowed-caches
       - Path: /gwdata
         Authorizations:
           - PUBLIC
         AllowedOrigins:
           - CIT_LIGO_ORIGIN
-          - LIGO-StashCache-Origin
-          - UCL-Virgo-StashCache-Origin
+          #- LIGO-StashCache-Origin
+          #- UCL-Virgo-StashCache-Origin
         AllowedCaches:
           - ANY
+        DirList: https://origin.ligo.caltech.edu:1094

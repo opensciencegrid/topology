@@ -22,7 +22,7 @@
   Description: Power work
   EndTime: Jan 9, 2018 20:00 +0000
   ID: 1005527
-  ResourceName: WT2
+  ResourceName: WT2_CE
   Services:
   - CE
   Severity: Outage
@@ -98,3 +98,25 @@
   Severity: Outage
   StartTime: Mar 16, 2018 07:00 +0000
 # ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005644571
+  Description: CE is down
+  Severity: Outage
+  StartTime: Dec 30, 2024 14:00 +0000
+  EndTime: Jan 06, 2025 08:00 +0000
+  CreatedTime: Dec 30, 2024 13:14 +0000
+  ResourceName: WT2_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2005646048
+  Description: CE is down
+  Severity: Outage
+  StartTime: Dec 30, 2024 14:00 +0000
+  EndTime: Jan 06, 2025 08:00 +0000
+  CreatedTime: Dec 30, 2024 13:16 +0000
+  ResourceName: WT2_SE
+  Services:
+  - XRootD component
+# ---------------------------------------------------------

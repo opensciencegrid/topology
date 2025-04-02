@@ -11,19 +11,40 @@ Resources:
       Administrative Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
       Security Contact:
         Primary:
           Name: Judith Stephen
-          ID: a418fbc5dd33637bba264c01d84d52dd317f2813
+          ID: OSG1000016
         Secondary:
           Name: Lincoln Bryant
-          ID: 0a22bab3de2d83d723811e3fb1ebca904e924a97
+          ID: OSG1000013
     FQDN: login-test.osgconnect.net
     DN: /DC=org/DC=incommon/C=US/ST=IL/L=Chicago/O=University of Chicago/OU=IT Services - Self Enrollment/CN=condor-flocking-cert.grid.uchicago.edu
     Services:
       Submit Node:
         Description: ITB OS Pool access point
+  UChicago_OSGConnect_Pelican_Public_ITB:
+    Active: true
+    Description: OSG Connect ITB Public endpoint via Pelican
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000016
+          Name: Judith Stephen
+        Secondary:
+          ID: OSG1000765
+          Name: David Jordan
+        Tertiary:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+    FQDN: pelican-public-itb.tempest.uchicago.edu
+    DN: /CN=pelican-public-itb.tempest.uchicago.edu
+    Services:
+      Pelican origin:
+        Description: OSG Connect ITB Public Origin Server
+    AllowedVOs:
+      - OSG

@@ -761,3 +761,278 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1377183081
+  Description: Corrective downtime for the power at the Research Computing Center
+  Severity: Outage
+  StartTime: Jan 02, 2023 22:45 +0000
+  EndTime: Jan 09, 2023 13:05 +0000
+  CreatedTime: Jan 03, 2023 03:58 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1377183656
+  Description: Corrective downtime for the power at the Research Computing Center
+  Severity: Outage
+  StartTime: Jan 02, 2023 22:45 +0000
+  EndTime: Jan 09, 2023 13:05 +0000
+  CreatedTime: Jan 03, 2023 03:59 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1377184142
+  Description: Corrective downtime for the power at the Research Computing Center
+  Severity: Outage
+  StartTime: Jan 02, 2023 22:45 +0000
+  EndTime: Jan 09, 2023 13:05 +0000
+  CreatedTime: Jan 03, 2023 04:00 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1377185990
+  Description: Corrective downtime for the power at the Research Computing Center
+  Severity: Outage
+  StartTime: Jan 02, 2023 22:45 +0000
+  EndTime: Jan 09, 2023 13:05 +0000
+  CreatedTime: Jan 03, 2023 04:03 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1382875724
+  Description: RHEL8 upgrade
+  Severity: Outage
+  StartTime: Jan 09, 2023 18:05 +0000
+  EndTime: Jun 22, 2023 16:00 +0000
+  CreatedTime: Jan 09, 2023 18:06 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1383595572
+  Description: Network issue
+  Severity: Outage
+  StartTime: Jan 10, 2023 14:05 +0000
+  EndTime: Jan 13, 2023 22:00 +0000
+  CreatedTime: Jan 10, 2023 14:05 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1383596298
+  Description: Network issue
+  Severity: Outage
+  StartTime: Jan 10, 2023 14:05 +0000
+  EndTime: Jan 13, 2023 22:00 +0000
+  CreatedTime: Jan 10, 2023 14:07 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1383596493
+  Description: Network issue
+  Severity: Outage
+  StartTime: Jan 10, 2023 14:05 +0000
+  EndTime: Jan 13, 2023 22:00 +0000
+  CreatedTime: Jan 10, 2023 14:07 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1458013400
+  Description: Lustre needs an OS upgrade to RHEL7,9
+  Severity: Outage
+  StartTime: Apr 17, 2023 13:00 +0000
+  EndTime: Apr 18, 2023 21:00 +0000
+  CreatedTime: Apr 06, 2023 17:15 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1467415292
+  Description: RHEL 7-9 upgrade for SE requires the downtime
+  Severity: Outage
+  StartTime: Apr 17, 2023 14:24 +0000
+  EndTime: Apr 18, 2023 21:00 +0000
+  CreatedTime: Apr 17, 2023 14:25 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1467415904
+  Description: RHEL 7-9 upgrade for SE requires the downtime
+  Severity: Outage
+  StartTime: Apr 17, 2023 14:24 +0000
+  EndTime: Apr 18, 2023 21:00 +0000
+  CreatedTime: Apr 17, 2023 14:26 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1522712596
+  Description: CE upgrade to RHEL8
+  Severity: Outage
+  StartTime: Jun 27, 2023 12:58 +0000
+  EndTime: Jun 27, 2023 21:26 +0000
+  CreatedTime: Jun 20, 2023 14:27 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1522717647
+  Description: CE upgrade to RHEL8
+  Severity: Outage
+  StartTime: Jun 28, 2023 12:58 +0000
+  EndTime: Jun 28, 2023 21:26 +0000
+  CreatedTime: Jun 20, 2023 14:36 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1706760791
+  Description: Deployment of the new data transfer nodes (DTNs) and network upgrade
+  Severity: Outage
+  StartTime: Feb 01, 2024 14:00 +0000
+  EndTime: Feb 02, 2024 22:00 +0000
+  CreatedTime: Jan 19, 2024 14:54 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1706762226
+  Description: Deployment of the new data transfer nodes (DTNs) and network upgrade
+  Severity: Outage
+  StartTime: Feb 01, 2024 14:00 +0000
+  EndTime: Feb 02, 2024 22:00 +0000
+  CreatedTime: Jan 19, 2024 14:57 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1706762729
+  Description: Deployment of the new data transfer nodes (DTNs) and network upgrade
+  Severity: Outage
+  StartTime: Feb 01, 2024 14:00 +0000
+  EndTime: Feb 02, 2024 22:00 +0000
+  CreatedTime: Jan 19, 2024 14:57 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1706762981
+  Description: Deployment of the new data transfer nodes (DTNs) and network upgrade
+  Severity: Outage
+  StartTime: Feb 01, 2024 14:00 +0000
+  EndTime: Feb 02, 2024 22:00 +0000
+  CreatedTime: Jan 19, 2024 14:58 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1740453375
+  Description: IB card replacement
+  Severity: Outage
+  StartTime: Feb 27, 2024 15:00 +0000
+  EndTime: Feb 27, 2024 22:00 +0000
+  CreatedTime: Feb 27, 2024 14:48 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1886589429
+  Description: Storage upgrade prevents job submissions
+  Severity: Outage
+  StartTime: Aug 14, 2024 09:00 +0000
+  EndTime: Aug 17, 2024 21:00 +0000
+  CreatedTime: Aug 14, 2024 18:09 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1886589830
+  Description: Storage upgrade prevents job submissions
+  Severity: Outage
+  StartTime: Aug 14, 2024 09:00 +0000
+  EndTime: Aug 17, 2024 21:00 +0000
+  CreatedTime: Aug 14, 2024 18:09 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1886590095
+  Description: Storage upgrade prevents job submissions
+  Severity: Outage
+  StartTime: Aug 14, 2024 09:00 +0000
+  EndTime: Aug 17, 2024 21:00 +0000
+  CreatedTime: Aug 14, 2024 18:10 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2013473820
+  Description: Storage issue that needs to be repaired.
+  Severity: Outage
+  StartTime: Jan 08, 2025 14:42 +0000
+  EndTime: Jan 22, 2025 20:42 +0000
+  CreatedTime: Jan 08, 2025 14:43 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2013474258
+  Description: Storage issue that needs to be repaired.
+  Severity: Outage
+  StartTime: Jan 08, 2025 14:42 +0000
+  EndTime: Jan 22, 2025 20:42 +0000
+  CreatedTime: Jan 08, 2025 14:43 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2013474446
+  Description: Storage issue that needs to be repaired.
+  Severity: Outage
+  StartTime: Jan 08, 2025 14:42 +0000
+  EndTime: Jan 22, 2025 20:42 +0000
+  CreatedTime: Jan 08, 2025 14:44 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2013474622
+  Description: Storage issue that needs to be repaired.
+  Severity: Outage
+  StartTime: Jan 08, 2025 14:42 +0000
+  EndTime: Jan 22, 2025 20:42 +0000
+  CreatedTime: Jan 08, 2025 14:44 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------

@@ -1,0 +1,157 @@
+Name: PATh
+LongName: Partnership to Advance Throughput Computing
+# AppDescription is a brief description of the VO
+AppDescription: >-
+  The Partnership to Advance Throughput Computing (PATh) is a project funded by NSF’s OAC Campus Cyberinfrastructure (CC*) program in order to address the needs of the rapidly growing community of faculty and students who are embracing Distributed High Throughput Computing (dHTC) technologies and services to advance their research.
+
+# Community is the description of the community the VO belongs to
+Community: Users of Distributed High Throughput Computing
+
+CertificateOnly: false
+
+ID: 226
+
+Contacts:
+  # Administrative Contact is a list of people to contact regarding administrative issues
+  Administrative Contact:
+  - ID: OSG1000001
+    Name: Brian Bockelman
+  - ID: OSG1000015
+    Name: Aaron Moate
+  - ID: OSG1000003
+    Name: Brian Hua Lin
+  - ID: OSG1000002
+    Name: Matyas Selmeci
+
+  # Security Contact is a list of people to contact regarding security issues
+  Security Contact:
+  - ID: OSG1000001
+    Name: Brian Bockelman
+  - ID: OSG1000015
+    Name: Aaron Moate
+  - ID: OSG1000003
+    Name: Brian Hua Lin
+  - ID: OSG1000002
+    Name: Matyas Selmeci
+
+  VO Manager:
+  - ID: 48e1c2f26dc3479a6cf9b2de7c79d654ac27b1d1
+    Name: Miron Livny
+  - ID: OSG1000001
+    Name: Brian Bockelman
+  - ID: OSG1000018
+    Name: Christina Koch
+  - ID: OSG1000277
+    Name: Todd Tannenbaum
+  - ID: c412f5f57dca8fe5c73fb3bc4e86bcf243e9edf7
+    Name: Frank Wuerthwein
+
+### Credentials (optional) define mappings of auth methods to Unix users for this VO
+# Credentials:
+##### TokenIssuers (optional) is a list of mappings for SciTokens issuers
+#   # TokenIssuers:
+#   ### URL is the https URL of your scitokens issuer, e.g. https://scitokens.org/<VO NAME>
+#   ### DefaultUnixUser is a username that jobs with tokens issued by this issuer should map to
+#   ### Description (optional) is human-readable text describing the mapping
+#   ### Subject (optional) is a token subject to restrict this mapping to
+#   # - URL: <URL>
+#   #   DefaultUnixUser: <USER>
+#   #   Description: <TEXT>
+#   #   Subject: <SUBJECT>
+
+FieldsOfScience:
+
+  # PrimaryFields are the fields of science this VO mostly deals with
+  PrimaryFields:
+  - Multi-Science Community
+
+  ### SecondaryFields (optional) are fields of science this VO occasionally deals with
+  # SecondaryFields:
+  # - <FIELD>
+  # - ...
+
+# PrimaryURL is for general information about the VO
+PrimaryURL: https://path-cc.io
+# PurposeURL explains the VO's purpose
+PurposeURL: https://path-cc.io/about/
+# SupportURL is for support issues
+SupportURL: https://path-cc.io/contact/
+
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /path-facility/data
+        Authorizations:
+          - SciTokens:
+              Issuer: https://path-cc.io
+              Base Path: /path-facility/data,/path-facility/development/data/,/path-facility/projects,/path-facility/development/projects/
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-PATH-ORIGIN
+        AllowedCaches:
+          # Internet2 caches:
+          - Stashcache-Chicago
+          - Stashcache-Kansas
+          - Stashcache-Houston
+          - Stashcache-Manhattan
+          - Stashcache-Sunnyvale
+          - BOISE_INTERNET2_OSDF_CACHE
+          - CINCINNATI_INTERNET2_OSDF_CACHE
+          - DENVER_INTERNET2_OSDF_CACHE
+          - HOUSTON2_INTERNET2_OSDF_CACHE
+          - JACKSONVILLE_INTERNET2_OSDF_CACHE
+          # CHTC
+          - CHTC_TIGER_CACHE
+        Writeback: https://ap1-origin.facility.path-cc.io:1095
+        DirList: https://ap1-origin.facility.path-cc.io:1095
+
+      - Path: /path-facility/projects
+        Authorizations:
+          - SciTokens:
+              Issuer: https://path-cc.io
+              Base Path: /path-facility/data,/path-facility/development/data/,/path-facility/projects,/path-facility/development/projects/
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-PATH-ORIGIN
+        AllowedCaches:
+          # Internet2 caches:
+          - Stashcache-Chicago
+          - Stashcache-Kansas
+          - Stashcache-Houston
+          - Stashcache-Manhattan
+          - Stashcache-Sunnyvale
+          - BOISE_INTERNET2_OSDF_CACHE
+          - CINCINNATI_INTERNET2_OSDF_CACHE
+          - DENVER_INTERNET2_OSDF_CACHE
+          - HOUSTON2_INTERNET2_OSDF_CACHE
+          - JACKSONVILLE_INTERNET2_OSDF_CACHE
+          # CHTC
+          - CHTC_TIGER_CACHE
+        Writeback: https://ap1-origin.facility.path-cc.io:1095
+        DirList: https://ap1-origin.facility.path-cc.io:1095
+
+      - Path: /path-facility/development/data
+        Authorizations:
+          - SciTokens:
+              Issuer: https://path-cc.io
+              Base Path: /path-facility/data,/path-facility/development/data/,/path-facility/projects,/path-facility/development/projects/
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-PATH-ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://path-origin.osgdev.chtc.io:1095
+        DirList: https://path-origin.osgdev.chtc.io:1095
+
+      - Path: /path-facility/development/projects
+        Authorizations:
+          - SciTokens:
+              Issuer: https://path-cc.io
+              Base Path: /path-facility/data,/path-facility/development/data/,/path-facility/projects,/path-facility/development/projects/
+              Map Subject: True
+        AllowedOrigins:
+          - CHTC-ITB-PATH-ORIGIN
+        AllowedCaches:
+          - ANY
+        Writeback: https://path-origin.osgdev.chtc.io:1095
+        DirList: https://path-origin.osgdev.chtc.io:1095

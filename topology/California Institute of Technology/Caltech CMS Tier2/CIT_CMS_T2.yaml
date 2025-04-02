@@ -1,6 +1,7 @@
 GroupDescription: (No resource group description)
 GroupID: 10
 Production: true
+SupportCenter: USCMS_Tier2
 Resources:
   CIT_CMS_T2:
     Active: true
@@ -12,6 +13,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -19,6 +23,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: US CMS Tier-2 site at Caltech
     FQDN: cit-gatekeeper.ultralight.org
     FQDNAliases:
@@ -53,6 +60,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -60,6 +70,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: CE for Caltech CMS Tier2 facility.
     FQDN: cit-gatekeeper2.ultralight.org
     FQDNAliases:
@@ -94,6 +107,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -101,6 +117,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: CE for Caltech CMS Tier2 facility.
     FQDN: cit-gatekeeper3.ultralight.org
     FQDNAliases:
@@ -125,7 +144,7 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-  CIT_CMS_T2L:
+  CIT_CMS_T2_Squid_K8s:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -135,6 +154,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -142,6 +164,403 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Squid service for frontier and cvmfs
+    FQDN: k8s-squid-01.ultralight.org
+    ID: 1488
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  CIT_CMS_T2_2_Squid_K8s:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Second Squid service for frontier and cvmfs
+    FQDN: k8s-squid-02.ultralight.org
+    ID: 1489
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  CIT_CMS_T2-L1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Scheduler for Local users of Caltech CMS Group
+    FQDN: login-1.ultralight.org
+    ID: 1481
+    Services:
+      Submit Node:
+        Description: Schedd for Local Users of Caltech CMS Group
+        Details:
+          hidden: false
+          sam_uri: htcondor://login-1.ultralight.org
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.64
+      AccountingName: T2_US_Caltech
+      HEPSPEC: 100408
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  CIT_CMS_T2-L2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Scheduler for Local users of Caltech CMS Group
+    FQDN: login-2.ultralight.org
+    ID: 1482
+    Services:
+      Submit Node:
+        Description: Schedd for Local Users of Caltech CMS Group
+        Details:
+          hidden: false
+          sam_uri: htcondor://login-2.ultralight.org
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.64
+      AccountingName: T2_US_Caltech
+      HEPSPEC: 100408
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  CIT_CMS_T2-L3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Scheduler for Local users of Caltech CMS Group
+    FQDN: login-3.ultralight.org
+    ID: 1483
+    Services:
+      Submit Node:
+        Description: Schedd for Local Users of Caltech CMS Group
+        Details:
+          hidden: false
+          sam_uri: htcondor://login-3.ultralight.org
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.64
+      AccountingName: T2_US_Caltech
+      HEPSPEC: 100408
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+
+  CIT_CMS_T2_K8s_Redir:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Xrootd Redirector
+    FQDN: k8s-redir.ultralight.org
+    ID: 1484
+    Services:
+      XRootD component:
+        Description: Xrootd Redirector for Read Operations
+        Details:
+          hidden: false
+          uri_override: k8s-redir.ultralight.org:1094
+  CIT_CMS_T2_K8s_Redir_Stageout:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Xrootd Redirector
+    FQDN: k8s-redir-stageout.ultralight.org
+    ID: 1485
+    Services:
+      XRootD component:
+        Description: Xrootd Redirector for Write Operations
+        Details:
+          hidden: false
+          uri_override: k8s-redir-stageout.ultralight.org:1094
+  Caltech PerfSonar Bandwidth K8s:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Bandwidth PerfSonar node
+    FQDN: perfsonar-01-v2001.ultralight.org
+    ID: 1486
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: perfsonar-01-v2001.ultralight.org
+    VOOwnership:
+      CMS: 100
+  Caltech PerfSonar Latency K8s:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Latency host for PerfSonar.
+    FQDN: perfsonar-02-v2001.ultralight.org
+    ID: 1487
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: perfsonar-02-v2001.ultralight.org
+    VOOwnership:
+      CMS: 100
+# =================================================================================================
+# The following below are non active old resources. Not deleting them - as instructed by OSG Team.
+# All of them are set to Active: false
+# =================================================================================================
+  CIT_CMS_T2_Squid:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Squid service for frontier and cvmfs
+    FQDN: proxy-1.ultralight.org
+    ID: 688
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  CIT_CMS_T2_2_Squid:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+    Description: Second Squid service for frontier and cvmfs
+    FQDN: proxy-2.ultralight.org
+    ID: 225
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  CIT_CMS_T2L:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
+      Security Contact:
+        Primary:
+          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
+          Name: Justas Balcas
+        Secondary:
+          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
+          Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Scheduler for Local users of Caltech CMS Group
     FQDN: login-1.tier2
     ID: 1055
@@ -165,7 +584,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   CIT_CMS_T2L1:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -174,6 +593,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -181,6 +603,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Scheduler for Local users of Caltech CMS Group
     FQDN: login-1.hep.caltech.edu
     ID: 1064
@@ -204,7 +629,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   CIT_CMS_T2L2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -213,6 +638,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -220,6 +648,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Scheduler for Local users of Caltech CMS Group
     FQDN: login-2.hep.caltech.edu
     ID: 1062
@@ -243,7 +674,7 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
   CIT_CMS_T2L3:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -252,6 +683,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -259,6 +693,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Scheduler for Local users of Caltech CMS Group
     FQDN: login-3.hep.caltech.edu
     ID: 1063
@@ -281,57 +718,8 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 0
       StorageCapacityMin: 0
-  CIT_CMS_T2_Squid:
-    Active: true
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-      Security Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-    Description: Squid service for frontier and cvmfs
-    FQDN: proxy-1.ultralight.org
-    ID: 688
-    Services:
-      Squid:
-        Description: Generic squid service
-    VOOwnership:
-      CMS: 100
-  CIT_CMS_T2_2_Squid:
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-      Security Contact:
-        Primary:
-          ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
-          Name: Justas Balcas
-        Secondary:
-          ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
-          Name: Andres Moya Ignatov
-    Description: Second Squid service for frontier and cvmfs
-    FQDN: proxy-2.ultralight.org
-    ID: 225
-    Services:
-      Squid:
-        Description: Generic squid service
-    VOOwnership:
-      CMS: 100
   Caltech PerfSonar Bandwidth:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -340,6 +728,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -347,6 +738,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Bandwidth PerfSonar node
     FQDN: perfsonar.ultralight.org
     ID: 610
@@ -358,7 +752,7 @@ Resources:
     VOOwnership:
       CMS: 100
   Caltech PerfSonar Latency:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -367,6 +761,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -374,6 +771,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Latency host for PerfSonar.
     FQDN: perfsonar2.ultralight.org
     ID: 609
@@ -385,7 +785,7 @@ Resources:
     VOOwnership:
       CMS: 100
   CIT-CMS-T2-XRD:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -394,6 +794,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -401,6 +804,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Xrootd Redirector
     FQDN: xrootd.ultralight.org
     ID: 1122
@@ -411,7 +817,7 @@ Resources:
           hidden: false
           uri_override: xrootd.ultralight.org:1094
   CIT_CMS_T2_XRD_Ceph:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -420,6 +826,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
       Security Contact:
         Primary:
           ID: 6895284f54fb41f9daafc4b6d0a7ea42c57e31be
@@ -427,6 +836,9 @@ Resources:
         Secondary:
           ID: 5e2a78ef254d5b584751f4de9cd490287301e8e7
           Name: Andres Moya Ignatov
+        Tertiary:
+          ID: OSG1000240
+          Name: Sravya Uppalapati
     Description: Xrootd Redirector
     FQDN: xrootd-redir.ultralight.org
     ID: 1155
@@ -436,4 +848,3 @@ Resources:
         Details:
           hidden: false
           uri_override: xrootd-redir.ultralight.org:1094
-SupportCenter: USCMS_Tier2

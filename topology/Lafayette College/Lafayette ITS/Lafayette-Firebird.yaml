@@ -1,0 +1,53 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: Lafayette College Firebird cluster
+
+Resources:
+  Lafayette-Firebird-CE1:
+    Active: true
+    Description: Hosted CE serving Lafayette College
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+
+      # Commented-out contacts are ones given by name but without COmanage registration
+      # https://support.opensciencegrid.org/a/tickets/78353
+
+      Local Executive Contact:
+        Primary:
+         Name: Jason Alley
+         ID: OSG1000926
+        # Secondary:
+        #   Name: Jason Simms
+        #   ID: 
+
+      Local Operational Contact:
+        Primary:
+          Name: Peter Goode
+          ID: OSG1000899
+        # Secondary:
+        #   Name: Jason Simms
+        #   ID: 
+
+      Local Security Contact:
+        Primary:
+          Name: Peter Goode
+          ID: OSG1000899
+        # Secondary:
+        #   Name: Jason Simms
+        #   ID: 
+        Tertiary:
+          Name: Zepu Chen
+          ID: OSG1000914
+
+    FQDN: lafayette-firebird-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Hosted CE

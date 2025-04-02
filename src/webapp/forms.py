@@ -1,11 +1,14 @@
 import datetime
+from typing import Dict
 
+import requests
+import yaml
 from flask_wtf import FlaskForm
 from wtforms import SelectField, SelectMultipleField, StringField, \
-    TextAreaField, SubmitField
-from wtforms.fields.html5 import TimeField, DateField
-from wtforms.validators import InputRequired
+    TextAreaField, SubmitField, TimeField, DateField
+from wtforms.validators import InputRequired, ValidationError
 
+from .common import fix_newlines, trim_space
 from . import models
 
 UTCOFFSET_CHOICES = [
@@ -150,17 +153,17 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
 
     yamloutput = TextAreaField(None, render_kw={"readonly": True,
                                                 "style": "font-family:monospace; font-size:small;",
-                                                "rows": "15"})
+                                                "rows": "10"})
 
     class Meta:
-        csrf = False  # CSRF not needed because no data gets modified
+        csrf = True
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.infos = ""
 
     # https://stackoverflow.com/a/21815180
-    def validate(self):
+    def validate(self, extra_validators=None):
         self.infos = ""
 
         if not super().validate():
@@ -197,7 +200,7 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
         yaml = ""
         for index, resource in enumerate(resources):
             yaml += models.get_downtime_yaml(
-                id=dtid+index,
+                id_=dtid + index,
                 start_datetime=self.get_start_datetime(),
                 end_datetime=self.get_end_datetime(),
                 created_datetime=created_datetime,
@@ -209,7 +212,6 @@ class GenerateResourceGroupDowntimeForm(FlaskForm):
             )
 
         return yaml
-
 
 
 class GenerateDowntimeForm(FlaskForm):
@@ -246,17 +248,17 @@ class GenerateDowntimeForm(FlaskForm):
 
     yamloutput = TextAreaField(None, render_kw={"readonly": True,
                                                 "style": "font-family:monospace; font-size:small;",
-                                                "rows": "15"})
+                                                "rows": "10"})
 
     class Meta:
-        csrf = False  # CSRF not needed because no data gets modified
+        csrf = True
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.infos = ""
 
     # https://stackoverflow.com/a/21815180
-    def validate(self):
+    def validate(self, extra_validators=None):
         self.infos = ""
 
         if not super().validate():
@@ -291,7 +293,7 @@ class GenerateDowntimeForm(FlaskForm):
         dtid = models._dtid(created_datetime)
 
         return models.get_downtime_yaml(
-            id=dtid,
+            id_=dtid,
             start_datetime=self.get_start_datetime(),
             end_datetime=self.get_end_datetime(),
             created_datetime=created_datetime,
@@ -301,3 +303,101 @@ class GenerateDowntimeForm(FlaskForm):
             resource_name=self.resource.data,
             services=self.services.data,
         )
+
+
+class GenerateProjectForm(FlaskForm):
+    project_name = StringField("Project Name", [InputRequired()])
+    pi_first_name = StringField("PI First Name", [InputRequired()])
+    pi_last_name = StringField("PI Last Name", [InputRequired()])
+    pi_department_or_organization = StringField("PI Department or Organization", [InputRequired()])
+    pi_institution = StringField("PI Institution", [InputRequired()])
+    field_of_science = SelectField("Field of Science (Legacy)", [InputRequired()])
+    field_of_science_id = StringField(
+        "Field of Science ID",
+        [InputRequired()],
+        description="""
+            To help the OSPool track impact on fields of science we ask you to download and pick the closest matching 
+            `SED-CIP code\\title` from the
+            <a href='https://ncses.nsf.gov/pubs/nsf24300/assets/technical-notes/tables/nsf24300-taba-005.xlsx'>
+                SED-CIP table
+            </a>. Note that a maximum of 512 options is shown, if you don't see your field of science initially
+            type the title/code in the input.
+        """
+    )
+
+    description = TextAreaField(None, render_kw={
+        "style": "font-family:monospace; font-size:small;",
+        "rows": "5"
+    })
+
+    yaml_output = TextAreaField(None, render_kw={"readonly": True,
+                                                "style": "font-family:monospace; font-size:small;",
+                                                "rows": "10"})
+
+    auto_submit = SubmitField("Login to Github to Submit Automatically")
+    manual_submit = SubmitField("Submit Manually")
+
+    class Meta:
+        csrf = True
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.project_name.data = kwargs.get("project_name", self.project_name.data)
+        self.pi_first_name.data = kwargs.get("pi_first_name", self.pi_first_name.data)
+        self.pi_last_name.data = kwargs.get("pi_last_name", self.pi_last_name.data)
+        self.pi_department_or_organization.data = kwargs.get("pi_department_or_organization", self.pi_department_or_organization.data)
+        self.pi_institution.data = kwargs.get("pi_institution", self.pi_institution.data)
+        self.field_of_science.data = kwargs.get("field_of_science", self.field_of_science.data)
+        self.field_of_science_id.data = kwargs.get("field_of_science_id", self.field_of_science_id.data)
+        self.description.data = kwargs.get("description", self.description.data)
+        try:
+            self.description.data = trim_space(
+                fix_newlines(
+                    self.description.data.strip())
+            )
+        except (TypeError, AttributeError):
+            pass
+
+        self.infos = ""
+
+    def validate_project_name(form, field):
+        if not set(field.data).isdisjoint(set('/<>:"\\|?* ')):
+            intersection = set(field.data).intersection(set('/<>:\"\\|?* '))
+            raise ValidationError(f"Must be valid filename, invalid chars: {','.join(intersection)}")
+
+    def get_yaml(self, institution_api_data: Dict) -> str:
+
+        institutions_name_mapped = {i["name"]: i["id"] for i in institution_api_data}
+
+        return yaml.dump({
+            "Description": self.description.data,
+            "FieldOfScience": self.field_of_science.data,
+            "Department": self.pi_department_or_organization.data,
+            "Organization": self.pi_institution.data,
+            "PIName": f"{self.pi_first_name.data} {self.pi_last_name.data}",
+            "InstitutionID": institutions_name_mapped.get(self.pi_institution.data, 'Unknown'),
+            "FieldOfScienceID": self.field_of_science_id.data,
+        })
+
+    def as_dict(self):
+        return {
+            "description": self.description.data,
+            "field_of_science": self.field_of_science.data,
+            "field_of_science_id": self.field_of_science_id.data,
+            "pi_department_or_organization": self.pi_department_or_organization.data,
+            "pi_institution": self.pi_institution.data,
+            "pi_first_name": self.pi_first_name.data,
+            "pi_last_name": self.pi_last_name.data,
+            "pi_name": f"{self.pi_first_name.data} {self.pi_last_name.data}",
+            "project_name": self.project_name.data
+        }
+
+    def clear(self):
+        self.project_name.data = ""
+        self.pi_first_name.data = ""
+        self.pi_last_name.data = ""
+        self.pi_department_or_organization.data = ""
+        self.pi_institution.data = ""
+        self.field_of_science.data = ""
+        self.description.data = ""

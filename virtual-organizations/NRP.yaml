@@ -1,0 +1,204 @@
+AppDescription: This VO supports multiple sciences on NRP
+CertificateOnly: false
+Community: The NRP VO will support users and experiments that are small enough not to warrant their own separate VO.
+Contacts:
+  Administrative Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas 
+  Security Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas 
+  Sponsors:
+  - ID: c412f5f57dca8fe5c73fb3bc4e86bcf243e9edf7
+    Name: Frank Wuerthwein
+  VO Manager:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas 
+Credentials:
+  TokenIssuers:
+    - URL: https://scitokens.org/nrp
+      DefaultUnixUser: nrp
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - Multi-Science Community
+ID: 232
+LongName: National research platform origin
+PrimaryURL: https://nationalresearchplatform.org
+PurposeURL: https://nationalresearchplatform.org
+ReportingGroups:
+- nrp
+SupportURL: https://nationalresearchplatform.org
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /nrp
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /nrp/protected/sio/MODIS_Aqua_microphysics_images/
+        Authorizations:
+          - SciTokens:
+              Issuer: https://token.nationalresearchplatform.org/modis
+              Base Path: /nrp/protected/sio/MODIS_Aqua_microphysics_images/
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /nrp/protected/sio
+        Authorizations:
+          - SciTokens:
+              Issuer: https://token.nationalresearchplatform.org/sio
+              Base Path: /nrp/protected/sio
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /nrp/protected/xenon-biggrid-nl/
+        Authorizations:
+          - FQAN: /xenon.biggrid.nl/*
+          - DN: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jstephen/CN=781624/CN=Judith Lorraine Stephen
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/xenon
+              Base Path: /nrp/protected/xenon-biggrid-nl/
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_XENON_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /nrp/fdp/
+        Authorizations:
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/fdp
+              Base Path: /nrp/fdp/
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - FDP_OSDF_CACHE
+      - Path: /nrp/fdp/gyrokinetic
+        Authorizations:
+          - PUBLIC
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/gyrokinetic
+              Base Path: /nrp/fdp/gyrokinetic/
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - FDP_OSDF_CACHE
+      - Path: /knightlab
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /knightlab/mirror
+        Authorizations:
+          - PUBLIC
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/knightlab
+              Base Path: /knightlab/mirror
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /fdp-d3d
+        Authorizations:
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/fdp-d3d
+              Base Path: /fdp-d3d
+              Map Subject: False
+        AllowedOrigins:
+          - FDP_OSDF_ORIGIN
+        AllowedCaches:
+          - FDP_OSDF_CACHE
+      - Path: /nrp/so
+        Authorizations:
+          - PUBLIC
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/so
+              Base Path: /nrp/so
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /nrp/sdsc
+        Authorizations:
+          - PUBLIC
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/sdsc
+              Base Path: /nrp/sdsc
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /nrp/awesome
+        Authorizations:
+          - PUBLIC
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/awesome
+              Base Path: /nrp/awesome
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /nrp/osdf
+        Authorizations:
+          - PUBLIC
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /nrp/unl
+        Authorizations:
+          - SciTokens:
+              Issuer: https://t.nationalresearchplatform.org/unl-nrp
+              Base Path: /nrp/unl
+              Map Subject: False
+        AllowedOrigins:
+          - NEBRASKA_NRP_HCC_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+          
+      - Path: /jkb-lab
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/osdf/jkb-lab
+              Base Path: /jkb-lab
+              Map Subject: False
+        AllowedOrigins:
+          - NEBRASKA_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+      - Path: /jkb-lab-public
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/osdf/jkb-lab
+              Base Path: /jkb-lab-public
+              Map Subject: False
+        AllowedOrigins:
+          - NEBRASKA_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+
+      - Path: /mals
+        Authorizations:
+          - SciTokens:
+              Issuer: https://osg-htc.org/osdf/mals
+              Base Path: /mals
+              Map Subject: False
+        AllowedOrigins:
+          - PURDUE_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY

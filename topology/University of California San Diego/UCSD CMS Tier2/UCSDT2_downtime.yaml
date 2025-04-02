@@ -1466,3 +1466,509 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1305197528
+  Description: Intermittant campus network issues
+  Severity: Intermittent Outage
+  StartTime: Oct 11, 2022 20:00 +0000
+  EndTime: Oct 12, 2022 21:00 +0000
+  CreatedTime: Oct 11, 2022 20:22 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1305197529
+  Description: Intermittant campus network issues
+  Severity: Intermittent Outage
+  StartTime: Oct 11, 2022 20:00 +0000
+  EndTime: Oct 12, 2022 21:00 +0000
+  CreatedTime: Oct 11, 2022 20:22 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1305197530
+  Description: Intermittant campus network issues
+  Severity: Intermittent Outage
+  StartTime: Oct 11, 2022 20:00 +0000
+  EndTime: Oct 12, 2022 21:00 +0000
+  CreatedTime: Oct 11, 2022 20:22 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1305197531
+  Description: Intermittant campus network issues
+  Severity: Intermittent Outage
+  StartTime: Oct 11, 2022 20:00 +0000
+  EndTime: Oct 12, 2022 21:00 +0000
+  CreatedTime: Oct 11, 2022 20:22 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1305197532
+  Description: Intermittant campus network issues
+  Severity: Intermittent Outage
+  StartTime: Oct 11, 2022 20:00 +0000
+  EndTime: Oct 12, 2022 21:00 +0000
+  CreatedTime: Oct 11, 2022 20:22 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1349304538
+  Description: Downtime for cooling system maintenance
+  Severity: Outage
+  StartTime: Dec 05, 2022 16:00 +0000
+  EndTime: Dec 05, 2022 18:00 +0000
+  CreatedTime: Dec 01, 2022 21:34 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1349304539
+  Description: Downtime for cooling system maintenance
+  Severity: Outage
+  StartTime: Dec 05, 2022 16:00 +0000
+  EndTime: Dec 05, 2022 18:00 +0000
+  CreatedTime: Dec 01, 2022 21:34 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1349304540
+  Description: Downtime for cooling system maintenance
+  Severity: Outage
+  StartTime: Dec 05, 2022 16:00 +0000
+  EndTime: Dec 05, 2022 18:00 +0000
+  CreatedTime: Dec 01, 2022 21:34 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1349304541
+  Description: Downtime for cooling system maintenance
+  Severity: Outage
+  StartTime: Dec 05, 2022 16:00 +0000
+  EndTime: Dec 05, 2022 18:00 +0000
+  CreatedTime: Dec 01, 2022 21:34 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1349304542
+  Description: Downtime for cooling system maintenance
+  Severity: Outage
+  StartTime: Dec 05, 2022 16:00 +0000
+  EndTime: Dec 05, 2022 18:00 +0000
+  CreatedTime: Dec 01, 2022 21:34 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1522878724
+  Description: Disk failure
+  Severity: Outage
+  StartTime: Jun 20, 2023 19:00 +0000
+  EndTime: Jun 27, 2023 00:00 +0000
+  CreatedTime: Jun 20, 2023 19:04 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764611
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDCMST2-2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764612
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDCMST2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764613
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764614
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764615
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764616
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-Cloud
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764617
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-Cloud-1-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764618
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-Cloud-2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764619
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-Cloud-3-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764620
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-Cloud-4-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764621
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-Cloud-5-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764622
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-Cloud-6-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764623
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764624
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764625
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: UCSDT2-SE3
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764626
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: US-UCSD BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1574764627
+  Description: storm
+  Severity: Outage
+  StartTime: Aug 19, 2023 23:00 +0000
+  EndTime: Aug 22, 2023 00:00 +0000
+  CreatedTime: Aug 19, 2023 20:21 +0000
+  ResourceName: US-UCSD LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562758
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDCMST2-2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562759
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDCMST2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562760
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562761
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562762
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562763
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-Cloud
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562764
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-Cloud-1-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562765
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-Cloud-2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562766
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-Cloud-3-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562767
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-Cloud-4-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562768
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-Cloud-5-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562769
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-Cloud-6-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562770
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562771
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562772
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: UCSDT2-SE3
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562773
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: US-UCSD BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1845562774
+  Description: Cooling malfunction
+  Severity: Outage
+  StartTime: Jun 28, 2024 04:00 +0000
+  EndTime: Jun 29, 2024 06:59 +0000
+  CreatedTime: Jun 28, 2024 06:31 +0000
+  ResourceName: US-UCSD LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2050873509
+  Description: OS upgrade
+  Severity: Outage
+  StartTime: Feb 25, 2025 17:00 +0000
+  EndTime: Feb 25, 2025 20:00 +0000
+  CreatedTime: Feb 20, 2025 21:35 +0000
+  ResourceName: UCSDCMST2-2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------

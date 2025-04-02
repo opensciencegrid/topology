@@ -34,7 +34,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 10.43
+      APELNormalFactor: 12.52
       AccountingName: US-SWT2
       HEPSPEC: 102816
       InteropAccounting: true
@@ -46,7 +46,7 @@ Resources:
       StorageCapacityMin: 5000
       TapeCapacity: 0
   SWT2_CPB_CE_2:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -73,12 +73,12 @@ Resources:
     VOOwnership:
       ATLAS: 100
     WLCGInformation:
-      APELNormalFactor: 10.43
+      APELNormalFactor: 12.52
       AccountingName: US-SWT2
       HEPSPEC: 102816
-      InteropAccounting: true
-      InteropBDII: true
-      InteropMonitoring: true
+      InteropAccounting: false
+      InteropBDII: false
+      InteropMonitoring: false
       KSI2KMax: 2086
       KSI2KMin: 2086
       StorageCapacityMax: 5000
@@ -202,7 +202,7 @@ Resources:
           Name: Mark Sosebee
     Description: Frontier/CVMFS SLATE based squid service
     FQDN: slate01.atlas-swt2.org
-    ID: 1129
+    ID: 1380
     Services:
       Squid:
         Description: Generic squid service
@@ -264,4 +264,42 @@ Resources:
           endpoint: psuta01.atlas-swt2.org
     VOOwnership:
       ATLAS: 100
+  SWT2_CPB_K8S:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000710
+          Name: Armen Vartapetian
+        Secondary:
+          ID: 85358c47f16fad2a915da157353581016788a30a
+          Name: Mark Sosebee
+      Security Contact:
+        Primary:
+          ID: OSG1000710
+          Name: Armen Vartapetian
+        Secondary:
+          ID: 85358c47f16fad2a915da157353581016788a30a
+          Name: Mark Sosebee
+    Description: ATLAS Tier2 Kubernetes queue
+    FQDN: cpb-k8s.atlas-swt2.org  # placeholder
+    Services:
+      Execution Endpoint:
+        Description: Container-based ATLAS PanDA pilots
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 12.52
+      AccountingName: US-SWT2
+      HEPSPEC: 102816
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 2086
+      KSI2KMin: 2086
+      StorageCapacityMax: 5000
+      StorageCapacityMin: 5000
+      TapeCapacity: 0
 SupportCenter: USATLAS

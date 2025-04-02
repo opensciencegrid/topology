@@ -1,0 +1,86 @@
+- Class: SCHEDULED
+  Description: SCHEDULED cert update
+  EndTime: Nov 10, 2022 1:00 +0000
+  ID: 1040
+  ResourceName: Stashcache-Kansas
+  Services:
+  - XRootD cache server
+  Severity: Outage
+  StartTime: Nov 10, 2022 1:00 +0000
+- Class: SCHEDULED
+  ID: 1616105741
+  Description: OS reinstall
+  Severity: Outage
+  StartTime: Oct 09, 2023 20:00 +0000
+  EndTime: Oct 13, 2023 20:00 +0000
+  CreatedTime: Oct 06, 2023 16:42 +0000
+  ResourceName: Stashcache-Kansas
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+  - Class: UNSCHEDULED
+  ID: 1757836986
+  Description: Overloaded
+  Severity: Outage
+  StartTime: Mar 17, 2024 19:30 +0000
+  EndTime: Mar 22, 2024 19:30 +0000
+  CreatedTime: Mar 18, 2024 17:41 +0000
+  ResourceName: Stashcache-Kansas
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1922772509
+  Description: performance issues
+  Severity: Outage
+  StartTime: Sep 24, 2024 15:30 +0000
+  EndTime: Oct 10, 2024 15:30 +0000
+  CreatedTime: Sep 25, 2024 15:14 +0000
+  ResourceName: Stashcache-Kansas
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2036060746
+  Description: Storage problem
+  Severity: Outage
+  StartTime: Feb 03, 2025 09:00 +0000
+  EndTime: Feb 05, 2025 20:30 +0000
+  CreatedTime: Feb 03, 2025 18:07 +0000
+  ResourceName: Stashcache-Kansas
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2038816539
+  Description: 'Storage issue: read only - probably SSD/HDD problem'
+  Severity: Outage
+  StartTime: Feb 05, 2025 09:00 +0000
+  EndTime: Feb 14, 2025 20:30 +0000
+  CreatedTime: Feb 06, 2025 22:40 +0000
+  ResourceName: Stashcache-Kansas
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2049133845
+  Description: 'one of the drives failed in the cache volume and it won''t boot '
+  Severity: Outage
+  StartTime: Feb 18, 2025 09:00 +0000
+  EndTime: Feb 28, 2025 20:30 +0000
+  CreatedTime: Feb 18, 2025 21:16 +0000
+  ResourceName: Stashcache-Kansas
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2060205457
+  Description: DNS and node renaming
+  Severity: Outage
+  StartTime: Mar 02, 2025 20:30 +0000
+  EndTime: Mar 04, 2025 20:30 +0000
+  CreatedTime: Mar 03, 2025 16:49 +0000
+  ResourceName: Stashcache-Kansas
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------

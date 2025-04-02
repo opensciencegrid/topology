@@ -74,3 +74,36 @@
   ResourceName: OSG_US_AMNH_ARES
   Services:
   - CE
+- Class: UNSCHEDULED
+  ID: 1374126383
+  Description: Conversion issues
+  Severity: Outage
+  StartTime: Dec 30, 2022 15:03 +0000
+  EndTime: Jan 06, 2023 17:00 +0000
+  CreatedTime: Dec 30, 2022 15:03 +0000
+  ResourceName: AMNH-ARES
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1402834530
+  Description: Slurm Update
+  Severity: Outage
+  StartTime: Feb 07, 2023 14:00 +0000
+  EndTime: Feb 08, 2023 14:00 +0000
+  CreatedTime: Feb 01, 2023 20:30 +0000
+  ResourceName: AMNH-ARES
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1487299724
+  Description: HW maintenance
+  Severity: Outage
+  StartTime: May 15, 2023 13:00 +0000
+  EndTime: May 17, 2023 09:00 +0000
+  CreatedTime: May 10, 2023 14:46 +0000
+  ResourceName: AMNH-ARES
+  Services:
+  - CE
+# ---------------------------------------------------------

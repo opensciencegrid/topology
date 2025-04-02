@@ -15,11 +15,13 @@ Resources:
     FQDN: origin.ligo.caltech.edu
     ID: 948
     Services:
-      XRootD origin server:
-        Description: StashCache Origin server
+      Pelican origin:
+        Description: OSDF Pelican Origin
     AllowedVOs:
       - LIGO
-  CIT_LIGO_SQUID1:
+  CIT_LIGO_ORIGIN_IFO:
+    Active: true
+    Description: This serves proprietary gravitational-wave data from the LIGO interferometers
     ContactLists:
       Administrative Contact:
         Primary:
@@ -29,14 +31,130 @@ Resources:
         Primary:
           Name: Stuart Anderson
           ID: c50e7cc9d0086272ef995fb76461612d40c70435
-    FQDN: dcs-squid1.ligo.caltech.edu
+    FQDN: origin-ifo.ligo.caltech.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=origin-ifo.ligo.caltech.edu
+    ID: 1457
+    Services:
+      XRootD origin server:
+        Description: StashCache Origin server
+    AllowedVOs:
+      - LIGO
+  CIT_LIGO_ORIGIN_SHARED:
+    Active: true
+    Description: This serves proprietary data shared among LIGO, Virgo, and KAGRA
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: origin-shared.ligo.caltech.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=origin-shared.ligo.caltech.edu
+    ID: 1458
+    Services:
+      XRootD origin server:
+        Description: StashCache Origin server
+    AllowedVOs:
+      - LIGO
+  CIT_LIGO_ORIGIN_STAGING:
+    Active: true
+    Description: This serves proprietary user data staged to and from the CIT cluster
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: origin-staging.ligo.caltech.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=origin-staging.ligo.caltech.edu
+    ID: 1479
+    Services:
+      XRootD origin server:
+        Description: StashCache Origin server
+    AllowedVOs:
+      - LIGO
+
+  CIT_LIGO_ORIGIN_TEST:
+    Active: true
+    Description: This serves proprietary LIGO interferometer data in a test configuration
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Joshua Willis
+          ID: OSG1000316
+        Secondary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        # Primary:
+        #   Name: Randy Trudeau
+        #   ID: <not registered>
+        # Secondary:
+        #   Name: Warren Anderson
+        #   ID: <not registered>
+        Tertiary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: origin-readtest.ligo.caltech.edu
+    Services:
+      Pelican origin:
+        Description: Pelican origin
+    AllowedVOs:
+      - LIGO
+
+  CIT_LIGO_ORIGIN_TEST_WRITE:
+    Active: true
+    Description: This serves proprietary user data staged to and from the CIT cluster in a test configuration
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Joshua Willis
+          ID: OSG1000316
+        Secondary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        # Primary:
+        #   Name: Randy Trudeau
+        #   ID: <not registered>
+        # Secondary:
+        #   Name: Warren Anderson
+        #   ID: <not registered>
+        Tertiary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: origin-writetest.ligo.caltech.edu
+    Services:
+      Pelican origin:
+        Description: Pelican origin
+    AllowedVOs:
+      - LIGO
+
+  CIT_LIGO_SQUID:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+    FQDN: dcs-squid.ligo.caltech.edu
     ID: 1316
     Services:
       Squid:
         Description: Frontier-squid proxy server
     AllowedVOs:
       - LIGO
-  CIT_LIGO_SQUID2:
+  CIT_LIGO_STASHCACHE:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
@@ -46,28 +164,35 @@ Resources:
         Primary:
           Name: Stuart Anderson
           ID: c50e7cc9d0086272ef995fb76461612d40c70435
-    FQDN: dcs-squid2.ligo.caltech.edu
-    ID: 1317
+    FQDN: stashcache.ligo.caltech.edu
+    DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=stashcache.ligo.caltech.edu
+    ID: 1461
     Services:
-      Squid:
-        Description: Frontier-squid proxy server
+      XRootD cache server:
+        Description: OSDF Stashcache
     AllowedVOs:
       - LIGO
-  CIT_LIGO_SQUID3:
+  LIGO_HANFORD_CE1:
+    Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          Name: Stuart Anderson
-          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+          Name: Ashton Graves
+          ID: OSG1000362
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
-          Name: Stuart Anderson
-          ID: c50e7cc9d0086272ef995fb76461612d40c70435
-    FQDN: dcs-squid3.ligo.caltech.edu
-    ID: 1318
+          Name: Ashton Graves
+          ID: OSG1000362
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: ligo-hanford-ce1.svc.opensciencegrid.org
     Services:
-      Squid:
-        Description: Frontier-squid proxy server
+      CE:
+        Description: Hosted CE for LHO
     AllowedVOs:
       - LIGO
 SupportCenter: Advanced LIGO

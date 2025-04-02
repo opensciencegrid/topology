@@ -4,7 +4,7 @@ GroupID: 147
 Production: true
 Resources:
   IllinoisHEP:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -29,7 +29,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   IllinoisHEP-LFC:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -41,7 +41,7 @@ Resources:
           Name: David Lesny
     Description: This is the LFC node for the DDM in our Tier3gs
     FQDN: osgx3.hep.uiuc.edu
-    ID: 265
+    ID: 1341
     Services:
       LFC:
         Description: Logical File Catalog
@@ -50,7 +50,7 @@ Resources:
     VOOwnership:
       ATLAS: 100
   IllinoisHEP-SE:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:

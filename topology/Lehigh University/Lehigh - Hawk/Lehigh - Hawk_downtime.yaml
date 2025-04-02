@@ -75,4 +75,81 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1560742322
+  Description: Scheduled cluster maintenance
+  Severity: Outage
+  StartTime: Aug 08, 2023 14:00 +0000
+  EndTime: Aug 08, 2023 16:00 +0000
+  CreatedTime: Aug 03, 2023 14:50 +0000
+  ResourceName: LEHIGH-HAWK-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1782060687
+  Description: Overloaded
+  Severity: Outage
+  StartTime: Apr 15, 2024 08:00 +0000
+  EndTime: Apr 22, 2024 19:00 +0000
+  CreatedTime: Apr 15, 2024 18:34 +0000
+  ResourceName: LEHIGH-HAWK-OSDF-CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1830324854
+  Description: Upgrade CE from CentOS 7 to Alma 9 and OSG from 3.6 to 23
+  Severity: Outage
+  StartTime: Jun 12, 2024 13:00 +0000
+  EndTime: Jun 13, 2024 16:00 +0000
+  CreatedTime: Jun 10, 2024 15:14 +0000
+  ResourceName: LEHIGH-HAWK-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1934415866
+  Description: HW issue
+  Severity: Outage
+  StartTime: Oct 07, 2024 07:30 +0000
+  EndTime: Oct 18, 2024 19:30 +0000
+  CreatedTime: Oct 09, 2024 02:39 +0000
+  ResourceName: LEHIGH-HAWK-OSDF-CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2008339833
+  Description: Cluster OS upgrade from Cent8 Stream to Alma9
+  Severity: Outage
+  StartTime: Jan 06, 2025 13:00 +0000
+  EndTime: Jan 10, 2025 22:00 +0000
+  CreatedTime: Jan 02, 2025 16:06 +0000
+  ResourceName: LEHIGH-HAWK-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2012720589
+  Description: Offline - checking with the admin
+  Severity: Outage
+  StartTime: Jan 06, 2025 20:30 +0000
+  EndTime: Jan 09, 2025 20:30 +0000
+  CreatedTime: Jan 07, 2025 17:47 +0000
+  ResourceName: LEHIGH-HAWK-OSDF-CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2086177634
+  Description: Condor account expired, waiting for IDM to reopen it
+  Severity: Outage
+  StartTime: Apr 02, 2025 18:15 +0000
+  EndTime: Apr 04, 2025 21:00 +0000
+  CreatedTime: Apr 02, 2025 18:16 +0000
+  ResourceName: LEHIGH-HAWK-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
 

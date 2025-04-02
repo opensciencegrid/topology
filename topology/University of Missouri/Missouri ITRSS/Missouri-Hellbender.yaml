@@ -1,0 +1,25 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: University of Missouri Hellbender cluster
+
+Resources:
+  Missouri-Hellbender-CE1:
+    Active: true
+    Description: Hosted CE serving Missouri Hellbender
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+
+    FQDN: missouri-hellbender-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Hosted CE
+    Tags:
+      - CC*

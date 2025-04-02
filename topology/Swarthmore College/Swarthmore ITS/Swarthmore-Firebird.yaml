@@ -1,0 +1,56 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: Swarthmore College Firebird cluster
+
+Resources:
+  Swarthmore-Firebird-CE1:
+    Active: true
+    Description: Hosted CE serving Swarthmore College
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+
+      # Commented-out contacts are ones given by name but without COmanage registration
+      # https://support.opensciencegrid.org/a/tickets/78353
+
+      # Local Executive Contact:
+        # Primary:
+        #   Name: Jason Simms
+        #   ID: 
+        # Secondary:
+        #   Name: Andrew Ruether
+        #   ID: 
+
+      # Local Operational Contact:
+        # Primary:
+        #   Name: Jason Simms
+        #   ID: 
+        # Secondary:
+        #   Name: Andrew Ruether
+        #   ID: 
+        # Tertiary:
+        #   Name: Mike Clemente
+        #   ID: 
+
+      # Local Security Contact:
+        # Primary:
+        #   Name: Nick Hannon
+        #   ID: 
+        # Secondary:
+        #   Name: Jason Rotunno
+        #   ID: 
+        # Tertiary:
+        #   Name: Jason Simms
+        #   ID: 
+
+    FQDN: swarthmore-firebird-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Hosted CE

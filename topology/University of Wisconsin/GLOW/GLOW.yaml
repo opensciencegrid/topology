@@ -28,7 +28,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 10.99
+      APELNormalFactor: 13.31
       AccountingName: T2_US_Wisconsin
       HEPSPEC: 0
       InteropAccounting: true
@@ -64,7 +64,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 10.99
+      APELNormalFactor: 13.31
       AccountingName: T2_US_Wisconsin
       HEPSPEC: 14000
       InteropAccounting: true
@@ -138,7 +138,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 10.99
+      APELNormalFactor: 13.31
       AccountingName: T2_US_Wisconsin
       HEPSPEC: 0
       InteropAccounting: true
@@ -186,6 +186,24 @@ Resources:
     Description: Squid Servers RR alias
     FQDN: frontier.hep.wisc.edu
     ID: 678
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  GLOW_OSG_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: OSG Squid Servers RR alias
+    FQDN: osgsquid.hep.wisc.edu
     Services:
       Squid:
         Description: Generic squid service
@@ -261,7 +279,7 @@ Resources:
           Name: Carl Vuosalo
     Description: Squid Server for cvmfs
     FQDN: cvmfscache04.hep.wisc.edu
-    ID: 974
+    ID: 1342
     Services:
       Squid:
         Description: Generic squid service
@@ -295,7 +313,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 10.99
+      APELNormalFactor: 13.31
       AccountingName: T2_US_Wisconsin
       HEPSPEC: 0
       InteropAccounting: true
@@ -333,7 +351,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 10.99
+      APELNormalFactor: 13.31
       AccountingName: T2_US_Wisconsin
       HEPSPEC: 0
       InteropAccounting: true
@@ -371,7 +389,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 10.99
+      APELNormalFactor: 13.31
       AccountingName: T2_US_Wisconsin
       HEPSPEC: 0
       InteropAccounting: true
@@ -409,7 +427,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 10.99
+      APELNormalFactor: 13.31
       AccountingName: T2_US_Wisconsin
       HEPSPEC: 0
       InteropAccounting: true
@@ -454,7 +472,7 @@ Resources:
     VOOwnership:
       GLOW: 100
     WLCGInformation:
-      APELNormalFactor: 10.99
+      APELNormalFactor: 13.31
       AccountingName: T2_US_Wisconsin
       HEPSPEC: 0
       InteropAccounting: true
@@ -499,7 +517,7 @@ Resources:
     VOOwnership:
       GLOW: 100
     WLCGInformation:
-      APELNormalFactor: 10.99
+      APELNormalFactor: 13.31
       AccountingName: T2_US_Wisconsin
       HEPSPEC: 0
       InteropAccounting: true
@@ -538,7 +556,7 @@ Resources:
     VOOwnership:
       CMS: 100
     WLCGInformation:
-      APELNormalFactor: 10.99
+      APELNormalFactor: 13.31
       AccountingName: T2_US_Wisconsin
       HEPSPEC: 0
       InteropAccounting: true

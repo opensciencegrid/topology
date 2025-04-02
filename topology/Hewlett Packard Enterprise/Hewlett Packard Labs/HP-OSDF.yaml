@@ -1,0 +1,55 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription:  Fusion Data Platform
+Resources:
+  FDP_HP_OSDF_CACHE:
+    Active: true
+    Description: FDP HP OSDF cache
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+        Secondary:
+          Name: Aalap Tripathy 
+          ID: OSG1000690
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+        Secondary:
+          Name: Aalap Tripathy 
+          ID: OSG1000690    
+    DN: /CN=fdp-cache.labs.hpe.com
+    FQDN: fdp-cache.labs.hpe.com
+    Services:
+      Pelican cache:
+        Description: OSDF cache server for FDP HP project
+    AllowedVOs:
+      - NRP
+  
+  FDP_HP_OSDF_ORIGIN:
+    Active: true
+    Description: FDP HP OSDF origin
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+        Secondary:
+          Name: Aalap Tripathy 
+          ID: OSG1000690
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+        Secondary:
+          Name: Aalap Tripathy 
+          ID: OSG1000690    
+    DN: /CN=fdp-origin.labs.hpe.com
+    FQDN: fdp-origin.labs.hpe.com
+    Services:
+      Pelican origin:
+        Description: OSDF origin server for FDP HP project
+    AllowedVOs:
+      - NRP

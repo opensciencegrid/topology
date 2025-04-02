@@ -1,0 +1,25 @@
+
+Production: true
+SupportCenter: Self Supported
+GroupDescription: Distributed compute resources made available through GP-ARGO
+GroupID: 1340
+Resources:
+  GP-ARGO-cameron-backfill:
+    Active: true
+    Description: Backfill containers running at Cameron University
+    ID: 1411
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 0a077233ccf64c5f4a0888b0de224093f5129e9a
+          Name: Kyle Hutson
+      Security Contact:
+        Primary:
+          ID: 0a077233ccf64c5f4a0888b0de224093f5129e9a
+          Name: Kyle Hutson
+    FQDN: cameron.gp-argo.greatplains.net
+    Services:
+      Execution Endpoint:
+        Description: GP-ARGO backfill containers
+    Tags:
+      - CC*

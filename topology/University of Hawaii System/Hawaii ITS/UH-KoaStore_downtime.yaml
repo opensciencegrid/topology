@@ -1,0 +1,33 @@
+- Class: SCHEDULED
+  ID: 1742369569
+  Description: 'one of our twice a year major downtimes '
+  Severity: Outage
+  StartTime: Mar 06, 2024 18:30 +0000
+  EndTime: Mar 07, 2024 03:00 +0000
+  CreatedTime: Feb 29, 2024 20:02 +0000
+  ResourceName: KOASTORE_OSDF_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1885744233
+  Description: '#toPelican'
+  Severity: Outage
+  StartTime: Aug 12, 2024 19:30 +0000
+  EndTime: Aug 16, 2024 19:30 +0000
+  CreatedTime: Aug 13, 2024 18:40 +0000
+  ResourceName: KOASTORE_OSDF_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2037977581
+  Description: HW issue
+  Severity: Outage
+  StartTime: Feb 04, 2025 09:00 +0000
+  EndTime: Feb 12, 2025 20:30 +0000
+  CreatedTime: Feb 05, 2025 23:22 +0000
+  ResourceName: KOASTORE_OSDF_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------

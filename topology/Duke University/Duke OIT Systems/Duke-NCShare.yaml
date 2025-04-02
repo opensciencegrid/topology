@@ -1,0 +1,25 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: Duke University NCShare regional computing cluster
+
+Resources:
+  Duke-NCShare-CE1:
+    Active: true
+    Description: Hosted CE serving Duke
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+
+    FQDN: duke-ncshare-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Hosted CE
+    Tags:
+      - CC*

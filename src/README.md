@@ -226,7 +226,7 @@ DataFederation:
     Namespaces:
       - <NAMESPACE 1>
       - <NAMESPACE 2>
-      ...
+      # ...
       - <NAMESPACE n>
 ```
 
@@ -250,7 +250,7 @@ Alternatively:
 ```yaml
 Authorizations:
   - <DN/FQAN/SCITOKENS AUTH 1>
-  ...
+  # ...
   - <DN/FQAN/SCITOKENS AUTH n>
 ```
 These denote an authenticated namespace, which requires authentication for read access.
@@ -279,9 +279,11 @@ There are three kinds of authorization types:
 
       - SciTokens:
           Issuer: https://chtc.cs.wisc.edu
-          Base Path: /chtc
-          Restricted Path: /PROTECTED/matyas,/PROTECTED/bbockelm
-          Map Subject: True
+          BasePath: /chtc
+          RestrictedPath: /PROTECTED/matyas,/PROTECTED/bbockelm
+          MapSubject: True
+
+  (for backwards compat, `Base Path`, `Restricted Path`, and `Map Subject` are also accepted)
 
   This results in an issuer block that looks like
 
@@ -293,14 +295,14 @@ There are three kinds of authorization types:
 
   See [the XrdSciTokens readme](https://github.com/xrootd/xrootd/tree/master/src/XrdSciTokens#readme) for a reference of what these mean.
  
-  `Restricted Path` is optional (and rarely set); it is omitted if not specified. 
-  `Map Subject` is optional and defaults to `false` if not specified.
+  `RestrictedPath` is optional (and rarely set); it is omitted if not specified. 
+  `MapSubject` is optional and defaults to `false` if not specified.
   It is only used in scitokens.cfg for the origin.
 
 ```yaml
 AllowedOrigins:
   - ORIGIN_RESOURCE1
-  ...
+  # ...
   - ORIGIN_RESOURCEn
 ```
 AllowedOrigins is a list of resource names of origins that will serve data for this namespace.
@@ -314,7 +316,7 @@ or
 ```yaml
 AllowedCaches:
   - CACHE_RESOURCE1
-  ...
+  # ...
   - CACHE_RESOURCEn
 ```
 AllowedCaches is a list of resource names of caches that will serve data for this namespace.
@@ -333,6 +335,27 @@ DirList: https://<HOST>:<PORT>
 DirList is the HTTPS URL of an XRootD service that can be used to get a directory listing.
 DirList is optional.
 
+```yaml
+CredentialGeneration:
+  Strategy: "Vault" or "OAuth2"
+  Issuer: "<ISSUER URL>"
+  BasePath: "<PATH>"
+  MaxScopeDepth: <INTEGER>
+  VaultServer: "<HOST>:<PORT>"
+  VaultIssuer: "<ISSUER STRING>"
+```
+CredentialGeneration is an optional block of information about how clients can obtain credentials for the namespace.
+If specified:
+- Strategy must be `OAuth2` or `Vault`, depending on whether OAuth2 or a Hashicorp Vault server is being used
+- Issuer is a token issuer URL
+- *BasePath* (optional): If using the `OAuth2` strategy - and the base path of the issuer does not match the
+  namespace path - set the base path so the correct scope prefix can be requested by the client
+- MaxScopeDepth (optional) is the maximum number of path components a token's scope field may have;
+  note that scopes are relative to the BasePath.
+  If missing, assumed to be 0, i.e. the scope is always `/`.
+- VaultServer is the endpoint for the Hashicorp Vault server used with the Vault strategy 
+- *VaultIssuer* (optional): If using the `Vault` strategy, this sets the issuer name (opaque string, not
+  a URL) to be used with the vault server.
 
 ### Contents of a cache or origin in resource data
 
@@ -366,14 +389,14 @@ For example:
 ```yaml
 Resources:
   Stashcache-Chicago:
-    ...
+    # ...
     Services:
       XRootD cache server:
         Description: Internet2 Chicago Cache
         Details:
           endpoint_override:      osg-chicago-stashcache.nrp.internet2.edu:8443
           auth_endpoint_override: osg-chicago-stashcache.nrp.internet2.edu:8444
-    ...
+    # ...
 ```
 
 ### Supporting a Namespace
@@ -419,7 +442,7 @@ For every cache resource, add a `u <DN HASH> <PATH1> rl <PATH2> rl ...` ACL for 
 The Authfile for a public cache is served at `/cache/Authfile-public?fqdn=<CACHE FQDN>`.
 
 The public Authfile is basically a giant `u *` list:
-- Explicitly deny read access to `/user/ligo` (with `-rl` permissions)
+- Explicitly deny read access to `/user/ligo` (with `-rl` permissions); this is needed, because granting access to the OSG VO `/user` path would otherwise also grant access to `/user/ligo`
 - Allow read access to the path of each namespace supported by the cache (`rl` permissions) 
 
 ### Cache authenticated Authfile generation
@@ -429,9 +452,9 @@ The Authfile for an authenticated cache is served at `/cache/Authfile?fqdn=<CACH
 - Add a `u <DN HASH> <PATH1> rl <PATH2> rl ...` for every DN listed in the Authorizations list of every namespace supported by the cache.
 - Add a `g <FQAN> <PATH1> rl <PATH2> rl ...` for every FQAN listed in the Authorizations list of every namespace supported by the cache.
 
-In addition, if the cache supports the `/user/ligo` namespace and the webapp can access LIGO's LDAP server:
+In addition, if the cache supports the LIGO VO and the webapp can access LIGO's LDAP server:
 
-- Add a `u <DN HASH> /user/ligo rl` for every DN obtained from the LIGO's LDAP server.
+- Add a `u <DN HASH> <LIGO PATH1> rl <LIGO PATH2> rl ...` for every DN obtained from the LIGO's LDAP server.
 
 
 ### Origin xrootd-scitokens config generation
@@ -489,13 +512,20 @@ base_path = /ospool/PROTECTED
 
 ### Namespaces JSON generation
 
-The JSON file containing cache and namespace information for stashcp is served at `/stashcache/namespaces`.
+The JSON file containing cache and namespace information for stashcp/OSDF is served at `/osdf/namespaces`.
+The endpoint takes some optional parameters for filtering:
+- `include_downed=1` includes caches that are in downtime in the result; otherwise they are omitted
+- `include_inactive=1` includes caches that are not marked as active in the result; otherwise they are omitted
+- `production=1` includes resources in "production" (as opposed to ITB) in the result
+- `itb=1` includes resources in "itb" in the result
+  if neither `production` nor `itb` are specified then both production and itb resources are included
 
 The JSON contains an attribute `caches` that is a list of caches.
 Each cache in the list contains the following attributes:
 - `endpoint`: The `<HOST>:<PORT>` of the public (`xrootd@stash-cache`) service
 - `auth_endpoint`: The `<HOST>:<PORT>` of the authenticated (`xrootd@stash-cache-auth`) service
 - `resource`: The resource name of the cache.
+- `production`: true if the resource is in "production" (as opposed to ITB)
 
 The JSON also contains an attribute `namespaces` that is a list of namespaces with the following attributes:
 - `path` is the path of the namespace
@@ -505,6 +535,20 @@ The JSON also contains an attribute `namespaces` that is a list of namespaces wi
 - `usetokenonread` is `true` if the namespace has a SciTokens entry in its Authorizations list and `false` otherwise
 - `caches` is a list of caches that support the namespace;
   each cache in the list contains the `endpoint`, `auth_endpoint`, and `resource` attributes as in the `caches` list above
+- `credential_generation` is information about how to generate credentials that can access the namespace.
+  If not null, it has:
+  - `strategy`: either `OAuth2` or `Vault`
+  - `issuer`: the token issuer for the credentials
+  - `base_path`: the base_path to use for calculation of scopes.  Only set if it is different from the namespace path; otherwise, null
+  - `max_scope_depth`: integer; the max number of levels you can get a credential to be scoped for;
+    "0" means that the scope will always be `/`.
+    Note that scopes are usually relative to the namespace path.
+  - `vault_server`: the Vault server for the `Vault` strategy or null
+  - `vault_issuer`: the Vault issuer for the `Vault` strategy (or null).
+- `scitokens` is information about any `SciTokens` sections in the `Authorizations` list for that namespace (or the empty list if there are none). Each list item has:
+  - `issuer`: the value of the `Issuer` field in the scitokens block
+  - `base_path`: a list which is the value of the `BasePath` (or `Base Path`) field split on commas
+  - `restricted_path`: a list which is the value of the `RestrictedPath` (or `Restricted Path`) field split on commas, or the empty list if unspecified
 
 The final result looks like
 ```json
@@ -513,11 +557,13 @@ The final result looks like
     {
       "auth_endpoint": "osg-gftp.pace.gatech.edu:8443",
       "endpoint": "osg-gftp.pace.gatech.edu:8000",
+      "production": true,
       "resource": "Georgia_Tech_PACE_GridFTP"
     },
     {
       "auth_endpoint": "osg-gftp2.pace.gatech.edu:8443",
       "endpoint": "osg-gftp2.pace.gatech.edu:8000",
+      "production": true,
       "resource": "Georgia_Tech_PACE_GridFTP2"
     }
   ],
@@ -527,22 +573,35 @@ The final result looks like
         {
           "auth_endpoint": "rds-cache.sdsc.edu:8443",
           "endpoint": "rds-cache.sdsc.edu:8000",
+          "production": true,
           "resource": "RDS_AUTH_OSDF_CACHE"
         }
       ],
+      "credential_generation": null,
       "dirlisthost": null,
       "path": "/xenon/PROTECTED",
       "readhttps": true,
+      "scitokens": [],
       "usetokenonread": false,
       "writebackhost": null
     },
     {
       "caches": [
-        (a whole bunch)
+        // (a whole bunch)
       ],
+      "credential_generation": {
+        "issuer": "https://osg-htc.org/ospool",
+        "max_scope_depth": 4,
+        "strategy": "OAuth2"
+      },
       "dirlisthost": "https://origin-auth2001.chtc.wisc.edu:1095",
       "path": "/ospool/PROTECTED",
       "readhttps": true,
+      "scitokens": {
+        "issuer": "https://osg-htc.org/ospool",
+        "base_path": ["/ospool/PROTECTED", "/s3.amazonaws.com/us-east-1", "/s3.amazonaws.com/us-west-1"],
+        "restricted_path": []
+      },
       "usetokenonread": true,
       "writebackhost": "https://origin-auth2001.chtc.wisc.edu:1095"
     }

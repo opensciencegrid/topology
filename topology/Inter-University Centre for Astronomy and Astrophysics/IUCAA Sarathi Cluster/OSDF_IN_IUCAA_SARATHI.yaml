@@ -1,0 +1,29 @@
+GroupDescription: OSDF Cache for IUCAA Sarathi Cluster
+GroupID: 
+Production: true
+Resources:
+  OSDF_IN_IUCAA_SARATHI:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000893
+          Name: Sandeep K Joshi
+      Security Contact:
+        Primary:
+          ID: OSG1000893
+          Name: Sandeep K Joshi
+      Site Contact:
+        Primary:
+          ID: OSG1000893
+          Name: Sandeep K Joshi
+    Description: OSDF Cache for the Sarathi Cluster at IUCAA
+    FQDN: osdfcache.gw.iucaa.in
+    ID: 
+    DN: /C=US/O=DigiCert Inc/OU=www.digicert.com/CN=RapidSSL TLS RSA CA G1/CN=osdfcache.gw.iucaa.in
+    Services:
+      Pelican cache:
+        Description: IUCAA OSDF Cache Service
+    AllowedVOs:
+      - LIGO
+SupportCenter: "Self Supported"

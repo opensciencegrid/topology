@@ -1,0 +1,19 @@
+Production: true
+GroupDescription: Origin for Information Technology Services (University of Hawaii System)
+SupportCenter: Self Supported
+Production: true
+Resources:
+  KOASTORE_OSDF_ORIGIN:
+    Active: true
+    Description: KoaStore OSDF Origin
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Sean Cleveland
+          ID: OSG1000276
+    FQDN: koastore-origin.nationalresearchplatform.org
+    Services:
+      Pelican origin:
+        Description: KoaStore OSDF Origin
+    AllowedVOs:
+      - ANY

@@ -71,6 +71,38 @@ Resources:
       InteropMonitoring: false
       KSI2KMax: 0
       KSI2KMin: 0
+  BNL_BELLE_II_CE_3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: b9c6c5b9aa527d9d0bfb2f2e712c8a448ddfa61d
+          Name: BNL Belle II Tier 1 support
+      Security Contact:
+        Primary:
+          ID: b9c6c5b9aa527d9d0bfb2f2e712c8a448ddfa61d
+          Name: BNL Belle II Tier 1 support
+    Description: This is a HTCondor-CE for Belle II  at the Belle-II T1 center at
+      BNL
+    Disable: false
+    FQDN: bgk03.sdcc.bnl.gov
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://bgk03.sdcc.bnl.gov
+    VOOwnership:
+      Belle: 100
+    WLCGInformation:
+      APELNormalFactor: 10.43
+      AccountingName: BNL_BELLE_II_CE_3
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
   BNL_BELLE_II_SE:
     Active: true
     ContactLists:

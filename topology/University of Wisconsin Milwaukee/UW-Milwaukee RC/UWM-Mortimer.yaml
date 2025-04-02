@@ -1,0 +1,55 @@
+Disable: false
+Production: true
+SupportCenter: Self Supported
+GroupDescription: The UWM-Mortimer cluster
+Resources:
+  UWM-Mortimer-CE1:
+    Active: true
+    Description: The Hosted CE serving UWM-Mortimer
+
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Ashton Graves
+          ID: OSG1000362
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Ashton Graves
+          ID: OSG1000362
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+
+      Local Executive Contact:
+        Primary:
+          Name: Daniel Siercks
+          ID: OSG1000851
+      Local Operational Contact:
+        Primary:
+          Name: Daniel Siercks
+          ID: OSG1000851
+        Secondary:
+          Name: Matthew Houser
+          ID: OSG1000850
+      Local Security Contact:
+        Primary:
+          Name: Daniel Siercks
+          ID: OSG1000851
+        Secondary:
+          Name: Timothy Brice
+          ID: OSG1000849
+        Tertiary:
+          Name: Matthew Houser
+          ID: OSG1000850
+
+    FQDN: uwm-mortimer-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: UWM-Mortimer Hosted CE
+        Details:
+          hidden: false
+    Tags:
+      - CC*

@@ -98,3 +98,25 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1643919815
+  Description: Migration to Alma9
+  Severity: Outage
+  StartTime: Nov 13, 2023 12:00 +0000
+  EndTime: Nov 14, 2023 22:00 +0000
+  CreatedTime: Nov 07, 2023 21:19 +0000
+  ResourceName: FNAL_GPGRID_CE_04
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1661158560
+  Description: Migrating to Alma9
+  Severity: Outage
+  StartTime: Dec 04, 2023 12:00 +0000
+  EndTime: Dec 05, 2023 21:00 +0000
+  CreatedTime: Nov 27, 2023 20:10 +0000
+  ResourceName: FNAL_GPGRID_CE_03
+  Services:
+  - CE
+# ---------------------------------------------------------

@@ -1,0 +1,49 @@
+---
+AppDescription: >
+  Distributed software-defined sensor network enabling AI at the edge
+CertificateOnly: false
+Community: The SAGE VO will support users and experiments from SAGE project.
+Contacts:
+  Administrative Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas
+  Security Contact:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas
+  Sponsors:
+  - ID: c412f5f57dca8fe5c73fb3bc4e86bcf243e9edf7
+    Name: Frank Wuerthwein
+  VO Manager:
+  - ID: OSG1000162
+    Name: Fabio Andrijauskas
+Disable: false
+FieldsOfScience:
+  PrimaryFields:
+  - Multi-Science Community
+ID: 237
+LongName: SAGE multiple sciences origin
+PrimaryURL: https://sagecontinuum.org/
+DataFederations:
+  StashCache:
+    Namespaces:
+      - Path: /sage
+        Authorizations:
+           - SciTokens:
+              Issuer: https://sagecontinuum.org
+              Base Path: /sage
+              Map Subject: False
+        AllowedOrigins:
+          - NEBRASKA_NRP_HCC_OSDF_ORIGIN 
+        AllowedCaches:
+          - ANY
+      - Path: /sage-backup
+        Authorizations:
+           - SciTokens:
+              Issuer: https://sagecontinuum.org
+              Base Path: /sage
+              Map Subject: False
+        AllowedOrigins:
+          - PURDUE_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
+

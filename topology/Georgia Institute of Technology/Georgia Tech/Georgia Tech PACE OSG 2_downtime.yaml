@@ -1,3 +1,240 @@
+- Class: UNSCHEDULED
+  ID: 2069765648
+  Description: Data center water leak maintenance
+  Severity: Severe
+  StartTime: Mar 14, 2025 21:00 +0000
+  EndTime: Mar 19, 2025 05:59 +0000
+  CreatedTime: Mar 14, 2025 18:22 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2069765649
+  Description: Data center water leak maintenance
+  Severity: Severe
+  StartTime: Mar 14, 2025 21:00 +0000
+  EndTime: Mar 19, 2025 05:59 +0000
+  CreatedTime: Mar 14, 2025 18:22 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2069765650
+  Description: Data center water leak maintenance
+  Severity: Severe
+  StartTime: Mar 14, 2025 21:00 +0000
+  EndTime: Mar 19, 2025 05:59 +0000
+  CreatedTime: Mar 14, 2025 18:22 +0000
+  ResourceName: Georgia_Tech_PACE_CE_ICECUBE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2069765651
+  Description: Data center water leak maintenance
+  Severity: Severe
+  StartTime: Mar 14, 2025 21:00 +0000
+  EndTime: Mar 19, 2025 05:59 +0000
+  CreatedTime: Mar 14, 2025 18:22 +0000
+  ResourceName: Georgia_Tech_PACE_CE_LIGO
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2069765652
+  Description: Data center water leak maintenance
+  Severity: Severe
+  StartTime: Mar 14, 2025 21:00 +0000
+  EndTime: Mar 19, 2025 05:59 +0000
+  CreatedTime: Mar 14, 2025 18:22 +0000
+  ResourceName: Georgia_Tech_PACE_CE_OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2069765653
+  Description: Data center water leak maintenance
+  Severity: Severe
+  StartTime: Mar 14, 2025 21:00 +0000
+  EndTime: Mar 19, 2025 05:59 +0000
+  CreatedTime: Mar 14, 2025 18:22 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2069765654
+  Description: Data center water leak maintenance
+  Severity: Severe
+  StartTime: Mar 14, 2025 21:00 +0000
+  EndTime: Mar 19, 2025 05:59 +0000
+  CreatedTime: Mar 14, 2025 18:22 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289369
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289370
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289371
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_PACE_CE_ICECUBE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289372
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_PACE_CE_LIGO
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289373
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_PACE_CE_OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289374
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2015289375
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 13, 2025 13:00 +0000
+  EndTime: Jan 18, 2025 01:00 +0000
+  CreatedTime: Jan 10, 2025 17:08 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446369
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 18, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446370
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 18, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446371
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 18, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_PACE_CE_ICECUBE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446372
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 18, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_PACE_CE_LIGO
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446373
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 18, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_PACE_CE_OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446374
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 18, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1982446375
+  Description: Complete infrastructure migration to RHEL9 and OSG23
+  Severity: Intermittent Outage
+  StartTime: Dec 09, 2024 07:00 +0000
+  EndTime: Dec 18, 2024 06:59 +0000
+  CreatedTime: Dec 03, 2024 16:50 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 616857515
   Description: Quarterly Maintenance
@@ -354,5 +591,683 @@
   ResourceName: Georgia_Tech_PACE_perfSONAR_BW
   Services:
   - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1316206401
+  Description: November Maintenance Outage
+  Severity: Outage
+  StartTime: Nov 02, 2022 10:00 +0000
+  EndTime: Nov 04, 2022 16:00 +0000
+  CreatedTime: Oct 24, 2022 14:10 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1316206402
+  Description: November Maintenance Outage
+  Severity: Outage
+  StartTime: Nov 02, 2022 10:00 +0000
+  EndTime: Nov 04, 2022 16:00 +0000
+  CreatedTime: Oct 24, 2022 14:10 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1316206403
+  Description: November Maintenance Outage
+  Severity: Outage
+  StartTime: Nov 02, 2022 10:00 +0000
+  EndTime: Nov 04, 2022 16:00 +0000
+  CreatedTime: Oct 24, 2022 14:10 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1316206404
+  Description: November Maintenance Outage
+  Severity: Outage
+  StartTime: Nov 02, 2022 10:00 +0000
+  EndTime: Nov 04, 2022 16:00 +0000
+  CreatedTime: Oct 24, 2022 14:10 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1395064543
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Jan 31, 2023 11:00 +0000
+  EndTime: Feb 02, 2023 16:00 +0000
+  CreatedTime: Jan 23, 2023 20:40 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1395064544
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Jan 31, 2023 11:00 +0000
+  EndTime: Feb 02, 2023 16:00 +0000
+  CreatedTime: Jan 23, 2023 20:40 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1395064545
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Jan 31, 2023 11:00 +0000
+  EndTime: Feb 02, 2023 16:00 +0000
+  CreatedTime: Jan 23, 2023 20:40 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1395064546
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Jan 31, 2023 11:00 +0000
+  EndTime: Feb 02, 2023 16:00 +0000
+  CreatedTime: Jan 23, 2023 20:40 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1483078485
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: May 08, 2023 16:00 +0000
+  EndTime: May 11, 2023 10:00 +0000
+  CreatedTime: May 05, 2023 17:30 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1483078486
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: May 08, 2023 16:00 +0000
+  EndTime: May 11, 2023 10:00 +0000
+  CreatedTime: May 05, 2023 17:30 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1483078487
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: May 08, 2023 16:00 +0000
+  EndTime: May 11, 2023 10:00 +0000
+  CreatedTime: May 05, 2023 17:30 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1483078488
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: May 08, 2023 16:00 +0000
+  EndTime: May 11, 2023 10:00 +0000
+  CreatedTime: May 05, 2023 17:30 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1491717720
+  Description: Slate CE Outage
+  Severity: Severe
+  StartTime: May 12, 2023 10:00 +0000
+  EndTime: May 17, 2023 20:00 +0000
+  CreatedTime: May 15, 2023 17:29 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1564521022
+  Description: Sitewide maintenance
+  Severity: Intermittent Outage
+  StartTime: Aug 08, 2023 12:00 +0000
+  EndTime: Aug 11, 2023 00:00 +0000
+  CreatedTime: Aug 07, 2023 23:48 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1564521023
+  Description: Sitewide maintenance
+  Severity: Intermittent Outage
+  StartTime: Aug 08, 2023 12:00 +0000
+  EndTime: Aug 11, 2023 00:00 +0000
+  CreatedTime: Aug 07, 2023 23:48 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1564521024
+  Description: Sitewide maintenance
+  Severity: Intermittent Outage
+  StartTime: Aug 08, 2023 12:00 +0000
+  EndTime: Aug 11, 2023 00:00 +0000
+  CreatedTime: Aug 07, 2023 23:48 +0000
+  ResourceName: Georgia_Tech_PACE_CE_ICECUBE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1564521025
+  Description: Sitewide maintenance
+  Severity: Intermittent Outage
+  StartTime: Aug 08, 2023 12:00 +0000
+  EndTime: Aug 11, 2023 00:00 +0000
+  CreatedTime: Aug 07, 2023 23:48 +0000
+  ResourceName: Georgia_Tech_PACE_CE_LIGO
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1564521026
+  Description: Sitewide maintenance
+  Severity: Intermittent Outage
+  StartTime: Aug 08, 2023 12:00 +0000
+  EndTime: Aug 11, 2023 00:00 +0000
+  CreatedTime: Aug 07, 2023 23:48 +0000
+  ResourceName: Georgia_Tech_PACE_CE_OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1564521027
+  Description: Sitewide maintenance
+  Severity: Intermittent Outage
+  StartTime: Aug 08, 2023 12:00 +0000
+  EndTime: Aug 11, 2023 00:00 +0000
+  CreatedTime: Aug 07, 2023 23:48 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1564521028
+  Description: Sitewide maintenance
+  Severity: Intermittent Outage
+  StartTime: Aug 08, 2023 12:00 +0000
+  EndTime: Aug 11, 2023 00:00 +0000
+  CreatedTime: Aug 07, 2023 23:48 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1625492375
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Oct 25, 2023 09:00 +0000
+  EndTime: Oct 27, 2023 15:00 +0000
+  CreatedTime: Oct 17, 2023 13:27 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1625492376
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Oct 25, 2023 09:00 +0000
+  EndTime: Oct 27, 2023 15:00 +0000
+  CreatedTime: Oct 17, 2023 13:27 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1625492377
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Oct 25, 2023 09:00 +0000
+  EndTime: Oct 27, 2023 15:00 +0000
+  CreatedTime: Oct 17, 2023 13:27 +0000
+  ResourceName: Georgia_Tech_PACE_CE_ICECUBE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1625492378
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Oct 25, 2023 09:00 +0000
+  EndTime: Oct 27, 2023 15:00 +0000
+  CreatedTime: Oct 17, 2023 13:27 +0000
+  ResourceName: Georgia_Tech_PACE_CE_LIGO
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1625492379
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Oct 25, 2023 09:00 +0000
+  EndTime: Oct 27, 2023 15:00 +0000
+  CreatedTime: Oct 17, 2023 13:27 +0000
+  ResourceName: Georgia_Tech_PACE_CE_OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1625492380
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Oct 25, 2023 09:00 +0000
+  EndTime: Oct 27, 2023 15:00 +0000
+  CreatedTime: Oct 17, 2023 13:27 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1625492381
+  Description: Quarterly Maintenance
+  Severity: Outage
+  StartTime: Oct 25, 2023 09:00 +0000
+  EndTime: Oct 27, 2023 15:00 +0000
+  CreatedTime: Oct 17, 2023 13:27 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1709578750
+  Description: Site-wide maintenance week
+  Severity: Intermittent Outage
+  StartTime: Jan 23, 2024 07:00 +0000
+  EndTime: Jan 25, 2024 19:00 +0000
+  CreatedTime: Jan 22, 2024 21:11 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1709578751
+  Description: Site-wide maintenance week
+  Severity: Intermittent Outage
+  StartTime: Jan 23, 2024 07:00 +0000
+  EndTime: Jan 25, 2024 19:00 +0000
+  CreatedTime: Jan 22, 2024 21:11 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1709578752
+  Description: Site-wide maintenance week
+  Severity: Intermittent Outage
+  StartTime: Jan 23, 2024 07:00 +0000
+  EndTime: Jan 25, 2024 19:00 +0000
+  CreatedTime: Jan 22, 2024 21:11 +0000
+  ResourceName: Georgia_Tech_PACE_CE_ICECUBE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1709578753
+  Description: Site-wide maintenance week
+  Severity: Intermittent Outage
+  StartTime: Jan 23, 2024 07:00 +0000
+  EndTime: Jan 25, 2024 19:00 +0000
+  CreatedTime: Jan 22, 2024 21:11 +0000
+  ResourceName: Georgia_Tech_PACE_CE_LIGO
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1709578754
+  Description: Site-wide maintenance week
+  Severity: Intermittent Outage
+  StartTime: Jan 23, 2024 07:00 +0000
+  EndTime: Jan 25, 2024 19:00 +0000
+  CreatedTime: Jan 22, 2024 21:11 +0000
+  ResourceName: Georgia_Tech_PACE_CE_OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1709578755
+  Description: Site-wide maintenance week
+  Severity: Intermittent Outage
+  StartTime: Jan 23, 2024 07:00 +0000
+  EndTime: Jan 25, 2024 19:00 +0000
+  CreatedTime: Jan 22, 2024 21:11 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1709578756
+  Description: Site-wide maintenance week
+  Severity: Intermittent Outage
+  StartTime: Jan 23, 2024 07:00 +0000
+  EndTime: Jan 25, 2024 19:00 +0000
+  CreatedTime: Jan 22, 2024 21:11 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1711266249
+  Description: Site-wide maintenance week
+  Severity: Intermittent Outage
+  StartTime: Jan 23, 2024 07:00 +0000
+  EndTime: Jan 25, 2024 19:00 +0000
+  CreatedTime: Jan 22, 2024 21:11 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1784049200
+  Description: Poor transfer rate - Overloaded?
+  Severity: Outage
+  StartTime: Apr 17, 2024 08:00 +0000
+  EndTime: Apr 24, 2024 08:00 +0000
+  CreatedTime: Apr 18, 2024 01:48 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1800928693
+  Description: Site Wide Maintenance
+  Severity: Outage
+  StartTime: May 07, 2024 10:00 +0000
+  EndTime: May 11, 2024 03:59 +0000
+  CreatedTime: May 07, 2024 14:41 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1800928694
+  Description: Site Wide Maintenance
+  Severity: Outage
+  StartTime: May 07, 2024 10:00 +0000
+  EndTime: May 11, 2024 03:59 +0000
+  CreatedTime: May 07, 2024 14:41 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1800928695
+  Description: Site Wide Maintenance
+  Severity: Outage
+  StartTime: May 07, 2024 10:00 +0000
+  EndTime: May 11, 2024 03:59 +0000
+  CreatedTime: May 07, 2024 14:41 +0000
+  ResourceName: Georgia_Tech_PACE_CE_ICECUBE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1800928696
+  Description: Site Wide Maintenance
+  Severity: Outage
+  StartTime: May 07, 2024 10:00 +0000
+  EndTime: May 11, 2024 03:59 +0000
+  CreatedTime: May 07, 2024 14:41 +0000
+  ResourceName: Georgia_Tech_PACE_CE_LIGO
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1800928697
+  Description: Site Wide Maintenance
+  Severity: Outage
+  StartTime: May 07, 2024 10:00 +0000
+  EndTime: May 11, 2024 03:59 +0000
+  CreatedTime: May 07, 2024 14:41 +0000
+  ResourceName: Georgia_Tech_PACE_CE_OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1800928698
+  Description: Site Wide Maintenance
+  Severity: Outage
+  StartTime: May 07, 2024 10:00 +0000
+  EndTime: May 11, 2024 03:59 +0000
+  CreatedTime: May 07, 2024 14:41 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1800928699
+  Description: Site Wide Maintenance
+  Severity: Outage
+  StartTime: May 07, 2024 10:00 +0000
+  EndTime: May 11, 2024 03:59 +0000
+  CreatedTime: May 07, 2024 14:41 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682385
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682386
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682387
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_PACE_CE_ICECUBE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682388
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_PACE_CE_LIGO
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682389
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_PACE_CE_OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682390
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1874682391
+  Description: Systems maintenance week
+  Severity: Severe
+  StartTime: Aug 06, 2024 10:00 +0000
+  EndTime: Aug 10, 2024 03:00 +0000
+  CreatedTime: Jul 31, 2024 23:23 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1903721445
+  Description: PACE-Wide Emergency Shutdown - cooling issues in data center
+  Severity: Outage
+  StartTime: Sep 03, 2024 22:00 +0000
+  EndTime: Sep 05, 2024 18:00 +0000
+  CreatedTime: Sep 03, 2024 14:02 +0000
+  ResourceName: Georgia_Tech_LIGO_Submit_2
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1903721446
+  Description: PACE-Wide Emergency Shutdown - cooling issues in data center
+  Severity: Outage
+  StartTime: Sep 03, 2024 22:00 +0000
+  EndTime: Sep 05, 2024 18:00 +0000
+  CreatedTime: Sep 03, 2024 14:02 +0000
+  ResourceName: Georgia_Tech_PACE_CE_2
+  Services:
+  - CE
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1903721447
+  Description: PACE-Wide Emergency Shutdown - cooling issues in data center
+  Severity: Outage
+  StartTime: Sep 03, 2024 22:00 +0000
+  EndTime: Sep 05, 2024 18:00 +0000
+  CreatedTime: Sep 03, 2024 14:02 +0000
+  ResourceName: Georgia_Tech_PACE_CE_ICECUBE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1903721448
+  Description: PACE-Wide Emergency Shutdown - cooling issues in data center
+  Severity: Outage
+  StartTime: Sep 03, 2024 22:00 +0000
+  EndTime: Sep 05, 2024 18:00 +0000
+  CreatedTime: Sep 03, 2024 14:02 +0000
+  ResourceName: Georgia_Tech_PACE_CE_LIGO
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1903721449
+  Description: PACE-Wide Emergency Shutdown - cooling issues in data center
+  Severity: Outage
+  StartTime: Sep 03, 2024 22:00 +0000
+  EndTime: Sep 05, 2024 18:00 +0000
+  CreatedTime: Sep 03, 2024 14:02 +0000
+  ResourceName: Georgia_Tech_PACE_CE_OSG
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1903721450
+  Description: PACE-Wide Emergency Shutdown - cooling issues in data center
+  Severity: Outage
+  StartTime: Sep 03, 2024 22:00 +0000
+  EndTime: Sep 05, 2024 18:00 +0000
+  CreatedTime: Sep 03, 2024 14:02 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - GridFtp
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 1903721451
+  Description: PACE-Wide Emergency Shutdown - cooling issues in data center
+  Severity: Outage
+  StartTime: Sep 03, 2024 22:00 +0000
+  EndTime: Sep 05, 2024 18:00 +0000
+  CreatedTime: Sep 03, 2024 14:02 +0000
+  ResourceName: Georgia_Tech_PACE_perfSONAR_BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 1941153002
+  Description: server returned 403 Forbidden
+  Severity: Outage
+  StartTime: Oct 15, 2024 19:30 +0000
+  EndTime: Oct 21, 2024 19:30 +0000
+  CreatedTime: Oct 16, 2024 21:48 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2081068467
+  Description: Overloaded
+  Severity: Outage
+  StartTime: Mar 26, 2025 08:00 +0000
+  EndTime: Mar 31, 2025 19:30 +0000
+  CreatedTime: Mar 27, 2025 20:20 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2085259216
+  Description: it is upgrading process
+  Severity: Outage
+  StartTime: Mar 31, 2025 08:00 +0000
+  EndTime: Dec 31, 2025 19:30 +0000
+  CreatedTime: Apr 01, 2025 16:45 +0000
+  ResourceName: Georgia_Tech_PACE_GridFTP2
+  Services:
+  - XRootD cache server
 # ---------------------------------------------------------
 
