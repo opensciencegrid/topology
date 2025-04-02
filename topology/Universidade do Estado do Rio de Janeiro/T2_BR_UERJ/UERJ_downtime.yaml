@@ -1807,6 +1807,66 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2085977889
+  Description: The university will have to repair its no-break system and shut down
+    all power
+  Severity: Outage
+  StartTime: Apr 04, 2025 20:00 +0000
+  EndTime: Apr 08, 2025 12:00 +0000
+  CreatedTime: Apr 02, 2025 12:43 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2085978147
+  Description: The university will have to repair its no-break system and shut down
+    all power
+  Severity: Outage
+  StartTime: Apr 04, 2025 20:00 +0000
+  EndTime: Apr 08, 2025 12:00 +0000
+  CreatedTime: Apr 02, 2025 12:43 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2085978231
+  Description: The university will have to repair its no-break system and shut down
+    all power
+  Severity: Outage
+  StartTime: Apr 04, 2025 20:00 +0000
+  EndTime: Apr 08, 2025 12:00 +0000
+  CreatedTime: Apr 02, 2025 12:43 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2085978311
+  Description: The university will have to repair its no-break system and shut down
+    all power
+  Severity: Outage
+  StartTime: Apr 04, 2025 20:00 +0000
+  EndTime: Apr 08, 2025 12:00 +0000
+  CreatedTime: Apr 02, 2025 12:43 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2085978403
+  Description: The university will have to repair its no-break system and shut down
+    all power
+  Severity: Outage
+  StartTime: Apr 04, 2025 20:00 +0000
+  EndTime: Apr 08, 2025 12:00 +0000
+  CreatedTime: Apr 02, 2025 12:44 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
 
 
