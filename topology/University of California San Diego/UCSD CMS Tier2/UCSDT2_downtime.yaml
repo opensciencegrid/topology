@@ -1972,3 +1972,15 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2087056595
+  Description: OS upgrade
+  Severity: No Significant Outage Expected
+  StartTime: Apr 09, 2025 15:00 +0000
+  EndTime: Apr 09, 2025 19:00 +0000
+  CreatedTime: Apr 03, 2025 18:40 +0000
+  ResourceName: UCSDT2-SE4
+  Services:
+  - WebDAV
+  - XRootD component
+# ---------------------------------------------------------
