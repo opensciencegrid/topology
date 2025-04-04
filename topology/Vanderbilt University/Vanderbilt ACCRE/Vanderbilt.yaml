@@ -477,6 +477,74 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       CMS: 100
+  Vanderbilt_Squid4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Tertiary:
+          ID: 51e7ea1e203b6695c1683b73db692663ad962d91
+          Name: ACCRE Staff
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
+      Security Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Tertiary:
+          ID: 51e7ea1e203b6695c1683b73db692663ad962d91
+          Name: ACCRE Staff
+    Description: Frontier squid host
+    FQDN: squid4.accre.vanderbilt.edu
+    ID: 10372
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  Vanderbilt_Squid5:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Tertiary:
+          ID: 51e7ea1e203b6695c1683b73db692663ad962d91
+          Name: ACCRE Staff
+        Tertiary 3:
+          ID: 6f5044c6ceabacd6b8a1c3a8ffc318ee844bb97b
+          Name: Shengquan Tuo
+      Security Contact:
+        Primary:
+          ID: 11107327543306be8c340cfa2281444a2d428318
+          Name: Andrew Malone Melo
+        Secondary:
+          ID: 22ae3f93d335f46cea9be2f7c9e0551f31df44bf
+          Name: Eric Appelt
+        Tertiary:
+          ID: 51e7ea1e203b6695c1683b73db692663ad962d91
+          Name: ACCRE Staff
+    Description: Frontier squid host
+    FQDN: squid5.accre.vanderbilt.edu
+    ID: 10373
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
   Vanderbilt_Xrootd:
     Active: true
     ContactLists:
