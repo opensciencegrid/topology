@@ -52,20 +52,16 @@ Resources:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
 
-      # Site contact (optional) are persons or groups of people (i.e.,
-      # mailing lists) that are generally responsible for a site's
-      # relationship with the OSG (e.g., principal investigators,
-      # local administrator contact for OSG Hosted CEs)
-      # Site Contact:
-        # Primary:
-        #   Name: Steffan Grunewald
-        #   ID: <EMAIL HASH>
-        # Secondary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
+      Local Operational Contact:
+        Primary:
+          Name: Steffen Grunewald
+          ID: OSG1000833
+
+      Local Security Contact:
+        Primary:
+          Name: Steffen Grunewald
+          ID: OSG1000833
+
 
     # FQDN is the fully qualified domain name of the host running this resource
     FQDN: aei-hypatia-ce1.svc.opensciencegrid.org
