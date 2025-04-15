@@ -365,7 +365,8 @@ class GenerateProjectForm(FlaskForm):
         if not set(field.data).isdisjoint(set('/<>:"\\|?* ')):
             intersection = set(field.data).intersection(set('/<>:\"\\|?* '))
             raise ValidationError(f"Must be valid filename, invalid chars: {','.join(intersection)}")
-
+        if not len(field.data) <= 24:
+            raise ValidationError(f"Must be less than 25 characters long")
     def get_yaml(self, institution_api_data: Dict) -> str:
 
         institutions_name_mapped = {i["name"]: i["id"] for i in institution_api_data}
