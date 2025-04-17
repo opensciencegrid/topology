@@ -8,7 +8,10 @@ on:
 
 jobs:
   call-build-image:
+    if: ${{ github.repository_owner == 'opensciencegrid' }}
     uses: osg-htc/build-push/.github/workflows/build-push.yaml@main
-    secrets: inherit
+    secrets:
+      password: ${{ secrets.OSG_HARBOR_ROBOT_PASSWORD }}
+      username: ${{ secrets.OSG_HARBOR_ROBOT_USER }}
     with:
       image: 'hub.opensciencegrid.org/opensciencegrid/topology-institutions-api'
