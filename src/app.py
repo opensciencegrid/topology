@@ -886,9 +886,13 @@ def generate_project_yaml():
             raise ValidationError(f"{field.data} is already registered in OSG Topology. ")
 
     form = GenerateProjectForm(request.form, **request.args, **session.get("form_data", {}))
-    form.field_of_science.choices = _make_choices(global_data.get_mappings().nsfscience.keys(), select_one=True)
 
+    # Filter out 'Other' from the old field of science field
+    # This is a patch fix to prevent RCF's from using it well we transfer to the new FOS ID
+    nsfscience = dict(global_data.get_mappings().nsfscience) # Copy to avoid modifying the original
+    del nsfscience["Other"]
 
+    form.field_of_science.choices = _make_choices(nsfscience.keys(), select_one=True)
 
     # Add this validator if it is not their
     if not len(form.project_name.validators) > 1:
