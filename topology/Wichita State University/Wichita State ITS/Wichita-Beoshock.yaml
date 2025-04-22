@@ -1,0 +1,26 @@
+Production: true
+GroupDescription: This is the Beoshock compute cluster used for OSG Glide-ins
+Resources: 
+  Wichita-Beoshock-EP:
+    Active: false
+    Description: The resource used to facilitate OSG Glide-ins at Beoshock
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Nathan Wells
+          ID: nathanrwells@ksu.edu
+      Security Contact:
+        Primary:
+          Name: Nathan Wells
+          ID: nathanrwells@ksu.edu
+      Executive Contact: 
+        Primary:
+          Name: Dan Andresen
+          ID: dan@ksu.edu
+        Secondary:
+          Name: Nathan Wells
+          ID: nathanrwells@ksu.edu
+    FQDN: hpc-login.wichita.edu
+    Services:
+      Submit Node:
+        Description: Used to compute OSG Glide-ins at Beoshock at Wichita State University
