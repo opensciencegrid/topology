@@ -1,0 +1,27 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: BeoShock Slurm cluster at Wichita State University
+Resources:
+  Wichita-BeoShock-EP:
+    Active: true
+    Description: BeoShock jobs that run the OSPool EP Container
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Nathan Wells
+          ID: OSG1000894
+      Security Contact:
+        Primary:
+          Name: Nathan Wells
+          ID: OSG1000894
+      # Executive Contact: 
+      #   Primary:
+      #     Name: Terrance Figy
+      #     ID: [needs to register]
+      #   Secondary:
+      #     Name: Nathan Wells
+      #     ID: OSG1000894
+    FQDN: hpc-login.wichita.edu
+    Services:
+      Execution Endpoint:
+        Description: Container jobs run on BeoShock
