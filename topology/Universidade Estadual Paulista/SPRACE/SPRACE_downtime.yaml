@@ -4600,3 +4600,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294226
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294227
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294228
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294229
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294230
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294231
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294232
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
