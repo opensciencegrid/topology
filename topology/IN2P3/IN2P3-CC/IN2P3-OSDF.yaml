@@ -22,4 +22,23 @@ Resources:
         Description: StashCache cache server for IN2P3-CC
     AllowedVOs:
       - LIGO
-      
+
+  IN2P3_CC_PELICAN_OSDF_CACHE:
+    Active: true
+    Description: IN2P3-CC Pelican cache
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: IN2P3 Grid Admin
+          ID: 601b582450a036960907e05f3ee7b1bae995a806
+      Security Contact:
+        Primary:
+          Name: IN2P3 Security
+          ID: 33fcdfcbfc32afbe7691bb90d29d1a48bcda8918
+    DN: DC=org, DC=terena, DC=tcs, C=FR, L=Paris, O=Centre national de la recherche scientifique, CN=ccpelicanli01.in2p3.fr
+    FQDN: ccpelicanli01.in2p3.fr
+    Services:
+      Pelican cache:
+        Description: Pelican cache server for IN2P3-CC
+    AllowedVOs:
+      - LIGO
