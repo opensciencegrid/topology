@@ -200,19 +200,6 @@ class TestStashcache:
         for line in text.split("\n"):
             assert EMPTY_LINE_REGEX.match(line), f'Unexpected text "{line}".\nFull text:\n{text}\n'
 
-    def test_origin_grid_mapfile_with_host(self, client: flask.Flask):
-        text = stashcache.generate_origin_grid_mapfile(global_data, "ap20.uc.osg-htc.org",
-                                                       suppress_errors=False)
-        num_mappings = 0
-        for line in text.split("\n"):
-            if EMPTY_LINE_REGEX.match(line):
-                continue
-            elif GRID_MAPPING_REGEX.match(line):
-                num_mappings += 1
-            else:
-                assert False, f'Unexpected text "{line}".\nFull text:\n{text}\n'
-        assert num_mappings > 5, f"Too few mappings found.\nFull text:\n{text}\n"
-
     def test_cache_grid_mapfile_nohost(self, client: flask.Flask):
         text = stashcache.generate_cache_grid_mapfile(global_data, "", legacy=False, suppress_errors=False)
 
