@@ -63,7 +63,7 @@ def main():
             except Exception as e:
                 errors.append((file.split("/")[-2], e))
 
-    # Check that we have the same amount of facility filhttps://osg-htc.org/iid/52f5piuly2gges as topology facilities
+    # Check that we have the same amount of facilities
     # This prevents the omission of a facility
     topo_facility_folders = glob.glob("../../../topology/*/")
     if len(topo_facility_folders) != len(facility_files):
