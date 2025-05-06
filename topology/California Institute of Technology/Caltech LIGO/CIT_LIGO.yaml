@@ -1,17 +1,23 @@
 Production: true
-GroupDescription: XRootD Origin Server for LIGO in OSG StashCache Federation
+GroupDescription: LIGO resources at CIT
 GroupID: 485 
 Resources:
   CIT_LIGO_ORIGIN:
     ContactLists:
       Administrative Contact:
         Primary:
+          Name: Joshua Willis
+          ID: OSG1000316
+        Secondary:
           Name: Stuart Anderson
           ID: c50e7cc9d0086272ef995fb76461612d40c70435
       Security Contact:
         Primary:
-          Name: Stuart Anderson
-          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+          Name: Randy Trudeau
+          ID: OSG1000955
+        Secondary:
+          Name: Warren Anderson
+          ID: OSG1000948
     FQDN: origin.ligo.caltech.edu
     ID: 948
     Services:
@@ -25,18 +31,24 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
+          Name: Joshua Willis
+          ID: OSG1000316
+        Secondary:
           Name: Stuart Anderson
           ID: c50e7cc9d0086272ef995fb76461612d40c70435
       Security Contact:
         Primary:
-          Name: Stuart Anderson
-          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+          Name: Randy Trudeau
+          ID: OSG1000955
+        Secondary:
+          Name: Warren Anderson
+          ID: OSG1000948
     FQDN: origin-ifo.ligo.caltech.edu
     DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=origin-ifo.ligo.caltech.edu
     ID: 1457
     Services:
-      XRootD origin server:
-        Description: StashCache Origin server
+      Pelican origin:
+        Description: Pelican origin serving /igwn/ligo in OSDF
     AllowedVOs:
       - LIGO
   CIT_LIGO_ORIGIN_SHARED:
@@ -45,18 +57,24 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
+          Name: Joshua Willis
+          ID: OSG1000316
+        Secondary:
           Name: Stuart Anderson
           ID: c50e7cc9d0086272ef995fb76461612d40c70435
       Security Contact:
         Primary:
-          Name: Stuart Anderson
-          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+          Name: Randy Trudeau
+          ID: OSG1000955
+        Secondary:
+          Name: Warren Anderson
+          ID: OSG1000948
     FQDN: origin-shared.ligo.caltech.edu
     DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=origin-shared.ligo.caltech.edu
     ID: 1458
     Services:
-      XRootD origin server:
-        Description: StashCache Origin server
+      Pelican origin:
+        Description: OSDF Pelican origin serving /igwn/shared
     AllowedVOs:
       - LIGO
   CIT_LIGO_ORIGIN_STAGING:
@@ -65,18 +83,24 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
+          Name: Joshua Willis
+          ID: OSG1000316
+        Secondary:
           Name: Stuart Anderson
           ID: c50e7cc9d0086272ef995fb76461612d40c70435
       Security Contact:
         Primary:
-          Name: Stuart Anderson
-          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+          Name: Randy Trudeau
+          ID: OSG1000955
+        Secondary:
+          Name: Warren Anderson
+          ID: OSG1000948
     FQDN: origin-staging.ligo.caltech.edu
     DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=origin-staging.ligo.caltech.edu
     ID: 1479
     Services:
-      XRootD origin server:
-        Description: StashCache Origin server
+      Pelican origin:
+        Description: OSDF Pelican origin serving /igwn/cit
     AllowedVOs:
       - LIGO
 
@@ -101,7 +125,7 @@ Resources:
     FQDN: origin-readtest.ligo.caltech.edu
     Services:
       Pelican origin:
-        Description: Pelican origin
+        Description: OSDF Pelican origin
     AllowedVOs:
       - LIGO
 
@@ -152,12 +176,18 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
+          Name: Joshua Willis
+          ID: OSG1000316
+        Secondary:
           Name: Stuart Anderson
           ID: c50e7cc9d0086272ef995fb76461612d40c70435
       Security Contact:
         Primary:
-          Name: Stuart Anderson
-          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+          Name: Randy Trudeau
+          ID: OSG1000955
+        Secondary:
+          Name: Warren Anderson
+          ID: OSG1000948
     FQDN: stashcache.ligo.caltech.edu
     DN: /DC=org/DC=incommon/C=US/ST=California/O=California Institute of Technology/CN=stashcache.ligo.caltech.edu
     ID: 1461
