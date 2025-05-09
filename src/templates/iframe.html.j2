@@ -432,7 +432,10 @@ will want to adjust the Map.data which populates the select input and legend.
                 return null
             }
 
-            this.marker = L.marker([this.latitude, this.longitude], {icon: icon}).bindPopup(this.getDisplayHTML(view));
+            const offsetX = (Math.random() - .5) * 0.1
+            const offsetY = (Math.random() - .5) * 0.1
+
+            this.marker = L.marker([this.latitude + offsetX, this.longitude + offsetY], {icon: icon}).bindPopup(this.getDisplayHTML(view));
             this.marker.site = this
 
             this.popup = this.marker.getPopup()
