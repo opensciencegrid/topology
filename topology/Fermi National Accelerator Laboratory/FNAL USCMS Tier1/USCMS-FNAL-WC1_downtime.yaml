@@ -1162,6 +1162,19 @@
   Services:
   - SRMv2
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2120518699
+  Description: Kernel reboots
+  Severity: Intermittent Outage
+  StartTime: May 13, 2025 13:00 +0000
+  EndTime: May 13, 2025 22:00 +0000
+  CreatedTime: May 12, 2025 12:11 +0000
+  ResourceName: USCMS-FNAL-WC1-SE2
+  Services:
+  - FTS
+  - SRMv2
+# ---------------------------------------------------------
+
 
 
 
