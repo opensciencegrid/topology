@@ -9,4 +9,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 2120621349
+  Description: Scheduled cluster maintenance from May 21st-May 23rd
+  Severity: Outage
+  StartTime: May 21, 2025 13:00 +0000
+  EndTime: May 23, 2025 22:00 +0000
+  CreatedTime: May 12, 2025 15:02 +0000
+  ResourceName: UWEC-BOSE-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
