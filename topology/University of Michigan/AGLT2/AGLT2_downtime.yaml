@@ -1454,5 +1454,17 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2121028073
+  Description: dcache upgrade
+  Severity: Intermittent Outage
+  StartTime: May 13, 2025 17:00 +0000
+  EndTime: May 13, 2025 21:00 +0000
+  CreatedTime: May 13, 2025 02:20 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  - WebDAV
+# ---------------------------------------------------------
 
   
