@@ -4908,3 +4908,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247784
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247785
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247786
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247787
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247788
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247789
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247790
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
