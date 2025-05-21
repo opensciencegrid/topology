@@ -1033,28 +1033,6 @@
   - Squid
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 1231691012
-  Description: 'UPS maintenance '
-  Severity: Outage
-  StartTime: Jul 20, 2022 13:30 +0000
-  EndTime: Jul 21, 2022 16:00 +0000
-  CreatedTime: Jul 18, 2022 18:31 +0000
-  ResourceName: AGLT2-squid-4
-  Services:
-  - Squid
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1231691181
-  Description: 'UPS maintenance '
-  Severity: Outage
-  StartTime: Jul 20, 2022 13:30 +0000
-  EndTime: Jul 21, 2022 16:00 +0000
-  CreatedTime: Jul 18, 2022 18:31 +0000
-  ResourceName: AGLT2-squid-5
-  Services:
-  - Squid
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 1360408285
   Description: 'campus network maintenance '
   Severity: No Significant Outage Expected
@@ -1222,17 +1200,6 @@
   - Squid
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 1693899241
-  Description: UPS repair work
-  Severity: Outage
-  StartTime: Jan 11, 2024 14:00 +0000
-  EndTime: Jan 11, 2024 23:00 +0000
-  CreatedTime: Jan 04, 2024 17:38 +0000
-  ResourceName: AGLT2-squid-4
-  Services:
-  - Squid
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 1760315636
   Description: UPS repair work
   Severity: Outage
@@ -1307,17 +1274,6 @@
   EndTime: Mar 27, 2024 22:00 +0000
   CreatedTime: Mar 21, 2024 14:36 +0000
   ResourceName: AGLT2-squid-3
-  Services:
-  - Squid
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1760317985
-  Description: UPS repair work
-  Severity: Outage
-  StartTime: Mar 27, 2024 14:00 +0000
-  EndTime: Mar 27, 2024 22:00 +0000
-  CreatedTime: Mar 21, 2024 14:36 +0000
-  ResourceName: AGLT2-squid-4
   Services:
   - Squid
 # ---------------------------------------------------------
@@ -1406,17 +1362,6 @@
   EndTime: May 01, 2024 15:20 +0000
   CreatedTime: Apr 25, 2024 21:09 +0000
   ResourceName: AGLT2-squid-3
-  Services:
-  - Squid
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1790793649
-  Description: UPS repair work
-  Severity: Outage
-  StartTime: May 01, 2024 12:00 +0000
-  EndTime: May 01, 2024 15:20 +0000
-  CreatedTime: Apr 25, 2024 21:09 +0000
-  ResourceName: AGLT2-squid-4
   Services:
   - Squid
 # ---------------------------------------------------------
