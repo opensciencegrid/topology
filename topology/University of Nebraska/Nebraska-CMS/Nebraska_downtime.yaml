@@ -1,259 +1,99 @@
-- Class: SCHEDULED
-  Description: Scheduled service outage due to electrical work in datacenter
-  EndTime: Aug 2, 2016 04:00 +0000
-  ID: 1004981
-  ResourceName: red-gateway2
-  Services:
-  - CE
+- Class: UNSCHEDULED
+  ID: 2074039544
+  Description: City wide power outages caused by strong storms
   Severity: Outage
-  StartTime: Aug 1, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Scheduled service outage due to electrical work in datacenter
-  EndTime: Aug 2, 2016 04:00 +0000
-  ID: 1004982
-  ResourceName: red-gateway1
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Aug 1, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Scheduled service outage due to electrical work in datacenter
-  EndTime: Aug 2, 2016 04:00 +0000
-  ID: 1004984
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
   ResourceName: Nebraska
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Aug 1, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Scheduled service outage due to electrical work in datacenter
-  EndTime: Aug 2, 2016 04:00 +0000
-  ID: 1004986
-  ResourceName: T2_US_Nebraska-red-squid2
-  Services:
-  - Squid
-  Severity: Outage
-  StartTime: Aug 1, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Scheduled service outage due to electrical work in datacenter
-  EndTime: Aug 2, 2016 04:00 +0000
-  ID: 1004987
-  ResourceName: T2_US_Nebraska_red-squid1
-  Services:
-  - Squid
-  Severity: Outage
-  StartTime: Aug 1, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Power maintenance at facility. No electrons = no services.
-  EndTime: Sep 29, 2017 22:00 +0000
-  ID: 1005444
-  ResourceName: Nebraska
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Sep 28, 2017 21:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Power maintenance at facility. No electrons = no services.
-  EndTime: Sep 29, 2017 22:00 +0000
-  ID: 1005446
-  ResourceName: red-gateway1
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Sep 28, 2017 21:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Power maintenance at facility. No electrons = no services.
-  EndTime: Sep 29, 2017 22:00 +0000
-  ID: 1005447
-  ResourceName: red-gateway2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Sep 28, 2017 21:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Power maintenance at facility. No electrons = no services.
-  EndTime: Sep 29, 2017 22:00 +0000
-  ID: 1005449
-  ResourceName: T2_Nebraska_SE_gridftp
-  Services:
-  - GridFtp
-  Severity: Outage
-  StartTime: Sep 28, 2017 21:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Power maintenance at facility. No electrons = no services.
-  EndTime: Sep 29, 2017 22:00 +0000
-  ID: 1005450
-  ResourceName: T2_US_Nebraska-red-squid2
-  Services:
-  - Squid
-  Severity: Outage
-  StartTime: Sep 28, 2017 21:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Power maintenance at facility. No electrons = no services.
-  EndTime: Sep 29, 2017 22:00 +0000
-  ID: 1005451
-  ResourceName: T2_US_Nebraska_red-squid1
-  Services:
-  - Squid
-  Severity: Outage
-  StartTime: Sep 28, 2017 21:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: HDFS upgrades.
-  EndTime: Jan 26, 2018 23:00 +0000
-  ID: 1005579
-  ResourceName: Nebraska
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jan 26, 2018 15:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: HDFS upgrades
-  EndTime: Jan 26, 2018 23:00 +0000
-  ID: 1005580
-  ResourceName: red-gateway1
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jan 26, 2018 15:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: HDFS upgrade
-  EndTime: Jan 26, 2018 23:00 +0000
-  ID: 1005581
-  ResourceName: red-gateway2
-  Services:
-  - CE
-  Severity: Outage
-  StartTime: Jan 26, 2018 15:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: HDFS upgrade
-  EndTime: Jan 26, 2018 23:00 +0000
-  ID: 1005582
-  ResourceName: T2_Nebraska_SE_gridftp
-  Services:
-  - GridFtp
-  Severity: Outage
-  StartTime: Jan 26, 2018 15:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  ID: 61927950
-  Description: Upstream network outage, LHCONE and Internet2 connectivity will be broken
-  Severity: Outage
-  StartTime: Nov 09, 2018 04:00 +0000
-  EndTime: Nov 09, 2018 06:00 +0000
-  CreatedTime: Nov 02, 2018 16:06 +0000
-  ResourceName: red-gateway2
   Services:
   - CE
 # ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 61929005
-  Description: Upstream network outage, LHCONE and Internet2 connectivity will be broken
+- Class: UNSCHEDULED
+  ID: 2074039545
+  Description: City wide power outages caused by strong storms
   Severity: Outage
-  StartTime: Nov 09, 2018 04:00 +0000
-  EndTime: Nov 09, 2018 06:00 +0000
-  CreatedTime: Nov 02, 2018 16:08 +0000
-  ResourceName: red-gateway1
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 61929169
-  Description: Upstream network outage, LHCONE and Internet2 connectivity will be broken
-  Severity: Outage
-  StartTime: Nov 09, 2018 04:00 +0000
-  EndTime: Nov 09, 2018 06:00 +0000
-  CreatedTime: Nov 02, 2018 16:08 +0000
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
   ResourceName: T2_Nebraska_SE_gridftp
   Services:
   - GridFtp
 # ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 61929241
-  Description: Upstream network outage, LHCONE and Internet2 connectivity will be broken
+- Class: UNSCHEDULED
+  ID: 2074039546
+  Description: City wide power outages caused by strong storms
   Severity: Outage
-  StartTime: Nov 09, 2018 04:00 +0000
-  EndTime: Nov 09, 2018 06:00 +0000
-  CreatedTime: Nov 02, 2018 16:08 +0000
-  ResourceName: Nebraska
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1108270713
-  Description: Elephant migration impacting all operations
-  Severity: Severe
-  StartTime: Mar 02, 2022 08:00 +0000
-  EndTime: Mar 03, 2022 17:00 +0000
-  CreatedTime: Feb 25, 2022 22:11 +0000
-  ResourceName: Nebraska
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1108273667
-  Description: Elephant migration impacting all operations
-  Severity: Severe
-  StartTime: Mar 02, 2022 08:00 +0000
-  EndTime: Mar 03, 2022 17:00 +0000
-  CreatedTime: Feb 25, 2022 22:16 +0000
-  ResourceName: T2_Nebraska_SE_gridftp
-  Services:
-  - GridFtp
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1108273850
-  Description: Elephant migration impacting all operations
-  Severity: Severe
-  StartTime: Mar 02, 2022 08:00 +0000
-  EndTime: Mar 03, 2022 17:00 +0000
-  CreatedTime: Feb 25, 2022 22:16 +0000
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
   ResourceName: T2_US_Nebraska-red-squid2
   Services:
   - Squid
 # ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1108273948
-  Description: Elephant migration impacting all operations
-  Severity: Severe
-  StartTime: Mar 02, 2022 08:00 +0000
-  EndTime: Mar 03, 2022 17:00 +0000
-  CreatedTime: Feb 25, 2022 22:16 +0000
+- Class: UNSCHEDULED
+  ID: 2074039547
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
   ResourceName: T2_US_Nebraska_red-squid1
   Services:
   - Squid
 # ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1108274092
-  Description: Elephant migration impacting all operations
-  Severity: Severe
-  StartTime: Mar 02, 2022 08:00 +0000
-  EndTime: Mar 03, 2022 17:00 +0000
-  CreatedTime: Feb 25, 2022 22:16 +0000
+- Class: UNSCHEDULED
+  ID: 2074039548
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
+  ResourceName: US-Nebraska BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074039549
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
+  ResourceName: US-Nebraska BW (Test)
+  Services:
+  - net.perfSONAR.Bandwidth
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074039550
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
+  ResourceName: US-Nebraska LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074039551
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
   ResourceName: red-gateway1
   Services:
   - CE
 # ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1108274174
-  Description: Elephant migration impacting all operations
-  Severity: Severe
-  StartTime: Mar 02, 2022 08:00 +0000
-  EndTime: Mar 03, 2022 17:00 +0000
-  CreatedTime: Feb 25, 2022 22:16 +0000
+- Class: UNSCHEDULED
+  ID: 2074039552
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
   ResourceName: red-gateway2
   Services:
   - CE

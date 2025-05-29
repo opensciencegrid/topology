@@ -1,0 +1,28 @@
+GroupDescription: University of Utah Center for Research and High Performance Computing Notchpeak Cluster
+Production: true
+SupportCenter: Community Support Center
+Resources:
+  Utah-Notchpeak-CE1:
+    Description: Hosted CE for the Notchpeak cluster at CHPC
+    Active: true
+    FQDN: utah-notchpeak-ce1.svc.opensciencegrid.org
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Ashton Graves
+          ID: OSG1000362
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Ashton Graves
+          ID: OSG1000362
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false

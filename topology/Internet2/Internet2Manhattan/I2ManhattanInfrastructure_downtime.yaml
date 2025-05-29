@@ -5,7 +5,7 @@
   StartTime: Jan 02, 2024 20:30 +0000
   EndTime: Jan 05, 2024 20:30 +0000
   CreatedTime: Jan 03, 2024 18:07 +0000
-  ResourceName: Stashcache-Manhattan
+  ResourceName: NY-Kubernetes-PRP
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
@@ -16,7 +16,7 @@
   StartTime: Jan 28, 2024 20:30 +0000
   EndTime: Feb 02, 2024 20:30 +0000
   CreatedTime: Jan 29, 2024 20:03 +0000
-  ResourceName: Stashcache-Manhattan
+  ResourceName: NY-Kubernetes-PRP
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
@@ -27,7 +27,7 @@
   StartTime: Jan 03, 2025 21:00 +0000
   EndTime: Jan 07, 2025 20:30 +0000
   CreatedTime: Jan 03, 2025 21:21 +0000
-  ResourceName: Stashcache-Manhattan
+  ResourceName: NY-Kubernetes-PRP
   Services:
   - Pelican cache
 # ---------------------------------------------------------
@@ -38,7 +38,64 @@
   StartTime: Jan 08, 2025 20:30 +0000
   EndTime: Jan 14, 2025 20:30 +0000
   CreatedTime: Jan 09, 2025 23:36 +0000
-  ResourceName: Stashcache-Manhattan
+  ResourceName: NY-Kubernetes-PRP
   Services:
   - Pelican cache
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2030125071
+  Description: Pelican Bug
+  Severity: Outage
+  StartTime: Jan 26, 2025 09:00 +0000
+  EndTime: Jan 31, 2025 20:30 +0000
+  CreatedTime: Jan 27, 2025 21:15 +0000
+  ResourceName: NY-Kubernetes-PRP
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2084723485
+  Description: 'lookup hub.opensciencegrid.org on 127.0.0.53:53: no such host  '
+  Severity: Outage
+  StartTime: Mar 30, 2025 08:00 +0000
+  EndTime: Mar 31, 2025 19:03 +0000
+  CreatedTime: Apr 01, 2025 01:52 +0000
+  ResourceName: NY-Kubernetes-PRP
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2090610015
+  Description: Overloaded
+  Severity: Outage
+  StartTime: Apr 06, 2025 19:30 +0000
+  EndTime: Apr 09, 2025 19:30 +0000
+  CreatedTime: Apr 07, 2025 21:23 +0000
+  ResourceName: NY-Kubernetes-PRP
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2106089908
+  Description: 'throttling test '
+  Severity: Outage
+  StartTime: Apr 24, 2025 08:00 +0000
+  EndTime: Apr 24, 2025 19:30 +0000
+  CreatedTime: Apr 25, 2025 19:23 +0000
+  ResourceName: NY-Kubernetes-PRP
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2115505929
+  Description: HW upgrade
+  Severity: Outage
+  StartTime: May 05, 2025 08:00 +0000
+  EndTime: May 18, 2025 19:30 +0000
+  CreatedTime: May 06, 2025 16:56 +0000
+  ResourceName: NY-Kubernetes-PRP
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+
+

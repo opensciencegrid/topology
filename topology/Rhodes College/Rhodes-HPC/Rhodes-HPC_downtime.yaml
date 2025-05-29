@@ -3,8 +3,19 @@
   Description: OS Upgrade
   Severity: Outage
   StartTime: Jan 06, 2025 15:00 +0000
-  EndTime: Jan 17, 2025 23:00 +0000
+  EndTime: Jan 26, 2025 23:00 +0000
   CreatedTime: Jan 02, 2025 19:03 +0000
+  ResourceName: Rhodes-HPC-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2133578013
+  Description: Power outage / HVAC system outage
+  Severity: Outage
+  StartTime: May 25, 2025 17:28 +0000
+  EndTime: May 27, 2025 22:00 +0000
+  CreatedTime: May 27, 2025 14:56 +0000
   ResourceName: Rhodes-HPC-CE1
   Services:
   - CE

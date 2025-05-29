@@ -141,4 +141,26 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2086177634
+  Description: Condor account expired, waiting for IDM to reopen it
+  Severity: Outage
+  StartTime: Apr 02, 2025 18:15 +0000
+  EndTime: Apr 04, 2025 21:00 +0000
+  CreatedTime: Apr 02, 2025 18:16 +0000
+  ResourceName: LEHIGH-HAWK-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105144127
+  Description: Waiting Pelican Upgrade
+  Severity: Outage
+  StartTime: Apr 24, 2025 08:00 +0000
+  EndTime: Dec 31, 2025 19:30 +0000
+  CreatedTime: Apr 24, 2025 17:06 +0000
+  ResourceName: LEHIGH-HAWK-OSDF-CACHE
+  Services:
+  - XRootD cache server
+# ---------------------------------------------------------
 

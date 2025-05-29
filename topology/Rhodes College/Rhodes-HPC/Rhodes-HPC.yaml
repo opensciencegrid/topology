@@ -59,20 +59,10 @@ Resources:
         #   Name: <FIRSTNAME> <LASTNAME>
         #   ID: <EMAIL HASH>
 
-      # Site contact (optional) are persons or groups of people (i.e.,
-      # mailing lists) that are generally responsible for a site's
-      # relationship with the OSG (e.g., principal investigators,
-      # local administrator contact for OSG Hosted CEs)
-      # Site Contact:
-        # Primary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Secondary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
-        # Tertiary:
-        #   Name: <FIRSTNAME> <LASTNAME>
-        #   ID: <EMAIL HASH>
+      Local Operational Contact:
+        Primary:
+          Name: Graham McEvily
+          ID: OSG1000932
 
     # FQDN is the fully qualified domain name of the host running this resource
     FQDN: rhodes-hpc-ce1.svc.opensciencegrid.org

@@ -4061,3 +4061,927 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2033402942
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 31, 2025 09:00 +0000
+  EndTime: Feb 03, 2025 16:00 +0000
+  CreatedTime: Jan 31, 2025 16:18 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2033402943
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 31, 2025 09:00 +0000
+  EndTime: Feb 03, 2025 16:00 +0000
+  CreatedTime: Jan 31, 2025 16:18 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2033402944
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 31, 2025 09:00 +0000
+  EndTime: Feb 03, 2025 16:00 +0000
+  CreatedTime: Jan 31, 2025 16:18 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2033402945
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 31, 2025 09:00 +0000
+  EndTime: Feb 03, 2025 16:00 +0000
+  CreatedTime: Jan 31, 2025 16:18 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2033402946
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 31, 2025 09:00 +0000
+  EndTime: Feb 03, 2025 16:00 +0000
+  CreatedTime: Jan 31, 2025 16:18 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2033402947
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 31, 2025 09:00 +0000
+  EndTime: Feb 03, 2025 16:00 +0000
+  CreatedTime: Jan 31, 2025 16:18 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2033402948
+  Description: network outage
+  Severity: Outage
+  StartTime: Jan 31, 2025 09:00 +0000
+  EndTime: Feb 03, 2025 16:00 +0000
+  CreatedTime: Jan 31, 2025 16:18 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2036142967
+  Description: Emergency maintenance after power outage
+  Severity: Severe
+  StartTime: Feb 03, 2025 20:24 +0000
+  EndTime: Feb 04, 2025 21:00 +0000
+  CreatedTime: Feb 03, 2025 20:24 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2036142968
+  Description: Emergency maintenance after power outage
+  Severity: Severe
+  StartTime: Feb 03, 2025 20:24 +0000
+  EndTime: Feb 04, 2025 21:00 +0000
+  CreatedTime: Feb 03, 2025 20:24 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2036142969
+  Description: Emergency maintenance after power outage
+  Severity: Severe
+  StartTime: Feb 03, 2025 20:24 +0000
+  EndTime: Feb 04, 2025 21:00 +0000
+  CreatedTime: Feb 03, 2025 20:24 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2036142970
+  Description: Emergency maintenance after power outage
+  Severity: Severe
+  StartTime: Feb 03, 2025 20:24 +0000
+  EndTime: Feb 04, 2025 21:00 +0000
+  CreatedTime: Feb 03, 2025 20:24 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2036142971
+  Description: Emergency maintenance after power outage
+  Severity: Severe
+  StartTime: Feb 03, 2025 20:24 +0000
+  EndTime: Feb 04, 2025 21:00 +0000
+  CreatedTime: Feb 03, 2025 20:24 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2036142972
+  Description: Emergency maintenance after power outage
+  Severity: Severe
+  StartTime: Feb 03, 2025 20:24 +0000
+  EndTime: Feb 04, 2025 21:00 +0000
+  CreatedTime: Feb 03, 2025 20:24 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2036142973
+  Description: Emergency maintenance after power outage
+  Severity: Severe
+  StartTime: Feb 03, 2025 20:24 +0000
+  EndTime: Feb 04, 2025 21:00 +0000
+  CreatedTime: Feb 03, 2025 20:24 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2054258600
+  Description: network outage
+  Severity: Outage
+  StartTime: Feb 24, 2025 19:37 +0000
+  EndTime: Feb 25, 2025 16:00 +0000
+  CreatedTime: Feb 24, 2025 19:37 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2054258601
+  Description: network outage
+  Severity: Outage
+  StartTime: Feb 24, 2025 19:37 +0000
+  EndTime: Feb 25, 2025 16:00 +0000
+  CreatedTime: Feb 24, 2025 19:37 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2054258602
+  Description: network outage
+  Severity: Outage
+  StartTime: Feb 24, 2025 19:37 +0000
+  EndTime: Feb 25, 2025 16:00 +0000
+  CreatedTime: Feb 24, 2025 19:37 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2054258603
+  Description: network outage
+  Severity: Outage
+  StartTime: Feb 24, 2025 19:37 +0000
+  EndTime: Feb 25, 2025 16:00 +0000
+  CreatedTime: Feb 24, 2025 19:37 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2054258604
+  Description: network outage
+  Severity: Outage
+  StartTime: Feb 24, 2025 19:37 +0000
+  EndTime: Feb 25, 2025 16:00 +0000
+  CreatedTime: Feb 24, 2025 19:37 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2054258605
+  Description: network outage
+  Severity: Outage
+  StartTime: Feb 24, 2025 19:37 +0000
+  EndTime: Feb 25, 2025 16:00 +0000
+  CreatedTime: Feb 24, 2025 19:37 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2054258606
+  Description: network outage
+  Severity: Outage
+  StartTime: Feb 24, 2025 19:37 +0000
+  EndTime: Feb 25, 2025 16:00 +0000
+  CreatedTime: Feb 24, 2025 19:37 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2055902620
+  Description: change of root certificate of our CA
+  Severity: Outage
+  StartTime: Feb 28, 2025 12:25 +0000
+  EndTime: Mar 09, 2025 03:00 +0000
+  CreatedTime: Feb 26, 2025 17:17 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2055902621
+  Description: change of root certificate of our CA
+  Severity: Outage
+  StartTime: Feb 28, 2025 12:25 +0000
+  EndTime: Mar 09, 2025 03:00 +0000
+  CreatedTime: Feb 26, 2025 17:17 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2055902622
+  Description: change of root certificate of our CA
+  Severity: Outage
+  StartTime: Feb 28, 2025 12:25 +0000
+  EndTime: Mar 09, 2025 03:00 +0000
+  CreatedTime: Feb 26, 2025 17:17 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2055902623
+  Description: change of root certificate of our CA
+  Severity: Outage
+  StartTime: Feb 28, 2025 12:25 +0000
+  EndTime: Mar 09, 2025 03:00 +0000
+  CreatedTime: Feb 26, 2025 17:17 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2055902624
+  Description: change of root certificate of our CA
+  Severity: Outage
+  StartTime: Feb 28, 2025 12:25 +0000
+  EndTime: Mar 09, 2025 03:00 +0000
+  CreatedTime: Feb 26, 2025 17:17 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2055902625
+  Description: change of root certificate of our CA
+  Severity: Outage
+  StartTime: Feb 28, 2025 12:25 +0000
+  EndTime: Mar 09, 2025 03:00 +0000
+  CreatedTime: Feb 26, 2025 17:17 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2055902626
+  Description: change of root certificate of our CA
+  Severity: Outage
+  StartTime: Feb 28, 2025 12:25 +0000
+  EndTime: Mar 09, 2025 03:00 +0000
+  CreatedTime: Feb 26, 2025 17:17 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725734
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725735
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725736
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725737
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725738
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725739
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2063725740
+  Description: change of root certificate of our CA - waiting for new osg-ca-certs package
+  Severity: Outage
+  StartTime: Mar 09, 2025 03:00 +0000
+  EndTime: Mar 14, 2025 16:00 +0000
+  CreatedTime: Mar 07, 2025 18:36 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2071674923
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 16, 2025 23:24 +0000
+  EndTime: Mar 17, 2025 16:00 +0000
+  CreatedTime: Mar 16, 2025 23:24 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2071674924
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 16, 2025 23:24 +0000
+  EndTime: Mar 17, 2025 16:00 +0000
+  CreatedTime: Mar 16, 2025 23:24 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2071674925
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 16, 2025 23:24 +0000
+  EndTime: Mar 17, 2025 16:00 +0000
+  CreatedTime: Mar 16, 2025 23:24 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2071674926
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 16, 2025 23:24 +0000
+  EndTime: Mar 17, 2025 16:00 +0000
+  CreatedTime: Mar 16, 2025 23:24 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2071674927
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 16, 2025 23:24 +0000
+  EndTime: Mar 17, 2025 16:00 +0000
+  CreatedTime: Mar 16, 2025 23:24 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2071674928
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 16, 2025 23:24 +0000
+  EndTime: Mar 17, 2025 16:00 +0000
+  CreatedTime: Mar 16, 2025 23:24 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2071674929
+  Description: network outage
+  Severity: Outage
+  StartTime: Mar 16, 2025 23:24 +0000
+  EndTime: Mar 17, 2025 16:00 +0000
+  CreatedTime: Mar 16, 2025 23:24 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2102448130
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 21, 2025 14:12 +0000
+  EndTime: Apr 22, 2025 16:00 +0000
+  CreatedTime: Apr 21, 2025 14:13 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2102448131
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 21, 2025 14:12 +0000
+  EndTime: Apr 22, 2025 16:00 +0000
+  CreatedTime: Apr 21, 2025 14:13 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2102448132
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 21, 2025 14:12 +0000
+  EndTime: Apr 22, 2025 16:00 +0000
+  CreatedTime: Apr 21, 2025 14:13 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2102448133
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 21, 2025 14:12 +0000
+  EndTime: Apr 22, 2025 16:00 +0000
+  CreatedTime: Apr 21, 2025 14:13 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2102448134
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 21, 2025 14:12 +0000
+  EndTime: Apr 22, 2025 16:00 +0000
+  CreatedTime: Apr 21, 2025 14:13 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2102448135
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 21, 2025 14:12 +0000
+  EndTime: Apr 22, 2025 16:00 +0000
+  CreatedTime: Apr 21, 2025 14:13 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2102448136
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 21, 2025 14:12 +0000
+  EndTime: Apr 22, 2025 16:00 +0000
+  CreatedTime: Apr 21, 2025 14:13 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294226
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294227
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294228
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294229
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294230
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294231
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2103294232
+  Description: network outage
+  Severity: Outage
+  StartTime: Apr 22, 2025 14:00 +0000
+  EndTime: Apr 22, 2025 22:00 +0000
+  CreatedTime: Apr 22, 2025 13:43 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105053174
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 16:00 +0000
+  EndTime: Apr 24, 2025 21:00 +0000
+  CreatedTime: Apr 24, 2025 14:35 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105053175
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 16:00 +0000
+  EndTime: Apr 24, 2025 21:00 +0000
+  CreatedTime: Apr 24, 2025 14:35 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105053176
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 16:00 +0000
+  EndTime: Apr 24, 2025 21:00 +0000
+  CreatedTime: Apr 24, 2025 14:35 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105053177
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 16:00 +0000
+  EndTime: Apr 24, 2025 21:00 +0000
+  CreatedTime: Apr 24, 2025 14:35 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105053178
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 16:00 +0000
+  EndTime: Apr 24, 2025 21:00 +0000
+  CreatedTime: Apr 24, 2025 14:35 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105053179
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 16:00 +0000
+  EndTime: Apr 24, 2025 21:00 +0000
+  CreatedTime: Apr 24, 2025 14:35 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105053180
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 16:00 +0000
+  EndTime: Apr 24, 2025 21:00 +0000
+  CreatedTime: Apr 24, 2025 14:35 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105256158
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 21:00 +0000
+  EndTime: Apr 25, 2025 15:00 +0000
+  CreatedTime: Apr 24, 2025 20:13 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105256159
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 21:00 +0000
+  EndTime: Apr 25, 2025 15:00 +0000
+  CreatedTime: Apr 24, 2025 20:13 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105256160
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 21:00 +0000
+  EndTime: Apr 25, 2025 15:00 +0000
+  CreatedTime: Apr 24, 2025 20:13 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105256161
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 21:00 +0000
+  EndTime: Apr 25, 2025 15:00 +0000
+  CreatedTime: Apr 24, 2025 20:13 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105256162
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 21:00 +0000
+  EndTime: Apr 25, 2025 15:00 +0000
+  CreatedTime: Apr 24, 2025 20:13 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105256163
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 21:00 +0000
+  EndTime: Apr 25, 2025 15:00 +0000
+  CreatedTime: Apr 24, 2025 20:13 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105256164
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 24, 2025 21:00 +0000
+  EndTime: Apr 25, 2025 15:00 +0000
+  CreatedTime: Apr 24, 2025 20:13 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105936383
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 25, 2025 15:00 +0000
+  EndTime: Apr 28, 2025 15:00 +0000
+  CreatedTime: Apr 25, 2025 15:07 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105936384
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 25, 2025 15:00 +0000
+  EndTime: Apr 28, 2025 15:00 +0000
+  CreatedTime: Apr 25, 2025 15:07 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105936385
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 25, 2025 15:00 +0000
+  EndTime: Apr 28, 2025 15:00 +0000
+  CreatedTime: Apr 25, 2025 15:07 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105936386
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 25, 2025 15:00 +0000
+  EndTime: Apr 28, 2025 15:00 +0000
+  CreatedTime: Apr 25, 2025 15:07 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105936387
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 25, 2025 15:00 +0000
+  EndTime: Apr 28, 2025 15:00 +0000
+  CreatedTime: Apr 25, 2025 15:07 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105936388
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 25, 2025 15:00 +0000
+  EndTime: Apr 28, 2025 15:00 +0000
+  CreatedTime: Apr 25, 2025 15:07 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2105936389
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 25, 2025 15:00 +0000
+  EndTime: Apr 28, 2025 15:00 +0000
+  CreatedTime: Apr 25, 2025 15:07 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247784
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247785
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247786
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247787
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247788
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247789
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2124247790
+  Description: network outage
+  Severity: Intermittent Outage
+  StartTime: May 17, 2025 11:00 +0000
+  EndTime: May 17, 2025 12:00 +0000
+  CreatedTime: May 16, 2025 19:46 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------

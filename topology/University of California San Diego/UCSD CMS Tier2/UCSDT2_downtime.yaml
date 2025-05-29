@@ -1961,3 +1961,26 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2050873509
+  Description: OS upgrade
+  Severity: Outage
+  StartTime: Feb 25, 2025 17:00 +0000
+  EndTime: Feb 25, 2025 20:00 +0000
+  CreatedTime: Feb 20, 2025 21:35 +0000
+  ResourceName: UCSDCMST2-2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2087056595
+  Description: OS upgrade
+  Severity: No Significant Outage Expected
+  StartTime: Apr 09, 2025 15:00 +0000
+  EndTime: Apr 09, 2025 19:00 +0000
+  CreatedTime: Apr 03, 2025 18:40 +0000
+  ResourceName: UCSDT2-SE4
+  Services:
+  - WebDAV
+  - XRootD component
+# ---------------------------------------------------------

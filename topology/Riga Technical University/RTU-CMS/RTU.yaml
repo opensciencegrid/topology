@@ -16,7 +16,7 @@ Resources:
   T2_LV_HPCNET-CE:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: false
+    Active: true
     # Description is a long description of the resource; may be multiple lines
     Description: This is a ARC-CE for T2_LV_HPCNET.
     # ContactLists contain information about people to contact regarding this resource.
@@ -155,9 +155,8 @@ Resources:
     ### VOOwnership (optional) is the percentage of the resource owned by one or more VOs.
     ### If part of the resource is not owned by the VO, do not list it.
     ### The total percentage cannot exceed 100.
-    # VOOwnership:
-    #   <VO1>: <PERCENT>
-    #   <VO2>: <PERCENT>
+    VOOwnership:
+      CMS: 100
 
     ### WLCGInformation (optional) is only for resources that are part of the WLCG
     # WLCGInformation:
@@ -180,7 +179,7 @@ Resources:
   T2_LV_HPCNET-SQUID:
     # Active is true if the resource is accepting requests, and false otherwise.
     # When first registering a resource, set this to false. Set it to true when it's ready for production.
-    Active: false
+    Active: true
     # Description is a long description of the resource; may be multiple lines
     Description: This is Frontier squid proxy for T2_LV_HPCNET.
     # ContactLists contain information about people to contact regarding this resource.
@@ -305,3 +304,29 @@ Resources:
         #   # sam_uri: htcondor://...
         #   ### endpoint (for perfSONAR services)
         #   # endpoint: <HOSTNAME>
+#
+###
+#
+
+  T2_LV_HPCNET-XROOTD:
+    Active: true
+    Description: This is XrootD service for T2_LV_HPCNET.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Igors Makarkins
+          ID: OSG1000678
+      Security Contact:
+        Primary:
+          Name: Igors Makarkins
+          ID: OSG1000678
+    FQDN: xrootd.tier2.hpc-net.lv
+    Services:
+      XRootD component:
+        Description: XrootD service for T2_LV_HPCNET
+        Details:
+          hidden: false
+      WebDAV:
+        Description: WebDAV service for T2_LV_HPCNET
+        Details:
+          hidden: false

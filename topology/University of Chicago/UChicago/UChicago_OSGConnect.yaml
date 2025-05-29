@@ -99,6 +99,8 @@ Resources:
         Description: OS Pool access point
       XRootD origin server:
         Description: OSG Connect Origin Server
+      Pelican origin:
+        Description: Pelican Origin for ap20
     Tags:
       - OSPool
     AllowedVOs:
@@ -142,6 +144,8 @@ Resources:
         Description: OS Pool access point
       XRootD origin server:
         Description: OSG Connect Origin Server
+      Pelican origin:
+        Description: Pelican Origin for ap21
     Tags:
       - OSPool
     AllowedVOs:
@@ -185,10 +189,13 @@ Resources:
         Description: OS Pool access point
       XRootD origin server:
         Description: OSG Connect Origin Server
+      Pelican origin:
+        Description: Pelican Origin for ap22
     Tags:
       - OSPool
     AllowedVOs:
       - OSG
+
   UChicago_OSGConnect_ap23:
     Active: true
     Description: The ap23.uc.osg-htc.org login node for the OSG Open Pool
