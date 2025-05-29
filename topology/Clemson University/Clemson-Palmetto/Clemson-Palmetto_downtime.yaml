@@ -8,3 +8,37 @@
   ResourceName: Clemson-Palmetto-CE1
   Services:
   - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2135334024
+  Description: Scheduled Mantenance
+  Severity: Outage
+  StartTime: May 31, 2025 13:00 +0000
+  EndTime: Jun 06, 2025 20:00 +0000
+  CreatedTime: May 29, 2025 15:43 +0000
+  ResourceName: Clemson-Connect
+  Services:
+  - Connect
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2135334025
+  Description: Scheduled Mantenance
+  Severity: Outage
+  StartTime: May 31, 2025 13:00 +0000
+  EndTime: Jun 06, 2025 20:00 +0000
+  CreatedTime: May 29, 2025 15:43 +0000
+  ResourceName: Clemson-Palmetto
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2135334026
+  Description: Scheduled Mantenance
+  Severity: Outage
+  StartTime: May 31, 2025 13:00 +0000
+  EndTime: Jun 06, 2025 20:00 +0000
+  CreatedTime: May 29, 2025 15:43 +0000
+  ResourceName: Clemson-Palmetto-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
