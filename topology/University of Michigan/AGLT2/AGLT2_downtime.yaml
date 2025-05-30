@@ -1411,5 +1411,82 @@
   - SRMv2
   - WebDAV
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 2136153520
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 21:00 +0000
+  CreatedTime: May 30, 2025 14:29 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2136154763
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 21:00 +0000
+  CreatedTime: May 30, 2025 14:31 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2136154928
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 21:00 +0000
+  CreatedTime: May 30, 2025 14:31 +0000
+  ResourceName: AGLT2_CE_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2136155192
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 21:00 +0000
+  CreatedTime: May 30, 2025 14:31 +0000
+  ResourceName: AGLT2_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2136155435
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 21:00 +0000
+  CreatedTime: May 30, 2025 14:32 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2136155710
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 21:00 +0000
+  CreatedTime: May 30, 2025 14:32 +0000
+  ResourceName: AGLT2-squid-2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2136155866
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 21:00 +0000
+  CreatedTime: May 30, 2025 14:33 +0000
+  ResourceName: AGLT2-squid-3
+  Services:
+  - Squid
+# ---------------------------------------------------------
   
