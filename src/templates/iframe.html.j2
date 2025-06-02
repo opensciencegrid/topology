@@ -262,6 +262,679 @@ will want to adjust the Map.data which populates the select input and legend.
     ].map(x => x.toLowerCase()))
     const backup_ospool_resource_timestamp = "2024-09-12"
 
+    const NRP = [
+        {
+            "id": 2,
+            "name": "University of California San Diego",
+            "siteName": "Atkinson Hall",
+            "slug": "atkinson-hall",
+            "latitude": 32.882645,
+            "longitude": -117.234768
+        },
+        {
+            "id": 39,
+            "name": "San Diego State University",
+            "siteName": "SDSU",
+            "slug": "sdsu",
+            "latitude": 32.77741,
+            "longitude": -117.07141
+        },
+        {
+            "id": 83,
+            "name": "Gatech/Sox",
+            "siteName": "Gatech",
+            "slug": "gatech",
+            "latitude": 33.75543,
+            "longitude": -84.39158
+        },
+        {
+            "id": 108,
+            "name": "Internet2",
+            "siteName": "Internet2 Boise 2",
+            "slug": "i2-boise-2",
+            "latitude": 43.56061,
+            "longitude": -116.21984
+        },
+        {
+            "id": 113,
+            "name": "Gatech/Sox",
+            "siteName": "CAU",
+            "slug": "cau",
+            "latitude": 33.747415,
+            "longitude": -84.412459
+        },
+        {
+            "id": 74,
+            "name": "OneNet",
+            "siteName": "OneNet OKC",
+            "slug": "onenet-okc",
+            "latitude": 35.473011,
+            "longitude": -97.503373
+        },
+        {
+            "id": 46,
+            "name": "University of Delaware",
+            "siteName": "UDel",
+            "slug": "udel",
+            "latitude": 39.678044,
+            "longitude": -75.750598
+        },
+        {
+            "id": 35,
+            "name": "University of California Merced",
+            "siteName": "UCMerced",
+            "slug": "ucmerced",
+            "latitude": 37.3647,
+            "longitude": -120.42412
+        },
+        {
+            "id": 98,
+            "name": "California State Polytechnic University, Humboldt",
+            "siteName": "California State Polytechnic University, Humboldt",
+            "slug": "humboldt",
+            "latitude": 40.876429,
+            "longitude": -124.077165,
+            "ospool": true
+        },
+        {
+            "id": 50,
+            "name": "California State University, San Bernardino",
+            "siteName": "CSUSB",
+            "slug": "csusb",
+            "latitude": 34.18207,
+            "longitude": -117.3234,
+            "ospool": true
+        },
+        {
+            "id": 104,
+            "name": "San Diego Community College District",
+            "siteName": "Miramar College",
+            "slug": "miramar-college",
+            "latitude": 32.912078,
+            "longitude": -117.118691
+        },
+        {
+            "id": 13,
+            "name": "Massachusetts Green High Performance Computing Center",
+            "siteName": "100 Bigelow",
+            "slug": "100-bigelow",
+            "latitude": 42.202907,
+            "longitude": -72.607309
+        },
+        {
+            "id": 31,
+            "name": "Korea Institute of Science and Technology Information",
+            "siteName": "Kreonet",
+            "slug": "kreonet",
+            "latitude": 37.5112,
+            "longitude": 126.974098
+        },
+        {
+            "id": 36,
+            "name": "University of California Riverside",
+            "siteName": "UCR",
+            "slug": "ucr",
+            "latitude": 33.97368,
+            "longitude": -117.32806
+        },
+        {
+            "id": 79,
+            "name": "Internet2",
+            "siteName": "Internet2 Boise",
+            "slug": "i2-boise",
+            "latitude": 43.61831,
+            "longitude": -116.20379
+        },
+        {
+            "id": 65,
+            "name": "Internet2",
+            "siteName": "Internet2 Cincinnati",
+            "slug": "i2-cincinnati",
+            "latitude": 39.102389,
+            "longitude": -84.502853
+        },
+        {
+            "id": 89,
+            "name": "Internet2",
+            "siteName": "Internet2 Denver",
+            "slug": "i2-denver",
+            "latitude": 39.745802,
+            "longitude": -104.97955
+        },
+        {
+            "id": 21,
+            "name": "Internet2",
+            "siteName": "Internet2 Houston",
+            "slug": "i2-houston",
+            "latitude": 29.771315,
+            "longitude": -95.351
+        },
+        {
+            "id": 84,
+            "name": "Internet2",
+            "siteName": "Internet2 Jacksonville",
+            "slug": "i2-jacksonville",
+            "latitude": 30.258798,
+            "longitude": -81.610646
+        },
+        {
+            "id": 67,
+            "name": "Internet2 Missouri, Kansas City",
+            "siteName": "Internet2 Missouri, Kansas City",
+            "slug": "i2-kans",
+            "latitude": 39.101078,
+            "longitude": -94.582098
+        },
+        {
+            "id": 99,
+            "name": "Alabama A&M University",
+            "siteName": "Alabama A&M University",
+            "slug": "alabama-am-university",
+            "latitude": 34.78409,
+            "longitude": -86.5722
+        },
+        {
+            "id": 22,
+            "name": "StarLight",
+            "siteName": "Startap",
+            "slug": "startap",
+            "latitude": 42.05647,
+            "longitude": -87.67528
+        },
+        {
+            "id": 20,
+            "name": "Clemson University",
+            "siteName": "Clemson",
+            "slug": "clemson",
+            "latitude": 34.677502,
+            "longitude": -82.836197,
+            "ospool": true
+        },
+        {
+            "id": 34,
+            "name": "Internet2",
+            "siteName": "UIC",
+            "slug": "uic",
+            "latitude": 41.8783,
+            "longitude": -87.690697,
+            "ospool": true
+        },
+        {
+            "id": 70,
+            "name": "Florida A&M University",
+            "siteName": "Florida Agricultural and Mechanical University",
+            "slug": "famu",
+            "latitude": 30.42272,
+            "longitude": -84.28769,
+            "ospool": true
+        },
+        {
+            "id": 17,
+            "name": "University of California Santa Cruz",
+            "siteName": "UCSC",
+            "slug": "ucsc",
+            "latitude": 37.0313,
+            "longitude": -122.119797
+        },
+        {
+            "id": 30,
+            "name": "UC Irvine",
+            "siteName": "UCI",
+            "slug": "uci",
+            "latitude": 33.778301,
+            "longitude": -118.026802
+        },
+        {
+            "id": 87,
+            "name": "CESNET",
+            "siteName": "Zikova 4",
+            "slug": "zikova-4",
+            "latitude": 50.09883,
+            "longitude": 14.388636
+        },
+        {
+            "id": 29,
+            "name": "University of Amsterdam",
+            "siteName": "UVALight",
+            "slug": "uvalight",
+            "latitude": 52.382401,
+            "longitude": 4.8995
+        },
+        {
+            "id": 91,
+            "name": "Oklahoma State University",
+            "siteName": "Oklahoma State University",
+            "slug": "osu",
+            "latitude": 36.125861,
+            "longitude": -97.073982
+        },
+        {
+            "id": 18,
+            "name": "University of Hawaiʻi",
+            "siteName": "Hawaii",
+            "slug": "hawaii",
+            "latitude": 21.289,
+            "longitude": -157.802795
+        },
+        {
+            "id": 53,
+            "name": "University Corporation for Atmospheric Research",
+            "siteName": "UCAR",
+            "slug": "ucar",
+            "latitude": 41.12825,
+            "longitude": -104.89782
+        },
+        {
+            "id": 47,
+            "name": "University of Oklahoma",
+            "siteName": "OU",
+            "slug": "ou",
+            "latitude": 35.20579,
+            "longitude": -97.44567
+        },
+        {
+            "id": 48,
+            "name": "University of California Los Angeles",
+            "siteName": "UCLA",
+            "slug": "ucla",
+            "latitude": 34.06891,
+            "longitude": -118.44518
+        },
+        {
+            "id": 32,
+            "name": "Metropolitan Research & Education Network",
+            "siteName": "MREN",
+            "slug": "mren",
+            "latitude": 41.7886,
+            "longitude": -87.5987
+        },
+        {
+            "id": 28,
+            "name": "University of South Dakota",
+            "siteName": "USD",
+            "slug": "usd",
+            "latitude": 42.788741,
+            "longitude": -96.92546,
+            "ospool": true
+        },
+        {
+            "id": 24,
+            "name": "Kansas State University",
+            "siteName": "KSU",
+            "slug": "ksu",
+            "latitude": 39.577321,
+            "longitude": -96.614302
+        },
+        {
+            "id": 95,
+            "name": "University of Arkansas for Medical Sciences",
+            "siteName": "UAMS",
+            "slug": "uams",
+            "latitude": 34.746564,
+            "longitude": -92.32434
+        },
+        {
+            "id": 63,
+            "name": "University of Arkansas",
+            "siteName": "UARK",
+            "slug": "uark",
+            "latitude": 36.06869,
+            "longitude": -94.17484
+        },
+        {
+            "id": 78,
+            "name": "University of Missouri, Columbia",
+            "siteName": "University of Missouri, Columbia",
+            "slug": "mizzou",
+            "latitude": 38.940345,
+            "longitude": -92.327723
+        },
+        {
+            "id": 45,
+            "name": "University of Nebraska",
+            "siteName": "UNL",
+            "slug": "unl",
+            "latitude": 40.819759,
+            "longitude": -96.705541,
+            "ospool": true
+        },
+        {
+            "id": 43,
+            "name": "Corporation for Education Network Initiatives in California",
+            "siteName": "CENIC LA",
+            "slug": "cenic-la",
+            "latitude": 33.879806,
+            "longitude": -118.02744
+        },
+        {
+            "id": 96,
+            "name": "PNWGP",
+            "siteName": "Westin Building Exchange",
+            "slug": "westin-building-exchange",
+            "latitude": 47.614445,
+            "longitude": -122.338835
+        },
+        {
+            "id": 76,
+            "name": "Corporation for Education Network Initiatives in California",
+            "siteName": "CENIC Sunnyvale",
+            "slug": "cenic-sunnyvale",
+            "latitude": 37.368741,
+            "longitude": -122.034974
+        },
+        {
+            "id": 81,
+            "name": "American Museum of Natural History",
+            "siteName": "CPW",
+            "slug": "american-museum-of-natural-history",
+            "latitude": 40.781436,
+            "longitude": -73.973852,
+            "ospool": true
+        },
+        {
+            "id": 1,
+            "name": "University of California San Diego",
+            "siteName": "SDSC",
+            "slug": "sdsc",
+            "latitude": 32.88454,
+            "longitude": -117.239103
+        },
+        {
+            "id": 97,
+            "name": "Iron Mountain Datacenter",
+            "siteName": "Iron Mountain Datacenter",
+            "slug": "iron-mountain-datacenter",
+            "latitude": 33.45416,
+            "longitude": -111.97518
+        },
+        {
+            "id": 115,
+            "name": "California State University, Sacramento",
+            "siteName": "csus",
+            "slug": "csus",
+            "latitude": 38.560993,
+            "longitude": -121.423907
+        },
+        {
+            "id": 25,
+            "name": "University of New Mexico",
+            "siteName": "UNM",
+            "slug": "unm",
+            "latitude": 35.09013,
+            "longitude": -106.63597
+        },
+        {
+            "id": 5,
+            "name": "FIU-CIARA",
+            "siteName": "Equinix MI1",
+            "slug": "equinix-mi1",
+            "latitude": 25.782432,
+            "longitude": -80.193133
+        },
+        {
+            "id": 27,
+            "name": "California Institute of Technology",
+            "siteName": "Ultralight",
+            "slug": "ultralight",
+            "latitude": 34.1377,
+            "longitude": -118.1253
+        },
+        {
+            "id": 12,
+            "name": "University of Guam",
+            "siteName": "UOG",
+            "slug": "uog",
+            "latitude": 13.432524,
+            "longitude": 144.8033
+        },
+        {
+            "id": 69,
+            "name": "University of Michigan",
+            "siteName": "Atlas Great Lakes tier 2",
+            "slug": "aglt2",
+            "latitude": 42.27778,
+            "longitude": -83.75534
+        },
+        {
+            "id": 49,
+            "name": "South Dakota State University",
+            "siteName": "SDState",
+            "slug": "sdstate",
+            "latitude": 44.31909,
+            "longitude": -96.78351
+        },
+        {
+            "id": 114,
+            "name": "Gatech/Sox",
+            "siteName": "Morehouse",
+            "slug": "morehouse",
+            "latitude": 33.748316,
+            "longitude": -84.414867
+        },
+        {
+            "id": 100,
+            "name": "California State University",
+            "siteName": "Fullerton",
+            "slug": "fullerton",
+            "latitude": 33.88364,
+            "longitude": -117.88513,
+            "ospool": true
+        },
+        {
+            "id": 56,
+            "name": "New York University",
+            "siteName": "NYU",
+            "slug": "nyu",
+            "latitude": 40.729413,
+            "longitude": -73.996547,
+            "ospool": true
+        },
+        {
+            "id": 16,
+            "name": "Case Western Reserve University",
+            "siteName": "CWRU",
+            "slug": "cwru",
+            "latitude": 41.50433,
+            "longitude": -81.60839
+        },
+        {
+            "id": 40,
+            "name": "Stanford University",
+            "siteName": "Stanford",
+            "slug": "stanford",
+            "latitude": 37.423,
+            "longitude": -122.163902
+        },
+        {
+            "id": 111,
+            "name": "California State University, Monterey Bay",
+            "siteName": "CSUMB",
+            "slug": "csumb",
+            "latitude": 36.65379,
+            "longitude": -121.798957
+        },
+        {
+            "id": 109,
+            "name": "CSU Chico",
+            "siteName": "CSU Chico",
+            "slug": "csu-chico",
+            "latitude": 39.73553,
+            "longitude": -121.85047
+        },
+        {
+            "id": 26,
+            "name": "NYSERNet",
+            "siteName": "NYSERNet",
+            "slug": "nysernet",
+            "latitude": 43.049619,
+            "longitude": -76.152805
+        },
+        {
+            "id": 93,
+            "name": "State University of New York",
+            "siteName": "University at Buffalo",
+            "slug": "buffalo",
+            "latitude": 43.002306,
+            "longitude": -78.787699
+        },
+        {
+            "id": 112,
+            "name": "Massachusetts Green High Performance Computing Center",
+            "siteName": "mghpcc-umass",
+            "slug": "mghpcc-umass",
+            "latitude": 42.202907,
+            "longitude": -72.607309,
+            "ospool": true
+        },
+        {
+            "id": 92,
+            "name": "NJ Edge",
+            "siteName": "njedge",
+            "slug": "njedge",
+            "latitude": 40.16068,
+            "longitude": -74.05306
+        },
+        {
+            "id": 117,
+            "name": "Great Plains Network",
+            "siteName": "Oral Roberts University",
+            "slug": "oru",
+            "latitude": 36.05096,
+            "longitude": -95.952855
+        },
+        {
+            "id": 68,
+            "name": "Internet2",
+            "siteName": "Internet2 Chicago",
+            "slug": "i2-uchicago",
+            "latitude": 41.896504,
+            "longitude": -87.64306
+        },
+        {
+            "id": 66,
+            "name": "Internet2",
+            "siteName": "Internet2 New York",
+            "slug": "i2-ny",
+            "latitude": 40.720069,
+            "longitude": -74.005199
+        },
+        {
+            "id": 19,
+            "name": "University of California San Diego",
+            "siteName": "UCSD",
+            "slug": "ucsd",
+            "latitude": 32.851501,
+            "longitude": -117.2798,
+            "ospool": true
+        },
+        {
+            "id": 80,
+            "name": "Internet2",
+            "siteName": "Internet2 Sunnyvale",
+            "slug": "i2-sunnyvale",
+            "latitude": 37.373779,
+            "longitude": -121.987513
+        },
+        {
+            "id": 101,
+            "name": "Kennesaw State University",
+            "siteName": "Kennesaw State University",
+            "slug": "kennesaw",
+            "latitude": 34.02348,
+            "longitude": -84.58891
+        },
+        {
+            "id": 107,
+            "name": "Internet2",
+            "siteName": "Internet2 Pensacola",
+            "slug": "i2-pensacola",
+            "latitude": 30.41086,
+            "longitude": -87.20918
+        },
+        {
+            "id": 15,
+            "name": "UC Santa Barbara",
+            "siteName": "UCSB",
+            "slug": "ucsb",
+            "latitude": 34.4216,
+            "longitude": -119.706802
+        },
+        {
+            "id": 75,
+            "name": "University of California Santa Cruz",
+            "siteName": "NTTDATA Western Technology Center",
+            "slug": "ucsc-wa",
+            "latitude": 47.243511,
+            "longitude": -119.864901
+        },
+        {
+            "id": 102,
+            "name": "University of South Alabama",
+            "siteName": "Shelby Hall",
+            "slug": "shelby-hall",
+            "latitude": 30.691591,
+            "longitude": -88.174933
+        },
+        {
+            "id": 116,
+            "name": "Montana State University",
+            "siteName": "Montana State University",
+            "slug": "msu",
+            "latitude": 45.66607,
+            "longitude": -111.04832
+        },
+        {
+            "id": 54,
+            "name": "South Dakota School of Mines & Technology",
+            "siteName": "SDSMT",
+            "slug": "sdsmt",
+            "latitude": 44.07379,
+            "longitude": -103.20609
+        },
+        {
+            "id": 106,
+            "name": "Internet2",
+            "siteName": "Internet2 Seattle",
+            "slug": "i2-seattle",
+            "latitude": 47.61348,
+            "longitude": -122.34738
+        },
+        {
+            "id": 88,
+            "name": "SingAREN",
+            "siteName": "NSCC",
+            "slug": "nscc",
+            "latitude": 1.29918,
+            "longitude": 103.78763
+        },
+        {
+            "id": 37,
+            "name": "Cardiff University",
+            "siteName": "AC",
+            "slug": "ac",
+            "latitude": 52.371746,
+            "longitude": -1.502526
+        },
+        {
+            "id": 105,
+            "name": "University of Tulsa",
+            "siteName": "University of Tulsa",
+            "slug": "university-of-tulsa",
+            "latitude": 36.152693,
+            "longitude": -95.946053
+        },
+        {
+            "id": 103,
+            "name": "CERN",
+            "siteName": "CERN Data Center",
+            "slug": "cern-data-center",
+            "latitude": 46.232661,
+            "longitude": 6.045924
+        }
+    ]
+    const nrp_facilities = NRP.map(x => x.name).filter(x => NRP.map(x => x.name).includes(x))
+
+
     const iconConfig = {
         iconSize: [36,36],
         iconAnchor: [18, 36],
@@ -769,8 +1442,43 @@ will want to adjust the Map.data which populates the select input and legend.
             return this.layers[this.view]
         }
 
+        /**
+         * TODO: Make this dynamically map from the json source file from Derek
+         * TODO: Add institutionID to this node map so I can rule out duplicates
+         * https://github.com/djw8605/nrp-map-app/blob/main/data/nodes.json
+         * @returns {*[]}
+         */
+        get nrpMarkers() {
+
+            // We only have markers for OSPool and OSGSites view
+            if( this.view !== "OSPool" && this.view !== "OSGSites"){
+                return []
+            }
+
+            const offsetX = (Math.random() - .5) * 0.1
+            const offsetY = (Math.random() - .5) * 0.1
+
+            const markers = NRP.filter(nrp => this.view === "OSPool" ? nrp.ospool : true).filter(nrp => !(Object.entries(this.sites).map(([_, s]) => s.siteName).includes(nrp.siteName))).map(x => {
+                const marker = L.marker([x.latitude + offsetX, x.longitude + offsetY], {icon: greenStarIcon})
+                marker.site = {
+                    siteName: x.siteName,
+                    facilityName: x.name,
+                    latitude: x.latitude,
+                    longitude: x.longitude
+                }
+                return marker
+            })
+
+            return markers
+        }
+
         get markers() {
-            return Object.entries(this.sites).map(([name, site]) => site.getMarker(this.view)).filter(icon => icon !== null)
+            const topologyMarkers = Object.entries(this.sites).map(([name, site]) => site.getMarker(this.view)).filter(icon => icon !== null)
+
+            return [
+                ...topologyMarkers,
+                ...this.nrpMarkers
+            ]
         }
 
         get metaData() {
@@ -822,7 +1530,7 @@ will want to adjust the Map.data which populates the select input and legend.
         update() {
             this.siteSelect.addOptions(
                 Object.values(this.layer._layers)
-                    .map(({ site })=> [site.siteName, `${site.facilityName} - ${site.siteName}`])
+                    .map(({ site })=> [site?.siteName, `${site?.facilityName} - ${site?.siteName}`])
                     .sort((a, b) => a[1].localeCompare(b[1]))
             )
             this.leafletMap.update(this.layer, this.metaData[this.view].legend)
