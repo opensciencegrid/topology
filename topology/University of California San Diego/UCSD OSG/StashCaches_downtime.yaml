@@ -52,3 +52,14 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138794792
+  Description: Power outage
+  Severity: Outage
+  StartTime: Jun 01, 2025 06:00 +0000
+  EndTime: Jun 05, 2025 17:30 +0000
+  CreatedTime: Jun 02, 2025 15:51 +0000
+  ResourceName: Stashcache-UCSD
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
