@@ -185,4 +185,15 @@
   Services:
   - XRootD origin server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2139021189
+  Description: Storage issue after power outage
+  Severity: Outage
+  StartTime: Jun 01, 2025 06:00 +0000
+  EndTime: Jun 04, 2025 00:00 +0000
+  CreatedTime: Jun 02, 2025 22:08 +0000
+  ResourceName: SDSC_NRP_OSDF_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
 
