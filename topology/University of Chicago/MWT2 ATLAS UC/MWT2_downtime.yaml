@@ -1695,3 +1695,25 @@
   Services:
   - XRootD component
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2148266038
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jun 24, 2025 14:00 +0000
+  EndTime: Jun 24, 2025 21:00 +0000
+  CreatedTime: Jun 13, 2025 14:56 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2148268027
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: Jun 24, 2025 14:00 +0000
+  EndTime: Jun 24, 2025 21:00 +0000
+  CreatedTime: Jun 13, 2025 14:56 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
