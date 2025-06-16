@@ -20,4 +20,15 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2151043084
+  Description: That origin is being relocated to a different building
+  Severity: Outage
+  StartTime: Jun 15, 2025 08:00 +0000
+  EndTime: Jul 05, 2025 19:30 +0000
+  CreatedTime: Jun 16, 2025 20:05 +0000
+  ResourceName: UConn-HPC_StashCache_origin
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
 
