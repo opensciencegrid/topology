@@ -2183,3 +2183,15 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2152784126
+  Description: Ceph upgrade
+  Severity: Outage
+  StartTime: Jun 25, 2025 16:00 +0000
+  EndTime: Jun 26, 2025 00:00 +0000
+  CreatedTime: Jun 18, 2025 20:26 +0000
+  ResourceName: UCSDT2-SE4
+  Services:
+  - WebDAV
+  - XRootD component
+# ---------------------------------------------------------
