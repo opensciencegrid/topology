@@ -912,4 +912,48 @@ Resources:
     VOOwnership:
       GLOW: 100
 
+CHTC-ap41:
+    Active: true
+    Description: The ap41.uw.osg-htc.org access point for the Open Science Pool
+    ID: 1469
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    FQDN: ap41.uw.osg-htc.org
+    FQDNAliases:
+      - ospool-ap4041.chtc.wisc.edu
+      - ap41.uw.osg-htc.org
+    DN: /CN=ospool-ap4041.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+      Pelican origin:
+        Description: OSDF Pelican origin
+    Tags:
+      - OSPool
+    VOOwnership:
+      OSG: 100
+    AllowedVOs:
+      - OSG
+
 SupportCenter: GLOW-TECH
