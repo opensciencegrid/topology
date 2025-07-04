@@ -1,0 +1,23 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: OSDF cache in the site at Notre Dame.
+Resources:
+  NOTRE_DAME_OSDF_CACHE:
+    Active: true
+    Description: Notre Dame Cache
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas 
+          ID: OSG1000162
+    FQDN: osdfcache01.crc.nd.edu
+    DN: /C=US/ST=Indiana/O=University of Notre Dame/CN=osdfcache01.crc.nd.edu
+    Services:
+      Pelican cache:
+        Description: Notre Dame Cache
+    AllowedVOs:
+      - ANY
