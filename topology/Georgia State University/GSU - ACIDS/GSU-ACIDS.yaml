@@ -37,26 +37,3 @@ Resources:
     Services:
       CE:
         Description: Compute Element
-  GSU-ADONIS:
-    Active: true
-    Description: ADONIS is a Kubernetes Cluster at GSU
-    ContactLists:
-      Administrative Contact:
-        Primary:
-          ID: OSG1000368
-          Name: Christopher Childress
-      Security Contact:
-        Primary:
-          ID: OSG1000368
-          Name: Christopher Childress
-      Site Contact:
-        Primary:
-          ID:  1b342d6ec2923f2d1f00ad77106e810e6c25fb9c
-          Name: Suranga Edirisinghe Pathirannehelage
-        Secondary:
-          ID: OSG1000368
-          Name: Christopher Childress
-    FQDN: adonis-ctrl01.rs.gsu.edu # Not accessible to public
-    Services:
-      Execution Endpoint:
-        Description: OSPool EP pods at GSU-ADONIS
