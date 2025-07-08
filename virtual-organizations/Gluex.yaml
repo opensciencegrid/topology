@@ -19,6 +19,8 @@ Credentials:
   TokenIssuers:
     - URL: https://zeus.phys.uconn.edu
       DefaultUnixUser: gluex
+    - URL: https://scicomp.jlab.org/scitokens/gluex
+      DefaultUnixUser: gluex
 Disable: false
 FieldsOfScience:
   PrimaryFields:
