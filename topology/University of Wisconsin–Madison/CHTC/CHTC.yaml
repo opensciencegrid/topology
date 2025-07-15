@@ -962,4 +962,28 @@ Resources:
     AllowedVOs:
       - OSG
 
+  CHTC-learn-ap:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Access Point
+    FQDN: learn-ap2000.chtc.wisc.edu
+    ID: 
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
 SupportCenter: GLOW-TECH
