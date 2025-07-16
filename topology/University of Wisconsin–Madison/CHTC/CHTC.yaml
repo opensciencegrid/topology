@@ -962,4 +962,48 @@ Resources:
     AllowedVOs:
       - OSG
 
+  CHTC-learn-ap:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary 1:
+          ID: OSG1000670
+          Name: Theng Vang
+      Security Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary 1:
+          ID: OSG1000670
+          Name: Theng Vang
+    Description: CHTC Access Point
+    FQDN: learn.chtc.wisc.edu
+    FQDNAliases:
+    - learn-ap2000.chtc.wisc.edu    
+    ID: 
+    Services:
+      Submit Node:
+        Description: OSPool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
 SupportCenter: GLOW-TECH
