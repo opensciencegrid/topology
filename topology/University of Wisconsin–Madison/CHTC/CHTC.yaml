@@ -992,7 +992,9 @@ Resources:
           ID: OSG1000670
           Name: Theng Vang
     Description: CHTC Access Point
-    FQDN: learn-ap2000.chtc.wisc.edu
+    FQDN: learn.chtc.wisc.edu
+    FQDNAliases:
+    - learn-ap2000.chtc.wisc.edu    
     ID: 
     Services:
       Submit Node:
