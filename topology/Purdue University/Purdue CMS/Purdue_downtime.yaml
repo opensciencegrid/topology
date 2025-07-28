@@ -1657,3 +1657,25 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2187151003
+  Description: Cooling Maintenance
+  Severity: Outage
+  StartTime: Jul 29, 2025 11:00 +0000
+  EndTime: Jul 31, 2025 00:00 +0000
+  CreatedTime: Jul 28, 2025 15:05 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2187151415
+  Description: Cooling Maintenance
+  Severity: Outage
+  StartTime: Jul 29, 2025 11:00 +0000
+  EndTime: Jul 31, 2025 00:00 +0000
+  CreatedTime: Jul 28, 2025 15:05 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
