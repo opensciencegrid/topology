@@ -9,3 +9,25 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2123177856
+  Description: OS and Pelican upgrade
+  Severity: Outage
+  StartTime: May 15, 2025 15:00 +0000
+  EndTime: May 15, 2025 19:05 +0000
+  CreatedTime: May 15, 2025 14:03 +0000
+  ResourceName: LONDON_ESNET_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2163208142
+  Description: HW problem - RAID and CPU
+  Severity: Outage
+  StartTime: Jun 29, 2025 04:00 +0000
+  EndTime: Jul 30, 2025 15:30 +0000
+  CreatedTime: Jun 30, 2025 22:00 +0000
+  ResourceName: LONDON_ESNET_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------

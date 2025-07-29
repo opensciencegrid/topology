@@ -1036,3 +1036,25 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2110317937
+  Description: Hardware Replacement
+  Severity: Outage
+  StartTime: May 05, 2025 13:00 +0000
+  EndTime: May 18, 2025 22:53 +0000
+  CreatedTime: Apr 30, 2025 16:49 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2126768895
+  Description: RHEL9 upgrade
+  Severity: Outage
+  StartTime: May 21, 2025 13:00 +0000
+  EndTime: May 26, 2025 21:00 +0000
+  CreatedTime: May 19, 2025 17:48 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------

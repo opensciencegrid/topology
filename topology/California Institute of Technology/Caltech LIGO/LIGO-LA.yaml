@@ -1,0 +1,27 @@
+Production: true
+GroupDescription: LIGO Livingston cluster
+Resources:
+  LIGO-LA-CE1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Ashton Graves
+          ID: OSG1000362
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Ashton Graves
+          ID: OSG1000362
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: ligo-la-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: Hosted CE for LLO
+    AllowedVOs:
+      - LIGO
+SupportCenter: Advanced LIGO

@@ -15,8 +15,11 @@ RUN \
       httpd-devel \
       mod_ssl \
       gridsite \
-      osg-ca-certs \
       /usr/bin/pkill \
+      # XXX remove the versionlock once we no longer use CILogon certs \
+      'osg-ca-certs-1.135' \
+      'dnf-command(versionlock)' \
+    && yum versionlock osg-ca-certs \
     && yum clean all && rm -rf /var/cache/yum/*
 
 RUN alternatives --set python3 /usr/bin/python3.9
