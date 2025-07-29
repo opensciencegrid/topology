@@ -2,7 +2,7 @@ name: Build image
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
     tags:
       - 'v*.*.*' # glob for semver tags (including prereleases)
 
@@ -14,4 +14,4 @@ jobs:
       password: ${{ secrets.OSG_HARBOR_ROBOT_PASSWORD }}
       username: ${{ secrets.OSG_HARBOR_ROBOT_USER }}
     with:
-      image: 'hub.opensciencegrid.org/opensciencegrid/topology-institutions-api'
+      image: 'hub.opensciencegrid.org/opensciencegrid/topology'
