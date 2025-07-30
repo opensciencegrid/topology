@@ -196,6 +196,29 @@ Resources:
         Description: OSDF Stashcache
     AllowedVOs:
       - LIGO
+  CIT_LIGO_OSDFCACHE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Joshua Willis
+          ID: OSG1000316
+        Secondary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Randy Trudeau
+          ID: OSG1000955
+        Secondary:
+          Name: Warren Anderson
+          ID: OSG1000948
+    FQDN: osdfcache.ligo.caltech.edu
+    Services:
+      Pelican cache:
+        Description: Pelican-based OSDF cache
+    AllowedVOs:
+      - LIGO
   LIGO_HANFORD_CE1:
     Active: false
     ContactLists:
