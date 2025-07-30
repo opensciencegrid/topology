@@ -9,56 +9,44 @@ from field_of_science import get_id
 
 def get_active_projects(start_date: datetime.datetime):
     response = requests.get(
-        "https://gracc.opensciencegrid.org/q/gracc.osg.summary/_search",
+        "https://elastic.osg.chtc.io/q/ospool-summary-*/_search",
         json={
-            "size": 0,
-            "query": {
-                "bool": {
-                    "filter": [
-                        {
-                            "term": {
-                                "ResourceType": "Payload"
-                            }
-                        },
-                        {
-                            "range": {
-                                "EndTime": {
-                                    "lte": int(datetime.datetime.now().timestamp() * 1000),
-                                    "gte": int(start_date.timestamp() * 1000)
-                                }
-                            }
-                        }
-                    ]
-                },
-            },
-            "aggs": {
-                "projects": {
-                    "terms": {
-                        "field": "ProjectName",
-                        "size": 99999999
-                    },
-                    "aggs": {
-                        "projectJobsRan": {
-                            "sum": {
-                                "field": "Njobs"
-                            }
-                        }
-                    }
-                }
-            }
-        }
+					"size": 0,
+					"query": {
+						"range": {
+							"Date": {
+								"lte": int(datetime.datetime.now().timestamp() * 1000),
+								"gte": int(start_date.timestamp() * 1000)
+							}
+						}
+					},
+					"aggs": {
+						"bucket": {
+							"terms": {
+								"field": "ProjectName.keyword",
+								"size": 10000
+							},
+							"aggs": {
+								"NumJobs": {
+									"sum": {
+										"field": "NumJobs"
+									}
+								},
+							}
+						}
+					}
+				}
     )
 
     data = response.json()
 
-    active_projects = [x['key'] for x in data['aggregations']['projects']['buckets']]
+    active_projects = [x['key'] for x in data['aggregations']['bucket']['buckets']]
 
     return active_projects
 
 
-
 def has_detailed_precision(id: str):
-    return get_id(id, granularity=1) is not None
+    return get_id(id, granularity=2) is not None
 
 
 def main():
