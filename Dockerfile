@@ -20,6 +20,8 @@ RUN \
       'osg-ca-certs-1.135' \
       'dnf-command(versionlock)' \
     && yum versionlock osg-ca-certs \
+    && yum install -y --enablerepo=osg-internal \
+      osg-internal-cas \
     && yum clean all && rm -rf /var/cache/yum/*
 
 RUN alternatives --set python3 /usr/bin/python3.9
