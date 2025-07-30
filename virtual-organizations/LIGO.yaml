@@ -100,14 +100,14 @@ DataFederations:
           - CIT_LIGO_ORIGIN
           - LIGO-StashCache-Origin
         AllowedCaches: &ligo-allowed-caches
-          - IN2P3-CC_OSDF_CACHE
+          - IN2P3_CC_PELICAN_OSDF_CACHE
           - SUT-STASHCACHE
           - Georgia_Tech_PACE_GridFTP2
           - Stashcache-UCSD
           - Stashcache-UofA
           - Stashcache-KISTI
           - Stashcache-Houston
-          - Stashcache-Manhattan
+          - NY-Kubernetes-PRP
           - Stashcache-Sunnyvale
           - Stashcache-Chicago
           - Stashcache-Kansas
@@ -234,6 +234,7 @@ DataFederations:
         AllowedCaches: *ligo-allowed-caches
         Writeback: https://origin-staging.ligo.caltech.edu:1095
         DirList: https://origin-staging.ligo.caltech.edu:1095
+
       - Path: /igwn/test
         Authorizations:
           - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu
@@ -253,7 +254,7 @@ DataFederations:
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_TEST
         AllowedCaches: *ligo-allowed-caches
-        DirList: https://origin-readtest.ligo.caltech.edu:1095
+
       - Path: /igwn/test-write
         Authorizations:
           - FQAN: /osg/ligo
@@ -272,15 +273,13 @@ DataFederations:
         AllowedOrigins:
           - CIT_LIGO_ORIGIN_TEST_WRITE
         AllowedCaches: *ligo-allowed-caches
-        Writeback: https://origin-writetest.ligo.caltech.edu:1095
-        DirList: https://origin-writetest.ligo.caltech.edu:1095
       - Path: /gwdata
         Authorizations:
           - PUBLIC
         AllowedOrigins:
           - CIT_LIGO_ORIGIN
-          - LIGO-StashCache-Origin
-          - UCL-Virgo-StashCache-Origin
+          #- LIGO-StashCache-Origin
+          #- UCL-Virgo-StashCache-Origin
         AllowedCaches:
           - ANY
         DirList: https://origin.ligo.caltech.edu:1094

@@ -1,0 +1,1009 @@
+GroupDescription: The University of Wisconsin's Center for High Throughput Computing.  Note
+  that CHTC and GLOW are closely related, and in many contexts, they are synonyms.
+GroupID: 314
+Production: true
+Resources:
+  CHTC-glidein2:
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: This is the GLOW/CHTC glidein frontend.
+    FQDN: vo-frontend-glow.chtc.wisc.edu
+    ID: 638
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+  CHTC-glidein3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: Test GLOW/CHTC glidein frontend.
+    FQDN: glidein3.chtc.wisc.edu
+    ID: 739
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+  CHTC-submit-1:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Submit Node
+    FQDN: submit-1.chtc.wisc.edu
+    ID: 723
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+  CHTC-submit2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Submit Node
+    FQDN: submit2.chtc.wisc.edu
+    ID: 1005
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-submit3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Submit Node
+    FQDN: submit3.chtc.wisc.edu
+    ID: 1028
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+  CHTC_SUBMIT_4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Submit Node for SOAR work flows written by bt@cs.wisc.edu
+    FQDN: submit-4.chtc.wisc.edu
+    ID: 721
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-submit-learn:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Submit Node
+    FQDN: learn.chtc.wisc.edu
+    ID: 1029
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-submit-osg-learn:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Submit Node
+    FQDN: osg-learn.chtc.wisc.edu
+    ID: 1030
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+
+  CHTC_SQUID_CS_3370:
+    Active: true
+    Description: Squid service located at Computer Sciences 3370a
+    ID: 1127
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: squid-cs-3370a.chtc.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      GLOW: 100
+
+  CHTC_SQUID_WID:
+    Active: true
+    Description: Squid service located at WID
+    ID: 971
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: squid-wid.chtc.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      GLOW: 100
+
+  CHTC_SQUID_CS_B240:
+    Active: true
+    Description: Squid service located in CS B240
+    ID: 972
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: squid-cs-b240.chtc.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      GLOW: 100
+
+  CHTC_SQUID_CS_2360:
+    Active: true
+    Description: Squid service located at CS 2360
+    ID: 973
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: squid-cs-2360.chtc.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-submit4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Submit Node
+    FQDN: submit4.chtc.wisc.edu
+    ID: 1034
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-nobelsubmit0000:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Submit Node
+    FQDN: nobelsubmit0000.chtc.wisc.edu
+    ID: 1057
+    Services:
+      Submit Node:
+        Description: OSG Submission Node for PI Michael Nobel
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+ 
+  CHTC-XD-SUBMIT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Submit Node for XD project
+    FQDN: xd-submit0000.chtc.wisc.edu
+    FQDNAliases:
+      - xd-submit.chtc.wisc.edu
+    ID: 1396
+    Services:
+      Submit Node:
+        Description: OSG Submission Node for XD project
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-canary2:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    Description: Development Hosted CE that submits to a CHTC SLURM submit node
+    DN: /CN=canary2.osg.chtc.io
+    FQDN: canary2.osg.chtc.io
+    ID: 1166
+    Services:
+      CE:
+        Description: Hosted Compute Entrypoint
+    VOOwnership:
+      GLOW: 100
+      
+  CHTC_CVMFS_EXCLUSIVE_SQUID_B240:
+    Active: true
+    Description: CVMFS-exclusive squid cache located at B240
+    ID: 1175
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: cvmfssquid1000.chtc.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-LHCB-CE:
+    Active: false
+    Description: CE submitting pilots into the CHTC pool. Named lhcb-ce for historical reasons
+    ID: 1176
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    FQDN: lhcb-ce.chtc.wisc.edu
+    Services:
+      CE:
+        Description: HTCondor-CE
+    VOOwnership:
+      GLOW: 100
+
+  HOSTED-CE-CHTC-UBUNTU:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary:
+          ID: OSG1000001
+          Name: Brian Bockelman
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary:
+          ID: OSG1000001
+          Name: Brian Bockelman
+    Description: This is a Hosted CE connected to an Ubuntu submit pod run by CHTC.
+    FQDN: hosted-ce-chtc-ubuntu.osg.chtc.io
+    ID: 1105
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+
+  TIGER-OSG-BACKFILL-PROD:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+    Description: OSG VO backfill containers on the Tiger cluster, in the production namespace
+    FQDN: tiger-osg-backfill.osg.chtc.io
+    ID: 1193
+    Services:
+      Execution Endpoint:
+        Description: OSG VO backfill containers on the Tiger cluster, in the production namespace
+
+  TIGER-OSG-BACKFILL:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+    Description: OSG VO backfill containers on the Tiger cluster
+    FQDN: tiger-osg-backfill.osgdev.chtc.io
+    ID: 1128
+    Services:
+      Execution Endpoint:
+        Description: OSG VO backfill containers on the Tiger cluster
+
+  CHTC-ap7:
+    Active: false
+    Description: The ap7.chtc.wisc.edu login node for the OSG Open Pool
+    ID: 1303
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+      Security Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+    FQDN: ap7.chtc.wisc.edu
+    FQDNAliases:
+      - ap2007.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-ap40:
+    Active: true
+    Description: The ap40.uw.osg-htc.org access point for the Open Science Pool
+    ID: 1468
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    FQDN: ap40.uw.osg-htc.org
+    FQDNAliases:
+      - ap2007.chtc.wisc.edu 
+      - ospool-ap2040.chtc.wisc.edu
+      - ap40.chtc.wisc.edu
+      - ap41.uw.osg-htc.org
+      - ospool-2140.chtc.wisc.edu
+    DN: /CN=ospool-ap2140.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+      Pelican origin:
+        Description: OSDF Pelican origin
+    Tags:
+      - OSPool
+    VOOwnership:
+      OSG: 100
+    AllowedVOs:
+      - OSG
+
+  CHTC-ospool-eht:
+    Active: true
+    Description: The CHTC hosted EHT Gateway to the OSPool
+    ID: 1467
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Brian Hua Lin
+          ID: OSG1000003
+        Secondary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Tertiary:
+          Name: Joe Bartkowiak
+          ID: OSG1000141
+      Security Contact:
+        Primary:
+          Name: Brian Hua Lin
+          ID: OSG1000003
+        Secondary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Tertiary:
+          Name: Joe Bartkowiak
+          ID: OSG1000141
+    FQDN: ospool-eht.chtc.wisc.edu
+    FQDNAliases:
+      - ospool-eht2000.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-htcss-dev-ap:
+    Active: false
+    Description: OSPool AP used by the HTCSS dev team
+    ID: 1319
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Brian Hua Lin
+          ID: OSG1000003
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+      Security Contact:
+        Primary:
+          Name: Brian Hua Lin
+          ID: OSG1000003
+        Secondary:
+          Name: Aaron Moate
+          ID: OSG1000015
+    FQDN: htcss-dev-ap.ospool.opensciencegrid.org
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+
+  CHTC-ap2001:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Access Point
+    FQDN: ap2001.chtc.wisc.edu
+    ID: 10370
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-ap2002:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Access Point
+    FQDN: ap2002.chtc.wisc.edu
+    ID: 10371
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-townsend-submit:
+    Active: false
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+    Description: CHTC Access Point
+    FQDN: townsend-submit.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+ 
+  CHTC-townsend-ap:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    Description: CHTC Access Point
+    FQDN: townsend-ap2000.chtc.wisc.edu
+    FQDNAliases:
+    - townsend-ap.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OSPool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-osg-sw-submit:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000358
+          Name: MATTHEW WESTPHALL
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000358
+          Name: MATTHEW WESTPHALL
+    Description: CHTC Access Point
+    FQDN: osg-sw-submit.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OSPool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-oconnor-ap:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    Description: CHTC Access Point
+    FQDN: oconnor-ap2000.chtc.wisc.edu
+    FQDNAliases:
+    - oconnor-ap.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OSPool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-wrightsubmit3000:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    Description: CHTC Access Point
+    FQDN: wrightsubmit3000.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OSPool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-ap42:
+    Active: true
+    Description: The ap42.uw.osg-htc.org IGWN Access Point for the OSPool
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    FQDN: ap42.uw.osg-htc.org
+    FQDNAliases:
+      - ospool-ap2042.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      OSG: 100
+    AllowedVOs:
+      - OSG
+
+  CHTC-wright-ap:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000015
+          Name: Aaron Moate
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    Description: CHTC Access Point
+    FQDN: wright-ap4000.chtc.wisc.edu
+    FQDNAliases:
+    - wright-ap.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OSPool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+  CHTC-AP41:
+    Active: true
+    Description: The ap41.uw.osg-htc.org access point for the Open Science Pool
+    ID: 1490
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary 1:
+          ID: OSG1000670
+          Name: Theng Vang
+      Security Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary 1:
+          ID: OSG1000670
+          Name: Theng Vang
+    FQDN: ap41.uw.osg-htc.org
+    FQDNAliases:
+      - ospool-ap4041.chtc.wisc.edu
+      - ap41.uw.osg-htc.org
+    DN: /CN=ospool-ap4041.chtc.wisc.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+        Details:
+          hidden: false
+      Pelican origin:
+        Description: OSDF Pelican origin
+    Tags:
+      - OSPool
+    VOOwnership:
+      OSG: 100
+    AllowedVOs:
+      - OSG
+
+  CHTC-learn-ap:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary 1:
+          ID: OSG1000670
+          Name: Theng Vang
+      Security Contact:
+        Primary:
+          Name: Aaron Moate
+          ID: OSG1000015
+        Secondary:
+          ID: OSG1000141
+          Name: Joe Bartkowiak
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary 1:
+          ID: OSG1000670
+          Name: Theng Vang
+    Description: CHTC Access Point
+    FQDN: learn.chtc.wisc.edu
+    FQDNAliases:
+    - learn-ap2000.chtc.wisc.edu    
+    ID: 
+    Services:
+      Submit Node:
+        Description: OSPool access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    VOOwnership:
+      GLOW: 100
+
+SupportCenter: GLOW-TECH

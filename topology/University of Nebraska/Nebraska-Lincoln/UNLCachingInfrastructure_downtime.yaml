@@ -64,3 +64,59 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2036064744
+  Description: Storage problem
+  Severity: Outage
+  StartTime: Feb 03, 2025 09:00 +0000
+  EndTime: Feb 05, 2025 20:30 +0000
+  CreatedTime: Feb 03, 2025 18:14 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2078399055
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 22:00 +0000
+  CreatedTime: Mar 24, 2025 18:11 +0000
+  ResourceName: HCC-Origin
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2078399056
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 22:00 +0000
+  CreatedTime: Mar 24, 2025 18:11 +0000
+  ResourceName: HCC-StashCache-Origin
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2078399057
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 22:00 +0000
+  CreatedTime: Mar 24, 2025 18:11 +0000
+  ResourceName: LIGO-StashCache-Origin
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2078399058
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 22:00 +0000
+  CreatedTime: Mar 24, 2025 18:11 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+

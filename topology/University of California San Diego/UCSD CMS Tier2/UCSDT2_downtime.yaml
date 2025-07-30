@@ -1961,3 +1961,237 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2050873509
+  Description: OS upgrade
+  Severity: Outage
+  StartTime: Feb 25, 2025 17:00 +0000
+  EndTime: Feb 25, 2025 20:00 +0000
+  CreatedTime: Feb 20, 2025 21:35 +0000
+  ResourceName: UCSDCMST2-2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2087056595
+  Description: OS upgrade
+  Severity: No Significant Outage Expected
+  StartTime: Apr 09, 2025 15:00 +0000
+  EndTime: Apr 09, 2025 19:00 +0000
+  CreatedTime: Apr 03, 2025 18:40 +0000
+  ResourceName: UCSDT2-SE4
+  Services:
+  - WebDAV
+  - XRootD component
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322178
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDCMST2-2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322179
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDCMST2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322180
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-A
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322181
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-B
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322182
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-C
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322183
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-Cloud
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322184
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-Cloud-1-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322185
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-Cloud-2-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322186
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-Cloud-3-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322187
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-Cloud-4-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322188
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-Cloud-5-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322189
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-Cloud-6-squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322190
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-D
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322191
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-SE1
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322192
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-SE3
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322193
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: UCSDT2-SE4
+  Services:
+  - XRootD component
+  - WebDAV
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322194
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: US-UCSD BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2138322195
+  Description: Power Outage
+  Severity: Outage
+  StartTime: May 31, 2025 21:30 +0000
+  EndTime: Jun 03, 2025 16:30 +0000
+  CreatedTime: Jun 02, 2025 02:43 +0000
+  ResourceName: US-UCSD LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2152784126
+  Description: Ceph upgrade
+  Severity: Outage
+  StartTime: Jun 25, 2025 16:00 +0000
+  EndTime: Jun 26, 2025 00:00 +0000
+  CreatedTime: Jun 18, 2025 20:26 +0000
+  ResourceName: UCSDT2-SE4
+  Services:
+  - WebDAV
+  - XRootD component
+# ---------------------------------------------------------

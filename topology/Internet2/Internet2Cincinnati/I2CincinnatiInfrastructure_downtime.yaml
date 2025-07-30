@@ -9,3 +9,14 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2092202290
+  Description: drive replacement
+  Severity: Outage
+  StartTime: Apr 08, 2025 08:00 +0000
+  EndTime: Apr 10, 2025 19:30 +0000
+  CreatedTime: Apr 09, 2025 17:37 +0000
+  ResourceName: CINCINNATI_INTERNET2_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------

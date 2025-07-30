@@ -38,10 +38,20 @@ DataFederations:
           - SDSC_NRP_OSDF_ORIGIN
         AllowedCaches:
           - ANY
+      - Path: /caida/protected
+        Authorizations:
+           - SciTokens:
+              Issuer: https://osg-htc.org/osdf/caida
+              Base Path: /caida/protected
+              Map Subject: False
+        AllowedOrigins:
+          - SDSC_NRP_OSDF_ORIGIN
+        AllowedCaches:
+          - ANY
       - Path: /ndp/burnpro3d
         Authorizations:
            - SciTokens:
-              Issuer: https://t.nationalresearchplatform.org/burnpro3d
+              Issuer: https://osg-htc.org/osdf/burnpro3d
               Base Path: /ndp/burnpro3d
               Map Subject: False
            - PUBLIC

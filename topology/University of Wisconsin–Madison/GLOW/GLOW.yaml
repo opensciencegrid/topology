@@ -1,0 +1,624 @@
+GroupDescription: (No resource group description)
+GroupID: 24
+Production: true
+Resources:
+  GLOW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
+      Security Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: US CMS Tier-2 site at Wisconsin
+    FQDN: cmsgrid01.hep.wisc.edu
+    ID: 24
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cmsgrid01.hep.wisc.edu:9619/cmsgrid01.hep.wisc.edu
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.31
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  GLOW-CMS:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
+      Security Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: US CMS Tier-2 sites at Wisconsin. Another CONDOR CE.
+    FQDN: cmsgrid02.hep.wisc.edu
+    ID: 26
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cmsgrid02.hep.wisc.edu:9619/cmsgrid02.hep.wisc.edu
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.31
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 14000
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  GLOW-CMS-SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
+      Security Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: US CMS Tier-2 site at Wisconsin
+    FQDN: cmssrm.hep.wisc.edu
+    ID: 27
+    Services:
+      SRMv2:
+        Description: SRM V2 Storage Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 1000
+      StorageCapacityMin: 1000
+  GLOW-CONDOR-CE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+        Secondary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+        Secondary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+    Description: This is a CONDOR-CE for site T2_US_Wisconsin serving CMS.
+    FQDN: cmsgrid03.hep.wisc.edu
+    ID: 644
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://cmsgrid03.hep.wisc.edu:9619/cmsgrid03.hep.wisc.edu
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.31
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  GLOW-OSG:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+      Security Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: CE for all OSG VOs.
+    FQDN: osggrid01.hep.wisc.edu
+    ID: 361
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+  GLOW_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Servers RR alias
+    FQDN: frontier.hep.wisc.edu
+    ID: 678
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  GLOW_OSG_SQUID:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: OSG Squid Servers RR alias
+    FQDN: osgsquid.hep.wisc.edu
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  GLOW_SQUID1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Server for cvmfs
+    FQDN: cvmfscache01.hep.wisc.edu
+    ID: 974
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  GLOW_SQUID2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Server for cvmfs
+    FQDN: cvmfscache02.hep.wisc.edu
+    ID: 975
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  GLOW_SQUID3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Server for cvmfs
+    FQDN: cvmfscache03.hep.wisc.edu
+    ID: 976
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  GLOW_SQUID4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: Squid Server for cvmfs
+    FQDN: cvmfscache04.hep.wisc.edu
+    ID: 1342
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
+  GLOW_SUBMIT1:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: GLOw submit machine.
+    FQDN: login01.hep.wisc.edu
+    ID: 319
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.31
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  GLOW_SUBMIT2:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: GLOW submit machine.
+    FQDN: login02.hep.wisc.edu
+    ID: 320
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.31
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  GLOW_SUBMIT3:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: GLOW submit machine.
+    FQDN: login03.hep.wisc.edu
+    ID: 321
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.31
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+  GLOW_SUBMIT4:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: GLOW submit machine.
+    FQDN: login04.hep.wisc.edu
+    ID: 322
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.31
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  GLOW_SUBMIT5:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
+        Secondary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Tertiary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
+        Secondary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Tertiary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: HTCondor submit node, mostly used by CMS.
+    FQDN: login05.hep.wisc.edu
+    ID: 848
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+    WLCGInformation:
+      APELNormalFactor: 13.31
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  GLOW_SUBMIT6:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
+        Secondary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Tertiary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
+        Secondary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Tertiary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: HTCondor submit node, mostly used by CMS.
+    FQDN: login06.hep.wisc.edu
+    ID: 849
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      GLOW: 100
+    WLCGInformation:
+      APELNormalFactor: 13.31
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  GLOW_SUBMIT_CERN:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 210d07bf782db9938049eaf11820ec908fdda3b5
+          Name: Daniel Bradley
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: This is a condor submit node used by the Wisconsin CMS group at CERN.
+    FQDN: uwlogin.cern.ch
+    ID: 856
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: true
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 13.31
+      AccountingName: T2_US_Wisconsin
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: false
+      InteropMonitoring: false
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
+  US-Wisconsin BW:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: T2_US_Wisconsin perfSonar bandwidth node
+    FQDN: perfsonar02.hep.wisc.edu
+    ID: 506
+    Services:
+      net.perfSONAR.Bandwidth:
+        Description: PerfSonar Bandwidth monitoring node
+        Details:
+          endpoint: perfsonar02.hep.wisc.edu
+    VOOwnership:
+      CMS: 100
+  US-Wisconsin LT:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+      Security Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+        Secondary:
+          ID: 9c02556106ce823874deef0c51d069711191f98e
+          Name: Carl Vuosalo
+    Description: T2_US_Wisconsin perfSonar latency node
+    FQDN: perfsonar01.hep.wisc.edu
+    ID: 507
+    Services:
+      net.perfSONAR.Latency:
+        Description: PerfSonar Latency monitoring node
+        Details:
+          endpoint: perfsonar01.hep.wisc.edu
+    VOOwnership:
+      CMS: 100
+SupportCenter: USCMS_Tier2

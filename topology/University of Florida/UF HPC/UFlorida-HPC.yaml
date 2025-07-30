@@ -21,13 +21,13 @@ Resources:
           Name: Bockjoo Kim
     Description: This is the perfSONAR-ps latency instance at the University of Florida
       CMS T2 site for IPv4 and IPv6
-    FQDN: perfsonar1.rc.ufl.edu
+    FQDN: perfsonar2.rc.ufl.edu
     ID: 1228
     Services:
       net.perfSONAR.Latency:
         Description: PerfSonar Latency monitoring node
         Details:
-          endpoint: perfsonar1.rc.ufl.edu
+          endpoint: perfsonar2.rc.ufl.edu
     VOOwnership:
       CMS: 100
   T2_US_Florida_BW:
@@ -63,13 +63,13 @@ Resources:
           Name: Bockjoo Kim
     Description: This is the perfSONAR-ps bandwidth instance at the University of Florida
       CMS T2 site for IPv4 and IPv6
-    FQDN: perfsonar2.rc.ufl.edu
+    FQDN: perfsonar3.rc.ufl.edu
     ID: 1229
     Services:
       net.perfSONAR.Latency:
         Description: PerfSonar Bandwidth monitoring node
         Details:
-          endpoint: perfsonar2.rc.ufl.edu
+          endpoint: perfsonar3.rc.ufl.edu
     VOOwnership:
       CMS: 100
   UFlorida-CMS:
