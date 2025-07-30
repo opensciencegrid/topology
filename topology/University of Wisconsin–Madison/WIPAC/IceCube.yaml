@@ -150,6 +150,34 @@ Resources:
       IceCube: 100
     Tags:
       - OSPool
+  IceCube-grid-submitter:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: David Schultz
+          ID: OSG1000039
+        Secondary:
+          Name: Maclean Mansfield-Parisi
+          ID: OSG1001302
+      Security Contact:
+        Primary:
+          Name: Steve Barnet
+          ID: 67523ec91c983a4c0c1c576beeac1037aa863da3
+        Secondary:
+          Name: Vladimir Brik
+          ID: bc87af94d3512f536e417f1e45808b975fb2874f
+    Description: This is a submit node for the IceCube collaboration.
+    FQDN: grid-submitter.icecube.wisc.edu
+    Services:
+      Submit Node:
+        Description: OSG Submission Node
+        Details:
+          hidden: false
+    VOOwnership:
+      IceCube: 100
+    Tags:
+      - OSPool
   NPX:
     Active: true
     ContactLists:
