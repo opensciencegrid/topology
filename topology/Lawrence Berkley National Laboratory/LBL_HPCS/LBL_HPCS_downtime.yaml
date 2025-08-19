@@ -109,3 +109,15 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2201962030
+  Description: Electrical upgrade work
+  Severity: Outage
+  StartTime: Aug 19, 2025 15:00 +0000
+  EndTime: Aug 30, 2025 00:00 +0000
+  CreatedTime: Aug 14, 2025 18:30 +0000
+  ResourceName: LBL_HPCS_LRC
+  Services:
+  - CE
+# ---------------------------------------------------------
+

@@ -1411,5 +1411,159 @@
   - SRMv2
   - WebDAV
 # ---------------------------------------------------------
-
-  
+- Class: SCHEDULED
+  ID: 2136153520
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 17:30 +0000
+  CreatedTime: May 30, 2025 14:29 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2136154763
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 17:30 +0000
+  CreatedTime: May 30, 2025 14:31 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2136154928
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 17:30 +0000
+  CreatedTime: May 30, 2025 14:31 +0000
+  ResourceName: AGLT2_CE_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2136155192
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 17:30 +0000
+  CreatedTime: May 30, 2025 14:31 +0000
+  ResourceName: AGLT2_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2136155435
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 17:30 +0000
+  CreatedTime: May 30, 2025 14:32 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2136155710
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 17:30 +0000
+  CreatedTime: May 30, 2025 14:32 +0000
+  ResourceName: AGLT2-squid-2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2136155866
+  Description: UPS repair work
+  Severity: Outage
+  StartTime: Jun 03, 2025 13:00 +0000
+  EndTime: Jun 03, 2025 17:30 +0000
+  CreatedTime: May 30, 2025 14:33 +0000
+  ResourceName: AGLT2-squid-3
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2163182511
+  Description: cooling outage
+  Severity: Outage
+  StartTime: Jul 08, 2025 00:00 +0000
+  EndTime: Jul 08, 2025 14:00 +0000
+  CreatedTime: Jun 30, 2025 21:17 +0000
+  ResourceName: AGLT2_SL7
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2163182681
+  Description: cooling outage
+  Severity: Outage
+  StartTime: Jul 08, 2025 00:00 +0000
+  EndTime: Jul 08, 2025 14:00 +0000
+  CreatedTime: Jun 30, 2025 21:17 +0000
+  ResourceName: AGLT2_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2163182853
+  Description: cooling outage
+  Severity: Outage
+  StartTime: Jul 08, 2025 00:00 +0000
+  EndTime: Jul 08, 2025 14:00 +0000
+  CreatedTime: Jun 30, 2025 21:18 +0000
+  ResourceName: AGLT2_CE_3
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2163183012
+  Description: cooling outage
+  Severity: Outage
+  StartTime: Jul 08, 2025 00:00 +0000
+  EndTime: Jul 08, 2025 14:00 +0000
+  CreatedTime: Jun 30, 2025 21:18 +0000
+  ResourceName: AGLT2_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2163183197
+  Description: cooling outage
+  Severity: Outage
+  StartTime: Jul 08, 2025 00:00 +0000
+  EndTime: Jul 08, 2025 14:00 +0000
+  CreatedTime: Jun 30, 2025 21:18 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2163183356
+  Description: cooling outage
+  Severity: Outage
+  StartTime: Jul 08, 2025 00:00 +0000
+  EndTime: Jul 08, 2025 14:00 +0000
+  CreatedTime: Jun 30, 2025 21:18 +0000
+  ResourceName: AGLT2_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2163183627
+  Description: cooling outage
+  Severity: Outage
+  StartTime: Jul 08, 2025 00:00 +0000
+  EndTime: Jul 08, 2025 14:00 +0000
+  CreatedTime: Jun 30, 2025 21:19 +0000
+  ResourceName: AGLT2-squid-2
+  Services:
+  - Squid
+# ---------------------------------------------------------

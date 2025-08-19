@@ -1646,3 +1646,83 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2133569191
+  Description: Regular Cluster Maintenence
+  Severity: Intermittent Outage
+  StartTime: May 28, 2025 15:00 +0000
+  EndTime: May 28, 2025 22:00 +0000
+  CreatedTime: May 27, 2025 14:41 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2187151003
+  Description: Cooling Maintenance
+  Severity: Outage
+  StartTime: Jul 29, 2025 11:00 +0000
+  EndTime: Jul 31, 2025 00:00 +0000
+  CreatedTime: Jul 28, 2025 15:05 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2187151415
+  Description: Cooling Maintenance
+  Severity: Outage
+  StartTime: Jul 29, 2025 11:00 +0000
+  EndTime: Jul 31, 2025 00:00 +0000
+  CreatedTime: Jul 28, 2025 15:05 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2189979530
+  Description: Cooling issues in Data-Center
+  Severity: Outage
+  StartTime: Jul 31, 2025 21:00 +0000
+  EndTime: Aug 01, 2025 16:00 +0000
+  CreatedTime: Jul 31, 2025 21:39 +0000
+  ResourceName: Purdue-Gautschi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2201817610
+  Description: Cluster Emergency Maintenance - August 14, 2025 5:00am - August 15, 2025
+    5:00pm EDT
+  Severity: Severe
+  StartTime: Aug 14, 2025 09:00 +0000
+  EndTime: Aug 15, 2025 21:00 +0000
+  CreatedTime: Aug 14, 2025 14:29 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2201818213
+  Description: Cluster Emergency Maintenance - August 14, 2025 5:00am - August 15, 2025
+    5:00pm EDT
+  Severity: Severe
+  StartTime: Aug 14, 2025 09:00 +0000
+  EndTime: Aug 15, 2025 21:00 +0000
+  CreatedTime: Aug 14, 2025 14:30 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2206055783
+  Description: Cluster maintenance
+  Severity: Severe
+  StartTime: Aug 21, 2025 12:00 +0000
+  EndTime: Aug 21, 2025 21:00 +0000
+  CreatedTime: Aug 19, 2025 12:12 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+
