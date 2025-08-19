@@ -35,7 +35,6 @@ XML consumers
 - SAM (WLCG)
 - SiteDB (CMS), soon to be CRIC
 
-
 ## Topology cacher
 
 The topology cacher (`topology_cacher.py`) is a script, designed to be run from cron, that downloads topology XML information,
@@ -51,6 +50,7 @@ In addition to saving the XML files, it creates two JSON files:
 ### project_resource_allocations.json
 
 This conversion is done by `TopologyData.get_project_resource_allocations()` which converts XML from miscproject.xml like
+
 ```xml
 <Projects>
     <Project>
@@ -73,7 +73,9 @@ This conversion is done by `TopologyData.get_project_resource_allocations()` whi
     </Project>
 </Projects>
 ```
+
 into a Python dict like
+
 ```python
 {
     "MyProject": [
@@ -97,8 +99,8 @@ into a Python dict like
     ]
 }
 ```
-Resource names, Resource Group names, CEs, and FQDN info are all taken fron rgsummary.xml.
 
+Resource names, Resource Group names, CEs, and FQDN info are all taken fron rgsummary.xml.
 
 ```json
 {
@@ -128,7 +130,6 @@ Resource names, Resource Group names, CEs, and FQDN info are all taken fron rgsu
 
 Projects data only lists execute resources by resource group but we need to know the possible CEs the job will run on so I add those as well.
 
-
 ### resource_info_lookups.json example
 
 ```json
@@ -139,15 +140,6 @@ Projects data only lists execute resources by resource group but we need to know
         "fqdn": "squid.aglt2.org",
         "group_name": "AGLT2",
         "name": "AGLT2-squid",
-        "service_ids": [
-          "138"
-        ],
-        "tags": []
-      },
-      {
-        "fqdn": "sl-um-es3.slateci.io",
-        "group_name": "AGLT2",
-        "name": "AGLT2-squid-2",
         "service_ids": [
           "138"
         ],
@@ -197,21 +189,12 @@ Projects data only lists execute resources by resource group but we need to know
         "138"
       ],
       "tags": []
-    },
-    "AGLT2-squid-2": {
-      "fqdn": "sl-um-es3.slateci.io",
-      "group_name": "AGLT2",
-      "name": "AGLT2-squid-2",
-      "service_ids": [
-        "138"
-      ],
-      "tags": []
     }
   }
 }
 ```
-service_ids are numeric -- see `services.yaml` in the Topology data for the corresponding names.
 
+service_ids are numeric -- see `services.yaml` in the Topology data for the corresponding names.
 
 ## StashCache schema
 
@@ -237,22 +220,26 @@ Each `<NAMESPACE>` is a dict, containing the following attributes:
 ```yaml
 Path: <string>
 ```
+
 Path (required) is the directory in the Stash/OSDF global namespace that this Namespace definition refers to.
 
 ```yaml
 Authorizations:
   - PUBLIC
 ```
+
 This denotes a public namespace, which does not require authentication for read access.
 Public namespaces are served by public cache/origin xrootd instances.
 
 Alternatively:
+
 ```yaml
 Authorizations:
   - <DN/FQAN/SCITOKENS AUTH 1>
   # ...
   - <DN/FQAN/SCITOKENS AUTH n>
 ```
+
 These denote an authenticated namespace, which requires authentication for read access.
 Authenticated namespaces are served by stash-cache-auth or stash-origin-auth xrootd instances.
 There are three kinds of authorization types:
@@ -265,7 +252,6 @@ There are three kinds of authorization types:
 
   (For backwards compat, the space after the `:` can be omitted.)
 
-
 - FQAN authorization looks like
 
       - FQAN: /glow
@@ -273,7 +259,6 @@ There are three kinds of authorization types:
   it will result in a `g /glow ...` ID in Authfiles.
 
   (For backwards compat, the space after the `:` can be omitted.)
-
 
 - SciToken authorization looks like
 
@@ -294,8 +279,8 @@ There are three kinds of authorization types:
       map_subject = true
 
   See [the XrdSciTokens readme](https://github.com/xrootd/xrootd/tree/master/src/XrdSciTokens#readme) for a reference of what these mean.
- 
-  `RestrictedPath` is optional (and rarely set); it is omitted if not specified. 
+
+  `RestrictedPath` is optional (and rarely set); it is omitted if not specified.
   `MapSubject` is optional and defaults to `false` if not specified.
   It is only used in scitokens.cfg for the origin.
 
@@ -305,6 +290,7 @@ AllowedOrigins:
   # ...
   - ORIGIN_RESOURCEn
 ```
+
 AllowedOrigins is a list of resource names of origins that will serve data for this namespace.
 The origins must also list the namespace's VO, "ANY", or "ANY_PUBLIC" (public data only) in their AllowedVOs list in order to serve this VO's data.
 
@@ -312,13 +298,16 @@ The origins must also list the namespace's VO, "ANY", or "ANY_PUBLIC" (public da
 AllowedCaches:
   - ANY
 ```
+
 or
+
 ```yaml
 AllowedCaches:
   - CACHE_RESOURCE1
   # ...
   - CACHE_RESOURCEn
 ```
+
 AllowedCaches is a list of resource names of caches that will serve data for this namespace.
 "ANY" will allow any cache to serve this namespace's data.
 The caches must also list the namespace's VO, "ANY", or "ANY_PUBLIC" (public data only) in their AllowedVOs list in order to serve this VO's data.
@@ -326,12 +315,14 @@ The caches must also list the namespace's VO, "ANY", or "ANY_PUBLIC" (public dat
 ```yaml
 Writeback: https://<HOST>:<PORT>
 ```
+
 Writeback is the HTTPS URL of the XRootD service (a stash-origin-auth, usually on 1095) that can be used for _writing_ files to.
 Writeback is optional.
 
 ```yaml
 DirList: https://<HOST>:<PORT>
 ```
+
 DirList is the HTTPS URL of an XRootD service that can be used to get a directory listing.
 DirList is optional.
 
@@ -344,17 +335,19 @@ CredentialGeneration:
   VaultServer: "<HOST>:<PORT>"
   VaultIssuer: "<ISSUER STRING>"
 ```
+
 CredentialGeneration is an optional block of information about how clients can obtain credentials for the namespace.
 If specified:
+
 - Strategy must be `OAuth2` or `Vault`, depending on whether OAuth2 or a Hashicorp Vault server is being used
 - Issuer is a token issuer URL
-- *BasePath* (optional): If using the `OAuth2` strategy - and the base path of the issuer does not match the
+- _BasePath_ (optional): If using the `OAuth2` strategy - and the base path of the issuer does not match the
   namespace path - set the base path so the correct scope prefix can be requested by the client
 - MaxScopeDepth (optional) is the maximum number of path components a token's scope field may have;
   note that scopes are relative to the BasePath.
   If missing, assumed to be 0, i.e. the scope is always `/`.
-- VaultServer is the endpoint for the Hashicorp Vault server used with the Vault strategy 
-- *VaultIssuer* (optional): If using the `Vault` strategy, this sets the issuer name (opaque string, not
+- VaultServer is the endpoint for the Hashicorp Vault server used with the Vault strategy
+- _VaultIssuer_ (optional): If using the `Vault` strategy, this sets the issuer name (opaque string, not
   a URL) to be used with the vault server.
 
 ### Contents of a cache or origin in resource data
@@ -365,17 +358,17 @@ An origin is a resource containing an `XRootD origin server` service.
 The FQDN of the resource is the primary key when looking up auth info for a cache/origin.
 
 A cache/origin should have the DN of their XRootD cert in the DN field.
-A DN is *required* for a cache.
+A DN is _required_ for a cache.
 A DN is recommended for an origin.
 
 A cache/origin must have an AllowedVOs attribute.
 AllowedVOs is a list containing either
+
 - One or more names of VOs whose namespaces the cache/origin will allow access to
 - "ANY" meaning the cache/origin will serve data for any namespace
 - "ANY_PUBLIC" meaning the cache/origin will serve data for any namespace that has "PUBLIC" in its Authorizations list
 
 The namespaces must also list the cache/origin's resource name in its AllowedCaches/AllowedOrigins list.
-
 
 #### Cache endpoints
 
@@ -404,30 +397,34 @@ Resources:
 A namespace is public if it contains "PUBLIC" in its Authorizations list.
 
 An origin supports a public namespace if:
+
 - The namespace contains the origin resource name in its AllowedOrigins list, and
 - The origin resource contains "ANY", "ANY_PUBLIC", or the namespace's VO in its AllowedVOs list
 
 A cache supports a public namespace if:
+
 - The namespace contains the cache resource name or "ANY" in its AllowedCaches list, and
 - The cache resource contains "ANY", "ANY_PUBLIC", or the namespace's VO in its AllowedVOs list
 
 A namespace is protected if it does not contain "PUBLIC" in its Authorizations list.
 
 An origin supports a protected namespace if:
+
 - The namespace contains the origin resource name in its AllowedOrigins list, and
 - The origin resource contains "ANY" or the namespace's VO in its AllowedVOs list
 
 A cache supports a protected namespace if:
+
 - The namespace contains the cache resource name or "ANY" in its AllowedCaches list, and
 - The cache resource contains "ANY" or the namespace's VO in its AllowedVOs list
-
 
 ### Origin public Authfile generation
 
 The Authfile for a public origin is served at `/origin/Authfile-public?fqdn=<ORIGIN FQDN>`.
 
 The public Authfile is basically a giant `u *` list:
-- Allow read access to the path of each namespace supported by the origin (`rl` permissions) 
+
+- Allow read access to the path of each namespace supported by the origin (`rl` permissions)
 
 ### Origin authenticated Authfile generation
 
@@ -442,8 +439,9 @@ For every cache resource, add a `u <DN HASH> <PATH1> rl <PATH2> rl ...` ACL for 
 The Authfile for a public cache is served at `/cache/Authfile-public?fqdn=<CACHE FQDN>`.
 
 The public Authfile is basically a giant `u *` list:
+
 - Explicitly deny read access to `/user/ligo` (with `-rl` permissions); this is needed, because granting access to the OSG VO `/user` path would otherwise also grant access to `/user/ligo`
-- Allow read access to the path of each namespace supported by the cache (`rl` permissions) 
+- Allow read access to the path of each namespace supported by the cache (`rl` permissions)
 
 ### Cache authenticated Authfile generation
 
@@ -456,7 +454,6 @@ In addition, if the cache supports the LIGO VO and the webapp can access LIGO's 
 
 - Add a `u <DN HASH> <LIGO PATH1> rl <LIGO PATH2> rl ...` for every DN obtained from the LIGO's LDAP server.
 
-
 ### Origin xrootd-scitokens config generation
 
 The scitokens config file for xrootd-scitokens for an origin is served at `/origin/scitokens.conf?fqdn=<ORIGIN FQDN>`.
@@ -466,6 +463,7 @@ The scitokens config file for xrootd-scitokens for an origin is served at `/orig
 - Add a `[Global]` section setting the audience to a list of supported VOs with issuer blocks.
 
 The end result looks like this:
+
 ```ini
 [Global]
 audience = OSG
@@ -485,6 +483,7 @@ The scitokens config file for xrootd-scitokens for a cache is served at `/cache/
 - Add a `[Global]` section setting the audience to a list of supported VOs with issuer blocks.
 
 The end result looks like this:
+
 ```ini
 [Global]
 audience = IceCube, HCC, GLOW, OSG
@@ -509,11 +508,11 @@ issuer = https://osg-htc.org/ospool
 base_path = /ospool/PROTECTED
 ```
 
-
 ### Namespaces JSON generation
 
 The JSON file containing cache and namespace information for stashcp/OSDF is served at `/osdf/namespaces`.
 The endpoint takes some optional parameters for filtering:
+
 - `include_downed=1` includes caches that are in downtime in the result; otherwise they are omitted
 - `include_inactive=1` includes caches that are not marked as active in the result; otherwise they are omitted
 - `production=1` includes resources in "production" (as opposed to ITB) in the result
@@ -522,12 +521,14 @@ The endpoint takes some optional parameters for filtering:
 
 The JSON contains an attribute `caches` that is a list of caches.
 Each cache in the list contains the following attributes:
+
 - `endpoint`: The `<HOST>:<PORT>` of the public (`xrootd@stash-cache`) service
 - `auth_endpoint`: The `<HOST>:<PORT>` of the authenticated (`xrootd@stash-cache-auth`) service
 - `resource`: The resource name of the cache.
 - `production`: true if the resource is in "production" (as opposed to ITB)
 
 The JSON also contains an attribute `namespaces` that is a list of namespaces with the following attributes:
+
 - `path` is the path of the namespace
 - `dirlisthost` is the `<HOST>:<PORT>` of the `DirList` attribute in the namespace YAML, or `null` if missing
 - `writebackhost` is the `<HOST>:<PORT>` of the `Writeback` attribute in the namespace YAML, or `null` if missing
@@ -551,6 +552,7 @@ The JSON also contains an attribute `namespaces` that is a list of namespaces wi
   - `restricted_path`: a list which is the value of the `RestrictedPath` (or `Restricted Path`) field split on commas, or the empty list if unspecified
 
 The final result looks like
+
 ```json
 {
   "caches": [

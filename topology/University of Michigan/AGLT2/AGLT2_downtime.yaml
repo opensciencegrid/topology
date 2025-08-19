@@ -1011,17 +1011,6 @@
   - XRootD component
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 1231690649
-  Description: 'UPS maintenance '
-  Severity: Outage
-  StartTime: Jul 20, 2022 13:30 +0000
-  EndTime: Jul 21, 2022 16:00 +0000
-  CreatedTime: Jul 18, 2022 18:31 +0000
-  ResourceName: AGLT2-squid-2
-  Services:
-  - Squid
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 1231690823
   Description: 'UPS maintenance '
   Severity: Outage
@@ -1087,17 +1076,6 @@
   ResourceName: AGLT2_XRootD_door
   Services:
   - XRootD component
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1360410214
-  Description: 'campus network maintenance '
-  Severity: No Significant Outage Expected
-  StartTime: Dec 23, 2022 11:00 +0000
-  EndTime: Dec 23, 2022 16:00 +0000
-  CreatedTime: Dec 14, 2022 18:03 +0000
-  ResourceName: AGLT2-squid-2
-  Services:
-  - Squid
 # ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 1360410480
@@ -1178,17 +1156,6 @@
   - GridFtp
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 1693898858
-  Description: UPS repair work
-  Severity: Outage
-  StartTime: Jan 11, 2024 14:00 +0000
-  EndTime: Jan 11, 2024 23:00 +0000
-  CreatedTime: Jan 04, 2024 17:38 +0000
-  ResourceName: AGLT2-squid-2
-  Services:
-  - Squid
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 1693899084
   Description: UPS repair work
   Severity: Outage
@@ -1254,17 +1221,6 @@
   Services:
   - SRMv2
   - WebDAV
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1760317557
-  Description: UPS repair work
-  Severity: Outage
-  StartTime: Mar 27, 2024 14:00 +0000
-  EndTime: Mar 27, 2024 22:00 +0000
-  CreatedTime: Mar 21, 2024 14:35 +0000
-  ResourceName: AGLT2-squid-2
-  Services:
-  - Squid
 # ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 1760317764
@@ -1342,17 +1298,6 @@
   ResourceName: AGLT2_SE
   Services:
   - SRMv2
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 1790793309
-  Description: UPS repair work
-  Severity: Outage
-  StartTime: May 01, 2024 12:00 +0000
-  EndTime: May 01, 2024 15:20 +0000
-  CreatedTime: Apr 25, 2024 21:08 +0000
-  ResourceName: AGLT2-squid-2
-  Services:
-  - Squid
 # ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 1790793462
@@ -1468,17 +1413,6 @@
   - WebDAV
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 2136155710
-  Description: UPS repair work
-  Severity: Outage
-  StartTime: Jun 03, 2025 13:00 +0000
-  EndTime: Jun 03, 2025 17:30 +0000
-  CreatedTime: May 30, 2025 14:32 +0000
-  ResourceName: AGLT2-squid-2
-  Services:
-  - Squid
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 2136155866
   Description: UPS repair work
   Severity: Outage
@@ -1555,15 +1489,4 @@
   ResourceName: AGLT2_gridftp
   Services:
   - GridFtp
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 2163183627
-  Description: cooling outage
-  Severity: Outage
-  StartTime: Jul 08, 2025 00:00 +0000
-  EndTime: Jul 08, 2025 14:00 +0000
-  CreatedTime: Jun 30, 2025 21:19 +0000
-  ResourceName: AGLT2-squid-2
-  Services:
-  - Squid
 # ---------------------------------------------------------
