@@ -20,3 +20,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2208908672
+  Description: Scheduled cluster maintenance on August 28th and 29th
+  Severity: Intermittent Outage
+  StartTime: Aug 28, 2025 13:00 +0000
+  EndTime: Aug 29, 2025 22:00 +0000
+  CreatedTime: Aug 22, 2025 19:27 +0000
+  ResourceName: UWEC-BOSE-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
