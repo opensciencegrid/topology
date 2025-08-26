@@ -1,0 +1,254 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: Georgia Institute of Technology Partnership for an Advanced Computing Environment (PACE) Buzzard cluster
+
+Resources:
+
+  GATech-Buzzard-IceCube-CE1:
+    Active: true
+    Description: HTCondor-CE providing access to Buzzard for the IceCube collaboration
+    ContactLists:
+      Executive Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Rachel Lombardi
+          ID: OSG1000895
+        Tertiary:
+          Name: Eric Coulter
+          ID: OSG1000313
+      Administrative Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Eric Coulter
+          ID: OSG1000313
+        Tertiary:
+          Name: Ruben Lara
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+      Security Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Eric Coulter
+          ID: OSG1000313
+        Tertiary:
+          Name: Ruben Lara
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+    FQDN: icecube-job-gw-ext.pace.gatech.edu
+    Services:
+      CE:
+        Description: HTCondor-CE to Buzzard for IceCube
+    Tags:
+      - CC*
+
+  GATech-Buzzard-LIGO-CE1:
+    Active: true
+    Description: HTCondor-CE providing access to Buzzard for the LIGO collaboration
+    ContactLists:
+      Executive Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Rachel Lombardi
+          ID: OSG1000895
+        Tertiary:
+          Name: Eric Coulter
+          ID: OSG1000313
+      Administrative Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Eric Coulter
+          ID: OSG1000313
+        Tertiary:
+          Name: Ruben Lara
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+      Security Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Eric Coulter
+          ID: OSG1000313
+        Tertiary:
+          Name: Ruben Lara
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+    FQDN: ligo-job-gw-ext.pace.gatech.edu
+    Services:
+      CE:
+        Description: HTCondor-CE to Buzzard for LIGO
+    Tags:
+      - CC*
+
+  GATech-Buzzard-OSPool-CE1:
+    Active: true
+    Description: HTCondor-CE providing access to Buzzard for the OSPool
+    ContactLists:
+      Executive Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Rachel Lombardi
+          ID: OSG1000895
+        Tertiary:
+          Name: Eric Coulter
+          ID: OSG1000313
+      Administrative Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Eric Coulter
+          ID: OSG1000313
+        Tertiary:
+          Name: Ruben Lara
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+      Security Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Eric Coulter
+          ID: OSG1000313
+        Tertiary:
+          Name: Ruben Lara
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+    FQDN: ospool-job-gw-ext.pace.gatech.edu
+    Services:
+      CE:
+        Description: HTCondor-CE to Buzzard for the OSPool
+    Tags:
+      - CC*
+      - OSPool
+
+  GATech-Buzzard-Squid1:
+    Active: true
+    Description: Squid service for the Buzzard cluster
+    ContactLists:
+      Executive Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Rachel Lombardi
+          ID: OSG1000895
+        Tertiary:
+          Name: Eric Coulter
+          ID: OSG1000313
+      Administrative Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Eric Coulter
+          ID: OSG1000313
+        Tertiary:
+          Name: Ruben Lara
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+      Security Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Eric Coulter
+          ID: OSG1000313
+        Tertiary:
+          Name: Ruben Lara
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+    FQDN: buzzard-squid.pace.gatech.edu
+    Services:
+      Squid:
+        Description: Squid for Buzzard
+    Tags:
+      - CC*
+
+  GATech-Buzzard-AP1:
+    Active: true
+    Description: Access Point for the Buzzard cluster
+    ContactLists:
+      Executive Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Rachel Lombardi
+          ID: OSG1000895
+        Tertiary:
+          Name: Eric Coulter
+          ID: OSG1000313
+      Administrative Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Eric Coulter
+          ID: OSG1000313
+        Tertiary:
+          Name: Ruben Lara
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+      Security Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Eric Coulter
+          ID: OSG1000313
+        Tertiary:
+          Name: Ruben Lara
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+    FQDN: login-buzzard.pace.gatech.edu
+    Services:
+      Submit Node:
+        Description: Access Point for the Buzzard cluster
+    Tags:
+      - CC*
+
+  GEORGIA_TECH_PACE_OSDF_CACHE:
+    Active: true
+    Description: OSDF cache in the Buzzard cluster
+    ContactLists:
+      Executive Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Rachel Lombardi
+          ID: OSG1000895
+        Tertiary:
+          Name: Eric Coulter
+          ID: OSG1000313
+      Administrative Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Eric Coulter
+          ID: OSG1000313
+        Tertiary:
+          Name: Ruben Lara
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+      Security Contact:
+        Primary:
+          Name: Marian Zvada
+          ID: OSG1000353
+        Secondary:
+          Name: Eric Coulter
+          ID: OSG1000313
+        Tertiary:
+          Name: Ruben Lara
+          ID: 068fa784cd29b5aee10ccce2669a95cbaa66d88b
+    FQDN: osdf-cache-buzzard.pace.gatech.edu
+    DN: /CN=osdf-cache-buzzard.pace.gatech.edu
+    Services:
+      Pelican cache:
+        Description: GA Tech Buzzard Pelican cache
+    Tags:
+      - CC*
