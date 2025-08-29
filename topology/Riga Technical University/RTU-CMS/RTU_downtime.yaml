@@ -10,7 +10,17 @@
   - WebDAV
   - XRootD component
 # ---------------------------------------------------------
-
+Class: UNSCHEDULED
+  ID: 2214734243
+  Description: Underlying platform issues
+  Severity: Severe
+  StartTime: Aug 29, 2025 13:20 +0000
+  EndTime: Aug 30, 2025 14:00 +0000
+  CreatedTime: Aug 29, 2025 13:17 +0000
+  ResourceName: T2_LV_HPCNET-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
 - Class: SCHEDULED
   ID: 2214728535
   Description: underlying platform upgrade, service relocation
@@ -22,4 +32,15 @@
   Services:
   - WebDAV
   - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2214728535
+  Description: underlying platform upgrade, service relocation
+  Severity: Intermittent Outage
+  StartTime: Aug 30, 2025 14:00 +0000
+  EndTime: Sep 02, 2025 20:00 +0000
+  CreatedTime: Aug 29, 2025 13:17 +0000
+  ResourceName: T2_LV_HPCNET-CE
+  Services:
+  - CE
 # ---------------------------------------------------------
