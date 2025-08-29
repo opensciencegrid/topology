@@ -1,25 +1,68 @@
 - Class: UNSCHEDULED
-  ID: 2214727441
-  Description: underlying platform issues
+  ID: 2214737557
+  Description: Underlying platform issues
   Severity: Severe
-  StartTime: Aug 29, 2025 13:00 +0000
+  StartTime: Aug 29, 2025 13:30 +0000
   EndTime: Aug 30, 2025 14:00 +0000
-  CreatedTime: Aug 29, 2025 13:05 +0000
+  CreatedTime: Aug 29, 2025 13:22 +0000
+  ResourceName: T2_LV_HPCNET-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2214737558
+  Description: Underlying platform issues
+  Severity: Severe
+  StartTime: Aug 29, 2025 13:30 +0000
+  EndTime: Aug 30, 2025 14:00 +0000
+  CreatedTime: Aug 29, 2025 13:22 +0000
+  ResourceName: T2_LV_HPCNET-SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2214737559
+  Description: Underlying platform issues
+  Severity: Severe
+  StartTime: Aug 29, 2025 13:30 +0000
+  EndTime: Aug 30, 2025 14:00 +0000
+  CreatedTime: Aug 29, 2025 13:22 +0000
   ResourceName: T2_LV_HPCNET-XROOTD
   Services:
-  - WebDAV
   - XRootD component
+  - WebDAV
 # ---------------------------------------------------------
-
 - Class: SCHEDULED
-  ID: 2214728535
-  Description: underlying platform upgrade, service relocation
+  ID: 2214739041
+  Description: Relocation of services
   Severity: Intermittent Outage
   StartTime: Aug 30, 2025 14:00 +0000
-  EndTime: Sep 02, 2025 20:00 +0000
-  CreatedTime: Aug 29, 2025 13:07 +0000
+  EndTime: Sep 02, 2025 23:30 +0000
+  CreatedTime: Aug 29, 2025 13:25 +0000
+  ResourceName: T2_LV_HPCNET-CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2214739042
+  Description: Relocation of services
+  Severity: Intermittent Outage
+  StartTime: Aug 30, 2025 14:00 +0000
+  EndTime: Sep 02, 2025 23:30 +0000
+  CreatedTime: Aug 29, 2025 13:25 +0000
+  ResourceName: T2_LV_HPCNET-SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2214739043
+  Description: Relocation of services
+  Severity: Intermittent Outage
+  StartTime: Aug 30, 2025 14:00 +0000
+  EndTime: Sep 02, 2025 23:30 +0000
+  CreatedTime: Aug 29, 2025 13:25 +0000
   ResourceName: T2_LV_HPCNET-XROOTD
   Services:
-  - WebDAV
   - XRootD component
+  - WebDAV
 # ---------------------------------------------------------
