@@ -1,11 +1,25 @@
-- Class: SCHEDULED
-  ID: 2209247103
-  Description: Underlying infra maintenance
+- Class: UNSCHEDULED
+  ID: 2214727441
+  Description: underlying platform issues
   Severity: Severe
-  StartTime: Aug 23, 2025 11:30 +0000
-  EndTime: Aug 24, 2025 20:00 +0000
-  CreatedTime: Aug 23, 2025 04:51 +0000
-  ResourceName: T2_LV_HPCNET-CE
+  StartTime: Aug 29, 2025 13:00 +0000
+  EndTime: Aug 30, 2025 14:00 +0000
+  CreatedTime: Aug 29, 2025 13:05 +0000
+  ResourceName: T2_LV_HPCNET-XROOTD
   Services:
-  - CE
+  - WebDAV
+  - XRootD component
+# ---------------------------------------------------------
+
+- Class: SCHEDULED
+  ID: 2214728535
+  Description: underlying platform upgrade, service relocation
+  Severity: Intermittent Outage
+  StartTime: Aug 30, 2025 14:00 +0000
+  EndTime: Sep 02, 2025 20:00 +0000
+  CreatedTime: Aug 29, 2025 13:07 +0000
+  ResourceName: T2_LV_HPCNET-XROOTD
+  Services:
+  - WebDAV
+  - XRootD component
 # ---------------------------------------------------------
