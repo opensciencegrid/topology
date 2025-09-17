@@ -1,0 +1,32 @@
+Disable: false
+Production: true
+SupportCenter: Self Supported
+GroupDescription: The Compute Canada Fir cluster
+Resources:
+  ComputeCanada-Fir: 
+    Description: The Hosted CE serving ComputeCanada-Fir
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Ashton Graves
+          ID: OSG1000362
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Ashton Graves
+          ID: OSG1000362
+        Secondary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Richard T Jones
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+    FQDN: computecanada-Fir-ce1.svc.opensciencegrid.org
+    Services:
+      CE:
+        Description: ComputeCanada-Fir Hosted CE
+        Details:
+          hidden: false
