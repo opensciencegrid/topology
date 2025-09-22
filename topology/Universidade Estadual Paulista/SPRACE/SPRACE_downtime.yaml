@@ -4996,3 +4996,80 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728628
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728629
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728630
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728631
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728632
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728633
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728634
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
