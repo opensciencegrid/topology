@@ -601,3 +601,43 @@ Resources:
         Description: OSG Connect Project Origin Server
     AllowedVOs:
       - OSG
+
+  UChicago-OSG-repo:
+    Active: true
+    Description: The UChicago instance of the OSG yum repositories
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000016
+          Name: Judith Stephen
+        Secondary:
+          ID: OSG1000765
+          Name: David Jordan
+        Tertiary:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+      Security Contact:
+        Primary:
+          ID: OSG1000016
+          Name: Judith Stephen
+        Secondary:
+          ID: OSG1000765
+          Name: David Jordan
+        Tertiary:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+    FQDN: repo.osg-htc.org
+    FQDNAliases:
+      - repo.opensciencegrid.org
+      - repo.osgprod.tempest.chtc.io
+      - repo-rsync.osg-htc.org
+      - repo-rsync.opensciencegrid.org
+      - repo-rsync.osgprod.tempest.chtc.io
+    Services:
+      Software Repo:
+        Description: OSG Yum Repositories
+    Tags:
+      - OSPool
+    VOOwnership:
+      OSG: 100
+
