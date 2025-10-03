@@ -1,0 +1,23 @@
+Production: True
+SupportCenter: Community Support Center
+GroupDescription: OSG Yum Repositories miror at FNAL
+
+Resources:
+  FNAL-OSG-repo-mirror:
+    Active: true
+    Description: The FNAL mirror of the OSG yum repositories
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 749a5ae92b94073b32c730fd3fddc5302a4dbbe5
+          Name: AJIT MOHAPATRA
+    FQDN: linux-mirrors.fnal.gov
+    Services:
+      Software Repo Mirror:
+        Description: OSG Yum Repositories Mirror
+    Tags:
+      - OSPool
+    VOOwnership:
+      OSG: 100
+
+

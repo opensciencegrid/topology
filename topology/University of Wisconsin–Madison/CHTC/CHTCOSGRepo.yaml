@@ -1,0 +1,43 @@
+Production: true
+SupportCenter: GLOW-TECH
+GroupDescription: OSG Yum Repositories at CHTC
+
+Resources:
+  CHTC-OSG-repo:
+    Active: true
+    Description: The CHTC instance of the OSG yum repositories
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary:
+           ID: OSG1000358
+           Name: MATTHEW WESTPHALL
+      Security Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary:
+           ID: OSG1000358
+           Name: MATTHEW WESTPHALL
+    FQDN: repo.osg-htc.org
+    FQDNAliases:
+      - repo.opensciencegrid.org
+      - repo.osg.chtc.io
+      - repo-rsync.osg-htc.org
+      - repo-rsync.opensciencegrid.org
+      - repo-rsync.osg.chtc.io
+    Services:
+      Software Repo:
+        Description: OSG Yum Repositories
+    Tags:
+      - OSPool
+    VOOwnership:
+      OSG: 100
