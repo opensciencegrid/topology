@@ -1,0 +1,48 @@
+Production: True
+SupportCenter: Self Supported
+GroupDescription: OSG Yum Repositories and miror at UChicago
+
+Resources:
+  UChicago-OSG-repo:
+    Active: true
+    Description: The UChicago instance of the OSG yum repositories
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000016
+          Name: Judith Stephen
+        Secondary:
+          ID: OSG1000765
+          Name: David Jordan
+        Tertiary:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+    FQDN: repo.osg-htc.org
+    FQDNAliases:
+      - repo.opensciencegrid.org
+      - repo.osgprod.tempest.chtc.io
+      - repo-rsync.osg-htc.org
+      - repo-rsync.opensciencegrid.org
+      - repo-rsync.osgprod.tempest.chtc.io
+    Services:
+      Software Repo:
+        Description: OSG Yum Repositories
+
+  UChicago-OSG-repo-mirror:
+    Active: true
+    Description: The UChicago mirror of the OSG yum repositories
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000016
+          Name: Judith Stephen
+        Secondary:
+          ID: OSG1000765
+          Name: David Jordan
+        Tertiary:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+    FQDN: mirror.grid.uchicago.edu
+    Services:
+      Software Repo Mirror:
+        Description: OSG Yum Repositories Mirror
