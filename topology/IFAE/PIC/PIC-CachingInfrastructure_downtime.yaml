@@ -75,5 +75,16 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2242488822
+  Description: storage config to RAID0
+  Severity: Outage
+  StartTime: Oct 01, 2025 06:00 +0000
+  EndTime: Oct 01, 2025 10:00 +0000
+  CreatedTime: Sep 30, 2025 16:14 +0000
+  ResourceName: PIC_STASHCACHE_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
 
 
