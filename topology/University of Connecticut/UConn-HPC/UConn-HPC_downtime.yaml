@@ -1,0 +1,34 @@
+- Class: UNSCHEDULED
+  ID: 1734780663
+  Description: maintenance day
+  Severity: Outage
+  StartTime: Feb 20, 2024 20:30 +0000
+  EndTime: Feb 22, 2024 20:30 +0000
+  CreatedTime: Feb 21, 2024 01:14 +0000
+  ResourceName: UConn-HPC_StashCache_origin
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2146091711
+  Description: Cluster is in Maintenance
+  Severity: Outage
+  StartTime: Jun 10, 2025 02:32 +0000
+  EndTime: Jan 1, 2026 05:59 +0000
+  CreatedTime: Jun 11, 2025 02:32 +0000
+  ResourceName: UConn-HPC_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2151043084
+  Description: That origin is being relocated to a different building
+  Severity: Outage
+  StartTime: Jun 15, 2025 08:00 +0000
+  EndTime: Jul 05, 2025 19:30 +0000
+  CreatedTime: Jun 16, 2025 20:05 +0000
+  ResourceName: UConn-HPC_StashCache_origin
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+
