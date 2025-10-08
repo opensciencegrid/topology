@@ -5150,3 +5150,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083780
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083781
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083782
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083783
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083784
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083785
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083786
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------

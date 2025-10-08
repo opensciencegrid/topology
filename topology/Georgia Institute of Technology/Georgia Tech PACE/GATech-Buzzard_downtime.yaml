@@ -31,3 +31,69 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2241597047
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Oct 06, 2025 12:00 +0000
+  EndTime: Oct 09, 2025 18:00 +0000
+  CreatedTime: Sep 29, 2025 15:28 +0000
+  ResourceName: GATech-Buzzard-AP1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2241597048
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Oct 06, 2025 12:00 +0000
+  EndTime: Oct 09, 2025 18:00 +0000
+  CreatedTime: Sep 29, 2025 15:28 +0000
+  ResourceName: GATech-Buzzard-IceCube-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2241597049
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Oct 06, 2025 12:00 +0000
+  EndTime: Oct 09, 2025 18:00 +0000
+  CreatedTime: Sep 29, 2025 15:28 +0000
+  ResourceName: GATech-Buzzard-LIGO-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2241597050
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Oct 06, 2025 12:00 +0000
+  EndTime: Oct 09, 2025 18:00 +0000
+  CreatedTime: Sep 29, 2025 15:28 +0000
+  ResourceName: GATech-Buzzard-OSPool-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2241597051
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Oct 06, 2025 12:00 +0000
+  EndTime: Oct 09, 2025 18:00 +0000
+  CreatedTime: Sep 29, 2025 15:28 +0000
+  ResourceName: GATech-Buzzard-Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2241597052
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Oct 06, 2025 12:00 +0000
+  EndTime: Oct 09, 2025 18:00 +0000
+  CreatedTime: Sep 29, 2025 15:28 +0000
+  ResourceName: GEORGIA_TECH_PACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
