@@ -2,7 +2,6 @@ Production: true
 SupportCenter: GLUEX
 GroupDescription: UConn Physics Cluster Computing Group
 GroupID: 254
-GridType: OSG Site Resources
 
 Resources:
   UConn-OSG_squid:
@@ -91,7 +90,7 @@ Resources:
         Description: StashCache Origin server for UConn-OSG
         Details:
           hidden: false
-        uri_override: gandalf.phys.uconn.edu:1094
+          uri_override: gandalf.phys.uconn.edu:1094
     Tags:
       - CC*
     VOOwnership:
