@@ -1,0 +1,20 @@
+Production: True
+SupportCenter: Community Support Center
+GroupDescription: OSG Yum Repositories mirror in Nebraska
+
+Resources:
+  Nebraska-OSG-repo-mirror:
+    Active: true
+    Description: The Nebraska mirror of the OSG yum repositories
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: John Thiltges
+          ID: OSG1000004
+        Secondary:
+          Name: Derek Weitzel
+          ID: OSG1000006
+    FQDN: t2.unl.edu
+    Services:
+      Software Repo Mirror:
+        Description: OSG Yum Repositories Mirror

@@ -1,0 +1,17 @@
+Production: True
+SupportCenter: Community Support Center
+GroupDescription: OSG Yum Repositories miror at FNAL
+
+Resources:
+  FNAL-OSG-repo-mirror:
+    Active: true
+    Description: The FNAL mirror of the OSG yum repositories
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 9ee3c5986e26fcbf82a16ea945d7aa98a612938e
+          Name: FNAL Service Desk
+    FQDN: linux-mirrors.fnal.gov
+    Services:
+      Software Repo Mirror:
+        Description: OSG Yum Repositories Mirror
