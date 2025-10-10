@@ -4,7 +4,7 @@ GroupDescription: OSG partition of the Storrs HPC Cluster
 GroupID: 1092
 Resources:
   UConn-HPC_squid:
-    Active: true
+    Active: false
     Description: squid server for UConn-HPC
     ID: 1093
     ContactLists:
@@ -29,7 +29,7 @@ Resources:
       Gluex: 50
       CLAS12: 50
   UConn-HPC_CE:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -55,7 +55,7 @@ Resources:
       Gluex: 50
       CLAS12: 50
   UConn-HPC_SE:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -91,7 +91,7 @@ Resources:
     Tags:
       - CC*
   UConn-HPC_StashCache_origin:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
