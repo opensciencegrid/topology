@@ -1,10 +1,13 @@
-GridType: OSG Production Resource
+Production: true
+SupportCenter: GLUEX
 GroupDescription: UConn Physics Cluster Computing Group
 GroupID: 254
-Production: true
+
 Resources:
   UConn-OSG_squid:
     Active: true
+    Description: squid server for UConn-OSG, also web server
+    ID: 289
     ContactLists:
       Administrative Contact:
         Primary:
@@ -14,21 +17,20 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T Jones
-    Description: squid server for UConn-OSG, also web server
     FQDN: gryphn.phys.uconn.edu
     FQDNAliases:
     - zeus.phys.uconn.edu
     DN: /DC=org/DC=incommon/C=US/ST=Connecticut/L=Storrs/O=University of Connecticut/CN=gryphn.phys.uconn.edu
-    ID: 289
     Services:
       Squid:
         Description: squid server for UConn Physics osg cluster
       Apache Server:
         Description: Apache web server
-      VOMS Server:
-        Description: VOMS Server
+    Tags:
+      - CC*
     VOOwnership:
       Gluex: 100
+
   UConn-OSG_CE:
     Active: true
     ContactLists:
@@ -50,14 +52,11 @@ Resources:
         Description: Compute Element
         Details:
           hidden: false
-          uri_override: gluskap.phys.uconn.edu:2119
-      GridFtp:
-        Description: GridFtp Storage Element
-        Details:
-          hidden: false
-          uri_override: gluskap.phys.uconn.edu:2811
+    Tags:
+      - CC*
     VOOwnership:
       Gluex: 100
+
   UConn-OSG_SE:
     Active: true
     ContactLists:
@@ -69,6 +68,8 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T Jones
+    AllowedVOs:
+      - Gluex
     Description: UConn-OSG grid storage resource
     FQDN: grinch.phys.uconn.edu
     FQDNAliases:
@@ -85,20 +86,15 @@ Resources:
         Details:
           hidden: false
           uri_override: grinch.phys.uconn.edu:8443
+      XRootD origin server:
+        Description: StashCache Origin server for UConn-OSG
+        Details:
+          hidden: false
+          uri_override: gandalf.phys.uconn.edu:1094
+    Tags:
+      - CC*
     VOOwnership:
       Gluex: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 85
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 500
-      KSI2KMin: 100
-      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UConn-OSG,o=grid
-      StorageCapacityMax: 50
-      StorageCapacityMin: 25
-      TapeCapacity: 0
   UConn-OSG_StashCache_origin:
     Active: true
     ContactLists:
@@ -125,18 +121,35 @@ Resources:
       - Gluex
     VOOwnership:
       Gluex: 100
-    WLCGInformation:
-      APELNormalFactor: 0
-      HEPSPEC: 85
-      InteropAccounting: false
-      InteropBDII: true
-      InteropMonitoring: true
-      KSI2KMax: 500
-      KSI2KMin: 100
-      LDAPURL: ldap://is.grid.iu.edu:2180/mds-vo-name=UConn-OSG,o=grid
-      StorageCapacityMax: 50
-      StorageCapacityMin: 25
-      TapeCapacity: 0
+  UConn-HTC_StashCache_origin:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T Jones
+      Resource Report Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T Jones
+      Security Contact:
+        Primary:
+          ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
+          Name: Richard T Jones
+    Description: UConn-HTC StashCache origin server
+    FQDN: nod67.phys.uconn.edu
+    FQDNAliases:
+    - nod67.phys.uconn.edu
+    Services:
+      XRootD origin server:
+        Description: StashCache Origin server for UConn-HTC
+        Details:
+          hidden: false
+          uri_override: nod67.phys.uconn.edu:1094
+    AllowedVOs:
+      - Gluex
+    VOOwnership:
+      Gluex: 100
   UConn-OSG_submit_host:
     Active: true
     ContactLists:
@@ -194,4 +207,3 @@ Resources:
         Description: glideinWMS collector for GlueX users
     VOOwnership:
       Gluex: 100
-SupportCenter: GLUEX
