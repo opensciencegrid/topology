@@ -57,9 +57,8 @@ DataFederations:
         AllowedOrigins:
             # UConn-OSG_StashCache_origin serves /gluex/uconn0 (FD #68279)
             - UConn-OSG_StashCache_origin
-            # UConn-HPC_StashCache_origin serves /gluex/uconn1 (FD #68279)
-            - UConn-HPC_StashCache_origin
-            - ComputeCanada-Cedar-Cache
+            # UConn-HTC_StashCache_origin serves /gluex/uconn1 (FD #68279)
+            - UConn-HTC_StashCache_origin
         AllowedCaches:
             - ANY
       - Path: /gluex
@@ -68,8 +67,7 @@ DataFederations:
         AllowedOrigins:
             # UConn-OSG_StashCache_origin serves /gluex/uconn0 (FD #68279)
             - UConn-OSG_StashCache_origin
-            # UConn-HPC_StashCache_origin serves /gluex/uconn1 (FD #68279)
-            - UConn-HPC_StashCache_origin
-            - ComputeCanada-Cedar-Cache
+            # UConn-HTC_StashCache_origin serves /gluex/uconn1 (FD #68279)
+            - UConn-HTC_StashCache_origin
         AllowedCaches:
             - ANY
