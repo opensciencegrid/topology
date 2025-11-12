@@ -112,3 +112,36 @@ Resources:
         Description: OSG VO backfill containers on the Tiger cluster, in the development namespace
     Tags:
       - OSPool
+
+  CHTC_OSPOOL_IMAGES_ORIGIN:
+    Active: false
+    Description: Origin server for OSPool default images
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Tertiary:
+          ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+          Name: Mats Rynge
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    FQDN: ospool-images.chtc.wisc.edu
+    FQDNAliases:
+      - ospool-images.osg-htc.org
+      - ospool-images-origin.osdf-prod.chtc.io
+    Services:
+      Pelican origin:
+        Description: Pelican origin
+    VOOwnership:
+      OSG: 100
+    AllowedVOs:
+      - ANY
