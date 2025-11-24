@@ -455,6 +455,9 @@ def test_10_res_admin_contact(rgs, rgfns):
 
     for rg,rgfn in zip(rgs,rgfns):
         for rname,rdict in sorted(rg['Resources'].items()):
+            active = rdict.get('Active', True)
+            if not active:
+                continue
             rcls = rdict.get('ContactLists')
             if rcls:
                 ctype, etype = 'Administrative', 'NoAdminContact'
@@ -474,6 +477,9 @@ def test_11_res_sec_contact(rgs, rgfns):
 
     for rg,rgfn in zip(rgs,rgfns):
         for rname,rdict in sorted(rg['Resources'].items()):
+            active = rdict.get('Active', True)
+            if not active:
+                continue
             rcls = rdict.get('ContactLists')
             if rcls:
                 ctype, etype = 'Security', 'NoSecContact'
@@ -709,6 +715,9 @@ def test_17_osdf_data(rgs, rgfns):
 
     for rg, rgfn in zip(rgs, rgfns):
         for rname, rdict in sorted(rg['Resources'].items()):
+            active = rdict.get('Active', True)
+            if not active:
+                continue
             rsvcs = rdict.get('Services', {})
             if any( svc in rsvcs for svc in services ):
                 if not isinstance(rdict.get('AllowedVOs'), list):
@@ -751,6 +760,9 @@ def test_18_osdf_data_cache_warnings(rgs, rgfns, vomap):
 
     for rg, rgfn in zip(rgs, rgfns):
         for rname, rdict in sorted(rg['Resources'].items()):
+            active = rdict.get('Active', True)
+            if not active:
+                continue
             rsvcs = rdict.get('Services', {})
             if "XRootD cache server" in rsvcs:
                 for voname in rdict.get('AllowedVOs', []):
@@ -793,6 +805,9 @@ def test_19_osdf_data_origin_warnings(rgs, rgfns, vomap):
 
     for rg, rgfn in zip(rgs, rgfns):
         for rname, rdict in sorted(rg['Resources'].items()):
+            active = rdict.get('Active', True)
+            if not active:
+                continue
             rsvcs = rdict.get('Services', {})
             if "XRootD origin server" in rsvcs:
                 for voname in rdict.get('AllowedVOs', []):
