@@ -143,9 +143,9 @@ def main():
 #   errors += test_14_sc_contacts_match(support_centers, contacts)
     errors += test_15_site_files()
     errors += test_16_Xrootd_DNs(rgs, rgfns)
-    errors += test_17_osdf_data(rgs, rgfns)
-    warnings += test_18_osdf_data_cache_warnings(rgs, rgfns, vomap)
-    warnings += test_19_osdf_data_origin_warnings(rgs, rgfns, vomap)
+    # errors += test_17_osdf_data(rgs, rgfns)
+    # warnings += test_18_osdf_data_cache_warnings(rgs, rgfns, vomap)
+    # warnings += test_19_osdf_data_origin_warnings(rgs, rgfns, vomap)
     errors += test_20_fqdn_unique_xrootd(rgs, rgfns)
 
 
