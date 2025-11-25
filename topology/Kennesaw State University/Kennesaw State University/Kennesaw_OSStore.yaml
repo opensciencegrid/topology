@@ -1,0 +1,42 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: Resources using Kennesaw's OSStore
+
+Resources:
+  OSSTORE_KENNESAW_REDTOP_ORIGIN:
+    Active: true
+    Description: This is an OSDF Origin hosting data for the REDTOP project
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Secondary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+        Tertiary:
+          Name: Brian Hua Lin
+          ID: OSG1000003
+
+      Security Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Secondary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+        Tertiary:
+          Name: Brian Hua Lin
+          ID: OSG1000003
+
+    FQDN: osstore-kennesaw-redtop-origin.nationalresearchplatform.org
+    FQDNAliases:
+      - osgprdk8s01.kennesaw.edu
+
+    Services:
+      Pelican origin:
+        # Description is a brief description of the service
+        Description: Origin hosting /REDTOP/private
+        Details:
+          uri_override: osstore-kennesaw-redtop-origin.nationalresearchplatform.org:50094
