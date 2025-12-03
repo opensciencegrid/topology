@@ -26,15 +26,24 @@ Resources:
       - LIGO
 SupportCenter: Advanced LIGO
 
-
 LIGO_WA_CALTECH_OSDF_CACHE:
     Active: true
     Description: LIGO WA OSDF cache
     ContactLists:
       Administrative Contact:
         Primary:
-          Name: 
-          ID: 
+          Name: Joshua Willis
+          ID: OSG1000316
+        Secondary:
+          Name: Stuart Anderson
+          ID: c50e7cc9d0086272ef995fb76461612d40c70435
+      Security Contact:
+        Primary:
+          Name: Randy Trudeau
+          ID: OSG1000955
+        Secondary:
+          Name: Warren Anderson
+          ID: OSG1000948
     FQDN: osdf-cache.ligo-wa.caltech.edu
     DN: /CN=osdf-cache.ligo-wa.caltech.edu
     Services:
