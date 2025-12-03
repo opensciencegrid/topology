@@ -25,3 +25,20 @@ Resources:
     AllowedVOs:
       - LIGO
 SupportCenter: Advanced LIGO
+
+
+LIGO_WA_CALTECH_OSDF_CACHE:
+    Active: true
+    Description: LIGO WA OSDF cache
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: 
+          ID: 
+    FQDN: osdf-cache.ligo-wa.caltech.edu
+    DN: /CN=osdf-cache.ligo-wa.caltech.edu
+    Services:
+      Pelican cache:
+        Description: LIGO WA OSDF cache
+    AllowedVOs:
+      - ANY
