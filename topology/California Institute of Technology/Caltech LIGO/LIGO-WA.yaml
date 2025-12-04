@@ -1,5 +1,7 @@
 Production: true
 GroupDescription: LIGO Hanford cluster
+SupportCenter: Advanced LIGO
+
 Resources:
   LIGO-WA-CE1:
     Active: true
@@ -24,8 +26,6 @@ Resources:
         Description: Hosted CE for LHO
     AllowedVOs:
       - LIGO
-SupportCenter: Advanced LIGO
-
   LIGO_WA_CALTECH_OSDF_CACHE:
     Active: true
     Description: LIGO WA OSDF cache
