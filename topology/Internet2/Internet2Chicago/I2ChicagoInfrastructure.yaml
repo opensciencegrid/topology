@@ -4,7 +4,7 @@ GroupDescription: Services located at the Internet2 Chicago Point of Presence
 GroupID: 524
 Resources:
   Stashcache-Chicago:
-    Active: false
+    Active: true
     Description: Internet2 Chicago Cache
     ID: 1039
     ContactLists:
@@ -17,8 +17,8 @@ Resources:
         Primary:
           Name: Fabio Andrijauskas 
           ID: OSG1000162
-    FQDN: osg-chicago-stashcache.nrp.internet2.edu
-    DN: /DC=org/DC=incommon/C=US/ST=Michigan/O=University Corporation For Advanced Internet Development/CN=osg-chicago-stashcache.nrp.internet2.edu
+    FQDN: osdf1.chic.nrp.internet2.edu
+    DN: /DC=org/DC=incommon/C=US/ST=Michigan/O=University Corporation For Advanced Internet Development/CN=osdf1.chic.nrp.internet2.edu
     Services:
       Pelican cache:
         Description: Internet2 Chicago Cache
