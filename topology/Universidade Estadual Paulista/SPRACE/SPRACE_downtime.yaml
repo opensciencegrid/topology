@@ -5381,3 +5381,14 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2303048903
+  Description: Upgrade htcondor-ce and condor to OSG 24
+  Severity: Intermittent Outage
+  StartTime: Dec 11, 2025 11:30 +0000
+  EndTime: Dec 11, 2025 21:00 +0000
+  CreatedTime: Dec 09, 2025 18:28 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
