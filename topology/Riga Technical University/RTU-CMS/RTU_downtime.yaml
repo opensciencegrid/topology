@@ -1,68 +1,12 @@
 - Class: UNSCHEDULED
-  ID: 2230901251
-  Description: global network failure at DC
-  Severity: Outage
-  StartTime: Sep 17, 2025 05:00 +0000
-  EndTime: Sep 18, 2025 07:00 +0000
-  CreatedTime: Sep 17, 2025 06:22 +0000
-  ResourceName: T2_LV_HPCNET-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 2230901252
-  Description: global network failure at DC
-  Severity: Outage
-  StartTime: Sep 17, 2025 05:00 +0000
-  EndTime: Sep 18, 2025 07:00 +0000
-  CreatedTime: Sep 17, 2025 06:22 +0000
-  ResourceName: T2_LV_HPCNET-SQUID
-  Services:
-  - Squid
-# ---------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 2230901253
-  Description: global network failure at DC
-  Severity: Outage
-  StartTime: Sep 17, 2025 05:00 +0000
-  EndTime: Sep 18, 2025 07:00 +0000
-  CreatedTime: Sep 17, 2025 06:22 +0000
+  ID: 2302866623
+  Description: Certificate change
+  Severity: Severe
+  StartTime: Dec 09, 2025 13:24 +0000
+  EndTime: Dec 11, 2025 13:24 +0000
+  CreatedTime: Dec 09, 2025 13:24 +0000
   ResourceName: T2_LV_HPCNET-XROOTD
   Services:
-  - XRootD component
   - WebDAV
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 2230901887
-  Description: global network failure at DC
-  Severity: Outage
-  StartTime: Sep 18, 2025 07:00 +0000
-  EndTime: Sep 22, 2025 07:00 +0000
-  CreatedTime: Sep 17, 2025 06:23 +0000
-  ResourceName: T2_LV_HPCNET-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 2230901888
-  Description: global network failure at DC
-  Severity: Outage
-  StartTime: Sep 18, 2025 07:00 +0000
-  EndTime: Sep 22, 2025 07:00 +0000
-  CreatedTime: Sep 17, 2025 06:23 +0000
-  ResourceName: T2_LV_HPCNET-SQUID
-  Services:
-  - Squid
-# ---------------------------------------------------------
-- Class: SCHEDULED
-  ID: 2230901889
-  Description: global network failure at DC
-  Severity: Outage
-  StartTime: Sep 18, 2025 07:00 +0000
-  EndTime: Sep 22, 2025 07:00 +0000
-  CreatedTime: Sep 17, 2025 06:23 +0000
-  ResourceName: T2_LV_HPCNET-XROOTD
-  Services:
   - XRootD component
-  - WebDAV
 # ---------------------------------------------------------
