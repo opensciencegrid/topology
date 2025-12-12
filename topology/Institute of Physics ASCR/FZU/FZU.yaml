@@ -62,7 +62,7 @@ Resources:
         Primary:
           ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
           Name: Petr Vokac
-    Active: true
+    Active: false
     Description: This is CE for OSG (NOvA, DUNE) production at FZU (new cluster with
       HTCondor local batch system)
     FQDN: osgce3.farm.particle.cz
@@ -71,7 +71,7 @@ Resources:
       CE:
         Description: Compute Element
         Details:
-          hidden: false
+          hidden: true
           sam_uri: htcondor://osgce2.farm.particle.gov:9619/osgce2.farm.particle.gov
     VOOwnership:
       DUNE: 45
@@ -97,6 +97,35 @@ Resources:
         Description: FZU StashCache
     AllowedVOs:
       - ANY
+  FZU_SE1:
+    ContactLists:
+      Security Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+      Administrative Contact:
+        Primary:
+          ID: 3ed182486a10eb3c02145e4e51a5ae09dcc645e0
+          Name: Petr Vokac
+    Active: true
+    Description: FZU dCache storage
+    FQDN: se1.farm.particle.cz
+    ID: 10376
+    Services:
+      WebDAV:
+        Description: WebDAV service endpoint
+        Details:
+          hidden: false
+          uri_override: se1.farm.particle.cz:443
+      XRootD component:
+        Description: XRootD door
+        Details:
+          hidden: false
+          uri_override: se1.farm.particle.cz:1094
+    VOOwnership:
+      DUNE: 45
+      DZero: 10
+      Nova: 45
   perfSONAR_FZU_bandwidth:
     ContactLists:
       Security Contact:
