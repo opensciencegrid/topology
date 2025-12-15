@@ -145,8 +145,8 @@ Resources:
         Description: PerfSonar Bandwidth monitoring node
         Details:
           endpoint: ps02-b.farm.particle.cz
-    VOOwnership:
-      ATLAS: 50
+    AllowedVOs:
+      - ANY
   perfSONAR_FZU_latency:
     ContactLists:
       Security Contact:
@@ -166,6 +166,6 @@ Resources:
         Description: PerfSonar Latency monitoring node
         Details:
           endpoint: ps01-l.farm.particle.cz
-    VOOwnership:
-      ATLAS: 50
+    AllowedVOs:
+      - ANY
 SupportCenter: FZU
