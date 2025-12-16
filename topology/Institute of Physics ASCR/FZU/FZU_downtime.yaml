@@ -115,4 +115,16 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2305835388
+  Description: Moving data from disknode with RAID controller issues
+  Severity: Severe
+  StartTime: Dec 06, 2025 09:00 +0000
+  EndTime: Dec 14, 2025 23:00 +0000
+  CreatedTime: Dec 12, 2025 23:52 +0000
+  ResourceName: FZU_SE1
+  Services:
+  - WebDAV
+  - XRootD component
+# ---------------------------------------------------------
 
