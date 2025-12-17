@@ -17,3 +17,18 @@ Resources:
         Description: KoaStore OSDF Origin
     AllowedVOs:
       - ANY
+
+  KOASTORE_OSDF_CACHE:
+    Active: true
+    Description: KoaStore OSDF Origin
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Sean Cleveland
+          ID: OSG1000276
+    FQDN: koastore-origin.nationalresearchplatform.org
+    Services:
+      Pelican cache:
+        Description: KoaStore OSDF cache
+    AllowedVOs:
+      - ANY
