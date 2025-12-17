@@ -1,0 +1,40 @@
+Production: false
+SupportCenter: Self Supported
+
+GroupDescription: These are ITB OSDF resources at UMass-Amherst
+
+Resources:
+  UMass-Amherst-Test-Origin-ITB:
+    Active: true
+    Description: >-
+      This is an origin set up on Tiger that serves objects out of an S3 
+      test bucket located at UMass to the namespace /umass-amherst-test.
+      This instance is for the ITB OSDF.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    FQDN: umass-amherst-test-origin.osdf-dev.chtc.io
+    DN: /CN=umass-amherst-test-origin.osdf-dev.chtc.io
+    Services:
+      Pelican origin:
+        Description: Origin for /umass-amherst-test in OSDF-ITB.
+    AllowedVOs:
+      - ANY
