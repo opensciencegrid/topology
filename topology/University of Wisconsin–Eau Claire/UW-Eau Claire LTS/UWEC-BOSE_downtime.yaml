@@ -31,3 +31,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2320184167
+  Description: Scheduled cluster maintenance on December 30th, 2025
+  Severity: Intermittent Outage
+  StartTime: Dec 30, 2025 15:00 +0000
+  EndTime: Dec 30, 2025 23:00 +0000
+  CreatedTime: Dec 29, 2025 14:26 +0000
+  ResourceName: UWEC-BOSE-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
