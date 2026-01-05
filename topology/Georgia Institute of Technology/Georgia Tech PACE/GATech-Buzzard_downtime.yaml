@@ -108,4 +108,69 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 2326367779
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 12, 2026 13:00 +0000
+  EndTime: Jan 16, 2026 01:00 +0000
+  CreatedTime: Jan 05, 2026 18:12 +0000
+  ResourceName: GATech-Buzzard-AP1
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2326367780
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 12, 2026 13:00 +0000
+  EndTime: Jan 16, 2026 01:00 +0000
+  CreatedTime: Jan 05, 2026 18:12 +0000
+  ResourceName: GATech-Buzzard-IceCube-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2326367781
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 12, 2026 13:00 +0000
+  EndTime: Jan 16, 2026 01:00 +0000
+  CreatedTime: Jan 05, 2026 18:12 +0000
+  ResourceName: GATech-Buzzard-LIGO-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2326367782
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 12, 2026 13:00 +0000
+  EndTime: Jan 16, 2026 01:00 +0000
+  CreatedTime: Jan 05, 2026 18:12 +0000
+  ResourceName: GATech-Buzzard-OSPool-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2326367783
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 12, 2026 13:00 +0000
+  EndTime: Jan 16, 2026 01:00 +0000
+  CreatedTime: Jan 05, 2026 18:12 +0000
+  ResourceName: GATech-Buzzard-Squid
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2326367784
+  Description: Site-side downtime for systems maintenance
+  Severity: Severe
+  StartTime: Jan 12, 2026 13:00 +0000
+  EndTime: Jan 16, 2026 01:00 +0000
+  CreatedTime: Jan 05, 2026 18:12 +0000
+  ResourceName: GEORGIA_TECH_PACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
