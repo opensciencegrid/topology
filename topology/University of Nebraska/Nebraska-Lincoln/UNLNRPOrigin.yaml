@@ -55,3 +55,29 @@ Resources:
         Description: Nebraska NRP HCC OSDF Origin
     AllowedVOs:
       - ANY
+
+  OSSTORE_HEPSIM_ORIGIN:
+    Active: True
+    Description: OSStore OSDF origin hosting HEPSIM data on NRDStor
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Matyas Selmeci
+          ID: OSG1000002
+        Secondary:
+          Name: John Thiltges
+          ID: OSG1000004
+        Tertiary:
+          Name: Derek Weitzel
+          ID: OSG1000006
+      Security Contact:
+        Primary:
+          Name: Garhan Attebury
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+    FQDN: osstore-hepsim-origin.nationalresearchplatform.org
+    DN: /CN=osstore-hepsim-origin.nationalresearchplatform.org
+    Services:
+      Pelican origin:
+        Description: OSStore OSDF origin hosting HEPSIM data on NRDStor
+    AllowedVOs:
+      - ANY

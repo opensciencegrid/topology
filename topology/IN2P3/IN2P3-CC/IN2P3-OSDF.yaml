@@ -4,7 +4,7 @@ GroupDescription: IN2P3-CC caching infrastructure
 
 Resources:
   IN2P3-CC_OSDF_CACHE:
-    Active: false
+    Active: true
     Description: IN2P3-CC cache
     ContactLists:
       Administrative Contact:
@@ -18,7 +18,7 @@ Resources:
     DN: /DC=org/DC=terena/DC=tcs/C=FR/ST=Paris/O=Centre national de la recherche scientifique/CN=ccstashcacheli01.in2p3.fr
     FQDN: ccstashcacheli01.in2p3.fr
     Services:
-      XRootD cache server:
+      Pelican cache:
         Description: StashCache cache server for IN2P3-CC
     AllowedVOs:
       - LIGO

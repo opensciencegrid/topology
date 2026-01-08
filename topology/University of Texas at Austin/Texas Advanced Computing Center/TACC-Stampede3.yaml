@@ -1,0 +1,22 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: TACC-Stampede3 Hosted CE
+Resources:
+  TACC-Stampede3-CE1:
+    Active: true 
+    Description: The Hosted CE serving TACC-Stampede3
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: tacc-stampede3-ce1.svc.osg-htc.org
+    Services:
+      CE:
+        Description: TACC-Stampede3 Hosted CE
+        Details:
+          hidden: false

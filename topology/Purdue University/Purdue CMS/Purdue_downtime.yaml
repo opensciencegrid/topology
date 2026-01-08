@@ -1679,3 +1679,49 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2189979530
+  Description: Cooling issues in Data-Center
+  Severity: Outage
+  StartTime: Jul 31, 2025 21:00 +0000
+  EndTime: Aug 01, 2025 16:00 +0000
+  CreatedTime: Jul 31, 2025 21:39 +0000
+  ResourceName: Purdue-Gautschi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2201817610
+  Description: Cluster Emergency Maintenance - August 14, 2025 5:00am - August 15, 2025
+    5:00pm EDT
+  Severity: Severe
+  StartTime: Aug 14, 2025 09:00 +0000
+  EndTime: Aug 15, 2025 21:00 +0000
+  CreatedTime: Aug 14, 2025 14:29 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2201818213
+  Description: Cluster Emergency Maintenance - August 14, 2025 5:00am - August 15, 2025
+    5:00pm EDT
+  Severity: Severe
+  StartTime: Aug 14, 2025 09:00 +0000
+  EndTime: Aug 15, 2025 21:00 +0000
+  CreatedTime: Aug 14, 2025 14:30 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2207773497
+  Description: Cluster Maintenance
+  Severity: Severe
+  StartTime: Aug 27, 2025 11:00 +0000
+  EndTime: Aug 27, 2025 21:00 +0000
+  CreatedTime: Aug 21, 2025 11:55 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------

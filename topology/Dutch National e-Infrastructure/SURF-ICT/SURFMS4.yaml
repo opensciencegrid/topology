@@ -2,7 +2,7 @@ Production: true
 SupportCenter: Community Support Center
 GroupDescription: Infrastructure for SURF-MS4
 Resources:
-  SURF_MS4_OSDF_STASHCACHE:
+  SURF_MS4_OSDF_CACHE:
     Active: true
     Description: OSDF Cache at SURF-MS4 for LVK
     ContactLists:
@@ -23,7 +23,7 @@ Resources:
     FQDN: osg-cache.ms4.surfsara.nl
     DN: /DC=org/DC=terena/DC=tcs/C=NL/ST=Utrecht/O=SURF B.V./CN=osg-cache.ms4.surfsara.nl
     Services:
-      XRootD cache server:
+      Pelican cache:
         Description: Cache at SURF-MS4 for LVK
     AllowedVOs:
-      - ANY
+      - LIGO

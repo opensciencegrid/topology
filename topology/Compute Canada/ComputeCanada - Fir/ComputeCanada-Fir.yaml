@@ -1,22 +1,22 @@
+Disable: false
 Production: true
 SupportCenter: Self Supported
-GroupDescription: OSG partition of the Xanadu HPC Cluster
-GroupID: 1113
+GroupDescription: The Compute Canada Fir cluster
 Resources:
-  UConn-Xanadu:
-    Active: false
+  ComputeCanada-Fir: 
+    Description: The Hosted CE serving ComputeCanada-Fir
     ContactLists:
       Administrative Contact:
         Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Ashton Graves
+          ID: OSG1000362
         Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
       Security Contact:
         Primary:
-          Name: Marco Mascheroni
-          ID: 030408ab932e143859b5f97a2d1c9e30ba2a9f0d
+          Name: Ashton Graves
+          ID: OSG1000362
         Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
@@ -24,11 +24,9 @@ Resources:
         Primary:
           Name: Richard T Jones
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
-    Description: HTcondor-CE server for the UConn Xanadu HPC cluster
-    FQDN: hosted-ce25.grid.uchicago.edu
-    ID: 1142
+    FQDN: computecanada-fir-ce1.svc.osg-htc.org
     Services:
       CE:
-        Description: Compute Element
+        Description: ComputeCanada-Fir Hosted CE
         Details:
           hidden: false

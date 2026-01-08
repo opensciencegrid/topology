@@ -4996,3 +4996,399 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728628
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728629
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728630
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728631
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728632
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728633
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2235728634
+  Description: Cluster shutdown due to power outage
+  Severity: Outage
+  StartTime: Sep 22, 2025 20:27 +0000
+  EndTime: Sep 23, 2025 16:00 +0000
+  CreatedTime: Sep 22, 2025 20:27 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2236508383
+  Description: Maintenance after power outage
+  Severity: Intermittent Outage
+  StartTime: Sep 23, 2025 16:00 +0000
+  EndTime: Sep 24, 2025 16:00 +0000
+  CreatedTime: Sep 23, 2025 18:07 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2236508384
+  Description: Maintenance after power outage
+  Severity: Intermittent Outage
+  StartTime: Sep 23, 2025 16:00 +0000
+  EndTime: Sep 24, 2025 16:00 +0000
+  CreatedTime: Sep 23, 2025 18:07 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2236508385
+  Description: Maintenance after power outage
+  Severity: Intermittent Outage
+  StartTime: Sep 23, 2025 16:00 +0000
+  EndTime: Sep 24, 2025 16:00 +0000
+  CreatedTime: Sep 23, 2025 18:07 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2236508386
+  Description: Maintenance after power outage
+  Severity: Intermittent Outage
+  StartTime: Sep 23, 2025 16:00 +0000
+  EndTime: Sep 24, 2025 16:00 +0000
+  CreatedTime: Sep 23, 2025 18:07 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2236508387
+  Description: Maintenance after power outage
+  Severity: Intermittent Outage
+  StartTime: Sep 23, 2025 16:00 +0000
+  EndTime: Sep 24, 2025 16:00 +0000
+  CreatedTime: Sep 23, 2025 18:07 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2236508388
+  Description: Maintenance after power outage
+  Severity: Intermittent Outage
+  StartTime: Sep 23, 2025 16:00 +0000
+  EndTime: Sep 24, 2025 16:00 +0000
+  CreatedTime: Sep 23, 2025 18:07 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2236508389
+  Description: Maintenance after power outage
+  Severity: Intermittent Outage
+  StartTime: Sep 23, 2025 16:00 +0000
+  EndTime: Sep 24, 2025 16:00 +0000
+  CreatedTime: Sep 23, 2025 18:07 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083780
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083781
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083782
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083783
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083784
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083785
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2245083786
+  Description: Netowork outage due to deployment of new DWDM device
+  Severity: Outage
+  StartTime: Oct 07, 2025 12:00 +0000
+  EndTime: Oct 07, 2025 21:00 +0000
+  CreatedTime: Oct 03, 2025 16:19 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263179850
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 24, 2025 14:59 +0000
+  EndTime: Oct 24, 2025 21:00 +0000
+  CreatedTime: Oct 24, 2025 14:59 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263179851
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 24, 2025 14:59 +0000
+  EndTime: Oct 24, 2025 21:00 +0000
+  CreatedTime: Oct 24, 2025 14:59 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263179852
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 24, 2025 14:59 +0000
+  EndTime: Oct 24, 2025 21:00 +0000
+  CreatedTime: Oct 24, 2025 14:59 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263179853
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 24, 2025 14:59 +0000
+  EndTime: Oct 24, 2025 21:00 +0000
+  CreatedTime: Oct 24, 2025 14:59 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263179854
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 24, 2025 14:59 +0000
+  EndTime: Oct 24, 2025 21:00 +0000
+  CreatedTime: Oct 24, 2025 14:59 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263179855
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 24, 2025 14:59 +0000
+  EndTime: Oct 24, 2025 21:00 +0000
+  CreatedTime: Oct 24, 2025 14:59 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263179856
+  Description: network outage
+  Severity: Outage
+  StartTime: Oct 24, 2025 14:59 +0000
+  EndTime: Oct 24, 2025 21:00 +0000
+  CreatedTime: Oct 24, 2025 14:59 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263365260
+  Description: Intermitent failures due to cvmfs stratum one in Brazil
+  Severity: Intermittent Outage
+  StartTime: Oct 24, 2025 21:00 +0000
+  EndTime: Oct 29, 2025 16:00 +0000
+  CreatedTime: Oct 24, 2025 20:08 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263365261
+  Description: Intermitent failures due to cvmfs stratum one in Brazil
+  Severity: Intermittent Outage
+  StartTime: Oct 24, 2025 21:00 +0000
+  EndTime: Oct 29, 2025 16:00 +0000
+  CreatedTime: Oct 24, 2025 20:08 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263365262
+  Description: Intermitent failures due to cvmfs stratum one in Brazil
+  Severity: Intermittent Outage
+  StartTime: Oct 24, 2025 21:00 +0000
+  EndTime: Oct 29, 2025 16:00 +0000
+  CreatedTime: Oct 24, 2025 20:08 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263365263
+  Description: Intermitent failures due to cvmfs stratum one in Brazil
+  Severity: Intermittent Outage
+  StartTime: Oct 24, 2025 21:00 +0000
+  EndTime: Oct 29, 2025 16:00 +0000
+  CreatedTime: Oct 24, 2025 20:08 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263365264
+  Description: Intermitent failures due to cvmfs stratum one in Brazil
+  Severity: Intermittent Outage
+  StartTime: Oct 24, 2025 21:00 +0000
+  EndTime: Oct 29, 2025 16:00 +0000
+  CreatedTime: Oct 24, 2025 20:08 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263365265
+  Description: Intermitent failures due to cvmfs stratum one in Brazil
+  Severity: Intermittent Outage
+  StartTime: Oct 24, 2025 21:00 +0000
+  EndTime: Oct 29, 2025 16:00 +0000
+  CreatedTime: Oct 24, 2025 20:08 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2263365266
+  Description: Intermitent failures due to cvmfs stratum one in Brazil
+  Severity: Intermittent Outage
+  StartTime: Oct 24, 2025 21:00 +0000
+  EndTime: Oct 29, 2025 16:00 +0000
+  CreatedTime: Oct 24, 2025 20:08 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2303048903
+  Description: Upgrade htcondor-ce and condor to OSG 24
+  Severity: Intermittent Outage
+  StartTime: Dec 11, 2025 11:30 +0000
+  EndTime: Dec 11, 2025 21:00 +0000
+  CreatedTime: Dec 09, 2025 18:28 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------

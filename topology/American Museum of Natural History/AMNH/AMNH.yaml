@@ -355,10 +355,37 @@ Resources:
           Name: AMNH OSG Contact List
           ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
 
-    FQDN: amnh-mendel-ce1.svc.opensciencegrid.org
+    FQDN: amnh-mendel-ce1.svc.osg-htc.org
     Services:
       CE:
         Description: American Museum of Natural History Hosted CE for Mendel cluster
+    Tags:
+      - CC*
+
+  AMNH-Huxley-CE1:
+    Active: true
+    Description: Hosted CE for the AMNH Huxley cluster
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Site Contact:
+        Primary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+        Secondary:
+          Name: AMNH OSG Contact List
+          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
+
+    FQDN: amnh-huxley-ce1.svc.osg-htc.org
+    Services:
+      CE:
+        Description: American Museum of Natural History Hosted CE for Huxley cluster
     Tags:
       - CC*
 

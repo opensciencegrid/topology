@@ -1,0 +1,51 @@
+
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: NCSA HTC Campus Cluster
+GroupID: 1367
+
+# Resources contains one or more resources in this
+# ResourceGroup. A resource provides one or more services
+Resources:
+
+  NCSA-campuscluster-login-test:
+    Active: true
+    Description: NCSA campuscluster test access point
+    ID: 10374
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Gregory Daues
+          ID: 24cb9f98f25c1d172e8217b47f5526faab8fdc39
+      Security Contact:
+        Primary:
+          Name: Gregory Daues
+          ID: 24cb9f98f25c1d172e8217b47f5526faab8fdc39
+    FQDN: htc-login-test.campuscluster.illinois.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+
+  NCSA-campuscluster-login1:
+    Active: true
+    Description: NCSA campuscluster login1 access point
+    ID: 10375
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Gregory Daues
+          ID: 24cb9f98f25c1d172e8217b47f5526faab8fdc39
+      Security Contact:
+        Primary:
+          Name: Gregory Daues
+          ID: 24cb9f98f25c1d172e8217b47f5526faab8fdc39
+    FQDN: htc-login1.campuscluster.illinois.edu
+    Services:
+      Submit Node:
+        Description: OS Pool access point
+    Tags:
+      - OSPool
+
+
