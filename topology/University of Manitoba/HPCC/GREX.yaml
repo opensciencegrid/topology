@@ -1,5 +1,4 @@
-GroupDescription: The University of Manitoba GREX cluster
-GroupID: [TO_BE_ASSIGNED_BY_OSG]
+GroupDescription: The University of Manitoba Grex cluster at HPCC
 Production: true
 Resources:
   UniversityOfManitoba-GREX:
@@ -19,9 +18,8 @@ Resources:
         Secondary:
           Name: Kamrul Shaker
           ID: OSG1001354
-    Description: The CE serving UniversityOfManitoba-GREX cluster, providing compute resources for OSG users.
+    Description: The OSG CE for University of Manitoba Grex cluster
     FQDN: grex-osg-ce-01.hpc.umanitoba.ca
-    ID: [TO_BE_ASSIGNED_BY_OSG]
     Services:
       CE:
         Description: Compute Element
