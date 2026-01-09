@@ -1,0 +1,29 @@
+SupportCenter: Self Supported
+GroupDescription: The University of Manitoba Grex cluster at HPCC
+Production: true
+Resources:
+  UniversityOfManitoba-GREX:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1001305
+          Name: Grigory Shamov
+        Secondary:
+          ID: OSG1001354
+          Name: Kamrul Shaker
+      Security Contact:
+        Primary:
+          Name: Grigory Shamov
+          ID: OSG1001305
+        Secondary:
+          Name: Kamrul Shaker
+          ID: OSG1001354
+    Description: The OSG CE for University of Manitoba Grex cluster
+    FQDN: grex-osg-ce-01.hpc.umanitoba.ca
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false
+          sam_uri: htcondor://grex-osg-ce-01.hpc.umanitoba.ca
