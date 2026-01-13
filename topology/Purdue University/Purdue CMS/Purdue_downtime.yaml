@@ -1725,3 +1725,36 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2333391756
+  Description: Datacenter planned maintenance
+  Severity: Outage
+  StartTime: Feb 05, 2026 14:00 +0000
+  EndTime: Feb 05, 2026 22:00 +0000
+  CreatedTime: Jan 13, 2026 21:19 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2333392296
+  Description: Datacenter planned maintenance
+  Severity: Outage
+  StartTime: Feb 05, 2026 14:00 +0000
+  EndTime: Feb 05, 2026 22:00 +0000
+  CreatedTime: Jan 13, 2026 21:20 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2333392610
+  Description: Datacenter planned maintenance
+  Severity: Outage
+  StartTime: Feb 05, 2026 14:00 +0000
+  EndTime: Feb 05, 2026 22:00 +0000
+  CreatedTime: Jan 13, 2026 21:21 +0000
+  ResourceName: Purdue-Gautschi
+  Services:
+  - CE
+# ---------------------------------------------------------
