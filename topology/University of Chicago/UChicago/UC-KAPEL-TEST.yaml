@@ -1,0 +1,26 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: >-
+  Testing EPs for KAPEL integration at UChicago.
+  These report to production so we can cross-check records against GRACC.
+
+Resources:
+  UC-KAPEL-TEST:
+    Active: true
+    Description: EP for testing KAPEL records at UChicago
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fengping Hu
+          ID:  OSG1000068
+
+      Security Contact:
+        Primary:
+          Name: Fengping Hu
+          ID:  OSG1000068
+
+    FQDN: kapel-test-ep.uchicago.edu
+    Services:
+      Execution Endpoint:
+        Description: Execution Endpoint

@@ -113,7 +113,7 @@ Resources:
     Tags:
       - OSPool
 
-  CHTC_OSPOOL_IMAGES_ORIGIN:
+  OSPool-Images-Origin:
     Active: false
     Description: Origin server for OSPool default images
     ContactLists:
@@ -134,10 +134,10 @@ Resources:
         Secondary:
           ID: OSG1000003
           Name: Brian Hua Lin
-    FQDN: ospool-images.chtc.wisc.edu
+    FQDN: ospool-images-origin.osg-htc.org
     FQDNAliases:
-      - ospool-images.osg-htc.org
-      - ospool-images-origin.osdf-prod.chtc.io
+      - ospool-images-origin.osg-htc.org
+      - ospool-images-origin.osg-services.chtc.io
     Services:
       Pelican origin:
         Description: Pelican origin

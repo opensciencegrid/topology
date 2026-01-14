@@ -302,4 +302,42 @@ Resources:
       StorageCapacityMax: 0
       StorageCapacityMin: 0
       TapeCapacity: 0
+  coffea-casa-cms:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000235
+          Name: Sam Albin
+        Secondary:
+          ID:  OSG1000006
+          Name: Derek Weitzel
+      Security Contact:
+        Primary:
+          ID: OSG1000235
+          Name: Sam Albin
+        Secondary:
+          ID:  OSG1000006
+          Name: Derek Weitzel
+    Description: Nebraska CMS Tier-2 Kubernetes queue
+    FQDN: coffea.casa  # placeholder
+    Services:
+      Execution Endpoint:
+        Description: Container-based US CMS Tier-2 pilots
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+    WLCGInformation:
+      APELNormalFactor: 10.62
+      AccountingName: T2_US_Nebraska
+      HEPSPEC: 100245
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 500
+      KSI2KMin: 100
+      StorageCapacityMax: 0
+      StorageCapacityMin: 0
+      TapeCapacity: 0
 SupportCenter: USCMS_Tier2
