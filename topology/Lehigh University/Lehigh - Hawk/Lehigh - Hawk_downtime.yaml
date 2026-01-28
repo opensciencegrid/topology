@@ -163,4 +163,15 @@
   Services:
   - XRootD cache server
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2345387897
+  Description: Offline - checking with the admin
+  Severity: Outage
+  StartTime: Jan 26, 2026 03:00 +0000
+  EndTime: Feb 06, 2026 03:00 +0000
+  CreatedTime: Jan 27, 2026 18:33 +0000
+  ResourceName: LEHIGH-HAWK-OSDF-CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
 
