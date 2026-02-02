@@ -152,48 +152,45 @@ def filter_contacts(args, results):
 
     return results
 
+def get_topology_pool_manager(args) -> "TopologyPoolManager":
+    """
+    Return a TopologyPoolManager object, optionally configured with x509 certificate auth.
+    """
+    euid = os.geteuid()
+    if euid == 0:
+        cert = '/etc/grid-security/hostcert.pem'
+        key = '/etc/grid-security/hostkey.pem'
+    else:
+        cert = f'/tmp/x509up_u{euid}'
+        key = f'/tmp/x509up_u{euid}'
+
+    cert = os.environ.get('X509_USER_PROXY', cert)
+    key = os.environ.get('X509_USER_PROXY', key)
+
+    if args.cert:
+        cert = args.cert
+    if args.key:
+        key = args.key
+
+    kwargs = {}
+    if os.path.exists(cert):
+        kwargs["cert_file"] = cert
+    else:
+        raise InvalidPathError(f"Error: could not find cert at {cert}")
+
+    if os.path.exists(key):
+        kwargs["key_file"] = key
+    else:
+        raise InvalidPathError(f"Error: could not find key at {key}")
+
+    kwargs['cert_reqs'] = 'CERT_REQUIRED'
+    kwargs['key_password'] = getpass("decryption password: ")
+    return TopologyPoolManager(**kwargs)
 
 class TopologyPoolManager(urllib3.PoolManager):
 
-    def __init__(self):
-        self.session = False
-        super().__init__()
-
-    def get_auth_session(self, args):
-        """
-        Return a requests session ready for an XML query.
-        """
-        euid = os.geteuid()
-        if euid == 0:
-            cert = '/etc/grid-security/hostcert.pem'
-            key = '/etc/grid-security/hostkey.pem'
-        else:
-            cert = f'/tmp/x509up_u{euid}'
-            key = f'/tmp/x509up_u{euid}'
-
-        cert = os.environ.get('X509_USER_PROXY', cert)
-        key = os.environ.get('X509_USER_PROXY', key)
-
-        if args.cert:
-            cert = args.cert
-        if args.key:
-            key = args.key
-
-        session = {}
-        if os.path.exists(cert):
-            session["cert_file"] = cert
-        else:
-            raise InvalidPathError(f"Error: could not find cert at {cert}")
-
-        if os.path.exists(key):
-            session["key_file"] = key
-        else:
-            raise InvalidPathError(f"Error: could not find key at {key}")
-
-        session['cert_reqs'] = 'CERT_REQUIRED'
-        session['key_password'] = getpass("decryption password: ")
-        super().__dict__.update(**session)
-        return True
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     def get_vo_map(self,args):
         """
@@ -205,11 +202,8 @@ class TopologyPoolManager(urllib3.PoolManager):
 
         url = update_url_hostname("https://topology.opensciencegrid.org/vosummary"
                                 "/xml?all_vos=on&active_value=1", args)
-        if not self.session:
-            self.session = self.get_auth_session(args)
-            response = self.request('GET',url)
-        else:
-            response = self.request('GET',url)
+
+        response = self.request('GET',url)
 
         if old_no_proxy is not None:
             os.environ['no_proxy'] = old_no_proxy
@@ -295,8 +289,7 @@ class TopologyPoolManager(urllib3.PoolManager):
 
         base_url = "https://topology.opensciencegrid.org/" + urltype + "summary/xml?" \
                 "&active=on&active_value=1&disable=on&disable_value=0"
-        if(not self.session):
-            self.session = self.get_auth_session(args)
+
         url = self.mangle_url(base_url, args)
         try:
             response = self.request('GET',url)
