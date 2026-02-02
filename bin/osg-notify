@@ -22,7 +22,7 @@ if __name__ == "__main__" and __package__ is None:
     sys.path.append(_parent + "/src")
 
 import topology_utils
-from topology_utils import TopologyPoolManager
+from topology_utils import get_topology_pool_manager
 import net_name_addr_utils
 
 # Parts of this implementation are from the following StackOverflow answer:
@@ -183,7 +183,7 @@ def has_non_printable_ascii_characters(contents):
 
 def main():
     args = parseargs()
-    pm = TopologyPoolManager()
+    pm = get_topology_pool_manager(args)
     recipients = set(args.recipients.split())
     if args.oim_recipients and 'vos' in args.oim_recipients:
         attempts = 3
