@@ -16,10 +16,7 @@ RUN \
       mod_ssl \
       gridsite \
       /usr/bin/pkill \
-      # XXX remove the versionlock once we no longer use CILogon certs \
-      'osg-ca-certs-1.135' \
-      'dnf-command(versionlock)' \
-    && yum versionlock osg-ca-certs \
+      osg-ca-certs \
     && yum install -y --enablerepo=osg-internal \
       osg-internal-cas \
     && yum clean all && rm -rf /var/cache/yum/*
