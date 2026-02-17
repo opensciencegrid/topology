@@ -108,5 +108,27 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2340341254
+  Description: Offline- checking with the NRP team
+  Severity: Outage
+  StartTime: Jan 20, 2026 08:00 +0000
+  EndTime: Jan 26, 2026 08:00 +0000
+  CreatedTime: Jan 21, 2026 22:22 +0000
+  ResourceName: Stashcache-UofA
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2359043158
+  Description: 'Node is not reachable  '
+  Severity: Outage
+  StartTime: Feb 11, 2026 06:01 +0000
+  EndTime: Feb 12, 2026 06:01 +0000
+  CreatedTime: Feb 12, 2026 13:51 +0000
+  ResourceName: Stashcache-UofA
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
 
 

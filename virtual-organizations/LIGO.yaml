@@ -62,9 +62,7 @@ OASIS:
         Clark 4038
       ID: 504894b714071a10a647aaaa4e1fe7ee3186430b
   OASISRepoURLs:
-  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/ligo.osgstorage.org
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/gwosc.osgstorage.org
-  - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/igwn.osgstorage.org
   - http://cvmfs-software.ligo.caltech.edu:8000/cvmfs/software.igwn.org
   UseOASIS: true
 PrimaryURL: http://www.ligo.org
@@ -146,7 +144,7 @@ DataFederations:
         AllowedOrigins:
           - UCL-Virgo-StashCache-Origin
         AllowedCaches: *ligo-allowed-caches
-        DirList: https://ingrid-se09.cism.ucl.ac.be:1095
+        DirList: https://ingrid-osdf.cism.ucl.ac.be:1095
       - Path: /igwn/ligo
         Authorizations:
           - DN: /DC=org/DC=incommon/C=US/ST=Nebraska/O=University of Nebraska-Lincoln/CN=hcc-cvmfs-repo.unl.edu

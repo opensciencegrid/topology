@@ -5392,3 +5392,157 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2357354185
+  Description: 'UPS system battery replacement '
+  Severity: Outage
+  StartTime: Feb 12, 2026 09:00 +0000
+  EndTime: Feb 12, 2026 22:00 +0000
+  CreatedTime: Feb 10, 2026 14:56 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2357354186
+  Description: 'UPS system battery replacement '
+  Severity: Outage
+  StartTime: Feb 12, 2026 09:00 +0000
+  EndTime: Feb 12, 2026 22:00 +0000
+  CreatedTime: Feb 10, 2026 14:56 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2357354187
+  Description: 'UPS system battery replacement '
+  Severity: Outage
+  StartTime: Feb 12, 2026 09:00 +0000
+  EndTime: Feb 12, 2026 22:00 +0000
+  CreatedTime: Feb 10, 2026 14:56 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2357354188
+  Description: 'UPS system battery replacement '
+  Severity: Outage
+  StartTime: Feb 12, 2026 09:00 +0000
+  EndTime: Feb 12, 2026 22:00 +0000
+  CreatedTime: Feb 10, 2026 14:56 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2357354189
+  Description: 'UPS system battery replacement '
+  Severity: Outage
+  StartTime: Feb 12, 2026 09:00 +0000
+  EndTime: Feb 12, 2026 22:00 +0000
+  CreatedTime: Feb 10, 2026 14:56 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2357354190
+  Description: 'UPS system battery replacement '
+  Severity: Outage
+  StartTime: Feb 12, 2026 09:00 +0000
+  EndTime: Feb 12, 2026 22:00 +0000
+  CreatedTime: Feb 10, 2026 14:56 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2357354191
+  Description: 'UPS system battery replacement '
+  Severity: Outage
+  StartTime: Feb 12, 2026 09:00 +0000
+  EndTime: Feb 12, 2026 22:00 +0000
+  CreatedTime: Feb 10, 2026 14:56 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2359270057
+  Description: Extended due to issues with one storage after an upgrade
+  Severity: Outage
+  StartTime: Feb 12, 2026 22:00 +0000
+  EndTime: Feb 13, 2026 21:00 +0000
+  CreatedTime: Feb 12, 2026 20:10 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2359270058
+  Description: Extended due to issues with one storage after an upgrade
+  Severity: Outage
+  StartTime: Feb 12, 2026 22:00 +0000
+  EndTime: Feb 13, 2026 21:00 +0000
+  CreatedTime: Feb 12, 2026 20:10 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2359270059
+  Description: Extended due to issues with one storage after an upgrade
+  Severity: Outage
+  StartTime: Feb 12, 2026 22:00 +0000
+  EndTime: Feb 13, 2026 21:00 +0000
+  CreatedTime: Feb 12, 2026 20:10 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2359270060
+  Description: Extended due to issues with one storage after an upgrade
+  Severity: Outage
+  StartTime: Feb 12, 2026 22:00 +0000
+  EndTime: Feb 13, 2026 21:00 +0000
+  CreatedTime: Feb 12, 2026 20:10 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2359270061
+  Description: Extended due to issues with one storage after an upgrade
+  Severity: Outage
+  StartTime: Feb 12, 2026 22:00 +0000
+  EndTime: Feb 13, 2026 21:00 +0000
+  CreatedTime: Feb 12, 2026 20:10 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2359270062
+  Description: Extended due to issues with one storage after an upgrade
+  Severity: Outage
+  StartTime: Feb 12, 2026 22:00 +0000
+  EndTime: Feb 13, 2026 21:00 +0000
+  CreatedTime: Feb 12, 2026 20:10 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2359270063
+  Description: Extended due to issues with one storage after an upgrade
+  Severity: Outage
+  StartTime: Feb 12, 2026 22:00 +0000
+  EndTime: Feb 13, 2026 21:00 +0000
+  CreatedTime: Feb 12, 2026 20:10 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
