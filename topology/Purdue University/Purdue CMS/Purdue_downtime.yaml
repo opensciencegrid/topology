@@ -1791,3 +1791,138 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2364388943
+  Description: Full power downtime in one of our data centers
+  Severity: Outage
+  StartTime: Mar 04, 2026 23:00 +0000
+  EndTime: Mar 05, 2026 17:00 +0000
+  CreatedTime: Feb 18, 2026 18:21 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2364388944
+  Description: Full power downtime in one of our data centers
+  Severity: Outage
+  StartTime: Mar 04, 2026 23:00 +0000
+  EndTime: Mar 05, 2026 17:00 +0000
+  CreatedTime: Feb 18, 2026 18:21 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2364388945
+  Description: Full power downtime in one of our data centers
+  Severity: Outage
+  StartTime: Mar 04, 2026 23:00 +0000
+  EndTime: Mar 05, 2026 17:00 +0000
+  CreatedTime: Feb 18, 2026 18:21 +0000
+  ResourceName: Purdue-EOS-SE
+  Services:
+  - XRootD component
+  - WebDAV
+  - EOS
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2364388946
+  Description: Full power downtime in one of our data centers
+  Severity: Outage
+  StartTime: Mar 04, 2026 23:00 +0000
+  EndTime: Mar 05, 2026 17:00 +0000
+  CreatedTime: Feb 18, 2026 18:21 +0000
+  ResourceName: Purdue-Gautschi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2364388947
+  Description: Full power downtime in one of our data centers
+  Severity: Outage
+  StartTime: Mar 04, 2026 23:00 +0000
+  EndTime: Mar 05, 2026 17:00 +0000
+  CreatedTime: Feb 18, 2026 18:21 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2364388948
+  Description: Full power downtime in one of our data centers
+  Severity: Outage
+  StartTime: Mar 04, 2026 23:00 +0000
+  EndTime: Mar 05, 2026 17:00 +0000
+  CreatedTime: Feb 18, 2026 18:21 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2364388949
+  Description: Full power downtime in one of our data centers
+  Severity: Outage
+  StartTime: Mar 04, 2026 23:00 +0000
+  EndTime: Mar 05, 2026 17:00 +0000
+  CreatedTime: Feb 18, 2026 18:21 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2364388950
+  Description: Full power downtime in one of our data centers
+  Severity: Outage
+  StartTime: Mar 04, 2026 23:00 +0000
+  EndTime: Mar 05, 2026 17:00 +0000
+  CreatedTime: Feb 18, 2026 18:21 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2364388951
+  Description: Full power downtime in one of our data centers
+  Severity: Outage
+  StartTime: Mar 04, 2026 23:00 +0000
+  EndTime: Mar 05, 2026 17:00 +0000
+  CreatedTime: Feb 18, 2026 18:21 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2364388952
+  Description: Full power downtime in one of our data centers
+  Severity: Outage
+  StartTime: Mar 04, 2026 23:00 +0000
+  EndTime: Mar 05, 2026 17:00 +0000
+  CreatedTime: Feb 18, 2026 18:21 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2364388953
+  Description: Full power downtime in one of our data centers
+  Severity: Outage
+  StartTime: Mar 04, 2026 23:00 +0000
+  EndTime: Mar 05, 2026 17:00 +0000
+  CreatedTime: Feb 18, 2026 18:21 +0000
+  ResourceName: US-Purdue BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2364388954
+  Description: Full power downtime in one of our data centers
+  Severity: Outage
+  StartTime: Mar 04, 2026 23:00 +0000
+  EndTime: Mar 05, 2026 17:00 +0000
+  CreatedTime: Feb 18, 2026 18:21 +0000
+  ResourceName: US-Purdue LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+
