@@ -2042,6 +2042,66 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2365051700
+  Description: We will need to perform some operations that will require our infrastrucure
+    to be shut down
+  Severity: Outage
+  StartTime: Feb 23, 2026 10:00 +0000
+  EndTime: Feb 27, 2026 20:00 +0000
+  CreatedTime: Feb 19, 2026 12:46 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2365051873
+  Description: We will need to perform some operations that will require our infrastrucure
+    to be shut down
+  Severity: Outage
+  StartTime: Feb 23, 2026 10:00 +0000
+  EndTime: Feb 27, 2026 20:00 +0000
+  CreatedTime: Feb 19, 2026 12:46 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2365051955
+  Description: We will need to perform some operations that will require our infrastrucure
+    to be shut down
+  Severity: Outage
+  StartTime: Feb 23, 2026 10:00 +0000
+  EndTime: Feb 27, 2026 20:00 +0000
+  CreatedTime: Feb 19, 2026 12:46 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2365052031
+  Description: We will need to perform some operations that will require our infrastrucure
+    to be shut down
+  Severity: Outage
+  StartTime: Feb 23, 2026 10:00 +0000
+  EndTime: Feb 27, 2026 20:00 +0000
+  CreatedTime: Feb 19, 2026 12:46 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2365052106
+  Description: We will need to perform some operations that will require our infrastrucure
+    to be shut down
+  Severity: Outage
+  StartTime: Feb 23, 2026 10:00 +0000
+  EndTime: Feb 27, 2026 20:00 +0000
+  CreatedTime: Feb 19, 2026 12:46 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
 
 
