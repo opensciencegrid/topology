@@ -5546,3 +5546,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2371179743
+  Description: Move to native xrootd doors of dCache on our storage element
+  Severity: Intermittent Outage
+  StartTime: Feb 26, 2026 14:59 +0000
+  EndTime: Feb 27, 2026 21:00 +0000
+  CreatedTime: Feb 26, 2026 14:59 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2371179744
+  Description: Move to native xrootd doors of dCache on our storage element
+  Severity: Intermittent Outage
+  StartTime: Feb 26, 2026 14:59 +0000
+  EndTime: Feb 27, 2026 21:00 +0000
+  CreatedTime: Feb 26, 2026 14:59 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2371179745
+  Description: Move to native xrootd doors of dCache on our storage element
+  Severity: Intermittent Outage
+  StartTime: Feb 26, 2026 14:59 +0000
+  EndTime: Feb 27, 2026 21:00 +0000
+  CreatedTime: Feb 26, 2026 14:59 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2371179746
+  Description: Move to native xrootd doors of dCache on our storage element
+  Severity: Intermittent Outage
+  StartTime: Feb 26, 2026 14:59 +0000
+  EndTime: Feb 27, 2026 21:00 +0000
+  CreatedTime: Feb 26, 2026 14:59 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2371179747
+  Description: Move to native xrootd doors of dCache on our storage element
+  Severity: Intermittent Outage
+  StartTime: Feb 26, 2026 14:59 +0000
+  EndTime: Feb 27, 2026 21:00 +0000
+  CreatedTime: Feb 26, 2026 14:59 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2371179748
+  Description: Move to native xrootd doors of dCache on our storage element
+  Severity: Intermittent Outage
+  StartTime: Feb 26, 2026 14:59 +0000
+  EndTime: Feb 27, 2026 21:00 +0000
+  CreatedTime: Feb 26, 2026 14:59 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2371179749
+  Description: Move to native xrootd doors of dCache on our storage element
+  Severity: Intermittent Outage
+  StartTime: Feb 26, 2026 14:59 +0000
+  EndTime: Feb 27, 2026 21:00 +0000
+  CreatedTime: Feb 26, 2026 14:59 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
