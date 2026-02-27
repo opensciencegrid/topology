@@ -19,7 +19,84 @@
   Services:
   - CE
   Severity: Outage
-  StartTime: Feb 25, 2017 03:30 +0000
+  StartTime: Feb 25, 20- Class: UNSCHEDULED
+  ID: 2372135365
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135366
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135367
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135368
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135369
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135370
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135371
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+17 03:30 +0000
 # ----------------------------------------------------------
 - Class: UNSCHEDULED
   Description: |-
@@ -5619,6 +5696,83 @@
   StartTime: Feb 26, 2026 14:59 +0000
   EndTime: Feb 27, 2026 21:00 +0000
   CreatedTime: Feb 26, 2026 14:59 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135365
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135366
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135367
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135368
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135369
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135370
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372135371
+  Description: Migration do xrootd dcache doors won't be finished today
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 17:32 +0000
   ResourceName: T2_BR_SPRACE-squid2
   Services:
   - Squid
