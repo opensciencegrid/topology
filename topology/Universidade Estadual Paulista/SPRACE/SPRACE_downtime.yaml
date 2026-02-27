@@ -5623,3 +5623,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372255943
+  Description: ' still working on xrootd standalone to dcache xrootd door migration'
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 20:53 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372255944
+  Description: ' still working on xrootd standalone to dcache xrootd door migration'
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 20:53 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372255945
+  Description: ' still working on xrootd standalone to dcache xrootd door migration'
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 20:53 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372255946
+  Description: ' still working on xrootd standalone to dcache xrootd door migration'
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 20:53 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372255947
+  Description: ' still working on xrootd standalone to dcache xrootd door migration'
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 20:53 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372255948
+  Description: ' still working on xrootd standalone to dcache xrootd door migration'
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 20:53 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2372255949
+  Description: ' still working on xrootd standalone to dcache xrootd door migration'
+  Severity: Intermittent Outage
+  StartTime: Feb 27, 2026 21:00 +0000
+  EndTime: Mar 03, 2026 16:00 +0000
+  CreatedTime: Feb 27, 2026 20:53 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
