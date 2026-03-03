@@ -11,16 +11,3 @@ FieldsOfScience:
     - Cancer research
     - Geosciences
 LongName: University of Hawaii System
-DataFederations:
-  Pelican origin:
-    Namespaces:
-      - Path: /uhitc
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - ITC_OSDF_ORIGIN
-      - Path: /uhkoa
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - KOASTORE_OSDF_ORIGIN
