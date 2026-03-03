@@ -5700,3 +5700,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2375539488
+  Description: Still have some issues with new dCache installation
+  Severity: Intermittent Outage
+  StartTime: Mar 03, 2026 16:00 +0000
+  EndTime: Mar 05, 2026 21:00 +0000
+  CreatedTime: Mar 03, 2026 16:05 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2375539489
+  Description: Still have some issues with new dCache installation
+  Severity: Intermittent Outage
+  StartTime: Mar 03, 2026 16:00 +0000
+  EndTime: Mar 05, 2026 21:00 +0000
+  CreatedTime: Mar 03, 2026 16:05 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2375539490
+  Description: Still have some issues with new dCache installation
+  Severity: Intermittent Outage
+  StartTime: Mar 03, 2026 16:00 +0000
+  EndTime: Mar 05, 2026 21:00 +0000
+  CreatedTime: Mar 03, 2026 16:05 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2375539491
+  Description: Still have some issues with new dCache installation
+  Severity: Intermittent Outage
+  StartTime: Mar 03, 2026 16:00 +0000
+  EndTime: Mar 05, 2026 21:00 +0000
+  CreatedTime: Mar 03, 2026 16:05 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2375539492
+  Description: Still have some issues with new dCache installation
+  Severity: Intermittent Outage
+  StartTime: Mar 03, 2026 16:00 +0000
+  EndTime: Mar 05, 2026 21:00 +0000
+  CreatedTime: Mar 03, 2026 16:05 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2375539493
+  Description: Still have some issues with new dCache installation
+  Severity: Intermittent Outage
+  StartTime: Mar 03, 2026 16:00 +0000
+  EndTime: Mar 05, 2026 21:00 +0000
+  CreatedTime: Mar 03, 2026 16:05 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2375539494
+  Description: Still have some issues with new dCache installation
+  Severity: Intermittent Outage
+  StartTime: Mar 03, 2026 16:00 +0000
+  EndTime: Mar 05, 2026 21:00 +0000
+  CreatedTime: Mar 03, 2026 16:05 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
