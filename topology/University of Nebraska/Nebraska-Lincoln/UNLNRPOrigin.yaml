@@ -107,3 +107,23 @@ Resources:
         Description: OSStore OSDF origin hosting HEPSIM data on NRDStor
     AllowedVOs:
       - ANY
+
+  UNL_NRP_OSDF_XENON_ORIGIN:
+    Active: true
+    Description: UNL NRP OSDF Xenon Origin
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+    DN: /CN=unl-xenon-origin.nationalresearchplatform.org
+    FQDN: unl-xenon-origin.nationalresearchplatform.org
+    Services:
+      XRootD origin server:
+        Description: UNL NRP OSDF Xenon Origin
+    AllowedVOs:
+      - ANY
