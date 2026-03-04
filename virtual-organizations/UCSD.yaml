@@ -14,59 +14,7 @@ Contacts:
   VO Manager:
   - ID: OSG1000162
     Name: Fabio Andrijauskas 
-Credentials:
-  TokenIssuers:
-    - URL: https://scitokens.org/ucsd
-      DefaultUnixUser: ucsd
-Disable: false
 FieldsOfScience:
   PrimaryFields:
   - Multi-Science Community
-ID: 234
 LongName: UCSD multiple sciences origin
-DataFederations:
-  StashCache:
-    Namespaces:
-      - Path: /ucsd/physics
-        Authorizations:
-           - SciTokens:
-              Issuer: https://t.nationalresearchplatform.org/ucsdphysics
-              Base Path: /ucsd/physics
-              Map Subject: False
-           - PUBLIC
-        AllowedOrigins:
-          - SDSC_NRP_OSDF_ORIGIN
-        AllowedCaches:
-          - ANY
-      - Path: /caida/protected
-        Authorizations:
-           - SciTokens:
-              Issuer: https://osg-htc.org/osdf/caida
-              Base Path: /caida/protected
-              Map Subject: False
-        AllowedOrigins:
-          - SDSC_NRP_OSDF_ORIGIN
-        AllowedCaches:
-          - ANY
-      - Path: /ndp/burnpro3d
-        Authorizations:
-           - SciTokens:
-              Issuer: https://osg-htc.org/osdf/burnpro3d
-              Base Path: /ndp/burnpro3d
-              Map Subject: False
-           - PUBLIC
-        AllowedOrigins:
-          - SDSC_NRP_OSDF_ORIGIN
-        AllowedCaches:
-          - ANY
-      - Path: /ndp/keycloak-testing
-        Authorizations:
-           - SciTokens:
-              Issuer: https://idp.nationaldataplatform.org/auth/realms/ndp
-              Base Path: /ndp/keycloak-testing
-              Map Subject: False
-        AllowedOrigins:
-          - SDSC_NRP_OSDF_ORIGIN
-          - NEBRASKA_NRP_OSDF_ORIGIN
-        AllowedCaches:
-          - ANY
