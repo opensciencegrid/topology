@@ -21,18 +21,3 @@ FieldsOfScience:
   PrimaryFields:
   - Multi-Science Community
 LongName: National Center for Atmospheric Research
-PrimaryURL: https://ncar.ucar.edu/
-DataFederations:
-  StashCache:
-    Namespaces:
-      - Path: /ncar
-        Authorizations:
-           - SciTokens:
-              Issuer: https://ncar.ucar.edu/
-              Base Path: /ncar
-              Map Subject: False
-           - PUBLIC
-        AllowedOrigins:
-          - NCAR_OSDF_ORIGIN
-        AllowedCaches:
-          - ANY
