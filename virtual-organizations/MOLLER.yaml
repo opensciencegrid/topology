@@ -101,23 +101,3 @@ SupportURL: https://moller.jlab.org/wiki/index.php/Main_Page
 #   # OASISRepoURLs:
 #   # - <URL>
 #   # - ...
-
-### DataFederations (optional) is information about data federations that the VO is part of
-### This template is for the StashCache data federation; for instructions,
-### see the documentation at https://opensciencegrid.org/docs/data/stashcache/vo-data/
-# DataFederations:
-#   StashCache:
-#     Namespaces:
-#       - Path: /<VONAME>/PUBLIC:
-#         Authorizations:
-#           - PUBLIC
-#         AllowedOrigins:
-#           - <ORIGIN_RESOURCE>
-#           - ...
-### For AllowedCaches, if you only have public data, use:
-#         AllowedCaches:
-#           - ANY
-### otherwise use:
-#         AllowedCaches:
-#           - <CACHE_RESOURCE>
-#           - ...
