@@ -48,14 +48,3 @@ FieldsOfScience:
 PrimaryURL: http://www.jlab.org/div_dept/cio/index.html
 ReportingGroups:
 - JLab
-DataFederations:
-  StashCache:
-    Namespaces:
-      /jlab:
-        - PUBLIC
-      /eic:
-        - PUBLIC
-    AllowedCaches:
-      - ANY
-    AllowedOrigins:
-      - JLab-StashCache-Origin
