@@ -770,8 +770,8 @@ class TestEndpointContent:
         assert len(institutions) > 0
 
         # Check facilities exist and have the "have resources" bit flipped
-        assert [i for i in institutions if i[0] == "JINR"][0][1]
-        assert [i for i in institutions if i[0] == "Universidade de São Paulo - Laboratório de Computação Científica Avançada"][0][1]
+        assert [i for i in institutions if i[0] == "Joint Institute for Nuclear Research"][0][1]
+        assert [i for i in institutions if i[0] == "Universidade de São Paulo"][0][1]
 
         # Project Organizations exist and have "has project" bit flipped
         assert [i for i in institutions if i[0] == "Iolani School"][0][2]
