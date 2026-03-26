@@ -2102,6 +2102,61 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2395331236
+  Description: We need to check our storage for problems as the warranty is expiring.
+  Severity: Outage
+  StartTime: Mar 27, 2026 12:00 +0000
+  EndTime: Mar 30, 2026 20:00 +0000
+  CreatedTime: Mar 26, 2026 13:52 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2395331591
+  Description: We need to check our storage for problems as the warranty is expiring.
+  Severity: Outage
+  StartTime: Mar 27, 2026 12:00 +0000
+  EndTime: Mar 30, 2026 20:00 +0000
+  CreatedTime: Mar 26, 2026 13:52 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2395331670
+  Description: We need to check our storage for problems as the warranty is expiring.
+  Severity: Outage
+  StartTime: Mar 27, 2026 12:00 +0000
+  EndTime: Mar 30, 2026 20:00 +0000
+  CreatedTime: Mar 26, 2026 13:52 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2395331740
+  Description: We need to check our storage for problems as the warranty is expiring.
+  Severity: Outage
+  StartTime: Mar 27, 2026 12:00 +0000
+  EndTime: Mar 30, 2026 20:00 +0000
+  CreatedTime: Mar 26, 2026 13:52 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2395331818
+  Description: We need to check our storage for problems as the warranty is expiring.
+  Severity: Outage
+  StartTime: Mar 27, 2026 12:00 +0000
+  EndTime: Mar 30, 2026 20:00 +0000
+  CreatedTime: Mar 26, 2026 13:53 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
 
 
