@@ -19,7 +19,7 @@ def get_contact_cilogon_id_map(global_data):
 # cilogon ldap query constants
 #_ldap_url = "ldaps://ldap.cilogon.org"
 #_username = "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org"
-_cilogon_basedn   = "ou=people,o=OSG,o=CO,dc=cilogon,dc=org"
+_cilogon_basedn   = "ou=people,dc=osg-htc,dc=org"
 
 # Filter on all (CO Persons with status == Active) AND
 # (is an active member of the Topology Contacts COU or OASIS Managers COU)
