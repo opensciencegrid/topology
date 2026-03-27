@@ -74,9 +74,8 @@ class GlobalData:
         config.setdefault("TOPOLOGY_DATA_DIR", ".")
         config.setdefault("CONTACT_DATA_DIR", None)
         config.setdefault("INSTITUTIONS_API", "https://topology-institutions.osg-htc.org/api")
-        config.setdefault("CILOGON_LDAP_URL", "ldaps://ldap.cilogon.org")
-        config.setdefault("CILOGON_LDAP_USER",
-                "uid=readonly_user,ou=system,o=OSG,o=CO,dc=cilogon,dc=org")
+        config.setdefault("OSG_LDAP_URL", "ldaps://ldap-replica-1.osg.chtc.io")
+        config.setdefault("OSG_LDAP_USER", "cn=readonly,ou=system,dc=osg-htc,dc=org")
         config.setdefault("LIGO_LDAP_URL", "ldaps://ldap.ligo.org")
         config.setdefault("LIGO_LDAP_USER", "uid=osg-services-brian-lin,ou=system,dc=ligo,dc=org")
         config.setdefault("NO_GIT", True)
@@ -102,9 +101,9 @@ class GlobalData:
         self.webhook_secret_key = config.get("WEBHOOK_SECRET_KEY")
         self.webhook_gh_api_user = config.get("WEBHOOK_GH_API_USER")
         self.webhook_gh_api_token = config.get("WEBHOOK_GH_API_TOKEN")
-        self.cilogon_ldap_passfile = config.get("CILOGON_LDAP_PASSFILE")
-        self.cilogon_ldap_url = config.get("CILOGON_LDAP_URL")
-        self.cilogon_ldap_user = config.get("CILOGON_LDAP_USER")
+        self.osg_ldap_passfile = config.get("OSG_LDAP_PASSFILE")
+        self.osg_ldap_url = config.get("OSG_LDAP_URL")
+        self.osg_ldap_user = config.get("OSG_LDAP_USER")
         self.ligo_ldap_passfile = config.get("LIGO_LDAP_PASSFILE")
         self.ligo_ldap_url = config.get("LIGO_LDAP_URL")
         self.ligo_ldap_user = config.get("LIGO_LDAP_USER")
@@ -215,19 +214,19 @@ class GlobalData:
 
     def get_comanage_data(self) -> Optional[ContactsData]:
         """
-        Get the contact information from comanage / cilogon ldap
+        Get the contact information from the OSG LDAP.
         May return None if we fail to get the data for the first time.
         """
-        if not (self.cilogon_ldap_url and self.cilogon_ldap_user and
-                self.cilogon_ldap_passfile):
-            log.debug("CILOGON_LDAP_{URL|USER|PASSFILE} not specified; "
+        if not (self.osg_ldap_url and self.osg_ldap_user and
+                self.osg_ldap_passfile):
+            log.debug("OSG_LDAP_{URL|USER|PASSFILE} not specified; "
                       "getting empty contacts")
             data = contacts_reader.get_contacts_data(None)
             self.comanage_data.update(data)
         elif self.comanage_data.should_update():
             with comanage_update_summary.time():
                 try:
-                    idmap = self.get_cilogon_ldap_id_map()
+                    idmap = self.get_osg_ldap_id_map()
                     data = ldap_data.cilogon_id_map_to_yaml_data(idmap)
                     self.comanage_data.update(ContactsData(data))
                 except Exception as err:
@@ -238,11 +237,11 @@ class GlobalData:
 
         return self.comanage_data.data
 
-    def get_cilogon_ldap_id_map(self):
-        url = self.cilogon_ldap_url
-        user = self.cilogon_ldap_user
-        ldappass = readfile(self.cilogon_ldap_passfile, log)
-        return ldap_data.get_cilogon_ldap_id_map(url, user, ldappass)
+    def get_osg_ldap_id_map(self):
+        url = self.osg_ldap_url
+        user = self.osg_ldap_user
+        ldappass = readfile(self.osg_ldap_passfile, log)
+        return ldap_data.get_osg_ldap_id_map(url, user, ldappass)
 
     def get_contacts_data(self) -> Optional[ContactsData]:
         """

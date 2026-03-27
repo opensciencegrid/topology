@@ -76,9 +76,9 @@ if "LOGLEVEL" in app.config:
 
 global_data = GlobalData(app.config, strict=app.config.get("STRICT", app.debug))
 
-cilogon_pass = readfile(global_data.cilogon_ldap_passfile, app.logger)
+cilogon_pass = readfile(global_data.osg_ldap_passfile, app.logger)
 if not cilogon_pass:
-    app.logger.warning("Note, no CILOGON_LDAP_PASSFILE configured; "
+    app.logger.warning("Note, no OSG_LDAP_PASSFILE configured; "
                        "OASIS Manager ssh key lookups will be unavailable.")
 
 ligo_pass = readfile(global_data.ligo_ldap_passfile, app.logger)
@@ -584,7 +584,7 @@ def oasis_managers():
     if not vo:
         return Response("'vo' argument is required", status=400)
     if not cilogon_pass:
-        return Response("CILOGON_LDAP_PASSFILE not configured; "
+        return Response("OSG_LDAP_PASSFILE not configured; "
                         "OASIS Managers info unavailable", status=503)
     mgrs = get_oasis_manager_endpoint_info(global_data, vo, cilogon_pass)
     return Response(to_json_bytes(mgrs), mimetype='application/json')
