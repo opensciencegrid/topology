@@ -18,7 +18,7 @@ CONTACT_DATA_REPO = "git@bitbucket.org:opensciencegrid/contact.git"
 CONTACT_DATA_BRANCH = "master"
 CONTACT_CACHE_LIFETIME = 60 * 2
 
-CILOGON_LDAP_PASSFILE = None
+OSG_LDAP_PASSFILE = None
 
 CACHE_LIFETIME = 60 * 5
 
