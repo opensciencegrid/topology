@@ -1572,7 +1572,18 @@ will want to adjust the Map.data which populates the select input and legend.
 
             // Filter out inactive resources and resource groups with only inactive resources
             let activeResourceGroupJson = Object.entries(resourceGroupJson).reduce((o, [k,rg]) => {
-                let activeResources = rg["Resources"]["Resource"].filter(x => x['Active'])
+                const resources = rg["Resources"]["Resource"]
+                let activeResources = resources.filter(x => x['Active'])
+
+                // TODO: This is a temporary patch to get FDP_NERSC_OSDF_CACHE on the map
+                if(rg['GroupName'] == "FDP-OSDF") {
+                    const nersc = resources.filter(x => x['Name'] == "FDP_NERSC_OSDF_CACHE")?.[0]
+                    if(nersc){
+                        activeResources.push(nersc)
+                    }
+                }
+
+
                 if(activeResources.length && rg['Production']){
                     rg["Resources"]["Resource"] = activeResources
                     o[k] = rg
