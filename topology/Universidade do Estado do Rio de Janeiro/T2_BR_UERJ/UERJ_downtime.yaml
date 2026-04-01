@@ -2157,6 +2157,66 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2400591572
+  Description: Our network provider will perform a maintenance procedure that might
+    impact us
+  Severity: Outage
+  StartTime: Apr 04, 2026 10:00 +0000
+  EndTime: Apr 07, 2026 20:00 +0000
+  CreatedTime: Apr 01, 2026 15:59 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2400591742
+  Description: Our network provider will perform a maintenance procedure that might
+    impact us
+  Severity: Outage
+  StartTime: Apr 04, 2026 10:00 +0000
+  EndTime: Apr 07, 2026 20:00 +0000
+  CreatedTime: Apr 01, 2026 15:59 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2400591822
+  Description: Our network provider will perform a maintenance procedure that might
+    impact us
+  Severity: Outage
+  StartTime: Apr 04, 2026 10:00 +0000
+  EndTime: Apr 07, 2026 20:00 +0000
+  CreatedTime: Apr 01, 2026 15:59 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2400591898
+  Description: Our network provider will perform a maintenance procedure that might
+    impact us
+  Severity: Outage
+  StartTime: Apr 04, 2026 10:00 +0000
+  EndTime: Apr 07, 2026 20:00 +0000
+  CreatedTime: Apr 01, 2026 15:59 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2400591992
+  Description: Our network provider will perform a maintenance procedure that might
+    impact us
+  Severity: Outage
+  StartTime: Apr 04, 2026 10:00 +0000
+  EndTime: Apr 07, 2026 20:00 +0000
+  CreatedTime: Apr 01, 2026 15:59 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
 
 
