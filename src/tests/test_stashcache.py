@@ -182,7 +182,7 @@ class TestStashcache:
                 num_mappings += 1
             else:
                 assert False, f'Unexpected text "{line}".\nFull text:\n{text}\n'
-        assert num_mappings >= 0, f"Unexpected error parsing grid-mapfile.\nFull text:\n{text}\n"
+        assert num_mappings > 0, f"Unexpected error parsing grid-mapfile (no mappings found).\nFull text:\n{text}\n"
 
 
 class TestNamespaces:
