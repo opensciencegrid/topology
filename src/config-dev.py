@@ -23,10 +23,6 @@ CONTACT_CACHE_LIFETIME = 6
 
 INSTANCE_NAME = "local test"  # leave blank for production
 
-# Set this to False to skip querying LIGO's LDAP servers when generating
-# StashCache information.
-STASHCACHE_LEGACY_AUTH = True
-
 # import logging
 # LOGLEVEL = logging.DEBUG  # flask's default is WARNING
 

@@ -3,7 +3,7 @@ import flask
 import pytest
 from typing import Dict, List
 import urllib.parse
-from pytest_mock import MockerFixture
+
 
 # Rewrites the path so the app can be imported like it normally is
 import os
@@ -81,8 +81,7 @@ class TestAPI:
         response = client.get(endpoint)
         assert response.status_code != 404
 
-    def test_cache_authfile(self, client: flask.Flask, mocker: MockerFixture):
-        mocker.patch("webapp.ldap_data.get_ligo_ldap_dn_list", mocker.MagicMock(return_value=["deadbeef.0"]))
+    def test_cache_authfile(self, client: flask.Flask):
         resources = client.get('/miscresource/json').json
         for resource in resources.values():
             resource_fqdn = resource["FQDN"]
@@ -142,12 +141,8 @@ class TestAPI:
             assert previous_endpoint.status_code == current_endpoint.status_code
             assert previous_endpoint.data == current_endpoint.data
 
-    def test_resource_stashcache_files(self, client: flask.Flask, mocker: MockerFixture):
+    def test_resource_stashcache_files(self, client: flask.Flask):
         """Tests that the resource table contains the same files as the singular api outputs"""
-
-        # Disable legacy auth until it's turned back on in Resource.get_stashcache_files()
-        old_legacy_auth = app.config.get("STASHCACHE_LEGACY_AUTH", None)
-        app.config["STASHCACHE_LEGACY_AUTH"] = False
 
         def test_stashcache_file(key, endpoint, fqdn, resource_stashcache_files):
 
@@ -160,33 +155,24 @@ class TestAPI:
             else:
                 assert response.status_code != 200 or not response.data
 
-        try:
-            mocker.patch("webapp.ldap_data.get_ligo_ldap_dn_list", mocker.MagicMock(return_value=["deadbeef.0"]))
+        resources = client.get('/miscresource/json').json
+        resources_stashcache_files = client.get('/resources/stashcache-files').json
 
-            resources = client.get('/miscresource/json').json
-            resources_stashcache_files = client.get('/resources/stashcache-files').json
+        # Sanity check: have a reasonable number of resources
+        assert len(resources_stashcache_files) > 20
 
-            # Sanity check: have a reasonable number of resources
-            assert len(resources_stashcache_files) > 20
+        keys_and_endpoints = [
+            ("CacheAuthfilePublic", "/cache/Authfile-public"),
+            ("CacheAuthfile", "/cache/Authfile"),
+            ("CacheScitokens", "/cache/scitokens.conf"),
+            ("OriginAuthfilePublic", "/origin/Authfile-public"),
+            ("OriginAuthfile", "/origin/Authfile"),
+            ("OriginScitokens", "/origin/scitokens.conf")
+        ]
 
-            keys_and_endpoints = [
-                ("CacheAuthfilePublic", "/cache/Authfile-public"),
-                ("CacheAuthfile", "/cache/Authfile"),
-                ("CacheScitokens", "/cache/scitokens.conf"),
-                ("OriginAuthfilePublic", "/origin/Authfile-public"),
-                ("OriginAuthfile", "/origin/Authfile"),
-                ("OriginScitokens", "/origin/scitokens.conf")
-            ]
-
-            for resource_name, resource_stashcache_files in resources_stashcache_files.items():
-                for key, endpoint in keys_and_endpoints:
-                    test_stashcache_file(key, endpoint, resources[resource_name]["FQDN"], resource_stashcache_files)
-
-        finally:
-            if old_legacy_auth is None:
-                del app.config["STASHCACHE_LEGACY_AUTH"]
-            else:
-                app.config["STASHCACHE_LEGACY_AUTH"] = old_legacy_auth
+        for resource_name, resource_stashcache_files in resources_stashcache_files.items():
+            for key, endpoint in keys_and_endpoints:
+                test_stashcache_file(key, endpoint, resources[resource_name]["FQDN"], resource_stashcache_files)
 
     def test_institution_accept_type(self, client: flask.Flask):
         """Checks both formats output the same content"""
@@ -203,7 +189,7 @@ class TestAPI:
 
 
     def test_cache_grid_mapfile(self, client: flask.Flask):
-        TEST_CACHE = "stash-cache.osg.chtc.io"  # This cache allows cert-based auth but not LIGO data
+        TEST_CACHE = "stash-cache.osg.chtc.io"  # This cache allows cert-based auth
         response = client.get("/cache/grid-mapfile")
         assert response.status_code == 400  # fqdn not specified
 
@@ -214,7 +200,7 @@ class TestAPI:
         assert response.status_code == 200
         grid_mapfile_text = response.data.decode("utf-8")
         grid_mapfile_lines = grid_mapfile_text.split("\n")
-        # Make sure we have some mappings (we may not have LIGO data so there's only a few)
+        # Make sure we have some mappings
         assert len(grid_mapfile_lines) > 1
 
         mapfile_matches = filter(None,
