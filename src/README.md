@@ -452,9 +452,7 @@ The Authfile for an authenticated cache is served at `/cache/Authfile?fqdn=<CACH
 - Add a `u <DN HASH> <PATH1> rl <PATH2> rl ...` for every DN listed in the Authorizations list of every namespace supported by the cache.
 - Add a `g <FQAN> <PATH1> rl <PATH2> rl ...` for every FQAN listed in the Authorizations list of every namespace supported by the cache.
 
-In addition, if the cache supports the LIGO VO and the webapp can access LIGO's LDAP server:
 
-- Add a `u <DN HASH> <LIGO PATH1> rl <LIGO PATH2> rl ...` for every DN obtained from the LIGO's LDAP server.
 
 
 ### Origin xrootd-scitokens config generation
