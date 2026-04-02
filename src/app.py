@@ -81,11 +81,6 @@ if not cilogon_pass:
     app.logger.warning("Note, no OSG_LDAP_PASSFILE configured; "
                        "OASIS Manager ssh key lookups will be unavailable.")
 
-ligo_pass = readfile(global_data.ligo_ldap_passfile, app.logger)
-if not ligo_pass:
-    app.logger.warning("Note, no LIGO_LDAP_PASSFILE configured; "
-                       "LIGO DNs will be unavailable in authfiles.")
-
 github_oauth_client_secret = readfile(global_data.github_oauth_client_secret, app.logger)
 if not github_oauth_client_secret:
     app.logger.warning("Note, no GITHUB_OAUTH_CLIENT_SECRET configured; "
@@ -401,7 +396,7 @@ def resources_stashcache_files():
     topology = global_data.get_topology()
     for rg in topology.rgs.values():
         for resource in rg.resources_by_name.values():
-            stashcache_files = resource.get_stashcache_files(global_data, app.config["STASHCACHE_LEGACY_AUTH"])
+            stashcache_files = resource.get_stashcache_files(global_data)
 
             if not stashcache_files:
                 continue
@@ -601,7 +596,6 @@ def _get_cache_authfile(public_only):
             generate_function = stashcache.generate_cache_authfile
         auth = generate_function(global_data,
                                  fqdn=cache_fqdn,
-                                 legacy=app.config["STASHCACHE_LEGACY_AUTH"],
                                  suppress_errors=False)
     except (ResourceNotRegistered, ResourceMissingServices) as e:
         return Response("# {}\n"

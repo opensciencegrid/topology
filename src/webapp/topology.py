@@ -143,13 +143,9 @@ class Resource(object):
         self.id = self.data["ID"]
         self.rg = rg
 
-    def get_stashcache_files(self, global_data, legacy):
+    def get_stashcache_files(self, global_data):
         """Gets a resources Cache files as a dictionary"""
         # TODO Cache this.
-
-        # Until https://opensciencegrid.atlassian.net/browse/SOFTWARE-5276, skip LIGO DNs
-        # because otherwise each file hits the LIGO LDAP server.
-        legacy = False
 
         import stashcache
         cache_file_generators_and_file_names = [
@@ -157,7 +153,6 @@ class Resource(object):
                 lambda resource: stashcache.generate_public_cache_authfile(
                     global_data,
                     fqdn=resource.fqdn,
-                    legacy=legacy,
                     suppress_errors=False
                 ), "CacheAuthfilePublic"
             ),
@@ -165,7 +160,6 @@ class Resource(object):
                 lambda resource: stashcache.generate_cache_authfile(
                     global_data,
                     fqdn=resource.fqdn,
-                    legacy=legacy,
                     suppress_errors=False
                 ), "CacheAuthfile"
             ),
