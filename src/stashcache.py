@@ -7,7 +7,7 @@ from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingS
 from webapp.models import GlobalData
 from webapp.topology import Resource, ResourceGroup, Topology
 from webapp.vos_data import VOsData
-from webapp.data_federation import AuthMethod, DNAuth, SciTokenAuth, Namespace, parse_authz
+from webapp.data_federation import DNAuth, SciTokenAuth, Namespace
 
 import logging
 
@@ -144,20 +144,9 @@ class _IdNamespaceData:
         self.warnings_public = []
 
     @classmethod
-    def for_cache(cls, global_data: GlobalData, vos_data: VOsData, legacy: bool,
+    def for_cache(cls, global_data: GlobalData, vos_data: VOsData,
                   cache_resource: Optional[Resource]) -> "_IdNamespaceData":
         self = cls()
-
-        ligo_authz_list: List[AuthMethod] = []
-
-        # This is needed so we can fetch the LIGO DNs only for caches that
-        # actually support LIGO data, instead of hitting their LDAP server for
-        # every cache.
-        def fetch_ligo_authz_list_if_needed():
-            if not ligo_authz_list:
-                for dn in global_data.get_ligo_dn_list():
-                    ligo_authz_list.append(parse_authz(f"DN:{dn}")[0])
-            return ligo_authz_list
 
         for vo_name, stashcache_obj in vos_data.stashcache_by_vo_name.items():
             for path, namespace in stashcache_obj.namespaces.items():
@@ -169,15 +158,7 @@ class _IdNamespaceData:
                     self.public_paths.add(path)
                     continue
 
-                # Extend authz list with LIGO DNs if applicable
-                extended_authz_list = namespace.authz_list
-                if vo_name.lower() == "ligo":
-                    if legacy:
-                        extended_authz_list += fetch_ligo_authz_list_if_needed()
-                    else:
-                        self.warnings_auth.append("# LIGO DNs unavailable\n")
-
-                for authz in extended_authz_list:
+                for authz in namespace.authz_list:
                     if authz.used_in_authfile:
                         self.id_to_paths[authz.authfile_id].add(path)
                         self.id_to_str[authz.authfile_id] = str(authz)
@@ -236,7 +217,6 @@ class _IdNamespaceData:
 
 def generate_cache_authfile(global_data: GlobalData,
                             fqdn=None,
-                            legacy=True,
                             suppress_errors=True) -> str:
     """
     Generate the Xrootd authfile needed by an StashCache cache server.  This contains authenticated data only,
@@ -253,7 +233,6 @@ def generate_cache_authfile(global_data: GlobalData,
     idns = _IdNamespaceData.for_cache(
         global_data=global_data,
         vos_data=vos_data,
-        legacy=legacy,
         cache_resource=resource,
     )
 
@@ -274,11 +253,10 @@ def generate_cache_authfile(global_data: GlobalData,
     return "\n".join(authfile_lines) + "\n"
 
 
-def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=True, suppress_errors=True) -> str:
+def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, suppress_errors=True) -> str:
     """
     Generate the Xrootd authfile needed for public caches.  This contains public data only, no authenticated data.
     """
-    _ = legacy
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
     resource = None
@@ -290,7 +268,6 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
     idns = _IdNamespaceData.for_cache(
         global_data=global_data,
         vos_data=vos_data,
-        legacy=legacy,
         cache_resource=resource,
     )
 
@@ -316,11 +293,10 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, legacy=Tr
 
 def generate_cache_grid_mapfile(global_data: GlobalData,
                                 fqdn=None,
-                                legacy=True,
                                 suppress_errors=True) -> str:
     """
     Generate a grid-mapfile to map DNs to the DN hashes for a cache server, given the FQDN
-    of the cache server and whether to include LIGO DNs.
+    of the cache server.
     """
     topology = global_data.get_topology()
     vos_data = global_data.get_vos_data()
@@ -333,7 +309,6 @@ def generate_cache_grid_mapfile(global_data: GlobalData,
     idns = _IdNamespaceData.for_cache(
         global_data=global_data,
         vos_data=vos_data,
-        legacy=legacy,
         cache_resource=resource,
     )
 

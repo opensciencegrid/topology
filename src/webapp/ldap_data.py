@@ -1,5 +1,4 @@
 import logging
-from typing import List
 
 import ldap3
 
@@ -7,7 +6,6 @@ log = logging.getLogger(__name__)
 
 
 OSG_LDAP_TIMEOUT = 10
-LIGO_LDAP_TIMEOUT = 10
 
 
 def get_contact_cilogon_id_map(global_data):
@@ -147,40 +145,3 @@ def merge_yaml_data(yaml_data_main, yaml_data_secondary):
             yd[id_] = contact
 
     return yd
-
-
-def get_ligo_ldap_dn_list(ldap_url: str, ldap_user: str, ldap_pass: str) -> List[str]:
-    """
-    Query the LIGO LDAP server for all grid DNs in the IGWN collab.
-
-    Returns a list of DNs.
-    """
-    results = []
-    base_branch = "ou={group},dc=ligo,dc=org"
-    base_query = "(&(isMemberOf=Communities:{community})(gridX509subject=*))"
-    queries = {'people': base_query.format(community="LSCVirgoLIGOGroupMembers"),
-               'robot': base_query.format(community="robot:OSGRobotCert")}
-
-    try:
-        server = ldap3.Server(ldap_url, connect_timeout=LIGO_LDAP_TIMEOUT)
-        conn = ldap3.Connection(server, user=ldap_user, password=ldap_pass, raise_exceptions=True,
-                                receive_timeout=LIGO_LDAP_TIMEOUT)
-        conn.bind()
-    except ldap3.core.exceptions.LDAPException:
-        log.exception("Failed to connect to the LIGO LDAP")
-        return results
-
-    try:
-        for group in ('people', 'robot'):
-            try:
-                conn.search(base_branch.format(group=group),
-                            queries[group],
-                            search_scope='SUBTREE',
-                            attributes=['gridX509subject'])
-                results.extend(dn for e in conn.entries for dn in e.gridX509subject)
-            except ldap3.core.exceptions.LDAPException:
-                log.exception("Failed to query LIGO LDAP for %s DNs", group)
-    finally:
-        conn.unbind()
-
-    return results
