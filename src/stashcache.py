@@ -144,7 +144,7 @@ class _IdNamespaceData:
         self.warnings_public = []
 
     @classmethod
-    def for_cache(cls, global_data: GlobalData, vos_data: VOsData,
+    def for_cache(cls, vos_data: VOsData,
                   cache_resource: Optional[Resource]) -> "_IdNamespaceData":
         self = cls()
 
@@ -231,7 +231,6 @@ def generate_cache_authfile(global_data: GlobalData,
             return ""
 
     idns = _IdNamespaceData.for_cache(
-        global_data=global_data,
         vos_data=vos_data,
         cache_resource=resource,
     )
@@ -266,7 +265,6 @@ def generate_public_cache_authfile(global_data: GlobalData, fqdn=None, suppress_
             return ""
 
     idns = _IdNamespaceData.for_cache(
-        global_data=global_data,
         vos_data=vos_data,
         cache_resource=resource,
     )
@@ -307,7 +305,6 @@ def generate_cache_grid_mapfile(global_data: GlobalData,
             return ""
 
     idns = _IdNamespaceData.for_cache(
-        global_data=global_data,
         vos_data=vos_data,
         cache_resource=resource,
     )
