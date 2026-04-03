@@ -1925,4 +1925,138 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2402285052
+  Description: Full data center downtime
+  Severity: Outage
+  StartTime: Apr 22, 2026 04:01 +0000
+  EndTime: Apr 24, 2026 03:59 +0000
+  CreatedTime: Apr 03, 2026 15:01 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2402285053
+  Description: Full data center downtime
+  Severity: Outage
+  StartTime: Apr 22, 2026 04:01 +0000
+  EndTime: Apr 24, 2026 03:59 +0000
+  CreatedTime: Apr 03, 2026 15:01 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2402285054
+  Description: Full data center downtime
+  Severity: Outage
+  StartTime: Apr 22, 2026 04:01 +0000
+  EndTime: Apr 24, 2026 03:59 +0000
+  CreatedTime: Apr 03, 2026 15:01 +0000
+  ResourceName: Purdue-EOS-SE
+  Services:
+  - XRootD component
+  - WebDAV
+  - EOS
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2402285055
+  Description: Full data center downtime
+  Severity: Outage
+  StartTime: Apr 22, 2026 04:01 +0000
+  EndTime: Apr 24, 2026 03:59 +0000
+  CreatedTime: Apr 03, 2026 15:01 +0000
+  ResourceName: Purdue-Gautschi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2402285056
+  Description: Full data center downtime
+  Severity: Outage
+  StartTime: Apr 22, 2026 04:01 +0000
+  EndTime: Apr 24, 2026 03:59 +0000
+  CreatedTime: Apr 03, 2026 15:01 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2402285057
+  Description: Full data center downtime
+  Severity: Outage
+  StartTime: Apr 22, 2026 04:01 +0000
+  EndTime: Apr 24, 2026 03:59 +0000
+  CreatedTime: Apr 03, 2026 15:01 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2402285058
+  Description: Full data center downtime
+  Severity: Outage
+  StartTime: Apr 22, 2026 04:01 +0000
+  EndTime: Apr 24, 2026 03:59 +0000
+  CreatedTime: Apr 03, 2026 15:01 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2402285059
+  Description: Full data center downtime
+  Severity: Outage
+  StartTime: Apr 22, 2026 04:01 +0000
+  EndTime: Apr 24, 2026 03:59 +0000
+  CreatedTime: Apr 03, 2026 15:01 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2402285060
+  Description: Full data center downtime
+  Severity: Outage
+  StartTime: Apr 22, 2026 04:01 +0000
+  EndTime: Apr 24, 2026 03:59 +0000
+  CreatedTime: Apr 03, 2026 15:01 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2402285061
+  Description: Full data center downtime
+  Severity: Outage
+  StartTime: Apr 22, 2026 04:01 +0000
+  EndTime: Apr 24, 2026 03:59 +0000
+  CreatedTime: Apr 03, 2026 15:01 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2402285062
+  Description: Full data center downtime
+  Severity: Outage
+  StartTime: Apr 22, 2026 04:01 +0000
+  EndTime: Apr 24, 2026 03:59 +0000
+  CreatedTime: Apr 03, 2026 15:01 +0000
+  ResourceName: US-Purdue BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2402285063
+  Description: Full data center downtime
+  Severity: Outage
+  StartTime: Apr 22, 2026 04:01 +0000
+  EndTime: Apr 24, 2026 03:59 +0000
+  CreatedTime: Apr 03, 2026 15:01 +0000
+  ResourceName: US-Purdue LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
 
