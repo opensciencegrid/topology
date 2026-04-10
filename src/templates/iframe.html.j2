@@ -1575,15 +1575,6 @@ will want to adjust the Map.data which populates the select input and legend.
                 const resources = rg["Resources"]["Resource"]
                 let activeResources = resources.filter(x => x['Active'])
 
-                // TODO: This is a temporary patch to get FDP_NERSC_OSDF_CACHE on the map
-                if(rg['GroupName'] == "FDP-OSDF") {
-                    const nersc = resources.filter(x => x['Name'] == "FDP_NERSC_OSDF_CACHE")?.[0]
-                    if(nersc){
-                        activeResources.push(nersc)
-                    }
-                }
-
-
                 if(activeResources.length && rg['Production']){
                     rg["Resources"]["Resource"] = activeResources
                     o[k] = rg
@@ -1599,6 +1590,42 @@ will want to adjust the Map.data which populates the select input and legend.
                     sites[value?.Site?.Name] = new Site(value, this.ospoolResources)
                 }
             })
+
+            // This line hardcodes a site at Berkeley for Nersc so that we can show it on the map without updating it in topology
+            sites["NERSC"] = new Site({
+                "Disable": false,
+                "Facility": {
+                  "Name": "Lawrence Berkley National Laboratory"
+                },
+                "GroupName": "NERSC",
+                "IsCCStar": false,
+                "Production": true,
+                "Resources" : {
+                    "Resource": [
+                        {
+                      "Active": true,
+                      "FQDN": "dtn14.nersc.gov",
+                      "Description": "FDP NERSC OSDF cache",
+                      "Disable": false,
+                      "IsCCStar": false,
+                      "Name": "FDP_NERSC_OSDF_CACHE",
+                      "Services": {
+                        "Service": [
+                          {
+                            "Name": "Pelican cache"
+                          }
+                        ]
+                      },
+                      "Tags": null
+                    }
+                    ]
+                },
+                "Site": {
+                  "Latitude": 37.866825,
+                  "Longitude": -122.3,
+                  "Name": "NERSC",
+                }
+              }, new Set())
 
             this.sites = sites
             this.update()
