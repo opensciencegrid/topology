@@ -6008,3 +6008,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2416998625
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 22, 2026 12:00 +0000
+  EndTime: Apr 22, 2026 16:00 +0000
+  CreatedTime: Apr 20, 2026 15:44 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2416998626
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 22, 2026 12:00 +0000
+  EndTime: Apr 22, 2026 16:00 +0000
+  CreatedTime: Apr 20, 2026 15:44 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2416998627
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 22, 2026 12:00 +0000
+  EndTime: Apr 22, 2026 16:00 +0000
+  CreatedTime: Apr 20, 2026 15:44 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2416998628
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 22, 2026 12:00 +0000
+  EndTime: Apr 22, 2026 16:00 +0000
+  CreatedTime: Apr 20, 2026 15:44 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2416998629
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 22, 2026 12:00 +0000
+  EndTime: Apr 22, 2026 16:00 +0000
+  CreatedTime: Apr 20, 2026 15:44 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2416998630
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 22, 2026 12:00 +0000
+  EndTime: Apr 22, 2026 16:00 +0000
+  CreatedTime: Apr 20, 2026 15:44 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2416998631
+  Description: network maintenance
+  Severity: Outage
+  StartTime: Apr 22, 2026 12:00 +0000
+  EndTime: Apr 22, 2026 16:00 +0000
+  CreatedTime: Apr 20, 2026 15:44 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
