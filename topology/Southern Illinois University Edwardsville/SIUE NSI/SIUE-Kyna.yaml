@@ -1,0 +1,24 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: SIUE Kyna Cluster
+Resources:
+  SIUE-Kyna-CE1:
+    Active: true
+    Description: SIUE CE serving Kyna Cluster
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+      Security Contact:
+        Primary:
+          Name: Jeffrey Michael Dost
+          ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
+    FQDN: siue-kyna-ce1.svc.osg-htc.org
+    Services:
+      CE:
+        Description: SIUE Kyna Cluster CE
+        Details:
+          hidden: false
+    Tags:
+      - CC*
