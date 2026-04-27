@@ -1567,3 +1567,37 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2423027270
+  Description: dcache change basepath
+  Severity: Outage
+  StartTime: Apr 30, 2026 13:00 +0000
+  EndTime: Apr 30, 2026 17:00 +0000
+  CreatedTime: Apr 27, 2026 15:12 +0000
+  ResourceName: AGLT2_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2423028618
+  Description: dcache change basepath
+  Severity: Outage
+  StartTime: Apr 30, 2026 13:00 +0000
+  EndTime: Apr 30, 2026 17:00 +0000
+  CreatedTime: Apr 27, 2026 15:14 +0000
+  ResourceName: AGLT2_SE
+  Services:
+  - SRMv2
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2423028856
+  Description: dcache change basepath
+  Severity: Outage
+  StartTime: Apr 30, 2026 13:00 +0000
+  EndTime: Apr 30, 2026 17:00 +0000
+  CreatedTime: Apr 27, 2026 15:14 +0000
+  ResourceName: AGLT2_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
