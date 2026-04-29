@@ -1069,3 +1069,51 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2424727043
+  Description: U of Florida Data Center will perform a cooling and power systems maintenance,
+    as a result all UFRC facilities will be shut down.
+  Severity: Outage
+  StartTime: May 06, 2026 21:00 +0000
+  EndTime: May 07, 2026 21:00 +0000
+  CreatedTime: Apr 29, 2026 14:25 +0000
+  ResourceName: UFlorida-CMS
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2424727917
+  Description: U of Florida Data Center will perform a cooling and power systems maintenance,
+    as a result all UFRC facilities will be shut down.
+  Severity: Outage
+  StartTime: May 06, 2026 21:00 +0000
+  EndTime: May 07, 2026 21:00 +0000
+  CreatedTime: Apr 29, 2026 14:26 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2424728136
+  Description: U of Florida Data Center will perform a cooling and power systems maintenance,
+    as a result all UFRC facilities will be shut down.
+  Severity: Outage
+  StartTime: May 06, 2026 21:00 +0000
+  EndTime: May 07, 2026 21:00 +0000
+  CreatedTime: Apr 29, 2026 14:26 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2424728368
+  Description: U of Florida Data Center will perform a cooling and power systems maintenance,
+    as a result all UFRC facilities will be shut down.
+  Severity: Outage
+  StartTime: May 06, 2026 21:00 +0000
+  EndTime: May 07, 2026 21:00 +0000
+  CreatedTime: Apr 29, 2026 14:27 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
