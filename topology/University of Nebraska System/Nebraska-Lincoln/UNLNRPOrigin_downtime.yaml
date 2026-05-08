@@ -110,5 +110,60 @@
   Services:
   - XRootD origin server
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432605235
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:15 +0000
+  ResourceName: NEBRASKA_NRP_HCC_OSDF_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432605236
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:15 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432605237
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:15 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_ORIGIN2
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432605238
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:15 +0000
+  ResourceName: OSSTORE_HEPSIM_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432605239
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:15 +0000
+  ResourceName: UNL_NRP_OSDF_XENON_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
 
 

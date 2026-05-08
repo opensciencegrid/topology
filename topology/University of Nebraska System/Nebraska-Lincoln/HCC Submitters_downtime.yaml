@@ -18,3 +18,25 @@
   Severity: Outage
   StartTime: Sep 28, 2017 21:00 +0000
 # ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432604232
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:13 +0000
+  ResourceName: HCC GlideinWMS Frontend
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432604233
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:13 +0000
+  ResourceName: HCC-CPASS
+  Services:
+  - Submit Node
+# ---------------------------------------------------------
