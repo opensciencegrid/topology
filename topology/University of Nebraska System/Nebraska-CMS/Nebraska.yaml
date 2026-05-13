@@ -141,6 +141,33 @@ Resources:
         Description: Generic squid service
     VOOwnership:
       CMS: 100
+  T2_US_Nebraska_red-squid:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+      Security Contact:
+        Primary:
+          ID: e86d60dc841731aebfd879d5883d66ebab20cbd2
+          Name: Garhan Attebury
+        Secondary:
+          ID: a2d43374cb67fd2f248f56d7819b77726dfeaa2b
+          Name: Carl Lundstedt
+    Description: Squid server for T2_US_Nebraska
+    FQDN: red-squid.unl.edu
+    FQDNAliases:
+    - red-squid.unl.edu
+    ID: 686
+    Services:
+      Squid:
+        Description: Generic squid service
+    VOOwnership:
+      CMS: 100
   US-Nebraska BW:
     Active: true
     ContactLists:
