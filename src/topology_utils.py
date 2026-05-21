@@ -196,8 +196,11 @@ def _load_service_ids():
     """
     services_yaml = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                  "..", "topology", "services.yaml")
-    with open(services_yaml, encoding="utf-8") as f:
-        services = yaml.safe_load(f)
+    try:
+        with open(services_yaml, encoding="utf-8") as f:
+            services = yaml.safe_load(f)
+    except OSError as e:
+        raise OSError("Could not load service IDs from %s: %s" % (services_yaml, e)) from e
     return {name.lower(): sid for name, sid in services.items()}
 
 
