@@ -3,7 +3,7 @@ GroupID: 449
 Production: true
 Resources:
   MIT_SUBMIT_SCHEDD:
-    Active: true
+    Active: false
     ContactLists:
       Administrative Contact:
         Primary:
@@ -17,6 +17,42 @@ Resources:
     FQDN: submit04.mit.edu
     DN: /DC=org/DC=incommon/C=US/ST=Massachusetts/O=Massachusetts Institute of Technology/CN=submit04.mit.edu
     ID: 832
+    Services:
+      Submit Node:
+        Description: OSPool Access Point
+        Details:
+          hidden: false
+    VOOwnership:
+      CMS: 100
+  MIT_SUBMIT06_SCHEDD:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: David Walter
+          ID: OSG1001794
+        Secondary:
+          Name: Mariarosaria D'Alfonso
+          ID: OSG1002059
+        Tertiary:
+          Name: Jan Eysermans
+          ID: OSG1002060
+      Security Contact:
+        Primary:
+          Name: David Walter
+          ID: OSG1001794
+        Secondary:
+          Name: Mariarosaria D'Alfonso
+          ID: OSG1002059
+        Tertiary:
+          Name: Jan Eysermans
+          ID: OSG1002060
+      Executive Contact:
+        Primary:
+          Name: Christoph Paus
+          ID: OSG1002061
+    Description: This is a submission node to MIT on-campus, OSG, and CMS resources
+    FQDN: submit06.mit.edu
     Services:
       Submit Node:
         Description: OSPool Access Point
