@@ -4,36 +4,36 @@ Production: true
 Resources:
   brown-cms-gen3:
     Description: Third generation CMS T3 at Brown
-    FQDN: pbrux30cit.hep.brown.edu
+    FQDN: pbrux50cit.hep.brown.edu
     Active: true
     # ^^^ CE not set up yet
     ContactLists:
       Administrative Contact:
         Primary:
+          ID: OSG1000687
+          Name: Michael Antonelli
+        Secondary:
           ID: 87a12d0fb0bc3305dea8d81ea7905b324b9932f3
           Name: David D. Johnson
-        Secondary:
-          ID: b00d8f35a7a528ab7843300ab74e3a4c63ae9b2e
-          Name: Samuel Fulcomer
         Tertiary:
           ID: 5a035ec0871ef7a1c539b7e72b48d4d4ccdab950
           Name: Geoffrey Avila
         Tertiary 2:
-          ID: OSG1000687
-          Name: Michael Antonelli
+          ID: b00d8f35a7a528ab7843300ab74e3a4c63ae9b2e
+          Name: Samuel Fulcomer
       Security Contact:
         Primary:
+          ID: OSG1000687
+          Name: Michael Antonelli
+        Secondary:
           ID: 87a12d0fb0bc3305dea8d81ea7905b324b9932f3
           Name: David D. Johnson
-        Secondary:
-          ID: b00d8f35a7a528ab7843300ab74e3a4c63ae9b2e
-          Name: Samuel Fulcomer
         Tertiary:
           ID: 5a035ec0871ef7a1c539b7e72b48d4d4ccdab950
           Name: Geoffrey Avila
         Tertiary 2:
-          ID: OSG1000687
-          Name: Michael Antonelli
+          ID: b00d8f35a7a528ab7843300ab74e3a4c63ae9b2e
+          Name: Samuel Fulcomer
     ID: 445
     Services:
      # CE:
@@ -47,7 +47,7 @@ Resources:
         Description: XRootD Redirector/Server
         Details:
           hidden: false
-          uri_override: pbrux30cit.hep.brown.edu:1094
+          uri_override: pbrux50cit.hep.brown.edu:1094
       GridFtp:
         Description: GridFtp Storage Element
         Details:
