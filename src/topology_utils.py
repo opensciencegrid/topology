@@ -12,6 +12,7 @@ from getpass import getpass
 import xml.etree.ElementTree as ET
 
 import requests
+import yaml
 
 # List of contact types stored in Topology data
 # At time of writing, there isn't anything that restricts a contact to one of these types
@@ -187,6 +188,19 @@ def get_topology_pool_manager(args) -> "TopologyPoolManager":
     kwargs['key_password'] = getpass("decryption password: ")
     return TopologyPoolManager(**kwargs)
 
+
+def _load_service_ids():
+    """
+    Load service name-to-ID mappings from the topology services.yaml file.
+    Returns a dict mapping lowercase service names to their integer IDs.
+    """
+    services_yaml = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                 "..", "topology", "services.yaml")
+    with open(services_yaml, encoding="utf-8") as f:
+        services = yaml.safe_load(f)
+    return {name.lower(): sid for name, sid in services.items()}
+
+
 class TopologyPoolManager(urllib3.PoolManager):
 
     def __init__(self, *args, **kwargs):
@@ -231,14 +245,8 @@ class TopologyPoolManager(urllib3.PoolManager):
         return vo_map
 
 
-    SERVICE_IDS = {'ce': 1,
-                'srmv2': 3,
-                'gridftp': 5,
-                'xrootd': 142,
-                'perfsonar-bandwidth': 130,
-                'perfsonar-latency': 130,
-                'gums': 101,
-                }
+    SERVICE_IDS = _load_service_ids()
+
     def mangle_url(self,url, args):
         """
         Given a MyOSG URL, switch to using the hostname specified in the
