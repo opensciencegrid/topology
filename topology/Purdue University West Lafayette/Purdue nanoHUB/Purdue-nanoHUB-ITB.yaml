@@ -4,7 +4,7 @@ GroupDescription: Resources associated with the nanoHub testing infrastructure
 GroupID: 1129
 Resources:
   Purdue-nanoHUB-development-submit:
-    Active: true
+    Active: false
     Description: The nanoHUB development access point for the OS Pool
     ID: 1211
     ContactLists:
@@ -24,7 +24,7 @@ Resources:
       - OSPool
 
   Purdue-nanoHUB-stage-scatter2:
-    Active: true
+    Active: false
     Description: The nanoHUB stage access point for the OS Pool
     ID: 1246
     ContactLists:
