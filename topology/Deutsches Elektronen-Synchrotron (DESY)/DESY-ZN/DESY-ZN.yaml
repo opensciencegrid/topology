@@ -1,12 +1,10 @@
 Production: true
 SupportCenter: Self Supported
 GroupDescription: DESY-ZN resource at DESY Zeuthen
-GroupID:
 Resources:
   DESY-ZN-CE1:
     Active: true
     Description: HTCondor-CE
-    ID:
     ContactLists:
       Administrative Contact:
         Primary:
@@ -19,7 +17,7 @@ Resources:
       Site Contact:
         Primary:
           Name: Jakob van Santen
-          ID:
+          ID: OSG1002099
     FQDN: grid-htcondorce1.zeuthen.desy.de
     Services:
       CE:
@@ -27,7 +25,6 @@ Resources:
   DESY-ZN-CE2:
     Active: true
     Description: HTCondor-CE in front of Zeuthen Grid
-    ID:
     ContactLists:
       Administrative Contact:
         Primary:
@@ -40,7 +37,7 @@ Resources:
       Site Contact:
         Primary:
           Name: Jakob van Santen
-          ID:
+          ID: OSG1002099
     FQDN: grid-htcondorce2.zeuthen.desy.de
     Services:
       CE:
@@ -48,7 +45,6 @@ Resources:
   DESY-ZN-CE-GPU:
     Active: true
     Description: HTCondor-CE in front of Zeuthen Grid for GPUs
-    ID:
     ContactLists:
       Administrative Contact:
         Primary:
@@ -61,7 +57,7 @@ Resources:
       Site Contact:
         Primary:
           Name: Jakob van Santen
-          ID:
+          ID: OSG1002099
     FQDN: htcce-gpu.zeuthen.desy.de
     Services:
       CE:
