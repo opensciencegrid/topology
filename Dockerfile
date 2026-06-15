@@ -1,4 +1,4 @@
-FROM hub.opensciencegrid.org/opensciencegrid/software-base:24-el8-release
+FROM hub.osg-htc.org/osg-htc/software-base:25-el9-release
 
 # Install dependencies (application, Apache)
 RUN \
@@ -7,8 +7,8 @@ RUN \
       gcc \
       git \
       libyaml-devel \
-      python39-devel \
-      python39-pip \
+      python3.12-devel \
+      python3.12-pip \
     && yum install -y \
       fetch-crl \
       httpd \
@@ -21,13 +21,11 @@ RUN \
       osg-internal-cas \
     && yum clean all && rm -rf /var/cache/yum/*
 
-RUN alternatives --set python3 /usr/bin/python3.9
-
 WORKDIR /app
 
 # Install application dependencies
 COPY requirements-apache.txt requirements-rootless.txt ./
-RUN pip3 install --no-cache-dir -r requirements-apache.txt
+RUN pip3.12 install --no-cache-dir -r requirements-apache.txt
 
 # Create data directory, and gather SSH keys for git
 RUN mkdir                  /data && \
