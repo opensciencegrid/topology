@@ -957,6 +957,67 @@ Resources:
       StorageCapacityMax: 11278
       StorageCapacityMin: 11278
       TapeCapacity: 0
+  MWT2_UC_Opendata:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: c0ab0e469d199d12a67d71e58d5eb92f866ebd6b
+          Name: MWT2 Support List
+        Secondary:
+          ID: OSG1000016
+          Name: Judith Stephen
+        Tertiary:
+          ID: OSG1000765
+          Name: David Jordan
+        Tertiary 2:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+        Tertiary 3:
+          ID: OSG1000694
+          Name: Aidan Rosberg
+      Security Contact:
+        Primary:
+          ID: bb6553e6e5c498e9550a176850177c46460a0527
+          Name: MWT2 Security List
+        Secondary:
+          ID: OSG1000016
+          Name: Judith Stephen
+        Tertiary:
+          ID: OSG1000765
+          Name: David Jordan
+        Tertiary 2:
+          ID: OSG1000221
+          Name: Farnaz Golnaraghi
+        Tertiary 3:
+          ID: OSG1000694
+          Name: Aidan Rosberg
+    Description: HTTP-TPC WebDAV and XRootD services for MWT2 Opendata
+    FQDN: opendata.mwt2.org
+    ID: 
+    Services:
+      WebDAV:
+        Description: HTTP-TPC WebDAV service
+        Details:
+          hidden: false
+      XRootD component:
+        Description: XRootD door
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 100
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-MWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 11278
+      StorageCapacityMin: 11278
+      TapeCapacity: 0
   US-MWT2_IU BW:
     Active: false
     ContactLists:
