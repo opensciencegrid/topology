@@ -192,7 +192,7 @@ Resources:
       - ANY
 
   CHTC_PELICAN_CACHE:
-    Active: true
+    Active: false
     Description: This is a Pelican cache server at UW running on the Tiger Kubernetes cluster
     ContactLists:
       Administrative Contact:
@@ -217,6 +217,40 @@ Resources:
           Name: Brian Hua Lin
     FQDN: osdf-uw-cache.svc.osg-htc.org
     DN: /CN=osdf-uw-cache.svc.osg-htc.org
+    Services:
+      Pelican cache:
+        Description: Pelican cache server
+    VOOwnership:
+      GLOW: 100
+    AllowedVOs:
+      - ANY
+
+  UWMadison-CHTC-OSDF-Cache-1:
+    Active: true
+    Description: This is a Pelican cache server at UW running on the Tiger Kubernetes cluster
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    FQDN: uw-osdf-cache.svc.osg-htc.org
+    DN: /CN=uw-osdf-cache.svc.osg-htc.org
     Services:
       Pelican cache:
         Description: Pelican cache server
