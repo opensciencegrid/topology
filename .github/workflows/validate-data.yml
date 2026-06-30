@@ -11,7 +11,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.9.15
+          python-version: 3.12.13
       - name: Install packages
         run: |
           sudo apt-get update
@@ -40,4 +40,3 @@ jobs:
       - name: Validate StashCache authfile generation
         run: |
           ./src/tests/verify_authfile.sh
-          ./src/tests/verify_origin_authfile.sh

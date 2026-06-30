@@ -280,3 +280,39 @@ Resources:
         Description: Origin for /pelicanplatform in OSDF
     AllowedVOs:
       - ANY
+
+  CHTC_AMSC_ORIGIN:
+    Active: true
+    Description: >-
+      This is an origin used for serving /amsc in the OSDF, running on Tiger.
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+      Security Contact:
+        Primary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+        Secondary:
+          ID: OSG1000589
+          Name: William N Swanson
+        Tertiary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+    FQDN: amsc-origin.osg-htc.org
+    FQDNAliases:
+      - amsc-origin.osg-htc.org
+      - amsc-https-origin.osdf-prod.chtc.io
+    DN: /CN=amsc-origin.osg-htc.org
+    Services:
+      Pelican origin:
+        Description: Origin for /amsc in OSDF
+    AllowedVOs:
+      - ANY

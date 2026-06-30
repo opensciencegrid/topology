@@ -76,15 +76,10 @@ if "LOGLEVEL" in app.config:
 
 global_data = GlobalData(app.config, strict=app.config.get("STRICT", app.debug))
 
-cilogon_pass = readfile(global_data.cilogon_ldap_passfile, app.logger)
+cilogon_pass = readfile(global_data.osg_ldap_passfile, app.logger)
 if not cilogon_pass:
-    app.logger.warning("Note, no CILOGON_LDAP_PASSFILE configured; "
+    app.logger.warning("Note, no OSG_LDAP_PASSFILE configured; "
                        "OASIS Manager ssh key lookups will be unavailable.")
-
-ligo_pass = readfile(global_data.ligo_ldap_passfile, app.logger)
-if not ligo_pass:
-    app.logger.warning("Note, no LIGO_LDAP_PASSFILE configured; "
-                       "LIGO DNs will be unavailable in authfiles.")
 
 github_oauth_client_secret = readfile(global_data.github_oauth_client_secret, app.logger)
 if not github_oauth_client_secret:
@@ -401,7 +396,7 @@ def resources_stashcache_files():
     topology = global_data.get_topology()
     for rg in topology.rgs.values():
         for resource in rg.resources_by_name.values():
-            stashcache_files = resource.get_stashcache_files(global_data, app.config["STASHCACHE_LEGACY_AUTH"])
+            stashcache_files = resource.get_stashcache_files(global_data)
 
             if not stashcache_files:
                 continue
@@ -584,7 +579,7 @@ def oasis_managers():
     if not vo:
         return Response("'vo' argument is required", status=400)
     if not cilogon_pass:
-        return Response("CILOGON_LDAP_PASSFILE not configured; "
+        return Response("OSG_LDAP_PASSFILE not configured; "
                         "OASIS Managers info unavailable", status=503)
     mgrs = get_oasis_manager_endpoint_info(global_data, vo, cilogon_pass)
     return Response(to_json_bytes(mgrs), mimetype='application/json')
@@ -601,7 +596,6 @@ def _get_cache_authfile(public_only):
             generate_function = stashcache.generate_cache_authfile
         auth = generate_function(global_data,
                                  fqdn=cache_fqdn,
-                                 legacy=app.config["STASHCACHE_LEGACY_AUTH"],
                                  suppress_errors=False)
     except (ResourceNotRegistered, ResourceMissingServices) as e:
         return Response("# {}\n"

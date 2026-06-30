@@ -1,0 +1,211 @@
+- Class: UNSCHEDULED
+  ID: 2074039544
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
+  ResourceName: Nebraska
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074039545
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
+  ResourceName: T2_Nebraska_SE_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074039546
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
+  ResourceName: T2_US_Nebraska-red-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074039547
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
+  ResourceName: T2_US_Nebraska_red-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074039548
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
+  ResourceName: US-Nebraska BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074039549
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
+  ResourceName: US-Nebraska BW (Test)
+  Services:
+  - net.perfSONAR.Bandwidth
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074039550
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
+  ResourceName: US-Nebraska LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074039551
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
+  ResourceName: red-gateway1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2074039552
+  Description: City wide power outages caused by strong storms
+  Severity: Outage
+  StartTime: Mar 19, 2025 11:00 +0000
+  EndTime: Mar 20, 2025 17:00 +0000
+  CreatedTime: Mar 19, 2025 17:05 +0000
+  ResourceName: red-gateway2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432600229
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:07 +0000
+  ResourceName: Nebraska
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432600230
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:07 +0000
+  ResourceName: T2_Nebraska_SE_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432600231
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:07 +0000
+  ResourceName: T2_US_Nebraska-red-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432600232
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:07 +0000
+  ResourceName: T2_US_Nebraska_red-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432600233
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:07 +0000
+  ResourceName: US-Nebraska BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432600234
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:07 +0000
+  ResourceName: US-Nebraska BW (Test)
+  Services:
+  - net.perfSONAR.Bandwidth
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432600235
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:07 +0000
+  ResourceName: US-Nebraska LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432600236
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:07 +0000
+  ResourceName: coffea-casa-cms
+  Services:
+  - Execution Endpoint
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432600237
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:07 +0000
+  ResourceName: red-gateway1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432600238
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: May 11, 2026 23:00 +0000
+  EndTime: May 12, 2026 22:00 +0000
+  CreatedTime: May 08, 2026 17:07 +0000
+  ResourceName: red-gateway2
+  Services:
+  - CE
+# ---------------------------------------------------------

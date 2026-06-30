@@ -1,0 +1,21 @@
+- Class: SCHEDULED
+  ID: 2085175619
+  Description: Hypatia OS upgrades and filesystem migrations
+  Severity: Outage
+  StartTime: Apr 08, 2025 08:00 +0000
+  EndTime: Apr 11, 2025 15:00 +0000
+  CreatedTime: Apr 01, 2025 14:26 +0000
+  ResourceName: AEI-Hypatia-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2478059782
+  Description: Reboot of GPU EP necessary for diagnostics
+  Severity: Outage
+  StartTime: Jul 01, 2026 09:00 +0000
+  EndTime: Jul 01, 2026 11:00 +0000
+  CreatedTime: Jun 30, 2026 07:52 +0000
+  ResourceName: AEI-Hypatia-CE1
+  Services:
+  - CE

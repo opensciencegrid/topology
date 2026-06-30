@@ -1,0 +1,33 @@
+- Class: UNSCHEDULED
+  ID: 1975497288
+  Description: Maintenance
+  Severity: Outage
+  StartTime: Nov 25, 2024 15:48 +0000
+  EndTime: Nov 27, 2024 15:48 +0000
+  CreatedTime: Nov 25, 2024 15:48 +0000
+  ResourceName: UTC-Epyc
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2251090806
+  Description: Maintenance
+  Severity: Outage
+  StartTime: Oct 12, 2025 21:00 +0000
+  EndTime: Oct 14, 2025 04:00 +0000
+  CreatedTime: Oct 10, 2025 15:11 +0000
+  ResourceName: UTC-Epyc
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2383407142
+  Description: Cluster rebuild
+  Severity: Outage
+  StartTime: Mar 17, 2026 04:00 +0000
+  EndTime: Mar 24, 2026 20:00 +0000
+  CreatedTime: Mar 12, 2026 18:38 +0000
+  ResourceName: UTC-Epyc
+  Services:
+  - CE
+# ---------------------------------------------------------

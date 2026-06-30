@@ -1,0 +1,30 @@
+Production: true
+SupportCenter: Community Support Center
+GroupDescription: This is the UIUC High-Throughput Computing cluster used to support HTC users at UIUC and OSG opportunistically.
+GroupID: 1118
+Resources:
+  UIUC-ICC-SPT:
+    Active: true
+    Description: This is the UIUC Illinois Campus Cluster partition set aside for SPT
+    ID: 1165
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  OSG1000220
+          Name: Jeffrey Dost
+        Secondary:
+          ID:  OSG1000362
+          Name: Ashton Graves
+      Security Contact:
+        Primary:
+          ID:  OSG1000220
+          Name: Jeffrey Dost
+        Secondary:
+          ID:  OSG1000362
+          Name: Ashton Graves
+    FQDN: uiuc-icc-spt-ce1.svc.osg-htc.org
+    Services:
+      CE:
+        Description: Compute Element
+        Details:
+          hidden: false

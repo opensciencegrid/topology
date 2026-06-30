@@ -2,7 +2,7 @@
 
 
 from webapp.common import safe_dict_get
-from webapp.ldap_data import get_cilogon_ldap_id_map
+from webapp.ldap_data import get_osg_ldap_id_map
 from webapp.ldap_data import cilogon_id_map_to_ssh_keys
 from webapp.ldap_data import get_contact_cilogon_id_map
 
@@ -28,9 +28,9 @@ def get_oasis_manager_endpoint_info(global_data, vo, ldappass):
         if not managers:
             return []
 
-    ldap_url = global_data.cilogon_ldap_url
-    ldap_user = global_data.cilogon_ldap_user
-    cilogon_id_map = get_cilogon_ldap_id_map(ldap_url, ldap_user, ldappass)
+    ldap_url = global_data.osg_ldap_url
+    ldap_user = global_data.osg_ldap_user
+    cilogon_id_map = get_osg_ldap_id_map(ldap_url, ldap_user, ldappass)
     ssh_keys_map = cilogon_id_map_to_ssh_keys(cilogon_id_map)
     contact_cilogon_ids = get_contact_cilogon_id_map(global_data)
 

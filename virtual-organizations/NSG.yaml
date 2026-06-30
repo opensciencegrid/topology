@@ -18,17 +18,3 @@ FieldsOfScience:
 PrimaryURL: https://www.nsgportal.org
 PurposeURL: https://www.nsgportal.org/overview.html
 SupportURL: nsghelp@sdsc.edu
-
-### DataFederations (optional) is information about data federations that the VO is part of
-### This template is for the StashCache data federation; for instructions,
-### see the documentation at https://opensciencegrid.org/docs/data/stashcache/vo-data/
-DataFederations:
-  StashCache:
-    Namespaces:
-      - Path: /NSG/PUBLIC
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - RDS_OSDF_ORIGIN
-        AllowedCaches:
-          - ANY

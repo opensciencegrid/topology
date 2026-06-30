@@ -6,7 +6,7 @@ GroupDescription: Georgia Institute of Technology Partnership for an Advanced Co
 Resources:
 
   GATech-Buzzard-IceCube-CE1:
-    Active: true
+    Active: false
     Description: HTCondor-CE providing access to Buzzard for the IceCube collaboration
     ContactLists:
       Executive Contact:
@@ -47,7 +47,7 @@ Resources:
       - CC*
 
   GATech-Buzzard-LIGO-CE1:
-    Active: true
+    Active: false
     Description: HTCondor-CE providing access to Buzzard for the LIGO collaboration
     ContactLists:
       Executive Contact:
@@ -88,7 +88,7 @@ Resources:
       - CC*
 
   GATech-Buzzard-OSPool-CE1:
-    Active: true
+    Active: false
     Description: HTCondor-CE providing access to Buzzard for the OSPool
     ContactLists:
       Executive Contact:
@@ -130,7 +130,7 @@ Resources:
       - OSPool
 
   GATech-Buzzard-Squid:
-    Active: true
+    Active: false
     Description: Squid service for the Buzzard cluster
     ContactLists:
       Executive Contact:
@@ -171,7 +171,7 @@ Resources:
       - CC*
 
   GATech-Buzzard-AP1:
-    Active: true
+    Active: false
     Description: Access Point for the Buzzard cluster
     ContactLists:
       Executive Contact:
@@ -212,7 +212,7 @@ Resources:
       - CC*
 
   GEORGIA_TECH_PACE_OSDF_CACHE:
-    Active: true
+    Active: false
     Description: OSDF cache in the Buzzard cluster
     ContactLists:
       Executive Contact:

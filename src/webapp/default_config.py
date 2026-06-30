@@ -18,7 +18,7 @@ CONTACT_DATA_REPO = "git@bitbucket.org:opensciencegrid/contact.git"
 CONTACT_DATA_BRANCH = "master"
 CONTACT_CACHE_LIFETIME = 60 * 2
 
-CILOGON_LDAP_PASSFILE = None
+OSG_LDAP_PASSFILE = None
 
 CACHE_LIFETIME = 60 * 5
 
@@ -26,9 +26,7 @@ NO_GIT = False
 
 INSTANCE_NAME = ""  # leave blank for production
 
-# LIGO's StashCache setup contains a long list of DNs we must generate
-# by querying their LDAP server; set this to False to skip this query.
-STASHCACHE_LEGACY_AUTH = True
+
 
 # import logging
 # LOGLEVEL = logging.DEBUG  # flask's default is WARNING

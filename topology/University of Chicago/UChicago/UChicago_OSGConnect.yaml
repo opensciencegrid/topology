@@ -7,7 +7,7 @@ GroupID: 1122
 
 Resources:
   UChicago_OSGConnect_login04:
-    Active: true
+    Active: false
     Description: The login04.osgconnect.net login node for the OSG Open Pool
     ID: 1400
     ContactLists:
@@ -28,7 +28,7 @@ Resources:
       - OSPool
 
   UChicago_OSGConnect_login05:
-    Active: true
+    Active: false
     Description: The login05.osgconnect.net login node for the OSG Open Pool
     ID: 1174
     ContactLists:
@@ -50,7 +50,7 @@ Resources:
       - OSPool
 
   UChicago_OSGConnect_ap20:
-    Active: true
+    Active: false
     Description: The ap20.uc.osg-htc.org login node for the OSG Open Pool
     ID: 1437
     ContactLists:
@@ -89,7 +89,7 @@ Resources:
       - OSG
 
   UChicago_OSGConnect_ap21:
-    Active: true
+    Active: false
     Description: The ap21.uc.osg-htc.org login node for the OSG Open Pool
     ID: 1438
     ContactLists:
@@ -128,7 +128,7 @@ Resources:
       - OSG
 
   UChicago_OSGConnect_ap22:
-    Active: true
+    Active: false
     Description: The ap22.uc.osg-htc.org login node for the OSG Open Pool
     ID: 1439
     ContactLists:
@@ -246,7 +246,7 @@ Resources:
         Description: OS Pool access point
 
   UChicago_OSGConnect_veritas:
-    Active: true
+    Active: false
     Description: The Veritas CI Connect access point
     ID: 1195
     ContactLists:
@@ -267,7 +267,7 @@ Resources:
       - OSPool
 
   UChicago_OSGConnect_duke:
-    Active: true
+    Active: false
     Description: The Duke OSG Connect access point
     ID: 1196
     ContactLists:
@@ -288,7 +288,7 @@ Resources:
       - OSPool
 
   UChicago_OSGConnect_ci-connect:
-    Active: true
+    Active: false
     Description: The CI Connect access point
     ID: 1198
     ContactLists:
@@ -309,7 +309,7 @@ Resources:
       - OSPool
 
   UChicago_OSGConnect_xenon:
-    Active: true
+    Active: false
     Description: The Xenon CI Connect access point
     ID: 1199
     ContactLists:
@@ -330,7 +330,7 @@ Resources:
       - OSPool
 
   UChicago_OSGConnect_cms:
-    Active: true
+    Active: false
     Description: The CMS CI Connect access point
     ID: 1200
     ContactLists:
@@ -354,7 +354,7 @@ Resources:
       - OSPool
 
   UChicago_OSGConnect_snowmass:
-    Active: true
+    Active: false
     Description: The Snowmass CI Connect access point
     ID: 1201
     ContactLists:
@@ -375,7 +375,7 @@ Resources:
       - OSPool
 
   UChicago_OSGConnect_Collab:
-    Active: true
+    Active: false
     Description: The Collab CI Connect access point
     ID: 1202
     ContactLists:

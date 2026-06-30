@@ -40,14 +40,3 @@ OASIS:
   UseOASIS: true
   OASISRepoURLs:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/et-gw.osgstorage.org
-DataFederations:
-  StashCache:
-    Namespaces:
-      - Path: /et-gw/PUBLIC
-        Authorizations:
-          - PUBLIC
-        AllowedOrigins:
-          - UCL-Virgo-StashCache-Origin
-        AllowedCaches:
-          - ANY
-        DirList: http://et-origin.cism.ucl.ac.be:1094

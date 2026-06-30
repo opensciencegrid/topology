@@ -1717,3 +1717,25 @@
   Services:
   - XRootD component
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432567206
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: May 11, 2026 14:00 +0000
+  EndTime: May 11, 2026 21:00 +0000
+  CreatedTime: May 08, 2026 16:12 +0000
+  ResourceName: MWT2_UC_WebDAV
+  Services:
+  - WebDAV
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2432567408
+  Description: dCache upgrade
+  Severity: Outage
+  StartTime: May 11, 2026 14:00 +0000
+  EndTime: May 11, 2026 21:00 +0000
+  CreatedTime: May 08, 2026 16:12 +0000
+  ResourceName: MWT2_UC_XRootD_door
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
