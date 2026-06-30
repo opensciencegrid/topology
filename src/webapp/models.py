@@ -186,7 +186,6 @@ class GlobalData:
         May return None if we fail to get the data for the first time.
         """
         if not self.config.get("CONTACT_DATA_DIR", None):
-            log.debug("CONTACT_DATA_DIR not specified; getting empty contacts")
             data = contacts_reader.get_contacts_data(None)
             self.contacts_data.update(data)
         elif self.contacts_data.should_update():
@@ -212,8 +211,6 @@ class GlobalData:
         """
         if not (self.osg_ldap_url and self.osg_ldap_user and
                 self.osg_ldap_passfile):
-            log.debug("OSG_LDAP_{URL|USER|PASSFILE} not specified; "
-                      "getting empty contacts")
             data = contacts_reader.get_contacts_data(None)
             self.comanage_data.update(data)
         elif self.comanage_data.should_update():
