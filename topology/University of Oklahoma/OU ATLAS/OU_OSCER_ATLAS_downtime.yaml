@@ -1106,3 +1106,38 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2478340910
+  Description: OSCER cluster maintenance
+  Severity: Outage
+  StartTime: Jun 30, 2026 16:00 +0000
+  EndTime: Jul 03, 2026 04:00 +0000
+  CreatedTime: Jun 29, 2026 15:41 +0000
+  ResourceName: OU_OSCER_ATLAS
+  Services:
+  - CE
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2478340911
+  Description: OSCER cluster maintenance
+  Severity: Outage
+  StartTime: Jun 30, 2026 16:00 +0000
+  EndTime: Jul 03, 2026 04:00 +0000
+  CreatedTime: Jun 29, 2026 15:41 +0000
+  ResourceName: OU_OSCER_ATLAS_SE
+  Services:
+  - GridFtp
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2478340912
+  Description: OSCER cluster maintenance
+  Severity: Outage
+  StartTime: Jun 30, 2026 16:00 +0000
+  EndTime: Jul 03, 2026 04:00 +0000
+  CreatedTime: Jun 29, 2026 15:41 +0000
+  ResourceName: OU_OSCER_ATLAS_SLATE_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
