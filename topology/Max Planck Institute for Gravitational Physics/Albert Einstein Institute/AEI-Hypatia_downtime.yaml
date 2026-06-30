@@ -9,3 +9,13 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2478059782
+  Description: Reboot of GPU EP necessary for diagnostics
+  Severity: Outage
+  StartTime: Jul 01, 2026 09:00 +0000
+  EndTime: Jul 01, 2026 11:00 +0000
+  CreatedTime: Jun 30, 2026 07:52 +0000
+  ResourceName: AEI-Hypatia-CE1
+  Services:
+  - CE
