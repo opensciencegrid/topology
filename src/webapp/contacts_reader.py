@@ -11,11 +11,10 @@ from typing import Dict, Optional
 if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from webapp.common import to_xml, MISCUSER_SCHEMA_URL, load_yaml_file
+from webapp.common import API_KEY_HASH_RE, to_xml, MISCUSER_SCHEMA_URL, load_yaml_file
 
 
 log = getLogger(__name__)
-
 
 class User(object):
     def __init__(self, id_, yaml_data):
@@ -62,6 +61,10 @@ class User(object):
     @property
     def cilogon_id(self):
         return self.yaml_data.get("CILogonID", None)
+
+    @property
+    def api_key_hash(self):
+        return self.yaml_data["ContactInformation"].get("APIKeyHash", None)
 
     @staticmethod
     def _get_gravatar_url(email):
@@ -156,6 +159,74 @@ def get_contacts_data(infile) -> ContactsData:
         return ContactsData(load_yaml_file(infile))
     else:
         return ContactsData({})
+
+
+def get_api_keys_data(infile: Optional[str], contacts_data: Optional[ContactsData]) -> Dict[str, str]:
+    """
+    Read API key hashes from a YAML mapping keyed by contact ID.
+
+    Each entry must look like:
+
+        <contact_id>:
+          FullName: <contact full name>
+          APIKeyHash: sha256:<64 lowercase hex chars>
+
+    Entries that fail validation are skipped with a warning.
+    """
+    if not infile:
+        return {}
+
+    if contacts_data is None:
+        log.warning("API_KEY_FILE is configured but contacts.yaml data is unavailable; returning no API keys")
+        return {}
+
+    raw_data = load_yaml_file(infile)
+    if not isinstance(raw_data, dict):
+        log.warning(
+            "API key file %s must be a YAML mapping keyed by contact ID; got %s",
+            infile,
+            type(raw_data).__name__,
+        )
+        return {}
+
+    api_keys: Dict[str, str] = {}
+    for id_, entry in raw_data.items():
+        if not isinstance(id_, str):
+            log.warning("API key file entry key %r is not a string contact ID; skipping", id_)
+            continue
+        if not isinstance(entry, dict):
+            log.warning("API key file entry for %s must be a mapping; skipping", id_)
+            continue
+
+        full_name = entry.get("FullName")
+        api_key_hash = entry.get("APIKeyHash")
+        if not isinstance(full_name, str) or not full_name:
+            log.warning("API key file entry for %s has invalid FullName; skipping", id_)
+            continue
+        if not isinstance(api_key_hash, str) or not API_KEY_HASH_RE.fullmatch(api_key_hash):
+            log.warning(
+                "API key file entry for %s has invalid APIKeyHash; expected sha256:<64 lowercase hex chars>; skipping",
+                id_,
+            )
+            continue
+
+        try:
+            contact_user = contacts_data.users_by_id[id_]
+        except KeyError:
+            log.warning("API key file entry for %s does not match any contacts.yaml ID; skipping", id_)
+            continue
+        if contact_user.name != full_name:
+            log.warning(
+                "API key file entry for %s FullName mismatch: expected %r from contacts.yaml; got %r; skipping",
+                id_,
+                contact_user.name,
+                full_name,
+            )
+            continue
+
+        api_keys[api_key_hash] = full_name
+
+    return api_keys
 
 
 def main(argv):

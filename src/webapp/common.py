@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from logging import getLogger
+import base64
 import hashlib
 import json
 import os
@@ -400,3 +401,35 @@ PELICAN_CACHE = "Pelican cache"
 PELICAN_ORIGIN = "Pelican origin"
 GRIDTYPE_1 = "OSG Production Resource"
 GRIDTYPE_2 = "OSG Integration Test Bed Resource"
+API_KEY_RE = re.compile(r"tk-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}")
+API_KEY_HASH_RE = re.compile(r"sha256:[0-9a-f]{64}")
+
+
+def token_to_apikeyhash(token: Union[str, bytes]) -> str:
+    """
+    Converts a given token to a hashed API key string - a SHA256 sum
+    (as a 64-character hex string), prefixed with "sha256:"
+    (matching the format in the apikeys yaml file).
+
+    Raises ValueError if the token does not match the token pattern.
+    """
+    if isinstance(token, bytes):
+        token_s = token.decode("latin-1")
+    else:
+        token_s = token
+    if not API_KEY_RE.fullmatch(token_s):
+        raise ValueError("Token does not match pattern")
+    return "sha256:" + hashlib.sha256(token_s.encode()).hexdigest()
+
+
+def shorten(a_str: str, maxlen: int = 80) -> str:
+    """
+    Shortens a string to a specified maximum length with an ellipsis appended if truncation occurs.
+    maxlen must be at least 3 to account for the ellipsis.
+    """
+    if maxlen < 3:
+        raise ValueError("maxlen must be at least 3")
+    if len(a_str) > maxlen - 3:
+        return a_str[: maxlen - 3] + "..."
+    else:
+        return a_str

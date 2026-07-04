@@ -49,6 +49,9 @@ COPY src/ ./
 RUN rm /etc/httpd/conf.d/ssl.conf
 COPY docker/apache.conf /etc/httpd/conf.d/topology.conf
 COPY docker/supervisor-apache.conf /etc/supervisord.d/40-apache.conf
+# Give the api keys file its own dir so it can be updated without a pod restart.
+RUN mkdir -p /secrets/api_keys
+COPY --chown=apache:apache --chmod=600 docker/api_keys.yaml /secrets/api_keys/api_keys.yaml
 
 EXPOSE 8080/tcp 8443/tcp
 
