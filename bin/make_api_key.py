@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
+"""
+This script creates an API key that clients can use to access contact
+information in Topology pages.
+"""
 
 import argparse
 import hashlib
+import os
 import pathlib
 import re
 import sys
@@ -85,7 +90,7 @@ def get_arguments():
     Parses command-line arguments for generating or retrieving an API key.
     """
     parser = argparse.ArgumentParser(
-        description="Generate an API key and optional apikeys file block."
+        description=__doc__
     )
     parser.add_argument(
         "--outfile", default="", help="write the raw API key to this file"
@@ -199,7 +204,9 @@ def main() -> int:
     # save the API_KEYS_FILE block to a file.
     if args.outfile:
         outfile = pathlib.Path(args.outfile)
+        old_umask = os.umask(0o077)
         outfile.write_text(api_key)
+        os.umask(old_umask)
         print(f"\nKey written to {args.outfile}", file=sys.stderr)
     elif not args.keyfile:
         # We didn't load the key from a file, so print the generated one.
