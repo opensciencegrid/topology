@@ -139,7 +139,7 @@ Viewing Contact Information
 
 Detailed contact information (email addresses, phone numbers, etc.) is private
 and requires an API key to view.
-To use an API key, include it as a `Bearer` token in the `Authorize` header of an
+To use an API key, include it as a `Bearer` token in the `Authorization` header of an
 API request. For example:
 
 ```

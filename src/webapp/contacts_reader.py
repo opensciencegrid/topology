@@ -177,7 +177,7 @@ def get_api_keys_data(infile: Optional[str], contacts_data: Optional[ContactsDat
         return {}
 
     if contacts_data is None:
-        log.warning("API_KEY_FILE is configured but contacts.yaml data is unavailable; returning no API keys")
+        log.warning("API_KEYS_FILE is configured but contacts.yaml data is unavailable; returning no API keys")
         return {}
 
     raw_data = load_yaml_file(infile)

@@ -1,6 +1,5 @@
 from collections import OrderedDict
 from logging import getLogger
-import base64
 import hashlib
 import json
 import os

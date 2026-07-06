@@ -628,8 +628,8 @@ The hashes for validating API keys are loaded from a file specified in `API_KEYS
 Only contacts registered in contacts.yaml or COManage can have API keys.
 API keys not associated with a valid contact are not accepted.
 A contact may only have one API key.
-The API keys file is re-read at the same frequency as contact info (every 5 minutes)
-by default.
+The API keys file is re-read at the same frequency as contact info
+(configured via CONTACT_CACHE_LIFETIME).
 
 Use the `bin/make_api_key.py` script to make a new API key and also output
 the YAML block that should be copy-pasted into the API keys file.
@@ -656,7 +656,7 @@ bin/make_api_key.py --keyfile apikey --name "Example User"
 ```
 
 The Docker image is configured to look for the API keys file
-at `/etc/api_keys/api_keys.yaml`.
+at `/secrets/api_keys/api_keys.yaml`.
 
 Unlike with X.509, an invalid API key will return a 401 instead of
 silently falling back to showing no contact info.

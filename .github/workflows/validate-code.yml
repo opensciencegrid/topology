@@ -26,6 +26,7 @@ jobs:
           export FLASK_DEBUG=1
           py.test ./src/tests/test_api.py
           py.test ./src/tests/test_api_auth.py
+          py.test ./src/tests/test_auth_helpers.py
       - name: Test StashCache
         run: |
           export TOPOLOGY_CONFIG=$PWD/src/config-ci.py

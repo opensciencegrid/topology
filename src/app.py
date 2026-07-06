@@ -89,7 +89,8 @@ def _verify_config(cfg):
         app.logger.info("API_KEYS_FILE not specified - API key auth unavailable")
     else:
         try:
-            _ = open(api_keys_file, "rb").read(4096)
+            with open(api_keys_file, "rb") as fh:
+                _ = fh.read(4096)
         except OSError as err:
             app.logger.warning(
                 "API_KEYS_FILE (%s) not readable: %s - API key auth unavailable",
@@ -1208,7 +1209,7 @@ def _authorize_bearer_header() -> bool:
     try:
         token_hash = token_to_apikeyhash(bearer_token)
     except ValueError as err:
-        log.info("Rejected invalid token %s: %s", shorten(bearer_token, 20), err)
+        log.info("Rejected invalid token (len=%d): %s", len(bearer_token), err)
         raise AuthenticationFailedError("Invalid bearer token")
 
     hash_prefix = token_hash[7:15]  # skip leading 'sha256:'
