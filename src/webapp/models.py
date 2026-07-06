@@ -272,10 +272,10 @@ class GlobalData:
 
     def get_api_keys(self) -> Optional[Dict[str, str]]:
         if self.api_key_set.should_update():
-            contact_db_data = self.get_contact_db_data()
+            contacts_data = self.get_contacts_data()
             try:
                 self.api_key_set.update(
-                    contacts_reader.get_api_keys_data(self.api_keys_file, contact_db_data)
+                    contacts_reader.get_api_keys_data(self.api_keys_file, contacts_data)
                 )
             except Exception as err:
                 if self.strict:

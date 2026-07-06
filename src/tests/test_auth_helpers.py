@@ -120,7 +120,7 @@ class TestGetApiKeysData:
         with caplog.at_level(logging.WARNING, logger="webapp.contacts_reader"):
             result = get_api_keys_data(api_keys_file, contacts)
         assert result == {}
-        assert "does not match any contacts.yaml ID" in caplog.text
+        assert "does not match any contact" in caplog.text
 
     def test_skips_entries_with_fullname_mismatch(self, tmp_path, caplog):
         import logging

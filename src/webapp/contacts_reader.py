@@ -213,11 +213,11 @@ def get_api_keys_data(infile: Optional[str], contacts_data: Optional[ContactsDat
         try:
             contact_user = contacts_data.users_by_id[id_]
         except KeyError:
-            log.warning("API key file entry for %s does not match any contacts.yaml ID; skipping", id_)
+            log.warning("API key file entry for %s does not match any contact ID; skipping", id_)
             continue
         if contact_user.name != full_name:
             log.warning(
-                "API key file entry for %s FullName mismatch: expected %r from contacts.yaml; got %r; skipping",
+                "API key file entry for %s FullName mismatch: expected %r; got %r; skipping",
                 id_,
                 contact_user.name,
                 full_name,
