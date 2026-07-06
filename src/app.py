@@ -5,7 +5,6 @@ import csv
 import flask
 import flask.logging
 from flask import Flask, Response, make_response, request, render_template, redirect, url_for, session
-import hashlib
 from io import StringIO
 import logging
 import os
