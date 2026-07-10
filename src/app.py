@@ -120,8 +120,12 @@ try:
         app.wsgi_app = ProxyFix(
             app.wsgi_app, x_for=_proxy_count, x_proto=_proxy_count
         )
-except ValueError:  # PROXY_COUNT can't be converted to an int
-    pass
+    elif _proxy_count < 0:
+        raise ValueError("may not be negative")
+except (TypeError, ValueError) as err:
+    app.logger.warning(
+        "Invalid PROXY_COUNT %r: %s", app.config["PROXY_COUNT"], err
+    )
 
 csrf = CSRFProtect()
 csrf.init_app(app)
