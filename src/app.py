@@ -18,6 +18,8 @@ import threading
 from wtforms import ValidationError
 from flask_wtf.csrf import CSRFProtect
 
+from werkzeug.middleware.proxy_fix import ProxyFix
+
 from webapp import default_config
 from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, \
     escape, cache_control_private, PreJSON, is_true, GRIDTYPE_1, GRIDTYPE_2, NamespacesFilters
@@ -109,6 +111,17 @@ elif not app.debug and not csrf_secret_key:
     raise Exception("SECRET_KEY required when FLASK_ENV != development")
 else:
     app.config["SECRET_KEY"] = csrf_secret_key.decode()
+
+try:
+    # If we're behind a proxy, trust the forwarding headers, so we get the
+    # requester's IP address in the logs, not e.g., the Traefik pod's.
+    _proxy_count = int(app.config.get("PROXY_COUNT", 0))
+    if _proxy_count > 0:
+        app.wsgi_app = ProxyFix(
+            app.wsgi_app, x_for=_proxy_count, x_proto=_proxy_count
+        )
+except ValueError:  # PROXY_COUNT can't be converted to an int
+    pass
 
 csrf = CSRFProtect()
 csrf.init_app(app)
