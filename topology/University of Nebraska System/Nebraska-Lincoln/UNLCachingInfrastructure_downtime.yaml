@@ -164,4 +164,36 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 2487092804
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:48 +0000
+  ResourceName: HCC-Origin
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2487092805
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:48 +0000
+  ResourceName: HCC-StashCache-Origin
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2487092807
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:48 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------

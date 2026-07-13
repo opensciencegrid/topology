@@ -209,3 +209,114 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2487089384
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:42 +0000
+  ResourceName: Nebraska
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2487089385
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:42 +0000
+  ResourceName: T2_Nebraska_SE_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2487089386
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:42 +0000
+  ResourceName: T2_US_Nebraska-red-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2487089387
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:42 +0000
+  ResourceName: T2_US_Nebraska_red-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2487089388
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:42 +0000
+  ResourceName: US-Nebraska BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2487089389
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:42 +0000
+  ResourceName: US-Nebraska BW (Test)
+  Services:
+  - net.perfSONAR.Bandwidth
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2487089390
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:42 +0000
+  ResourceName: US-Nebraska LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2487089391
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:42 +0000
+  ResourceName: coffea-casa-cms
+  Services:
+  - Execution Endpoint
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2487089392
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:42 +0000
+  ResourceName: red-gateway1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2487089393
+  Description: Campus wide power outage for infrastructure upgrades
+  Severity: Outage
+  StartTime: Jul 13, 2026 22:00 +0000
+  EndTime: Jul 15, 2026 22:00 +0000
+  CreatedTime: Jul 10, 2026 18:42 +0000
+  ResourceName: red-gateway2
+  Services:
+  - CE
+# ---------------------------------------------------------
