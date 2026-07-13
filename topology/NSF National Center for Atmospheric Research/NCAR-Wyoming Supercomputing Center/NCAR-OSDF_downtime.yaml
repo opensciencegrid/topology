@@ -97,4 +97,16 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2489743523
+  Description: "Upgrade GPFS for the Boreas object storage system Transition ncar-osdf01\u2019\
+    s NFS mount to GPFS CES Ganesha NFS"
+  Severity: Outage
+  StartTime: Jul 14, 2026 12:00 +0000
+  EndTime: Jul 14, 2026 14:00 +0000
+  CreatedTime: Jul 13, 2026 20:25 +0000
+  ResourceName: NCAR_OSDF_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
 
