@@ -92,6 +92,8 @@ Resources:
           ID: OSG1000002
           Name: Matyas Selmeci
     FQDN: fiu-path-osdf-cache.facility.path-cc.io
+    FQDNAliases:
+      - fiu-path-osdf-cache.osg.path-fiu.chtc.io
     Services:
       Pelican cache:
         Description: Site-local cache
