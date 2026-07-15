@@ -606,3 +606,57 @@ The final result looks like
   ]
 }
 ```
+
+
+API Key Authentication
+----------------------
+
+Clients can access authenticated data (namely, contact information) through either X.509 client certs (deprecated)
+or an API key that's used as a Bearer token in the HTTP Authorization header.
+
+An API key looks like `tk-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` where each X is a lowercase hex value.
+(So, a UUID.)
+
+The hashes for validating API keys are loaded from a file specified in `API_KEYS_FILE` in the config.  The hashes are keyed to user IDs, in the following format:
+
+```yaml
+<id>:
+  FullName: <full name as it appears in contact info>
+  APIKeyHash: sha256:<SHA-256 checksum of the key as a 64-character hex string>
+```
+
+Only contacts registered in contacts.yaml or COManage can have API keys.
+API keys not associated with a valid contact are not accepted.
+A contact may only have one API key.
+The API keys file is re-read at the same frequency as contact info
+(configured via CONTACT_CACHE_LIFETIME).
+
+Use the `bin/make_api_key.py` script to make a new API key and also output
+the YAML block that should be copy-pasted into the API keys file.
+You may specify the contact by FullName (`--name`) or ID (`--id`).
+
+Example usages:
+```
+# Make the key; print the key to and the hash to console. (Does not print the
+# whole YAML block, since the script doesn't know the contact.)
+bin/make_api_key.py
+
+# Make the key associated with the user with FullName "ExampleUser".
+# Write the key to `apikey` and append the YAML block to `api_keys_file.yaml`.
+bin/make_api_key.py --name "Example User" --outfile apikey | tee -a api_keys_file.yaml
+
+# Make the key associated with the user with ID OSG10000001.  (The ID
+# can also be an email hash from contacts.yaml.)
+# Write the key to `apikey` and append the YAML block to `api_keys_file.yaml`.
+bin/make_api_key.py --id "OSG10000001" --outfile apikey | tee -a api_keys_file.yaml
+
+# Load a key from `apikey` and print the YAML block to include in `api_keys_file.yaml`
+# to associate it with Example User.
+bin/make_api_key.py --keyfile apikey --name "Example User"
+```
+
+The Docker image is configured to look for the API keys file
+at `/secrets/api_keys/api_keys.yaml`.
+
+Unlike with X.509, an invalid API key will return a 401 instead of
+silently falling back to showing no contact info.

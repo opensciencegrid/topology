@@ -134,6 +134,21 @@ For example, either of the following will match GLOW (13), HCC (67), and IceCube
 - `vo=on&vo_sel[]=13&vo_sel[]=67&vo_sel[]=38`
 
 
+Viewing Contact Information
+---------------------------
+
+Detailed contact information (email addresses, phone numbers, etc.) is private
+and requires an API key to view.
+To use an API key, include it as a `Bearer` token in the `Authorization` header of an
+API request. For example:
+
+```
+curl -H "Authorization: Bearer tk-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" \
+  https://topology.opensciencegrid.org/miscuser/xml
+```
+
+To request an API key, see "Getting Help" below.
+
 
 Getting Help
 ------------

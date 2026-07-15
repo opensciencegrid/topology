@@ -21,8 +21,23 @@ from flask_wtf.csrf import CSRFProtect
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 from webapp import default_config
-from webapp.common import readfile, to_xml_bytes, to_json_bytes, Filters, support_cors, simplify_attr_list, is_null, \
-    escape, cache_control_private, PreJSON, is_true, GRIDTYPE_1, GRIDTYPE_2, NamespacesFilters
+from webapp.common import (
+    Filters,
+    GRIDTYPE_1,
+    GRIDTYPE_2,
+    NamespacesFilters,
+    PreJSON,
+    cache_control_private,
+    escape,
+    is_null,
+    is_true,
+    readfile,
+    simplify_attr_list,
+    support_cors,
+    token_to_apikeyhash,
+    to_json_bytes,
+    to_xml_bytes,
+)
 from webapp.flask_common import create_accepted_response
 from webapp.exceptions import DataError, ResourceNotRegistered, ResourceMissingServices
 from webapp.forms import GenerateDowntimeForm, GenerateResourceGroupDowntimeForm, GenerateProjectForm
@@ -40,8 +55,19 @@ except ImportError as e:
 
 
 class InvalidArgumentsError(Exception): pass
+class AuthenticationFailedError(Exception): pass
+
 
 def _verify_config(cfg):
+    """
+    Checks some attributes in the application config for consistency.
+
+    - If we use Git to fetch data (i.e., not NO_GIT), GIT_SSH_KEY must be
+      pointed to an existing key that's only readable by the owner
+      (unless IGNORE_SECRET_PERMS is set).
+
+    - If the API keys file is specified, it must exist.
+    """
     if not cfg["NO_GIT"]:
         ssh_key = cfg["GIT_SSH_KEY"]
         if not ssh_key:
@@ -56,6 +82,21 @@ def _verify_config(cfg):
                 else:
                     raise PermissionError(ssh_key)
 
+    api_keys_file = cfg.get("API_KEYS_FILE")
+    if not api_keys_file:
+        app.logger.info("API_KEYS_FILE not specified - API key auth unavailable")
+    else:
+        try:
+            with open(api_keys_file, "rb") as fh:
+                _ = fh.read(4096)
+        except OSError as err:
+            app.logger.warning(
+                "API_KEYS_FILE (%s) not readable: %s - API key auth unavailable",
+                api_keys_file,
+                err,
+                exc_info=True,
+            )
+
 
 default_authorized = False
 
@@ -65,7 +106,6 @@ app.config.from_pyfile("config.py", silent=True)
 
 if "TOPOLOGY_CONFIG" in os.environ:
     app.config.from_envvar("TOPOLOGY_CONFIG", silent=False)
-_verify_config(app.config)
 
 if "AUTH" in app.config:
     if app.debug:
@@ -75,6 +115,14 @@ if "AUTH" in app.config:
 
 if "LOGLEVEL" in app.config:
     app.logger.setLevel(app.config["LOGLEVEL"])
+
+_verify_config(app.config)
+
+
+@app.errorhandler(AuthenticationFailedError)
+def _handle_authentication_failed(err):
+    return Response(str(err), status=401)
+
 
 global_data = GlobalData(app.config, strict=app.config.get("STRICT", app.debug))
 
@@ -1122,8 +1170,61 @@ def _get_authorized():
 
     returns: True if authorized, False otherwise
     """
-    global app
+    if _authorize_bearer_header():
+        return True
 
+    if _authorize_dn_credentials():
+        return True
+
+    # If it gets here, then it is not authorized
+    return default_authorized
+
+
+def _authorize_bearer_header() -> bool:
+    """
+    Determine if the client is authorized based on an API Key passed
+    in the Authorization header as a Bearer token.
+
+    returns: True if authorized, False otherwise;
+    if the header is present but invalid, raises AuthenticationFailedError
+    to indicate that the request should be rejected rather than allowed
+    to fallback to other authentication methods.
+    """
+    if app and app.logger:
+        log = app.logger
+    else:
+        log = logging.getLogger(__name__)
+
+    auth_header = request.headers.get("Authorization", "")
+    if not auth_header.startswith("Bearer "):
+        return False
+
+    bearer_token = auth_header[7:].strip(" \t\n'\"")
+    if not bearer_token:
+        log.info("Rejected empty token")
+        raise AuthenticationFailedError("Empty bearer token")
+
+    try:
+        token_hash = token_to_apikeyhash(bearer_token)
+    except ValueError as err:
+        log.info("Rejected invalid token (len=%d): %s", len(bearer_token), err)
+        raise AuthenticationFailedError("Invalid bearer token")
+
+    hash_prefix = token_hash[7:15]  # skip leading 'sha256:'
+    authorized_api_keys = global_data.get_api_keys()
+    if authorized_api_keys and token_hash in authorized_api_keys:
+        log.info(
+            "Authorized bearer with hash=%s... owner=%s",
+            hash_prefix,
+            authorized_api_keys[token_hash],
+        )
+        return True
+
+    log.debug("Rejected bearer with hash=%s...", hash_prefix)
+    raise AuthenticationFailedError("Invalid bearer token")
+
+
+def _authorize_dn_credentials() -> bool:
     # Loop through looking for all of the creds
     for key, value in request.environ.items():
         if key.startswith('GRST_CRED_AURI_') and value.startswith("dn:"):
@@ -1143,8 +1244,7 @@ def _get_authorized():
                 if app and app.logger:
                     app.logger.debug("Rejected %s", client_dn)
 
-    # If it gets here, then it is not authorized
-    return default_authorized
+    return False
 
 
 try:

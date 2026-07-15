@@ -17,6 +17,7 @@ CONTACT_DATA_DIR = "/tmp/topology/contact"
 CONTACT_DATA_REPO = "git@bitbucket.org:opensciencegrid/contact.git"
 CONTACT_DATA_BRANCH = "master"
 CONTACT_CACHE_LIFETIME = 60 * 2
+API_KEYS_FILE = ""
 
 OSG_LDAP_PASSFILE = None
 

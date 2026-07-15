@@ -1,8 +1,8 @@
+# pyright: reportOptionalMemberAccess=false, reportOptionalSubscript=false
 import re
 import flask
 import pytest
-from typing import Dict, List
-import urllib.parse
+import warnings
 
 
 # Rewrites the path so the app can be imported like it normally is
@@ -15,6 +15,15 @@ topdir = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(topdir)
 
 os.environ['TESTING'] = "True"
+
+# Third-party deprecation from python-dateutil under Python 3.12;
+# we do not control that dependency's internal datetime usage in these tests.
+warnings.filterwarnings(
+    "ignore",
+    message=r"datetime\.datetime\.utcfromtimestamp\(\) is deprecated.*",
+    category=DeprecationWarning,
+    module=r"dateutil\.tz\.tz",
+)
 
 from app import app, global_data
 from webapp.topology import Facility, Site, Resource, ResourceGroup
@@ -801,6 +810,7 @@ class TestEndpointContent:
         osg_ids_set = set(osg_ids_list)
         duplicates = len(osg_ids_list) - len(osg_ids_set)
         assert duplicates == 0, "%d duplicate ids found in institution_ids list provided by API" % duplicates
+
 
 
 if __name__ == '__main__':
