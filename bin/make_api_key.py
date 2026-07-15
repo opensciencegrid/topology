@@ -14,11 +14,15 @@ import urllib.request
 import uuid
 import xml.etree.ElementTree as ET
 
+
+if __name__ == "__main__" and __package__ is None:
+    _parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    sys.path.append(_parent + "/src")
+
+from webapp.common import API_KEY_RE, token_to_apikeyhash
+
+
 USERS_ENDPOINT = "https://topology.opensciencegrid.org/miscuser/xml"
-# Regex for an API key, formatted as `tk-` followed by a UUID
-VALID_API_KEY_RE = re.compile(
-    r"^tk-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-)
 
 
 class NoMatch(Exception):
@@ -138,7 +142,7 @@ def read_api_key_from_file(keyfile: str) -> str:
     if not key_string:
         raise ValueError(f"API key file {keyfile} is empty")
 
-    if not VALID_API_KEY_RE.fullmatch(key_string):
+    if not API_KEY_RE.fullmatch(key_string):
         raise ValueError(f"API key file {keyfile} does not contain a valid API key")
 
     return key_string
@@ -152,17 +156,8 @@ def get_api_key(keyfile: str = "") -> str:
         api_key = read_api_key_from_file(keyfile)
     else:
         api_key = "tk-" + str(uuid.uuid4())
-        assert VALID_API_KEY_RE.fullmatch(api_key)
+        assert API_KEY_RE.fullmatch(api_key)
     return api_key
-
-
-def make_key_hash(api_key: str) -> str:
-    """
-    Create a sha256 sum of the key that can be added to the apikeys file
-    """
-    hash_b = hashlib.sha256(api_key.encode())
-    api_key_hash = f"sha256:{hash_b.hexdigest()}"
-    return api_key_hash
 
 
 def print_keys_file_block(api_key_hash: str, fullname: str, id_: str):
@@ -196,7 +191,7 @@ def main() -> int:
         print(f"Error: {exc}", file=sys.stderr)
         return 1
 
-    api_key_hash = make_key_hash(api_key)
+    api_key_hash = token_to_apikeyhash(api_key)
     print_keys_file_block(api_key_hash, fullname, id_)
 
     # Either write the key to a file and print the file name to console,
