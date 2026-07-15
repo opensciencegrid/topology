@@ -32,7 +32,6 @@ from webapp.common import (
     is_null,
     is_true,
     readfile,
-    shorten,
     simplify_attr_list,
     support_cors,
     token_to_apikeyhash,

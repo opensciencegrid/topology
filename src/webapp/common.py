@@ -419,16 +419,3 @@ def token_to_apikeyhash(token: Union[str, bytes]) -> str:
     if not API_KEY_RE.fullmatch(token_s):
         raise ValueError("Token does not match pattern")
     return "sha256:" + hashlib.sha256(token_s.encode()).hexdigest()
-
-
-def shorten(a_str: str, maxlen: int = 80) -> str:
-    """
-    Shortens a string to a specified maximum length with an ellipsis appended if truncation occurs.
-    maxlen must be at least 3 to account for the ellipsis.
-    """
-    if maxlen < 3:
-        raise ValueError("maxlen must be at least 3")
-    if len(a_str) > maxlen - 3:
-        return a_str[: maxlen - 3] + "..."
-    else:
-        return a_str
