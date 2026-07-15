@@ -15,6 +15,7 @@ import uuid
 import xml.etree.ElementTree as ET
 
 USERS_ENDPOINT = "https://topology.opensciencegrid.org/miscuser/xml"
+# Regex for an API key, formatted as `tk-` followed by a UUID
 VALID_API_KEY_RE = re.compile(
     r"^tk-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
 )
