@@ -24,7 +24,7 @@ RUN \
 WORKDIR /app
 
 # Needed for webhook:
-RUN alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 10
+RUN alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 10 && alternatives --set python3 /usr/bin/python3.12
 
 # Install application dependencies
 COPY requirements-apache.txt requirements-rootless.txt ./
