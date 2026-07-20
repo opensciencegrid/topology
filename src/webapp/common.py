@@ -400,3 +400,22 @@ PELICAN_CACHE = "Pelican cache"
 PELICAN_ORIGIN = "Pelican origin"
 GRIDTYPE_1 = "OSG Production Resource"
 GRIDTYPE_2 = "OSG Integration Test Bed Resource"
+API_KEY_RE = re.compile(r"tk-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}")
+API_KEY_HASH_RE = re.compile(r"sha256:[0-9a-f]{64}")
+
+
+def token_to_apikeyhash(token: Union[str, bytes]) -> str:
+    """
+    Converts a given token to a hashed API key string - a SHA256 sum
+    (as a 64-character hex string), prefixed with "sha256:"
+    (matching the format in the apikeys yaml file).
+
+    Raises ValueError if the token does not match the token pattern.
+    """
+    if isinstance(token, bytes):
+        token_s = token.decode("latin-1")
+    else:
+        token_s = token
+    if not API_KEY_RE.fullmatch(token_s):
+        raise ValueError("Token does not match pattern")
+    return "sha256:" + hashlib.sha256(token_s.encode()).hexdigest()

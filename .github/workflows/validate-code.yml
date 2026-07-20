@@ -10,7 +10,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.9.15
+          python-version: 3.12.13
       - name: Install packages
         run: |
           sudo apt-get update
@@ -25,6 +25,8 @@ jobs:
           export TOPOLOGY_CONFIG=$PWD/src/config-ci.py
           export FLASK_DEBUG=1
           py.test ./src/tests/test_api.py
+          py.test ./src/tests/test_api_auth.py
+          py.test ./src/tests/test_auth_helpers.py
       - name: Test StashCache
         run: |
           export TOPOLOGY_CONFIG=$PWD/src/config-ci.py

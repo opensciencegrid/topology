@@ -72,3 +72,29 @@ Resources:
         Description: FIU IPv6 OSDF cache
     AllowedVOs:
       - ANY
+
+  FIU_PATh_OSDF_Cache:
+    Active: false
+    Description: Site-local cache for staging /osg-public for use by FIU EPs
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+      Security Contact:
+        Primary:
+          ID: OSG1000003
+          Name: Brian Hua Lin
+        Secondary:
+          ID: OSG1000002
+          Name: Matyas Selmeci
+    FQDN: fiu-path-osdf-cache.facility.path-cc.io
+    FQDNAliases:
+      - fiu-path-osdf-cache.osg.path-fiu.chtc.io
+    Services:
+      Pelican cache:
+        Description: Site-local cache
+

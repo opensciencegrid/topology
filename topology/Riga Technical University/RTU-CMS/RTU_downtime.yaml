@@ -1,20 +1,9 @@
 - Class: SCHEDULED
-  ID: 2459899681
-  Description: Underlying infra issues
-  Severity: Severe
-  StartTime: Jun 10, 2026 08:00 +0000
-  EndTime: Jun 14, 2026 08:00 +0000
-  CreatedTime: Jun 09, 2026 07:26 +0000
-  ResourceName: T2_LV_HPCNET-CE
-  Services:
-  - CE
-# ---------------------------------------------------------
-- Class: SCHEDULED
   ID: 2460932591
   Description: ongoing infrastructure upgrade
-  Severity: Intermittent Outage
+  Severity: Severe
   StartTime: Jun 11, 2026 12:10 +0000
-  EndTime: Jun 17, 2026 12:10 +0000
+  EndTime: Jul 14, 2026 12:10 +0000
   CreatedTime: Jun 10, 2026 12:07 +0000
   ResourceName: T2_LV_HPCNET-CE
   Services:
@@ -25,7 +14,7 @@
   Description: ongoing infrastructure upgrade
   Severity: Intermittent Outage
   StartTime: Jun 11, 2026 12:10 +0000
-  EndTime: Jun 17, 2026 12:10 +0000
+  EndTime: Jul 14, 2026 12:10 +0000
   CreatedTime: Jun 10, 2026 12:07 +0000
   ResourceName: T2_LV_HPCNET-SQUID
   Services:
@@ -34,25 +23,12 @@
 - Class: SCHEDULED
   ID: 2460932593
   Description: ongoing infrastructure upgrade
-  Severity: Intermittent Outage
+  Severity: Severe
   StartTime: Jun 11, 2026 12:10 +0000
-  EndTime: Jun 17, 2026 12:10 +0000
+  EndTime: Jul 14, 2026 12:10 +0000
   CreatedTime: Jun 10, 2026 12:07 +0000
   ResourceName: T2_LV_HPCNET-XROOTD
   Services:
   - XRootD component
   - WebDAV
 # ---------------------------------------------------------
-- Class: UNSCHEDULED
-  ID: 2460937589
-  Description: ongoing infrastructure upgrade
-  Severity: Intermittent Outage
-  StartTime: Jun 10, 2026 12:10 +0000
-  EndTime: Jun 11, 2026 12:10 +0000
-  CreatedTime: Jun 10, 2026 12:15 +0000
-  ResourceName: T2_LV_HPCNET-XROOTD
-  Services:
-  - XRootD component
-  - WebDAV
-# ---------------------------------------------------------
-

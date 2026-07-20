@@ -1,0 +1,64 @@
+Production: true
+SupportCenter: Self Supported
+GroupDescription: DESY-ZN resource at DESY Zeuthen
+Resources:
+  DESY-ZN-CE1:
+    Active: true
+    Description: HTCondor-CE
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: DESY-ZN Admin
+          ID: f16bef785a07af0339938bf50fe62810b0b087bc
+      Security Contact:
+        Primary:
+          Name: DESY-ZN Security
+          ID: e2e5b819910ed73c13e2654e917ae8e716b02a2d
+      Site Contact:
+        Primary:
+          Name: Jakob van Santen
+          ID: OSG1002099
+    FQDN: grid-htcondorce1.zeuthen.desy.de
+    Services:
+      CE:
+        Description: HTCondor-CE
+  DESY-ZN-CE2:
+    Active: true
+    Description: HTCondor-CE in front of Zeuthen Grid
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: DESY-ZN Admin
+          ID: f16bef785a07af0339938bf50fe62810b0b087bc
+      Security Contact:
+        Primary:
+          Name: DESY-ZN Security
+          ID: e2e5b819910ed73c13e2654e917ae8e716b02a2d
+      Site Contact:
+        Primary:
+          Name: Jakob van Santen
+          ID: OSG1002099
+    FQDN: grid-htcondorce2.zeuthen.desy.de
+    Services:
+      CE:
+        Description: HTCondor-CE
+  DESY-ZN-CE-GPU:
+    Active: true
+    Description: HTCondor-CE in front of Zeuthen Grid for GPUs
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: DESY-ZN Admin
+          ID: f16bef785a07af0339938bf50fe62810b0b087bc
+      Security Contact:
+        Primary:
+          Name: DESY-ZN Security
+          ID: e2e5b819910ed73c13e2654e917ae8e716b02a2d
+      Site Contact:
+        Primary:
+          Name: Jakob van Santen
+          ID: OSG1002099
+    FQDN: htcce-gpu.zeuthen.desy.de
+    Services:
+      CE:
+        Description: HTCondor-CE

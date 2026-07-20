@@ -81,6 +81,7 @@ class GlobalData:
         self.contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
         self.comanage_data = CachedData(cache_lifetime=contact_cache_lifetime)
         self.merged_contacts_data = CachedData(cache_lifetime=contact_cache_lifetime)
+        self.api_key_set = CachedData(cache_lifetime=contact_cache_lifetime)
         self.dn_set = CachedData(cache_lifetime=topology_cache_lifetime)
         self.projects = CachedData(cache_lifetime=topology_cache_lifetime)
         self.topology = CachedData(cache_lifetime=topology_cache_lifetime)
@@ -104,6 +105,7 @@ class GlobalData:
         self.auto_pr_gh_api_user = config.get("AUTO_PR_GH_API_USER")
         self.auto_pr_gh_api_token = config.get("AUTO_PR_GH_API_TOKEN")
         self.csrf_secret_key = config.get("CSRF_SECRET_KEY")
+        self.api_keys_file = config.get("API_KEYS_FILE", "")
         if config["CONTACT_DATA_DIR"]:
             self.contacts_file = os.path.join(config["CONTACT_DATA_DIR"], "contacts.yaml")
         else:
@@ -186,7 +188,6 @@ class GlobalData:
         May return None if we fail to get the data for the first time.
         """
         if not self.config.get("CONTACT_DATA_DIR", None):
-            log.debug("CONTACT_DATA_DIR not specified; getting empty contacts")
             data = contacts_reader.get_contacts_data(None)
             self.contacts_data.update(data)
         elif self.contacts_data.should_update():
@@ -212,8 +213,6 @@ class GlobalData:
         """
         if not (self.osg_ldap_url and self.osg_ldap_user and
                 self.osg_ldap_passfile):
-            log.debug("OSG_LDAP_{URL|USER|PASSFILE} not specified; "
-                      "getting empty contacts")
             data = contacts_reader.get_contacts_data(None)
             self.comanage_data.update(data)
         elif self.comanage_data.should_update():
@@ -270,6 +269,20 @@ class GlobalData:
                 log.exception("Failed to update DNs (%s)", err)
                 self.contacts_data.try_again()
         return self.dn_set.data
+
+    def get_api_keys(self) -> Optional[Dict[str, str]]:
+        if self.api_key_set.should_update():
+            contacts_data = self.get_contacts_data()
+            try:
+                self.api_key_set.update(
+                    contacts_reader.get_api_keys_data(self.api_keys_file, contacts_data)
+                )
+            except Exception as err:
+                if self.strict:
+                    raise
+                log.exception("Failed to update API key set (%s)", err)
+                self.api_key_set.try_again()
+        return self.api_key_set.data
 
     def get_topology(self) -> Optional[Topology]:
         """

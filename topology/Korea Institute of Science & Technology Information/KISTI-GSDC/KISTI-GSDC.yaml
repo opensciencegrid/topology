@@ -1,0 +1,24 @@
+GroupDescription: >-
+  KISTI Global Science Data hub Center (GSDC) operates an OSDF cache
+  to support IGWN (LIGO/KAGRA) via OSG
+Production: true
+Resources:
+  KISTI_GSDC_OSDF_Cache:
+    Active: true
+    Description: OSDF Cache intended for IGWN data
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Sangwook Bae
+          ID: OSG1002114
+      Security Contact:
+        Primary:
+          Name: Sangwook Bae
+          ID: OSG1002114
+    FQDN: kisti-osdf.sdfarm.kr
+    Services:
+      Pelican cache:
+        Description: OSDF cache server for IGWN
+    AllowedVOs:
+      - LIGO
+SupportCenter: Self Supported

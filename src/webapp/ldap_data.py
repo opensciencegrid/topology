@@ -1,5 +1,14 @@
 import logging
 
+import warnings
+
+warnings.filterwarnings(
+    "ignore",
+    message=r".*(tagMap|typeMap) is deprecated.*",
+    category=DeprecationWarning,
+    module=r"ldap3\.utils\.asn1",
+)
+
 import ldap3
 
 log = logging.getLogger(__name__)

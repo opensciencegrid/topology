@@ -1,0 +1,15 @@
+Department: Physics and Astronomy
+Description: My specific project involves data related to JWST GO 5311 (https://www.stsci.edu/jwst/science-execution/program-information?id=5311).
+  I am leading the contemporaneous ground based observational campaign for projects
+  related to this GO Proposal, and my project involves large parameter estimation
+  for models built using emcee (https://github.com/dfm/emcee) and chromatic (https://github.com/zkbt/chromatic).
+  At the current moment these are ran using Python multiprocessing (main motivation
+  for seeking the OSPool for larger RAM allocations in a single node), although I
+  am in the process of making the analysis MPI compatible to expand the projects flexibility
+  in a cluster.
+FieldOfScience: Astronomy and Astrophysics
+FieldOfScienceID: '40.0201'
+InstitutionID: https://osg-htc.org/iid/wala2w0ka0gb
+Organization: Michigan State University
+PIName: Adina Feinstein
+

@@ -118,3 +118,47 @@
   Services:
   - CE
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2489573465
+  Description: Patching CVEs
+  Severity: Outage
+  StartTime: Jul 09, 2026 13:55 +0000
+  EndTime: Jul 01, 2027 05:00 +0000
+  CreatedTime: Jul 13, 2026 15:42 +0000
+  ResourceName: AMNH-ARES-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2489573987
+  Description: Patching CVEs
+  Severity: Outage
+  StartTime: Jul 09, 2026 13:55 +0000
+  EndTime: Jul 01, 2027 05:00 +0000
+  CreatedTime: Jul 13, 2026 15:43 +0000
+  ResourceName: AMNH-HEL-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2489574190
+  Description: Patching CVEs
+  Severity: Outage
+  StartTime: Jul 09, 2026 13:55 +0000
+  EndTime: Jul 17, 2026 19:42 +0000
+  CreatedTime: Jul 13, 2026 15:43 +0000
+  ResourceName: AMNH-Huxley-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2489574329
+  Description: Patching CVEs
+  Severity: Outage
+  StartTime: Jul 09, 2026 13:55 +0000
+  EndTime: Jul 01, 2027 05:00 +0000
+  CreatedTime: Jul 13, 2026 15:43 +0000
+  ResourceName: AMNH-Mendel-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
