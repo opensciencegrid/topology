@@ -1,0 +1,17 @@
+Department: Kansas Geological Survey
+Description: Systematic evaluation of process equation combinations in ecohydrological
+  models using synthetic benchmarks. The project trains and evaluates hundreds of
+  independent model configurations that differ in their representation of snow, evapotranspiration,
+  infiltration, and subsurface water redistribution. Each configuration is a short
+  CPU job (minutes to under one hour, one core, under 2 GB memory) operating on small
+  tabular forcing datasets. The workload is naturally high-throughput because configurations
+  are independent and the combinatorial space of equation choices, temporal validation
+  folds, and random initializations produces thousands of jobs. Future extensions
+  include semi-synthetic benchmarks for groundwater quality inference from heterogeneous
+  monitoring programs.
+FieldOfScience: Earth Sciences
+FieldOfScienceID: '40.0605'
+InstitutionID: https://osg-htc.org/iid/3dxfebv9ibby
+Organization: University of Kansas
+PIName: Qianqiu Longyang
+
