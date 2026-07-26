@@ -1,5 +1,12 @@
 Department: Mathematics & Computer Science
-Description: Generating passwords with LLMs similar to how human coming up with.
+Description: 'Normal password recovery tools such as HashCat and John the Ripper use
+  dictionary attack and brute-force attack to recover passwords. If the targeted password
+  is not in the dictionary then dictionary attack fails. For brute-force attack, the
+  passwords generated based on rules, most of these passwords are unlikely to be created
+  by human being in the real world.
+
+  This project applies LLMs and agents to password recovery. Since LLMs may be able
+  to create human-like-create passwords after training and fine-tuning.'
 FieldOfScience: Computer Science
 FieldOfScienceID: '11.0701'
 InstitutionID: https://osg-htc.org/iid/ly1zct764w7u
