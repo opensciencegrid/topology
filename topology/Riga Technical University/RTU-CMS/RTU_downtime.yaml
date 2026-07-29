@@ -1,32 +1,32 @@
 - Class: SCHEDULED
-  ID: 2460932591
-  Description: ongoing infrastructure upgrade
+  ID: 2503002828
+  Description: Infrastructure rebuild
   Severity: Severe
-  StartTime: Jun 11, 2026 12:10 +0000
-  EndTime: Jul 14, 2026 12:10 +0000
-  CreatedTime: Jun 10, 2026 12:07 +0000
+  StartTime: Jul 30, 2026 05:00 +0000
+  EndTime: Aug 31, 2026 05:00 +0000
+  CreatedTime: Jul 29, 2026 04:44 +0000
   ResourceName: T2_LV_HPCNET-CE
   Services:
   - CE
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 2460932592
-  Description: ongoing infrastructure upgrade
-  Severity: Intermittent Outage
-  StartTime: Jun 11, 2026 12:10 +0000
-  EndTime: Jul 14, 2026 12:10 +0000
-  CreatedTime: Jun 10, 2026 12:07 +0000
+  ID: 2503002829
+  Description: Infrastructure rebuild
+  Severity: Severe
+  StartTime: Jul 30, 2026 05:00 +0000
+  EndTime: Aug 31, 2026 05:00 +0000
+  CreatedTime: Jul 29, 2026 04:44 +0000
   ResourceName: T2_LV_HPCNET-SQUID
   Services:
   - Squid
 # ---------------------------------------------------------
 - Class: SCHEDULED
-  ID: 2460932593
-  Description: ongoing infrastructure upgrade
+  ID: 2503002830
+  Description: Infrastructure rebuild
   Severity: Severe
-  StartTime: Jun 11, 2026 12:10 +0000
-  EndTime: Jul 14, 2026 12:10 +0000
-  CreatedTime: Jun 10, 2026 12:07 +0000
+  StartTime: Jul 30, 2026 05:00 +0000
+  EndTime: Aug 31, 2026 05:00 +0000
+  CreatedTime: Jul 29, 2026 04:44 +0000
   ResourceName: T2_LV_HPCNET-XROOTD
   Services:
   - XRootD component
