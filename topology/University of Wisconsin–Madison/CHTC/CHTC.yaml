@@ -1015,12 +1015,10 @@ Resources:
     Description: CHTC CE Access Point
     FQDN: ce2000.chtc.wisc.edu
     Services:
-      Submit Node:
-        Description: OSPool access point
+      CE:
+        Description: Compute Entrypoint
         Details:
           hidden: false
-    Tags:
-      - OSPool
     VOOwnership:
       GLOW: 100
   
@@ -1044,11 +1042,9 @@ Resources:
     Description: CHTC CE Access Point
     FQDN: ce2001.chtc.wisc.edu
     Services:
-      Submit Node:
-        Description: OSPool access point
+      CE:
+        Description: Compute Entrypoint
         Details:
           hidden: false
-    Tags:
-      - OSPool
     VOOwnership:
       GLOW: 100
