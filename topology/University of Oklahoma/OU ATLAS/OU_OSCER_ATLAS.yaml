@@ -7,14 +7,14 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          ID:  OSG1000435
           Name: Horst Severini
         Secondary:
           ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
           Name: Christopher Arnold Walker
       Security Contact:
         Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          ID:  OSG1000435
           Name: Horst Severini
         Secondary:
           ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
@@ -45,19 +45,61 @@ Resources:
       KSI2KMin: 0
       StorageCapacityMax: 10
       StorageCapacityMin: 10
-  OU_OSCER_ATLAS_SE:
+  OU_OSCER_ATLAS_SE_1:
     Active: true
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          ID:  OSG1000435
           Name: Horst Severini
         Secondary:
           ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
           Name: Christopher Arnold Walker
       Security Contact:
         Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          ID:  OSG1000435
+          Name: Horst Severini
+        Secondary:
+          ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
+          Name: Christopher Arnold Walker
+    Description: OU OSCER Xrootd Storage
+    FQDN: se0.oscer.ou.edu
+    Services:
+      GridFtp:
+        Description: GridFtp Storage Element
+        Details:
+          hidden: false
+      XRootD component:
+        Description: XRootD component
+        Details:
+          hidden: false
+    VOOwnership:
+      ATLAS: 55
+      DOSAR: 45
+    WLCGInformation:
+      APELNormalFactor: 0
+      AccountingName: US-SWT2
+      HEPSPEC: 0
+      InteropAccounting: true
+      InteropBDII: true
+      InteropMonitoring: true
+      KSI2KMax: 0
+      KSI2KMin: 0
+      StorageCapacityMax: 10
+      StorageCapacityMin: 10
+  OU_OSCER_ATLAS_SE:
+    Active: true
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          ID:  OSG1000435
+          Name: Horst Severini
+        Secondary:
+          ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
+          Name: Christopher Arnold Walker
+      Security Contact:
+        Primary:
+          ID:  OSG1000435
           Name: Horst Severini
         Secondary:
           ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
@@ -93,14 +135,14 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          ID:  OSG1000435
           Name: Horst Severini
         Secondary:
           ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
           Name: Christopher Arnold Walker
       Security Contact:
         Primary:
-          ID: 2a7d2665e9aa0e66ab4131e53de14df72a51b74d
+          ID:  OSG1000435
           Name: Horst Severini
         Secondary:
           ID: 4be1a67e41871a12c36d34d01308553ea1e0c023
