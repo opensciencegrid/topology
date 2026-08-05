@@ -40,3 +40,36 @@
 # Additional downtimes can be added
 # - Class: UNSCHEDULED
 #   ...
+- Class: SCHEDULED
+  ID: 2509398758
+  Description: Scheduled Mantenance
+  Severity: Outage
+  StartTime: Aug 07, 2026 13:00 +0000
+  EndTime: Aug 12, 2026 08:30 +0000
+  CreatedTime: Aug 05, 2026 14:24 +0000
+  ResourceName: Clemson-Connect
+  Services:
+  - Connect
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2509398759
+  Description: Scheduled Mantenance
+  Severity: Outage
+  StartTime: Aug 07, 2026 13:00 +0000
+  EndTime: Aug 12, 2026 08:30 +0000
+  CreatedTime: Aug 05, 2026 14:24 +0000
+  ResourceName: Clemson-Palmetto
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2509398760
+  Description: Scheduled Mantenance
+  Severity: Outage
+  StartTime: Aug 07, 2026 13:00 +0000
+  EndTime: Aug 12, 2026 08:30 +0000
+  CreatedTime: Aug 05, 2026 14:24 +0000
+  ResourceName: Clemson-Palmetto-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
