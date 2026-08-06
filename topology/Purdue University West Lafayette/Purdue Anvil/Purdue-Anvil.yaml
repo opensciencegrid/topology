@@ -92,10 +92,10 @@ Resources:
       Execution Endpoint:
         Description: OSG backfill on Anvil's Kubernetes resource
 
-  Purdue-Anvil-Datasets-OSDF-Origin:
+  Purdue-Anvil-AI-Datasets-OSDF-Origin:
     Active: true
     Description: >-
-      This is an origin serving /rcac.purdue.edu/anvil/datasets,
+      This is an origin serving /rcac.purdue.edu/anvil/datasets/ai,
       hosted on Purdue-Anvil-Composable.
     ContactLists:
       Administrative Contact:
@@ -122,9 +122,9 @@ Resources:
         Primary:
           ID: f11eeb608313b242e14f5aee602b3aff91839ace
           Name: Erik Gough
-    FQDN: datasets-origin.anvilcloud.rcac.purdue.edu
+    FQDN: ai-datasets-origin.anvilcloud.rcac.purdue.edu
     Services:
       Pelican origin:
-        Description: Origin for /rcac.purdue.edu/anvil/datasets in OSDF
+        Description: Origin for /rcac.purdue.edu/anvil/datasets/ai in OSDF
     AllowedVOs:
       - ANY
