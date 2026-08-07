@@ -779,3 +779,34 @@
   ResourceName: Vanderbilt_Xrootd
   Services:
   - XRootD component
+# ----------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2509398761
+  Description: System updates
+  Severity: Outage
+  StartTime: Aug 11, 2026 03:00 +0000
+  EndTime: Aug 14, 2026 03:00 +0000
+  CreatedTime: Aug 07, 2026 01:00 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 2509398762
+  Description: System updates
+  Severity: Outage
+  StartTime: Aug 11, 2026 03:00 +0000
+  EndTime: Aug 14, 2026 03:00 +0000
+  CreatedTime: Aug 07, 2026 01:00 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
+- Class: SCHEDULED
+  ID: 2509398763
+  Description: System updates
+  Severity: Outage
+  StartTime: Aug 11, 2026 03:00 +0000
+  EndTime: Aug 14, 2026 03:00 +0000
+  CreatedTime: Aug 07, 2026 01:00 +0000
+  ResourceName: Vanderbilt_Xrootd
+  Services:
+  - XRootD component
