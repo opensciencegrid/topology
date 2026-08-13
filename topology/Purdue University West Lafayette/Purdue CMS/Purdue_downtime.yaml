@@ -2193,4 +2193,137 @@
   Services:
   - net.perfSONAR.Latency
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 2516376521
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:14 +0000
+  ResourceName: Purdue-Bell
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516376522
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:14 +0000
+  ResourceName: Purdue-Brown
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516376523
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:14 +0000
+  ResourceName: Purdue-EOS-SE
+  Services:
+  - XRootD component
+  - WebDAV
+  - EOS
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516376524
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:14 +0000
+  ResourceName: Purdue-Gautschi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516376525
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:14 +0000
+  ResourceName: Purdue-Hadoop-SE-Gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516376526
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:14 +0000
+  ResourceName: Purdue-Halstead
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516376527
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:14 +0000
+  ResourceName: Purdue-Hammer
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516376528
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:14 +0000
+  ResourceName: Purdue-Negishi
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516376529
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:14 +0000
+  ResourceName: T2_US_Purdue_Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516376530
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:14 +0000
+  ResourceName: T2_US_Purdue_Squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516376531
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:14 +0000
+  ResourceName: US-Purdue BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516376532
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:14 +0000
+  ResourceName: US-Purdue LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
