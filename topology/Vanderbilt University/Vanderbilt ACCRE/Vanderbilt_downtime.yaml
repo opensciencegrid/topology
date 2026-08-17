@@ -19,16 +19,6 @@
   StartTime: Jul 13, 2016 12:00 +0000
 # ----------------------------------------------------------
 - Class: SCHEDULED
-  Description: Cleaning of servers after data center fire.
-  EndTime: Jul 18, 2016 17:00 +0000
-  ID: 1004955
-  ResourceName: Vanderbilt_Squid
-  Services:
-  - Squid
-  Severity: Outage
-  StartTime: Jul 13, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
   Description: Downtime for fire-cleaning of core network switches for our site.
   EndTime: Aug 5, 2016 17:00 +0000
   ID: 1004966
@@ -45,16 +35,6 @@
   ResourceName: Vanderbilt_SE
   Services:
   - SRMv2
-  Severity: Outage
-  StartTime: Aug 1, 2016 12:00 +0000
-# ----------------------------------------------------------
-- Class: SCHEDULED
-  Description: Downtime for fire-cleaning of core network switches for our site.
-  EndTime: Aug 5, 2016 17:00 +0000
-  ID: 1004969
-  ResourceName: Vanderbilt_Squid
-  Services:
-  - Squid
   Severity: Outage
   StartTime: Aug 1, 2016 12:00 +0000
 # ----------------------------------------------------------
