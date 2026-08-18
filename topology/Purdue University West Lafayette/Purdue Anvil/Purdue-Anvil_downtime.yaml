@@ -1,0 +1,44 @@
+- Class: SCHEDULED
+  ID: 2516378359
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:17 +0000
+  ResourceName: Purdue-Anvil-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516378360
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:17 +0000
+  ResourceName: Purdue-Anvil-Composable
+  Services:
+  - Execution Endpoint
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516378361
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:17 +0000
+  ResourceName: Purdue-Anvil-Squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2516378362
+  Description: Power work in the datacenter will bring most resources down
+  Severity: Severe
+  StartTime: Aug 15, 2026 04:00 +0000
+  EndTime: Aug 18, 2026 22:00 +0000
+  CreatedTime: Aug 13, 2026 16:17 +0000
+  ResourceName: Purdue_Anvil_AI_Datasets_OSDF_Origin
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
