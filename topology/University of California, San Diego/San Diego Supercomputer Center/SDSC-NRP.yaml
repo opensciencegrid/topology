@@ -76,6 +76,7 @@ Resources:
           auth_endpoint_override: sdsc-s3-origin.nationalresearchplatform.org:8444
     AllowedVOs:
       - ANY
+
   SDSC_NRP_CERNOPENDATA_OSDF_ORIGIN:
     Active: true
     Description: SDSC NRP OSDF CERN Open data Origin
@@ -98,3 +99,50 @@ Resources:
         Description: SDSC NRP OSDF CERN Open data Origin
     AllowedVOs:
       - ANY   
+
+  SDSC_FEDER_NRP_PUBLIC_OSDF_ORIGIN:
+    Active: true
+    Description: SDSC OSDF Feder public origin
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+        Secondary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+    DN: /CN=sdsc-feder-origin.nationalresearchplatform.org
+    FQDN: sdsc-feder-origin.nationalresearchplatform.org:
+    Services:
+      Pelican origin:
+        Description: SDSC OSDF Feder public origin
+    AllowedVOs:
+      - ANY   
+
+  SDSC_FEDER_NRP_PRIVATE_OSDF_ORIGIN:
+    Active: true
+    Description: SDSC OSDF Feder private origin
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+        Secondary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+      Security Contact:
+        Primary:
+          Name: Fabio Andrijauskas
+          ID: OSG1000162
+    DN: /CN=sdsc-feder-origin.nationalresearchplatform.org
+    FQDN: sdsc-feder-origin.nationalresearchplatform.org:
+    Services:
+      Pelican origin:
+        Description: SDSC OSDF Feder private origin
+    AllowedVOs:
+      - ANY   
+      
