@@ -2272,6 +2272,66 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2523164346
+  Description: 'Our network provider will have to shutdown our link for some maintenance
+    work. '
+  Severity: Outage
+  StartTime: Aug 29, 2026 09:00 +0000
+  EndTime: Sep 01, 2026 11:00 +0000
+  CreatedTime: Aug 21, 2026 12:47 +0000
+  ResourceName: UERJ_CE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2523165134
+  Description: 'Our network provider will have to shutdown our link for some maintenance
+    work. '
+  Severity: Outage
+  StartTime: Aug 29, 2026 09:00 +0000
+  EndTime: Sep 01, 2026 11:00 +0000
+  CreatedTime: Aug 21, 2026 12:48 +0000
+  ResourceName: UERJ_CE_2
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2523165209
+  Description: 'Our network provider will have to shutdown our link for some maintenance
+    work. '
+  Severity: Outage
+  StartTime: Aug 29, 2026 09:00 +0000
+  EndTime: Sep 01, 2026 11:00 +0000
+  CreatedTime: Aug 21, 2026 12:48 +0000
+  ResourceName: UERJ_SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2523165281
+  Description: 'Our network provider will have to shutdown our link for some maintenance
+    work. '
+  Severity: Outage
+  StartTime: Aug 29, 2026 09:00 +0000
+  EndTime: Sep 01, 2026 11:00 +0000
+  CreatedTime: Aug 21, 2026 12:48 +0000
+  ResourceName: UERJ_SQUID
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2523165382
+  Description: 'Our network provider will have to shutdown our link for some maintenance
+    work. '
+  Severity: Outage
+  StartTime: Aug 29, 2026 09:00 +0000
+  EndTime: Sep 01, 2026 11:00 +0000
+  CreatedTime: Aug 21, 2026 12:48 +0000
+  ResourceName: UERJ_SQUID_2
+  Services:
+  - Squid
+# ---------------------------------------------------------
 
 
 
