@@ -32,16 +32,27 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-          Name: Marco Mascheroni
+          Name: Jeffrey Dost
+          ID: OSG1000220
       Security Contact:
         Primary:
-          ID:  030408ab932e143859b5f97a2d1c9e30ba2a9f0d
-          Name: Marco Mascheroni
-      Site Contact:
+          Name: Jeffrey Dost
+          ID: OSG1000220
+      Local Executive Contact:
         Primary:
-          ID:  73ed2d273dace60d6e6ff5baabeb8755624001bd
           Name: Sean Dobbs
+          ID: OSG1000511
+      Local Operational Contact:
+        Primary:
+          Name: Sean Dobbs
+          ID: OSG1000511
+        Secondary:
+          Name: Alexander Ostrovidov
+          ID: OSG1002274
+      Local Security Contact:
+        Primary:
+          Name: Sean Dobbs
+          ID: OSG1000511
     Description: Hosted CE for HNPGRID cluster
     FQDN: fsu-hnpgrid-ce1.svc.osg-htc.org
     ID: 1080
@@ -57,16 +68,16 @@ Resources:
     ContactLists:
       Administrative Contact:
         Primary:
-          ID:  73ed2d273dace60d6e6ff5baabeb8755624001bd
           Name: Sean Dobbs
+          ID: OSG1000511
       Security Contact:
         Primary:
-          ID:  73ed2d273dace60d6e6ff5baabeb8755624001bd
           Name: Sean Dobbs
+          ID: OSG1000511
       Site Contact:
         Primary:
-          ID:  73ed2d273dace60d6e6ff5baabeb8755624001bd
           Name: Sean Dobbs
+          ID: OSG1000511
     Description: OSDF Origin server for FSU-HNPGRID
     FQDN: npgrid.fsu.edu
     ID: 1476
