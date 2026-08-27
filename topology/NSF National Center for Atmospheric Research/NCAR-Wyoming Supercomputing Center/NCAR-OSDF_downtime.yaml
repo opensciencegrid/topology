@@ -131,4 +131,14 @@
   Services:
   - XRootD origin server
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 2528603645
+  Description: Upgrade Biforst network
+  Severity: Outage
+  StartTime: Sep 01, 2026 13:00 +0000
+  EndTime: Sep 04, 2026 02:00 +0000
+  CreatedTime: Aug 27, 2026 19:52 +0000
+  ResourceName: NCAR_OSDF_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
