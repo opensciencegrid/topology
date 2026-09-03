@@ -6162,3 +6162,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2533171110
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 02, 2026 02:39 +0000
+  EndTime: Sep 03, 2026 15:00 +0000
+  CreatedTime: Sep 02, 2026 02:45 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2533171111
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 02, 2026 02:39 +0000
+  EndTime: Sep 03, 2026 15:00 +0000
+  CreatedTime: Sep 02, 2026 02:45 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2533171112
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 02, 2026 02:39 +0000
+  EndTime: Sep 03, 2026 15:00 +0000
+  CreatedTime: Sep 02, 2026 02:45 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2533171113
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 02, 2026 02:39 +0000
+  EndTime: Sep 03, 2026 15:00 +0000
+  CreatedTime: Sep 02, 2026 02:45 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2533171114
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 02, 2026 02:39 +0000
+  EndTime: Sep 03, 2026 15:00 +0000
+  CreatedTime: Sep 02, 2026 02:45 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2533171115
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 02, 2026 02:39 +0000
+  EndTime: Sep 03, 2026 15:00 +0000
+  CreatedTime: Sep 02, 2026 02:45 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2533171116
+  Description: Power outage
+  Severity: Outage
+  StartTime: Sep 02, 2026 02:39 +0000
+  EndTime: Sep 03, 2026 15:00 +0000
+  CreatedTime: Sep 02, 2026 02:45 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
