@@ -1,0 +1,22 @@
+- Class: SCHEDULED
+  ID: 2538077426
+  Description: Entire T2 offline at Nebraska -- Datacenter Move
+  Severity: Outage
+  StartTime: Sep 08, 2026 13:00 +0000
+  EndTime: Sep 18, 2026 22:00 +0000
+  CreatedTime: Sep 04, 2026 20:40 +0000
+  ResourceName: HCC-PKI-Proxy
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2538077427
+  Description: Entire T2 offline at Nebraska -- Datacenter Move
+  Severity: Outage
+  StartTime: Sep 08, 2026 13:00 +0000
+  EndTime: Sep 18, 2026 22:00 +0000
+  CreatedTime: Sep 04, 2026 20:40 +0000
+  ResourceName: Swan-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
