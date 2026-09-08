@@ -1,4 +1,15 @@
 - Class: UNSCHEDULED
+  ID: 2539005122
+  Description: 'Cluster upgrade, login node rebuild (FD #85148)'
+  Severity: Outage
+  StartTime: Sep 08, 2026 15:00 +0000
+  EndTime: Jan 01, 2100 04:59 +0000
+  CreatedTime: Sep 08, 2026 20:48 +0000
+  ResourceName: ORU-Titan-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
   ID: 1583274687
   Description: 'Excessive network usage (FD #74163)'
   Severity: Outage
