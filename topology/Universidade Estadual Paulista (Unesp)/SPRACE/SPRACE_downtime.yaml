@@ -6316,3 +6316,80 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2544843300
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2026 14:58 +0000
+  EndTime: Sep 15, 2026 21:00 +0000
+  CreatedTime: Sep 15, 2026 14:58 +0000
+  ResourceName: BR-Sprace BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2544843301
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2026 14:58 +0000
+  EndTime: Sep 15, 2026 21:00 +0000
+  CreatedTime: Sep 15, 2026 14:58 +0000
+  ResourceName: BR-Sprace LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2544843302
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2026 14:58 +0000
+  EndTime: Sep 15, 2026 21:00 +0000
+  CreatedTime: Sep 15, 2026 14:58 +0000
+  ResourceName: SPRACE
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2544843303
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2026 14:58 +0000
+  EndTime: Sep 15, 2026 21:00 +0000
+  CreatedTime: Sep 15, 2026 14:58 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2544843304
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2026 14:58 +0000
+  EndTime: Sep 15, 2026 21:00 +0000
+  CreatedTime: Sep 15, 2026 14:58 +0000
+  ResourceName: SPRACE_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2544843305
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2026 14:58 +0000
+  EndTime: Sep 15, 2026 21:00 +0000
+  CreatedTime: Sep 15, 2026 14:58 +0000
+  ResourceName: T2_BR_SPRACE-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2544843306
+  Description: network outage
+  Severity: Outage
+  StartTime: Sep 15, 2026 14:58 +0000
+  EndTime: Sep 15, 2026 21:00 +0000
+  CreatedTime: Sep 15, 2026 14:58 +0000
+  ResourceName: T2_BR_SPRACE-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
