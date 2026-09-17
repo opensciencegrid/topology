@@ -9,4 +9,14 @@
   Services:
   - CE
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 2546552492
+  Description: System maintenance and upgrade
+  Severity: Outage
+  StartTime: Sep 17, 2026 13:00 +0000
+  EndTime: Sep 18, 2026 21:00 +0000
+  CreatedTime: Sep 17, 2026 14:27 +0000
+  ResourceName: FIU-IRCC-CE1
+  Services:
+  - CE
+# ---------------------------------------------------------
