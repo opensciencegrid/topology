@@ -1,0 +1,52 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: Container-based system at Syracuse that is partially shared with the OSPool
+
+Resources:
+  Syracuse-OSPool-EP:
+    Active: true
+    Description: Syracuse has container-managed nodes; some are dynamically provisioned to contribute to the OSPool
+
+    # Not a real hostname in this instance!
+    FQDN: ospool.syr.edu
+
+    Services:
+      Execution Endpoint:
+        Description: Docker containers running the OSPool EP container image
+
+    Tags:
+      - OSPool
+      - CC*
+
+    ContactLists:
+      # Executive Contact:
+        # Primary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+      Administrative Contact:
+        Primary:
+          Name: Larne Pekowsky
+          ID: c6023fb07e902f43edffdbaab50d7a13e32ae55e
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+      Security Contact:
+        Primary:
+          Name: Larne Pekowsky
+          ID: c6023fb07e902f43edffdbaab50d7a13e32ae55e
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
