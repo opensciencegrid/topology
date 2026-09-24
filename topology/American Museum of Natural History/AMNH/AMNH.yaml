@@ -144,6 +144,7 @@ Resources:
         Description: American Museum of Natural History Hosted CE
     Tags:
       - CC*
+
   AMNH-ARES-CE1:
     Active: true
     Description: This is a Hosted CE for the AMNH Slurm cluster
@@ -166,20 +167,40 @@ Resources:
         Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Site Contact:
+      Local Executive Contact:
+        Primary:
+          Name: Michael Benedetto
+          ID: OSG1000862
+        Secondary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+        Tertiary:
+          Name: AMNH OSG Contact List
+          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
+      Local Operational Contact:
         Primary:
           Name: Sajesh Singh
           ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
         Secondary:
           Name: AMNH OSG Contact List
           ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
-
+      Local Security Contact:
+        Primary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+        Secondary:
+          Name: AMNH Security List
+          ID: 72b6cb0b836c15c8a0580701091b04ecd0188da1
+        Tertiary:
+          Name: AMNH OSG Contact List
+          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
     FQDN: amnh-ares-ce1.svc.opensciencegrid.org
     Services:
       CE:
         Description: American Museum of Natural History Hosted CE
     Tags:
       - CC*
+
   OSG_US_AMNH_HEL:
     Active: false
     Description: Second Hosted CE for the AMNH
@@ -252,6 +273,7 @@ Resources:
         Description: American Museum of Natural History Hosted CE for HEL cluster
     Tags:
       - CC*
+
   AMNH-HEL-CE1:
     Active: true
     Description: Second Hosted CE for the AMNH
@@ -274,11 +296,31 @@ Resources:
         Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Site Contact:
+      Local Executive Contact:
+        Primary:
+          Name: Michael Benedetto
+          ID: OSG1000862
+        Secondary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+        Tertiary:
+          Name: AMNH OSG Contact List
+          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
+      Local Operational Contact:
         Primary:
           Name: Sajesh Singh
           ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
         Secondary:
+          Name: AMNH OSG Contact List
+          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
+      Local Security Contact:
+        Primary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+        Secondary:
+          Name: AMNH Security List
+          ID: 72b6cb0b836c15c8a0580701091b04ecd0188da1
+        Tertiary:
           Name: AMNH OSG Contact List
           ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
 
@@ -288,6 +330,7 @@ Resources:
         Description: American Museum of Natural History Hosted CE for HEL cluster
     Tags:
       - CC*
+
   AMNH-Mendel:
     Active: false
     Description: Third Hosted CE for the AMNH
@@ -347,14 +390,33 @@ Resources:
         Secondary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Site Contact:
+      Local Executive Contact:
+        Primary:
+          Name: Michael Benedetto
+          ID: OSG1000862
+        Secondary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+        Tertiary:
+          Name: AMNH OSG Contact List
+          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
+      Local Operational Contact:
         Primary:
           Name: Sajesh Singh
           ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
         Secondary:
           Name: AMNH OSG Contact List
           ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
-
+      Local Security Contact:
+        Primary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+        Secondary:
+          Name: AMNH Security List
+          ID: 72b6cb0b836c15c8a0580701091b04ecd0188da1
+        Tertiary:
+          Name: AMNH OSG Contact List
+          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
     FQDN: amnh-mendel-ce1.svc.osg-htc.org
     Services:
       CE:
@@ -374,13 +436,6 @@ Resources:
         Primary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-      Site Contact:
-        Primary:
-          Name: Sajesh Singh
-          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
-        Secondary:
-          Name: AMNH OSG Contact List
-          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
       Local Executive Contact:
         Primary:
           Name: Michael Benedetto
@@ -396,9 +451,6 @@ Resources:
           Name: Sajesh Singh
           ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
         Secondary:
-          Name: Michael Benedetto
-          ID: OSG1000862
-        Tertiary:
           Name: AMNH OSG Contact List
           ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
       Local Security Contact:
@@ -406,8 +458,8 @@ Resources:
           Name: Sajesh Singh
           ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
         Secondary:
-          Name: Michael Benedetto
-          ID: OSG1000862
+          Name: AMNH Security List
+          ID: 72b6cb0b836c15c8a0580701091b04ecd0188da1
         Tertiary:
           Name: AMNH OSG Contact List
           ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
@@ -423,6 +475,16 @@ Resources:
     Description: OS Pool access point
     ID: 1210
     ContactLists:
+      Executive Contact:
+        Primary:
+          Name: Michael Benedetto
+          ID: OSG1000862
+        Secondary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+        Tertiary:
+          Name: AMNH OSG Contact List
+          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
       Administrative Contact:
         Primary:
           Name: Sajesh Singh
@@ -435,6 +497,9 @@ Resources:
           Name: Sajesh Singh
           ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
         Secondary:
+          Name: AMNH Security List
+          ID: 72b6cb0b836c15c8a0580701091b04ecd0188da1
+        Tertiary:
           Name: AMNH OSG Contact List
           ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
     FQDN: huxley-osgsub-001.sdmz.amnh.org
@@ -450,6 +515,16 @@ Resources:
     Description: OS Pool access point
     ID: 1261
     ContactLists:
+      Executive Contact:
+        Primary:
+          Name: Michael Benedetto
+          ID: OSG1000862
+        Secondary:
+          Name: Sajesh Singh
+          ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
+        Tertiary:
+          Name: AMNH OSG Contact List
+          ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
       Administrative Contact:
         Primary:
           Name: Sajesh Singh
@@ -462,6 +537,9 @@ Resources:
           Name: Sajesh Singh
           ID: 0da9ca0b7d1d58f1a91c6797e4bb29b64846f88e
         Secondary:
+          Name: AMNH Security List
+          ID: 72b6cb0b836c15c8a0580701091b04ecd0188da1
+        Tertiary:
           Name: AMNH OSG Contact List
           ID: e7b8d36d684570dcb0ed8ff7b723928d5a93b513
     FQDN: mendel-osgsub-001.sdmz.amnh.org
