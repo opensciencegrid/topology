@@ -43,11 +43,8 @@ MembershipServicesURL: https://voms.opensciencegrid.org:8443/voms/osg
 OASIS:
   Managers:
     - Name: Derek Weitzel
-      DNs: /DC=org/DC=cilogon/C=US/O=University of Nebraska-Lincoln/CN=Derek Weitzel A31419551
       ID: 5d324b2a0011c48462f5c6d981b307e3733cb8b6
     - Name: Mats Rynge
-      DNs:
-      - /DC=org/DC=cilogon/C=US/O=University of Southern California/CN=Mats Rynge A91316
       ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
   OASISRepoURLs:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/singularity.opensciencegrid.org
@@ -62,7 +59,6 @@ OASIS:
   - http://cvmfs-stratum-zero.cern.ch:8000/cvmfs/sw.hsf.org
   - http://cvmfs-stratum-zero.cern.ch:8000/cvmfs/sw-nightlies.hsf.org
   - http://osg-cvmfs.grid.uchicago.edu:8000/cvmfs/snowmass21.opensciencegrid.org
-  UseOASIS: true
 PrimaryURL: http://www.opensciencegrid.org
 PurposeURL: http://www.opensciencegrid.org
 ReportingGroups:
