@@ -308,4 +308,58 @@
   Services:
   - Pelican origin
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 2558765075
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:41 +0000
+  ResourceName: NEBRASKA_NRP_HCC_OSDF_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558765076
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:41 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558765077
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:41 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_ORIGIN2
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558765078
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:41 +0000
+  ResourceName: OSSTORE_HEPSIM_ORIGIN
+  Services:
+  - Pelican origin
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558765079
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:41 +0000
+  ResourceName: UNL_NRP_OSDF_XENON_ORIGIN
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
