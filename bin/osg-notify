@@ -10,9 +10,7 @@ import sys
 import getpass
 import smtplib
 import argparse
-import email.message
 import email.mime.text
-import email.mime.multipart
 
 import gnupg
 
@@ -25,26 +23,7 @@ import topology_utils
 from topology_utils import get_topology_pool_manager
 import net_name_addr_utils
 
-# Parts of this implementation are from the following StackOverflow answer:
-# https://stackoverflow.com/questions/10496902/pgp-signing-multipart-e-mails-with-python
-# Licensed under CC-BY-SA
-
-
-def messageFromSignature(signature):
-    """
-    Given a GnuPG signature, generate a corresponding MIME message.
-    """
-    message = email.message.Message()
-    message['Content-Type'] = 'application/pgp-signature; name="signature.asc"'
-    message['Content-Description'] = 'OpenPGP digital signature'
-    message.set_payload(signature)
-    return message
-
-
 def generateFullMessage(subject, to, from_name, from_addr, message, sign=True, keyid=None):
-    basemsg = email.mime.text.MIMEText(message)
-    basetext = basemsg.as_string().replace("\n", "\r\n")
-
     to_addr = from_addr
     if from_name == 'Open Science Grid':
         to_name = from_name + ' Helpdesk'
@@ -52,7 +31,11 @@ def generateFullMessage(subject, to, from_name, from_addr, message, sign=True, k
         to_name = from_name
 
     if sign:
+        # Use an inline (cleartext) signature rather than PGP/MIME (multipart/signed).
+        # Outlook/Exchange does not understand PGP/MIME and turns such messages into
+        # a blank email with the real message as an attachment.
         gpg = gnupg.GPG()
+        gpg.encoding = 'utf-8'
         if not keyid:
             keys = gpg.list_keys(secret=True)
             if keys:
@@ -63,26 +46,17 @@ def generateFullMessage(subject, to, from_name, from_addr, message, sign=True, k
         else:
             name = str(keyid)
         passphrase = getpass.getpass("Please input passphrase for %s: " % name)
-        signature = str(gpg.sign(basetext, passphrase=passphrase, detach=True, keyid=keyid))
-        if not signature:
+        signed = gpg.sign(message, passphrase=passphrase, clearsign=True, keyid=keyid)
+        if not signed.data:
             raise RuntimeError("GnuPG signature of message failed")
+        message = str(signed)
 
-        signmsg = messageFromSignature(signature)
-        msg = email.mime.multipart.MIMEMultipart(_subtype="signed", micalg="pgp-sha1",
-                                                 protocol="application/pgp-signature")
-        msg.attach(basemsg)
-        msg.attach(signmsg)
-        msg['Subject'] = subject
-        msg['Bcc'] = ", ".join(to)
-        msg['To'] = '"%s" <%s>' % (to_name, to_addr)
-        msg['From'] = '"%s" <%s>' % (from_name, from_addr)
-        return msg.as_string(unixfrom=True)
-    else:
-        basemsg['Subject'] = subject
-        basemsg['Bcc'] = ", ".join(to)
-        basemsg['To'] = '"%s" <%s>' % (to_name, to_addr)
-        basemsg['From'] = '"%s" <%s>' % (from_name, from_addr)
-        return basemsg.as_string(unixfrom=True)
+    msg = email.mime.text.MIMEText(message)
+    msg['Subject'] = subject
+    msg['Bcc'] = ", ".join(to)
+    msg['To'] = '"%s" <%s>' % (to_name, to_addr)
+    msg['From'] = '"%s" <%s>' % (from_name, from_addr)
+    return msg.as_string()
 
 
 def parseargs():
