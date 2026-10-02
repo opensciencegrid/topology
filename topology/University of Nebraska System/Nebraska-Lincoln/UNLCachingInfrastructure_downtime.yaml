@@ -241,4 +241,47 @@
   Services:
   - Pelican cache
 # ---------------------------------------------------------
-
+- Class: SCHEDULED
+  ID: 2558764471
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:40 +0000
+  ResourceName: HCC-Origin
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558764472
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:40 +0000
+  ResourceName: HCC-StashCache-Origin
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558764473
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:40 +0000
+  ResourceName: LIGO-StashCache-Origin
+  Services:
+  - XRootD origin server
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558764474
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:40 +0000
+  ResourceName: NEBRASKA_NRP_OSDF_CACHE
+  Services:
+  - Pelican cache
+# ---------------------------------------------------------
