@@ -397,3 +397,114 @@
   Services:
   - GridFtp
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558763848
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:39 +0000
+  ResourceName: Nebraska
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558763849
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:39 +0000
+  ResourceName: T2_Nebraska_SE_gridftp
+  Services:
+  - GridFtp
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558763850
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:39 +0000
+  ResourceName: T2_US_Nebraska-red-squid2
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558763851
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:39 +0000
+  ResourceName: T2_US_Nebraska_red-squid1
+  Services:
+  - Squid
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558763852
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:39 +0000
+  ResourceName: US-Nebraska BW
+  Services:
+  - net.perfSONAR.Bandwidth
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558763853
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:39 +0000
+  ResourceName: US-Nebraska BW (Test)
+  Services:
+  - net.perfSONAR.Bandwidth
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558763854
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:39 +0000
+  ResourceName: US-Nebraska LT
+  Services:
+  - net.perfSONAR.Latency
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558763855
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:39 +0000
+  ResourceName: coffea-casa-cms
+  Services:
+  - Execution Endpoint
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558763856
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:39 +0000
+  ResourceName: red-gateway1
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2558763857
+  Description: Datacenter network move
+  Severity: Outage
+  StartTime: Oct 02, 2026 18:00 +0000
+  EndTime: Oct 02, 2026 22:00 +0000
+  CreatedTime: Oct 01, 2026 17:39 +0000
+  ResourceName: red-gateway2
+  Services:
+  - CE
+# ---------------------------------------------------------

@@ -22,12 +22,9 @@ MembershipServicesURL: https://voms.opensciencegrid.org:8443/voms/osg
 OASIS:
   Managers:
     - Name: Brian Bockelman
-      DNs: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=bbockelm/CN=659869/CN=Brian
-        Paul Bockelman
       ID: OSG1000001
   OASISRepoURLs:
   - http://hcc-cvmfs-repo.unl.edu:8000/cvmfs/stash.osgstorage.org
-  UseOASIS: true
 ParentVO:
   ID: 30
   Name: OSG

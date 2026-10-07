@@ -1,0 +1,25 @@
+GroupDescription: USC/ISI Pegasus resources
+GroupID: 1368
+Production: true
+Resources:
+  USC-ISI-Pegasus-AI-AP:
+    ID: 10377
+    Description: Pegasus AI access point
+    FQDN: ap.pegasus-ai.org
+    Services:
+      Submit Node:
+        Description: Pegasus AI access point
+        Details:
+          hidden: false
+    Tags:
+      - OSPool
+    ContactLists:
+      Administrative Contact:
+        Primary:
+          Name: Mats Rynge
+          ID: OSG1000014
+      Security Contact:
+        Primary:
+          Name: Mats Rynge
+          ID: OSG1000014
+SupportCenter: ISI

@@ -5,6 +5,14 @@ Resources:
   OU-Sooner-CE1:
     Active: true 
     Description: The Hosted CE serving OU-Sooner
+    FQDN: ou-sooner-ce1.svc.osg-htc.org
+    Services:
+      CE:
+        Description: OU-Sooner Hosted CE
+        Details:
+          hidden: false
+    Tags:
+      - CC*
     ContactLists:
       Administrative Contact:
         Primary:
@@ -14,11 +22,14 @@ Resources:
         Primary:
           Name: Jeffrey Michael Dost
           ID: 3a8eb6436a8b78ca50f7e93bb2a4d1f0141212ba
-    FQDN: ou-sooner-ce1.svc.osg-htc.org
-    Services:
-      CE:
-        Description: OU-Sooner Hosted CE
-        Details:
-          hidden: false
-    Tags:
-      - CC*
+      Local Operational Contact:
+        Primary:
+          Name: OU OSCER staff
+          ID: 0e43f6fd15478dc98ebb26d2904a034b28b1fbac
+      Local Security Contact:
+        Primary:
+          Name: David Akin
+          ID: OSG1002327
+        Secondary:
+          Name: Horst Severini
+          ID: OSG1000435

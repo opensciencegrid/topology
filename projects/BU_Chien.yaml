@@ -1,0 +1,15 @@
+Department: Computer Science
+Description: Standard reinforcement learning (RL) algorithms introduce temporal discretization
+  errors when applied to continuous-time physical systems, traditionally requiring
+  computationally expensive reductions in integration step size to mitigate. To fundamentally
+  bypass these errors, we investigate a discretization-free approach to continuous-time
+  RL inspired by the "Walk-on-Spheres" (WoS) algorithm. By casting path integral control
+  problems with terminal-state rewards as continuous-time, entropy-regularized RL,
+  we replace standard discrete time-stepping (e.g., Euler-Maruyama integration) with
+  a novel WoS-style environment-stepping algorithm.
+FieldOfScience: Computer Science
+FieldOfScienceID: '11.0102'
+InstitutionID: https://osg-htc.org/iid/drujeuinri1g
+Organization: Boston University
+PIName: Edward Chien
+
