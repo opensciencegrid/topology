@@ -1,0 +1,55 @@
+Production: true
+SupportCenter: Self Supported
+
+GroupDescription: UW–Madison CAI IT Run:ai managed system that contributes to the OSPool
+
+Resources:
+  UWMad-CAI-Infer-EP:
+    Active: true
+    Description: CAI Infer containers contributed to the OSPool
+
+    # For OSPool Container EP sites, value is required but does not have to correspond to a real hostname
+    FQDN: deepthought.doit.wisc.edu
+
+    Services:
+      Execution Endpoint:
+        Description: Docker containers running the OSPool EP container image
+
+    Tags:
+      - OSPool
+
+    ContactLists:
+      # Executive Contact:
+        # Primary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+      Administrative Contact:
+        Primary:
+          Name: Nicholas Petska
+          ID: OSG1002358
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+
+      # Security Contact are persons or groups of people (i.e.,
+      # mailing lists) that are responsible for handling security
+      # issues related to the resource
+      Security Contact:
+        Primary:
+          Name: Nicholas Petska
+          ID: OSG1002358
+        # Secondary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
+        # Tertiary:
+        #   Name: <FIRSTNAME> <LASTNAME>
+        #   ID: <EMAIL HASH>
