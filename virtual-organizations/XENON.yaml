@@ -18,8 +18,8 @@ Contacts:
   - ID: 34d0a2a03bbffad439ae7c732042d7ad6a609da8
     Name: Luca Scotto Lavina
   Registration Authority:
-  - ID: 78ea3b6350f56c5004290f5df4ba427f6be79199
-    Name: Benedikt Riedel
+  - ID: 38cd7e4efcb45e2aff808b98f5f928c96b3a8608
+    Name: Mats Rynge
   - ID: 34d0a2a03bbffad439ae7c732042d7ad6a609da8
     Name: Luca Scotto Lavina
   Security Contact:
@@ -28,6 +28,10 @@ Contacts:
   VO Manager:
   - ID: 34d0a2a03bbffad439ae7c732042d7ad6a609da8
     Name: Luca Scotto Lavina
+Credentials:
+  TokenIssuers:
+    - URL: https://osg-htc.org/xenon
+      DefaultUnixUser: xenon
 Disable: false
 FieldsOfScience:
   PrimaryFields:
