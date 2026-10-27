@@ -25,6 +25,8 @@ WORKDIR /app
 
 # Needed for webhook:
 RUN alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 10 && alternatives --set python3 /usr/bin/python3.12
+# Hack: Ensure supervisord uses the system python3.9 instead of the webapp's 3.12
+RUN sed -i 's/\/usr\/bin\/python3/\/usr\/bin\/python3.9/' /usr/bin/supervisord
 
 # Install application dependencies
 COPY requirements-apache.txt requirements-rootless.txt ./
