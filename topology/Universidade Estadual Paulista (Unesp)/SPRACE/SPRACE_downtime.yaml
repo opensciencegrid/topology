@@ -6393,3 +6393,14 @@
   Services:
   - Squid
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2587091751
+  Description: Parcial downtime do update dcache nodes
+  Severity: Intermittent Outage
+  StartTime: Nov 04, 2026 11:00 +0000
+  EndTime: Nov 04, 2026 16:00 +0000
+  CreatedTime: Nov 03, 2026 12:32 +0000
+  ResourceName: SPRACE-SE
+  Services:
+  - SRMv2
+# ---------------------------------------------------------
