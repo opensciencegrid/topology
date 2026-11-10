@@ -790,3 +790,24 @@
   ResourceName: Vanderbilt_Xrootd
   Services:
   - XRootD component
+# ----------------------------------------------------------
+- Class: UNSCHEDULED
+  ID: 2589563352
+  Description: Cybersecurity Incident
+  Severity: Outage
+  StartTime: Nov 9, 2026 03:00 +0000
+  EndTime: Nov 23, 2026 03:00 +0000
+  CreatedTime: Nov 10, 2026 01:00 +0000
+  ResourceName: Vanderbilt_CE5
+  Services:
+  - CE
+- Class: UNSCHEDULED
+  ID: 2589563353
+  Description: Cybersecurity Incident
+  Severity: Outage
+  StartTime: Nov 9, 2026 03:00 +0000
+  EndTime: Nov 23, 2026 03:00 +0000
+  CreatedTime: Nov 10, 2026 01:00 +0000
+  ResourceName: Vanderbilt_CE6
+  Services:
+  - CE
