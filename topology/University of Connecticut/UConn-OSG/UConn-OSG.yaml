@@ -95,7 +95,8 @@ Resources:
       - CC*
     VOOwnership:
       Gluex: 100
-  UConn-OSG_StashCache_origin:
+
+  UConn_GLUEX_uconn0_OSDF_Origin:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -106,22 +107,19 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T Jones
-    Description: UConn-OSG StashCache origin server
+    Description: UConn OSDF origin serving /gluex/uconn0
     FQDN: gandalf.phys.uconn.edu
     FQDNAliases:
     - gandalf.phys.uconn.edu
-    ID: 1377
     Services:
-      XRootD origin server:
-        Description: StashCache Origin server for UConn-OSG
-        Details:
-          hidden: false
-          uri_override: gandalf.phys.uconn.edu:1094
+      Pelican origin:
+        Description: OSDF Origin server for UConn-OSG
     AllowedVOs:
       - Gluex
     VOOwnership:
       Gluex: 100
-  UConn-HTC_StashCache_origin:
+
+  UConn_GLUEX_uconn1_OSDF_Origin:
     Active: true
     ContactLists:
       Administrative Contact:
@@ -136,20 +134,18 @@ Resources:
         Primary:
           ID: 650bf84a5cf49caf504fed22ce07b98580c6fa12
           Name: Richard T Jones
-    Description: UConn-HTC StashCache origin server
+    Description: UConn OSDF origin serving /gluex/uconn1
     FQDN: nod67.phys.uconn.edu
     FQDNAliases:
     - nod67.phys.uconn.edu
     Services:
-      XRootD origin server:
-        Description: StashCache Origin server for UConn-HTC
-        Details:
-          hidden: false
-          uri_override: nod67.phys.uconn.edu:1094
+      Pelican origin:
+        Description: OSDF Origin server for UConn-OSG
     AllowedVOs:
       - Gluex
     VOOwnership:
       Gluex: 100
+
   UConn-OSG_submit_host:
     Active: true
     ContactLists:
