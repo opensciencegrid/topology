@@ -1117,3 +1117,39 @@
   Services:
   - XRootD component
 # ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2599592236
+  Description: "HiPerGator and HiPerGator-RV System Downtime, Dec. 15, 8:00 am \u2013\
+    \ Dec. 17"
+  Severity: Outage
+  StartTime: Dec 15, 2026 13:00 +0000
+  EndTime: Dec 18, 2026 00:00 +0000
+  CreatedTime: Nov 17, 2026 23:47 +0000
+  ResourceName: UFlorida-XRD
+  Services:
+  - XRootD component
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2599593368
+  Description: "HiPerGator and HiPerGator-RV System Downtime, Dec. 15, 8:00 am \u2013\
+    \ Dec. 17"
+  Severity: Outage
+  StartTime: Dec 15, 2026 13:00 +0000
+  EndTime: Dec 18, 2026 00:00 +0000
+  CreatedTime: Nov 17, 2026 23:48 +0000
+  ResourceName: UFlorida-HPC
+  Services:
+  - CE
+# ---------------------------------------------------------
+- Class: SCHEDULED
+  ID: 2599593590
+  Description: "HiPerGator and HiPerGator-RV System Downtime, Dec. 15, 8:00 am \u2013\
+    \ Dec. 17"
+  Severity: Outage
+  StartTime: Dec 15, 2026 13:00 +0000
+  EndTime: Dec 18, 2026 00:00 +0000
+  CreatedTime: Nov 17, 2026 23:49 +0000
+  ResourceName: UFlorida-HPG2
+  Services:
+  - CE
+# ---------------------------------------------------------
